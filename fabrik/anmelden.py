@@ -13,9 +13,11 @@ import base64, hashlib, http.server, json, os, secrets, sys, urllib.parse, urlli
 from pathlib import Path
 
 GEHEIM = Path(os.environ.get('CF_GEHEIM', Path.home() / 'Downloads' / 'contentfabrik-geheim'))
-# Hochladen, Kanaldaten lesen, Zahlen fuers Dashboard - nichts weiter.
+# Hochladen, nach Freigabe oeffentlich schalten, Zahlen fuers Dashboard.
+# GEMESSEN 02.10.2026: Mit nur youtube.upload lehnt videos.update (privat ->
+# oeffentlich) mit 403 „insufficient authentication scopes" ab.
 RECHTE = ['https://www.googleapis.com/auth/youtube.upload',
-          'https://www.googleapis.com/auth/youtube.readonly',
+          'https://www.googleapis.com/auth/youtube',
           'https://www.googleapis.com/auth/yt-analytics.readonly']
 
 

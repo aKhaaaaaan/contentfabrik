@@ -51,6 +51,13 @@ Bildschirmfoto schicken.
     Ordner **`C:\Users\saima\Downloads\contentfabrik-geheim\`** legen und mir
     „liegt da" schreiben.
 
+15. **API-Schlüssel für die Trend-Suche** (Vorbild-Analyse: was ist in der
+    Nische gerade viral?): **APIs & Dienste → Anmeldedaten → „Anmeldedaten
+    erstellen" → „API-Schlüssel"**. Dann **„Schlüssel einschränken"** → unter
+    API-Einschränkungen nur **„YouTube Data API v3"** erlauben → Speichern.
+    Den Schlüssel **nicht** in den Chat, sondern in PowerShell:
+    `setx YOUTUBE_API_KEY "dein-schlüssel"` – und mir „gesetzt" schreiben.
+
 Danach melde ich jeden Kanal einmal am PC an (du wählst im Google-Fenster den
 jeweiligen Kanal aus) – ab dann lädt das Tool selbstständig hoch.
 

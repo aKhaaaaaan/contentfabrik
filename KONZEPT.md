@@ -1,0 +1,199 @@
+# Contentfabrik – Konzept
+
+Stand 02.10.2026 · Arbeitstitel „Contentfabrik" · ein Tool für zwei Ziele
+
+> Grundsatz: Was hier steht, ist geprüft (Quellen am Ende) oder ausdrücklich
+> als **ungeprüft** markiert. Ungeprüftes wird im Pilot gemessen, nicht
+> angenommen.
+
+---
+
+## 1. Ziel
+
+Ein Tool, das **jeden Tag von selbst** Themen findet, Skripte schreibt,
+Videos/Beiträge erstellt und hochlädt – **erst nach deiner Freigabe**, die du
+mit einem Tipp auf dem Handy gibst. Online von überall erreichbar, ohne dass
+ein PC laufen muss. Fixkosten: **0 €**.
+
+Zwei Säulen, **ein** Tool (gleicher Ablauf, verschiedene Kanäle):
+
+| Säule | Ziel | Sprache | Plattformen |
+|---|---|---|---|
+| **A – Einnahmen** | Werbegeld + Affiliate | Englisch / ohne Sprache | YouTube, TikTok, Instagram, Facebook |
+| **B – Kunden** | warme Leads für BusinessAssistant24, Sortidoc, neue Tools | Deutsch | LinkedIn, YouTube, Instagram, Facebook |
+
+---
+
+## 2. Nischen – nach Daten, nicht nach Gefühl
+
+**Bezahlung je 1.000 monetarisierte Aufrufe (RPM), 2026:**
+
+| Nische | RPM (lange Videos) | Bemerkung |
+|---|---|---|
+| B2B-Software / SaaS-Reviews | 18–38 $ | höchste; dazu Affiliate-Provisionen |
+| Persönliche Finanzen / Investieren | 15–40 $ | sehr hoch, aber heikel: Fehlinformation = Risiko |
+| KI-Tools / Tech-Tutorials | 15–30 $ | wächst am schnellsten 2026 |
+| Business-Ursprungsgeschichten | 8–18 $ | Dokumentarstil, gut faceless |
+| Psychologie | 8–12 $ | |
+| Schlaf / Entspannung (ohne Sprache) | CPM 5–15 $, lange Wiedergabe | hohes Sperr-Risiko bei Gleichförmigkeit |
+| Lofi / Ambient-Musik (ohne Sprache) | 1–4 $ | Geld eher über Spotify, Lizenzen |
+
+**Shorts zahlen kaum:** 0,05–0,30 $ je 1.000 Aufrufe. Shorts sind
+**Werbung für die langen Videos**, nicht die Einnahmequelle.
+
+**Empfehlung Start Säule A (2 Kanäle, nach 60 Tagen auswerten):**
+1. **„AI Tools Explained" (Englisch)** – hohe RPM, Affiliate (KI-Tools zahlen
+   Provisionen), und es passt zu deinen eigenen Apps. Format: 1 langes Video
+   pro Woche + täglich 1 Short daraus.
+2. **„Business Origin Stories" (Englisch)** – gute RPM, Geschichten
+   funktionieren faceless und sind von Natur aus abwechslungsreich (wichtig
+   für YouTubes Regel, Abschnitt 4).
+
+**Bewusst NICHT zum Start:** Finanzen (Fehler bei Geldthemen sind heikel –
+später, wenn die Pipeline sitzt), reine Schlaf-/Ambient-Kanäle ohne Sprache
+(gerade diese Massenware sperrt YouTube 2026; nur mit echter Abwechslung,
+später als Test).
+
+**Säule B (Deutsch):** Themen aus dem Alltag der Zielkunden – Handwerk,
+Dienstleister, Praxen: „Rechnungen ohne Tipparbeit", „Mahnwesen
+automatisch", „Belege per Foto ablegen", „GoBD in 60 Sekunden". Jeder Beitrag
+endet mit einem Angebot (Testzugang / Demo), das Kontakte einsammelt.
+
+---
+
+## 3. Der Ablauf (für jeden Kanal gleich)
+
+```
+Thema finden ─► Skript ─► Prüfung durch die KI ─► DEINE FREIGABE (Handy)
+     ▲                                                  │
+     │                                                  ▼
+ Auswertung ◄── Hochladen auf die Plattformen ◄── Video/Bild bauen
+```
+
+1. **Thema finden** – aus Trends (YouTube-Suche, Google Trends, Reddit) und
+   den eigenen Zahlen: was bei uns schon lief, bekommt Nachfolger.
+2. **Skript** – KI schreibt nach Kanal-Vorlage (Ton, Länge, Aufbau, Haken in
+   den ersten 3 Sekunden).
+3. **Prüfung** – eine zweite KI-Lesung prüft Fakten, Wiederholung zu früheren
+   Videos und Regel-Risiken.
+4. **Deine Freigabe** – Push aufs Handy: Vorschau, **Freigeben / Ändern /
+   Verwerfen**. Nichts geht ohne dich online.
+5. **Bauen** – Sprecherstimme, passende Clips/Bilder, Untertitel, Musik,
+   Thumbnail; Hochformat für Shorts/Reels/TikTok, Querformat für lange Videos.
+6. **Hochladen** – zur geplanten Uhrzeit, je Plattform passend beschriftet,
+   mit KI-Kennzeichnung („altered or synthetic content").
+7. **Auswertung** – Aufrufe, Wiedergabezeit, Abos, Klicks, Leads – fließt in
+   Schritt 1 zurück.
+
+---
+
+## 4. Regeln der Plattformen (geprüft) – und was daraus folgt
+
+| Plattform | Regel | Folge für uns |
+|---|---|---|
+| **YouTube** | Uploads über die Schnittstelle aus **ungeprüften** Projekten sind **nur privat**, bis Google das Projekt prüft (kostenlos). 100 Uploads/Tag je Projekt. | Phase 0: Prüfung beantragen. Bis dahin: Tool lädt privat hoch, du schaltest in der YouTube-App öffentlich (1 Tipp). |
+| **YouTube** | Regel „inauthentic content" (im Juli umbenannt aus „repetitious content"; die Quellen nennen 2025 bzw. 2026), seit 2026 verschärft durchgesetzt – gleichförmige Massenware wird nicht bezahlt, Kanäle werden gesperrt (Jan. 2026: Sperrwelle). KI erlaubt, wenn jedes Video eigenen Wert hat und gekennzeichnet ist. | Freigabe durch dich, Abwechslung erzwingen (Wiederholungsprüfung), max. 1 langes Video/Woche + 1 Short/Tag je Kanal, KI-Kennzeichnung immer an. |
+| **TikTok** | Ohne geprüfte App: Posts nur **privat**, max. 5 Nutzer/Tag. Prüfung ca. 1–2 Wochen. | Prüfung in Phase 0 beantragen; bis dahin Entwurf + Push. |
+| **Instagram** | Nur **Business-/Creator-Konten**; Video muss unter einer öffentlichen Adresse liegen. | Konten umstellen; Videos kurz auf Cloudflare R2 (kostenloser Speicher) ablegen. |
+| **Facebook** | Seiten-Posts über Meta-App. | Mit Instagram zusammen einrichten. |
+| **LinkedIn** | Posten im **eigenen Profil** freigeschaltet; **Firmenseite** braucht zusätzliche Freigabe. | Säule B startet über dein Profil. |
+
+**Keine Klick-Roboter** (Skripte, die sich als Mensch ausgeben): Die
+Plattformen erkennen das, und gesperrte Konten sind nicht zurückzuholen.
+
+---
+
+## 5. Technik – alles mit kostenlosen Bausteinen
+
+| Teil | Womit | Kosten | Status |
+|---|---|---|---|
+| Dashboard, Login, Freigaben, Zeitplan | Cloudflare Worker + D1-Datenbank (wie Taktgeber) | 0 € | erprobt (Taktgeber) |
+| Push aufs Handy | Web Push (wie Taktgeber) | 0 € | erprobt |
+| Videos bauen | GitHub Actions (kostenlose Rechenminuten) + ffmpeg | 0 € | **ungeprüft: Minuten je Video messen** |
+| Sprecherstimme | freie Sprachmodelle (Kandidaten: Kokoro, Piper) | 0 € | **ungeprüft: Qualität vergleichen** |
+| Clips / Bilder | Pexels / Pixabay (freie Lizenzen, Schnittstelle) | 0 € | ungeprüft |
+| Musik | lizenzfreie Bibliotheken (z. B. YouTube Audio Library) | 0 € | ungeprüft |
+| Zwischenspeicher für Videos | Cloudflare R2 (10 GB frei) | 0 € | ungeprüft |
+| Skripte, Themen, Prüfung | dein OpenAI-Schlüssel | Cent-Bereich, **wird gemessen** | erprobt (Sortidoc) |
+| Hochladen | offizielle Schnittstellen | 0 € | Abschnitt 4 |
+
+**Warum kein n8n:** braucht einen eigenen Server oder kostet als Cloud-Abo;
+die Bausteine oben laufen ohne Server und ohne Abo.
+**Warum kein Abacus.ai:** Abo; dein OpenAI-Schlüssel genügt.
+
+---
+
+## 6. Das Dashboard (für dich, vom Handy aus)
+
+1. **Freigaben** (Startseite): Karten mit Video-Vorschau, Skript, Plattformen,
+   geplanter Zeit – **Freigeben · Ändern (Wunsch eintippen) · Verwerfen**.
+2. **Kalender**: was wann wo erscheint, je Kanal farbig.
+3. **Kanäle**: je Kanal Nische, Ton, Sprache, Plattformen, Takt – anlegen ohne
+   Programmieren.
+4. **Zahlen**: Aufrufe, Wiedergabezeit, Abos, Einnahmen (sobald freigeschaltet),
+   **Leads** (Säule B), Kosten je Video.
+5. **Ideen**: Themenvorschläge, die du nach oben/unten schieben kannst.
+6. **Status**: läuft alles? (letzter Lauf, Fehler, Prüfstatus der Plattformen)
+
+---
+
+## 7. Was du einmalig tun musst (kein Programmieren)
+
+1. **Konten**: Je Kanal ein YouTube-Kanal (mehrere Kanäle unter einer
+   Gmail-Adresse möglich); Instagram auf **Business** stellen und mit einer
+   Facebook-Seite verbinden; TikTok-Konten; LinkedIn-Profil.
+   Deine alten Gmail-Konten sind dafür gut geeignet.
+2. **Entwickler-Zugänge** (ich führe Schritt für Schritt): Google Cloud
+   (YouTube), Meta (Instagram/Facebook), TikTok, LinkedIn – alle kostenlos.
+3. **Prüfungen beantragen** (YouTube, TikTok) – dafür baue ich eine kleine
+   Website mit Datenschutzerklärung und Nutzungsbedingungen (kostenlos auf
+   Cloudflare).
+
+---
+
+## 8. Phasen – mit Erfolgskriterien
+
+| Phase | Inhalt | fertig, wenn … |
+|---|---|---|
+| **0 – Vorbereitung** | Konten, Entwickler-Zugänge, Website, Prüfungen beantragen | alle Anträge gestellt |
+| **1 – Erster Kanal** | Dashboard + Freigabe + „AI Tools Explained": täglich 1 Short auf YouTube | 14 Tage täglich ohne Eingriff außer Freigabe |
+| **2 – Säule B** | „BusinessAssistant24"-Kanal (DE) auf LinkedIn + YouTube | erster Lead aus einem Beitrag |
+| **3 – Breite** | Instagram, Facebook, TikTok (nach Prüfung); 2. Säule-A-Kanal; lange Videos | 4 Plattformen laufen automatisch |
+| **4 – Lernen** | Auswertung steuert Themenwahl | Themen mit Daten statt Zufall |
+
+Nach **60 Tagen** je Kanal entscheiden: weiter, ändern oder einstellen – nach
+Zahlen.
+
+---
+
+## 9. Risiken – ehrlich
+
+- **Schnelles Geld ist nicht garantiert.** YouTube bezahlt erst ab einer
+  Mindestzahl an Abos und Wiedergabezeit (Partnerprogramm; die genauen
+  Schwellen prüfe ich vor dem Start in der YouTube-Hilfe) – realistisch Monate. Säule B kann früher wirken (Leads).
+- **Sperr-Risiko** bei Massenware → Freigabe, Abwechslung, Kennzeichnung,
+  maßvoller Takt.
+- **Plattform-Prüfungen** können abgelehnt werden → dann Entwurf + Push, du
+  veröffentlichst mit einem Tipp.
+- **Kostenlose Kontingente** (GitHub-Minuten, R2) können knapp werden → wird
+  in Phase 1 gemessen.
+
+---
+
+## 10. Entscheidungen von dir
+
+1. Säule-A-Start mit **„AI Tools Explained" + „Business Origin Stories"** (EN)?
+2. Säule B zuerst für **BusinessAssistant24** oder **Sortidoc**?
+3. Name des Tools („Contentfabrik" ist nur ein Arbeitstitel)?
+4. Freigabe: jedes Video einzeln (empfohlen am Anfang) oder später
+   „automatisch, wenn die Prüfung grün ist"?
+
+---
+
+## Quellen
+
+- RPM-Daten: [fliki](https://fliki.ai/blog/best-faceless-youtube-niches), [youtubeniches.com](https://youtubeniches.com/blog/best-faceless-youtube-niches-2026), [depthhq](https://depthhq.com/blog/best-faceless-youtube-niches-2026), [fluxnote](https://fluxnote.io/guides/profitable-faceless-youtube-channel-niches), [outlierkit (Schlaf)](https://outlierkit.com/resources/use-cases/ai-sleep-relaxation-youtube/)
+- YouTube „inauthentic content": [invideo](https://invideo.io/blog/youtube-kills-ai-faceless-channels/), [lenspov](https://lenspov.com/articles/youtube-ai-content-demonetization-2026), [TubeBuddy](https://www.tubebuddy.com/blog/youtube-ai-demonetization-policy-meaning/)
+- YouTube-Schnittstelle (privat bis Prüfung, Kontingent): [Google Developers – Videos](https://developers.google.com/youtube/v3/docs/videos), [outlierkit – Quota](https://outlierkit.com/resources/youtube-api-quota/)
+- TikTok (privat bis Prüfung): [postpeer](https://www.postpeer.dev/blog/best-tiktok-posting-api), [vorplabs](https://vorplabs.com/agent-tools/tiktok-content-posting-api)
+- Instagram/Meta: [postproxy](https://postproxy.dev/blog/social-media-platform-api-rules-rate-limits-media-specs/)

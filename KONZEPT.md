@@ -222,6 +222,42 @@ Quellen: [GitHub Actions billing](https://docs.github.com/billing/managing-billi
 
 ---
 
+## 6a. Kanal-Dashboard – alle Zahlen je Kanal (Vorgabe des Nutzers)
+
+Jeder Kanal hat eine eigene Seite. Oben die **Ampel** (läuft / Achtung /
+Problem), darunter:
+
+**Wachstum und Geld**
+| Kennzahl | YouTube | Instagram | TikTok | Facebook |
+|---|---|---|---|---|
+| Aufrufe | ✓ | ✓ („Views") | ✓ | ✓ |
+| Wiedergabezeit, Ø Wiedergabedauer | ✓ | Ø Wiedergabe, Abschlussrate | – | ✓ |
+| Abos / Follower gewonnen | ✓ | ✓ | ✓ | ✓ |
+| Likes, Kommentare, Teilen, Speichern | ✓ | ✓ | ✓ (ohne Speichern) | ✓ |
+| Thumbnail-Impressionen + Klickrate | ✓ (seit 15.01.2026 in der Schnittstelle) | – | – | – |
+| **Einnahmen** (geschätzt) | ✓ sobald monetarisiert | – | – | – |
+
+Einschränkung laut Quellen: Instagram liefert Reel-Auswertungen erst ab
+**1.000 Followern**; davor zeigt das Dashboard nur die öffentlichen Zahlen.
+
+**Selbst berechnet (unabhängig von den Plattformen)**
+- **Fortschritt zur Monetarisierung** (Balken bis zur YouTube-Schwelle)
+- **RPM** = Einnahmen ÷ Aufrufe × 1.000, je Video und Kanal
+- **Kosten je Video** (KI-Abrechnung, Rechenminuten) und **Gewinn je Kanal**
+- **Bestes / schlechtestes Video** der Woche, mit Thema und Haken
+- **Themen, die funktionieren** (fließt in die Themenwahl zurück)
+- **Takt**: geplant / freigegeben / veröffentlicht / fehlgeschlagen
+- **Regel-Risiko**: Ähnlichkeit zu früheren Videos, KI-Kennzeichnung gesetzt,
+  Warnungen der Plattformen
+- **Kontingente**: verbrauchte Uploads/Tag je Plattform, Rechenminuten im Monat
+
+**Gesamtübersicht** über alle Kanäle: Summen, Vergleich der Kanäle
+nebeneinander, Trend der letzten 7/28/90 Tage, Monatsbericht aufs Handy.
+
+Quellen: [YouTube Analytics – Metriken](https://developers.google.com/youtube/analytics/metrics), [Instagram Insights (Meta)](https://developers.facebook.com/docs/instagram-platform/insights/), [Reels-API-Leitfaden](https://www.getphyllo.com/post/a-complete-guide-to-the-instagram-reels-api), [TikTok Video-Objekt](https://developers.tiktok.com/doc/tiktok-api-v2-video-object?enter_method=left_navigation)
+
+---
+
 ## 6. Das Dashboard (für dich, vom Handy aus)
 
 1. **Freigaben** (Startseite): Karten mit Video-Vorschau, Skript, Plattformen,

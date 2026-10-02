@@ -104,7 +104,7 @@ def ki_quellen(tage=7):
         d = json.loads(_hole('https://api.github.com/search/repositories?' + urllib.parse.urlencode({
             'q': f'topic:ai created:>{seit} stars:>100', 'sort': 'stars', 'order': 'desc', 'per_page': 10}), kopf))
         for r in d.get('items', []):
-            aus.append({'quelle': 'GitHub', 'name': r['full_name'], 'url': r['html_url'],
+            aus.append({'quelle': 'GitHub', 'name': r['full_name'], 'url': r['html_url'], 'zahl': r['stargazers_count'],
                         'text': f"{r.get('description') or ''} - {r['stargazers_count']} stars, license: "
                                 f"{(r.get('license') or {}).get('spdx_id', 'unknown')}, created {r['created_at'][:10]}"})
     except Exception as e:
@@ -112,7 +112,7 @@ def ki_quellen(tage=7):
     try:  # Hugging Face: Modelle mit steigendem Interesse
         d = json.loads(_hole('https://huggingface.co/api/models?sort=trendingScore&limit=10'))
         for m in d:
-            aus.append({'quelle': 'Hugging Face', 'name': m['id'], 'url': f"https://huggingface.co/{m['id']}",
+            aus.append({'quelle': 'Hugging Face', 'name': m['id'], 'url': f"https://huggingface.co/{m['id']}", 'zahl': m.get('likes', 0),
                         'text': f"task: {m.get('pipeline_tag', 'unknown')}, {m.get('likes', 0)} likes, "
                                 f"{m.get('downloads', 0)} downloads"})
     except Exception as e:

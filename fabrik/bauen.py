@@ -80,7 +80,7 @@ def titel_zeichnen(img, titel, akzent):
         y += groesse + 22
 
 
-KARTE_Y = 660
+KARTE_Y = 700
 
 
 def karten_ebene(karte):
@@ -110,6 +110,8 @@ def karten_filter(hg, ebene, kpfad):
             f'[2:v]format=rgba,fade=in:st=0:d=0.35:alpha=1[k];'
             f"[bg][k]overlay=x=0:y='140*max(0,1-t/0.35)':eval=frame[b1];"
             f'[b1][1:v]overlay=0:0,format=yuv420p')
+    if kpfad is None:  # Abschnitt ohne Karte: nur Hintergrund + Schrift
+        return [*hg_ein, '-loop', '1', '-framerate', str(FPS), '-i', str(ebene)], filt.split('[2:v]')[0] +             '[bg][1:v]overlay=0:0,format=yuv420p'
     return [*hg_ein, '-loop', '1', '-framerate', str(FPS), '-i', str(ebene),
             '-loop', '1', '-framerate', str(FPS), '-i', str(kpfad)], filt
 
@@ -132,11 +134,12 @@ def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None, akzent=(3
         img = Image.new('RGBA', (B, H), (0, 0, 0, 0))
         with Image.open(karte) as k:
             hoehe = int(k.height * (B - 80) / k.width)
-        # Name gross unter der Karte - auf Hugging-Face-Karten ist er winzig
+        # Name gross unter der Platznummer - auf Hugging-Face-Karten ist er winzig.
+        # GEMESSEN: unter der Karte klebte er an den Untertiteln (gelb ueber weiss).
         if teil.get('name'):
-            fn = schrift(68)
+            fn = schrift(58)
             nb = ImageDraw.Draw(img).textlength(teil['name'], font=fn)
-            schrift_text(img, ((B - nb) / 2, KARTE_Y + hoehe + 28), teil['name'], fn, (255, 214, 10))
+            schrift_text(img, ((B - nb) / 2, 612), teil['name'], fn, (255, 214, 10))
     elif durchsichtig:
         img = Image.new('RGBA', (B, H), (0, 0, 0, 0))
         schatten = np.zeros((H, B, 4), dtype=np.uint8)
@@ -361,18 +364,25 @@ def main(skript_pfad, aus):
     # Je Abschnitt ein eigenes Stueck: Clip (zugeschnitten auf 9:16) mit
     # Schrift-Ebene darueber - oder Farbverlauf, wenn kein Clip passt.
     quellen, schon, liste, hg_clip = [], set(), [], None
+    kartenvideo = any(str(t.get('quelle_url', '')).startswith('http') for t in s['teile'])
     with messen('clips_und_stuecke'):
         for i, t in enumerate(s['teile']):
             dauer = laengen[i]
             stueck = aus / f'stueck_{i:02d}.mp4'
             ebene = aus / f'ebene_{i:02d}.png'
             karte = karte_fuer(t.get('quelle_url'))
-            clip, quelle = (None, None) if karte else clip_fuer(t.get('suche') or s.get('suche'), schon, dauer, t['text'])
-            bild_fuer(t, s['titel'], i, len(s['teile']), durchsichtig=bool(clip), karte=karte).save(ebene)
-            if karte:
-                quellen.append({'quelle': 'Vorschaubild', 'seite': t['quelle_url']})
-                kpfad = aus / f'karte_{i:02d}.png'
-                karten_ebene(karte).save(kpfad)
+            # GEMESSEN: Im Kartenvideo holte der Schluss einen fremden Clip
+            # (halber „Subscribe"-Knopf) - dort gilt jetzt derselbe Hintergrund.
+            clip, quelle = ((None, None) if karte or kartenvideo else
+                            clip_fuer(t.get('suche') or s.get('suche'), schon, dauer, t['text']))
+            bild_fuer(t, s['titel'], i, len(s['teile']), durchsichtig=bool(clip) or (kartenvideo and not karte),
+                     karte=karte).save(ebene)
+            if karte or kartenvideo:
+                kpfad = None
+                if karte:
+                    quellen.append({'quelle': 'Vorschaubild', 'seite': t['quelle_url']})
+                    kpfad = aus / f'karte_{i:02d}.png'
+                    karten_ebene(karte).save(kpfad)
                 if hg_clip is None:  # einmal je Video: bewegter, dunkler Hintergrund
                     hg_clip, hq = clip_fuer('abstract technology background', schon, dauer,
                                             'calm dark abstract technology background, slow motion, no text, no people')

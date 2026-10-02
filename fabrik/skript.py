@@ -92,8 +92,33 @@ def hinweise(kanal, thema):
             text += ('\nSOURCES fetched today. Every factual claim MUST come from these sources; mention nothing that is '
                      'not in them:\n' + '\n'.join(f"- [{q['quelle']}] {q['name']} ({q['url']}): {q['text']}"
                                                   for q in quellen) + '\n')
+        plaetze = rangliste(quellen, kanal)
+        if quellen and kanal.get('format', 'ranking') == 'ranking' and plaetze:
+            text += ('\nFIXED RANKING - use exactly these entries with exactly these ranks, no others:\n'
+                     + '\n'.join(f"#{n} {q['name']} ({q['url']})" for n, q in enumerate(plaetze, 1)) + '\n')
     print(f"Hinweise: {text.count(chr(10) + '- ')} Zeilen, davon {len(quellen)} Quellen")
     return text, quellen
+
+
+def rangliste(quellen, kanal):
+    """Die Plaetze entscheidet der Code, nicht die KI. GEMESSEN: Trotz der
+    Anweisung „nach Zahlen sortieren" stand ein Modell mit 4.973 Likes auf
+    Platz 6 und eins mit 2.828 auf Platz 3. Sterne (GitHub) und Likes (Hugging
+    Face) sind beides Zustimmung der Nutzer - darum gemeinsam sortiert."""
+    n = kanal.get('plaetze', [5, 7])[1]
+    return sorted((q for q in quellen if q.get('zahl') is not None), key=lambda q: -q['zahl'])[:n]
+
+
+def zuordnen(entwurf, quellen):
+    """GEMESSEN: Die KI schrieb „Hugging Face - Lightricks/LTX-2.5" statt der
+    Adresse - dann fehlte das passende Bild. Darum im Code zuordnen: Steht der
+    Name einer Quelle im Feld, im Namen oder im Text, gilt deren Adresse."""
+    for t in entwurf['teile']:
+        if t.get('platz') and not str(t.get('quelle_url', '')).startswith('http'):
+            heuhaufen = ' '.join(str(t.get(k, '')) for k in ('quelle_url', 'name', 'text')).lower()
+            treffer = [q for q in quellen if q.get('url') and (q['name'].lower() in heuhaufen or
+                                                                q['name'].split('/')[-1].lower() in heuhaufen)]
+            t['quelle_url'] = max(treffer, key=lambda q: len(q['name']))['url'] if treffer else ''
 
 
 def anweisung(kanal, thema, frueher):
@@ -166,14 +191,23 @@ def main(kanal_pfad, aus_pfad, thema=None):
             plaetze = sum(1 for t in e['teile'] if t.get('platz'))
             # GEMESSEN: Ranking kam mit 4 statt 5-7 Plaetzen.
             zu_wenig = kanal.get('format', 'ranking') == 'ranking' and plaetze < pmin
-            if zahl >= mindest and not zu_wenig:
+            zuordnen(e, quellen)
+            soll = {q['url']: n for n, q in enumerate(rangliste(quellen, kanal), 1)}
+            falsch = [f"#{t['platz']} must be #{soll[t['quelle_url']]}" for t in e['teile']
+                      if t.get('platz') and t.get('quelle_url') in soll and soll[t['quelle_url']] != t['platz']]
+            if zahl >= mindest and not zu_wenig and not falsch:
                 return e, m, None
+            if falsch:
+                print(f'Versuch {versuch + 1}: Rangfolge falsch: {falsch}')
+                zusatz_ = ('\nYour previous draft broke the FIXED RANKING (' + '; '.join(falsch)
+                           + '). Use exactly the given ranks.')
+                continue
             print(f'Versuch {versuch + 1}: {zahl} Woerter, {plaetze} Plaetze - zu wenig')
             zusatz_ = (f'\nYour previous draft had only {zahl} spoken words and {plaetze} ranked entries. '
                        f'The script MUST have at least {mindest + 20} spoken words in total'
                        + (f' and at least {pmin} ranked entries' if zu_wenig else '')
                        + ' - give each entry 2-3 sentences with concrete facts from the sources, no filler.')
-        return e, m, f'Skript zu kurz ({zahl} Woerter, {plaetze} Plaetze)'
+        return e, m, f'Skript zu kurz oder Rangfolge falsch ({zahl} Woerter, {plaetze} Plaetze)'
 
     for runde in range(1 if thema else 2):
         entwurf, modell, mangel = schreiben(anweisung(kanal, thema, '; '.join(filter(None, [frueher] + verworfen)))
@@ -194,15 +228,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         print(f"Thema verworfen: {entwurf['thema']} - {pruefung['probleme']}")
         verworfen.append(entwurf['thema'])
 
-    # GEMESSEN: Die KI schrieb „Hugging Face - Lightricks/LTX-2.5" statt der
-    # Adresse - dann fehlte das passende Bild. Darum im Code zuordnen: Steht
-    # der Name einer Quelle im Feld, im Namen oder im Text, gilt deren Adresse.
-    for t in entwurf['teile']:
-        if t.get('platz') and not str(t.get('quelle_url', '')).startswith('http'):
-            heuhaufen = ' '.join(str(t.get(k, '')) for k in ('quelle_url', 'name', 'text')).lower()
-            treffer = [q for q in quellen if q.get('url') and (q['name'].lower() in heuhaufen or
-                                                                q['name'].split('/')[-1].lower() in heuhaufen)]
-            t['quelle_url'] = max(treffer, key=lambda q: len(q['name']))['url'] if treffer else ''
+    zuordnen(entwurf, quellen)
     # GEMESSEN: Die KI liess „name" leer - dann fehlte der Name unter der Karte.
     for t in entwurf['teile']:
         if t.get('platz') and not t.get('name') and t.get('quelle_url'):

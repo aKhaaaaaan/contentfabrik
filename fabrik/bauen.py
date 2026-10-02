@@ -136,6 +136,10 @@ def main(skript_pfad, aus):
             '-i', 'stimme.wav',
             '-vf', f'fps={FPS},format=yuv420p,ass=untertitel.ass',
             '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11',  # Plattformnorm (Konzept 4a, Punkt 6)
+            # 48 kHz Stereo: loudnorm rechnet intern hoch, und das Ergebnis
+            # (96 kHz Mono) spielten Handy-Player nicht ab - gemeldet: „keine
+            # Stimme hörbar", obwohl die Tonspur laut genug war (−15 dB).
+            '-ar', '48000', '-ac', '2',
             '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', '-c:a', 'aac', '-b:a', '160k',
             '-shortest', '-movflags', '+faststart', 'short.mp4'], cwd=aus, check=True)
 

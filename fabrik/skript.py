@@ -86,6 +86,7 @@ def hinweise(kanal, thema):
         if quellen:
             text += ('\nSOURCES fetched today. Every factual claim MUST come from these sources; mention nothing that is '
                      'not in them:\n' + '\n'.join(f"- [{q['quelle']}] {q['name']}: {q['text']}" for q in quellen) + '\n')
+    print(f"Hinweise: {text.count(chr(10) + '- ')} Zeilen, davon {len(quellen)} Quellen")
     return text, quellen
 
 
@@ -136,15 +137,25 @@ def main(kanal_pfad, aus_pfad, thema=None):
                        'Mark ok=false if ANY claim is false, outdated, unverifiable or exaggerated, or if a rule is broken '
                        '(number 1 must be last in rankings, no medical/financial/legal advice). List each problem briefly.'
                        + belege + '\n\n')
-    entwurf, modell = gemini(anweisung(kanal, thema, frueher) + zusatz, SKRIPT_SCHEMA)
-    # Zweiter Durchgang: Fakten und Regeln pruefen (Konzept 4a, Punkt 8).
-    pruefung, _ = gemini(pruef_anweisung + json.dumps(entwurf, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
-    if not pruefung['ok']:
-        # Einmal neu schreiben, mit den gefundenen Problemen als Auflage.
-        entwurf, modell = gemini(anweisung(kanal, entwurf['thema'], frueher) + zusatz
-                                 + '\nFix these problems found by the fact checker:\n- ' + '\n- '.join(pruefung['probleme']),
+    # GEMESSEN 02.10.2026: „Burt's Bees" fiel auch nach der Ueberarbeitung
+    # durch (Detailfehler) - ohne zweites Thema gab es an dem Tag kein Video.
+    # Ein festes Thema vom Nutzer wird nicht ausgetauscht.
+    verworfen = []
+    for runde in range(1 if thema else 2):
+        entwurf, modell = gemini(anweisung(kanal, thema, '; '.join(filter(None, [frueher] + verworfen))) + zusatz,
                                  SKRIPT_SCHEMA)
+        # Zweiter Durchgang: Fakten und Regeln pruefen (Konzept 4a, Punkt 8).
         pruefung, _ = gemini(pruef_anweisung + json.dumps(entwurf, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
+        if not pruefung['ok']:
+            # Einmal neu schreiben, mit den gefundenen Problemen als Auflage.
+            entwurf, modell = gemini(anweisung(kanal, entwurf['thema'], frueher) + zusatz
+                                     + '\nFix these problems found by the fact checker:\n- ' + '\n- '.join(pruefung['probleme']),
+                                     SKRIPT_SCHEMA)
+            pruefung, _ = gemini(pruef_anweisung + json.dumps(entwurf, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
+        if pruefung['ok']:
+            break
+        print(f"Thema verworfen: {entwurf['thema']} - {pruefung['probleme']}")
+        verworfen.append(entwurf['thema'])
 
     # Stimme abwechselnd nach Tag (Abwechslung gegen Massenware-Regel)
     stimmen = kanal.get('stimmen', ['am_michael'])

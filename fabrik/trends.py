@@ -13,6 +13,7 @@ dann entscheidet die KI ohne diese Hinweise, das Video entsteht trotzdem.
 import html, json, os, re, time, datetime, urllib.request, urllib.parse
 from xml.etree import ElementTree
 
+UNGEEIGNET = re.compile(r'uncensored|abliterated|nsfw|porn|nude|lewd|hentai|jailbreak', re.I)
 KENNUNG = {'User-Agent': 'Contentfabrik/1.0 (privates Video-Tool)'}
 
 
@@ -125,7 +126,9 @@ def ki_quellen(tage=7):
                         'text': f"{h.get('points', 0)} points, {h.get('num_comments', 0)} comments"})
     except Exception as e:
         print('Hacker News nicht verfuegbar:', e)
-    return aus
+    # GEMESSEN 02.10.2026: Unter den Hugging-Face-Trends war ein „Uncensored"-
+    # Modell. Fuer einen werbefaehigen Kanal ungeeignet - nie als Fakt anbieten.
+    return [q for q in aus if not UNGEEIGNET.search(q['name'] + ' ' + q['text'])]
 
 
 if __name__ == '__main__':

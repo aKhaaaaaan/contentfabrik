@@ -123,6 +123,59 @@ die Bausteine oben laufen ohne Server und ohne Abo.
 
 ---
 
+## 5a. Skalierung – von 2 Kanälen bis zum verkauften Produkt
+
+Vom ersten Tag an so gebaut, dass **nichts neu geschrieben** werden muss,
+wenn es wächst – nur Bausteine werden ausgetauscht.
+
+**Fünf Bauprinzipien**
+
+1. **Mandantenfähig ab Tag 1:** Arbeitsbereich → Marken → Kanäle →
+   Plattform-Konten. Heute nur du; später jeder zahlende Kunde ein eigener
+   Arbeitsbereich (Anmeldung, Abrechnung wie bei BusinessAssistant24).
+2. **Kanäle sind Daten, kein Code:** Neue Nische, Sprache, Plattform = ein
+   Formular im Dashboard, kein Programmieren.
+3. **Alles läuft als Auftrag in einer Warteschlange** (Thema → Skript →
+   Freigabe → Rendern → Upload). Fällt ein Schritt aus, wird er wiederholt;
+   mehr Last = mehr Arbeiter, nicht anderer Code.
+4. **Der Video-Bauer ist austauschbar:** derselbe Baukasten (ein Container)
+   läuft heute kostenlos in GitHub Actions, später auf einem eigenen Rechner
+   oder Server – ohne Änderung am Rest.
+5. **Jede Plattform hat einen eigenen Kontingent-Zähler**, der die echten
+   Grenzen kennt und Uploads verteilt statt sie scheitern zu lassen.
+
+**Die geprüften Grenzen**
+
+| Baustein | Grenze (kostenlos) | Quelle |
+|---|---|---|
+| YouTube-Upload | 100 Uploads/Tag **je Google-Cloud-Projekt** | Google, Juni 2026 |
+| Instagram | 50–100 Posts je **Konto** in 24 h (Meta nennt beides) → wird je Konto live abgefragt | Meta |
+| TikTok | nach Prüfung; vorher nur privat, max. 5 Nutzer/Tag | TikTok |
+| GitHub Actions | **privates** Repo: 2.000 Min./Monat; danach 0,006 $/Min.; eigener Rechner als Arbeiter: unbegrenzt kostenlos | GitHub |
+
+**Was das in Zahlen heißt** (Rechenminuten je Video = *m*, wird in Phase 1
+gemessen):
+- Kostenlose Videos pro Monat = 2.000 ÷ *m*. Beispiel: bei *m* = 3 sind es
+  rund 660 Videos/Monat, also ca. 22 pro Tag.
+- Darüber kostet ein Video *m* × 0,006 $ – bei *m* = 3 also knapp 2 Cent –
+  oder 0 €, wenn ein eigener Rechner als Arbeiter mitläuft.
+
+**Stufen**
+
+| Stufe | Umfang | Was sich ändert | Fixkosten |
+|---|---|---|---|
+| **Start** | 2–3 Kanäle, ~5 Videos/Tag | nichts – alles im Gratis-Rahmen | 0 € |
+| **Wachstum** | ~10 Kanäle, ~30 Videos/Tag | zusätzlicher Video-Arbeiter (eigener PC = 0 €, oder bezahlte Minuten); weitere Google-Projekte für YouTube | 0 € bis wenige € |
+| **Produkt** | viele Kunden | Kunden-Anmeldung + Abrechnung, eigener Video-Server, ggf. bezahlter Cloudflare-Tarif; jeder Kunde verbindet **seine** Konten (dann zählen die Grenzen je Kunde) | wird aus Kundeneinnahmen bezahlt |
+
+**Ungeprüft und deshalb im Pilot zu messen:** Rechenminuten je Video,
+Grenzen des kostenlosen Cloudflare-Tarifs bei vielen Kanälen, Qualität der
+freien Stimmen.
+
+Quellen: [GitHub Actions billing](https://docs.github.com/billing/managing-billing-for-github-actions/about-billing-for-github-actions), [cicdcalculator](https://cicdcalculator.com/github-actions-free-tier), [Instagram-Limits](https://postproxy.dev/blog/instagram-reels-api-publishing-guide/), [keyapi](https://www.keyapi.ai/blog/instagram-api-rate-limits-2026-what-changed-and-how-to-adapt/), [YouTube-Quota](https://outlierkit.com/resources/youtube-api-quota/)
+
+---
+
 ## 6. Das Dashboard (für dich, vom Handy aus)
 
 1. **Freigaben** (Startseite): Karten mit Video-Vorschau, Skript, Plattformen,

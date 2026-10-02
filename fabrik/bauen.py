@@ -18,7 +18,11 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 B, H, FPS = 1080, 1920, 30
-SCHRIFT = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
+# Montserrat (SIL OFL, gewerblich frei) liegt im Projekt - GEMELDET: DejaVu
+# wirkte „sehr unprofessionell".
+SCHRIFTEN = Path(__file__).resolve().parent.parent / 'schriften'
+SCHRIFT = str(SCHRIFTEN / 'Montserrat-ExtraBold.ttf')
+TITEL_SCHRIFT = str(SCHRIFTEN / 'Montserrat-Black.ttf')
 zeiten = {}
 
 
@@ -30,8 +34,8 @@ def messen(name):
     return _M()
 
 
-def schrift(groesse):
-    return ImageFont.truetype(SCHRIFT, groesse)
+def schrift(groesse, datei=None):
+    return ImageFont.truetype(datei or SCHRIFT, groesse)
 
 
 def hintergrund(nr):
@@ -44,86 +48,73 @@ def hintergrund(nr):
     return Image.fromarray(np.repeat(arr, B, axis=1)).convert('RGBA')
 
 
-def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None):
-    """Ebene je Abschnitt: Titel (2 Zeilen, Schluesselwort farbig), Platz, Name.
-    durchsichtig=True: nur die Schrift + Abdunklung oben/unten, als Ebene ueber
-    einem Videoclip. karte: Vorschaubild der Quelle, gross in der Mitte."""
+def schrift_text(img, xy, text, f, farbe=(255, 255, 255), rand=3):
+    """Text mit weichem Schatten und duennem Rand. GEMELDET: dicke schwarze
+    Raender (7 px, DejaVu) wirkten „sehr unprofessionell"."""
+    schatten = Image.new('RGBA', img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(schatten).text((xy[0] + 4, xy[1] + 6), text, font=f, fill=(0, 0, 0, 200),
+                                  stroke_width=rand + 4, stroke_fill=(0, 0, 0, 200))
+    img.alpha_composite(schatten.filter(ImageFilter.GaussianBlur(10)))
+    ImageDraw.Draw(img).text(xy, text, font=f, fill=farbe, stroke_width=rand, stroke_fill=(0, 0, 0))
+
+
+def titel_zeichnen(img, titel, akzent):
+    """Titel: genau zwei Zeilen, Schluesselwoerter farbig (Konzept 2b); die
+    Groesse passt sich an (Probelauf 1: Zeile 2 war breiter als das Bild)."""
+    d = ImageDraw.Draw(img)
+    y = 190
+    for zeile in titel:
+        teile = [(w, w.strip('*') != w) for w in zeile.split(' ')]
+        groesse = 78
+        while True:
+            f = schrift(groesse, TITEL_SCHRIFT)
+            breite = sum(d.textlength(w.strip('*') + ' ', font=f) for w, _ in teile)
+            if breite <= B - 120 or groesse <= 40:
+                break
+            groesse -= 4
+        x = (B - breite) / 2
+        for w, betont in teile:
+            wort = w.strip('*') + ' '
+            schrift_text(img, (x, y), wort, f, akzent if betont else (255, 255, 255))
+            x += d.textlength(wort, font=f)
+        y += groesse + 22
+
+
+def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None, akzent=(32, 210, 190)):
+    """Ebene je Abschnitt: Titel, Platz, Name.
+    durchsichtig=True: nur Schrift + sanfte Abdunklung, als Ebene ueber einem
+    Videoclip. karte: Vorschaubild der Quelle, gross in der Mitte."""
     if karte:
         k = Image.open(karte).convert('RGB')
         # Hintergrund: dieselbe Karte, bildfuellend, unscharf und dunkel
         f = max(B / k.width, H / k.height)
         hg = k.resize((int(k.width * f) + 1, int(k.height * f) + 1)).filter(ImageFilter.GaussianBlur(40))
         hg = hg.crop(((hg.width - B) // 2, (hg.height - H) // 2, (hg.width - B) // 2 + B, (hg.height - H) // 2 + H))
-        img = Image.blend(hg, Image.new('RGB', (B, H)), 0.55).convert('RGBA')
+        img = Image.blend(hg, Image.new('RGB', (B, H)), 0.6).convert('RGBA')
         breite = B - 80
-        k = k.resize((breite, int(k.height * breite / k.width)))
+        k = k.resize((breite, int(k.height * breite / k.width)), Image.LANCZOS)
         maske = Image.new('L', k.size, 0)
         ImageDraw.Draw(maske).rounded_rectangle((0, 0, *k.size), 28, fill=255)
-        img.paste(k, (40, 640), maske)
-        d = ImageDraw.Draw(img)
-        y = 170
-        for zeile in titel:
-            teile_ = [(w, w.strip('*') != w) for w in zeile.split(' ')]
-            groesse = 86
-            while True:
-                fnt = schrift(groesse)
-                b = sum(d.textlength(w.strip('*') + ' ', font=fnt) for w, _ in teile_)
-                if b <= B - 100 or groesse <= 40:
-                    break
-                groesse -= 4
-            x = (B - b) / 2
-            for w, betont in teile_:
-                wort = w.strip('*') + ' '
-                d.text((x, y), wort, font=fnt, fill=(32, 210, 190) if betont else (255, 255, 255),
-                       stroke_width=4, stroke_fill=(0, 0, 0))
-                x += d.textlength(wort, font=fnt)
-            y += 110
-        if teil.get('platz'):  # kleiner als sonst - der Name steht auf der Karte
-            fnt = schrift(150)
-            t = f"#{teil['platz']}"
-            d.text(((B - d.textlength(t, font=fnt)) / 2, 420), t, font=fnt, fill=(255, 255, 255),
-                   stroke_width=7, stroke_fill=(0, 0, 0))
-        return img
-    if durchsichtig:
+        img.paste(k, (40, 660), maske)
+    elif durchsichtig:
         img = Image.new('RGBA', (B, H), (0, 0, 0, 0))
         schatten = np.zeros((H, B, 4), dtype=np.uint8)
         a = np.zeros(H)
-        a[:700] = np.linspace(170, 60, 700)            # oben dunkel fuer den Titel
-        a[1150:] = np.linspace(60, 190, H - 1150)      # unten dunkel fuer Untertitel
-        a[700:1150] = 60
+        a[:620] = np.linspace(150, 0, 620)            # oben dunkler fuer den Titel
+        a[1200:] = np.linspace(0, 150, H - 1200)      # unten dunkler fuer Untertitel
         schatten[..., 3] = a[:, None].astype(np.uint8)
         img = Image.alpha_composite(img, Image.fromarray(schatten, 'RGBA'))
     else:
         img = hintergrund(nr)
+    titel_zeichnen(img, titel, akzent)
     d = ImageDraw.Draw(img)
-    # Titel: genau zwei Zeilen, Schluesselwoerter farbig (Konzept 2b).
-    # Probelauf 1: zweite Zeile war breiter als das Bild -> Groesse passt sich an.
-    y = 170
-    for zeile in titel:
-        teile = [(w, w.strip('*') != w) for w in zeile.split(' ')]
-        groesse = 86
-        while True:
-            f = schrift(groesse)
-            breite = sum(d.textlength(w.strip('*') + ' ', font=f) for w, _ in teile)
-            if breite <= B - 100 or groesse <= 40:
-                break
-            groesse -= 4
-        x = (B - breite) / 2
-        for w, betont in teile:
-            wort = w.strip('*') + ' '
-            d.text((x, y), wort, font=f, fill=(32, 210, 190) if betont else (255, 255, 255),
-                   stroke_width=4, stroke_fill=(0, 0, 0))
-            x += d.textlength(wort, font=f)
-        y += 110
     if teil.get('platz'):
-        f = schrift(260)
+        f = schrift(150 if karte else 220, TITEL_SCHRIFT)
         t = f"#{teil['platz']}"
-        d.text(((B - d.textlength(t, font=f)) / 2, 620), t, font=f, fill=(255, 255, 255),
-               stroke_width=8, stroke_fill=(0, 0, 0))
-    if teil.get('name'):
-        f = schrift(96)
-        d.text(((B - d.textlength(teil['name'], font=f)) / 2, 940), teil['name'], font=f,
-               fill=(255, 214, 10), stroke_width=5, stroke_fill=(0, 0, 0))
+        schrift_text(img, ((B - d.textlength(t, font=f)) / 2, 440 if karte else 600), t, f, rand=4)
+    if teil.get('name') and not karte:  # bei der Karte steht der Name schon drauf
+        f = schrift(84)
+        schrift_text(img, ((B - d.textlength(teil['name'], font=f)) / 2, 880), teil['name'], f, (255, 214, 10))
     return img
 
 
@@ -157,7 +148,8 @@ def waehle(kandidaten, satz):
             'Pick the frame a viewer would find clearly fitting to this sentence. Reject abstract, unrelated, '
             'green-screen or text-heavy frames. If none fits clearly, answer -1.',
             {'type': 'OBJECT', 'properties': {'nummer': {'type': 'INTEGER'}}, 'required': ['nummer']},
-            temperatur=0.1, bilder=bilder)
+            # GEMESSEN: mit dem grossen Modell ~60 s je Abschnitt (384 s je Video)
+            temperatur=0.1, bilder=bilder, modelle=['gemini-flash-lite-latest', 'gemini-flash-latest'])
         n = wahl['nummer']
         return [kandidaten[n]] if 0 <= n < len(kandidaten) else []
     except Exception as e:  # KI nicht erreichbar: lieber Clip als kein Video
@@ -229,8 +221,17 @@ def untertitel(woerter, pfad):
     kopf = ("[Script Info]\nScriptType: v4.00+\nPlayResX: 1080\nPlayResY: 1920\n\n"
             "[V4+ Styles]\nFormat: Name, Fontname, Fontsize, PrimaryColour, OutlineColour, BackColour, "
             "Bold, Outline, Shadow, Alignment, MarginV\n"
-            "Style: U,DejaVu Sans,92,&H00FFFFFF,&H00000000,&H64000000,1,7,2,2,330\n\n"
+            # MarginV 520: unten liegen bei TikTok/Shorts Beschreibung und Knoepfe
+            "Style: U,Montserrat,84,&H00FFFFFF,&H00000000,&H96000000,1,4,3,2,520\n\n"
             "[Events]\nFormat: Layer, Start, End, Style, Text\n")
+    # GEMESSEN: Whisper trennt Zahlen („16" + „,000") - wieder zusammenfuegen.
+    zusammen = []
+    for w in woerter:
+        if zusammen and w['w'][:1] in ',.%' and len(w['w']) > 1:
+            zusammen[-1] = {**zusammen[-1], 'w': zusammen[-1]['w'] + w['w'], 'e': w['e']}
+        else:
+            zusammen.append(dict(w))
+    woerter = zusammen
     zeilen = []
     for i, w in enumerate(woerter):
         gruppe = woerter[(i // 3) * 3:(i // 3) * 3 + 3]
@@ -314,7 +315,7 @@ def main(skript_pfad, aus):
         subprocess.run([
             'ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', 'stuecke.txt',
             '-i', 'stimme.wav',
-            '-vf', f'fps={FPS},format=yuv420p,ass=untertitel.ass',
+            '-vf', f"fps={FPS},format=yuv420p,ass=untertitel.ass:fontsdir='{SCHRIFTEN.as_posix()}'",
             '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11',  # Plattformnorm (Konzept 4a, Punkt 6)
             # 48 kHz Stereo: loudnorm rechnet intern hoch, und das Ergebnis
             # (96 kHz Mono) spielten Handy-Player nicht ab - gemeldet: „keine

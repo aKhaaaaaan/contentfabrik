@@ -14,8 +14,9 @@ from pathlib import Path
 MODELLE = ['gemini-flash-latest', 'gemini-3-flash-preview', 'gemini-3.8-flash', 'gemini-flash-lite-latest']
 
 
-def gemini(prompt, schema, temperatur=0.9, bilder=()):
-    """bilder: JPEG-Bytes, die die KI mit ansieht (Clip-Auswahl in bauen.py)."""
+def gemini(prompt, schema, temperatur=0.9, bilder=(), modelle=None):
+    """bilder: JPEG-Bytes, die die KI mit ansieht (Clip-Auswahl in bauen.py).
+    modelle: eigene Reihenfolge, z. B. das schnelle Lite-Modell zuerst."""
     import base64
     schluessel = os.environ['GEMINI_API_KEY']
     teile = [{'text': prompt}] + [{'inline_data': {'mime_type': 'image/jpeg', 'data': base64.b64encode(b).decode()}}
@@ -26,7 +27,7 @@ def gemini(prompt, schema, temperatur=0.9, bilder=()):
                              'responseSchema': schema},
     }
     letzter = None
-    for modell in MODELLE:
+    for modell in modelle or MODELLE:
         for versuch in range(2):
             try:
                 req = urllib.request.Request(
@@ -89,7 +90,8 @@ def hinweise(kanal, thema):
         quellen = trends.ki_quellen()
         if quellen:
             text += ('\nSOURCES fetched today. Every factual claim MUST come from these sources; mention nothing that is '
-                     'not in them:\n' + '\n'.join(f"- [{q['quelle']}] {q['name']}: {q['text']}" for q in quellen) + '\n')
+                     'not in them:\n' + '\n'.join(f"- [{q['quelle']}] {q['name']} ({q['url']}): {q['text']}"
+                                                  for q in quellen) + '\n')
     print(f"Hinweise: {text.count(chr(10) + '- ')} Zeilen, davon {len(quellen)} Quellen")
     return text, quellen
 
@@ -148,28 +150,53 @@ def main(kanal_pfad, aus_pfad, thema=None):
     # Ein festes Thema vom Nutzer wird nicht ausgetauscht.
     verworfen = []
     mindest = int(kanal.get('laenge_s', [62, 90])[0] * 2.75)
+    pmin = kanal.get('plaetze', [5, 7])[0]
     woerter_von = lambda e: sum(len(t['text'].split()) for t in e['teile'])
+    def schreiben(auftrag):
+        # GEMESSEN: Auch die Ueberarbeitung nach der Faktenpruefung kuerzte
+        # das Skript (45 s Video) - darum gilt die Mindestlaenge fuer JEDEN Entwurf.
+        e, m = gemini(auftrag, SKRIPT_SCHEMA)
+        zahl = woerter_von(e)
+        plaetze = sum(1 for t in e['teile'] if t.get('platz'))
+        # GEMESSEN: Ranking kam mit 4 statt 5-7 Plaetzen.
+        zu_wenig = kanal.get('format', 'ranking') == 'ranking' and plaetze < pmin
+        if zahl < mindest or zu_wenig:
+            e, m = gemini(auftrag + f'\nYour previous draft had only {zahl} words and {plaetze} ranked entries. '
+                          f'The script MUST have at least {mindest + 15} spoken words in total'
+                          + (f' and at least {pmin} ranked entries' if zu_wenig else '')
+                          + ' - add concrete facts, no filler.', SKRIPT_SCHEMA)
+            print(f'Nachgebessert ({zahl} Woerter, {plaetze} Plaetze) -> {woerter_von(e)} Woerter')
+        return e, m
+
     for runde in range(1 if thema else 2):
-        auftrag = anweisung(kanal, thema, '; '.join(filter(None, [frueher] + verworfen))) + zusatz
-        entwurf, modell = gemini(auftrag, SKRIPT_SCHEMA)
-        zahl = woerter_von(entwurf)
-        if zahl < mindest:
-            entwurf, modell = gemini(auftrag + f'\nYour previous draft had only {zahl} words. The script MUST have at '
-                                     f'least {mindest + 15} spoken words in total - add concrete facts, no filler.',
-                                     SKRIPT_SCHEMA)
-            print(f'Zu kurz ({zahl} Woerter) - neu geschrieben: {woerter_von(entwurf)} Woerter')
+        entwurf, modell = schreiben(anweisung(kanal, thema, '; '.join(filter(None, [frueher] + verworfen))) + zusatz)
         # Zweiter Durchgang: Fakten und Regeln pruefen (Konzept 4a, Punkt 8).
         pruefung, _ = gemini(pruef_anweisung + json.dumps(entwurf, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
         if not pruefung['ok']:
             # Einmal neu schreiben, mit den gefundenen Problemen als Auflage.
-            entwurf, modell = gemini(anweisung(kanal, entwurf['thema'], frueher) + zusatz
-                                     + '\nFix these problems found by the fact checker:\n- ' + '\n- '.join(pruefung['probleme']),
-                                     SKRIPT_SCHEMA)
+            entwurf, modell = schreiben(anweisung(kanal, entwurf['thema'], frueher) + zusatz
+                                        + '\nFix these problems found by the fact checker:\n- '
+                                        + '\n- '.join(pruefung['probleme']))
             pruefung, _ = gemini(pruef_anweisung + json.dumps(entwurf, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
         if pruefung['ok']:
             break
         print(f"Thema verworfen: {entwurf['thema']} - {pruefung['probleme']}")
         verworfen.append(entwurf['thema'])
+
+    # GEMESSEN: Die KI schrieb „Hugging Face - Lightricks/LTX-2.5" statt der
+    # Adresse - dann fehlte das passende Bild. Darum im Code zuordnen: Steht
+    # der Name einer Quelle im Feld, im Namen oder im Text, gilt deren Adresse.
+    for t in entwurf['teile']:
+        if t.get('platz') and not str(t.get('quelle_url', '')).startswith('http'):
+            heuhaufen = ' '.join(str(t.get(k, '')) for k in ('quelle_url', 'name', 'text')).lower()
+            treffer = [q for q in quellen if q.get('url') and (q['name'].lower() in heuhaufen or
+                                                                q['name'].split('/')[-1].lower() in heuhaufen)]
+            t['quelle_url'] = max(treffer, key=lambda q: len(q['name']))['url'] if treffer else ''
+    # Bild-Aufhaenger: Der Einstieg zeigt schon die Karte von Platz 1
+    # (Neugier: „was ist das?"), statt eines leeren Farbverlaufs.
+    erster = next((t for t in entwurf['teile'] if t.get('platz') == 1 and t.get('quelle_url')), None)
+    if erster and not entwurf['teile'][0].get('platz'):
+        entwurf['teile'][0]['quelle_url'] = erster['quelle_url']
 
     # Stimme abwechselnd nach Tag (Abwechslung gegen Massenware-Regel)
     stimmen = kanal.get('stimmen', ['am_michael'])

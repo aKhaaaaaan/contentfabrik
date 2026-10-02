@@ -195,6 +195,38 @@ Quellen: [vidIQ – Partner Program 2026](https://vidiq.com/blog/post/youtube-pa
 
 ---
 
+## 2e. Weitere Open-Source-Pipelines geprüft (02.10.2026)
+
+| Projekt | Lizenz | Was wir mitnehmen |
+|---|---|---|
+| youtube-agentic-ai-studio | MIT (laut Quelle; LICENSE-Datei vor Übernahme prüfen) | Animationen aus Standbildern (Zoom/Schwenk) als Ideengeber; Teile dürften mit Lizenzhinweis übernommen werden |
+| AI-Reel-Factory | LICENSE vorhanden, Art noch zu prüfen | **Steuerung per Telegram** und **Google Chirp 3 HD** als Stimme |
+| video-autopilot | keine sichtbar | nur Ideen (siehe 2a) |
+
+**Übernommen:**
+- **Freigabe auch per Telegram** (kostenlos): Das Video kommt mit Vorschau und
+  Knöpfen **Freigeben / Ändern / Verwerfen** direkt in den Chat – ein Tipp,
+  fertig. Ergänzt die Web-Push-Meldung des Dashboards.
+- **Zweite Stimme zum Vergleich: Google Chirp 3 HD** – fast menschlich, **1 Mio.
+  Zeichen/Monat kostenlos** (ca. 166.000 Wörter; ein Short hat ~120 Wörter →
+  über 1.000 Shorts/Monat frei), danach 30 $ je 1 Mio. Zeichen. Wird im Pilot
+  gegen Kokoro angehört; die bessere gewinnt. Hinweis: Google Cloud verlangt in
+  der Regel ein Abrechnungskonto mit Karte, auch wenn im Freikontingent nichts
+  anfällt – darum nur nach Rückfrage.
+
+**Unser Vorteil gegenüber diesen Projekten:** Sie brauchen einen eigenen
+Rechner, der läuft. Die Contentfabrik läuft in GitHub Actions + Cloudflare –
+**kein PC nötig**, auch nachts und im Urlaub.
+
+**Kostenstufen der anderen KI (zur Einordnung):** Wir bleiben bewusst im
+0-€-Rahmen; bezahlte Stimmen (ElevenLabs), Schnitt-Apps oder fertige
+Plattformen (Faceless.so, Fliki, HeyGen ab ca. 24–29 $/Monat) brauchen wir
+nicht.
+
+Quellen: [youtube-agentic-ai-studio](https://github.com/liolinv-sudo/youtube-agentic-ai-studio), [AI-Reel-Factory](https://github.com/ujala786hsp-wq/AI-Reel-Factory), [Google Cloud TTS – Preise/Freikontingent](https://texttolab.com/blog/google-cloud-tts-pricing), [diyai – Chirp 3 HD](https://diyai.io/ai-tools/audio-generation/google-cloud-text-to-speech-pricing/)
+
+---
+
 ## 3. Der Ablauf (für jeden Kanal gleich)
 
 ```

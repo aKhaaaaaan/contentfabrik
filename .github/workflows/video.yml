@@ -1,7 +1,12 @@
-# Ein Video fuer einen Kanal: Thema + Skript (Gemini) -> Faktenpruefung -> Video.
-# Besteht das Skript die Pruefung nicht, wird kein Video gebaut (Konzept 4a).
+# Ein Video je Kanal: Thema + Skript (Gemini) -> Faktenpruefung -> Video ->
+# Freigabe aufs Handy (Telegram). Besteht das Skript die Pruefung nicht, wird
+# kein Video gebaut (Konzept 4a) - der Nutzer bekommt dann eine Meldung.
 name: video
 on:
+  schedule:
+    # 05:00 UTC = 07:00 Berlin (Sommerzeit) / 06:00 (Winterzeit): Videos liegen
+    # morgens auf dem Handy. GitHub startet geplante Laeufe oft etwas spaeter.
+    - cron: '0 5 * * *'
   workflow_dispatch:
     inputs:
       kanal:
@@ -10,10 +15,17 @@ on:
       thema:
         description: 'optional: festes Thema'
         default: ''
+permissions:
+  contents: write   # Themen-Verlauf zurueckschreiben
 jobs:
   video:
     runs-on: ubuntu-latest
     timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        # Neuer Kanal = hier eintragen (plus kanaele/<name>.json).
+        kanal: ${{ github.event_name == 'schedule' && fromJSON('["ai-tools-explained","business-origin-stories"]') || fromJSON(format('["{0}"]', inputs.kanal)) }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -36,14 +48,14 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: clips
-          key: clips-${{ github.run_id }}
+          key: clips-${{ matrix.kanal }}-${{ github.run_id }}
           restore-keys: clips-
       - name: Skript schreiben und pruefen
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python fabrik/skript.py "kanaele/${{ inputs.kanal }}.json" ausgabe/skript.json "${{ inputs.thema }}"
+        run: python fabrik/skript.py "kanaele/${{ matrix.kanal }}.json" ausgabe/skript.json "${{ inputs.thema }}"
       - name: Video bauen
         env:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
@@ -53,10 +65,38 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python fabrik/freigabe.py ausgabe/skript.json ausgabe/short.mp4
+      - name: Thema im Verlauf merken
+        # Ohne Verlauf schlaegt die KI dasselbe Thema wieder vor.
+        run: |
+          python - <<'EOF'
+          import json, datetime
+          from pathlib import Path
+          s = json.loads(Path('ausgabe/skript.json').read_text(encoding='utf-8'))
+          p = Path('verlauf/${{ matrix.kanal }}.json'); p.parent.mkdir(exist_ok=True)
+          v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
+          v.append({'datum': datetime.date.today().isoformat(), 'thema': s['thema'], 'titel': s['titel']})
+          p.write_text(json.dumps(v, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
+          EOF
+          git config user.name 'contentfabrik-bot'
+          git config user.email 'contentfabrik-bot@users.noreply.github.com'
+          git add verlauf && git commit -qm "Verlauf ${{ matrix.kanal }}: neues Thema"
+          # Zwei Kanaele schreiben gleichzeitig - bei Kollision neu aufsetzen
+          for i in 1 2 3 4 5; do git pull -q --rebase && git push -q && break; sleep $((i * 5)); done
+      - name: Meldung bei Fehlschlag
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          grund="Lauf abgebrochen"
+          [ -f ausgabe/skript.json ] && ! grep -q '"ok": true' ausgabe/skript.json && grund="Faktenprüfung nicht bestanden"
+          curl -s -o /dev/null "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=⚠️ Heute kein Video für ${{ matrix.kanal }}: ${grund}. Details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: video
+          name: video-${{ matrix.kanal }}
           path: |
             ausgabe/short.mp4
             ausgabe/skript.json

@@ -80,22 +80,63 @@ def titel_zeichnen(img, titel, akzent):
         y += groesse + 22
 
 
+KARTE_Y = 660
+
+
+def karten_ebene(karte):
+    """Die Karte allein (abgerundet, mit Schatten) auf durchsichtigem Bild."""
+    k = Image.open(karte).convert('RGB')
+    breite = B - 80
+    k = k.resize((breite, int(k.height * breite / k.width)), Image.LANCZOS)
+    img = Image.new('RGBA', (B, H), (0, 0, 0, 0))
+    schatten = Image.new('RGBA', (B, H), (0, 0, 0, 0))
+    ImageDraw.Draw(schatten).rounded_rectangle((40, KARTE_Y + 14, 40 + breite, KARTE_Y + 14 + k.height), 28,
+                                              fill=(0, 0, 0, 170))
+    img.alpha_composite(schatten.filter(ImageFilter.GaussianBlur(18)))
+    maske = Image.new('L', k.size, 0)
+    ImageDraw.Draw(maske).rounded_rectangle((0, 0, *k.size), 28, fill=255)
+    img.paste(k, (40, KARTE_Y), maske)
+    return img
+
+
+def karten_filter(hg, ebene, kpfad):
+    """ffmpeg-Eingaben und Filter fuer einen Karten-Abschnitt: Hintergrund
+    abgedunkelt und weich, Karte gleitet in 0,35 s von unten herein und blendet
+    auf (sichtbarer Wechsel je Platz), Schrift obenauf."""
+    hg_ein = (['-loop', '1', '-framerate', str(FPS), '-i', str(hg)] if Path(hg).suffix == '.png'
+              else ['-stream_loop', '-1', '-i', str(hg)])
+    filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,fps={FPS},'
+            f'eq=brightness=-0.22:saturation=0.8,gblur=sigma=4[bg];'
+            f'[2:v]format=rgba,fade=in:st=0:d=0.35:alpha=1[k];'
+            f"[bg][k]overlay=x=0:y='140*max(0,1-t/0.35)':eval=frame[b1];"
+            f'[b1][1:v]overlay=0:0,format=yuv420p')
+    return [*hg_ein, '-loop', '1', '-framerate', str(FPS), '-i', str(ebene),
+            '-loop', '1', '-framerate', str(FPS), '-i', str(kpfad)], filt
+
+
+def verlauf_bild(akzent):
+    """Rueckfall-Hintergrund: dunkel in der Kanalfarbe. GEMESSEN: weisse
+    GitHub-Karten unscharf als Hintergrund ergaben ein mattes Grau."""
+    v = np.linspace(0, 1, H)[:, None, None]
+    oben, unten = np.array(akzent) * 0.28, np.array((4, 6, 14))
+    return Image.fromarray(np.repeat((oben * (1 - v) + unten * v).astype(np.uint8), B, axis=1))
+
+
 def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None, akzent=(32, 210, 190)):
     """Ebene je Abschnitt: Titel, Platz, Name.
     durchsichtig=True: nur Schrift + sanfte Abdunklung, als Ebene ueber einem
     Videoclip. karte: Vorschaubild der Quelle, gross in der Mitte."""
     if karte:
-        k = Image.open(karte).convert('RGB')
-        # Hintergrund: dieselbe Karte, bildfuellend, unscharf und dunkel
-        f = max(B / k.width, H / k.height)
-        hg = k.resize((int(k.width * f) + 1, int(k.height * f) + 1)).filter(ImageFilter.GaussianBlur(40))
-        hg = hg.crop(((hg.width - B) // 2, (hg.height - H) // 2, (hg.width - B) // 2 + B, (hg.height - H) // 2 + H))
-        img = Image.blend(hg, Image.new('RGB', (B, H)), 0.6).convert('RGBA')
-        breite = B - 80
-        k = k.resize((breite, int(k.height * breite / k.width)), Image.LANCZOS)
-        maske = Image.new('L', k.size, 0)
-        ImageDraw.Draw(maske).rounded_rectangle((0, 0, *k.size), 28, fill=255)
-        img.paste(k, (40, 660), maske)
+        # Nur Schrift - Hintergrund (bewegter Clip) und Karte (fliegt ein)
+        # setzt ffmpeg darunter bzw. dazu. GEMELDET: „wirkt wie eine Diashow".
+        img = Image.new('RGBA', (B, H), (0, 0, 0, 0))
+        with Image.open(karte) as k:
+            hoehe = int(k.height * (B - 80) / k.width)
+        # Name gross unter der Karte - auf Hugging-Face-Karten ist er winzig
+        if teil.get('name'):
+            fn = schrift(68)
+            nb = ImageDraw.Draw(img).textlength(teil['name'], font=fn)
+            schrift_text(img, ((B - nb) / 2, KARTE_Y + hoehe + 28), teil['name'], fn, (255, 214, 10))
     elif durchsichtig:
         img = Image.new('RGBA', (B, H), (0, 0, 0, 0))
         schatten = np.zeros((H, B, 4), dtype=np.uint8)
@@ -216,6 +257,31 @@ def ass_zeit(s):
     return f"{int(h)}:{int(m):02d}:{s:05.2f}"
 
 
+def angleichen(woerter, skripttext):
+    """Woerter aus dem SKRIPT, nur die Zeiten von Whisper. GEMESSEN: Whisper
+    hoerte „Lightrix" statt „Lightricks" und „QN" statt „Qwen" - der richtige
+    Text steht aber im Skript, die Stimme spricht genau ihn."""
+    import difflib
+    ziel = skripttext.split()
+    norm = lambda x: re.sub(r'[^a-z0-9]', '', x.lower())
+    sm = difflib.SequenceMatcher(None, [norm(w['w']) for w in woerter], [norm(z) for z in ziel], autojunk=False)
+    aus = []
+    for tag, i1, i2, j1, j2 in sm.get_opcodes():
+        if tag == 'equal':
+            aus += [{**woerter[i1 + k], 'w': ziel[j1 + k]} for k in range(i2 - i1)]
+        elif j2 > j1:  # ersetzt oder von Whisper ueberhoert: Zeit gleichmaessig verteilen
+            if i2 > i1:
+                s, e = woerter[i1]['s'], woerter[i2 - 1]['e']
+            else:
+                s = aus[-1]['e'] if aus else 0.0
+                e = woerter[i1]['s'] if i1 < len(woerter) else s + 0.3 * (j2 - j1)
+            if e <= s:
+                e = s + 0.25 * (j2 - j1)
+            d = (e - s) / (j2 - j1)
+            aus += [{'w': ziel[j1 + k], 's': s + k * d, 'e': s + (k + 1) * d} for k in range(j2 - j1)]
+    return aus
+
+
 def untertitel(woerter, pfad):
     """Wort-fuer-Wort-Untertitel: drei Woerter sichtbar, das gesprochene gelb."""
     kopf = ("[Script Info]\nScriptType: v4.00+\nPlayResX: 1080\nPlayResY: 1920\n\n"
@@ -236,8 +302,9 @@ def untertitel(woerter, pfad):
     for i, w in enumerate(woerter):
         gruppe = woerter[(i // 3) * 3:(i // 3) * 3 + 3]
         # Gesprochenes Wort: farbig und mit kurzem „Pop" (125 % -> 100 % in 0,12 s)
-        text = ' '.join(('{\\c&H0AD6FF&\\fscx125\\fscy125\\t(0,120,\\fscx100\\fscy100)}' + g['w'].upper()
-                         + '{\\c&HFFFFFF&\\fscx100\\fscy100}') if g is w else g['w'].upper()
+        zeig = lambda x: x.strip('.,!?;:"').upper()  # Satzzeichen stoeren im Einzelwort
+        text = ' '.join(('{\\c&H0AD6FF&\\fscx125\\fscy125\\t(0,120,\\fscx100\\fscy100)}' + zeig(g['w'])
+                         + '{\\c&HFFFFFF&\\fscx100\\fscy100}') if g is w else zeig(g['w'])
                         for g in gruppe)
         ende = woerter[i + 1]['s'] if i + 1 < len(woerter) else w['e'] + 0.3
         zeilen.append(f"Dialogue: 0,{ass_zeit(w['s'])},{ass_zeit(ende)},U,{text}")
@@ -274,11 +341,12 @@ def main(skript_pfad, aus):
         ton16 = np.interp(np.linspace(0, len(ton) - 1, n16), np.arange(len(ton)), ton).astype(np.float32)
         segs, _ = modell.transcribe(ton16, word_timestamps=True)
         woerter = [{'w': x.word.strip(), 's': x.start, 'e': x.end} for seg in segs for x in seg.words]
+    woerter = angleichen(woerter, ' '.join(t['text'] for t in s['teile']))
     untertitel(woerter, aus / 'untertitel.ass')
 
     # Je Abschnitt ein eigenes Stueck: Clip (zugeschnitten auf 9:16) mit
     # Schrift-Ebene darueber - oder Farbverlauf, wenn kein Clip passt.
-    quellen, schon, liste = [], set(), []
+    quellen, schon, liste, hg_clip = [], set(), [], None
     with messen('clips_und_stuecke'):
         for i, t in enumerate(s['teile']):
             dauer = laengen[i]
@@ -289,12 +357,17 @@ def main(skript_pfad, aus):
             bild_fuer(t, s['titel'], i, len(s['teile']), durchsichtig=bool(clip), karte=karte).save(ebene)
             if karte:
                 quellen.append({'quelle': 'Vorschaubild', 'seite': t['quelle_url']})
-                # Langsames Heranzoomen (8 % ueber den Abschnitt), sonst wirkt
-                # ein Standbild nach 2 s tot.
-                n = max(1, int(dauer * FPS))
-                filt = (f"[0:v]scale={B * 2}:{H * 2},zoompan=z='1+0.08*on/{n}':x='iw/2-(iw/zoom/2)':"
-                        f"y='ih/2-(ih/zoom/2)':d=1:s={B}x{H}:fps={FPS},format=yuv420p")
-                ein = ['-loop', '1', '-framerate', str(FPS), '-i', str(ebene)]
+                kpfad = aus / f'karte_{i:02d}.png'
+                karten_ebene(karte).save(kpfad)
+                if hg_clip is None:  # einmal je Video: bewegter, dunkler Hintergrund
+                    hg_clip, hq = clip_fuer('abstract technology background', schon, dauer,
+                                            'calm dark abstract technology background, slow motion, no text, no people')
+                    if hg_clip:
+                        quellen.append(hq)
+                    else:
+                        hg_clip = aus / 'verlauf.png'
+                        verlauf_bild((32, 210, 190)).save(hg_clip)
+                ein, filt = karten_filter(hg_clip, ebene, kpfad)
             elif clip:
                 quellen.append(quelle)
                 filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,'

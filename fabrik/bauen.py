@@ -10,7 +10,8 @@ Bausteine (alle kostenlos, gewerblich frei):
 
 Aufruf:  python fabrik/bauen.py skripte/probe.json ausgabe/
 """
-import json, sys, time, subprocess, wave, colorsys
+import json, os, re, sys, time, subprocess, wave, colorsys
+from PIL import ImageFilter
 from pathlib import Path
 
 import numpy as np
@@ -43,10 +44,46 @@ def hintergrund(nr):
     return Image.fromarray(np.repeat(arr, B, axis=1)).convert('RGBA')
 
 
-def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False):
+def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None):
     """Ebene je Abschnitt: Titel (2 Zeilen, Schluesselwort farbig), Platz, Name.
     durchsichtig=True: nur die Schrift + Abdunklung oben/unten, als Ebene ueber
-    einem Videoclip."""
+    einem Videoclip. karte: Vorschaubild der Quelle, gross in der Mitte."""
+    if karte:
+        k = Image.open(karte).convert('RGB')
+        # Hintergrund: dieselbe Karte, bildfuellend, unscharf und dunkel
+        f = max(B / k.width, H / k.height)
+        hg = k.resize((int(k.width * f) + 1, int(k.height * f) + 1)).filter(ImageFilter.GaussianBlur(40))
+        hg = hg.crop(((hg.width - B) // 2, (hg.height - H) // 2, (hg.width - B) // 2 + B, (hg.height - H) // 2 + H))
+        img = Image.blend(hg, Image.new('RGB', (B, H)), 0.55).convert('RGBA')
+        breite = B - 80
+        k = k.resize((breite, int(k.height * breite / k.width)))
+        maske = Image.new('L', k.size, 0)
+        ImageDraw.Draw(maske).rounded_rectangle((0, 0, *k.size), 28, fill=255)
+        img.paste(k, (40, 640), maske)
+        d = ImageDraw.Draw(img)
+        y = 170
+        for zeile in titel:
+            teile_ = [(w, w.strip('*') != w) for w in zeile.split(' ')]
+            groesse = 86
+            while True:
+                fnt = schrift(groesse)
+                b = sum(d.textlength(w.strip('*') + ' ', font=fnt) for w, _ in teile_)
+                if b <= B - 100 or groesse <= 40:
+                    break
+                groesse -= 4
+            x = (B - b) / 2
+            for w, betont in teile_:
+                wort = w.strip('*') + ' '
+                d.text((x, y), wort, font=fnt, fill=(32, 210, 190) if betont else (255, 255, 255),
+                       stroke_width=4, stroke_fill=(0, 0, 0))
+                x += d.textlength(wort, font=fnt)
+            y += 110
+        if teil.get('platz'):  # kleiner als sonst - der Name steht auf der Karte
+            fnt = schrift(150)
+            t = f"#{teil['platz']}"
+            d.text(((B - d.textlength(t, font=fnt)) / 2, 420), t, font=fnt, fill=(255, 255, 255),
+                   stroke_width=7, stroke_fill=(0, 0, 0))
+        return img
     if durchsichtig:
         img = Image.new('RGBA', (B, H), (0, 0, 0, 0))
         schatten = np.zeros((H, B, 4), dtype=np.uint8)
@@ -96,7 +133,61 @@ PIXABAY_CACHE = Path('clips')
 KENNUNG = {'User-Agent': 'Contentfabrik/1.0 (privates Video-Tool)'}
 
 
-def clip_fuer(suche, schon, laenge):
+# GEMESSEN 02.10.2026: Ein reiner Greenscreen-Clip landete als Hintergrund
+# hinter „#2 LTX 2.5" - Rohmaterial zum Freistellen, nie als Bild brauchbar.
+UNBRAUCHBAR = re.compile(r'green ?screen|chroma|blue ?screen', re.I)
+
+
+def waehle(kandidaten, satz):
+    """Die KI sieht die Vorschaubilder und nimmt das, was zum gesprochenen Satz
+    passt. GEMELDET: Die Bilder passten nicht zum Text - die Pixabay-Suche
+    allein liefert nach Beliebtheit, nicht nach Inhalt. Passt keins: [] (dann
+    eigenes Bild statt falschem). Ohne KI: alte Reihenfolge."""
+    import urllib.request
+    if not kandidaten or not satz or not os.environ.get('GEMINI_API_KEY'):
+        return kandidaten
+    try:
+        bilder = [urllib.request.urlopen(urllib.request.Request(
+            (h['videos'].get('tiny') or h['videos']['small'])['thumbnail'], headers=KENNUNG), timeout=20).read()
+                  for h in kandidaten]
+        from skript import gemini
+        wahl, _ = gemini(
+            f'These are {len(bilder)} preview frames of stock videos, numbered 0 to {len(bilder) - 1} in order. '
+            f'They will be the background while a narrator says:\n"{satz}"\n'
+            'Pick the frame a viewer would find clearly fitting to this sentence. Reject abstract, unrelated, '
+            'green-screen or text-heavy frames. If none fits clearly, answer -1.',
+            {'type': 'OBJECT', 'properties': {'nummer': {'type': 'INTEGER'}}, 'required': ['nummer']},
+            temperatur=0.1, bilder=bilder)
+        n = wahl['nummer']
+        return [kandidaten[n]] if 0 <= n < len(kandidaten) else []
+    except Exception as e:  # KI nicht erreichbar: lieber Clip als kein Video
+        print('Clip-Auswahl ohne KI:', str(e)[:200])
+        return kandidaten
+
+
+def karte_fuer(url):
+    """Offizielles Vorschaubild der Quelle (GitHub/Hugging Face) - zeigt genau
+    das genannte Werkzeug mit Name, Beschreibung, Sternen. Die Plattformen
+    stellen diese Bilder zum Teilen bereit."""
+    import urllib.request, hashlib
+    m = re.match(r'https?://(github\.com|huggingface\.co)/([\w.-]+/[\w.-]+)', url or '')
+    if not m:
+        return None
+    adresse = (f'https://opengraph.githubassets.com/1/{m[2]}' if m[1] == 'github.com' else
+               f'https://cdn-thumbnails.huggingface.co/social-thumbnails/models/{m[2]}.png')
+    PIXABAY_CACHE.mkdir(exist_ok=True)
+    ziel = PIXABAY_CACHE / f"karte_{hashlib.sha1(adresse.encode()).hexdigest()[:12]}.png"
+    try:
+        if not ziel.exists():
+            ziel.write_bytes(urllib.request.urlopen(urllib.request.Request(adresse, headers=KENNUNG), timeout=30).read())
+        Image.open(ziel).verify()
+        return ziel
+    except Exception as e:
+        print('Vorschaubild fehlt:', adresse, str(e)[:100])
+        return None
+
+
+def clip_fuer(suche, schon, laenge, satz=''):
     """Passenden Pixabay-Clip suchen und herunterladen (Pixabay-Regeln:
     Ergebnisse 24 h zwischenspeichern, Clips herunterladen statt verlinken).
     Gibt (pfad, quelle) oder (None, None) zurueck."""
@@ -114,12 +205,11 @@ def clip_fuer(suche, schon, laenge):
             {'key': schluessel, 'q': suche, 'safesearch': 'true', 'per_page': 20, 'order': 'popular'}))
         daten = json.load(urllib.request.urlopen(urllib.request.Request(url, headers=KENNUNG), timeout=30))
         cache.write_text(json.dumps(daten))
-    for hit in daten.get('hits', []):
-        if hit['id'] in schon or hit.get('duration', 0) < 3:
-            continue
+    kandidaten = [h for h in daten.get('hits', [])
+                  if h['id'] not in schon and h.get('duration', 0) >= 3 and not UNBRAUCHBAR.search(h.get('tags', ''))
+                  and (h['videos'].get('medium') or h['videos'].get('small') or {}).get('url')][:6]
+    for hit in waehle(kandidaten, satz):
         v = hit['videos'].get('medium') or hit['videos'].get('small')
-        if not v or not v.get('url'):
-            continue
         ziel = PIXABAY_CACHE / f"pixabay_{hit['id']}.mp4"
         if not ziel.exists():
             with urllib.request.urlopen(urllib.request.Request(v['url'], headers=KENNUNG), timeout=60) as r:
@@ -190,10 +280,19 @@ def main(skript_pfad, aus):
         for i, t in enumerate(s['teile']):
             dauer = laengen[i]
             stueck = aus / f'stueck_{i:02d}.mp4'
-            clip, quelle = clip_fuer(t.get('suche') or s.get('suche'), schon, dauer)
             ebene = aus / f'ebene_{i:02d}.png'
-            bild_fuer(t, s['titel'], i, len(s['teile']), durchsichtig=bool(clip)).save(ebene)
-            if clip:
+            karte = karte_fuer(t.get('quelle_url'))
+            clip, quelle = (None, None) if karte else clip_fuer(t.get('suche') or s.get('suche'), schon, dauer, t['text'])
+            bild_fuer(t, s['titel'], i, len(s['teile']), durchsichtig=bool(clip), karte=karte).save(ebene)
+            if karte:
+                quellen.append({'quelle': 'Vorschaubild', 'seite': t['quelle_url']})
+                # Langsames Heranzoomen (8 % ueber den Abschnitt), sonst wirkt
+                # ein Standbild nach 2 s tot.
+                n = max(1, int(dauer * FPS))
+                filt = (f"[0:v]scale={B * 2}:{H * 2},zoompan=z='1+0.08*on/{n}':x='iw/2-(iw/zoom/2)':"
+                        f"y='ih/2-(ih/zoom/2)':d=1:s={B}x{H}:fps={FPS},format=yuv420p")
+                ein = ['-loop', '1', '-framerate', str(FPS), '-i', str(ebene)]
+            elif clip:
                 quellen.append(quelle)
                 filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,'
                         f'fps={FPS}[v];[v][1:v]overlay=0:0,format=yuv420p')

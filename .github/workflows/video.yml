@@ -59,6 +59,7 @@ jobs:
       - name: Video bauen
         env:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python fabrik/bauen.py ausgabe/skript.json ausgabe
       - name: Zur Freigabe aufs Handy
         env:

@@ -14,10 +14,14 @@ from pathlib import Path
 MODELLE = ['gemini-flash-latest', 'gemini-3-flash-preview', 'gemini-3.8-flash', 'gemini-flash-lite-latest']
 
 
-def gemini(prompt, schema, temperatur=0.9):
+def gemini(prompt, schema, temperatur=0.9, bilder=()):
+    """bilder: JPEG-Bytes, die die KI mit ansieht (Clip-Auswahl in bauen.py)."""
+    import base64
     schluessel = os.environ['GEMINI_API_KEY']
+    teile = [{'text': prompt}] + [{'inline_data': {'mime_type': 'image/jpeg', 'data': base64.b64encode(b).decode()}}
+                                  for b in bilder]
     koerper = {
-        'contents': [{'parts': [{'text': prompt}]}],
+        'contents': [{'parts': teile}],
         'generationConfig': {'temperature': temperatur, 'responseMimeType': 'application/json',
                              'responseSchema': schema},
     }
@@ -45,7 +49,7 @@ SKRIPT_SCHEMA = {
         'schluesselwoerter': {'type': 'ARRAY', 'items': {'type': 'STRING'}},
         'teile': {'type': 'ARRAY', 'items': {'type': 'OBJECT', 'properties': {
             'platz': {'type': 'INTEGER'}, 'name': {'type': 'STRING'},
-            'suche': {'type': 'STRING'}, 'text': {'type': 'STRING'}},
+            'suche': {'type': 'STRING'}, 'text': {'type': 'STRING'}, 'quelle_url': {'type': 'STRING'}},
             'required': ['suche', 'text']}},
         'beschreibung': {'type': 'STRING'},
         'hashtags': {'type': 'ARRAY', 'items': {'type': 'STRING'}},
@@ -92,7 +96,9 @@ def hinweise(kanal, thema):
 
 def anweisung(kanal, thema, frueher):
     lmin, lmax = kanal.get('laenge_s', [62, 90])
-    woerter = f'{int(lmin * 2.5)}-{int(lmax * 2.5)}'
+    # GEMESSEN: Kokoro spricht ~2,7 Woerter/s; mit 2,5 je Sekunde gerechnet
+    # kam ein Video auf 50 s - unter der 60-s-Grenze fuer TikTok-Verguetung.
+    woerter = f'{int(lmin * 2.9)}-{int(lmax * 2.9)}'
     fmt = kanal.get('format', 'ranking')
     if fmt == 'ranking':
         pmin, pmax = kanal.get('plaetze', [5, 7])
@@ -114,7 +120,7 @@ Rules:
 - Short, spoken sentences. Concrete facts only. Every claim must be TRUE and verifiable today; if unsure, leave it out.
   No financial, medical or legal advice. No made-up numbers.
 - Own words and own angle; never copy text from other videos.
-- "suche": 2-3 English words for a free stock VIDEO search that visually fits this part (concrete scene, no brand names, no people's names).
+- {'"quelle_url": for every ranked entry, the EXACT url of its source from the SOURCES list (copy it). ' if kanal.get('nur_quellen') else ''}"suche": 2-3 English words for a free stock VIDEO search that visually fits this part (concrete scene, no brand names, no people's names).
 - On-screen title: exactly two lines, line 1 max 22 characters, line 2 max 28 characters.
   "schluesselwoerter": the 1-2 words of the title that tell the viewer instantly what the video is about.
 - "beschreibung": 2 sentences for the platform description. "hashtags": 3-5 relevant hashtags.
@@ -141,9 +147,17 @@ def main(kanal_pfad, aus_pfad, thema=None):
     # durch (Detailfehler) - ohne zweites Thema gab es an dem Tag kein Video.
     # Ein festes Thema vom Nutzer wird nicht ausgetauscht.
     verworfen = []
+    mindest = int(kanal.get('laenge_s', [62, 90])[0] * 2.75)
+    woerter_von = lambda e: sum(len(t['text'].split()) for t in e['teile'])
     for runde in range(1 if thema else 2):
-        entwurf, modell = gemini(anweisung(kanal, thema, '; '.join(filter(None, [frueher] + verworfen))) + zusatz,
-                                 SKRIPT_SCHEMA)
+        auftrag = anweisung(kanal, thema, '; '.join(filter(None, [frueher] + verworfen))) + zusatz
+        entwurf, modell = gemini(auftrag, SKRIPT_SCHEMA)
+        zahl = woerter_von(entwurf)
+        if zahl < mindest:
+            entwurf, modell = gemini(auftrag + f'\nYour previous draft had only {zahl} words. The script MUST have at '
+                                     f'least {mindest + 15} spoken words in total - add concrete facts, no filler.',
+                                     SKRIPT_SCHEMA)
+            print(f'Zu kurz ({zahl} Woerter) - neu geschrieben: {woerter_von(entwurf)} Woerter')
         # Zweiter Durchgang: Fakten und Regeln pruefen (Konzept 4a, Punkt 8).
         pruefung, _ = gemini(pruef_anweisung + json.dumps(entwurf, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
         if not pruefung['ok']:

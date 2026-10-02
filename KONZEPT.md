@@ -101,6 +101,45 @@ Quellen: [video-autopilot](https://github.com/aredwan-xyz/video-autopilot), [Gem
 
 ---
 
+## 2b. Ergänzungen nach Prüfung eines YouTube-Videos („Ranking-Shorts", 02.10.2026)
+
+**Übernommen:**
+- **Vorbild-Analyse als Funktion:** Das Tool beobachtet erfolgreiche Kanäle
+  der Nische über die YouTube-Schnittstelle (öffentliche Zahlen, kostenlos)
+  und findet **Ausreißer-Videos** (weit über dem Kanal-Durchschnitt). Deren
+  Themen werden zu Ideen für uns – mit eigenem Inhalt, nicht kopiert.
+- **Ranking-Format** (funktioniert nachweislich) – **mit eigenem Material**:
+  „Top 6 KI-Tools für …", „Die 6 größten Firmenpleiten", „6 Gerichtsurteile,
+  die …". Regeln aus dem Video: **5–7 Plätze**, Reihenfolge **gemischt** (nicht
+  7-6-5-…), **Platz 1 immer zuletzt** – das hält Zuschauer bis zum Ende.
+- **Titel im Bild:** genau **zwei Zeilen**, die Schlüsselwörter **farbig**
+  hervorgehoben – Teil der Stilvorlage je Kanal.
+- **Beständigkeit:** täglich veröffentlichen, kein Tag Pause – passt zu
+  unserem Takt (1 Short/Tag je Kanal), aber jedes Video mit eigenem Wert.
+- **Nur auf bewährte Themen setzen:** Ideen aus Themen, die schon viral liefen,
+  statt aus dem Bauch.
+
+**Nicht übernommen – und warum:**
+- **Fremde TikTok-/Instagram-Clips herunterladen und zusammenschneiden:**
+  1. Urheberrecht – die Clips gehören anderen; Folge: Content-ID-Ansprüche,
+     Verwarnungen, Kanal-Sperre.
+  2. YouTubes Regel „reused content": Zusammenschnitte ohne nennenswerten
+     eigenen Beitrag werden nicht bezahlt; 2026 prüft YouTube ausdrücklich,
+     ob ein anderer dasselbe Video aus denselben Clips nachbauen könnte –
+     genau das trifft hier zu.
+  3. TikTok untersagt das Herunterladen fremder Inhalte zur Weiterverwendung.
+- **„Rank Real"**: im Video beworbenes Werkzeug mit Empfehlungs-Link – nicht
+  nötig, das Ranking-Format baut unser Video-Bauer selbst.
+- **Einnahme-Schätzungen von VidIQ als Beleg**: Schätzungen, keine echten
+  Zahlen; die vorgezeigten Kanäle sind ausgewählte Ausreißer.
+- **„In wenigen Wochen monetarisiert"**: nicht belegt (Abschnitt 9).
+- **Shorts-RPM „0,40 $ in den USA"**: andere Quellen nennen 0,05–0,30 $ –
+  maßgeblich werden unsere eigenen Zahlen.
+
+Quellen: [vidIQ – Reused Content Policy](https://vidiq.com/blog/post/youtube-reused-content-policy-guide/), [YouTube-Hilfe – Monetarisierungsrichtlinien](https://support.google.com/youtube/answer/1311392?hl=en), [veefly – Reused Content 2026](https://blog.veefly.com/guide/youtube-reused-content/)
+
+---
+
 ## 3. Der Ablauf (für jeden Kanal gleich)
 
 ```

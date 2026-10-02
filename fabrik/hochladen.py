@@ -55,6 +55,15 @@ def hochladen(skript_pfad, video_pfad, kanal_id):
         ziel = urllib.request.urlopen(start).headers['Location']
         video = json.load(urllib.request.urlopen(urllib.request.Request(
             ziel, data=daten, method='PUT', headers={'Content-Type': 'video/mp4'}), timeout=600))
+        # GEMESSEN 02.10.2026: Beim Hochladen mitgeschickt, fehlte die
+        # KI-Kennzeichnung danach; erst ein Nachsetzen per Update hielt.
+        status = {**video['status'], 'containsSyntheticMedia': True}
+        video['status'] = json.load(urllib.request.urlopen(urllib.request.Request(
+            'https://www.googleapis.com/youtube/v3/videos?part=status', method='PUT',
+            data=json.dumps({'id': video['id'], 'status': status}).encode(),
+            headers={'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json'})))['status']
+        if not video['status'].get('containsSyntheticMedia'):
+            print('WARNUNG: KI-Kennzeichnung nicht gesetzt - bitte in YouTube Studio pruefen.', file=sys.stderr)
     except urllib.error.HTTPError as e:
         sys.exit(f'Hochladen fehlgeschlagen ({e.code}): {e.read().decode(errors="replace")[:500]}')
     print(json.dumps({'kanal': kanal, 'video_id': video['id'], 'titel': video['snippet']['title'],

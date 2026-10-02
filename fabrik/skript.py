@@ -142,4 +142,4 @@ def main(kanal_pfad, aus_pfad, thema=None):
 
 
 if __name__ == '__main__':
-    main(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)
+    main(sys.argv[1], sys.argv[2], (sys.argv[3] if len(sys.argv) > 3 else '') or None)

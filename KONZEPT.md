@@ -140,6 +140,31 @@ Quellen: [vidIQ – Reused Content Policy](https://vidiq.com/blog/post/youtube-r
 
 ---
 
+## 2c. Rechte-Regeln und dritte Einnahmequelle „Clipping" (02.10.2026)
+
+**Was erlaubt ist – fest im Tool verankert:**
+| Weg | erlaubt? | Bedingung |
+|---|---|---|
+| Thema, Idee, Fakten, Aufbau eines viralen Videos übernehmen | **ja** | eigenes Skript in eigenen Worten, eigene Bilder |
+| Transkript eines fremden Videos **wörtlich** vorlesen lassen | nein | Text ist geschützt |
+| Fremde Videos schneiden, überlagern, mit Effekten/Kommentar versehen | **nein**, ohne Zustimmung | § 23 UrhG: Bearbeitungen brauchen die Zustimmung; nur bei „hinreichendem Abstand" (Original verblasst) nicht |
+| Material aus **offiziellen Clipping-Kampagnen** (z. B. MrBeasts „Vyro") | **ja** | Vorgaben der jeweiligen Kampagne einhalten, Kampagne im Tool dokumentieren |
+| Freie Stock-Clips (Pexels, Pixabay), eigene KI-Bilder | **ja** | Lizenz je Clip speichern |
+
+Das Tool prüft vor jeder Freigabe: Ist jede Quelle eines Videos dokumentiert
+(eigen / Stock mit Lizenz / Kampagne mit Erlaubnis)? Sonst keine Vorlage.
+
+**Dritte Einnahmequelle – Clipping mit Erlaubnis:** Creator und Marken zahlen
+über Plattformen wie **Vyro** (MrBeast, seit Okt. 2025) für Clips aus ihrem
+freigegebenen Material, z. B. **3 $ je 1.000 Aufrufe**. Das Tool kann aus dem
+freigegebenen Material Clips schneiden, untertiteln und auf eigenen Konten
+posten – zusätzlich zu den eigenen Kanälen. **Vor Start:** Bedingungen der
+konkreten Kampagnen prüfen (Plattformen, Kennzeichnung, Auszahlung).
+
+Quellen: [§ 23 UrhG (dejure)](https://dejure.org/gesetze/UrhG/23.html), [Ratgeber Recht – Compilations](https://www.ratgeberrecht.eu/aktuell/compilations-und-urheberrecht/), [Tubefilter – Vyro](https://www.tubefilter.com/2025/10/14/mrbeast-vyro-clipping-platform-viewstats-expansion/), [Vyro-Review 2026](https://www.ssemble.com/blog/vyro-review-2026)
+
+---
+
 ## 3. Der Ablauf (für jeden Kanal gleich)
 
 ```

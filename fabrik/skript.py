@@ -132,7 +132,7 @@ def anweisung(kanal, thema, frueher):
         aufbau = (f'RANKING format with {pmin}-{pmax} entries. First part: a hook without a rank. '
                   + ('Rank strictly by the numbers in the sources (stars, likes, downloads) - the biggest is number 1. '
                      if kanal.get('nur_quellen') else '') +
-                  'Then the ranked entries in a SHUFFLED order (never 7-6-5-...), number 1 ALWAYS last. '
+                  'Then the ranked entries as a COUNTDOWN from the highest number down to number 1 (e.g. 6-5-4-3-2-1). '
                   'Each ranked entry has "platz" (its rank) and "name" (max 2 words). Last part: short call to action '
                   '(follow for more), no rank.')
     else:
@@ -193,6 +193,13 @@ def main(kanal_pfad, aus_pfad, thema=None):
             zu_wenig = kanal.get('format', 'ranking') == 'ranking' and plaetze < pmin
             zuordnen(e, quellen)
             soll = {q['url']: n for n, q in enumerate(rangliste(quellen, kanal), 1)}
+            # GEMELDET (2 Analysen): gewuerfelte Reihenfolge (#4 -> #6 -> #3 ...)
+            # verwirrt. Jetzt Countdown - und das prueft der Code, nicht die KI.
+            folge = [t['platz'] for t in e['teile'] if t.get('platz')]
+            if folge != sorted(folge, reverse=True):
+                print(f'Versuch {versuch + 1}: kein Countdown: {folge}')
+                zusatz_ = f'\nYour previous draft used the order {folge}. Use a strict countdown down to 1.'
+                continue
             falsch = [f"#{t['platz']} must be #{soll[t['quelle_url']]}" for t in e['teile']
                       if t.get('platz') and t.get('quelle_url') in soll and soll[t['quelle_url']] != t['platz']]
             if zahl >= mindest and not zu_wenig and not falsch:

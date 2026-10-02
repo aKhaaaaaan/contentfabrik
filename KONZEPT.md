@@ -233,7 +233,16 @@ Zahlen.
 
 ---
 
-## 10. Entscheidungen von dir
+## 10. Entscheidungen
+
+**Getroffen (02.10.2026):**
+- **Säule A zuerst.** Säule B (BusinessAssistant24, Sortidoc) kommt erst, wenn
+  beide Tools von echten Kunden getestet sind.
+- Start-Nischen: **„AI Tools Explained"** und **„Business Origin Stories"**
+  (Englisch) – nach 60 Tagen anhand der Zahlen prüfen.
+- Freigabe am Anfang: **jedes Video einzeln**.
+
+**Noch offen:**
 
 1. Säule-A-Start mit **„AI Tools Explained" + „Business Origin Stories"** (EN)?
 2. Säule B zuerst für **BusinessAssistant24** oder **Sortidoc**?

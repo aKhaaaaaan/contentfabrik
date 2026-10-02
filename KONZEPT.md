@@ -123,6 +123,52 @@ die Bausteine oben laufen ohne Server und ohne Abo.
 
 ---
 
+## 4a. Qualität – höchste Qualität bei 0 € (Vorgabe des Nutzers)
+
+**Grundsatz:** Kostenlos heißt nicht billig. Jedes Video muss gegen die
+besten Faceless-Kanäle bestehen – sonst kein Wachstum und Sperr-Risiko
+(YouTube bestraft gleichförmige Massenware, Abschnitt 4).
+
+**Die besten kostenlosen Bausteine (geprüft, 2026)**
+
+| Baustein | Wahl | Warum | Lizenz |
+|---|---|---|---|
+| Stimme | **Kokoro-82M** | beste Hörnote im Vergleich (MOS 4,2), 54 Stimmen, schneller als Echtzeit auf normalen Prozessoren, ohne Grafikkarte | Apache 2.0 – gewerblich frei |
+| Stimme (Alternative) | Chatterbox | in Blindtests gegen ElevenLabs vorn, aber braucht Grafikkarte (4–8 GB) → erst mit eigenem Video-Server | MIT |
+| Untertitel | **faster-whisper + ffmpeg** | wortgenaue Zeitmarken, animierte Wort-für-Wort-Untertitel (Stil der viralen Shorts) | MIT / LGPL |
+| Clips & Bilder | Pexels / Pixabay | freie Lizenzen, über Schnittstelle | frei |
+
+Nicht genommen: Piper (Qualität schwankt stark je Stimme, GPL-3.0),
+XTTS v2 / F5-TTS (nur nicht-gewerblich).
+
+**Qualitätskriterien – jedes Video wird dagegen geprüft, bevor es dir zur
+Freigabe vorgelegt wird:**
+
+1. **Haken in den ersten 2–3 Sekunden** (Frage, Zahl, Widerspruch).
+2. **Tempo:** Bildwechsel alle 2–4 Sekunden, keine Standbilder über 5 s.
+3. **Untertitel** Wort für Wort, groß, mittig, gut lesbar, synchron zur Stimme.
+4. **Stimme** natürlich, Betonung geprüft, keine verschluckten Fachbegriffe.
+5. **Bild passt zum Satz** (Clip-Suche je Satz, nicht je Video).
+6. **Ton:** Lautheit nach Plattformnorm (YouTube ca. −14 LUFS), Musik leise
+   unter der Stimme.
+7. **Technik:** 1080×1920 (Shorts/Reels/TikTok) bzw. 1920×1080, 30 fps.
+8. **Inhalt:** Fakten von der KI gegengeprüft, eigener Blickwinkel, keine
+   Wiederholung früherer Videos (Ähnlichkeitsprüfung).
+9. **Thumbnail/Titel** für lange Videos: klar, neugierig machend, nicht
+   irreführend.
+10. **Kennzeichnung** als KI-Inhalt, wo die Plattform es verlangt.
+
+Punkte 2, 3, 6 und 7 prüft das Tool **automatisch** (messbar). Die übrigen
+prüft die KI und zuletzt **du** bei der Freigabe. Was durchfällt, wird neu
+gebaut, nicht vorgelegt.
+
+**Im Pilot zu prüfen:** Klangqualität von Kokoro im direkten Vergleich, Zeit
+pro Video auf GitHub Actions.
+
+Quellen: [ocdevel – Open-Source TTS 2026](https://ocdevel.com/blog/20250720-tts), [localaimaster – 8 TTS getestet](https://localaimaster.com/blog/best-local-tts-models), [texttolab](https://texttolab.com/blog/open-source-text-to-speech), [ai-video-captions (Whisper + FFmpeg)](https://github.com/nicolaigaina/ai-video-captions), [ai-shorts-generator](https://github.com/AbdullahNaveed/ai-shorts-generator)
+
+---
+
 ## 5a. Skalierung – von 2 Kanälen bis zum verkauften Produkt
 
 Vom ersten Tag an so gebaut, dass **nichts neu geschrieben** werden muss,

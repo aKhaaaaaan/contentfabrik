@@ -573,3 +573,22 @@ kostenlos** (2.000 Min. ÷ 2,2). Mehrere Videos je Lauf senken *m* weiter
 2. Standbilder statt Clips → verletzt Kriterium „Bildwechsel alle 2–4 s"
    (Abschnitt 4a). Nächster Schritt: Videoclips (Pexels) bzw. Bewegung.
 3. Stimme: Bewertung durch den Betreiber steht aus.
+
+## Messung Probelauf 3 (02.10.2026) – mit Pixabay-Clips
+
+Test-Short 45,2 s, 7 Abschnitte, je ein passender Pixabay-Clip (Quellen in
+`quellen.json`). Titel passt jetzt in die Breite; Ton 48 kHz Stereo.
+
+| Stufe | Sekunden |
+|---|---|
+| Stimme (Kokoro) | 23,2 |
+| Zeitmarken | 7,4 |
+| Clips suchen, laden, zuschneiden | 45,2 |
+| Rendern | 74,0 |
+| **Video gesamt** | **149,8** |
+
+*m* steigt damit auf ca. 3,5 Rechenminuten je Video (inkl. Einrichtung) →
+rund **570 Videos/Monat kostenlos**. Beschleunigung möglich: Rendern mit
+schnellerer Voreinstellung, mehrere Videos je Lauf, Clips aus dem
+Zwischenspeicher. Gefunden: Pixabays Schutzdienst blockt die
+Standard-Kennung von Python (403/1010) → eigene Kennung.

@@ -48,6 +48,11 @@ jobs:
         env:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
         run: python fabrik/bauen.py ausgabe/skript.json ausgabe
+      - name: Zur Freigabe aufs Handy
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python fabrik/freigabe.py ausgabe/skript.json ausgabe/short.mp4
       - uses: actions/upload-artifact@v4
         if: always()
         with:

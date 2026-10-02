@@ -105,6 +105,8 @@ def anweisung(kanal, thema, frueher):
     if fmt == 'ranking':
         pmin, pmax = kanal.get('plaetze', [5, 7])
         aufbau = (f'RANKING format with {pmin}-{pmax} entries. First part: a hook without a rank. '
+                  + ('Rank strictly by the numbers in the sources (stars, likes, downloads) - the biggest is number 1. '
+                     if kanal.get('nur_quellen') else '') +
                   'Then the ranked entries in a SHUFFLED order (never 7-6-5-...), number 1 ALWAYS last. '
                   'Each ranked entry has "platz" (its rank) and "name" (max 2 words). Last part: short call to action '
                   '(follow for more), no rank.')
@@ -155,29 +157,38 @@ def main(kanal_pfad, aus_pfad, thema=None):
     def schreiben(auftrag):
         # GEMESSEN: Auch die Ueberarbeitung nach der Faktenpruefung kuerzte
         # das Skript (45 s Video) - darum gilt die Mindestlaenge fuer JEDEN Entwurf.
-        e, m = gemini(auftrag, SKRIPT_SCHEMA)
-        zahl = woerter_von(e)
-        plaetze = sum(1 for t in e['teile'] if t.get('platz'))
-        # GEMESSEN: Ranking kam mit 4 statt 5-7 Plaetzen.
-        zu_wenig = kanal.get('format', 'ranking') == 'ranking' and plaetze < pmin
-        if zahl < mindest or zu_wenig:
-            e, m = gemini(auftrag + f'\nYour previous draft had only {zahl} words and {plaetze} ranked entries. '
-                          f'The script MUST have at least {mindest + 15} spoken words in total'
-                          + (f' and at least {pmin} ranked entries' if zu_wenig else '')
-                          + ' - add concrete facts, no filler.', SKRIPT_SCHEMA)
-            print(f'Nachgebessert ({zahl} Woerter, {plaetze} Plaetze) -> {woerter_von(e)} Woerter')
-        return e, m
+        # GEMESSEN: Eine Nachbesserung reichte nicht (147 Woerter = 56,8 s).
+        # Bis zu drei; danach gilt der Entwurf als durchgefallen.
+        zusatz_ = ''
+        for versuch in range(4):
+            e, m = gemini(auftrag + zusatz_, SKRIPT_SCHEMA)
+            zahl = woerter_von(e)
+            plaetze = sum(1 for t in e['teile'] if t.get('platz'))
+            # GEMESSEN: Ranking kam mit 4 statt 5-7 Plaetzen.
+            zu_wenig = kanal.get('format', 'ranking') == 'ranking' and plaetze < pmin
+            if zahl >= mindest and not zu_wenig:
+                return e, m, None
+            print(f'Versuch {versuch + 1}: {zahl} Woerter, {plaetze} Plaetze - zu wenig')
+            zusatz_ = (f'\nYour previous draft had only {zahl} spoken words and {plaetze} ranked entries. '
+                       f'The script MUST have at least {mindest + 20} spoken words in total'
+                       + (f' and at least {pmin} ranked entries' if zu_wenig else '')
+                       + ' - give each entry 2-3 sentences with concrete facts from the sources, no filler.')
+        return e, m, f'Skript zu kurz ({zahl} Woerter, {plaetze} Plaetze)'
 
     for runde in range(1 if thema else 2):
-        entwurf, modell = schreiben(anweisung(kanal, thema, '; '.join(filter(None, [frueher] + verworfen))) + zusatz)
+        entwurf, modell, mangel = schreiben(anweisung(kanal, thema, '; '.join(filter(None, [frueher] + verworfen)))
+                                            + zusatz)
         # Zweiter Durchgang: Fakten und Regeln pruefen (Konzept 4a, Punkt 8).
         pruefung, _ = gemini(pruef_anweisung + json.dumps(entwurf, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
-        if not pruefung['ok']:
+        if not pruefung['ok'] or mangel:
             # Einmal neu schreiben, mit den gefundenen Problemen als Auflage.
-            entwurf, modell = schreiben(anweisung(kanal, entwurf['thema'], frueher) + zusatz
-                                        + '\nFix these problems found by the fact checker:\n- '
-                                        + '\n- '.join(pruefung['probleme']))
+            probleme = pruefung['probleme'] + ([mangel] if mangel else [])
+            entwurf, modell, mangel = schreiben(anweisung(kanal, entwurf['thema'], frueher) + zusatz
+                                                + '\nFix these problems found by the fact checker:\n- '
+                                                + '\n- '.join(probleme))
             pruefung, _ = gemini(pruef_anweisung + json.dumps(entwurf, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
+        if mangel:  # zu kurz = unter 60 s = keine TikTok-Verguetung: nicht vorlegen
+            pruefung = {'ok': False, 'probleme': pruefung['probleme'] + [mangel]}
         if pruefung['ok']:
             break
         print(f"Thema verworfen: {entwurf['thema']} - {pruefung['probleme']}")
@@ -192,6 +203,10 @@ def main(kanal_pfad, aus_pfad, thema=None):
             treffer = [q for q in quellen if q.get('url') and (q['name'].lower() in heuhaufen or
                                                                 q['name'].split('/')[-1].lower() in heuhaufen)]
             t['quelle_url'] = max(treffer, key=lambda q: len(q['name']))['url'] if treffer else ''
+    # GEMESSEN: Die KI liess „name" leer - dann fehlte der Name unter der Karte.
+    for t in entwurf['teile']:
+        if t.get('platz') and not t.get('name') and t.get('quelle_url'):
+            t['name'] = t['quelle_url'].rstrip('/').split('/')[-1].replace('-', ' ').replace('_', ' ')[:24]
     # Bild-Aufhaenger: Der Einstieg zeigt schon die Karte von Platz 1
     # (Neugier: „was ist das?"), statt eines leeren Farbverlaufs.
     erster = next((t for t in entwurf['teile'] if t.get('platz') == 1 and t.get('quelle_url')), None)

@@ -284,7 +284,7 @@ def angleichen(woerter, skripttext):
 
 def untertitel(woerter, pfad):
     """Wort-fuer-Wort-Untertitel: drei Woerter sichtbar, das gesprochene gelb."""
-    kopf = ("[Script Info]\nScriptType: v4.00+\nPlayResX: 1080\nPlayResY: 1920\n\n"
+    kopf = ("[Script Info]\nScriptType: v4.00+\nPlayResX: 1080\nPlayResY: 1920\nWrapStyle: 2\n\n"
             "[V4+ Styles]\nFormat: Name, Fontname, Fontsize, PrimaryColour, OutlineColour, BackColour, "
             "Bold, Outline, Shadow, Alignment, MarginV\n"
             # MarginV 520: unten liegen bei TikTok/Shorts Beschreibung und Knoepfe
@@ -298,16 +298,30 @@ def untertitel(woerter, pfad):
         else:
             zusammen.append(dict(w))
     woerter = zusammen
+    # GEMELDET: „Animationstext springt manchmal willkuerlich". Ursache: Das
+    # gesprochene Wort wurde IN der zentrierten Zeile vergroessert - die
+    # Nachbarwoerter rutschten bei jedem Wort; lange Dreiergruppen brachen um.
+    # Jetzt: Gruppen nach Zeichen (max. 18, ohne Umbruch, Satzende = neue
+    # Gruppe), das Wort nur farbig; ein „Pop" der GANZEN Zeile je neuer Gruppe.
+    zeig = lambda x: x.strip('.,!?;:"').upper()  # Satzzeichen stoeren im Einzelwort
+    gruppen, g = [], []
+    for w in woerter:
+        laenge = sum(len(zeig(x['w'])) + 1 for x in g) + len(zeig(w['w']))
+        if g and (laenge > 18 or len(g) == 3 or g[-1]['w'][-1:] in '.!?'):
+            gruppen.append(g)
+            g = []
+        g.append(w)
+    if g:
+        gruppen.append(g)
     zeilen = []
-    for i, w in enumerate(woerter):
-        gruppe = woerter[(i // 3) * 3:(i // 3) * 3 + 3]
-        # Gesprochenes Wort: farbig und mit kurzem „Pop" (125 % -> 100 % in 0,12 s)
-        zeig = lambda x: x.strip('.,!?;:"').upper()  # Satzzeichen stoeren im Einzelwort
-        text = ' '.join(('{\\c&H0AD6FF&\\fscx125\\fscy125\\t(0,120,\\fscx100\\fscy100)}' + zeig(g['w'])
-                         + '{\\c&HFFFFFF&\\fscx100\\fscy100}') if g is w else zeig(g['w'])
-                        for g in gruppe)
-        ende = woerter[i + 1]['s'] if i + 1 < len(woerter) else w['e'] + 0.3
-        zeilen.append(f"Dialogue: 0,{ass_zeit(w['s'])},{ass_zeit(ende)},U,{text}")
+    for gruppe in gruppen:
+        for j, w in enumerate(gruppe):
+            pop = '{\\fscx108\\fscy108\\t(0,110,\\fscx100\\fscy100)}' if j == 0 else ''
+            text = pop + ' '.join(('{\\c&H0AD6FF&}' + zeig(x['w']) + '{\\c&HFFFFFF&}') if x is w else zeig(x['w'])
+                                  for x in gruppe)
+            i = woerter.index(w)
+            ende = woerter[i + 1]['s'] if i + 1 < len(woerter) else w['e'] + 0.3
+            zeilen.append(f"Dialogue: 0,{ass_zeit(w['s'])},{ass_zeit(ende)},U,{text}")
     Path(pfad).write_text(kopf + '\n'.join(zeilen) + '\n', encoding='utf-8')
 
 

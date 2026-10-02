@@ -128,7 +128,10 @@ def ki_quellen(tage=7):
         print('Hacker News nicht verfuegbar:', e)
     # GEMESSEN 02.10.2026: Unter den Hugging-Face-Trends war ein „Uncensored"-
     # Modell. Fuer einen werbefaehigen Kanal ungeeignet - nie als Fakt anbieten.
-    return [q for q in aus if not UNGEEIGNET.search(q['name'] + ' ' + q['text'])]
+    # GEMESSEN: „AIHOT" (Beschreibung auf Chinesisch) landete auf Platz 1 - fuer
+    # ein englisches Publikum unverstaendlich, die Karte zeigt fremde Schrift.
+    return [q for q in aus if not UNGEEIGNET.search(q['name'] + ' ' + q['text'])
+            and _englisch(q['name'] + ' ' + q['text'])]
 
 
 if __name__ == '__main__':

@@ -318,6 +318,13 @@ gemessen):
 | **Wachstum** | ~10 Kanäle, ~30 Videos/Tag | zusätzlicher Video-Arbeiter (eigener PC = 0 €, oder bezahlte Minuten); weitere Google-Projekte für YouTube | 0 € bis wenige € |
 | **Produkt** | viele Kunden | Kunden-Anmeldung + Abrechnung, eigener Video-Server, ggf. bezahlter Cloudflare-Tarif; jeder Kunde verbindet **seine** Konten (dann zählen die Grenzen je Kunde) | wird aus Kundeneinnahmen bezahlt |
 
+**Ziel Verkauf (Abo, monatlich) – vom Nutzer bestätigt:** Für die Stufe
+„Produkt" wird jede Plattform-App strenger geprüft, sobald **fremde Kunden**
+ihre Konten verbinden (Google-OAuth-Verifizierung für den Upload-Zugriff,
+Meta App Review, TikTok-Prüfung für mehrere Nutzer). **Vor dieser Stufe
+prüfen:** genaue Anforderungen und ob dabei Kosten entstehen (z. B.
+Sicherheitsprüfungen). Bis dahin nutzt nur der Betreiber das Tool.
+
 **Ungeprüft und deshalb im Pilot zu messen:** Rechenminuten je Video,
 Grenzen des kostenlosen Cloudflare-Tarifs bei vielen Kanälen, Qualität der
 freien Stimmen.

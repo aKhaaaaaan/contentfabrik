@@ -91,6 +91,9 @@ def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False):
 
 
 PIXABAY_CACHE = Path('clips')
+# Eigene, ehrliche Kennung. GEMESSEN: Pixabays Schutzdienst blockt die
+# Standard-Kennung „Python-urllib" (HTTP 403, Fehler 1010); mit Kennung: 200.
+KENNUNG = {'User-Agent': 'Contentfabrik/1.0 (privates Video-Tool)'}
 
 
 def clip_fuer(suche, schon, laenge):
@@ -109,7 +112,7 @@ def clip_fuer(suche, schon, laenge):
     else:
         url = ('https://pixabay.com/api/videos/?' + urllib.parse.urlencode(
             {'key': schluessel, 'q': suche, 'safesearch': 'true', 'per_page': 20, 'order': 'popular'}))
-        daten = json.load(urllib.request.urlopen(url, timeout=30))
+        daten = json.load(urllib.request.urlopen(urllib.request.Request(url, headers=KENNUNG), timeout=30))
         cache.write_text(json.dumps(daten))
     for hit in daten.get('hits', []):
         if hit['id'] in schon or hit.get('duration', 0) < 3:
@@ -119,7 +122,8 @@ def clip_fuer(suche, schon, laenge):
             continue
         ziel = PIXABAY_CACHE / f"pixabay_{hit['id']}.mp4"
         if not ziel.exists():
-            urllib.request.urlretrieve(v['url'], ziel)
+            with urllib.request.urlopen(urllib.request.Request(v['url'], headers=KENNUNG), timeout=60) as r:
+                ziel.write_bytes(r.read())
         schon.add(hit['id'])
         return ziel, {'quelle': 'Pixabay', 'id': hit['id'], 'seite': hit['pageURL'], 'von': hit.get('user')}
     return None, None

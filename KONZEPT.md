@@ -592,3 +592,14 @@ rund **570 Videos/Monat kostenlos**. Beschleunigung möglich: Rendern mit
 schnellerer Voreinstellung, mehrere Videos je Lauf, Clips aus dem
 Zwischenspeicher. Gefunden: Pixabays Schutzdienst blockt die
 Standard-Kennung von Python (403/1010) → eigene Kennung.
+
+## Entscheidung Stimmen (02.10.2026, Hörprobe des Betreibers)
+
+Natürlichste Kokoro-Stimmen laut Betreiber: **bf_emma (Frau, UK),
+am_michael (Mann, US), bm_george (Mann, UK)**. → Google Chirp wird **nicht**
+gebraucht (keine Google-Cloud-Karte nötig).
+
+| Kanal | Stimmen (abwechselnd) |
+|---|---|
+| AI Tools Explained | am_michael, bf_emma |
+| Business Origin Stories | bm_george |

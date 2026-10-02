@@ -603,3 +603,17 @@ gebraucht (keine Google-Cloud-Karte nötig).
 |---|---|
 | AI Tools Explained | am_michael, bf_emma |
 | Business Origin Stories | bm_george |
+
+## Messung Skript-Baustein (02.10.2026)
+
+- **Gemini kostenlos:** schreibt Skripte (gemini-flash-latest, 3-flash-preview);
+  gemini-2.5-flash ist für neue Konten gesperrt, 3.8-flash zeitweise
+  überlastet (503) → Modell-Kette mit Wechsel.
+- **Internetsuche (Grounding) im Gratis-Rahmen: nicht verfügbar** (429
+  „quota exceeded"), geprüft mit zwei Modellen.
+- **Faktenprüfung wirkt:** bei „Top 5 AI Video Tools" veraltete Aussagen
+  (Runway, Sora) gefunden → kein Video.
+- **Folge:** „Business Origin Stories" (stabile Fakten) läuft mit Gemini
+  kostenlos. „AI Tools Explained" braucht aktuelle Suche → Entscheidung des
+  Betreibers offen (siehe Chat): bezahlte Suche (Cent-Bereich) oder Start
+  nur mit Geschichten-Kanal.

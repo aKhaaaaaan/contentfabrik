@@ -235,7 +235,9 @@ def untertitel(woerter, pfad):
     zeilen = []
     for i, w in enumerate(woerter):
         gruppe = woerter[(i // 3) * 3:(i // 3) * 3 + 3]
-        text = ' '.join(('{\\c&H0AD6FF&}' + g['w'].upper() + '{\\c&HFFFFFF&}') if g is w else g['w'].upper()
+        # Gesprochenes Wort: farbig und mit kurzem „Pop" (125 % -> 100 % in 0,12 s)
+        text = ' '.join(('{\\c&H0AD6FF&\\fscx125\\fscy125\\t(0,120,\\fscx100\\fscy100)}' + g['w'].upper()
+                         + '{\\c&HFFFFFF&\\fscx100\\fscy100}') if g is w else g['w'].upper()
                         for g in gruppe)
         ende = woerter[i + 1]['s'] if i + 1 < len(woerter) else w['e'] + 0.3
         zeilen.append(f"Dialogue: 0,{ass_zeit(w['s'])},{ass_zeit(ende)},U,{text}")
@@ -315,7 +317,10 @@ def main(skript_pfad, aus):
         subprocess.run([
             'ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', 'stuecke.txt',
             '-i', 'stimme.wav',
-            '-vf', f"fps={FPS},format=yuv420p,ass=untertitel.ass:fontsdir='{SCHRIFTEN.as_posix()}'",
+            # Einheitlicher Look ueber Clips verschiedener Herkunft: etwas mehr
+            # Kontrast/Saettigung, leicht dunklere Raender - VOR den Untertiteln.
+            '-vf', f"fps={FPS},eq=contrast=1.06:saturation=1.12,vignette=PI/5,format=yuv420p,"
+                   f"ass=untertitel.ass:fontsdir='{SCHRIFTEN.as_posix()}'",
             '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11',  # Plattformnorm (Konzept 4a, Punkt 6)
             # 48 kHz Stereo: loudnorm rechnet intern hoch, und das Ergebnis
             # (96 kHz Mono) spielten Handy-Player nicht ab - gemeldet: „keine

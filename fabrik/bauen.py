@@ -201,6 +201,44 @@ def waehle(kandidaten, satz):
         return kandidaten
 
 
+def kurz_zahl(n):
+    return f'{n / 1e6:.1f}M' if n >= 1e6 else f'{n / 1e3:.1f}K' if n >= 1e3 else str(n)
+
+
+def hf_karte(modell, ziel):
+    """Eigene Karte aus den offiziellen Hugging-Face-Daten. GEMESSEN: Deren
+    Vorschaubilder sind alle derselbe blau-orange Verlauf mit winzigem Namen -
+    jeder Platz sah gleich aus. Jetzt: Name gross, Aufgabe, Likes, Downloads."""
+    import urllib.request
+    d = json.load(urllib.request.urlopen(urllib.request.Request(
+        f'https://huggingface.co/api/models/{modell}', headers=KENNUNG), timeout=20))
+    W, Hk = 1200, 640
+    v = np.linspace(0, 1, W)[None, :, None]
+    img = Image.fromarray(np.repeat((np.array((22, 30, 52)) * (1 - v) + np.array((10, 14, 28)) * v)
+                                    .astype(np.uint8), Hk, axis=0))
+    dr = ImageDraw.Draw(img)
+    grau, akzent = (150, 160, 180), (32, 210, 190)
+    dr.text((64, 56), d.get('author') or modell.split('/')[0], font=schrift(44), fill=grau)
+    name = modell.split('/')[-1]
+    groesse = 104
+    while dr.textlength(name, font=schrift(groesse, TITEL_SCHRIFT)) > W - 128 and groesse > 48:
+        groesse -= 4
+    dr.text((64, 116), name, font=schrift(groesse, TITEL_SCHRIFT), fill=(255, 255, 255))
+    aufgabe = (d.get('pipeline_tag') or '').replace('-to-', ' to ').replace('-', ' ').upper()
+    if aufgabe:
+        f = schrift(38)
+        b = dr.textlength(aufgabe, font=f)
+        dr.rounded_rectangle((64, 270, 64 + b + 48, 336), 33, fill=akzent)
+        dr.text((88, 280), aufgabe, font=f, fill=(8, 16, 24))
+    for x, zahl, wort in ((64, d.get('likes', 0), 'LIKES'), (520, d.get('downloads', 0), 'DOWNLOADS')):
+        dr.text((x, 392), kurz_zahl(zahl), font=schrift(96, TITEL_SCHRIFT), fill=(255, 214, 10))
+        dr.text((x + 4, 504), wort, font=schrift(34), fill=grau)
+    f = schrift(32)
+    dr.text((W - 64 - dr.textlength('huggingface.co', font=f), Hk - 72), 'huggingface.co', font=f, fill=grau)
+    img.save(ziel)
+    return ziel
+
+
 def karte_fuer(url):
     """Offizielles Vorschaubild der Quelle (GitHub/Hugging Face) - zeigt genau
     das genannte Werkzeug mit Name, Beschreibung, Sternen. Die Plattformen
@@ -213,6 +251,11 @@ def karte_fuer(url):
                f'https://cdn-thumbnails.huggingface.co/social-thumbnails/models/{m[2]}.png')
     PIXABAY_CACHE.mkdir(exist_ok=True)
     ziel = PIXABAY_CACHE / f"karte_{hashlib.sha1(adresse.encode()).hexdigest()[:12]}.png"
+    if m[1] == 'huggingface.co':
+        try:  # Zahlen sind tagesaktuell - darum je Lauf neu zeichnen, nicht zwischenspeichern
+            return hf_karte(m[2], PIXABAY_CACHE / f"karte_hf_{hashlib.sha1(m[2].encode()).hexdigest()[:12]}.png")
+        except Exception as e:
+            print('Eigene HF-Karte nicht moeglich, nehme Vorschaubild:', str(e)[:100])
     try:
         if not ziel.exists():
             ziel.write_bytes(urllib.request.urlopen(urllib.request.Request(adresse, headers=KENNUNG), timeout=30).read())

@@ -165,6 +165,36 @@ Quellen: [§ 23 UrhG (dejure)](https://dejure.org/gesetze/UrhG/23.html), [Ratgeb
 
 ---
 
+## 2d. Plattform-Regeln, Monetarisierung, Betrieb (geprüft, 02.10.2026)
+
+**Schwellen für Einnahmen**
+| Plattform | Bedingung |
+|---|---|
+| YouTube (Werbegeld) | 1.000 Abos **und** 4.000 Std. Wiedergabezeit (12 Monate) **oder** 10 Mio. Shorts-Aufrufe (90 Tage) |
+| YouTube (Vorstufe, Fan-Funding) | 500 Abos, 3 Uploads in 90 Tagen, 3.000 Std. oder 3 Mio. Shorts-Aufrufe |
+| YouTube **ab 01.02.2027** (laut Quelle, offiziell zu prüfen) | **8.000 Std. oder 20 Mio. Shorts-Aufrufe** – je früher wir starten, desto besser |
+| TikTok Creator Rewards | 18+, 10.000 Follower, 100.000 Aufrufe in 30 Tagen; **nur Originalvideos über 1 Minute** werden bezahlt |
+| Meta (Reels) | Schwellen je Programm, beim Einrichten prüfen |
+
+**Folge für das Format:** Für TikTok-Einnahmen werden die Videos **länger als
+60 Sekunden** gebaut (YouTube Shorts dürfen bis 3 Minuten).
+
+**Betrieb (zusätzlich übernommen)**
+- **Nicht 1:1 überall posten:** Titel, Beschreibung, Hashtags und Musik je
+  Plattform anpassen.
+- **Abwechslung erzwingen:** Stimme, Aufbau, Musik und Clips wechseln je Video
+  (Teil der Wiederholungsprüfung).
+- **Aufforderung (CTA)** am Ende: Abo, Kommentar, Link – kurz, nicht aufdringlich.
+- **Fehlerbehandlung:** automatisch wiederholen, Protokoll, Push bei
+  fehlgeschlagenem Upload.
+- **Sicherung:** Skript, Rohdateien und Metadaten jedes Videos aufbewahren.
+- **Steuern:** Einnahmen sind steuerpflichtig – ggf. Gewerbe anmelden, mit
+  Steuerberater klären, bevor Geld fließt.
+
+Quellen: [vidIQ – Partner Program 2026](https://vidiq.com/blog/post/youtube-partner-program-guide/), [subsub – Anforderungen 2027](https://www.subsub.io/blog/youtube-monetization-requirements), [postlinkapp – TikTok Creator Rewards](https://postlinkapp.com/blog/tiktok-creator-rewards-program), [toptal – Creator Rewards](https://www.toptal.com/creator/post/how-to-join-the-tiktok-creator-rewards-program)
+
+---
+
 ## 3. Der Ablauf (für jeden Kanal gleich)
 
 ```
@@ -452,3 +482,30 @@ Zahlen.
 - YouTube-Schnittstelle (privat bis Prüfung, Kontingent): [Google Developers – Videos](https://developers.google.com/youtube/v3/docs/videos), [outlierkit – Quota](https://outlierkit.com/resources/youtube-api-quota/)
 - TikTok (privat bis Prüfung): [postpeer](https://www.postpeer.dev/blog/best-tiktok-posting-api), [vorplabs](https://vorplabs.com/agent-tools/tiktok-content-posting-api)
 - Instagram/Meta: [postproxy](https://postproxy.dev/blog/social-media-platform-api-rules-rate-limits-media-specs/)
+
+---
+
+## Messung Probelauf 1 (02.10.2026, GitHub Actions, Lauf 37013126621)
+
+Test-Short im Ranking-Format, 45,2 s, 1080×1920, 30 fps, 122 Wörter.
+
+| Stufe | Sekunden |
+|---|---|
+| Stimme laden (Kokoro) | 3,6 |
+| Stimme erzeugen | 27,6 |
+| Wort-Zeitmarken (faster-whisper) | 10,3 |
+| Bilder | 0,4 |
+| Rendern (ffmpeg, Lautheit −14 LUFS) | 27,9 |
+| **Video gesamt** | **69,7** |
+| **Lauf gesamt inkl. Einrichtung** | **ca. 132 (2,2 Min.)** |
+
+**Ergebnis:** *m* ≈ 2,2 Rechenminuten je Video → rund **900 Videos/Monat
+kostenlos** (2.000 Min. ÷ 2,2). Mehrere Videos je Lauf senken *m* weiter
+(Einrichtung nur einmal).
+
+**Gefunden – noch zu verbessern:**
+1. Zweite Titelzeile zu breit, an den Rändern abgeschnitten → Schriftgröße
+   automatisch anpassen.
+2. Standbilder statt Clips → verletzt Kriterium „Bildwechsel alle 2–4 s"
+   (Abschnitt 4a). Nächster Schritt: Videoclips (Pexels) bzw. Bewegung.
+3. Stimme: Bewertung durch den Betreiber steht aus.

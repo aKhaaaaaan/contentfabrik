@@ -61,6 +61,46 @@ endet mit einem Angebot (Testzugang / Demo), das Kontakte einsammelt.
 
 ---
 
+## 2a. Ergänzungen nach Prüfung eines Vorschlags einer anderen KI (02.10.2026)
+
+**Übernommen:**
+- **Auswahlformel für Nischen:** RPM × Bindung (Retention) × Kaufabsicht –
+  nicht nach Aufrufen allein. Gilt für jede neue Kanal-Entscheidung.
+- **Weitere Kandidaten-Nischen** (Geschichten = lange Bindung, faceless):
+  „Betrayal/Revenge Stories" (ca. 12–13 $ RPM, stark wachsend) und
+  „Legal/Court Drama" (12–18 $ CPM). **Nur eigene, neu geschriebene
+  Geschichten** – kein Übernehmen fremder Texte (Urheberrecht, YouTube-Regel).
+- **Einnahmen nicht nur Werbung:** Affiliate-Links (Software-Anbieter zahlen
+  teils hohe Provisionen je Anmeldung), eigene digitale Produkte, später
+  TikTok Shop. Gehört bei jedem Kanal zur Planung.
+- **Kostenlose KI für Skripte:** Gemini (z. B. Flash: 1.500 Anfragen/Tag frei)
+  und Groq (14.400 Anfragen/Tag frei, gewerblich erlaubt). Damit können auch
+  die Skripte 0 € kosten; der OpenAI-Schlüssel bleibt für die Qualitätsprüfung.
+- **Rückfallebene Hochladen:** Dienste wie Blotato (ab 29 $/Monat) oder Zernio
+  haben die Plattform-Prüfungen schon und veröffentlichen sofort öffentlich.
+  **Nur falls** unsere eigenen Prüfungen bei YouTube/TikTok scheitern – und nur
+  nach Rückfrage, weil es Geld kostet.
+
+**Nicht übernommen – und warum:**
+- **edge-tts:** nutzt einen inoffiziellen Microsoft-Zugang (Grauzone, kann
+  jederzeit abgeschaltet werden). Kokoro ist frei lizenziert und besser bewertet.
+- **ElevenLabs, KI-Video (Kling, Runway, Luma), Ayrshare (ab 149 $/Monat):**
+  kostenpflichtig – widerspricht 0 € zum Start.
+- **n8n:** braucht einen dauerhaft laufenden Server oder ein Abo.
+- **Repo „video-autopilot":** gute Ideen (9 Stufen, Wiederholungsgedächtnis),
+  aber **keine Lizenz sichtbar** – darf also nicht übernommen werden, schon gar
+  nicht für ein späteres Verkaufsprodukt; lädt außerdem über das kostenpflichtige
+  Ayrshare hoch. Nur als Ideengeber.
+- **„700.000 $/Jahr bei 2 Stunden täglich":** Einzelanekdote, nicht prüfbar.
+  „Radikale Standardisierung und tägliche Uploads" ist seit 2026 genau das, was
+  YouTube als Massenware sperrt.
+- **RPM KI-Tools:** die andere KI nennt 7–15 $, unsere Quellen 15–30 $ – die
+  Quellen weichen ab; maßgeblich werden unsere eigenen Zahlen im Dashboard.
+
+Quellen: [video-autopilot](https://github.com/aredwan-xyz/video-autopilot), [Gemini Free Tier](https://www.memetik.ai/guides/gemini-api-free-tier-limits), [Groq Free Tier](https://tokenmix.ai/blog/groq-free-tier-limits-2026), [Ayrshare-Preise](https://www.upload-post.com/ayrshare-pricing/), [Blotato-Preise](https://aifunnelinsider.com/blotato-review/), [Zernio – ohne eigene App-Prüfung](https://zernio.com/blog/social-media-posting-api)
+
+---
+
 ## 3. Der Ablauf (für jeden Kanal gleich)
 
 ```

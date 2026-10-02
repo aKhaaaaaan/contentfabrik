@@ -227,6 +227,38 @@ Quellen: [youtube-agentic-ai-studio](https://github.com/liolinv-sudo/youtube-age
 
 ---
 
+## 2f. Upload-Werkzeuge und Lizenzen für den Verkauf (geprüft, 02.10.2026)
+
+**pendpost** (MIT, Open Source) – wird als Vorlage für unsere Upload-Stufe
+genutzt (Code darf mit Lizenzhinweis übernommen werden):
+- Freigabe ist **„fail-closed"**: ohne Freigabe-Status wird nie veröffentlicht.
+- **Anti-Sperr-Sicherungen:** meldet Meta „Fehler 368" (Aktion blockiert),
+  stoppt das Tool alle Meta-Uploads und startet **nicht** von selbst neu;
+  Takt-Obergrenze verschiebt Uploads statt sie zu verwerfen; Not-Aus je
+  Plattform.
+- Unterstützt YouTube, Instagram, Facebook, LinkedIn (TikTok im Test).
+→ Diese drei Sicherungen übernehmen wir in den Kontingent-Zähler (5a).
+
+**Remotion** (Videos mit Code bauen): kostenlos nur für Einzelpersonen und
+Firmen **bis 3 Mitarbeiter**; als SaaS-Automatisierung ab **100 $/Monat**.
+→ **Nicht verwenden** – das kollidiert mit dem späteren Verkauf. Wir bleiben
+bei ffmpeg (läuft als eigenes Programm auf dem Server; dabei entstehen keine
+Lizenzpflichten für unseren Code).
+
+**Bildquellen-Kontingente** (für den Zähler): Pexels 200 Anfragen/Stunde,
+20.000/Monat; **Pixabay** als zweite Quelle (eigene Lizenz, gewerblich frei).
+
+**Empfehlung der anderen KI, „ein fertiges Projekt klonen"** – nicht
+übernommen: Die geprüften Projekte brauchen einen laufenden PC, nutzen teils
+edge-tts (Grauzone) oder Bezahldienste zum Hochladen, und ihre Lizenzen sind
+nicht alle für ein Verkaufsprodukt geeignet. Wir nehmen die **besten Teile mit
+passender Lizenz** (pendpost-Sicherungen, Ideen aus youtube-agentic-ai-studio)
+in die eigene Cloud-Pipeline, die schon läuft (Probelauf 1).
+
+Quellen: [pendpost](https://github.com/pendpost/pendpost), [Remotion-Lizenz](https://www.remotion.pro/license), [Remotion – ist es kostenlos?](https://www.reactvideoeditor.com/blog/is-remotion-free)
+
+---
+
 ## 3. Der Ablauf (für jeden Kanal gleich)
 
 ```

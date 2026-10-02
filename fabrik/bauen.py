@@ -112,7 +112,12 @@ def main(skript_pfad, aus):
     with messen('zeitmarken'):
         from faster_whisper import WhisperModel
         modell = WhisperModel('base.en', device='cpu', compute_type='int8')
-        segs, _ = modell.transcribe(str(aus / 'stimme.wav'), word_timestamps=True)
+        # Ton direkt aus dem Speicher (16 kHz), nicht als Datei: Die Datei-
+        # Variante geht ueber PyAV, und dessen neue Fassung passt nicht zu
+        # faster-whisper ("unexpected keyword argument 'metadata_errors'").
+        n16 = int(len(ton) * 16000 / rate)
+        ton16 = np.interp(np.linspace(0, len(ton) - 1, n16), np.arange(len(ton)), ton).astype(np.float32)
+        segs, _ = modell.transcribe(ton16, word_timestamps=True)
         woerter = [{'w': x.word.strip(), 's': x.start, 'e': x.end} for seg in segs for x in seg.words]
     untertitel(woerter, aus / 'untertitel.ass')
 

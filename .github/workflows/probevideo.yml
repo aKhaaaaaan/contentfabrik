@@ -30,9 +30,14 @@ jobs:
           ls -la modelle
       - name: Video bauen
         run: python fabrik/bauen.py skripte/probe.json ausgabe
+      - name: Ton pruefen (Lautstaerke der Stimme und des fertigen Videos)
+        run: |
+          echo "--- stimme.wav"; ffmpeg -hide_banner -i ausgabe/stimme.wav -af volumedetect -f null - 2>&1 | grep -E "mean_volume|max_volume"
+          echo "--- short.mp4"; ffmpeg -hide_banner -i ausgabe/short.mp4 -vn -af volumedetect -f null - 2>&1 | grep -E "Stream|mean_volume|max_volume"
       - uses: actions/upload-artifact@v4
         with:
           name: probevideo
           path: |
             ausgabe/short.mp4
             ausgabe/messung.json
+            ausgabe/stimme.wav

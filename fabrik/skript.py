@@ -63,6 +63,32 @@ PRUEF_SCHEMA = {
 }
 
 
+def hinweise(kanal, thema):
+    """Konzept 2f: Vorbilder (YouTube-Ausreisser), Tagestrends und - fuer
+    Kanaele mit nur_quellen - die EINZIGEN erlaubten Fakten. Jede Quelle darf
+    ausfallen; dann schreibt die KI ohne sie."""
+    import trends
+    text, quellen = '', []
+    if not thema:
+        vorbilder = trends.youtube_ausreisser(kanal.get('trend_suche', []))
+        if vorbilder:
+            text += ('\nShorts in this niche that are outperforming RIGHT NOW (views, x = times their channel average). '
+                     'Use them to learn which TOPICS and ANGLES work - pick a related but different topic, never copy:\n'
+                     + '\n'.join(f"- {v['titel']} ({v['aufrufe']:,} views, {v['faktor']}x)" for v in vorbilder) + '\n')
+        gefragt = trends.google_trends()
+        if gefragt:
+            text += ('\nToday\'s Google search trends (US). Only use one if it fits this niche naturally, otherwise ignore:\n- '
+                     + '\n- '.join(gefragt[:12]) + '\n')
+    if kanal.get('nur_quellen'):
+        # GEMESSEN: Ohne aktuelle Quellen fiel „Top 5 AI Video Tools" zweimal
+        # durch die Faktenpruefung (veraltetes Wissen). Darum nur Belegtes.
+        quellen = trends.ki_quellen()
+        if quellen:
+            text += ('\nSOURCES fetched today. Every factual claim MUST come from these sources; mention nothing that is '
+                     'not in them:\n' + '\n'.join(f"- [{q['quelle']}] {q['name']}: {q['text']}" for q in quellen) + '\n')
+    return text, quellen
+
+
 def anweisung(kanal, thema, frueher):
     lmin, lmax = kanal.get('laenge_s', [62, 90])
     woerter = f'{int(lmin * 2.5)}-{int(lmax * 2.5)}'
@@ -101,20 +127,24 @@ def main(kanal_pfad, aus_pfad, thema=None):
     frueher = '; '.join(v['thema'] for v in verlauf[-60:])
 
     t0 = time.time()
-    entwurf, modell = gemini(anweisung(kanal, thema, frueher), SKRIPT_SCHEMA)
+    zusatz, quellen = hinweise(kanal, thema)
+    # Die Pruefung bekommt dieselben Quellen - sonst haelt sie eine heute
+    # belegte Neuheit fuer „unverifizierbar", nur weil ihr Wissen aelter ist.
+    belege = ('\nSOURCES fetched today (treat as verified; claims beyond them are unverifiable):\n'
+              + '\n'.join(f"- [{q['quelle']}] {q['name']}: {q['text']}" for q in quellen)) if quellen else ''
+    pruef_anweisung = ('You are a strict fact checker for a YouTube Short script. Check every factual claim. '
+                       'Mark ok=false if ANY claim is false, outdated, unverifiable or exaggerated, or if a rule is broken '
+                       '(number 1 must be last in rankings, no medical/financial/legal advice). List each problem briefly.'
+                       + belege + '\n\n')
+    entwurf, modell = gemini(anweisung(kanal, thema, frueher) + zusatz, SKRIPT_SCHEMA)
     # Zweiter Durchgang: Fakten und Regeln pruefen (Konzept 4a, Punkt 8).
-    pruefung, _ = gemini(
-        'You are a strict fact checker for a YouTube Short script. Check every factual claim. '
-        'Mark ok=false if ANY claim is false, outdated, unverifiable or exaggerated, or if a rule is broken '
-        '(number 1 must be last in rankings, no medical/financial/legal advice). List each problem briefly.\n\n'
-        + json.dumps(entwurf, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
+    pruefung, _ = gemini(pruef_anweisung + json.dumps(entwurf, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
     if not pruefung['ok']:
         # Einmal neu schreiben, mit den gefundenen Problemen als Auflage.
-        entwurf, modell = gemini(anweisung(kanal, entwurf['thema'], frueher)
+        entwurf, modell = gemini(anweisung(kanal, entwurf['thema'], frueher) + zusatz
                                  + '\nFix these problems found by the fact checker:\n- ' + '\n- '.join(pruefung['probleme']),
                                  SKRIPT_SCHEMA)
-        pruefung, _ = gemini('Strict fact check as before.\n\n' + json.dumps(entwurf, ensure_ascii=False),
-                             PRUEF_SCHEMA, temperatur=0.1)
+        pruefung, _ = gemini(pruef_anweisung + json.dumps(entwurf, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
 
     # Stimme abwechselnd nach Tag (Abwechslung gegen Massenware-Regel)
     stimmen = kanal.get('stimmen', ['am_michael'])
@@ -127,7 +157,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         'titel': [zeile(entwurf['titel_zeile1']), zeile(entwurf['titel_zeile2'])],
         'stimme': stimme, 'tempo': 1.05, 'teile': entwurf['teile'],
         'beschreibung': entwurf['beschreibung'] + '\nClips: Pixabay', 'hashtags': entwurf['hashtags'],
-        'pruefung': pruefung, 'modell': modell, 'sekunden_ki': round(time.time() - t0, 1),
+        'pruefung': pruefung, 'quellen': [q['url'] for q in quellen if q.get('url')], 'modell': modell, 'sekunden_ki': round(time.time() - t0, 1),
     }
     Path(aus_pfad).parent.mkdir(parents=True, exist_ok=True)
     Path(aus_pfad).write_text(json.dumps(skript, indent=2, ensure_ascii=False), encoding='utf-8')

@@ -33,21 +33,44 @@ def schrift(groesse):
     return ImageFont.truetype(SCHRIFT, groesse)
 
 
-def bild_fuer(teil, titel, nr, gesamt):
-    """Ein Standbild je Abschnitt: Verlauf, Titel (2 Zeilen, Schluesselwort farbig), Platz."""
+def hintergrund(nr):
+    """Farbverlauf - Rueckfall, wenn kein Clip gefunden wurde."""
     farbton = (nr * 0.17) % 1.0
     oben = tuple(int(c * 255) for c in colorsys.hsv_to_rgb(farbton, 0.55, 0.30))
     unten = tuple(int(c * 255) for c in colorsys.hsv_to_rgb(farbton, 0.65, 0.08))
     verlauf = np.linspace(0, 1, H)[:, None, None]
     arr = (np.array(oben) * (1 - verlauf) + np.array(unten) * verlauf).astype(np.uint8)
-    img = Image.fromarray(np.repeat(arr, B, axis=1))
+    return Image.fromarray(np.repeat(arr, B, axis=1)).convert('RGBA')
+
+
+def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False):
+    """Ebene je Abschnitt: Titel (2 Zeilen, Schluesselwort farbig), Platz, Name.
+    durchsichtig=True: nur die Schrift + Abdunklung oben/unten, als Ebene ueber
+    einem Videoclip."""
+    if durchsichtig:
+        img = Image.new('RGBA', (B, H), (0, 0, 0, 0))
+        schatten = np.zeros((H, B, 4), dtype=np.uint8)
+        a = np.zeros(H)
+        a[:700] = np.linspace(170, 60, 700)            # oben dunkel fuer den Titel
+        a[1150:] = np.linspace(60, 190, H - 1150)      # unten dunkel fuer Untertitel
+        a[700:1150] = 60
+        schatten[..., 3] = a[:, None].astype(np.uint8)
+        img = Image.alpha_composite(img, Image.fromarray(schatten, 'RGBA'))
+    else:
+        img = hintergrund(nr)
     d = ImageDraw.Draw(img)
-    # Titel: genau zwei Zeilen, Schluesselwoerter farbig (Konzept 2b)
+    # Titel: genau zwei Zeilen, Schluesselwoerter farbig (Konzept 2b).
+    # Probelauf 1: zweite Zeile war breiter als das Bild -> Groesse passt sich an.
     y = 170
     for zeile in titel:
         teile = [(w, w.strip('*') != w) for w in zeile.split(' ')]
-        f = schrift(86)
-        breite = sum(d.textlength(w.strip('*') + ' ', font=f) for w, _ in teile)
+        groesse = 86
+        while True:
+            f = schrift(groesse)
+            breite = sum(d.textlength(w.strip('*') + ' ', font=f) for w, _ in teile)
+            if breite <= B - 100 or groesse <= 40:
+                break
+            groesse -= 4
         x = (B - breite) / 2
         for w, betont in teile:
             wort = w.strip('*') + ' '
@@ -65,6 +88,41 @@ def bild_fuer(teil, titel, nr, gesamt):
         d.text(((B - d.textlength(teil['name'], font=f)) / 2, 940), teil['name'], font=f,
                fill=(255, 214, 10), stroke_width=5, stroke_fill=(0, 0, 0))
     return img
+
+
+PIXABAY_CACHE = Path('clips')
+
+
+def clip_fuer(suche, schon, laenge):
+    """Passenden Pixabay-Clip suchen und herunterladen (Pixabay-Regeln:
+    Ergebnisse 24 h zwischenspeichern, Clips herunterladen statt verlinken).
+    Gibt (pfad, quelle) oder (None, None) zurueck."""
+    import os, urllib.request, urllib.parse, hashlib
+    schluessel = os.environ.get('PIXABAY_API_KEY')
+    if not schluessel or not suche:
+        return None, None
+    PIXABAY_CACHE.mkdir(exist_ok=True)
+    tag = time.strftime('%Y-%m-%d')
+    cache = PIXABAY_CACHE / f"suche_{hashlib.sha1((suche + tag).encode()).hexdigest()[:12]}.json"
+    if cache.exists():
+        daten = json.loads(cache.read_text())
+    else:
+        url = ('https://pixabay.com/api/videos/?' + urllib.parse.urlencode(
+            {'key': schluessel, 'q': suche, 'safesearch': 'true', 'per_page': 20, 'order': 'popular'}))
+        daten = json.load(urllib.request.urlopen(url, timeout=30))
+        cache.write_text(json.dumps(daten))
+    for hit in daten.get('hits', []):
+        if hit['id'] in schon or hit.get('duration', 0) < 3:
+            continue
+        v = hit['videos'].get('medium') or hit['videos'].get('small')
+        if not v or not v.get('url'):
+            continue
+        ziel = PIXABAY_CACHE / f"pixabay_{hit['id']}.mp4"
+        if not ziel.exists():
+            urllib.request.urlretrieve(v['url'], ziel)
+        schon.add(hit['id'])
+        return ziel, {'quelle': 'Pixabay', 'id': hit['id'], 'seite': hit['pageURL'], 'von': hit.get('user')}
+    return None, None
 
 
 def ass_zeit(s):
@@ -121,18 +179,37 @@ def main(skript_pfad, aus):
         woerter = [{'w': x.word.strip(), 's': x.start, 'e': x.end} for seg in segs for x in seg.words]
     untertitel(woerter, aus / 'untertitel.ass')
 
-    with messen('bilder'):
-        liste = []
+    # Je Abschnitt ein eigenes Stueck: Clip (zugeschnitten auf 9:16) mit
+    # Schrift-Ebene darueber - oder Farbverlauf, wenn kein Clip passt.
+    quellen, schon, liste = [], set(), []
+    with messen('clips_und_stuecke'):
         for i, t in enumerate(s['teile']):
-            p = aus / f'bild_{i:02d}.png'
-            bild_fuer(t, s['titel'], i, len(s['teile'])).save(p)
-            liste.append(f"file '{p.name}'\nduration {laengen[i]:.3f}")
-        liste.append(f"file 'bild_{len(s['teile']) - 1:02d}.png'")
-        (aus / 'bilder.txt').write_text('\n'.join(liste) + '\n', encoding='utf-8')
+            dauer = laengen[i]
+            stueck = aus / f'stueck_{i:02d}.mp4'
+            clip, quelle = clip_fuer(t.get('suche') or s.get('suche'), schon, dauer)
+            ebene = aus / f'ebene_{i:02d}.png'
+            bild_fuer(t, s['titel'], i, len(s['teile']), durchsichtig=bool(clip)).save(ebene)
+            if clip:
+                quellen.append(quelle)
+                filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,'
+                        f'fps={FPS}[v];[v][1:v]overlay=0:0,format=yuv420p')
+                ein = ['-stream_loop', '-1', '-i', str(clip), '-i', str(ebene)]
+            else:
+                quellen.append({'quelle': 'eigenes Bild'})
+                filt = f'[0:v]fps={FPS},format=yuv420p'
+                ein = ['-loop', '1', '-i', str(ebene)]
+            subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *ein, '-filter_complex', filt,
+                            '-t', f'{dauer:.3f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
+                            str(stueck)], check=True)
+            liste.append(f"file '{stueck.name}'")
+        (aus / 'stuecke.txt').write_text('\n'.join(liste) + '\n', encoding='utf-8')
+    # Quellen je Video festhalten (Rechte-Regeln, Konzept 2c) - und fuer
+    # die Beschreibung („Clips: Pixabay", Bitte von Pixabay).
+    (aus / 'quellen.json').write_text(json.dumps(quellen, indent=2, ensure_ascii=False), encoding='utf-8')
 
     with messen('rendern'):
         subprocess.run([
-            'ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', 'bilder.txt',
+            'ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', 'stuecke.txt',
             '-i', 'stimme.wav',
             '-vf', f'fps={FPS},format=yuv420p,ass=untertitel.ass',
             '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11',  # Plattformnorm (Konzept 4a, Punkt 6)

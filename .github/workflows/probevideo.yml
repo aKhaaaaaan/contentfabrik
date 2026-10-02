@@ -28,7 +28,15 @@ jobs:
           [ -f modelle/kokoro-v1.0.onnx ] || curl -sL -o modelle/kokoro-v1.0.onnx https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx
           [ -f modelle/voices-v1.0.bin ] || curl -sL -o modelle/voices-v1.0.bin https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin
           ls -la modelle
+      - name: Clip-Zwischenspeicher (Pixabay verlangt 24 h Zwischenspeicherung)
+        uses: actions/cache@v4
+        with:
+          path: clips
+          key: clips-${{ github.run_id }}
+          restore-keys: clips-
       - name: Video bauen
+        env:
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
         run: python fabrik/bauen.py skripte/probe.json ausgabe
       - name: Ton pruefen (Lautstaerke der Stimme und des fertigen Videos)
         run: |
@@ -41,3 +49,4 @@ jobs:
             ausgabe/short.mp4
             ausgabe/messung.json
             ausgabe/stimme.wav
+            ausgabe/quellen.json

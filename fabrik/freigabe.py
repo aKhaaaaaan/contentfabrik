@@ -121,6 +121,17 @@ def senden(skript_pfad, video_pfad):
             + '\n\nBeschreibung:\n' + code(f"{skript['beschreibung']}\n\n{tags}")
             + '\n\n<i>In der App „Veränderte oder synthetische Inhalte“ auf „Ja“ stellen (KI-Stimme).</i>')
     antwort = telegram('sendMessage', {'chat_id': chat, 'parse_mode': 'HTML', 'text': text})
+    # 3. TikTok von Hand - eigene Nachricht, damit die Texte nicht an Telegrams
+    # 4096-Zeichen-Grenze stossen. GEMESSEN 03.10.2026: Ein neues Konto wurde
+    # nach API-Uploads einer ungeprueften App gesperrt („Spam und irrefuehrendes
+    # Kontoverhalten"), Hand-Uploads im zweiten Konto gehen. Bis zur TikTok-
+    # Pruefung laedt der Nutzer darum selbst hoch. CC BY verlangt die Nennung
+    # auch auf TikTok - Musik/Fotos stehen deshalb mit im Text.
+    nennung = '\n'.join(z for z in skript['beschreibung'].split('\n') if z.startswith(('Music:', 'Photos')))
+    tiktok = f'{titel} {tags}' + (f'\n\n{nennung}' if nennung else '')
+    telegram('sendMessage', {'chat_id': chat, 'parse_mode': 'HTML', 'text':
+             '📱 <b>TikTok</b> (Text antippen = kopieren):\n\n' + code(tiktok[:2200])
+             + '\n\n<i>Beim Posten „Weitere Optionen“ → „KI-generierte Inhalte“ einschalten.</i>'})
     print('Gesendet:', antwort.get('ok'))
 
 

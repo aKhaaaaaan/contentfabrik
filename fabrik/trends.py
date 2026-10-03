@@ -115,8 +115,9 @@ def ki_quellen(tage=7):
         d = json.loads(_hole('https://huggingface.co/api/models?sort=trendingScore&limit=10'))
         for m in d:
             aus.append({'quelle': 'Hugging Face', 'name': m['id'], 'url': f"https://huggingface.co/{m['id']}", 'zahl': m.get('likes', 0),
-                        'text': f"task: {m.get('pipeline_tag', 'unknown')}, {m.get('likes', 0)} likes, "
-                                f"{m.get('downloads', 0)} downloads"})
+                        # GEMESSEN: „null Downloads" wurde vorgelesen (neue Modelle zaehlen 30 Tage)
+                        'text': f"task: {m.get('pipeline_tag', 'unknown')}, {m.get('likes', 0)} likes"
+                                + (f", {m['downloads']} downloads" if m.get('downloads') else '')})
     except Exception as e:
         print('Hugging Face nicht verfuegbar:', e)
     try:  # Hacker News: worueber Technik-Leute gerade reden

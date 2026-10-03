@@ -155,10 +155,8 @@ Rules:
 {"- NORMAL VIEWERS, NOT DEVELOPERS: every entry starts with what a normal person can DO with it (from its source), then one number that proves it. Avoid jargon like 'image-text-to-text' - say 'reads pictures and answers questions about them'. Say 'free' only if the source shows it is open source or free to download." if kanal.get('nur_quellen') else ''}
 - The first sentence is the hook: a clear benefit, something brand new, or a surprise - within 3 seconds.
   No intro, no greeting.
-- LOOP: the very last sentence comes AFTER the call to action and is an unfinished lead-in that the FIRST
-  sentence completes, so the replay sounds like one continuous thought (this raises rewatches). Example:
-  first sentence "These seven AI models are free to download right now." - last sentence "And the best part?"
-  or "Which is why..." The last sentence must NOT end with a period.
+- ENDING: a short call to action, then ONE complete closing sentence that calls back to the hook (same image or
+  question), so a replay feels natural. Never end mid-sentence.
 - Never write "with just one click", "in seconds", "magic", "insane", "game changer".
 - Short, spoken sentences. Concrete facts only. Every claim must be TRUE and verifiable today; if unsure, leave it out.
   No financial, medical or legal advice. No made-up numbers.
@@ -227,13 +225,13 @@ def main(kanal_pfad, aus_pfad, thema=None):
             schluss = e['teile'][-1]['text'].strip() if e['teile'] else ''
             floskel = re.findall(r'just one click|in seconds|\bmagic\b|\binsane\b|game.?changer',
                                  ' '.join(t['text'] for t in e['teile']), re.I)
-            if (schluss.endswith('.') or floskel) and not nachgebessert and zahl >= mindest and not zu_wenig \
+            # GEMESSEN: Der Schluss ohne Punkt („And the best part") wirkte laut
+            # KI-Pruefung wie ein Abbruch (Schluss 4/10) - nur noch Floskeln pruefen.
+            if floskel and not nachgebessert and zahl >= mindest and not zu_wenig \
                     and not falsch:
                 nachgebessert = True
                 print(f'Versuch {versuch + 1}: Loop/Floskel nachbessern ({floskel or schluss[-40:]})')
-                zusatz_ = ('\nYour previous draft ' + ('ended with a full stop - add a final unfinished lead-in '
-                           'sentence that the first sentence completes. ' if schluss.endswith('.') else '')
-                           + (f'used banned phrases {floskel}. ' if floskel else '') + 'Keep everything else.')
+                zusatz_ = f'\nYour previous draft used banned phrases {floskel}. Keep everything else.'
                 continue
             if zahl >= mindest and not zu_wenig and not falsch:
                 return e, m, None

@@ -87,13 +87,26 @@ def foto_fuer(bilder, satz, benutzt):
     """KI waehlt aus den freien Wikipedia-Fotos das zum Satz passende (oder
     keins). Jedes Foto hoechstens einmal je Video."""
     import urllib.request, hashlib
-    frei = [b for b in bilder if b['titel'] not in benutzt][:8]
+    frei = [b for b in bilder if b['titel'] not in benutzt]
     if not frei or not os.environ.get('GEMINI_API_KEY'):
         return None, None
     try:
+        from skript import gemini
+        # GEMESSEN (Nintendo-Lauf): Nur die ersten 8 von 32 Fotos wurden
+        # gezeigt - alphabetisch Buerogebaeude und Game Boys; „Nintendo 1889"
+        # und „NintendoCards" kamen nie dran -> Stock-Clips (Autobahn, Naeherei).
+        # Jetzt: Vorauswahl ueber alle Titel/Beschreibungen, dann Vorschau.
+        liste = '\n'.join(f"{n}: {b['titel'][5:]} - {b['beschreibung'][:120]}" for n, b in enumerate(frei))
+        vor, _ = gemini(f'A narrator says:\n"{satz}"\nWhich of these Wikimedia photos could show exactly that '
+                        f'(person, place, product, era)? Give up to 4 numbers, best first; empty list if none.\n{liste}',
+                        {'type': 'OBJECT', 'properties': {'nummern': {'type': 'ARRAY', 'items': {'type': 'INTEGER'}}},
+                         'required': ['nummern']}, temperatur=0.1,
+                        modelle=['gemini-flash-lite-latest', 'gemini-flash-latest'])
+        frei = [frei[n] for n in vor['nummern'] if 0 <= n < len(frei)][:4]
+        if not frei:
+            return None, None
         vorschau = [urllib.request.urlopen(urllib.request.Request(b['klein'], headers=WIKI_KENNUNG),
                                            timeout=20).read() for b in frei]
-        from skript import gemini
         wahl, _ = gemini(
             f'These are {len(vorschau)} photos (0 to {len(vorschau) - 1}) from the Wikipedia article. A narrator '
             f'says:\n"{satz}"\nPick the photo that clearly shows what is said (person, place, product, era). '

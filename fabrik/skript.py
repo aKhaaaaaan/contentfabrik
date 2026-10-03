@@ -407,6 +407,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         'winkel': kanal.get('_winkel', ''), 'format': kanal.get('format', 'ranking'),
         'story': story,
         'hintergrund_suche': kanal.get('hintergrund_suche', ''),
+        'musik_suche': kanal.get('musik_suche', []),
         'bilder': wiki_fotos,
         'beschreibung': entwurf['beschreibung'] + '\nClips: Pixabay'
                         + (''.join(f"\nSource: Wikipedia - {q['name']} (CC BY-SA)" for q in quellen

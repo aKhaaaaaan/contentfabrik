@@ -83,6 +83,46 @@ def titel_zeichnen(img, titel, akzent):
 KARTE_Y = 700
 
 
+def musik_holen(suchen):
+    """Hintergrundmusik ueber Openverse (offizielle, kostenlose Suche nach frei
+    lizenzierten Werken, u. a. Jamendo und Freesound).
+    GEMELDET: „Brauchen die Videos keine Hintergrundmusik?" - und die Musik soll
+    fuer YouTube UND TikTok gelten. GEPRUEFT 03.10.2026: YouTube-Audio-Library-
+    Stuecke duerfen meist nur auf YouTube laufen. Darum nur CC0 und CC BY
+    (gewerblich, jede Plattform, Kuenstler nennen); KEIN CC BY-SA - das wuerde
+    verlangen, das ganze Video unter dieselbe Lizenz zu stellen.
+    Gibt (pfad, nennung) oder (None, None) zurueck."""
+    import random, urllib.parse, urllib.request
+    gesperrt = set(json.loads(MUSIK_SPERRE.read_text(encoding='utf-8'))) if MUSIK_SPERRE.exists() else set()
+    for suche in random.sample(suchen, len(suchen)):
+        try:
+            d = json.load(urllib.request.urlopen(urllib.request.Request(
+                'https://api.openverse.org/v1/audio/?' + urllib.parse.urlencode(
+                    {'q': suche, 'license_type': 'commercial', 'page_size': 20}), headers=WIKI_KENNUNG), timeout=30))
+        except Exception as e:
+            print('Openverse nicht erreichbar:', str(e)[:120])
+            continue
+        treffer = [r for r in d.get('results', [])
+                   if r.get('license') in ('cc0', 'by') and r.get('url') and r['id'] not in gesperrt
+                   and 45_000 <= (r.get('duration') or 0) <= 600_000]
+        if not treffer:
+            continue
+        r = random.choice(treffer[:8])  # Abwechslung, aber aus den relevantesten
+        ziel = PIXABAY_CACHE / f"musik_{r['id']}.mp3"
+        try:
+            if not ziel.exists():
+                ziel.write_bytes(urllib.request.urlopen(urllib.request.Request(r['url'], headers=WIKI_KENNUNG),
+                                                        timeout=60).read())
+        except Exception as e:
+            print('Musik-Download fehlgeschlagen:', str(e)[:120])
+            continue
+        lizenz = 'CC0' if r['license'] == 'cc0' else f"CC BY {r.get('license_version', '')}".strip()
+        nennung = f"Music: \"{r['title']}\" by {r.get('creator') or 'unknown'} ({lizenz}, via {r.get('source')})"
+        print('Musik:', nennung)
+        return ziel, {'quelle': 'Musik', 'id': r['id'], 'nennung': nennung, 'seite': r.get('foreign_landing_url', '')}
+    return None, None
+
+
 def foto_fuer(bilder, satz, benutzt):
     """KI waehlt aus den freien Wikipedia-Fotos das zum Satz passende (oder
     keins). Jedes Foto hoechstens einmal je Video."""
@@ -251,6 +291,8 @@ def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None, akzent=(3
 
 PIXABAY_CACHE = Path('clips')
 REGELN = []  # gelernte Regeln des Kanals (lernen.py), in main() gesetzt
+# Stuecke, die eine Urheberrechts-Meldung ausgeloest haben - nie wieder nehmen
+MUSIK_SPERRE = Path(__file__).resolve().parent.parent / 'musik_gesperrt.json'
 
 
 def regel_text():
@@ -596,17 +638,30 @@ def main(skript_pfad, aus):
         (aus / 'stuecke.txt').write_text('\n'.join(liste) + '\n', encoding='utf-8')
     # Quellen je Video festhalten (Rechte-Regeln, Konzept 2c) - und fuer
     # die Beschreibung („Clips: Pixabay", Bitte von Pixabay).
+    musik, musik_q = musik_holen(s.get('musik_suche') or ['calm ambient background']) \
+        if s.get('musik', True) else (None, None)
+    if musik_q:
+        quellen.append(musik_q)
     (aus / 'quellen.json').write_text(json.dumps(quellen, indent=2, ensure_ascii=False), encoding='utf-8')
 
     with messen('rendern'):
         subprocess.run([
             'ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', 'stuecke.txt',
             '-i', 'stimme.wav',
+            *(['-stream_loop', '-1', '-i', str(Path(musik).resolve())] if musik else []),
             # Einheitlicher Look ueber Clips verschiedener Herkunft: etwas mehr
             # Kontrast/Saettigung, leicht dunklere Raender - VOR den Untertiteln.
             '-vf', f"fps={FPS},eq=contrast=1.06:saturation=1.12,vignette=PI/5,format=yuv420p,"
                    f"ass=untertitel.ass:fontsdir='{SCHRIFTEN.as_posix()}'",
-            '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11',  # Plattformnorm (Konzept 4a, Punkt 6)
+            # Musik: Grundpegel -20 dB, unter der Stimme automatisch weitere ~10 dB
+            # leiser (Sidechain) - die Stimme bleibt immer klar verstaendlich.
+            *(['-filter_complex',
+               '[2:a]aresample=48000,volume=0.1,afade=t=in:d=1[m];'
+               '[1:a]aresample=48000,asplit=2[v][sc];'
+               '[m][sc]sidechaincompress=threshold=0.015:ratio=6:attack=15:release=350[md];'
+               '[v][md]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[a]',
+               '-map', '0:v', '-map', '[a]'] if musik else
+              ['-af', 'loudnorm=I=-14:TP=-1.5:LRA=11']),  # Plattformnorm (Konzept 4a, Punkt 6)
             # 48 kHz Stereo: loudnorm rechnet intern hoch, und das Ergebnis
             # (96 kHz Mono) spielten Handy-Player nicht ab - gemeldet: „keine
             # Stimme hörbar", obwohl die Tonspur laut genug war (−15 dB).

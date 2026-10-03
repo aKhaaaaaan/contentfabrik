@@ -84,6 +84,10 @@ def senden(skript_pfad, video_pfad):
     qpfad = Path(skript_pfad).with_name('quellen.json')
     fotos = [q for q in (json.loads(qpfad.read_text(encoding='utf-8')) if qpfad.exists() else [])
              if q.get('quelle') == 'Wikimedia Commons']
+    musik = [q for q in (json.loads(qpfad.read_text(encoding='utf-8')) if qpfad.exists() else [])
+             if q.get('quelle') == 'Musik']
+    if musik:
+        skript['beschreibung'] += '\n' + musik[0]['nennung']
     if fotos:
         skript['beschreibung'] += '\nPhotos (Wikimedia Commons): ' + '; '.join(
             f"{q['von']}, {q['lizenz']} ({q['seite']})" for q in fotos)

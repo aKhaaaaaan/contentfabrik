@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contentfabrik – TikTok connection</title>
+<meta name="robots" content="noindex">
+<style>
+  :root { --text:#1b1f24; --muted:#5b6470; --bg:#ffffff; }
+  @media (prefers-color-scheme: dark) { :root { --text:#e8eaed; --muted:#a3abb5; --bg:#0d1117; } }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  main { max-width:560px; margin:0 auto; padding:64px 16px; text-align:center; }
+  .muted { color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <h1>TikTok connection</h1>
+  <p id="info" class="muted">Finishing the connection…</p>
+</main>
+<script>
+  // TikTok leitet nach der Anmeldung hierher (registrierte Redirect-URI).
+  // Die Seite reicht code + state an das Contentfabrik-Programm auf dem PC des
+  // Betreibers weiter (127.0.0.1:PORT, steht im state). Nichts wird gespeichert.
+  (function () {
+    var p = new URLSearchParams(location.search);
+    var code = p.get('code'), state = p.get('state') || '', fehler = p.get('error');
+    var info = document.getElementById('info');
+    if (fehler) { info.textContent = 'Connection cancelled: ' + fehler; return; }
+    var port = (state.split('.')[0] || '').replace(/[^0-9]/g, '');
+    if (code && port) {
+      location.replace('http://127.0.0.1:' + port + '/?code=' + encodeURIComponent(code) +
+                       '&state=' + encodeURIComponent(state));
+    } else {
+      info.textContent = 'This page is only used to connect the Contentfabrik tool with TikTok.';
+    }
+  })();
+</script>
+</body>
+</html>

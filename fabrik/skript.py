@@ -79,7 +79,11 @@ def hinweise(kanal, thema):
         vorbilder = trends.youtube_ausreisser(kanal.get('trend_suche', []))
         if vorbilder:
             text += ('\nShorts in this niche that are outperforming RIGHT NOW (views, x = times their channel average). '
-                     'Use them to learn which TOPICS and ANGLES work - pick a related but different topic, never copy:\n'
+                     # GEMELDET: Themen aus viralen Videos uebernehmen. Thema/Fakten sind frei -
+                     # der TEXT anderer (Transkript) ist geschuetzt und YouTube bestraft
+                     # „wiederverwendete Inhalte": gleiches Thema ja, eigene Quelle + eigene Worte.
+                     'PROVEN TOPICS: you MAY pick the same subject as one of these if our own source covers it - '
+                     'tell it in your own words with your own angle; never copy their wording, structure or title:\n'
                      + '\n'.join(f"- {v['titel']} ({v['aufrufe']:,} views, {v['faktor']}x)" for v in vorbilder) + '\n')
         gefragt = trends.google_trends()
         if gefragt:

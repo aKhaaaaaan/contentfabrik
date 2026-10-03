@@ -82,6 +82,15 @@ def abholen():
         if text.lower() in ('/start', 'hilfe', '/hilfe', 'help', 'hallo'):
             _tg('sendMessage', chat_id=chat, text=HILFE)
             continue
+        # Antwort auf die Hoerprobe („Stimmen: 2, 7, 9") - kein Video-Thema
+        if re.match(r'\s*stimm', text, re.I):
+            nummern = [int(n) for n in re.findall(r'\d+', text)][:3]
+            Path('themen').mkdir(exist_ok=True)
+            Path('themen/stimmwahl.json').write_text(json.dumps(
+                {'nummern': nummern, 'eingang': datetime.date.today().isoformat()}) + '\n', encoding='utf-8')
+            _tg('sendMessage', chat_id=chat, text=f'✅ Stimmwahl gespeichert: {nummern}. '
+                                                  'Ich stelle die Kanäle darauf um.')
+            continue
         kanal, thema = zuordnen(text)
         if not kanal:
             _tg('sendMessage', chat_id=chat, text='❓ Welcher Kanal? ' + HILFE)

@@ -131,7 +131,7 @@ def foto_fuer(bilder, satz, benutzt):
     if not frei or not os.environ.get('GEMINI_API_KEY'):
         return None, None
     try:
-        from skript import gemini
+        from skript import gemini, SEHEN
         # GEMESSEN (Nintendo-Lauf): Nur die ersten 8 von 32 Fotos wurden
         # gezeigt - alphabetisch Buerogebaeude und Game Boys; „Nintendo 1889"
         # und „NintendoCards" kamen nie dran -> Stock-Clips (Autobahn, Naeherei).
@@ -141,7 +141,7 @@ def foto_fuer(bilder, satz, benutzt):
                         f'(person, place, product, era)? Give up to 4 numbers, best first; empty list if none.\n{liste}',
                         {'type': 'OBJECT', 'properties': {'nummern': {'type': 'ARRAY', 'items': {'type': 'INTEGER'}}},
                          'required': ['nummern']}, temperatur=0.1,
-                        modelle=['gemini-flash-lite-latest', 'gemini-flash-latest'])
+                        modelle=SEHEN)
         frei = [frei[n] for n in vor['nummern'] if 0 <= n < len(frei)][:4]
         if not frei:
             return None, None
@@ -153,7 +153,7 @@ def foto_fuer(bilder, satz, benutzt):
             'Reject flags, maps, logos-only, charts and unrelated photos. If none fits clearly, answer -1.'
             + regel_text(),
             {'type': 'OBJECT', 'properties': {'nummer': {'type': 'INTEGER'}}, 'required': ['nummer']},
-            temperatur=0.1, bilder=vorschau, modelle=['gemini-flash-lite-latest', 'gemini-flash-latest'])
+            temperatur=0.1, bilder=vorschau, modelle=SEHEN)
         n = wahl['nummer']
         if not 0 <= n < len(frei):
             return None, None
@@ -320,7 +320,7 @@ def waehle(kandidaten, satz):
         bilder = [urllib.request.urlopen(urllib.request.Request(
             (h['videos'].get('tiny') or h['videos']['small'])['thumbnail'], headers=KENNUNG), timeout=20).read()
                   for h in kandidaten]
-        from skript import gemini
+        from skript import gemini, SEHEN
         wahl, _ = gemini(
             f'These are {len(bilder)} preview frames of stock videos, numbered 0 to {len(bilder) - 1} in order. '
             f'They will be the background while a narrator says:\n"{satz}"\n'
@@ -328,7 +328,7 @@ def waehle(kandidaten, satz):
             'green-screen or text-heavy frames. If none fits clearly, answer -1.' + regel_text(),
             {'type': 'OBJECT', 'properties': {'nummer': {'type': 'INTEGER'}}, 'required': ['nummer']},
             # GEMESSEN: mit dem grossen Modell ~60 s je Abschnitt (384 s je Video)
-            temperatur=0.1, bilder=bilder, modelle=['gemini-flash-lite-latest', 'gemini-flash-latest'])
+            temperatur=0.1, bilder=bilder, modelle=SEHEN)
         n = wahl['nummer']
         return [kandidaten[n]] if 0 <= n < len(kandidaten) else []
     except Exception as e:  # KI nicht erreichbar: lieber Clip als kein Video
@@ -454,7 +454,7 @@ def demo_fuer(url, satz=''):
     if not pfade:
         return None, None
     try:
-        from skript import gemini
+        from skript import gemini, SEHEN
         wahl, _ = gemini(
             f'These are {len(bilder)} images from the documentation page of the AI tool "{m[2]}", numbered 0 to '
             f'{len(bilder) - 1}. One will be shown full screen while a narrator says:\n"{satz}"\n'
@@ -463,7 +463,7 @@ def demo_fuer(url, satz=''):
             'architecture diagrams, benchmark charts and tables, and anything unreadable on a phone. '
             'If none qualifies, answer -1.' + regel_text(),
             {'type': 'OBJECT', 'properties': {'nummer': {'type': 'INTEGER'}}, 'required': ['nummer']},
-            temperatur=0.1, bilder=bilder, modelle=['gemini-flash-lite-latest', 'gemini-flash-latest'])
+            temperatur=0.1, bilder=bilder, modelle=SEHEN)
         n = wahl['nummer']
     except Exception as e:
         print('Beispielbild-Auswahl ohne KI nicht moeglich:', str(e)[:120])

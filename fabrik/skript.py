@@ -5,13 +5,23 @@ KI: Google Gemini, kostenloses Kontingent (Schluessel GEMINI_API_KEY).
 
 Aufruf:  python fabrik/skript.py kanaele/ai-tools-explained.json skripte/heute.json [thema]
 """
-import json, os, re, sys, time, urllib.request, datetime
+import json, os, re, sys, time, urllib.error, urllib.request, datetime
 from pathlib import Path
 
 # GEPRUEFT 02.10.2026: gemini-2.5-flash ist fuer neue Konten gesperrt (404);
 # gemini-3.8-flash und gemini-flash-latest antworten (200).
 # Bei Ueberlastung (503, gemessen bei 3.8-flash) sofort das naechste Modell.
-MODELLE = ['gemini-flash-latest', 'gemini-3-flash-preview', 'gemini-3.8-flash', 'gemini-flash-lite-latest']
+# GEMESSEN 04.10.2026: Der kostenlose Tarif erlaubt je Modell nur 20 Anfragen
+# am Tag (GenerateRequestsPerDayPerProjectPerModel-FreeTier = 20); Pro-Modelle
+# gar keine. Nach einem Testtag waren drei Modelle leer. Jede Flash-Fassung hat
+# ein eigenes Kontingent - darum alle, die beste zuerst (getestet: 2.5 nicht mehr
+# verfuegbar, 3.7 zeitweise ueberlastet).
+MODELLE = ['gemini-3.8-flash', 'gemini-flash-latest', 'gemini-3.7-flash', 'gemini-3.6-flash', 'gemini-3.5-flash',
+           'gemini-3-flash-preview', 'gemini-flash-lite-latest', 'gemini-3.5-flash-lite', 'gemini-3.1-flash-lite']
+# Bildauswahl (eine Anfrage je Abschnitt, ~10 je Video): schnelle Lite-Modelle
+# zuerst, damit die starken Modelle fuer Skript und Pruefung uebrig bleiben.
+SEHEN = ['gemini-flash-lite-latest', 'gemini-3.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-3.6-flash',
+         'gemini-3.5-flash', 'gemini-flash-latest']
 
 
 def gemini(prompt, schema, temperatur=0.9, bilder=(), modelle=None, dateien=()):
@@ -38,6 +48,16 @@ def gemini(prompt, schema, temperatur=0.9, bilder=(), modelle=None, dateien=()):
                 return json.loads(d['candidates'][0]['content']['parts'][0]['text']), modell
             except Exception as e:  # Kontingent/Netz: kurz warten, dann naechster Versuch
                 letzter = str(e).replace(schluessel, '***')
+                koerper_fehler = ''
+                if isinstance(e, urllib.error.HTTPError):
+                    try:
+                        koerper_fehler = e.read().decode(errors='replace')
+                    except Exception:
+                        pass
+                # Tageskontingent leer: Warten hilft bis Mitternacht (Pazifik) nicht - naechstes Modell
+                if 'PerDay' in koerper_fehler:
+                    letzter = f'{modell}: Tageskontingent erschoepft'
+                    break
                 time.sleep(5 * (versuch + 1))
     raise RuntimeError(f'Gemini nicht erreichbar: {letzter}')
 

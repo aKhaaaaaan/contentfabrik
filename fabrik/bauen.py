@@ -83,19 +83,58 @@ def titel_zeichnen(img, titel, akzent):
 KARTE_Y = 700
 
 
-def karten_ebene(karte):
+def foto_fuer(bilder, satz, benutzt):
+    """KI waehlt aus den freien Wikipedia-Fotos das zum Satz passende (oder
+    keins). Jedes Foto hoechstens einmal je Video."""
+    import urllib.request, hashlib
+    frei = [b for b in bilder if b['titel'] not in benutzt][:8]
+    if not frei or not os.environ.get('GEMINI_API_KEY'):
+        return None, None
+    try:
+        vorschau = [urllib.request.urlopen(urllib.request.Request(b['klein'], headers=WIKI_KENNUNG),
+                                           timeout=20).read() for b in frei]
+        from skript import gemini
+        wahl, _ = gemini(
+            f'These are {len(vorschau)} photos (0 to {len(vorschau) - 1}) from the Wikipedia article. A narrator '
+            f'says:\n"{satz}"\nPick the photo that clearly shows what is said (person, place, product, era). '
+            'Reject flags, maps, logos-only, charts and unrelated photos. If none fits clearly, answer -1.',
+            {'type': 'OBJECT', 'properties': {'nummer': {'type': 'INTEGER'}}, 'required': ['nummer']},
+            temperatur=0.1, bilder=vorschau, modelle=['gemini-flash-lite-latest', 'gemini-flash-latest'])
+        n = wahl['nummer']
+        if not 0 <= n < len(frei):
+            return None, None
+        b = frei[n]
+        ziel = PIXABAY_CACHE / f"foto_{hashlib.sha1(b['gross'].encode()).hexdigest()[:12]}.jpg"
+        if not ziel.exists():
+            ziel.write_bytes(urllib.request.urlopen(urllib.request.Request(b['gross'], headers=WIKI_KENNUNG),
+                                                    timeout=60).read())
+        Image.open(ziel).convert('RGB').save(ziel, 'JPEG', quality=92)  # einheitlich JPEG
+        benutzt.add(b['titel'])
+        return ziel, {'quelle': 'Wikimedia Commons', 'seite': b['seite'], 'von': b['autor'], 'lizenz': b['lizenz']}
+    except Exception as e:
+        print('Fotowahl nicht moeglich:', str(e)[:120])
+        return None, None
+
+
+def karten_ebene(karte, kasten=None):
     """Die Karte allein (abgerundet, mit Schatten) auf durchsichtigem Bild."""
     k = Image.open(karte).convert('RGB')
     breite = B - 80
-    k = k.resize((breite, int(k.height * breite / k.width)), Image.LANCZOS)
+    if kasten:  # Foto: in den Kasten zwischen Titel und Untertiteln einpassen
+        f = min(kasten[0] / k.width, kasten[1] / k.height)
+        k = k.resize((int(k.width * f), int(k.height * f)), Image.LANCZOS)
+    else:
+        k = k.resize((breite, int(k.height * breite / k.width)), Image.LANCZOS)
+    x = (B - k.width) // 2
+    y = KARTE_Y if not kasten else 430 + (kasten[1] - k.height) // 2
     img = Image.new('RGBA', (B, H), (0, 0, 0, 0))
     schatten = Image.new('RGBA', (B, H), (0, 0, 0, 0))
-    ImageDraw.Draw(schatten).rounded_rectangle((40, KARTE_Y + 14, 40 + breite, KARTE_Y + 14 + k.height), 28,
+    ImageDraw.Draw(schatten).rounded_rectangle((x, y + 14, x + k.width, y + 14 + k.height), 28,
                                               fill=(0, 0, 0, 170))
     img.alpha_composite(schatten.filter(ImageFilter.GaussianBlur(18)))
     maske = Image.new('L', k.size, 0)
     ImageDraw.Draw(maske).rounded_rectangle((0, 0, *k.size), 28, fill=255)
-    img.paste(k, (40, KARTE_Y), maske)
+    img.paste(k, (x, y), maske)
     return img
 
 
@@ -179,6 +218,7 @@ PIXABAY_CACHE = Path('clips')
 # Eigene, ehrliche Kennung. GEMESSEN: Pixabays Schutzdienst blockt die
 # Standard-Kennung „Python-urllib" (HTTP 403, Fehler 1010); mit Kennung: 200.
 KENNUNG = {'User-Agent': 'Contentfabrik/1.0 (privates Video-Tool)'}
+WIKI_KENNUNG = {'User-Agent': 'Contentfabrik/1.0 (private video tool; github.com/aKhaaaaaan)'}
 
 
 # GEMESSEN 02.10.2026: Ein reiner Greenscreen-Clip landete als Hintergrund
@@ -423,6 +463,7 @@ def main(skript_pfad, aus):
     # Je Abschnitt ein eigenes Stueck: Clip (zugeschnitten auf 9:16) mit
     # Schrift-Ebene darueber - oder Farbverlauf, wenn kein Clip passt.
     quellen, schon, liste, hg_clip = [], set(), [], None
+    benutzte_fotos = set()
     kartenvideo = any(str(t.get('quelle_url', '')).startswith('http') for t in s['teile'])
     with messen('clips_und_stuecke'):
         for i, t in enumerate(s['teile']):
@@ -430,13 +471,20 @@ def main(skript_pfad, aus):
             stueck = aus / f'stueck_{i:02d}.mp4'
             ebene = aus / f'ebene_{i:02d}.png'
             karte = karte_fuer(t.get('quelle_url'))
+            foto, fq = (None, None) if karte else foto_fuer(s.get('bilder') or [], t['text'], benutzte_fotos)
             # GEMESSEN: Im Kartenvideo holte der Schluss einen fremden Clip
             # (halber „Subscribe"-Knopf) - dort gilt jetzt derselbe Hintergrund.
-            clip, quelle = ((None, None) if karte or kartenvideo else
+            clip, quelle = ((None, None) if karte or foto or kartenvideo else
                             clip_fuer(t.get('suche') or s.get('suche'), schon, dauer, t['text']))
             bild_fuer(t, s['titel'], i, len(s['teile']), durchsichtig=not karte,
                      karte=karte).save(ebene)
-            if karte or kartenvideo:
+            if foto:
+                quellen.append(fq)
+                kpfad = aus / f'karte_{i:02d}.png'
+                karten_ebene(foto, kasten=(B - 80, 860)).save(kpfad)
+                hg_clip = hg_clip or hintergrund_holen(s, schon, dauer, quellen, aus)
+                ein, filt = karten_filter(hg_clip, ebene, kpfad)
+            elif karte or kartenvideo:
                 kpfad = None
                 if karte:
                     quellen.append({'quelle': 'Vorschaubild', 'seite': t['quelle_url']})

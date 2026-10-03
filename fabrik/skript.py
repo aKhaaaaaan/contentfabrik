@@ -250,6 +250,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         return e, m, f'Skript zu kurz oder Rangfolge falsch ({zahl} Woerter, {plaetze} Plaetze)'
 
     basis_zusatz = zusatz
+    wiki_fotos = []
     for runde in range(1 if thema else 3):
         runden_thema = thema
         if kanal.get('quelle') == 'wikipedia':
@@ -268,6 +269,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 verworfen.append(wahl['thema'])
                 continue
             quellen = [q]
+            wiki_fotos = trends.wiki_bilder(q['name'])
+            print(f'Freie Fotos: {len(wiki_fotos)}')
             runden_thema = wahl['thema']
             zusatz = (basis_zusatz + f"\nSOURCE (English Wikipedia, \"{q['name']}\"). Every factual claim MUST "
                       f"come from this text; leave out anything that is not in it:\n{q['text']}\n")
@@ -313,6 +316,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         'stimme': stimme, 'tempo': 1.05, 'teile': entwurf['teile'],
         'posten_ny': kanal.get('posten_ny', '15:00'),
         'hintergrund_suche': kanal.get('hintergrund_suche', ''),
+        'bilder': wiki_fotos,
         'beschreibung': entwurf['beschreibung'] + '\nClips: Pixabay'
                         + (''.join(f"\nSource: Wikipedia - {q['name']} (CC BY-SA)" for q in quellen
                                    if q.get('quelle') == 'Wikipedia')), 'hashtags': entwurf['hashtags'],

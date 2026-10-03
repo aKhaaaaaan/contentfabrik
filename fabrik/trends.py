@@ -166,6 +166,49 @@ def wikipedia(titel, grenze=7000):
         return None
 
 
+def _autor(roh):
+    # GEMESSEN: Wikimedia liefert „Unknown authorUnknown author" (zwei Spans)
+    t = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', roh)).strip()
+    h = len(t) // 2
+    if len(t) % 2 == 0 and t[:h] == t[h:]:
+        t = t[:h]
+    return t[:80] or 'unknown'
+
+
+def wiki_bilder(titel, n=40):
+    """Frei lizenzierte Fotos zum Wikipedia-Artikel (Wikimedia Commons).
+    GEMELDET (KI-Analyse Business-Video): Stock-Clips passten nur abstrakt
+    (Gasflamme, Einkaufszentrum). Echte Fotos zeigen Gruender, Werk, Produkt.
+    Nur gemeinfrei oder CC; nie „NonFree"; keine SVG (Flaggen, Logos, Icons).
+    Urheber + Lizenz + Seite werden fuer die Namensnennung mitgefuehrt."""
+    try:
+        d = json.loads(_hole('https://en.wikipedia.org/w/api.php?' + urllib.parse.urlencode({
+            'action': 'query', 'generator': 'images', 'titles': titel, 'gimlimit': 50, 'redirects': 1,
+            'prop': 'imageinfo', 'iiprop': 'url|size|extmetadata', 'iiurlwidth': 360,
+            'iiextmetadatafilter': 'LicenseShortName|Artist|ImageDescription|NonFree', 'format': 'json'}),
+            WIKI_KENNUNG))
+    except Exception as e:
+        print('Wikipedia-Bilder nicht verfuegbar:', str(e)[:120])
+        return []
+    aus = []
+    for seite in d.get('query', {}).get('pages', {}).values():
+        ii = (seite.get('imageinfo') or [{}])[0]
+        m = ii.get('extmetadata', {})
+        lizenz = m.get('LicenseShortName', {}).get('value', '')
+        if (not ii.get('thumburl') or seite['title'].lower().endswith(('.svg', '.gif'))
+                or m.get('NonFree', {}).get('value') or ii.get('width', 0) < 600
+                or not re.match(r'(CC|Public domain|PD)', lizenz, re.I)):
+            continue
+        klein = ii['thumburl']
+        aus.append({'titel': seite['title'], 'klein': klein,
+                    # Standard-Muster der Wikimedia-Vorschauen: /360px- -> /1080px-
+                    'gross': klein.replace('/360px-', '/1080px-') if ii.get('width', 0) > 1080 else ii['url'],
+                    'lizenz': lizenz, 'seite': ii.get('descriptionurl', ''),
+                    'autor': _autor(m.get('Artist', {}).get('value', '')),
+                    'beschreibung': re.sub(r'<[^>]+>', '', m.get('ImageDescription', {}).get('value', ''))[:200]})
+    return aus[:n]
+
+
 if __name__ == '__main__':
     print('Google Trends:', google_trends()[:8])
     q = ki_quellen()

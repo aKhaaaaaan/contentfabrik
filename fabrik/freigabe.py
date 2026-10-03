@@ -61,6 +61,13 @@ def senden(skript_pfad, video_pfad):
         sys.exit(f'Video zu gross fuer Telegram ({len(video) // 2**20} MB > 50 MB)')
     titel = ' '.join(z.replace('*', '') for z in skript['titel'])
     tags = ' '.join('#' + h.lstrip('#') for h in skript.get('hashtags', []))
+    # CC-Lizenzen verlangen Urheber, Lizenz und Quelle - automatisch anhaengen
+    qpfad = Path(skript_pfad).with_name('quellen.json')
+    fotos = [q for q in (json.loads(qpfad.read_text(encoding='utf-8')) if qpfad.exists() else [])
+             if q.get('quelle') == 'Wikimedia Commons']
+    if fotos:
+        skript['beschreibung'] += '\nPhotos (Wikimedia Commons): ' + '; '.join(
+            f"{q['von']}, {q['lizenz']} ({q['seite']})" for q in fotos)
     chat = os.environ['TELEGRAM_CHAT_ID']
     # 1. Das Video selbst - kurze Bildunterschrift, damit es gut lesbar bleibt
     telegram('sendVideo', {'chat_id': chat, 'supports_streaming': 'true',

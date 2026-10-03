@@ -5,7 +5,7 @@ KI: Google Gemini, kostenloses Kontingent (Schluessel GEMINI_API_KEY).
 
 Aufruf:  python fabrik/skript.py kanaele/ai-tools-explained.json skripte/heute.json [thema]
 """
-import json, os, sys, time, urllib.request, datetime
+import json, os, re, sys, time, urllib.request, datetime
 from pathlib import Path
 
 # GEPRUEFT 02.10.2026: gemini-2.5-flash ist fuer neue Konten gesperrt (404);
@@ -127,6 +127,11 @@ def anweisung(kanal, thema, frueher):
     # kam ein Video auf 50 s - unter der 60-s-Grenze fuer TikTok-Verguetung.
     woerter = f'{int(lmin * 2.9)}-{int(lmax * 2.9)}'
     fmt = kanal.get('format', 'ranking')
+    # Wechselnder Blickwinkel je Tag - dieselben belegten Daten, anders erzaehlt
+    # (Analyse: viral gehen Nutzen, Neuheit, Ueberraschung; YouTube bestraft
+    # gleichfoermige Massenware).
+    winkel = kanal.get('winkel', [])
+    blick = winkel[datetime.date.today().toordinal() % len(winkel)] if winkel else ''
     if fmt == 'ranking':
         pmin, pmax = kanal.get('plaetze', [5, 7])
         aufbau = (f'RANKING format with {pmin}-{pmax} entries. First part: a hook without a rank. '
@@ -145,7 +150,15 @@ Do NOT repeat these earlier topics: {frueher or 'none'}.
 Rules:
 - {aufbau}
 - Total spoken length {woerter} words (the video must be longer than 60 seconds).
-- The first sentence is the hook: curiosity, a number or a contradiction. No intro, no greeting.
+{('- ANGLE for today (title, hook and wording follow it): ' + blick) if blick else ''}
+{"- NORMAL VIEWERS, NOT DEVELOPERS: every entry starts with what a normal person can DO with it (from its source), then one number that proves it. Avoid jargon like 'image-text-to-text' - say 'reads pictures and answers questions about them'. Say 'free' only if the source shows it is open source or free to download." if kanal.get('nur_quellen') else ''}
+- The first sentence is the hook: a clear benefit, something brand new, or a surprise - within 3 seconds.
+  No intro, no greeting.
+- LOOP: the very last sentence comes AFTER the call to action and is an unfinished lead-in that the FIRST
+  sentence completes, so the replay sounds like one continuous thought (this raises rewatches). Example:
+  first sentence "These seven AI models are free to download right now." - last sentence "And the best part?"
+  or "Which is why..." The last sentence must NOT end with a period.
+- Never write "with just one click", "in seconds", "magic", "insane", "game changer".
 - Short, spoken sentences. Concrete facts only. Every claim must be TRUE and verifiable today; if unsure, leave it out.
   No financial, medical or legal advice. No made-up numbers.
 - No hype or exaggeration words (instantly, overnight, everyone, every single, never before, changed the
@@ -188,6 +201,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         # GEMESSEN: Eine Nachbesserung reichte nicht (147 Woerter = 56,8 s).
         # Bis zu drei; danach gilt der Entwurf als durchgefallen.
         zusatz_ = ''
+        nachgebessert = False
         for versuch in range(4):
             e, m = gemini(auftrag + zusatz_, SKRIPT_SCHEMA)
             zahl = woerter_von(e)
@@ -205,6 +219,21 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 continue
             falsch = [f"#{t['platz']} must be #{soll[t['quelle_url']]}" for t in e['teile']
                       if t.get('platz') and t.get('quelle_url') in soll and soll[t['quelle_url']] != t['platz']]
+            # GEMESSEN: Die Loop-Regel wurde ignoriert („Follow for more daily
+            # AI tools." als Schluss) und „with just one click" kam durch die
+            # Pruefung. Beides prueft jetzt der Code - einmal nachbessern,
+            # danach wird es hingenommen (kein Grund, ein Video zu verwerfen).
+            schluss = e['teile'][-1]['text'].strip() if e['teile'] else ''
+            floskel = re.findall(r'just one click|in seconds|\bmagic\b|\binsane\b|game.?changer',
+                                 ' '.join(t['text'] for t in e['teile']), re.I)
+            if (schluss.endswith('.') or floskel) and not nachgebessert and zahl >= mindest and not zu_wenig \
+                    and not falsch:
+                nachgebessert = True
+                print(f'Versuch {versuch + 1}: Loop/Floskel nachbessern ({floskel or schluss[-40:]})')
+                zusatz_ = ('\nYour previous draft ' + ('ended with a full stop - add a final unfinished lead-in '
+                           'sentence that the first sentence completes. ' if schluss.endswith('.') else '')
+                           + (f'used banned phrases {floskel}. ' if floskel else '') + 'Keep everything else.')
+                continue
             if zahl >= mindest and not zu_wenig and not falsch:
                 return e, m, None
             if falsch:

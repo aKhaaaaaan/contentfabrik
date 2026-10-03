@@ -32,6 +32,20 @@ def telegram(methode, felder, datei=None):
         sys.exit(f'Telegram lehnt ab ({e.code}): {e.read().decode(errors="replace")[:300].replace(token, "***")}')
 
 
+def verkleinern(video_pfad):
+    import subprocess, tempfile
+    dauer = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0',
+                                  video_pfad], capture_output=True, text=True, check=True).stdout)
+    ziel_bit = int(46 * 8 * 1024 * 1024 / dauer) - 160_000  # 46 MB Ziel, Platz fuer den Ton
+    aus = Path(tempfile.gettempdir()) / 'telegram.mp4'
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', video_pfad, '-c:v', 'libx264', '-preset', 'medium',
+                    '-b:v', str(ziel_bit), '-maxrate', str(int(ziel_bit * 1.3)), '-bufsize', str(ziel_bit * 2),
+                    '-c:a', 'copy', '-movflags', '+faststart', str(aus)], check=True)
+    print(f'Fuer Telegram verkleinert: {len(Path(video_pfad).read_bytes()) // 2**20} MB -> '
+          f'{aus.stat().st_size // 2**20} MB ({ziel_bit // 1000} kbit/s)')
+    return aus.read_bytes()
+
+
 def planungszeit(uhrzeit_ny, jetzt=None):
     """Naechster Termin zur festen New-Yorker Uhrzeit, in Berliner Zeit.
     Unsere Kanaele sind englisch, das Publikum sitzt vor allem in den USA -
@@ -57,8 +71,13 @@ def planungszeit(uhrzeit_ny, jetzt=None):
 def senden(skript_pfad, video_pfad):
     skript = json.loads(Path(skript_pfad).read_text(encoding='utf-8'))
     video = Path(video_pfad).read_bytes()
-    if len(video) > GRENZE:
-        sys.exit(f'Video zu gross fuer Telegram ({len(video) // 2**20} MB > 50 MB)')
+    if len(video) > GRENZE * 0.98:
+        # GEMESSEN: 121-s-Video = 56 MB, Telegram-Bots duerfen hoechstens 50 MB
+        # senden -> der Nutzer bekam „Lauf abgebrochen" statt des Videos.
+        # Kopie mit passender Bitrate, gleiche Aufloesung, Ton unveraendert.
+        video = verkleinern(video_pfad)
+        if len(video) > GRENZE:
+            sys.exit(f'Video auch verkleinert zu gross ({len(video) // 2**20} MB > 50 MB)')
     titel = ' '.join(z.replace('*', '') for z in skript['titel'])
     tags = ' '.join('#' + h.lstrip('#') for h in skript.get('hashtags', []))
     # CC-Lizenzen verlangen Urheber, Lizenz und Quelle - automatisch anhaengen

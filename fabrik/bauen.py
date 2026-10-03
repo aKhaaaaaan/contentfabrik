@@ -436,12 +436,26 @@ def main(skript_pfad, aus):
         from kokoro_onnx import Kokoro
         kokoro = Kokoro('modelle/kokoro-v1.0.onnx', 'modelle/voices-v1.0.bin')
     teile, rate, laengen = [], 24000, []
+    tempo = s.get('tempo', 1.05)
+    hoechst = (s.get('laenge_s') or [62, 90])[1]
     with messen('stimme'):
-        for t in s['teile']:
-            audio, rate = kokoro.create(t['text'], voice=s.get('stimme', 'af_heart'), speed=s.get('tempo', 1.05), lang='en-us')
-            pause = np.zeros(int(rate * 0.25), dtype=np.float32)
-            teile.append(np.concatenate([audio.astype(np.float32), pause]))
-            laengen.append(len(teile[-1]) / rate)
+        # GEMESSEN 03.10.2026: Die Stimme bm_george spricht ~2,05 Woerter/s
+        # (andere ~2,7) - 249 Woerter wurden 121 s statt hoechstens 90 s, die
+        # Datei 56 MB und damit zu gross fuer Telegram. Ist der Ton zu lang,
+        # wird EINMAL schneller gesprochen (hoechstens +20 %, sonst unnatuerlich).
+        for runde in range(2):
+            teile, laengen = [], []
+            for t in s['teile']:
+                audio, rate = kokoro.create(t['text'], voice=s.get('stimme', 'af_heart'), speed=tempo, lang='en-us')
+                pause = np.zeros(int(rate * 0.25), dtype=np.float32)
+                teile.append(np.concatenate([audio.astype(np.float32), pause]))
+                laengen.append(len(teile[-1]) / rate)
+            if runde or sum(laengen) <= hoechst + 5:
+                break
+            neu = round(min(tempo * 1.2, tempo * sum(laengen) / hoechst), 3)
+            print(f'Ton {sum(laengen):.0f} s > {hoechst} s - Tempo {tempo} -> {neu}')
+            tempo = neu
+    zeiten['tempo'] = tempo
     ton = np.concatenate(teile)
     with wave.open(str(aus / 'stimme.wav'), 'wb') as w:
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(rate)

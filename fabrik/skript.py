@@ -315,6 +315,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         'titel': [zeile(entwurf['titel_zeile1']), zeile(entwurf['titel_zeile2'])],
         'stimme': stimme, 'tempo': 1.05, 'teile': entwurf['teile'],
         'posten_ny': kanal.get('posten_ny', '15:00'),
+        'laenge_s': kanal.get('laenge_s', [62, 90]),
         'hintergrund_suche': kanal.get('hintergrund_suche', ''),
         'bilder': wiki_fotos,
         'beschreibung': entwurf['beschreibung'] + '\nClips: Pixabay'

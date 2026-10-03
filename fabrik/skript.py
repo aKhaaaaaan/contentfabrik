@@ -256,6 +256,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         'kanal': kanal['name'], 'thema': entwurf['thema'],
         'titel': [zeile(entwurf['titel_zeile1']), zeile(entwurf['titel_zeile2'])],
         'stimme': stimme, 'tempo': 1.05, 'teile': entwurf['teile'],
+        'posten_ny': kanal.get('posten_ny', '15:00'),
         'beschreibung': entwurf['beschreibung'] + '\nClips: Pixabay', 'hashtags': entwurf['hashtags'],
         'pruefung': pruefung, 'quellen': [q['url'] for q in quellen if q.get('url')], 'modell': modell, 'sekunden_ki': round(time.time() - t0, 1),
     }

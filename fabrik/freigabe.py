@@ -32,6 +32,28 @@ def telegram(methode, felder, datei=None):
         sys.exit(f'Telegram lehnt ab ({e.code}): {e.read().decode(errors="replace")[:300].replace(token, "***")}')
 
 
+def planungszeit(uhrzeit_ny, jetzt=None):
+    """Naechster Termin zur festen New-Yorker Uhrzeit, in Berliner Zeit.
+    Unsere Kanaele sind englisch, das Publikum sitzt vor allem in den USA -
+    der Nutzer laedt morgens hoch und PLANT die Veroeffentlichung, statt
+    nachts wach zu sein. Sommer-/Winterzeit rechnet zoneinfo (beide Laender
+    stellen an verschiedenen Tagen um)."""
+    import datetime
+    try:
+        from zoneinfo import ZoneInfo
+        ny, berlin = ZoneInfo('America/New_York'), ZoneInfo('Europe/Berlin')
+    except Exception:
+        return ''
+    jetzt = jetzt or datetime.datetime.now(ny)
+    h, m = map(int, uhrzeit_ny.split(':'))
+    termin = jetzt.astimezone(ny).replace(hour=h, minute=m, second=0, microsecond=0)
+    if termin <= jetzt + datetime.timedelta(minutes=30):  # Zeit zum Hochladen lassen
+        termin += datetime.timedelta(days=1)
+    b = termin.astimezone(berlin)
+    tage = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So']
+    return f"{tage[b.weekday()]} {b:%d.%m.} {b:%H:%M} Uhr Berlin (= {termin:%H:%M} New York)"
+
+
 def senden(skript_pfad, video_pfad):
     skript = json.loads(Path(skript_pfad).read_text(encoding='utf-8'))
     video = Path(video_pfad).read_bytes()
@@ -48,7 +70,9 @@ def senden(skript_pfad, video_pfad):
     # 2. Die Texte einzeln - antippen kopiert sie (Monospace-Format in Telegram)
     def code(t):
         return '<code>' + t.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;') + '</code>'
-    text = ('<b>Zum Hochladen (antippen = kopieren):</b>\n\nTitel:\n' + code(f'{titel} #shorts')
+    zeit = planungszeit(skript.get('posten_ny', '15:00'))
+    text = ((f'⏰ <b>Planen für: {zeit}</b>\n\n' if zeit else '')
+            + '<b>Zum Hochladen (antippen = kopieren):</b>\n\nTitel:\n' + code(f'{titel} #shorts')
             + '\n\nBeschreibung:\n' + code(f"{skript['beschreibung']}\n\n{tags}")
             + '\n\n<i>In der App „Veränderte oder synthetische Inhalte“ auf „Ja“ stellen (KI-Stimme).</i>')
     antwort = telegram('sendMessage', {'chat_id': chat, 'parse_mode': 'HTML', 'text': text})

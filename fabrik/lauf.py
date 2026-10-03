@@ -2,9 +2,12 @@
 
 Ablauf je Versuch: Skript (mit gelernten Regeln) -> Video -> KI-Pruefung ->
 Regeln aus der Pruefung lernen. Ab Note 8 wird das Video aufs Handy geschickt;
-darunter ein zweiter Versuch mit neuem Thema. Mehr als zwei Versuche passen
-nicht ins kostenlose GitHub-Kontingent (2.000 Min./Monat fuer zwei Kanaele).
-Erreicht kein Versuch 8/10: das BESTE Video trotzdem, mit Note und Gruenden
+darunter neue Versuche (GEMELDET: „solange bis wir 8/10 oder drueber haben"),
+jeder mit den frisch gelernten Regeln und den Problemen des Vorversuchs.
+Grenze ist ein Zeitbudget je Kanal und Tag: Ohne Grenze koennte ein schwerer
+Tag das Gratis-Kontingent (2.000 Min./Monat) aufbrauchen - dann stoppt GitHub
+alle Laeufe bis Monatsende und es gaebe GAR KEINE Videos mehr.
+Ist das Budget erreicht: das BESTE Video trotzdem, mit Note und Gruenden
 (taeglicher Beitrag ist fuer die Kanaele Pflicht). Kein Video nur, wenn die
 Faktenpruefung bei allen Themen scheitert - Falschaussagen gehen nie raus.
 
@@ -13,11 +16,13 @@ das Tool soll aus dem Feedback lernen und besser werden".
 
 Aufruf:  python fabrik/lauf.py kanaele/ai-tools-explained.json [thema]
 """
-import datetime, json, os, shutil, subprocess, sys, urllib.parse, urllib.request
+import datetime, json, os, shutil, subprocess, sys, time, urllib.parse, urllib.request
 from pathlib import Path
 
 SCHWELLE = 8
-VERSUCHE = 2
+BUDGET_S = 55 * 60      # Zeitbudget je Kanal und Tag
+VERSUCH_S = 15 * 60     # so lange braucht ein Versuch hoechstens (gemessen: ~12 Min.)
+VERSUCHE_MAX = 5
 PY = sys.executable
 
 
@@ -44,7 +49,11 @@ def main(kanal_pfad, thema=''):
     import lernen
     kanal = Path(kanal_pfad).stem
     bester = None  # (note, ordner, kritik)
-    for versuch in range(1, VERSUCHE + 1):
+    start = time.time()
+    versuch = 0
+    # Neuer Versuch nur, wenn er noch sicher ins Zeitbudget passt
+    while versuch < VERSUCHE_MAX and (versuch == 0 or time.time() - start + VERSUCH_S <= BUDGET_S):
+        versuch += 1
         ordner = Path(f'versuch{versuch}')
         shutil.rmtree(ordner, ignore_errors=True)
         r = subprocess.run([PY, 'fabrik/skript.py', kanal_pfad, str(ordner / 'skript.json'), thema])
@@ -76,7 +85,9 @@ def main(kanal_pfad, thema=''):
         if note >= SCHWELLE:
             break
         verlauf_eintragen(kanal, skript, 'unter_schwelle', note)  # Thema nicht noch einmal versuchen
-        thema = ''  # zweiter Versuch: neues Thema (ein festes Thema hatte seine Chance)
+        thema = ''  # naechster Versuch: neues Thema, mit den eben gelernten Regeln
+        print(f'Unter {SCHWELLE}/10 - neuer Versuch ({(time.time() - start) / 60:.0f} von '
+              f'{BUDGET_S // 60} Min. verbraucht)')
 
     if bester is None:
         melden(f'⚠️ Heute kein Video für {kanal}: Faktenprüfung bei allen Themen nicht bestanden.')
@@ -90,8 +101,8 @@ def main(kanal_pfad, thema=''):
     # einen Beitrag. Unter der Schwelle kommt das BESTE der Versuche, deutlich
     # gekennzeichnet (Note + Gruende stehen in der Nachricht); posten entscheidet der Nutzer.
     if note < SCHWELLE:
-        melden(f'🟡 {kanal}: Beide Versuche unter {SCHWELLE}/10 - hier das bessere ({note}/10). '
-               'Das Tool hat aus den Prüfungen gelernt.')
+        melden(f'🟡 {kanal}: {versuch} Versuche, Zeitbudget erreicht - keiner kam auf {SCHWELLE}/10. '
+               f'Hier das beste ({note}/10). Das Tool hat aus allen Prüfungen gelernt.')
     subprocess.run([PY, 'fabrik/freigabe.py', str(aus / 'skript.json'), str(aus / 'short.mp4')], check=True)
     verlauf_eintragen(kanal, skript, 'gesendet', note)
     return 0

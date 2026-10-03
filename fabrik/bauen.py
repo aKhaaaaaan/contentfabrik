@@ -616,6 +616,7 @@ def main(skript_pfad, aus):
 
     zeiten['gesamt'] = round(time.time() - beginn, 1)
     zeiten['videolaenge_s'] = round(sum(laengen), 1)
+    zeiten['abschnitte_s'] = [round(x, 2) for x in laengen]  # Absprung je Abschnitt (erfolg.py)
     zeiten['woerter'] = len(woerter)
     (aus / 'messung.json').write_text(json.dumps(zeiten, indent=2), encoding='utf-8')
     print(json.dumps(zeiten, indent=2))

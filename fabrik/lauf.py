@@ -37,7 +37,7 @@ def melden(text):
             {'chat_id': chat, 'text': text}).encode(), timeout=30)
 
 
-def verlauf_eintragen(kanal, skript, status, note):
+def verlauf_eintragen(kanal, skript, status, note, abschnitte=None):
     p = Path('verlauf') / f'{kanal}.json'
     p.parent.mkdir(exist_ok=True)
     v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
@@ -58,7 +58,8 @@ def verlauf_eintragen(kanal, skript, status, note):
                                 'format': skript.get('format'), 'hook_art': art, 'teile': len(teile),
                                 'laenge': 'kurz' if worte < 190 else 'mittel' if worte < 240 else 'lang',
                                 'story_note': story.get('note')},
-              'gliederung': [' '.join(t['text'].split()[:7]) for t in teile]})
+              'gliederung': [' '.join(t['text'].split()[:7]) for t in teile],
+              'abschnitte_s': abschnitte})
     p.write_text(json.dumps(v, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
 
 
@@ -130,7 +131,9 @@ def main(kanal_pfad, thema=''):
         melden(f'🟡 {kanal}: {versuch} Versuche, Zeitbudget erreicht - keiner kam auf {SCHWELLE}/10. '
                f'Hier das beste ({note}/10). Das Tool hat aus allen Prüfungen gelernt.')
     subprocess.run([PY, 'fabrik/freigabe.py', str(aus / 'skript.json'), str(aus / 'short.mp4')], check=True)
-    verlauf_eintragen(kanal, skript, 'gesendet', note)
+    messung = json.loads((aus / 'messung.json').read_text(encoding='utf-8')) \
+        if (aus / 'messung.json').exists() else {}
+    verlauf_eintragen(kanal, skript, 'gesendet', note, messung.get('abschnitte_s'))
     return 0
 
 

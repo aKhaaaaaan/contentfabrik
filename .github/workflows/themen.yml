@@ -28,6 +28,7 @@ jobs:
         env:
           YT_CLIENT: ${{ secrets.YT_CLIENT }}
           YT_TOKENS: ${{ secrets.YT_TOKENS }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           [ "$(date -u +%H)" = "12" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ] || exit 0
           python3 fabrik/erfolg.py
@@ -35,7 +36,7 @@ jobs:
         run: |
           git config user.name 'contentfabrik-bot'
           git config user.email 'contentfabrik-bot@users.noreply.github.com'
-          git add themen erfolg 2>/dev/null || true
+          git add themen erfolg lernen 2>/dev/null || true
           git diff --cached --quiet && exit 0
           git commit -qm "Themen: neue Nachrichten"
           for i in 1 2 3 4 5; do git pull -q --rebase && git push -q && break; sleep $((i * 5)); done

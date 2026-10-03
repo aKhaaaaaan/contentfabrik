@@ -73,16 +73,28 @@ def abrufen(kanal):
     videos = _hole(API + 'videos?part=snippet,statistics,status&id=' + ','.join(ids), token)['items']
     # Anteil gesehen (Zuschauerbindung) - der wichtigste Wert fuer den Algorithmus
     heute = datetime.date.today()
+    # RECHERCHE 03.10.2026 (vidIQ, Metricool, YouTube-API-Doku): Fuer Shorts
+    # zaehlen Engaged Views, gesehener Anteil, Teilen (~8x so viel wie Likes)
+    # und Abos aus dem Video. „Angesehen vs. weggewischt" gibt es nur in Studio.
     bindung = {}
-    try:
-        a = _hole('https://youtubeanalytics.googleapis.com/v2/reports?' + urllib.parse.urlencode({
-            'ids': 'channel==MINE', 'startDate': (heute - datetime.timedelta(days=90)).isoformat(),
-            'endDate': heute.isoformat(), 'metrics': 'views,averageViewDuration,averageViewPercentage',
-            'dimensions': 'video', 'filters': 'video==' + ','.join(ids), 'maxResults': 200}), token)
-        for zeile in a.get('rows', []):
-            bindung[zeile[0]] = {'dauer_s': zeile[2], 'anteil_prozent': zeile[3]}
-    except Exception as e:
-        print('Analytics nicht verfuegbar:', str(e)[:150])
+    ANALYTICS = 'https://youtubeanalytics.googleapis.com/v2/reports?'
+    zeitraum = {'ids': 'channel==MINE', 'startDate': (heute - datetime.timedelta(days=90)).isoformat(),
+                'endDate': heute.isoformat()}
+    for metriken in ('views,engagedViews,averageViewDuration,averageViewPercentage,shares,subscribersGained',
+                     'views,averageViewDuration,averageViewPercentage'):  # Rueckfall ohne neue Felder
+        try:
+            a = _hole(ANALYTICS + urllib.parse.urlencode({**zeitraum, 'metrics': metriken, 'dimensions': 'video',
+                                                          'filters': 'video==' + ','.join(ids), 'maxResults': 200}), token)
+            namen = [k['name'] for k in a.get('columnHeaders', [])]
+            for zeile in a.get('rows', []):
+                w = dict(zip(namen, zeile))
+                bindung[w['video']] = {'dauer_s': w.get('averageViewDuration'),
+                                       'anteil_prozent': w.get('averageViewPercentage'),
+                                       'engaged': w.get('engagedViews'), 'teilungen': w.get('shares'),
+                                       'abos': w.get('subscribersGained')}
+            break
+        except Exception as e:
+            print('Analytics nicht verfuegbar:', str(e)[:150])
     verlauf = json.loads(Path(f'verlauf/{kanal}.json').read_text(encoding='utf-8')) \
         if Path(f'verlauf/{kanal}.json').exists() else []
     unsere = {_norm(' '.join(v['titel']).replace('*', '')): v for v in verlauf if v.get('status') == 'gesendet'}
@@ -100,10 +112,54 @@ def abrufen(kanal):
             'einstellungen': eintrag.get('einstellungen', {}), 'hook': eintrag.get('hook', ''),
             'gliederung': eintrag.get('gliederung', []),
         }
+    # Zuschauer-Kurve je Video (ab 2 Tagen, einmalig): WO springen die Leute ab?
+    neue_lehren = []
+    for vid, v in daten['videos'].items():
+        if 'kurve' in v or v['veroeffentlicht'] > (heute - datetime.timedelta(days=2)).isoformat():
+            continue
+        try:
+            k = _hole(ANALYTICS + urllib.parse.urlencode({**zeitraum, 'metrics': 'audienceWatchRatio',
+                                                          'dimensions': 'elapsedVideoTimeRatio',
+                                                          'filters': f'video=={vid}'}), token)
+            v['kurve'] = [[round(r[0], 2), round(r[1], 3)] for r in k.get('rows', [])]
+        except Exception as e:
+            print('Kurve nicht verfuegbar:', vid, str(e)[:120])
+            continue
+        lehre = absprung(v, unsere)
+        if lehre:
+            v['absprung'] = lehre
+            neue_lehren.append({'zeit': lehre['sekunde'], 'art': 'zuschauer', 'text': lehre['text']})
+    if neue_lehren:  # echtes Zuschauerverhalten -> Lern-Gedaechtnis
+        try:
+            import lernen
+            lernen.aktualisieren(kanal, {'probleme': neue_lehren, 'kategorien': {}})
+        except Exception as e:
+            print('Lernen aus Zuschauerdaten nicht moeglich:', str(e)[:150])
     daten['stand'] = heute.isoformat()
     ORDNER.mkdir(exist_ok=True)
     (ORDNER / f'{kanal}.json').write_text(json.dumps(daten, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
     print(f"{kanal}: {len(daten['videos'])} eigene Videos mit Zahlen")
+
+
+def absprung(v, unsere):
+    """Wo faellt die Kurve unter 50 % - und welcher Skript-Abschnitt lief da?"""
+    eintrag = unsere.get(_norm(v['titel'])) or {}
+    abschnitte, gliederung = eintrag.get('abschnitte_s') or [], eintrag.get('gliederung') or []
+    kurve = v.get('kurve') or []
+    stelle = next((r for r, w in kurve if w < 0.5), None)
+    if stelle is None or not abschnitte:
+        return None
+    sekunde = stelle * sum(abschnitte)
+    summe, teil = 0, len(abschnitte) - 1
+    for i, d in enumerate(abschnitte):
+        summe += d
+        if sekunde <= summe:
+            teil = i
+            break
+    name = 'the hook' if teil == 0 else 'the ending' if teil == len(abschnitte) - 1 else f'part {teil + 1}'
+    text = (f'Real viewers dropped below 50% at second {sekunde:.0f}, during {name}: '
+            f'"{gliederung[teil] if teil < len(gliederung) else ""}..." - make that kind of part stronger or cut it.')
+    return {'sekunde': f'{sekunde:.0f}s', 'teil': teil, 'text': text}
 
 
 def _bewertet(kanal):
@@ -115,7 +171,10 @@ def _bewertet(kanal):
         return []
     median = statistics.median(v['aufrufe'] for v in vs) or 1
     for v in vs:
-        v['wert'] = v['aufrufe'] / median * (v.get('anteil_prozent', 50) / 100)
+        basis = v.get('engaged') or v['aufrufe']
+        # Teilen und Abos wiegen schwer (Recherche: Teilen ~8x Like), dazu der gesehene Anteil
+        v['wert'] = (basis / median * ((v.get('anteil_prozent') or 50) / 100)
+                     * (1 + 8 * (v.get('teilungen') or 0) / max(basis, 1) + 5 * (v.get('abos') or 0) / max(basis, 1)))
     return vs
 
 

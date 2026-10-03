@@ -31,7 +31,7 @@ veröffentlicht zur geplanten Zeit – du musst nichts mehr von Hand machen.
 ## Abschnitt 3 – Geschäftsmodell
 **Beschreibe die Arbeit deiner Organisation in Verbindung mit YouTube:**
 ```
-Savehours24 runs two educational YouTube channels with short videos: "AI Tools Explained" (free and open-source AI tools and models) and "Business Origin Stories" (how well-known companies started). Contentfabrik is our internal tool that produces these videos from public sources (Wikipedia, Wikimedia Commons, GitHub, Hugging Face), fact-checks every script, and uploads the finished video to our own channels with a scheduled publish time. Every video is labeled as altered/synthetic content because it uses an AI voice. Before release, the operator receives a preview on a private Telegram chat and can edit or cancel the video. Once a day the tool reads the statistics of our own videos (YouTube Analytics) to learn which topics and formats viewers like, so the next videos get better. The tool is used only by its operator, on our own two channels. It has no other users, is not sold, does not access other channels' private data and does not collect any viewer data.
+Savehours24 runs two educational YouTube channels with short videos: "AI Tools Explained" (free and open-source AI tools and models) and "Business Origin Stories" (how well-known companies started). Contentfabrik is our internal tool that produces these videos from public sources (Wikipedia, Wikimedia Commons, GitHub, Hugging Face), fact-checks every script, scores the story (hook, tension, ending) and rewrites it until it reaches our quality target, reviews the finished video the same way, and uploads the finished video to our own channels with a scheduled publish time. Every video is labeled as altered/synthetic content because it uses an AI voice. Before release, the operator receives a preview on a private Telegram chat and can edit or cancel the video. Once a day the tool reads the statistics of our own videos (YouTube Analytics) to learn which topics and formats viewers like, so the next videos get better. The tool is used only by its operator, on our own two channels. It has no other users, is not sold, does not access other channels' private data and does not collect any viewer data.
 ```
 - Zielgruppe: **Interne Nutzer*innen**
 - Monetarisierung: **Kostenloser Dienst (wir berechnen für die Nutzung keine Gebühren)**
@@ -68,7 +68,7 @@ Internal tool without a user interface or login. It runs as a scheduled job (Git
 
 ## Abschnitt 6 – Nachweise
 - Architekturdiagramm + Nutzerfluss: `antrag/contentfabrik-architektur-ablauf.pdf`
-  (2 Seiten, 1600×900, 226 KB – unter der 10-MB-Grenze; PDF ist erlaubt)
+  (2 Seiten, 1600×900, 236 KB – unter der 10-MB-Grenze; PDF ist erlaubt)
 
 ## Abschnitt 7
 - Alle Bestätigungen selbst lesen und anhaken, dann **Senden**.

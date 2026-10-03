@@ -4,9 +4,12 @@
 name: video
 on:
   schedule:
-    # 05:00 UTC = 07:00 Berlin (Sommerzeit) / 06:00 (Winterzeit): Videos liegen
-    # morgens auf dem Handy. GitHub startet geplante Laeufe oft etwas spaeter.
-    - cron: '0 5 * * *'
+    # GEMESSEN 03.10.2026: Der Lauf um 05:00 UTC fand gar nicht statt. GitHub
+    # warnt selbst: zur vollen Stunde ist Hochlast, geplante Laeufe werden
+    # verzoegert oder ausgelassen. Darum krumme Minute + Ersatztermin; die
+    # Vorpruefung ueberspringt Kanaele, die heute schon ein Video haben.
+    - cron: '23 4 * * *'   # 06:23 Berlin (Sommerzeit)
+    - cron: '41 6 * * *'   # Ersatz, falls der erste ausfaellt
   workflow_dispatch:
     inputs:
       kanal:
@@ -18,14 +21,45 @@ on:
 permissions:
   contents: write   # Themen-Verlauf zurueckschreiben
 jobs:
+  vorpruefung:
+    runs-on: ubuntu-latest
+    outputs:
+      kanaele: ${{ steps.offen.outputs.kanaele }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: offen
+        env:
+          EREIGNIS: ${{ github.event_name }}
+          EINGABE: ${{ inputs.kanal }}
+        run: |
+          python3 - <<'EOF'
+          import json, os, datetime
+          from pathlib import Path
+          # Neuer Kanal = hier eintragen (plus kanaele/<name>.json).
+          alle = ['ai-tools-explained', 'business-origin-stories']
+          heute = datetime.date.today().isoformat()
+          if os.environ['EREIGNIS'] == 'schedule':
+              offen = []
+              for k in alle:
+                  p = Path(f'verlauf/{k}.json')
+                  v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
+                  if not any(e.get('datum') == heute for e in v):
+                      offen.append(k)
+          else:
+              offen = [os.environ['EINGABE']]
+          print('Offen:', offen)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write(f'kanaele={json.dumps(offen)}\n')
+          EOF
   video:
+    needs: vorpruefung
+    if: needs.vorpruefung.outputs.kanaele != '[]'
     runs-on: ubuntu-latest
     timeout-minutes: 40
     strategy:
       fail-fast: false
       matrix:
-        # Neuer Kanal = hier eintragen (plus kanaele/<name>.json).
-        kanal: ${{ github.event_name == 'schedule' && fromJSON('["ai-tools-explained","business-origin-stories"]') || fromJSON(format('["{0}"]', inputs.kanal)) }}
+        kanal: ${{ fromJSON(needs.vorpruefung.outputs.kanaele) }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -105,6 +139,9 @@ jobs:
         if: always()
         with:
           name: video-${{ matrix.kanal }}
+          # GEMESSEN: 16 Testlaeufe belegten 324 von 500 MB Gratis-Speicher.
+          # Das Video liegt ohnehin in Telegram - 3 Tage reichen zum Nachsehen.
+          retention-days: 3
           path: |
             ausgabe/short.mp4
             ausgabe/skript.json

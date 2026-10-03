@@ -156,7 +156,7 @@ def story_bewerten(entwurf):
                     'ONLY the story of this script - would a scrolling viewer stop and stay to the very end? '
                     'Score each 1-10:\n' + '\n'.join(f'- {k}: {v}' for k, v in STORY_KATEGORIEN.items())
                     + '\nOverall "note" 1-10 (be strict: 8+ only if most viewers would watch to the end). List '
-                    'concrete weaknesses with the exact sentence they refer to, and write the strongest possible '
+                    'concrete weaknesses with the exact sentence they refer to (what keeps it from 10/10), and write the strongest possible '
                     'alternative first sentence that stays 100% true to the facts in the script.\n\n'
                     f'Title: {entwurf.get("titel_zeile1", "")} / {entwurf.get("titel_zeile2", "")}\nScript:\n{text}',
                     STORY_SCHEMA, temperatur=0.2)
@@ -349,8 +349,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
     if pruefung['ok']:
         story = story_bewerten(entwurf)
         print(f"Story: {story['note']}/10 {story['kategorien']}")
-        for runde in range(2):
-            if story['note'] >= 8:
+        for runde in range(3):  # Ziel 10/10 (GEMELDET); Text kostet kaum Rechenzeit
+            if story['note'] >= 10:
                 break
             neu, m, mangel = schreiben(
                 anweisung(kanal, entwurf['thema'], frueher) + zusatz

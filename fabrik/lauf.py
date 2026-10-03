@@ -19,8 +19,12 @@ Aufruf:  python fabrik/lauf.py kanaele/ai-tools-explained.json [thema]
 import datetime, json, os, shutil, subprocess, sys, time, urllib.parse, urllib.request
 from pathlib import Path
 
+# GEMELDET: „Das Ziel ist immer 10/10, nicht bis 8/10." Verbessert wird bis
+# 10 oder bis das Zeitbudget erreicht ist; unter 8 gibt es zusaetzlich eine Warnung.
+ZIEL = 10
 SCHWELLE = 8
-BUDGET_S = 55 * 60      # Zeitbudget je Kanal und Tag
+# 2.000 Gratis-Minuten / 30 Tage / 2 Kanaele = ~33 Min. je Kanal und Tag
+BUDGET_S = 30 * 60      # Zeitbudget je Kanal und Tag
 VERSUCH_S = 25 * 60     # gemessen: ~12 Min. Bau + bis zu 15 Min. Skript mit Story-Pruefung
 VERSUCHE_MAX = 5
 PY = sys.executable
@@ -46,8 +50,13 @@ def verlauf_eintragen(kanal, skript, status, note):
 
 
 def main(kanal_pfad, thema=''):
-    import lernen
+    import lernen, themen
     kanal = Path(kanal_pfad).stem
+    # Thema aus Telegram hat Vorrang (GEMELDET: eigene Themen einbringen)
+    if not thema:
+        thema = themen.nehmen(kanal)
+        if thema:
+            print(f'Thema aus Telegram: {thema}')
     bester = None  # (note, ordner, kritik)
     start = time.time()
     versuch = 0
@@ -86,11 +95,11 @@ def main(kanal_pfad, thema=''):
         print(f'Versuch {versuch}: {note}/10')
         if bester is None or note > bester[0]:
             bester = (note, ordner, kritik)
-        if note >= SCHWELLE:
+        if note >= ZIEL:
             break
         verlauf_eintragen(kanal, skript, 'unter_schwelle', note)  # Thema nicht noch einmal versuchen
         thema = ''  # naechster Versuch: neues Thema, mit den eben gelernten Regeln
-        print(f'Unter {SCHWELLE}/10 - neuer Versuch ({(time.time() - start) / 60:.0f} von '
+        print(f'Unter {ZIEL}/10 - neuer Versuch ({(time.time() - start) / 60:.0f} von '
               f'{BUDGET_S // 60} Min. verbraucht)')
 
     if bester is None:

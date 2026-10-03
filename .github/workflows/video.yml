@@ -108,7 +108,7 @@ jobs:
         run: |
           git config user.name 'contentfabrik-bot'
           git config user.email 'contentfabrik-bot@users.noreply.github.com'
-          git add verlauf lernen 2>/dev/null || true
+          git add verlauf lernen themen 2>/dev/null || true
           git diff --cached --quiet && exit 0
           git commit -qm "Verlauf/Lernen ${{ matrix.kanal }}"
           # Zwei Kanaele schreiben gleichzeitig - bei Kollision neu aufsetzen

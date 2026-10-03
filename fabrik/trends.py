@@ -203,7 +203,12 @@ def wiki_bilder(titel, n=40):
         lizenz = m.get('LicenseShortName', {}).get('value', '')
         if (not ii.get('thumburl') or seite['title'].lower().endswith(('.svg', '.gif'))
                 or m.get('NonFree', {}).get('value') or ii.get('width', 0) < 600
-                or not re.match(r'(CC|Public domain|PD)', lizenz, re.I)):
+                or not re.match(r'(CC|Public domain|PD)', lizenz, re.I)
+                # NC verbietet Geld verdienen (Kanaele sollen monetarisiert werden),
+                # ND verbietet Bearbeiten (wir zoomen und beschriften jedes Foto).
+                # GEMESSEN 03.10.2026: Commons hat sie bei 8 Firmen nie geliefert -
+                # die Sperre ist Absicherung, falls doch einmal eines auftaucht.
+                or re.search(r'\b(NC|ND)\b', lizenz)):
             continue
         klein = ii['thumburl']
         aus.append({'titel': seite['title'], 'klein': klein,

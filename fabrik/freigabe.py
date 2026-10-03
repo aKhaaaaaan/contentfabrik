@@ -91,6 +91,15 @@ def senden(skript_pfad, video_pfad):
     if fotos:
         skript['beschreibung'] += '\nPhotos (Wikimedia Commons): ' + '; '.join(
             f"{q['von']}, {q['lizenz']} ({q['seite']})" for q in fotos)
+        # CC BY verlangt den Hinweis, DASS geaendert wurde; BY-SA verlangt, die
+        # geaenderte Fassung des FOTOS unter BY-SA zu stellen. Ob ein Foto im
+        # Video das ganze Video zur Bearbeitung macht, ist offen (CC-FAQ und
+        # Commons-Hilfe lassen es offen, GEPRUEFT 03.10.2026) - wir erfuellen
+        # die Pflichten fuer das Foto selbst; Verbot haette die Haelfte der
+        # passenden Firmenfotos gekostet (GEMESSEN: 56 von 102 bei 8 Firmen).
+        skript['beschreibung'] += ' - cropped, animated and captioned' + (
+            '; these modified photos are licensed under the same CC BY-SA license'
+            if any('SA' in q['lizenz'] for q in fotos) else '')
     chat = os.environ['TELEGRAM_CHAT_ID']
     # 1. Das Video selbst - kurze Bildunterschrift, damit es gut lesbar bleibt
     telegram('sendVideo', {'chat_id': chat, 'supports_streaming': 'true',

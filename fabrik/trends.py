@@ -169,9 +169,9 @@ def wikipedia(titel, grenze=7000):
 def _autor(roh):
     # GEMESSEN: Wikimedia liefert „Unknown authorUnknown author" (zwei Spans)
     t = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', roh)).strip()
-    h = len(t) // 2
-    if len(t) % 2 == 0 and t[:h] == t[h:]:
-        t = t[:h]
+    w = t.split()
+    if len(w) % 2 == 0 and w[:len(w) // 2] == w[len(w) // 2:]:
+        t = ' '.join(w[:len(w) // 2])
     return t[:80] or 'unknown'
 
 

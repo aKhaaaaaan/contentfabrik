@@ -404,6 +404,101 @@ def karte_fuer(url):
         return None
 
 
+def demo_fuer(url, satz=''):
+    """Echtes Anwendungsbeispiel von der Modellseite statt Symbol-Clip.
+    GEMELDET (KI-Analyse 04.10.2026): „Keine echten Anwendungsbeispiele - nur
+    Grafiken, das gleiche Template 7-mal." Pixabay zeigt nie das echte Modell.
+    Die Beschreibung (README) auf Hugging Face/GitHub enthaelt meist Beispiel-
+    bilder (Ergebnisse, Oberflaeche). Die KI waehlt das, das zeigt, WAS das
+    Werkzeug macht - keine Logos, Abzeichen oder Benchmark-Tabellen.
+    Gibt (pfad, quelle) oder (None, None) zurueck."""
+    import urllib.request, urllib.parse, hashlib
+    m = re.match(r'https?://(github\.com|huggingface\.co)/([\w.-]+/[\w.-]+)', url or '')
+    if not m:
+        return None, None
+    roh, basis = ((f'https://huggingface.co/{m[2]}/raw/main/README.md', f'https://huggingface.co/{m[2]}/resolve/main/')
+                  if m[1] == 'huggingface.co' else
+                  (f'https://raw.githubusercontent.com/{m[2]}/HEAD/README.md',
+                   f'https://raw.githubusercontent.com/{m[2]}/HEAD/'))
+    try:
+        text = urllib.request.urlopen(urllib.request.Request(roh, headers=KENNUNG), timeout=20).read().decode(
+            'utf-8', 'replace')
+    except Exception as e:
+        print('Keine Beschreibung fuer Beispielbilder:', m[2], str(e)[:80])
+        return None, None
+    links = re.findall(r'!\[[^\]]*\]\(\s*([^)\s]+)', text) + re.findall(r'<img[^>]+src=["\']([^"\']+)', text, re.I)
+    kandidaten = []
+    for l in links:
+        l = urllib.parse.urljoin(basis, l.replace('/blob/', '/raw/'))
+        if re.search(r'shields\.io|badge|logo|icon|avatar|\.svg(\?|$)|license|star-history|discord|twitter',
+                     l, re.I) or l in kandidaten:
+            continue
+        kandidaten.append(l)
+    bilder, pfade = [], []
+    PIXABAY_CACHE.mkdir(exist_ok=True)
+    for l in kandidaten[:8]:
+        ziel = PIXABAY_CACHE / f"demo_{hashlib.sha1(l.encode()).hexdigest()[:12]}"
+        try:
+            if not ziel.exists():
+                ziel.write_bytes(urllib.request.urlopen(urllib.request.Request(l, headers=KENNUNG), timeout=30).read())
+            with Image.open(ziel) as im:
+                if im.width < 480 or im.height < 270:  # Vorschau-Schnipsel, Symbole
+                    continue
+                vorschau = im.convert('RGB')
+                vorschau.thumbnail((512, 512))
+                import io
+                puffer = io.BytesIO(); vorschau.save(puffer, 'JPEG', quality=80)
+            bilder.append(puffer.getvalue()); pfade.append((ziel, l))
+        except Exception:
+            continue
+    if not pfade:
+        return None, None
+    try:
+        from skript import gemini
+        wahl, _ = gemini(
+            f'These are {len(bilder)} images from the documentation page of the AI tool "{m[2]}", numbered 0 to '
+            f'{len(bilder) - 1}. One will be shown full screen while a narrator says:\n"{satz}"\n'
+            'Pick the image that best SHOWS WHAT THE TOOL DOES for a normal viewer: an example output (generated '
+            'image, transformed photo, app screen, before/after). Reject logos, banners with only a name, '
+            'architecture diagrams, benchmark charts and tables, and anything unreadable on a phone. '
+            'If none qualifies, answer -1.' + regel_text(),
+            {'type': 'OBJECT', 'properties': {'nummer': {'type': 'INTEGER'}}, 'required': ['nummer']},
+            temperatur=0.1, bilder=bilder, modelle=['gemini-flash-lite-latest', 'gemini-flash-latest'])
+        n = wahl['nummer']
+    except Exception as e:
+        print('Beispielbild-Auswahl ohne KI nicht moeglich:', str(e)[:120])
+        return None, None
+    if not 0 <= n < len(pfade):
+        print('Kein brauchbares Beispielbild:', m[2])
+        return None, None
+    ziel, l = pfade[n]
+    print('Beispielbild:', m[2], l[:90])
+    # Bilder der Modellseite stehen unter der Lizenz des Projekts - Quelle nennen
+    return ziel, {'quelle': 'Beispielbild', 'seite': url, 'datei': l}
+
+
+def demo_stueck(bild, ebene, mini, dauer, ziel):
+    """Beispielbild hochkant: unscharf vergroessert als Hintergrund, scharf in der
+    Mitte (passt jede Bildform ein), langsamer Zoom; Mini-Karte oben, Text darueber.
+    GIFs laufen als Animation."""
+    n = max(1, int(dauer * FPS))
+    gif = Image.open(bild).format == 'GIF'
+    ein = (['-ignore_loop', '0', '-i', str(bild)] if gif else ['-loop', '1', '-framerate', str(FPS), '-i', str(bild)])
+    f = (f'[0:v]fps={FPS},split[a][b];'
+         f'[a]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},boxblur=24:2,eq=brightness=-0.12[hg];'
+         # GEMESSEN: mittig (y 960) deckte die Mini-Karte (bis y ~820) den oberen
+         # Teil des Beispiels ab - jetzt darunter, bis in den Untertitelbereich.
+         f'[b]scale={B - 80}:680:force_original_aspect_ratio=decrease,setsar=1[vg];'
+         f'[hg][vg]overlay=(W-w)/2:1180-h/2,'
+         f"zoompan=z='1+0.05*on/{n}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s={B}x{H}:fps={FPS}[v];"
+         f'[v][1:v]overlay=0:0[x];[x][2:v]overlay=0:0,format=yuv420p')
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *ein,
+                    '-loop', '1', '-framerate', str(FPS), '-i', str(ebene),
+                    '-loop', '1', '-framerate', str(FPS), '-i', str(mini), '-filter_complex', f,
+                    '-t', f'{dauer:.3f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', str(ziel)],
+                   check=True)
+
+
 def clip_fuer(suche, schon, laenge, satz=''):
     """Passenden Pixabay-Clip suchen und herunterladen (Pixabay-Regeln:
     Ergebnisse 24 h zwischenspeichern, Clips herunterladen statt verlinken).
@@ -610,6 +705,20 @@ def main(skript_pfad, aus):
             # WAS das Werkzeug macht (KI waehlt nach Vorschau) - Karte klein oben.
             if karte and t.get('platz') and dauer > 5.5:
                 a = 2.8
+                # Erst ein echtes Beispiel von der Modellseite, nur sonst Pixabay
+                demo, q_d = demo_fuer(t.get('quelle_url'), t['text'])
+                if demo:
+                    quellen.append(q_d)
+                    st_a, st_b = aus / f'stueck_{i:02d}a.mp4', aus / f'stueck_{i:02d}b.mp4'
+                    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *ein, '-filter_complex', filt,
+                                    '-t', f'{a:.3f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
+                                    str(st_a)], check=True)
+                    eb, mk = aus / f'ebene_{i:02d}b.png', aus / f'mini_{i:02d}.png'
+                    bild_fuer({}, s['titel'], i, len(s['teile']), durchsichtig=True).save(eb)
+                    mini_karte(karte, t['platz']).save(mk)
+                    demo_stueck(demo, eb, mk, dauer - a, st_b)
+                    liste += [f"file '{st_a.name}'", f"file '{st_b.name}'"]
+                    continue
                 clip_b, q_b = clip_fuer(t.get('suche') or s.get('suche'), schon, dauer - a, t['text'])
                 if clip_b:
                     quellen.append(q_b)

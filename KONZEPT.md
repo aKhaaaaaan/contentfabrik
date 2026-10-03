@@ -617,3 +617,34 @@ gebraucht (keine Google-Cloud-Karte nötig).
   kostenlos. „AI Tools Explained" braucht aktuelle Suche → Entscheidung des
   Betreibers offen (siehe Chat): bezahlte Suche (Cent-Bereich) oder Start
   nur mit Geschichten-Kanal.
+
+## Ideen-Speicher (Stand 03.10.2026)
+
+Gesammelt aus Hinweisen anderer KIs, YouTube-Videos und eigenen Messungen.
+Nur was Qualitaet oder Automatik hebt und kostenlos/gewerblich nutzbar ist.
+
+**Umgesetzt**
+- Countdown-Ranking, Nutzen zuerst, Blickwinkel je Tag, Loop-Ende, Floskel-Sperre
+- Quellen-Methode fuer beide Kanaele (KI: GitHub/Hugging Face/Hacker News; Business: Wikipedia)
+- Bewegter Hintergrund, Karten-Einflug, Zoom auf jedem Clip, keine leeren Flaechen
+- Montserrat, ruhige Wort-Untertitel aus dem Skripttext, Knopf-Zone frei
+- Automatische Qualitaetspruefung (Gemini sieht das Video + Technik-Messung)
+- Planungszeit je Kanal in Telegram (Publikum USA)
+
+**Als Naechstes (kostenlos)**
+1. Echte Fotos fuer Firmengeschichten: Wikimedia Commons / Openverse (freie Lizenzen,
+   Namensnennung automatisch in die Beschreibung)
+2. Stimme lebendiger: andere Kokoro-Stimmen/Tempo testen, Pruefung entscheidet
+3. Product Hunt (offizielle API, kostenloses Konto) als Quelle fuer Verbraucher-Apps
+4. Formate fuer den KI-Kanal: „A vs. B", „kostenlose Alternative zu ...", „gerade erschienen"
+5. Musik nur mit sicherer Lizenz (Content-ID-Risiko vorher pruefen)
+6. Pruefung mit Selbstkorrektur: Probleme mit Zeitstempel -> betroffene Clips neu waehlen
+7. Dashboard mit YouTube Analytics: welche Themen/Hooks laufen -> mehr davon
+
+**Bewusst nicht** (Gruende in den Commit-Nachrichten und im Chat)
+- KI-Videogeneratoren (Veo, Pika, Kling, Hailuo, Runway, LTX, Seedance): kleines
+  Kontingent, Wasserzeichen oder keine gewerblichen Rechte, keine Gratis-Schnittstelle
+- Mehrere Gratiskonten zum Kontingent-Zuruecksetzen: Verstoss gegen Nutzungsbedingungen
+- edge-tts (inoffizieller Zugang), Remotion (fuer Firmen kostenpflichtig), Ayrshare/
+  Buffer (Upload kostenpflichtig/begrenzt), n8n (eigener Server), Video Autopilot (keine Lizenz)
+- Facecam/Selbstversuch-Formate (nicht faceless, nicht automatisierbar)

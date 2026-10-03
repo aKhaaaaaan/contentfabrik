@@ -192,9 +192,14 @@ def wiki_bilder(titel, n=40):
         print('Wikipedia-Bilder nicht verfuegbar:', str(e)[:120])
         return []
     aus = []
-    for seite in d.get('query', {}).get('pages', {}).values():
+    # GEMESSEN 03.10.2026: Ohne Lizenzangaben liefert die API [] statt {} (PHP-
+    # Eigenheit) - 'list' object has no attribute 'get' brach den Lauf ab.
+    query = d.get('query') if isinstance(d.get('query'), dict) else {}
+    seiten = query.get('pages') if isinstance(query.get('pages'), dict) else {}
+    for seite in seiten.values():
         ii = (seite.get('imageinfo') or [{}])[0]
-        m = ii.get('extmetadata', {})
+        m = ii.get('extmetadata') if isinstance(ii.get('extmetadata'), dict) else {}
+        m = {k: (w if isinstance(w, dict) else {}) for k, w in m.items()}
         lizenz = m.get('LicenseShortName', {}).get('value', '')
         if (not ii.get('thumburl') or seite['title'].lower().endswith(('.svg', '.gif'))
                 or m.get('NonFree', {}).get('value') or ii.get('width', 0) < 600

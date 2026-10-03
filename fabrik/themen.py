@@ -79,7 +79,9 @@ def abholen():
         text = (m.get('text') or '').strip()
         if str(m.get('chat', {}).get('id')) != chat or not text:
             continue  # nur Nachrichten des Nutzers
-        if text.lower() in ('/start', 'hilfe', '/hilfe', 'help', 'hallo'):
+        # GEMESSEN: „/start hallo" (Start-Link des Bots) wurde als Thema „Start"
+        # eingereiht. Befehle und Ein-Wort-Gruesse sind nie ein Video-Thema.
+        if text.startswith('/') or text.lower() in ('hilfe', 'help', 'hallo', 'hi', 'start', 'test'):
             _tg('sendMessage', chat_id=chat, text=HILFE)
             continue
         # Antwort auf die Hoerprobe („Stimmen: 2, 7, 9") - kein Video-Thema

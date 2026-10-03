@@ -243,6 +243,20 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 'Mark ok=false if ANY claim is false, outdated, unverifiable or exaggerated, or if a rule is broken '
                 '(number 1 must be last in rankings, no medical/financial/legal advice). List each problem briefly.'
                 + belege + '\n\n')
+
+    def pruefen(e):
+        """KI-Faktencheck PLUS Zahlenprobe im Code (zahlen.py): Eine Zahl, die in
+        keiner Quelle steht, laesst das Skript durchfallen - auch wenn die KI sie
+        durchwinkt. Der Modellname zaehlt als Quelle („gemma-3-27b" belegt 27B)."""
+        import zahlen
+        p, _ = gemini(pruef_text() + json.dumps(e, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
+        fehlt = zahlen.unbelegt(e, [f"{q.get('name', '')} {q.get('text', '')}" for q in quellen])
+        if fehlt:
+            print('Zahlenprobe: nicht in den Quellen:', fehlt)
+            p = {'ok': False, 'probleme': p['probleme'] + [
+                'Number not found in the sources - remove it or use the exact number from the sources: ' + z
+                for z in fehlt]}
+        return p
     # GEMESSEN 02.10.2026: „Burt's Bees" fiel auch nach der Ueberarbeitung
     # durch (Detailfehler) - ohne zweites Thema gab es an dem Tag kein Video.
     # Ein festes Thema vom Nutzer wird nicht ausgetauscht.
@@ -337,14 +351,14 @@ def main(kanal_pfad, aus_pfad, thema=None):
         entwurf, modell, mangel = schreiben(anweisung(kanal, runden_thema,
                                                       '; '.join(filter(None, [frueher] + verworfen))) + zusatz)
         # Zweiter Durchgang: Fakten und Regeln pruefen (Konzept 4a, Punkt 8).
-        pruefung, _ = gemini(pruef_text() + json.dumps(entwurf, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
+        pruefung = pruefen(entwurf)
         if not pruefung['ok'] or mangel:
             # Einmal neu schreiben, mit den gefundenen Problemen als Auflage.
             probleme = pruefung['probleme'] + ([mangel] if mangel else [])
             entwurf, modell, mangel = schreiben(anweisung(kanal, entwurf['thema'], frueher) + zusatz
                                                 + '\nFix these problems found by the fact checker:\n- '
                                                 + '\n- '.join(probleme))
-            pruefung, _ = gemini(pruef_text() + json.dumps(entwurf, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
+            pruefung = pruefen(entwurf)
         if mangel:  # zu kurz = unter 60 s = keine TikTok-Verguetung: nicht vorlegen
             pruefung = {'ok': False, 'probleme': pruefung['probleme'] + [mangel]}
         if pruefung['ok']:
@@ -370,7 +384,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
                   'the hook in the last part.')
             if mangel:
                 continue
-            p2, _ = gemini(pruef_text() + json.dumps(neu, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
+            p2 = pruefen(neu)
             if not p2['ok']:
                 print('Story-Fassung fiel durch die Faktenpruefung - verworfen')
                 continue

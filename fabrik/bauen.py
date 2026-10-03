@@ -110,7 +110,8 @@ def foto_fuer(bilder, satz, benutzt):
         wahl, _ = gemini(
             f'These are {len(vorschau)} photos (0 to {len(vorschau) - 1}) from the Wikipedia article. A narrator '
             f'says:\n"{satz}"\nPick the photo that clearly shows what is said (person, place, product, era). '
-            'Reject flags, maps, logos-only, charts and unrelated photos. If none fits clearly, answer -1.',
+            'Reject flags, maps, logos-only, charts and unrelated photos. If none fits clearly, answer -1.'
+            + regel_text(),
             {'type': 'OBJECT', 'properties': {'nummer': {'type': 'INTEGER'}}, 'required': ['nummer']},
             temperatur=0.1, bilder=vorschau, modelle=['gemini-flash-lite-latest', 'gemini-flash-latest'])
         n = wahl['nummer']
@@ -249,6 +250,11 @@ def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None, akzent=(3
 
 
 PIXABAY_CACHE = Path('clips')
+REGELN = []  # gelernte Regeln des Kanals (lernen.py), in main() gesetzt
+
+
+def regel_text():
+    return ('\nRules learned from earlier quality reviews: ' + ' | '.join(REGELN)) if REGELN else ''
 # Eigene, ehrliche Kennung. GEMESSEN: Pixabays Schutzdienst blockt die
 # Standard-Kennung „Python-urllib" (HTTP 403, Fehler 1010); mit Kennung: 200.
 KENNUNG = {'User-Agent': 'Contentfabrik/1.0 (privates Video-Tool)'}
@@ -277,7 +283,7 @@ def waehle(kandidaten, satz):
             f'These are {len(bilder)} preview frames of stock videos, numbered 0 to {len(bilder) - 1} in order. '
             f'They will be the background while a narrator says:\n"{satz}"\n'
             'Pick the frame a viewer would find clearly fitting to this sentence. Reject abstract, unrelated, '
-            'green-screen or text-heavy frames. If none fits clearly, answer -1.',
+            'green-screen or text-heavy frames. If none fits clearly, answer -1.' + regel_text(),
             {'type': 'OBJECT', 'properties': {'nummer': {'type': 'INTEGER'}}, 'required': ['nummer']},
             # GEMESSEN: mit dem grossen Modell ~60 s je Abschnitt (384 s je Video)
             temperatur=0.1, bilder=bilder, modelle=['gemini-flash-lite-latest', 'gemini-flash-latest'])
@@ -464,6 +470,7 @@ def untertitel(woerter, pfad):
 def main(skript_pfad, aus):
     aus = Path(aus); aus.mkdir(parents=True, exist_ok=True)
     s = json.loads(Path(skript_pfad).read_text(encoding='utf-8'))
+    REGELN[:] = s.get('regeln', [])
     beginn = time.time()
 
     with messen('stimme_laden'):

@@ -167,11 +167,15 @@ Rules:
 - On-screen title: exactly two lines, line 1 max 22 characters, line 2 max 28 characters.
   "schluesselwoerter": the 1-2 words of the title that tell the viewer instantly what the video is about.
 - "beschreibung": 2 sentences for the platform description. "hashtags": 3-5 relevant hashtags.
+{('LESSONS from quality reviews of our earlier videos - follow them strictly:' + chr(10)
+  + chr(10).join('- ' + r for r in kanal['_regeln'])) if kanal.get('_regeln') else ''}
 """
 
 
 def main(kanal_pfad, aus_pfad, thema=None):
     kanal = json.loads(Path(kanal_pfad).read_text(encoding='utf-8'))
+    import lernen
+    kanal['_regeln'] = lernen.regeln(Path(kanal_pfad).stem)
     verlauf_pfad = Path('verlauf') / (Path(kanal_pfad).stem + '.json')
     verlauf = json.loads(verlauf_pfad.read_text(encoding='utf-8')) if verlauf_pfad.exists() else []
     frueher = '; '.join(v['thema'] for v in verlauf[-60:])
@@ -314,6 +318,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         'stimme': stimme, 'tempo': 1.05, 'teile': entwurf['teile'],
         'posten_ny': kanal.get('posten_ny', '15:00'),
         'laenge_s': kanal.get('laenge_s', [62, 90]),
+        'regeln': kanal.get('_regeln', []),
         'hintergrund_suche': kanal.get('hintergrund_suche', ''),
         'bilder': wiki_fotos,
         'beschreibung': entwurf['beschreibung'] + '\nClips: Pixabay'

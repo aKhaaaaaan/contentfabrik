@@ -43,7 +43,8 @@ jobs:
               for k in alle:
                   p = Path(f'verlauf/{k}.json')
                   v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
-                  if not any(e.get('datum') == heute for e in v):
+                  # nur GESENDETE Videos zaehlen - verworfene Versuche nicht
+                  if not any(e.get('datum') == heute and e.get('status', 'gesendet') == 'gesendet' for e in v):
                       offen.append(k)
           else:
               offen = [os.environ['EINGABE']]
@@ -55,7 +56,7 @@ jobs:
     needs: vorpruefung
     if: needs.vorpruefung.outputs.kanaele != '[]'
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 75   # bis zu 2 Versuche je ~15-25 Min.
     strategy:
       fail-fast: false
       matrix:
@@ -91,43 +92,25 @@ jobs:
           path: clips
           key: clips-${{ matrix.kanal }}-${{ github.run_id }}
           restore-keys: clips-
-      - name: Skript schreiben und pruefen
+      - name: Erzeugen, pruefen, lernen, senden
+        # fabrik/lauf.py: bis zu 2 Versuche, gesendet wird nur ab KI-Note 8;
+        # aus jeder Pruefung lernt der Kanal Regeln (lernen/<kanal>.json).
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python fabrik/skript.py "kanaele/${{ matrix.kanal }}.json" ausgabe/skript.json "${{ inputs.thema }}"
-      - name: Video bauen
-        env:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python fabrik/bauen.py ausgabe/skript.json ausgabe
-      - name: KI-Pruefung des fertigen Videos
-        # Darf scheitern - dann kommt das Video ohne Kritik (lieber Video als keins)
-        continue-on-error: true
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python fabrik/kritik.py ausgabe/short.mp4 ausgabe/skript.json ausgabe/kritik.json
-      - name: Zur Freigabe aufs Handy
-        env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python fabrik/freigabe.py ausgabe/skript.json ausgabe/short.mp4
-      - name: Thema im Verlauf merken
-        # Ohne Verlauf schlaegt die KI dasselbe Thema wieder vor.
+        run: python fabrik/lauf.py "kanaele/${{ matrix.kanal }}.json" "${{ inputs.thema }}"
+      - name: Verlauf und Gelerntes sichern
+        if: always()
         run: |
-          python - <<'EOF'
-          import json, datetime
-          from pathlib import Path
-          s = json.loads(Path('ausgabe/skript.json').read_text(encoding='utf-8'))
-          p = Path('verlauf/${{ matrix.kanal }}.json'); p.parent.mkdir(exist_ok=True)
-          v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
-          v.append({'datum': datetime.date.today().isoformat(), 'thema': s['thema'], 'titel': s['titel']})
-          p.write_text(json.dumps(v, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
-          EOF
           git config user.name 'contentfabrik-bot'
           git config user.email 'contentfabrik-bot@users.noreply.github.com'
-          git add verlauf && git commit -qm "Verlauf ${{ matrix.kanal }}: neues Thema"
+          git add verlauf lernen 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -qm "Verlauf/Lernen ${{ matrix.kanal }}"
           # Zwei Kanaele schreiben gleichzeitig - bei Kollision neu aufsetzen
           for i in 1 2 3 4 5; do git pull -q --rebase && git push -q && break; sleep $((i * 5)); done
       - name: Meldung bei Fehlschlag

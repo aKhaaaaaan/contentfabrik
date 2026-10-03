@@ -148,6 +148,8 @@ Rules:
 - The first sentence is the hook: curiosity, a number or a contradiction. No intro, no greeting.
 - Short, spoken sentences. Concrete facts only. Every claim must be TRUE and verifiable today; if unsure, leave it out.
   No financial, medical or legal advice. No made-up numbers.
+- No hype or exaggeration words (instantly, overnight, everyone, every single, never before, changed the
+  world) unless the source says exactly that. Legends and rumours only if clearly labelled as such.
 - Own words and own angle; never copy text from other videos.
 - {'"quelle_url": for every ranked entry, the EXACT url of its source from the SOURCES list (copy it). ' if kanal.get('nur_quellen') else ''}"suche": 2-3 English words for a free stock VIDEO search that visually fits this part (concrete scene, no brand names, no people's names).
 - On-screen title: exactly two lines, line 1 max 22 characters, line 2 max 28 characters.
@@ -166,12 +168,13 @@ def main(kanal_pfad, aus_pfad, thema=None):
     zusatz, quellen = hinweise(kanal, thema)
     # Die Pruefung bekommt dieselben Quellen - sonst haelt sie eine heute
     # belegte Neuheit fuer „unverifizierbar", nur weil ihr Wissen aelter ist.
-    belege = ('\nSOURCES fetched today (treat as verified; claims beyond them are unverifiable):\n'
-              + '\n'.join(f"- [{q['quelle']}] {q['name']}: {q['text']}" for q in quellen)) if quellen else ''
-    pruef_anweisung = ('You are a strict fact checker for a YouTube Short script. Check every factual claim. '
-                       'Mark ok=false if ANY claim is false, outdated, unverifiable or exaggerated, or if a rule is broken '
-                       '(number 1 must be last in rankings, no medical/financial/legal advice). List each problem briefly.'
-                       + belege + '\n\n')
+    def pruef_text():
+        belege = ('\nSOURCES fetched today (treat as verified; claims beyond them are unverifiable):\n'
+                  + '\n'.join(f"- [{q['quelle']}] {q['name']}: {q['text']}" for q in quellen)) if quellen else ''
+        return ('You are a strict fact checker for a YouTube Short script. Check every factual claim. '
+                'Mark ok=false if ANY claim is false, outdated, unverifiable or exaggerated, or if a rule is broken '
+                '(number 1 must be last in rankings, no medical/financial/legal advice). List each problem briefly.'
+                + belege + '\n\n')
     # GEMESSEN 02.10.2026: „Burt's Bees" fiel auch nach der Ueberarbeitung
     # durch (Detailfehler) - ohne zweites Thema gab es an dem Tag kein Video.
     # Ein festes Thema vom Nutzer wird nicht ausgetauscht.
@@ -216,18 +219,40 @@ def main(kanal_pfad, aus_pfad, thema=None):
                        + ' - give each entry 2-3 sentences with concrete facts from the sources, no filler.')
         return e, m, f'Skript zu kurz oder Rangfolge falsch ({zahl} Woerter, {plaetze} Plaetze)'
 
-    for runde in range(1 if thema else 2):
-        entwurf, modell, mangel = schreiben(anweisung(kanal, thema, '; '.join(filter(None, [frueher] + verworfen)))
-                                            + zusatz)
+    basis_zusatz = zusatz
+    for runde in range(1 if thema else 3):
+        runden_thema = thema
+        if kanal.get('quelle') == 'wikipedia':
+            # Erst das Thema, dann die Quelle, dann das Skript NUR aus der Quelle
+            wahl, _ = gemini(f'Pick ONE {kanal["name"]} topic for a YouTube Short that is proven to perform. '
+                             + (f'Topic: {thema}. ' if thema else '')
+                             + f'Do NOT use: {"; ".join(filter(None, [frueher] + verworfen)) or "none"}. '
+                             'Give the exact title of its English Wikipedia article.' + basis_zusatz,
+                             {'type': 'OBJECT', 'properties': {'thema': {'type': 'STRING'},
+                                                               'wikipedia': {'type': 'STRING'}},
+                              'required': ['thema', 'wikipedia']}, temperatur=0.9)
+            import trends
+            q = trends.wikipedia(wahl['wikipedia'])
+            if not q:
+                print(f"Kein Wikipedia-Artikel: {wahl['wikipedia']} - neues Thema")
+                verworfen.append(wahl['thema'])
+                continue
+            quellen = [q]
+            runden_thema = wahl['thema']
+            zusatz = (basis_zusatz + f"\nSOURCE (English Wikipedia, \"{q['name']}\"). Every factual claim MUST "
+                      f"come from this text; leave out anything that is not in it:\n{q['text']}\n")
+            print(f"Quelle: Wikipedia - {q['name']} ({len(q['text'])} Zeichen)")
+        entwurf, modell, mangel = schreiben(anweisung(kanal, runden_thema,
+                                                      '; '.join(filter(None, [frueher] + verworfen))) + zusatz)
         # Zweiter Durchgang: Fakten und Regeln pruefen (Konzept 4a, Punkt 8).
-        pruefung, _ = gemini(pruef_anweisung + json.dumps(entwurf, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
+        pruefung, _ = gemini(pruef_text() + json.dumps(entwurf, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
         if not pruefung['ok'] or mangel:
             # Einmal neu schreiben, mit den gefundenen Problemen als Auflage.
             probleme = pruefung['probleme'] + ([mangel] if mangel else [])
             entwurf, modell, mangel = schreiben(anweisung(kanal, entwurf['thema'], frueher) + zusatz
                                                 + '\nFix these problems found by the fact checker:\n- '
                                                 + '\n- '.join(probleme))
-            pruefung, _ = gemini(pruef_anweisung + json.dumps(entwurf, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
+            pruefung, _ = gemini(pruef_text() + json.dumps(entwurf, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
         if mangel:  # zu kurz = unter 60 s = keine TikTok-Verguetung: nicht vorlegen
             pruefung = {'ok': False, 'probleme': pruefung['probleme'] + [mangel]}
         if pruefung['ok']:
@@ -257,7 +282,9 @@ def main(kanal_pfad, aus_pfad, thema=None):
         'titel': [zeile(entwurf['titel_zeile1']), zeile(entwurf['titel_zeile2'])],
         'stimme': stimme, 'tempo': 1.05, 'teile': entwurf['teile'],
         'posten_ny': kanal.get('posten_ny', '15:00'),
-        'beschreibung': entwurf['beschreibung'] + '\nClips: Pixabay', 'hashtags': entwurf['hashtags'],
+        'beschreibung': entwurf['beschreibung'] + '\nClips: Pixabay'
+                        + (''.join(f"\nSource: Wikipedia - {q['name']} (CC BY-SA)" for q in quellen
+                                   if q.get('quelle') == 'Wikipedia')), 'hashtags': entwurf['hashtags'],
         'pruefung': pruefung, 'quellen': [q['url'] for q in quellen if q.get('url')], 'modell': modell, 'sekunden_ki': round(time.time() - t0, 1),
     }
     Path(aus_pfad).parent.mkdir(parents=True, exist_ok=True)

@@ -14,6 +14,8 @@ import html, json, os, re, time, datetime, urllib.request, urllib.parse
 from xml.etree import ElementTree
 
 UNGEEIGNET = re.compile(r'uncensored|abliterated|nsfw|porn|nude|lewd|hentai|jailbreak', re.I)
+# Wikimedia verlangt eine Kennung mit Kontaktweg
+WIKI_KENNUNG = {'User-Agent': 'Contentfabrik/1.0 (private video tool; github.com/aKhaaaaaan)'}
 KENNUNG = {'User-Agent': 'Contentfabrik/1.0 (privates Video-Tool)'}
 
 
@@ -132,6 +134,36 @@ def ki_quellen(tage=7):
     # ein englisches Publikum unverstaendlich, die Karte zeigt fremde Schrift.
     return [q for q in aus if not UNGEEIGNET.search(q['name'] + ' ' + q['text'])
             and _englisch(q['name'] + ' ' + q['text'])]
+
+
+def wikipedia(titel, grenze=7000):
+    """Geschichte einer Firma aus der englischen Wikipedia (offizielle API,
+    kostenlos). GEMESSEN 03.10.2026: Aus dem KI-Gedaechtnis geschriebene
+    Firmengeschichten fielen zweimal durch die Pruefung (Nintendo, Wrigley:
+    erfundene Zahl, Legenden, „overnight"). Jetzt: nur Fakten aus diesem Text.
+    Fakten sind frei; in der Beschreibung steht trotzdem die Quelle."""
+    try:
+        d = json.loads(_hole('https://en.wikipedia.org/w/api.php?' + urllib.parse.urlencode({
+            'action': 'query', 'prop': 'extracts|info', 'explaintext': 1, 'redirects': 1, 'inprop': 'url',
+            'titles': titel, 'format': 'json'}), WIKI_KENNUNG))
+        seite = next(iter(d['query']['pages'].values()))
+        text = seite.get('extract') or ''
+        if len(text) < 500:
+            return None
+        # Bevorzugt die Abschnitte zur Geschichte; sonst der Anfang des Artikels
+        teile = re.split(r'\n(==+ [^=]+ ==+)\n', text)
+        auswahl, nimm = [teile[0][:1500]], False
+        for i in range(1, len(teile) - 1, 2):
+            kopf = teile[i].strip('= ').lower()
+            if teile[i].startswith('== '):
+                nimm = any(w in kopf for w in ('history', 'origin', 'founding', 'early', 'background'))
+            if nimm:
+                auswahl.append(teile[i].strip('= ') + ': ' + teile[i + 1])
+        text = '\n'.join(auswahl)[:grenze]
+        return {'quelle': 'Wikipedia', 'name': seite['title'], 'url': seite.get('fullurl', ''), 'text': text}
+    except Exception as e:
+        print('Wikipedia nicht verfuegbar:', titel, str(e)[:120])
+        return None
 
 
 if __name__ == '__main__':

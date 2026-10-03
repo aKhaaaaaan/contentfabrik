@@ -201,7 +201,8 @@ Rules:
 - ENDING: a short call to action, then ONE complete closing sentence that calls back to the hook (same image or
   question), so a replay feels natural. Never end mid-sentence.
 - Never write "with just one click", "in seconds", "magic", "insane", "game changer".
-- Short, spoken sentences. Concrete facts only. Every claim must be TRUE and verifiable today; if unsure, leave it out.
+- Short, spoken sentences: one idea each, at most 18 words (GEMESSEN: 17-18 words on average, the best
+  scripts ~10). Write numbers as digits (1977, 3,703), never as words. Concrete facts only. Every claim must be TRUE and verifiable today; if unsure, leave it out.
   No financial, medical or legal advice. No made-up numbers.
 - No hype or exaggeration words (instantly, overnight, everyone, every single, never before, changed the
   world) unless the source says exactly that. Legends and rumours only if clearly labelled as such.

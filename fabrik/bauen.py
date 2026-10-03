@@ -230,7 +230,10 @@ def hf_karte(modell, ziel):
         b = dr.textlength(aufgabe, font=f)
         dr.rounded_rectangle((64, 270, 64 + b + 48, 336), 33, fill=akzent)
         dr.text((88, 280), aufgabe, font=f, fill=(8, 16, 24))
-    for x, zahl, wort in ((64, d.get('likes', 0), 'LIKES'), (520, d.get('downloads', 0), 'DOWNLOADS')):
+    # GEFUNDEN von der KI-Pruefung: „0 Downloads" bei einem neuen Modell (zaehlt
+    # nur 30 Tage) wirkt wie ein Fehler - eine 0 wird nicht gezeigt.
+    werte = [(w, z) for w, z in (('LIKES', d.get('likes', 0)), ('DOWNLOADS', d.get('downloads', 0))) if z]
+    for x, (wort, zahl) in zip((64, 520), werte):
         dr.text((x, 392), kurz_zahl(zahl), font=schrift(96, TITEL_SCHRIFT), fill=(255, 214, 10))
         dr.text((x + 4, 504), wort, font=schrift(34), fill=grau)
     f = schrift(32)

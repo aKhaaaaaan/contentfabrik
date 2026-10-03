@@ -71,7 +71,19 @@ def senden(skript_pfad, video_pfad):
     def code(t):
         return '<code>' + t.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;') + '</code>'
     zeit = planungszeit(skript.get('posten_ny', '15:00'))
-    text = ((f'⏰ <b>Planen für: {zeit}</b>\n\n' if zeit else '')
+    kritik_pfad = Path(skript_pfad).with_name('kritik.json')
+    kritik = json.loads(kritik_pfad.read_text(encoding='utf-8')) if kritik_pfad.exists() else None
+    def esc(t):
+        return str(t).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+    pruef = ''
+    if kritik:
+        note = kritik['note']
+        pruef = (f"{'🟢' if note >= 8 else '🟡' if note >= 6 else '🔴'} <b>KI-Prüfung: {note}/10</b> – "
+                 f"{esc(kritik['fazit'])}\n"
+                 + ''.join(f"• {esc(p['zeit'])} {esc(p['text'])}\n" for p in kritik['probleme'][:5])
+                 + ''.join(f'• ⚙️ {esc(b)}\n' for b in kritik.get('technik', {}).get('befunde', []))
+                 + '\n')
+    text = (pruef + (f'⏰ <b>Planen für: {zeit}</b>\n\n' if zeit else '')
             + '<b>Zum Hochladen (antippen = kopieren):</b>\n\nTitel:\n' + code(f'{titel} #shorts')
             + '\n\nBeschreibung:\n' + code(f"{skript['beschreibung']}\n\n{tags}")
             + '\n\n<i>In der App „Veränderte oder synthetische Inhalte“ auf „Ja“ stellen (KI-Stimme).</i>')

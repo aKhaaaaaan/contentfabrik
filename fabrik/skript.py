@@ -14,13 +14,14 @@ from pathlib import Path
 MODELLE = ['gemini-flash-latest', 'gemini-3-flash-preview', 'gemini-3.8-flash', 'gemini-flash-lite-latest']
 
 
-def gemini(prompt, schema, temperatur=0.9, bilder=(), modelle=None):
+def gemini(prompt, schema, temperatur=0.9, bilder=(), modelle=None, dateien=()):
     """bilder: JPEG-Bytes, die die KI mit ansieht (Clip-Auswahl in bauen.py).
     modelle: eigene Reihenfolge, z. B. das schnelle Lite-Modell zuerst."""
     import base64
     schluessel = os.environ['GEMINI_API_KEY']
     teile = [{'text': prompt}] + [{'inline_data': {'mime_type': 'image/jpeg', 'data': base64.b64encode(b).decode()}}
-                                  for b in bilder]
+                                  for b in bilder] + \
+        [{'file_data': {'mime_type': m, 'file_uri': u}} for m, u in dateien]  # z. B. Video (kritik.py)
     koerper = {
         'contents': [{'parts': teile}],
         'generationConfig': {'temperature': temperatur, 'responseMimeType': 'application/json',

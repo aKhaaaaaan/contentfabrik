@@ -102,6 +102,12 @@ jobs:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python fabrik/bauen.py ausgabe/skript.json ausgabe
+      - name: KI-Pruefung des fertigen Videos
+        # Darf scheitern - dann kommt das Video ohne Kritik (lieber Video als keins)
+        continue-on-error: true
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python fabrik/kritik.py ausgabe/short.mp4 ausgabe/skript.json ausgabe/kritik.json
       - name: Zur Freigabe aufs Handy
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -147,3 +153,4 @@ jobs:
             ausgabe/skript.json
             ausgabe/quellen.json
             ausgabe/messung.json
+            ausgabe/kritik.json

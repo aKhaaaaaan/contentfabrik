@@ -21,7 +21,7 @@ from pathlib import Path
 
 SCHWELLE = 8
 BUDGET_S = 55 * 60      # Zeitbudget je Kanal und Tag
-VERSUCH_S = 15 * 60     # so lange braucht ein Versuch hoechstens (gemessen: ~12 Min.)
+VERSUCH_S = 25 * 60     # gemessen: ~12 Min. Bau + bis zu 15 Min. Skript mit Story-Pruefung
 VERSUCHE_MAX = 5
 PY = sys.executable
 
@@ -76,7 +76,11 @@ def main(kanal_pfad, thema=''):
         technik = kritik.get('technik', {}).get('befunde', [])
         note = kritik['note'] - (1 if technik else 0)  # harte Technikfehler kosten einen Punkt
         try:
-            lernen.aktualisieren(kanal, kritik)
+            story = skript.get('story') or {}
+            lern = dict(kritik)
+            lern['probleme'] = kritik.get('probleme', []) + [{'zeit': '-', 'art': 'story', 'text': w}
+                                                             for w in story.get('schwaechen', [])]
+            lernen.aktualisieren(kanal, lern)
         except Exception as e:  # Lernen darf das Video nie verhindern
             print('Lernen nicht moeglich:', str(e)[:150])
         print(f'Versuch {versuch}: {note}/10')

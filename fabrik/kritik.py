@@ -30,6 +30,7 @@ KATEGORIEN = {
     'inhalt': 'value for a normal viewer, facts look plausible, no hype claims',
     'schluss_loop': 'ending and loop into the start, call to action',
     'regeln': 'platform rules: no copyrighted material visible, no misleading claims, safe for ads',
+    'story': 'would a viewer stay until the end? curiosity, tension, surprise, payoff',
 }
 
 

@@ -109,6 +109,9 @@ def senden(skript_pfad, video_pfad):
                  + ''.join(f"• {esc(p['zeit'])} {esc(p['text'])}\n" for p in kritik['probleme'][:5])
                  + ''.join(f'• ⚙️ {esc(b)}\n' for b in kritik.get('technik', {}).get('befunde', []))
                  + '\n')
+    story = skript.get('story')
+    if story:
+        pruef = f"📖 <b>Story: {story['note']}/10</b>\n" + pruef
     text = (pruef + (f'⏰ <b>Planen für: {zeit}</b>\n\n' if zeit else '')
             + '<b>Zum Hochladen (antippen = kopieren):</b>\n\nTitel:\n' + code(f'{titel} #shorts')
             + '\n\nBeschreibung:\n' + code(f"{skript['beschreibung']}\n\n{tags}")

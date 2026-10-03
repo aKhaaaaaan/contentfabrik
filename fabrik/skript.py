@@ -122,6 +122,43 @@ def zuordnen(entwurf, quellen):
             t['quelle_url'] = max(treffer, key=lambda q: len(q['name']))['url'] if treffer else ''
 
 
+STORY_KATEGORIEN = {
+    'hook': 'does the first sentence create a curiosity gap, contradiction or concrete promise within 3 seconds?',
+    'spannung': 'is there an open question or tension that keeps people watching until the end?',
+    'ueberraschung': 'at least one genuine "I did not know that" moment?',
+    'tempo': 'does every part give a reason to keep watching - no filler, no repetition?',
+    'aufloesung': 'does the ending pay off what the hook promised?',
+    'teilbarkeit': 'would a normal viewer send this to a friend or save it?',
+}
+STORY_SCHEMA = {
+    'type': 'OBJECT',
+    'properties': {
+        'note': {'type': 'INTEGER'},
+        'kategorien': {'type': 'OBJECT', 'properties': {k: {'type': 'INTEGER'} for k in STORY_KATEGORIEN},
+                       'required': list(STORY_KATEGORIEN)},
+        'schwaechen': {'type': 'ARRAY', 'items': {'type': 'STRING'}},
+        'besserer_hook': {'type': 'STRING'},
+    },
+    'required': ['note', 'kategorien', 'schwaechen', 'besserer_hook'],
+}
+
+
+def story_bewerten(entwurf):
+    """GEMELDET: „Es bringt nichts, wenn ein Video hochqualitativ ist, aber die
+    Story floppt." Bewertet NUR die Geschichte (Halten bis zum Ende) - vor dem
+    teuren Video-Bau. Note 8+ = Zuschauer bleiben voraussichtlich bis zum Schluss."""
+    text = '\n'.join(t['text'] for t in entwurf['teile'])
+    erg, _ = gemini('You are a top short-form storyteller and retention analyst (YouTube Shorts / TikTok). Rate '
+                    'ONLY the story of this script - would a scrolling viewer stop and stay to the very end? '
+                    'Score each 1-10:\n' + '\n'.join(f'- {k}: {v}' for k, v in STORY_KATEGORIEN.items())
+                    + '\nOverall "note" 1-10 (be strict: 8+ only if most viewers would watch to the end). List '
+                    'concrete weaknesses with the exact sentence they refer to, and write the strongest possible '
+                    'alternative first sentence that stays 100% true to the facts in the script.\n\n'
+                    f'Title: {entwurf.get("titel_zeile1", "")} / {entwurf.get("titel_zeile2", "")}\nScript:\n{text}',
+                    STORY_SCHEMA, temperatur=0.2)
+    return erg
+
+
 def anweisung(kanal, thema, frueher):
     lmin, lmax = kanal.get('laenge_s', [62, 90])
     # GEMESSEN: Kokoro spricht ~2,7 Woerter/s; mit 2,5 je Sekunde gerechnet
@@ -142,7 +179,8 @@ def anweisung(kanal, thema, frueher):
                   'Each ranked entry has "platz" (its rank) and "name" (max 2 words). Last part: short call to action '
                   '(follow for more), no rank.')
     else:
-        aufbau = ('STORY format: first part is a strong hook (a surprising fact or question), then 4-6 parts that '
+        # GEMESSEN: Geschichten kamen in 6 Anlaeufen nicht auf die Mindestlaenge (128-169 Woerter)
+        aufbau = ('STORY format with 6-7 parts of 25-35 words each: first part is a strong hook (a surprising fact or question), then 4-6 parts that '
                   'tell the story in order with tension, last part a short takeaway plus call to action. No "platz".')
     return f"""You write scripts for the faceless YouTube Shorts / TikTok channel "{kanal['name']}" (language: English).
 {('Topic: ' + thema) if thema else 'Pick ONE fresh, specific topic that is proven to perform in this niche right now.'}
@@ -266,6 +304,11 @@ def main(kanal_pfad, aus_pfad, thema=None):
                               'required': ['thema', 'wikipedia']}, temperatur=0.9)
             import trends
             q = trends.wikipedia(wahl['wikipedia'])
+            # GEMESSEN: Aus 1.353 Zeichen Quelle (Balaji Wafers) liess sich keine
+            # 60-s-Geschichte schreiben, ohne zu strecken - sofort naechstes Thema.
+            if q and len(q['text']) < 2500:
+                print(f"Quelle zu kurz ({len(q['text'])} Zeichen): {q['name']} - neues Thema")
+                q = None
             if not q:
                 print(f"Kein Wikipedia-Artikel: {wahl['wikipedia']} - neues Thema")
                 verworfen.append(wahl['thema'])
@@ -295,6 +338,33 @@ def main(kanal_pfad, aus_pfad, thema=None):
         print(f"Thema verworfen: {entwurf['thema']} - {pruefung['probleme']}")
         verworfen.append(entwurf['thema'])
 
+    # Story-Pruefung vor dem Bau: unter 8 mit dem konkreten Feedback neu schreiben
+    # (bis zu 2 Runden). Jede neue Fassung muss WIEDER durch die Faktenpruefung -
+    # Spannung nie auf Kosten der Wahrheit. Behalten wird die beste Fassung.
+    story = None
+    if pruefung['ok']:
+        story = story_bewerten(entwurf)
+        print(f"Story: {story['note']}/10 {story['kategorien']}")
+        for runde in range(2):
+            if story['note'] >= 8:
+                break
+            neu, m, mangel = schreiben(
+                anweisung(kanal, entwurf['thema'], frueher) + zusatz
+                + '\nREWRITE for a stronger story (same topic, same facts and sources). A story editor found:\n- '
+                + '\n- '.join(story['schwaechen'])
+                + f"\nConsider this opening: {story['besserer_hook']}\nKeep the tension until the end and pay off "
+                  'the hook in the last part.')
+            if mangel:
+                continue
+            p2, _ = gemini(pruef_text() + json.dumps(neu, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
+            if not p2['ok']:
+                print('Story-Fassung fiel durch die Faktenpruefung - verworfen')
+                continue
+            s2 = story_bewerten(neu)
+            print(f"Story neu: {s2['note']}/10 (vorher {story['note']})")
+            if s2['note'] > story['note']:
+                entwurf, modell, pruefung, story = neu, m, p2, s2
+
     zuordnen(entwurf, quellen)
     # GEMESSEN: Die KI liess „name" leer - dann fehlte der Name unter der Karte.
     for t in entwurf['teile']:
@@ -319,6 +389,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         'posten_ny': kanal.get('posten_ny', '15:00'),
         'laenge_s': kanal.get('laenge_s', [62, 90]),
         'regeln': kanal.get('_regeln', []),
+        'story': story,
         'hintergrund_suche': kanal.get('hintergrund_suche', ''),
         'bilder': wiki_fotos,
         'beschreibung': entwurf['beschreibung'] + '\nClips: Pixabay'

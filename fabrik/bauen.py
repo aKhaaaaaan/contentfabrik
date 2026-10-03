@@ -116,6 +116,27 @@ def foto_fuer(bilder, satz, benutzt):
         return None, None
 
 
+def mini_karte(karte, platz):
+    """Kleine Karte + Platznummer oben, waehrend darunter der Praxis-Clip
+    laeuft - so bleibt klar, um welches Werkzeug es geht."""
+    k = Image.open(karte).convert('RGB')
+    breite = 560
+    k = k.resize((breite, int(k.height * breite / k.width)), Image.LANCZOS)
+    img = Image.new('RGBA', (B, H), (0, 0, 0, 0))
+    x, y = (B - breite) // 2, 520
+    schatten = Image.new('RGBA', (B, H), (0, 0, 0, 0))
+    ImageDraw.Draw(schatten).rounded_rectangle((x, y + 10, x + breite, y + 10 + k.height), 20, fill=(0, 0, 0, 190))
+    img.alpha_composite(schatten.filter(ImageFilter.GaussianBlur(14)))
+    maske = Image.new('L', k.size, 0)
+    ImageDraw.Draw(maske).rounded_rectangle((0, 0, *k.size), 20, fill=255)
+    img.paste(k, (x, y), maske)
+    if platz:
+        f = schrift(110, TITEL_SCHRIFT)
+        t = f'#{platz}'
+        schrift_text(img, ((B - ImageDraw.Draw(img).textlength(t, font=f)) / 2, 395), t, f, rand=4)
+    return img
+
+
 def karten_ebene(karte, kasten=None):
     """Die Karte allein (abgerundet, mit Schatten) auf durchsichtigem Bild."""
     k = Image.open(karte).convert('RGB')
@@ -521,6 +542,33 @@ def main(skript_pfad, aus):
                 # Flaeche. Jetzt der bewegte Kanal-Hintergrund.
                 hg_clip = hg_clip or hintergrund_holen(s, schon, dauer, quellen, aus)
                 ein, filt = karten_filter(hg_clip, ebene, None)
+            # GEMELDET (KI-Analyse): „Ablauf ueber 1,5 Minuten exakt gleich",
+            # „Praxisbeispiele wuerden es lebendiger machen". Je Platz zwei
+            # Stuecke: erst die Karte (2,8 s, Einflug), dann ein Clip, der zeigt,
+            # WAS das Werkzeug macht (KI waehlt nach Vorschau) - Karte klein oben.
+            if karte and t.get('platz') and dauer > 5.5:
+                a = 2.8
+                clip_b, q_b = clip_fuer(t.get('suche') or s.get('suche'), schon, dauer - a, t['text'])
+                if clip_b:
+                    quellen.append(q_b)
+                    st_a, st_b = aus / f'stueck_{i:02d}a.mp4', aus / f'stueck_{i:02d}b.mp4'
+                    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *ein, '-filter_complex', filt,
+                                    '-t', f'{a:.3f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
+                                    str(st_a)], check=True)
+                    eb, mk = aus / f'ebene_{i:02d}b.png', aus / f'mini_{i:02d}.png'
+                    bild_fuer({}, s['titel'], i, len(s['teile']), durchsichtig=True).save(eb)
+                    mini_karte(karte, t['platz']).save(mk)
+                    nb = max(1, int((dauer - a) * FPS))
+                    fb = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,'
+                          f"fps={FPS},zoompan=z='1+0.06*on/{nb}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
+                          f':d=1:s={B}x{H}:fps={FPS}[v];[v][1:v]overlay=0:0[x];[x][2:v]overlay=0:0,format=yuv420p')
+                    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-stream_loop', '-1', '-i', str(clip_b),
+                                    '-loop', '1', '-framerate', str(FPS), '-i', str(eb),
+                                    '-loop', '1', '-framerate', str(FPS), '-i', str(mk), '-filter_complex', fb,
+                                    '-t', f'{dauer - a:.3f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast',
+                                    '-crf', '18', str(st_b)], check=True)
+                    liste += [f"file '{st_a.name}'", f"file '{st_b.name}'"]
+                    continue
             subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *ein, '-filter_complex', filt,
                             '-t', f'{dauer:.3f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
                             str(stueck)], check=True)

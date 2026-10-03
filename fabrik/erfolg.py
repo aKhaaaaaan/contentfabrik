@@ -15,7 +15,7 @@ TikTok liefert Zahlen nur an gepruefte Apps - bis dahin lernt das Tool aus YouTu
 
 Daten: erfolg/<kanal>.json (im Projekt, nach jedem Lauf gesichert).
 """
-import datetime, json, os, random, re, statistics, urllib.parse, urllib.request
+import datetime, json, os, random, re, statistics, urllib.error, urllib.parse, urllib.request
 from pathlib import Path
 
 ORDNER = Path('erfolg')
@@ -34,10 +34,20 @@ def _zugang(kanal_id):
         token = json.loads(p.read_text(encoding='utf-8'))['refresh_token'] if p.exists() else None
     if not token:
         return None
-    d = json.load(urllib.request.urlopen(urllib.request.Request(c['token_uri'], data=urllib.parse.urlencode({
-        'client_id': c['client_id'], 'client_secret': c['client_secret'], 'refresh_token': token,
-        'grant_type': 'refresh_token'}).encode()), timeout=30))
+    try:
+        d = json.load(urllib.request.urlopen(urllib.request.Request(c['token_uri'], data=urllib.parse.urlencode({
+            'client_id': c['client_id'], 'client_secret': c['client_secret'], 'refresh_token': token,
+            'grant_type': 'refresh_token'}).encode()), timeout=30))
+    except urllib.error.HTTPError as e:
+        # invalid_grant = Zugang im Google-Konto widerrufen (oder abgelaufen).
+        # Andere Fehler (Netz, 5xx) duerfen NICHT zum Loeschen fuehren.
+        if 'invalid_grant' in e.read().decode(errors='replace'):
+            return WIDERRUFEN
+        raise
     return d['access_token']
+
+
+WIDERRUFEN = 'widerrufen'
 
 
 def _hole(url, token):
@@ -62,7 +72,17 @@ def abrufen(kanal):
     if not token:
         print(f'{kanal}: noch kein YouTube-Zugang - uebersprungen')
         return
-    API = 'https://www.googleapis.com/youtube/v3/'
+    if token == WIDERRUFEN:
+        # YouTube-Entwicklerrichtlinie III.E.4: Wird die Erlaubnis widerrufen,
+        # muessen die gespeicherten API-Daten binnen 30 Tagen weg (GEPRUEFT
+        # 03.10.2026). Der taegliche Abruf ist zugleich die verlangte Pruefung
+        # „alle 30 Tage, ob die Erlaubnis noch besteht".
+        p = ORDNER / f'{kanal}.json'
+        if p.exists():
+            p.unlink()
+        print(f'{kanal}: YouTube-Zugang widerrufen - gespeicherte Zahlen geloescht')
+        return
+    API ='https://www.googleapis.com/youtube/v3/'
     uploads = _hole(API + 'channels?part=contentDetails&mine=true', token)['items'][0]['contentDetails'][
         'relatedPlaylists']['uploads']
     ids = [i['contentDetails']['videoId'] for i in _hole(

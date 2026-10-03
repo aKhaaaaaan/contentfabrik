@@ -173,7 +173,8 @@ def anweisung(kanal, thema, frueher):
     # (Analyse: viral gehen Nutzen, Neuheit, Ueberraschung; YouTube bestraft
     # gleichfoermige Massenware).
     winkel = kanal.get('winkel', [])
-    blick = winkel[datetime.date.today().toordinal() % len(winkel)] if winkel else ''
+    # Erfolgs-Gedaechtnis waehlt (erfolg.py); ohne Wahl: nach Tag abwechseln
+    blick = kanal.get('_winkel') or (winkel[datetime.date.today().toordinal() % len(winkel)] if winkel else '')
     if fmt == 'ranking':
         pmin, pmax = kanal.get('plaetze', [5, 7])
         aufbau = (f'RANKING format with {pmin}-{pmax} entries. First part: a hook without a rank. '
@@ -209,6 +210,9 @@ Rules:
 - On-screen title: exactly two lines, line 1 max 22 characters, line 2 max 28 characters.
   "schluesselwoerter": the 1-2 words of the title that tell the viewer instantly what the video is about.
 - "beschreibung": 2 sentences for the platform description. "hashtags": 3-5 relevant hashtags.
+{('OUR OWN best performing videos so far (real views and watch time) - learn from their hook and '
+  'structure, do not repeat their topic:' + chr(10) + chr(10).join('- ' + v for v in kanal['_vorbilder']) + chr(10))
+ if kanal.get('_vorbilder') else ''}
 {('LESSONS from quality reviews of our earlier videos - follow them strictly:' + chr(10)
   + chr(10).join('- ' + r for r in kanal['_regeln'])) if kanal.get('_regeln') else ''}
 """
@@ -218,6 +222,12 @@ def main(kanal_pfad, aus_pfad, thema=None):
     kanal = json.loads(Path(kanal_pfad).read_text(encoding='utf-8'))
     import lernen
     kanal['_regeln'] = lernen.regeln(Path(kanal_pfad).stem)
+    # GEMELDET: aus den Videos lernen, die wirklich liefen (Aufrufe, Zuschauerbindung)
+    import erfolg
+    stem = Path(kanal_pfad).stem
+    if kanal.get('winkel'):
+        kanal['_winkel'] = erfolg.waehlen(stem, 'winkel', kanal['winkel'])
+    kanal['_vorbilder'] = erfolg.vorbilder(stem)
     verlauf_pfad = Path('verlauf') / (Path(kanal_pfad).stem + '.json')
     verlauf = json.loads(verlauf_pfad.read_text(encoding='utf-8')) if verlauf_pfad.exists() else []
     frueher = '; '.join(v['thema'] for v in verlauf[-60:])
@@ -382,7 +392,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
 
     # Stimme abwechselnd nach Tag (Abwechslung gegen Massenware-Regel)
     stimmen = kanal.get('stimmen', ['am_michael'])
-    stimme = stimmen[datetime.date.today().toordinal() % len(stimmen)]
+    # Nur die Stimmen des Nutzers; welche, entscheidet der Erfolg (erfolg.py)
+    stimme = erfolg.waehlen(Path(kanal_pfad).stem, 'stimme', stimmen)
     zeile = lambda z: ' '.join(f'*{w}*' if any(w.strip('.,!?').lower() == s.lower() for s in
                                                 ' '.join(entwurf['schluesselwoerter']).split()) else w
                                 for w in z.split())
@@ -393,6 +404,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         'posten_ny': kanal.get('posten_ny', '15:00'),
         'laenge_s': kanal.get('laenge_s', [62, 90]),
         'regeln': kanal.get('_regeln', []),
+        'winkel': kanal.get('_winkel', ''), 'format': kanal.get('format', 'ranking'),
         'story': story,
         'hintergrund_suche': kanal.get('hintergrund_suche', ''),
         'bilder': wiki_fotos,

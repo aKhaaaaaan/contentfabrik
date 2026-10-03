@@ -98,6 +98,7 @@ def abrufen(kanal):
             'aufrufe': int(s.get('viewCount', 0)), 'likes': int(s.get('likeCount', 0)),
             'kommentare': int(s.get('commentCount', 0)), **bindung.get(v['id'], {}),
             'einstellungen': eintrag.get('einstellungen', {}), 'hook': eintrag.get('hook', ''),
+            'gliederung': eintrag.get('gliederung', []),
         }
     daten['stand'] = heute.isoformat()
     ORDNER.mkdir(exist_ok=True)
@@ -137,7 +138,8 @@ def waehlen(kanal, schluessel, optionen):
 def vorbilder(kanal, n=3):
     """Hooks unserer erfolgreichsten Videos - eigene Texte, frei verwendbar."""
     vs = sorted(_bewertet(kanal), key=lambda v: -v['wert'])
-    return [f"{v['hook']} ({v['aufrufe']} views, {v.get('anteil_prozent', '?')}% watched)" for v in vs[:n] if v['hook']]
+    return [f"HOOK: {v['hook']} | STRUCTURE: {' -> '.join(v.get('gliederung', []))} "
+            f"({v['aufrufe']} views, {v.get('anteil_prozent', '?')}% watched)" for v in vs[:n] if v['hook']]
 
 
 def bericht(kanal):
@@ -145,7 +147,7 @@ def bericht(kanal):
     if not vs:
         return f'{kanal}: noch keine auswertbaren Videos (oeffentlich und aelter als 48 h)'
     zeilen = [f'{kanal}: {len(vs)} Videos ausgewertet']
-    for schluessel in ('stimme', 'winkel', 'format', 'laenge'):
+    for schluessel in ('stimme', 'winkel', 'format', 'laenge', 'hook_art', 'teile'):
         gruppen = {}
         for v in vs:
             gruppen.setdefault(str(v['einstellungen'].get(schluessel)), []).append(v['wert'])

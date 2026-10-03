@@ -16,7 +16,7 @@ das Tool soll aus dem Feedback lernen und besser werden".
 
 Aufruf:  python fabrik/lauf.py kanaele/ai-tools-explained.json [thema]
 """
-import datetime, json, os, shutil, subprocess, sys, time, urllib.parse, urllib.request
+import datetime, json, os, re, shutil, subprocess, sys, time, urllib.parse, urllib.request
 from pathlib import Path
 
 # GEMELDET: „Das Ziel ist immer 10/10, nicht bis 8/10." Verbessert wird bis
@@ -44,8 +44,21 @@ def verlauf_eintragen(kanal, skript, status, note):
     # Wird ein zuerst verworfener Versuch doch gesendet: nur EIN Eintrag je Thema und Tag
     heute = datetime.date.today().isoformat()
     v = [e for e in v if not (e.get('datum') == heute and e.get('thema') == skript['thema'])]
+    # GEMELDET: aus erfolgreichen Videos Stimmen, Einstellungen UND Story-Aufbau
+    # lernen - darum alles festhalten, was ein Video ausmacht (erfolg.py wertet aus).
+    teile = skript.get('teile', [])
+    erster = (teile[0]['text'] if teile else '').split('. ')[0]
+    art = ('frage' if erster.rstrip().endswith('?') else 'zahl' if re.search(r'\d', erster)
+           else 'widerspruch' if re.search(r'\b(but|yet|never|only|nobody|without)\b', erster, re.I) else 'aussage')
+    worte = sum(len(t['text'].split()) for t in teile)
+    story = skript.get('story') or {}
     v.append({'datum': datetime.date.today().isoformat(), 'thema': skript['thema'], 'titel': skript['titel'],
-              'status': status, 'note': note})
+              'status': status, 'note': note, 'hook': erster,
+              'einstellungen': {'stimme': skript.get('stimme'), 'winkel': skript.get('winkel'),
+                                'format': skript.get('format'), 'hook_art': art, 'teile': len(teile),
+                                'laenge': 'kurz' if worte < 190 else 'mittel' if worte < 240 else 'lang',
+                                'story_note': story.get('note')},
+              'gliederung': [' '.join(t['text'].split()[:7]) for t in teile]})
     p.write_text(json.dumps(v, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
 
 

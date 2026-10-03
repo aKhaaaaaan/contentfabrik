@@ -40,23 +40,4 @@ for stimme in NUTZER + BESTE:
     print(f'{nr} kokoro {stimme}: {len(audio) / rate:.1f} s Ton, {WOERTER / (len(audio) / rate):.2f} W/s, '
           f'{time.time() - t:.1f} s Rechenzeit')
 
-try:
-    import torch, torchaudio
-    from chatterbox.tts import ChatterboxTTS
-    torch.set_num_threads(4)
-    t = time.time()
-    modell = ChatterboxTTS.from_pretrained(device='cpu')
-    print(f'Chatterbox geladen in {time.time() - t:.0f} s')
-    for stimme in NUTZER:
-        vorlage = next(aus.glob(f'*_kokoro_{stimme}.wav'))
-        for gefuehl in (0.5, 0.8):  # 0.5 = natuerlich, 0.8 = lebhaft
-            nr += 1
-            t = time.time()
-            wav = modell.generate(SATZ, audio_prompt_path=str(vorlage), exaggeration=gefuehl, cfg_weight=0.5)
-            ziel = aus / f'{nr:02d}_chatterbox_{stimme}_gefuehl{int(gefuehl * 10)}.wav'
-            torchaudio.save(str(ziel), wav, modell.sr)
-            dauer = wav.shape[-1] / modell.sr
-            print(f'{nr} chatterbox {stimme} {gefuehl}: {dauer:.1f} s Ton, {time.time() - t:.0f} s Rechenzeit '
-                  f'(Faktor {(time.time() - t) / dauer:.1f})')
-except Exception as e:
-    print('Chatterbox nicht moeglich:', str(e)[:300])
+# Chatterbox laeuft in eigener Umgebung: fabrik/chatterbox_proben.py

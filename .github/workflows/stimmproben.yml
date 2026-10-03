@@ -3,6 +3,10 @@
 name: stimmproben
 on:
   workflow_dispatch:
+    inputs:
+      nur_neue:
+        description: 'nur Chatterbox-Proben (6+) schicken'
+        default: 'nein'
 jobs:
   proben:
     runs-on: ubuntu-latest
@@ -16,9 +20,11 @@ jobs:
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
           pip install -q -r requirements.txt
-          # Chatterbox (MIT) - CPU-Fassung von torch, sonst laedt pip GPU-Pakete (GBs)
-          pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
-          pip install -q chatterbox-tts || echo "Chatterbox-Installation fehlgeschlagen"
+          # Chatterbox (MIT) in EIGENER Umgebung - mit Kokoro zusammen scheiterte pip
+          # (feste Paketversionen). CPU-torch, sonst laedt pip GPU-Pakete (GBs).
+          python -m venv cb
+          cb/bin/pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          cb/bin/pip install chatterbox-tts 2>&1 | tail -5 || true
       - uses: actions/cache@v4
         with:
           path: modelle
@@ -28,6 +34,9 @@ jobs:
           [ -f modelle/kokoro-v1.0.onnx ] || curl -sL -o modelle/kokoro-v1.0.onnx https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx
           [ -f modelle/voices-v1.0.bin ] || curl -sL -o modelle/voices-v1.0.bin https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin
       - run: python fabrik/stimmproben.py proben
+      - name: Chatterbox-Proben
+        continue-on-error: true
+        run: cb/bin/python fabrik/chatterbox_proben.py proben
       - name: In Telegram schicken
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -37,6 +46,7 @@ jobs:
             --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
             --data-urlencode "text=🎙️ Stimmproben – derselbe Satz in jeder Stimme. Schreib mir hier im Chat bis zu 3 Nummern, z. B. Stimmen: 2, 7, 9"
           for f in proben/*.wav; do
+            [ "${{ inputs.nur_neue }}" = "ja" ] && case "$(basename $f)" in 0[1-5]_*) continue;; esac
             n=$(basename "$f" .wav); ffmpeg -loglevel error -y -i "$f" -b:a 128k "proben/$n.mp3"
             curl -s -o /dev/null -F chat_id="${TELEGRAM_CHAT_ID}" -F title="$n" -F performer="Probe" \
               -F audio=@"proben/$n.mp3" "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendAudio"

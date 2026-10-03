@@ -116,6 +116,19 @@ def karten_filter(hg, ebene, kpfad):
             '-loop', '1', '-framerate', str(FPS), '-i', str(kpfad)], filt
 
 
+def hintergrund_holen(s, schon, dauer, quellen, aus):
+    """Einmal je Video: bewegter, ruhiger Hintergrund (Kanal-Suchbegriff), den
+    die KI aus den Pixabay-Vorschaubildern waehlt. Rueckfall: Farbverlauf."""
+    suche = s.get('hintergrund_suche') or 'abstract technology background'
+    clip, q = clip_fuer(suche, schon, dauer, f'calm, slow, dark {suche}, no text, no people, no logos')
+    if clip:
+        quellen.append(q)
+        return clip
+    pfad = aus / 'verlauf.png'
+    verlauf_bild((32, 210, 190)).save(pfad)
+    return pfad
+
+
 def verlauf_bild(akzent):
     """Rueckfall-Hintergrund: dunkel in der Kanalfarbe. GEMESSEN: weisse
     GitHub-Karten unscharf als Hintergrund ergaben ein mattes Grau."""
@@ -421,7 +434,7 @@ def main(skript_pfad, aus):
             # (halber „Subscribe"-Knopf) - dort gilt jetzt derselbe Hintergrund.
             clip, quelle = ((None, None) if karte or kartenvideo else
                             clip_fuer(t.get('suche') or s.get('suche'), schon, dauer, t['text']))
-            bild_fuer(t, s['titel'], i, len(s['teile']), durchsichtig=bool(clip) or (kartenvideo and not karte),
+            bild_fuer(t, s['titel'], i, len(s['teile']), durchsichtig=not karte,
                      karte=karte).save(ebene)
             if karte or kartenvideo:
                 kpfad = None
@@ -429,24 +442,23 @@ def main(skript_pfad, aus):
                     quellen.append({'quelle': 'Vorschaubild', 'seite': t['quelle_url']})
                     kpfad = aus / f'karte_{i:02d}.png'
                     karten_ebene(karte).save(kpfad)
-                if hg_clip is None:  # einmal je Video: bewegter, dunkler Hintergrund
-                    hg_clip, hq = clip_fuer('abstract technology background', schon, dauer,
-                                            'calm dark abstract technology background, slow motion, no text, no people')
-                    if hg_clip:
-                        quellen.append(hq)
-                    else:
-                        hg_clip = aus / 'verlauf.png'
-                        verlauf_bild((32, 210, 190)).save(hg_clip)
+                hg_clip = hg_clip or hintergrund_holen(s, schon, dauer, quellen, aus)
                 ein, filt = karten_filter(hg_clip, ebene, kpfad)
             elif clip:
                 quellen.append(quelle)
+                # Langsamer Zoom (6 %) auf JEDEM Clip. GEMELDET (KI-Analyse):
+                # „Standbild von Schulkindern ohne jede Kamerabewegung".
+                n = max(1, int(dauer * FPS))
                 filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,'
-                        f'fps={FPS}[v];[v][1:v]overlay=0:0,format=yuv420p')
+                        f"fps={FPS},zoompan=z='1+0.06*on/{n}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
+                        f':d=1:s={B}x{H}:fps={FPS}[v];[v][1:v]overlay=0:0,format=yuv420p')
                 ein = ['-stream_loop', '-1', '-i', str(clip), '-i', str(ebene)]
             else:
-                quellen.append({'quelle': 'eigenes Bild'})
-                filt = f'[0:v]fps={FPS},format=yuv420p'
-                ein = ['-loop', '1', '-i', str(ebene)]
+                # GEMELDET (KI-Analyse): „Blackscreens", „dunkler leerer
+                # Hintergrund mit Text" - passte kein Clip, blieb eine leere
+                # Flaeche. Jetzt der bewegte Kanal-Hintergrund.
+                hg_clip = hg_clip or hintergrund_holen(s, schon, dauer, quellen, aus)
+                ein, filt = karten_filter(hg_clip, ebene, None)
             subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *ein, '-filter_complex', filt,
                             '-t', f'{dauer:.3f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
                             str(stueck)], check=True)

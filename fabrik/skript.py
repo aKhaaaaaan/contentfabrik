@@ -312,6 +312,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         'titel': [zeile(entwurf['titel_zeile1']), zeile(entwurf['titel_zeile2'])],
         'stimme': stimme, 'tempo': 1.05, 'teile': entwurf['teile'],
         'posten_ny': kanal.get('posten_ny', '15:00'),
+        'hintergrund_suche': kanal.get('hintergrund_suche', ''),
         'beschreibung': entwurf['beschreibung'] + '\nClips: Pixabay'
                         + (''.join(f"\nSource: Wikipedia - {q['name']} (CC BY-SA)" for q in quellen
                                    if q.get('quelle') == 'Wikipedia')), 'hashtags': entwurf['hashtags'],

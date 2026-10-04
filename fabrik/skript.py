@@ -218,8 +218,10 @@ Rules:
 {"- NORMAL VIEWERS, NOT DEVELOPERS: every entry starts with what a normal person can DO with it (from its source), then one number that proves it. Avoid jargon like 'image-text-to-text' - say 'reads pictures and answers questions about them'. Say 'free' only if the source shows it is open source or free to download." if kanal.get('nur_quellen') else ''}
 - The first sentence is the hook: a clear benefit, something brand new, or a surprise - within 3 seconds.
   No intro, no greeting.
-- ENDING: a short call to action, then ONE complete closing sentence that calls back to the hook (same image or
-  question), so a replay feels natural. Never end mid-sentence.
+- ENDING: a short call to action that asks viewers to SAVE the video for later (e.g. "Save this so you don't
+  lose it." - GEMESSEN: a top tool-list video had 5,404 saves vs 5,151 likes; saves are the strongest signal),
+  then ONE complete closing sentence that calls back to the hook (same image or question), so a replay feels
+  natural. Never end mid-sentence.
 - Never write "with just one click", "in seconds", "magic", "insane", "game changer".
 - Short, spoken sentences: one idea each, at most 18 words (GEMESSEN: 17-18 words on average, the best
   scripts ~10). Write numbers as digits (1977, 3,703), never as words. Concrete facts only. Every claim must be TRUE and verifiable today; if unsure, leave it out.

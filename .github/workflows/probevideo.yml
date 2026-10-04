@@ -3,6 +3,10 @@
 name: probevideo
 on:
   workflow_dispatch:
+    inputs:
+      skript:
+        description: 'Skript-Datei'
+        default: 'skripte/probe.json'
 jobs:
   bauen:
     runs-on: ubuntu-latest
@@ -37,7 +41,8 @@ jobs:
       - name: Video bauen
         env:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
-        run: python fabrik/bauen.py skripte/probe.json ausgabe
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python fabrik/bauen.py "${{ inputs.skript || 'skripte/probe.json' }}" ausgabe
       - name: Ton pruefen (Lautstaerke der Stimme und des fertigen Videos)
         run: |
           echo "--- stimme.wav"; ffmpeg -hide_banner -i ausgabe/stimme.wav -af volumedetect -f null - 2>&1 | grep -E "mean_volume|max_volume"
@@ -50,3 +55,4 @@ jobs:
             ausgabe/messung.json
             ausgabe/stimme.wav
             ausgabe/quellen.json
+            ausgabe/effekte.wav

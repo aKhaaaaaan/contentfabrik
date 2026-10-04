@@ -371,6 +371,9 @@ def main(kanal_pfad, aus_pfad, thema=None):
 
     basis_zusatz = zusatz
     wiki_fotos = []
+    # GEMESSEN 04.10.2026: Fielen alle Themen weg (Wikipedia 429), war 'pruefung'
+    # unbelegt -> UnboundLocalError, der ganze Lauf brach ab. Jetzt sauberer Fehlschlag.
+    pruefung, entwurf = {'ok': False, 'probleme': ['Kein Thema mit brauchbarer Quelle gefunden']}, None
     for runde in range(1 if thema else 3):
         runden_thema = thema
         if kanal.get('quelle') == 'wikipedia':
@@ -492,6 +495,9 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 # meist auch nichts (GEMESSEN: 6 -> 6 -> 5) - abbrechen.
                 break
 
+    if entwurf is None:  # kein einziges Thema hatte eine brauchbare Quelle
+        print('Kein Thema gefunden - Versuch beendet', file=sys.stderr)
+        sys.exit(2)
     zuordnen(entwurf, quellen)
     # GEMESSEN: Die KI liess „name" leer - dann fehlte der Name unter der Karte.
     for t in entwurf['teile']:

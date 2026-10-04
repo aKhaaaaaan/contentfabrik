@@ -85,8 +85,15 @@ def main(kanal_pfad, thema=''):
                 verlauf_eintragen(kanal, json.loads((ordner / 'skript.json').read_text(encoding='utf-8')),
                                   'faktenpruefung', None)
             continue
-        r.check_returncode()
-        subprocess.run([PY, 'fabrik/bauen.py', str(ordner / 'skript.json'), str(ordner)], check=True)
+        # GEMESSEN 04.10.2026: Ein Absturz im Skript (statt Code 2) kippte den ganzen Lauf -
+        # kein Video an diesem Tag. Jeder Fehler zaehlt jetzt nur als ein verbrauchter Versuch.
+        if r.returncode != 0:
+            print(f'Versuch {versuch}: Skript fehlgeschlagen (Code {r.returncode}) - naechster Versuch')
+            continue
+        b = subprocess.run([PY, 'fabrik/bauen.py', str(ordner / 'skript.json'), str(ordner)])
+        if b.returncode != 0:
+            print(f'Versuch {versuch}: Videobau fehlgeschlagen - naechster Versuch')
+            continue
         skript = json.loads((ordner / 'skript.json').read_text(encoding='utf-8'))
         k = subprocess.run([PY, 'fabrik/kritik.py', str(ordner / 'short.mp4'), str(ordner / 'skript.json'),
                             str(ordner / 'kritik.json')])

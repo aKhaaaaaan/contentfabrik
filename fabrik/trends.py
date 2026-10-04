@@ -10,7 +10,7 @@ sind aktuell? Alles kostenlos.
 Jede Funktion faellt still auf [] zurueck, wenn die Quelle nicht antwortet -
 dann entscheidet die KI ohne diese Hinweise, das Video entsteht trotzdem.
 """
-import html, json, os, re, time, datetime, urllib.request, urllib.parse
+import html, json, os, re, time, datetime, urllib.error, urllib.request, urllib.parse
 from xml.etree import ElementTree
 
 UNGEEIGNET = re.compile(r'uncensored|abliterated|nsfw|porn|nude|lewd|hentai|jailbreak', re.I)
@@ -144,9 +144,17 @@ def wikipedia(titel, grenze=7000):
     erfundene Zahl, Legenden, „overnight"). Jetzt: nur Fakten aus diesem Text.
     Fakten sind frei; in der Beschreibung steht trotzdem die Quelle."""
     try:
-        d = json.loads(_hole('https://en.wikipedia.org/w/api.php?' + urllib.parse.urlencode({
+        adresse = 'https://en.wikipedia.org/w/api.php?' + urllib.parse.urlencode({
             'action': 'query', 'prop': 'extracts|info', 'explaintext': 1, 'redirects': 1, 'inprop': 'url',
-            'titles': titel, 'format': 'json'}), WIKI_KENNUNG))
+            'titles': titel, 'format': 'json'})
+        for warte in (0, 5, 15):  # GEMESSEN: 429 Too Many Requests nach der Trend-Abfrage
+            try:
+                import time as _t; _t.sleep(warte)
+                d = json.loads(_hole(adresse, WIKI_KENNUNG))
+                break
+            except urllib.error.HTTPError as e:
+                if e.code != 429 or warte == 15:
+                    raise
         seite = next(iter(d['query']['pages'].values()))
         text = seite.get('extract') or ''
         if len(text) < 500:
@@ -231,7 +239,7 @@ FIRMA = re.compile(r'\b(company|corporation|conglomerate|manufacturer|retailer|b
                    r'bank|carmaker|startup|multinational|business|enterprise|franchise|label|studio)\b', re.I)
 
 
-def firmen_im_trend(datum=None, n=1000):
+def firmen_im_trend(datum=None, n=300):
     """Firmen, die GESTERN viel gelesen wurden (Wikipedia-Aufrufe, offizielle API, kostenlos).
     GEMELDET 04.10.2026: „Die Themen muessen alle immer aktuell sein." Eine Firmen-
     geschichte bekommt so einen Anlass („gerade in den Schlagzeilen - wie fing es an?").
@@ -247,7 +255,12 @@ def firmen_im_trend(datum=None, n=1000):
         return []
     aufrufe = {a['article'].replace('_', ' '): a['views'] for a in top if ':' not in a['article']}
     titel, aus = list(aufrufe), []
+    import time as _t
+    # GEMESSEN 04.10.2026 (GitHub-Lauf): 20 schnelle Anfragen -> Wikipedia antwortete danach
+    # auch beim eigentlichen Artikel mit 429 Too Many Requests. Jetzt 300 statt 1.000 Titel
+    # (6 Anfragen) und eine kurze Pause dazwischen.
     for i in range(0, len(titel), 50):  # 50 Titel je Anfrage (API-Grenze)
+        _t.sleep(0.5)
         try:
             d = json.loads(_hole('https://en.wikipedia.org/w/api.php?' + urllib.parse.urlencode({
                 'action': 'query', 'prop': 'description', 'titles': '|'.join(titel[i:i + 50]), 'format': 'json',

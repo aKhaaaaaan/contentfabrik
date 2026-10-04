@@ -844,10 +844,16 @@ def main(skript_pfad, aus):
             letzt = i == len(s['teile']) - 1 and not t.get('platz')
             if os.environ.get('CLOUDFLARE_AI_TOKEN') and (i == 0 or letzt or (not karte and not foto)):
                 import illustration
-                szene = t.get('szene') or ('pointing straight at the viewer with a confident grin, close-up, '
-                                           'city street at sunset' if i == 0 else 'giving a confident nod to the '
-                                           'viewer, half body, rooftop at golden hour')
-                ill = illustration.bild(szene, aus / f'ill_{i:02d}.jpg', kanal_slug, figur=(i == 0 or letzt))
+                if i == 0 or letzt:
+                    szene = t.get('szene') or ('pointing straight at the viewer with a confident grin, close-up, '
+                                               'city street at sunset' if i == 0 else 'giving a confident nod to '
+                                               'the viewer, half body, rooftop at golden hour')
+                else:  # aeltere Skripte ohne Feld szene: Bildsuche + Satz als Szene
+                    szene = t.get('szene') or f"{t.get('suche', '')}, {t['text'][:120]}"
+                try:
+                    ill = illustration.bild(szene, aus / f'ill_{i:02d}.jpg', kanal_slug, figur=(i == 0 or letzt))
+                except Exception as e:  # nie den ganzen Videobau kippen
+                    print('Illustration nicht moeglich:', str(e)[:120]); ill = None
                 if ill:
                     karte, foto = None, None
                     quellen.append({'quelle': 'Illustration', 'seite': 'KI-generiert (Cloudflare Workers AI, FLUX)'})

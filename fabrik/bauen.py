@@ -586,9 +586,11 @@ def aufnahme_fuer(url, dauer, ziel):
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch()
-            kontext = browser.new_context(viewport={'width': 1280, 'height': 860}, device_scale_factor=1,
-                                          record_video_dir=str(ordner), record_video_size={'width': 1280, 'height': 860},
-                                          color_scheme='dark', locale='en-US')
+            # GEMESSEN (Probevideo 04.10.2026): 1280 px breit und Dunkelmodus = winzige
+            # Schrift auf dunkler Flaeche, auf dem Handy nicht lesbar. Schmaler + hell.
+            kontext = browser.new_context(viewport={'width': 900, 'height': 660}, device_scale_factor=1,
+                                          record_video_dir=str(ordner), record_video_size={'width': 900, 'height': 660},
+                                          color_scheme='light', locale='en-US')
             beginn = time.time()
             seite = kontext.new_page()
             # GEMESSEN: Auf GitHub zeigte die Aufnahme nur die Dateiliste - direkt zur
@@ -601,11 +603,11 @@ def aufnahme_fuer(url, dauer, ziel):
                 const c = document.createElement('div');
                 c.innerHTML = '<svg width="34" height="34" viewBox="0 0 24 24"><path d="M4 2l15 9-7 1.5L8.5 20z" '
                   + 'fill="white" stroke="black" stroke-width="1.5"/></svg>';
-                Object.assign(c.style, {position: 'fixed', left: '380px', top: '260px', zIndex: 2147483647,
+                Object.assign(c.style, {position: 'fixed', left: '260px', top: '180px', zIndex: 2147483647,
                   pointerEvents: 'none', transition: 'left 1.8s ease-in-out, top 1.8s ease-in-out'});
                 document.body.appendChild(c);
-                setTimeout(() => { c.style.left = '640px'; c.style.top = '420px'; }, 200);
-                setTimeout(() => { c.style.left = '560px'; c.style.top = '520px'; }, 2200);
+                setTimeout(() => { c.style.left = '450px'; c.style.top = '320px'; }, 200);
+                setTimeout(() => { c.style.left = '390px'; c.style.top = '400px'; }, 2200);
             }""")
             for _ in range(max(1, int(dauer * 10))):  # weich scrollen, ~280 px je Sekunde
                 seite.mouse.wheel(0, 28)

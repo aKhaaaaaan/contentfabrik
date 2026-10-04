@@ -277,6 +277,17 @@ def main(kanal_pfad, aus_pfad, thema=None):
             p = {'ok': False, 'probleme': p['probleme'] + [
                 'Number not found in the sources - remove it or use the exact number from the sources: ' + z
                 for z in fehlt]}
+        # Zweitpruefer einer anderen Firma (zweit.py): schwere Fehler sperren,
+        # Ausschmueckungen gehen als Auftrag in die Story-Ueberarbeitung.
+        if quellen:
+            import zweit
+            z = zweit.pruefen(' '.join(t['text'] for t in e['teile']),
+                              '\n'.join(f"{q.get('name', '')}: {q.get('text', '')}" for q in quellen))
+            if z:
+                print(f"Zweitpruefer ({z['modell']}): {len(z['probleme'])} schwer, {len(z['leicht'])} leicht")
+                if not z['ok']:
+                    p = {'ok': False, 'probleme': p['probleme'] + ['[second checker] ' + x for x in z['probleme']]}
+                p['leicht'] = z['leicht']
         return p
     # GEMESSEN 02.10.2026: „Burt's Bees" fiel auch nach der Ueberarbeitung
     # durch (Detailfehler) - ohne zweites Thema gab es an dem Tag kein Video.
@@ -376,10 +387,20 @@ def main(kanal_pfad, aus_pfad, thema=None):
         if not pruefung['ok'] or mangel:
             # Einmal neu schreiben, mit den gefundenen Problemen als Auflage.
             probleme = pruefung['probleme'] + ([mangel] if mangel else [])
-            entwurf, modell, mangel = schreiben(anweisung(kanal, entwurf['thema'], frueher) + zusatz
-                                                + '\nFix these problems found by the fact checker:\n- '
-                                                + '\n- '.join(probleme))
-            pruefung = pruefen(entwurf)
+            # GEMESSEN 04.10.2026: Neu von vorn geschrieben, brachte die Korrektur
+            # neue Fehler mit (Harley: „Arthurs Brueder" statt Ole Evinrude) und das
+            # Thema fiel weg. Jetzt: den Entwurf behalten, NUR die Fehler beheben -
+            # bis zu zwei Mal.
+            for _ in range(2):
+                entwurf, modell, mangel = schreiben(
+                    anweisung(kanal, entwurf['thema'], frueher) + zusatz
+                    + '\nHere is a draft. Keep its story, structure and wording, but FIX ONLY these problems '
+                      '(correct or remove each claim using the sources):\n- ' + '\n- '.join(probleme)
+                    + '\nDRAFT:\n' + json.dumps(entwurf, ensure_ascii=False))
+                pruefung = pruefen(entwurf)
+                if pruefung['ok'] and not mangel:
+                    break
+                probleme = pruefung['probleme'] + ([mangel] if mangel else [])
         if mangel:  # zu kurz = unter 60 s = keine TikTok-Verguetung: nicht vorlegen
             pruefung = {'ok': False, 'probleme': pruefung['probleme'] + [mangel]}
         if pruefung['ok']:
@@ -402,13 +423,33 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 + '\nREWRITE for a stronger story (same topic, same facts and sources). A story editor found:\n- '
                 + '\n- '.join(story['schwaechen'])
                 + f"\nConsider this opening: {story['besserer_hook']}\nKeep the tension until the end and pay off "
-                  'the hook in the last part.')
+                  'the hook in the last part.'
+                + (('\nAlso remove these details the sources do not support:\n- ' + '\n- '.join(pruefung['leicht']))
+                   if pruefung.get('leicht') else '')
+                # GEMESSEN 04.10.2026: Ohne den bisherigen Entwurf schrieb die KI jede
+                # Runde neu von vorn - Story 6 -> 6 -> 5. In doku.py (mit Entwurf) 7 -> 8.
+                + '\nCURRENT DRAFT - improve THIS draft, keep every fact that is in it:\n'
+                + json.dumps(entwurf, ensure_ascii=False))
             if mangel:
                 continue
             p2 = pruefen(neu)
             if not p2['ok']:
-                print('Story-Fassung fiel durch die Faktenpruefung - verworfen')
-                continue
+                # GEMESSEN 04.10.2026 (Lamborghini): Alle 3 spannenderen Fassungen
+                # fielen durch die Faktenpruefung, die Story blieb bei 4/10. Statt sie
+                # wegzuwerfen: EINMAL nur die gemeldeten Fehler reparieren lassen.
+                print('Story-Fassung fiel durch die Faktenpruefung - Reparatur:', [x[:80] for x in p2['probleme']])
+                repariert, m, mangel = schreiben(
+                    anweisung(kanal, entwurf['thema'], frueher) + zusatz
+                    + '\nHere is a draft. Keep its story, structure and wording, but FIX ONLY these fact problems '
+                      '(remove or correct the claim using the sources):\n- ' + '\n- '.join(p2['probleme'])
+                    + '\nDRAFT:\n' + json.dumps(neu, ensure_ascii=False))
+                if mangel:
+                    continue
+                p2 = pruefen(repariert)
+                if not p2['ok']:
+                    print('Auch die Reparatur fiel durch - verworfen')
+                    continue
+                neu = repariert
             s2 = story_bewerten(neu)
             print(f"Story neu: {s2['note']}/10 (vorher {story['note']})")
             if s2['note'] > story['note']:

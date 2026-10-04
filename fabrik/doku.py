@@ -121,6 +121,13 @@ def pruefen(d, quelle):
         print('Zahlenprobe: nicht in der Quelle:', fehlt)
         p = {'ok': False, 'probleme': p['probleme'] + [
             'Number not in the source - remove it or use the exact number: ' + z for z in fehlt]}
+    import zweit  # Zweitpruefer einer anderen Firma: schwer sperrt, leicht -> Ueberarbeitung
+    z = zweit.pruefen('\n'.join(gesprochen(d)), quelle['text'], 'documentary narration')
+    if z:
+        print(f"Zweitpruefer ({z['modell']}): {len(z['probleme'])} schwer, {len(z['leicht'])} leicht")
+        if not z['ok']:
+            p = {'ok': False, 'probleme': p['probleme'] + ['[second checker] ' + x for x in z['probleme']]}
+        p['leicht'] = z['leicht']
     return p
 
 
@@ -168,13 +175,26 @@ def main(artikel, aus, telegram=False):
         if s['note'] >= 10 or not p['ok']:
             break
         neu, m = schreiben(auftrag(quelle) + '\nREWRITE for stronger retention (same facts). The editor found:\n- '
-                           + '\n- '.join(s['schwaechen']) + '\nPrevious version:\n' + json.dumps(d, ensure_ascii=False))
+                           + '\n- '.join(s['schwaechen'])
+                           + (('\nAlso remove these details the source does not support:\n- '
+                               + '\n- '.join(p['leicht'])) if p.get('leicht') else '')
+                           + '\nPrevious version:\n' + json.dumps(d, ensure_ascii=False))
         if m:
             continue
         p2 = pruefen(neu, quelle)
         if not p2['ok']:
-            print('Neue Fassung fiel durch die Faktenpruefung - verworfen')
-            continue
+            # Wie in skript.py: spannendere Fassung einmal reparieren statt verwerfen
+            print('Neue Fassung fiel durch die Faktenpruefung - Reparatur:', [x[:80] for x in p2['probleme']])
+            repariert, m = schreiben(auftrag(quelle) + '\nHere is a draft. Keep its story, structure and wording, '
+                                     'but FIX ONLY these fact problems:\n- ' + '\n- '.join(p2['probleme'])
+                                     + '\nDRAFT:\n' + json.dumps(neu, ensure_ascii=False))
+            if m:
+                continue
+            p2 = pruefen(repariert, quelle)
+            if not p2['ok']:
+                print('Auch die Reparatur fiel durch - verworfen')
+                continue
+            neu = repariert
         s2 = story(neu)
         print(f"Story neu: {s2['note']}/10 (vorher {s['note']}) | {woerter(neu)} Woerter")
         if s2['note'] > s['note']:

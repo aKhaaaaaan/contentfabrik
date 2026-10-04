@@ -199,6 +199,8 @@ def main(artikel, aus, telegram=False):
         print(f"Story neu: {s2['note']}/10 (vorher {s['note']}) | {woerter(neu)} Woerter")
         if s2['note'] > s['note']:
             d, p, s = neu, p2, s2
+        else:
+            break  # sparsam: keine Verbesserung -> weitere Runden bringen meist nichts
     d.update({'quelle': {'name': quelle['name'], 'url': quelle['url']}, 'pruefung': p, 'story': s,
               'woerter': woerter(d), 'minuten_ca': round(woerter(d) / 155, 1)})
     Path(aus).parent.mkdir(parents=True, exist_ok=True)

@@ -493,6 +493,17 @@ def demo_fuer(url, satz=''):
             continue
     if not pfade:
         return None, None
+    # Sparsam: Die Wahl je Modellseite wird gespeichert - dasselbe Modell kommt
+    # an mehreren Tagen vor, die KI muss nicht jedes Mal neu schauen.
+    import hashlib as _h
+    merk = PIXABAY_CACHE / f"demo_wahl_{_h.sha1(m[2].encode()).hexdigest()[:12]}.json"
+    if merk.exists():
+        alt = json.loads(merk.read_text(encoding='utf-8'))
+        treffer = [(z, l) for z, l in pfade if l == alt.get('datei')]
+        if treffer:
+            return treffer[0][0], {'quelle': 'Beispielbild', 'seite': url, 'datei': alt['datei']}
+        if alt.get('datei') is None:
+            return None, None
     try:
         from skript import gemini, SEHEN
         wahl, _ = gemini(
@@ -510,8 +521,10 @@ def demo_fuer(url, satz=''):
         return None, None
     if not 0 <= n < len(pfade):
         print('Kein brauchbares Beispielbild:', m[2])
+        merk.write_text(json.dumps({'datei': None}), encoding='utf-8')
         return None, None
     ziel, l = pfade[n]
+    merk.write_text(json.dumps({'datei': l}), encoding='utf-8')
     print('Beispielbild:', m[2], l[:90])
     # Bilder der Modellseite stehen unter der Lizenz des Projekts - Quelle nennen
     return ziel, {'quelle': 'Beispielbild', 'seite': url, 'datei': l}

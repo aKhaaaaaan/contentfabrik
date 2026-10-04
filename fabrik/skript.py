@@ -24,6 +24,19 @@ SEHEN = ['gemini-flash-lite-latest', 'gemini-3.5-flash-lite', 'gemini-3.1-flash-
          'gemini-3.5-flash', 'gemini-flash-latest']
 
 
+VERBRAUCH = {}  # modell -> [anfragen, tokens_rein, tokens_raus]
+
+
+def _verbrauch_melden():
+    if VERBRAUCH:
+        print('Gemini-Verbrauch: ' + '; '.join(f'{m}: {a} Anfragen, {r // 1000}k rein, {o // 1000}k raus'
+                                               for m, (a, r, o) in VERBRAUCH.items()))
+
+
+import atexit  # noqa: E402
+atexit.register(_verbrauch_melden)
+
+
 def gemini(prompt, schema, temperatur=0.9, bilder=(), modelle=None, dateien=()):
     """bilder: JPEG-Bytes, die die KI mit ansieht (Clip-Auswahl in bauen.py).
     modelle: eigene Reihenfolge, z. B. das schnelle Lite-Modell zuerst."""
@@ -45,6 +58,11 @@ def gemini(prompt, schema, temperatur=0.9, bilder=(), modelle=None, dateien=()):
                     f'https://generativelanguage.googleapis.com/v1beta/models/{modell}:generateContent?key={schluessel}',
                     data=json.dumps(koerper).encode(), headers={'Content-Type': 'application/json'})
                 d = json.load(urllib.request.urlopen(req, timeout=120))
+                # GEMELDET: „In der Pipeline sparsam mit Tokens sein" - erst messen:
+                # Anfragen und Tokens je Modell, Ausgabe am Ende jedes Laufs.
+                n = d.get('usageMetadata', {})
+                z = VERBRAUCH.setdefault(modell, [0, 0, 0])
+                z[0] += 1; z[1] += n.get('promptTokenCount', 0); z[2] += n.get('candidatesTokenCount', 0)
                 return json.loads(d['candidates'][0]['content']['parts'][0]['text']), modell
             except Exception as e:  # Kontingent/Netz: kurz warten, dann naechster Versuch
                 letzter = str(e).replace(schluessel, '***')
@@ -456,6 +474,10 @@ def main(kanal_pfad, aus_pfad, thema=None):
             print(f"Story neu: {s2['note']}/10 (vorher {story['note']})")
             if s2['note'] > story['note']:
                 entwurf, modell, pruefung, story = neu, m, p2, s2
+            else:
+                # Sparsam: Bringt eine Runde keine bessere Note, bringen weitere
+                # meist auch nichts (GEMESSEN: 6 -> 6 -> 5) - abbrechen.
+                break
 
     zuordnen(entwurf, quellen)
     # GEMESSEN: Die KI liess „name" leer - dann fehlte der Name unter der Karte.

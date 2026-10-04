@@ -8,8 +8,13 @@ on:
     # warnt selbst: zur vollen Stunde ist Hochlast, geplante Laeufe werden
     # verzoegert oder ausgelassen. Darum krumme Minute + Ersatztermin; die
     # Vorpruefung ueberspringt Kanaele, die heute schon ein Video haben.
-    - cron: '23 4 * * *'   # 06:23 Berlin (Sommerzeit)
-    - cron: '41 6 * * *'   # Ersatz, falls der erste ausfaellt
+    # GEMESSEN 04.10.2026: Das Gemini-Tageskontingent (20 Anfragen je Modell)
+    # beginnt um Mitternacht Pazifikzeit = 07:00 UTC (Sommer) bzw. 08:00 UTC
+    # (Winter). Die Laeufe um 04:23/06:41 UTC bekamen nur den Rest vom Vortag -
+    # nach einem Testtag waren alle Flash-Modelle leer. 08:23 UTC liegt in
+    # beiden Jahreszeiten nach dem Neustart; veroeffentlicht wird erst 15:00 NY.
+    - cron: '23 8 * * *'   # 10:23 Berlin Sommer / 09:23 Winter
+    - cron: '41 10 * * *'  # Ersatz, falls der erste ausfaellt
   workflow_dispatch:
     inputs:
       kanal:

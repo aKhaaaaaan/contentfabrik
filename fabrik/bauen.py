@@ -35,7 +35,10 @@ PUNCH = int(3.2 * 30)
 ZOOM = "(1+0.06*on/{n})*(1+0.08*mod(floor(on/" + str(PUNCH) + "),2))"
 
 
-def effekte_spur(ereignisse, laenge_s, rate, ziel):
+PEGEL = {'riser': 0.18, 'impact': 0.32}  # sonst 0.25 (Spitze ~-12 dB)
+
+
+def effekte_spur(ereignisse, laenge_s, rate, ziel, glitch=False):
     """Tonspur nur mit Effekten: [(sekunde, 'whoosh'|'pop'), ...]. Whoosh-Varianten
     wechseln sich ab (immer derselbe Klang wirkt billig). Pegel: Spitze ~-12 dB,
     deutlich unter der Stimme."""
@@ -45,7 +48,7 @@ def effekte_spur(ereignisse, laenge_s, rate, ziel):
             roh = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', str(SFX / f'{name}.mp3'), '-f', 'f32le',
                                   '-ac', '1', '-ar', str(rate), '-'], capture_output=True, check=True).stdout
             x = np.frombuffer(roh, dtype=np.float32)
-            lade[name] = x / (np.abs(x).max() or 1) * 0.25
+            lade[name] = x / (np.abs(x).max() or 1) * PEGEL.get(name, 0.25)
         return lade[name]
     spur = np.zeros(int(laenge_s * rate) + rate, dtype=np.float32)
     whooshs = sorted(p.stem for p in SFX.glob('whoosh_*.mp3'))
@@ -54,10 +57,15 @@ def effekte_spur(ereignisse, laenge_s, rate, ziel):
         if art == 'whoosh':
             if not whooshs:
                 continue
-            x = klang(whooshs[n % len(whooshs)]); n += 1
+            # GEMESSEN (Vorbild Kien Nguyen): mehrere Effektarten uebereinander;
+            # im KI-Kanal jeder 3. Schnitt ein digitales Glitch statt Whoosh.
+            x = klang('glitch' if glitch and n % 3 == 2 else whooshs[n % len(whooshs)]); n += 1
             start = int(max(0, sek - 0.25) * rate)  # das Rauschen kommt kurz VOR dem Schnitt
+        elif art == 'riser':  # Spannung: endet genau beim Ereignis
+            x = klang('riser')
+            start = max(0, int(sek * rate) - len(x))
         else:
-            x = klang('pop')
+            x = klang(art)
             start = int(sek * rate)
         ende = min(len(spur), start + len(x))
         spur[start:ende] += x[:ende - start]
@@ -291,6 +299,34 @@ def verlauf_bild(akzent):
     return Image.fromarray(np.repeat((oben * (1 - v) + unten * v).astype(np.uint8), B, axis=1))
 
 
+FORTSCHRITT = {'plaetze': [], 'aktuell': None}  # in main() je Abschnitt gesetzt
+
+
+def fortschritt_zeichnen(img, akzent):
+    """GEMESSEN 04.10.2026 (Vorbild sprich.ai): eine Leiste oben zeigt, wo man in
+    der Liste steht - der Zuschauer sieht, dass noch etwas kommt, und bleibt."""
+    plaetze, akt = FORTSCHRITT['plaetze'], FORTSCHRITT['aktuell']
+    if len(plaetze) < 3:
+        return
+    d = ImageDraw.Draw(img)
+    y, breite = 414, min(700, 110 * (len(plaetze) - 1))
+    xs = [(B - breite) / 2 + breite * k / (len(plaetze) - 1) for k in range(len(plaetze))]
+    grau = (110, 120, 135, 255)
+    d.line((xs[0], y, xs[-1], y), fill=grau, width=5)
+    if akt in plaetze:
+        d.line((xs[0], y, xs[plaetze.index(akt)], y), fill=akzent + (255,), width=7)
+    for x, p in zip(xs, plaetze):
+        if p == akt:
+            r = 24
+            d.ellipse((x - r, y - r, x + r, y + r), fill=akzent + (255,), outline=(255, 255, 255, 255), width=4)
+            f = schrift(30, TITEL_SCHRIFT)
+            d.text((x - d.textlength(str(p), font=f) / 2, y - 19), str(p), font=f, fill=(8, 16, 24, 255))
+        elif akt is not None and p > akt:  # schon gezeigt (Countdown)
+            d.ellipse((x - 11, y - 11, x + 11, y + 11), fill=akzent + (255,))
+        else:
+            d.ellipse((x - 11, y - 11, x + 11, y + 11), fill=(20, 26, 36, 255), outline=grau, width=4)
+
+
 def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None, akzent=(32, 210, 190)):
     """Ebene je Abschnitt: Titel, Platz, Name.
     durchsichtig=True: nur Schrift + sanfte Abdunklung, als Ebene ueber einem
@@ -318,11 +354,12 @@ def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None, akzent=(3
     else:
         img = hintergrund(nr)
     titel_zeichnen(img, titel, akzent)
+    fortschritt_zeichnen(img, akzent)
     d = ImageDraw.Draw(img)
     if teil.get('platz'):
         f = schrift(150 if karte else 220, TITEL_SCHRIFT)
         t = f"#{teil['platz']}"
-        schrift_text(img, ((B - d.textlength(t, font=f)) / 2, 440 if karte else 600), t, f, rand=4)
+        schrift_text(img, ((B - d.textlength(t, font=f)) / 2, 452 if karte else 600), t, f, rand=4)
     if teil.get('name') and not karte:  # bei der Karte steht der Name schon drauf
         f = schrift(84)
         schrift_text(img, ((B - d.textlength(teil['name'], font=f)) / 2, 880), teil['name'], f, (255, 214, 10))
@@ -780,10 +817,15 @@ def main(skript_pfad, aus):
     benutzte_fotos = set()
     kartenvideo = any(str(t.get('quelle_url', '')).startswith('http') for t in s['teile'])
     with messen('clips_und_stuecke'):
-        ereignisse = []  # (sekunde, 'whoosh'|'pop') fuer die Effekt-Tonspur
+        ereignisse = [(0.0, 'impact')]  # Hook: Schlag auf dem ersten Bild
+        FORTSCHRITT['plaetze'] = sorted((t['platz'] for t in s['teile'] if t.get('platz')), reverse=True)
+        FORTSCHRITT['aktuell'] = None
         for i, t in enumerate(s['teile']):
             dauer = laengen[i]
             t0 = sum(laengen[:i])
+            FORTSCHRITT['aktuell'] = t.get('platz') or FORTSCHRITT['aktuell']
+            if t.get('platz') == 1:  # Hoehepunkt: Riser davor, Schlag darauf
+                ereignisse += [(t0, 'riser'), (t0, 'impact')]
             stueck = aus / f'stueck_{i:02d}.mp4'
             ebene = aus / f'ebene_{i:02d}.png'
             karte = karte_fuer(t.get('quelle_url'))
@@ -895,7 +937,8 @@ def main(skript_pfad, aus):
     if musik_q:
         quellen.append(musik_q)
     (aus / 'quellen.json').write_text(json.dumps(quellen, indent=2, ensure_ascii=False), encoding='utf-8')
-    effekte_spur(ereignisse, sum(laengen), rate, aus / 'effekte.wav')
+    effekte_spur(ereignisse, sum(laengen), rate, aus / 'effekte.wav',
+                 glitch=bool(FORTSCHRITT['plaetze']) and 'AI' in s.get('kanal', ''))
     zeiten['effekte'] = len(ereignisse)
     # Effekte nicht in die Sidechain: nur die Stimme senkt die Musik ab
     fx = 3 if musik else 2

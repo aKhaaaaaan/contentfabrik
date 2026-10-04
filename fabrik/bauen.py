@@ -517,13 +517,73 @@ def demo_fuer(url, satz=''):
     return ziel, {'quelle': 'Beispielbild', 'seite': url, 'datei': l}
 
 
+def aufnahme_fuer(url, dauer, ziel):
+    """Echte Bildschirmaufnahme der Modellseite (Hugging Face/GitHub).
+    GEMESSEN 04.10.2026 an zwei Vorbildern: oben laeuft eine echte Aufnahme
+    (Webseite, Mauszeiger, Scrollen) - das macht sie glaubwuerdig. Unsere
+    Pixabay-Clips zeigten Archive, Straende, Augenaerzte statt des Werkzeugs.
+    Ein unsichtbarer Browser (Playwright, Apache 2.0) oeffnet die Seite, ein
+    Mauszeiger faehrt darueber, die Seite scrollt langsam zu den Beispielen.
+    Gibt den mp4-Pfad oder None zurueck (dann wie bisher Beispielbild/Clip)."""
+    import tempfile, shutil as _sh
+    if not re.match(r'https?://(github\.com|huggingface\.co)/[\w.-]+/[\w.-]+', url or ''):
+        return None
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        return None
+    ordner = Path(tempfile.mkdtemp())
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch()
+            kontext = browser.new_context(viewport={'width': 1280, 'height': 860}, device_scale_factor=1,
+                                          record_video_dir=str(ordner), record_video_size={'width': 1280, 'height': 860},
+                                          color_scheme='dark', locale='en-US')
+            beginn = time.time()
+            seite = kontext.new_page()
+            # GEMESSEN: Auf GitHub zeigte die Aufnahme nur die Dateiliste - direkt zur
+            # Beschreibung (README) springen, dort stehen Bilder und Erklaerung.
+            seite.goto(url + ('#readme' if 'github.com' in url else ''), wait_until='domcontentloaded', timeout=30000)
+            seite.wait_for_timeout(1500)
+            geladen = time.time() - beginn
+            # Sichtbarer Mauszeiger (die Aufnahme zeigt sonst keinen)
+            seite.evaluate("""() => {
+                const c = document.createElement('div');
+                c.innerHTML = '<svg width="34" height="34" viewBox="0 0 24 24"><path d="M4 2l15 9-7 1.5L8.5 20z" '
+                  + 'fill="white" stroke="black" stroke-width="1.5"/></svg>';
+                Object.assign(c.style, {position: 'fixed', left: '380px', top: '260px', zIndex: 2147483647,
+                  pointerEvents: 'none', transition: 'left 1.8s ease-in-out, top 1.8s ease-in-out'});
+                document.body.appendChild(c);
+                setTimeout(() => { c.style.left = '640px'; c.style.top = '420px'; }, 200);
+                setTimeout(() => { c.style.left = '560px'; c.style.top = '520px'; }, 2200);
+            }""")
+            for _ in range(max(1, int(dauer * 10))):  # weich scrollen, ~280 px je Sekunde
+                seite.mouse.wheel(0, 28)
+                seite.wait_for_timeout(100)
+            video = seite.video.path()
+            kontext.close(); browser.close()
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-ss', f'{geladen:.2f}', '-i', str(video),
+                        '-t', f'{dauer:.3f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20',
+                        str(ziel)], check=True)
+        return ziel if Path(ziel).exists() and Path(ziel).stat().st_size > 20000 else None
+    except Exception as e:
+        print('Bildschirmaufnahme nicht moeglich:', url, str(e)[:150])
+        return None
+    finally:
+        _sh.rmtree(ordner, ignore_errors=True)
+
+
 def demo_stueck(bild, ebene, mini, dauer, ziel):
-    """Beispielbild hochkant: unscharf vergroessert als Hintergrund, scharf in der
-    Mitte (passt jede Bildform ein), langsamer Zoom; Mini-Karte oben, Text darueber.
-    GIFs laufen als Animation."""
+    """Beispielbild oder Bildschirmaufnahme hochkant: unscharf vergroessert als
+    Hintergrund, scharf in der Mitte (passt jede Form ein), Zoom; Mini-Karte oben,
+    Text darueber. GIFs laufen als Animation, mp4 (Aufnahme) als Video."""
     n = max(1, int(dauer * FPS))
-    gif = Image.open(bild).format == 'GIF'
-    ein = (['-ignore_loop', '0', '-i', str(bild)] if gif else ['-loop', '1', '-framerate', str(FPS), '-i', str(bild)])
+    if str(bild).endswith('.mp4'):
+        ein = ['-i', str(bild)]
+    else:
+        gif = Image.open(bild).format == 'GIF'
+        ein = (['-ignore_loop', '0', '-i', str(bild)] if gif else
+               ['-loop', '1', '-framerate', str(FPS), '-i', str(bild)])
     f = (f'[0:v]fps={FPS},split[a][b];'
          f'[a]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},boxblur=24:2,eq=brightness=-0.12[hg];'
          # GEMESSEN: mittig (y 960) deckte die Mini-Karte (bis y ~820) den oberen
@@ -758,8 +818,13 @@ def main(skript_pfad, aus):
                 a = 2.8
                 # Erst ein echtes Beispiel von der Modellseite, nur sonst Pixabay
                 demo, q_d = demo_fuer(t.get('quelle_url'), t['text'])
-                if demo:
-                    quellen.append(q_d)
+                # Echte Bildschirmaufnahme der Modellseite (siehe aufnahme_fuer)
+                aufn = aufnahme_fuer(t.get('quelle_url'), dauer - a, aus / f'aufnahme_{i:02d}.mp4')
+                if demo or aufn:
+                    if demo:
+                        quellen.append(q_d)
+                    if aufn:
+                        quellen.append({'quelle': 'Bildschirmaufnahme', 'seite': t['quelle_url']})
                     st_a, st_b = aus / f'stueck_{i:02d}a.mp4', aus / f'stueck_{i:02d}b.mp4'
                     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *ein, '-filter_complex', filt,
                                     '-t', f'{a:.3f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
@@ -767,9 +832,19 @@ def main(skript_pfad, aus):
                     eb, mk = aus / f'ebene_{i:02d}b.png', aus / f'mini_{i:02d}.png'
                     bild_fuer({}, s['titel'], i, len(s['teile']), durchsichtig=True).save(eb)
                     mini_karte(karte, t['platz']).save(mk)
-                    demo_stueck(demo, eb, mk, dauer - a, st_b)
-                    liste += [f"file '{st_a.name}'", f"file '{st_b.name}'"]
+                    rest = dauer - a
                     ereignisse += [(t0, 'pop'), (t0 + a, 'whoosh')]
+                    # Beides da und genug Zeit: erst die Aufnahme, dann das Beispiel -
+                    # ein Schnitt mehr (Vorbild: Wechsel alle ~4 s).
+                    if demo and aufn and rest >= 5:
+                        st_c = aus / f'stueck_{i:02d}c.mp4'
+                        demo_stueck(aufn, eb, mk, rest / 2, st_b)
+                        demo_stueck(demo, eb, mk, rest - rest / 2, st_c)
+                        liste += [f"file '{st_a.name}'", f"file '{st_b.name}'", f"file '{st_c.name}'"]
+                        ereignisse.append((t0 + a + rest / 2, 'whoosh'))
+                    else:
+                        demo_stueck(aufn or demo, eb, mk, rest, st_b)
+                        liste += [f"file '{st_a.name}'", f"file '{st_b.name}'"]
                     continue
                 clip_b, q_b = clip_fuer(t.get('suche') or s.get('suche'), schon, dauer - a, t['text'])
                 if clip_b:

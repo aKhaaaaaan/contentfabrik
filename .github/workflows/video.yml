@@ -83,6 +83,9 @@ jobs:
           done
           command -v ffmpeg
           pip install -q -r requirements.txt
+          # Bildschirmaufnahmen der Modellseiten (fabrik/bauen.py aufnahme_fuer):
+          # nur der schlanke Browser; Chrome-Bibliotheken bringt der Runner mit
+          python -m playwright install chromium --only-shell || echo "Playwright fehlt - ohne Aufnahmen"
       - uses: actions/cache@v4
         with:
           path: modelle

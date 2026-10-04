@@ -21,6 +21,9 @@ jobs:
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core > /dev/null
           pip install -q -r requirements.txt
+          # Bildschirmaufnahmen der Modellseiten (fabrik/bauen.py aufnahme_fuer):
+          # nur der schlanke Browser; Chrome-Bibliotheken bringt der Runner mit
+          python -m playwright install chromium --only-shell || echo "Playwright fehlt - ohne Aufnahmen"
       - name: Modelle (Kokoro, zwischengespeichert)
         uses: actions/cache@v4
         with:

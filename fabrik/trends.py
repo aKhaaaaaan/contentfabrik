@@ -225,3 +225,38 @@ if __name__ == '__main__':
     q = ki_quellen()
     print(f'KI-Quellen: {len(q)}'); [print(' -', x['quelle'], '|', x['name'], '|', x['text'][:90]) for x in q[:12]]
     print('YouTube-Ausreisser:', youtube_ausreisser(['business origin story']))
+
+
+FIRMA = re.compile(r'\b(company|corporation|conglomerate|manufacturer|retailer|brand|chain|automaker|airline|'
+                   r'bank|carmaker|startup|multinational|business|enterprise|franchise|label|studio)\b', re.I)
+
+
+def firmen_im_trend(datum=None, n=1000):
+    """Firmen, die GESTERN viel gelesen wurden (Wikipedia-Aufrufe, offizielle API, kostenlos).
+    GEMELDET 04.10.2026: „Die Themen muessen alle immer aktuell sein." Eine Firmen-
+    geschichte bekommt so einen Anlass („gerade in den Schlagzeilen - wie fing es an?").
+    Gefiltert ueber die Kurzbeschreibung des Artikels („American multinational
+    technology company"). Gibt [(titel, aufrufe, beschreibung)] absteigend zurueck."""
+    import datetime
+    tag = datum or (datetime.datetime.utcnow() - datetime.timedelta(days=1))
+    try:
+        top = json.loads(_hole('https://wikimedia.org/api/rest_v1/metrics/pageviews/top/en.wikipedia/all-access/'
+                               f'{tag:%Y/%m/%d}', WIKI_KENNUNG))['items'][0]['articles'][:n]
+    except Exception as e:
+        print('Wikipedia-Bestenliste nicht verfuegbar:', str(e)[:100])
+        return []
+    aufrufe = {a['article'].replace('_', ' '): a['views'] for a in top if ':' not in a['article']}
+    titel, aus = list(aufrufe), []
+    for i in range(0, len(titel), 50):  # 50 Titel je Anfrage (API-Grenze)
+        try:
+            d = json.loads(_hole('https://en.wikipedia.org/w/api.php?' + urllib.parse.urlencode({
+                'action': 'query', 'prop': 'description', 'titles': '|'.join(titel[i:i + 50]), 'format': 'json',
+                'redirects': 1}), WIKI_KENNUNG))
+        except Exception:
+            continue
+        for s in (d.get('query', {}).get('pages') or {}).values():
+            b = s.get('description', '')
+            if (FIRMA.search(b) and not re.search(r'\b(film|album|song|series|episode|band)\b', b, re.I)
+                    and not re.match(r'(List of|Proposed|Timeline of|History of)', s['title'])):
+                aus.append((s['title'], aufrufe.get(s['title'], 0), b))
+    return sorted(aus, key=lambda x: -x[1])

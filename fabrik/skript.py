@@ -375,10 +375,20 @@ def main(kanal_pfad, aus_pfad, thema=None):
         runden_thema = thema
         if kanal.get('quelle') == 'wikipedia':
             # Erst das Thema, dann die Quelle, dann das Skript NUR aus der Quelle
+            import trends
+            # GEMELDET: Die Themen muessen alle immer aktuell sein. Firmen, die gestern viel
+            # gelesen wurden (Wikipedia-Aufrufe, ohne KI ermittelt) - ein Anlass, JETZT zu schauen.
+            aktuell = [] if thema else trends.firmen_im_trend()[:12]
+            if not thema and not aktuell:  # GEMESSEN: einmal leer (Wikipedia kurz nicht erreichbar)
+                time.sleep(3); aktuell = trends.firmen_im_trend()[:12]
             wahl, _ = gemini(f'Pick ONE {kanal["name"]} topic for a YouTube Short that is proven to perform. '
                              + (f'Topic: {thema}. ' if thema else '')
                              + f'Do NOT use: {"; ".join(filter(None, [frueher] + verworfen)) or "none"}. '
-                             'Give the exact title of its English Wikipedia article.' + basis_zusatz,
+                             + (('\nCOMPANIES IN THE NEWS RIGHT NOW (most-read on Wikipedia yesterday): '
+                                 + '; '.join(f'{x[0]} ({x[2]}, {x[1]:,} views)' for x in aktuell)
+                                 + '. STRONGLY prefer one of these if its origin story is interesting - '
+                                   'viewers search for them today. ') if aktuell else '')
+                             + 'Give the exact title of its English Wikipedia article.' + basis_zusatz,
                              {'type': 'OBJECT', 'properties': {'thema': {'type': 'STRING'},
                                                                'wikipedia': {'type': 'STRING'}},
                               'required': ['thema', 'wikipedia']}, temperatur=0.9)
@@ -397,6 +407,9 @@ def main(kanal_pfad, aus_pfad, thema=None):
             wiki_fotos = trends.wiki_bilder(q['name'])
             print(f'Freie Fotos: {len(wiki_fotos)}')
             runden_thema = wahl['thema']
+            if any(q['name'] == a[0] for a in aktuell):
+                basis_zusatz += ('\nThis company is in the news right now: open the hook with what is happening '
+                                 'today (ONLY if the source mentions it), then tell how it all began.')
             zusatz = (basis_zusatz + f"\nSOURCE (English Wikipedia, \"{q['name']}\"). Every factual claim MUST "
                       f"come from this text; leave out anything that is not in it:\n{q['text']}\n")
             print(f"Quelle: Wikipedia - {q['name']} ({len(q['text'])} Zeichen)")

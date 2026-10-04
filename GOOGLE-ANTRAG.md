@@ -84,3 +84,12 @@ Internal tool without a user interface or login. It runs as a scheduled job (Git
 - Upload mit `publishAt` (geplante Veröffentlichung 15:00 New York) statt Telegram-Hand-Upload;
   Telegram-Vorschau mit Stopp-Möglichkeit bis dahin. Erst bauen, wenn Google zugestimmt hat –
   so steht es auch im Antrag.
+
+## ABGESCHICKT am 04.10.2026 (Bestaetigung: „Ihre E-Mail wurde gesendet")
+- Als Einzelperson ([Name, privat]), Projekt „Savehours24", Kontakt [Kontakt-E-Mail, privat].
+- Zusaetzlich verlangt und eingereicht: Nachweise je Projekt (antrag/datenschutz.png, startseite.png,
+  nutzungsbedingungen.png, oauth-ablauf-und-widerruf.pdf) und Kontingentangaben fuer search.list
+  (1.000 Einheiten/Tag) und videos.insert (3.200 Einheiten/Tag = 2 Uploads), Rest Standardkontingent.
+- Startseite bekam dafuer den Hinweis „Uses YouTube API Services" mit Links zu YouTube-AGB,
+  Google-Datenschutz und unserer Datenschutzerklaerung (Google verlangt sichtbares YouTube-Branding).
+- Antwort kommt per E-Mail an [Kontakt-E-Mail, privat]; Google nennt keine Frist.

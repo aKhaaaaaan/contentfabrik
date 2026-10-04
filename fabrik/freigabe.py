@@ -88,6 +88,9 @@ def senden(skript_pfad, video_pfad):
              if q.get('quelle') == 'Musik']
     if musik:
         skript['beschreibung'] += '\n' + musik[0]['nennung']
+    if any(q.get('quelle') == 'Illustration' for q in (json.loads(qpfad.read_text(encoding='utf-8'))
+                                                       if qpfad.exists() else [])):
+        skript['beschreibung'] += '\nIllustrations are AI-generated.'
     if fotos:
         skript['beschreibung'] += '\nPhotos (Wikimedia Commons): ' + '; '.join(
             f"{q['von']}, {q['lizenz']} ({q['seite']})" for q in fotos)

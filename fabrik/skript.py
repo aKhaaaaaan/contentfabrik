@@ -89,7 +89,8 @@ SKRIPT_SCHEMA = {
         'schluesselwoerter': {'type': 'ARRAY', 'items': {'type': 'STRING'}},
         'teile': {'type': 'ARRAY', 'items': {'type': 'OBJECT', 'properties': {
             'platz': {'type': 'INTEGER'}, 'name': {'type': 'STRING'},
-            'suche': {'type': 'STRING'}, 'text': {'type': 'STRING'}, 'quelle_url': {'type': 'STRING'}},
+            'suche': {'type': 'STRING'}, 'text': {'type': 'STRING'}, 'quelle_url': {'type': 'STRING'},
+            'szene': {'type': 'STRING'}},
             'required': ['suche', 'text']}},
         'beschreibung': {'type': 'STRING'},
         'hashtags': {'type': 'ARRAY', 'items': {'type': 'STRING'}},
@@ -240,6 +241,8 @@ Rules:
   lose it." - GEMESSEN: a top tool-list video had 5,404 saves vs 5,151 likes; saves are the strongest signal),
   then ONE complete closing sentence that calls back to the hook (same image or question), so a replay feels
   natural. Never end mid-sentence.
+- szene: for EVERY part, 8-20 English words describing one concrete visual scene for an illustration (place,
+  objects, mood, light). No text, signs, logos, brand or real person names (say 'a 1920s factory', not 'the Ford plant').
 - Never write "with just one click", "in seconds", "magic", "insane", "game changer".
 - Short, spoken sentences: one idea each, at most 18 words (GEMESSEN: 17-18 words on average, the best
   scripts ~10). Write numbers as digits (1977, 3,703), never as words. Concrete facts only. Every claim must be TRUE and verifiable today; if unsure, leave it out.

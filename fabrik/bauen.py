@@ -823,6 +823,7 @@ def main(skript_pfad, aus):
     kartenvideo = any(str(t.get('quelle_url', '')).startswith('http') for t in s['teile'])
     with messen('clips_und_stuecke'):
         ereignisse = [(0.0, 'impact')]  # Hook: Schlag auf dem ersten Bild
+        kanal_slug = re.sub(r'[^a-z0-9]+', '-', s.get('kanal', '').lower()).strip('-')
         FORTSCHRITT['plaetze'] = sorted((t['platz'] for t in s['teile'] if t.get('platz')), reverse=True)
         FORTSCHRITT['aktuell'] = None
         for i, t in enumerate(s['teile']):
@@ -835,13 +836,34 @@ def main(skript_pfad, aus):
             ebene = aus / f'ebene_{i:02d}.png'
             karte = karte_fuer(t.get('quelle_url'))
             foto, fq = (None, None) if karte else foto_fuer(s.get('bilder') or [], t['text'], benutzte_fotos)
+            # GEMELDET: „wirkt langweilig und eiskalt" - Illustrationen im Spiel-Plakat-Stil
+            # (fabrik/illustration.py): die Kanalfigur im Einstieg und am Schluss; sonst eine
+            # Szene nur dort, wo kein echtes Foto passt - echte Fotos bleiben fuer Fakten.
+            # Spart nebenbei die Pixabay-Suche samt KI-Clipwahl.
+            ill = None
+            letzt = i == len(s['teile']) - 1 and not t.get('platz')
+            if os.environ.get('CLOUDFLARE_AI_TOKEN') and (i == 0 or letzt or (not karte and not foto)):
+                import illustration
+                szene = t.get('szene') or ('pointing straight at the viewer with a confident grin, close-up, '
+                                           'city street at sunset' if i == 0 else 'giving a confident nod to the '
+                                           'viewer, half body, rooftop at golden hour')
+                ill = illustration.bild(szene, aus / f'ill_{i:02d}.jpg', kanal_slug, figur=(i == 0 or letzt))
+                if ill:
+                    karte, foto = None, None
+                    quellen.append({'quelle': 'Illustration', 'seite': 'KI-generiert (Cloudflare Workers AI, FLUX)'})
             # GEMESSEN: Im Kartenvideo holte der Schluss einen fremden Clip
             # (halber „Subscribe"-Knopf) - dort gilt jetzt derselbe Hintergrund.
-            clip, quelle = ((None, None) if karte or foto or kartenvideo else
+            clip, quelle = ((None, None) if karte or foto or ill or kartenvideo else
                             clip_fuer(t.get('suche') or s.get('suche'), schon, dauer, t['text']))
             bild_fuer(t, s['titel'], i, len(s['teile']), durchsichtig=not karte,
                      karte=karte).save(ebene)
-            if foto:
+            if ill:
+                n = max(1, int(dauer * FPS))
+                filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,'
+                        f"fps={FPS},zoompan=z='" + ZOOM.format(n=n) + f"':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
+                        f':d=1:s={B}x{H}:fps={FPS}[v];[v][1:v]overlay=0:0,format=yuv420p')
+                ein = ['-loop', '1', '-framerate', str(FPS), '-i', str(ill), '-i', str(ebene)]
+            elif foto:
                 quellen.append(fq)
                 kpfad = aus / f'karte_{i:02d}.png'
                 karten_ebene(foto, kasten=(B - 80, 860)).save(kpfad)

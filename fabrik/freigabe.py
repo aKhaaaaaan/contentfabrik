@@ -102,8 +102,13 @@ def senden(skript_pfad, video_pfad):
             if any('SA' in q['lizenz'] for q in fotos) else '')
     chat = os.environ['TELEGRAM_CHAT_ID']
     # 1. Das Video selbst - kurze Bildunterschrift, damit es gut lesbar bleibt
+    # GEMELDET 04.10.2026: ein 3/10-Video kam wie jedes andere an. Unter 6 unuebersehbar warnen.
+    k_pfad = Path(skript_pfad).with_name('kritik.json')
+    k_note = json.loads(k_pfad.read_text(encoding='utf-8')).get('note', 10) if k_pfad.exists() else 10
+    warnung = (f'⛔ NICHT HOCHLADEN – nur {k_note}/10, kein besseres Video im Zeitbudget.\n\n'
+               if k_note < 6 else '')
     telegram('sendVideo', {'chat_id': chat, 'supports_streaming': 'true',
-                           'caption': f"🎬 {skript['kanal']}\n{titel}\n\nPrüfung: "
+                           'caption': warnung + f"🎬 {skript['kanal']}\n{titel}\n\nPrüfung: "
                                       f"{'✅ bestanden' if skript.get('pruefung', {}).get('ok') else '⚠️ offen'}"},
              (Path(video_pfad).name, video))
     # 2. Die Texte einzeln - antippen kopiert sie (Monospace-Format in Telegram)

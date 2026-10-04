@@ -360,7 +360,10 @@ def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None, akzent=(3
         f = schrift(150 if karte else 220, TITEL_SCHRIFT)
         t = f"#{teil['platz']}"
         schrift_text(img, ((B - d.textlength(t, font=f)) / 2, 452 if karte else 600), t, f, rand=4)
-    if teil.get('name') and not karte:  # bei der Karte steht der Name schon drauf
+    # GEMELDET 04.10.2026 (Flop-Video Skydance): Bei einer Geschichte schrieb die KI
+    # „Part 1 ... Part 7" ins Namensfeld - eingeblendet wirkte das verwirrend.
+    # Namen gehoeren nur zu Ranglisten-Plaetzen.
+    if teil.get('name') and teil.get('platz') and not karte:  # bei der Karte steht der Name schon drauf
         f = schrift(84)
         schrift_text(img, ((B - d.textlength(teil['name'], font=f)) / 2, 880), teil['name'], f, (255, 214, 10))
     return img

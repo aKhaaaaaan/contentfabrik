@@ -381,16 +381,28 @@ def main(kanal_pfad, aus_pfad, thema=None):
             import trends
             # GEMELDET: Die Themen muessen alle immer aktuell sein. Firmen, die gestern viel
             # gelesen wurden (Wikipedia-Aufrufe, ohne KI ermittelt) - ein Anlass, JETZT zu schauen.
-            aktuell = [] if thema else trends.firmen_im_trend()[:12]
+            aktuell = [] if thema else trends.firmen_im_trend()[:8]
             if not thema and not aktuell:  # GEMESSEN: einmal leer (Wikipedia kurz nicht erreichbar)
-                time.sleep(3); aktuell = trends.firmen_im_trend()[:12]
+                time.sleep(3); aktuell = trends.firmen_im_trend()[:8]
+            # GEMELDET 04.10.2026: Flop-Video Skydance (KI-Note 3/10) - aktuell, aber ohne ein
+            # einziges freies Foto (nur unscharfer Hintergrund) und ohne Gruendungsdrama
+            # (ein Firmen-Update). Trend-Firmen nur mit mindestens 4 freien Fotos.
+            mit_fotos = []
+            for a in aktuell:
+                time.sleep(0.5)
+                if len(trends.wiki_bilder(a[0])) >= 4:
+                    mit_fotos.append(a)
+            print(f'Trend-Firmen mit Fotos: {[a[0] for a in mit_fotos]} (von {len(aktuell)})')
+            aktuell = mit_fotos
             wahl, _ = gemini(f'Pick ONE {kanal["name"]} topic for a YouTube Short that is proven to perform. '
                              + (f'Topic: {thema}. ' if thema else '')
                              + f'Do NOT use: {"; ".join(filter(None, [frueher] + verworfen)) or "none"}. '
                              + (('\nCOMPANIES IN THE NEWS RIGHT NOW (most-read on Wikipedia yesterday): '
                                  + '; '.join(f'{x[0]} ({x[2]}, {x[1]:,} views)' for x in aktuell)
-                                 + '. STRONGLY prefer one of these if its origin story is interesting - '
-                                   'viewers search for them today. ') if aktuell else '')
+                                 + '. Prefer one of these ONLY if it has a real, dramatic founding story '
+                                   '(founded 15+ years ago, a founder who took a risk, a near-failure) - '
+                                   'viewers search for them today. A recent merger or corporate update is NOT '
+                                   'an origin story; then pick a classic brand instead. ') if aktuell else '')
                              + 'Give the exact title of its English Wikipedia article.' + basis_zusatz,
                              {'type': 'OBJECT', 'properties': {'thema': {'type': 'STRING'},
                                                                'wikipedia': {'type': 'STRING'}},

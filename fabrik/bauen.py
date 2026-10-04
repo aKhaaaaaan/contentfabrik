@@ -24,6 +24,46 @@ SCHRIFTEN = Path(__file__).resolve().parent.parent / 'schriften'
 SCHRIFT = str(SCHRIFTEN / 'Montserrat-ExtraBold.ttf')
 TITEL_SCHRIFT = str(SCHRIFTEN / 'Montserrat-Black.ttf')
 zeiten = {}
+# Soundeffekte (CC0, Freesound ueber Openverse; Quellen in sfx/LIZENZ.md).
+# GEMESSEN 04.10.2026 am Vorbild (alan.buildz): 15 Schnitte in 58 s, im Einstieg
+# 4 in 3 s - bei uns stand ein Bild 5-10 s. Profi-Shorts setzen ein „Whoosh"
+# auf jeden Schnitt und ein „Pop", wenn etwas Neues erscheint.
+SFX = Path(__file__).resolve().parent.parent / 'sfx'
+# „Punch-in": alle 3,2 s springt der Bildausschnitt um 8 % - wirkt wie ein
+# Schnitt, auch wenn nur ein Clip/Beispiel da ist (Vorbild: Wechsel alle ~4 s).
+PUNCH = int(3.2 * 30)
+ZOOM = "(1+0.06*on/{n})*(1+0.08*mod(floor(on/" + str(PUNCH) + "),2))"
+
+
+def effekte_spur(ereignisse, laenge_s, rate, ziel):
+    """Tonspur nur mit Effekten: [(sekunde, 'whoosh'|'pop'), ...]. Whoosh-Varianten
+    wechseln sich ab (immer derselbe Klang wirkt billig). Pegel: Spitze ~-12 dB,
+    deutlich unter der Stimme."""
+    lade = {}
+    def klang(name):
+        if name not in lade:
+            roh = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', str(SFX / f'{name}.mp3'), '-f', 'f32le',
+                                  '-ac', '1', '-ar', str(rate), '-'], capture_output=True, check=True).stdout
+            x = np.frombuffer(roh, dtype=np.float32)
+            lade[name] = x / (np.abs(x).max() or 1) * 0.25
+        return lade[name]
+    spur = np.zeros(int(laenge_s * rate) + rate, dtype=np.float32)
+    whooshs = sorted(p.stem for p in SFX.glob('whoosh_*.mp3'))
+    n = 0
+    for sek, art in ereignisse:
+        if art == 'whoosh':
+            if not whooshs:
+                continue
+            x = klang(whooshs[n % len(whooshs)]); n += 1
+            start = int(max(0, sek - 0.25) * rate)  # das Rauschen kommt kurz VOR dem Schnitt
+        else:
+            x = klang('pop')
+            start = int(sek * rate)
+        ende = min(len(spur), start + len(x))
+        spur[start:ende] += x[:ende - start]
+    with wave.open(str(ziel), 'wb') as w:
+        w.setnchannels(1); w.setsampwidth(2); w.setframerate(rate)
+        w.writeframes((np.clip(spur, -1, 1) * 32767).astype(np.int16).tobytes())
 
 
 def messen(name):
@@ -490,7 +530,7 @@ def demo_stueck(bild, ebene, mini, dauer, ziel):
          # Teil des Beispiels ab - jetzt darunter, bis in den Untertitelbereich.
          f'[b]scale={B - 80}:680:force_original_aspect_ratio=decrease,setsar=1[vg];'
          f'[hg][vg]overlay=(W-w)/2:1180-h/2,'
-         f"zoompan=z='1+0.05*on/{n}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s={B}x{H}:fps={FPS}[v];"
+         f"zoompan=z='" + ZOOM.format(n=n) + f"':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s={B}x{H}:fps={FPS}[v];"
          f'[v][1:v]overlay=0:0[x];[x][2:v]overlay=0:0,format=yuv420p')
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *ein,
                     '-loop', '1', '-framerate', str(FPS), '-i', str(ebene),
@@ -563,11 +603,18 @@ def angleichen(woerter, skripttext):
 
 def untertitel(woerter, pfad):
     """Wort-fuer-Wort-Untertitel: drei Woerter sichtbar, das gesprochene gelb."""
+    # GEMESSEN 04.10.2026 am Vorbild (alan.buildz): schmale fette Schrift in
+    # Grossbuchstaben, 2-3 Woerter, das gesprochene Wort mit farbigem KASTEN
+    # (nicht nur eingefaerbt). Zwei Ebenen mit identischem Text: unten (K) nur
+    # der Kasten des aktuellen Worts (BorderStyle 3 = Kasten, alle anderen
+    # Woerter unsichtbar), oben (U) die weisse Schrift - so sitzt der Kasten
+    # exakt hinter dem Wort. Anton (SIL OFL) liegt in schriften/.
     kopf = ("[Script Info]\nScriptType: v4.00+\nPlayResX: 1080\nPlayResY: 1920\nWrapStyle: 2\n\n"
             "[V4+ Styles]\nFormat: Name, Fontname, Fontsize, PrimaryColour, OutlineColour, BackColour, "
-            "Bold, Outline, Shadow, Alignment, MarginV\n"
+            "Bold, BorderStyle, Outline, Shadow, Alignment, MarginV\n"
             # MarginV 520: unten liegen bei TikTok/Shorts Beschreibung und Knoepfe
-            "Style: U,Montserrat,84,&H00FFFFFF,&H00000000,&H96000000,1,4,3,2,520\n\n"
+            "Style: U,Anton,104,&H00FFFFFF,&H00000000,&H96000000,0,1,5,2,2,520\n"
+            "Style: K,Anton,104,&HFF000000,&H005A2BFF,&HFF000000,0,3,12,0,2,520\n\n"
             "[Events]\nFormat: Layer, Start, End, Style, Text\n")
     # GEMESSEN: Whisper trennt Zahlen („16" + „,000") - wieder zusammenfuegen.
     zusammen = []
@@ -596,11 +643,13 @@ def untertitel(woerter, pfad):
     for gruppe in gruppen:
         for j, w in enumerate(gruppe):
             pop = '{\\fscx108\\fscy108\\t(0,110,\\fscx100\\fscy100)}' if j == 0 else ''
-            text = pop + ' '.join(('{\\c&H0AD6FF&}' + zeig(x['w']) + '{\\c&HFFFFFF&}') if x is w else zeig(x['w'])
-                                  for x in gruppe)
+            weg, da = '{\\3a&HFF&}', '{\\3a&H00&}'  # Kasten aus / an
+            kasten = pop + (weg + ' ').join((da if x is w else weg) + zeig(x['w']) for x in gruppe)
+            text = pop + ' '.join(zeig(x['w']) for x in gruppe)
             i = woerter.index(w)
             ende = woerter[i + 1]['s'] if i + 1 < len(woerter) else w['e'] + 0.3
-            zeilen.append(f"Dialogue: 0,{ass_zeit(w['s'])},{ass_zeit(ende)},U,{text}")
+            zeilen.append(f"Dialogue: 0,{ass_zeit(w['s'])},{ass_zeit(ende)},K,{kasten}")
+            zeilen.append(f"Dialogue: 1,{ass_zeit(w['s'])},{ass_zeit(ende)},U,{text}")
     Path(pfad).write_text(kopf + '\n'.join(zeilen) + '\n', encoding='utf-8')
 
 
@@ -658,8 +707,10 @@ def main(skript_pfad, aus):
     benutzte_fotos = set()
     kartenvideo = any(str(t.get('quelle_url', '')).startswith('http') for t in s['teile'])
     with messen('clips_und_stuecke'):
+        ereignisse = []  # (sekunde, 'whoosh'|'pop') fuer die Effekt-Tonspur
         for i, t in enumerate(s['teile']):
             dauer = laengen[i]
+            t0 = sum(laengen[:i])
             stueck = aus / f'stueck_{i:02d}.mp4'
             ebene = aus / f'ebene_{i:02d}.png'
             karte = karte_fuer(t.get('quelle_url'))
@@ -690,7 +741,7 @@ def main(skript_pfad, aus):
                 # „Standbild von Schulkindern ohne jede Kamerabewegung".
                 n = max(1, int(dauer * FPS))
                 filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,'
-                        f"fps={FPS},zoompan=z='1+0.06*on/{n}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
+                        f"fps={FPS},zoompan=z='" + ZOOM.format(n=n) + f"':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
                         f':d=1:s={B}x{H}:fps={FPS}[v];[v][1:v]overlay=0:0,format=yuv420p')
                 ein = ['-stream_loop', '-1', '-i', str(clip), '-i', str(ebene)]
             else:
@@ -718,6 +769,7 @@ def main(skript_pfad, aus):
                     mini_karte(karte, t['platz']).save(mk)
                     demo_stueck(demo, eb, mk, dauer - a, st_b)
                     liste += [f"file '{st_a.name}'", f"file '{st_b.name}'"]
+                    ereignisse += [(t0, 'pop'), (t0 + a, 'whoosh')]
                     continue
                 clip_b, q_b = clip_fuer(t.get('suche') or s.get('suche'), schon, dauer - a, t['text'])
                 if clip_b:
@@ -731,7 +783,7 @@ def main(skript_pfad, aus):
                     mini_karte(karte, t['platz']).save(mk)
                     nb = max(1, int((dauer - a) * FPS))
                     fb = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,'
-                          f"fps={FPS},zoompan=z='1+0.06*on/{nb}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
+                          f"fps={FPS},zoompan=z='" + ZOOM.format(n=nb) + f"':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
                           f':d=1:s={B}x{H}:fps={FPS}[v];[v][1:v]overlay=0:0[x];[x][2:v]overlay=0:0,format=yuv420p')
                     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-stream_loop', '-1', '-i', str(clip_b),
                                     '-loop', '1', '-framerate', str(FPS), '-i', str(eb),
@@ -739,11 +791,14 @@ def main(skript_pfad, aus):
                                     '-t', f'{dauer - a:.3f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast',
                                     '-crf', '18', str(st_b)], check=True)
                     liste += [f"file '{st_a.name}'", f"file '{st_b.name}'"]
+                    ereignisse += [(t0, 'pop'), (t0 + a, 'whoosh')]
                     continue
             subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *ein, '-filter_complex', filt,
                             '-t', f'{dauer:.3f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
                             str(stueck)], check=True)
             liste.append(f"file '{stueck.name}'")
+            if i:
+                ereignisse.append((t0, 'whoosh'))
         (aus / 'stuecke.txt').write_text('\n'.join(liste) + '\n', encoding='utf-8')
     # Quellen je Video festhalten (Rechte-Regeln, Konzept 2c) - und fuer
     # die Beschreibung („Clips: Pixabay", Bitte von Pixabay).
@@ -752,25 +807,33 @@ def main(skript_pfad, aus):
     if musik_q:
         quellen.append(musik_q)
     (aus / 'quellen.json').write_text(json.dumps(quellen, indent=2, ensure_ascii=False), encoding='utf-8')
+    effekte_spur(ereignisse, sum(laengen), rate, aus / 'effekte.wav')
+    zeiten['effekte'] = len(ereignisse)
+    # Effekte nicht in die Sidechain: nur die Stimme senkt die Musik ab
+    fx = 3 if musik else 2
 
     with messen('rendern'):
         subprocess.run([
             'ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', 'stuecke.txt',
             '-i', 'stimme.wav',
             *(['-stream_loop', '-1', '-i', str(Path(musik).resolve())] if musik else []),
+            '-i', 'effekte.wav',
             # Einheitlicher Look ueber Clips verschiedener Herkunft: etwas mehr
             # Kontrast/Saettigung, leicht dunklere Raender - VOR den Untertiteln.
             '-vf', f"fps={FPS},eq=contrast=1.06:saturation=1.12,vignette=PI/5,format=yuv420p,"
                    f"ass=untertitel.ass:fontsdir='{SCHRIFTEN.as_posix()}'",
             # Musik: Grundpegel -20 dB, unter der Stimme automatisch weitere ~10 dB
             # leiser (Sidechain) - die Stimme bleibt immer klar verstaendlich.
-            *(['-filter_complex',
-               '[2:a]aresample=48000,volume=0.1,afade=t=in:d=1[m];'
-               '[1:a]aresample=48000,asplit=2[v][sc];'
-               '[m][sc]sidechaincompress=threshold=0.015:ratio=6:attack=15:release=350[md];'
-               '[v][md]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[a]',
-               '-map', '0:v', '-map', '[a]'] if musik else
-              ['-af', 'loudnorm=I=-14:TP=-1.5:LRA=11']),  # Plattformnorm (Konzept 4a, Punkt 6)
+            '-filter_complex',
+            (('[2:a]aresample=48000,volume=0.1,afade=t=in:d=1[m];'
+              '[1:a]aresample=48000,asplit=2[v][sc];'
+              '[m][sc]sidechaincompress=threshold=0.015:ratio=6:attack=15:release=350[md];'
+              f'[{fx}:a]aresample=48000[fx];'
+              '[v][md][fx]amix=inputs=3:duration=first:normalize=0,') if musik else
+             (f'[1:a]aresample=48000[v];[{fx}:a]aresample=48000[fx];'
+              '[v][fx]amix=inputs=2:duration=first:normalize=0,'))
+            + 'loudnorm=I=-14:TP=-1.5:LRA=11[a]',  # Plattformnorm (Konzept 4a, Punkt 6)
+            '-map', '0:v', '-map', '[a]',
             # 48 kHz Stereo: loudnorm rechnet intern hoch, und das Ergebnis
             # (96 kHz Mono) spielten Handy-Player nicht ab - gemeldet: „keine
             # Stimme hörbar", obwohl die Tonspur laut genug war (−15 dB).

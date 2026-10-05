@@ -124,7 +124,9 @@ def main(kanal_pfad, thema=''):
               f'{BUDGET_S // 60} Min. verbraucht)')
 
     if bester is None:
-        melden(f'⚠️ Heute kein Video für {kanal}: Faktenprüfung bei allen Themen nicht bestanden.')
+        # GEMELDET: „heute kein Video" stimmte nicht - spaetere Zeitfenster versuchen es erneut.
+        melden(f'🔁 {kanal}: noch kein Video - kein Thema hat die Faktenprüfung bestanden. '
+               'Nächster Versuch im nächsten Zeitfenster (12:41 / 15:23 / 17:41 Uhr).')
         return 0
     note, ordner, kritik = bester
     aus = Path('ausgabe')
@@ -138,7 +140,7 @@ def main(kanal_pfad, thema=''):
     if note < SCHWELLE:
         verlauf_eintragen(kanal, skript, 'unter_ziel', note)
         melden(f'🔁 {kanal}: bestes Video heute erst {note}/10 (Ziel {SCHWELLE}+) - nicht verschickt. '
-               'Das Tool hat aus den Prüfungen gelernt und versucht es im nächsten Zeitfenster neu.')
+               'Das Tool hat aus den Prüfungen gelernt; nächster Versuch um 12:41 / 15:23 / 17:41 Uhr.')
         return 0
     subprocess.run([PY, 'fabrik/freigabe.py', str(aus / 'skript.json'), str(aus / 'short.mp4')], check=True)
     messung = json.loads((aus / 'messung.json').read_text(encoding='utf-8')) \

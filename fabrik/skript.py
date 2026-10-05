@@ -384,9 +384,9 @@ def main(kanal_pfad, aus_pfad, thema=None):
             import trends
             # GEMELDET: Die Themen muessen alle immer aktuell sein. Firmen, die gestern viel
             # gelesen wurden (Wikipedia-Aufrufe, ohne KI ermittelt) - ein Anlass, JETZT zu schauen.
-            aktuell = [] if thema else trends.firmen_im_trend()[:8]
+            aktuell = [] if thema else trends.firmen_im_trend()[:5]  # weniger Anfragen (429)
             if not thema and not aktuell:  # GEMESSEN: einmal leer (Wikipedia kurz nicht erreichbar)
-                time.sleep(3); aktuell = trends.firmen_im_trend()[:8]
+                time.sleep(3); aktuell = trends.firmen_im_trend()[:5]
             # GEMELDET 04.10.2026: Flop-Video Skydance (KI-Note 3/10) - aktuell, aber ohne ein
             # einziges freies Foto (nur unscharfer Hintergrund) und ohne Gruendungsdrama
             # (ein Firmen-Update). Trend-Firmen nur mit mindestens 4 freien Fotos.
@@ -406,7 +406,9 @@ def main(kanal_pfad, aus_pfad, thema=None):
                                    '(founded 15+ years ago, a founder who took a risk, a near-failure) - '
                                    'viewers search for them today. A recent merger or corporate update is NOT '
                                    'an origin story; then pick a classic brand instead. ') if aktuell else '')
-                             + 'Give the exact title of its English Wikipedia article.' + basis_zusatz,
+                             + 'Pick a WORLD-FAMOUS brand most viewers know (long English Wikipedia article '
+                             'with a detailed history section) - not a regional or niche company. '
+                             'Give the exact title of its English Wikipedia article.' + basis_zusatz,
                              {'type': 'OBJECT', 'properties': {'thema': {'type': 'STRING'},
                                                                'wikipedia': {'type': 'STRING'}},
                               'required': ['thema', 'wikipedia']}, temperatur=0.9)
@@ -414,7 +416,9 @@ def main(kanal_pfad, aus_pfad, thema=None):
             q = trends.wikipedia(wahl['wikipedia'])
             # GEMESSEN: Aus 1.353 Zeichen Quelle (Balaji Wafers) liess sich keine
             # 60-s-Geschichte schreiben, ohne zu strecken - sofort naechstes Thema.
-            if q and len(q['text']) < 2500:
+            # GEMESSEN 05.10.2026: Jollibee (2.555 Zeichen), Balaji Wafers (1.353) - aus so
+            # duennen Artikeln fiel jede Fassung durch die Faktenpruefung, kein Video.
+            if q and len(q['text']) < 5000:
                 print(f"Quelle zu kurz ({len(q['text'])} Zeichen): {q['name']} - neues Thema")
                 q = None
             if not q:

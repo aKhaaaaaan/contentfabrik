@@ -147,13 +147,15 @@ def wikipedia(titel, grenze=7000):
         adresse = 'https://en.wikipedia.org/w/api.php?' + urllib.parse.urlencode({
             'action': 'query', 'prop': 'extracts|info', 'explaintext': 1, 'redirects': 1, 'inprop': 'url',
             'titles': titel, 'format': 'json'})
-        for warte in (0, 5, 15):  # GEMESSEN: 429 Too Many Requests nach der Trend-Abfrage
+        # GEMESSEN 05.10.2026: auf GitHub-Servern (geteilte IP-Adressen) blieb 429 auch nach
+        # 5/15 s - laenger warten.
+        for warte in (0, 10, 30, 60):  # 429 Too Many Requests
             try:
                 import time as _t; _t.sleep(warte)
                 d = json.loads(_hole(adresse, WIKI_KENNUNG))
                 break
             except urllib.error.HTTPError as e:
-                if e.code != 429 or warte == 15:
+                if e.code != 429 or warte == 60:
                     raise
         seite = next(iter(d['query']['pages'].values()))
         text = seite.get('extract') or ''

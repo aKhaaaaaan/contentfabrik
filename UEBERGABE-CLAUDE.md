@@ -238,6 +238,11 @@ einen gesondert bewerteten Telegram-Kompressionsdurchlauf.
   Credential-Manager-Zugang. Befehle `status`, `secrets` (nur Namen),
   `details <run>`, `download <artifact>`, `dispatch <kanal> <short|lang>`
   mit optional `--thema` und `--telegram`. Kein Token im Log oder Dateisystem.
+  Bei Download-Weiterleitungen wird der GitHub-Authorization-Header entfernt,
+  sobald der Zielhost wechselt; unverschluesselte Weiterleitungen werden
+  abgelehnt. Drei Regressionstests pruefen diese Zugangsdaten-Grenze.
+  Laufende Joblogs sind derzeit per API noch nicht verfuegbar; `details`
+  zeigt dann die tatsaechlichen Schrittstatus statt erfundener Fortschrittswerte.
 
 Wichtig: Pilotdateien liegen drei Tage als private GitHub-Artefakte.
 Lernen/Budget im Pilot werden NICHT automatisch in den Betrieb uebernommen.
@@ -264,6 +269,15 @@ Im Dashboard muss er als verschluesseltes Worker-Secret **`GH_TOKEN`**
 hinterlegt werden, beschraenkt auf dieses Repository und Actions Read/Write.
 Anschliessend Cron-Ausfuehrung und GitHub-Dispatch wirklich kontrollieren.
 
+Die konkrete Eingabestelle fuer den bereits erstellten Token ist:
+Workers & Pages → Worker auswaehlen → Settings → Variables and Secrets →
+Add → Typ **Secret**, Name **GH_TOKEN**, Value = vorhandener PAT → Deploy.
+Quelle: [Cloudflare, Secrets im Dashboard](https://developers.cloudflare.com/workers/configuration/secrets/).
+Crons: Worker → Settings → Triggers → Cron Triggers;
+Quelle: [Cloudflare, Cron Triggers](https://developers.cloudflare.com/workers/configuration/cron-triggers/).
+Ein Aufruf der Worker-Statusseite startet keinen Job und beweist weder
+funktionierenden PAT noch aktiven Cron. GitHub-Run und Cron Events pruefen.
+
 ## Pruefungen und Grenzen
 
 Lokal bestanden nach den Telegram-Erweiterungen:
@@ -274,7 +288,8 @@ node --test pruefungen/zeitplan.mjs
 git diff --check
 ```
 
-Ergebnis: **111 Python-Tests**, **5 Zeitplan-Prueffaelle**, keine Diff-Fehler.
+Ergebnis nach den Download-Sicherheitspruefungen: **114 Python-Tests**,
+**5 Zeitplan-Prueffaelle**, keine Diff-Fehler.
 Python-/Node-Tests benutzen Ersatzantworten; kein echter Telegram-Versand,
 keine Modellgenerierung und kein echter ffmpeg-Render in den Tests.
 Die Tests belegen Ablauf/Sperren, nicht die Wirkung fertiger Videos.

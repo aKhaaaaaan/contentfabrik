@@ -1,6 +1,6 @@
 # KI-Prompts und Medienqualitaet
 
-Stand: 05.10.2026. Vorlagenversion: `2026-10-05.3`.
+Stand: 05.10.2026. Vorlagenversion: `2026-10-05.4`.
 Die gemeinsamen Auftraege stehen in [fabrik/prompts.py](fabrik/prompts.py).
 Skript und fertige Video-Kritik speichern die verwendete Version, damit
 spaetere Vergleiche nachvollziehbar bleiben.

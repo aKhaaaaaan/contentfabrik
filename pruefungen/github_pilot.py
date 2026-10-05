@@ -5,11 +5,24 @@ import json
 import os
 import subprocess
 import urllib.error
+import urllib.parse
 import urllib.request
 import zipfile
 from pathlib import Path
 
 REPO = 'aKhaaaaaan/contentfabrik'
+
+
+class SichererRedirect(urllib.request.HTTPRedirectHandler):
+    """GitHub-Download-Redirects ohne Weitergabe des GitHub-Tokens."""
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        if urllib.parse.urlsplit(newurl).scheme != 'https':
+            raise RuntimeError('Unsicherer Download-Redirect abgelehnt')
+        weiter = super().redirect_request(req, fp, code, msg, headers, newurl)
+        if weiter is not None and urllib.parse.urlsplit(req.full_url).netloc \
+                != urllib.parse.urlsplit(newurl).netloc:
+            weiter.remove_header('Authorization')
+        return weiter
 
 
 def zugang():
@@ -35,7 +48,7 @@ def api(pfad, daten=None, roh=False):
                                           'X-GitHub-Api-Version': '2022-11-28',
                                           'User-Agent': 'contentfabrik-pilot'})
     try:
-        with urllib.request.urlopen(req, timeout=30) as r:
+        with urllib.request.build_opener(SichererRedirect()).open(req, timeout=30) as r:
             inhalt = r.read()
             return inhalt if roh else json.loads(inhalt) if inhalt else None
     except urllib.error.HTTPError as e:
@@ -59,7 +72,9 @@ def status():
 
 def details(run):
     jobs = api(f'repos/{REPO}/actions/runs/{run}/jobs')
-    print(json.dumps({'jobs': [{k: j.get(k) for k in ('id', 'name', 'status', 'conclusion', 'steps')}
+    print(json.dumps({'jobs': [{**{k: j.get(k) for k in ('id', 'name', 'status', 'conclusion')},
+                               'steps': [{k: s.get(k) for k in ('name', 'status', 'conclusion')}
+                                         for s in j.get('steps', [])]}
                               for j in jobs['jobs']]}, ensure_ascii=False))
     artifacts = api(f'repos/{REPO}/actions/runs/{run}/artifacts')
     print(json.dumps({'artifacts': [{k: a.get(k) for k in ('id', 'name', 'size_in_bytes', 'expired')}
@@ -67,12 +82,24 @@ def details(run):
     if all(j['status'] == 'completed' for j in jobs['jobs']):
         with zipfile.ZipFile(io.BytesIO(api(f'repos/{REPO}/actions/runs/{run}/logs', roh=True))) as logs:
             for name in logs.namelist():
-                if any(w in name.lower() for w in ('baut', 'bauen', 'video und skript', 'freigabe')):
+                if any(w in name.lower() for w in ('baut', 'bauen', 'video und skript', 'freigabe', 'erzeugen')):
                     zeilen = logs.read(name).decode('utf-8-sig', errors='replace').splitlines()
                     erlaubt = ('/10', 'Traceback', 'Error:', 'Sperr', 'Gesendet:', 'Min.',
                                'Fakten', 'fehler', 'abgebrochen', 'Budget', 'PILOT:', 'bestanden')
                     print(json.dumps({'schritt': name, 'auszug': [z[:600] for z in zeilen
                                        if any(w in z for w in erlaubt)][-60:]}, ensure_ascii=False))
+    else:
+        for j in jobs['jobs']:
+            if j['status'] == 'in_progress':
+                try:
+                    zeilen = api(f'repos/{REPO}/actions/jobs/{j["id"]}/logs', roh=True) \
+                        .decode('utf-8-sig', errors='replace').splitlines()
+                    erlaubt = ('/10', 'Traceback', 'Error:', 'Sperr', 'Gemini:', 'Warte',
+                               'Fakten', 'fehler', 'Budget', 'Versuch', 'Story:', 'Produktion')
+                    print(json.dumps({'live_auszug': [z[:600] for z in zeilen
+                                       if any(w in z for w in erlaubt)][-35:]}, ensure_ascii=False))
+                except RuntimeError:
+                    print(json.dumps({'live_logs': 'Noch nicht per API verfuegbar'}))
 
 
 def secrets():

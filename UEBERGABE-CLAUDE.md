@@ -74,10 +74,19 @@ ausreichende Analytics-Daten erforderlich.
 
 ### Echte neue Piloten
 
-Vorbereitet: jeweils ein Short und ein Langvideo fuer Business Origin Stories.
-Sie verwenden den neuen Code und auf Wunsch `telegram=true`.
-Status bei Erstellung dieser Uebergabe: noch nicht gestartet; die konkrete
-Run-ID und das Ergebnis werden hier nach dem Start ergaenzt.
+Gestartet am 05.10.2026 um 13:42 UTC / 15:42 Berlin mit Code-Commit
+`159009c` und `telegram=true`: jeweils Nintendo fuer Business Origin Stories,
+um dieselbe belegte Geschichte in beiden Formaten vergleichen zu koennen.
+
+| Lauf | ID / Link | Zuletzt bestaetigter Status |
+|---|---|---|
+| Code-/Regressionstest | [37318832824](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37318832824) | erfolgreich, neue Pruefungen bestehen auch auf Linux |
+| Short | [37318880596](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37318880596) | gestartet, Ergebnis noch offen |
+| Langvideo | [37318886482](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37318886482) | Warteschlange hinter Short, Ergebnis noch offen |
+
+Nicht erneut starten, ohne diese Run-IDs zu kontrollieren. Erst mit fertigem
+Pruefbericht und erfolgreichem Telegram-Schritt von einem zugestellten
+bestandenen Video sprechen. Neue Status-/Ergebnisdetails werden unten ergaenzt.
 
 ## Qualitaetsfilter und begrenzte Nachbesserung
 

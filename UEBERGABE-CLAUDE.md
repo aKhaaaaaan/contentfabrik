@@ -395,7 +395,11 @@ neu. Das unveraenderte gesperrte Skript wird nicht fuenfmal erneut bewertet.
 Der normale Renderer, Video-Kritik, Korrekturen und Telegram-Gate gelten.
 Gestartet auf Commit `fca972f` mit der damaligen 9/10-Grenze:
 [Pilot 37329938782](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37329938782).
-Die Startmeldung ist erfolgreich versandt; Video-Ergebnis noch offen.
+Ergebnis: Faktencheck sperrte die Formulierung "Improving quality wasn't
+the only answer ..." als widerspruechlich zur guenstigeren, niedrigeren
+Qualitaet. Es wurde keine Videodatei gerendert. Artefakt `11354306858` lokal
+heruntergeladen. Diese doppeldeutige Formulierung wurde durch eine explizite
+Aussage ueber geringere Qualitaet und Preis ersetzt, danach neuer Start.
 
 Danach verlangte der Nutzer ausdruecklich 7/10 bis 10/10 und einen neuen
 Telegram-Versuch. Zentrale Mindestnote und Kategorienminimum jetzt 7;

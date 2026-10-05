@@ -103,7 +103,9 @@ def auftrag(quelle):
         '- The chapter that reaches the crisis from the einstieg is the climax: slow down, give it the most words.\n'
         '- schluss (80-140 words): answer the big question from the einstieg with a concrete fact from the source '
         '(what saved them, where they stand today), then one memorable final line that is NOT a generic '
-        'platitude ("through loyalty and reinvention" is banned). No "like and subscribe" begging.\n'
+        'platitude ("through loyalty and reinvention" is banned). Then give the required brief '
+        'LIKE, SHARE and SAVE request. Include the early request after useful context in einstieg, '
+        'as specified above; no extra engagement monologue.\n'
         # GEMESSEN 04.10.2026: 21 von 91 Saetzen ueber 22 Woerter; Zahlen teils
         # als zerbrochene Woerter („thirty-,seven hundred three" statt 3,703).
         'STYLE: written for the ear - one idea per sentence, at most 18 words, active voice. Write numbers as '

@@ -22,6 +22,26 @@ def laengen(daten):
     return werte
 
 
+def interaktion(daten):
+    gemeinsam = ('MANDATORY SPOKEN ENGAGEMENT REQUIREMENT: Every call to action explicitly asks viewers to LIKE, '
+                 'SHARE and SAVE this video, all three actions. This is required in the actual '
+                 'spoken narration, not only in captions, overlays or the description. Use a '
+                 'direct reminder such as "Be sure to like, share and save this video." '
+                 'Do not omit it or make the request conditional. Speak it as one concise, natural '
+                 'English sentence, preferably at most 12 words, relevant to the story. '
+                 'Count these words in the narration budget. A follow/subscribe request alone '
+                 'does not satisfy this requirement. ')
+    if videoformat(daten) == 'lang':
+        return (gemeinsam + 'LONG FORM: Include exactly TWO calls to action: one near the beginning, '
+                'after the initial hook and first useful context within the opening 20-30 seconds, '
+                'and one at the end after the central answer. Each asks for all three actions. '
+                'The opening sentence remains the story hook; do not open with engagement requests. '
+                'Return to the story immediately after the early request; no mid-video repetitions. ')
+    return (gemeinsam + 'SHORT FORM: Include exactly ONE call to action near the end, after the '
+            'main payoff. It asks for all three actions. Keep the hook focused on the subject '
+            'and the ending brief. ')
+
+
 def auftrag(daten):
     gemeinsam = (
         'Build one clear central question and answer it honestly. Each beat must change what the '
@@ -34,7 +54,8 @@ def auftrag(daten):
         'Optional beat labels: hook, frage, beleg, erklaerung, wendung, aufloesung. '
         'Optional bildtext: an exact contiguous 2-5 word phrase copied from that part\'s narration, '
         'maximum 26 characters, identifying its crucial detail; at most one in every two parts. '
-        'It appears ONLY when those words are spoken, so choose useful details, not generic hype. ')
+        'It appears ONLY when those words are spoken, so choose useful details, not generic hype. '
+        + interaktion(daten))
     if videoformat(daten) == 'lang':
         return (gemeinsam + 'LONG FORM: Start with a specific outcome, surprising sourced detail or '
                 'problem; demonstrate why it matters within the first 20-30 seconds. No logo intro '

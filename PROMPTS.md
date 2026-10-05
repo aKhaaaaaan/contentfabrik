@@ -1,6 +1,6 @@
 # KI-Prompts und Medienqualitaet
 
-Stand: 05.10.2026. Vorlagenversion: `2026-10-05.4`.
+Stand: 05.10.2026. Vorlagenversion: `2026-10-05.5`.
 Die gemeinsamen Auftraege stehen in [fabrik/prompts.py](fabrik/prompts.py).
 Skript und fertige Video-Kritik speichern die verwendete Version, damit
 spaetere Vergleiche nachvollziehbar bleiben.
@@ -71,6 +71,18 @@ oder konkreten Spielszenen kopieren. Die Promptfassung `2026-10-05.4`
 beschreibt den Look allgemein und prueft erkennbare kopierte Spielfiguren.
 
 ## Stimme, Musik und Geraeusche
+
+Jedes Video fordert ausdruecklich zum **Liken, Teilen und Speichern** auf.
+Shorts bekommen eine kurze Zeile nach der Aufloesung nahe dem Ende;
+Langvideos eine nach Hook/erstem Nutzen am Anfang (20–30 Sekunden) und
+eine nach der Aufloesung am Ende. Alle drei Aktionen werden jeweils genannt,
+ein Abo-Aufruf allein reicht nicht. Formulierungen bleiben natuerlich und
+knapp (moeglichst maximal 12 englische Woerter) und zaehlen zum Wortbudget.
+Der Aufruf ist verpflichtend in der gesprochenen Erzaehlung, zum Beispiel
+"Be sure to like, share and save this video."; nicht nur als Einblendung
+oder Beschreibung und nicht bedingt auf "falls es euch gefallen hat".
+Die gemeinsame Regel steht in `dramaturgie.interaktion()` und wird auch
+von Story-/Video-Pruefung und dem separaten Doku-Editor verwendet.
 
 Kokoro bekommt Sprechtext, ausgewaehlte Stimme, Geschwindigkeit und Sprache;
 es hat im verwendeten Aufruf keinen freien Regie-Prompt. Die vorhandenen

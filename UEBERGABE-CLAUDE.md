@@ -43,6 +43,32 @@ Sie ist weder eine belegte Verbesserung der Zuschauerbindung noch eine
 Garantie fuer Reichweite. Dafuer sind echte veroeffentlichte Videos und
 ausreichende Analytics-Daten erforderlich.
 
+### Verbindliche Aufforderung zum Liken, Teilen und Speichern
+
+Neuer Nutzerauftrag: Jedes Video soll ausdruecklich zum **Liken, Teilen und
+Speichern** auffordern. Alle drei Aktionen nennen; "follow/subscribe" allein
+erfuellt die Vorgabe nicht. Shorts: einmal nach dem inhaltlichen Hoehepunkt
+bzw. der Aufloesung, kurz vor Schluss. Langvideos: zweimal, am Anfang nach
+Hook/erstem hilfreichem Kontext innerhalb der ersten 20–30 Sekunden und am
+Ende nach der zentralen Aufloesung. Die erste Aussage bleibt der Story-Hook.
+Jeweils eine kurze, natuerliche englische Zeile, moeglichst maximal 12 Woerter.
+Zum Beispiel: "Like, share and save this story for later."
+Praezisierung des Nutzers: Der Aufruf muss **immer tatsaechlich gesprochen**
+werden, ausdruecklich und verbindlich: "Be sure to like, share and save this
+video." (= "Unbedingt liken, teilen und dieses Video speichern.").
+Nur eine Einblendung oder Beschreibung reicht nicht; kein optionaler oder
+bedingter Aufruf. Die englische Kanalsprache bleibt erhalten.
+Die Worte zaehlen zum Laengenbudget. Keine weiteren wiederholten Aufrufe.
+
+Umgesetzt als gemeinsame Promptregel in `dramaturgie.interaktion()`,
+verwendet von Skriptautor, Storypruefer und Video-Kritik sowie Doku-Editor.
+Die alte Begrenzung auf hoechstens einen Save-/Follow-Aufruf ist entfernt;
+Promptversion jetzt `2026-10-05.5`. Diese Vorgabe gilt fuer neu gestartete
+Laeufe. Die bereits oben/unten dokumentierten Nintendo-Piloten sind auf
+Commit `159009c` / Promptversion `.4` festgelegt und werden durch diesen
+Commit nicht nachtraeglich umgeschrieben. Es werden keine echten Likes,
+Shares oder Saves garantiert oder automatisch erzeugt.
+
 ## Tatsaechlicher Betriebsstand
 
 - Workspace: `C:\Users\saima\Downloads\contentfabrik`.
@@ -123,7 +149,7 @@ darf erfundene Motive, Zitate, Ursachen oder neue unbelegte Zahlen einfuehren.
 ## Skripte, Prompts und Dramaturgie
 
 Die gemeinsamen Prompts liegen in `fabrik/prompts.py`; ihre Fassung ist
-`2026-10-05.4`. Details und providerbezogene Regeln stehen in `PROMPTS.md`.
+`2026-10-05.5`. Details und providerbezogene Regeln stehen in `PROMPTS.md`.
 Skript, Faktenpruefung, Storypruefung, Bildpruefung und Video-Kritik benutzen
 getrennte Aufgaben mit konsistenter Bewertung. Die Video-KI bekommt keine
 alte Story-Note als Vorgabe fuer ihr Urteil.

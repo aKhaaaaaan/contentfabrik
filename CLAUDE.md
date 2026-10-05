@@ -17,6 +17,14 @@ mit eigenstaendigen Charakteren. Keine GTA-Figuren, Logos, Outfits oder
 konkreten Spielszenen kopieren. Hintergrundmusik und Geraeusche muessen
 inhaltlich und emotional zur Geschichte passen und die Stimme frei lassen.
 
+Interaktionsaufforderung in jedem Video: explizit **liken, teilen und speichern**.
+Shorts: einmal kurz nach der Aufloesung nahe dem Ende. Langvideos: am Anfang
+nach Hook/erstem Nutzen und nochmals am Ende nach der Aufloesung.
+Knapp und natuerlich formulieren; ein Abo-Aufruf allein reicht nicht.
+Es muss ausdruecklich GESPROCHEN werden, etwa "Be sure to like, share and
+save this video." (= "Unbedingt liken, teilen und dieses Video speichern.").
+Eine Einblendung/Beschreibungszeile allein reicht nicht; nicht optional.
+
 Alte Eintraege mit 8/10 und fruehere Aussagen wie "Pilot noch nicht gestartet"
 sind historische Staende. Den neuesten Status in der Uebergabe und auf GitHub
 pruefen, bevor ein weiterer Lauf gestartet wird. Keine Tokens ausgeben oder

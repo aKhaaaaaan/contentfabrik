@@ -27,6 +27,11 @@ on:
       thema:
         description: 'optional: festes Thema'
         default: ''
+# Zeitplan-Starts (GitHub-schedule und Cloudflare kanal=alle) laufen nacheinander: der
+# zweite sieht dann das Video des ersten und ueberspringt den Kanal - keine Doppelten.
+concurrency:
+  group: video-${{ (github.event_name == 'schedule' || inputs.kanal == 'alle') && 'zeitplan' || github.run_id }}
+  cancel-in-progress: false
 permissions:
   contents: write   # Themen-Verlauf zurueckschreiben
 jobs:
@@ -47,7 +52,8 @@ jobs:
           # Neuer Kanal = hier eintragen (plus kanaele/<name>.json).
           alle = ['ai-tools-explained', 'business-origin-stories']
           heute = datetime.date.today().isoformat()
-          if os.environ['EREIGNIS'] == 'schedule':
+          # kanal=alle: Start durch den Cloudflare-Zeitplan (puenktlich) - gleiche Regel wie schedule
+          if os.environ['EREIGNIS'] == 'schedule' or os.environ['EINGABE'] == 'alle':
               offen = []
               for k in alle:
                   p = Path(f'verlauf/{k}.json')

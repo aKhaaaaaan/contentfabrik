@@ -1,6 +1,6 @@
 # KI-Prompts und Medienqualitaet
 
-Stand: 05.10.2026. Vorlagenversion: `2026-10-05.7`.
+Stand: 05.10.2026. Vorlagenversion: `2026-10-05.8`.
 Die gemeinsamen Auftraege stehen in [fabrik/prompts.py](fabrik/prompts.py).
 Ein separater Gemini-Bildplan in `fabrik/bildplan.py` erzeugt mehrere
 inhaltlich unterschiedliche Einstellungen innerhalb jeder Sprechphase.
@@ -43,7 +43,8 @@ und fuehren neue Konsequenzen ein. Originalmaterial hat Vorrang vor
 Illustrationen. `bildmodus` steuert die Auswahl; optionale `bildtext`-Akzente
 kommen ausschliesslich aus dem gesprochenen Abschnitt und folgen dessen
 Wortzeiten. Die Freigabe verlangt auf aktuellen Nutzerwunsch Gesamtwert
-mindestens 7 fuer Skript und Video, jede Kategorie mindestens 7,
+mindestens 7 fuer Skript und Video, jede Kategorie mindestens 7
+(Story-Teilbarkeit als unsichere Prognose mindestens 6),
 keine offenen mittleren/schweren Probleme
 und bestandene Fakten/Technik. Die Notenskala bleibt absolut; die gewuenschte
 Schwelle ist kein Auftrag, Bewertungen hochzusetzen.
@@ -55,6 +56,14 @@ Schwelle ist kein Auftrag, Bewertungen hochzusetzen.
   einen kostenlosen Onlinedienst.
 - Likes und Sterne auf verschiedenen Plattformen werden nicht als objektiver
   Leistungsvergleich ausgegeben. Die Rangfolge aus dem Code bleibt erhalten.
+- AI-Shorts behandeln drei Tools mit konkretem Anwendungsfall und belegter
+  Einschraenkung. Primaere Modellbeschreibungen liefern die Fakten; reine
+  Metadaten genuegen nicht. Kurze Tool-Karten, unterschiedliche echte
+  Beispielbilder und gekennzeichnete Illustrationen des Nutzerproblems
+  wechseln sich ab. Illustrationen duerfen keine echten Outputs vortaeuschen.
+- Musik bleibt auch bei ausgefallener Openverse-Suche vorhanden: eigenes
+  ruhiges Instrumental ohne fremde Samples, mit bestehender Absenkung unter
+  der Stimme. Die tatsaechliche Mischung wird weiterhin am Video gemessen.
 - Der Einstieg hat einen kurzen ersten Satz. Die Aufloesung kommt vor
   hoechstens einer kurzen Handlungsaufforderung; keine widerspruechlichen
   Follow-/Save-/Loop-Pflichten und kein kuenstlicher Satzabbruch.

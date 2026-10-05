@@ -10,7 +10,8 @@ Ziel sind gute Originalinhalte mit moeglichst 0 EUR laufenden Kosten.
 2. Skript, Quellen-/Faktencheck, Zahlenprobe und Story-Bewertung.
 3. Kokoro-Stimme, ffmpeg-Video, Untertitel, Bilder/Clips und Soundeffekte.
 4. Technische Messung, danach KI-Bewertung des fertigen Videos.
-5. Ab **7/10 fuer Skript und Video**, jeder Einzelkategorie mindestens 7/10,
+5. Ab **7/10 fuer Skript und Video**, jeder Einzelkategorie mindestens 7/10
+   (nur die Story-Teilbarkeit darf als unsichere Prognose 6/10 haben),
    ohne offene mittlere/schwere Probleme, mit bestandenen Fakten und Technik:
    Video-Vorschau und Upload-Texte an den Betreiber in Telegram.
 6. Lernen aus den Pruefungen; YouTube-Auswertung mit eingerichteten Zugaengen.

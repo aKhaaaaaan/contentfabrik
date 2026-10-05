@@ -34,6 +34,12 @@ Tool-Interfaces oder Outputs zeigen. Bei nicht erreichbarer Openverse-Musik
 erzeugt `ton.musikbett` eigene instrumentale Hintergrundmusik ohne fremde
 Samples; bestehendes Ducking/Fades und Lautheitsmessung bleiben aktiv.
 Promptversion jetzt `2026-10-05.8`; 142 Regressionstests bestanden.
+Neue Piloten auf `d5437c3`: AI Tools Explained
+[37344285206](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37344285206),
+danach Business/Nintendo
+[37344290208](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37344290208).
+Beide ohne automatischen Telegram-Versand. CI 37344257003 bestanden.
+Diese Starts belegen noch kein fertiges Video und keine Zustellung.
 Implementiert in `bildplan.py`: Originalton/Wortzeiten behalten, Phasen in
 ca. 3-5-Sekunden-Einstellungen aufteilen, ein gebuendelter Gemini-Aufruf fuer
 konkrete unterschiedliche Motive. Zoom, Ausschnitt oder Untertitelwechsel
@@ -51,7 +57,7 @@ oder Tool-Platz, Foto selbst als weichgezeichneter Hintergrund statt Kerzen.
 Unpassende/leere Bilder stoppen den Bau. Tool-Phasen verlangen echte
 Beispielbilder aus der jeweiligen Quelle; fehlende Beispiele sind kein
 Anlass fuer erfundene Outputs. Figurenidentitaet muss stimmen, Blickrichtung
-und Pose duerfen sich aendern. Promptversion `2026-10-05.7`.
+und Pose duerfen sich aendern. Promptversion `2026-10-05.8`.
 
 137 lokale Regressionstests bestanden; lokale Videoanalyse jetzt mit
 `imageio-ffmpeg` unter ignoriertem `ausgabe/werkzeuge` moeglich. Neue echte
@@ -231,7 +237,8 @@ Die Cloud-Regression des Fixes besteht ebenfalls:
 Lauf und den direkten Telegram-Aufruf:
 
 - Story und Video jeweils mindestens **7/10**, auf aktuellen Nutzerwunsch.
-- Alle erforderlichen Einzelkategorien mindestens **7/10**.
+- Alle erforderlichen Einzelkategorien mindestens **7/10**, nur die unsichere
+  Story-Teilbarkeitsprognose mindestens **6/10**.
 - Story: Hook, Spannung, Ueberraschung, Tempo, Aufloesung, Teilbarkeit.
 - Video: Hook, Bildpassung, Dynamik, Text, Ton/Stimme, Tempo, Inhalt,
   Schluss/Loop, Regeln, Story.

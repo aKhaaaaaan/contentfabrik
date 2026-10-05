@@ -13,7 +13,7 @@ heutigen Betriebsstand beschreibt [README.md](README.md). Massgeblich:
   Freigabe-Knoepfe und mehrere automatische
   Plattform-Uploads sind geplant, noch nicht durchgaengig umgesetzt.
 - Vorschauen gibt es nur mit bestandenem Faktencheck, bestandener Technik
-  und Skript-/Video-Note **mindestens 9/10**, jede Kategorie mindestens 8,
+  und Skript-/Video-Note **mindestens 7/10**, jede Kategorie mindestens 7,
   ohne mittlere/schwere offene Probleme. Ausgefallene Pruefungen bestehen nicht.
   Ziel bleibt 10/10; das Tagesbudget gilt ueber alle Ersatzfenster hinweg.
 - Gezielte Korrekturen desselben Videos und gemessenes Lern-Gedaechtnis sind

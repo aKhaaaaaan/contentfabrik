@@ -1,8 +1,8 @@
 """Gemeinsame Zugangskontrolle fuer Lauf und Telegram-Vorschau."""
 import math
 
-SCHWELLE = 9
-KATEGORIE_MIN = 8
+SCHWELLE = 7
+KATEGORIE_MIN = 7
 STORY_KATEGORIEN = ('hook', 'spannung', 'ueberraschung', 'tempo', 'aufloesung', 'teilbarkeit')
 VIDEO_KATEGORIEN = ('hook', 'bild_passt', 'dynamik', 'text', 'ton_stimme', 'tempo',
                     'inhalt', 'schluss_loop', 'regeln', 'story')

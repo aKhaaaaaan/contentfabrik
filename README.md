@@ -10,7 +10,7 @@ Ziel sind gute Originalinhalte mit moeglichst 0 EUR laufenden Kosten.
 2. Skript, Quellen-/Faktencheck, Zahlenprobe und Story-Bewertung.
 3. Kokoro-Stimme, ffmpeg-Video, Untertitel, Bilder/Clips und Soundeffekte.
 4. Technische Messung, danach KI-Bewertung des fertigen Videos.
-5. Ab **9/10 fuer Skript und Video**, jeder Einzelkategorie mindestens 8/10,
+5. Ab **7/10 fuer Skript und Video**, jeder Einzelkategorie mindestens 7/10,
    ohne offene mittlere/schwere Probleme, mit bestandenen Fakten und Technik:
    Video-Vorschau und Upload-Texte an den Betreiber in Telegram.
 6. Lernen aus den Pruefungen; YouTube-Auswertung mit eingerichteten Zugaengen.
@@ -181,9 +181,9 @@ Ein Kurvenknick kann Ueberspringen oder Ausstieg bedeuten; er zeigt allein
 keine Ursache. Referenzen: [YouTube Zuschauerbindung](https://support.google.com/youtube/answer/9314415),
 [offizielle Analytics-Metriken](https://developers.google.com/youtube/analytics/metrics).
 
-Die Freigabeschwelle ist strenger geworden: ein guter Durchschnitt verdeckt
+Die Freigabe liegt auf ausdruecklichen Nutzerwunsch bei 7/10: ein guter Durchschnitt verdeckt
 keine schwache Story, unlesbaren Text oder schlechte Stimme. Dadurch kann
-ein Tag ohne geeignetes Video enden. 9/10 ist ein unabhaengiges redaktionelles
+ein Tag ohne geeignetes Video enden. Die Note ist ein unabhaengiges redaktionelles
 Urteil, keine Zusage, dass alle Zuschauer bis zum Ende bleiben.
 
 ## Echter Cloud-Probelauf

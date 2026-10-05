@@ -8,8 +8,10 @@ Betriebsstand, Pruefungen und die noch offenen Arbeiten.
 Der Nutzer moechte professionelle, abwechslungsreiche Shorts UND Langvideos,
 nachweisbares Lernen aus echten Ergebnissen und die Zustellung bestandener
 Videos samt Skript und Upload-Texten auf Telegram. Der aktuelle Freigabefilter
-verlangt Story und Video jeweils mindestens 9/10, jede Einzelkategorie
-mindestens 8/10 sowie bestandene Fakten- und Technikpruefungen.
+verlangt seit der ausdruecklichen Nutzerkorrektur Story und Video jeweils
+mindestens 7/10, jede Einzelkategorie mindestens 7/10 sowie bestandene
+Fakten- und Technikpruefungen. 8/10 bleibt eine Veroeffentlichungsempfehlung,
+kein Versandhindernis; 9/10 ist nicht mehr die Mindestnote.
 
 Zusaetzliche ausdrueckliche Vorgaben: Figuren und illustrierte Videogestaltung
 sollen eine GTA-artige urbane, gemalte Comic-/Spielplakat-Anmutung haben,

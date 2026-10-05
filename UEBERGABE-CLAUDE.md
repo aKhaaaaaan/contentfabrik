@@ -10,6 +10,8 @@ Der Nutzer hat die Weiterentwicklung und echte Probelaufe autorisiert.
 Gewuenscht sind bessere Prompts fuer Skript, Bild, Video, Stimme, Musik und
 Geraeusche; ein lernfaehiges Tool; starke Zuschauerbindung von Anfang bis Ende
 bei Shorts und Langvideos; professionelle Ergebnisse oberhalb von 8/10.
+Spaetere ausdrueckliche Nutzerkorrektur: Versand ab 7/10 bis 10/10;
+9/10 war als Mindestnote zu streng.
 Bestandene Videos sollen samt Skript und Upload-Texten auf Telegram kommen.
 Zusatzauftrag: alle neuen Aenderungen und den Betriebsstand fuer Claude
 dokumentieren. Es ist keine automatische Plattform-Veroeffentlichung beauftragt.
@@ -163,8 +165,8 @@ Die Cloud-Regression des Fixes besteht ebenfalls:
 `fabrik/qualitaet.py` ist die gemeinsame Freigabestelle fuer den normalen
 Lauf und den direkten Telegram-Aufruf:
 
-- Story und Video jeweils mindestens **9/10**.
-- Alle erforderlichen Einzelkategorien mindestens **8/10**.
+- Story und Video jeweils mindestens **7/10**, auf aktuellen Nutzerwunsch.
+- Alle erforderlichen Einzelkategorien mindestens **7/10**.
 - Story: Hook, Spannung, Ueberraschung, Tempo, Aufloesung, Teilbarkeit.
 - Video: Hook, Bildpassung, Dynamik, Text, Ton/Stimme, Tempo, Inhalt,
   Schluss/Loop, Regeln, Story.
@@ -391,7 +393,16 @@ Zielgruppen. Keine erfundene Krise oder vorgegebene Story-Note.
 entfernt alte Pruefungen und prueft Fakten, Zahlen, Groq und Story wirklich
 neu. Das unveraenderte gesperrte Skript wird nicht fuenfmal erneut bewertet.
 Der normale Renderer, Video-Kritik, Korrekturen und Telegram-Gate gelten.
-Status bei diesem Nachtrag: vorbereitet; Start/Ergebnis noch zu ergaenzen.
+Gestartet auf Commit `fca972f` mit der damaligen 9/10-Grenze:
+[Pilot 37329938782](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37329938782).
+Die Startmeldung ist erfolgreich versandt; Video-Ergebnis noch offen.
+
+Danach verlangte der Nutzer ausdruecklich 7/10 bis 10/10 und einen neuen
+Telegram-Versuch. Zentrale Mindestnote und Kategorienminimum jetzt 7;
+Fakten, Technik und offene mittlere/schwere Probleme bleiben Sperren.
+8/10 ist eine Empfehlung fuer die manuelle Veroeffentlichung, keine
+Versandsperre. Bewertungen werden nicht umgeschrieben, die Pruefnotenskala
+bleibt gleich. Alte auf 9/10 gestartete Runs aendern sich nicht durch Push.
 
 Faktencheck-Fehler behoben: illustrative Szenen/Suchbegriffe werden nicht
 mehr als gesprochene historische Behauptungen geprueft; Titel und Beschreibung

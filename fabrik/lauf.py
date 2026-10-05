@@ -1,6 +1,6 @@
 """Skript -> Video -> Pruefung -> Lernen -> Telegram-Vorschau.
 
-Nur mit bestandener Fakten- und Technikpruefung und Skript-/Video-Note >= 9. Ziel bleibt
+Nur mit bestandener Fakten- und Technikpruefung und Skript-/Video-Note >= 7. Ziel bleibt
 10/10; alle Zeitfenster teilen sich ein gespeichertes Tagesbudget je Kanal.
 Aufruf: python fabrik/lauf.py kanaele/ai-tools-explained.json [thema]
 """
@@ -10,7 +10,7 @@ import budget
 from qualitaet import SCHWELLE, bewerten, skript_gruende, rang
 
 # GEMELDET: „Das Ziel ist immer 10/10, nicht bis 8/10." Verbessert wird bis
-# 10 oder bis das Zeitbudget erreicht ist; unter 9 bleibt das Video gesperrt.
+# 10 oder bis das Zeitbudget erreicht ist; unter 7 bleibt das Video gesperrt.
 ZIEL = 10
 # 2.000 Gratis-Minuten / 30 Tage / 2 Kanaele = ~33 Min. je Kanal und Tag
 BUDGET_S = 30 * 60      # Zeitbudget je Kanal und Tag

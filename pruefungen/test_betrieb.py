@@ -39,22 +39,26 @@ class TempTest(unittest.TestCase):
 
 
 class QualitaetTest(unittest.TestCase):
-    def test_nur_gueltiges_video_ab_neun(self):
+    def test_gueltige_videos_von_sieben_bis_zehn_werden_freigegeben(self):
         k = copy.deepcopy(KRITIK)
-        k['note'] = 8
+        k['note'] = 6
         self.assertTrue(bewerten(SKRIPT, k)[1])
-        k['note'] = 9
-        self.assertEqual(bewerten(SKRIPT, k), (9, []))
+        for n in (7, 8, 9, 10):
+            k['note'] = n
+            k['kategorien'] = dict.fromkeys(VIDEO_KATEGORIEN, 7)
+            s = copy.deepcopy(SKRIPT)
+            s['story'] = {'note': n, 'kategorien': dict.fromkeys(STORY_KATEGORIEN, 7)}
+            self.assertEqual(bewerten(s, k), (n, []))
 
     def test_hohe_gesamtnote_verdeckt_keinen_schwachen_bereich(self):
         for feld in VIDEO_KATEGORIEN:
             k = copy.deepcopy(KRITIK)
             k['note'] = 10
-            k['kategorien'][feld] = 7
+            k['kategorien'][feld] = 6
             self.assertTrue(bewerten(SKRIPT, k)[1])
         for feld in STORY_KATEGORIEN:
             s = copy.deepcopy(SKRIPT)
-            s['story']['kategorien'][feld] = 7
+            s['story']['kategorien'][feld] = 6
             self.assertTrue(bewerten(s, KRITIK)[1])
 
     def test_schwere_und_fehlende_problembewertung_sperren(self):
@@ -64,7 +68,7 @@ class QualitaetTest(unittest.TestCase):
         self.assertFalse(bewerten(SKRIPT, dict(KRITIK, probleme=[{'schwere': 'leicht'}]))[1])
 
     def test_story_fehlt_oder_ist_schwach_sperrt(self):
-        for story in (None, {}, {'note': 8, 'kategorien': dict.fromkeys(STORY_KATEGORIEN, 9)}):
+        for story in (None, {}, {'note': 6, 'kategorien': dict.fromkeys(STORY_KATEGORIEN, 9)}):
             self.assertTrue(bewerten(dict(SKRIPT, story=story), KRITIK)[1])
 
     def test_fehlende_und_defekte_pruefungen_sperren(self):
@@ -79,7 +83,7 @@ class QualitaetTest(unittest.TestCase):
         self.assertTrue(bewerten({}, KRITIK)[1])
 
     def test_niedrige_ungueltige_noten_sperren(self):
-        for note in (7, 0, 11, None, True, '9', float('nan'), float('inf')):
+        for note in (6, 0, 11, None, True, '9', float('nan'), float('inf')):
             with self.subTest(note=note):
                 self.assertTrue(bewerten(SKRIPT, dict(KRITIK, note=note))[1])
 
@@ -174,12 +178,12 @@ class LaufTest(TempTest):
         self.assertFalse(any(a[0] == 'fabrik/freigabe.py' for a in calls))
         self.assertEqual(json.loads(Path('verlauf/test.json').read_text())[0]['status'], 'pruefung_fehlt')
 
-    def test_acht_sendet_nichts(self):
-        _, calls = self.ausfuehren([dict(KRITIK, note=8)])
+    def test_sechs_sendet_nichts(self):
+        _, calls = self.ausfuehren([dict(KRITIK, note=6)])
         self.assertFalse(any(a[0] == 'fabrik/freigabe.py' for a in calls))
 
     def test_schwache_story_verbraucht_keinen_videobau(self):
-        with patch.dict(SKRIPT, story={'note': 7, 'kategorien': dict.fromkeys(STORY_KATEGORIEN, 7)}):
+        with patch.dict(SKRIPT, story={'note': 6, 'kategorien': dict.fromkeys(STORY_KATEGORIEN, 7)}):
             _, calls = self.ausfuehren([KRITIK])
         self.assertFalse(any(a[0] in ('fabrik/bauen.py', 'fabrik/kritik.py', 'fabrik/freigabe.py') for a in calls))
 
@@ -262,7 +266,7 @@ class LaufTest(TempTest):
 
     def test_gesperrtes_pilotvideo_meldet_fehlgeschlagene_qualitaetspruefung(self):
         with patch.dict(os.environ, {'CF_PILOT': '1'}):
-            ergebnis, calls = self.ausfuehren([dict(KRITIK, note=7)])
+            ergebnis, calls = self.ausfuehren([dict(KRITIK, note=6)])
         self.assertEqual(ergebnis, 2)
         self.assertFalse(any(a[0] == 'fabrik/freigabe.py' for a in calls))
         self.assertEqual(json.loads(Path('ausgabe/bericht.json').read_text())['status'], 'gesperrt')

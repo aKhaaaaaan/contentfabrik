@@ -444,7 +444,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         print(f"Thema verworfen: {entwurf['thema']} - {pruefung['probleme']}")
         verworfen.append(entwurf['thema'])
 
-    # Story-Pruefung vor dem Bau: Gesamtziel 9+, keine schwache Einzelkategorie.
+    # Story-Pruefung vor dem Bau: zentrale Mindestnote, keine schwache Einzelkategorie.
     # (bis zu 2 Runden). Jede neue Fassung muss WIEDER durch die Faktenpruefung -
     # Spannung nie auf Kosten der Wahrheit. Behalten wird die beste Fassung.
     story = None

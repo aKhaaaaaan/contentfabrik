@@ -26,7 +26,7 @@ class StatusTest(TempTest):
         self.speichern(dict(SKRIPT, story={'note': 6, 'kategorien': dict.fromkeys(STORY_KATEGORIEN, 6)}))
         grund = statusmeldung.fehlergrund()
         self.assertIn('6/10', grund)
-        self.assertIn('9/10', grund)
+        self.assertIn('7/10', grund)
         self.assertNotIn('Faktenpruefung nicht bestanden', grund)
 
     def test_fehlendes_oder_kaputtes_artefakt_hat_ehrlichen_fallback(self):

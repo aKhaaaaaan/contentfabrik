@@ -177,8 +177,8 @@ class LangformatTest(unittest.TestCase):
         self.assertLessEqual(ton.tempo_fuer(900, [360, 480], 1.05, 'lang', 6), 1.15)
         self.assertGreaterEqual(ton.tempo_fuer(200, [360, 480], 1.05, 'lang', 6), .9)
     def test_doku_bleibt_bei_schwacher_story_auch_im_direkten_sendeaufruf_gesperrt(self):
-        for story in (None, {'note': 8, 'kategorien': dict.fromkeys(doku.KATEGORIEN, 9)},
-                      {'note': 10, 'kategorien': dict.fromkeys(doku.KATEGORIEN, 7)}):
+        for story in (None, {'note': 6, 'kategorien': dict.fromkeys(doku.KATEGORIEN, 9)},
+                      {'note': 10, 'kategorien': dict.fromkeys(doku.KATEGORIEN, 6)}):
             with patch('doku.urllib.request.urlopen') as netz, self.assertRaises(ValueError):
                 doku.senden(Path('missing.md'), {'pruefung': {'ok': True}, 'story': story})
             netz.assert_not_called()

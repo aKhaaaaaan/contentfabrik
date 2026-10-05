@@ -36,8 +36,9 @@ entwickeln die Leitfrage ueber Kapitel, beantworten kleinere Fragen unterwegs
 und fuehren neue Konsequenzen ein. Originalmaterial hat Vorrang vor
 Illustrationen. `bildmodus` steuert die Auswahl; optionale `bildtext`-Akzente
 kommen ausschliesslich aus dem gesprochenen Abschnitt und folgen dessen
-Wortzeiten. Die Freigabe verlangt Gesamtwert mindestens 9 fuer Skript und
-Video, jede Kategorie mindestens 8, keine offenen mittleren/schweren Probleme
+Wortzeiten. Die Freigabe verlangt auf aktuellen Nutzerwunsch Gesamtwert
+mindestens 7 fuer Skript und Video, jede Kategorie mindestens 7,
+keine offenen mittleren/schweren Probleme
 und bestandene Fakten/Technik. Die Notenskala bleibt absolut; die gewuenschte
 Schwelle ist kein Auftrag, Bewertungen hochzusetzen.
 

@@ -32,8 +32,8 @@ class PilotEntwurfTest(TempTest):
         s = json.loads(Path('ausgabe/skript.json').read_text())
         self.assertEqual(s['prompt_version'], prompts.VERSION)
 
-    def test_story_acht_sperrt_den_redaktionellen_entwurf(self):
-        self.assertEqual(self.pruefen(8), 3)
+    def test_story_sechs_sperrt_den_redaktionellen_entwurf(self):
+        self.assertEqual(self.pruefen(6), 3)
 
     def test_faktenfehler_speichert_sperre_statt_urspruenglicher_freigabe(self):
         with patch('pilot_entwurf.nachbessern.faktencheck', side_effect=ValueError('Falsche Zahl')):

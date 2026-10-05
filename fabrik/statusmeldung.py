@@ -4,7 +4,7 @@ import json
 import os
 from pathlib import Path
 from freigabe import telegram
-from qualitaet import skript_gruende
+from qualitaet import SCHWELLE, skript_gruende
 
 
 def lesen(pfad):
@@ -30,7 +30,7 @@ def fehlergrund(ordner='ausgabe'):
         else:
             story = skript.get('story') or {}
             if story.get('note') is not None:
-                gruende.append(f"Skript/Story: {story['note']}/10; erforderlich mindestens 9/10.")
+                gruende.append(f"Skript/Story: {story['note']}/10; erforderlich mindestens {SCHWELLE}/10.")
             gruende.extend(skript_gruende(skript)[:3])
     if not gruende:
         for r in reversed(bericht.get('runden', [])):
@@ -50,7 +50,7 @@ def text(phase, env=None):
     if phase == 'start':
         return (f'🎬 {titel}: Probelauf gestartet.\n'
                 'Ich melde auch einen Fehlschlag. Ein Video kommt erst nach bestandenem Fakten-/Technikcheck '
-                'und mindestens 9/10 fuer Story und Video.\n' + url)
+                f'und mindestens {SCHWELLE}/10 fuer Story und Video.\n' + url)
     if phase == 'fehlgeschlagen':
         grund = e.get('GRUND') or fehlergrund()
         return f'⚠️ {titel}: Kein freigegebenes Video zugestellt.\nGrund: {grund[:600]}\n{url}'

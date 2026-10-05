@@ -115,7 +115,19 @@ def regeln(kanal):
 
 def redaktionsregeln():
     p = ORDNER / 'redaktion.json'
-    return json.loads(p.read_text(encoding='utf-8')).get('regeln', []) if p.exists() else []
+    regeln = json.loads(p.read_text(encoding='utf-8')).get('regeln', []) if p.exists() else []
+    rueckmeldungen = laden('telegram-feedback').get('rueckmeldungen', [])
+    return regeln + ['Explicit viewer feedback about our videos (not source facts): ' + e['wortlaut']
+                     for e in rueckmeldungen[-12:]]
+
+
+def nutzerfeedback(text, ident):
+    d = laden('telegram-feedback')
+    liste = d.get('rueckmeldungen', [])
+    if not any(e.get('id') == str(ident) for e in liste):
+        d['rueckmeldungen'] = (liste + [{'id': str(ident), 'wortlaut': text[:1500],
+                                        'datum': datetime.date.today().isoformat()}])[-100:]
+        speichern('telegram-feedback', d)
 
 
 def abgelehnt(video_hash):

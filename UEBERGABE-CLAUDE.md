@@ -62,6 +62,20 @@ Renderer/Beispielvorschau legt transparente Bereiche jetzt korrekt auf ein
 Schachbrettraster, deckende Bildpixel bleiben erhalten. Eigener Regressionstest.
 Telegram-Noten werden ausdruecklich als KI-Bewertung bezeichnet. Persistente
 Lernregel gegen Parameter-/Architekturvortraege statt konkreten Nutzens.
+AI-Lauf 37345853542: Fakten/Story 8 bestanden; erster Bildbau scheiterte
+an tatsaechlich sichtbaren kuenstlichen Signaturen (lokal angesehen), keine
+blinde Fehlablehnung. FLUX.2 Klein wird nun auch ohne Figurenreferenz im
+ersten Versuch verwendet, mit multipart laut offizieller Cloudflare-Doku:
+https://developers.cloudflare.com/workers-ai/models/flux-2-klein-4b/
+Nur bei fehlendem/abgelehntem ersten Bild ohne Referenz ein begrenzter
+FLUX.1-Zweitversuch; keine ungeprueften Bilder freigeben. Klarere leere
+Bildraender und kuerzerer Prompt ohne Poster-Typografie-Anmutung.
+Echter Telegram-Fehler: Nachricht "Es wurden einfach viel zu wenig Fotos
+verwendet" lag faelschlich als Business-Thema in der Warteschlange. Gezielt
+nach `lernen/telegram-feedback.json` uebernommen. Feedback-Praefix und klare
+Videoqualitaetsbeschwerden erkennt `themen.ist_feedback` nun vor Themenwahl;
+Originalwortlaut bleibt gespeichert, beide Kanaele/Planer/Pruefer erhalten
+ihn. Fremde Chats und echte Themen bleiben getrennt. 146 lokale Tests bestanden.
 Implementiert in `bildplan.py`: Originalton/Wortzeiten behalten, Phasen in
 ca. 3-5-Sekunden-Einstellungen aufteilen, ein gebuendelter Gemini-Aufruf fuer
 konkrete unterschiedliche Motive. Zoom, Ausschnitt oder Untertitelwechsel

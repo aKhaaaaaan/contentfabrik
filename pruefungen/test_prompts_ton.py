@@ -148,6 +148,16 @@ class BildTest(TempTest):
         with Image.open('ref.jpg') as im:
             self.assertEqual(im.size, (1000, 800))
 
+    def test_klein_ohne_referenz_verwendet_ebenfalls_multipart(self):
+        d = {'success': True, 'result': {'image': base64.b64encode(b'bild').decode()}}
+        with patch.dict(os.environ, {'CLOUDFLARE_AI_TOKEN': 'test'}), \
+                patch('illustration.urllib.request.urlopen', return_value=antwort(d)) as api:
+            illustration._anfrage('flux-2-klein-4b', {'prompt': 'unmarked artwork'})
+        req = api.call_args.args[0]
+        self.assertIn('multipart/form-data', req.headers['Content-type'])
+        self.assertIn(b'name="prompt"', req.data)
+        self.assertNotIn(b'input_image_0', req.data)
+
     def test_langformat_referenzbild_bekommt_querformat_und_passende_bildkontrolle(self):
         Path('figuren').mkdir()
         Image.new('RGB', (1000, 1000)).save('figuren/test.jpg')

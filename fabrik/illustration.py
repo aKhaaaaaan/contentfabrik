@@ -29,18 +29,20 @@ def _anfrage(modell, felder, datei=None):
         return None
     url = f'https://api.cloudflare.com/client/v4/accounts/{KONTO}/ai/run/@cf/black-forest-labs/{modell}'
     kopf = {'Authorization': 'Bearer ' + token, 'User-Agent': 'Contentfabrik/1.0'}
-    if datei:  # FLUX.2 erwartet multipart (Referenzbild)
+    if datei or modell == 'flux-2-klein-4b':  # FLUX.2 erwartet auch ohne Referenz multipart
         # Laut Cloudflare muessen Referenzen kleiner als 512x512 sein.
         # Original im Projekt erhalten; nur die API-Kopie vorbereiten.
-        with Image.open(datei) as im:
-            referenz = ImageOps.exif_transpose(im).convert('RGB')
-            referenz.thumbnail((511, 511), Image.Resampling.LANCZOS)
-            puffer = io.BytesIO()
-            referenz.save(puffer, 'JPEG', quality=95)
+        if datei:
+            with Image.open(datei) as im:
+                referenz = ImageOps.exif_transpose(im).convert('RGB')
+                referenz.thumbnail((511, 511), Image.Resampling.LANCZOS)
+                puffer = io.BytesIO()
+                referenz.save(puffer, 'JPEG', quality=95)
         g = uuid.uuid4().hex
         teile = [f'--{g}\r\nContent-Disposition: form-data; name="{k}"\r\n\r\n{v}\r\n'.encode() for k, v in felder.items()]
-        teile.append(f'--{g}\r\nContent-Disposition: form-data; name="input_image_0"; filename="ref.jpg"\r\n'
-                     'Content-Type: image/jpeg\r\n\r\n'.encode() + puffer.getvalue() + b'\r\n')
+        if datei:
+            teile.append(f'--{g}\r\nContent-Disposition: form-data; name="input_image_0"; filename="ref.jpg"\r\n'
+                         'Content-Type: image/jpeg\r\n\r\n'.encode() + puffer.getvalue() + b'\r\n')
         teile.append(f'--{g}--\r\n'.encode())
         daten, kopf['Content-Type'] = b''.join(teile), f'multipart/form-data; boundary={g}'
     else:
@@ -84,7 +86,7 @@ def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short'):
     korrektur = ''
     for v in range(versuche):
         text = prompts.illustration(szene, bool(ref), korrektur, videoformat)
-        if ref:
+        if ref or v == 0:
             # Klein ist bei Cloudflare auf vier Schritte festgelegt.
             breite, hoehe = (1360, 768) if videoformat == 'lang' else (768, 1360)
             roh = _anfrage('flux-2-klein-4b', {'prompt': text, 'width': breite, 'height': hoehe}, datei=ref)

@@ -69,6 +69,13 @@ def zuordnen(text):
         return None, thema
 
 
+def ist_feedback(text):
+    if re.match(r'\s*(feedback|rueckmeldung|rückmeldung|kritik)\s*:', text, re.I):
+        return True
+    return bool(re.search(r'\b(video|skript|fotos?|bilder|ton|sound)\b', text, re.I)
+                and re.search(r'zu\s+wenig(?:e)?|langweilig|viel\s+schlechter|passt\s+nicht|unpassend', text, re.I))
+
+
 def abholen():
     chat = str(os.environ['TELEGRAM_CHAT_ID'])
     updates = _tg('getUpdates').get('result', [])
@@ -92,6 +99,12 @@ def abholen():
                 {'nummern': nummern, 'eingang': datetime.date.today().isoformat()}) + '\n', encoding='utf-8')
             _tg('sendMessage', chat_id=chat, text=f'✅ Stimmwahl gespeichert: {nummern}. '
                                                   'Ich stelle die Kanäle darauf um.')
+            continue
+        if ist_feedback(text):
+            import lernen
+            lernen.nutzerfeedback(text, f'telegram-{u["update_id"]}')
+            _tg('sendMessage', chat_id=chat, text='Danke, deine Rueckmeldung ist als Lernfeedback gespeichert '
+                                                'und wird bei Skript, Bildplanung und Pruefung beruecksichtigt.')
             continue
         kanal, thema = zuordnen(text)
         if not kanal:

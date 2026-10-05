@@ -169,10 +169,11 @@ def illustration(szene, referenz=False, korrektur='', videoformat='short'):
     figur = ('Use the person in reference image 0 as the same fictional character: preserve face, '
              'hair, proportions and outfit. Change pose, framing, lighting and background to fit '
              'the scene; do not copy the reference composition. ' if referenz else '')
-    return (figur + f'Scene: {szene.strip()[:700]}. '
+    return ('Full-bleed artwork with completely blank corners, unmarked objects and no signature. '
+            + figur + f'Scene: {szene.strip()[:600]}. '
             'A single coherent ' + ('landscape' if videoformat == 'lang' else 'vertical')
             + ' editorial illustration, semi-realistic painted video-game '
-            'poster art with an original urban open-world-game aesthetic, realistic proportions, '
+            'artwork with an original urban open-world-game aesthetic, realistic proportions, '
             'bold controlled ink contours and textured painted shading. Original fictional character '
             'designs only; do not reproduce recognizable characters, distinctive outfits, logos or '
             'specific scenes from existing games. '

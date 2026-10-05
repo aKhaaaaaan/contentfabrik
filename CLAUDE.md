@@ -33,6 +33,10 @@ pruefen, bevor ein weiterer Lauf gestartet wird. Keine Tokens ausgeben oder
 in Dateien ablegen. Veroeffentlichung auf YouTube/TikTok ist weiterhin manuell.
 
 Die beiden ersten Piloten sind gesperrt (Short: Fakten; Lang: Story 6/10).
+Der spaetere Nintendo-Short `37331710289` ist bestanden: Skript 8/10,
+Video 9/10 nach Bildkorrektur, am 05.10.2026 um 17:35 Uhr Berlin erfolgreich
+als Videodatei samt Skript/Upload-Texten auf Telegram gesendet. Nicht erneut
+starten wegen der alten Aussage, dass noch kein Video vorhanden sei.
 Der fehlende Telegram-Hinweis wurde im Pilotablauf korrigiert: Startnachricht
 und separater Fehlerjob bei `telegram=true`. Die Uebergabe beschreibt die
 konkreten Ergebnisse und die noch offene Abweichung der Langvideo-Themenwahl.

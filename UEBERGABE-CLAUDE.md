@@ -371,16 +371,17 @@ gecacheten Foto erzeugt: `ausgabe/gestaltung/short-layout.png` und
 `lang-layout.png`. Sie wurden visuell kontrolliert, sind aber keine
 fertigen Videos und bilden den echten ASS-/ffmpeg-Lauf nicht vollstaendig ab.
 
-Noch tatsaechlich zu pruefen: echte Renderzeit bei Langvideo, Stimme/Ton,
-Bildvariation, korrekte Wortzeiten, unabhaengige Gesamtkritik, neue
-Korrekturwirkung, Zustellung und Kompressionsqualitaet.
+Der Short-Pilot unten bestaetigt jetzt echten Render, KI-Pruefung mit Ton,
+eine gemessene Bildkorrektur und Telegram-Zustellung. Noch tatsaechlich zu
+pruefen: Langvideo, persoenliche Sicht-/Hoerabnahme und Kompressionsqualitaet.
 Bei API-Kontingentproblemen Ursache dokumentieren statt Schwellen absenken.
 
 ## Dokumentation und sinnvolle Fortsetzung
 
 ### Gezielter Ersatzpilot: Nintendo-Karten
 
-Der Nutzer hat weiterhin kein Video erhalten: `message_id:108` bestaetigt
+Stand vor den neuen Ersatzpiloten: Der Nutzer hatte kein Video erhalten;
+`message_id:108` bestaetigt
 nur eine Statusnachricht. Beide bisherigen neuen Piloten scheiterten vor
 dem Render. Nicht als Videozustellung darstellen.
 
@@ -419,8 +420,30 @@ ersetzt und Schluss auf das Anfangsmotiv langlebiger Karten zurueckgefuehrt.
 Aktuelle Vorlage: 197 gesprochene Woerter.
 Lauf auf Commit `a01bf7e`:
 [37331710289](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37331710289).
-Stand dieses Eintrags: laufend, Video-/Pruefschritt aktiv; nicht doppelt starten.
-Ergebnis und echte Videozustellung noch nicht bestaetigt.
+**Ergebnis: bestanden und tatsaechlich auf Telegram gesendet.**
+Der Versand-Schritt endete erfolgreich am 05.10.2026 um 15:35:49 UTC
+(17:35 Uhr Berlin), Log `Gesendet: True`. `freigabe.telegram` verlangt fuer
+jeden API-Aufruf, einschliesslich `sendVideo`, exakt `ok=true`; andernfalls
+waere der ganze Schritt fehlgeschlagen. Das ist die erste bestaetigte
+Videodatei dieser Sitzung, nicht nur eine Statusnachricht. Eine Video-
+message_id wurde in diesem alten Checkout noch nicht protokolliert.
+
+Artefakt `11355841542` heruntergeladen unter
+`ausgabe/github/11355841542/ausgabe/`: MP4 mit 23.559.712 Bytes, 89,7 Sekunden,
+30 FPS, -14,1 LUFS, keine Technikbefunde. Skript 8/10, Faktencheck und Groq
+bestanden; Video zuerst 8/10, danach 9/10. Video-Kategorien mindestens 9,
+keine offenen Probleme. Modell der Video-Kritik: `gemini-flash-lite-latest`.
+KI-Urteil, keine persoenliche Sicht-/Hoerabnahme oder Analytics-Garantie.
+
+Echte gezielte Korrektur: unpassendes Kerzenbild im Hook erkannt und durch
+ein Foto ersetzt. Nur ein Abschnitt neu gebaut, sieben wiederverwendet;
+Kritik 8 → 9, Bildpassung 8 → 9. Produktion insgesamt 964 Sekunden; Erstbau
+558 Sekunden, Teilbau 183 Sekunden plus Pruefungen. Lernen im Pilot bleibt
+privates Artefakt und wurde nicht automatisch in den normalen Betrieb kopiert.
+Zwei KI-Illustrationen sind im Quellenverzeichnis enthalten. Kein Musik-
+Quelleneintrag vorhanden: kein nachweisbares heruntergeladenes Musikbett;
+12 Effekte laut Messung. Passende Hintergrundmusik bleibt deshalb gezielt
+zu verbessern, obwohl die KI Ton/Stimme mit 9 bewertete.
 
 Der Telegram-Sender protokolliert jetzt nach erfolgreichem `sendVideo` die
 `message_id` der Videodatei. Der GitHub-Helfer zeigt diese Logzeile an.

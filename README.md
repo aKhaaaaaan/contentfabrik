@@ -216,6 +216,10 @@ Die ersten beiden Nintendo-Piloten scheiterten VOR dem Render: Short am
 Faktencheck, Langvideo mit Story 6/10 (dessen Themenwahl wechselte zu Apple).
 Sie belegen noch keine Videoverbesserung. Details und die Korrektur der
 fehlenden Telegram-Statusmeldungen stehen in `UEBERGABE-CLAUDE.md`.
+Der anschliessende [Nintendo-Short-Pilot](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37331710289)
+hat dagegen ein echtes 89,7-Sekunden-Video geliefert: Skript 8/10,
+Video 8 → 9/10 nach gezielter Bildkorrektur, Telegram-Versand erfolgreich.
+Mindestnote ist auf Nutzerwunsch 7/10; die Notenskala bleibt unveraendert.
 Die lokale Kontrolle prueft Ablauf, Quellen-Sperren, Cache und Lerngedaechtnis
 mit Ersatzantworten; sie belegt noch keine Verbesserung eines echten Videos.
 

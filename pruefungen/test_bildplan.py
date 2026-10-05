@@ -33,6 +33,13 @@ class BildplanTest(TempTest):
             s['material_id'] = 'same photo'
         self.assertTrue(bildplan.pruefen(p, 16)['befunde'])
 
+    def test_mehrere_kurze_slots_verstecken_keine_lange_bildhaltezeit(self):
+        p = self.plan(6, 24)
+        p['einstellungen'][1]['material_id'] = p['einstellungen'][0]['material_id']
+        gr = bildplan.pruefen(p, 24)['befunde']
+        self.assertIn('Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten', gr)
+        self.assertFalse(any('Zu wenig unterschiedliche Motive' in g for g in gr))
+
     def test_hintergrund_und_zu_lange_einstellung_sperren(self):
         p = self.plan(1)
         p['einstellungen'][0]['material_art'] = 'hintergrund'

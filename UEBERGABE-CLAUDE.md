@@ -76,6 +76,14 @@ nach `lernen/telegram-feedback.json` uebernommen. Feedback-Praefix und klare
 Videoqualitaetsbeschwerden erkennt `themen.ist_feedback` nun vor Themenwahl;
 Originalwortlaut bleibt gespeichert, beide Kanaele/Planer/Pruefer erhalten
 ihn. Fremde Chats und echte Themen bleiben getrennt. 146 lokale Tests bestanden.
+Business 37345859195: Bildplan plante mehrere Archivfotos derselben Szene,
+obwohl nur eines verfuegbar war; Bau stoppte in Phase 1, danach zweiter
+Versuch wegen Bilddefekten. Planer jetzt explizit jedes echte Foto nur einmal;
+fehlendes passendes Foto darf durch eine klar gekennzeichnete illustrative
+Rekonstruktion ersetzt werden, nie durch leer/unpassend. Alle Illustrationen
+auch im Business-Video sind gekennzeichnet. Native Pruefung summiert nun
+benachbarte Slots mit gleichem Motiv: drei 4-s-Zooms sind weiterhin 12 s
+Bildhaltezeit und gesperrt. 147 Tests inklusive dieser Umgehungsprobe bestanden.
 Implementiert in `bildplan.py`: Originalton/Wortzeiten behalten, Phasen in
 ca. 3-5-Sekunden-Einstellungen aufteilen, ein gebuendelter Gemini-Aufruf fuer
 konkrete unterschiedliche Motive. Zoom, Ausschnitt oder Untertitelwechsel

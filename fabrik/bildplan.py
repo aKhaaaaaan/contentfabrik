@@ -63,7 +63,10 @@ def vorbereiten(s, laengen, woerter, cache=None):
             'never a fabricated tool screen or claimed output. Such visuals are explicitly labelled '
             'ILLUSTRATION by the renderer. Do not demand demo for a repository with only benchmarks '
             'or code; its documentation is not a live demonstration. Avoid repeated cards or identical '
-            'demo imagery. foto refers to the '
+            'demo imagery. Every available photograph may be used only ONCE; after an archival '
+            'photo use an illustrative object/action detail, not another nonexistent photograph '
+            'of that same event. Do not plan foto unless the supplied metadata actually supports '
+            'the spoken subject and era. foto refers to the '
             'available indexed photo metadata; illustration is useful when no genuine photo fits. '
             'Return EXACTLY one entry per slot, same integer index. motiv states the distinct visible '
             'subject/action. No extra words or factual assertions in the narration.\n' + json.dumps({
@@ -96,6 +99,7 @@ def pruefen(daten, dauer, art='short'):
     if not shots:
         return {'befunde': ['Kein nachweisbarer Bildablauf vorhanden']}
     ende = 0.0
+    letzter, haltezeit = None, 0.0
     material = set()
     for shot in shots:
         d = shot.get('dauer_s', 0)
@@ -110,6 +114,10 @@ def pruefen(daten, dauer, art='short'):
             befunde.append('Sprechabschnitt ohne passendes Hauptbild')
         else:
             material.add(shot['material_id'])
+            haltezeit = haltezeit + d if letzter == shot['material_id'] else d
+            letzter = shot['material_id']
+            if haltezeit > (10 if art == 'lang' else 6):
+                befunde.append('Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten')
         ende = shot.get('s', ende) + d
     minimum = math.ceil(dauer / (16 if art == 'lang' else 7))
     if len(material) < minimum:

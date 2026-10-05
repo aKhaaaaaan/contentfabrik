@@ -1076,7 +1076,7 @@ def main(skript_pfad, aus, vorlage=None):
             # Spart nebenbei die Pixabay-Suche samt KI-Clipwahl.
             ill = None
             letzt = i == len(shots) - 1 and not t.get('platz')
-            if os.environ.get('CLOUDFLARE_AI_TOKEN') and modus in ('auto', 'illustration') \
+            if os.environ.get('CLOUDFLARE_AI_TOKEN') and modus in ('auto', 'illustration', 'foto') \
                     and not karte and not foto:
                 import illustration
                 if i == 0 or letzt:
@@ -1085,6 +1085,10 @@ def main(skript_pfad, aus, vorlage=None):
                                                'the viewer, half body, rooftop at golden hour')
                 else:  # aeltere Skripte ohne Feld szene: Bildsuche + Satz als Szene
                     szene = t.get('szene') or f"{t.get('suche', '')}, {t['text'][:120]}"
+                if modus == 'foto':
+                    szene = ('A clearly illustrative reconstruction of a generic period-appropriate '
+                             'setting or object, not an actual archive photograph and not a likeness '
+                             'of a named historical person. ' + szene)
                 try:
                     ill = illustration.bild(szene, aus / f'ill_{i:02d}.jpg', kanal_slug,
                                            figur=(i == 0 or letzt) and t.get('figur', True),
@@ -1106,7 +1110,7 @@ def main(skript_pfad, aus, vorlage=None):
             material_art = 'illustration' if ill else 'foto' if foto else 'karte' if karte else 'clip'
             bild_fuer(t, s['titel'], i, len(shots), durchsichtig=not karte,
                      karte=karte, akzent=akzent_farbe(s)).save(ebene)
-            if ill and s.get('kanal') == 'AI Tools Explained':
+            if ill:
                 with Image.open(ebene) as im:
                     im = im.convert('RGBA')
                 schrift_text(im, (LAYOUT['links'], H * .12), 'ILLUSTRATION', schrift(28), (210, 210, 210))

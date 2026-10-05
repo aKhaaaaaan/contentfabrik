@@ -1,7 +1,13 @@
 # KI-Prompts und Medienqualitaet
 
-Stand: 05.10.2026. Vorlagenversion: `2026-10-05.6`.
+Stand: 05.10.2026. Vorlagenversion: `2026-10-05.7`.
 Die gemeinsamen Auftraege stehen in [fabrik/prompts.py](fabrik/prompts.py).
+Ein separater Gemini-Bildplan in `fabrik/bildplan.py` erzeugt mehrere
+inhaltlich unterschiedliche Einstellungen innerhalb jeder Sprechphase.
+Nutzerfeedback aus `lernen/redaktion.json` erreicht Autor, Bildplaner,
+Bildauswahl und Video-Kritik. Die Kritik muss lange Motivhaltezeiten und
+Hintergrund-only-Sequenzen benennen; Untertitel oder Zoom sind keine neuen
+Motive. Figuren duerfen Blickrichtung/Pose aendern, ohne ihre Identitaet zu verlieren.
 Skript und fertige Video-Kritik speichern die verwendete Version, damit
 spaetere Vergleiche nachvollziehbar bleiben.
 

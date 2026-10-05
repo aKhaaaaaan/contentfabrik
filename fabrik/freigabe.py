@@ -112,6 +112,10 @@ def senden(skript_pfad, video_pfad):
     if gruende:
         raise ValueError('Video bleibt gesperrt: ' + '; '.join(gruende))
     video = Path(video_pfad).read_bytes()
+    import lernen
+    import hashlib
+    if lernen.abgelehnt(hashlib.sha256(video).hexdigest()):
+        raise ValueError('Dieses Video wurde vom Nutzer abgelehnt; kein erneuter Versand')
     komprimiert = False
     if len(video) > GRENZE * 0.98:
         # GEMESSEN: 121-s-Video = 56 MB, Telegram-Bots duerfen hoechstens 50 MB

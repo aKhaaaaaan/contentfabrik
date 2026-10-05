@@ -109,7 +109,20 @@ def erprobte_einstellungen(kanal):
 
 def regeln(kanal):
     p = ORDNER / f'{kanal}.json'
+    alt = json.loads(p.read_text(encoding='utf-8')).get('regeln', []) if p.exists() else []
+    return list(dict.fromkeys(redaktionsregeln() + alt))
+
+
+def redaktionsregeln():
+    p = ORDNER / 'redaktion.json'
     return json.loads(p.read_text(encoding='utf-8')).get('regeln', []) if p.exists() else []
+
+
+def abgelehnt(video_hash):
+    p = ORDNER / 'redaktion.json'
+    d = json.loads(p.read_text(encoding='utf-8')) if p.exists() else {}
+    return any(e.get('video_sha256') == video_hash and e.get('status') == 'abgelehnt'
+               for e in d.get('nutzerfeedback', []))
 
 
 def aktualisieren(kanal, kritik):

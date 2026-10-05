@@ -6,6 +6,42 @@ aktualisiert. Es enthaelt keine Zugangsschluessel.
 
 ## Nutzerauftrag und zugesagtes Ergebnis
 
+**Neuester Stand: Nutzer hat das um 17:35 versandte Nintendo-Video als
+deutlich schlechter als 5/10 abgelehnt. Seine Rueckmeldung hat Vorrang vor
+der historischen KI-Note 9.** Kontaktbogen der echten MP4 bestaetigt rund
+27 Sekunden ohne passendes Hauptbild, Kerzenhintergrund und mehrere
+12-15-Sekunden-Einstellungen. Dieses Video nicht als professionell oder
+Qualitaetserfolg darstellen und nicht erneut verschicken. SHA256-Sperre
+und wortgetreues Feedback in `lernen/redaktion.json`.
+
+Zusatzauftrag: mehrere Bilder INNERHALB einer Sprechphase; Gemini Flash
+soll den Bildplan erstellen. Dazu ein guter Short fuer AI Tools Explained.
+Implementiert in `bildplan.py`: Originalton/Wortzeiten behalten, Phasen in
+ca. 3-5-Sekunden-Einstellungen aufteilen, ein gebuendelter Gemini-Aufruf fuer
+konkrete unterschiedliche Motive. Zoom, Ausschnitt oder Untertitelwechsel
+zaehlen nicht als neue Motive. Native Bildpruefung: lueckenlose Abdeckung,
+kein Hintergrund-only, hoechstens 6 s pro Short-Einstellung und mindestens
+ein unterschiedliches Quelldatei-Motiv pro 7 Sekunden Gesamtdauer. Bei
+einem 90-s-Short also mindestens 13 Motive, typischerweise 20-26 Einstellungen.
+Langformat getrennt mit 8-s-Plan, 10-s-Grenze und einem Motiv pro 16 s.
+Das sind redaktionelle Heuristiken, keine garantierte Zuschauerbindung.
+
+Beide KI-Auftraege und Bildwahl erhalten feste Nutzerregeln; alte KI-Lernregeln
+koennen diese Datei nicht loeschen. Keine genaue menschliche Note erfinden:
+Feedback lautet <5, nicht exakt 4. Bilder groesser, Dauertitel nur im Einstieg
+oder Tool-Platz, Foto selbst als weichgezeichneter Hintergrund statt Kerzen.
+Unpassende/leere Bilder stoppen den Bau. Tool-Phasen verlangen echte
+Beispielbilder aus der jeweiligen Quelle; fehlende Beispiele sind kein
+Anlass fuer erfundene Outputs. Figurenidentitaet muss stimmen, Blickrichtung
+und Pose duerfen sich aendern. Promptversion `2026-10-05.7`.
+
+137 lokale Regressionstests bestanden; lokale Videoanalyse jetzt mit
+`imageio-ffmpeg` unter ignoriertem `ausgabe/werkzeuge` moeglich. Neue echte
+Piloten/Ergebnisse noch zu ergaenzen. Zunaechst ohne automatischen Telegram-
+Versand bauen, echte Frames kontrollieren, dann `github_pilot.py senden RUN
+KANAL` via `pilot-versand.yml`. Der Sender prueft erneut Fakten, Technik,
+Noten und Nutzerablehnung. Nicht allein wegen einer KI-9 freigeben.
+
 Der Nutzer hat die Weiterentwicklung und echte Probelaufe autorisiert.
 Gewuenscht sind bessere Prompts fuer Skript, Bild, Video, Stimme, Musik und
 Geraeusche; ein lernfaehiges Tool; starke Zuschauerbindung von Anfang bis Ende

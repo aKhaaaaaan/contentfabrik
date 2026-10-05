@@ -1,0 +1,43 @@
+name: pilot-versand
+run-name: Geprueftes Pilotvideo ${{ inputs.kanal }} / ${{ inputs.run_id }} auf Telegram
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: 'Laufnummer des bereits erzeugten und visuell kontrollierten Piloten'
+        required: true
+        type: string
+      kanal:
+        type: choice
+        options: [business-origin-stories, ai-tools-explained]
+        required: true
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: contentfabrik-pilot-versand
+  cancel-in-progress: false
+jobs:
+  senden:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: FFmpeg fuer erforderliche Telegram-Kompression
+        run: sudo apt-get install -y -qq ffmpeg
+      - uses: actions/download-artifact@v4
+        with:
+          name: pilot-${{ inputs.kanal }}-short
+          path: pilotdateien
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.run_id }}
+      - name: Erneut Freigabe pruefen und Videodatei senden
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          CF_ORIGINAL_URL: https://github.com/${{ github.repository }}/actions/runs/${{ inputs.run_id }}
+        run: python fabrik/freigabe.py pilotdateien/ausgabe/skript.json pilotdateien/ausgabe/short.mp4

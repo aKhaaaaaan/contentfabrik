@@ -219,6 +219,10 @@ fehlenden Telegram-Statusmeldungen stehen in `UEBERGABE-CLAUDE.md`.
 Der anschliessende [Nintendo-Short-Pilot](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37331710289)
 hat dagegen ein echtes 89,7-Sekunden-Video geliefert: Skript 8/10,
 Video 8 → 9/10 nach gezielter Bildkorrektur, Telegram-Versand erfolgreich.
+**Vom Nutzer anschliessend als <5/10 abgelehnt:** zu wenige Bilder und
+lange Kerzenhintergruende. Die KI-9 bestaetigt keine professionelle Qualitaet.
+Neu sind mehrere Gemini-geplante Einstellungen pro Sprechphase, echte
+Bildabdeckungspruefung und dauerhaftes menschliches Feedback fuer beide Kanaele.
 Mindestnote ist auf Nutzerwunsch 7/10; die Notenskala bleibt unveraendert.
 Die lokale Kontrolle prueft Ablauf, Quellen-Sperren, Cache und Lerngedaechtnis
 mit Ersatzantworten; sie belegt noch keine Verbesserung eines echten Videos.

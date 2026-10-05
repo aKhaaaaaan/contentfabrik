@@ -59,6 +59,10 @@ def technik_gruende(kritik):
 def video_bewerten(kritik):
     wert, gruende = redaktion(kritik, VIDEO_KATEGORIEN, 'Video')
     gruende += technik_gruende(kritik)
+    if isinstance(kritik, dict) and kritik.get('video_sha256'):
+        import lernen
+        if lernen.abgelehnt(kritik['video_sha256']):
+            gruende.append('Video durch ausdrueckliches Nutzerfeedback abgelehnt')
     probleme = kritik.get('probleme') if isinstance(kritik, dict) else None
     if not isinstance(probleme, list):
         gruende.append('Video-Problemliste fehlt oder ist ungueltig')

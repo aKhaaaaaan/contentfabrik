@@ -126,6 +126,11 @@ def hochladen(pfad, schluessel):
 def kritik(video, skript_pfad, aus):
     skript = json.loads(Path(skript_pfad).read_text(encoding='utf-8'))
     messung = technik(video, skript)
+    import bildplan
+    bp = Path(skript_pfad).with_name('bildablauf.json')
+    bildpruefung = bildplan.pruefen(json.loads(bp.read_text(encoding='utf-8')) if bp.exists() else {},
+                                  messung.get('dauer_s', 0), dramaturgie.videoformat(skript))
+    messung['befunde'].extend(bildpruefung['befunde'])
     if messung['befunde']:
         # Defekte Dateien brauchen keinen Video-Upload und keine KI-Anfrage.
         ergebnis = {'note': None, 'staerken': [], 'probleme': [],
@@ -150,6 +155,8 @@ def kritik(video, skript_pfad, aus):
     ergebnis['modell'] = modell
     ergebnis['prompt_version'] = prompts.VERSION
     ergebnis['technik'] = messung
+    ergebnis['bildpruefung'] = bildpruefung
+    ergebnis['video_sha256'] = bildplan.material_id(video)
     Path(aus).write_text(json.dumps(ergebnis, indent=2, ensure_ascii=False), encoding='utf-8')
     print(f"KI-Kritik: {ergebnis['note']}/10 - {ergebnis['fazit']}")
     print('  Kategorien:', ergebnis.get('kategorien'))

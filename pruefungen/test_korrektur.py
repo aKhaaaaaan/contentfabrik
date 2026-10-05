@@ -217,22 +217,27 @@ class CacheTest(TempTest):
         Path('alt').mkdir()
         Path('alt/stimme.wav').write_bytes(b'audio')
         Path('alt/woerter.json').write_text(json.dumps([
-            {'w': 'First.', 's': 0, 'e': 1}, {'w': 'Second.', 's': 10, 'e': 11}]), encoding='utf-8')
+            {'w': 'First.', 's': 0, 'e': 1}, {'w': 'Second.', 's': 3, 'e': 4}]), encoding='utf-8')
         for i in range(2):
             Path(f'alt/stueck_{i:02d}.mp4').write_bytes(b'video')
         rendercache.speichern('alt', {'audio': {'key': rendercache.audio_key(s, code),
-            'rate': 24000, 'laengen': [10, 20], 'tempo': 1.05},
+            'rate': 24000, 'laengen': [3, 4], 'tempo': 1.05},
             'stuecke': {str(i): {'key': rendercache.stueck_key(s, i, d, code),
-                'dateien': [f'stueck_{i:02d}.mp4'], 'quellen': [], 'ereignisse': [], 'fotos': []}
-                for i, d in enumerate([10, 20])}})
+                'dateien': [f'stueck_{i:02d}.mp4'], 'quellen': [], 'ereignisse': [], 'fotos': [],
+                'material_id': f'asset-{i}', 'material_art': 'clip'}
+                for i, d in enumerate([3, 4])}})
         s['teile'][1]['suche'] = 'corrected'
         s['teile'][1]['bildmodus'] = 'stock'
         Path('neu').mkdir()
         Path('neu/skript.json').write_text(json.dumps(s), encoding='utf-8')
+        Path('stock.mp4').write_bytes(b'new source clip')
+        shots = [{'teil': t, 'phase': i, 's': sum([3, 4][:i]), 'dauer_s': d}
+                 for i, (t, d) in enumerate(zip(s['teile'], [3, 4]))]
         def ffmpeg(args, **kw):
             (Path(kw.get('cwd', '.')) / args[-1]).write_bytes(b'video')
             return subprocess.CompletedProcess(args, 0)
         with patch('bauen.subprocess.run', side_effect=ffmpeg), \
+                patch('bauen.bildplan.vorbereiten', return_value=(shots, {})), \
                 patch('bauen.bild_fuer', return_value=Image.new('RGBA', (8, 8))), \
                 patch('bauen.clip_fuer', return_value=(Path('stock.mp4'), {'quelle': 'Pixabay', 'id': 3})), \
                 patch('bauen.karte_fuer', return_value=None), patch('bauen.musik_holen', return_value=(None, None)), \

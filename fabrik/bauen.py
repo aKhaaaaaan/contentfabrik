@@ -17,6 +17,7 @@ from pathlib import Path
 import numpy as np
 import prompts
 import dramaturgie
+import bildplan
 import ton as audioqualitaet
 from PIL import Image, ImageDraw, ImageFont
 
@@ -52,7 +53,7 @@ def format_setzen(art='short'):
                   if art == 'lang' else
                   {'links': 72, 'rechts': 900, 'mitte': 486, 'titel_y': 190,
                    'titel_font': 72, 'progress_y': 414, 'platz_y': 455, 'name_y': 605,
-                   'karte': (72, 700, 900, 1180), 'foto': (72, 480, 900, 1180),
+                   'karte': (72, 700, 900, 1180), 'foto': (48, 260, 960, 1180),
                    'akzent_y': 1250, 'untertitel_y': 1420, 'mini': (72, 480, 492, 650)})
 
 
@@ -332,10 +333,10 @@ def karten_filter(hg, ebene, kpfad):
     """ffmpeg-Eingaben und Filter fuer einen Karten-Abschnitt: Hintergrund
     abgedunkelt und weich, Karte gleitet in 0,35 s von unten herein und blendet
     auf (sichtbarer Wechsel je Platz), Schrift obenauf."""
-    hg_ein = (['-loop', '1', '-framerate', str(FPS), '-i', str(hg)] if Path(hg).suffix == '.png'
+    hg_ein = (['-loop', '1', '-framerate', str(FPS), '-i', str(hg)] if Path(hg).suffix.lower() in ('.png', '.jpg', '.jpeg', '.webp')
               else ['-stream_loop', '-1', '-i', str(hg)])
     filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,fps={FPS},'
-            f'eq=brightness=-0.22:saturation=0.8,gblur=sigma=4[bg];'
+            f'eq=brightness=-0.12:saturation=0.95,gblur=sigma=18[bg];'
             f'[2:v]format=rgba,fade=in:st=0:d=0.35:alpha=1[k];'
             f"[bg][k]overlay=x=0:y='32*max(0,1-t/0.35)':eval=frame[b1];"
             f'[b1][1:v]overlay=0:0,format=yuv420p')
@@ -420,7 +421,8 @@ def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None, akzent=(3
         img = Image.alpha_composite(img, Image.fromarray(schatten, 'RGBA'))
     else:
         img = hintergrund(nr)
-    titel_zeichnen(img, titel, akzent)
+    if nr == 0 or teil.get('platz'):
+        titel_zeichnen(img, titel, akzent)
     fortschritt_zeichnen(img, akzent)
     d = ImageDraw.Draw(img)
     if teil.get('platz'):
@@ -963,6 +965,8 @@ def main(skript_pfad, aus, vorlage=None):
         woerter = angleichen(woerter, ' '.join(t['text'] for t in s['teile']))
         (aus / 'woerter.json').write_text(json.dumps(woerter), encoding='utf-8')
     zeiten['tempo'] = tempo
+    shots, plan_cache = bildplan.vorbereiten(s, laengen, woerter, cache)
+    visuell = dict(s, teile=[shot['teil'] for shot in shots])
     akzente = dramaturgie.akzente(s['teile'], woerter, laengen)
     untertitel(woerter, aus / 'untertitel.ass', s.get('untertitel_profil'), akzente)
     (aus / 'dramaturgie.json').write_text(json.dumps({
@@ -970,7 +974,9 @@ def main(skript_pfad, aus, vorlage=None):
         'beats': [{'teil': i, 's': round(sum(laengen[:i]), 2), 'dauer_s': round(d, 2),
                    'beat': t.get('beat'), 'bildmodus': t.get('bildmodus', 'auto')}
                   for i, (t, d) in enumerate(zip(s['teile'], laengen))]}, indent=2), encoding='utf-8')
-    zustand = {'audio': {'key': akey, 'rate': rate, 'laengen': laengen, 'tempo': tempo}, 'stuecke': {}}
+    zustand = {'audio': {'key': akey, 'rate': rate, 'laengen': laengen, 'tempo': tempo},
+               'bildplan': plan_cache, 'stuecke': {}}
+    bildablauf = {'videoformat': dramaturgie.videoformat(s), 'einstellungen': []}
     zeiten['stuecke_wiederverwendet'] = 0
     zeiten['stuecke_neu'] = 0
 
@@ -989,19 +995,20 @@ def main(skript_pfad, aus, vorlage=None):
         kanal_slug = re.sub(r'[^a-z0-9]+', '-', s.get('kanal', '').lower()).strip('-')
         FORTSCHRITT['plaetze'] = sorted((t['platz'] for t in s['teile'] if t.get('platz')), reverse=True)
         FORTSCHRITT['aktuell'] = None
-        for i, t in enumerate(s['teile']):
-            dauer = laengen[i]
-            t0 = sum(laengen[:i])
+        for i, shot in enumerate(shots):
+            t, dauer, t0 = shot['teil'], shot['dauer_s'], shot['s']
             FORTSCHRITT['aktuell'] = t.get('platz') or FORTSCHRITT['aktuell']
             if t.get('platz') == 1 or (i > 0 and t.get('beat') == 'wendung'):
                 ereignisse += [(t0, 'riser'), (t0, 'impact')]
-            key = rendercache.stueck_key(s, i, dauer, code_key)
+            key = rendercache.stueck_key(visuell, i, dauer, code_key)
             alt = cache.get('stuecke', {}).get(str(i), {})
             if alt.get('key') == key and rendercache.dateien_ok(aus, alt.get('dateien', [])):
                 liste += [f"file '{n}'" for n in alt['dateien']]
                 quellen += alt.get('quellen', [])
                 ereignisse += [(t0 + sek, art) for sek, art in alt.get('ereignisse', [])]
                 zustand['stuecke'][str(i)] = alt
+                bildablauf['einstellungen'].append(dict(shot, teil=None,
+                    material_id=alt.get('material_id'), material_art=alt.get('material_art')))
                 zeiten['stuecke_wiederverwendet'] += 1
                 continue
             zeiten['stuecke_neu'] += 1
@@ -1011,19 +1018,29 @@ def main(skript_pfad, aus, vorlage=None):
                 zustand['stuecke'][str(i)] = {'key': key,
                     'dateien': [z[6:-1] for z in liste[l0:]], 'quellen': quellen[q0:],
                     'ereignisse': [(sek - t0, art) for sek, art in ereignisse[e0:]],
-                    'fotos': sorted(benutzte_fotos - fotos0)}
+                    'fotos': sorted(benutzte_fotos - fotos0),
+                    'material_id': material_hash, 'material_art': material_art}
+                bildablauf['einstellungen'].append(dict(shot, teil=None,
+                    material_id=material_hash, material_art=material_art))
+                (aus / 'bildablauf.json').write_text(json.dumps(bildablauf, indent=2), encoding='utf-8')
             stueck = aus / f'stueck_{i:02d}.mp4'
             ebene = aus / f'ebene_{i:02d}.png'
             modus = t.get('bildmodus', 'auto')
             karte = karte_fuer(t.get('quelle_url')) if modus in ('auto', 'karte') else None
-            foto, fq = ((None, None) if karte or modus in ('stock', 'illustration')
-                        else foto_fuer(s.get('bilder') or [], t['text'], benutzte_fotos))
+            foto, fq = ((None, None) if karte or modus in ('stock', 'illustration', 'demo')
+                        else foto_fuer(s.get('bilder') or [], t['text'] + ' Visual: ' + t.get('szene', ''), benutzte_fotos))
+            if modus == 'demo':
+                demo, fq = demo_fuer(t.get('quelle_url'), t['text'] + ' Visual: ' + t.get('szene', ''))
+                if demo:
+                    foto = demo
+                else:
+                    raise ValueError(f'Phase {shot["phase"]}: kein echtes Tool-Beispiel fuer {t.get("quelle_url")}')
             # GEMELDET: „wirkt langweilig und eiskalt" - Illustrationen im Spiel-Plakat-Stil
             # (fabrik/illustration.py): die Kanalfigur im Einstieg und am Schluss; sonst eine
             # Szene nur dort, wo kein echtes Foto passt - echte Fotos bleiben fuer Fakten.
             # Spart nebenbei die Pixabay-Suche samt KI-Clipwahl.
             ill = None
-            letzt = i == len(s['teile']) - 1 and not t.get('platz')
+            letzt = i == len(shots) - 1 and not t.get('platz')
             if os.environ.get('CLOUDFLARE_AI_TOKEN') and modus in ('auto', 'illustration') \
                     and not karte and not foto:
                 import illustration
@@ -1044,8 +1061,14 @@ def main(skript_pfad, aus, vorlage=None):
             # GEMESSEN: Im Kartenvideo holte der Schluss einen fremden Clip
             # (halber „Subscribe"-Knopf) - dort gilt jetzt derselbe Hintergrund.
             clip, quelle = ((None, None) if karte or foto or ill or (kartenvideo and modus == 'auto') else
-                            clip_fuer(t.get('suche') or s.get('suche'), schon, dauer, t['text']))
-            bild_fuer(t, s['titel'], i, len(s['teile']), durchsichtig=not karte,
+                            clip_fuer(t.get('suche') or s.get('suche'), schon, dauer,
+                                      t['text'] + ' Visual: ' + t.get('szene', '')))
+            material = ill or foto or karte or clip
+            if not material:
+                raise ValueError(f'Phase {shot["phase"]}, Einstellung {i}: kein passendes Hauptbild; kein Hintergrundersatz')
+            material_hash = bildplan.material_id(material)
+            material_art = 'illustration' if ill else 'foto' if foto else 'karte' if karte else 'clip'
+            bild_fuer(t, s['titel'], i, len(shots), durchsichtig=not karte,
                      karte=karte, akzent=akzent_farbe(s)).save(ebene)
             if ill and B > H:
                 kpfad = aus / f'karte_{i:02d}.png'
@@ -1061,17 +1084,15 @@ def main(skript_pfad, aus, vorlage=None):
             elif foto:
                 quellen.append(fq)
                 kpfad = aus / f'karte_{i:02d}.png'
-                karten_ebene(foto, kasten=not t.get('platz')).save(kpfad)
-                hg_clip = hg_clip or hintergrund_holen(s, schon, dauer, quellen, aus)
-                ein, filt = karten_filter(hg_clip, ebene, kpfad)
-            elif karte or (kartenvideo and modus == 'auto'):
+                karten_ebene(foto, kasten=True).save(kpfad)
+                ein, filt = karten_filter(foto, ebene, kpfad)
+            elif karte:
                 kpfad = None
                 if karte:
                     quellen.append({'quelle': 'Vorschaubild', 'seite': t['quelle_url']})
                     kpfad = aus / f'karte_{i:02d}.png'
                     karten_ebene(karte).save(kpfad)
-                hg_clip = hg_clip or hintergrund_holen(s, schon, dauer, quellen, aus)
-                ein, filt = karten_filter(hg_clip, ebene, kpfad)
+                ein, filt = karten_filter(karte, ebene, kpfad)
             elif clip:
                 quellen.append(quelle)
                 filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,'
@@ -1081,8 +1102,7 @@ def main(skript_pfad, aus, vorlage=None):
                 # GEMELDET (KI-Analyse): „Blackscreens", „dunkler leerer
                 # Hintergrund mit Text" - passte kein Clip, blieb eine leere
                 # Flaeche. Jetzt der bewegte Kanal-Hintergrund.
-                hg_clip = hg_clip or hintergrund_holen(s, schon, dauer, quellen, aus)
-                ein, filt = karten_filter(hg_clip, ebene, None)
+                raise ValueError('Kein geeignetes Bildmaterial')
             # GEMELDET (KI-Analyse): „Ablauf ueber 1,5 Minuten exakt gleich",
             # „Praxisbeispiele wuerden es lebendiger machen". Je Platz zwei
             # Stuecke: erst die Karte (2,8 s, Einflug), dann ein Clip, der zeigt,
@@ -1151,6 +1171,11 @@ def main(skript_pfad, aus, vorlage=None):
                 ereignisse.append((t0, 'whoosh'))
             merken()
         (aus / 'stuecke.txt').write_text('\n'.join(liste) + '\n', encoding='utf-8')
+    bildpruefung = bildplan.pruefen(bildablauf, sum(laengen), dramaturgie.videoformat(s))
+    (aus / 'bildablauf.json').write_text(json.dumps(bildablauf, indent=2), encoding='utf-8')
+    if bildpruefung['befunde']:
+        raise ValueError('Bildablauf gesperrt: ' + '; '.join(bildpruefung['befunde']))
+    zeiten['bildpruefung'] = bildpruefung
     # Quellen je Video festhalten (Rechte-Regeln, Konzept 2c) - und fuer
     # die Beschreibung („Clips: Pixabay", Bitte von Pixabay).
     musik_key = rendercache.signatur([s.get('musik_suche'), s.get('musik', True)])

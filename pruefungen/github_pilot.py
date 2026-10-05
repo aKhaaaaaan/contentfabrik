@@ -89,7 +89,8 @@ def details(run):
                     zeilen = logs.read(name).decode('utf-8-sig', errors='replace').splitlines()
                     erlaubt = ('/10', 'Traceback', 'Error:', 'Sperr', 'Gesendet:', 'Min.',
                                'Fakten', 'fehler', 'abgebrochen', 'Budget', 'PILOT:', 'bestanden',
-                               'Telegram-Statusmeldung bestaetigt', 'Telegram-Video bestaetigt')
+                               'Telegram-Statusmeldung bestaetigt', 'Telegram-Video bestaetigt',
+                               'Illustration', 'Bildpruefung', 'Fotowahl', 'Gemini-Bildplan')
                     print(json.dumps({'schritt': name, 'auszug': [z[:600] for z in zeilen
                                        if any(w in z for w in erlaubt)][-60:]}, ensure_ascii=False))
     else:
@@ -116,6 +117,12 @@ def dispatch(args):
               'thema': args.thema, 'telegram': args.telegram, 'entwurf': args.entwurf}
     api(f'repos/{REPO}/actions/workflows/pilot.yml/dispatches', {'ref': 'main', 'inputs': inputs})
     print(json.dumps({'gestartet': inputs}, ensure_ascii=False))
+
+
+def senden(args):
+    api(f'repos/{REPO}/actions/workflows/pilot-versand.yml/dispatches',
+        {'ref': 'main', 'inputs': {'run_id': str(args.run), 'kanal': args.kanal}})
+    print(json.dumps({'video_versand_gestartet': args.run, 'kanal': args.kanal}))
 
 
 def download(artifact):
@@ -148,6 +155,9 @@ if __name__ == '__main__':
     befehle = parser.add_subparsers(dest='befehl', required=True)
     befehle.add_parser('status')
     befehle.add_parser('secrets')
+    p = befehle.add_parser('senden')
+    p.add_argument('run', type=int)
+    p.add_argument('kanal', choices=['business-origin-stories', 'ai-tools-explained'])
     p = befehle.add_parser('details')
     p.add_argument('run', type=int)
     p = befehle.add_parser('download')
@@ -171,5 +181,7 @@ if __name__ == '__main__':
         download(args.artifact)
     elif args.befehl == 'melden':
         melden(args.datei)
+    elif args.befehl == 'senden':
+        senden(args)
     else:
         dispatch(args)

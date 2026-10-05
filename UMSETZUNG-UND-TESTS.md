@@ -94,6 +94,10 @@ Die vorhandene [CI-Konfiguration](.github/workflows/pruefen.yml) nutzt Python
 3.12 / Node 22. Bereits erfolgreiche CI-Nachweise fuer die Bibliotheksumsetzung:
 [37353556999](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37353556999)
 und [37353765649](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37353765649).
+Auch die neue Uebergabe mit Testprotokollen und Business-Ziel 24/18 wurde
+anschliessend auf GitHub erfolgreich geprueft:
+[37362403838](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37362403838)
+zum Stand `60b71fa` (Python 3.12 / Node 22, alle Workflow-Pruefschritte erfolgreich).
 
 Die zentralen Regressionen pruefen insbesondere:
 

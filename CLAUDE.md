@@ -5,6 +5,15 @@ Bitte zuerst [UEBERGABE-CLAUDE.md](UEBERGABE-CLAUDE.md) und danach
 lesen. Die Uebergabe beschreibt die neuen Aenderungen, den aktuellen
 Betriebsstand, Pruefungen und die noch offenen Arbeiten.
 
+**Betriebsstand 05.10.2026:** Der Nutzer hat beide neuen Videos nach eigener
+Aussage manuell auf YouTube UND TikTok hochgeladen. Dies ist als Nutzerangabe
+in `verlauf/telegram-sendungen.json` erfasst; Plattform-IDs, Links und
+Sichtbarkeit wurden nicht verifiziert. Nicht erneut hochladen.
+Die taeglichen GitHub-Zeitplaene fuer Produktion/Telegram und Themen sind aktiv;
+die Plattform-Veroeffentlichung bleibt manuell. Die beiden verbesserten Videos
+waren kuratierte, manuell gestartete Piloten, kein Nachweis gleichbleibender
+Qualitaet des automatischen Tageslaufs. Details siehe Uebergabe.
+
 **Neueste Nutzerrueckmeldung, 05.10.2026:** Beide neuen Videos sind beim
 Nutzer angekommen und gefallen ihm deutlich besser als vorher. Das Ziel
 bleibt **10/10**, die aktuellen Videos haben keine numerische Nutzernote.

@@ -6,6 +6,38 @@ aktualisiert. Es enthaelt keine Zugangsschluessel.
 
 ## Nutzerauftrag und zugesagtes Ergebnis
 
+### Automatisierung und manuelle Plattform-Uploads, 05.10.2026
+
+Der Nutzer meldet: "Läuft das jetzt voll automatisiert? weil ich die beide
+videos manuell hochgeladen habe, sowhol auf youtube als auch auf tiktok".
+Damit sind fuer beide zuletzt gelieferten Videos manuelle YouTube- und
+TikTok-Uploads als Nutzerangabe erfasst. Video-IDs, URLs und Sichtbarkeit
+sind unbekannt; keine Plattform-Verifikation behaupten und nichts doppelt
+hochladen. Die Zuordnung zu den gelieferten Dateien steht in
+`verlauf/telegram-sendungen.json`.
+
+Pruefung am 05.10.2026: `video.yml` und `themen.yml` sind auf GitHub aktiv.
+Die taegliche Pipeline kann Themen, Skripte, Bilder, Ton, Video,
+Qualitaetspruefung und Telegram-Zustellung automatisch abarbeiten, sofern
+Quellen, Kontingente und Qualitaetsfilter den Lauf zulassen. Plattform-Uploads
+sind nicht an `fabrik/lauf.py` angeschlossen; Veroeffentlichung bleibt manuell.
+`gesendet` bedeutet ausschliesslich Telegram-Zustellung.
+
+Der letzte gepruefte zeitgesteuerte Tageslauf
+[37362911521](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37362911521),
+gestartet um 19:22:14 UTC, hat die Vorpruefung bestanden und die Produktion
+uebersprungen. Die Vorpruefung nimmt Kanaele mit bereits heute gesendetem
+Video aus; ein erfolgreicher GitHub-Lauf bedeutet hier kein neues Video.
+Die beiden verbesserten Piloten wurden manuell gestartet, visuell kontrolliert
+und separat auf Telegram geschickt. Sie belegen noch keine gleichbleibende
+Qualitaet der automatischen Tagesproduktion. Die neuen Motivziele sind
+gespeichert, aber noch nicht als neue Videos umgesetzt.
+
+Der Cloudflare-Zeitplan-Worker liegt als Code vor; eine aktive Deployment-
+und Cron-Konfiguration wurde nicht verifiziert. YouTube-Auswertung ist
+implementiert, aber erfolgreiche Datenerfassung fuer die jetzt manuell
+hochgeladenen Videos wurde nicht bestaetigt.
+
 ### Neueste Nutzerrueckmeldung am 05.10.2026: deutliche Verbesserung bestaetigt
 
 Der Nutzer bestaetigt ausdruecklich, dass **beide neuen Videos angekommen sind

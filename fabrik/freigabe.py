@@ -147,13 +147,14 @@ def senden(skript_pfad, video_pfad):
             if any('SA' in q['lizenz'] for q in fotos) else '')
     chat = os.environ['TELEGRAM_CHAT_ID']
     # 1. Das Video selbst - kurze Bildunterschrift, damit es gut lesbar bleibt
-    telegram('sendVideo', {'chat_id': chat, 'supports_streaming': 'true',
+    video_antwort = telegram('sendVideo', {'chat_id': chat, 'supports_streaming': 'true',
                            'caption': f"🎬 {skript['kanal'][:100]}\n{titel[:200]}\n\n"
                                       f"✅ Fakten und Technik bestanden · Original {note}/10"
                                       + ('\nKomprimierte Vorschau; Original siehe Begleitnachricht.'
                                          if komprimiert and os.environ.get('CF_ORIGINAL_URL') else
                                          '\nFuer Telegram komprimierte Kopie.' if komprimiert else '')},
              (Path(video_pfad).name, video))
+    print('Telegram-Video bestaetigt; message_id:', video_antwort.get('result', {}).get('message_id'))
     # 2. Die Texte einzeln - antippen kopiert sie (Monospace-Format in Telegram)
     zeit = planungszeit(skript.get('posten_ny', '15:00'))
     pruef = ''

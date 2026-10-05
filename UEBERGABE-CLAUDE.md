@@ -416,6 +416,17 @@ Teilbarkeit 6. Daher noch kein Render; Kategorienminimum bleibt 7.
 Artefakt `11354845584`. Konkrete Kritik: ein Satz wiederholt nur die
 Schwierigkeit. Daraufhin diesen Satz durch die Bedeutung fuer Wiederkaeufe
 ersetzt und Schluss auf das Anfangsmotiv langlebiger Karten zurueckgefuehrt.
+Aktuelle Vorlage: 197 gesprochene Woerter.
+Lauf auf Commit `a01bf7e`:
+[37331710289](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37331710289).
+Stand dieses Eintrags: laufend, Video-/Pruefschritt aktiv; nicht doppelt starten.
+Ergebnis und echte Videozustellung noch nicht bestaetigt.
+
+Der Telegram-Sender protokolliert jetzt nach erfolgreichem `sendVideo` die
+`message_id` der Videodatei. Der GitHub-Helfer zeigt diese Logzeile an.
+Diese Erweiterung aendert kein Qualitaetsurteil und sendet selbst nichts.
+Lokal bestanden: 42 Betriebs-/Versandtests nach dieser kleinen Logerweiterung;
+129 Gesamttests nach Umstellung der Mindestnote. Tests benutzen Ersatzantworten.
 
 Faktencheck-Fehler behoben: illustrative Szenen/Suchbegriffe werden nicht
 mehr als gesprochene historische Behauptungen geprueft; Titel und Beschreibung

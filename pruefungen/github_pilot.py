@@ -89,7 +89,7 @@ def details(run):
                     zeilen = logs.read(name).decode('utf-8-sig', errors='replace').splitlines()
                     erlaubt = ('/10', 'Traceback', 'Error:', 'Sperr', 'Gesendet:', 'Min.',
                                'Fakten', 'fehler', 'abgebrochen', 'Budget', 'PILOT:', 'bestanden',
-                               'Telegram-Statusmeldung bestaetigt')
+                               'Telegram-Statusmeldung bestaetigt', 'Telegram-Video bestaetigt')
                     print(json.dumps({'schritt': name, 'auszug': [z[:600] for z in zeilen
                                        if any(w in z for w in erlaubt)][-60:]}, ensure_ascii=False))
     else:

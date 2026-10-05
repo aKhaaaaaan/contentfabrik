@@ -107,12 +107,49 @@ um dieselbe belegte Geschichte in beiden Formaten vergleichen zu koennen.
 | Lauf | ID / Link | Zuletzt bestaetigter Status |
 |---|---|---|
 | Code-/Regressionstest | [37318832824](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37318832824) | erfolgreich, neue Pruefungen bestehen auch auf Linux |
-| Short | [37318880596](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37318880596) | gestartet, Ergebnis noch offen |
-| Langvideo | [37318886482](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37318886482) | Warteschlange hinter Short, Ergebnis noch offen |
+| Short | [37318880596](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37318880596) | gesperrt: Faktenpruefung nicht bestanden; kein Video gebaut/gesendet |
+| Langvideo | [37318886482](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37318886482) | gesperrt: Story 6/10; kein Video gebaut/gesendet |
 
 Nicht erneut starten, ohne diese Run-IDs zu kontrollieren. Erst mit fertigem
 Pruefbericht und erfolgreichem Telegram-Schritt von einem zugestellten
 bestandenen Video sprechen. Neue Status-/Ergebnisdetails werden unten ergaenzt.
+
+### Ausbleibende Telegram-Nachricht: Ursache und Korrektur
+
+Am 05.10.2026 meldete der Nutzer, dass keine Telegram-Nachricht angekommen
+sei. Beide Piloten waren inzwischen fehlgeschlagen, VOR dem Videobau:
+
+- Short: 471,9 Sekunden Produktionszeit; Faktenpruefung abgelehnt, Story
+  deshalb noch nicht bewertet. Beanstandet wurden unter anderem spekulative
+  Formulierungen/Illustrationsbeschreibungen und unbelegte Kausalitaet.
+- Langvideo: 982,9 Sekunden; Faktencheck formal bestanden, Story 6/10,
+  Hook 5/10. Die Themenwahl wechselte trotz Nintendo-Vorgabe zu Apple.
+  Diese Abweichung ist ein noch offener Fehler der Themen-/Historienprioritaet.
+- Beide verwendeten zuletzt `gemini-flash-lite-latest`. Das allein belegt
+  weder die Ursache schlechter Qualitaet noch ein bestimmtes Kontingentproblem.
+- Die alten Pilotlaeufe unterdrueckten alle internen Telegram-Meldungen
+  (`CF_PILOT=1`); der separate Versand war nur bei Erfolg erlaubt. Darum
+  kam zu den Fehlversuchen ueberhaupt keine Nachricht. Kein bereits fertiges
+  Video wurde auf Telegram verloren.
+
+Korrektur: `fabrik/statusmeldung.py` sendet bestaetigte Statusmeldungen ohne
+KI-Aufruf und ohne Video-Freigabe. Bei `telegram=true` bestaetigt `pilot.yml`
+den Start VOR Einrichtung/Produktion. Ein separates Fehlerjob meldet danach
+Abbruch oder Fehlschlag mit dem berichteten Grund, auch wenn der Hauptjob
+sein Zeitlimit erreicht. Nach bereits bestaetigtem Videoversand wird keine
+irrefuehrende "kein Video"-Fehlermeldung erzeugt.
+
+`lauf.py` speichert jetzt Exitcode, konkrete Skript-Sperrgruende, Story-Note
+und Faktenprobleme im Bericht. `pruefungen/github_pilot.py` verwendet UTF-8
+fuer die Windows-Ausgabe; Emojis in Cloud-Logs hatten zuvor den Abruf des
+Short-Fehlerauszugs mit einem UnicodeEncodeError unterbrochen.
+
+`.github/workflows/telegram-status.yml` erlaubt eine manuell ausgeloste
+Statusnachricht an den bestehenden Chat mit den vorhandenen GitHub-Secrets;
+kein neuer Videobau. Lokaler Aufruf: `python pruefungen/github_pilot.py melden
+ausgabe/pilot-status.txt`. Es werden keine Keys lokal kopiert. Der anschliessende
+echte Verbindungstest und die Run-ID werden nach erfolgreicher Zustellung
+dokumentiert. Das ist eine Statusnachricht, kein bestandener Video-Pilot.
 
 ## Qualitaetsfilter und begrenzte Nachbesserung
 
@@ -314,7 +351,7 @@ node --test pruefungen/zeitplan.mjs
 git diff --check
 ```
 
-Ergebnis nach den Download-Sicherheitspruefungen: **114 Python-Tests**,
+Ergebnis nach den Statusmeldungspruefungen: **123 Python-Tests**,
 **5 Zeitplan-Prueffaelle**, keine Diff-Fehler.
 Python-/Node-Tests benutzen Ersatzantworten; kein echter Telegram-Versand,
 keine Modellgenerierung und kein echter ffmpeg-Render in den Tests.

@@ -1,0 +1,25 @@
+name: telegram-status
+on:
+  workflow_dispatch:
+    inputs:
+      nachricht:
+        description: 'Statusnachricht an den bereits eingerichteten Telegram-Chat'
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  senden:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Status senden und Zustellung bestaetigen
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          NACHRICHT: ${{ inputs.nachricht }}
+        run: python fabrik/statusmeldung.py nachricht

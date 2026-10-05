@@ -129,6 +129,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen):
                'kanal': kanal, 'datum': budget.heute(), 'runden': [], 'status': 'offen'}
     def protokoll(status):
         bericht['status'] = status
+        bericht['grund'] = letzter_grund if status not in ('gesendet', 'pilot_bestanden') else ''
         bericht['sekunden'] = round(time.monotonic() - start, 1)
         aus = Path('ausgabe')
         aus.mkdir(exist_ok=True)
@@ -178,10 +179,15 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen):
                                 'Skriptqualitaet unter Freigabe' if r == 3 else f'Skript fehlgeschlagen (Code {r})')
                 print(f'Versuch {versuch}: {letzter_grund}')
                 runde['status'] = 'skriptfehler'
+                runde.update(exitcode=r, grund=letzter_grund)
                 if basis:
                     break
                 if (ordner / 'skript.json').exists():
-                    verlauf_eintragen(kanal, json.loads((ordner / 'skript.json').read_text(encoding='utf-8')),
+                    entwurf = json.loads((ordner / 'skript.json').read_text(encoding='utf-8'))
+                    runde.update(sperrgruende=skript_gruende(entwurf),
+                                 story_note=(entwurf.get('story') or {}).get('note'),
+                                 skript_probleme=entwurf.get('pruefung', {}).get('probleme', []))
+                    verlauf_eintragen(kanal, entwurf,
                                       'faktenpruefung' if r == 2 else 'skriptqualitaet' if r == 3 else 'skriptfehler', None)
                 continue
             skript = json.loads((ordner / 'skript.json').read_text(encoding='utf-8'))

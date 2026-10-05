@@ -29,3 +29,8 @@ Alte Eintraege mit 8/10 und fruehere Aussagen wie "Pilot noch nicht gestartet"
 sind historische Staende. Den neuesten Status in der Uebergabe und auf GitHub
 pruefen, bevor ein weiterer Lauf gestartet wird. Keine Tokens ausgeben oder
 in Dateien ablegen. Veroeffentlichung auf YouTube/TikTok ist weiterhin manuell.
+
+Die beiden ersten Piloten sind gesperrt (Short: Fakten; Lang: Story 6/10).
+Der fehlende Telegram-Hinweis wurde im Pilotablauf korrigiert: Startnachricht
+und separater Fehlerjob bei `telegram=true`. Die Uebergabe beschreibt die
+konkreten Ergebnisse und die noch offene Abweichung der Langvideo-Themenwahl.

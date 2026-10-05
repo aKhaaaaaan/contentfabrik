@@ -35,6 +35,9 @@ jobs:
   pruefen:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    outputs:
+      grund: ${{ steps.bericht.outputs.grund }}
+      versand: ${{ steps.versand.outcome }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -62,6 +65,17 @@ jobs:
           esac
           [ -f "$PROFIL" ] || { echo "Kein Profil fuer diese Format-/Kanal-Kombination" >&2; exit 1; }
           echo "PILOT_PROFIL=$PROFIL" >> "$GITHUB_ENV"
+      - name: Start auf Telegram bestaetigen
+        if: inputs.telegram
+        timeout-minutes: 2
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          KANAL: ${{ inputs.kanal }}
+          VIDEOFORMAT: ${{ inputs.videoformat }}
+          THEMA: ${{ inputs.thema }}
+          CF_ORIGINAL_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python fabrik/statusmeldung.py start
       - name: Werkzeuge
         run: |
           timeout 240 sudo apt-get -o Acquire::Retries=3 update -qq
@@ -96,8 +110,11 @@ jobs:
           THEMA: ${{ inputs.thema }}
         run: python fabrik/lauf.py "$PILOT_PROFIL" "$THEMA"
       - name: Bericht
+        id: bericht
         if: always()
-        run: python fabrik/bericht.py
+        run: |
+          python fabrik/bericht.py
+          python fabrik/statusmeldung.py grund
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -116,6 +133,7 @@ jobs:
             lernen/*.json
             verlauf/messungen/*.json
       - name: Bestandenes Video und Skript auf Telegram senden
+        id: versand
         if: success() && inputs.telegram
         timeout-minutes: 5
         env:
@@ -123,3 +141,23 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           CF_ORIGINAL_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: python fabrik/freigabe.py ausgabe/skript.json ausgabe/short.mp4
+  fehlermeldung:
+    needs: pruefen
+    if: always() && inputs.telegram && needs.pruefen.result != 'success' && needs.pruefen.outputs.versand != 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fehlgeschlagenen oder abgebrochenen Pilot melden
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          KANAL: ${{ inputs.kanal }}
+          VIDEOFORMAT: ${{ inputs.videoformat }}
+          THEMA: ${{ inputs.thema }}
+          GRUND: ${{ needs.pruefen.outputs.grund }}
+          CF_ORIGINAL_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python fabrik/statusmeldung.py fehlgeschlagen

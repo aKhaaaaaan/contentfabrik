@@ -4,6 +4,7 @@ import io
 import json
 import os
 import subprocess
+import sys
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -11,6 +12,8 @@ import zipfile
 from pathlib import Path
 
 REPO = 'aKhaaaaaan/contentfabrik'
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 
 
 class SichererRedirect(urllib.request.HTTPRedirectHandler):
@@ -126,6 +129,19 @@ def download(artifact):
     print(json.dumps({'artefakt': artifact, 'ordner': str(ziel.resolve())}))
 
 
+def melden(datei):
+    pfad = Path(datei).resolve()
+    root = Path(__file__).resolve().parents[1]
+    if not pfad.is_relative_to(root):
+        raise ValueError('Statusdatei muss im Workspace liegen')
+    nachricht = pfad.read_text(encoding='utf-8')
+    if not nachricht.strip() or len(nachricht.encode('utf-16-le')) // 2 > 3500:
+        raise ValueError('Statusnachricht leer oder zu lang')
+    api(f'repos/{REPO}/actions/workflows/telegram-status.yml/dispatches',
+        {'ref': 'main', 'inputs': {'nachricht': nachricht}})
+    print(json.dumps({'statusversand': 'gestartet'}))
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     befehle = parser.add_subparsers(dest='befehl', required=True)
@@ -135,6 +151,8 @@ if __name__ == '__main__':
     p.add_argument('run', type=int)
     p = befehle.add_parser('download')
     p.add_argument('artifact', type=int)
+    p = befehle.add_parser('melden')
+    p.add_argument('datei')
     p = befehle.add_parser('dispatch')
     p.add_argument('kanal', choices=['business-origin-stories', 'ai-tools-explained'])
     p.add_argument('videoformat', choices=['short', 'lang'])
@@ -149,5 +167,7 @@ if __name__ == '__main__':
         details(args.run)
     elif args.befehl == 'download':
         download(args.artifact)
+    elif args.befehl == 'melden':
+        melden(args.datei)
     else:
         dispatch(args)

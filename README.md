@@ -191,6 +191,9 @@ Urteil, keine Zusage, dass alle Zuschauer bis zum Ende bleiben.
 Der manuell startbare Workflow `.github/workflows/pilot.yml` baut mit den
 echten Modellen und bewertet das Video mit Gemini. Mit `telegram=true` sendet
 er ausschliesslich bestandene Videos samt Skript und Upload-Texten auf Telegram.
+Er bestaetigt dann auch den Start und meldet abgelehnte/abgebrochene Laeufe
+mit ihrem Grund. Ein eigener Fehlerjob meldet Fehlschlaege des Hauptjobs;
+bereits bestaetigt zugestellte Videos werden nicht als fehlend gemeldet.
 Ohne diese Auswahl bleiben die Ergebnisse privat auf GitHub. Er laedt nichts auf Plattformen hoch und schreibt nichts
 nach `main`. Ergebnisse und Lernprotokolle liegen drei Tage als private
 Artefakte vor. Start erst mit dem neuen Code auf GitHub und vorhandenem
@@ -208,6 +211,11 @@ Lokal gibt es kein ffmpeg/ffprobe; die echten Videos entstehen im Cloud-Pilot.
 Telegram bekommt bei zu grossen Dateien eine komprimierte Vorschau und den
 Verweis zum privaten GitHub-Artefakt mit dem Original in voller Qualitaet.
 Bei Langvideos entfallen `#shorts` und der TikTok-Uploadtext.
+
+Die ersten beiden Nintendo-Piloten scheiterten VOR dem Render: Short am
+Faktencheck, Langvideo mit Story 6/10 (dessen Themenwahl wechselte zu Apple).
+Sie belegen noch keine Videoverbesserung. Details und die Korrektur der
+fehlenden Telegram-Statusmeldungen stehen in `UEBERGABE-CLAUDE.md`.
 Die lokale Kontrolle prueft Ablauf, Quellen-Sperren, Cache und Lerngedaechtnis
 mit Ersatzantworten; sie belegt noch keine Verbesserung eines echten Videos.
 

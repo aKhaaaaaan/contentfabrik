@@ -56,6 +56,12 @@ AI-Vorlage 37345221770: Groq beanstandete ungenaues "documentation offers
 three things" (Quelle nennt vier Verbesserungen) und "developer examples"
 als nicht ausdruecklich belegte Urheberschaft. Text jetzt unsere Auswahl von
 drei Funktionen; keine pauschale Aussage ueber Urheberschaft der Bilder.
+Zusatzbefund beim echten Qwen-Beispiel `example-04.png`: RGBA (684x685),
+Alpha 0..255; naive RGB-Konvertierung zeigt verborgene magentafarbene Pixel.
+Renderer/Beispielvorschau legt transparente Bereiche jetzt korrekt auf ein
+Schachbrettraster, deckende Bildpixel bleiben erhalten. Eigener Regressionstest.
+Telegram-Noten werden ausdruecklich als KI-Bewertung bezeichnet. Persistente
+Lernregel gegen Parameter-/Architekturvortraege statt konkreten Nutzens.
 Implementiert in `bildplan.py`: Originalton/Wortzeiten behalten, Phasen in
 ca. 3-5-Sekunden-Einstellungen aufteilen, ein gebuendelter Gemini-Aufruf fuer
 konkrete unterschiedliche Motive. Zoom, Ausschnitt oder Untertitelwechsel

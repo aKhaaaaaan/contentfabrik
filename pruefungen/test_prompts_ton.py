@@ -29,6 +29,13 @@ def antwort(d):
 
 
 class MusikbettTest(TempTest):
+    def test_alpha_bild_zeigt_raster_statt_unsichtbarer_magenta_pixel(self):
+        im = Image.new('RGBA', (100, 100), (255, 0, 255, 0))
+        im.putpixel((50, 50), (12, 20, 30, 255))
+        rgb = bauen.bild_rgb(im)
+        self.assertEqual(rgb.getpixel((50, 50)), (12, 20, 30))
+        self.assertIn(rgb.getpixel((0, 0)), ((240, 240, 240), (210, 210, 210)))
+
     def test_rueckfall_hat_nutzbare_dynamik_und_keine_klickenden_enden(self):
         pfad = ton.musikbett('score.wav', rate=8000)
         with wave.open(str(pfad)) as w:

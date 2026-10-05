@@ -313,9 +313,26 @@ def mini_karte(karte, platz):
     return img
 
 
+def bild_rgb(im):
+    """Echte Transparenz sichtbar machen, statt verborgene RGB-Pixel anzuzeigen."""
+    if 'A' not in im.getbands() and 'transparency' not in im.info:
+        return im.convert('RGB')
+    rgba = im.convert('RGBA')
+    if rgba.getchannel('A').getextrema()[0] == 255:
+        return rgba.convert('RGB')
+    raster = Image.new('RGBA', rgba.size, (240, 240, 240, 255))
+    d = ImageDraw.Draw(raster)
+    block = max(12, min(rgba.size) // 16)
+    for y in range(0, rgba.height, block):
+        for x in range(0, rgba.width, block):
+            if (x // block + y // block) % 2:
+                d.rectangle((x, y, x + block - 1, y + block - 1), fill=(210, 210, 210, 255))
+    return Image.alpha_composite(raster, rgba).convert('RGB')
+
+
 def karten_ebene(karte, kasten=None):
     """Die Karte allein (abgerundet, mit Schatten) auf durchsichtigem Bild."""
-    k = Image.open(karte).convert('RGB')
+    k = bild_rgb(Image.open(karte))
     x, y, w, h = einpassen(k.size, LAYOUT['foto'] if kasten else LAYOUT['karte'])
     k = k.resize((w, h), Image.LANCZOS)
     img = Image.new('RGBA', (B, H), (0, 0, 0, 0))
@@ -603,7 +620,11 @@ def demo_fuer(url, satz='', benutzt=None):
             with Image.open(ziel) as im:
                 if im.width < 480 or im.height < 270:  # Vorschau-Schnipsel, Symbole
                     continue
-                vorschau = im.convert('RGB')
+                vorschau = bild_rgb(im)
+                if ('A' in im.getbands() or 'transparency' in im.info):
+                    sichtbar = ziel.with_name(ziel.name + '_sichtbar.jpg')
+                    vorschau.save(sichtbar, 'JPEG', quality=95)
+                    ziel = sichtbar
                 vorschau.thumbnail((512, 512))
                 import io
                 puffer = io.BytesIO(); vorschau.save(puffer, 'JPEG', quality=80)

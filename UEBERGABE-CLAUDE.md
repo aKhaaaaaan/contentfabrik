@@ -6,6 +6,41 @@ aktualisiert. Es enthaelt keine Zugangsschluessel.
 
 ## Nutzerauftrag und zugesagtes Ergebnis
 
+### Neueste Nutzerrueckmeldung am 05.10.2026: deutliche Verbesserung bestaetigt
+
+Der Nutzer bestaetigt ausdruecklich, dass **beide neuen Videos angekommen sind
+und ihm viel besser gefallen als vorher**. Es bleibt Luft nach oben und das
+gemeinsame Qualitaetsziel ist weiterhin **10/10**. Das ist ein Ziel, keine
+vergebene Nutzernote: die tatsaechlichen KI-Noten bleiben 8/10, eine numerische
+Nutzerbewertung wurde nicht genannt. Der bestehende Versandfilter ab 7/10 mit
+Fakten-/Technikpruefung bleibt unveraendert; 10/10 nicht zum neuen Versandhindernis machen.
+
+| Kanal | Bestaetigter aktueller Stand | Vorgabe fuer kuenftige vergleichbare Shorts |
+|---|---|---|
+| AI Tools Explained | 23 Einstellungen, 12 unterschiedliche Motive; deutlich besser | Etwas mehr Bildvielfalt: etwa **14-18 wirklich unterschiedliche, passende Motive** |
+| Business Origin Stories | 24 Einstellungen, 14 unterschiedliche Motive | **"passt perfekt"**: diese Bilddichte und dieses Tempo als Referenz beibehalten |
+
+Fuer AI also 2-6 weitere sinnvolle Motive in kuenftigen vergleichbaren Videos
+einplanen, statt dieselben Bilder erneut einzusetzen. Originale Handlungsszenen,
+Objekt-/Prozessdetails oder echte quellenbelegte Tool-Beispiele nutzen; keine
+erfundenen Outputs. Zoom, Zuschnitt und neue Beschriftung sind kein neues Motiv.
+Die Zahlen beziehen sich auf die bisherigen Shorts um 82 bzw. 90 Sekunden;
+andere Laengen nach Erzaehlung planen. Bei Business nicht automatisch die
+AI-Zahl uebernehmen oder mehr Bilder nur fuer eine hoehere Zahl einfuegen.
+GTA-artige eigene Figuren/Spielwelt, Figuren am Einstieg und im Verlauf,
+passende Musik/Soundeffekte und gesprochene like/share/save-Aufrufe erhalten.
+Weiter an Skript, Bild-Sprechtext-Zuordnung, Spannungsbogen und Feinschliff arbeiten.
+
+Wortgetreue Rueckmeldung ist fuer beide konkreten Video-SHA256 in
+`lernen/redaktion.json` gespeichert, getrennt vom frueher abgelehnten 17:35-Video.
+Die neuen Regeln werden bereits durch `lernen.redaktionsregeln()` an Autor,
+Bildplaner und Kritiker weitergegeben. Strukturierte Kanalvorgaben dokumentieren
+14-18 als AI-Planungsziel und 24/14 als bestaetigte Business-Referenz.
+`verlauf/telegram-sendungen.json` haelt zusaetzlich die Empfangsbestaetigung und
+qualitative Bewertung des Nutzers fest. Originale Ist-Zahlen und KI-Noten
+bleiben erhalten. Die bestehende Qwen-Pilotvorlage hat weiter 12 Motive:
+14-18 ist das naechste Planungsziel, noch kein bereits erzeugtes neues Video.
+
 ### Abgeschlossener Stand am 05.10.2026, 20:34 Berlin
 
 Code und 16 Bilder sind auf GitHub (`5e3940a`, dann `01d31e7`), 154 lokale
@@ -26,8 +61,9 @@ kausal als erzwungene Wiederkaeufe zu beschreiben. Diese Absicht ist NICHT
 belegt und darf nicht ungeprueft in ein Skript/Lernregel uebernommen werden.
 Der gelieferte Text behauptet diese Kausalitaet nicht.
 Diese Noten sind KI-Urteile, KEINE Nutzerbewertung und KEINE Retentionsdaten.
-Keine Zusicherung, dass Videos immer ueber 8 liegen. Nutzerurteil bleibt offen
-und hat bei Beanstandungen Vorrang. Das alte 17:35-Video wurde NICHT erneut gesendet.
+Keine Zusicherung, dass Videos immer ueber 8 liegen. Zum Versandzeitpunkt war
+das Nutzerurteil noch offen; die anschliessende positive Rueckmeldung steht oben
+und hat weiterhin Vorrang vor KI-Urteilen. Das alte 17:35-Video wurde NICHT erneut gesendet.
 
 Codex hat echte Frames beider fertigen MP4s im 4-Sekunden-Abstand kontrolliert:
 passende Hauptbilder ueber die ganze Laenge, mehrere Motive innerhalb der
@@ -43,7 +79,7 @@ Lokal: `ausgabe/github/11363059750/ausgabe/short.mp4` (AI) und
 Ordner enthalten echte Kritik, Messung, Skript und Bildablauf.
 Kontaktboegen: `ausgabe/videoanalyse/ai-neu-kontaktbogen.jpg` und
 `ausgabe/videoanalyse/business-neu-kontaktbogen.jpg`.
-Unveraenderte Zustellbelege mit Video-SHA256 in `verlauf/telegram-sendungen.json`;
+Zustellbelege mit unveraenderten Video-SHA256/Ist-Zahlen in `verlauf/telegram-sendungen.json`;
 beide bestaetigten Zustellungen auch im jeweiligen Kanalverlauf eingetragen,
 ohne alte Videos oder abweichende Nutzerurteile zu ueberschreiben.
 

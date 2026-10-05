@@ -8,6 +8,13 @@ Nutzerfeedback aus `lernen/redaktion.json` erreicht Autor, Bildplaner,
 Bildauswahl und Video-Kritik. Die Kritik muss lange Motivhaltezeiten und
 Hintergrund-only-Sequenzen benennen; Untertitel oder Zoom sind keine neuen
 Motive. Figuren duerfen Blickrichtung/Pose aendern, ohne ihre Identitaet zu verlieren.
+Neueste Rueckmeldung: beide gelieferten Videos gefallen dem Nutzer deutlich
+besser. Qualitaetsziel bleibt 10/10, ohne eine solche Nutzernote zu erfinden.
+Fuer AI Tools Explained bei vergleichbaren Shorts etwa 14-18 unterschiedliche
+passende Motive planen (bisher 12 bei 23 Einstellungen). Business mit 24
+Einstellungen / 14 Motiven passt laut Nutzer perfekt und dient als Referenz.
+Motivziel beeinflusst die Planung ueber die persistenten Redaktionsregeln;
+die Versandgrenze und bereits gemessenen Pilotwerte bleiben unveraendert.
 Die vom Nutzer bestaetigte Kanalfigur erscheint am Anfang und wiederkehrend im
 Verlauf in sinnvollen Handlungsszenen. Business: Hut/Anzug/Taschenuhr; AI Tools:
 schwarze Lederjacke/cyan leuchtende Brille. Eigene gemalte Spielwelt bevorzugen.

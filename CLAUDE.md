@@ -5,6 +5,18 @@ Bitte zuerst [UEBERGABE-CLAUDE.md](UEBERGABE-CLAUDE.md) und danach
 lesen. Die Uebergabe beschreibt die neuen Aenderungen, den aktuellen
 Betriebsstand, Pruefungen und die noch offenen Arbeiten.
 
+**Neueste Nutzerrueckmeldung, 05.10.2026:** Beide neuen Videos sind beim
+Nutzer angekommen und gefallen ihm deutlich besser als vorher. Das Ziel
+bleibt **10/10**, die aktuellen Videos haben keine numerische Nutzernote.
+AI Tools Explained: bisher 23 Einstellungen / 12 Motive; fuer kuenftige
+vergleichbare Shorts etwa **14-18 unterschiedliche, passende Motive** anstreben.
+Business Origin Stories: **24 Einstellungen / 14 Motive passen laut Nutzer
+perfekt**; diese Bilddichte als Referenz beibehalten. Nicht einfach mehr
+Schnitte/Zooms als neue Motive zaehlen. Verbesserung und Bildstil erhalten,
+weitere Qualitaetsarbeit fortsetzen. Wortgetreues Feedback mit Video-SHA256
+und wirksame Planungsregeln stehen in `lernen/redaktion.json`, zusaetzliche
+Empfangsbestaetigungen in `verlauf/telegram-sendungen.json`.
+
 Der Nutzer moechte professionelle, abwechslungsreiche Shorts UND Langvideos,
 nachweisbares Lernen aus echten Ergebnissen und die Zustellung bestandener
 Videos samt Skript und Upload-Texten auf Telegram. Der aktuelle Freigabefilter
@@ -62,7 +74,8 @@ Pruefung echter Materialvielfalt und Bildabdeckung, kein Hintergrundersatz.
 12 Motive) und neuer Business-Short (24 Einstellungen, 14 Motive) sind gebaut,
 anhand echter MP4-Frames kontrolliert und auf Telegram zugestellt: AI message_id
 123 um 20:24, Business message_id 130 um 20:33. Beide KI Story/Video 8/10;
-Fakten/Technik bestanden, 154 Tests bestanden. Nutzerbewertung noch offen.
+Fakten/Technik bestanden, 154 Tests bestanden. Der Nutzer hat anschliessend
+Empfang und deutliche Verbesserung bestaetigt; konkrete Folgeziele siehe oben.
 Zustellbelege/Hashes in `verlauf/telegram-sendungen.json`; Details in der Uebergabe.
 Neue Piloten weiterhin zuerst visuell kontrollieren, danach `github_pilot.py senden`.
 Der fehlende Telegram-Hinweis wurde im Pilotablauf korrigiert: Startnachricht

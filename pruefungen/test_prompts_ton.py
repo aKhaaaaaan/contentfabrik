@@ -158,6 +158,10 @@ class BildTest(TempTest):
         self.assertIn(b'name="prompt"', req.data)
         self.assertNotIn(b'input_image_0', req.data)
 
+    def test_langer_bildauftrag_bleibt_innerhalb_des_cloudflare_limits(self):
+        for art in ('short', 'lang'):
+            self.assertLessEqual(len(prompts.illustration('scene '*200, True, 'fix '*200, art)), 2048)
+
     def test_langformat_referenzbild_bekommt_querformat_und_passende_bildkontrolle(self):
         Path('figuren').mkdir()
         Image.new('RGB', (1000, 1000)).save('figuren/test.jpg')

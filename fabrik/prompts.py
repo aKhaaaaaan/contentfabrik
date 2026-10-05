@@ -170,7 +170,7 @@ def illustration(szene, referenz=False, korrektur='', videoformat='short'):
              'hair, proportions and outfit. Change pose, framing, lighting and background to fit '
              'the scene; do not copy the reference composition. ' if referenz else '')
     return ('Full-bleed artwork with completely blank corners, unmarked objects and no signature. '
-            + figur + f'Scene: {szene.strip()[:600]}. '
+            + figur + f'Scene: {szene.strip()[:500]}. '
             'A single coherent ' + ('landscape' if videoformat == 'lang' else 'vertical')
             + ' editorial illustration, semi-realistic painted video-game '
             'artwork with an original urban open-world-game aesthetic, realistic proportions, '

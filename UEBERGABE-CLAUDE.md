@@ -84,6 +84,11 @@ Rekonstruktion ersetzt werden, nie durch leer/unpassend. Alle Illustrationen
 auch im Business-Video sind gekennzeichnet. Native Pruefung summiert nun
 benachbarte Slots mit gleichem Motiv: drei 4-s-Zooms sind weiterhin 12 s
 Bildhaltezeit und gesperrt. 147 Tests inklusive dieser Umgehungsprobe bestanden.
+Bildauftrag mit maximal langer Szene/Referenz/Korrektur zuvor 2122 Zeichen,
+ueber dem FLUX.1-Limit 2048. Szenenbudget auf 500 Zeichen begrenzt; externer
+API-Vertrag nun auch mit maximalem Input getestet (148 Tests insgesamt).
+Aktuelle Piloten dc24187: AI 37347051952, Business danach 37347058003,
+beide telegram=false. Bis zum Artefakt keine Zustellung behaupten.
 Implementiert in `bildplan.py`: Originalton/Wortzeiten behalten, Phasen in
 ca. 3-5-Sekunden-Einstellungen aufteilen, ein gebuendelter Gemini-Aufruf fuer
 konkrete unterschiedliche Motive. Zoom, Ausschnitt oder Untertitelwechsel

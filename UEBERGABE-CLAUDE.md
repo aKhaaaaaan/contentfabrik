@@ -63,7 +63,7 @@ Die Worte zaehlen zum Laengenbudget. Keine weiteren wiederholten Aufrufe.
 Umgesetzt als gemeinsame Promptregel in `dramaturgie.interaktion()`,
 verwendet von Skriptautor, Storypruefer und Video-Kritik sowie Doku-Editor.
 Die alte Begrenzung auf hoechstens einen Save-/Follow-Aufruf ist entfernt;
-Promptversion jetzt `2026-10-05.5`. Diese Vorgabe gilt fuer neu gestartete
+Promptversion jetzt `2026-10-05.6`. Diese Vorgabe gilt fuer neu gestartete
 Laeufe. Die bereits oben/unten dokumentierten Nintendo-Piloten sind auf
 Commit `159009c` / Promptversion `.4` festgelegt und werden durch diesen
 Commit nicht nachtraeglich umgeschrieben. Es werden keine echten Likes,
@@ -358,7 +358,7 @@ node --test pruefungen/zeitplan.mjs
 git diff --check
 ```
 
-Ergebnis nach den Statusmeldungspruefungen: **123 Python-Tests**,
+Ergebnis nach Statusmeldungen und redaktionellem Pilot: **129 Python-Tests**,
 **5 Zeitplan-Prueffaelle**, keine Diff-Fehler.
 Python-/Node-Tests benutzen Ersatzantworten; kein echter Telegram-Versand,
 keine Modellgenerierung und kein echter ffmpeg-Render in den Tests.
@@ -375,6 +375,32 @@ Korrekturwirkung, Zustellung und Kompressionsqualitaet.
 Bei API-Kontingentproblemen Ursache dokumentieren statt Schwellen absenken.
 
 ## Dokumentation und sinnvolle Fortsetzung
+
+### Gezielter Ersatzpilot: Nintendo-Karten
+
+Der Nutzer hat weiterhin kein Video erhalten: `message_id:108` bestaetigt
+nur eine Statusnachricht. Beide bisherigen neuen Piloten scheiterten vor
+dem Render. Nicht als Videozustellung darstellen.
+
+Neu vorbereitet: `piloten/nintendo-karten.json`, ein redaktioneller Short
+mit 185 Woertern aus dem gespeicherten Nintendo-Quelltext. Schwerpunkt:
+teure, langlebige Karten, die guenstigere Tengu-Linie und spaetere neue
+Zielgruppen. Keine erfundene Krise oder vorgegebene Story-Note.
+`pilot.yml` und `github_pilot.py dispatch` verstehen
+`--entwurf nintendo-karten`, nur fuer Business/Short. `pilot_entwurf.py`
+entfernt alte Pruefungen und prueft Fakten, Zahlen, Groq und Story wirklich
+neu. Das unveraenderte gesperrte Skript wird nicht fuenfmal erneut bewertet.
+Der normale Renderer, Video-Kritik, Korrekturen und Telegram-Gate gelten.
+Status bei diesem Nachtrag: vorbereitet; Start/Ergebnis noch zu ergaenzen.
+
+Faktencheck-Fehler behoben: illustrative Szenen/Suchbegriffe werden nicht
+mehr als gesprochene historische Behauptungen geprueft; Titel und Beschreibung
+bleiben enthalten. Visuelle Passung wird weiter geprueft. Beanstandete
+Klauseln und Zweitpruefung werden gespeichert statt nur eines Sammelfehlers.
+Story-Pruefung bekommt auch den Titel im Renderer-Format. Gemini ueberspringt
+im selben Prozess zuvor mit 404 abgelehnte Modelle bzw. nachgewiesen leere
+Tageskontingente; 503 wechselt sofort zum naechsten Modell. Das belegt keine
+aktuelle Ausschoepfung eines bestimmten Modells und senkt keine Schwellen.
 
 `README.md` beschreibt Einrichtung und heutigen Funktionsumfang;
 `PROMPTS.md` die Prompt-Aenderungen. `KONZEPT.md`, `ANLEITUNG-YOUTUBE.md`,

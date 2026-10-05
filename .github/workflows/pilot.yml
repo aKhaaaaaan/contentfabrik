@@ -26,6 +26,13 @@ on:
         description: 'Bestandenes Video, Skript und Upload-Texte auf Telegram senden'
         type: boolean
         default: false
+      entwurf:
+        description: 'Automatische Themenwahl oder unabhaengig zu pruefende redaktionelle Short-Vorlage'
+        type: choice
+        options:
+          - automatisch
+          - nintendo-karten
+        default: automatisch
 permissions:
   contents: read
 concurrency:
@@ -52,6 +59,7 @@ jobs:
           TELEGRAM: ${{ inputs.telegram }}
           KANAL: ${{ inputs.kanal }}
           VIDEOFORMAT: ${{ inputs.videoformat }}
+          ENTWURF: ${{ inputs.entwurf }}
         run: |
           [ -n "$GEMINI_API_KEY" ] || { echo "GEMINI_API_KEY fehlt" >&2; exit 1; }
           if [ "$TELEGRAM" = "true" ]; then
@@ -64,6 +72,11 @@ jobs:
             *) exit 1 ;;
           esac
           [ -f "$PROFIL" ] || { echo "Kein Profil fuer diese Format-/Kanal-Kombination" >&2; exit 1; }
+          case "$ENTWURF" in
+            automatisch|'') ;;
+            nintendo-karten) [ "$KANAL" = "business-origin-stories" ] && [ "$VIDEOFORMAT" = "short" ] || exit 1 ;;
+            *) exit 1 ;;
+          esac
           echo "PILOT_PROFIL=$PROFIL" >> "$GITHUB_ENV"
       - name: Start auf Telegram bestaetigen
         if: inputs.telegram
@@ -108,7 +121,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           KANAL: ${{ inputs.kanal }}
           THEMA: ${{ inputs.thema }}
-        run: python fabrik/lauf.py "$PILOT_PROFIL" "$THEMA"
+          ENTWURF: ${{ inputs.entwurf }}
+        run: |
+          if [ "$ENTWURF" = "nintendo-karten" ]; then
+            python fabrik/lauf.py "$PILOT_PROFIL" "$THEMA" piloten/nintendo-karten.json
+          else
+            python fabrik/lauf.py "$PILOT_PROFIL" "$THEMA"
+          fi
       - name: Bericht
         id: bericht
         if: always()

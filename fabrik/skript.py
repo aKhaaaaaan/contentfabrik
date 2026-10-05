@@ -28,6 +28,7 @@ SEHEN = ['gemini-flash-lite-latest', 'gemini-3.5-flash-lite', 'gemini-3.1-flash-
 
 
 VERBRAUCH = {}  # modell -> [anfragen, tokens_rein, tokens_raus]
+NICHT_VERFUEGBAR = set()  # pro Prozess: unbekannte Modelle oder leeres Tageskontingent
 
 
 def _verbrauch_melden():
@@ -60,6 +61,8 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=())
     }
     letzter = None
     for modell in modelle or MODELLE:
+        if modell in NICHT_VERFUEGBAR:
+            continue
         # Google empfiehlt fuer Gemini 3.x die Sampling-Standardwerte.
         # Latest-Aliase koennen ebenfalls auf 3.x zeigen: nicht heruntersetzen.
         koerper['generationConfig'].pop('temperature', None)
@@ -86,9 +89,16 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=())
                     except Exception:
                         pass
                 # Tageskontingent leer: Warten hilft bis Mitternacht (Pazifik) nicht - naechstes Modell
-                if 'PerDay' in koerper_fehler:
+                if isinstance(e, urllib.error.HTTPError) and e.code == 404:
+                    NICHT_VERFUEGBAR.add(modell)
+                    letzter = f'{modell}: Modell nicht verfuegbar'
+                    break
+                if re.search(r'per_?day', koerper_fehler, re.I):
+                    NICHT_VERFUEGBAR.add(modell)
                     letzter = f'{modell}: Tageskontingent erschoepft'
                     break
+                if isinstance(e, urllib.error.HTTPError) and e.code == 503:
+                    break  # Ueberlast: naechstes Modell, nicht dieselbe Anfrage erneut aufhalten
                 time.sleep(5 * (versuch + 1))
     raise RuntimeError(f'Gemini nicht erreichbar: {letzter}')
 
@@ -209,6 +219,7 @@ def story_bewerten(entwurf):
     teuren Video-Bau. Eine redaktionelle Note ist keine Zuschauerprognose."""
     text = '\n'.join(t['text'] for t in entwurf['teile'])
     erg, _ = gemini(prompts.story(text, STORY_KATEGORIEN,
+                                  ' / '.join(entwurf['titel']) if isinstance(entwurf.get('titel'), list) else
                                   f'{entwurf.get("titel_zeile1", "")} / {entwurf.get("titel_zeile2", "")}',
                                   dramaturgie.videoformat(entwurf)),
                     STORY_SCHEMA, temperatur=0.2)

@@ -113,7 +113,7 @@ def secrets():
 
 def dispatch(args):
     inputs = {'kanal': args.kanal, 'videoformat': args.videoformat,
-              'thema': args.thema, 'telegram': args.telegram}
+              'thema': args.thema, 'telegram': args.telegram, 'entwurf': args.entwurf}
     api(f'repos/{REPO}/actions/workflows/pilot.yml/dispatches', {'ref': 'main', 'inputs': inputs})
     print(json.dumps({'gestartet': inputs}, ensure_ascii=False))
 
@@ -159,6 +159,7 @@ if __name__ == '__main__':
     p.add_argument('videoformat', choices=['short', 'lang'])
     p.add_argument('--thema', default='')
     p.add_argument('--telegram', action='store_true')
+    p.add_argument('--entwurf', choices=['automatisch', 'nintendo-karten'], default='automatisch')
     args = parser.parse_args()
     if args.befehl == 'status':
         status()

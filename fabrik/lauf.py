@@ -93,7 +93,7 @@ def verlauf_eintragen(kanal, skript, status, note, abschnitte=None, messung=None
     p.write_text(json.dumps(v, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
 
 
-def main(kanal_pfad, thema=''):
+def main(kanal_pfad, thema='', entwurf=''):
     import themen
     kanal = Path(kanal_pfad).stem
     budgetkanal = f'pilot-{kanal}' if os.environ.get('CF_PILOT') == '1' else kanal
@@ -105,12 +105,13 @@ def main(kanal_pfad, thema=''):
     reservierung = budget.reservieren(budgetkanal, BUDGET_S)
     start = time.monotonic()
     try:
-        return produzieren(kanal_pfad, kanal, thema, start, reservierung[0], themen)
+        return produzieren(kanal_pfad, kanal, thema, start, reservierung[0], themen,
+                           **({'entwurf': entwurf} if entwurf else {}))
     finally:
         budget.abschliessen(budgetkanal, reservierung, time.monotonic() - start)
 
 
-def produzieren(kanal_pfad, kanal, thema, start, frei, themen):
+def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     import lernen
     # Thema aus Telegram hat Vorrang (GEMELDET: eigene Themen einbringen)
     if not thema:
@@ -173,7 +174,9 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen):
                     runde['status'] = 'korrekturgrenze'
                     break
             else:
-                r = schritt(['fabrik/skript.py', kanal_pfad, str(ordner / 'skript.json'), thema], arbeit_ende)
+                r = schritt(['fabrik/pilot_entwurf.py', entwurf, kanal_pfad, str(ordner / 'skript.json')]
+                            if entwurf else
+                            ['fabrik/skript.py', kanal_pfad, str(ordner / 'skript.json'), thema], arbeit_ende)
             if r != 0:
                 letzter_grund = ('Faktenpruefung nicht bestanden' if r == 2 else
                                 'Skriptqualitaet unter Freigabe' if r == 3 else f'Skript fehlgeschlagen (Code {r})')
@@ -183,12 +186,14 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen):
                 if basis:
                     break
                 if (ordner / 'skript.json').exists():
-                    entwurf = json.loads((ordner / 'skript.json').read_text(encoding='utf-8'))
-                    runde.update(sperrgruende=skript_gruende(entwurf),
-                                 story_note=(entwurf.get('story') or {}).get('note'),
-                                 skript_probleme=entwurf.get('pruefung', {}).get('probleme', []))
-                    verlauf_eintragen(kanal, entwurf,
+                    abgelehnt = json.loads((ordner / 'skript.json').read_text(encoding='utf-8'))
+                    runde.update(sperrgruende=skript_gruende(abgelehnt),
+                                 story_note=(abgelehnt.get('story') or {}).get('note'),
+                                 skript_probleme=abgelehnt.get('pruefung', {}).get('probleme', []))
+                    verlauf_eintragen(kanal, abgelehnt,
                                       'faktenpruefung' if r == 2 else 'skriptqualitaet' if r == 3 else 'skriptfehler', None)
+                if entwurf:
+                    break  # Eine gesperrte feste Vorlage nicht unveraendert erneut pruefen.
                 continue
             skript = json.loads((ordner / 'skript.json').read_text(encoding='utf-8'))
             skriptfehler = skript_gruende(skript)
@@ -318,4 +323,5 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen):
 
 
 if __name__ == '__main__':
-    sys.exit(main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else ''))
+    sys.exit(main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else '',
+                  sys.argv[3] if len(sys.argv) > 3 else ''))

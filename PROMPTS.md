@@ -1,9 +1,15 @@
 # KI-Prompts und Medienqualitaet
 
-Stand: 05.10.2026. Vorlagenversion: `2026-10-05.5`.
+Stand: 05.10.2026. Vorlagenversion: `2026-10-05.6`.
 Die gemeinsamen Auftraege stehen in [fabrik/prompts.py](fabrik/prompts.py).
 Skript und fertige Video-Kritik speichern die verwendete Version, damit
 spaetere Vergleiche nachvollziehbar bleiben.
+
+Der Faktencheck erhaelt bei Renderer-Skripten die gesprochenen Aussagen,
+Titel und Beschreibung. Illustrative Regie und Stock-Suchbegriffe werden
+separat visuell geprueft und nicht als historische Behauptung ausgegeben.
+Eine redaktionelle Pilotvorlage durchlaeuft dieselbe echte Fakten- und
+Storypruefung wie ein KI-Entwurf; gespeicherte Noten werden vorher verworfen.
 
 ## Welche KI welche Aufgabe bekommt
 

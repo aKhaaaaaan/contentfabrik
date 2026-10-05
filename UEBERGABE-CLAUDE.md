@@ -6,13 +6,46 @@ aktualisiert. Es enthaelt keine Zugangsschluessel.
 
 ## Nutzerauftrag und zugesagtes Ergebnis
 
-### Aktuelle Umsetzung am 05.10.2026, ca. 20:05 Berlin
+### Abgeschlossener Stand am 05.10.2026, 20:34 Berlin
 
 Code und 16 Bilder sind auf GitHub (`5e3940a`, dann `01d31e7`), 154 lokale
-Regressionstests und beide GitHub-Pruefläufe erfolgreich. AI-Pilot aktuell
-37353822179; Business-Pilot 37354061119 wartet dahinter. Finales Ergebnis
-und Telegram-Zustellung noch offen, bitte untenstehende Historie nicht als
-Erfolg dieser neuen Videos missverstehen.
+Regressionstests und beide GitHub-Pruefläufe erfolgreich. **Beide neuen
+Shorts sind fertig, visuell kontrolliert und tatsaechlich auf Telegram zugestellt.**
+
+| Kanal | Produktion | KI Story / Video | Echte Bildfolge | Telegram-Bestaetigung |
+|---|---|---|---|---|
+| AI Tools Explained, Qwen-Bildworkflow | 37353822179 | 8 / 8 | 23 Einstellungen, 12 Motive, 82,2 s | Versand 37355648862, message_id 123, 20:24:57 Berlin |
+| Business Origin Stories, Nintendo-Karten | 37354061119 | 8 / 8 | 24 Einstellungen, 14 Motive, 89,7 s | Versand 37356701658, message_id 130, 20:33:15 Berlin |
+
+Fakten- und Technikpruefung ohne offene Befunde. Beide: 1080x1920, H.264,
+30 fps, AAC Stereo 48 kHz; AI -14,9 LUFS, Business -14,1 LUFS. Alle
+Video-Einzelkategorien >=8; keine offenen Videoprobleme laut KI-Pruefung.
+Business-Story hat Spannung/Teilbarkeit jeweils 7, alle weiteren Storywerte
+mindestens 8. Der Story-Kritiker schlaegt vor, die spaetere Disney-Partnerschaft
+kausal als erzwungene Wiederkaeufe zu beschreiben. Diese Absicht ist NICHT
+belegt und darf nicht ungeprueft in ein Skript/Lernregel uebernommen werden.
+Der gelieferte Text behauptet diese Kausalitaet nicht.
+Diese Noten sind KI-Urteile, KEINE Nutzerbewertung und KEINE Retentionsdaten.
+Keine Zusicherung, dass Videos immer ueber 8 liegen. Nutzerurteil bleibt offen
+und hat bei Beanstandungen Vorrang. Das alte 17:35-Video wurde NICHT erneut gesendet.
+
+Codex hat echte Frames beider fertigen MP4s im 4-Sekunden-Abstand kontrolliert:
+passende Hauptbilder ueber die ganze Laenge, mehrere Motive innerhalb der
+Sprechphasen, keine Kerzenstrecken, eigene Figuren am Einstieg und im Verlauf.
+Feste Herkunftslabels unterscheiden illustrative Szenen von vier echten
+Qwen-Modellkartenbeispielen. Kamera-/Schnittbewegung, keine volle Koerperanimation.
+Beide enthalten eigene passende Instrumentalmusik, Ducking, Soundeffekte und
+den gesprochenen like/share/save-Aufruf. Telegram-Versand bestaetigt
+API-Erfolg und hat anschliessend die kompletten Skripte/Uploadtexte versendet.
+
+Lokal: `ausgabe/github/11363059750/ausgabe/short.mp4` (AI) und
+`ausgabe/github/11364637569/ausgabe/short.mp4` (Business). Die jeweiligen
+Ordner enthalten echte Kritik, Messung, Skript und Bildablauf.
+Kontaktboegen: `ausgabe/videoanalyse/ai-neu-kontaktbogen.jpg` und
+`ausgabe/videoanalyse/business-neu-kontaktbogen.jpg`.
+Unveraenderte Zustellbelege mit Video-SHA256 in `verlauf/telegram-sendungen.json`;
+beide bestaetigten Zustellungen auch im jeweiligen Kanalverlauf eingetragen,
+ohne alte Videos oder abweichende Nutzerurteile zu ueberschreiben.
 
 Die globale GitHub-Concurrency laesst einen aktiven UND einen wartenden Pilot
 zu. Ein dritter Start ersetzt den bisherigen wartenden Run, auch bei
@@ -23,7 +56,7 @@ erst aktiven Status abwarten und dann hoechstens einen weiteren einreihen.
 Die Qwen-Regie verwendet jetzt alle vier echten Demo-Bilder jeweils genau
 einmal; ein Test verhindert diese doppelte Demo-Auswahl.
 
-Noch kein verbesserter Pilot auf Telegram zugestellt. Der letzte AI-Lauf
+Vor dem Bibliothekswechsel war kein verbesserter Pilot zugestellt. Der fruehere AI-Lauf
 37348937412 stoppte vor der MP4: Cloudflare meldete das erschoepfte freie
 Tageskontingent. Wiederholte Starts mit demselben Generator helfen heute nicht.
 Keine kostenpflichtige Hochstufung oder Billing-Aenderung vorgenommen.
@@ -56,7 +89,7 @@ Skriptautor, Bildplaner und Kritiker. Bei neuen Presenter-Illustrationen kann
 der Planer jetzt `figur=true` waehrend des Verlaufs setzen: die vorhandene
 Referenzdatei wird dann tatsaechlich uebergeben, nicht nur am Anfang/Ende.
 
-**Neuester Stand: Nutzer hat das um 17:35 versandte Nintendo-Video als
+**Wichtiges frueheres Nutzerfeedback: Das um 17:35 versandte Nintendo-Video wurde als
 deutlich schlechter als 5/10 abgelehnt. Seine Rueckmeldung hat Vorrang vor
 der historischen KI-Note 9.** Kontaktbogen der echten MP4 bestaetigt rund
 27 Sekunden ohne passendes Hauptbild, Kerzenhintergrund und mehrere

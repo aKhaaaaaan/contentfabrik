@@ -58,8 +58,13 @@ Kerzenhintergrund ohne Hauptbild. KEIN bestaetigter Qualitaetserfolg.
 Nutzerfeedback in `lernen/redaktion.json`, Datei per SHA256 erneut gesperrt.
 Neu: Gemini-Bildplan mit mehreren Einstellungen PRO Sprechphase, native
 Pruefung echter Materialvielfalt und Bildabdeckung, kein Hintergrundersatz.
-Der Nutzer verlangt ausserdem einen guten AI-Tools-Explained-Short.
-Neue Piloten zuerst visuell kontrollieren, danach `github_pilot.py senden`.
+**Abgeschlossen 05.10.2026, 20:34 Berlin:** neuer AI-Tools-Short (23 Einstellungen,
+12 Motive) und neuer Business-Short (24 Einstellungen, 14 Motive) sind gebaut,
+anhand echter MP4-Frames kontrolliert und auf Telegram zugestellt: AI message_id
+123 um 20:24, Business message_id 130 um 20:33. Beide KI Story/Video 8/10;
+Fakten/Technik bestanden, 154 Tests bestanden. Nutzerbewertung noch offen.
+Zustellbelege/Hashes in `verlauf/telegram-sendungen.json`; Details in der Uebergabe.
+Neue Piloten weiterhin zuerst visuell kontrollieren, danach `github_pilot.py senden`.
 Der fehlende Telegram-Hinweis wurde im Pilotablauf korrigiert: Startnachricht
 und separater Fehlerjob bei `telegram=true`. Die Uebergabe beschreibt die
 konkreten Ergebnisse und die noch offene Abweichung der Langvideo-Themenwahl.

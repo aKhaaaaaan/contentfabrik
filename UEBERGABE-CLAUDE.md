@@ -408,6 +408,15 @@ Fakten, Technik und offene mittlere/schwere Probleme bleiben Sperren.
 Versandsperre. Bewertungen werden nicht umgeschrieben, die Pruefnotenskala
 bleibt gleich. Alte auf 9/10 gestartete Runs aendern sich nicht durch Push.
 
+Neuer 7/10-Pilot:
+[37331157176](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37331157176),
+Commit `8f2001c`. Beide Faktenpruefer bestanden (Gemini und Groq GPT-OSS-120B).
+Story 7/10: Hook 8, Spannung 7, Ueberraschung 8, Tempo 7, Aufloesung 8,
+Teilbarkeit 6. Daher noch kein Render; Kategorienminimum bleibt 7.
+Artefakt `11354845584`. Konkrete Kritik: ein Satz wiederholt nur die
+Schwierigkeit. Daraufhin diesen Satz durch die Bedeutung fuer Wiederkaeufe
+ersetzt und Schluss auf das Anfangsmotiv langlebiger Karten zurueckgefuehrt.
+
 Faktencheck-Fehler behoben: illustrative Szenen/Suchbegriffe werden nicht
 mehr als gesprochene historische Behauptungen geprueft; Titel und Beschreibung
 bleiben enthalten. Visuelle Passung wird weiter geprueft. Beanstandete

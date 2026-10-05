@@ -7,11 +7,11 @@ alt = json.loads((root / 'ausgabe/github/11348639222/ausgabe/skript.json').read_
 texte = [
     'Nintendo once had a problem: its cards lasted.',
     'Long before video games, Nintendo made handmade flower cards in Kyoto. Craftsman Fusajiro Yamauchi started that business in 1889. But a sturdy deck wasn\'t always good for business.',
-    'Making the cards was slow and expensive. Their price was high, and their durability meant customers rarely needed replacements. Those problems left the young business struggling.',
+    'Making the cards was slow and expensive. Their price was high, and their durability meant customers rarely needed replacements. A lasting deck sounds like a strength. For Nintendo, it also meant fewer repeat purchases.',
     'So what did Nintendo change? It offered Tengu: a cheaper, lower-quality line of playing cards. That response went in the opposite direction: a lower-quality product, at a lower price.',
     'Nintendo also sold cards in other cities, including Osaka. Local merchants wanted fresh decks to avoid the suspicions that reusing cards could create. Renewal had a reason beyond wear.',
     'Decades later, Nintendo changed its audience. A 1959 partnership with Walt Disney Productions put characters onto playing cards. That opened the children\'s market and boosted the card business.',
-    'The surprise isn\'t just that Nintendo started with cards. Its early challenges involved changing the product, its price and its audience. Video games came much later.',
+    'Remember that lasting deck? Nintendo answered its early problems with cheaper cards and reached new customers with licensed characters. Long before video games, price and audience were already part of its story.',
     'Be sure to like, share and save this video.',
 ]
 bilder = [

@@ -333,7 +333,15 @@ def karten_filter(hg, ebene, kpfad):
     """ffmpeg-Eingaben und Filter fuer einen Karten-Abschnitt: Hintergrund
     abgedunkelt und weich, Karte gleitet in 0,35 s von unten herein und blendet
     auf (sichtbarer Wechsel je Platz), Schrift obenauf."""
-    hg_ein = (['-loop', '1', '-framerate', str(FPS), '-i', str(hg)] if Path(hg).suffix.lower() in ('.png', '.jpg', '.jpeg', '.webp')
+    ist_bild = Path(hg).suffix.lower() in ('.png', '.jpg', '.jpeg', '.webp')
+    if not Path(hg).suffix:  # heruntergeladene Demo-Bilder haben teils keinen Dateisuffix
+        try:
+            with Image.open(hg) as im:
+                im.verify()
+            ist_bild = True
+        except (OSError, ValueError):
+            pass
+    hg_ein = (['-loop', '1', '-framerate', str(FPS), '-i', str(hg)] if ist_bild
               else ['-stream_loop', '-1', '-i', str(hg)])
     filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,fps={FPS},'
             f'eq=brightness=-0.12:saturation=0.95,gblur=sigma=18[bg];'
@@ -997,8 +1005,9 @@ def main(skript_pfad, aus, vorlage=None):
         FORTSCHRITT['aktuell'] = None
         for i, shot in enumerate(shots):
             t, dauer, t0 = shot['teil'], shot['dauer_s'], shot['s']
+            phasenstart = i == 0 or shots[i - 1]['phase'] != shot['phase']
             FORTSCHRITT['aktuell'] = t.get('platz') or FORTSCHRITT['aktuell']
-            if t.get('platz') == 1 or (i > 0 and t.get('beat') == 'wendung'):
+            if phasenstart and (t.get('platz') == 1 or (i > 0 and t.get('beat') == 'wendung')):
                 ereignisse += [(t0, 'riser'), (t0, 'impact')]
             key = rendercache.stueck_key(visuell, i, dauer, code_key)
             alt = cache.get('stuecke', {}).get(str(i), {})
@@ -1167,7 +1176,7 @@ def main(skript_pfad, aus, vorlage=None):
                             '-t', f'{dauer:.3f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
                             str(stueck)], check=True)
             liste.append(f"file '{stueck.name}'")
-            if i and (H > B or t.get('name') or t.get('beat') == 'wendung'):
+            if i and phasenstart and (H > B or t.get('name') or t.get('beat') == 'wendung'):
                 ereignisse.append((t0, 'whoosh'))
             merken()
         (aus / 'stuecke.txt').write_text('\n'.join(liste) + '\n', encoding='utf-8')

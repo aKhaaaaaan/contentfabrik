@@ -42,6 +42,17 @@ Versand bauen, echte Frames kontrollieren, dann `github_pilot.py senden RUN
 KANAL` via `pilot-versand.yml`. Der Sender prueft erneut Fakten, Technik,
 Noten und Nutzerablehnung. Nicht allein wegen einer KI-9 freigeben.
 
+Auf Commit `006aff2` gestartet: AI Tools Explained
+[37341670490](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37341670490)
+und danach Business/Nintendo
+[37341676776](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37341676776).
+Beide `telegram=false`, damit echte Frames vor Zustellung kontrolliert werden.
+CI [37341669860](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37341669860)
+ist bestanden. Kein doppelter Start, solange diese Laeufe aktiv sind.
+Zusaetzlich: lokale echte Kontaktboegen via `pruefungen/video_vorschau.py`;
+Demo-Bilder ohne Dateisuffix als Standbild erkennen. Effekte bei Phasen-/
+Handlungswechseln, nicht bei jedem einzelnen Bildwechsel vervielfachen.
+
 Der Nutzer hat die Weiterentwicklung und echte Probelaufe autorisiert.
 Gewuenscht sind bessere Prompts fuer Skript, Bild, Video, Stimme, Musik und
 Geraeusche; ein lernfaehiges Tool; starke Zuschauerbindung von Anfang bis Ende

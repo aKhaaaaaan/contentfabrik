@@ -131,12 +131,15 @@ def main(kanal_pfad, thema=''):
     shutil.rmtree(aus, ignore_errors=True)
     shutil.copytree(ordner, aus)
     skript = json.loads((aus / 'skript.json').read_text(encoding='utf-8'))
-    # GEMELDET: „Ein Video muss es definitiv geben" - Kanaele brauchen taeglich
-    # einen Beitrag. Unter der Schwelle kommt das BESTE der Versuche, deutlich
-    # gekennzeichnet (Note + Gruende stehen in der Nachricht); posten entscheidet der Nutzer.
+    # GEMELDET 05.10.2026: „Bitte keine schlechten Videos unter 8/10." (Vorher kam das
+    # beste Video auch darunter - ein 3/10-Flop landete auf Telegram.) Unter 8 wird nichts
+    # verschickt; Status 'unter_ziel' -> das naechste Zeitfenster am selben Tag versucht
+    # den Kanal erneut (Vorpruefung zaehlt nur 'gesendet'). Gelernt wurde aus jeder Pruefung.
     if note < SCHWELLE:
-        melden(f'🟡 {kanal}: {versuch} Versuche, Zeitbudget erreicht - keiner kam auf {SCHWELLE}/10. '
-               f'Hier das beste ({note}/10). Das Tool hat aus allen Prüfungen gelernt.')
+        verlauf_eintragen(kanal, skript, 'unter_ziel', note)
+        melden(f'🔁 {kanal}: bestes Video heute erst {note}/10 (Ziel {SCHWELLE}+) - nicht verschickt. '
+               'Das Tool hat aus den Prüfungen gelernt und versucht es im nächsten Zeitfenster neu.')
+        return 0
     subprocess.run([PY, 'fabrik/freigabe.py', str(aus / 'skript.json'), str(aus / 'short.mp4')], check=True)
     messung = json.loads((aus / 'messung.json').read_text(encoding='utf-8')) \
         if (aus / 'messung.json').exists() else {}

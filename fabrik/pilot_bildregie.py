@@ -42,7 +42,7 @@ def setzen(s):
             [a('ai-presenter-workflow'), d05],
             [karte, a('ai-workflow-objects'), a('ai-presenter-workflow')],
             [d04, d06, a('ai-layers')],
-            [a('ai-workflow-objects'), a('ai-layers'), d04],
+            [a('ai-workflow-objects'), a('ai-layers'), a('ai-presenter-workflow')],
             [a('ai-local-edit'), a('ai-workflow-objects'), a('ai-local-edit')],
             [a('ai-reference-wall'), a('ai-presenter-workflow'), d15],
             [a('ai-license-check'), karte, a('ai-license-check')],

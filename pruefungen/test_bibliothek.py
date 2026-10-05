@@ -31,6 +31,8 @@ class BibliothekTest(unittest.TestCase):
         self.assertEqual(len(shots), 23)
         self.assertNotIn('illustration', {shot['teil']['bildmodus'] for shot in shots})
         self.assertEqual(shots[0]['teil']['asset'], 'ai-presenter-workflow')
+        demos = [x['teil']['demo_url'] for x in shots if x['teil']['bildmodus'] == 'demo']
+        self.assertEqual(len(demos), len(set(demos)))
         self.assertAlmostEqual(sum(x['dauer_s'] for x in shots), sum(laengen))
 
     def test_zu_kurze_regie_stoppt_statt_unpassende_bilder_nachzufuellen(self):

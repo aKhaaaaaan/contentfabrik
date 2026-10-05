@@ -19,6 +19,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from skript import gemini, PRUEF_SCHEMA  # noqa: E402
 import trends, zahlen  # noqa: E402
+import prompts
+import dramaturgie
+from qualitaet import redaktion, rang
 
 WOERTER = (1400, 1800)  # ~150-165 Woerter/Minute bei Tempo 1.05 -> 9-11 Minuten
 MIN_QUELLE = 8000       # darunter reicht der Stoff nicht fuer 10 Minuten ohne Strecken
@@ -43,8 +46,8 @@ SCHEMA = {
 # Fragen ueber Kapitelgrenzen, ein Wendepunkt in der Mitte, Aufloesung am Ende.
 KATEGORIEN = {
     'einstieg': 'do the first 30 seconds drop the viewer into a dramatic moment and pose one big question?',
-    'offene_schleifen': 'does every chapter end with an open question that makes the next chapter necessary?',
-    'wendepunkt': 'is there a real turning point or reversal around the middle?',
+    'offene_schleifen': 'chapter questions receive mini-payoffs and lead naturally to the next discovery, without empty teasing',
+    'wendepunkt': 'source-supported decisions and consequences deepen understanding; a forced crisis is not required',
     'menschen': 'are there concrete people with goals, obstacles and decisions (not just dates)?',
     'ueberraschung': 'at least three genuine "I did not know that" moments?',
     'tempo': 'no filler, no repetition, every paragraph moves the story forward?',
@@ -72,6 +75,8 @@ def woerter(d):
 
 def auftrag(quelle):
     return (
+        prompts.DATEN + prompts.FAKTEN + prompts.SPRECHEN
+        + dramaturgie.auftrag({'videoformat': 'lang'}) +
         'Write the narration for a 9-11 minute YouTube documentary for the channel "Business Origin Stories" '
         '(how famous companies really started). Audience: curious English-speaking adults, no prior knowledge.\n'
         f'LENGTH: {WOERTER[0]}-{WOERTER[1]} spoken words in total (einstieg + all kapitel + schluss). '
@@ -82,22 +87,26 @@ def auftrag(quelle):
         # Schluss eine Floskel). Profi-Dokus beginnen mit der groessten Krise
         # und erzaehlen von dort zurueck - ohne etwas zu erfinden.
         '- First find the CENTRAL CONFLICT in the whole source: the moment the company came closest to failing '
-        '(bankruptcy, takeover, collapse, a fatal mistake) - often decades after the founding.\n'
-        '- einstieg (70-110 words): open INSIDE that crisis (what was at stake, in concrete numbers), then jump '
-        'back: "To understand how it got here, we have to go back to ..." Pose the ONE big question: did they '
-        'survive, and how? No "in this video", no greeting.\n'
+        '(bankruptcy, takeover, collapse, a fatal mistake) - often decades after the founding. If no '
+        'such crisis is documented, choose a real consequential decision or obstacle instead; do not '
+        'force a near-failure or invent stakes. Adapt the opening and climax to that conflict.\n'
+        '- einstieg (70-110 words): open with the strongest supported conflict or consequential decision, '
+        'show why it matters, then give essential context. Pose ONE specific question suited to the '
+        'source, such as which decision changed the outcome. No formulaic flashback line, '
+        'no "in this video", no greeting.\n'
         '- Tell it through the decisions of named people (who decided what, what they risked, what happened). '
         'Only feelings or motives the source states.\n'
-        '- 5-7 kapitel, 180-300 words each, in time order. Each has a short title (2-5 words) and ends with an '
-        'open question or a hint of what goes wrong next, so the viewer must keep watching.\n'
-        '- A real turning point or reversal around the middle.\n'
+        '- 5-7 kapitel, distribute the total word budget across them. Each has a short title (2-5 words), '
+        'a local question, concrete evidence and a mini-payoff. Connect to the next chapter through '
+        'a real unresolved consequence, without inventing what goes wrong next.\n'
+        '- A sourced turning point, decision or discovery deepens the central question.\n'
         '- The chapter that reaches the crisis from the einstieg is the climax: slow down, give it the most words.\n'
         '- schluss (80-140 words): answer the big question from the einstieg with a concrete fact from the source '
         '(what saved them, where they stand today), then one memorable final line that is NOT a generic '
         'platitude ("through loyalty and reinvention" is banned). No "like and subscribe" begging.\n'
         # GEMESSEN 04.10.2026: 21 von 91 Saetzen ueber 22 Woerter; Zahlen teils
         # als zerbrochene Woerter („thirty-,seven hundred three" statt 3,703).
-        'STYLE: written for the ear - one idea per sentence, at most 20 words, active voice. Write numbers as '
+        'STYLE: written for the ear - one idea per sentence, at most 18 words, active voice. Write numbers as '
         'digits (1903, 3,703), never as words. Concrete names, places, numbers and decisions. Explain '
         'every term a beginner would not know. No filler, no repetition, no clichés ("little did they know", '
         '"the rest is history", "game changer").\n'
@@ -111,10 +120,7 @@ def auftrag(quelle):
 
 def pruefen(d, quelle):
     """Faktencheck der KI PLUS Zahlenprobe im Code (zahlen.py)."""
-    p, _ = gemini('You are a strict fact checker for a documentary narration. Check every factual claim against '
-                  'the SOURCE. Mark ok=false if ANY claim is not supported by the source, exaggerated, or an '
-                  'invented quote/scene. List each problem briefly with the sentence it refers to.\n\n'
-                  f"SOURCE:\n{quelle['text']}\n\nNARRATION:\n" + json.dumps(d, ensure_ascii=False),
+    p, _ = gemini(prompts.fakten(quelle['text'], d, 'documentary narration'),
                   PRUEF_SCHEMA, temperatur=0.1)
     fehlt = zahlen.unbelegt({'teile': [{'text': t} for t in gesprochen(d)]}, [quelle['name'] + ' ' + quelle['text']])
     if fehlt:
@@ -132,12 +138,8 @@ def pruefen(d, quelle):
 
 
 def story(d):
-    s, _ = gemini('You are a senior documentary editor at a top YouTube channel. Judge ONLY whether viewers '
-                  'will watch this narration to the end (retention), not the facts. Score each 1-10:\n'
-                  + '\n'.join(f'- {k}: {v}' for k, v in KATEGORIEN.items())
-                  + '\nOverall "note" 1-10 (strict: 9+ only for a story you would binge). List concrete '
-                    'weaknesses, each with the exact sentence it refers to and how to fix it.\n\n'
-                  + json.dumps(d, ensure_ascii=False), STORY_SCHEMA, temperatur=0.2)
+    s, _ = gemini(prompts.story('\n'.join(gesprochen(d)), KATEGORIEN, d['titel'], 'lang'),
+                  STORY_SCHEMA, temperatur=0.2)
     return s
 
 
@@ -147,11 +149,13 @@ def schreiben(text):
     for versuch in range(3):
         d, _ = gemini(text + zusatz, SCHEMA, temperatur=0.8)
         n = woerter(d)
-        if WOERTER[0] <= n <= WOERTER[1] + 150 and 5 <= len(d['kapitel']) <= 7:
+        if WOERTER[0] <= n <= WOERTER[1] and 5 <= len(d['kapitel']) <= 7:
             return d, None
         print(f'Versuch {versuch + 1}: {n} Woerter, {len(d["kapitel"])} Kapitel')
         zusatz = (f'\nYour previous draft had {n} spoken words and {len(d["kapitel"])} chapters. It MUST have '
-                  f'{WOERTER[0]}-{WOERTER[1]} words and 5-7 chapters - add depth from the source, not filler.')
+                  f'{WOERTER[0]}-{WOERTER[1]} words and 5-7 chapters. '
+                  + ('Cut repetition and secondary details; preserve the promised answer.' if n > WOERTER[1]
+                     else 'Add supported depth and concrete evidence from the source, without filler.'))
     return d, f'Laenge {n} Woerter / {len(d["kapitel"])} Kapitel'
 
 
@@ -172,7 +176,7 @@ def main(artikel, aus, telegram=False):
     # muss wieder durch die Faktenpruefung - Spannung nie auf Kosten der Wahrheit.
     # Drei Runden: Text kostet kaum Rechenzeit, das Video danach ~10x mehr.
     for runde in range(3):
-        if s['note'] >= 10 or not p['ok']:
+        if (s['note'] >= 10 and not redaktion(s, tuple(KATEGORIEN), 'Doku')[1]) or not p['ok']:
             break
         neu, m = schreiben(auftrag(quelle) + '\nREWRITE for stronger retention (same facts). The editor found:\n- '
                            + '\n- '.join(s['schwaechen'])
@@ -197,12 +201,13 @@ def main(artikel, aus, telegram=False):
             neu = repariert
         s2 = story(neu)
         print(f"Story neu: {s2['note']}/10 (vorher {s['note']}) | {woerter(neu)} Woerter")
-        if s2['note'] > s['note']:
-            d, p, s = neu, p2, s2
+        if rang(s2, tuple(KATEGORIEN)) > rang(s, tuple(KATEGORIEN)):
+            d, p, s, mangel = neu, p2, s2, None
         else:
             break  # sparsam: keine Verbesserung -> weitere Runden bringen meist nichts
     d.update({'quelle': {'name': quelle['name'], 'url': quelle['url']}, 'pruefung': p, 'story': s,
-              'woerter': woerter(d), 'minuten_ca': round(woerter(d) / 155, 1)})
+              'woerter': woerter(d), 'minuten_ca': round(woerter(d) / 155, 1),
+              'prompt_version': prompts.VERSION, 'videoformat': 'lang', 'mangel': mangel})
     Path(aus).parent.mkdir(parents=True, exist_ok=True)
     Path(aus).write_text(json.dumps(d, indent=2, ensure_ascii=False), encoding='utf-8')
     md = Path(aus).with_suffix('.md')
@@ -211,6 +216,8 @@ def main(artikel, aus, telegram=False):
           f"Fakten {'ok' if p['ok'] else 'NICHT ok'}")
     if telegram:
         senden(md, d)
+    if not p['ok'] or mangel or redaktion(s, tuple(KATEGORIEN), 'Doku')[1]:
+        sys.exit(3)
 
 
 def lesefassung(d):
@@ -226,6 +233,9 @@ def lesefassung(d):
 
 
 def senden(md, d):
+    if d.get('pruefung', {}).get('ok') is not True or d.get('mangel') \
+            or redaktion(d.get('story'), tuple(KATEGORIEN), 'Doku')[1]:
+        raise ValueError('Doku-Skript bleibt wegen Fakten, Laenge oder Story-Qualitaet gesperrt')
     token, chat = os.environ['TELEGRAM_BOT_TOKEN'], os.environ['TELEGRAM_CHAT_ID']
     grenze = uuid.uuid4().hex
     felder = {'chat_id': chat, 'caption': f"📄 Lange Folge (Entwurf): {d['titel']}\n~{d['minuten_ca']} Min. · "

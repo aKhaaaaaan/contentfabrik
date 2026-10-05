@@ -2,6 +2,44 @@
 
 Stand 02.10.2026 · Arbeitstitel „Contentfabrik" · ein Tool für zwei Ziele
 
+## Aktuelle Einordnung – 05.10.2026
+
+Dieses Dokument enthaelt den Gesamtplan und historische Messungen. Den
+heutigen Betriebsstand beschreibt [README.md](README.md). Massgeblich:
+
+- Aktiv sind zwei englische Kanaele, Kurzvideos und Telegram-Vorschauen.
+  Ein optionaler Langformat-Pilot mit eigener Dramaturgie/Querformat ist im
+  Code vorbereitet, noch nicht mit echten Modellen gerendert. Dashboard,
+  Freigabe-Knoepfe und mehrere automatische
+  Plattform-Uploads sind geplant, noch nicht durchgaengig umgesetzt.
+- Vorschauen gibt es nur mit bestandenem Faktencheck, bestandener Technik
+  und Skript-/Video-Note **mindestens 9/10**, jede Kategorie mindestens 8,
+  ohne mittlere/schwere offene Probleme. Ausgefallene Pruefungen bestehen nicht.
+  Ziel bleibt 10/10; das Tagesbudget gilt ueber alle Ersatzfenster hinweg.
+- Gezielte Korrekturen desselben Videos und gemessenes Lern-Gedaechtnis sind
+  jetzt umgesetzt: einzelne Eingriffsarten testen, bessere Fassungen behalten,
+  bewaehrte Darstellungsprofile uebernehmen. Echte Video-/Cloud-Validierung
+  steht noch aus; Ablauf und Grenzen sind in README.md dokumentiert.
+- Der aktive Ablauf veroeffentlicht nichts automatisch. Auch spaeter darf
+  eine geplante Veroeffentlichung erst nach gespeicherter Freigabe erfolgen.
+- 0 EUR ist das Kostenziel innerhalb vorhandener Freikontingente. Pilotzeiten
+  ohne heutige Story-/Video-Pruefungen sind keine Kapazitaetsgarantie;
+  Einrichtung, Wiederholungen, Speicher und Auswertungen mitzaehlen.
+- RPM-/CPM-Tabellen und behauptete virale Erfolgsformeln unten sind
+  **Planungsannahmen aus Drittquellen**, keine eigenen gemessenen Einnahmen
+  und keine garantierten Ergebnisse. CPM und RPM sind nicht austauschbar.
+- TikTok Direct Post schliesst reine private Upload-Werkzeuge als
+  Anwendungsfall aus. Der aktuelle App-Entwurf hat deshalb ein konkretes
+  Pruefhindernis; manuelles Hochladen bleibt der aktive Weg.
+  [Offizielle TikTok-Richtlinie](https://developers.tiktok.com/docs/en/content-sharing-guidelines).
+- Die YPP-Aenderung zum 01.02.2027 ist inzwischen offiziell bestaetigt
+  (siehe 2d); bisherige Upload-Kontingentrechnungen im Antrag sind Historie.
+  [Offizielle YouTube-Kontingente](https://developers.google.com/youtube/v3/determine_quota_cost).
+
+Die folgenden Abschnitte bleiben als Konzept und Entscheidungsprotokoll
+erhalten. Widersprueche zum heutigen Stand sind nach der Einordnung oben
+und dem Code zu lesen.
+
 > Grundsatz: Was hier steht, ist geprüft (Quellen am Ende) oder ausdrücklich
 > als **ungeprüft** markiert. Ungeprüftes wird im Pilot gemessen, nicht
 > angenommen.
@@ -26,7 +64,7 @@ Zwei Säulen, **ein** Tool (gleicher Ablauf, verschiedene Kanäle):
 
 ## 2. Nischen – nach Daten, nicht nach Gefühl
 
-**Bezahlung je 1.000 monetarisierte Aufrufe (RPM), 2026:**
+**Ungepruefte Planungswerte aus Drittquellen (RPM/CPM), keine Einnahmezusage:**
 
 | Nische | RPM (lange Videos) | Bemerkung |
 |---|---|---|
@@ -172,7 +210,7 @@ Quellen: [§ 23 UrhG (dejure)](https://dejure.org/gesetze/UrhG/23.html), [Ratgeb
 |---|---|
 | YouTube (Werbegeld) | 1.000 Abos **und** 4.000 Std. Wiedergabezeit (12 Monate) **oder** 10 Mio. Shorts-Aufrufe (90 Tage) |
 | YouTube (Vorstufe, Fan-Funding) | 500 Abos, 3 Uploads in 90 Tagen, 3.000 Std. oder 3 Mio. Shorts-Aufrufe |
-| YouTube **ab 01.02.2027** (laut Quelle, offiziell zu prüfen) | **8.000 Std. oder 20 Mio. Shorts-Aufrufe** – je früher wir starten, desto besser |
+| YouTube **ab 01.02.2027**, neue Werbe-/Premium-Teilnehmer | **1.000 Abos und 8.000 qualifizierte Std. (365 Tage) oder 20 Mio. qualifizierte Shorts-Aufrufe (90 Tage)**; bestehender YPP-Status bleibt von dieser Eintrittsaenderung unberuehrt |
 | TikTok Creator Rewards | 18+, 10.000 Follower, 100.000 Aufrufe in 30 Tagen; **nur Originalvideos über 1 Minute** werden bezahlt |
 | Meta (Reels) | Schwellen je Programm, beim Einrichten prüfen |
 
@@ -192,6 +230,9 @@ Quellen: [§ 23 UrhG (dejure)](https://dejure.org/gesetze/UrhG/23.html), [Ratgeb
   Steuerberater klären, bevor Geld fließt.
 
 Quellen: [vidIQ – Partner Program 2026](https://vidiq.com/blog/post/youtube-partner-program-guide/), [subsub – Anforderungen 2027](https://www.subsub.io/blog/youtube-monetization-requirements), [postlinkapp – TikTok Creator Rewards](https://postlinkapp.com/blog/tiktok-creator-rewards-program), [toptal – Creator Rewards](https://www.toptal.com/creator/post/how-to-join-the-tiktok-creator-rewards-program)
+
+Primaerquelle fuer YouTube 2027 (geprueft 05.10.2026):
+[YouTube-Hilfe – Aenderungen am Partnerprogramm](https://support.google.com/youtube/answer/12843009).
 
 ---
 
@@ -262,10 +303,10 @@ Quellen: [pendpost](https://github.com/pendpost/pendpost), [Remotion-Lizenz](htt
 ## 3. Der Ablauf (für jeden Kanal gleich)
 
 ```
-Thema finden ─► Skript ─► Prüfung durch die KI ─► DEINE FREIGABE (Handy)
-     ▲                                                  │
-     │                                                  ▼
- Auswertung ◄── Hochladen auf die Plattformen ◄── Video/Bild bauen
+Thema ─► Skript + Faktencheck ─► Video bauen ─► Technik + KI-Pruefung
+  ▲                                                   │
+  │                                                   ▼
+Auswertung ◄── Veroeffentlichen ◄── DEINE FREIGABE der fertigen Vorschau
 ```
 
 1. **Thema finden** – aus Trends (YouTube-Suche, Google Trends, Reddit) und
@@ -274,10 +315,11 @@ Thema finden ─► Skript ─► Prüfung durch die KI ─► DEINE FREIGABE (H
    den ersten 3 Sekunden).
 3. **Prüfung** – eine zweite KI-Lesung prüft Fakten, Wiederholung zu früheren
    Videos und Regel-Risiken.
-4. **Deine Freigabe** – Push aufs Handy: Vorschau, **Freigeben / Ändern /
-   Verwerfen**. Nichts geht ohne dich online.
-5. **Bauen** – Sprecherstimme, passende Clips/Bilder, Untertitel, Musik,
-   Thumbnail; Hochformat für Shorts/Reels/TikTok, Querformat für lange Videos.
+4. **Bauen und fertiges Video pruefen** – Sprecherstimme, passende Clips/Bilder,
+   Untertitel, Musik, Thumbnail; Technik messen und Video von der KI bewerten.
+5. **Deine Freigabe** – fertige Vorschau aufs Handy. Heute pruefst und laedst
+   du selbst hoch; geplant: **Freigeben / Aendern / Verwerfen** mit gespeichertem
+   Status. Nichts geht ohne dich online.
 6. **Hochladen** – zur geplanten Uhrzeit, je Plattform passend beschriftet,
    mit KI-Kennzeichnung („altered or synthetic content").
 7. **Auswertung** – Aufrufe, Wiedergabezeit, Abos, Klicks, Leads – fließt in

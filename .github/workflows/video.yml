@@ -15,8 +15,8 @@ on:
     # beiden Jahreszeiten nach dem Neustart; veroeffentlicht wird erst 15:00 NY.
     - cron: '23 8 * * *'   # 10:23 Berlin Sommer / 09:23 Winter
     - cron: '41 10 * * *'  # Ersatz, falls der erste ausfaellt
-    # GEMELDET 05.10.2026: nichts unter 8/10 - weitere Fenster fuer Kanaele, die heute
-    # noch kein Video mit 8+ haben (Vorpruefung ueberspringt alle anderen, kostet dann ~1 Min.)
+    # Freigabe ab Skript und Video 9/10 - weitere Fenster fuer Kanaele, die heute
+    # noch kein freigegebenes Video haben (Vorpruefung ueberspringt alle anderen).
     - cron: '23 13 * * *'  # 15:23 Berlin
     - cron: '41 15 * * *'  # 17:41 Berlin - letzte Chance fuer 21:00 Veroeffentlichung
   workflow_dispatch:
@@ -27,11 +27,11 @@ on:
       thema:
         description: 'optional: festes Thema'
         default: ''
-# Zeitplan-Starts (GitHub-schedule und Cloudflare kanal=alle) laufen nacheinander: der
-# zweite sieht dann das Video des ersten und ueberspringt den Kanal - keine Doppelten.
+# Video- und Themen-Laeufe teilen dieselben Dateien: alle Schreiblaeufe seriell.
 concurrency:
-  group: video-${{ (github.event_name == 'schedule' || inputs.kanal == 'alle') && 'zeitplan' || github.run_id }}
+  group: contentfabrik-zustand
   cancel-in-progress: false
+  queue: max  # wartende Themen-/Video-Laeufe nicht durch neuere Starts ersetzen
 permissions:
   contents: write   # Themen-Verlauf zurueckschreiben
 jobs:
@@ -41,17 +41,21 @@ jobs:
       kanaele: ${{ steps.offen.outputs.kanaele }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - id: offen
         env:
           EREIGNIS: ${{ github.event_name }}
           EINGABE: ${{ inputs.kanal }}
         run: |
           python3 - <<'EOF'
-          import json, os, datetime
+          import json, os, sys
           from pathlib import Path
-          # Neuer Kanal = hier eintragen (plus kanaele/<name>.json).
-          alle = ['ai-tools-explained', 'business-origin-stories']
-          heute = datetime.date.today().isoformat()
+          sys.path.insert(0, 'fabrik')
+          import budget
+          from lauf import BUDGET_S, SENDEN_S
+          alle = sorted(p.stem for p in Path('kanaele').glob('*.json'))
+          heute = budget.heute()
           # kanal=alle: Start durch den Cloudflare-Zeitplan (puenktlich) - gleiche Regel wie schedule
           if os.environ['EREIGNIS'] == 'schedule' or os.environ['EINGABE'] == 'alle':
               offen = []
@@ -59,10 +63,14 @@ jobs:
                   p = Path(f'verlauf/{k}.json')
                   v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
                   # nur GESENDETE Videos zaehlen - verworfene Versuche nicht
-                  if not any(e.get('datum') == heute and e.get('status', 'gesendet') == 'gesendet' for e in v):
+                  if not any(e.get('datum') == heute and e.get('status') == 'gesendet' for e in v) \
+                          and budget.rest(k, BUDGET_S) > SENDEN_S:
                       offen.append(k)
           else:
-              offen = [os.environ['EINGABE']]
+              kanal = os.environ['EINGABE'] or 'business-origin-stories'
+              if kanal not in alle:
+                  raise SystemExit('Unbekannter Kanal')
+              offen = [kanal] if budget.rest(kanal, BUDGET_S) > SENDEN_S else []
           print('Offen:', offen)
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
               f.write(f'kanaele={json.dumps(offen)}\n')
@@ -71,13 +79,16 @@ jobs:
     needs: vorpruefung
     if: needs.vorpruefung.outputs.kanaele != '[]'
     runs-on: ubuntu-latest
-    timeout-minutes: 75   # bis zu 2 Versuche je ~15-25 Min.
+    timeout-minutes: 45   # Tagesbudget 30 Min. plus Einrichtung/Sicherung
     strategy:
       fail-fast: false
+      max-parallel: 1  # Warteschlange/Budget des vorherigen Kanals zuerst sichern
       matrix:
         kanal: ${{ fromJSON(needs.vorpruefung.outputs.kanaele) }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -111,8 +122,9 @@ jobs:
           key: clips-${{ matrix.kanal }}-${{ github.run_id }}
           restore-keys: clips-
       - name: Erzeugen, pruefen, lernen, senden
-        # fabrik/lauf.py: bis zu 2 Versuche, gesendet wird nur ab KI-Note 8;
-        # aus jeder Pruefung lernt der Kanal Regeln (lernen/<kanal>.json).
+        # fabrik/lauf.py: Erstbau und bis zu 2 gezielte Korrekturen im Tagesbudget;
+        # gesendet wird ab Story und Video 9/10, jeder Kategorie 8/10,
+        # mit bestandenen Fakten- und Technikpruefungen.
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}  # Zweitpruefer (fabrik/zweit.py)
@@ -123,17 +135,29 @@ jobs:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python fabrik/lauf.py "kanaele/${{ matrix.kanal }}.json" "${{ inputs.thema }}"
+          KANAL: ${{ matrix.kanal }}
+          THEMA: ${{ inputs.thema }}
+        run: python fabrik/lauf.py "kanaele/${KANAL}.json" "$THEMA"
       - name: Verlauf und Gelerntes sichern
         if: always()
         run: |
           git config user.name 'contentfabrik-bot'
           git config user.email 'contentfabrik-bot@users.noreply.github.com'
-          git add verlauf lernen themen 2>/dev/null || true
+          for pfad in verlauf lernen themen; do
+            [ ! -d "$pfad" ] || git add -- "$pfad"
+          done
           git diff --cached --quiet && exit 0
           git commit -qm "Verlauf/Lernen ${{ matrix.kanal }}"
-          # Zwei Kanaele schreiben gleichzeitig - bei Kollision neu aufsetzen
-          for i in 1 2 3 4 5; do git pull -q --rebase && git push -q && break; sleep $((i * 5)); done
+          for i in 1 2 3 4 5; do
+            git pull -q --rebase || exit 1
+            git push -q && exit 0
+            sleep $((i * 5))
+          done
+          echo "Verlauf und Budget konnten nicht gesichert werden" >&2
+          exit 1
+      - name: Qualitaetsbericht
+        if: always()
+        run: python fabrik/bericht.py
       - name: Meldung bei Fehlschlag
         if: failure()
         env:
@@ -158,3 +182,5 @@ jobs:
             ausgabe/quellen.json
             ausgabe/messung.json
             ausgabe/kritik.json
+            ausgabe/bericht.json
+            ausgabe/korrektur.json

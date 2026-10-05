@@ -1,5 +1,18 @@
 # YouTube-API-Prüfantrag (Audit) – fertige Antworten (Stand 03.10.2026)
 
+**Einordnung 05.10.2026:** Dieses Dokument protokolliert den am 04.10.
+eingereichten Antrag. Geplanter Upload (`publishAt`), Editieren/Stornieren
+und die Diagramme sind teilweise Zielarchitektur. Der aktive Tageslauf
+sendet Vorschauen zum manuellen Upload. Eine automatische Veroeffentlichung
+wird erst nach ausdruecklich gespeicherter Freigabe angebunden; siehe
+[README.md](README.md). Eine Audit-Zusage ist im Projekt nicht dokumentiert.
+
+Google dokumentiert aktuell getrennte Kontingente fuer `videos.insert`
+und `search.list` (je 100 Aufrufe/Tag), neben 10.000 Einheiten fuer andere
+Methoden. Die unten eingereichten 1.600 Einheiten je Upload beschreiben den
+damaligen Antrag, keine aktuelle Verbrauchsrechnung.
+[Primaerquelle, abgerufen 05.10.2026](https://developers.google.com/youtube/v3/determine_quota_cost).
+
 **Warum:** Ohne Prüfung bleibt jedes per API hochgeladene Video für immer privat
 (Google-Doku videos.insert). Nach der Prüfung lädt das Tool selbst hoch und
 veröffentlicht zur geplanten Zeit – du musst nichts mehr von Hand machen.

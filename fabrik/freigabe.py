@@ -9,6 +9,8 @@ Umgebung: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
 """
 import json, os, sys, uuid, urllib.request, urllib.error
 from pathlib import Path
+from qualitaet import bewerten
+from dramaturgie import videoformat
 
 GRENZE = 50 * 1024 * 1024  # Telegram-Bots duerfen hoechstens 50 MB senden
 
@@ -27,9 +29,43 @@ def telegram(methode, felder, datei=None):
     req = urllib.request.Request(f'https://api.telegram.org/bot{token}/{methode}', data=b''.join(teile),
                                  headers={'Content-Type': f'multipart/form-data; boundary={grenze}'})
     try:
-        return json.load(urllib.request.urlopen(req, timeout=300))
+        with urllib.request.urlopen(req, timeout=300) as r:
+            antwort = json.load(r)
     except urllib.error.HTTPError as e:
-        sys.exit(f'Telegram lehnt ab ({e.code}): {e.read().decode(errors="replace")[:300].replace(token, "***")}')
+        raise RuntimeError(f'Telegram lehnt ab ({e.code}): '
+                           + e.read().decode(errors='replace')[:300].replace(token, '***')) from None
+    if antwort.get('ok') is not True:
+        raise RuntimeError('Telegram hat die Zustellung nicht bestaetigt')
+    return antwort
+
+
+def esc(text):
+    return str(text).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+
+
+def kopiertexte(text, grenze=3500):
+    """HTML-Nachrichten aufteilen, ohne Entitaeten oder Text abzuschneiden.
+
+    Vorsichtshalber auch UTF-16-Laenge des escapten Textes begrenzen.
+    Telegram bekommt damit vollstaendige Quellen-/Lizenzangaben.
+    """
+    teil, laenge = [], 0
+    for zeichen in text:
+        escaped = esc(zeichen)
+        n = len(escaped.encode('utf-16-le')) // 2
+        if teil and laenge + n > grenze:
+            yield '<code>' + ''.join(teil) + '</code>'
+            teil, laenge = [], 0
+        teil.append(escaped)
+        laenge += n
+    if teil:
+        yield '<code>' + ''.join(teil) + '</code>'
+
+
+def kopieren_senden(chat, titel, text):
+    for nr, teil in enumerate(kopiertexte(text), 1):
+        telegram('sendMessage', {'chat_id': chat, 'parse_mode': 'HTML',
+                                 'text': f'<b>{esc(titel)} (Teil {nr}):</b>\n' + teil})
 
 
 def verkleinern(video_pfad):
@@ -70,26 +106,32 @@ def planungszeit(uhrzeit_ny, jetzt=None):
 
 def senden(skript_pfad, video_pfad):
     skript = json.loads(Path(skript_pfad).read_text(encoding='utf-8'))
+    kritik_pfad = Path(skript_pfad).with_name('kritik.json')
+    kritik = json.loads(kritik_pfad.read_text(encoding='utf-8')) if kritik_pfad.exists() else None
+    note, gruende = bewerten(skript, kritik)
+    if gruende:
+        raise ValueError('Video bleibt gesperrt: ' + '; '.join(gruende))
     video = Path(video_pfad).read_bytes()
+    komprimiert = False
     if len(video) > GRENZE * 0.98:
         # GEMESSEN: 121-s-Video = 56 MB, Telegram-Bots duerfen hoechstens 50 MB
         # senden -> der Nutzer bekam „Lauf abgebrochen" statt des Videos.
         # Kopie mit passender Bitrate, gleiche Aufloesung, Ton unveraendert.
         video = verkleinern(video_pfad)
+        komprimiert = True
         if len(video) > GRENZE:
             sys.exit(f'Video auch verkleinert zu gross ({len(video) // 2**20} MB > 50 MB)')
     titel = ' '.join(z.replace('*', '') for z in skript['titel'])
+    lang = videoformat(skript) == 'lang'
     tags = ' '.join('#' + h.lstrip('#') for h in skript.get('hashtags', []))
     # CC-Lizenzen verlangen Urheber, Lizenz und Quelle - automatisch anhaengen
     qpfad = Path(skript_pfad).with_name('quellen.json')
-    fotos = [q for q in (json.loads(qpfad.read_text(encoding='utf-8')) if qpfad.exists() else [])
-             if q.get('quelle') == 'Wikimedia Commons']
-    musik = [q for q in (json.loads(qpfad.read_text(encoding='utf-8')) if qpfad.exists() else [])
-             if q.get('quelle') == 'Musik']
+    quellen = json.loads(qpfad.read_text(encoding='utf-8')) if qpfad.exists() else []
+    fotos = [q for q in quellen if q.get('quelle') == 'Wikimedia Commons']
+    musik = [q for q in quellen if q.get('quelle') == 'Musik']
     if musik:
         skript['beschreibung'] += '\n' + musik[0]['nennung']
-    if any(q.get('quelle') == 'Illustration' for q in (json.loads(qpfad.read_text(encoding='utf-8'))
-                                                       if qpfad.exists() else [])):
+    if any(q.get('quelle') == 'Illustration' for q in quellen):
         skript['beschreibung'] += '\nIllustrations are AI-generated.'
     if fotos:
         skript['beschreibung'] += '\nPhotos (Wikimedia Commons): ' + '; '.join(
@@ -105,39 +147,39 @@ def senden(skript_pfad, video_pfad):
             if any('SA' in q['lizenz'] for q in fotos) else '')
     chat = os.environ['TELEGRAM_CHAT_ID']
     # 1. Das Video selbst - kurze Bildunterschrift, damit es gut lesbar bleibt
-    # GEMELDET 04.10.2026: ein 3/10-Video kam wie jedes andere an. Unter 6 unuebersehbar warnen.
-    k_pfad = Path(skript_pfad).with_name('kritik.json')
-    k_note = json.loads(k_pfad.read_text(encoding='utf-8')).get('note', 10) if k_pfad.exists() else 10
-    warnung = (f'⛔ NICHT HOCHLADEN – nur {k_note}/10, kein besseres Video im Zeitbudget.\n\n'
-               if k_note < 6 else '')
     telegram('sendVideo', {'chat_id': chat, 'supports_streaming': 'true',
-                           'caption': warnung + f"🎬 {skript['kanal']}\n{titel}\n\nPrüfung: "
-                                      f"{'✅ bestanden' if skript.get('pruefung', {}).get('ok') else '⚠️ offen'}"},
+                           'caption': f"🎬 {skript['kanal'][:100]}\n{titel[:200]}\n\n"
+                                      f"✅ Fakten und Technik bestanden · Original {note}/10"
+                                      + ('\nKomprimierte Vorschau; Original siehe Begleitnachricht.'
+                                         if komprimiert and os.environ.get('CF_ORIGINAL_URL') else
+                                         '\nFuer Telegram komprimierte Kopie.' if komprimiert else '')},
              (Path(video_pfad).name, video))
     # 2. Die Texte einzeln - antippen kopiert sie (Monospace-Format in Telegram)
-    def code(t):
-        return '<code>' + t.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;') + '</code>'
     zeit = planungszeit(skript.get('posten_ny', '15:00'))
-    kritik_pfad = Path(skript_pfad).with_name('kritik.json')
-    kritik = json.loads(kritik_pfad.read_text(encoding='utf-8')) if kritik_pfad.exists() else None
-    def esc(t):
-        return str(t).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
     pruef = ''
     if kritik:
-        note = kritik['note']
-        pruef = (f"{'🟢' if note >= 8 else '🟡' if note >= 6 else '🔴'} <b>KI-Prüfung: {note}/10</b> – "
-                 f"{esc(kritik['fazit'])}\n"
-                 + ''.join(f"• {esc(p['zeit'])} {esc(p['text'])}\n" for p in kritik['probleme'][:5])
-                 + ''.join(f'• ⚙️ {esc(b)}\n' for b in kritik.get('technik', {}).get('befunde', []))
+        pruef = (f"🟢 <b>KI-Prüfung: {note}/10</b> – "
+                 f"{esc(kritik.get('fazit', '')[:200])}\n"
+                 + ''.join(f"• {esc(p.get('zeit', '')[:10])} {esc(p.get('text', '')[:120])}\n"
+                           for p in kritik.get('probleme', [])[:5])
                  + '\n')
     story = skript.get('story')
     if story:
         pruef = f"📖 <b>Story: {story['note']}/10</b>\n" + pruef
     text = (pruef + (f'⏰ <b>Planen für: {zeit}</b>\n\n' if zeit else '')
-            + '<b>Zum Hochladen (antippen = kopieren):</b>\n\nTitel:\n' + code(f'{titel} #shorts')
-            + '\n\nBeschreibung:\n' + code(f"{skript['beschreibung']}\n\n{tags}")
-            + '\n\n<i>In der App „Veränderte oder synthetische Inhalte“ auf „Ja“ stellen (KI-Stimme).</i>')
+            + '<i>In der App „Veränderte oder synthetische Inhalte“ auf „Ja“ stellen (KI-Stimme).</i>')
     antwort = telegram('sendMessage', {'chat_id': chat, 'parse_mode': 'HTML', 'text': text})
+    original = os.environ.get('CF_ORIGINAL_URL', '')
+    if original:
+        telegram('sendMessage', {'chat_id': chat, 'text':
+                 'Original in voller Qualitaet, Skript und Pruefbericht im privaten GitHub-Artefakt '
+                 '(GitHub-Anmeldung erforderlich):\n' + original})
+    kopieren_senden(chat, 'Skript', '\n\n'.join(t['text'] for t in skript['teile']))
+    kopieren_senden(chat, 'YouTube-Titel', titel if lang else f'{titel} #shorts')
+    kopieren_senden(chat, 'YouTube-Beschreibung', f"{skript['beschreibung']}\n\n{tags}")
+    if lang:
+        print('Gesendet:', antwort.get('ok'))
+        return
     # 3. TikTok von Hand - eigene Nachricht, damit die Texte nicht an Telegrams
     # 4096-Zeichen-Grenze stossen. GEMESSEN 03.10.2026: Ein neues Konto wurde
     # nach API-Uploads einer ungeprueften App gesperrt („Spam und irrefuehrendes
@@ -146,9 +188,11 @@ def senden(skript_pfad, video_pfad):
     # auch auf TikTok - Musik/Fotos stehen deshalb mit im Text.
     nennung = '\n'.join(z for z in skript['beschreibung'].split('\n') if z.startswith(('Music:', 'Photos')))
     tiktok = f'{titel} {tags}' + (f'\n\n{nennung}' if nennung else '')
-    telegram('sendMessage', {'chat_id': chat, 'parse_mode': 'HTML', 'text':
-             '📱 <b>TikTok</b> (Text antippen = kopieren):\n\n' + code(tiktok[:2200])
-             + '\n\n<i>Beim Posten „Weitere Optionen“ → „KI-generierte Inhalte“ einschalten.</i>'})
+    if len(tiktok) > 2200:
+        telegram('sendMessage', {'chat_id': chat, 'text':
+                 '📱 TikTok-Text ist laenger als 2.200 Zeichen. Titel/Hashtags vor dem Posten kuerzen; '
+                 'Quellen- und Lizenzangaben vollstaendig erhalten. KI-generierte Inhalte einschalten.'})
+    kopieren_senden(chat, 'TikTok (KI-generierte Inhalte einschalten)', tiktok)
     print('Gesendet:', antwort.get('ok'))
 
 

@@ -1,48 +1,73 @@
-"""Ein Video je Kanal - mit Qualitaetsschwelle und Lernen.
+"""Skript -> Video -> Pruefung -> Lernen -> Telegram-Vorschau.
 
-Ablauf je Versuch: Skript (mit gelernten Regeln) -> Video -> KI-Pruefung ->
-Regeln aus der Pruefung lernen. Ab Note 8 wird das Video aufs Handy geschickt;
-darunter neue Versuche (GEMELDET: „solange bis wir 8/10 oder drueber haben"),
-jeder mit den frisch gelernten Regeln und den Problemen des Vorversuchs.
-Grenze ist ein Zeitbudget je Kanal und Tag: Ohne Grenze koennte ein schwerer
-Tag das Gratis-Kontingent (2.000 Min./Monat) aufbrauchen - dann stoppt GitHub
-alle Laeufe bis Monatsende und es gaebe GAR KEINE Videos mehr.
-Ist das Budget erreicht: das BESTE Video trotzdem, mit Note und Gruenden
-(taeglicher Beitrag ist fuer die Kanaele Pflicht). Kein Video nur, wenn die
-Faktenpruefung bei allen Themen scheitert - Falschaussagen gehen nie raus.
-
-GEMELDET: „Bitte nur 9/10 oder 10/10 posten" -> „8/10 kann auch gehen, aber
-das Tool soll aus dem Feedback lernen und besser werden".
-
-Aufruf:  python fabrik/lauf.py kanaele/ai-tools-explained.json [thema]
+Nur mit bestandener Fakten- und Technikpruefung und Skript-/Video-Note >= 9. Ziel bleibt
+10/10; alle Zeitfenster teilen sich ein gespeichertes Tagesbudget je Kanal.
+Aufruf: python fabrik/lauf.py kanaele/ai-tools-explained.json [thema]
 """
-import datetime, json, os, re, shutil, subprocess, sys, time, urllib.parse, urllib.request
+import datetime, json, os, re, shutil, signal, subprocess, sys, time, urllib.parse, urllib.request, uuid
 from pathlib import Path
+import budget
+from qualitaet import SCHWELLE, bewerten, skript_gruende, rang
 
 # GEMELDET: „Das Ziel ist immer 10/10, nicht bis 8/10." Verbessert wird bis
-# 10 oder bis das Zeitbudget erreicht ist; unter 8 gibt es zusaetzlich eine Warnung.
+# 10 oder bis das Zeitbudget erreicht ist; unter 9 bleibt das Video gesperrt.
 ZIEL = 10
-SCHWELLE = 8
 # 2.000 Gratis-Minuten / 30 Tage / 2 Kanaele = ~33 Min. je Kanal und Tag
 BUDGET_S = 30 * 60      # Zeitbudget je Kanal und Tag
 VERSUCH_S = 25 * 60     # gemessen: ~12 Min. Bau + bis zu 15 Min. Skript mit Story-Pruefung
 VERSUCHE_MAX = 5
+KORREKTUREN_MAX = 2
+KORREKTUR_S = 4 * 60   # Mindestreserve fuer Plan, Teilbau und erneute Pruefung
+SENDEN_S = 180  # Zeit fuer Kopie und Telegram innerhalb des Budgets lassen
 PY = sys.executable
 
 
 def melden(text):
+    if os.environ.get('CF_PILOT') == '1':
+        print(text)
+        return
     token, chat = os.environ.get('TELEGRAM_BOT_TOKEN'), os.environ.get('TELEGRAM_CHAT_ID')
     if token and chat:
-        urllib.request.urlopen(f'https://api.telegram.org/bot{token}/sendMessage', data=urllib.parse.urlencode(
-            {'chat_id': chat, 'text': text}).encode(), timeout=30)
+        try:
+            with urllib.request.urlopen(f'https://api.telegram.org/bot{token}/sendMessage',
+                    data=urllib.parse.urlencode({'chat_id': chat, 'text': text}).encode(), timeout=30) as r:
+                if json.load(r).get('ok') is not True:
+                    print('Statusmeldung wurde von Telegram abgelehnt')
+        except Exception:
+            print('Statusmeldung konnte nicht zugestellt werden')
 
 
-def verlauf_eintragen(kanal, skript, status, note, abschnitte=None):
+def schritt(argumente, deadline):
+    """Bei Zeitablauf auch ffmpeg/andere Kindprozesse des Arbeiters beenden."""
+    rest = deadline - time.monotonic()
+    if rest <= 0:
+        raise subprocess.TimeoutExpired(argumente, 0)
+    p = subprocess.Popen([PY, *argumente], start_new_session=os.name != 'nt')
+    try:
+        return p.wait(timeout=rest)
+    except subprocess.TimeoutExpired:
+        if os.name == 'nt':
+            try:
+                subprocess.run(['taskkill', '/PID', str(p.pid), '/T', '/F'], capture_output=True,
+                               creationflags=subprocess.CREATE_NO_WINDOW, timeout=15)
+            finally:
+                if p.poll() is None:
+                    p.kill()
+        else:
+            try:
+                os.killpg(p.pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass
+        p.wait()
+        raise
+
+
+def verlauf_eintragen(kanal, skript, status, note, abschnitte=None, messung=None):
     p = Path('verlauf') / f'{kanal}.json'
     p.parent.mkdir(exist_ok=True)
     v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
     # Wird ein zuerst verworfener Versuch doch gesendet: nur EIN Eintrag je Thema und Tag
-    heute = datetime.date.today().isoformat()
+    heute = budget.heute()
     v = [e for e in v if not (e.get('datum') == heute and e.get('thema') == skript['thema'])]
     # GEMELDET: aus erfolgreichen Videos Stimmen, Einstellungen UND Story-Aufbau
     # lernen - darum alles festhalten, was ein Video ausmacht (erfolg.py wertet aus).
@@ -52,100 +77,237 @@ def verlauf_eintragen(kanal, skript, status, note, abschnitte=None):
            else 'widerspruch' if re.search(r'\b(but|yet|never|only|nobody|without)\b', erster, re.I) else 'aussage')
     worte = sum(len(t['text'].split()) for t in teile)
     story = skript.get('story') or {}
-    v.append({'datum': datetime.date.today().isoformat(), 'thema': skript['thema'], 'titel': skript['titel'],
+    v.append({'datum': heute, 'thema': skript['thema'], 'titel': skript['titel'],
               'status': status, 'note': note, 'hook': erster,
               'einstellungen': {'stimme': skript.get('stimme'), 'winkel': skript.get('winkel'),
                                 'format': skript.get('format'), 'hook_art': art, 'teile': len(teile),
+                                'videoformat': skript.get('videoformat', 'short'),
                                 'laenge': 'kurz' if worte < 190 else 'mittel' if worte < 240 else 'lang',
                                 'story_note': story.get('note')},
               'gliederung': [' '.join(t['text'].split()[:7]) for t in teile],
               'abschnitte_s': abschnitte})
+    v[-1]['einstellungen'].update(
+        tempo=(messung or {}).get('tempo', skript.get('tempo', 1.05)),
+        untertitel_profil=skript.get('untertitel_profil', 'standard'),
+        musik_pegel=skript.get('musik_pegel', 0.1), effekt_pegel=skript.get('effekt_pegel', 1.0))
     p.write_text(json.dumps(v, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
 
 
 def main(kanal_pfad, thema=''):
-    import lernen, themen
+    import themen
     kanal = Path(kanal_pfad).stem
+    budgetkanal = f'pilot-{kanal}' if os.environ.get('CF_PILOT') == '1' else kanal
+    if not Path(kanal_pfad).is_file():
+        raise ValueError(f'Kanal-Datei fehlt: {kanal_pfad}')
+    if budget.rest(budgetkanal, BUDGET_S) <= SENDEN_S:
+        print(f'{kanal}: Tagesbudget verbraucht - keine neue Produktion')
+        return 0
+    reservierung = budget.reservieren(budgetkanal, BUDGET_S)
+    start = time.monotonic()
+    try:
+        return produzieren(kanal_pfad, kanal, thema, start, reservierung[0], themen)
+    finally:
+        budget.abschliessen(budgetkanal, reservierung, time.monotonic() - start)
+
+
+def produzieren(kanal_pfad, kanal, thema, start, frei, themen):
+    import lernen
     # Thema aus Telegram hat Vorrang (GEMELDET: eigene Themen einbringen)
     if not thema:
         thema = themen.nehmen(kanal)
         if thema:
             print(f'Thema aus Telegram: {thema}')
-    bester = None  # (note, ordner, kritik)
-    start = time.time()
+    festes_thema = thema
+    bester = None  # nur Kandidaten mit bestandenen Pruefungen
+    arbeit_ende = start + frei - SENDEN_S
+    letzter_grund = 'Kein Versuch abgeschlossen'
     versuch = 0
+    korrekturen = 0
+    basis = None  # bereits gebautes Video, das weiter verbessert/geprueft wird
+    ausstehende_korrektur = None  # auch nach einem Ausfall der Video-Pruefung
+    bericht = {'id': os.environ.get('GITHUB_RUN_ID') or uuid.uuid4().hex,
+               'kanal': kanal, 'datum': budget.heute(), 'runden': [], 'status': 'offen'}
+    def protokoll(status):
+        bericht['status'] = status
+        bericht['sekunden'] = round(time.monotonic() - start, 1)
+        aus = Path('ausgabe')
+        aus.mkdir(exist_ok=True)
+        (aus / 'bericht.json').write_text(json.dumps(bericht, indent=2, ensure_ascii=False), encoding='utf-8')
+        pfad = Path('verlauf/messungen') / f'{kanal}.json'
+        pfad.parent.mkdir(parents=True, exist_ok=True)
+        liste = json.loads(pfad.read_text(encoding='utf-8')) if pfad.exists() else []
+        liste = [e for e in liste if e.get('id') != bericht['id']]
+        pfad.write_text(json.dumps((liste + [bericht])[-60:], indent=2, ensure_ascii=False), encoding='utf-8')
     # Neuer Versuch nur, wenn er noch sicher ins Zeitbudget passt
-    while versuch < VERSUCHE_MAX and (versuch == 0 or time.time() - start + VERSUCH_S <= BUDGET_S):
+    while versuch < VERSUCHE_MAX and (versuch == 0 or time.monotonic()
+            + (KORREKTUR_S if basis else VERSUCH_S) <= arbeit_ende):
         versuch += 1
         ordner = Path(f'versuch{versuch}')
         shutil.rmtree(ordner, ignore_errors=True)
-        r = subprocess.run([PY, 'fabrik/skript.py', kanal_pfad, str(ordner / 'skript.json'), thema])
-        if r.returncode == 2:  # Faktenpruefung fuer alle Themen nicht bestanden
-            if (ordner / 'skript.json').exists():
-                verlauf_eintragen(kanal, json.loads((ordner / 'skript.json').read_text(encoding='utf-8')),
-                                  'faktenpruefung', None)
-            continue
-        # GEMESSEN 04.10.2026: Ein Absturz im Skript (statt Code 2) kippte den ganzen Lauf -
-        # kein Video an diesem Tag. Jeder Fehler zaehlt jetzt nur als ein verbrauchter Versuch.
-        if r.returncode != 0:
-            print(f'Versuch {versuch}: Skript fehlgeschlagen (Code {r.returncode}) - naechster Versuch')
-            continue
-        b = subprocess.run([PY, 'fabrik/bauen.py', str(ordner / 'skript.json'), str(ordner)])
-        if b.returncode != 0:
-            print(f'Versuch {versuch}: Videobau fehlgeschlagen - naechster Versuch')
-            continue
-        skript = json.loads((ordner / 'skript.json').read_text(encoding='utf-8'))
-        k = subprocess.run([PY, 'fabrik/kritik.py', str(ordner / 'short.mp4'), str(ordner / 'skript.json'),
-                            str(ordner / 'kritik.json')])
-        if k.returncode != 0 or not (ordner / 'kritik.json').exists():
-            # Pruefung nicht erreichbar: lieber ungeprueftes Video mit Hinweis als keins
-            print('KI-Pruefung nicht verfuegbar - Video geht ohne Note raus')
-            bester = (SCHWELLE, ordner, None)
+        rundenstart = time.monotonic()
+        plan = None
+        runde = {'runde': versuch, 'art': 'korrektur' if basis else 'produktion'}
+        bericht['runden'].append(runde)
+        try:
+            if basis:
+                if basis[1] is None:
+                    # Ein API-Ausfall rechtfertigt kein neues Skript oder Rendern.
+                    shutil.copytree(basis[0], ordner)
+                    r = 0
+                    runde['art'] = 'pruefung_wiederholen'
+                elif korrekturen < KORREKTUREN_MAX:
+                    korrekturen += 1
+                    r = schritt(['fabrik/nachbessern.py', str(basis[0]), kanal_pfad, str(ordner)], arbeit_ende)
+                    if r == 2:
+                        letzter_grund = 'Keine weitere gezielte Korrektur moeglich'
+                        runde['status'] = 'keine_korrektur'
+                        break
+                    if r == 0:
+                        plan = json.loads((ordner / 'korrektur.json').read_text(encoding='utf-8'))
+                        runde['plan'] = plan
+                        ausstehende_korrektur = {'vorher': basis[1], 'plan': plan,
+                                                'start': rundenstart,
+                                                'id': f'{bericht["id"]}-{versuch}'}
+                else:
+                    runde['status'] = 'korrekturgrenze'
+                    break
+            else:
+                r = schritt(['fabrik/skript.py', kanal_pfad, str(ordner / 'skript.json'), thema], arbeit_ende)
+            if r != 0:
+                letzter_grund = ('Faktenpruefung nicht bestanden' if r == 2 else
+                                'Skriptqualitaet unter Freigabe' if r == 3 else f'Skript fehlgeschlagen (Code {r})')
+                print(f'Versuch {versuch}: {letzter_grund}')
+                runde['status'] = 'skriptfehler'
+                if basis:
+                    break
+                if (ordner / 'skript.json').exists():
+                    verlauf_eintragen(kanal, json.loads((ordner / 'skript.json').read_text(encoding='utf-8')),
+                                      'faktenpruefung' if r == 2 else 'skriptqualitaet' if r == 3 else 'skriptfehler', None)
+                continue
+            skript = json.loads((ordner / 'skript.json').read_text(encoding='utf-8'))
+            skriptfehler = skript_gruende(skript)
+            if skriptfehler:
+                letzter_grund = '; '.join(skriptfehler)
+                runde.update(status='skriptqualitaet', sperrgruende=skriptfehler)
+                verlauf_eintragen(kanal, skript, 'skriptqualitaet', None)
+                if basis:
+                    break
+                continue
+            b = (0 if basis and basis[1] is None else schritt(
+                ['fabrik/bauen.py', str(ordner / 'skript.json'), str(ordner)]
+                + ([str(basis[0])] if basis else []), arbeit_ende))
+            if b != 0:
+                letzter_grund = 'Videobau fehlgeschlagen'
+                print(f'Versuch {versuch}: {letzter_grund}')
+                verlauf_eintragen(kanal, skript, 'baufehler', None)
+                runde['status'] = 'baufehler'
+                if basis:
+                    break
+                continue
+            (ordner / 'kritik.json').unlink(missing_ok=True)
+            k = schritt(['fabrik/kritik.py', str(ordner / 'short.mp4'), str(ordner / 'skript.json'),
+                         str(ordner / 'kritik.json')], arbeit_ende)
+            if k != 0 or not (ordner / 'kritik.json').exists():
+                letzter_grund = 'Video-Pruefung nicht verfuegbar'
+                print(letzter_grund + ' - Video bleibt gesperrt')
+                verlauf_eintragen(kanal, skript, 'pruefung_fehlt', None)
+                runde['status'] = 'pruefung_fehlt'
+                basis = (ordner, None)
+                continue
+            kritik = json.loads((ordner / 'kritik.json').read_text(encoding='utf-8'))
+            note, gruende = bewerten(skript, kritik)
+            messung = json.loads((ordner / 'messung.json').read_text(encoding='utf-8')) \
+                if (ordner / 'messung.json').exists() else {}
+            runde.update(note=note, sperrgruende=gruende, messung=messung,
+                         kategorien=kritik.get('kategorien', {}), probleme=kritik.get('probleme', []),
+                         sekunden=round(time.monotonic() - rundenstart, 1), status='geprueft')
+            if ausstehende_korrektur:
+                a = ausstehende_korrektur
+                runde['plan'] = a['plan']
+                runde['lernergebnis'] = lernen.korrektur_eintragen(
+                    kanal, a['vorher'], kritik, a['plan'], time.monotonic() - a['start'], a['id'])
+                ausstehende_korrektur = None
+        except subprocess.TimeoutExpired:
+            letzter_grund = 'Zeitbudget erreicht (Arbeiter beendet)'
+            print(letzter_grund)
+            runde['status'] = 'zeitbudget'
             break
-        kritik = json.loads((ordner / 'kritik.json').read_text(encoding='utf-8'))
-        technik = kritik.get('technik', {}).get('befunde', [])
-        note = kritik['note'] - (1 if technik else 0)  # harte Technikfehler kosten einen Punkt
+        except (ValueError, KeyError, TypeError, OSError) as e:
+            letzter_grund = f'Versuch fehlgeschlagen ({type(e).__name__})'
+            print(letzter_grund)
+            runde['status'] = 'fehler'
+            if basis:
+                break
+            continue
+        finally:
+            runde.setdefault('sekunden', round(time.monotonic() - rundenstart, 1))
+            if ausstehende_korrektur and 'lernergebnis' not in runde:
+                # Auch abgebrochene Korrekturen bleiben sichtbar; ohne Note kein
+                # Urteil ueber den Nutzen einer Einstellung ableiten.
+                try:
+                    a = ausstehende_korrektur
+                    runde['lernergebnis'] = lernen.korrektur_eintragen(
+                        kanal, a['vorher'], {}, a['plan'], time.monotonic() - a['start'], a['id'])
+                except (OSError, ValueError):
+                    print('Korrektur-Ergebnis konnte nicht gespeichert werden')
+        print(f'Versuch {versuch}: {note}/10; Sperrgruende: {gruende}')
+        if not gruende and (bester is None or rang(kritik) > rang(bester[2])):
+            bester = (note, ordner, kritik)
+        # Weitere Korrekturen setzen auf dem besten bestandenen Video auf.
+        # Ohne bestandenen Kandidaten wird der zuletzt gepruefte Entwurf repariert.
+        basis = (bester[1], bester[2]) if bester else (ordner, kritik)
+        if not gruende and note >= ZIEL:
+            break
+        # Lernen als begrenzter Kindprozess: API-Haenger verbrauchen nicht den ganzen Tag.
         try:
             story = skript.get('story') or {}
             lern = dict(kritik)
             lern['probleme'] = kritik.get('probleme', []) + [{'zeit': '-', 'art': 'story', 'text': w}
                                                              for w in story.get('schwaechen', [])]
-            lernen.aktualisieren(kanal, lern)
-        except Exception as e:  # Lernen darf das Video nie verhindern
-            print('Lernen nicht moeglich:', str(e)[:150])
-        print(f'Versuch {versuch}: {note}/10')
-        if bester is None or note > bester[0]:
-            bester = (note, ordner, kritik)
-        if note >= ZIEL:
-            break
-        verlauf_eintragen(kanal, skript, 'unter_schwelle', note)  # Thema nicht noch einmal versuchen
-        thema = ''  # naechster Versuch: neues Thema, mit den eben gelernten Regeln
-        print(f'Unter {ZIEL}/10 - neuer Versuch ({(time.time() - start) / 60:.0f} von '
-              f'{BUDGET_S // 60} Min. verbraucht)')
+            lern['probleme'] += [{'zeit': '-', 'art': 'technik', 'text': str(b)}
+                                 for b in kritik.get('technik', {}).get('befunde', [])]
+            lp = ordner / 'lernfeedback.json'
+            lp.write_text(json.dumps(lern, ensure_ascii=False), encoding='utf-8')
+            if schritt(['fabrik/lernen.py', kanal, str(lp)], min(arbeit_ende, time.monotonic() + 90)):
+                print('Lernen fehlgeschlagen - Kandidat bleibt erhalten')
+        except Exception:
+            print('Lernen nicht moeglich - Kandidat bleibt erhalten')
+        letzter_grund = '; '.join(gruende) if gruende else f'Ziel {ZIEL}/10 noch nicht erreicht'
+        verlauf_eintragen(kanal, skript, 'unter_ziel' if gruende else 'kandidat', note)
+        thema = festes_thema
+        print(f'{(time.monotonic() - start) / 60:.1f} Min. im aktuellen Lauf verbraucht')
 
     if bester is None:
-        # GEMELDET: „heute kein Video" stimmte nicht - spaetere Zeitfenster versuchen es erneut.
-        melden(f'🔁 {kanal}: noch kein Video - kein Thema hat die Faktenprüfung bestanden. '
-               'Nächster Versuch im nächsten Zeitfenster (12:41 / 15:23 / 17:41 Uhr).')
-        return 0
+        # Den letzten Versuch fuer die Fehlersuche als Artefakt behalten.
+        if versuch and ordner.exists():
+            aus = Path('ausgabe')
+            shutil.rmtree(aus, ignore_errors=True)
+            shutil.copytree(ordner, aus)
+        melden(f'🔁 {kanal}: noch kein freigabefaehiges Video. Grund: {letzter_grund}. '
+               'Weitere Zeitfenster versuchen es nur, solange Tagesbudget uebrig ist.')
+        protokoll('gesperrt')
+        return 2 if os.environ.get('CF_PILOT') == '1' else 0
     note, ordner, kritik = bester
     aus = Path('ausgabe')
     shutil.rmtree(aus, ignore_errors=True)
     shutil.copytree(ordner, aus)
     skript = json.loads((aus / 'skript.json').read_text(encoding='utf-8'))
-    # GEMELDET 05.10.2026: „Bitte keine schlechten Videos unter 8/10." (Vorher kam das
-    # beste Video auch darunter - ein 3/10-Flop landete auf Telegram.) Unter 8 wird nichts
-    # verschickt; Status 'unter_ziel' -> das naechste Zeitfenster am selben Tag versucht
-    # den Kanal erneut (Vorpruefung zaehlt nur 'gesendet'). Gelernt wurde aus jeder Pruefung.
-    if note < SCHWELLE:
-        verlauf_eintragen(kanal, skript, 'unter_ziel', note)
-        melden(f'🔁 {kanal}: bestes Video heute erst {note}/10 (Ziel {SCHWELLE}+) - nicht verschickt. '
-               'Das Tool hat aus den Prüfungen gelernt; nächster Versuch um 12:41 / 15:23 / 17:41 Uhr.')
-        return 0
-    subprocess.run([PY, 'fabrik/freigabe.py', str(aus / 'skript.json'), str(aus / 'short.mp4')], check=True)
     messung = json.loads((aus / 'messung.json').read_text(encoding='utf-8')) \
         if (aus / 'messung.json').exists() else {}
-    verlauf_eintragen(kanal, skript, 'gesendet', note, messung.get('abschnitte_s'))
+    if os.environ.get('CF_PILOT') == '1':
+        verlauf_eintragen(kanal, skript, 'pilot', note, messung.get('abschnitte_s'), messung)
+        protokoll('pilot_bestanden')
+        return 0
+    try:
+        code = schritt(['fabrik/freigabe.py', str(aus / 'skript.json'), str(aus / 'short.mp4')], start + frei)
+    except (subprocess.TimeoutExpired, OSError):
+        protokoll('zustellfehler')
+        raise
+    if code:
+        protokoll('zustellfehler')
+        raise RuntimeError(f'Telegram-Zustellung fehlgeschlagen (Code {code})')
+    verlauf_eintragen(kanal, skript, 'gesendet', note, messung.get('abschnitte_s'), messung)
+    protokoll('gesendet')
     return 0
 
 

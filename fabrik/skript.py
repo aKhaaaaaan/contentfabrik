@@ -7,6 +7,9 @@ Aufruf:  python fabrik/skript.py kanaele/ai-tools-explained.json skripte/heute.j
 """
 import json, os, re, sys, time, urllib.error, urllib.request, datetime
 from pathlib import Path
+import prompts
+import dramaturgie
+from qualitaet import skript_gruende, redaktion, rang, STORY_KATEGORIEN
 
 # GEPRUEFT 02.10.2026: gemini-2.5-flash ist fuer neue Konten gesperrt (404);
 # gemini-3.8-flash und gemini-flash-latest antworten (200).
@@ -37,21 +40,31 @@ import atexit  # noqa: E402
 atexit.register(_verbrauch_melden)
 
 
-def gemini(prompt, schema, temperatur=0.9, bilder=(), modelle=None, dateien=()):
+def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=()):
     """bilder: JPEG-Bytes, die die KI mit ansieht (Clip-Auswahl in bauen.py).
     modelle: eigene Reihenfolge, z. B. das schnelle Lite-Modell zuerst."""
     import base64
     schluessel = os.environ['GEMINI_API_KEY']
-    teile = [{'text': prompt}] + [{'inline_data': {'mime_type': 'image/jpeg', 'data': base64.b64encode(b).decode()}}
-                                  for b in bilder] + \
-        [{'file_data': {'mime_type': m, 'file_uri': u}} for m, u in dateien]  # z. B. Video (kritik.py)
+    def bildteil(b):
+        mime = ('image/png' if b.startswith(b'\x89PNG\r\n\x1a\n') else
+                'image/webp' if b[:4] == b'RIFF' and b[8:12] == b'WEBP' else 'image/jpeg')
+        return {'inline_data': {'mime_type': mime, 'data': base64.b64encode(b).decode()}}
+    # Medien zuerst, anschliessend der konkrete Auftrag (Gemini-Medienleitfaden).
+    teile = ([bildteil(b) for b in bilder]
+             + [{'file_data': {'mime_type': m, 'file_uri': u}} for m, u in dateien]
+             + [{'text': prompt}])
     koerper = {
         'contents': [{'parts': teile}],
-        'generationConfig': {'temperature': temperatur, 'responseMimeType': 'application/json',
+        'generationConfig': {'responseMimeType': 'application/json',
                              'responseSchema': schema},
     }
     letzter = None
     for modell in modelle or MODELLE:
+        # Google empfiehlt fuer Gemini 3.x die Sampling-Standardwerte.
+        # Latest-Aliase koennen ebenfalls auf 3.x zeigen: nicht heruntersetzen.
+        koerper['generationConfig'].pop('temperature', None)
+        if temperatur is not None and not modell.startswith('gemini-3') and 'latest' not in modell:
+            koerper['generationConfig']['temperature'] = temperatur
         for versuch in range(2):
             try:
                 req = urllib.request.Request(
@@ -90,10 +103,14 @@ SKRIPT_SCHEMA = {
         'teile': {'type': 'ARRAY', 'items': {'type': 'OBJECT', 'properties': {
             'platz': {'type': 'INTEGER'}, 'name': {'type': 'STRING'},
             'suche': {'type': 'STRING'}, 'text': {'type': 'STRING'}, 'quelle_url': {'type': 'STRING'},
-            'szene': {'type': 'STRING'}},
+            'szene': {'type': 'STRING'},
+            'bildtext': {'type': 'STRING'},
+            'beat': {'type': 'STRING', 'enum': ['hook', 'frage', 'beleg', 'erklaerung', 'wendung', 'aufloesung']},
+            'bildmodus': {'type': 'STRING', 'enum': ['auto', 'foto', 'stock', 'illustration', 'karte']}},
             'required': ['suche', 'text']}},
         'beschreibung': {'type': 'STRING'},
         'hashtags': {'type': 'ARRAY', 'items': {'type': 'STRING'}},
+        'musik_suche': {'type': 'ARRAY', 'items': {'type': 'STRING'}},
     },
     'required': ['thema', 'titel_zeile1', 'titel_zeile2', 'schluesselwoerter', 'teile', 'beschreibung', 'hashtags'],
 }
@@ -189,77 +206,23 @@ STORY_SCHEMA = {
 def story_bewerten(entwurf):
     """GEMELDET: „Es bringt nichts, wenn ein Video hochqualitativ ist, aber die
     Story floppt." Bewertet NUR die Geschichte (Halten bis zum Ende) - vor dem
-    teuren Video-Bau. Note 8+ = Zuschauer bleiben voraussichtlich bis zum Schluss."""
+    teuren Video-Bau. Eine redaktionelle Note ist keine Zuschauerprognose."""
     text = '\n'.join(t['text'] for t in entwurf['teile'])
-    erg, _ = gemini('You are a top short-form storyteller and retention analyst (YouTube Shorts / TikTok). Rate '
-                    'ONLY the story of this script - would a scrolling viewer stop and stay to the very end? '
-                    'Score each 1-10:\n' + '\n'.join(f'- {k}: {v}' for k, v in STORY_KATEGORIEN.items())
-                    + '\nOverall "note" 1-10 (be strict: 8+ only if most viewers would watch to the end). List '
-                    'concrete weaknesses with the exact sentence they refer to (what keeps it from 10/10), and write the strongest possible '
-                    'alternative first sentence that stays 100% true to the facts in the script.\n\n'
-                    f'Title: {entwurf.get("titel_zeile1", "")} / {entwurf.get("titel_zeile2", "")}\nScript:\n{text}',
+    erg, _ = gemini(prompts.story(text, STORY_KATEGORIEN,
+                                  f'{entwurf.get("titel_zeile1", "")} / {entwurf.get("titel_zeile2", "")}',
+                                  dramaturgie.videoformat(entwurf)),
                     STORY_SCHEMA, temperatur=0.2)
     return erg
 
 
 def anweisung(kanal, thema, frueher):
-    lmin, lmax = kanal.get('laenge_s', [62, 90])
-    # GEMESSEN: Kokoro spricht ~2,7 Woerter/s; mit 2,5 je Sekunde gerechnet
-    # kam ein Video auf 50 s - unter der 60-s-Grenze fuer TikTok-Verguetung.
-    woerter = f'{int(lmin * 2.9)}-{int(lmax * 2.9)}'
-    fmt = kanal.get('format', 'ranking')
-    # Wechselnder Blickwinkel je Tag - dieselben belegten Daten, anders erzaehlt
-    # (Analyse: viral gehen Nutzen, Neuheit, Ueberraschung; YouTube bestraft
-    # gleichfoermige Massenware).
+    import prompts
+    lmin, lmax = dramaturgie.laengen(kanal)
+    wmin, wmax = (2.35, 2.65) if dramaturgie.videoformat(kanal) == 'lang' else (2.75, 2.9)
+    woerter = f'{int(lmin * wmin)}-{int(lmax * wmax)}'
     winkel = kanal.get('winkel', [])
-    # Erfolgs-Gedaechtnis waehlt (erfolg.py); ohne Wahl: nach Tag abwechseln
     blick = kanal.get('_winkel') or (winkel[datetime.date.today().toordinal() % len(winkel)] if winkel else '')
-    if fmt == 'ranking':
-        pmin, pmax = kanal.get('plaetze', [5, 7])
-        aufbau = (f'RANKING format with {pmin}-{pmax} entries. First part: a hook without a rank. '
-                  + ('Rank strictly by the numbers in the sources (stars, likes, downloads) - the biggest is number 1. '
-                     if kanal.get('nur_quellen') else '') +
-                  'Then the ranked entries as a COUNTDOWN from the highest number down to number 1 (e.g. 6-5-4-3-2-1). '
-                  'Each ranked entry has "platz" (its rank) and "name" (max 2 words). Last part: short call to action '
-                  '(follow for more), no rank.')
-    else:
-        # GEMESSEN: Geschichten kamen in 6 Anlaeufen nicht auf die Mindestlaenge (128-169 Woerter)
-        aufbau = ('STORY format with 6-7 parts of 25-35 words each: first part is a strong hook (a surprising fact or question), then 4-6 parts that '
-                  'tell the story in order with tension, last part a short takeaway plus call to action. No "platz".')
-    return f"""You write scripts for the faceless YouTube Shorts / TikTok channel "{kanal['name']}" (language: English).
-{('Topic: ' + thema) if thema else 'Pick ONE fresh, specific topic that is proven to perform in this niche right now.'}
-Do NOT repeat these earlier topics: {frueher or 'none'}.
-
-Rules:
-- {aufbau}
-- Total spoken length {woerter} words (the video must be longer than 60 seconds).
-{('- ANGLE for today (title, hook and wording follow it): ' + blick) if blick else ''}
-{"- NORMAL VIEWERS, NOT DEVELOPERS: every entry starts with what a normal person can DO with it (from its source), then one number that proves it. Avoid jargon like 'image-text-to-text' - say 'reads pictures and answers questions about them'. Say 'free' only if the source shows it is open source or free to download." if kanal.get('nur_quellen') else ''}
-- The first sentence is the hook: a clear benefit, something brand new, or a surprise - within 3 seconds.
-  No intro, no greeting.
-- ENDING: a short call to action that asks viewers to SAVE the video for later (e.g. "Save this so you don't
-  lose it." - GEMESSEN: a top tool-list video had 5,404 saves vs 5,151 likes; saves are the strongest signal),
-  then ONE complete closing sentence that calls back to the hook (same image or question), so a replay feels
-  natural. Never end mid-sentence.
-- szene: for EVERY part, 8-20 English words describing one concrete visual scene for an illustration (place,
-  objects, mood, light). No text, signs, logos, brand or real person names (say 'a 1920s factory', not 'the Ford plant').
-- Never write "with just one click", "in seconds", "magic", "insane", "game changer".
-- Short, spoken sentences: one idea each, at most 18 words (GEMESSEN: 17-18 words on average, the best
-  scripts ~10). Write numbers as digits (1977, 3,703), never as words. Concrete facts only. Every claim must be TRUE and verifiable today; if unsure, leave it out.
-  No financial, medical or legal advice. No made-up numbers.
-- No hype or exaggeration words (instantly, overnight, everyone, every single, never before, changed the
-  world) unless the source says exactly that. Legends and rumours only if clearly labelled as such.
-- Own words and own angle; never copy text from other videos.
-- {'"quelle_url": for every ranked entry, the EXACT url of its source from the SOURCES list (copy it). ' if kanal.get('nur_quellen') else ''}"suche": 2-3 English words for a free stock VIDEO search that visually fits this part (concrete scene, no brand names, no people's names).
-- On-screen title: exactly two lines, line 1 max 22 characters, line 2 max 28 characters.
-  "schluesselwoerter": the 1-2 words of the title that tell the viewer instantly what the video is about.
-- "beschreibung": 2 sentences for the platform description. "hashtags": 3-5 relevant hashtags.
-{('OUR OWN best performing videos so far (real views and watch time) - learn from their hook and '
-  'structure, do not repeat their topic:' + chr(10) + chr(10).join('- ' + v for v in kanal['_vorbilder']) + chr(10))
- if kanal.get('_vorbilder') else ''}
-{('LESSONS from quality reviews of our earlier videos - follow them strictly:' + chr(10)
-  + chr(10).join('- ' + r for r in kanal['_regeln'])) if kanal.get('_regeln') else ''}
-"""
+    return prompts.skript(kanal, thema, frueher, blick, woerter)
 
 
 def main(kanal_pfad, aus_pfad, thema=None):
@@ -270,8 +233,9 @@ def main(kanal_pfad, aus_pfad, thema=None):
     import erfolg
     stem = Path(kanal_pfad).stem
     if kanal.get('winkel'):
-        kanal['_winkel'] = erfolg.waehlen(stem, 'winkel', kanal['winkel'])
-    kanal['_vorbilder'] = erfolg.vorbilder(stem)
+        kanal['_winkel'] = erfolg.waehlen(stem, 'winkel', kanal['winkel'],
+                                        videoformat=dramaturgie.videoformat(kanal))
+    kanal['_vorbilder'] = erfolg.vorbilder(stem, videoformat=dramaturgie.videoformat(kanal))
     verlauf_pfad = Path('verlauf') / (Path(kanal_pfad).stem + '.json')
     verlauf = json.loads(verlauf_pfad.read_text(encoding='utf-8')) if verlauf_pfad.exists() else []
     frueher = '; '.join(v['thema'] for v in verlauf[-60:])
@@ -281,19 +245,14 @@ def main(kanal_pfad, aus_pfad, thema=None):
     # Die Pruefung bekommt dieselben Quellen - sonst haelt sie eine heute
     # belegte Neuheit fuer „unverifizierbar", nur weil ihr Wissen aelter ist.
     def pruef_text():
-        belege = ('\nSOURCES fetched today (treat as verified; claims beyond them are unverifiable):\n'
-                  + '\n'.join(f"- [{q['quelle']}] {q['name']}: {q['text']}" for q in quellen)) if quellen else ''
-        return ('You are a strict fact checker for a YouTube Short script. Check every factual claim. '
-                'Mark ok=false if ANY claim is false, outdated, unverifiable or exaggerated, or if a rule is broken '
-                '(number 1 must be last in rankings, no medical/financial/legal advice). List each problem briefly.'
-                + belege + '\n\n')
+        return '\n'.join(f"[{q['quelle']}] {q['name']}: {q['text']}" for q in quellen)
 
     def pruefen(e):
         """KI-Faktencheck PLUS Zahlenprobe im Code (zahlen.py): Eine Zahl, die in
         keiner Quelle steht, laesst das Skript durchfallen - auch wenn die KI sie
         durchwinkt. Der Modellname zaehlt als Quelle („gemma-3-27b" belegt 27B)."""
         import zahlen
-        p, _ = gemini(pruef_text() + json.dumps(e, ensure_ascii=False), PRUEF_SCHEMA, temperatur=0.1)
+        p, _ = gemini(prompts.fakten(pruef_text(), e), PRUEF_SCHEMA, temperatur=0.1)
         fehlt = zahlen.unbelegt(e, [f"{q.get('name', '')} {q.get('text', '')}" for q in quellen])
         if fehlt:
             print('Zahlenprobe: nicht in den Quellen:', fehlt)
@@ -316,7 +275,9 @@ def main(kanal_pfad, aus_pfad, thema=None):
     # durch (Detailfehler) - ohne zweites Thema gab es an dem Tag kein Video.
     # Ein festes Thema vom Nutzer wird nicht ausgetauscht.
     verworfen = []
-    mindest = int(kanal.get('laenge_s', [62, 90])[0] * 2.75)
+    lang = dramaturgie.videoformat(kanal) == 'lang'
+    mindest = int(dramaturgie.laengen(kanal)[0] * (2.35 if lang else 2.75))
+    hoechstens = int(dramaturgie.laengen(kanal)[1] * (2.65 if lang else 2.9))
     pmin = kanal.get('plaetze', [5, 7])[0]
     woerter_von = lambda e: sum(len(t['text'].split()) for t in e['teile'])
     def schreiben(auftrag):
@@ -358,8 +319,14 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 print(f'Versuch {versuch + 1}: Loop/Floskel nachbessern ({floskel or schluss[-40:]})')
                 zusatz_ = f'\nYour previous draft used banned phrases {floskel}. Keep everything else.'
                 continue
-            if zahl >= mindest and not zu_wenig and not falsch:
+            if mindest <= zahl <= hoechstens and not zu_wenig and not falsch:
                 return e, m, None
+            if zahl > hoechstens:
+                zusatz_ = (f'\nYour draft has {zahl} spoken words; the maximum is {hoechstens}. '
+                           'Shorten repeated explanations and secondary facts while keeping the '
+                           'main evidence, full ranking and complete payoff. Do not solve this '
+                           'with faster speech. Keep at least ' + str(mindest) + ' words.')
+                continue
             if falsch:
                 print(f'Versuch {versuch + 1}: Rangfolge falsch: {falsch}')
                 zusatz_ = ('\nYour previous draft broke the FIXED RANKING (' + '; '.join(falsch)
@@ -370,7 +337,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
                        f'The script MUST have at least {mindest + 20} spoken words in total'
                        + (f' and at least {pmin} ranked entries' if zu_wenig else '')
                        + ' - give each entry 2-3 sentences with concrete facts from the sources, no filler.')
-        return e, m, f'Skript zu kurz oder Rangfolge falsch ({zahl} Woerter, {plaetze} Plaetze)'
+        return e, m, f'Skript ausserhalb der Laenge oder Rangfolge falsch ({zahl} Woerter, {plaetze} Plaetze)'
 
     basis_zusatz = zusatz
     wiki_fotos = []
@@ -397,7 +364,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
                     mit_fotos.append(a)
             print(f'Trend-Firmen mit Fotos: {[a[0] for a in mit_fotos]} (von {len(aktuell)})')
             aktuell = mit_fotos
-            wahl, _ = gemini(f'Pick ONE {kanal["name"]} topic for a YouTube Short that is proven to perform. '
+            wahl, _ = gemini(prompts.DATEN + f'Pick ONE {kanal["name"]} topic with a source-rich origin story '
+                             'and identifiable visual material. Do not invent proof of future popularity. '
                              + (f'Topic: {thema}. ' if thema else '')
                              + f'Do NOT use: {"; ".join(filter(None, [frueher] + verworfen)) or "none"}. '
                              + (('\nCOMPANIES IN THE NEWS RIGHT NOW (most-read on Wikipedia yesterday): '
@@ -413,12 +381,12 @@ def main(kanal_pfad, aus_pfad, thema=None):
                                                                'wikipedia': {'type': 'STRING'}},
                               'required': ['thema', 'wikipedia']}, temperatur=0.9)
             import trends
-            q = trends.wikipedia(wahl['wikipedia'])
+            q = trends.wikipedia(wahl['wikipedia'], grenze=30000 if lang else 7000)
             # GEMESSEN: Aus 1.353 Zeichen Quelle (Balaji Wafers) liess sich keine
             # 60-s-Geschichte schreiben, ohne zu strecken - sofort naechstes Thema.
             # GEMESSEN 05.10.2026: Jollibee (2.555 Zeichen), Balaji Wafers (1.353) - aus so
             # duennen Artikeln fiel jede Fassung durch die Faktenpruefung, kein Video.
-            if q and len(q['text']) < 5000:
+            if q and len(q['text']) < (12000 if lang else 5000):
                 print(f"Quelle zu kurz ({len(q['text'])} Zeichen): {q['name']} - neues Thema")
                 q = None
             if not q:
@@ -427,6 +395,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 continue
             quellen = [q]
             wiki_fotos = trends.wiki_bilder(q['name'])
+            kanal['_bildmaterial'] = [{'titel': b['titel'], 'beschreibung': b['beschreibung'][:240]}
+                                      for b in wiki_fotos[:40]]
             print(f'Freie Fotos: {len(wiki_fotos)}')
             runden_thema = wahl['thema']
             if any(q['name'] == a[0] for a in aktuell):
@@ -463,15 +433,16 @@ def main(kanal_pfad, aus_pfad, thema=None):
         print(f"Thema verworfen: {entwurf['thema']} - {pruefung['probleme']}")
         verworfen.append(entwurf['thema'])
 
-    # Story-Pruefung vor dem Bau: unter 8 mit dem konkreten Feedback neu schreiben
+    # Story-Pruefung vor dem Bau: Gesamtziel 9+, keine schwache Einzelkategorie.
     # (bis zu 2 Runden). Jede neue Fassung muss WIEDER durch die Faktenpruefung -
     # Spannung nie auf Kosten der Wahrheit. Behalten wird die beste Fassung.
     story = None
     if pruefung['ok']:
+        entwurf['videoformat'] = dramaturgie.videoformat(kanal)
         story = story_bewerten(entwurf)
         print(f"Story: {story['note']}/10 {story['kategorien']}")
         for runde in range(3):  # Ziel 10/10 (GEMELDET); Text kostet kaum Rechenzeit
-            if story['note'] >= 10:
+            if story['note'] >= 10 and not redaktion(story, STORY_KATEGORIEN, 'Skript')[1]:
                 break
             neu, m, mangel = schreiben(
                 anweisung(kanal, entwurf['thema'], frueher) + zusatz
@@ -483,7 +454,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
                    if pruefung.get('leicht') else '')
                 # GEMESSEN 04.10.2026: Ohne den bisherigen Entwurf schrieb die KI jede
                 # Runde neu von vorn - Story 6 -> 6 -> 5. In doku.py (mit Entwurf) 7 -> 8.
-                + '\nCURRENT DRAFT - improve THIS draft, keep every fact that is in it:\n'
+                + '\nCURRENT DRAFT - improve THIS draft, preserve only source-supported facts:\n'
                 + json.dumps(entwurf, ensure_ascii=False))
             if mangel:
                 continue
@@ -505,9 +476,10 @@ def main(kanal_pfad, aus_pfad, thema=None):
                     print('Auch die Reparatur fiel durch - verworfen')
                     continue
                 neu = repariert
+            neu['videoformat'] = dramaturgie.videoformat(kanal)
             s2 = story_bewerten(neu)
             print(f"Story neu: {s2['note']}/10 (vorher {story['note']})")
-            if s2['note'] > story['note']:
+            if rang(s2, STORY_KATEGORIEN) > rang(story, STORY_KATEGORIEN):
                 entwurf, modell, pruefung, story = neu, m, p2, s2
             else:
                 # Sparsam: Bringt eine Runde keine bessere Note, bringen weitere
@@ -531,26 +503,35 @@ def main(kanal_pfad, aus_pfad, thema=None):
     # Stimme abwechselnd nach Tag (Abwechslung gegen Massenware-Regel)
     stimmen = kanal.get('stimmen', ['am_michael'])
     # Nur die Stimmen des Nutzers; welche, entscheidet der Erfolg (erfolg.py)
-    stimme = erfolg.waehlen(Path(kanal_pfad).stem, 'stimme', stimmen)
+    stimme = erfolg.waehlen(Path(kanal_pfad).stem, 'stimme', stimmen,
+                          videoformat=dramaturgie.videoformat(kanal))
     zeile = lambda z: ' '.join(f'*{w}*' if any(w.strip('.,!?').lower() == s.lower() for s in
                                                 ' '.join(entwurf['schluesselwoerter']).split()) else w
                                 for w in z.split())
     skript = {
+        **lernen.erprobte_einstellungen(Path(kanal_pfad).stem),
         'kanal': kanal['name'], 'thema': entwurf['thema'],
         'titel': [zeile(entwurf['titel_zeile1']), zeile(entwurf['titel_zeile2'])],
         'stimme': stimme, 'tempo': 1.05, 'teile': entwurf['teile'],
+        'titel_farbe': kanal.get('titel_farbe', '#20D2BE'),
+        'untertitel_profil': lernen.erprobte_einstellungen(stem).get('untertitel_profil', 'ruhig'),
         'posten_ny': kanal.get('posten_ny', '15:00'),
-        'laenge_s': kanal.get('laenge_s', [62, 90]),
+        'laenge_s': dramaturgie.laengen(kanal), 'videoformat': dramaturgie.videoformat(kanal),
         'regeln': kanal.get('_regeln', []),
         'winkel': kanal.get('_winkel', ''), 'format': kanal.get('format', 'ranking'),
         'story': story,
         'hintergrund_suche': kanal.get('hintergrund_suche', ''),
-        'musik_suche': kanal.get('musik_suche', []),
+        'musik_suche': [q.strip()[:100] for q in entwurf.get('musik_suche', [])
+                        if isinstance(q, str) and q.strip()][:3] or kanal.get('musik_suche', []),
         'bilder': wiki_fotos,
         'beschreibung': entwurf['beschreibung'] + '\nClips: Pixabay'
                         + (''.join(f"\nSource: Wikipedia - {q['name']} (CC BY-SA)" for q in quellen
                                    if q.get('quelle') == 'Wikipedia')), 'hashtags': entwurf['hashtags'],
-        'pruefung': pruefung, 'quellen': [q['url'] for q in quellen if q.get('url')], 'modell': modell, 'sekunden_ki': round(time.time() - t0, 1),
+        'pruefung': pruefung, 'quellen': [q['url'] for q in quellen if q.get('url')],
+        'belege': [{'name': q.get('name', ''), 'text': q.get('text', ''),
+                    'url': q.get('url', ''), 'quelle': q.get('quelle', '')} for q in quellen],
+        'modell': modell, 'sekunden_ki': round(time.time() - t0, 1),
+        'prompt_version': prompts.VERSION,
     }
     Path(aus_pfad).parent.mkdir(parents=True, exist_ok=True)
     Path(aus_pfad).write_text(json.dumps(skript, indent=2, ensure_ascii=False), encoding='utf-8')
@@ -562,6 +543,10 @@ def main(kanal_pfad, aus_pfad, thema=None):
     if not pruefung['ok']:
         print('FAKTENPRUEFUNG NICHT BESTANDEN - kein Video.', file=sys.stderr)
         sys.exit(2)
+    gruende = skript_gruende(skript)
+    if gruende:
+        print('SKRIPTQUALITAET NICHT BESTANDEN: ' + '; '.join(gruende), file=sys.stderr)
+        sys.exit(3)
 
 
 if __name__ == '__main__':

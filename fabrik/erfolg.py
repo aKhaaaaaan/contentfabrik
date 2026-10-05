@@ -15,7 +15,7 @@ TikTok liefert Zahlen nur an gepruefte Apps - bis dahin lernt das Tool aus YouTu
 
 Daten: erfolg/<kanal>.json (im Projekt, nach jedem Lauf gesichert).
 """
-import datetime, json, os, random, re, statistics, urllib.error, urllib.parse, urllib.request
+import datetime, json, math, os, random, re, statistics, urllib.error, urllib.parse, urllib.request
 from pathlib import Path
 
 ORDNER = Path('erfolg')
@@ -124,7 +124,9 @@ def abrufen(kanal):
         if not eintrag:
             continue  # nicht von uns (oder Titel geaendert)
         s = v.get('statistics', {})
+        alt = daten['videos'].get(v['id'], {})
         daten['videos'][v['id']] = {
+            **{k: alt[k] for k in ('kurve', 'kurve_stand', 'kurve_aufrufe', 'absprung') if k in alt},
             'titel': v['snippet']['title'], 'veroeffentlicht': v['snippet']['publishedAt'][:10],
             'oeffentlich': v['status']['privacyStatus'] == 'public',
             'aufrufe': int(s.get('viewCount', 0)), 'likes': int(s.get('likeCount', 0)),
@@ -132,23 +134,28 @@ def abrufen(kanal):
             'einstellungen': eintrag.get('einstellungen', {}), 'hook': eintrag.get('hook', ''),
             'gliederung': eintrag.get('gliederung', []),
         }
-    # Zuschauer-Kurve je Video (ab 2 Tagen, einmalig): WO springen die Leute ab?
+    # Erst genuegend Daten, danach bei Wachstum oder nach einer Woche erneut.
     neue_lehren = []
     for vid, v in daten['videos'].items():
-        if 'kurve' in v or v['veroeffentlicht'] > (heute - datetime.timedelta(days=2)).isoformat():
+        if not kurve_faellig(v, heute):
             continue
         try:
             k = _hole(ANALYTICS + urllib.parse.urlencode({**zeitraum, 'metrics': 'audienceWatchRatio',
                                                           'dimensions': 'elapsedVideoTimeRatio',
                                                           'filters': f'video=={vid}'}), token)
             v['kurve'] = [[round(r[0], 2), round(r[1], 3)] for r in k.get('rows', [])]
+            if not v['kurve']:
+                continue  # nicht als dauerhaft fertig behandeln
+            v['kurve_stand'], v['kurve_aufrufe'] = heute.isoformat(), v['aufrufe']
         except Exception as e:
             print('Kurve nicht verfuegbar:', vid, str(e)[:120])
             continue
         lehre = absprung(v, unsere)
+        vorher = v.pop('absprung', None)
         if lehre:
             v['absprung'] = lehre
-            neue_lehren.append({'zeit': lehre['sekunde'], 'art': 'zuschauer', 'text': lehre['text']})
+            if lehre != vorher:
+                neue_lehren.append({'zeit': lehre['sekunde'], 'art': 'zuschauer', 'text': lehre['text']})
     if neue_lehren:  # echtes Zuschauerverhalten -> Lern-Gedaechtnis
         try:
             import lernen
@@ -161,13 +168,37 @@ def abrufen(kanal):
     print(f"{kanal}: {len(daten['videos'])} eigene Videos mit Zahlen")
 
 
+def kurve_faellig(v, heute):
+    if not v.get('oeffentlich') or v.get('aufrufe', 0) < 100 \
+            or v['veroeffentlicht'] > (heute - datetime.timedelta(days=2)).isoformat():
+        return False
+    if not v.get('kurve') or not v.get('kurve_stand'):
+        return True
+    return v['aufrufe'] >= max(100, v.get('kurve_aufrufe', 0) * 1.5) \
+        or v['kurve_stand'] <= (heute - datetime.timedelta(days=7)).isoformat()
+
+
 def absprung(v, unsere):
-    """Wo faellt die Kurve unter 50 % - und welcher Skript-Abschnitt lief da?"""
+    """Auffaellige lokale Verluste; Zusammenhang ist noch keine Ursache."""
     eintrag = unsere.get(_norm(v['titel'])) or {}
     abschnitte, gliederung = eintrag.get('abschnitte_s') or [], eintrag.get('gliederung') or []
     kurve = v.get('kurve') or []
-    stelle = next((r for r, w in kurve if w < 0.5), None)
-    if stelle is None or not abschnitte:
+    if not abschnitte or len(kurve) < 3 or v.get('aufrufe', 0) < 100:
+        return None
+    if any(not isinstance(r, (list, tuple)) or len(r) != 2 or any(
+            isinstance(x, bool) or not isinstance(x, (int, float)) or not math.isfinite(x)
+            for x in r) or not 0 <= r[0] <= 1 or r[1] < 0 for r in kurve):
+        return None
+    kurve = sorted(kurve)
+    # Zwei nachfolgende Messpunkte muessen einen lokalen Verlust bestaetigen.
+    kandidaten = [(vor[1] - max(jetzt[1], danach[1]), jetzt[0])
+                   for vor, jetzt, danach in zip(kurve, kurve[1:], kurve[2:])
+                   if 0 < jetzt[0] - vor[0] <= .050001 and 0 < danach[0] - jetzt[0] <= .050001
+                   and jetzt[0] <= .9]
+    if not kandidaten:
+        return None
+    verlust, stelle = max(kandidaten)
+    if verlust < .099999:
         return None
     sekunde = stelle * sum(abschnitte)
     summe, teil = 0, len(abschnitte) - 1
@@ -177,16 +208,21 @@ def absprung(v, unsere):
             teil = i
             break
     name = 'the hook' if teil == 0 else 'the ending' if teil == len(abschnitte) - 1 else f'part {teil + 1}'
-    text = (f'Real viewers dropped below 50% at second {sekunde:.0f}, during {name}: '
-            f'"{gliederung[teil] if teil < len(gliederung) else ""}..." - make that kind of part stronger or cut it.')
-    return {'sekunde': f'{sekunde:.0f}s', 'teil': teil, 'text': text}
+    text = (f'Observed audienceWatchRatio fell by at least {verlust * 100:.0f} percentage points '
+            f'near second {sekunde:.0f}, during {name}: '
+            f'"{gliederung[teil] if teil < len(gliederung) else ""}...". Inspect the promise, new '
+            'information, visual evidence and pacing there. This association does not establish '
+            'why viewers left; test one change and confirm across comparable videos. '
+            f'Format: {eintrag.get("einstellungen", {}).get("videoformat", "short")}.')
+    return {'sekunde': f'{sekunde:.0f}s', 'teil': teil, 'verlust': round(verlust, 3), 'text': text}
 
 
-def _bewertet(kanal):
+def _bewertet(kanal, videoformat='short'):
     """Nur oeffentliche Videos, die mindestens 48 h alt sind - mit Erfolgswert.
     Wert = Aufrufe relativ zum Kanal-Median x gesehener Anteil."""
     grenze = (datetime.date.today() - datetime.timedelta(days=2)).isoformat()
-    vs = [v for v in laden(kanal)['videos'].values() if v.get('oeffentlich') and v['veroeffentlicht'] <= grenze]
+    vs = [v for v in laden(kanal)['videos'].values() if v.get('oeffentlich') and v['veroeffentlicht'] <= grenze
+          and (videoformat is None or v.get('einstellungen', {}).get('videoformat', 'short') == videoformat)]
     if not vs:
         return []
     median = statistics.median(v['aufrufe'] for v in vs) or 1
@@ -198,13 +234,13 @@ def _bewertet(kanal):
     return vs
 
 
-def waehlen(kanal, schluessel, optionen):
+def waehlen(kanal, schluessel, optionen, videoformat='short'):
     """Eine Einstellung waehlen: zu wenig Daten -> die am seltensten getestete;
     sonst meist die beste, manchmal bewusst eine andere (Neugier)."""
     optionen = list(optionen)
     if len(optionen) <= 1:
         return optionen[0] if optionen else None
-    vs = _bewertet(kanal)
+    vs = _bewertet(kanal, videoformat)
     werte = {o: [v['wert'] for v in vs if v['einstellungen'].get(schluessel) == o] for o in optionen}
     zu_wenig = [o for o in optionen if len(werte[o]) < MIN_DATEN]
     if zu_wenig:
@@ -214,19 +250,19 @@ def waehlen(kanal, schluessel, optionen):
     return max(optionen, key=lambda o: statistics.mean(werte[o]))
 
 
-def vorbilder(kanal, n=3):
+def vorbilder(kanal, n=3, videoformat='short'):
     """Hooks unserer erfolgreichsten Videos - eigene Texte, frei verwendbar."""
-    vs = sorted(_bewertet(kanal), key=lambda v: -v['wert'])
+    vs = sorted(_bewertet(kanal, videoformat), key=lambda v: -v['wert'])
     return [f"HOOK: {v['hook']} | STRUCTURE: {' -> '.join(v.get('gliederung', []))} "
             f"({v['aufrufe']} views, {v.get('anteil_prozent', '?')}% watched)" for v in vs[:n] if v['hook']]
 
 
 def bericht(kanal):
-    vs = _bewertet(kanal)
+    vs = _bewertet(kanal, None)
     if not vs:
         return f'{kanal}: noch keine auswertbaren Videos (oeffentlich und aelter als 48 h)'
     zeilen = [f'{kanal}: {len(vs)} Videos ausgewertet']
-    for schluessel in ('stimme', 'winkel', 'format', 'laenge', 'hook_art', 'teile'):
+    for schluessel in ('videoformat', 'stimme', 'winkel', 'format', 'laenge', 'hook_art', 'teile'):
         gruppen = {}
         for v in vs:
             gruppen.setdefault(str(v['einstellungen'].get(schluessel)), []).append(v['wert'])

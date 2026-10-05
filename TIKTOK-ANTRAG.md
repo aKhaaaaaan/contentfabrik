@@ -1,5 +1,19 @@
 # TikTok-App „Contentfabrik" – Antrag (Stand 03.10.2026)
 
+## Pruefhindernis festgestellt am 05.10.2026
+
+Die offizielle Direct-Post-Richtlinie verlangt einen Anwendungsfall fuer ein
+breites Publikum und schliesst reine private Werkzeuge zum Hochladen auf
+eigene/Team-Konten ausdruecklich aus. Der unten beschriebene private
+Anwendungsfall passt daher nicht zu diesen Audit-Anforderungen. Die
+beschraenkte Nutzung ungepruefter Clients ist keine Zusage fuer eine spaetere
+Freischaltung. Bis zur Klaerung bleibt der aktive Ablauf beim manuellen
+Upload; eine Pruefentscheidung oder neue Antragseinreichung wird hier nicht
+vorweggenommen.
+
+Quelle: [TikTok – Direct Post, Intended Use](https://developers.tiktok.com/docs/en/content-sharing-guidelines),
+abgerufen am 05.10.2026. Der folgende Text bleibt als damaliger Entwurf erhalten.
+
 App-ID (Entwurf): 7692400168096794631 · Konto: [privates Google-Konto] · Typ: Individual
 
 ## Bereits eingetragen

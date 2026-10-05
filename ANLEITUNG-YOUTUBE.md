@@ -1,5 +1,12 @@
 # YouTube einrichten – Schritt für Schritt
 
+**Aktueller Umfang (05.10.2026):** Zum Start werden nur **AI Tools Explained**
+und **Business Origin Stories** genutzt. Die beiden anderen Namen unten
+sind fruehere Erweiterungsideen und brauchen derzeit keine Einrichtung.
+Der aktive Tageslauf liefert gepruefte Videos in Telegram zum manuellen
+Hochladen. Dashboard und automatische Veroeffentlichung sind noch geplant;
+siehe [README.md](README.md).
+
 Stand 02.10.2026. Menünamen können sich bei Google leicht ändern – dann bitte
 Bildschirmfoto schicken.
 

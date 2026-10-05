@@ -10,11 +10,14 @@ Bausteine (alle kostenlos, gewerblich frei):
 
 Aufruf:  python fabrik/bauen.py skripte/probe.json ausgabe/
 """
-import json, os, re, sys, time, subprocess, wave, colorsys
+import json, math, os, re, sys, time, subprocess, wave, colorsys, shutil, hashlib
 from PIL import ImageFilter
 from pathlib import Path
 
 import numpy as np
+import prompts
+import dramaturgie
+import ton as audioqualitaet
 from PIL import Image, ImageDraw, ImageFont
 
 B, H, FPS = 1080, 1920, 30
@@ -29,18 +32,76 @@ zeiten = {}
 # 4 in 3 s - bei uns stand ein Bild 5-10 s. Profi-Shorts setzen ein „Whoosh"
 # auf jeden Schnitt und ein „Pop", wenn etwas Neues erscheint.
 SFX = Path(__file__).resolve().parent.parent / 'sfx'
-# „Punch-in": alle 3,2 s springt der Bildausschnitt um 8 % - wirkt wie ein
-# Schnitt, auch wenn nur ein Clip/Beispiel da ist (Vorbild: Wechsel alle ~4 s).
-PUNCH = int(3.2 * 30)
-ZOOM = "(1+0.06*on/{n})*(1+0.08*mod(floor(on/" + str(PUNCH) + "),2))"
+# Ruhige Bewegung auf Illustrationen; Bildwechsel folgen inhaltlichen Beats.
+ZOOM = '1+0.035*min(on/{n},1)'
+LAYOUT = {}
 
 
-PEGEL = {'riser': 0.18, 'impact': 0.32}  # sonst 0.25 (Spitze ~-12 dB)
+def format_setzen(art='short'):
+    """Getrennte Satzspiegel; alle Medien behalten ihr Seitenverhaeltnis."""
+    global B, H
+    if art not in ('short', 'lang'):
+        raise ValueError('Unbekanntes Videoformat')
+    B, H = (1920, 1080) if art == 'lang' else (1080, 1920)
+    LAYOUT.clear()
+    LAYOUT.update({'links': 80, 'rechts': 1840, 'mitte': 960, 'titel_y': 46,
+                   'titel_font': 56, 'progress_y': 220, 'platz_y': 255, 'name_y': 355,
+                   'karte': (80, 420, 1320, 840), 'foto': (80, 220, 1320, 840),
+                   'akzent_y': 540, 'akzent_x': 1610, 'akzent_breite': 420,
+                   'untertitel_y': 965, 'mini': (80, 270, 500, 405)}
+                  if art == 'lang' else
+                  {'links': 72, 'rechts': 900, 'mitte': 486, 'titel_y': 190,
+                   'titel_font': 72, 'progress_y': 414, 'platz_y': 455, 'name_y': 605,
+                   'karte': (72, 700, 900, 1180), 'foto': (72, 480, 900, 1180),
+                   'akzent_y': 1250, 'untertitel_y': 1420, 'mini': (72, 480, 492, 650)})
+
+
+format_setzen()
+
+
+def akzent_farbe(s):
+    wert = s.get('titel_farbe', '#20D2BE')
+    if not isinstance(wert, str) or not re.fullmatch(r'#[0-9a-fA-F]{6}', wert):
+        wert = '#20D2BE'
+    return tuple(int(wert[i:i + 2], 16) for i in (1, 3, 5))
+
+
+def einpassen(groesse, zone):
+    x1, y1, x2, y2 = zone
+    faktor = min((x2 - x1) / groesse[0], (y2 - y1) / groesse[1])
+    w, h = max(1, int(groesse[0] * faktor)), max(1, int(groesse[1] * faktor))
+    return (x1 + (x2 - x1 - w) // 2, y1 + (y2 - y1 - h) // 2, w, h)
+
+
+def text_font(text, maximum=58, minimum=32, breite=None):
+    breite = breite or LAYOUT['rechts'] - LAYOUT['links'] - 32
+    for g in range(maximum, minimum - 1, -2):
+        f = schrift(g)
+        if f.getlength(text) <= breite:
+            return f
+    raise ValueError('Bildtext zu lang fuer lesbare Darstellung')
+
+
+def bildtext_layout(text, profil=None):
+    """Lange Videos: lesbarer Detail-Akzent neben dem Originalmaterial."""
+    maximum = 50 if B > H else 60
+    breite = LAYOUT.get('akzent_breite', LAYOUT['rechts'] - LAYOUT['links'] - 32)
+    zeilen = [text]
+    if B > H and schrift(maximum).getlength(text) > breite:
+        woerter = text.split()
+        if len(woerter) > 1:
+            schnitt = min(range(1, len(woerter)), key=lambda i: max(
+                schrift(maximum).getlength(' '.join(woerter[:i])),
+                schrift(maximum).getlength(' '.join(woerter[i:]))))
+            zeilen = [' '.join(woerter[:schnitt]), ' '.join(woerter[schnitt:])]
+    f = text_font(max(zeilen, key=lambda z: schrift(maximum).getlength(z)), maximum, breite=breite)
+    y = 1220 if profil == 'hoch' and H > B else LAYOUT['akzent_y']
+    return f, zeilen, LAYOUT.get('akzent_x', LAYOUT['mitte']), y
 
 
 def effekte_spur(ereignisse, laenge_s, rate, ziel, glitch=False):
     """Tonspur nur mit Effekten: [(sekunde, 'whoosh'|'pop'), ...]. Whoosh-Varianten
-    wechseln sich ab (immer derselbe Klang wirkt billig). Pegel: Spitze ~-12 dB,
+    wechseln sich ab (immer derselbe Klang wirkt billig). Begrenzte kurze Effekte,
     deutlich unter der Stimme."""
     lade = {}
     def klang(name):
@@ -48,12 +109,12 @@ def effekte_spur(ereignisse, laenge_s, rate, ziel, glitch=False):
             roh = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', str(SFX / f'{name}.mp3'), '-f', 'f32le',
                                   '-ac', '1', '-ar', str(rate), '-'], capture_output=True, check=True).stdout
             x = np.frombuffer(roh, dtype=np.float32)
-            lade[name] = x / (np.abs(x).max() or 1) * PEGEL.get(name, 0.25)
+            lade[name] = audioqualitaet.effekt(x, name if not name.startswith('whoosh') else 'whoosh', rate)
         return lade[name]
     spur = np.zeros(int(laenge_s * rate) + rate, dtype=np.float32)
     whooshs = sorted(p.stem for p in SFX.glob('whoosh_*.mp3'))
     n = 0
-    for sek, art in ereignisse:
+    for sek, art in audioqualitaet.ereignisse(ereignisse, laenge_s):
         if art == 'whoosh':
             if not whooshs:
                 continue
@@ -63,12 +124,18 @@ def effekte_spur(ereignisse, laenge_s, rate, ziel, glitch=False):
             start = int(max(0, sek - 0.25) * rate)  # das Rauschen kommt kurz VOR dem Schnitt
         elif art == 'riser':  # Spannung: endet genau beim Ereignis
             x = klang('riser')
-            start = max(0, int(sek * rate) - len(x))
+            ende_riser = int(sek * rate)
+            if len(x) > ende_riser:
+                x = x[-ende_riser:].copy()
+                fade = min(len(x), max(1, int(rate * 0.005)))
+                x[:fade] *= np.linspace(0, 1, fade)
+            start = ende_riser - len(x)
         else:
             x = klang(art)
             start = int(sek * rate)
         ende = min(len(spur), start + len(x))
         spur[start:ende] += x[:ende - start]
+    spur = audioqualitaet.begrenzen(spur)
     with wave.open(str(ziel), 'wb') as w:
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(rate)
         w.writeframes((np.clip(spur, -1, 1) * 32767).astype(np.int16).tobytes())
@@ -107,28 +174,29 @@ def schrift_text(img, xy, text, f, farbe=(255, 255, 255), rand=3):
 
 
 def titel_zeichnen(img, titel, akzent):
-    """Titel: genau zwei Zeilen, Schluesselwoerter farbig (Konzept 2b); die
+    """Titel: zwei Zeilen im Short, eine im Querformat, Schluesselwoerter farbig; die
     Groesse passt sich an (Probelauf 1: Zeile 2 war breiter als das Bild)."""
     d = ImageDraw.Draw(img)
-    y = 190
+    y = LAYOUT['titel_y']
+    if B > H:
+        titel = [' '.join(titel)]
     for zeile in titel:
         teile = [(w, w.strip('*') != w) for w in zeile.split(' ')]
-        groesse = 78
+        groesse = LAYOUT['titel_font']
         while True:
             f = schrift(groesse, TITEL_SCHRIFT)
             breite = sum(d.textlength(w.strip('*') + ' ', font=f) for w, _ in teile)
-            if breite <= B - 120 or groesse <= 40:
+            if breite <= LAYOUT['rechts'] - LAYOUT['links'] - 24:
                 break
+            if groesse <= 32:
+                raise ValueError('Titel zu lang fuer den Satzspiegel')
             groesse -= 4
-        x = (B - breite) / 2
+        x = LAYOUT['mitte'] - breite / 2
         for w, betont in teile:
             wort = w.strip('*') + ' '
             schrift_text(img, (x, y), wort, f, akzent if betont else (255, 255, 255))
             x += d.textlength(wort, font=f)
         y += groesse + 22
-
-
-KARTE_Y = 700
 
 
 def musik_holen(suchen):
@@ -141,17 +209,20 @@ def musik_holen(suchen):
     verlangen, das ganze Video unter dieselbe Lizenz zu stellen.
     Gibt (pfad, nennung) oder (None, None) zurueck."""
     import random, urllib.parse, urllib.request
+    PIXABAY_CACHE.mkdir(exist_ok=True)
     gesperrt = set(json.loads(MUSIK_SPERRE.read_text(encoding='utf-8'))) if MUSIK_SPERRE.exists() else set()
     for suche in random.sample(suchen, len(suchen)):
         try:
             d = json.load(urllib.request.urlopen(urllib.request.Request(
                 'https://api.openverse.org/v1/audio/?' + urllib.parse.urlencode(
-                    {'q': suche, 'license_type': 'commercial', 'page_size': 20}), headers=WIKI_KENNUNG), timeout=30))
+                    {'q': suche + ' instrumental', 'license_type': 'commercial', 'page_size': 20}), headers=WIKI_KENNUNG), timeout=30))
         except Exception as e:
             print('Openverse nicht erreichbar:', str(e)[:120])
             continue
         treffer = [r for r in d.get('results', [])
                    if r.get('license') in ('cc0', 'by') and r.get('url') and r['id'] not in gesperrt
+                   and not re.search(r'\b(vocals?|lyrics?|speech|spoken|singing|a cappella)\b',
+                                     str(r.get('title', '')), re.I)
                    and 45_000 <= (r.get('duration') or 0) <= 600_000]
         if not treffer:
             continue
@@ -185,25 +256,27 @@ def foto_fuer(bilder, satz, benutzt):
         # und „NintendoCards" kamen nie dran -> Stock-Clips (Autobahn, Naeherei).
         # Jetzt: Vorauswahl ueber alle Titel/Beschreibungen, dann Vorschau.
         liste = '\n'.join(f"{n}: {b['titel'][5:]} - {b['beschreibung'][:120]}" for n, b in enumerate(frei))
-        vor, _ = gemini(f'A narrator says:\n"{satz}"\nWhich of these Wikimedia photos could show exactly that '
-                        f'(person, place, product, era)? Give up to 4 numbers, best first; empty list if none.\n{liste}',
+        vor, _ = gemini(prompts.DATEN + f'Shortlist photos for this narration: {json.dumps(satz)}. '
+                        'Match the actual person, product, place and period in the captions; do not choose '
+                        'a modern company photo to represent its founding. Give at most 4 unique integer '
+                        f'indices, best first; empty list if none clearly fits. Indexed metadata:\n{liste}',
                         {'type': 'OBJECT', 'properties': {'nummern': {'type': 'ARRAY', 'items': {'type': 'INTEGER'}}},
                          'required': ['nummern']}, temperatur=0.1,
                         modelle=SEHEN)
-        frei = [frei[n] for n in vor['nummern'] if 0 <= n < len(frei)][:4]
+        frei = [frei[n] for n in dict.fromkeys(vor['nummern'])
+                if type(n) is int and 0 <= n < len(frei)][:4]
         if not frei:
             return None, None
         vorschau = [urllib.request.urlopen(urllib.request.Request(b['klein'], headers=WIKI_KENNUNG),
                                            timeout=20).read() for b in frei]
         wahl, _ = gemini(
-            f'These are {len(vorschau)} photos (0 to {len(vorschau) - 1}) from the Wikipedia article. A narrator '
-            f'says:\n"{satz}"\nPick the photo that clearly shows what is said (person, place, product, era). '
-            'Reject flags, maps, logos-only, charts and unrelated photos. If none fits clearly, answer -1.'
-            + regel_text(),
+            prompts.auswahl('foto', satz, len(vorschau),
+                [{'index': i, 'title': b['titel'], 'caption': b['beschreibung'][:500]}
+                 for i, b in enumerate(frei)], regel_text(), 'lang' if B > H else 'short'),
             {'type': 'OBJECT', 'properties': {'nummer': {'type': 'INTEGER'}}, 'required': ['nummer']},
             temperatur=0.1, bilder=vorschau, modelle=SEHEN)
         n = wahl['nummer']
-        if not 0 <= n < len(frei):
+        if type(n) is not int or not 0 <= n < len(frei):
             return None, None
         b = frei[n]
         ziel = PIXABAY_CACHE / f"foto_{hashlib.sha1(b['gross'].encode()).hexdigest()[:12]}.jpg"
@@ -222,10 +295,9 @@ def mini_karte(karte, platz):
     """Kleine Karte + Platznummer oben, waehrend darunter der Praxis-Clip
     laeuft - so bleibt klar, um welches Werkzeug es geht."""
     k = Image.open(karte).convert('RGB')
-    breite = 560
-    k = k.resize((breite, int(k.height * breite / k.width)), Image.LANCZOS)
+    x, y, breite, hoehe = einpassen(k.size, LAYOUT['mini'])
+    k = k.resize((breite, hoehe), Image.LANCZOS)
     img = Image.new('RGBA', (B, H), (0, 0, 0, 0))
-    x, y = (B - breite) // 2, 520
     schatten = Image.new('RGBA', (B, H), (0, 0, 0, 0))
     ImageDraw.Draw(schatten).rounded_rectangle((x, y + 10, x + breite, y + 10 + k.height), 20, fill=(0, 0, 0, 190))
     img.alpha_composite(schatten.filter(ImageFilter.GaussianBlur(14)))
@@ -233,23 +305,18 @@ def mini_karte(karte, platz):
     ImageDraw.Draw(maske).rounded_rectangle((0, 0, *k.size), 20, fill=255)
     img.paste(k, (x, y), maske)
     if platz:
-        f = schrift(110, TITEL_SCHRIFT)
+        f = schrift(80, TITEL_SCHRIFT)
         t = f'#{platz}'
-        schrift_text(img, ((B - ImageDraw.Draw(img).textlength(t, font=f)) / 2, 395), t, f, rand=4)
+        schrift_text(img, (LAYOUT['rechts'] - ImageDraw.Draw(img).textlength(t, font=f) - 24,
+                           LAYOUT['mini'][1] + 22), t, f, rand=3)
     return img
 
 
 def karten_ebene(karte, kasten=None):
     """Die Karte allein (abgerundet, mit Schatten) auf durchsichtigem Bild."""
     k = Image.open(karte).convert('RGB')
-    breite = B - 80
-    if kasten:  # Foto: in den Kasten zwischen Titel und Untertiteln einpassen
-        f = min(kasten[0] / k.width, kasten[1] / k.height)
-        k = k.resize((int(k.width * f), int(k.height * f)), Image.LANCZOS)
-    else:
-        k = k.resize((breite, int(k.height * breite / k.width)), Image.LANCZOS)
-    x = (B - k.width) // 2
-    y = KARTE_Y if not kasten else 430 + (kasten[1] - k.height) // 2
+    x, y, w, h = einpassen(k.size, LAYOUT['foto'] if kasten else LAYOUT['karte'])
+    k = k.resize((w, h), Image.LANCZOS)
     img = Image.new('RGBA', (B, H), (0, 0, 0, 0))
     schatten = Image.new('RGBA', (B, H), (0, 0, 0, 0))
     ImageDraw.Draw(schatten).rounded_rectangle((x, y + 14, x + k.width, y + 14 + k.height), 28,
@@ -270,7 +337,7 @@ def karten_filter(hg, ebene, kpfad):
     filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,fps={FPS},'
             f'eq=brightness=-0.22:saturation=0.8,gblur=sigma=4[bg];'
             f'[2:v]format=rgba,fade=in:st=0:d=0.35:alpha=1[k];'
-            f"[bg][k]overlay=x=0:y='140*max(0,1-t/0.35)':eval=frame[b1];"
+            f"[bg][k]overlay=x=0:y='32*max(0,1-t/0.35)':eval=frame[b1];"
             f'[b1][1:v]overlay=0:0,format=yuv420p')
     if kpfad is None:  # Abschnitt ohne Karte: nur Hintergrund + Schrift
         return [*hg_ein, '-loop', '1', '-framerate', str(FPS), '-i', str(ebene)], filt.split('[2:v]')[0] +             '[bg][1:v]overlay=0:0,format=yuv420p'
@@ -287,7 +354,7 @@ def hintergrund_holen(s, schon, dauer, quellen, aus):
         quellen.append(q)
         return clip
     pfad = aus / 'verlauf.png'
-    verlauf_bild((32, 210, 190)).save(pfad)
+    verlauf_bild(akzent_farbe(s)).save(pfad)
     return pfad
 
 
@@ -309,8 +376,8 @@ def fortschritt_zeichnen(img, akzent):
     if len(plaetze) < 3:
         return
     d = ImageDraw.Draw(img)
-    y, breite = 414, min(700, 110 * (len(plaetze) - 1))
-    xs = [(B - breite) / 2 + breite * k / (len(plaetze) - 1) for k in range(len(plaetze))]
+    y, breite = LAYOUT['progress_y'], min(700, 110 * (len(plaetze) - 1))
+    xs = [LAYOUT['mitte'] - breite / 2 + breite * k / (len(plaetze) - 1) for k in range(len(plaetze))]
     grau = (110, 120, 135, 255)
     d.line((xs[0], y, xs[-1], y), fill=grau, width=5)
     if akt in plaetze:
@@ -335,20 +402,20 @@ def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None, akzent=(3
         # Nur Schrift - Hintergrund (bewegter Clip) und Karte (fliegt ein)
         # setzt ffmpeg darunter bzw. dazu. GEMELDET: „wirkt wie eine Diashow".
         img = Image.new('RGBA', (B, H), (0, 0, 0, 0))
-        with Image.open(karte) as k:
-            hoehe = int(k.height * (B - 80) / k.width)
         # Name gross unter der Platznummer - auf Hugging-Face-Karten ist er winzig.
         # GEMESSEN: unter der Karte klebte er an den Untertiteln (gelb ueber weiss).
         if teil.get('name'):
-            fn = schrift(58)
+            fn = text_font(teil['name'], 52)
             nb = ImageDraw.Draw(img).textlength(teil['name'], font=fn)
-            schrift_text(img, ((B - nb) / 2, 612), teil['name'], fn, (255, 214, 10))
+            schrift_text(img, (LAYOUT['mitte'] - nb / 2, LAYOUT['name_y']), teil['name'], fn, akzent)
     elif durchsichtig:
         img = Image.new('RGBA', (B, H), (0, 0, 0, 0))
         schatten = np.zeros((H, B, 4), dtype=np.uint8)
         a = np.zeros(H)
-        a[:620] = np.linspace(150, 0, 620)            # oben dunkler fuer den Titel
-        a[1200:] = np.linspace(0, 150, H - 1200)      # unten dunkler fuer Untertitel
+        oben = min(H, LAYOUT['foto'][1] + 60)
+        unten = LAYOUT['foto'][3]
+        a[:oben] = np.linspace(160, 0, oben)
+        a[unten:] = np.linspace(0, 150, H - unten)
         schatten[..., 3] = a[:, None].astype(np.uint8)
         img = Image.alpha_composite(img, Image.fromarray(schatten, 'RGBA'))
     else:
@@ -357,15 +424,18 @@ def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None, akzent=(3
     fortschritt_zeichnen(img, akzent)
     d = ImageDraw.Draw(img)
     if teil.get('platz'):
-        f = schrift(150 if karte else 220, TITEL_SCHRIFT)
+        f = schrift(110, TITEL_SCHRIFT)
         t = f"#{teil['platz']}"
-        schrift_text(img, ((B - d.textlength(t, font=f)) / 2, 452 if karte else 600), t, f, rand=4)
+        schrift_text(img, (LAYOUT['mitte'] - d.textlength(t, font=f) / 2,
+                           LAYOUT['platz_y']), t, f, rand=3)
     # GEMELDET 04.10.2026 (Flop-Video Skydance): Bei einer Geschichte schrieb die KI
     # „Part 1 ... Part 7" ins Namensfeld - eingeblendet wirkte das verwirrend.
     # Namen gehoeren nur zu Ranglisten-Plaetzen.
-    if teil.get('name') and teil.get('platz') and not karte:  # bei der Karte steht der Name schon drauf
-        f = schrift(84)
-        schrift_text(img, ((B - d.textlength(teil['name'], font=f)) / 2, 880), teil['name'], f, (255, 214, 10))
+    if teil.get('name') and (teil.get('platz') or B > H) and not karte:
+        f = text_font(teil['name'], 52 if teil.get('platz') else 42)
+        y = LAYOUT['name_y'] if teil.get('platz') else 150
+        schrift_text(img, (LAYOUT['mitte'] - d.textlength(teil['name'], font=f) / 2,
+                           y), teil['name'], f, akzent)
     return img
 
 
@@ -390,30 +460,28 @@ UNBRAUCHBAR = re.compile(r'green ?screen|chroma|blue ?screen', re.I)
 
 def waehle(kandidaten, satz):
     """Die KI sieht die Vorschaubilder und nimmt das, was zum gesprochenen Satz
-    passt. GEMELDET: Die Bilder passten nicht zum Text - die Pixabay-Suche
-    allein liefert nach Beliebtheit, nicht nach Inhalt. Passt keins: [] (dann
-    eigenes Bild statt falschem). Ohne KI: alte Reihenfolge."""
+    passt. Passt keins oder faellt die Auswahl aus: [] statt beliebigem Material."""
     import urllib.request
     if not kandidaten or not satz or not os.environ.get('GEMINI_API_KEY'):
-        return kandidaten
+        return []
     try:
         bilder = [urllib.request.urlopen(urllib.request.Request(
-            (h['videos'].get('tiny') or h['videos']['small'])['thumbnail'], headers=KENNUNG), timeout=20).read()
+            next(v['thumbnail'] for art in ('large', 'medium', 'small', 'tiny')
+                 if (v := h['videos'].get(art, {})).get('thumbnail')), headers=KENNUNG), timeout=20).read()
                   for h in kandidaten]
         from skript import gemini, SEHEN
         wahl, _ = gemini(
-            f'These are {len(bilder)} preview frames of stock videos, numbered 0 to {len(bilder) - 1} in order. '
-            f'They will be the background while a narrator says:\n"{satz}"\n'
-            'Pick the frame a viewer would find clearly fitting to this sentence. Reject abstract, unrelated, '
-            'green-screen or text-heavy frames. If none fits clearly, answer -1.' + regel_text(),
+            prompts.auswahl('stock', satz, len(bilder),
+                            [{'index': i, 'tags': h.get('tags', '')} for i, h in enumerate(kandidaten)],
+                            regel_text(), 'lang' if B > H else 'short'),
             {'type': 'OBJECT', 'properties': {'nummer': {'type': 'INTEGER'}}, 'required': ['nummer']},
             # GEMESSEN: mit dem grossen Modell ~60 s je Abschnitt (384 s je Video)
             temperatur=0.1, bilder=bilder, modelle=SEHEN)
         n = wahl['nummer']
-        return [kandidaten[n]] if 0 <= n < len(kandidaten) else []
-    except Exception as e:  # KI nicht erreichbar: lieber Clip als kein Video
-        print('Clip-Auswahl ohne KI:', str(e)[:200])
-        return kandidaten
+        return [kandidaten[n]] if type(n) is int and 0 <= n < len(kandidaten) else []
+    except Exception as e:
+        print('Clip-Auswahl ausgefallen - anderes Bildmaterial verwenden:', type(e).__name__)
+        return []
 
 
 def kurz_zahl(n):
@@ -536,7 +604,9 @@ def demo_fuer(url, satz=''):
     # Sparsam: Die Wahl je Modellseite wird gespeichert - dasselbe Modell kommt
     # an mehreren Tagen vor, die KI muss nicht jedes Mal neu schauen.
     import hashlib as _h
-    merk = PIXABAY_CACHE / f"demo_wahl_{_h.sha1(m[2].encode()).hexdigest()[:12]}.json"
+    merk_key = json.dumps([prompts.VERSION, m[2], satz, [l for _, l in pfade],
+                          'lang' if B > H else 'short'], ensure_ascii=False)
+    merk = PIXABAY_CACHE / f"demo_wahl_{_h.sha1(merk_key.encode()).hexdigest()[:12]}.json"
     if merk.exists():
         alt = json.loads(merk.read_text(encoding='utf-8'))
         treffer = [(z, l) for z, l in pfade if l == alt.get('datei')]
@@ -547,19 +617,15 @@ def demo_fuer(url, satz=''):
     try:
         from skript import gemini, SEHEN
         wahl, _ = gemini(
-            f'These are {len(bilder)} images from the documentation page of the AI tool "{m[2]}", numbered 0 to '
-            f'{len(bilder) - 1}. One will be shown full screen while a narrator says:\n"{satz}"\n'
-            'Pick the image that best SHOWS WHAT THE TOOL DOES for a normal viewer: an example output (generated '
-            'image, transformed photo, app screen, before/after). Reject logos, banners with only a name, '
-            'architecture diagrams, benchmark charts and tables, and anything unreadable on a phone. '
-            'If none qualifies, answer -1.' + regel_text(),
+            prompts.auswahl('demo', satz, len(bilder), [{'tool': m[2], 'source_url': url}],
+                           regel_text(), 'lang' if B > H else 'short'),
             {'type': 'OBJECT', 'properties': {'nummer': {'type': 'INTEGER'}}, 'required': ['nummer']},
             temperatur=0.1, bilder=bilder, modelle=SEHEN)
         n = wahl['nummer']
     except Exception as e:
         print('Beispielbild-Auswahl ohne KI nicht moeglich:', str(e)[:120])
         return None, None
-    if not 0 <= n < len(pfade):
+    if type(n) is not int or not 0 <= n < len(pfade):
         print('Kein brauchbares Beispielbild:', m[2])
         merk.write_text(json.dumps({'datei': None}), encoding='utf-8')
         return None, None
@@ -629,10 +695,9 @@ def aufnahme_fuer(url, dauer, ziel):
 
 
 def demo_stueck(bild, ebene, mini, dauer, ziel):
-    """Beispielbild oder Bildschirmaufnahme hochkant: unscharf vergroessert als
-    Hintergrund, scharf in der Mitte (passt jede Form ein), Zoom; Mini-Karte oben,
+    """Beispielbild oder Bildschirmaufnahme: unscharf vergroessert als
+    Hintergrund, scharf in der Mitte (passt jede Form ein); Mini-Karte oben,
     Text darueber. GIFs laufen als Animation, mp4 (Aufnahme) als Video."""
-    n = max(1, int(dauer * FPS))
     if str(bild).endswith('.mp4'):
         ein = ['-i', str(bild)]
     else:
@@ -641,11 +706,11 @@ def demo_stueck(bild, ebene, mini, dauer, ziel):
                ['-loop', '1', '-framerate', str(FPS), '-i', str(bild)])
     f = (f'[0:v]fps={FPS},split[a][b];'
          f'[a]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},boxblur=24:2,eq=brightness=-0.12[hg];'
-         # GEMESSEN: mittig (y 960) deckte die Mini-Karte (bis y ~820) den oberen
-         # Teil des Beispiels ab - jetzt darunter, bis in den Untertitelbereich.
-         f'[b]scale={B - 80}:680:force_original_aspect_ratio=decrease,setsar=1[vg];'
-         f'[hg][vg]overlay=(W-w)/2:1180-h/2,'
-         f"zoompan=z='" + ZOOM.format(n=n) + f"':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s={B}x{H}:fps={FPS}[v];"
+         # Vordergrund bleibt zwischen Mini-Karte und sprachgebundenen Akzenten.
+         f'[b]scale={LAYOUT["karte"][2] - LAYOUT["karte"][0]}:'
+         f'{LAYOUT["karte"][3] - LAYOUT["karte"][1]}:force_original_aspect_ratio=decrease,setsar=1[vg];'
+         f'[hg][vg]overlay={(LAYOUT["karte"][0] + LAYOUT["karte"][2]) / 2}-w/2:'
+         f'{(LAYOUT["karte"][1] + LAYOUT["karte"][3]) / 2}-h/2[v];'
          f'[v][1:v]overlay=0:0[x];[x][2:v]overlay=0:0,format=yuv420p')
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *ein,
                     '-loop', '1', '-framerate', str(FPS), '-i', str(ebene),
@@ -674,10 +739,14 @@ def clip_fuer(suche, schon, laenge, satz=''):
         cache.write_text(json.dumps(daten))
     kandidaten = [h for h in daten.get('hits', [])
                   if h['id'] not in schon and h.get('duration', 0) >= 3 and not UNBRAUCHBAR.search(h.get('tags', ''))
-                  and (h['videos'].get('medium') or h['videos'].get('small') or {}).get('url')][:6]
+                  and any((h['videos'].get(art) or {}).get('url') for art in ('large', 'medium', 'small'))][:6]
     for hit in waehle(kandidaten, satz):
-        v = hit['videos'].get('medium') or hit['videos'].get('small')
-        ziel = PIXABAY_CACHE / f"pixabay_{hit['id']}.mp4"
+        # Der zentrale Hochformat-Ausschnitt verliert viel Aufloesung: beste
+        # angebotene Fassung nehmen; alte kleinere Cache-Dateien nicht verwechseln.
+        v = next(hit['videos'][art] for art in ('large', 'medium', 'small')
+                 if (hit['videos'].get(art) or {}).get('url'))
+        variante = hashlib.sha1(v['url'].encode()).hexdigest()[:10]
+        ziel = PIXABAY_CACHE / f"pixabay_{hit['id']}_{variante}.mp4"
         if not ziel.exists():
             with urllib.request.urlopen(urllib.request.Request(v['url'], headers=KENNUNG), timeout=60) as r:
                 ziel.write_bytes(r.read())
@@ -716,7 +785,7 @@ def angleichen(woerter, skripttext):
     return aus
 
 
-def untertitel(woerter, pfad):
+def untertitel(woerter, pfad, profil=None, akzente=()):
     """Wort-fuer-Wort-Untertitel: drei Woerter sichtbar, das gesprochene gelb."""
     # GEMESSEN 04.10.2026 am Vorbild (alan.buildz): schmale fette Schrift in
     # Grossbuchstaben, 2-3 Woerter, das gesprochene Wort mit farbigem KASTEN
@@ -724,16 +793,50 @@ def untertitel(woerter, pfad):
     # der Kasten des aktuellen Worts (BorderStyle 3 = Kasten, alle anderen
     # Woerter unsichtbar), oben (U) die weisse Schrift - so sitzt der Kasten
     # exakt hinter dem Wort. Anton (SIL OFL) liegt in schriften/.
-    kopf = ("[Script Info]\nScriptType: v4.00+\nPlayResX: 1080\nPlayResY: 1920\nWrapStyle: 2\n\n"
+    groesse, zeichen, gruppen_max = (64, 40, 7) if B > H else {
+        'kompakt': (84, 14, 2)}.get(profil, (96, 18, 3))
+    rand = H - LAYOUT['untertitel_y'] + (40 if profil == 'hoch' and H > B else 0)
+    breite = LAYOUT['rechts'] - LAYOUT['links'] - 60
+    akzent_groesse = 50 if B > H else 60
+    kopf = (f"[Script Info]\nScriptType: v4.00+\nPlayResX: {B}\nPlayResY: {H}\nWrapStyle: 2\n\n"
             "[V4+ Styles]\nFormat: Name, Fontname, Fontsize, PrimaryColour, OutlineColour, BackColour, "
             "Bold, BorderStyle, Outline, Shadow, Alignment, MarginV\n"
             # MarginV 520: unten liegen bei TikTok/Shorts Beschreibung und Knoepfe
-            "Style: U,Anton,104,&H00FFFFFF,&H00000000,&H96000000,0,1,5,2,2,520\n"
-            "Style: K,Anton,104,&HFF000000,&H005A2BFF,&HFF000000,0,3,12,0,2,520\n\n"
+            f"Style: U,Anton,{groesse},&H00FFFFFF,&H00000000,&H96000000,0,1,5,2,2,{rand}\n"
+            f"Style: K,Anton,{groesse},&HFF000000,&H005A2BFF,&HFF000000,0,3,12,0,2,{rand}\n"
+            f"Style: A,Montserrat,{akzent_groesse},&H00FFFFFF,&H00140E0A,&H00140E0A,-1,3,10,0,5,0\n\n"
             "[Events]\nFormat: Layer, Start, End, Style, Text\n")
+    # Whisper kann einzelne Funktionswoerter mit Null-Dauer markieren. Mit dem
+    # unmittelbar benachbarten Wort zusammen zeigen, ohne Zeiten zu erfinden.
+    normal, offen, letzter_start = [], [], -1
+    for roh in woerter:
+        w = dict(roh)
+        if not isinstance(w['w'], str) or any(isinstance(w[k], bool) or not isinstance(w[k], (int, float))
+                or not math.isfinite(w[k]) for k in ('s', 'e')) \
+                or not 0 <= w['s'] <= w['e'] or w['s'] < letzter_start:
+            raise ValueError('Unbrauchbare Wortzeiten fuer Untertitel')
+        letzter_start = w['s']
+        if w['s'] == w['e']:
+            offen.append(w)
+            continue
+        if offen:
+            if w['s'] - offen[0]['s'] > .7:
+                raise ValueError('Null-Wortzeiten ohne nahes gesprochenes Wort')
+            w['w'] = ' '.join(x['w'] for x in offen) + ' ' + w['w']
+            w['s'] = offen[0]['s']
+            offen = []
+        normal.append(w)
+    if offen:
+        if not normal or offen[-1]['e'] - normal[-1]['e'] > .7:
+            raise ValueError('Null-Wortzeiten ohne nahes gesprochenes Wort')
+        normal[-1]['w'] += ' ' + ' '.join(x['w'] for x in offen)
+        normal[-1]['e'] = max(normal[-1]['e'], offen[-1]['e'])
     # GEMESSEN: Whisper trennt Zahlen („16" + „,000") - wieder zusammenfuegen.
     zusammen = []
-    for w in woerter:
+    for w in normal:
+        if not isinstance(w['w'], str) or not 0 <= w['s'] < w['e'] \
+                or (zusammen and w['s'] < zusammen[-1]['s']):
+            raise ValueError('Unbrauchbare Wortzeiten fuer Untertitel')
         if zusammen and w['w'][:1] in ',.%' and len(w['w']) > 1:
             zusammen[-1] = {**zusammen[-1], 'w': zusammen[-1]['w'] + w['w'], 'e': w['e']}
         else:
@@ -744,85 +847,145 @@ def untertitel(woerter, pfad):
     # Nachbarwoerter rutschten bei jedem Wort; lange Dreiergruppen brachen um.
     # Jetzt: Gruppen nach Zeichen (max. 18, ohne Umbruch, Satzende = neue
     # Gruppe), das Wort nur farbig; ein „Pop" der GANZEN Zeile je neuer Gruppe.
-    zeig = lambda x: x.strip('.,!?;:"').upper()  # Satzzeichen stoeren im Einzelwort
+    zeig = lambda x: re.sub(r'[{}\\\r\n]', '', x.strip('.,!?;:"')).upper()
+    font = schrift(groesse, str(SCHRIFTEN / 'Anton-Regular.ttf'))
     gruppen, g = [], []
     for w in woerter:
         laenge = sum(len(zeig(x['w'])) + 1 for x in g) + len(zeig(w['w']))
-        if g and (laenge > 18 or len(g) == 3 or g[-1]['w'][-1:] in '.!?'):
+        candidate = ' '.join(zeig(x['w']) for x in g + [w])
+        if g and (laenge > zeichen or len(g) == gruppen_max or g[-1]['w'][-1:] in '.!?'
+                  or w['s'] - g[-1]['e'] > .7 or font.getlength(candidate) > breite):
             gruppen.append(g)
             g = []
         g.append(w)
     if g:
         gruppen.append(g)
     zeilen = []
+    index = 0
     for gruppe in gruppen:
+        text = ' '.join(zeig(x['w']) for x in gruppe)
+        gfont = groesse
+        while schrift(gfont, str(SCHRIFTEN / 'Anton-Regular.ttf')).getlength(text) > breite and gfont > 52:
+            gfont -= 2
+        if schrift(gfont, str(SCHRIFTEN / 'Anton-Regular.ttf')).getlength(text) > breite:
+            raise ValueError('Untertitel enthaelt ein zu langes Wort fuer lesbare Darstellung')
+        position = f'{{\\an2\\pos({LAYOUT["mitte"]},{H - rand})\\fs{gfont}}}'
         for j, w in enumerate(gruppe):
-            pop = '{\\fscx108\\fscy108\\t(0,110,\\fscx100\\fscy100)}' if j == 0 else ''
+            pop = position
             weg, da = '{\\3a&HFF&}', '{\\3a&H00&}'  # Kasten aus / an
             kasten = pop + (weg + ' ').join((da if x is w else weg) + zeig(x['w']) for x in gruppe)
             text = pop + ' '.join(zeig(x['w']) for x in gruppe)
-            i = woerter.index(w)
-            ende = woerter[i + 1]['s'] if i + 1 < len(woerter) else w['e'] + 0.3
+            i = index
+            index += 1
+            ende = min(woerter[i + 1]['s'], w['e'] + .25) if i + 1 < len(woerter) else w['e'] + .25
+            if ende <= w['s']:
+                raise ValueError('Ueberlappende oder doppelte Wortzeiten')
             zeilen.append(f"Dialogue: 0,{ass_zeit(w['s'])},{ass_zeit(ende)},K,{kasten}")
             zeilen.append(f"Dialogue: 1,{ass_zeit(w['s'])},{ass_zeit(ende)},U,{text}")
+    for a in akzente:
+        text = re.sub(r'[{}\\\r\n]', '', a['text'])
+        f, lines, ax, ay = bildtext_layout(text, profil)
+        tags = f'{{\\an5\\pos({ax},{ay})\\fs{f.size}\\fad(100,150)}}'
+        anzeige = r'\N'.join(lines)
+        zeilen.append(f"Dialogue: 2,{ass_zeit(a['s'])},{ass_zeit(a['e'])},A,{tags}{anzeige}")
     Path(pfad).write_text(kopf + '\n'.join(zeilen) + '\n', encoding='utf-8')
 
 
-def main(skript_pfad, aus):
+def main(skript_pfad, aus, vorlage=None):
+    import rendercache
     aus = Path(aus); aus.mkdir(parents=True, exist_ok=True)
     s = json.loads(Path(skript_pfad).read_text(encoding='utf-8'))
+    format_setzen(dramaturgie.videoformat(s))
     REGELN[:] = s.get('regeln', [])
     beginn = time.time()
+    zeiten.clear()
+    code_key = hashlib.sha256(Path(__file__).read_bytes() + Path(prompts.__file__).read_bytes()
+                             + Path(audioqualitaet.__file__).read_bytes()
+                             + Path(dramaturgie.__file__).read_bytes()
+                             + Path(__file__).with_name('illustration.py').read_bytes()).hexdigest()
+    cache = rendercache.laden(vorlage) if vorlage else {}
+    if vorlage and Path(vorlage).resolve() == aus.resolve():
+        raise ValueError('Korrektur braucht einen eigenen Ausgabeordner')
+    if cache:
+        for p in Path(vorlage).iterdir():
+            if p.is_file() and ((p.suffix in ('.wav', '.png', '.jpg', '.mp4') and p.name != 'short.mp4')
+                                or p.name == 'woerter.json'):
+                shutil.copy2(p, aus / p.name)
+    akey = rendercache.audio_key(s, code_key)
+    audio_cache = cache.get('audio') or {}
+    audio_ok = (audio_cache.get('key') == akey
+                and rendercache.dateien_ok(aus, ['stimme.wav', 'woerter.json'])
+                and len(audio_cache.get('laengen', [])) == len(s['teile']))
+    zeiten['stimme_wiederverwendet'] = audio_ok
 
-    with messen('stimme_laden'):
-        from kokoro_onnx import Kokoro
-        kokoro = Kokoro('modelle/kokoro-v1.0.onnx', 'modelle/voices-v1.0.bin')
-    teile, rate, laengen = [], 24000, []
-    tempo = s.get('tempo', 1.05)
-    hoechst = (s.get('laenge_s') or [62, 90])[1]
-    with messen('stimme'):
-        # GEMESSEN 03.10.2026: Die Stimme bm_george spricht ~2,05 Woerter/s
-        # (andere ~2,7) - 249 Woerter wurden 121 s statt hoechstens 90 s, die
-        # Datei 56 MB und damit zu gross fuer Telegram. Ist der Ton zu lang,
-        # wird EINMAL schneller gesprochen (hoechstens +20 %, sonst unnatuerlich).
-        for runde in range(2):
-            teile, laengen = [], []
-            for t in s['teile']:
-                audio, rate = kokoro.create(t['text'], voice=s.get('stimme', 'af_heart'), speed=tempo, lang='en-us')
-                pause = np.zeros(int(rate * 0.25), dtype=np.float32)
-                teile.append(np.concatenate([audio.astype(np.float32), pause]))
-                laengen.append(len(teile[-1]) / rate)
-            if runde or sum(laengen) <= hoechst + 5:
-                break
-            neu = round(min(tempo * 1.2, tempo * sum(laengen) / hoechst), 3)
-            print(f'Ton {sum(laengen):.0f} s > {hoechst} s - Tempo {tempo} -> {neu}')
-            tempo = neu
+    if audio_ok:
+        rate, laengen, tempo = audio_cache['rate'], audio_cache['laengen'], audio_cache['tempo']
+        woerter = json.loads((aus / 'woerter.json').read_text(encoding='utf-8'))
+    else:
+        with messen('stimme_laden'):
+            from kokoro_onnx import Kokoro
+            kokoro = Kokoro('modelle/kokoro-v1.0.onnx', 'modelle/voices-v1.0.bin')
+        teile, rate, laengen = [], 24000, []
+        tempo = s.get('tempo', 1.05)
+        laengenziel = dramaturgie.laengen(s)
+        with messen('stimme'):
+            # Gemessene Dauer einmal anpassen; keine Beschleunigung jenseits
+            # natuerlicher Grenzen, feste Pausen bleiben in der Rechnung.
+            for runde in range(2):
+                teile, laengen = [], []
+                for t in s['teile']:
+                    stimme = s.get('stimme', 'af_heart')
+                    audio, rate = audioqualitaet.sprechen(kokoro, t['text'], stimme, tempo)
+                    pause = np.zeros(int(rate * 0.25), dtype=np.float32)
+                    teile.append(np.concatenate([audio.astype(np.float32), pause]))
+                    laengen.append(len(teile[-1]) / rate)
+                if runde:
+                    break
+                neu = audioqualitaet.tempo_fuer(sum(laengen), laengenziel, tempo,
+                                               dramaturgie.videoformat(s), .25 * len(s['teile']))
+                if neu == tempo:
+                    break
+                print(f'Ton {sum(laengen):.0f} s, Ziel {laengenziel} s - Tempo {tempo} -> {neu}')
+                tempo = neu
+        ton = np.concatenate(teile)
+        with wave.open(str(aus / 'stimme.wav'), 'wb') as w:
+            w.setnchannels(1); w.setsampwidth(2); w.setframerate(rate)
+            w.writeframes((np.clip(ton, -1, 1) * 32767).astype(np.int16).tobytes())
+
+        with messen('zeitmarken'):
+            from faster_whisper import WhisperModel
+            modell = WhisperModel('base.en', device='cpu', compute_type='int8')
+            # Ton direkt aus dem Speicher (16 kHz); umgeht die PyAV-Dateilesung.
+            n16 = int(len(ton) * 16000 / rate)
+            ton16 = np.interp(np.linspace(0, len(ton) - 1, n16), np.arange(len(ton)), ton).astype(np.float32)
+            segs, _ = modell.transcribe(ton16, word_timestamps=True)
+            woerter = [{'w': x.word.strip(), 's': x.start, 'e': x.end} for seg in segs for x in seg.words]
+        woerter = angleichen(woerter, ' '.join(t['text'] for t in s['teile']))
+        (aus / 'woerter.json').write_text(json.dumps(woerter), encoding='utf-8')
     zeiten['tempo'] = tempo
-    ton = np.concatenate(teile)
-    with wave.open(str(aus / 'stimme.wav'), 'wb') as w:
-        w.setnchannels(1); w.setsampwidth(2); w.setframerate(rate)
-        w.writeframes((np.clip(ton, -1, 1) * 32767).astype(np.int16).tobytes())
-
-    with messen('zeitmarken'):
-        from faster_whisper import WhisperModel
-        modell = WhisperModel('base.en', device='cpu', compute_type='int8')
-        # Ton direkt aus dem Speicher (16 kHz), nicht als Datei: Die Datei-
-        # Variante geht ueber PyAV, und dessen neue Fassung passt nicht zu
-        # faster-whisper ("unexpected keyword argument 'metadata_errors'").
-        n16 = int(len(ton) * 16000 / rate)
-        ton16 = np.interp(np.linspace(0, len(ton) - 1, n16), np.arange(len(ton)), ton).astype(np.float32)
-        segs, _ = modell.transcribe(ton16, word_timestamps=True)
-        woerter = [{'w': x.word.strip(), 's': x.start, 'e': x.end} for seg in segs for x in seg.words]
-    woerter = angleichen(woerter, ' '.join(t['text'] for t in s['teile']))
-    untertitel(woerter, aus / 'untertitel.ass')
+    akzente = dramaturgie.akzente(s['teile'], woerter, laengen)
+    untertitel(woerter, aus / 'untertitel.ass', s.get('untertitel_profil'), akzente)
+    (aus / 'dramaturgie.json').write_text(json.dumps({
+        'videoformat': dramaturgie.videoformat(s), 'akzente': akzente,
+        'beats': [{'teil': i, 's': round(sum(laengen[:i]), 2), 'dauer_s': round(d, 2),
+                   'beat': t.get('beat'), 'bildmodus': t.get('bildmodus', 'auto')}
+                  for i, (t, d) in enumerate(zip(s['teile'], laengen))]}, indent=2), encoding='utf-8')
+    zustand = {'audio': {'key': akey, 'rate': rate, 'laengen': laengen, 'tempo': tempo}, 'stuecke': {}}
+    zeiten['stuecke_wiederverwendet'] = 0
+    zeiten['stuecke_neu'] = 0
 
     # Je Abschnitt ein eigenes Stueck: Clip (zugeschnitten auf 9:16) mit
     # Schrift-Ebene darueber - oder Farbverlauf, wenn kein Clip passt.
     quellen, schon, liste, hg_clip = [], set(), [], None
     benutzte_fotos = set()
+    # Beanstandetes Material beim erneuten Auswaehlen ausschliessen.
+    if cache:
+        for e in cache.get('stuecke', {}).values():
+            schon.update(q['id'] for q in e.get('quellen', []) if q.get('quelle') == 'Pixabay' and 'id' in q)
+            benutzte_fotos.update(e.get('fotos', []))
     kartenvideo = any(str(t.get('quelle_url', '')).startswith('http') for t in s['teile'])
     with messen('clips_und_stuecke'):
-        ereignisse = [(0.0, 'impact')]  # Hook: Schlag auf dem ersten Bild
+        ereignisse = [(0.0, 'impact')] if H > B else []
         kanal_slug = re.sub(r'[^a-z0-9]+', '-', s.get('kanal', '').lower()).strip('-')
         FORTSCHRITT['plaetze'] = sorted((t['platz'] for t in s['teile'] if t.get('platz')), reverse=True)
         FORTSCHRITT['aktuell'] = None
@@ -830,19 +993,39 @@ def main(skript_pfad, aus):
             dauer = laengen[i]
             t0 = sum(laengen[:i])
             FORTSCHRITT['aktuell'] = t.get('platz') or FORTSCHRITT['aktuell']
-            if t.get('platz') == 1:  # Hoehepunkt: Riser davor, Schlag darauf
+            if t.get('platz') == 1 or (i > 0 and t.get('beat') == 'wendung'):
                 ereignisse += [(t0, 'riser'), (t0, 'impact')]
+            key = rendercache.stueck_key(s, i, dauer, code_key)
+            alt = cache.get('stuecke', {}).get(str(i), {})
+            if alt.get('key') == key and rendercache.dateien_ok(aus, alt.get('dateien', [])):
+                liste += [f"file '{n}'" for n in alt['dateien']]
+                quellen += alt.get('quellen', [])
+                ereignisse += [(t0 + sek, art) for sek, art in alt.get('ereignisse', [])]
+                zustand['stuecke'][str(i)] = alt
+                zeiten['stuecke_wiederverwendet'] += 1
+                continue
+            zeiten['stuecke_neu'] += 1
+            l0, q0, e0 = len(liste), len(quellen), len(ereignisse)
+            fotos0 = set(benutzte_fotos)
+            def merken():
+                zustand['stuecke'][str(i)] = {'key': key,
+                    'dateien': [z[6:-1] for z in liste[l0:]], 'quellen': quellen[q0:],
+                    'ereignisse': [(sek - t0, art) for sek, art in ereignisse[e0:]],
+                    'fotos': sorted(benutzte_fotos - fotos0)}
             stueck = aus / f'stueck_{i:02d}.mp4'
             ebene = aus / f'ebene_{i:02d}.png'
-            karte = karte_fuer(t.get('quelle_url'))
-            foto, fq = (None, None) if karte else foto_fuer(s.get('bilder') or [], t['text'], benutzte_fotos)
+            modus = t.get('bildmodus', 'auto')
+            karte = karte_fuer(t.get('quelle_url')) if modus in ('auto', 'karte') else None
+            foto, fq = ((None, None) if karte or modus in ('stock', 'illustration')
+                        else foto_fuer(s.get('bilder') or [], t['text'], benutzte_fotos))
             # GEMELDET: „wirkt langweilig und eiskalt" - Illustrationen im Spiel-Plakat-Stil
             # (fabrik/illustration.py): die Kanalfigur im Einstieg und am Schluss; sonst eine
             # Szene nur dort, wo kein echtes Foto passt - echte Fotos bleiben fuer Fakten.
             # Spart nebenbei die Pixabay-Suche samt KI-Clipwahl.
             ill = None
             letzt = i == len(s['teile']) - 1 and not t.get('platz')
-            if os.environ.get('CLOUDFLARE_AI_TOKEN') and (i == 0 or letzt or (not karte and not foto)):
+            if os.environ.get('CLOUDFLARE_AI_TOKEN') and modus in ('auto', 'illustration') \
+                    and not karte and not foto:
                 import illustration
                 if i == 0 or letzt:
                     szene = t.get('szene') or ('pointing straight at the viewer with a confident grin, close-up, '
@@ -851,7 +1034,8 @@ def main(skript_pfad, aus):
                 else:  # aeltere Skripte ohne Feld szene: Bildsuche + Satz als Szene
                     szene = t.get('szene') or f"{t.get('suche', '')}, {t['text'][:120]}"
                 try:
-                    ill = illustration.bild(szene, aus / f'ill_{i:02d}.jpg', kanal_slug, figur=(i == 0 or letzt))
+                    ill = illustration.bild(szene, aus / f'ill_{i:02d}.jpg', kanal_slug, figur=(i == 0 or letzt),
+                                           videoformat=dramaturgie.videoformat(s))
                 except Exception as e:  # nie den ganzen Videobau kippen
                     print('Illustration nicht moeglich:', str(e)[:120]); ill = None
                 if ill:
@@ -859,11 +1043,16 @@ def main(skript_pfad, aus):
                     quellen.append({'quelle': 'Illustration', 'seite': 'KI-generiert (Cloudflare Workers AI, FLUX)'})
             # GEMESSEN: Im Kartenvideo holte der Schluss einen fremden Clip
             # (halber „Subscribe"-Knopf) - dort gilt jetzt derselbe Hintergrund.
-            clip, quelle = ((None, None) if karte or foto or ill or kartenvideo else
+            clip, quelle = ((None, None) if karte or foto or ill or (kartenvideo and modus == 'auto') else
                             clip_fuer(t.get('suche') or s.get('suche'), schon, dauer, t['text']))
             bild_fuer(t, s['titel'], i, len(s['teile']), durchsichtig=not karte,
-                     karte=karte).save(ebene)
-            if ill:
+                     karte=karte, akzent=akzent_farbe(s)).save(ebene)
+            if ill and B > H:
+                kpfad = aus / f'karte_{i:02d}.png'
+                karten_ebene(ill, kasten=True).save(kpfad)
+                hg_clip = hg_clip or hintergrund_holen(s, schon, dauer, quellen, aus)
+                ein, filt = karten_filter(hg_clip, ebene, kpfad)
+            elif ill:
                 n = max(1, int(dauer * FPS))
                 filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,'
                         f"fps={FPS},zoompan=z='" + ZOOM.format(n=n) + f"':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
@@ -872,10 +1061,10 @@ def main(skript_pfad, aus):
             elif foto:
                 quellen.append(fq)
                 kpfad = aus / f'karte_{i:02d}.png'
-                karten_ebene(foto, kasten=(B - 80, 860)).save(kpfad)
+                karten_ebene(foto, kasten=not t.get('platz')).save(kpfad)
                 hg_clip = hg_clip or hintergrund_holen(s, schon, dauer, quellen, aus)
                 ein, filt = karten_filter(hg_clip, ebene, kpfad)
-            elif karte or kartenvideo:
+            elif karte or (kartenvideo and modus == 'auto'):
                 kpfad = None
                 if karte:
                     quellen.append({'quelle': 'Vorschaubild', 'seite': t['quelle_url']})
@@ -885,12 +1074,8 @@ def main(skript_pfad, aus):
                 ein, filt = karten_filter(hg_clip, ebene, kpfad)
             elif clip:
                 quellen.append(quelle)
-                # Langsamer Zoom (6 %) auf JEDEM Clip. GEMELDET (KI-Analyse):
-                # „Standbild von Schulkindern ohne jede Kamerabewegung".
-                n = max(1, int(dauer * FPS))
                 filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,'
-                        f"fps={FPS},zoompan=z='" + ZOOM.format(n=n) + f"':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
-                        f':d=1:s={B}x{H}:fps={FPS}[v];[v][1:v]overlay=0:0,format=yuv420p')
+                        f'fps={FPS}[v];[v][1:v]overlay=0:0,format=yuv420p')
                 ein = ['-stream_loop', '-1', '-i', str(clip), '-i', str(ebene)]
             else:
                 # GEMELDET (KI-Analyse): „Blackscreens", „dunkler leerer
@@ -918,7 +1103,8 @@ def main(skript_pfad, aus):
                                     '-t', f'{a:.3f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
                                     str(st_a)], check=True)
                     eb, mk = aus / f'ebene_{i:02d}b.png', aus / f'mini_{i:02d}.png'
-                    bild_fuer({}, s['titel'], i, len(s['teile']), durchsichtig=True).save(eb)
+                    bild_fuer({}, s['titel'], i, len(s['teile']), durchsichtig=True,
+                             akzent=akzent_farbe(s)).save(eb)
                     mini_karte(karte, t['platz']).save(mk)
                     rest = dauer - a
                     ereignisse += [(t0, 'pop'), (t0 + a, 'whoosh')]
@@ -933,6 +1119,7 @@ def main(skript_pfad, aus):
                     else:
                         demo_stueck(aufn or demo, eb, mk, rest, st_b)
                         liste += [f"file '{st_a.name}'", f"file '{st_b.name}'"]
+                    merken()
                     continue
                 clip_b, q_b = clip_fuer(t.get('suche') or s.get('suche'), schon, dauer - a, t['text'])
                 if clip_b:
@@ -942,12 +1129,11 @@ def main(skript_pfad, aus):
                                     '-t', f'{a:.3f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
                                     str(st_a)], check=True)
                     eb, mk = aus / f'ebene_{i:02d}b.png', aus / f'mini_{i:02d}.png'
-                    bild_fuer({}, s['titel'], i, len(s['teile']), durchsichtig=True).save(eb)
+                    bild_fuer({}, s['titel'], i, len(s['teile']), durchsichtig=True,
+                             akzent=akzent_farbe(s)).save(eb)
                     mini_karte(karte, t['platz']).save(mk)
-                    nb = max(1, int((dauer - a) * FPS))
                     fb = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,'
-                          f"fps={FPS},zoompan=z='" + ZOOM.format(n=nb) + f"':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
-                          f':d=1:s={B}x{H}:fps={FPS}[v];[v][1:v]overlay=0:0[x];[x][2:v]overlay=0:0,format=yuv420p')
+                          f'fps={FPS}[v];[v][1:v]overlay=0:0[x];[x][2:v]overlay=0:0,format=yuv420p')
                     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-stream_loop', '-1', '-i', str(clip_b),
                                     '-loop', '1', '-framerate', str(FPS), '-i', str(eb),
                                     '-loop', '1', '-framerate', str(FPS), '-i', str(mk), '-filter_complex', fb,
@@ -955,26 +1141,37 @@ def main(skript_pfad, aus):
                                     '-crf', '18', str(st_b)], check=True)
                     liste += [f"file '{st_a.name}'", f"file '{st_b.name}'"]
                     ereignisse += [(t0, 'pop'), (t0 + a, 'whoosh')]
+                    merken()
                     continue
             subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *ein, '-filter_complex', filt,
                             '-t', f'{dauer:.3f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
                             str(stueck)], check=True)
             liste.append(f"file '{stueck.name}'")
-            if i:
+            if i and (H > B or t.get('name') or t.get('beat') == 'wendung'):
                 ereignisse.append((t0, 'whoosh'))
+            merken()
         (aus / 'stuecke.txt').write_text('\n'.join(liste) + '\n', encoding='utf-8')
     # Quellen je Video festhalten (Rechte-Regeln, Konzept 2c) - und fuer
     # die Beschreibung („Clips: Pixabay", Bitte von Pixabay).
-    musik, musik_q = musik_holen(s.get('musik_suche') or ['calm ambient background']) \
-        if s.get('musik', True) else (None, None)
+    musik_key = rendercache.signatur([s.get('musik_suche'), s.get('musik', True)])
+    if cache.get('musik_key') == musik_key and 'musik' in cache \
+            and (not cache['musik'] or Path(cache['musik']).is_file()):
+        musik, musik_q = cache['musik'], cache.get('musik_quelle')
+    else:
+        musik, musik_q = musik_holen(s.get('musik_suche') or ['calm ambient background']) \
+            if s.get('musik', True) else (None, None)
+    zustand.update(musik_key=musik_key, musik=str(Path(musik).resolve()) if musik else None, musik_quelle=musik_q)
     if musik_q:
         quellen.append(musik_q)
     (aus / 'quellen.json').write_text(json.dumps(quellen, indent=2, ensure_ascii=False), encoding='utf-8')
+    ereignisse = audioqualitaet.ereignisse(ereignisse, sum(laengen))
     effekte_spur(ereignisse, sum(laengen), rate, aus / 'effekte.wav',
                  glitch=bool(FORTSCHRITT['plaetze']) and 'AI' in s.get('kanal', ''))
     zeiten['effekte'] = len(ereignisse)
     # Effekte nicht in die Sidechain: nur die Stimme senkt die Musik ab
     fx = 3 if musik else 2
+    musik_pegel = max(0, min(0.15, float(s.get('musik_pegel', 0.1))))
+    effekt_pegel = max(0, min(1.0, float(s.get('effekt_pegel', 1.0))))
 
     with messen('rendern'):
         subprocess.run([
@@ -989,12 +1186,13 @@ def main(skript_pfad, aus):
             # Musik: Grundpegel -20 dB, unter der Stimme automatisch weitere ~10 dB
             # leiser (Sidechain) - die Stimme bleibt immer klar verstaendlich.
             '-filter_complex',
-            (('[2:a]aresample=48000,volume=0.1,afade=t=in:d=1[m];'
+            ((f'[2:a]loudnorm=I=-18:TP=-3:LRA=7,aresample=48000,volume={musik_pegel},afade=t=in:d=1,'
+              f'afade=t=out:st={max(0, sum(laengen) - 1.2):.3f}:d=1.2[m];'
               '[1:a]aresample=48000,asplit=2[v][sc];'
               '[m][sc]sidechaincompress=threshold=0.015:ratio=6:attack=15:release=350[md];'
-              f'[{fx}:a]aresample=48000[fx];'
+              f'[{fx}:a]aresample=48000,volume={effekt_pegel}[fx];'
               '[v][md][fx]amix=inputs=3:duration=first:normalize=0,') if musik else
-             (f'[1:a]aresample=48000[v];[{fx}:a]aresample=48000[fx];'
+             (f'[1:a]aresample=48000[v];[{fx}:a]aresample=48000,volume={effekt_pegel}[fx];'
               '[v][fx]amix=inputs=2:duration=first:normalize=0,'))
             + 'loudnorm=I=-14:TP=-1.5:LRA=11[a]',  # Plattformnorm (Konzept 4a, Punkt 6)
             '-map', '0:v', '-map', '[a]',
@@ -1009,9 +1207,10 @@ def main(skript_pfad, aus):
     zeiten['videolaenge_s'] = round(sum(laengen), 1)
     zeiten['abschnitte_s'] = [round(x, 2) for x in laengen]  # Absprung je Abschnitt (erfolg.py)
     zeiten['woerter'] = len(woerter)
+    rendercache.speichern(aus, zustand)
     (aus / 'messung.json').write_text(json.dumps(zeiten, indent=2), encoding='utf-8')
     print(json.dumps(zeiten, indent=2))
 
 
 if __name__ == '__main__':
-    main(sys.argv[1], sys.argv[2])
+    main(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)

@@ -18,3 +18,8 @@ Verwendet in `fabrik/bauen.py` (`effekte_spur`): Whoosh auf jedem Schnitt, Pop b
 
 Riser: endet genau beim Erscheinen von Platz 1. Impact: Hook (erstes Bild) und Platz 1.
 Glitch: im KI-Kanal jeder dritte Schnitt statt Whoosh.
+
+Qualitaetsanpassung 05.10.2026: Effekte sind kuerzer und leiser, haben kurze
+Ein-/Ausblendungen gegen Klicks und begrenzte gemeinsame Spitzen. Doppelte
+und zu dicht aufeinanderfolgende Whooshes entfallen. Riser werden bei Bedarf
+am Anfang gekuerzt, damit sie wirklich am Akzent enden.

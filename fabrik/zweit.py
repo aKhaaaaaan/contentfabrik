@@ -13,6 +13,7 @@ den geprueften Saetzen passen (auszug), nicht den ganzen Artikel.
 Fehlt GROQ_API_KEY oder ist Groq nicht erreichbar: None (kein Abbruch).
 """
 import json, os, re, time, urllib.error, urllib.request
+import prompts
 
 MODELLE = ['openai/gpt-oss-120b', 'qwen/qwen3.8-27b']
 GRENZE_ZEICHEN = 14000  # ~3.500 Tokens Quelle + Skript + Antwort < 8.000 Tokens/Minute
@@ -40,11 +41,14 @@ def pruefen(text, quelle, art='YouTube Short script'):
     schluessel = os.environ.get('GROQ_API_KEY')
     if not schluessel:
         return None
-    auftrag = (f'You are an independent fact checker for a {art}. Check every factual claim in the TEXT strictly '
+    auftrag = (prompts.DATEN + prompts.FAKTEN + f'You are an independent fact checker for a {art}. Check every factual claim in the TEXT strictly '
                'against the SOURCE. A claim is a problem if the source does not support it, if it is exaggerated, '
                'if a number/date/name differs, or if it is an invented quote or scene. Ignore style. '
                'For each problem set "schwer": true if a number, date, name, place or event is WRONG or invented; '
                'false if it is only an unsupported detail or exaggeration ("immediately", "broke", "millions"). '
+               'Quote the exact clause and identify the missing or contradictory source support. '
+               'Accurate paraphrases are acceptable; do not invent a mismatch. When the excerpt lacks '
+               'evidence, state that limitation rather than claiming the event never happened. '
                'Answer as JSON: {"probleme": [{"satz": "<exact sentence>", "fehler": "<what is wrong>", '
                '"schwer": true|false}, ...]} - an empty list if everything is supported.\n\n'
                # ~4 Zeichen je Token: Quelle + Text + Antwort unter 8.000 Tokens/Minute
@@ -65,7 +69,10 @@ def pruefen(text, quelle, art='YouTube Short script'):
                 # Ausschmueckungen („immediately", „broke"). Als harte Sperre fiele fast
                 # alles durch. Darum: schwer (falsche Zahl/Name/Ereignis) sperrt,
                 # leicht geht als Auftrag in die Story-Ueberarbeitung.
-                ps = [p for p in a.get('probleme', []) if isinstance(p, dict)]
+                ps = a.get('probleme')
+                if not isinstance(ps, list) or any(not isinstance(p, dict) or type(p.get('schwer')) is not bool
+                        or not isinstance(p.get('satz'), str) or not isinstance(p.get('fehler'), str) for p in ps):
+                    raise ValueError('Unvollstaendige Zweitpruefer-Antwort')
                 text_ = lambda p: f"{str(p.get('satz', ''))[:160]} - {p.get('fehler', '')}"
                 schwer = [text_(p) for p in ps if p.get('schwer')]
                 return {'ok': not schwer, 'probleme': schwer, 'leicht': [text_(p) for p in ps if not p.get('schwer')],

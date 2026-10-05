@@ -9,7 +9,9 @@ import prompts
 
 SCHEMA = {'type': 'OBJECT', 'properties': {'einstellungen': {'type': 'ARRAY', 'items': {
     'type': 'OBJECT', 'properties': {
-        'index': {'type': 'INTEGER'}, 'bildmodus': {'type': 'STRING', 'enum': ['foto', 'stock', 'illustration', 'karte', 'demo', 'figur']},
+        'index': {'type': 'INTEGER'}, 'bildmodus': {'type': 'STRING', 'enum': ['foto', 'stock', 'illustration', 'karte', 'demo', 'figur', 'asset']},
+        'asset': {'type': 'STRING'},
+        'figur': {'type': 'BOOLEAN'},
         'suche': {'type': 'STRING'}, 'szene': {'type': 'STRING'}, 'motiv': {'type': 'STRING'}},
     'required': ['index', 'bildmodus', 'suche', 'szene', 'motiv']}}}, 'required': ['einstellungen']}
 
@@ -31,15 +33,41 @@ def slots(s, laengen, woerter):
 def vorbereiten(s, laengen, woerter, cache=None):
     from skript import gemini
     import lernen
+    import bibliothek
     from rendercache import signatur
     zeitplan = slots(s, laengen, woerter)
     key = signatur([s['teile'], laengen, s.get('bilder', []), prompts.VERSION,
-                    lernen.redaktionsregeln(), Path(__file__).read_text(encoding='utf-8')])
+                    lernen.redaktionsregeln(), bibliothek.signatur().decode('utf-8'), Path(__file__).read_text(encoding='utf-8')])
     alt = (cache or {}).get('bildplan') or {}
     daten = alt.get('einstellungen') if alt.get('key') == key else None
+    # Die menschlich kontrollierte Regie ist verbindlich und braucht keinen
+    # zweiten KI-Auftrag, der dieselbe Bildfolge lediglich wieder ueberschreibt.
+    if daten is None and all(t.get('bildfolge') and all(
+            all(v.get(k) for k in ('bildmodus', 'suche', 'szene', 'motiv'))
+            for v in t['bildfolge']) for t in s['teile']):
+        daten, zaehler = [], {}
+        for slot in zeitplan:
+            phase = slot['phase']
+            j = zaehler.get(phase, 0)
+            zaehler[phase] = j + 1
+            vorgaben = s['teile'][phase]['bildfolge']
+            if j >= len(vorgaben):
+                raise ValueError(f'Phase {phase}: redaktionelle Bildfolge zu kurz fuer die gemessene Stimme')
+            daten.append(dict(vorgaben[j], index=slot['index']))
+        print('Redaktioneller Bildplan | Einstellungen:', len(daten))
     if daten is None:
         auftrag = (prompts.DATEN + prompts.SZENEN + '\nTASK: Plan the actual visual edit, NOT new narration. '
             'Each timed slot below needs a distinct relevant shot, within its original spoken phase. '
+            'Prefer asset for a genuinely relevant approved library illustration. Set asset to its '
+            'exact id from illustration_library; use only this channel. Do not use a library image '
+            'just to fill time when its subject does not match. Illustrative scenes are the visual '
+            'default requested by the user; genuine demos are brief evidence of actual tool functions. '
+            'Introduce the original channel presenter in the opening and bring the same identity '
+            'back during the story in useful actions, not only the closing CTA. Prefer presenter '
+            'library assets; for a new illustration involving our presenter set figur=true so the '
+            'reference image is actually used. Business: blue-eyed man with fedora, grey suit, dark '
+            'tie and gold pocket watch. AI Tools: black-haired man with black leather jacket and '
+            'cyan glowing glasses. Never use the presenter as a named real historical founder. '
             'Use overview, object detail, visible process, comparison or outcome when supported. '
             'A zoom, different crop or title change is NOT a new motif. Never use unrelated candles, '
             'abstract loops or background-only frames to fill missing imagery. Every shot must '
@@ -72,6 +100,7 @@ def vorbereiten(s, laengen, woerter, cache=None):
             'Return EXACTLY one entry per slot, same integer index. motiv states the distinct visible '
             'subject/action. No extra words or factual assertions in the narration.\n' + json.dumps({
                 'slots': zeitplan, 'phases': s['teile'], 'photos': s.get('bilder', []),
+                'illustration_library': [b for b in bibliothek.katalog() if b['kanal'] == s.get('kanal')],
                 'editorial_feedback': lernen.redaktionsregeln()}, ensure_ascii=False))
         d, modell = gemini(auftrag, SCHEMA)
         daten = d['einstellungen']
@@ -81,7 +110,7 @@ def vorbereiten(s, laengen, woerter, cache=None):
     aus = []
     pro_phase = {}
     for slot, d in zip(zeitplan, daten):
-        if d.get('bildmodus') not in ('foto', 'stock', 'illustration', 'karte', 'demo', 'figur') or not d.get('szene') or not d.get('motiv'):
+        if d.get('bildmodus') not in ('foto', 'stock', 'illustration', 'karte', 'demo', 'figur', 'grafik', 'asset') or not d.get('szene') or not d.get('motiv'):
             raise ValueError('Bildplan enthaelt eine leere oder ungueltige Einstellung')
         t = copy.deepcopy(s['teile'][slot['phase']])
         j = pro_phase.get(slot['phase'], 0)
@@ -91,6 +120,13 @@ def vorbereiten(s, laengen, woerter, cache=None):
             d = dict(d, **vorgaben[j])
             if d.get('demo_url'):
                 t['demo_url'] = d['demo_url']
+            if 'grafik_variante' in d:
+                t['grafik_variante'] = d['grafik_variante']
+        if d.get('bildmodus') == 'asset':
+            bibliothek.bild(d.get('asset'), s.get('kanal'))
+            t['asset'] = d['asset']
+        if 'figur' in d:
+            t['figur'] = d['figur']
         t.update({k: d[k] for k in ('bildmodus', 'suche', 'szene', 'motiv')})
         t['text'] = slot['text']
         t['_phase'] = slot['phase']

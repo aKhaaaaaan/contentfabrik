@@ -6,6 +6,41 @@ aktualisiert. Es enthaelt keine Zugangsschluessel.
 
 ## Nutzerauftrag und zugesagtes Ergebnis
 
+### Aktuelle Umsetzung am 05.10.2026, ca. 20:05 Berlin
+
+Noch kein verbesserter Pilot auf Telegram zugestellt. Der letzte AI-Lauf
+37348937412 stoppte vor der MP4: Cloudflare meldete das erschoepfte freie
+Tageskontingent. Wiederholte Starts mit demselben Generator helfen heute nicht.
+Keine kostenpflichtige Hochstufung oder Billing-Aenderung vorgenommen.
+
+Stattdessen 16 Originalillustrationen mit built-in image_gen erzeugt, gesichtet
+und im Projekt gespeichert (`assets/illustrationen/`). Exakte Prompts in
+`PROMPTS.json`, `ERWEITERUNG-PROMPTS.json`, `BUSINESS-FIGUR-PROMPTS.json`.
+Der Katalog enthaelt SHA256, Kanal, Dateiname und Motiv; die Freigabe bezeichnet
+eine Sichtkontrolle, KEINE KI-Note oder garantierte Zuschauerqualitaet.
+Fremde IDs, andere Kanaele, Pfadausbruch und spaeter veraenderte Bilder werden
+von `bibliothek.bild` abgewiesen. Neues Bildmodus `asset`, im Endvideo als
+ILLUSTRATION markiert. Die source-echten Qwen-Beispiele tragen weiter
+MODEL CARD EXAMPLE. Keine eigene Illustration als echter Qwen-Test ausgeben.
+
+`pilot_bildregie.py` ordnet beide Vorlagen konkret pro Sprechphase zu: mehrere
+Motive, eigene Figuren am Einstieg und wiederkehrend im Verlauf. Vollstaendige
+Regievorgaben brauchen keinen zweiten Gemini-Auftrag; automatische Skripte
+erhalten weiter einen Gemini-Bildplan und den passenden Bibliothekskatalog.
+Eine zu kurze konkrete Bildfolge stoppt statt beliebiger Bilder/Nachgenerierung.
+Neue historische Vergleichsgrafiken zeigen qualitative Unterschiede bei Karten
+und Preis, keine erfundenen Preise. Auch hier Bildvielfalt/volle Abdeckung pruefen.
+
+Der Nutzer hat beide bisherigen Referenzfiguren mit Screenshots bestaetigt:
+Business: Hut/Anzug/Taschenuhr; AI: Lederjacke/leuchtende Brille. Originaldateien
+in `figuren/` stimmen damit ueberein. Eigene Handlungsszenen behalten die Identitaet.
+Die gemalte Open-World-Spielwelt ist bevorzugt; Fakten und echte Tool-Demos bleiben
+quellengetreu. Nur Kamera-/Schnittbewegung, keine behauptete volle Figurenanimation.
+Diese Vorgaben stehen persistent auch in `lernen/redaktion.json` und erreichen
+Skriptautor, Bildplaner und Kritiker. Bei neuen Presenter-Illustrationen kann
+der Planer jetzt `figur=true` waehrend des Verlaufs setzen: die vorhandene
+Referenzdatei wird dann tatsaechlich uebergeben, nicht nur am Anfang/Ende.
+
 **Neuester Stand: Nutzer hat das um 17:35 versandte Nintendo-Video als
 deutlich schlechter als 5/10 abgelehnt. Seine Rueckmeldung hat Vorrang vor
 der historischen KI-Note 9.** Kontaktbogen der echten MP4 bestaetigt rund

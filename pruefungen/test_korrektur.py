@@ -213,7 +213,10 @@ class CacheTest(TempTest):
         code = hashlib.sha256(Path(bauen.__file__).read_bytes() + Path(bauen.prompts.__file__).read_bytes()
                               + Path(bauen.audioqualitaet.__file__).read_bytes()
                               + Path(bauen.dramaturgie.__file__).read_bytes()
-                              + Path(bauen.__file__).with_name('illustration.py').read_bytes()).hexdigest()
+                              + Path(bauen.__file__).with_name('illustration.py').read_bytes()
+                              + Path(bauen.__file__).with_name('infografik.py').read_bytes()
+                              + Path(bauen.__file__).with_name('bibliothek.py').read_bytes()
+                              + (Path(bauen.__file__).resolve().parents[1] / 'assets/illustrationen/katalog.json').read_bytes()).hexdigest()
         Path('alt').mkdir()
         Path('alt/stimme.wav').write_bytes(b'audio')
         Path('alt/woerter.json').write_text(json.dumps([

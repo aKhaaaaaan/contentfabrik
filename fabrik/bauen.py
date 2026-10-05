@@ -942,7 +942,10 @@ def main(skript_pfad, aus, vorlage=None):
     code_key = hashlib.sha256(Path(__file__).read_bytes() + Path(prompts.__file__).read_bytes()
                              + Path(audioqualitaet.__file__).read_bytes()
                              + Path(dramaturgie.__file__).read_bytes()
-                             + Path(__file__).with_name('illustration.py').read_bytes()).hexdigest()
+                             + Path(__file__).with_name('illustration.py').read_bytes()
+                             + Path(__file__).with_name('infografik.py').read_bytes()
+                             + Path(__file__).with_name('bibliothek.py').read_bytes()
+                             + (Path(__file__).resolve().parents[1] / 'assets/illustrationen/katalog.json').read_bytes()).hexdigest()
     cache = rendercache.laden(vorlage) if vorlage else {}
     if vorlage and Path(vorlage).resolve() == aus.resolve():
         raise ValueError('Korrektur braucht einen eigenen Ausgabeordner')
@@ -1070,7 +1073,7 @@ def main(skript_pfad, aus, vorlage=None):
             ebene = aus / f'ebene_{i:02d}.png'
             modus = t.get('bildmodus', 'auto')
             karte = karte_fuer(t.get('quelle_url')) if modus in ('auto', 'karte') else None
-            foto, fq = ((None, None) if karte or modus in ('stock', 'illustration', 'demo', 'figur')
+            foto, fq = ((None, None) if karte or modus in ('stock', 'illustration', 'demo', 'figur', 'grafik', 'asset')
                         else foto_fuer(s.get('bilder') or [], t['text'] + ' Visual: ' + t.get('szene', ''), benutzte_fotos))
             if modus == 'demo':
                 demo, fq = demo_fuer(t.get('quelle_url'), t['text'] + ' Visual: ' + t.get('szene', ''),
@@ -1086,6 +1089,17 @@ def main(skript_pfad, aus, vorlage=None):
             # Spart nebenbei die Pixabay-Suche samt KI-Clipwahl.
             ill = None
             letzt = i == len(shots) - 1 and not t.get('platz')
+            if modus == 'asset':
+                import bibliothek
+                ill = bibliothek.bild(t.get('asset'), s.get('kanal'))
+                quellen.append({'quelle': 'Illustration', 'seite': 'Eigene sichtgepruefte KI-Illustration (built-in image_gen)',
+                                'asset': t['asset'], 'sha256': bildplan.material_id(ill)})
+            if modus == 'grafik':
+                if s.get('thema') != 'Nintendo: The Problem with Durable Cards':
+                    raise ValueError('Diese Vergleichsgrafik passt ausschliesslich zur belegten Karten-Geschichte')
+                import infografik
+                ill = infografik.karten(aus / f'ill_{i:02d}.jpg', t.get('grafik_variante', 0), B, H)
+                quellen.append({'quelle': 'Illustration', 'seite': 'Eigene redaktionelle Vergleichsgrafik, keine historische Aufnahme'})
             if modus == 'figur':
                 import illustration
                 ill = illustration.FIGUREN / f'{kanal_slug}.jpg'
@@ -1107,7 +1121,7 @@ def main(skript_pfad, aus, vorlage=None):
                              'of a named historical person. ' + szene)
                 try:
                     ill = illustration.bild(szene, aus / f'ill_{i:02d}.jpg', kanal_slug,
-                                           figur=(i == 0 or letzt) and t.get('figur', True),
+                                           figur=t.get('figur', i == 0 or letzt),
                                            videoformat=dramaturgie.videoformat(s))
                 except Exception as e:  # nie den ganzen Videobau kippen
                     print('Illustration nicht moeglich:', str(e)[:120]); ill = None

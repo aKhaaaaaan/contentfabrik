@@ -1,6 +1,6 @@
 # KI-Prompts und Medienqualitaet
 
-Stand: 05.10.2026. Vorlagenversion: `2026-10-05.8`.
+Stand: 05.10.2026. Vorlagenversion: `2026-10-05.9`.
 Die gemeinsamen Auftraege stehen in [fabrik/prompts.py](fabrik/prompts.py).
 Ein separater Gemini-Bildplan in `fabrik/bildplan.py` erzeugt mehrere
 inhaltlich unterschiedliche Einstellungen innerhalb jeder Sprechphase.
@@ -8,6 +8,15 @@ Nutzerfeedback aus `lernen/redaktion.json` erreicht Autor, Bildplaner,
 Bildauswahl und Video-Kritik. Die Kritik muss lange Motivhaltezeiten und
 Hintergrund-only-Sequenzen benennen; Untertitel oder Zoom sind keine neuen
 Motive. Figuren duerfen Blickrichtung/Pose aendern, ohne ihre Identitaet zu verlieren.
+Die vom Nutzer bestaetigte Kanalfigur erscheint am Anfang und wiederkehrend im
+Verlauf in sinnvollen Handlungsszenen. Business: Hut/Anzug/Taschenuhr; AI Tools:
+schwarze Lederjacke/cyan leuchtende Brille. Eigene gemalte Spielwelt bevorzugen.
+Sichtgepruefte Originalillustrationen stehen in `assets/illustrationen/katalog.json`.
+`asset` verwendet eine passende, kanalspezifische ID mit geprueftem SHA256.
+Die drei Promptdateien im selben Ordner dokumentieren die built-in image_gen-
+Auftraege. Konkrete vollstaendige Pilotregie braucht keinen weiteren Gemini-Plan;
+die automatische Planung erhaelt weiterhin den Katalog und Nutzerfeedback.
+Kamerabewegung und Bildwechsel sind keine vollstaendige Figurenanimation.
 Skript und fertige Video-Kritik speichern die verwendete Version, damit
 spaetere Vergleiche nachvollziehbar bleiben.
 

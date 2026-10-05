@@ -74,6 +74,8 @@ def main():
         ill('Three clearly separate objects in a close overhead shot: a paper layer, a selection mask and a small portrait frame, no hands or text'),
         {'bildmodus': 'figur', 'szene': 'Existing original fictional channel presenter for the spoken CTA',
          'motiv': 'Original channel presenter', 'suche': 'original presenter'}]
+    from pilot_bildregie import setzen
+    setzen(s)
     ziel.write_text(json.dumps(s, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     print('Quellengebundene Vorlage; Woerter:', sum(len(t['text'].split()) for t in s['teile']))
 

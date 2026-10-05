@@ -20,6 +20,23 @@ mit eigenstaendigen Charakteren. Keine GTA-Figuren, Logos, Outfits oder
 konkreten Spielszenen kopieren. Hintergrundmusik und Geraeusche muessen
 inhaltlich und emotional zur Geschichte passen und die Stimme frei lassen.
 
+Die vom Nutzer erneut bestaetigten Referenzen liegen unveraendert in `figuren/`:
+Business = Mann mit Hut, grauem Anzug, dunkler Krawatte und goldener Taschenuhr;
+AI Tools = schwarzhaariger Mann mit schwarzer Lederjacke und cyan leuchtender Brille.
+Die jeweilige Figur erscheint am Anfang UND wiederkehrend im Verlauf des Videos,
+in sinnvollen Handlungen. Gesicht und typische Kleidung erhalten; Posen/Schauplaetze
+variieren. Historische Handwerker sind Nebenfiguren, keine behaupteten Gruenderportraets.
+Lebendige gemalte Spielwelt ist der bevorzugte Look; echte Tool-Beispiele bleiben
+gezielte Belege. Die aktuellen Kamerafahrten sind keine volle Figurenanimation.
+
+Neu: `assets/illustrationen/` mit 16 per built-in image_gen erzeugten, visuell
+kontrollierten Originalbildern, exakten Promptdateien und SHA256-Katalog.
+`fabrik/bibliothek.py` prueft Kanal, ID, Pfad und unveraenderten Dateiinhalt.
+Die kuratierten Piloten brauchen damit keine Cloudflare-Bildgenerierung:
+das freie Tageskontingent wurde am 05.10.2026 tatsaechlich aufgebraucht.
+Keine kostenpflichtige Hochstufung aktiviert. Endgueltige Videos weiterhin
+vollstaendig pruefen und vor dem Telegram-Versand manuell visuell ansehen.
+
 Interaktionsaufforderung in jedem Video: explizit **liken, teilen und speichern**.
 Shorts: einmal kurz nach der Aufloesung nahe dem Ende. Langvideos: am Anfang
 nach Hook/erstem Nutzen und nochmals am Ende nach der Aufloesung.

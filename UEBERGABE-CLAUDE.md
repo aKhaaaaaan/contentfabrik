@@ -40,6 +40,13 @@ danach Business/Nintendo
 [37344290208](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37344290208).
 Beide ohne automatischen Telegram-Versand. CI 37344257003 bestanden.
 Diese Starts belegen noch kein fertiges Video und keine Zustellung.
+AI-Lauf 37344285206 ist ebenfalls vor Render gescheitert (Story 5/10): der
+Autor blieb trotz besserer Quellen bei technischen Kategorien statt Nutzen.
+Neue gezielte Vorlage `piloten/qwen-bildworkflow.json`: einzelne Bild-KI,
+Cutouts/gezielte Bearbeitung/Referenzen, konkrete dokumentierte Beispiele,
+ehrlicher Hinweis auf Herstellerbeispiele und Research License. 201 Woerter.
+`pruefungen/qwen_vorlage.py` erstellt sie aus der originalen aktuellen README;
+keine Note vorgeben. Pilotwahl qwen-bildworkflow nur fuer AI-Tools-Short.
 Implementiert in `bildplan.py`: Originalton/Wortzeiten behalten, Phasen in
 ca. 3-5-Sekunden-Einstellungen aufteilen, ein gebuendelter Gemini-Aufruf fuer
 konkrete unterschiedliche Motive. Zoom, Ausschnitt oder Untertitelwechsel

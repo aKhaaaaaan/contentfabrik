@@ -1,0 +1,103 @@
+{
+  "kanal": "AI Tools Explained",
+  "thema": "Qwen Image: beyond a pretty picture",
+  "titel": [
+    "Beyond A *Pretty* *Picture*",
+    "Three Workflow Checks"
+  ],
+  "stimme": "am_michael",
+  "tempo": 1.08,
+  "titel_farbe": "#20D2BE",
+  "videoformat": "short",
+  "format": "erklaerung",
+  "laenge_s": [
+    62,
+    90
+  ],
+  "untertitel_profil": "ruhig",
+  "musik": true,
+  "musik_suche": [
+    "curious electronic pulse"
+  ],
+  "belege": [
+    {
+      "quelle": "Hugging Face: original model card",
+      "name": "Qwen/Qwen-Image-2.1",
+      "url": "https://huggingface.co/Qwen/Qwen-Image-2.1",
+      "text": "---\nlicense: other\nlicense_name: qwen-research\nlicense_link: LICENSE\npipeline_tag: text-to-image\ntags:\n  - diffusers\n  - qwen\n  - image-generation\n  - image-editing\n  - rgba\n---\n\n<p align=\"center\">\n    <img src=\"https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-Image/image2.1/logo.png\" width=\"400\"/>\n</p>\n<p align=\"center\">\n    🤖 <a href=\"https://modelscope.cn/models/Qwen/Qwen-Image-2.1\">ModelScope</a>&nbsp;&nbsp;|\n    &nbsp;&nbsp;🤗 <a href=\"https://huggingface.co/Qwen/Qwen-Image-2.1\">HuggingFace</a>&nbsp;&nbsp;|\n    &nbsp;&nbsp;📑 <a href=\"https://qwen.ai/blog?id=qwen-image-2.1\">Blog</a>&nbsp;&nbsp;|\n    &nbsp;&nbsp;🖥️ <a href=\"https://huggingface.co/spaces/Qwen/Qwen-Image-2.1\">Demo</a>&nbsp;&nbsp;|\n    &nbsp;&nbsp;🫨 <a href=\"https://discord.gg/BEYSk3pkSu\">Discord</a>&nbsp;&nbsp;|\n    &nbsp;&nbsp;💬 <a href=\"https://huggingface.co/Qwen/Qwen-Image-2.1/blob/main/assets/qr.png\">WeChat</a>\n</p>\n\n## Introduction\n\nWe are excited to open-source **Qwen-Image-2.1**, a unified text-to-image generation and image editing model in the Qwen family. With just **7B parameters in its visual generation component** (32 Single-Stream DiT layers), Qwen-Image-2.1 balances generation quality, inference efficiency, and versatility.\n\nFour key improvements define this release:\n\n- **Compact and Efficient** — A lightweight architecture with mixed-granularity attention and prefix KV cache reuse delivers strong image quality at low computational cost.\n- **Native Transparency, Unified Creation and Editing** — Generate regular or transparent (RGBA) images from text, edit transparent layers, and extract subjects from photographs—all in one model.\n- **Versatile Editing** — Support up to **10 reference images**, specify local edits via circles, painted annotations, or separate masks, and preserve identity for people and products.\n- **Realistic Textures and Refined Aesthetics** — Improved typography, portrait lighting, and fine details for more visually compelling results.\n\n<p align=\"center\">\n    <img src=\"https://qianwen-res.oss-accelerate.aliyuncs.com/Qwen-Image/image2.1/images/example-01.png\" width=\"100%\"/>\n</p>\n\nFor more details, see the [GitHub repo](https://github.com/QwenLM/Qwen-Image-2.1) and [Blog](https://qwen.ai/blog?id=qwen-image-2.1).\n\n## Quick Start\n\n### Installation\n\n```bash\npip install torch>=2.4.0\npip install transformers>=5.17\npip install git+https://github.com/huggingface/diffusers\npip install accelerate pillow\n```\n\n### Text-to-Image\n\n```python\nimport torch\nfrom diffusers import QwenImage21Pipeline\n\npipe = QwenImage21Pipeline.from_pretrained(\n    \"Qwen/Qwen-Image-2.1\", torch_dtype=torch.bfloat16\n).to(\"cuda\")\n\nimage = pipe(\n    prompt=\"A neon shop sign that reads \\\"QWEN IMAGE 2.1\\\", rainy night, reflections on wet pavement\",\n    width=2048, height=2048,\n    num_inference_steps=40,\n    generator=torch.Generator(\"cuda\").manual_seed(42),\n).images[0]\n\nimage.save(\"t2i_example.png\")\n```\n\n### Image Editing\n\n```python\nimport torch\nfrom PIL import Image\nfrom diffusers import QwenImage21Pipeline\n\npipe = QwenImage21Pipeline.from_pretrained(\n    \"Qwen/Qwen-Image-2.1\", torch_dtype=torch.bfloat16\n).to(\"cuda\")\n\ninput_image = Image.open(\"input.png\")\n\nimage = pipe(\n    prompt=\"Change the background to a sunset beach\",\n    image=input_image,\n    num_inference_steps=40,\n    generator=torch.Generator(\"cuda\").manual_seed(42),\n).images[0]\n\nimage.save(\"edit_example.png\")\n```\n\n### Transparent Image Generation (RGBA)\n\nUse the recommended prompt format for transparent images:\n\n```python\nimage = pipe(\n    prompt=\"This is an RGBA image with transparency. A cute cartoon dragon sticker. The image has alpha channel and the background is transparent.\",\n    width=2048, height=2048,\n    num_inference_steps=40,\n    generator=torch.Generator(\"cuda\").manual_seed(42),\n).images[0]\n\nimage.save(\"transparent_example.png\")\n```\n\n### Supported Aspect Ratios\n\n```python\naspect_ratios = {\n    \"1:1\":  (2048, 2048),\n    \"4:3\":  (2400, 1792),\n    \"3:4\":  (1792, 2400),\n    \"3:2\":  (2528, 1696),\n    \"2:3\":  (1696, 2528),\n    \"16:9\": (2752, 1536),\n    \"9:16\": (1536, 2752),\n}\n```\n\n### Memory Optimization\n\n```python\npipe = QwenImage21Pipeline.from_pretrained(\n    \"Qwen/Qwen-Image-2.1\", torch_dtype=torch.bfloat16\n)\npipe.enable_model_cpu_offload()\n```\n\n## Showcase\n\n<p align=\"center\">\n<img src=\"https://qianwen-res.oss-accelerate.aliyuncs.com/Qwen-Image/image2.1/images/example-04.png\" width=\"30%\"/>\n<img src=\"https://qianwen-res.oss-accelerate.aliyuncs.com/Qwen-Image/image2.1/images/example-05.png\" width=\"30%\"/>\n<img src=\"https://qianwen-res.oss-accelerate.aliyuncs.com/Qwen-Image/image2.1/images/example-06.png\" width=\"30%\"/>\n</p>\n<p align=\"center\"><em>Native transparent image generation</em></p>\n\n<p align=\"center\">\n<img src=\"https://qianwen-res.oss-accelerate.aliyuncs.com/Qwen-Image/image2.1/images/example-15.png\" width=\"100%\"/>\n</p>\n<p align=\"center\"><em>Group photograph generated from six portrait references</em></p>\n\n<p align=\"center\">\n<img src=\"https://qianwen-res.oss-accelerate.aliyuncs.com/Qwen-Image/image2.1/images/example-43.png\" width=\"48%\"/>\n<img src=\"https://qianwen-res.oss-accelerate.aliyuncs.com/Qwen-Image/image2.1/images/example-44.png\" width=\"48%\"/>\n</p>\n<p align=\"center\"><em>Text rendering</em></p>\n\n## License\n\nThis model is licensed under the [Qwen Research License Agreement](./LICENSE).\n\n\n## Feedback\n\nHaving issues with Qwen-Image-2.1?\nOur official feedback form connects you directly with the Qwen Image research team.\nShare your prompts, images, or workflows to help us investigate and improve.\n\n[**Submit Feedback →**](https://alidocs.dingtalk.com/notable/share/form/v01WgZOZA5DaVQPeqLX_dv19yqvsgs3oebp3pcjys_1qX0QQ0?source=link)\n"
+    }
+  ],
+  "teile": [
+    {
+      "beat": "hook",
+      "bildmodus": "illustration",
+      "szene": "original creator holding a cutout silhouette beside a framed picture",
+      "text": "A beautiful AI picture is only the beginning. What happens when you need a clean cutout, a specific change, or the same person again?",
+      "suche": "creative image workflow",
+      "quelle_url": "https://huggingface.co/Qwen/Qwen-Image-2.1"
+    },
+    {
+      "beat": "frage",
+      "bildmodus": "karte",
+      "szene": "brief identification of Qwen Image model, no popularity metrics",
+      "text": "Qwen-Image two point one brings generation and editing into one model. Its documentation offers three things to check before you build a workflow around it.",
+      "suche": "creative image workflow",
+      "quelle_url": "https://huggingface.co/Qwen/Qwen-Image-2.1"
+    },
+    {
+      "beat": "beleg",
+      "bildmodus": "demo",
+      "szene": "native transparent image examples from the source showcase, distinct stickers",
+      "text": "First, transparent images. The model can generate an image with an alpha channel, or extract a subject from a photograph. Think cutouts and separate visual layers.",
+      "suche": "creative image workflow",
+      "quelle_url": "https://huggingface.co/Qwen/Qwen-Image-2.1"
+    },
+    {
+      "beat": "erklaerung",
+      "bildmodus": "illustration",
+      "szene": "an original creator arranging isolated paper cutout layers on a clean desk",
+      "text": "There is a detail to save: its transparency example explicitly asks for an RGBA image, an alpha channel and a transparent background. That is the documented prompt pattern.",
+      "suche": "creative image workflow",
+      "quelle_url": "https://huggingface.co/Qwen/Qwen-Image-2.1"
+    },
+    {
+      "beat": "beleg",
+      "bildmodus": "illustration",
+      "szene": "artist indicating one selected area of an unlettered illustration with a colored ring",
+      "text": "Second, targeted edits. You can indicate a local change with a circle, painted annotation or separate mask. The request can point to a specific area.",
+      "suche": "creative image workflow",
+      "quelle_url": "https://huggingface.co/Qwen/Qwen-Image-2.1"
+    },
+    {
+      "beat": "beleg",
+      "bildmodus": "demo",
+      "szene": "the source example group photograph made from six portrait references",
+      "text": "Third, reference images. It supports up to ten, with identity preservation for people and products. The showcase includes a group photograph built from six portrait references.",
+      "suche": "creative image workflow",
+      "quelle_url": "https://huggingface.co/Qwen/Qwen-Image-2.1"
+    },
+    {
+      "beat": "wendung",
+      "bildmodus": "illustration",
+      "szene": "original presenter examining a plain folder before adding it to a creative project",
+      "text": "The catch: these are developer examples, not our own test results. The model uses the Qwen Research License; read its terms before choosing your project.",
+      "suche": "creative image workflow",
+      "quelle_url": "https://huggingface.co/Qwen/Qwen-Image-2.1"
+    },
+    {
+      "beat": "aufloesung",
+      "bildmodus": "illustration",
+      "szene": "same original presenter holding three unlettered visual cards: cutout, selection ring, portraits",
+      "text": "So check transparency, targeted editing and references, rather than judging one pretty image. Be sure to like, share and save this video.",
+      "suche": "creative image workflow",
+      "quelle_url": "https://huggingface.co/Qwen/Qwen-Image-2.1"
+    }
+  ],
+  "hashtags": [
+    "AIToolsExplained",
+    "AIImages",
+    "QwenImage"
+  ],
+  "beschreibung": "Three source-supported workflow checks for Qwen-Image-2.1. Developer examples, not our own inference tests. Source: https://huggingface.co/Qwen/Qwen-Image-2.1",
+  "herkunft": "Redaktionelle Vorlage, echte unabhaengige Pruefung vor Bau erforderlich."
+}

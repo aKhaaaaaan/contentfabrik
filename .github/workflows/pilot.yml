@@ -32,6 +32,7 @@ on:
         options:
           - automatisch
           - nintendo-karten
+          - qwen-bildworkflow
         default: automatisch
 permissions:
   contents: read
@@ -75,6 +76,7 @@ jobs:
           case "$ENTWURF" in
             automatisch|'') ;;
             nintendo-karten) [ "$KANAL" = "business-origin-stories" ] && [ "$VIDEOFORMAT" = "short" ] || exit 1 ;;
+            qwen-bildworkflow) [ "$KANAL" = "ai-tools-explained" ] && [ "$VIDEOFORMAT" = "short" ] || exit 1 ;;
             *) exit 1 ;;
           esac
           echo "PILOT_PROFIL=$PROFIL" >> "$GITHUB_ENV"
@@ -123,8 +125,8 @@ jobs:
           THEMA: ${{ inputs.thema }}
           ENTWURF: ${{ inputs.entwurf }}
         run: |
-          if [ "$ENTWURF" = "nintendo-karten" ]; then
-            python fabrik/lauf.py "$PILOT_PROFIL" "$THEMA" piloten/nintendo-karten.json
+          if [ "$ENTWURF" = "nintendo-karten" ] || [ "$ENTWURF" = "qwen-bildworkflow" ]; then
+            python fabrik/lauf.py "$PILOT_PROFIL" "$THEMA" "piloten/$ENTWURF.json"
           else
             python fabrik/lauf.py "$PILOT_PROFIL" "$THEMA"
           fi

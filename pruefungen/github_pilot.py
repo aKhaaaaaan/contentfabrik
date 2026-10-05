@@ -169,7 +169,7 @@ if __name__ == '__main__':
     p.add_argument('videoformat', choices=['short', 'lang'])
     p.add_argument('--thema', default='')
     p.add_argument('--telegram', action='store_true')
-    p.add_argument('--entwurf', choices=['automatisch', 'nintendo-karten'], default='automatisch')
+    p.add_argument('--entwurf', choices=['automatisch', 'nintendo-karten', 'qwen-bildworkflow'], default='automatisch')
     args = parser.parse_args()
     if args.befehl == 'status':
         status()

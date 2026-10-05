@@ -85,10 +85,11 @@ def details(run):
     if all(j['status'] == 'completed' for j in jobs['jobs']):
         with zipfile.ZipFile(io.BytesIO(api(f'repos/{REPO}/actions/runs/{run}/logs', roh=True))) as logs:
             for name in logs.namelist():
-                if any(w in name.lower() for w in ('baut', 'bauen', 'video und skript', 'freigabe', 'erzeugen')):
+                if any(w in name.lower() for w in ('baut', 'bauen', 'video und skript', 'freigabe', 'erzeugen', 'zustellung')):
                     zeilen = logs.read(name).decode('utf-8-sig', errors='replace').splitlines()
                     erlaubt = ('/10', 'Traceback', 'Error:', 'Sperr', 'Gesendet:', 'Min.',
-                               'Fakten', 'fehler', 'abgebrochen', 'Budget', 'PILOT:', 'bestanden')
+                               'Fakten', 'fehler', 'abgebrochen', 'Budget', 'PILOT:', 'bestanden',
+                               'Telegram-Statusmeldung bestaetigt')
                     print(json.dumps({'schritt': name, 'auszug': [z[:600] for z in zeilen
                                        if any(w in z for w in erlaubt)][-60:]}, ensure_ascii=False))
     else:

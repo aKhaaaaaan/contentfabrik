@@ -147,9 +147,16 @@ Short-Fehlerauszugs mit einem UnicodeEncodeError unterbrochen.
 `.github/workflows/telegram-status.yml` erlaubt eine manuell ausgeloste
 Statusnachricht an den bestehenden Chat mit den vorhandenen GitHub-Secrets;
 kein neuer Videobau. Lokaler Aufruf: `python pruefungen/github_pilot.py melden
-ausgabe/pilot-status.txt`. Es werden keine Keys lokal kopiert. Der anschliessende
-echte Verbindungstest und die Run-ID werden nach erfolgreicher Zustellung
-dokumentiert. Das ist eine Statusnachricht, kein bestandener Video-Pilot.
+ausgabe/pilot-status.txt`. Es werden keine Keys lokal kopiert.
+
+Echter Verbindungstest bestanden am 05.10.2026 um 14:46:20 UTC / 16:46 Berlin:
+[Telegram-Statuslauf 37327384289](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37327384289).
+Telegram bestaetigte `ok=true`; der Log zeigt `message_id: 108`. Die Nachricht
+erklaert beide gesperrten Piloten und die korrigierte Rueckmeldung. Dies
+bestaetigt den Versand an den hinterlegten Chat, nicht dass der Nutzer die
+Nachricht bereits gelesen hat, und ist kein bestandener Video-Pilot.
+Die Cloud-Regression des Fixes besteht ebenfalls:
+[Pruefung 37327344050](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37327344050).
 
 ## Qualitaetsfilter und begrenzte Nachbesserung
 

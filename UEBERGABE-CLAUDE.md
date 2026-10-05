@@ -8,6 +8,21 @@ aktualisiert. Es enthaelt keine Zugangsschluessel.
 
 ### Aktuelle Umsetzung am 05.10.2026, ca. 20:05 Berlin
 
+Code und 16 Bilder sind auf GitHub (`5e3940a`, dann `01d31e7`), 154 lokale
+Regressionstests und beide GitHub-Pruefläufe erfolgreich. AI-Pilot aktuell
+37353822179; Business-Pilot 37354061119 wartet dahinter. Finales Ergebnis
+und Telegram-Zustellung noch offen, bitte untenstehende Historie nicht als
+Erfolg dieser neuen Videos missverstehen.
+
+Die globale GitHub-Concurrency laesst einen aktiven UND einen wartenden Pilot
+zu. Ein dritter Start ersetzt den bisherigen wartenden Run, auch bei
+cancel-in-progress=false. Daher nicht mehrere wartende Starts aneinanderreihen:
+erst aktiven Status abwarten und dann hoechstens einen weiteren einreihen.
+37353584318 wurde wegen eines wiederholten echten Demo-Bildes abgebrochen;
+37353589075 wurde als wartender Run durch den korrigierten AI-Start ersetzt.
+Die Qwen-Regie verwendet jetzt alle vier echten Demo-Bilder jeweils genau
+einmal; ein Test verhindert diese doppelte Demo-Auswahl.
+
 Noch kein verbesserter Pilot auf Telegram zugestellt. Der letzte AI-Lauf
 37348937412 stoppte vor der MP4: Cloudflare meldete das erschoepfte freie
 Tageskontingent. Wiederholte Starts mit demselben Generator helfen heute nicht.

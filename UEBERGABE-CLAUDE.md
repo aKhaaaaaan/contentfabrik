@@ -47,6 +47,15 @@ Cutouts/gezielte Bearbeitung/Referenzen, konkrete dokumentierte Beispiele,
 ehrlicher Hinweis auf Herstellerbeispiele und Research License. 201 Woerter.
 `pruefungen/qwen_vorlage.py` erstellt sie aus der originalen aktuellen README;
 keine Note vorgeben. Pilotwahl qwen-bildworkflow nur fuer AI-Tools-Short.
+Business 37344290208: Story 7 bestanden, Bau am ersten Bild gesperrt.
+Figurenpruefer bemangelte Handhaltung gegen Referenz; zweites Bild passte
+nicht zur Handlung. Nun Objektaufnahme ohne erzwungene Figur im Hook;
+Figur am Ende als Portrait ohne riskante Handpose. Abgelehnte Bilder werden
+fuer echte Sichtkontrolle im privaten Pilot-Artefakt behalten, nie eingesetzt.
+AI-Vorlage 37345221770: Groq beanstandete ungenaues "documentation offers
+three things" (Quelle nennt vier Verbesserungen) und "developer examples"
+als nicht ausdruecklich belegte Urheberschaft. Text jetzt unsere Auswahl von
+drei Funktionen; keine pauschale Aussage ueber Urheberschaft der Bilder.
 Implementiert in `bildplan.py`: Originalton/Wortzeiten behalten, Phasen in
 ca. 3-5-Sekunden-Einstellungen aufteilen, ein gebuendelter Gemini-Aufruf fuer
 konkrete unterschiedliche Motive. Zoom, Ausschnitt oder Untertitelwechsel

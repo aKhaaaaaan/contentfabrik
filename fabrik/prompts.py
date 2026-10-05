@@ -200,7 +200,9 @@ def bildpruefung(szene, referenz=False, videoformat='short'):
             + ('Image 0 is the generated image, image 1 is the character reference. Also reject '
                'material changes to face, hair, outfit or character identity. Different gaze, '
                'pose, expression, camera angle or lighting are allowed; they do not by themselves '
-               'change identity. Compare stable features, not the reference composition. ' if referenz else '')
+               'change identity. Hand position or hand appearance need not match the reference; '
+               'only independently visible anatomical defects matter. The reference does not dictate '
+               'scene blocking. Compare stable features, not the reference composition. ' if referenz else '')
             + 'Return ok=true only if no material defect is observed; grund is a specific visible '
               'defect to repair, or empty when accepted.\nRequested illustrative scene: '
             + json.dumps(szene, ensure_ascii=False))

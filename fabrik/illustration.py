@@ -102,6 +102,13 @@ def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short'):
             print('Ungueltige Bilddatei - kein Einsatz im Video')
             continue
         bewertung = pruefen(roh, szene, ref, videoformat)
+        # Fehlerbilder fuer echte Sichtkontrolle behalten, niemals als Videomaterial verwenden.
+        if not bewertung['ok']:
+            fehlerbild = Path(ziel).with_name(Path(ziel).stem + f'_abgelehnt_{v}.jpg')
+            fehlerbild.write_bytes(roh)
+            fehlerbild.with_suffix('.json').write_text(json.dumps(
+                {'szene': szene, 'bewertung': bewertung, 'referenz': str(ref) if ref else None},
+                ensure_ascii=False, indent=2), encoding='utf-8')
         if bewertung['ok']:
             Path(ziel).write_bytes(roh)
             GEZAEHLT['bilder'] += 1

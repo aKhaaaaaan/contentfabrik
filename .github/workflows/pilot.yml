@@ -152,6 +152,8 @@ jobs:
             ausgabe/bericht.json
             ausgabe/korrektur.json
             ausgabe/untertitel.ass
+            ausgabe/ill_*.jpg
+            ausgabe/ill_*_abgelehnt_*.json
             lernen/*.json
             verlauf/messungen/*.json
       - name: Bestandenes Video und Skript auf Telegram senden

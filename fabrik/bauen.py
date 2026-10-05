@@ -1065,7 +1065,8 @@ def main(skript_pfad, aus, vorlage=None):
                 else:  # aeltere Skripte ohne Feld szene: Bildsuche + Satz als Szene
                     szene = t.get('szene') or f"{t.get('suche', '')}, {t['text'][:120]}"
                 try:
-                    ill = illustration.bild(szene, aus / f'ill_{i:02d}.jpg', kanal_slug, figur=(i == 0 or letzt),
+                    ill = illustration.bild(szene, aus / f'ill_{i:02d}.jpg', kanal_slug,
+                                           figur=(i == 0 or letzt) and t.get('figur', True),
                                            videoformat=dramaturgie.videoformat(s))
                 except Exception as e:  # nie den ganzen Videobau kippen
                     print('Illustration nicht moeglich:', str(e)[:120]); ill = None

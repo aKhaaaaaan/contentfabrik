@@ -159,6 +159,8 @@ def hinweise(kanal, thema):
         # GEMESSEN: Ohne aktuelle Quellen fiel „Top 5 AI Video Tools" zweimal
         # durch die Faktenpruefung (veraltetes Wissen). Darum nur Belegtes.
         quellen = trends.ki_quellen()
+        if kanal.get('format', 'ranking') == 'ranking':
+            quellen = rangliste(quellen, kanal)
         if quellen:
             text += ('\nSOURCES fetched today. Every factual claim MUST come from these sources; mention nothing that is '
                      'not in them:\n' + '\n'.join(f"- [{q['quelle']}] {q['name']} ({q['url']}): {q['text']}"
@@ -172,12 +174,19 @@ def hinweise(kanal, thema):
 
 
 def rangliste(quellen, kanal):
-    """Die Plaetze entscheidet der Code, nicht die KI. GEMESSEN: Trotz der
-    Anweisung „nach Zahlen sortieren" stand ein Modell mit 4.973 Likes auf
-    Platz 6 und eins mit 2.828 auf Platz 3. Sterne (GitHub) und Likes (Hugging
-    Face) sind beides Zustimmung der Nutzer - darum gemeinsam sortiert."""
+    """Nur ausreichend belegte Tools und genau eine vergleichbare Kennzahl.
+    Die Auswahl ist keine weltweite Bestenliste oder eigene Leistungsmessung."""
     n = kanal.get('plaetze', [5, 7])[1]
-    return sorted((q for q in quellen if q.get('zahl') is not None), key=lambda q: -q['zahl'])[:n]
+    if dramaturgie.videoformat(kanal) == 'short':
+        n = min(n, 3)
+    gruppen = {}
+    for q in quellen:
+        if q.get('zahl') is not None and q.get('belegt'):
+            gruppen.setdefault(q['quelle'], []).append(q)
+    if not gruppen:
+        return []
+    quelle = max(gruppen, key=lambda k: (len(gruppen[k]), k == 'Hugging Face'))
+    return sorted(gruppen[quelle], key=lambda q: -q['zahl'])[:n]
 
 
 def zuordnen(entwurf, quellen):

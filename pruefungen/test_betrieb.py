@@ -58,8 +58,16 @@ class QualitaetTest(unittest.TestCase):
             self.assertTrue(bewerten(SKRIPT, k)[1])
         for feld in STORY_KATEGORIEN:
             s = copy.deepcopy(SKRIPT)
-            s['story']['kategorien'][feld] = 6
+            s['story']['kategorien'][feld] = 5 if feld == 'teilbarkeit' else 6
             self.assertTrue(bewerten(s, KRITIK)[1])
+
+    def test_teilbarkeit_prognose_sechs_sperrt_keine_bestandene_story(self):
+        s = copy.deepcopy(SKRIPT)
+        s['story']['note'] = 7
+        s['story']['kategorien']['teilbarkeit'] = 6
+        self.assertEqual(bewerten(s, KRITIK)[1], [])
+        s['story']['kategorien']['hook'] = 6
+        self.assertTrue(bewerten(s, KRITIK)[1])
 
     def test_schwere_und_fehlende_problembewertung_sperren(self):
         for schwere in ('mittel', 'schwer', None, 'unknown'):

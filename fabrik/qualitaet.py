@@ -25,11 +25,12 @@ def redaktion(daten, kategorien, art):
     if not isinstance(werte, dict):
         return wert, gruende + [f'{art}-Einzelbewertungen fehlen']
     for k in kategorien:
+        minimum = 6 if k == 'teilbarkeit' else KATEGORIE_MIN
         v = note({'note': werte.get(k)})
         if v is None:
             gruende.append(f'{art}-Bewertung {k} fehlt oder ist ungueltig')
-        elif v < KATEGORIE_MIN:
-            gruende.append(f'{art}-{k} {v}/10 unter {KATEGORIE_MIN}/10')
+        elif v < minimum:
+            gruende.append(f'{art}-{k} {v}/10 unter {minimum}/10')
     return wert, gruende
 
 

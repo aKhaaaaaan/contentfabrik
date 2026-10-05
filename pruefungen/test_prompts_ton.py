@@ -28,6 +28,18 @@ def antwort(d):
     return io.StringIO(json.dumps(d))
 
 
+class MusikbettTest(TempTest):
+    def test_rueckfall_hat_nutzbare_dynamik_und_keine_klickenden_enden(self):
+        pfad = ton.musikbett('score.wav', rate=8000)
+        with wave.open(str(pfad)) as w:
+            self.assertGreater(w.getnframes() / w.getframerate(), 15)
+            x = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16) / 32767
+        self.assertGreater(np.sqrt(np.mean(x * x)), .02)
+        self.assertLess(np.abs(x).max(), .81)
+        self.assertEqual(float(x[0]), 0)
+        self.assertEqual(float(x[-1]), 0)
+
+
 class GeminiVertragTest(unittest.TestCase):
     def test_unbekanntes_modell_wird_nicht_fuer_jede_anfrage_erneut_versucht(self):
         d = {'candidates': [{'content': {'parts': [{'text': '{"ok":true}'}]}}]}

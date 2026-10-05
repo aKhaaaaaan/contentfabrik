@@ -2,6 +2,44 @@
 import math
 import numpy as np
 
+
+def musikbett(ziel, technisch=False, rate=24000):
+    """Eigenes ruhiges Instrumental als Rueckfall bei nicht erreichbarer Musikquelle.
+    Vier Akkorde, weicher Bass und kurze gebrochene Akkorde; keine Samples."""
+    import wave
+    from pathlib import Path
+    bpm = 100 if technisch else 80
+    beat = 60 / bpm
+    dauer = 32 * beat
+    spur = np.zeros(int(dauer * rate), dtype=np.float64)
+    for takt, akkord in enumerate(((57, 60, 64), (53, 57, 60), (48, 52, 55), (55, 59, 62)) * 2):
+        start = int(takt * 4 * beat * rate)
+        n = min(int(4 * beat * rate), len(spur) - start)
+        t = np.arange(n) / rate
+        envelope = np.minimum(t / .25, 1) * np.minimum((n / rate - t) / .35, 1)
+        for midi in akkord:
+            hz = 440 * 2 ** ((midi - 69) / 12)
+            spur[start:start + n] += .065 * np.sin(2 * np.pi * hz * t) * envelope
+        hz = 440 * 2 ** ((akkord[0] - 12 - 69) / 12)
+        spur[start:start + n] += .08 * np.sin(2 * np.pi * hz * t) * envelope
+        for j in range(8):
+            a = start + int(j * beat / 2 * rate)
+            length = min(int(.45 * rate), len(spur) - a)
+            z = np.arange(length) / rate
+            hz = 440 * 2 ** ((akkord[j % 3] + 12 - 69) / 12)
+            attack = np.minimum(z / .012, 1)
+            spur[a:a + length] += .085 * np.sin(2 * np.pi * hz * z) * np.exp(-z * 9) * attack
+    # Nullenden erlauben Wiederholung ohne Klicks; Spitzen bleiben unter 0 dBFS.
+    fade = min(int(.04 * rate), len(spur) // 2)
+    spur[:fade] *= np.linspace(0, 1, fade)
+    spur[-fade:] *= np.linspace(1, 0, fade)
+    spur = np.clip(spur, -.8, .8)
+    Path(ziel).parent.mkdir(parents=True, exist_ok=True)
+    with wave.open(str(ziel), 'wb') as w:
+        w.setnchannels(1); w.setsampwidth(2); w.setframerate(rate)
+        w.writeframes((spur * 32767).astype(np.int16).tobytes())
+    return Path(ziel)
+
 PEGEL = {'riser': 0.12, 'impact': 0.20, 'pop': 0.12, 'glitch': 0.10}
 LAENGE = {'riser': 2.0, 'impact': 0.8, 'pop': 0.25, 'glitch': 0.35}
 

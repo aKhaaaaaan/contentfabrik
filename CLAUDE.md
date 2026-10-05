@@ -9,7 +9,8 @@ Der Nutzer moechte professionelle, abwechslungsreiche Shorts UND Langvideos,
 nachweisbares Lernen aus echten Ergebnissen und die Zustellung bestandener
 Videos samt Skript und Upload-Texten auf Telegram. Der aktuelle Freigabefilter
 verlangt seit der ausdruecklichen Nutzerkorrektur Story und Video jeweils
-mindestens 7/10, jede Einzelkategorie mindestens 7/10 sowie bestandene
+mindestens 7/10, jede Einzelkategorie mindestens 7/10 (nur die spekulative
+Story-Teilbarkeit mindestens 6/10) sowie bestandene
 Fakten- und Technikpruefungen. 8/10 bleibt eine Veroeffentlichungsempfehlung,
 kein Versandhindernis; 9/10 ist nicht mehr die Mindestnote.
 

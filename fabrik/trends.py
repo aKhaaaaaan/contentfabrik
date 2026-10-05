@@ -11,6 +11,7 @@ Jede Funktion faellt still auf [] zurueck, wenn die Quelle nicht antwortet -
 dann entscheidet die KI ohne diese Hinweise, das Video entsteht trotzdem.
 """
 import html, json, os, re, time, datetime, urllib.error, urllib.request, urllib.parse
+from concurrent.futures import ThreadPoolExecutor
 from xml.etree import ElementTree
 
 UNGEEIGNET = re.compile(r'uncensored|abliterated|nsfw|porn|nude|lewd|hentai|jailbreak', re.I)
@@ -94,6 +95,34 @@ def google_trends(land='US', top=20):
         return []
 
 
+def beschreibung(q):
+    """Primaerquelle lesen: Metadaten allein belegen keinen praktischen Nutzen."""
+    q = dict(q)
+    name = q.get('name', '')
+    if not re.fullmatch(r'[\w.-]+/[\w.-]+', name):
+        return q
+    url = (f'https://huggingface.co/{name}/raw/main/README.md' if q['quelle'] == 'Hugging Face'
+           else f'https://raw.githubusercontent.com/{name}/HEAD/README.md' if q['quelle'] == 'GitHub' else '')
+    if not url:
+        return q
+    try:
+        roh = _hole(url, zeit=12).decode('utf-8', 'replace')[:160_000]
+        # Code, Bild-Adressen und Benchmarktabellen sind keine Nutzenerklaerung.
+        prose = re.sub(r'```.*?```', '', roh, flags=re.S)
+        prose = re.sub(r'<(?:script|style)\b.*?</(?:script|style)>', '', prose, flags=re.I | re.S)
+        prose = re.sub(r'<[^>]+>', ' ', prose)
+        prose = re.sub(r'!\[[^\]]*\]\([^)]*\)', '', prose)
+        prose = '\n'.join(l for l in prose.splitlines() if not l.lstrip().startswith('|'))
+        prose = re.sub(r'\n{3,}', '\n\n', prose).strip()
+        if len(prose.split()) >= 80:
+            q['beschreibung_url'] = url
+            q['belegt'] = True
+            q['text'] += '\nPRIMARY MODEL/PROJECT DESCRIPTION (not independently tested):\n' + prose[:6500]
+    except Exception as e:
+        print('Modellbeschreibung nicht verfuegbar:', name, type(e).__name__)
+    return q
+
+
 def ki_quellen(tage=7):
     """Aktuelle KI-Neuheiten mit Beschreibung - die EINZIGEN Fakten, die der
     Kanal „AI Tools Explained" verwenden darf (Konzept: Quellen-Methode)."""
@@ -133,8 +162,10 @@ def ki_quellen(tage=7):
     # Modell. Fuer einen werbefaehigen Kanal ungeeignet - nie als Fakt anbieten.
     # GEMESSEN: „AIHOT" (Beschreibung auf Chinesisch) landete auf Platz 1 - fuer
     # ein englisches Publikum unverstaendlich, die Karte zeigt fremde Schrift.
-    return [q for q in aus if not UNGEEIGNET.search(q['name'] + ' ' + q['text'])
-            and _englisch(q['name'] + ' ' + q['text'])]
+    geeignet = [q for q in aus if not UNGEEIGNET.search(q['name'] + ' ' + q['text'])
+                and _englisch(q['name'] + ' ' + q['text'])]
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        return list(pool.map(beschreibung, geeignet))
 
 
 def wikipedia(titel, grenze=7000):

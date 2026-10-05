@@ -16,6 +16,24 @@ und wortgetreues Feedback in `lernen/redaktion.json`.
 
 Zusatzauftrag: mehrere Bilder INNERHALB einer Sprechphase; Gemini Flash
 soll den Bildplan erstellen. Dazu ein guter Short fuer AI Tools Explained.
+
+Weitere Korrektur nach gescheiterten Piloten: AI-Lauf 37341670490 wurde mit
+Story 4/10 vor dem Render gestoppt. Nur Likes/Downloads/Tasknamen belegen
+keinen praktischen Nutzen. `trends.beschreibung` liest jetzt die primaere
+README/Modellbeschreibung, entfernt Code/Benchmarktabellen und markiert nur
+ausreichend beschriebene Quellen als belegt. Rankings waehlen genau eine
+Quelle/Kennzahl, niemals GitHub-Sterne mit HF-Likes mischen; Shorts behandeln
+drei ausreichend belegte Tools. LTX-README aktuell nicht frei abrufbar:
+kein Umgehen einer Zugangsbeschraenkung, kein erfundener Nutzen.
+Business-Lauf 37341676776 ebenfalls vor Render gestoppt: Story insgesamt 7,
+nur Teilbarkeit 6. Gesamt- und Videogrenze bleiben 7, Story-Teilbarkeit darf
+als unsichere Prognose 6 sein; alle anderen Kategorien weiterhin 7.
+Demo-Auswahl schliesst bereits benutzte Beispielbilder aus. Erklaerende
+AI-Illustrationen sind als ILLUSTRATION markiert und duerfen keine erfundenen
+Tool-Interfaces oder Outputs zeigen. Bei nicht erreichbarer Openverse-Musik
+erzeugt `ton.musikbett` eigene instrumentale Hintergrundmusik ohne fremde
+Samples; bestehendes Ducking/Fades und Lautheitsmessung bleiben aktiv.
+Promptversion jetzt `2026-10-05.8`; 142 Regressionstests bestanden.
 Implementiert in `bildplan.py`: Originalton/Wortzeiten behalten, Phasen in
 ca. 3-5-Sekunden-Einstellungen aufteilen, ein gebuendelter Gemini-Aufruf fuer
 konkrete unterschiedliche Motive. Zoom, Ausschnitt oder Untertitelwechsel

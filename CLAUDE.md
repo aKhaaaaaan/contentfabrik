@@ -10,12 +10,16 @@ Nutzer angekommen und gefallen ihm deutlich besser als vorher. Das Ziel
 bleibt **10/10**, die aktuellen Videos haben keine numerische Nutzernote.
 AI Tools Explained: bisher 23 Einstellungen / 12 Motive; fuer kuenftige
 vergleichbare Shorts etwa **14-18 unterschiedliche, passende Motive** anstreben.
-Business Origin Stories: **24 Einstellungen / 14 Motive passen laut Nutzer
-perfekt**; diese Bilddichte als Referenz beibehalten. Nicht einfach mehr
+Business Origin Stories: Das gelieferte Video mit 24 Einstellungen / 14 Motiven
+gefaellt; die **neuere Zielvorgabe ist etwa 24 Einstellungen / 18 Motive**.
+Die urspruengliche positive Bewertung bleibt erhalten. Nicht einfach mehr
 Schnitte/Zooms als neue Motive zaehlen. Verbesserung und Bildstil erhalten,
 weitere Qualitaetsarbeit fortsetzen. Wortgetreues Feedback mit Video-SHA256
 und wirksame Planungsregeln stehen in `lernen/redaktion.json`, zusaetzliche
 Empfangsbestaetigungen in `verlauf/telegram-sendungen.json`.
+
+Die gebaute Technik, alle betroffenen Dateien, reproduzierbare Testbefehle,
+Testergebnisse und Grenzen stehen in [UMSETZUNG-UND-TESTS.md](UMSETZUNG-UND-TESTS.md).
 
 Der Nutzer moechte professionelle, abwechslungsreiche Shorts UND Langvideos,
 nachweisbares Lernen aus echten Ergebnissen und die Zustellung bestandener

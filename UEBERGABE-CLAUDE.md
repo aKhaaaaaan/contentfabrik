@@ -18,15 +18,19 @@ Fakten-/Technikpruefung bleibt unveraendert; 10/10 nicht zum neuen Versandhinder
 | Kanal | Bestaetigter aktueller Stand | Vorgabe fuer kuenftige vergleichbare Shorts |
 |---|---|---|
 | AI Tools Explained | 23 Einstellungen, 12 unterschiedliche Motive; deutlich besser | Etwas mehr Bildvielfalt: etwa **14-18 wirklich unterschiedliche, passende Motive** |
-| Business Origin Stories | 24 Einstellungen, 14 unterschiedliche Motive | **"passt perfekt"**: diese Bilddichte und dieses Tempo als Referenz beibehalten |
+| Business Origin Stories | 24 Einstellungen, 14 unterschiedliche Motive; positiv bewertet | **Neuere Vorgabe: etwa 24 Einstellungen mit 18 unterschiedlichen Motiven** anstreben |
 
 Fuer AI also 2-6 weitere sinnvolle Motive in kuenftigen vergleichbaren Videos
 einplanen, statt dieselben Bilder erneut einzusetzen. Originale Handlungsszenen,
 Objekt-/Prozessdetails oder echte quellenbelegte Tool-Beispiele nutzen; keine
 erfundenen Outputs. Zoom, Zuschnitt und neue Beschriftung sind kein neues Motiv.
 Die Zahlen beziehen sich auf die bisherigen Shorts um 82 bzw. 90 Sekunden;
-andere Laengen nach Erzaehlung planen. Bei Business nicht automatisch die
-AI-Zahl uebernehmen oder mehr Bilder nur fuer eine hoehere Zahl einfuegen.
+andere Laengen nach Erzaehlung planen. Der Nutzer hat Business anschliessend
+ausdruecklich auf etwa **24 Einstellungen mit 18 Motiven** weiterentwickelt:
+vier zusaetzliche passende Motive statt Bildwiederholungen. Die fruehere Aussage
+"24 Einstellungen mit 14 Motiven passt perfekt" bleibt historische positive
+Rueckmeldung; sie ist nicht mehr das aktuelle Planungsziel. Motive sinnvoll
+in die Sprechphasen integrieren, ohne fuer eine Zahl unpassende Bilder einzufuegen.
 GTA-artige eigene Figuren/Spielwelt, Figuren am Einstieg und im Verlauf,
 passende Musik/Soundeffekte und gesprochene like/share/save-Aufrufe erhalten.
 Weiter an Skript, Bild-Sprechtext-Zuordnung, Spannungsbogen und Feinschliff arbeiten.
@@ -35,11 +39,23 @@ Wortgetreue Rueckmeldung ist fuer beide konkreten Video-SHA256 in
 `lernen/redaktion.json` gespeichert, getrennt vom frueher abgelehnten 17:35-Video.
 Die neuen Regeln werden bereits durch `lernen.redaktionsregeln()` an Autor,
 Bildplaner und Kritiker weitergegeben. Strukturierte Kanalvorgaben dokumentieren
-14-18 als AI-Planungsziel und 24/14 als bestaetigte Business-Referenz.
+14-18 als AI-Planungsziel, 24/14 als gelieferte Business-Referenz und jetzt
+24/18 als neueres Business-Planungsziel.
 `verlauf/telegram-sendungen.json` haelt zusaetzlich die Empfangsbestaetigung und
 qualitative Bewertung des Nutzers fest. Originale Ist-Zahlen und KI-Noten
 bleiben erhalten. Die bestehende Qwen-Pilotvorlage hat weiter 12 Motive:
-14-18 ist das naechste Planungsziel, noch kein bereits erzeugtes neues Video.
+14-18 ist das naechste AI-Planungsziel, noch kein bereits erzeugtes neues Video.
+Auch die Nintendo-Pilotvorlage und die gelieferte Business-MP4 bleiben beim
+tatsaechlichen Stand 24/14; ein neues Video mit 18 Motiven wurde noch nicht gebaut.
+
+### Technische Umsetzung und Tests fuer Claude
+
+Die gebauten Module, ihre Aufgaben, Datenfluss, Bilder/Prompts, Lernregeln,
+Qualitaetskontrollen, Telegram-Zustellung sowie Testbefehle und Ergebnisse
+sind zusammenhaengend in [UMSETZUNG-UND-TESTS.md](UMSETZUNG-UND-TESTS.md)
+dokumentiert. Dort stehen auch die naechsten konkreten Arbeiten fuer
+AI 14-18 Motive und Business 24/18. Bei Uebernahme zuerst den neuesten
+Nutzerauftrag hier, danach diese technische Referenz lesen.
 
 ### Abgeschlossener Stand am 05.10.2026, 20:34 Berlin
 

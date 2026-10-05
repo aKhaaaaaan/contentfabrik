@@ -33,7 +33,7 @@ class MusikbettTest(TempTest):
         url = 'https://example.test/real-output.png'
         png = io.BytesIO(); Image.new('RGBA', (600, 600), (40, 80, 160, 255)).save(png, 'PNG')
         def pruefe(gewollt):
-            with patch('bauen.urllib.request.urlopen', side_effect=[
+            with patch('urllib.request.urlopen', side_effect=[
                     io.BytesIO(('![example](' + url + ')').encode()), io.BytesIO(png.getvalue())]), \
                     patch('skript.gemini') as ki:
                 p, q = bauen.demo_fuer('https://huggingface.co/owner/model', gewollt=gewollt)

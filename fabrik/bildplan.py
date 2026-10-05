@@ -9,7 +9,7 @@ import prompts
 
 SCHEMA = {'type': 'OBJECT', 'properties': {'einstellungen': {'type': 'ARRAY', 'items': {
     'type': 'OBJECT', 'properties': {
-        'index': {'type': 'INTEGER'}, 'bildmodus': {'type': 'STRING', 'enum': ['foto', 'stock', 'illustration', 'karte', 'demo']},
+        'index': {'type': 'INTEGER'}, 'bildmodus': {'type': 'STRING', 'enum': ['foto', 'stock', 'illustration', 'karte', 'demo', 'figur']},
         'suche': {'type': 'STRING'}, 'szene': {'type': 'STRING'}, 'motiv': {'type': 'STRING'}},
     'required': ['index', 'bildmodus', 'suche', 'szene', 'motiv']}}}, 'required': ['einstellungen']}
 
@@ -54,8 +54,9 @@ def vorbereiten(s, laengen, woerter, cache=None):
             'For AI tools use karte only for brief identification, then demo for genuine screenshots '
             'or example outputs from that exact source URL. Do not invent a tool result using stock '
             'or illustration. For Qwen-Image prefer demo: its model card has actual image examples. '
-            'Its gallery has three different transparency examples, ONE group-photo example '
-            'and two text-rendering examples. Do not plan several different group-photo demos; '
+            'Its gallery has three different transparency examples and ONE group-photo example. '
+            'Benchmark overviews and generated scientific-chart art are NOT useful demos. '
+            'Do not plan several different group-photo demos; '
             'for extra reference/editing explanation slots use labelled conceptual illustrations '
             'of a human working with portraits or indicating an editing area. '
             'When explaining abstract capabilities, illustration may show the HUMAN problem or '
@@ -78,10 +79,18 @@ def vorbereiten(s, laengen, woerter, cache=None):
     if len(daten) != len(zeitplan) or [d.get('index') for d in daten] != list(range(len(zeitplan))):
         raise ValueError('Bildplan deckt nicht alle Sprechphasen lueckenlos ab')
     aus = []
+    pro_phase = {}
     for slot, d in zip(zeitplan, daten):
-        if d.get('bildmodus') not in ('foto', 'stock', 'illustration', 'karte', 'demo') or not d.get('szene') or not d.get('motiv'):
+        if d.get('bildmodus') not in ('foto', 'stock', 'illustration', 'karte', 'demo', 'figur') or not d.get('szene') or not d.get('motiv'):
             raise ValueError('Bildplan enthaelt eine leere oder ungueltige Einstellung')
         t = copy.deepcopy(s['teile'][slot['phase']])
+        j = pro_phase.get(slot['phase'], 0)
+        pro_phase[slot['phase']] = j + 1
+        vorgaben = t.get('bildfolge', [])
+        if j < len(vorgaben):
+            d = dict(d, **vorgaben[j])
+            if d.get('demo_url'):
+                t['demo_url'] = d['demo_url']
         t.update({k: d[k] for k in ('bildmodus', 'suche', 'szene', 'motiv')})
         t['text'] = slot['text']
         t['_phase'] = slot['phase']

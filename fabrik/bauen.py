@@ -579,7 +579,7 @@ def karte_fuer(url):
         return None
 
 
-def demo_fuer(url, satz='', benutzt=None):
+def demo_fuer(url, satz='', benutzt=None, gewollt=None):
     """Echtes Anwendungsbeispiel von der Modellseite statt Symbol-Clip.
     GEMELDET (KI-Analyse 04.10.2026): „Keine echten Anwendungsbeispiele - nur
     Grafiken, das gleiche Template 7-mal." Pixabay zeigt nie das echte Modell.
@@ -610,6 +610,10 @@ def demo_fuer(url, satz='', benutzt=None):
             continue
         kandidaten.append(l)
     kandidaten = [l for l in kandidaten if l not in (benutzt or set())]
+    if m[2] == 'Qwen/Qwen-Image-2.1':
+        kandidaten = [l for l in kandidaten if not l.endswith(('example-01.png', 'example-43.png'))]
+    if gewollt:
+        kandidaten = [l for l in kandidaten if l == gewollt]
     bilder, pfade = [], []
     PIXABAY_CACHE.mkdir(exist_ok=True)
     for l in kandidaten[:8]:
@@ -633,6 +637,10 @@ def demo_fuer(url, satz='', benutzt=None):
             continue
     if not pfade:
         return None, None
+    if gewollt:
+        ziel, l = pfade[0]
+        print('Beispielbild (redaktionelle Regie):', m[2], l[:90])
+        return ziel, {'quelle': 'Beispielbild', 'seite': url, 'datei': l}
     # Sparsam: Die Wahl je Modellseite wird gespeichert - dasselbe Modell kommt
     # an mehreren Tagen vor, die KI muss nicht jedes Mal neu schauen.
     import hashlib as _h
@@ -997,6 +1005,7 @@ def main(skript_pfad, aus, vorlage=None):
     zeiten['tempo'] = tempo
     shots, plan_cache = bildplan.vorbereiten(s, laengen, woerter, cache)
     visuell = dict(s, teile=[shot['teil'] for shot in shots])
+    (aus / 'bildplan.json').write_text(json.dumps(shots, indent=2), encoding='utf-8')
     akzente = dramaturgie.akzente(s['teile'], woerter, laengen)
     untertitel(woerter, aus / 'untertitel.ass', s.get('untertitel_profil'), akzente)
     (aus / 'dramaturgie.json').write_text(json.dumps({
@@ -1061,10 +1070,11 @@ def main(skript_pfad, aus, vorlage=None):
             ebene = aus / f'ebene_{i:02d}.png'
             modus = t.get('bildmodus', 'auto')
             karte = karte_fuer(t.get('quelle_url')) if modus in ('auto', 'karte') else None
-            foto, fq = ((None, None) if karte or modus in ('stock', 'illustration', 'demo')
+            foto, fq = ((None, None) if karte or modus in ('stock', 'illustration', 'demo', 'figur')
                         else foto_fuer(s.get('bilder') or [], t['text'] + ' Visual: ' + t.get('szene', ''), benutzte_fotos))
             if modus == 'demo':
-                demo, fq = demo_fuer(t.get('quelle_url'), t['text'] + ' Visual: ' + t.get('szene', ''), benutzte_demos)
+                demo, fq = demo_fuer(t.get('quelle_url'), t['text'] + ' Visual: ' + t.get('szene', ''),
+                                    benutzte_demos, t.get('demo_url'))
                 if demo:
                     foto = demo
                     benutzte_demos.add(fq['datei'])
@@ -1076,6 +1086,12 @@ def main(skript_pfad, aus, vorlage=None):
             # Spart nebenbei die Pixabay-Suche samt KI-Clipwahl.
             ill = None
             letzt = i == len(shots) - 1 and not t.get('platz')
+            if modus == 'figur':
+                import illustration
+                ill = illustration.FIGUREN / f'{kanal_slug}.jpg'
+                if not ill.is_file():
+                    raise ValueError('Keine vorhandene originale Kanalfigur')
+                quellen.append({'quelle': 'Illustration', 'seite': 'Originale Kanalfigur: vorhandenes Referenzbild'})
             if os.environ.get('CLOUDFLARE_AI_TOKEN') and modus in ('auto', 'illustration', 'foto') \
                     and not karte and not foto:
                 import illustration
@@ -1114,6 +1130,11 @@ def main(skript_pfad, aus, vorlage=None):
                 with Image.open(ebene) as im:
                     im = im.convert('RGBA')
                 schrift_text(im, (LAYOUT['links'], H * .12), 'ILLUSTRATION', schrift(28), (210, 210, 210))
+                im.save(ebene)
+            elif modus == 'demo':
+                with Image.open(ebene) as im:
+                    im = im.convert('RGBA')
+                schrift_text(im, (LAYOUT['links'], H * .12), 'MODEL CARD EXAMPLE', schrift(28), (210, 210, 210))
                 im.save(ebene)
             if ill and B > H:
                 kpfad = aus / f'karte_{i:02d}.png'

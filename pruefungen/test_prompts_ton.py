@@ -29,6 +29,21 @@ def antwort(d):
 
 
 class MusikbettTest(TempTest):
+    def test_redaktionelle_demoquelle_muss_in_der_originalen_readme_stehen(self):
+        url = 'https://example.test/real-output.png'
+        png = io.BytesIO(); Image.new('RGBA', (600, 600), (40, 80, 160, 255)).save(png, 'PNG')
+        def pruefe(gewollt):
+            with patch('bauen.urllib.request.urlopen', side_effect=[
+                    io.BytesIO(('![example](' + url + ')').encode()), io.BytesIO(png.getvalue())]), \
+                    patch('skript.gemini') as ki:
+                p, q = bauen.demo_fuer('https://huggingface.co/owner/model', gewollt=gewollt)
+            ki.assert_not_called()
+            return p, q
+        p, q = pruefe(url)
+        self.assertTrue(p.is_file())
+        self.assertEqual(q['datei'], url)
+        self.assertEqual(pruefe('https://example.test/not-a-source.png'), (None, None))
+
     def test_alpha_bild_zeigt_raster_statt_unsichtbarer_magenta_pixel(self):
         im = Image.new('RGBA', (100, 100), (255, 0, 255, 0))
         im.putpixel((50, 50), (12, 20, 30, 255))

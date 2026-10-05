@@ -56,6 +56,16 @@ class BildplanTest(TempTest):
         with patch('skript.gemini', return_value=({'einstellungen': []}, 'test')), self.assertRaises(ValueError):
             bildplan.vorbereiten(SKRIPT, [15], [])
 
+    def test_gepruefte_regievorgabe_belaesst_originalen_ton(self):
+        s = copy.deepcopy(SKRIPT)
+        s['teile'][0]['bildfolge'] = [{'bildmodus': 'demo', 'demo_url': 'https://source.test/image.png'}]
+        d = {'index': 0, 'bildmodus': 'illustration', 'suche': 'workflow', 'szene': 'a scene', 'motiv': 'one motif'}
+        with patch('skript.gemini', return_value=({'einstellungen': [d]}, 'test')):
+            shots, _ = bildplan.vorbereiten(s, [3], [])
+        self.assertEqual(shots[0]['teil']['demo_url'], 'https://source.test/image.png')
+        self.assertEqual(shots[0]['teil']['bildmodus'], 'demo')
+        self.assertEqual(shots[0]['teil']['text'], s['teile'][0]['text'])
+
     def test_globales_nutzerfeedback_erreicht_beide_kanaele(self):
         Path('lernen').mkdir()
         Path('lernen/redaktion.json').write_text(json.dumps({'regeln': ['Multiple shots per phase']}))

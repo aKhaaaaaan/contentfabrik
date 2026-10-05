@@ -89,6 +89,18 @@ ueber dem FLUX.1-Limit 2048. Szenenbudget auf 500 Zeichen begrenzt; externer
 API-Vertrag nun auch mit maximalem Input getestet (148 Tests insgesamt).
 Aktuelle Piloten dc24187: AI 37347051952, Business danach 37347058003,
 beide telegram=false. Bis zum Artefakt keine Zustellung behaupten.
+AI 37347051952: Story 8, Bau bis zur Transparenzphase. Die automatische
+Auswahl hatte die Benchmarkgrafik example-01 genommen und verweigerte
+dann ein weiteres Beispiel. Reale Quellenbilder lokal kontrolliert: 04/05/06
+sind Alpha-Ausgaben, 15 ist das Referenzgruppen-Beispiel; 01/43 sind fuer
+diesen Workflow ungeeignete Diagramme. Nun redaktionelle `bildfolge` mit
+geprueften Quell-URLs, nur akzeptiert wenn in Original-README vorhanden.
+Gemini plant weiterhin den zeitlichen Schnitt, Vorgaben beruehren nie Ton.
+Alle Tool-Ausgaben bekommen MODEL CARD EXAMPLE, konzeptionelle Szenen
+ILLUSTRATION. Schluss kann die vorhandene originale Kanalfigur verwenden,
+statt eine neue Identitaet zu erfinden. Vollstaendiger Plan nun als Artefakt
+`bildplan.json` auch bei Bauabbruch. Neue Regressionen fuer Quellenbindung
+und unveraenderten Sprechtext: insgesamt 150 lokale Tests bestanden.
 Implementiert in `bildplan.py`: Originalton/Wortzeiten behalten, Phasen in
 ca. 3-5-Sekunden-Einstellungen aufteilen, ein gebuendelter Gemini-Aufruf fuer
 konkrete unterschiedliche Motive. Zoom, Ausschnitt oder Untertitelwechsel

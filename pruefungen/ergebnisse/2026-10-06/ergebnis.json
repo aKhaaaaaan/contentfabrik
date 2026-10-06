@@ -2,6 +2,13 @@
   "datum": "2026-10-06",
   "umgebung": "Windows, lokale Ausfuehrung",
   "umfang": "Qualitaetsserie und bestehende Regressionen; keine echte Videoqualitaetsbewertung",
+  "github_ci": {
+    "run_id": 37434816062,
+    "commit": "9dd5d63742ad1562bb2150634d6e1ae7b80cf111",
+    "status": "completed",
+    "conclusion": "success",
+    "workflow": "pruefen.yml"
+  },
   "pruefungen": [
     {
       "befehl": "python -m unittest discover -s pruefungen -v",

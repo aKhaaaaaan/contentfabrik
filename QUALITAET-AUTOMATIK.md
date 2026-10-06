@@ -12,6 +12,8 @@ mit `video.yml`, `kanal=alle` und leerem Thema gestartet:
 GitHub hat den Start angenommen; beim ersten Statusabruf lief die Produktion
 noch. Dies ist ein Startbeleg, keine Fertigstellung oder Qualitaetsbestaetigung.
 Die naechsten Laeufe werden durch die bestehenden Tageszeitplaene ausgeloest.
+Die Vorpruefung hat beide Kanaele zugelassen; beim ersten Jobabruf lief die
+Einrichtung fuer AI Tools Explained, Business Origin Stories wartete dahinter.
 
 1. Je Kanal drei unterschiedliche Shorts aus dem **normalen Tageslauf**
    erzeugen: automatische Themenwahl, Quellen, Skript, Bildplan, Bilder, Ton,
@@ -154,3 +156,6 @@ sie sind keine echten Videoproduktionen. Maschinenlesbarer Nachweis unter
 `pruefungen/ergebnisse/2026-10-06/ergebnis.json`.
 Nach Ergaenzung der Laufversuchs-ID wurden die zehn Serien-Tests nochmals
 gezielt ausgefuehrt und bestanden (0,619 s, Exit 0).
+Die GitHub-Regression fuer Code `9dd5d63` bestand ebenfalls:
+[37434816062](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37434816062),
+Status `completed`, Ergebnis `success` (Python 3.12 / Node 22 laut Workflow).

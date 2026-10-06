@@ -362,8 +362,11 @@ if __name__ == '__main__':
     parser.add_argument('--diagnose', action='store_true')
     parser.add_argument('--diagnose-autor', action='store_true')
     parser.add_argument('--diagnose-anbieter', choices=AUTOREN)
+    parser.add_argument('--diagnose-alternativen', action='store_true')
     args = parser.parse_args()
     if args.diagnose:
+        if args.diagnose_alternativen:
+            GEMINI_MODELLE[:] = ['gemini-2.5-pro', 'gemini-2.5-flash']
         diagnose(args.ziel, args.faelle if args.diagnose_autor else None,
                  (args.diagnose_anbieter,) if args.diagnose_anbieter else AUTOREN)
     else:

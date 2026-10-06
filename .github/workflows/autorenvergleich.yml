@@ -1,0 +1,43 @@
+name: autorenvergleich
+run-name: Autorenvergleich Gemini und GPT-OSS / ${{ inputs.anzahl }} Quellen je Kanal
+on:
+  workflow_dispatch:
+    inputs:
+      anzahl:
+        description: 'Quellenpakete je Kanal (keine Videos oder Uploads)'
+        type: choice
+        options: ['1', '2', '3']
+        default: '3'
+permissions:
+  contents: read
+concurrency:
+  group: contentfabrik-zustand
+  cancel-in-progress: false
+  queue: max
+jobs:
+  vergleichen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Zugang pruefen
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          [ -n "$GEMINI_API_KEY" ] && [ -n "$GROQ_API_KEY" ] || { echo "Autoren-Zugang fehlt" >&2; exit 1; }
+      - name: Identische Aufgaben schreiben und gegenseitig pruefen
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          ANZAHL: ${{ inputs.anzahl }}
+        run: python -u fabrik/autorenvergleich.py --anzahl "$ANZAHL"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: autorenvergleich
+          retention-days: 7
+          path: ausgabe/autorenvergleich/

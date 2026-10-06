@@ -114,6 +114,21 @@ class AutorenvergleichTest(TempTest):
         self.assertNotIn('secret-test-value', text)
         self.assertNotIn('another', text)
 
+    def test_groq_schema_ist_rekursiv_geschlossen_und_veraendert_original_nicht(self):
+        vorher = copy.deepcopy(av.PRUEF_SCHEMA)
+        s = av.groq_schema(av.PRUEF_SCHEMA)
+        def pruefen(d):
+            self.assertEqual(d['type'], d['type'].lower())
+            if d['type'] == 'object':
+                self.assertFalse(d['additionalProperties'])
+                self.assertEqual(set(d['required']), set(d['properties']))
+                for p in d['properties'].values():
+                    pruefen(p)
+            if d['type'] == 'array':
+                pruefen(d['items'])
+        pruefen(s)
+        self.assertEqual(av.PRUEF_SCHEMA, vorher)
+
     def test_vollstaendiger_cta_genau_einmal_und_am_ende(self):
         self.assertFalse(av.struktur(entwurf())[0])
         for text in ('Remember to like and share.', 'Save an image; share your workflow; like the result.'):
@@ -160,6 +175,8 @@ class AutorenvergleichTest(TempTest):
         self.assertFalse(body['include_reasoning'])
         self.assertNotIn('reasoning_format', body)
         self.assertEqual(body['max_completion_tokens'], 3072)
+        self.assertEqual(body['response_format']['type'], 'json_schema')
+        self.assertTrue(body['response_format']['json_schema']['strict'])
         self.assertEqual(m, av.GROQ_MODELL)
         self.assertEqual(u['total_tokens'], 123)
         self.assertEqual(d, entwurf())

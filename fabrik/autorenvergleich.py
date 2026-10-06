@@ -25,7 +25,7 @@ import zahlen
 from qualitaet import redaktion, STORY_KATEGORIEN
 
 AUTOREN = ('gemini', 'groq')
-VERSION = '2026-10-06.2'
+VERSION = '2026-10-06.3'
 GROQ_MODELL = 'openai/gpt-oss-120b'
 GEMINI_MODELLE = [m for m in skript.MODELLE if 'lite' not in m.lower()]
 AUTOR_SCHEMA = {'type': 'OBJECT', 'properties': {
@@ -74,11 +74,26 @@ def schema_pruefen(d, schema, pfad='antwort'):
             schema_pruefen(wert, schema['items'], f'{pfad}[{n}]')
 
 
+def groq_schema(schema):
+    """Dasselbe fachliche Schema als geschlossenes JSON Schema fuer Groq."""
+    d = {'type': schema['type'].lower()}
+    if schema['type'] == 'OBJECT':
+        d.update(properties={k: groq_schema(v) for k, v in schema['properties'].items()},
+                 required=list(schema['properties']), additionalProperties=False)
+    if schema['type'] == 'ARRAY':
+        d['items'] = groq_schema(schema['items'])
+    if 'enum' in schema:
+        d['enum'] = list(schema['enum'])
+    return d
+
+
 def groq(prompt, schema, ausgabe_tokens=3072):
     key = os.environ['GROQ_API_KEY']
-    auftrag = prompt + '\nReturn ONLY JSON following this schema:\n' + json.dumps(schema)
+    auftrag = prompt
+    ausgabeformat = {'type': 'json_schema', 'json_schema': {
+        'name': 'contentfabrik_antwort', 'strict': True, 'schema': groq_schema(schema)}}
     # Konservative Schaetzung; tatsaechlicher Tokenverbrauch wird gespeichert.
-    reserve = math.ceil(len(auftrag) / 3) + ausgabe_tokens
+    reserve = math.ceil((len(auftrag) + len(json.dumps(ausgabeformat))) / 3) + ausgabe_tokens
     if reserve > 7900:
         raise ValueError('Auftrag zu gross fuer das kostenlose Groq-Minutenkontingent')
     while GROQ_VERBRAUCH:
@@ -93,7 +108,7 @@ def groq(prompt, schema, ausgabe_tokens=3072):
         req = urllib.request.Request('https://api.groq.com/openai/v1/chat/completions',
             data=json.dumps({'model': GROQ_MODELL, 'include_reasoning': False,
                 'reasoning_effort': 'medium', 'max_completion_tokens': ausgabe_tokens,
-                'response_format': {'type': 'json_object'},
+                'response_format': ausgabeformat,
                 'messages': [{'role': 'user', 'content': auftrag}]}).encode(),
             headers={'Authorization': 'Bearer ' + key, 'Content-Type': 'application/json',
                      'User-Agent': 'Contentfabrik-Autorenvergleich/1.0'})

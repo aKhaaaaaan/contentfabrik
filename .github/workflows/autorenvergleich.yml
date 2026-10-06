@@ -6,7 +6,7 @@ on:
       modus:
         description: 'Autorenvergleich oder kleiner API-Diagnosetest'
         type: choice
-        options: ['vergleich', 'diagnose']
+        options: ['vergleich', 'diagnose', 'diagnose-groq']
         default: 'vergleich'
       anzahl:
         description: 'Quellenpakete je Kanal (keine Videos oder Uploads)'
@@ -41,7 +41,9 @@ jobs:
           ANZAHL: ${{ inputs.anzahl }}
           MODUS: ${{ inputs.modus }}
         run: |
-          if [ "$MODUS" = "diagnose" ]; then
+          if [ "$MODUS" = "diagnose-groq" ]; then
+            python -u fabrik/autorenvergleich.py --diagnose --diagnose-autor --diagnose-anbieter groq
+          elif [ "$MODUS" = "diagnose" ]; then
             python -u fabrik/autorenvergleich.py --diagnose --diagnose-autor
           else
             python -u fabrik/autorenvergleich.py --anzahl "$ANZAHL"

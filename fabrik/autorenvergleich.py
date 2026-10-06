@@ -25,7 +25,7 @@ import zahlen
 from qualitaet import redaktion, STORY_KATEGORIEN
 
 AUTOREN = ('gemini', 'groq')
-VERSION = '2026-10-06.3'
+VERSION = '2026-10-06.4'
 GROQ_MODELL = 'openai/gpt-oss-120b'
 GEMINI_MODELLE = [m for m in skript.MODELLE if 'lite' not in m.lower()]
 AUTOR_SCHEMA = {'type': 'OBJECT', 'properties': {
@@ -87,7 +87,7 @@ def groq_schema(schema):
     return d
 
 
-def groq(prompt, schema, ausgabe_tokens=3072):
+def groq(prompt, schema, ausgabe_tokens=3840):
     key = os.environ['GROQ_API_KEY']
     auftrag = prompt
     ausgabeformat = {'type': 'json_schema', 'json_schema': {
@@ -107,7 +107,7 @@ def groq(prompt, schema, ausgabe_tokens=3072):
     for versuch in range(2):
         req = urllib.request.Request('https://api.groq.com/openai/v1/chat/completions',
             data=json.dumps({'model': GROQ_MODELL, 'include_reasoning': False,
-                'reasoning_effort': 'medium', 'max_completion_tokens': ausgabe_tokens,
+                'reasoning_effort': 'low', 'max_completion_tokens': ausgabe_tokens,
                 'response_format': ausgabeformat,
                 'messages': [{'role': 'user', 'content': auftrag}]}).encode(),
             headers={'Authorization': 'Bearer ' + key, 'Content-Type': 'application/json',
@@ -127,6 +127,15 @@ def groq(prompt, schema, ausgabe_tokens=3072):
             try:
                 error = json.loads(e.read()).get('error', {})
                 detail = fehlertext(error.get('message', ''))
+                fehl = error.get('failed_generation')
+                if isinstance(fehl, str):
+                    # Nur Syntaxmessung; keine internen Gedanken oder Rohantwort veroeffentlichen.
+                    detail += f' Ausgabezeichen={len(fehl)}'
+                    try:
+                        json.loads(fehl)
+                        detail += ' JSON-Syntax=gueltig'
+                    except json.JSONDecodeError as j:
+                        detail += f' JSON-Syntax={j.msg} Position={j.pos}'
             except Exception:
                 detail = 'Keine strukturierte Fehlerbeschreibung'
             if e.code == 429 and versuch == 0:
@@ -136,7 +145,7 @@ def groq(prompt, schema, ausgabe_tokens=3072):
     raise RuntimeError('Groq-Anfrage nicht abgeschlossen')
 
 
-def anfrage(provider, prompt, schema, ausgabe_tokens=3072):
+def anfrage(provider, prompt, schema, ausgabe_tokens=3840):
     if provider == 'groq':
         return groq(prompt, schema, ausgabe_tokens)
     if provider != 'gemini':
@@ -304,11 +313,11 @@ def main(faelle, ziel, anzahl=3):
             f.write('\n'.join(zeilen))
 
 
-def diagnose(ziel, faelle=None):
+def diagnose(ziel, faelle=None, anbieter=AUTOREN):
     """Verfuegbarkeit und Minimal-JSON pruefen; keine Quellen oder Videos."""
     ergebnis = {'datum_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
                 'run_id': os.environ.get('GITHUB_RUN_ID'), 'anbieter': {}}
-    for provider in AUTOREN:
+    for provider in anbieter:
         key = os.environ['GEMINI_API_KEY' if provider == 'gemini' else 'GROQ_API_KEY']
         url = ('https://generativelanguage.googleapis.com/v1beta/models?key=' + key
                if provider == 'gemini' else 'https://api.groq.com/openai/v1/models')
@@ -352,8 +361,10 @@ if __name__ == '__main__':
     parser.add_argument('--anzahl', type=int, choices=(1, 2, 3), default=3)
     parser.add_argument('--diagnose', action='store_true')
     parser.add_argument('--diagnose-autor', action='store_true')
+    parser.add_argument('--diagnose-anbieter', choices=AUTOREN)
     args = parser.parse_args()
     if args.diagnose:
-        diagnose(args.ziel, args.faelle if args.diagnose_autor else None)
+        diagnose(args.ziel, args.faelle if args.diagnose_autor else None,
+                 (args.diagnose_anbieter,) if args.diagnose_anbieter else AUTOREN)
     else:
         main(args.faelle, args.ziel, args.anzahl)

@@ -5,11 +5,16 @@ Bitte zuerst [UEBERGABE-CLAUDE.md](UEBERGABE-CLAUDE.md) und danach
 lesen. Die Uebergabe beschreibt die neuen Aenderungen, den aktuellen
 Betriebsstand, Pruefungen und die noch offenen Arbeiten.
 
-Kostenlose Autorenalternativen wurden am 06.10.2026 recherchiert:
-[KI-MODELLE.md](KI-MODELLE.md). GPT-OSS-120B ueber Groq ist bereits als
-Faktenpruefer vorhanden, aber noch kein Skriptautor. Einen Vergleich mit
-identischen Quellenpaketen empfehlen; keine bessere Qualitaet behaupten,
-bevor sie wiederholt gemessen wurde. Keine neue Autor-Anbindung eingerichtet.
+Kostenlose Alternativen fuer die ganze Pipeline wurden am 06.10.2026
+recherchiert: [KOSTENLOSE-PIPELINE.md](KOSTENLOSE-PIPELINE.md), Autoren:
+[KI-MODELLE.md](KI-MODELLE.md). Der Nutzer hat den Vergleich beauftragt;
+Gemini und GPT-OSS-120B schreiben jetzt im separaten Test dieselben sechs
+Quellenpakete. Methodik/Ergebnisse: [Autorenvergleich](vergleiche/autoren/README.md),
+echter Run `37441593314`. GPT-OSS ist neu als Testautor angebunden, der
+Standardautor im Tageslauf unveraendert. Menschliche Blindbewertung bleibt
+offen; keine bessere Qualitaet behaupten, bevor sie nachgewiesen wurde.
+Qwen3-TTS, ACE-Step und Wan sind recherchierte lokale Kandidaten, nicht
+eingebaut. Lokal Intel UHD erkannt; keine nutzbare CUDA-GPU nachgewiesen.
 
 **Neuer Auftrag 06.10.2026:** Qualitaet im normalen taeglichen Automatiklauf
 bestaetigen: zuerst drei unterschiedliche Shorts je Kanal, vollstaendig

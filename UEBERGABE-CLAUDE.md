@@ -1,21 +1,46 @@
 # Uebergabe an Claude – Contentfabrik
 
-Stand: 05.10.2026, nach Uebernahme der Vorarbeit und der neuen Qualitaets-
+Stand: 06.10.2026, nach Uebernahme der Vorarbeit und der neuen Qualitaets-
 und Formatverbesserungen. Dieses Dokument wird mit den Pilot-Ergebnissen
 aktualisiert. Es enthaelt keine Zugangsschluessel.
 
 ## Nutzerauftrag und zugesagtes Ergebnis
+
+### Neu: ganzer Pipeline-Vergleich und echter Autorenversuch, 06.10.2026
+
+Der Nutzer hat die Autorenempfehlung beauftragt und zusaetzlich eine
+Internetrecherche fuer die gesamte Pipeline verlangt. Recherche/Primaerquellen,
+Begruendung und priorisierte Auswahl: [KOSTENLOSE-PIPELINE.md](KOSTENLOSE-PIPELINE.md).
+Neue Testanbindung: `fabrik/autorenvergleich.py`, manueller Workflow
+`.github/workflows/autorenvergleich.yml`. Sechs eingefrorene Quellenpakete,
+zwei Erstentwuerfe je Thema, gegenseitige verdeckte KI-Pruefung, Zahlen/CTA/
+Laengen-Checks, anonymisierte Lesefassungen und Verbrauchsprotokoll.
+Methodik: [vergleiche/autoren/README.md](vergleiche/autoren/README.md).
+
+Echter Start: 06.10. um 11:14:29 Berlin, Run `37441593314`, Commit `b6ae530`.
+Zugangsschluessel liegen nur in vorhandenen GitHub-Secrets. Keine neue
+kostenpflichtige Hochstufung. Zwoelf neue Vergleichstests, 176 Tests insgesamt,
+Kompilierung und fuenf Node-Zeitplanchecks bestanden; GitHub-CI `37441590949`
+erfolgreich. Echte Skript-Ergebnisse nach Abschluss separat dokumentieren;
+menschliche Blindbewertung offen, kein Sieger und keine Video-Note erfunden.
+
+Kostenlose lokale Kandidaten Qwen3-TTS, ACE-Step und Wan wurden recherchiert,
+nicht installiert oder getestet. Lokal ist Intel UHD Graphics erkannt worden;
+Wan-Referenzlauf nennt mindestens 24 GB VRAM. Im Tageslauf bleiben die bisherige
+Gemini-Anbindung, Figurenreferenzen und Renderer aktiv. Kein ungepruefter
+Wechsel der gesamten Pipeline. Unabhaengige Erkennung des gesprochenen CTA
+aus finalem Audio als naechste Verbesserung empfohlen, noch nicht eingebaut.
 
 ### Kostenlose Skriptautoren: Recherche am 06.10.2026
 
 Nutzer fragt nach besserer kostenloser KI fuer Skripte. Offiziell gepruefte
 Kandidaten, aktuelle Nutzung und empfohlener Autorenvergleich stehen in
 [KI-MODELLE.md](KI-MODELLE.md). GPT-OSS-120B ueber Groq ist bereits als
-Zweitpruefer angebunden, aber nicht als Autor. Gemini 3.8 Flash steht zuerst
+Zweitpruefer angebunden und neu als Autor im separaten Vergleich. Gemini 3.8 Flash steht zuerst
 in der Modellliste; im gesperrten AI-Tageslauf schrieb ueberwiegend 3.5 Flash.
 Gemini 2.5 Pro ist auf der aktuellen Preisseite kostenlos gelistet, Zugang
 fuer unser Projekt nicht aktuell bestaetigt. Kein unbepruefter Standardwechsel,
-keine neue Autor-Anbindung und keine kostenpflichtige Hochstufung erfolgt.
+keine neue Standardautor-Anbindung und keine kostenpflichtige Hochstufung erfolgt.
 
 ### Auftrag vom 06.10.2026: Qualitaetsserie im normalen Tageslauf
 
@@ -47,7 +72,11 @@ weil die Pipeline die redaktionelle Sperre normal verarbeitet. Details,
 Quellen-/Reparaturprobleme und Artefakt `11398733278` stehen in
 `QUALITAET-AUTOMATIK.md`; wirksame Diagnose-/Planungsregeln in
 `lernen/ai-tools-explained.json`. Versandgrenze nicht senken und keine
-erfundene Note vergeben. Business war bei der Diagnose noch in Arbeit.
+erfundene Note vergeben. Business scheiterte anschliessend ebenfalls vor
+dem Videobau: `The Origin of Volvo`, Faktenpruefung nicht bestanden, 877,5
+Sekunden. Unbelegt waren u. a. Stahl als Material, der heutige Fuehrungsstatus
+in mehreren Branchen und ein Museum am urspruenglichen Hauptsitz. Auch dort
+keine MP4. Beide Fehlschlaege sind in `verlauf/qualitaetsserie.json` erfasst.
 
 ### Automatisierung und manuelle Plattform-Uploads, 05.10.2026
 

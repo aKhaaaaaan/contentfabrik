@@ -1,6 +1,6 @@
 # Contentfabrik
 
-Stand: 05.10.2026. Eine private Cloud-Pipeline fuer eigene englische
+Stand: 06.10.2026. Eine private Cloud-Pipeline fuer eigene englische
 Kurzvideos: **AI Tools Explained** und **Business Origin Stories**.
 Ziel sind gute Originalinhalte mit moeglichst 0 EUR laufenden Kosten.
 
@@ -24,6 +24,11 @@ nicht Teil dieses Ablaufs. Die Website ist die Informationsseite fuer die
 Plattform-Antraege.
 
 ## Verbesserungen vom 05.10.2026
+
+Neu am 06.10.2026: [kostenlose Werkzeuge fuer die gesamte Pipeline](KOSTENLOSE-PIPELINE.md)
+mit belegten API-/Hardwaregrenzen. Ein [kontrollierter Autorenvergleich](vergleiche/autoren/README.md)
+testet Gemini gegen GPT-OSS anhand gleicher Quellen; Standardautor und
+Tagesproduktion werden dadurch nicht ungeprueft umgestellt.
 
 Neu am 06.10.2026: [Qualitaetsserie im normalen Automatiklauf](QUALITAET-AUTOMATIK.md)
 mit zunaechst drei Shorts je Kanal, getrennten KI-/Sichtpruefungen und dauerhaftem

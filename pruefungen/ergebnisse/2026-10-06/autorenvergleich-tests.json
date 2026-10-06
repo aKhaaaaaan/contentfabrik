@@ -4,5 +4,7 @@
   "autorenvergleich_unittests": {"anzahl": 12, "status": "bestanden"},
   "gesamtsuite": {"anzahl": 176, "sekunden": 7.578, "status": "bestanden"},
   "kompilierung": {"befehl": "python -m compileall -q fabrik pruefungen", "status": "bestanden"},
+  "zeitplan": {"befehl": "node pruefungen/zeitplan.mjs", "anzahl": 5, "status": "bestanden"},
+  "github_ci": {"run_id": "37441590949", "commit": "b6ae530", "status": "success"},
   "hinweis": "Unit-Tests verwenden Testantworten, keine echten KI-Qualitaetsnoten. Der echte Autorenvergleich wird separat protokolliert."
 }

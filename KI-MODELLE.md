@@ -8,7 +8,7 @@ Kanaele ist damit noch nicht nachgewiesen; keinen pauschalen Sieger behaupten.
 
 | Kandidat | Offiziell dokumentierter Zugang | Stand im Tool |
 |---|---|---|
-| GPT-OSS-120B ueber Groq | Free Plan: 1.000 Anfragen/Tag, 200.000 Tokens/Tag, 8.000 Tokens/Minute laut Rate-Limits-Tabelle | Bereits als unabhaengiger Faktenpruefer in `fabrik/zweit.py`; noch kein Skriptautor |
+| GPT-OSS-120B ueber Groq | Free Plan: 1.000 Anfragen/Tag, 200.000 Tokens/Tag, 8.000 Tokens/Minute laut Rate-Limits-Tabelle | Faktenpruefer in `fabrik/zweit.py`; neu als Testautor in `fabrik/autorenvergleich.py`, noch kein Standardautor im Tageslauf |
 | Gemini 3.8 Flash | Ein-/Ausgabe im kostenlosen API-Tarif gelistet; Kontingent/Zugang fuer das konkrete Projekt entscheidet | Bereits zuerst in der Autor-Modellliste; Ausweichmodelle bis Flash-Lite moeglich |
 | Gemini 2.5 Pro | Ein-/Ausgabe auf der offiziellen Preisseite als kostenlos gelistet; tatsaechlicher Zugang in unserem Projekt aktuell nicht bestaetigt | Nicht als Autor angebunden; fruehere Projektmessungen meldeten kein nutzbares Pro-Kontingent |
 
@@ -30,7 +30,7 @@ Das Skript blieb bei Story 7/10 / Aufloesung 6/10 gesperrt. Mehrere
 Ueberarbeitungen fuehrten unbelegte Aussagen ein. Vorbereitete Piloten mit
 besseren Bildern beweisen keine bessere automatische Skriptproduktion.
 
-## Empfohlener naechster Vergleich, noch nicht ausgefuehrt
+## Beauftragter Vergleich: gebaut und gestartet
 
 GPT-OSS-120B als zusaetzlichen Autor testen, anstatt ungeprueft die taegliche
 Produktion umzustellen. Je Kanal drei identische Quellenpakete fuer beide
@@ -46,8 +46,23 @@ das den Text geschrieben hat, soll nicht allein seinen Sieger bestimmen.
 Erst bei wiederholter Verbesserung den Standardautor je Kanal festlegen;
 ein hoeherer Einzelwert ist kein Nachweis dauerhafter Ueberlegenheit.
 
+Der Nutzer hat den Vergleich beauftragt. Umsetzung und eingefrorene Quellen:
+[vergleiche/autoren/README.md](vergleiche/autoren/README.md). Sechs Themen,
+je zwei Erstentwuerfe und zwei verdeckte KI-Pruefer pro Text. Kein Best-of
+oder Reparaturvorteil fuer einen Autor; tatsaechliches Modell und Ausfaelle
+werden gespeichert. Identischer Grundauftrag, anbieterabhaengige Schema-
+Uebermittlung. Zwoelf neue Tests bestanden, Gesamtsuite 176 Tests, auch auf
+GitHub erfolgreich: Run `37441590949`, Commit `b6ae530`.
+
+Echter Start des Vergleichs am 06.10. um 11:14:29 Berlin:
+[Run 37441593314](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37441593314).
+Ergebnisse folgen nach Abschluss; keine menschliche Bewertung vorwegnehmen.
 Der normale Tageslauf laeuft weiterhin mit der bestehenden Gemini-Anbindung.
-Diese Recherche bindet keinen neuen Autor an und startet keine weiteren
-kosten-/kontingentverbrauchenden Videos. Der alte Kommentar in `zweit.py`,
-es gebe keine eindeutig bessere kostenlose Alternative, war ohne lokalen
-Autorenvergleich nicht belastbar und wurde entsprechend korrigiert.
+Der Vergleich verbraucht vorhandene kostenlose API-Kontingente, erzeugt aber
+keine Videos. Der fruehere Kommentar in `zweit.py`, es gebe keine eindeutig
+bessere kostenlose Alternative, war ohne lokalen Autorenvergleich nicht
+belastbar und wurde entsprechend korrigiert.
+
+Die vom Nutzer zusaetzlich beauftragte Recherche fuer die ganze Pipeline
+steht in [KOSTENLOSE-PIPELINE.md](KOSTENLOSE-PIPELINE.md), einschliesslich
+Bild/Video, Stimme, Musik/FX, Untertiteln, Hardware und API-Grenzen.

@@ -1,8 +1,41 @@
 # Technische Umsetzung und Testnachweise fuer Claude
 
-Stand: 05.10.2026. Neueste fachliche Vorgaben stehen in [CLAUDE.md](CLAUDE.md)
+Stand: 06.10.2026. Neueste fachliche Vorgaben stehen in [CLAUDE.md](CLAUDE.md)
 und [UEBERGABE-CLAUDE.md](UEBERGABE-CLAUDE.md). Dieses Dokument beschreibt
 die gebauten Erweiterungen, ihre Dateien und die tatsaechlichen Pruefungen.
+
+## Erweiterung am 06.10.2026: kontrollierter Autorenvergleich
+
+`fabrik/autorenvergleich.py` und `.github/workflows/autorenvergleich.yml`
+vergleichen Gemini ohne Lite-Fallback mit Groq GPT-OSS-120B. Die Vorbereitung
+`pruefungen/vorbereiten_autorenvergleich.py` speichert sechs Quellenpakete in
+`vergleiche/autoren/faelle.json`, einschliesslich Herkunft und SHA256. Ein
+veraenderter Quelltext wird vor API-Aufrufen abgelehnt. Gleicher Grundauftrag
+je Paar, protokollierter Prompt-Hash, zufaellige A/B-Zuordnung und verdeckte
+Lesefassungen. Die Schema-Uebermittlung unterscheidet sich je Anbieter.
+
+Jeder Erstentwurf wird von beiden Anbietern verdeckt auf Fakten und Story
+geprueft, dazu deterministische Laengen-/CTA-/Zahlenchecks. Fehlende Pruefung
+ist keine Freigabe. Keine automatische Reparatur, menschliche Bewertung,
+Standardautor-Aenderung, Videoerzeugung oder Versand in diesem Benchmark.
+Groq nutzt dokumentierte JSON-Parameter (`include_reasoning=false`) und
+Kontingent-Pausen. Erfolgreiches Schreiben wird mit konkretem Modell, Zeit
+und Tokens protokolliert; Ausfaelle bleiben im Bericht.
+
+Tests in `pruefungen/test_autorenvergleich.py`: zwoelf Tests bestaetigen u. a.
+gleiche Aufgaben/Quellen, Blindpruefung, unveraenderte Quellen, vollstaendigen
+CTA am Ende, Sperre bei fehlendem Pruefer oder Faktenkonflikt, Verarbeitung
+des anderen Autors nach Ausfall und Ablehnung abgeschnittener API-Antworten.
+Gesamtsuite **176 Tests bestanden**, 7,578 s lokal; Kompilierung und fuenf
+Node-Zeitplanchecks bestanden. GitHub-CI **37441590949** ebenfalls erfolgreich,
+Commit `b6ae530`. Maschinenlesbarer Nachweis:
+`pruefungen/ergebnisse/2026-10-06/autorenvergleich-tests.json`.
+
+Echter KI-Vergleich gestartet als Run **37441593314**, 06.10. um 11:14:29
+Berlin. Resultate werden getrennt von Unit-Tests dokumentiert, Methodik unter
+[vergleiche/autoren/README.md](vergleiche/autoren/README.md). Die recherchierten
+Modelle fuer Stimme, Musik und Animation wurden nicht eingebaut; Stand und
+Primaerquellen unter [KOSTENLOSE-PIPELINE.md](KOSTENLOSE-PIPELINE.md).
 
 ## Ergebnis und aktuelle Ziele
 

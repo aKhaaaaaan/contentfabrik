@@ -1,11 +1,11 @@
 """Zweitpruefer: ein Modell einer ANDEREN Firma prueft die Fakten (Groq, kostenlos).
 
-GEMELDET 04.10.2026: „Fuer die komplette Pipeline brauchen wir richtige
-kostenlose hoehere Modelle." GEPRUEFT: Ein kostenloses Modell, das klar besser
-schreibt als Gemini Flash, gibt es nicht (Gemini Pro: Gratis-Kontingent 0).
-Der echte Gewinn: Zwei Modelle verschiedener Firmen uebersehen seltener
-denselben Fehler. Gemini schreibt, GPT-OSS-120B (Groq) prueft unabhaengig,
-die Zahlenprobe (zahlen.py) prueft obendrauf.
+GPT-OSS-120B ist auch ein moeglicher kostenloser Skriptautor; ein Vergleich
+mit Gemini fuer unsere Kanaele steht noch aus (siehe KI-MODELLE.md).
+Fruehere Pro-Kontingentmessungen gelten nur fuer das konkrete Projekt,
+nicht pauschal fuer alle kostenlosen API-Angebote. Hier schreibt weiterhin
+Gemini, GPT-OSS-120B (Groq) prueft unabhaengig und die Zahlenprobe (zahlen.py)
+prueft obendrauf. Ein Zweitpruefer ist keine Garantie fehlerfreier Fakten.
 
 Grenzen Groq-Gratistarif (GEPRUEFT): 1.000 Anfragen/Tag, 200.000 Tokens/Tag,
 8.000 Tokens/Minute. Darum bekommt der Pruefer nur die Quellabschnitte, die zu

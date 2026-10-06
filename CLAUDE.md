@@ -5,6 +5,12 @@ Bitte zuerst [UEBERGABE-CLAUDE.md](UEBERGABE-CLAUDE.md) und danach
 lesen. Die Uebergabe beschreibt die neuen Aenderungen, den aktuellen
 Betriebsstand, Pruefungen und die noch offenen Arbeiten.
 
+Kostenlose Autorenalternativen wurden am 06.10.2026 recherchiert:
+[KI-MODELLE.md](KI-MODELLE.md). GPT-OSS-120B ueber Groq ist bereits als
+Faktenpruefer vorhanden, aber noch kein Skriptautor. Einen Vergleich mit
+identischen Quellenpaketen empfehlen; keine bessere Qualitaet behaupten,
+bevor sie wiederholt gemessen wurde. Keine neue Autor-Anbindung eingerichtet.
+
 **Neuer Auftrag 06.10.2026:** Qualitaet im normalen taeglichen Automatiklauf
 bestaetigen: zuerst drei unterschiedliche Shorts je Kanal, vollstaendig
 menschlich pruefen, Fehler korrigieren, danach zehn bestaetigte Erfolge in Folge

@@ -6,6 +6,17 @@ aktualisiert. Es enthaelt keine Zugangsschluessel.
 
 ## Nutzerauftrag und zugesagtes Ergebnis
 
+### Kostenlose Skriptautoren: Recherche am 06.10.2026
+
+Nutzer fragt nach besserer kostenloser KI fuer Skripte. Offiziell gepruefte
+Kandidaten, aktuelle Nutzung und empfohlener Autorenvergleich stehen in
+[KI-MODELLE.md](KI-MODELLE.md). GPT-OSS-120B ueber Groq ist bereits als
+Zweitpruefer angebunden, aber nicht als Autor. Gemini 3.8 Flash steht zuerst
+in der Modellliste; im gesperrten AI-Tageslauf schrieb ueberwiegend 3.5 Flash.
+Gemini 2.5 Pro ist auf der aktuellen Preisseite kostenlos gelistet, Zugang
+fuer unser Projekt nicht aktuell bestaetigt. Kein unbepruefter Standardwechsel,
+keine neue Autor-Anbindung und keine kostenpflichtige Hochstufung erfolgt.
+
 ### Auftrag vom 06.10.2026: Qualitaetsserie im normalen Tageslauf
 
 Der Nutzer hat den vorgeschlagenen Test mit drei automatisch entstandenen

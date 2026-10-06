@@ -25,6 +25,11 @@ Plattform-Antraege.
 
 ## Verbesserungen vom 05.10.2026
 
+Neu am 06.10.2026: [Qualitaetsserie im normalen Automatiklauf](QUALITAET-AUTOMATIK.md)
+mit zunaechst drei Shorts je Kanal, getrennten KI-/Sichtpruefungen und dauerhaftem
+Protokoll in `verlauf/qualitaetsserie.json`. Zehn menschlich bestaetigte Erfolge
+in Folge je Kanal sind ein Kontrollpunkt; Plattform-Uploads bleiben manuell.
+
 - Fehlende/ausgefallene Video-Pruefung ist keine kuenstliche 8/10 mehr.
   Auch ein direkter Aufruf von `freigabe.py` kann diese Sperre nicht umgehen.
 - Technikfehler sperren das Video vollstaendig; sie senken nicht nur die Note.

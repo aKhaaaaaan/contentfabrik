@@ -138,6 +138,18 @@ Zustellbelege/Hashes/qualitatives Nutzerfeedback dauerhaft in
 
 ## Naechste konkrete Arbeiten
 
+Ergaenzung 06.10.2026: Der Nutzer hat die echte Qualitaetsserie beauftragt.
+[QUALITAET-AUTOMATIK.md](QUALITAET-AUTOMATIK.md) beschreibt die Rubrik und den
+Plan (drei automatische Shorts je Kanal, anschliessend Konsistenzpruefung).
+`fabrik/qualitaetsserie.py`, Integration in `video.yml` und
+`pruefungen/test_qualitaetsserie.py` erfassen reale Laeufe, Dateihashes,
+Fehlschlaege und getrennte menschliche Urteile. Keine automatische Plattform-
+Veroeffentlichung; keine bestehende KI-Note als Nutzerfreigabe umdeuten.
+Lokale Regression am 06.10.: 164 Tests bestanden (darunter zehn neue),
+compileall und fuenf Zeitplan-Tests bestanden. Nachweis in
+`pruefungen/ergebnisse/2026-10-06/ergebnis.json`. Dies belegt die Technik,
+noch keine bestaetigte Automatik-Videoqualitaet.
+
 AI: fuer vergleichbare Shorts 14-18 sinnvolle Motive vorbereiten. Business:
 bei etwa 24 Einstellungen auf 18 Motive zielen, also vier Wiederholungen durch
 neue passende Motive ersetzen. Dafuer die jeweilige Bibliothek/Regie sinnvoll

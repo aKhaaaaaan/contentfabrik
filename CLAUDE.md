@@ -5,6 +5,14 @@ Bitte zuerst [UEBERGABE-CLAUDE.md](UEBERGABE-CLAUDE.md) und danach
 lesen. Die Uebergabe beschreibt die neuen Aenderungen, den aktuellen
 Betriebsstand, Pruefungen und die noch offenen Arbeiten.
 
+**Neuer Auftrag 06.10.2026:** Qualitaet im normalen taeglichen Automatiklauf
+bestaetigen: zuerst drei unterschiedliche Shorts je Kanal, vollstaendig
+menschlich pruefen, Fehler korrigieren, danach zehn bestaetigte Erfolge in Folge
+je Kanal als Kontrollpunkt. Plattform-Uploads bleiben manuell. Keine kuratierten
+Piloten als Automatik-Erfolg zaehlen. Ablauf, Rubrik und Bedienung stehen in
+[QUALITAET-AUTOMATIK.md](QUALITAET-AUTOMATIK.md); echte Ergebnisse und getrennte
+Sichtpruefungen stehen in `verlauf/qualitaetsserie.json`.
+
 **Betriebsstand 05.10.2026:** Der Nutzer hat beide neuen Videos nach eigener
 Aussage manuell auf YouTube UND TikTok hochgeladen. Dies ist als Nutzerangabe
 in `verlauf/telegram-sendungen.json` erfasst; Plattform-IDs, Links und

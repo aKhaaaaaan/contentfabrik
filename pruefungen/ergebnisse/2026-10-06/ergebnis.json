@@ -1,0 +1,27 @@
+{
+  "datum": "2026-10-06",
+  "umgebung": "Windows, lokale Ausfuehrung",
+  "umfang": "Qualitaetsserie und bestehende Regressionen; keine echte Videoqualitaetsbewertung",
+  "pruefungen": [
+    {
+      "befehl": "python -m unittest discover -s pruefungen -v",
+      "exit_code": 0,
+      "tests": 164,
+      "dauer_s": 6.659,
+      "ergebnis": "OK"
+    },
+    {
+      "befehl": "python -m compileall -q fabrik pruefungen",
+      "exit_code": 0
+    },
+    {
+      "befehl": "node pruefungen/zeitplan.mjs",
+      "exit_code": 0,
+      "tests": 5
+    },
+    {
+      "befehl": "git diff --check",
+      "exit_code": 0
+    }
+  ]
+}

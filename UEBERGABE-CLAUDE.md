@@ -6,6 +6,25 @@ aktualisiert. Es enthaelt keine Zugangsschluessel.
 
 ## Nutzerauftrag und zugesagtes Ergebnis
 
+### Auftrag vom 06.10.2026: Qualitaetsserie im normalen Tageslauf
+
+Der Nutzer hat den vorgeschlagenen Test mit drei automatisch entstandenen
+Videos je Kanal und anschliessender Konsistenzpruefung beauftragt. Die
+vollstaendige Beschreibung steht in [QUALITAET-AUTOMATIK.md](QUALITAET-AUTOMATIK.md).
+`video.yml` erfasst jetzt jeden Produktionslauf, auch Fehlschlaege, ueber
+`fabrik/qualitaetsserie.py`. Dauerhafter Verlauf: `verlauf/qualitaetsserie.json`.
+Keine manuelle Skript-/Bildregie, keine Budgetumgehung, keine Pilot-Erfolge
+hineinrechnen. Ein Video je Kanal und Produktionstag anstreben; Kontingente
+koennen die drei Videos je Kanal verzoegern.
+
+KI-Pruefung ist keine menschliche Sichtpruefung. Erst nach vollstaendigem
+Ansehen und Hoeren das konkrete Video mit Hash bewerten. Zehn bestandene,
+unterschiedliche Shorts je Kanal ohne menschliche Nachbearbeitung sind der
+spaetere Kontrollpunkt; das schaltet keinen Plattform-Upload frei und beweist
+keine Langvideo-Qualitaet. Fehlversuche bleiben sichtbar, neue Produktions-
+versionen beginnen die bestaetigte Folge neu. Ziel 10/10, Versandfilter ab 7/10
+unveraendert. Es wurden damit noch keine sechs neuen Videos fertiggestellt.
+
 ### Automatisierung und manuelle Plattform-Uploads, 05.10.2026
 
 Der Nutzer meldet: "Läuft das jetzt voll automatisiert? weil ich die beide

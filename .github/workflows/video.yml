@@ -138,6 +138,11 @@ jobs:
           KANAL: ${{ matrix.kanal }}
           THEMA: ${{ inputs.thema }}
         run: python fabrik/lauf.py "kanaele/${KANAL}.json" "$THEMA"
+      - name: Tageslauf fuer die Qualitaetsserie erfassen
+        if: always()
+        env:
+          KANAL: ${{ matrix.kanal }}
+        run: python fabrik/qualitaetsserie.py erfassen "$KANAL"
       - name: Verlauf und Gelerntes sichern
         if: always()
         run: |
@@ -185,3 +190,4 @@ jobs:
             ausgabe/kritik.json
             ausgabe/bericht.json
             ausgabe/korrektur.json
+            ausgabe/qualitaetsserie.json

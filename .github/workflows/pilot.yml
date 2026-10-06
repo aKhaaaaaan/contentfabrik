@@ -101,6 +101,12 @@ jobs:
         with:
           path: modelle
           key: kokoro-v1.0
+      - uses: actions/cache/restore@v4
+        id: ki-cache
+        with:
+          path: ki-cache
+          key: ki-pruefungen-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}-${{ inputs.kanal }}
+          restore-keys: ki-pruefungen-v1-${{ runner.os }}-
       - name: Modelle
         run: |
           mkdir -p modelle
@@ -130,6 +136,11 @@ jobs:
           else
             python fabrik/lauf.py "$PILOT_PROFIL" "$THEMA"
           fi
+      - uses: actions/cache/save@v4
+        if: always() && steps.ki-cache.outputs.cache-hit != 'true'
+        with:
+          path: ki-cache
+          key: ki-pruefungen-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}-${{ inputs.kanal }}
       - name: Bericht
         id: bericht
         if: always()
@@ -150,6 +161,7 @@ jobs:
             ausgabe/bildablauf.json
             ausgabe/bildplan.json
             ausgabe/kritik.json
+            ausgabe/audio-pruefung.json
             ausgabe/bericht.json
             ausgabe/korrektur.json
             ausgabe/untertitel.ass

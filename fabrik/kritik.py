@@ -13,8 +13,11 @@ import json, os, sys, time, urllib.request
 from pathlib import Path
 
 from skript import gemini
+import skript as skript_ki
 import prompts
 import dramaturgie
+import ki_speicher
+import sprachpruefung
 
 BASIS = 'https://generativelanguage.googleapis.com'
 
@@ -30,7 +33,8 @@ KATEGORIEN = {
     'ton_stimme': 'voice clarity and naturalness, volume, no glitches',
     'tempo': 'pacing, no dead moments, no rushed parts',
     'inhalt': 'concrete value, clear limitations, no unsupported promises; source verification is separate',
-    'schluss_loop': 'complete promised payoff, concise ending; callback and call to action optional',
+    'schluss_loop': 'complete promised payoff, concise ending; spoken like, share AND save this video is mandatory '
+                    'after the payoff in Shorts, early after the hook and again at the end in long videos',
     'regeln': 'observed misleading depictions, intrusive watermarks or inappropriate content; do not infer rights or ad approval',
     'story': 'clear question, progressive discoveries, mini-payoffs, coherent final answer; no empty teasing',
 }
@@ -131,32 +135,54 @@ def kritik(video, skript_pfad, aus):
     bildpruefung = bildplan.pruefen(json.loads(bp.read_text(encoding='utf-8')) if bp.exists() else {},
                                   messung.get('dauer_s', 0), dramaturgie.videoformat(skript))
     messung['befunde'].extend(bildpruefung['befunde'])
+    audio = None
+    if not messung['befunde']:
+        audio = sprachpruefung.pruefen(video, skript, messung['dauer_s'],
+                                      Path(aus).with_name('audio-pruefung.json'))
+        messung['befunde'].extend(audio['befunde'])
     if messung['befunde']:
         # Defekte Dateien brauchen keinen Video-Upload und keine KI-Anfrage.
         ergebnis = {'note': None, 'staerken': [], 'probleme': [],
-                    'fazit': 'Technik-Pruefung nicht bestanden', 'technik': messung}
+                    'fazit': 'Technik-/Endton-Pruefung nicht bestanden', 'technik': messung,
+                    'audio_pruefung': audio, 'bildpruefung': bildpruefung}
+        if Path(video).is_file():
+            ergebnis['video_sha256'] = bildplan.material_id(video)
         Path(aus).write_text(json.dumps(ergebnis, indent=2, ensure_ascii=False), encoding='utf-8')
         print(ergebnis['fazit'], messung['befunde'])
         return ergebnis
-    schluessel = os.environ['GEMINI_API_KEY']
-    datei = None
-    try:
-        datei = hochladen(video, schluessel)
-        ergebnis, modell = gemini(
-            prompts.video(skript, KATEGORIEN),
-            SCHEMA, temperatur=0.2, dateien=[('video/mp4', datei['uri'])])
-    finally:
-        if datei:  # aufraeumen - nichts bleibt bei Google liegen
+    sha = bildplan.material_id(video)
+    auftrag = prompts.video(skript, KATEGORIEN)
+    key = ki_speicher.cache_key(auftrag, SCHEMA, list(skript_ki.MODELLE), .2, 'video', sha)
+    treffer = ki_speicher.cache_lesen(key, SCHEMA, skript_ki.MODELLE)
+    if treffer:
+        ergebnis, modell = treffer
+        print('Identische KI-Videokritik wiederverwendet; lokale Pruefungen erneut ausgefuehrt')
+    else:
+        schluessel = os.environ['GEMINI_API_KEY']
+        if all(ki_speicher.sperre(schluessel, m) for m in skript_ki.MODELLE):
+            raise RuntimeError('Gemini-Videopruefung voruebergehend gesperrt; kein unnoetiger Video-Upload')
+        datei = None
+        try:
+            datei = hochladen(video, schluessel)
+            ergebnis, modell = gemini(auftrag, SCHEMA, temperatur=0.2, dateien=[('video/mp4', datei['uri'])])
             try:
-                urllib.request.urlopen(urllib.request.Request(
-                    f"{BASIS}/v1beta/{datei['name']}?key={schluessel}", method='DELETE'), timeout=30)
-            except Exception:
-                pass
+                ki_speicher.cache_schreiben(key, ergebnis, modell, SCHEMA)
+            except OSError:
+                print('Videokritik-Cache nicht gespeichert; frische Pruefung wird verwendet')
+        finally:
+            if datei:  # aufraeumen - nichts bleibt bei Google liegen
+                try:
+                    urllib.request.urlopen(urllib.request.Request(
+                        f"{BASIS}/v1beta/{datei['name']}?key={schluessel}", method='DELETE'), timeout=30)
+                except Exception:
+                    pass
     ergebnis['modell'] = modell
     ergebnis['prompt_version'] = prompts.VERSION
     ergebnis['technik'] = messung
     ergebnis['bildpruefung'] = bildpruefung
-    ergebnis['video_sha256'] = bildplan.material_id(video)
+    ergebnis['audio_pruefung'] = audio
+    ergebnis['ki_cache_wiederverwendet'] = bool(treffer)
+    ergebnis['video_sha256'] = sha
     Path(aus).write_text(json.dumps(ergebnis, indent=2, ensure_ascii=False), encoding='utf-8')
     print(f"KI-Kritik: {ergebnis['note']}/10 - {ergebnis['fazit']}")
     print('  Kategorien:', ergebnis.get('kategorien'))

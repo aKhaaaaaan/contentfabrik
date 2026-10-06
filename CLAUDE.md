@@ -5,6 +5,15 @@ Bitte zuerst [UEBERGABE-CLAUDE.md](UEBERGABE-CLAUDE.md) und danach
 lesen. Die Uebergabe beschreibt die neuen Aenderungen, den aktuellen
 Betriebsstand, Pruefungen und die noch offenen Arbeiten.
 
+**Neu 06.10.:** Befristete Gemini-Kontingentsperren, sechs Stunden gueltige
+Caches fuer identische Fakten-/Story-/Videopruefungen und unabhaengige
+CTA-Erkennung aus dem fertigen MP4-Ton eingebaut. 208 lokale Tests bestanden;
+beide bereits gelieferten Piloten mit CTA erkannt, abgeschnittene Kontroll-
+kopie korrekt gesperrt. Details/Grenzen: [KONTINGENT-UND-ENDTON.md](KONTINGENT-UND-ENDTON.md).
+Neue Videos heute weiterhin nicht bestaetigt. Neue kreative Entwuerfe und
+Autorenvergleich bleiben ungecacht. Historische Kritiken ohne Endton-Nachweis
+reichen fuer einen neuen Versand nicht mehr; alte Piloten nicht erneut senden.
+
 Kostenlose Alternativen fuer die ganze Pipeline wurden am 06.10.2026
 recherchiert: [KOSTENLOSE-PIPELINE.md](KOSTENLOSE-PIPELINE.md), Autoren:
 [KI-MODELLE.md](KI-MODELLE.md). Der Nutzer hat den Vergleich beauftragt;

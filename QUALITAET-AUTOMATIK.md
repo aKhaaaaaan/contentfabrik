@@ -4,6 +4,13 @@ Start: 06.10.2026. Vom Nutzer beauftragt: "Ja dann legen wir los, oder?
 macht es sinn?! und dokumentiere es auch". Die Plattform-Veroeffentlichung
 bleibt manuell. Ziel ist 10/10; eine absolute Qualitaetsgarantie gibt es nicht.
 
+Neu am 06.10.: unabhaengige Kontrolle des gesprochenen Like/share/save aus
+dem fertigen MP4-Ton als weitere Versandvoraussetzung, dazu befristete
+Kontingentsperren und Pruefcaches. Beide historischen Piloten positiv
+erkannt, abgeschnittene Kontrollkopie negativ. Dies sind technische
+Tonproben, keine neuen Erfolge der Tageslauf-Serie. Beschreibung/Tests:
+[KONTINGENT-UND-ENDTON.md](KONTINGENT-UND-ENDTON.md).
+
 ## Ablauf der ersten Serie
 
 Der erste normale Tageslauf wurde am 06.10.2026 um **10:14:44 Berlin**

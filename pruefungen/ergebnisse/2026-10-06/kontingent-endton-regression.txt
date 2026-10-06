@@ -1,0 +1,358 @@
+Autorvergleich: test-A / groq
+Autorvergleich: test-A / autorausfall
+Autorvergleich: test-B / gemini
+Autorvergleich: test-B / autorausfall
+Autorvergleich: test-A / groq
+Autorvergleich: test-A / autorausfall
+Autorvergleich: test-B / gemini
+Autorvergleich: test-B / ki_vorpruefung_bestanden
+Autorvergleich: test-A / groq
+Autorvergleich: test-A / ki_vorpruefung_bestanden
+Autorvergleich: test-B / gemini
+Autorvergleich: test-B / ki_vorpruefung_bestanden
+Autorvergleich: test-A / gemini
+Autorvergleich: test-A / gesperrt_oder_pruefung_fehlt
+Autorvergleich: test-B / groq
+Autorvergleich: test-B / gesperrt_oder_pruefung_fehlt
+Autorvergleich: test-A / gemini
+Autorvergleich: test-A / ki_vorpruefung_bestanden
+Autorvergleich: test-B / groq
+Autorvergleich: test-B / ki_vorpruefung_bestanden
+Versuch 1: 9/10; Sperrgruende: []
+0.0 Min. im aktuellen Lauf verbraucht
+Video-Pruefung nicht verfuegbar - Video bleibt gesperrt
+Versuch 1: 7/10; Sperrgruende: []
+0.0 Min. im aktuellen Lauf verbraucht
+Versuch 2: 10/10; Sperrgruende: []
+Versuch 1: 7/10; Sperrgruende: []
+0.0 Min. im aktuellen Lauf verbraucht
+Versuch 2: 9/10; Sperrgruende: []
+0.0 Min. im aktuellen Lauf verbraucht
+Versuch 1: 9/10; Sperrgruende: []
+0.0 Min. im aktuellen Lauf verbraucht
+Versuch 2: 6/10; Sperrgruende: ['Video-Note 6/10 unter 7/10']
+0.0 Min. im aktuellen Lauf verbraucht
+Versuch 1: 6/10; Sperrgruende: ['Video-Note 6/10 unter 7/10']
+0.0 Min. im aktuellen Lauf verbraucht
+test: Tagesbudget verbraucht - keine neue Produktion
+Versuch 1: 9/10; Sperrgruende: []
+0.0 Min. im aktuellen Lauf verbraucht
+Video-Pruefung nicht verfuegbar - Video bleibt gesperrt
+Versuch 3: 10/10; Sperrgruende: []
+Versuch 1: 10/10; Sperrgruende: []
+Versuch 1: 9/10; Sperrgruende: []
+0.0 Min. im aktuellen Lauf verbraucht
+Video-Pruefung nicht verfuegbar - Video bleibt gesperrt
+Video-Pruefung nicht verfuegbar - Video bleibt gesperrt
+Versuch 1: 6/10; Sperrgruende: ['Video-Note 6/10 unter 7/10']
+0.0 Min. im aktuellen Lauf verbraucht
+Versuch 1: 9/10; Sperrgruende: ['Ton kaputt']
+0.0 Min. im aktuellen Lauf verbraucht
+Versuch 1: 9/10; Sperrgruende: []
+0.0 Min. im aktuellen Lauf verbraucht
+Technik-/Endton-Pruefung nicht bestanden ['keine Tonspur', 'Kein nachweisbarer Bildablauf vorhanden']
+Telegram-Video bestaetigt; message_id: None
+Gesendet: True
+Telegram-Video bestaetigt; message_id: None
+Gesendet: True
+Offen: []
+Offen: []
+Offen: ['test']
+Redaktioneller Bildplan | Einstellungen: 23
+Gemini-Bildplan: test | Einstellungen: 0
+Gemini-Bildplan: test | Einstellungen: 1
+KI-Pruefcache konnte nicht gespeichert werden; Ergebnis bleibt frisch geprueft
+{
+  "stimme_wiederverwendet": true,
+  "tempo": 1.05,
+  "stuecke_wiederverwendet": 1,
+  "stuecke_neu": 1,
+  "clips_und_stuecke": 0.0,
+  "bildpruefung": {
+    "befunde": [],
+    "einstellungen": 2,
+    "motive": 2,
+    "motive_min": 1
+  },
+  "effekte": 2,
+  "rendern": 0.0,
+  "gesamt": 0.2,
+  "videolaenge_s": 7,
+  "abschnitte_s": [
+    3,
+    4
+  ],
+  "woerter": 2
+}
+Gelernt (test): 1 -> 1 Regeln
+  - neue Regel
+Vorlage: Story 9 /10; Sperrgruende: []
+Vorlage gesperrt: Falsche Zahl
+Vorlage: Story 6 /10; Sperrgruende: ['Skript-Note 6/10 unter 7/10']
+Illustration verworfen: Changed face
+Bildpruefung nicht moeglich - Foto/Clip verwenden: RuntimeError
+Ungueltige Bilddatei - kein Einsatz im Video
+Ungueltige Bilddatei - kein Einsatz im Video
+Zweitpruefer (Groq) nicht erreichbar - nur Gemini + Zahlenprobe
+Beispielbild (redaktionelle Regie): owner/model https://example.test/real-output.png
+Story: 10/10 {'hook': 10, 'spannung': 10, 'ueberraschung': 10, 'tempo': 10, 'aufloesung': 10, 'teilbarkeit': 10}
+{
+  "thema": "Firma",
+  "titel": [
+    "A *story*",
+    "A decision"
+  ],
+  "stimme": "bm_george",
+  "pruefung": {
+    "ok": true,
+    "probleme": []
+  },
+  "modell": "test",
+  "sekunden_ki": 0.0
+}
+Story: 10/10 {'hook': 10, 'spannung': 10, 'ueberraschung': 10, 'tempo': 10, 'aufloesung': 10, 'teilbarkeit': 10}
+{
+  "thema": "Firma",
+  "titel": [
+    "A *story*",
+    "A decision"
+  ],
+  "stimme": "bm_george",
+  "pruefung": {
+    "ok": true,
+    "probleme": []
+  },
+  "modell": "test",
+  "sekunden_ki": 0.0
+}
+Modellbeschreibung nicht verfuegbar: owner/repo TimeoutError
+Technik-/Endton-Pruefung nicht bestanden ['CTA nicht erkannt']
+KI-Kritik: 9/10 - Gut
+  Kategorien: {'hook': 9, 'bild_passt': 9, 'dynamik': 9, 'text': 9, 'ton_stimme': 9, 'tempo': 9, 'inhalt': 9, 'schluss_loop': 9, 'regeln': 9, 'story': 9}
+  Technik: {'befunde': [], 'dauer_s': 70, 'fps': 30, 'lufs': -14}
+Identische KI-Videokritik wiederverwendet; lokale Pruefungen erneut ausgefuehrt
+KI-Kritik: 9/10 - Gut
+  Kategorien: {'hook': 9, 'bild_passt': 9, 'dynamik': 9, 'text': 9, 'ton_stimme': 9, 'tempo': 9, 'inhalt': 9, 'schluss_loop': 9, 'regeln': 9, 'story': 9}
+  Technik: {'befunde': [], 'dauer_s': 70, 'fps': 30, 'lufs': -14}
+KI-Kritik: 9/10 - Gut
+  Kategorien: {'hook': 9, 'bild_passt': 9, 'dynamik': 9, 'text': 9, 'ton_stimme': 9, 'tempo': 9, 'inhalt': 9, 'schluss_loop': 9, 'regeln': 9, 'story': 9}
+  Technik: {'befunde': [], 'dauer_s': 70, 'fps': 30, 'lufs': -14}
+Telegram-Statusmeldung bestaetigt; message_id: 1
+1 Nachrichten, Warteschlange: 0
+1 Nachrichten, Warteschlange: 0
+Gemini-Verbrauch: test: 11 Anfragen, 0k rein, 0k raus; gemini-2.5-flash: 1 Anfragen, 0k rein, 0k raus; gemini-3.8-flash: 2 Anfragen, 0k rein, 0k raus; gemini-flash-latest: 3 Anfragen, 0k rein, 0k raus; gemini-flash-lite-latest: 1 Anfragen, 0k rein, 0k raus
+KI-Pruefungen wiederverwendet: 1 (keine neue API-Anfrage)
+
+test_alle_autorausfaelle_sind_kein_ausgewerteter_vergleich (test_autorenvergleich.AutorenvergleichTest.test_alle_autorausfaelle_sind_kein_ausgewerteter_vergleich) ... ok
+test_autorausfall_verhindert_nicht_zweiten_kandidaten (test_autorenvergleich.AutorenvergleichTest.test_autorausfall_verhindert_nicht_zweiten_kandidaten) ... ok
+test_beide_autoren_gleiche_quellen_aufgabe_und_verdeckte_kritik (test_autorenvergleich.AutorenvergleichTest.test_beide_autoren_gleiche_quellen_aufgabe_und_verdeckte_kritik) ... ok
+test_boolean_als_note_oder_fehlende_kategorie_abgelehnt (test_autorenvergleich.AutorenvergleichTest.test_boolean_als_note_oder_fehlende_kategorie_abgelehnt) ... ok
+test_diagnose_enthaelt_keine_zugangsschluessel (test_autorenvergleich.AutorenvergleichTest.test_diagnose_enthaelt_keine_zugangsschluessel) ... ok
+test_faktenkonflikt_sperrt_auch_bei_note_zehn (test_autorenvergleich.AutorenvergleichTest.test_faktenkonflikt_sperrt_auch_bei_note_zehn) ... ok
+test_fehlender_pruefer_sperrt_trotz_gutem_anderen_urteil (test_autorenvergleich.AutorenvergleichTest.test_fehlender_pruefer_sperrt_trotz_gutem_anderen_urteil) ... ok
+test_geaenderte_quelle_vor_api_abgelehnt (test_autorenvergleich.AutorenvergleichTest.test_geaenderte_quelle_vor_api_abgelehnt) ... ok
+test_groq_schema_ist_rekursiv_geschlossen_und_veraendert_original_nicht (test_autorenvergleich.AutorenvergleichTest.test_groq_schema_ist_rekursiv_geschlossen_und_veraendert_original_nicht) ... ok
+test_groq_unvollstaendige_ausgabe_wird_nicht_als_skript_gewertet (test_autorenvergleich.AutorenvergleichTest.test_groq_unvollstaendige_ausgabe_wird_nicht_als_skript_gewertet) ... ok
+test_groq_verwendet_dokumentierte_parameter_und_validiert_antwort (test_autorenvergleich.AutorenvergleichTest.test_groq_verwendet_dokumentierte_parameter_und_validiert_antwort) ... ok
+test_groq_zu_grosser_auftrag_verbraucht_keine_anfrage (test_autorenvergleich.AutorenvergleichTest.test_groq_zu_grosser_auftrag_verbraucht_keine_anfrage) ... ok
+test_keine_menschliche_bewertung_oder_automatische_umstellung (test_autorenvergleich.AutorenvergleichTest.test_keine_menschliche_bewertung_oder_automatische_umstellung) ... ok
+test_schwache_aufloesung_sperrt (test_autorenvergleich.AutorenvergleichTest.test_schwache_aufloesung_sperrt) ... ok
+test_vollstaendiger_cta_genau_einmal_und_am_ende (test_autorenvergleich.AutorenvergleichTest.test_vollstaendiger_cta_genau_einmal_und_am_ende) ... ok
+test_echter_workflow_laesst_nur_zieldatum_oder_manuelle_starts_zu (test_autorenvergleich_workflow.VergleichTerminTest.test_echter_workflow_laesst_nur_zieldatum_oder_manuelle_starts_zu) ... ok
+test_defekte_datei_wird_nicht_zurueckgesetzt (test_betrieb.BudgetTest.test_defekte_datei_wird_nicht_zurueckgesetzt) ... ok
+test_ersatzfenster_bekommt_nur_rest (test_betrieb.BudgetTest.test_ersatzfenster_bekommt_nur_rest) ... ok
+test_harter_abbruch_behaelt_reservierung (test_betrieb.BudgetTest.test_harter_abbruch_behaelt_reservierung) ... ok
+test_kanaele_haben_getrennte_budgets (test_betrieb.BudgetTest.test_kanaele_haben_getrennte_budgets) ... ok
+test_naechster_tag_hat_neues_budget (test_betrieb.BudgetTest.test_naechster_tag_hat_neues_budget) ... ok
+test_abgelaufene_deadline_startet_keinen_prozess (test_betrieb.LaufTest.test_abgelaufene_deadline_startet_keinen_prozess) ... ok
+test_bester_gueltiger_kandidat_bleibt_beim_naechsten_fehler (test_betrieb.LaufTest.test_bester_gueltiger_kandidat_bleibt_beim_naechsten_fehler) ... ok
+test_budget_wird_auch_beim_normalen_fehler_abgerechnet (test_betrieb.LaufTest.test_budget_wird_auch_beim_normalen_fehler_abgerechnet) ... ok
+test_erfolgreiche_korrektur_wird_gespeichert (test_betrieb.LaufTest.test_erfolgreiche_korrektur_wird_gespeichert) ... ok
+test_festes_thema_bleibt_bei_wiederholung (test_betrieb.LaufTest.test_festes_thema_bleibt_bei_wiederholung) ... ok
+test_gescheiterte_korrektur_behaelt_besseres_video_und_lernt (test_betrieb.LaufTest.test_gescheiterte_korrektur_behaelt_besseres_video_und_lernt) ... ok
+test_gesperrtes_pilotvideo_meldet_fehlgeschlagene_qualitaetspruefung (test_betrieb.LaufTest.test_gesperrtes_pilotvideo_meldet_fehlgeschlagene_qualitaetspruefung) ... ok
+test_leeres_budget_nimmt_kein_thema_aus_der_warteschlange (test_betrieb.LaufTest.test_leeres_budget_nimmt_kein_thema_aus_der_warteschlange) ... ok
+test_nach_pruefungsausfall_nur_pruefen_und_lernergebnis_nachtragen (test_betrieb.LaufTest.test_nach_pruefungsausfall_nur_pruefen_und_lernergebnis_nachtragen) ... ok
+test_pilot_bleibt_bei_verbrauchtem_produktionsbudget_ausfuehrbar (test_betrieb.LaufTest.test_pilot_bleibt_bei_verbrauchtem_produktionsbudget_ausfuehrbar) ... ok
+test_pilot_sendet_keine_telegram_vorschau (test_betrieb.LaufTest.test_pilot_sendet_keine_telegram_vorschau) ... ok
+test_pruefungsausfall_nach_korrektur_bleibt_im_gedaechtnis (test_betrieb.LaufTest.test_pruefungsausfall_nach_korrektur_bleibt_im_gedaechtnis) ... ok
+test_pruefungsausfall_sendet_nichts (test_betrieb.LaufTest.test_pruefungsausfall_sendet_nichts) ... ok
+test_schwache_story_verbraucht_keinen_videobau (test_betrieb.LaufTest.test_schwache_story_verbraucht_keinen_videobau) ... ok
+test_sechs_sendet_nichts (test_betrieb.LaufTest.test_sechs_sendet_nichts) ... ok
+test_technikfehler_sendet_nichts (test_betrieb.LaufTest.test_technikfehler_sendet_nichts) ... ok
+test_zustellfehler_wird_nicht_als_gesendet_verbucht (test_betrieb.LaufTest.test_zustellfehler_wird_nicht_als_gesendet_verbucht) ... ok
+test_fehlende_und_defekte_pruefungen_sperren (test_betrieb.QualitaetTest.test_fehlende_und_defekte_pruefungen_sperren) ... ok
+test_gueltige_videos_von_sieben_bis_zehn_werden_freigegeben (test_betrieb.QualitaetTest.test_gueltige_videos_von_sieben_bis_zehn_werden_freigegeben) ... ok
+test_hohe_gesamtnote_verdeckt_keinen_schwachen_bereich (test_betrieb.QualitaetTest.test_hohe_gesamtnote_verdeckt_keinen_schwachen_bereich) ... ok
+test_niedrige_ungueltige_noten_sperren (test_betrieb.QualitaetTest.test_niedrige_ungueltige_noten_sperren) ... ok
+test_schwere_und_fehlende_problembewertung_sperren (test_betrieb.QualitaetTest.test_schwere_und_fehlende_problembewertung_sperren) ... ok
+test_story_fehlt_oder_ist_schwach_sperrt (test_betrieb.QualitaetTest.test_story_fehlt_oder_ist_schwach_sperrt) ... ok
+test_technikfehler_sperrt_auch_zehn (test_betrieb.QualitaetTest.test_technikfehler_sperrt_auch_zehn) ... ok
+test_teilbarkeit_prognose_sechs_sperrt_keine_bestandene_story (test_betrieb.QualitaetTest.test_teilbarkeit_prognose_sechs_sperrt_keine_bestandene_story) ... ok
+test_ungepruefte_fakten_sperren (test_betrieb.QualitaetTest.test_ungepruefte_fakten_sperren) ... ok
+test_ungueltige_messwerte_sperren (test_betrieb.QualitaetTest.test_ungueltige_messwerte_sperren) ... ok
+test_normaler_ffprobe_bruch_und_lautheit (test_betrieb.TechnikTest.test_normaler_ffprobe_bruch_und_lautheit) ... ok
+test_technikfehler_verbraucht_keine_ki_anfrage (test_betrieb.TechnikTest.test_technikfehler_verbraucht_keine_ki_anfrage) ... ok
+test_direkter_aufruf_umgeht_pruefung_nicht (test_betrieb.TelegramTest.test_direkter_aufruf_umgeht_pruefung_nicht) ... ok
+test_lange_texte_und_lizenzen_bleiben_vollstaendig (test_betrieb.TelegramTest.test_lange_texte_und_lizenzen_bleiben_vollstaendig) ... ok
+test_langvideo_hat_eigene_uploadtexte_und_originalverweis (test_betrieb.TelegramTest.test_langvideo_hat_eigene_uploadtexte_und_originalverweis) ... ok
+test_short_enthaelt_skript_und_beide_uploadtexte (test_betrieb.TelegramTest.test_short_enthaelt_skript_und_beide_uploadtexte) ... ok
+test_telegram_ok_false_ist_fehler (test_betrieb.TelegramTest.test_telegram_ok_false_ist_fehler) ... ok
+test_ersatzlauf_mit_leerem_budget_wird_uebersprungen (test_betrieb.WorkflowTest.test_ersatzlauf_mit_leerem_budget_wird_uebersprungen) ... ok
+test_gesendeter_kanal_wird_uebersprungen (test_betrieb.WorkflowTest.test_gesendeter_kanal_wird_uebersprungen) ... ok
+test_neuer_kanal_wird_automatisch_erkannt (test_betrieb.WorkflowTest.test_neuer_kanal_wird_automatisch_erkannt) ... ok
+test_unbekannte_kanaleingabe_wird_abgelehnt (test_betrieb.WorkflowTest.test_unbekannte_kanaleingabe_wird_abgelehnt) ... ok
+test_ai_regie_deckt_gemessene_stimme_ohne_bild_api_ab (test_bibliothek.BibliothekTest.test_ai_regie_deckt_gemessene_stimme_ohne_bild_api_ab) ... ok
+test_dateiaenderung_uebernimmt_keine_fruehere_sichtkontrolle (test_bibliothek.BibliothekTest.test_dateiaenderung_uebernimmt_keine_fruehere_sichtkontrolle) ... ok
+test_nur_unveraenderte_sichtkontrollierte_kanalbilder (test_bibliothek.BibliothekTest.test_nur_unveraenderte_sichtkontrollierte_kanalbilder) ... ok
+test_zu_kurze_regie_stoppt_statt_unpassende_bilder_nachzufuellen (test_bibliothek.BibliothekTest.test_zu_kurze_regie_stoppt_statt_unpassende_bilder_nachzufuellen) ... ok
+test_ausdruecklich_abgelehnte_datei_wird_trotz_ki_neun_nicht_gesendet (test_bildplan.BildplanTest.test_ausdruecklich_abgelehnte_datei_wird_trotz_ki_neun_nicht_gesendet) ... ok
+test_bildluecke_und_fehlendes_ende_sperren (test_bildplan.BildplanTest.test_bildluecke_und_fehlendes_ende_sperren) ... ok
+test_gemini_plan_muss_jeden_slot_genau_einmal_abdecken (test_bildplan.BildplanTest.test_gemini_plan_muss_jeden_slot_genau_einmal_abdecken) ... ok
+test_gepruefte_regievorgabe_belaesst_originalen_ton (test_bildplan.BildplanTest.test_gepruefte_regievorgabe_belaesst_originalen_ton) ... ok
+test_globales_nutzerfeedback_erreicht_beide_kanaele (test_bildplan.BildplanTest.test_globales_nutzerfeedback_erreicht_beide_kanaele) ... ok
+test_hintergrund_und_zu_lange_einstellung_sperren (test_bildplan.BildplanTest.test_hintergrund_und_zu_lange_einstellung_sperren) ... ok
+test_korrekte_bildfolge_besteht (test_bildplan.BildplanTest.test_korrekte_bildfolge_besteht) ... ok
+test_mehrere_einstellungen_pro_phase_ohne_sprechtextaenderung (test_bildplan.BildplanTest.test_mehrere_einstellungen_pro_phase_ohne_sprechtextaenderung) ... ok
+test_mehrere_kurze_slots_verstecken_keine_lange_bildhaltezeit (test_bildplan.BildplanTest.test_mehrere_kurze_slots_verstecken_keine_lange_bildhaltezeit) ... ok
+test_zooms_auf_dieselbe_datei_zaehlen_nicht_als_neue_motive (test_bildplan.BildplanTest.test_zooms_auf_dieselbe_datei_zaehlen_nicht_als_neue_motive) ... ok
+test_akzent_erscheint_beim_gesprochenen_detail (test_dramaturgie.AkzentTest.test_akzent_erscheint_beim_gesprochenen_detail) ... ok
+test_akzente_werden_nicht_auf_jeden_abschnitt_gepackt (test_dramaturgie.AkzentTest.test_akzente_werden_nicht_auf_jeden_abschnitt_gepackt) ... ok
+test_erfundene_phrase_und_ass_befehle_werden_nicht_angezeigt (test_dramaturgie.AkzentTest.test_erfundene_phrase_und_ass_befehle_werden_nicht_angezeigt) ... ok
+test_phrase_aus_falschem_abschnitt_oder_ueber_lange_pause_ist_kein_akzent (test_dramaturgie.AkzentTest.test_phrase_aus_falschem_abschnitt_oder_ueber_lange_pause_ist_kein_akzent) ... ok
+test_ass_eingaben_duerfen_keine_position_einschleusen (test_dramaturgie.GestaltungTest.test_ass_eingaben_duerfen_keine_position_einschleusen) ... ok
+test_defekte_wortzeiten_brechen_die_darstellung_ab (test_dramaturgie.GestaltungTest.test_defekte_wortzeiten_brechen_die_darstellung_ab) ... ok
+test_hohe_fotos_und_breite_karten_bleiben_vor_untertiteln_und_knoepfen (test_dramaturgie.GestaltungTest.test_hohe_fotos_und_breite_karten_bleiben_vor_untertiteln_und_knoepfen) ... ok
+test_lange_woerter_passen_in_die_tatsaechliche_pixelbreite (test_dramaturgie.GestaltungTest.test_lange_woerter_passen_in_die_tatsaechliche_pixelbreite) ... ok
+test_palette_und_format_machen_abschnittcache_ungueltig (test_dramaturgie.GestaltungTest.test_palette_und_format_machen_abschnittcache_ungueltig) ... ok
+test_querformat_akzent_ist_neben_dem_bild_lesbar_und_keine_textwand (test_dramaturgie.GestaltungTest.test_querformat_akzent_ist_neben_dem_bild_lesbar_und_keine_textwand) ... ok
+test_querformat_untertitel_und_demo_erhalten_ihre_groesse (test_dramaturgie.GestaltungTest.test_querformat_untertitel_und_demo_erhalten_ihre_groesse) ... ok
+test_untertitel_halten_nicht_ueber_lange_sprechpausen (test_dramaturgie.GestaltungTest.test_untertitel_halten_nicht_ueber_lange_sprechpausen) ... ok
+test_whisper_nullzeiten_werden_ohne_erfundene_zeiten_mit_nachbarwort_gezeigt (test_dramaturgie.GestaltungTest.test_whisper_nullzeiten_werden_ohne_erfundene_zeiten_mit_nachbarwort_gezeigt) ... ok
+test_doku_bleibt_bei_schwacher_story_auch_im_direkten_sendeaufruf_gesperrt (test_dramaturgie.LangformatTest.test_doku_bleibt_bei_schwacher_story_auch_im_direkten_sendeaufruf_gesperrt) ... ok
+test_formatregeln_und_laenge_sind_getrennt (test_dramaturgie.LangformatTest.test_formatregeln_und_laenge_sind_getrennt) ... ok
+test_gemessene_dauer_bleibt_in_natuerlichen_sprechgrenzen (test_dramaturgie.LangformatTest.test_gemessene_dauer_bleibt_in_natuerlichen_sprechgrenzen) ... ok
+test_langvideo_nimmt_nicht_die_short_zeitgrenze (test_dramaturgie.LangformatTest.test_langvideo_nimmt_nicht_die_short_zeitgrenze) ... ok
+test_hoeherer_score_mit_neuem_publikationshindernis_ist_kein_erfolg (test_dramaturgie.LernenQualitaetTest.test_hoeherer_score_mit_neuem_publikationshindernis_ist_kein_erfolg) ... ok
+test_kurve_wird_bei_wachstum_und_nach_einer_woche_neu_geprueft (test_dramaturgie.ZuschauerTest.test_kurve_wird_bei_wachstum_und_nach_einer_woche_neu_geprueft) ... ok
+test_lokaler_verlust_wird_dem_richtigen_abschnitt_zugeordnet (test_dramaturgie.ZuschauerTest.test_lokaler_verlust_wird_dem_richtigen_abschnitt_zugeordnet) ... ok
+test_shorts_und_langvideos_werden_nicht_gemeinsam_als_vorbilder_gewertet (test_dramaturgie.ZuschauerTest.test_shorts_und_langvideos_werden_nicht_gemeinsam_als_vorbilder_gewertet) ... ok
+test_wenig_daten_einzelner_ausreisser_und_natuerlicher_verlauf_sind_keine_lehre (test_dramaturgie.ZuschauerTest.test_wenig_daten_einzelner_ausreisser_und_natuerlicher_verlauf_sind_keine_lehre) ... ok
+test_artefakthost_erhaelt_keinen_github_zugang (test_github_transfer.GitHubTransferTest.test_artefakthost_erhaelt_keinen_github_zugang) ... ok
+test_gleicher_host_behaelt_zugang (test_github_transfer.GitHubTransferTest.test_gleicher_host_behaelt_zugang) ... ok
+test_http_download_wird_abgelehnt (test_github_transfer.GitHubTransferTest.test_http_download_wird_abgelehnt) ... ok
+test_abgelaufene_sperre_und_anderer_zugang_werden_nicht_blockiert (test_ki_speicher.KiSpeicherTest.test_abgelaufene_sperre_und_anderer_zugang_werden_nicht_blockiert) ... ok
+test_abgelaufener_oder_defekter_cache_besteht_nicht (test_ki_speicher.KiSpeicherTest.test_abgelaufener_oder_defekter_cache_besteht_nicht) ... ok
+test_abgeschnittene_antwort_nicht_speichern (test_ki_speicher.KiSpeicherTest.test_abgeschnittene_antwort_nicht_speichern) ... ok
+test_defekte_quota_datei_erzeugt_keine_ewige_sperre (test_ki_speicher.KiSpeicherTest.test_defekte_quota_datei_erzeugt_keine_ewige_sperre) ... ok
+test_identische_pruefung_wird_wiederverwendet_auch_bei_quota_sperre (test_ki_speicher.KiSpeicherTest.test_identische_pruefung_wird_wiederverwendet_auch_bei_quota_sperre) ... ok
+test_kreative_entwuerfe_und_vergleich_bleiben_frische_anfragen (test_ki_speicher.KiSpeicherTest.test_kreative_entwuerfe_und_vergleich_bleiben_frische_anfragen) ... ok
+test_lange_retry_after_blockiert_keine_minuten_im_prozess (test_ki_speicher.KiSpeicherTest.test_lange_retry_after_blockiert_keine_minuten_im_prozess) ... ok
+test_medien_nicht_als_textcache_missbrauchen (test_ki_speicher.KiSpeicherTest.test_medien_nicht_als_textcache_missbrauchen) ... ok
+test_minutenlimit_einmal_warten_keine_tages_sperre (test_ki_speicher.KiSpeicherTest.test_minutenlimit_einmal_warten_keine_tages_sperre) ... ok
+test_neuer_prompt_oder_schema_oder_temperatur_braucht_neue_pruefung (test_ki_speicher.KiSpeicherTest.test_neuer_prompt_oder_schema_oder_temperatur_braucht_neue_pruefung) ... ok
+test_permanente_requestfehler_werden_nicht_wiederholt_oder_geleakt (test_ki_speicher.KiSpeicherTest.test_permanente_requestfehler_werden_nicht_wiederholt_oder_geleakt) ... ok
+test_reset_beruecksichtigt_pazifik_sommer_und_winterzeit (test_ki_speicher.KiSpeicherTest.test_reset_beruecksichtigt_pazifik_sommer_und_winterzeit) ... ok
+test_speicherfehler_verbraucht_keine_zweite_anfrage (test_ki_speicher.KiSpeicherTest.test_speicherfehler_verbraucht_keine_zweite_anfrage) ... ok
+test_tageslimit_stoppt_erneute_anfragen_auch_nach_prozessneustart (test_ki_speicher.KiSpeicherTest.test_tageslimit_stoppt_erneute_anfragen_auch_nach_prozessneustart) ... ok
+test_ueberlastung_kuehlt_statt_dauerhaft_zu_sperren (test_ki_speicher.KiSpeicherTest.test_ueberlastung_kuehlt_statt_dauerhaft_zu_sperren) ... ok
+test_bauer_verwendet_audio_und_unveraenderte_abschnitte (test_korrektur.CacheTest.test_bauer_verwendet_audio_und_unveraenderte_abschnitte) ... ok
+test_bildaenderung_erhaelt_audio_aber_nicht_betroffenen_clip (test_korrektur.CacheTest.test_bildaenderung_erhaelt_audio_aber_nicht_betroffenen_clip) ... ok
+test_nur_vollstaendige_lokale_dateien_duerfen_wiederverwendet_werden (test_korrektur.CacheTest.test_nur_vollstaendige_lokale_dateien_duerfen_wiederverwendet_werden) ... ok
+test_sprechtextaenderung_macht_audio_unbrauchbar (test_korrektur.CacheTest.test_sprechtextaenderung_macht_audio_unbrauchbar) ... ok
+test_untertitelprofil_aendert_keine_rohen_clips (test_korrektur.CacheTest.test_untertitelprofil_aendert_keine_rohen_clips) ... ok
+test_erfolglose_profile_werden_nicht_zu_standard (test_korrektur.GedaechtnisTest.test_erfolglose_profile_werden_nicht_zu_standard) ... ok
+test_erfolgreiche_profile_werden_fuer_neue_videos_empfohlen (test_korrektur.GedaechtnisTest.test_erfolgreiche_profile_werden_fuer_neue_videos_empfohlen) ... ok
+test_fehlende_pruefungen_beeinflussen_weder_auswahl_noch_standard (test_korrektur.GedaechtnisTest.test_fehlende_pruefungen_beeinflussen_weder_auswahl_noch_standard) ... ok
+test_gemessene_erfolge_beeinflussen_auswahl_erst_mit_daten (test_korrektur.GedaechtnisTest.test_gemessene_erfolge_beeinflussen_auswahl_erst_mit_daten) ... ok
+test_mehrere_aenderungen_beweisen_keine_einzelne_wirkung (test_korrektur.GedaechtnisTest.test_mehrere_aenderungen_beweisen_keine_einzelne_wirkung) ... ok
+test_regeln_und_gelerntes_bleiben_beide_erhalten (test_korrektur.GedaechtnisTest.test_regeln_und_gelerntes_bleiben_beide_erhalten) ... ok
+test_technik_rueckschritt_ist_kein_erfolg (test_korrektur.GedaechtnisTest.test_technik_rueckschritt_ist_kein_erfolg) ... ok
+test_wiederholter_eintrag_zaehlt_nur_einmal (test_korrektur.GedaechtnisTest.test_wiederholter_eintrag_zaehlt_nur_einmal) ... ok
+test_faktencheck_fehler_verwirft_sprechtextkorrektur (test_korrektur.PlanTest.test_faktencheck_fehler_verwirft_sprechtextkorrektur) ... ok
+test_falsche_zahl_sperrt_trotz_ki_zustimmung (test_korrektur.PlanTest.test_falsche_zahl_sperrt_trotz_ki_zustimmung) ... ok
+test_fehlende_zeitmarke_waehlt_nicht_beliebigen_abschnitt (test_korrektur.PlanTest.test_fehlende_zeitmarke_waehlt_nicht_beliebigen_abschnitt) ... ok
+test_fremder_index_ist_kein_korrekturauftrag (test_korrektur.PlanTest.test_fremder_index_ist_kein_korrekturauftrag) ... ok
+test_hook_ohne_quelltexte_bleibt_erhalten (test_korrektur.PlanTest.test_hook_ohne_quelltexte_bleibt_erhalten) ... ok
+test_nur_beanstandetes_bild_aendert_sich (test_korrektur.PlanTest.test_nur_beanstandetes_bild_aendert_sich) ... ok
+test_stimmen_bleiben_in_der_auswahl_des_betreibers (test_korrektur.PlanTest.test_stimmen_bleiben_in_der_auswahl_des_betreibers) ... ok
+test_textkorrektur_muss_neu_durch_faktencheck (test_korrektur.PlanTest.test_textkorrektur_muss_neu_durch_faktencheck) ... ok
+test_unbeauftragter_sprechtext_wird_abgelehnt (test_korrektur.PlanTest.test_unbeauftragter_sprechtext_wird_abgelehnt) ... ok
+test_untertitelkorrektur_erhaelt_sprechtext (test_korrektur.PlanTest.test_untertitelkorrektur_erhaelt_sprechtext) ... ok
+test_waehlt_die_schwaechste_kategorie_und_nur_eine_eingriffsart (test_korrektur.PlanTest.test_waehlt_die_schwaechste_kategorie_und_nur_eine_eingriffsart) ... ok
+test_bereich_deckt_mehrere_abschnitte_ab (test_korrektur.ZeitTest.test_bereich_deckt_mehrere_abschnitte_ab) ... ok
+test_grenze_gehoert_zum_folgenden_abschnitt (test_korrektur.ZeitTest.test_grenze_gehoert_zum_folgenden_abschnitt) ... ok
+test_invalid_und_videoende_sind_keine_ziele (test_korrektur.ZeitTest.test_invalid_und_videoende_sind_keine_ziele) ... ok
+test_auch_vorgepruefter_entwurf_braucht_neue_fakten_und_story (test_pilot_entwurf.PilotEntwurfTest.test_auch_vorgepruefter_entwurf_braucht_neue_fakten_und_story) ... ok
+test_faktencheck_behaelt_titel_und_sprache_aber_keine_illustrative_regie (test_pilot_entwurf.PilotEntwurfTest.test_faktencheck_behaelt_titel_und_sprache_aber_keine_illustrative_regie) ... ok
+test_faktenfehler_speichert_sperre_statt_urspruenglicher_freigabe (test_pilot_entwurf.PilotEntwurfTest.test_faktenfehler_speichert_sperre_statt_urspruenglicher_freigabe) ... ok
+test_falscher_kanal_wird_vor_ki_abgelehnt (test_pilot_entwurf.PilotEntwurfTest.test_falscher_kanal_wird_vor_ki_abgelehnt) ... ok
+test_story_sechs_sperrt_den_redaktionellen_entwurf (test_pilot_entwurf.PilotEntwurfTest.test_story_sechs_sperrt_den_redaktionellen_entwurf) ... ok
+test_bildidentitaet_wird_mit_referenz_geprueft (test_prompts_ton.BildTest.test_bildidentitaet_wird_mit_referenz_geprueft) ... ok
+test_klein_ohne_referenz_verwendet_ebenfalls_multipart (test_prompts_ton.BildTest.test_klein_ohne_referenz_verwendet_ebenfalls_multipart) ... ok
+test_klein_ref_wird_hochkant_generiert_ohne_unterstuetzte_steps_zu_erfinden (test_prompts_ton.BildTest.test_klein_ref_wird_hochkant_generiert_ohne_unterstuetzte_steps_zu_erfinden) ... ok
+test_korrektur_erhaelt_szene_und_uebernimmt_sichtbaren_fehler (test_prompts_ton.BildTest.test_korrektur_erhaelt_szene_und_uebernimmt_sichtbaren_fehler) ... ok
+test_langer_bildauftrag_bleibt_innerhalb_des_cloudflare_limits (test_prompts_ton.BildTest.test_langer_bildauftrag_bleibt_innerhalb_des_cloudflare_limits) ... ok
+test_langformat_referenzbild_bekommt_querformat_und_passende_bildkontrolle (test_prompts_ton.BildTest.test_langformat_referenzbild_bekommt_querformat_und_passende_bildkontrolle) ... ok
+test_nicht_erreichbare_pruefung_gibt_bild_nicht_frei (test_prompts_ton.BildTest.test_nicht_erreichbare_pruefung_gibt_bild_nicht_frei) ... ok
+test_ohne_pruefer_wird_keine_bildgenerierung_bezahlt (test_prompts_ton.BildTest.test_ohne_pruefer_wird_keine_bildgenerierung_bezahlt) ... ok
+test_referenz_upload_begrenzt_groesse_und_erhaelt_original (test_prompts_ton.BildTest.test_referenz_upload_begrenzt_groesse_und_erhaelt_original) ... ok
+test_stock_waehlt_beste_datei_und_verwechselt_alten_cache_nicht (test_prompts_ton.BildTest.test_stock_waehlt_beste_datei_und_verwechselt_alten_cache_nicht) ... ok
+test_unvollstaendige_oder_falsche_bilddatei_wird_nicht_gespeichert (test_prompts_ton.BildTest.test_unvollstaendige_oder_falsche_bilddatei_wird_nicht_gespeichert) ... ok
+test_aeltere_modelle_behalten_explizite_temperatur (test_prompts_ton.GeminiVertragTest.test_aeltere_modelle_behalten_explizite_temperatur) ... ok
+test_fehlendes_zweitpruefer_ergebnis_wird_nicht_als_faktenfreigabe_gedeutet (test_prompts_ton.GeminiVertragTest.test_fehlendes_zweitpruefer_ergebnis_wird_nicht_als_faktenfreigabe_gedeutet) ... ok
+test_gemini_drei_und_aliase_behalten_sampling_standardwerte (test_prompts_ton.GeminiVertragTest.test_gemini_drei_und_aliase_behalten_sampling_standardwerte) ... ok
+test_medien_vor_auftrag_und_korrekte_bildtypen (test_prompts_ton.GeminiVertragTest.test_medien_vor_auftrag_und_korrekte_bildtypen) ... ok
+test_unbekanntes_modell_wird_nicht_fuer_jede_anfrage_erneut_versucht (test_prompts_ton.GeminiVertragTest.test_unbekanntes_modell_wird_nicht_fuer_jede_anfrage_erneut_versucht) ... ok
+test_alpha_bild_zeigt_raster_statt_unsichtbarer_magenta_pixel (test_prompts_ton.MusikbettTest.test_alpha_bild_zeigt_raster_statt_unsichtbarer_magenta_pixel) ... ok
+test_redaktionelle_demoquelle_muss_in_der_originalen_readme_stehen (test_prompts_ton.MusikbettTest.test_redaktionelle_demoquelle_muss_in_der_originalen_readme_stehen) ... ok
+test_rueckfall_hat_nutzbare_dynamik_und_keine_klickenden_enden (test_prompts_ton.MusikbettTest.test_rueckfall_hat_nutzbare_dynamik_und_keine_klickenden_enden) ... ok
+test_langformat_erreicht_schreiber_storypruefer_und_renderdaten (test_prompts_ton.SkriptLaengeTest.test_langformat_erreicht_schreiber_storypruefer_und_renderdaten) ... ok
+test_zu_langes_skript_wird_vor_faktencheck_gekuerzt (test_prompts_ton.SkriptLaengeTest.test_zu_langes_skript_wird_vor_faktencheck_gekuerzt) ... ok
+test_britische_und_amerikanische_stimmen_bekommen_passende_phonetik (test_prompts_ton.TonTest.test_britische_und_amerikanische_stimmen_bekommen_passende_phonetik) ... ok
+test_doppelte_dichte_und_ungueltige_effekte_werden_entfernt (test_prompts_ton.TonTest.test_doppelte_dichte_und_ungueltige_effekte_werden_entfernt) ... ok
+test_effekte_sind_kurz_klickfrei_und_unter_der_stimme (test_prompts_ton.TonTest.test_effekte_sind_kurz_klickfrei_und_unter_der_stimme) ... ok
+test_riser_endet_am_akzent_auch_wenn_er_frueh_kommt (test_prompts_ton.TonTest.test_riser_endet_am_akzent_auch_wenn_er_frueh_kommt) ... ok
+test_ueberlappende_effekte_clippen_nicht (test_prompts_ton.TonTest.test_ueberlappende_effekte_clippen_nicht) ... ok
+test_abbruch_vor_video_wird_nicht_als_erfolg_gezaehlt (test_qualitaetsserie.QualitaetsserieTest.test_abbruch_vor_video_wird_nicht_als_erfolg_gezaehlt) ... ok
+test_dasselbe_video_zaehlt_nicht_mehrfach (test_qualitaetsserie.QualitaetsserieTest.test_dasselbe_video_zaehlt_nicht_mehrfach) ... ok
+test_falscher_hash_und_unvollstaendige_bewertung_abgelehnt (test_qualitaetsserie.QualitaetsserieTest.test_falscher_hash_und_unvollstaendige_bewertung_abgelehnt) ... ok
+test_fehler_ablehnung_oder_fehlende_sichtpruefung_unterbricht_folge (test_qualitaetsserie.QualitaetsserieTest.test_fehler_ablehnung_oder_fehlende_sichtpruefung_unterbricht_folge) ... ok
+test_ki_note_ist_keine_menschliche_freigabe_und_zooms_keine_motive (test_qualitaetsserie.QualitaetsserieTest.test_ki_note_ist_keine_menschliche_freigabe_und_zooms_keine_motive) ... ok
+test_neue_datei_unter_gleicher_lauf_id_nicht_mit_altem_urteil (test_qualitaetsserie.QualitaetsserieTest.test_neue_datei_unter_gleicher_lauf_id_nicht_mit_altem_urteil) ... ok
+test_piloten_werden_nicht_als_normaler_tageslauf_erfasst (test_qualitaetsserie.QualitaetsserieTest.test_piloten_werden_nicht_als_normaler_tageslauf_erfasst) ... ok
+test_sichtpruefung_wird_bei_wiederholung_erhalten (test_qualitaetsserie.QualitaetsserieTest.test_sichtpruefung_wird_bei_wiederholung_erhalten) ... ok
+test_sperre_bleibt_trotz_positivem_menschlichem_urteil (test_qualitaetsserie.QualitaetsserieTest.test_sperre_bleibt_trotz_positivem_menschlichem_urteil) ... ok
+test_zehn_bestaetigungen_schalten_keinen_upload_frei (test_qualitaetsserie.QualitaetsserieTest.test_zehn_bestaetigungen_schalten_keinen_upload_frei) ... ok
+test_abrufausfall_und_duenne_beschreibung_bleiben_unbelegt (test_quellen.QuellenTest.test_abrufausfall_und_duenne_beschreibung_bleiben_unbelegt) ... ok
+test_beschreibung_ist_beleg_code_und_tabellen_nicht (test_quellen.QuellenTest.test_beschreibung_ist_beleg_code_und_tabellen_nicht) ... ok
+test_rangliste_mischt_niemals_sterne_und_likes (test_quellen.QuellenTest.test_rangliste_mischt_niemals_sterne_und_likes) ... ok
+test_alle_drei_aktionen_im_short_schluss (test_sprachpruefung.SprachpruefungTest.test_alle_drei_aktionen_im_short_schluss) ... ok
+test_anfangs_cta_allein_ersetzt_schluss_nicht (test_sprachpruefung.SprachpruefungTest.test_anfangs_cta_allein_ersetzt_schluss_nicht) ... ok
+test_asr_ohne_skript_hotwords_oder_angeglichene_untertitel (test_sprachpruefung.SprachpruefungTest.test_asr_ohne_skript_hotwords_oder_angeglichene_untertitel) ... ok
+test_erkennungsfehler_ist_keine_freigabe (test_sprachpruefung.SprachpruefungTest.test_erkennungsfehler_ist_keine_freigabe) ... ok
+test_fehlender_gesprochener_cta_verbraucht_keine_gemini_anfrage (test_sprachpruefung.SprachpruefungTest.test_fehlender_gesprochener_cta_verbraucht_keine_gemini_anfrage) ... ok
+test_geaenderte_datei_wird_trotz_guter_alter_kritik_nicht_versendet (test_sprachpruefung.SprachpruefungTest.test_geaenderte_datei_wird_trotz_guter_alter_kritik_nicht_versendet) ... ok
+test_gestreute_aktionen_sind_kein_gemeinsamer_aufruf (test_sprachpruefung.SprachpruefungTest.test_gestreute_aktionen_sind_kein_gemeinsamer_aufruf) ... ok
+test_hohe_ki_note_ersetzt_rohe_endton_pruefung_nicht (test_sprachpruefung.SprachpruefungTest.test_hohe_ki_note_ersetzt_rohe_endton_pruefung_nicht) ... ok
+test_langvideo_braucht_zwei_cta_in_passenden_fenstern (test_sprachpruefung.SprachpruefungTest.test_langvideo_braucht_zwei_cta_in_passenden_fenstern) ... ok
+test_leere_kontingente_verhindern_unnoetigen_video_upload (test_sprachpruefung.SprachpruefungTest.test_leere_kontingente_verhindern_unnoetigen_video_upload) ... ok
+test_rohcache_gehoert_zum_exakten_mp4_und_nicht_zum_skript (test_sprachpruefung.SprachpruefungTest.test_rohcache_gehoert_zum_exakten_mp4_und_nicht_zum_skript) ... ok
+test_unzuverlaessige_erkennung_und_gefakte_zeitstempel_sperren (test_sprachpruefung.SprachpruefungTest.test_unzuverlaessige_erkennung_und_gefakte_zeitstempel_sperren) ... ok
+test_video_cache_spart_upload_und_api_nur_fuer_identisches_video_und_prompt (test_sprachpruefung.SprachpruefungTest.test_video_cache_spart_upload_und_api_nur_fuer_identisches_video_und_prompt) ... ok
+test_bestandenes_video_mit_versandfehler_wird_nicht_als_qualitaetsfehler_gemeldet (test_statusmeldung.StatusTest.test_bestandenes_video_mit_versandfehler_wird_nicht_als_qualitaetsfehler_gemeldet) ... ok
+test_faktenfehler_hat_keine_erfundene_note_oder_zustellung (test_statusmeldung.StatusTest.test_faktenfehler_hat_keine_erfundene_note_oder_zustellung) ... ok
+test_fehlendes_oder_kaputtes_artefakt_hat_ehrlichen_fallback (test_statusmeldung.StatusTest.test_fehlendes_oder_kaputtes_artefakt_hat_ehrlichen_fallback) ... ok
+test_fehlermeldung_verwendet_uebergebenen_grund_auch_ohne_artefakte (test_statusmeldung.StatusTest.test_fehlermeldung_verwendet_uebergebenen_grund_auch_ohne_artefakte) ... ok
+test_start_hat_richtigen_kanal_format_thema_und_keine_fertigmeldung (test_statusmeldung.StatusTest.test_start_hat_richtigen_kanal_format_thema_und_keine_fertigmeldung) ... ok
+test_statusversand_bestaetigt_telegramantwort_und_sendet_keinen_film (test_statusmeldung.StatusTest.test_statusversand_bestaetigt_telegramantwort_und_sendet_keinen_film) ... ok
+test_story_sechs_nennt_tatsaechliche_note_und_schwelle (test_statusmeldung.StatusTest.test_story_sechs_nennt_tatsaechliche_note_und_schwelle) ... ok
+test_unbestaetigte_zustellung_ist_fehler (test_statusmeldung.StatusTest.test_unbestaetigte_zustellung_ist_fehler) ... ok
+test_zu_lange_oder_leere_statusmeldung_sendet_nichts (test_statusmeldung.StatusTest.test_zu_lange_oder_leere_statusmeldung_sendet_nichts) ... ok
+test_bildkritik_wird_gelernt_statt_als_thema_eingereiht (test_telegram_feedback.TelegramFeedbackTest.test_bildkritik_wird_gelernt_statt_als_thema_eingereiht) ... ok
+test_echtes_thema_und_fremder_chat_werden_nicht_als_feedback_gespeichert (test_telegram_feedback.TelegramFeedbackTest.test_echtes_thema_und_fremder_chat_werden_nicht_als_feedback_gespeichert) ... ok
+
+----------------------------------------------------------------------
+Ran 208 tests in 5.955s
+
+OK

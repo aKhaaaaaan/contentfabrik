@@ -60,6 +60,20 @@ def technik_gruende(kritik):
 def video_bewerten(kritik):
     wert, gruende = redaktion(kritik, VIDEO_KATEGORIEN, 'Video')
     gruende += technik_gruende(kritik)
+    audio = kritik.get('audio_pruefung') if isinstance(kritik, dict) else None
+    if not isinstance(audio, dict) or audio.get('ok') is not True or audio.get('befunde') != []:
+        gruende.append('Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden')
+    else:
+        import sprachpruefung
+        sha = kritik.get('video_sha256')
+        if not isinstance(sha, str) or len(sha) != 64 or audio.get('video_sha256') != sha:
+            gruende.append('Endton-Pruefung gehoert nicht zur bewerteten Videodatei')
+        if audio.get('version') != sprachpruefung.VERSION or audio.get('videoformat') not in ('short', 'lang'):
+            gruende.append('Endton-Pruefung mit ungueltiger Version oder Videoformat')
+        technik = kritik.get('technik')
+        pruefung = sprachpruefung.cta_bewerten(audio.get('roh'), audio.get('videoformat'),
+                                            technik.get('dauer_s') if isinstance(technik, dict) else None)
+        gruende += pruefung['befunde']
     if isinstance(kritik, dict) and kritik.get('video_sha256'):
         import lernen
         if lernen.abgelehnt(kritik['video_sha256']):
@@ -88,4 +102,8 @@ def rang(daten, kategorien=VIDEO_KATEGORIEN):
 def bewerten(skript, kritik):
     """(Note oder None, Sperrgruende). Fehlende Pruefungen bestehen nie."""
     wert, gruende = video_bewerten(kritik)
+    if isinstance(kritik, dict) and isinstance(kritik.get('audio_pruefung'), dict):
+        import dramaturgie
+        if kritik['audio_pruefung'].get('videoformat') != dramaturgie.videoformat(skript):
+            gruende.append('Endton-Pruefung fuer anderes Videoformat')
     return wert, skript_gruende(skript) + gruende

@@ -105,9 +105,10 @@ dokumentiert MIT und CPU-INT8. [FFmpeg](https://ffmpeg.org/about.html) kann
 Audio/Video bearbeiten und filtern. Beide werden bereits verwendet.
 `bauen.py` gleicht erkannte Woerter fuer die Untertitel an den Skripttext an.
 Diese angeglichenen Woerter sind deshalb kein unabhaengiger Nachweis dafuer,
-dass der CTA wirklich hoerbar ist. Geplant: Rohtranskript aus der fertigen
-MP4 vor jeder Textangleichung mit dem Solltext vergleichen; aktuell noch
-keine solche neue Endton-Pruefung eingebaut.
+dass der CTA wirklich hoerbar ist. Neu eingebaut: unabhaengiges ASR-
+Rohtranskript aus der fertigen MP4, ohne Skriptangleichung, mit CTA-/Zeit-
+und Dateipruefung. Beide ausgelieferten Piloten erkannt; abgeschnittene
+Kontrollkopie gesperrt. Details/Grenzen: [KONTINGENT-UND-ENDTON.md](KONTINGENT-UND-ENDTON.md).
 
 ## Angebote, die wir nicht als dauerhafte Gratis-Basis empfehlen
 
@@ -135,8 +136,8 @@ keine solche neue Endton-Pruefung eingebaut.
    14-18 verschiedene Motive; Business Origin Stories: Ziel 24 Einstellungen
    mit 18 Motiven. Bilder passend zu mehreren Momenten je Skriptphase planen.
 3. **Audio gezielt verbessern:** passende Instrumentalbetten und einzelne
-   sinnvolle Geraeusche; unabhaengigen finalen CTA-/Sprachtest als naechste
-   Erweiterung vorsehen. Gemini Flash TTS zuerst gegen Kokoro hoeren;
+   sinnvolle Geraeusche; unabhaengiger finaler CTA-/Sprachtest jetzt eingebaut
+   und an beiden Piloten erprobt. Gemini Flash TTS zuerst gegen Kokoro hoeren;
    Qwen3-TTS und ACE-Step zunaechst nur als lokale Kandidaten.
 4. **Echte Animation spaeter pruefen:** auf diesem PC wurde am 06.10. nur
    Intel UHD Graphics erkannt, keine NVIDIA-CUDA-GPU. Der aktuelle normale
@@ -183,6 +184,7 @@ Gemini-Kontingent fuer Bild-/Videoverstaendnis reservieren, unveraenderte
 KI-Pruefergebnisse mit Text-/Quellen-/Prompt-/Modell-Hash wiederverwenden,
 Reparaturschleifen begrenzen und bei leerem Tageskontingent pausieren.
 Ein Schema-/Zahlen-/Wortbudgetfehler soll vor einer teuren KI-Runde auffallen.
-Neue Pruefresultat-Caches und ein neuer Standardautor sind hier noch nicht
-in die Tagesproduktion eingebaut. Qualitaetspruefungen nicht weglassen, um
+Pruefresultat-Caches und befristete Kontingentsperren sind jetzt eingebaut;
+neuer Standardautor weiterhin nicht freigegeben. Konkrete Einsparungen im
+echten Tageslauf noch nicht gemessen. Qualitaetspruefungen nicht weglassen, um
 Kontingent zu sparen. Kontingentfehler sind keine niedrige Qualitaetsnote.

@@ -62,12 +62,11 @@ class MusikbettTest(TempTest):
         self.assertEqual(float(x[-1]), 0)
 
 
-class GeminiVertragTest(unittest.TestCase):
+class GeminiVertragTest(TempTest):
     def test_unbekanntes_modell_wird_nicht_fuer_jede_anfrage_erneut_versucht(self):
         d = {'candidates': [{'content': {'parts': [{'text': '{"ok":true}'}]}}]}
         fehler = urllib.error.HTTPError('https://example.test', 404, 'Not Found', {}, io.BytesIO(b'{}'))
         with patch.dict(os.environ, {'GEMINI_API_KEY': 'test'}), \
-                patch('skript.NICHT_VERFUEGBAR', set()), \
                 patch('skript.urllib.request.urlopen', side_effect=[fehler, antwort(d), antwort(d)]) as netz, \
                 patch('skript.time.sleep') as warten:
             for _ in range(2):

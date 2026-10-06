@@ -6,6 +6,20 @@ aktualisiert. Es enthaelt keine Zugangsschluessel.
 
 ## Nutzerauftrag und zugesagtes Ergebnis
 
+### Neuester Stand: Arbeiten ohne neues Gemini-Kontingent, 06.10.2026
+
+Kontingentbehandlung, Pruefcache und unabhaengige Endton-/CTA-Pruefung sind
+jetzt implementiert. Beschreibung aller Dateien, Wiederverwendungsregeln,
+echte Tonproben und Grenzen: [KONTINGENT-UND-ENDTON.md](KONTINGENT-UND-ENDTON.md).
+Aktuell **208 lokale Regressionstests bestanden**, Kompilierung und fuenf
+Node-Pruefungen ebenfalls. Echte MP4-Proben bestaetigen CTA-Erkennung bei
+beiden am 05.10. gelieferten Piloten; nach Sekunde 75 abgeschnittene
+AI-Kontrollkopie bleibt gesperrt. Keine neue Produktion/Zustellung, keine
+menschliche Note, keine vollstaendige Langvideo-Probe behaupten.
+Gesprochener CTA ist Teil der Versandpruefung. Kritiken ohne unabhaengige
+Tonpruefung oder mit anderer Datei-SHA256 sind fuer neuen Versand gesperrt.
+Die aelteren 176/180-Testzahlen dokumentieren fruehere Versionen.
+
 ### Neu: ganzer Pipeline-Vergleich und echter Autorenversuch, 06.10.2026
 
 Der Nutzer hat die Autorenempfehlung beauftragt und zusaetzlich eine
@@ -43,7 +57,8 @@ Empfehlung: keine Konten-/Projektrotation zur Limitumgehung; Google-API-
 Bedingungen untersagen das. Limits gelten pro Projekt statt API-Schluessel.
 Stattdessen Textaufgaben nach Vergleich verteilen, Pruefergebnisse cachen,
 Reparaturschleifen begrenzen und nach Reset fortsetzen. Diese neue Verteilung
-und ein KI-Pruefcache sind noch nicht im Tageslauf eingebaut. Details und
+ist noch nicht im Tageslauf eingebaut. Der KI-Pruefcache ist inzwischen
+implementiert (neuester Stand oben). Details und
 Primaerquellen in `KOSTENLOSE-PIPELINE.md`.
 
 Kostenlose Kandidaten Gemini Flash TTS, Qwen3-TTS, ACE-Step und Wan wurden recherchiert,
@@ -53,7 +68,8 @@ naechste Stimmenvergleich mit Kokoro; kostenlos gelistet, aber noch kein
 Hoertest oder bestaetigtes Audio-Kontingent. Im Tageslauf bleiben die bisherige
 Gemini-Anbindung, Figurenreferenzen und Renderer aktiv. Kein ungepruefter
 Wechsel der gesamten Pipeline. Unabhaengige Erkennung des gesprochenen CTA
-aus finalem Audio als naechste Verbesserung empfohlen, noch nicht eingebaut.
+aus finalem Audio inzwischen eingebaut und an beiden historischen Piloten
+getestet; Grenzen und Testnachweise im neuesten Abschnitt oben.
 
 ### Kostenlose Skriptautoren: Recherche am 06.10.2026
 

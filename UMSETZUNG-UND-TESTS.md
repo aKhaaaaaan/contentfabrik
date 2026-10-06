@@ -4,9 +4,27 @@ Stand: 06.10.2026. Neueste fachliche Vorgaben stehen in [CLAUDE.md](CLAUDE.md)
 und [UEBERGABE-CLAUDE.md](UEBERGABE-CLAUDE.md). Dieses Dokument beschreibt
 die gebauten Erweiterungen, ihre Dateien und die tatsaechlichen Pruefungen.
 
+## Erweiterung am 06.10.2026: Kontingent, Cache und fertiger Ton
+
+**208 lokale Tests bestanden**, 28 neue Kontingent-/Cache-/Tonchecks,
+5,955 s Testzeit, Kompilierung und fuenf Node-Zeitplanchecks bestanden.
+Nachweis: `pruefungen/ergebnisse/2026-10-06/kontingent-endton-tests.json`.
+Echte ASR-Proben an beiden ausgelieferten MP4s erfolgreich; abgeschnittene
+AI-Kontrollkopie ohne CTA korrekt gesperrt. Rohdaten unter
+`pruefungen/ergebnisse/2026-10-06/endton-piloten.json`.
+
+Neue Module `fabrik/ki_speicher.py`, `fabrik/sprachpruefung.py`, Tests
+`test_ki_speicher.py`/`test_sprachpruefung.py`; angebunden an Skript,
+Nachbesserung, Kritik, Qualitaetsfilter, Telegram-Freigabe und Video-/Pilot-
+Workflows. Whisper/PyAV-Kompatibilitaetsfehler behoben und Versionen begrenzt.
+Details, Ablauf, Reproduktion und Grenzen in
+[KONTINGENT-UND-ENDTON.md](KONTINGENT-UND-ENDTON.md).
+Kein neuer erfolgreicher Tagesfilm nachgewiesen; keine neuen Gemini-/Groq-
+Aufrufe oder Telegram-Zustellungen fuer diese Tests.
+
 ## Erweiterung am 06.10.2026: kontrollierter Autorenvergleich
 
-Neuester Stand nach API-Diagnose: 15 Vergleichstests und ein Termin-Test,
+Historischer Stand nach API-Diagnose: 15 Vergleichstests und ein Termin-Test,
 **180 Tests insgesamt bestanden**. Geschwaerzte Fehlerdiagnose, leerer
 Ergebnisstatus und Groq Strict-Schema/Reasoning-/Ausgabebudget ergaenzt.
 Erste komplette Serie ohne verwertbare Entwuerfe, spaetere einzelne Texte

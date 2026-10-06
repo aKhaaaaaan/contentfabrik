@@ -9,16 +9,15 @@ import json, os, re, sys, time, urllib.error, urllib.request, datetime
 from pathlib import Path
 import prompts
 import dramaturgie
+import ki_speicher
 from qualitaet import skript_gruende, redaktion, rang, STORY_KATEGORIEN
 
 # GEPRUEFT 02.10.2026: gemini-2.5-flash ist fuer neue Konten gesperrt (404);
 # gemini-3.8-flash und gemini-flash-latest antworten (200).
 # Bei Ueberlastung (503, gemessen bei 3.8-flash) sofort das naechste Modell.
-# GEMESSEN 04.10.2026: Der kostenlose Tarif erlaubt je Modell nur 20 Anfragen
-# am Tag (GenerateRequestsPerDayPerProjectPerModel-FreeTier = 20); Pro-Modelle
-# gar keine. Nach einem Testtag waren drei Modelle leer. Jede Flash-Fassung hat
-# ein eigenes Kontingent - darum alle, die beste zuerst (getestet: 2.5 nicht mehr
-# verfuegbar, 3.7 zeitweise ueberlastet).
+# GEMESSEN 04.10.2026 im konkreten Projekt: mehrere Tageslimits bei 20,
+# einige Modelle nicht freigeschaltet. Keine allgemeine Gratis-Grenze:
+# Quoten gelten pro Projekt; Aliase sind keine unabhaengigen Kontingente.
 MODELLE = ['gemini-3.8-flash', 'gemini-flash-latest', 'gemini-3.7-flash', 'gemini-3.6-flash', 'gemini-3.5-flash',
            'gemini-3-flash-preview', 'gemini-flash-lite-latest', 'gemini-3.5-flash-lite', 'gemini-3.1-flash-lite']
 # Bildauswahl (eine Anfrage je Abschnitt, ~10 je Video): schnelle Lite-Modelle
@@ -28,24 +27,35 @@ SEHEN = ['gemini-flash-lite-latest', 'gemini-3.5-flash-lite', 'gemini-3.1-flash-
 
 
 VERBRAUCH = {}  # modell -> [anfragen, tokens_rein, tokens_raus]
-NICHT_VERFUEGBAR = set()  # pro Prozess: unbekannte Modelle oder leeres Tageskontingent
+WIEDERVERWENDET = 0
 
 
 def _verbrauch_melden():
     if VERBRAUCH:
         print('Gemini-Verbrauch: ' + '; '.join(f'{m}: {a} Anfragen, {r // 1000}k rein, {o // 1000}k raus'
                                                for m, (a, r, o) in VERBRAUCH.items()))
+    if WIEDERVERWENDET:
+        print(f'KI-Pruefungen wiederverwendet: {WIEDERVERWENDET} (keine neue API-Anfrage)')
 
 
 import atexit  # noqa: E402
 atexit.register(_verbrauch_melden)
 
 
-def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=()):
+def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(), cache=None):
     """bilder: JPEG-Bytes, die die KI mit ansieht (Clip-Auswahl in bauen.py).
     modelle: eigene Reihenfolge, z. B. das schnelle Lite-Modell zuerst."""
     import base64
+    global WIEDERVERWENDET
     schluessel = os.environ['GEMINI_API_KEY']
+    modelle = list(modelle or MODELLE)
+    if cache not in (None, 'fakten', 'story') or (cache and (bilder or dateien)):
+        raise ValueError('Cache nur fuer explizite Fakten-/Storypruefungen ohne Medien')
+    key = ki_speicher.cache_key(prompt, schema, modelle, temperatur, cache) if cache else None
+    treffer = ki_speicher.cache_lesen(key, schema, modelle) if key else None
+    if treffer:
+        WIEDERVERWENDET += 1
+        return treffer
     def bildteil(b):
         mime = ('image/png' if b.startswith(b'\x89PNG\r\n\x1a\n') else
                 'image/webp' if b[:4] == b'RIFF' and b[8:12] == b'WEBP' else 'image/jpeg')
@@ -60,8 +70,10 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=())
                              'responseSchema': schema},
     }
     letzter = None
-    for modell in modelle or MODELLE:
-        if modell in NICHT_VERFUEGBAR:
+    for modell in modelle:
+        gesperrt = ki_speicher.sperre(schluessel, modell)
+        if gesperrt:
+            letzter = f'{modell}: {gesperrt}'
             continue
         # Google empfiehlt fuer Gemini 3.x die Sampling-Standardwerte.
         # Latest-Aliase koennen ebenfalls auf 3.x zeigen: nicht heruntersetzen.
@@ -79,9 +91,23 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=())
                 n = d.get('usageMetadata', {})
                 z = VERBRAUCH.setdefault(modell, [0, 0, 0])
                 z[0] += 1; z[1] += n.get('promptTokenCount', 0); z[2] += n.get('candidatesTokenCount', 0)
-                return json.loads(d['candidates'][0]['content']['parts'][0]['text']), modell
+                kandidat = d['candidates'][0]
+                if kandidat.get('finishReason', 'STOP') != 'STOP':
+                    raise ValueError('KI-Antwort unvollstaendig oder gesperrt')
+                # Thought-Parts sind kein JSON-Pruefresultat.
+                text = ''.join(p.get('text', '') for p in kandidat['content']['parts'] if not p.get('thought'))
+                ergebnis = json.loads(text)
+                if not ki_speicher.schema_ok(ergebnis, schema):
+                    raise ValueError('KI-Antwort entspricht nicht dem erforderlichen Schema')
+                if key:
+                    try:
+                        ki_speicher.cache_schreiben(key, ergebnis, modell, schema)
+                    except OSError:
+                        print('KI-Pruefcache konnte nicht gespeichert werden; Ergebnis bleibt frisch geprueft')
+                return ergebnis, modell
             except Exception as e:  # Kontingent/Netz: kurz warten, dann naechster Versuch
-                letzter = str(e).replace(schluessel, '***')
+                # Kein roher API-Fehler: URLs/Antworttexte koennen Zugangsdaten enthalten.
+                letzter = f'{modell}: {type(e).__name__}'
                 koerper_fehler = ''
                 if isinstance(e, urllib.error.HTTPError):
                     try:
@@ -90,16 +116,36 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=())
                         pass
                 # Tageskontingent leer: Warten hilft bis Mitternacht (Pazifik) nicht - naechstes Modell
                 if isinstance(e, urllib.error.HTTPError) and e.code == 404:
-                    NICHT_VERFUEGBAR.add(modell)
+                    ki_speicher.sperren(schluessel, modell, 'Modell nicht verfuegbar', 86400)
                     letzter = f'{modell}: Modell nicht verfuegbar'
                     break
-                if re.search(r'per_?day', koerper_fehler, re.I):
-                    NICHT_VERFUEGBAR.add(modell)
+                if isinstance(e, urllib.error.HTTPError) and e.code == 429 \
+                        and re.search(r'per[ _]?day', koerper_fehler, re.I):
+                    ki_speicher.sperren(schluessel, modell, 'Tageskontingent erschoepft')
                     letzter = f'{modell}: Tageskontingent erschoepft'
                     break
                 if isinstance(e, urllib.error.HTTPError) and e.code == 503:
+                    ki_speicher.sperren(schluessel, modell, 'voruebergehend ueberlastet', 300)
                     break  # Ueberlast: naechstes Modell, nicht dieselbe Anfrage erneut aufhalten
-                time.sleep(5 * (versuch + 1))
+                if isinstance(e, urllib.error.HTTPError) and e.code in (400, 401, 403):
+                    raise RuntimeError(f'Gemini-Anfrage abgelehnt (HTTP {e.code}); keine blinden Wiederholungen') from None
+                if isinstance(e, urllib.error.HTTPError) and e.code == 429:
+                    # Minuten-/Tokenlimit: genau einmal befristet warten, dann Modell kuehlen.
+                    if versuch:
+                        ki_speicher.sperren(schluessel, modell, 'Minuten-/Tokenkontingent erschoepft', 60)
+                        letzter = f'{modell}: Minuten-/Tokenkontingent erschoepft'
+                        break
+                    pause = 60
+                    try:
+                        pause = max(1, float(e.headers.get('Retry-After', 60)))
+                    except (ValueError, TypeError, AttributeError):
+                        pass
+                    if pause > 60:
+                        ki_speicher.sperren(schluessel, modell, 'Minuten-/Tokenkontingent erschoepft', min(pause, 3600))
+                        break
+                    time.sleep(pause)
+                elif versuch == 0:
+                    time.sleep(5)
     raise RuntimeError(f'Gemini nicht erreichbar: {letzter}')
 
 
@@ -231,7 +277,7 @@ def story_bewerten(entwurf):
                                   ' / '.join(entwurf['titel']) if isinstance(entwurf.get('titel'), list) else
                                   f'{entwurf.get("titel_zeile1", "")} / {entwurf.get("titel_zeile2", "")}',
                                   dramaturgie.videoformat(entwurf)),
-                    STORY_SCHEMA, temperatur=0.2)
+                    STORY_SCHEMA, temperatur=0.2, cache='story')
     return erg
 
 
@@ -272,7 +318,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         keiner Quelle steht, laesst das Skript durchfallen - auch wenn die KI sie
         durchwinkt. Der Modellname zaehlt als Quelle („gemma-3-27b" belegt 27B)."""
         import zahlen
-        p, _ = gemini(prompts.fakten(pruef_text(), e), PRUEF_SCHEMA, temperatur=0.1)
+        p, _ = gemini(prompts.fakten(pruef_text(), e), PRUEF_SCHEMA, temperatur=0.1, cache='fakten')
         fehlt = zahlen.unbelegt(e, [f"{q.get('name', '')} {q.get('text', '')}" for q in quellen])
         if fehlt:
             print('Zahlenprobe: nicht in den Quellen:', fehlt)

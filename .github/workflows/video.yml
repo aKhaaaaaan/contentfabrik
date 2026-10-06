@@ -121,6 +121,12 @@ jobs:
           path: clips
           key: clips-${{ matrix.kanal }}-${{ github.run_id }}
           restore-keys: clips-
+      - uses: actions/cache/restore@v4
+        id: ki-cache
+        with:
+          path: ki-cache
+          key: ki-pruefungen-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.kanal }}
+          restore-keys: ki-pruefungen-v1-${{ runner.os }}-
       - name: Erzeugen, pruefen, lernen, senden
         # fabrik/lauf.py: Erstbau und bis zu 2 gezielte Korrekturen im Tagesbudget;
         # gesendet wird ab Story und Video 7/10, jeder Kategorie 7/10,
@@ -143,6 +149,11 @@ jobs:
         env:
           KANAL: ${{ matrix.kanal }}
         run: python fabrik/qualitaetsserie.py erfassen "$KANAL"
+      - uses: actions/cache/save@v4
+        if: always() && steps.ki-cache.outputs.cache-hit != 'true'
+        with:
+          path: ki-cache
+          key: ki-pruefungen-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.kanal }}
       - name: Verlauf und Gelerntes sichern
         if: always()
         run: |
@@ -188,6 +199,7 @@ jobs:
             ausgabe/messung.json
             ausgabe/bildablauf.json
             ausgabe/kritik.json
+            ausgabe/audio-pruefung.json
             ausgabe/bericht.json
             ausgabe/korrektur.json
             ausgabe/qualitaetsserie.json

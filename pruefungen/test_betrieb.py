@@ -1,6 +1,7 @@
 """Regressionspruefungen ohne API-Zugaenge, Modelle oder Telegram-Nachrichten."""
 import copy
 import html
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -25,7 +26,18 @@ SKRIPT = {'kanal': 'Test', 'thema': 'Firma', 'titel': ['Eine', 'Geschichte'],
           'teile': [{'text': 'How did this happen?'}], 'beschreibung': 'Beschreibung',
           'hashtags': [], 'pruefung': {'ok': True},
           'story': {'note': 9, 'kategorien': dict.fromkeys(STORY_KATEGORIEN, 9), 'schwaechen': []}}
+def audio_fixture(sha, art='short'):
+    """Explizit kuenstliche ASR-Daten fuer die Zugangskontrolle, keine Messung."""
+    worte = 'Be sure to like share and save this video'.split()
+    roh = {'dauer_s': 70, 'sprache': 'en', 'woerter': [
+        {'w': w, 's': start + i * .15, 'e': start + (i + 1) * .15, 'p': .99}
+        for start in ([8, 68] if art == 'lang' else [68]) for i, w in enumerate(worte)]}
+    return {'version': 1, 'ok': True, 'befunde': [], 'video_sha256': sha, 'videoformat': art, 'roh': roh}
+
+
+TEST_SHA = hashlib.sha256(b'gepruefter-testfilm').hexdigest()
 KRITIK = {'note': 9, 'technik': {'befunde': [], 'dauer_s': 70, 'fps': 30, 'lufs': -14},
+          'video_sha256': TEST_SHA, 'audio_pruefung': audio_fixture(TEST_SHA),
           'probleme': [], 'fazit': 'Gut', 'kategorien': dict.fromkeys(VIDEO_KATEGORIEN, 9)}
 
 
@@ -332,7 +344,8 @@ class TelegramTest(TempTest):
     def zustellen(self, videoformat='short', original=''):
         skript = dict(SKRIPT, videoformat=videoformat)
         Path('skript.json').write_text(json.dumps(skript), encoding='utf-8')
-        Path('kritik.json').write_text(json.dumps(KRITIK), encoding='utf-8')
+        Path('kritik.json').write_text(json.dumps(dict(KRITIK,
+            audio_pruefung=audio_fixture(TEST_SHA, videoformat))), encoding='utf-8')
         Path('video.mp4').write_bytes(b'gepruefter-testfilm')
         with patch.dict(os.environ, {'TELEGRAM_CHAT_ID': 'test', 'CF_ORIGINAL_URL': original}), \
                 patch('freigabe.telegram', return_value={'ok': True}) as tg:

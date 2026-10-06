@@ -65,7 +65,8 @@ def faktencheck(skript):
         raise ValueError('Quelltexte fehlen fuer erneuten Faktencheck')
     quelle = '\n'.join(f"{q.get('name', '')}: {q['text']}" for q in belege)
     gesprochen = ' '.join(t['text'] for t in skript['teile'])
-    p, _ = gemini(prompts.fakten(quelle, skript, 'corrected narration'), PRUEF_SCHEMA, temperatur=0.1)
+    p, _ = gemini(prompts.fakten(quelle, skript, 'corrected narration'), PRUEF_SCHEMA,
+                  temperatur=0.1, cache='fakten')
     fehlt = zahlen.unbelegt(skript, [f"{q.get('name', '')} {q['text']}" for q in belege])
     skript['pruefung'] = p
     if p.get('ok') is not True or fehlt:

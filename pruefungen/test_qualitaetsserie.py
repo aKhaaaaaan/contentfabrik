@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 from unittest.mock import patch
 
-from test_betrieb import TempTest, SKRIPT, KRITIK
+from test_betrieb import TempTest, SKRIPT, KRITIK, audio_fixture
 import qualitaetsserie as qs
 
 
@@ -26,7 +26,8 @@ class QualitaetsserieTest(TempTest):
         Path('ausgabe').mkdir()
         (Path('ausgabe') / 'short.mp4').write_bytes(b'fake video for unit test')
         for datei, daten in [('skript.json', SKRIPT),
-                             ('kritik.json', dict(KRITIK, video_sha256=self.sha)),
+                             ('kritik.json', dict(KRITIK, video_sha256=self.sha,
+                                                 audio_pruefung=audio_fixture(self.sha))),
                              ('bericht.json', {'status': 'gesendet'}),
                              ('bildablauf.json', {'einstellungen': [
                                  {'material_id': 'a'}, {'material_id': 'a'}, {'material_id': 'b'}]})]:

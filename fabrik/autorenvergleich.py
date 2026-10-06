@@ -25,7 +25,7 @@ import zahlen
 from qualitaet import redaktion, STORY_KATEGORIEN
 
 AUTOREN = ('gemini', 'groq')
-VERSION = '2026-10-06.1'
+VERSION = '2026-10-06.2'
 GROQ_MODELL = 'openai/gpt-oss-120b'
 GEMINI_MODELLE = [m for m in skript.MODELLE if 'lite' not in m.lower()]
 AUTOR_SCHEMA = {'type': 'OBJECT', 'properties': {
@@ -37,6 +37,16 @@ AUTOR_SCHEMA = {'type': 'OBJECT', 'properties': {
 PRUEF_SCHEMA = {'type': 'OBJECT', 'properties': {
     'fakten': skript.PRUEF_SCHEMA, 'story': skript.STORY_SCHEMA}, 'required': ['fakten', 'story']}
 GROQ_VERBRAUCH = []
+
+
+def fehlertext(fehler):
+    """Kurze Diagnose ohne Schluessel, auch bei URL-Fehlern."""
+    text = str(fehler)
+    for name in ('GEMINI_API_KEY', 'GROQ_API_KEY', 'GITHUB_TOKEN', 'GH_TOKEN'):
+        if os.environ.get(name):
+            text = text.replace(os.environ[name], '***')
+    text = re.sub(r'([?&](?:key|token|api_key)=)[^&\s]+', r'\1***', text, flags=re.I)
+    return text[:500]
 
 
 def speichern(pfad, daten):
@@ -99,10 +109,15 @@ def groq(prompt, schema, ausgabe_tokens=3072):
             schema_pruefen(d, schema)
             return d, GROQ_MODELL, usage
         except urllib.error.HTTPError as e:
+            try:
+                error = json.loads(e.read()).get('error', {})
+                detail = fehlertext(error.get('message', ''))
+            except Exception:
+                detail = 'Keine strukturierte Fehlerbeschreibung'
             if e.code == 429 and versuch == 0:
                 time.sleep(60)
                 continue
-            raise RuntimeError(f'Groq HTTP {e.code}') from None
+            raise RuntimeError(f'Groq HTTP {e.code}: {detail}') from None
     raise RuntimeError('Groq-Anfrage nicht abgeschlossen')
 
 
@@ -245,6 +260,7 @@ def main(faelle, ziel, anzahl=3):
                             'sekunden': round(time.monotonic() - start, 2)}
                     except Exception as e:
                         basis['pruefungen'][pruefer] = {'fehler': type(e).__name__,
+                                                      'diagnose': fehlertext(e),
                                                       'sperrgruende': ['Pruefung nicht verfuegbar']}
                 ok = (not basis['strukturfehler'] and not basis['zahlen_unbelegt']
                       and len(basis['pruefungen']) == 2
@@ -252,11 +268,12 @@ def main(faelle, ziel, anzahl=3):
                 basis['status'] = 'ki_vorpruefung_bestanden' if ok else 'gesperrt_oder_pruefung_fehlt'
             except Exception as e:
                 # Nur Typ/neutraler Status, keine URLs oder Zugangsdaten in Fehlern ausgeben.
-                basis.update(status='autorausfall', fehler=type(e).__name__)
+                basis.update(status='autorausfall', fehler=type(e).__name__, diagnose=fehlertext(e))
             finally:
                 speichern(ziel / 'bericht.json', bericht)
             print(f"Autorvergleich: {ident} / {basis['status']}", flush=True)
-    bericht['status'] = 'ausgewertet_ki_mensch_offen'
+    geschrieben = sum(b['autor_modell'] is not None for b in bericht['kandidaten'])
+    bericht['status'] = 'ausgewertet_ki_mensch_offen' if geschrieben else 'keine_verwertbaren_entwuerfe'
     speichern(ziel / 'bericht.json', bericht)
     zeilen = ['# Autorenvergleich: vorlaeufige KI-Pruefung', '',
         '| Fall | Fassung | Autor / Modell | Woerter | Status |', '|---|---|---|---|---|']
@@ -272,10 +289,45 @@ def main(faelle, ziel, anzahl=3):
             f.write('\n'.join(zeilen))
 
 
+def diagnose(ziel):
+    """Verfuegbarkeit und Minimal-JSON pruefen; keine Quellen oder Videos."""
+    ergebnis = {'datum_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                'run_id': os.environ.get('GITHUB_RUN_ID'), 'anbieter': {}}
+    for provider in AUTOREN:
+        key = os.environ['GEMINI_API_KEY' if provider == 'gemini' else 'GROQ_API_KEY']
+        url = ('https://generativelanguage.googleapis.com/v1beta/models?key=' + key
+               if provider == 'gemini' else 'https://api.groq.com/openai/v1/models')
+        headers = {'Authorization': 'Bearer ' + key} if provider == 'groq' else {}
+        d = ergebnis['anbieter'][provider] = {}
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=30) as r:
+                modelle = json.load(r)
+            if provider == 'gemini':
+                d['modelle'] = [m['name'].removeprefix('models/') for m in modelle.get('models', [])
+                    if 'generateContent' in m.get('supportedGenerationMethods', [])]
+            else:
+                d['modelle'] = [m['id'] for m in modelle.get('data', [])]
+        except Exception as e:
+            d['modellabfrage_fehler'] = fehlertext(e)
+        try:
+            data, modell, usage = anfrage(provider,
+                'Return ONLY JSON: {"ok":true,"probleme":[]}. This is a connectivity test.',
+                skript.PRUEF_SCHEMA, 1024)
+            d.update(minimal_json=data, modell=modell, verbrauch=usage)
+        except Exception as e:
+            d['minimal_json_fehler'] = fehlertext(e)
+        print(json.dumps({provider: d}, ensure_ascii=False), flush=True)
+    speichern(Path(ziel) / 'diagnose.json', ergebnis)
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--faelle', default='vergleiche/autoren/faelle.json')
     parser.add_argument('--ziel', default='ausgabe/autorenvergleich')
     parser.add_argument('--anzahl', type=int, choices=(1, 2, 3), default=3)
+    parser.add_argument('--diagnose', action='store_true')
     args = parser.parse_args()
-    main(args.faelle, args.ziel, args.anzahl)
+    if args.diagnose:
+        diagnose(args.ziel)
+    else:
+        main(args.faelle, args.ziel, args.anzahl)

@@ -103,6 +103,17 @@ class AutorenvergleichTest(TempTest):
         self.assertEqual(status['groq'], 'autorausfall')
         self.assertEqual(status['gemini'], 'ki_vorpruefung_bestanden')
 
+    def test_alle_autorausfaelle_sind_kein_ausgewerteter_vergleich(self):
+        with patch.object(av, 'anfrage', side_effect=RuntimeError('Testausfall')):
+            av.main('faelle.json', 'ergebnis', 1)
+        self.assertEqual(self.bericht()['status'], 'keine_verwertbaren_entwuerfe')
+
+    def test_diagnose_enthaelt_keine_zugangsschluessel(self):
+        with patch.dict(os.environ, {'GEMINI_API_KEY': 'secret-test-value'}):
+            text = av.fehlertext(RuntimeError('https://example.test/?key=secret-test-value&token=another'))
+        self.assertNotIn('secret-test-value', text)
+        self.assertNotIn('another', text)
+
     def test_vollstaendiger_cta_genau_einmal_und_am_ende(self):
         self.assertFalse(av.struktur(entwurf())[0])
         for text in ('Remember to like and share.', 'Save an image; share your workflow; like the result.'):

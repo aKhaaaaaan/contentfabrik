@@ -263,6 +263,59 @@
         "probleme": [],
         "leicht": []
       }
+    },
+    {
+      "id": "37499418674.1:business-origin-stories",
+      "run_id": "37499418674",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-06T16:59:00.744435+00:00",
+      "ereignis": "schedule",
+      "commit": "5caf6b33b63d5054f22d10b863cf775fab356c76",
+      "produktionsversion": "9a86a80fcf5aa1ab7a56e6d89aaf8b309a937f54ef6471fb65bc1a8600f20bf5",
+      "videoformat": "short",
+      "thema": null,
+      "titel": null,
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "37499418674",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-06",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sekunden": 169.7
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Faktenpruefung nicht bestanden",
+        "sekunden": 170.1
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": null
     }
   ]
 }

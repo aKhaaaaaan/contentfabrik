@@ -3,10 +3,78 @@
   "aktiv": true,
   "startdatum": "2026-10-06",
   "modus": "normaler_tageslauf",
-  "kanaele": ["ai-tools-explained", "business-origin-stories"],
+  "kanaele": [
+    "ai-tools-explained",
+    "business-origin-stories"
+  ],
   "erste_videos_je_kanal": 3,
   "bestaetigungen_in_folge": 10,
   "zielnote": 10,
   "automatischer_plattform_upload": false,
-  "laeufe": []
+  "laeufe": [
+    {
+      "id": "37434817863.1:ai-tools-explained",
+      "run_id": "37434817863",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-06T08:35:18.935151+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "9dd5d63742ad1562bb2150634d6e1ae7b80cf111",
+      "produktionsversion": "478de8a5c6e69ec90c8d98c2d40db83fb047be0151245e97ad9cca4dc8c7ded5",
+      "videoformat": "short",
+      "thema": "AI Decision Models",
+      "titel": [
+        "Hallucination-Free *AI*",
+        "Top 3 *Decision* *Models*"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Skript-aufloesung 6/10 unter 7/10",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "37434817863",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-06",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-aufloesung 6/10 unter 7/10"
+            ],
+            "story_note": 7,
+            "skript_probleme": [],
+            "sekunden": 1145.3
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sekunden": 1145.6
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [
+          "It reads text, images, or video to score options in a single forward pass. - The source confirms that Clef reads text, images, and video, but it does not state that scoring is performed in a single forward pass; this detail is unsupported."
+        ]
+      }
+    }
+  ]
 }

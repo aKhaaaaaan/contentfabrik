@@ -22,6 +22,10 @@ Details, Ablauf, Reproduktion und Grenzen in
 Kein neuer erfolgreicher Tagesfilm nachgewiesen; keine neuen Gemini-/Groq-
 Aufrufe oder Telegram-Zustellungen fuer diese Tests.
 
+GitHub-CI [37448448528](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37448448528)
+fuer Code-Commit `5530ba6` erfolgreich: **208 Tests in 1,497 s**,
+Kompilierung und Node-Pruefungen bestanden. Kein Produktionslauf/Videoerfolg.
+
 ## Erweiterung am 06.10.2026: kontrollierter Autorenvergleich
 
 Historischer Stand nach API-Diagnose: 15 Vergleichstests und ein Termin-Test,

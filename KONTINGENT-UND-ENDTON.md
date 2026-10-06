@@ -114,6 +114,10 @@ Cache-Invalidierung, abgeschnittene Antworten, CTA-Sperren, Bindung an die
 Videodatei und Auslassen unnoetiger Uploads. Unit-Tests verwenden Testdaten,
 die drei echten Tonproben sind getrennt dokumentiert.
 
+GitHub-CI [37448448528](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37448448528)
+am Code-Commit `5530ba6` erfolgreich: 208 Tests in 1,497 s, Kompilierung
+und Node-Pruefungen bestanden. Ein CI-Erfolg ist kein neuer Videoerfolg.
+
 Reproduktion im Workspace mit installierten requirements:
 
 ```powershell

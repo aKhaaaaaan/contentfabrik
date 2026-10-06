@@ -1,6 +1,10 @@
 name: autorenvergleich
-run-name: Autorenvergleich Gemini und GPT-OSS / ${{ inputs.anzahl }} Quellen je Kanal
+run-name: Autorenvergleich / ${{ inputs.modus || 'vergleich' }} / ${{ inputs.anzahl || '3' }} Quellen je Kanal
 on:
+  schedule:
+    # Einmaliger Auftrag fuer 07.10.2026; der Datumsschutz unten verhindert Jahreswiederholungen.
+    # 07:17 UTC = 09:17 Berlin, nach dem Gemini-Reset um Mitternacht Pacific.
+    - cron: '17 7 7 10 *'
   workflow_dispatch:
     inputs:
       modus:
@@ -28,18 +32,31 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Einmaligen Termin pruefen
+        id: termin
+        env:
+          EREIGNIS: ${{ github.event_name }}
+        run: |
+          python - <<'PY'
+          import datetime, os
+          erlaubt = os.environ['EREIGNIS'] != 'schedule' or datetime.datetime.now(datetime.timezone.utc).date().isoformat() == '2026-10-07'
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write('erlaubt=' + str(erlaubt).lower() + '\n')
+          PY
       - name: Zugang pruefen
+        if: steps.termin.outputs.erlaubt == 'true'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: |
           [ -n "$GEMINI_API_KEY" ] && [ -n "$GROQ_API_KEY" ] || { echo "Autoren-Zugang fehlt" >&2; exit 1; }
       - name: Identische Aufgaben schreiben und gegenseitig pruefen
+        if: steps.termin.outputs.erlaubt == 'true'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          ANZAHL: ${{ inputs.anzahl }}
-          MODUS: ${{ inputs.modus }}
+          ANZAHL: ${{ inputs.anzahl || '3' }}
+          MODUS: ${{ inputs.modus || 'vergleich' }}
         run: |
           if [ "$MODUS" = "diagnose-gemini-alt" ]; then
             python -u fabrik/autorenvergleich.py --diagnose --diagnose-autor --diagnose-anbieter gemini --diagnose-alternativen

@@ -1,10 +1,37 @@
 {
   "datum": "2026-10-06",
   "umgebung": "Windows / lokales Python",
-  "autorenvergleich_unittests": {"anzahl": 12, "status": "bestanden"},
-  "gesamtsuite": {"anzahl": 176, "sekunden": 7.578, "status": "bestanden"},
-  "kompilierung": {"befehl": "python -m compileall -q fabrik pruefungen", "status": "bestanden"},
-  "zeitplan": {"befehl": "node pruefungen/zeitplan.mjs", "anzahl": 5, "status": "bestanden"},
-  "github_ci": {"run_id": "37441590949", "commit": "b6ae530", "status": "success"},
-  "hinweis": "Unit-Tests verwenden Testantworten, keine echten KI-Qualitaetsnoten. Der echte Autorenvergleich wird separat protokolliert."
+  "autorenvergleich_unittests": {
+    "anzahl": 16,
+    "status": "bestanden",
+    "einschliesslich_terminschutz": true
+  },
+  "gesamtsuite": {
+    "anzahl": 180,
+    "sekunden": 3.871,
+    "exitcode": 0,
+    "status": "bestanden"
+  },
+  "kompilierung": {
+    "befehl": "python -m compileall -q fabrik pruefungen",
+    "status": "bestanden"
+  },
+  "zeitplan": {
+    "befehl": "node pruefungen/zeitplan.mjs",
+    "anzahl": 5,
+    "status": "bestanden"
+  },
+  "github_ci": {
+    "run_id": "37444148690",
+    "commit": "236b20e",
+    "status": "success",
+    "anzahl": 179,
+    "hinweis": "Vor dem zusaetzlichen lokalen Termin-Test; endgueltiger Workflow wird beim Push ebenfalls geprueft."
+  },
+  "hinweis": "Unit-Tests verwenden Testantworten, keine echten KI-Qualitaetsnoten. Der echte Autorenvergleich wird separat protokolliert.",
+  "anfangsversion": {
+    "neue_tests": 12,
+    "gesamt": 176,
+    "ci_run": "37441590949"
+  }
 }

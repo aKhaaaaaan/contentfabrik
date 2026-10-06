@@ -56,7 +56,15 @@ GitHub erfolgreich: Run `37441590949`, Commit `b6ae530`.
 
 Echter Start des Vergleichs am 06.10. um 11:14:29 Berlin:
 [Run 37441593314](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37441593314).
-Ergebnisse folgen nach Abschluss; keine menschliche Bewertung vorwegnehmen.
+Gemessener Stand: [ERGEBNIS-2026-10-06.md](vergleiche/autoren/ERGEBNIS-2026-10-06.md).
+Erste Serie: zwoelf Ausfaelle. Spaetere Einzelproben lieferten je einen
+Qwen-Entwurf, aber keinen freigegebenen Text. Gemini meldete danach leeres
+Autoren-Tageskontingent; 2.5-Ausweichprobe ebenfalls ohne nutzbaren Zugang.
+Groq lieferte mit Strict-Schema und angepasstem Reasoning-/Ausgabebudget
+einen vollstaendigen Diagnoseentwurf. Das ist noch kein Qualitaetsgewinn. Fortsetzung fuer 07.10.
+um 09:17 Berlin geplant, Start kann durch GitHub verzoegert werden.
+Keine menschliche Bewertung vorwegnehmen und keinen Sieger aus zwei Proben
+ableiten. Die gepruefte 2.5-Preisliste bleibt korrekt; Projektzugang fehlte.
 Der normale Tageslauf laeuft weiterhin mit der bestehenden Gemini-Anbindung.
 Der Vergleich verbraucht vorhandene kostenlose API-Kontingente, erzeugt aber
 keine Videos. Der fruehere Kommentar in `zweit.py`, es gebe keine eindeutig

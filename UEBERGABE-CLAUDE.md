@@ -24,9 +24,33 @@ Kompilierung und fuenf Node-Zeitplanchecks bestanden; GitHub-CI `37441590949`
 erfolgreich. Echte Skript-Ergebnisse nach Abschluss separat dokumentieren;
 menschliche Blindbewertung offen, kein Sieger und keine Video-Note erfunden.
 
-Kostenlose lokale Kandidaten Qwen3-TTS, ACE-Step und Wan wurden recherchiert,
+**Aktuelles Ergebnis:** Erste Serie ohne verwertbare Entwuerfe, spaetere
+Einzelproben lieferten Gemini 3.5 / 208 Woerter und Groq GPT-OSS / 156 Woerter
+zum Qwen-Thema. Beide haben noch Fakten-/Strukturprobleme. Vollstaendige sechs
+Autorenpaare mit Gegenpruefung fehlen. Gemini meldete danach leeres Autoren-
+Tageskontingent; 2.5-Ausweichprobe ohne nutzbaren Zugang. Echte Nachweise und
+Grenzen: [ERGEBNIS-2026-10-06.md](vergleiche/autoren/ERGEBNIS-2026-10-06.md).
+Groq-Schema-/Ausgabebehandlung korrigiert, kurze geschwaerzte Diagnosen und
+Status fuer leere Vergleiche ergaenzt. Aktuell 15 Vergleichstests plus ein
+Terminschutztest, **180 insgesamt bestanden**; Kompilierung und fuenf Node-
+Pruefungen bestanden. Historische 176 Tests oben gehoeren zur Anfangsversion.
+Einmalige Fortsetzung fuer 07.10.2026, 09:17 Berlin, im Workflow mit Jahres-
+Datumsschutz hinterlegt. GitHub kann den Start verzoegern; nicht behaupten,
+der Vergleich sei erfolgreich abgeschlossen oder ein Video versandbereit.
+
+Nutzer fragt nach einem weiteren Gemini-Konto zum Umgehen des Kontingents.
+Empfehlung: keine Konten-/Projektrotation zur Limitumgehung; Google-API-
+Bedingungen untersagen das. Limits gelten pro Projekt statt API-Schluessel.
+Stattdessen Textaufgaben nach Vergleich verteilen, Pruefergebnisse cachen,
+Reparaturschleifen begrenzen und nach Reset fortsetzen. Diese neue Verteilung
+und ein KI-Pruefcache sind noch nicht im Tageslauf eingebaut. Details und
+Primaerquellen in `KOSTENLOSE-PIPELINE.md`.
+
+Kostenlose Kandidaten Gemini Flash TTS, Qwen3-TTS, ACE-Step und Wan wurden recherchiert,
 nicht installiert oder getestet. Lokal ist Intel UHD Graphics erkannt worden;
-Wan-Referenzlauf nennt mindestens 24 GB VRAM. Im Tageslauf bleiben die bisherige
+Wan-Referenzlauf nennt mindestens 24 GB VRAM. Gemini TTS ist der bevorzugte
+naechste Stimmenvergleich mit Kokoro; kostenlos gelistet, aber noch kein
+Hoertest oder bestaetigtes Audio-Kontingent. Im Tageslauf bleiben die bisherige
 Gemini-Anbindung, Figurenreferenzen und Renderer aktiv. Kein ungepruefter
 Wechsel der gesamten Pipeline. Unabhaengige Erkennung des gesprochenen CTA
 aus finalem Audio als naechste Verbesserung empfohlen, noch nicht eingebaut.

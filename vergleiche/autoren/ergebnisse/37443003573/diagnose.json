@@ -1,0 +1,93 @@
+{
+  "datum_utc": "2026-10-06T09:26:57.550449+00:00",
+  "run_id": "37443003573",
+  "anbieter": {
+    "gemini": {
+      "modelle": [
+        "gemini-2.5-flash",
+        "gemini-2.5-pro",
+        "gemini-2.5-flash-preview-tts",
+        "gemini-2.5-pro-preview-tts",
+        "gemma-4-26b-a4b-it",
+        "gemma-4-31b-it",
+        "gemini-flash-latest",
+        "gemini-flash-lite-latest",
+        "gemini-pro-latest",
+        "gemini-2.5-flash-lite",
+        "gemini-2.5-flash-image",
+        "gemini-3-flash-preview",
+        "gemini-3.1-pro-preview",
+        "gemini-3.1-pro-preview-customtools",
+        "gemini-3.1-flash-lite-preview",
+        "gemini-3.1-flash-lite",
+        "gemini-3-pro-image-preview",
+        "gemini-3-pro-image",
+        "nano-banana-pro-preview",
+        "gemini-3.1-flash-image-preview",
+        "gemini-3.1-flash-image",
+        "gemini-3.1-flash-lite-image",
+        "gemini-3.5-flash",
+        "gemini-3.5-flash-lite",
+        "gemini-omni-flash-preview",
+        "gemini-omni-1.1-flash",
+        "gemini-3.5-transcribe",
+        "gemini-3.6-flash",
+        "gemini-3.7-flash",
+        "gemini-3.8-flash",
+        "lyria-3-clip-preview",
+        "lyria-3-pro-preview",
+        "lyria-3.5",
+        "gemini-3.1-flash-tts-preview",
+        "gemini-3.8-flash-tts",
+        "gemini-3.8-flash-lite-tts",
+        "gemini-robotics-er-2-preview",
+        "gemini-2.5-computer-use-preview-10-2025",
+        "antigravity-preview-05-2026",
+        "antigravity-preview-09-2026",
+        "antigravity-preview-latest",
+        "deep-research-max-preview-04-2026",
+        "deep-research-preview-04-2026",
+        "deep-research-pro-preview-12-2025"
+      ],
+      "minimal_json": {
+        "ok": true,
+        "probleme": []
+      },
+      "modell": "gemini-3.7-flash",
+      "verbrauch": {
+        "anfragen": 1,
+        "prompt_tokens": 20,
+        "completion_tokens": 9
+      },
+      "autor_modell": "gemini-3.5-flash",
+      "autor_verbrauch": {
+        "anfragen": 1,
+        "prompt_tokens": 1559,
+        "completion_tokens": 587
+      },
+      "autor_struktur": [],
+      "autor_woerter": 208
+    },
+    "groq": {
+      "modellabfrage_fehler": "HTTP Error 403: Forbidden",
+      "minimal_json": {
+        "ok": true,
+        "probleme": []
+      },
+      "modell": "openai/gpt-oss-120b",
+      "verbrauch": {
+        "queue_time": 0.083140893,
+        "prompt_tokens": 170,
+        "prompt_time": 0.006738337,
+        "completion_tokens": 55,
+        "completion_time": 0.120420235,
+        "total_tokens": 225,
+        "total_time": 0.127158572,
+        "completion_tokens_details": {
+          "reasoning_tokens": 37
+        }
+      },
+      "autor_fehler": "Groq HTTP 400: Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details."
+    }
+  }
+}

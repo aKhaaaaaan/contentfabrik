@@ -1,0 +1,48 @@
+{
+  "thema": "Qwen Image",
+  "titel_zeile1": "Qwen‑Image‑2.1: Transparent Editing Explained",
+  "titel_zeile2": "What It Can Do and Its Real Limits",
+  "beschreibung": "An overview of the open‑source Qwen‑Image‑2.1 model, its ability to generate and edit images with native transparency, support for reference images, practical use cases, memory requirements, and licensing constraints.",
+  "teile": [
+    {
+      "szene": "Presenter in a vibrant urban‑game poster style, pointing at a question mark on a digital screen.",
+      "text": "Ever wondered if an AI can edit photos while keeping backgrounds transparent?"
+    },
+    {
+      "szene": "Close‑up of the Hugging Face model card on a laptop, scrolling through the Qwen‑Image‑2.1 page.",
+      "text": "Qwen‑Image‑2.1 is open‑source and runs on the Hugging Face hub."
+    },
+    {
+      "szene": "Graphic showing a neural network diagram with a highlighted 7 billion‑parameter block.",
+      "text": "It uses a 7‑billion‑parameter visual backbone with mixed‑granularity attention."
+    },
+    {
+      "szene": "Animation of a text prompt turning into a PNG with a transparent checkerboard background.",
+      "text": "The model can produce fully transparent PNGs directly from text prompts."
+    },
+    {
+      "szene": "Screen recording of the editing interface, drawing a red circle over a logo to replace its color.",
+      "text": "You can also edit existing images by drawing circles or masks around areas you want to change."
+    },
+    {
+      "szene": "Collage of ten reference photos surrounding a central canvas, all influencing the output.",
+      "text": "Up to ten reference pictures can guide the edit, preserving faces or product details."
+    },
+    {
+      "szene": "Before‑and‑after of a product shot: original background removed, new transparent PNG saved.",
+      "text": "A practical use is cleaning product shots: keep the object, replace the background, and export an RGBA file."
+    },
+    {
+      "szene": "GPU usage monitor displaying 12 GB VRAM consumption during a 512×512 generation.",
+      "text": "A documented limitation is memory: the model needs at least 12 GB VRAM for 512×512 generation, so older GPUs may fail."
+    },
+    {
+      "szene": "Legal document icon with the Qwen Research License text highlighted, a red stamp reading \"Commercial Use Restricted\".",
+      "text": "For studios, the main obstacle is the licensing; the Qwen Research License restricts commercial redistribution, requiring separate permission."
+    },
+    {
+      "szene": "Presenter returns, summarizing with a confident smile, a call‑to‑action banner appearing beside them.",
+      "text": "In short, Qwen‑Image‑2.1 offers unified generation, editing, and transparency, but its license limits unrestricted commercial use. Be sure to like, share and save this video today."
+    }
+  ]
+}

@@ -12,8 +12,10 @@ Ausfuehrung: Workflow `autorenvergleich.yml`, Eingabe `anzahl=3`. Der gemeinsame
 Auftrag verlangt 190-220 englische Woerter, 8-10 Sprechphasen, einen konkreten
 Einstieg und dessen Aufloesung sowie genau einen gesprochenen like/share/save-
 Aufruf nach dem Nutzen am Ende. Gemini verwendet sein natives JSON-Schema,
-Groq bekommt dasselbe Schema als Formatanweisung. Beide bekommen denselben
-Grundauftrag und Quelltext; dessen Hash wird protokolliert.
+Groq inzwischen das entsprechende geschlossene JSON-Schema mit `strict=true`.
+Beide bekommen denselben Grundauftrag und Quelltext; dessen Hash wird
+protokolliert. Groq: reasoning_effort=low, Autor-Ausgabe maximal 3.840 Tokens;
+die Ausgabegrenze umfasst auch Reasoning. Schema erzwingt keine Faktenwahrheit.
 
 Je Quellenpaket wird pro Autor genau ein Erstentwurf erzeugt, ohne automatische
 Reparaturen oder Auswahl eines Best-of. Die zufaellige Zuordnung zu A/B steht
@@ -34,6 +36,9 @@ oder Plattform-Veroeffentlichung wird durch diesen Workflow erzeugt.
 Der Standardautor bleibt bis zur begruendeten Entscheidung unveraendert.
 
 Umsetzung: `fabrik/autorenvergleich.py`; Quellenvorbereitung:
-`pruefungen/vorbereiten_autorenvergleich.py`. Zwoelf neue Regressionstests
-bestanden lokal, Gesamtsuite 176 Tests, Kompilierung bestanden; Cloud-Ergebnisse
-werden nach dem echten Lauf separat hier dokumentiert.
+`pruefungen/vorbereiten_autorenvergleich.py`. Aktuell 15 neue Vergleichstests
+plus ein Test fuer den einmaligen Termin, Gesamtsuite 180 Tests bestanden.
+Anfangsversion: zwoelf neue / 176 insgesamt.
+Gemessene Ausfaelle, erfolgreiche Einzelproben und verbleibende Grenzen:
+[ERGEBNIS-2026-10-06.md](ERGEBNIS-2026-10-06.md). Noch kein belastbarer Sieger.
+Eine Fortsetzung fuer 07.10.2026 nach dem Reset ist mit Datumsschutz geplant.

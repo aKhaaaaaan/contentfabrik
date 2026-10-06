@@ -6,6 +6,15 @@ die gebauten Erweiterungen, ihre Dateien und die tatsaechlichen Pruefungen.
 
 ## Erweiterung am 06.10.2026: kontrollierter Autorenvergleich
 
+Neuester Stand nach API-Diagnose: 15 Vergleichstests und ein Termin-Test,
+**180 Tests insgesamt bestanden**. Geschwaerzte Fehlerdiagnose, leerer
+Ergebnisstatus und Groq Strict-Schema/Reasoning-/Ausgabebudget ergaenzt.
+Erste komplette Serie ohne verwertbare Entwuerfe, spaetere einzelne Texte
+noch nicht freigegeben; kein belastbarer Sieger. Einzelbelege und einmaliger
+Folgetermin nach Kontingent-Reset unter
+[ERGEBNIS-2026-10-06.md](vergleiche/autoren/ERGEBNIS-2026-10-06.md).
+Die Zahlen 176 und zwoelf weiter unten dokumentieren die Anfangsversion.
+
 `fabrik/autorenvergleich.py` und `.github/workflows/autorenvergleich.yml`
 vergleichen Gemini ohne Lite-Fallback mit Groq GPT-OSS-120B. Die Vorbereitung
 `pruefungen/vorbereiten_autorenvergleich.py` speichert sechs Quellenpakete in

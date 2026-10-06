@@ -291,13 +291,17 @@ def main(faelle, ziel, anzahl=3):
                       and all(not q['sperrgruende'] for q in basis['pruefungen'].values()))
                 basis['status'] = 'ki_vorpruefung_bestanden' if ok else 'gesperrt_oder_pruefung_fehlt'
             except Exception as e:
-                # Nur Typ/neutraler Status, keine URLs oder Zugangsdaten in Fehlern ausgeben.
+                # Kurze geschwaerzte Diagnose, keine Zugangsdaten ausgeben.
                 basis.update(status='autorausfall', fehler=type(e).__name__, diagnose=fehlertext(e))
             finally:
                 speichern(ziel / 'bericht.json', bericht)
             print(f"Autorvergleich: {ident} / {basis['status']}", flush=True)
     geschrieben = sum(b['autor_modell'] is not None for b in bericht['kandidaten'])
-    bericht['status'] = 'ausgewertet_ki_mensch_offen' if geschrieben else 'keine_verwertbaren_entwuerfe'
+    vollstaendig = (geschrieben == len(bericht['kandidaten']) and geschrieben > 0
+        and all(len(b['pruefungen']) == 2 and all('fehler' not in p for p in b['pruefungen'].values())
+                for b in bericht['kandidaten']))
+    bericht['status'] = ('ausgewertet_ki_mensch_offen' if vollstaendig else
+        'teilvergleich_pruefungen_unvollstaendig' if geschrieben else 'keine_verwertbaren_entwuerfe')
     speichern(ziel / 'bericht.json', bericht)
     zeilen = ['# Autorenvergleich: vorlaeufige KI-Pruefung', '',
         '| Fall | Fassung | Autor / Modell | Woerter | Status |', '|---|---|---|---|---|']

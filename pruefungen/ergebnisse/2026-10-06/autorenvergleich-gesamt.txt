@@ -1,0 +1,136 @@
+Autorvergleich: test-A / groq
+Autorvergleich: test-A / autorausfall
+Autorvergleich: test-B / gemini
+Autorvergleich: test-B / autorausfall
+Autorvergleich: test-A / gemini
+Autorvergleich: test-A / ki_vorpruefung_bestanden
+Autorvergleich: test-B / groq
+Autorvergleich: test-B / autorausfall
+Autorvergleich: test-A / groq
+Autorvergleich: test-A / ki_vorpruefung_bestanden
+Autorvergleich: test-B / gemini
+Autorvergleich: test-B / ki_vorpruefung_bestanden
+Autorvergleich: test-A / groq
+Autorvergleich: test-A / gesperrt_oder_pruefung_fehlt
+Autorvergleich: test-B / gemini
+Autorvergleich: test-B / gesperrt_oder_pruefung_fehlt
+Autorvergleich: test-A / gemini
+Autorvergleich: test-A / ki_vorpruefung_bestanden
+Autorvergleich: test-B / groq
+Autorvergleich: test-B / ki_vorpruefung_bestanden
+Versuch 1: 9/10; Sperrgruende: []
+0.0 Min. im aktuellen Lauf verbraucht
+Video-Pruefung nicht verfuegbar - Video bleibt gesperrt
+Versuch 1: 7/10; Sperrgruende: []
+0.0 Min. im aktuellen Lauf verbraucht
+Versuch 2: 10/10; Sperrgruende: []
+Versuch 1: 7/10; Sperrgruende: []
+0.0 Min. im aktuellen Lauf verbraucht
+Versuch 2: 9/10; Sperrgruende: []
+0.0 Min. im aktuellen Lauf verbraucht
+Versuch 1: 9/10; Sperrgruende: []
+0.0 Min. im aktuellen Lauf verbraucht
+Versuch 2: 6/10; Sperrgruende: ['Video-Note 6/10 unter 7/10']
+0.0 Min. im aktuellen Lauf verbraucht
+Versuch 1: 6/10; Sperrgruende: ['Video-Note 6/10 unter 7/10']
+0.0 Min. im aktuellen Lauf verbraucht
+test: Tagesbudget verbraucht - keine neue Produktion
+Versuch 1: 9/10; Sperrgruende: []
+0.0 Min. im aktuellen Lauf verbraucht
+Video-Pruefung nicht verfuegbar - Video bleibt gesperrt
+Versuch 3: 10/10; Sperrgruende: []
+Versuch 1: 10/10; Sperrgruende: []
+Versuch 1: 9/10; Sperrgruende: []
+0.0 Min. im aktuellen Lauf verbraucht
+Video-Pruefung nicht verfuegbar - Video bleibt gesperrt
+Video-Pruefung nicht verfuegbar - Video bleibt gesperrt
+Versuch 1: 6/10; Sperrgruende: ['Video-Note 6/10 unter 7/10']
+0.0 Min. im aktuellen Lauf verbraucht
+Versuch 1: 9/10; Sperrgruende: ['Ton kaputt']
+0.0 Min. im aktuellen Lauf verbraucht
+Versuch 1: 9/10; Sperrgruende: []
+0.0 Min. im aktuellen Lauf verbraucht
+Technik-Pruefung nicht bestanden ['keine Tonspur', 'Kein nachweisbarer Bildablauf vorhanden']
+Telegram-Video bestaetigt; message_id: None
+Gesendet: True
+Telegram-Video bestaetigt; message_id: None
+Gesendet: True
+Offen: []
+Offen: []
+Offen: ['test']
+Redaktioneller Bildplan | Einstellungen: 23
+Gemini-Bildplan: test | Einstellungen: 0
+Gemini-Bildplan: test | Einstellungen: 1
+{
+  "stimme_wiederverwendet": true,
+  "tempo": 1.05,
+  "stuecke_wiederverwendet": 1,
+  "stuecke_neu": 1,
+  "clips_und_stuecke": 0.0,
+  "bildpruefung": {
+    "befunde": [],
+    "einstellungen": 2,
+    "motive": 2,
+    "motive_min": 1
+  },
+  "effekte": 2,
+  "rendern": 0.0,
+  "gesamt": 0.1,
+  "videolaenge_s": 7,
+  "abschnitte_s": [
+    3,
+    4
+  ],
+  "woerter": 2
+}
+Gelernt (test): 1 -> 1 Regeln
+  - neue Regel
+Vorlage: Story 9 /10; Sperrgruende: []
+Vorlage gesperrt: Falsche Zahl
+Vorlage: Story 6 /10; Sperrgruende: ['Skript-Note 6/10 unter 7/10']
+Illustration verworfen: Changed face
+Bildpruefung nicht moeglich - Foto/Clip verwenden: RuntimeError
+Ungueltige Bilddatei - kein Einsatz im Video
+Ungueltige Bilddatei - kein Einsatz im Video
+Zweitpruefer (Groq) nicht erreichbar - nur Gemini + Zahlenprobe
+Beispielbild (redaktionelle Regie): owner/model https://example.test/real-output.png
+Story: 10/10 {'hook': 10, 'spannung': 10, 'ueberraschung': 10, 'tempo': 10, 'aufloesung': 10, 'teilbarkeit': 10}
+{
+  "thema": "Firma",
+  "titel": [
+    "A *story*",
+    "A decision"
+  ],
+  "stimme": "bm_george",
+  "pruefung": {
+    "ok": true,
+    "probleme": []
+  },
+  "modell": "test",
+  "sekunden_ki": 0.0
+}
+Story: 10/10 {'hook': 10, 'spannung': 10, 'ueberraschung': 10, 'tempo': 10, 'aufloesung': 10, 'teilbarkeit': 10}
+{
+  "thema": "Firma",
+  "titel": [
+    "A *story*",
+    "A decision"
+  ],
+  "stimme": "bm_george",
+  "pruefung": {
+    "ok": true,
+    "probleme": []
+  },
+  "modell": "test",
+  "sekunden_ki": 0.0
+}
+Modellbeschreibung nicht verfuegbar: owner/repo TimeoutError
+Telegram-Statusmeldung bestaetigt; message_id: 1
+1 Nachrichten, Warteschlange: 0
+1 Nachrichten, Warteschlange: 0
+Gemini-Verbrauch: gemini-2.5-flash: 1 Anfragen, 0k rein, 0k raus; gemini-3.8-flash: 2 Anfragen, 0k rein, 0k raus; gemini-flash-latest: 3 Anfragen, 0k rein, 0k raus; gemini-flash-lite-latest: 1 Anfragen, 0k rein, 0k raus
+....................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 180 tests in 3.871s
+
+OK

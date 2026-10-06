@@ -10,11 +10,18 @@ recherchiert: [KOSTENLOSE-PIPELINE.md](KOSTENLOSE-PIPELINE.md), Autoren:
 [KI-MODELLE.md](KI-MODELLE.md). Der Nutzer hat den Vergleich beauftragt;
 Gemini und GPT-OSS-120B schreiben jetzt im separaten Test dieselben sechs
 Quellenpakete. Methodik/Ergebnisse: [Autorenvergleich](vergleiche/autoren/README.md),
-echter Run `37441593314`. GPT-OSS ist neu als Testautor angebunden, der
+erster echter Run `37441593314` ohne verwertbare Entwuerfe. Spaetere Proben
+und offene Kontingent-/Qualitaetsprobleme:
+[ERGEBNIS-2026-10-06.md](vergleiche/autoren/ERGEBNIS-2026-10-06.md).
+Einmalige Fortsetzung fuer 07.10. um 09:17 Berlin vorgesehen, noch kein Sieger.
+GPT-OSS ist neu als Testautor angebunden, der
 Standardautor im Tageslauf unveraendert. Menschliche Blindbewertung bleibt
 offen; keine bessere Qualitaet behaupten, bevor sie nachgewiesen wurde.
-Qwen3-TTS, ACE-Step und Wan sind recherchierte lokale Kandidaten, nicht
+Gemini Flash TTS ist ein Cloud-Kandidat fuer einen Hoervergleich; Qwen3-TTS,
+ACE-Step und Wan sind recherchierte lokale Kandidaten, nicht
 eingebaut. Lokal Intel UHD erkannt; keine nutzbare CUDA-GPU nachgewiesen.
+Gemini-Konten/Projekte nicht zur Umgehung dokumentierter Limits rotieren;
+Quoten pro Projekt, Empfehlungen/Belege in `KOSTENLOSE-PIPELINE.md`.
 
 **Neuer Auftrag 06.10.2026:** Qualitaet im normalen taeglichen Automatiklauf
 bestaetigen: zuerst drei unterschiedliche Shorts je Kanal, vollstaendig

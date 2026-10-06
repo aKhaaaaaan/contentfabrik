@@ -91,6 +91,7 @@ class AutorenvergleichTest(TempTest):
             av.main('faelle.json', 'ergebnis', 1)
         self.assertTrue(all(k['status'] == 'gesperrt_oder_pruefung_fehlt'
                             for k in self.bericht()['kandidaten']))
+        self.assertEqual(self.bericht()['status'], 'teilvergleich_pruefungen_unvollstaendig')
 
     def test_autorausfall_verhindert_nicht_zweiten_kandidaten(self):
         def antwort(provider, prompt, schema, ausgabe_tokens=3072):

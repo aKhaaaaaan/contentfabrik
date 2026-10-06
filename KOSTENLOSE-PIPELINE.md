@@ -22,6 +22,7 @@ Dinge. Kontingente, Projektzugang und Hardware bleiben entscheidend.
 | Alternative Bilder | FLUX.1 schnell lokal oder auf Cloudflare | Apache-2.0-Gewichte; Cloudflare-Kontingent | Kandidat fuer Hintergruende/Zwischenszenen. Kein nachgewiesener besserer Ersatz fuer konsistente Referenzfiguren |
 | Echte Bild-zu-Video-Animation | **Wan2.2 TI2V 5B lokal** | Apache-2.0-Gewichte; eigene Rechenleistung erforderlich | Optionaler spaeterer Animationsvergleich. Offizieller 720p-Aufruf nennt mindestens 24 GB VRAM; keine kostenlose taegliche Cloud-API dadurch vorhanden |
 | Erzählerstimme heute | **Kokoro-82M / ONNX** | Apache-2.0-Gewichte, auf CPU nutzbar | Bestehende Stimmen beibehalten; Aussprache, Pausen und Satzlaenge am fertigen Audio beurteilen |
+| Ausdrucksvollere Cloud-Stimme als Kandidat | **Gemini 3.8 Flash TTS**, alternativ 2.5 Flash Preview TTS | Ein-/Ausgabe im Free Tier gelistet, Projektkontingent entscheidet | Fuer unseren Rechner leichter pruefbar als grosse lokale Stimmenmodelle; Stilsteuerung dokumentiert. Zuerst Hoervergleich und Worttreue testen, nicht schon eingebaut |
 | Ausdrucksvollere Stimme als Kandidat | **Qwen3-TTS 1.7B CustomVoice/VoiceDesign** | Apache-2.0-Gewichte; offizieller lokaler Beispielcode nutzt CUDA | Anweisungen fuer Emotion/Prosodie und eigene Figurenstimmen sind interessant. Kein belegter Qualitaetsgewinn bei unseren Texten; GPU-/Laufzeitvergleich fehlt |
 | Individuelle Hintergrundmusik | **ACE-Step 1.5** | MIT-Code und MIT-Modellgewichte; lokale Berechnung | Interessanter Kandidat fuer vorproduzierte Instrumentalbetten. Erst hoeren und passend zur Story freigeben; nicht bei jedem Tageslauf einen neuen GPU-Dienst voraussetzen |
 | Musik und konkrete Geraeusche heute | Bestehendes Openverse, eigene Musik/FX; ergaenzend kuratierte Pixabay-Dateien | Frei lizenzierte Einzeldateien bzw. eigene Synthese | Bestehende lizenzgefilterte Openverse-Suche laeuft bereits. Eine kleine kuratierte Bibliothek verbessert Passung und Zuverlaessigkeit eher als zufaellige Tracks |
@@ -62,7 +63,17 @@ Keine Aussage ueber fehlerfreie Figurenidentitaet oder kostenlose Hosting-
 Kapazitaet aus offenen Gewichten ableiten.
 
 **Stimme:** [Kokoro-Modellkarte](https://huggingface.co/hexgrad/Kokoro-82M)
-belegt die offene Apache-2.0-Basis. [Qwen3-TTS](https://github.com/QwenLM/Qwen3-TTS)
+belegt die offene Apache-2.0-Basis.
+[Gemini-Preise](https://ai.google.dev/gemini-api/docs/pricing) listen auch
+3.8 Flash TTS und 2.5 Flash Preview TTS mit kostenlosem Ein-/Ausgabetarif.
+Die [TTS-Anleitung](https://ai.google.dev/gemini-api/docs/speech-generation)
+dokumentiert bei 3.8 eine Trennung von Sprechtext und Stil-Metadaten fuer
+Tempo/Emotion. Modelllisting in unserem Projekt bestaetigt beide IDs, aber
+Audioerzeugung und nutzbares Gratiskontingent wurden noch nicht getestet.
+Das ist der bevorzugte **naechste kostenlose Stimmenvergleich** mit Kokoro,
+weil dafuer keine eigene CUDA-GPU noetig ist. TTS ist ein eigener API-Aufruf;
+die vorhandene Text-JSON-Anbindung produziert dadurch noch kein Audio.
+[Qwen3-TTS](https://github.com/QwenLM/Qwen3-TTS)
 und die [CustomVoice-Modellkarte](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice)
 belegen offene Modelle und steuerbare Ausdrucksweise. VoiceDesign kann eine
 eigene Stimme nach Beschreibung erzeugen; CustomVoice bietet vorgegebene
@@ -115,13 +126,18 @@ keine solche neue Endton-Pruefung eingebaut.
    Echter Start am 06.10. um 11:14:29 Berlin, GitHub-Run
    [37441593314](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37441593314).
    Methodik und Ergebnisse: [Autorenvergleich](vergleiche/autoren/README.md).
+   Die erste Serie lieferte keine verwertbaren Entwuerfe. Diagnose und
+   Korrekturen ermoeglichten spaeter je einen Qwen-Entwurf; beide sind noch
+   nicht freigegeben. Geminis Autorenkontingent war danach erschoepft.
+   Noch kein nachgewiesener Qualitaetssieger; Fortsetzung nach Reset geplant.
 2. **Visuelle Staerken erhalten:** eigene Figuren im GTA-inspirierten urbanen
    Illustrationsstil, keine kopierten Spielcharaktere. AI Tools Explained:
    14-18 verschiedene Motive; Business Origin Stories: Ziel 24 Einstellungen
    mit 18 Motiven. Bilder passend zu mehreren Momenten je Skriptphase planen.
 3. **Audio gezielt verbessern:** passende Instrumentalbetten und einzelne
    sinnvolle Geraeusche; unabhaengigen finalen CTA-/Sprachtest als naechste
-   Erweiterung vorsehen. Qwen3-TTS und ACE-Step zunaechst nur als Kandidaten.
+   Erweiterung vorsehen. Gemini Flash TTS zuerst gegen Kokoro hoeren;
+   Qwen3-TTS und ACE-Step zunaechst nur als lokale Kandidaten.
 4. **Echte Animation spaeter pruefen:** auf diesem PC wurde am 06.10. nur
    Intel UHD Graphics erkannt, keine NVIDIA-CUDA-GPU. Der aktuelle normale
    GitHub-Lauf ist ebenfalls kein GPU-Renderer. Keine grossen GPU-Modelle
@@ -135,12 +151,38 @@ keine solche neue Endton-Pruefung eingebaut.
 
 Neu gebaut: Quellen-Snapshots, kontrollierter Autorenvergleich, verdeckte
 Lesefassungen, zwei KI-Pruefer, strukturierte Ausfall-/Verbrauchsberichte,
-manueller GitHub-Workflow und zwoelf Regressionstests. Bestehende Zugaenge
+GitHub-Workflow mit manuellem Start/einmaligem Folgetermin und 15 Regressionstests. Bestehende Zugaenge
 werden verwendet, keine neue kostenpflichtige Hochstufung eingerichtet.
 
 Die Tagespipeline schreibt weiterhin mit ihrer bisherigen Gemini-Anbindung.
-Wan, Qwen3-TTS und ACE-Step sind recherchiert, nicht eingebaut oder qualitativ
+Gemini TTS, Wan, Qwen3-TTS und ACE-Step sind recherchiert, nicht eingebaut oder qualitativ
 getestet. Die Recherche verspricht keine durchgehend kostenlose GPU-Cloud,
 keine 100% fehlerfreien Videos und keine garantierte Zuschauerbindung.
 Die konkreten Vergleichsergebnisse werden getrennt dokumentiert, damit
 Claude Versuchsaufbau, gemessene Wirkung und Empfehlungen unterscheiden kann.
+
+## Nutzerfrage: zweites Gemini-Konto fuer mehr Gratiskontingent?
+
+Ein zweites Konto allein ist keine Empfehlung zur stabileren Pipeline.
+[Googles Limit-Dokumentation](https://ai.google.dev/gemini-api/docs/rate-limits)
+legt Kontingente pro Projekt statt pro API-Schluessel fest. Ein weiterer
+Schluessel im selben Projekt erhoeht sie nicht. Tages-Anfragen werden um
+Mitternacht Pacific zurueckgesetzt: am 07.10.2026 entspricht das 09:00 Berlin.
+Ein Kontingent von null wegen fehlender Modellberechtigung wird dadurch
+nicht automatisch nutzbar; das konkrete Projekt entscheidet.
+
+Die [Google-API-Bedingungen, Abschnitt 2d](https://developers.google.com/terms)
+untersagen die Umgehung dokumentierter API-Limits. Mehr Konten/Projekte fuer
+dieselbe Pipeline zum Umgehen der Grenze empfehlen wir daher nicht.
+Keine pauschale Aussage, dass getrennte legitime Anwendungen nie eigene
+Projekte nutzen duerfen; es geht hier um die ausdruecklich vorgeschlagene
+Umgehung fuer dieselbe Anwendung.
+
+Empfohlen: Textaufgaben nach bestaetigtem Vergleich auf Groq verteilen,
+Gemini-Kontingent fuer Bild-/Videoverstaendnis reservieren, unveraenderte
+KI-Pruefergebnisse mit Text-/Quellen-/Prompt-/Modell-Hash wiederverwenden,
+Reparaturschleifen begrenzen und bei leerem Tageskontingent pausieren.
+Ein Schema-/Zahlen-/Wortbudgetfehler soll vor einer teuren KI-Runde auffallen.
+Neue Pruefresultat-Caches und ein neuer Standardautor sind hier noch nicht
+in die Tagesproduktion eingebaut. Qualitaetspruefungen nicht weglassen, um
+Kontingent zu sparen. Kontingentfehler sind keine niedrige Qualitaetsnote.

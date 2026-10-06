@@ -289,7 +289,7 @@ def main(faelle, ziel, anzahl=3):
             f.write('\n'.join(zeilen))
 
 
-def diagnose(ziel):
+def diagnose(ziel, faelle=None):
     """Verfuegbarkeit und Minimal-JSON pruefen; keine Quellen oder Videos."""
     ergebnis = {'datum_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
                 'run_id': os.environ.get('GITHUB_RUN_ID'), 'anbieter': {}}
@@ -316,6 +316,16 @@ def diagnose(ziel):
             d.update(minimal_json=data, modell=modell, verbrauch=usage)
         except Exception as e:
             d['minimal_json_fehler'] = fehlertext(e)
+        if faelle:
+            fall = json.loads(Path(faelle).read_text(encoding='utf-8'))['faelle'][0]
+            try:
+                data, modell, usage = anfrage(provider,
+                    autor_prompt(fall, lernen.laden(fall['kanal']).get('regeln', [])), AUTOR_SCHEMA)
+                speichern(Path(ziel) / ('diagnose-autor-' + provider + '.json'), data)
+                d.update(autor_modell=modell, autor_verbrauch=usage,
+                         autor_struktur=struktur(data)[0], autor_woerter=struktur(data)[1])
+            except Exception as e:
+                d['autor_fehler'] = fehlertext(e)
         print(json.dumps({provider: d}, ensure_ascii=False), flush=True)
     speichern(Path(ziel) / 'diagnose.json', ergebnis)
 
@@ -326,8 +336,9 @@ if __name__ == '__main__':
     parser.add_argument('--ziel', default='ausgabe/autorenvergleich')
     parser.add_argument('--anzahl', type=int, choices=(1, 2, 3), default=3)
     parser.add_argument('--diagnose', action='store_true')
+    parser.add_argument('--diagnose-autor', action='store_true')
     args = parser.parse_args()
     if args.diagnose:
-        diagnose(args.ziel)
+        diagnose(args.ziel, args.faelle if args.diagnose_autor else None)
     else:
         main(args.faelle, args.ziel, args.anzahl)

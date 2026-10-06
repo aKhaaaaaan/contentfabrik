@@ -42,7 +42,7 @@ jobs:
           MODUS: ${{ inputs.modus }}
         run: |
           if [ "$MODUS" = "diagnose" ]; then
-            python -u fabrik/autorenvergleich.py --diagnose
+            python -u fabrik/autorenvergleich.py --diagnose --diagnose-autor
           else
             python -u fabrik/autorenvergleich.py --anzahl "$ANZAHL"
           fi

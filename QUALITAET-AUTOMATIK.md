@@ -6,6 +6,13 @@ bleibt manuell. Ziel ist 10/10; eine absolute Qualitaetsgarantie gibt es nicht.
 
 ## Ablauf der ersten Serie
 
+Der erste normale Tageslauf wurde am 06.10.2026 um **10:14:44 Berlin**
+mit `video.yml`, `kanal=alle` und leerem Thema gestartet:
+[37434817863](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37434817863).
+GitHub hat den Start angenommen; beim ersten Statusabruf lief die Produktion
+noch. Dies ist ein Startbeleg, keine Fertigstellung oder Qualitaetsbestaetigung.
+Die naechsten Laeufe werden durch die bestehenden Tageszeitplaene ausgeloest.
+
 1. Je Kanal drei unterschiedliche Shorts aus dem **normalen Tageslauf**
    erzeugen: automatische Themenwahl, Quellen, Skript, Bildplan, Bilder, Ton,
    Video und Pruefung. Kein vorab von Hand ausgefuelltes Skript oder Bildplan.
@@ -145,3 +152,5 @@ Serie. `python -m compileall -q fabrik pruefungen` bestand (Exit 0).
 `git diff --check` ohne Fehler. Die Zeitplan-Tests simulieren GitHub-Dispatches;
 sie sind keine echten Videoproduktionen. Maschinenlesbarer Nachweis unter
 `pruefungen/ergebnisse/2026-10-06/ergebnis.json`.
+Nach Ergaenzung der Laufversuchs-ID wurden die zehn Serien-Tests nochmals
+gezielt ausgefuehrt und bestanden (0,619 s, Exit 0).

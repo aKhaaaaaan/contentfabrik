@@ -24,6 +24,10 @@ spaetere Kontrollpunkt; das schaltet keinen Plattform-Upload frei und beweist
 keine Langvideo-Qualitaet. Fehlversuche bleiben sichtbar, neue Produktions-
 versionen beginnen die bestaetigte Folge neu. Ziel 10/10, Versandfilter ab 7/10
 unveraendert. Es wurden damit noch keine sechs neuen Videos fertiggestellt.
+Erster echter Start: `video.yml` mit `kanal=alle`, leerem Thema, am 06.10.
+um 10:14:44 Berlin, Run `37434817863`, Code `9dd5d63`. Anfangsstatus auf
+GitHub `in_progress`; Ergebnisse nicht vorwegnehmen. Die Tageszeitplaene
+setzen die Serie innerhalb der bisherigen Budgets fort.
 
 ### Automatisierung und manuelle Plattform-Uploads, 05.10.2026
 

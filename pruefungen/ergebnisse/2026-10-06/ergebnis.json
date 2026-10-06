@@ -11,6 +11,13 @@
       "ergebnis": "OK"
     },
     {
+      "befehl": "python -m unittest discover -s pruefungen -p test_qualitaetsserie.py -v",
+      "exit_code": 0,
+      "tests": 10,
+      "dauer_s": 0.619,
+      "grund": "Gezielte Wiederholung nach Ergaenzung der GitHub-Laufversuchs-ID"
+    },
+    {
       "befehl": "python -m compileall -q fabrik pruefungen",
       "exit_code": 0
     },

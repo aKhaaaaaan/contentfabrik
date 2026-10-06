@@ -42,6 +42,35 @@ nicht zu dieser Serie. Sie bleiben positive Gestaltungsreferenzen. Ihre
 
 ## Vollstaendige Sichtpruefung des fertigen Videos
 
+### Erstes echtes Ergebnis: AI Tools Explained gesperrt, 06.10.2026
+
+Die Telegram-Meldung um **10:35 Berlin** war eine Statusmeldung, kein
+fehlgeschlagener Video-Upload. Run `37434817863.1:ai-tools-explained` endete
+nach 1145,6 Sekunden Produktionszeit **vor dem Videobau**: Story insgesamt
+7/10, aber Aufloesung 6/10 statt mindestens 7/10. Kein MP4 und keine Video-Note.
+GitHub meldet den Job erfolgreich, weil die Pipeline die redaktionelle Sperre
+ordnungsgemaess verarbeitet hat. Das ist kein erfolgreich erzeugtes Video.
+
+Thema: AI Decision Models. Gespeicherter Entwurf und Joblog zeigen eine
+unpassende Zusammenfassung unterschiedlicher Modellrollen unter
+"Hallucination-Free AI". Die Faktenpruefung verwarf mehrere Story-Reparaturen;
+im behaltenen Entwurf steht weiterhin ein als unbelegt markierter
+"single forward pass"-Detailhinweis. Die Kritiker-Idee "zero AI hallucinations"
+und vorgeschlagene andere Tools nicht ungeprueft uebernehmen.
+
+Diagnose und drei konkrete Regeln fuer quellengebundene Aufloesung,
+vergleichbare Modellrollen und Faktenstabilitaet der Ueberarbeitungen stehen
+in `lernen/ai-tools-explained.json`. Sie werden ueber `lernen.regeln()` an
+die naechsten Skriptlaeufe weitergegeben. Bestehende Regeln wurden auf
+zwoelf zusammengefuehrt. Dies ist eine vorlaeufige Produktionsdiagnose,
+keine Zuschauerbewertung und noch kein Beleg fuer eine erfolgreiche Reparatur.
+
+Artefakt `11398733278` liegt lokal unter `ausgabe/github/11398733278/`
+(Dateien direkt im Ordner: `skript.json`, `bericht.json`, `qualitaetsserie.json`).
+Dauerhafter Fehlversuch in `verlauf/qualitaetsserie.json`; er zaehlt nicht
+zu den drei fertiggestellten Videos. Business Origin Stories war bei dieser
+Diagnose noch in Arbeit; keine Zustellung vorwegnehmen.
+
 Die Person, die prueft, sieht und hoert die **ganze konkrete MP4**. Eine
 KI-Note, ein Kontaktbogen oder eine Skript-Lektuere ersetzt dies nicht.
 

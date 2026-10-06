@@ -1,17 +1,36 @@
 {
-  "stand": "2026-10-05",
+  "stand": "2026-10-06",
   "regeln": [
-    "Vary sentence structure and descriptions dynamically across list items to completely avoid repetitive templates.",
-    "Ensure every item in a countdown or ranking highlights a distinctly unique use-case or capability without redundancy.",
+    "Pay off the specific opening question with a concrete, source-supported answer before the spoken like/share/save reminder. Generic praise is not a resolution.",
+    "Compare tools within a documented common role; never label a generative language model as a non-generative decision model just to fill a ranking. A title or hook must not promise hallucination-free results without explicit source support and scope.",
+    "Story revisions must preserve verified facts. Do not invent required GPUs, parameter counts, runtime guarantees or single-forward-pass behavior; resolve unsupported-detail warnings before treating a draft as ready. A critic's stronger hook or replacement tool is only a suggestion, never a source.",
+    "Vary sentence structure across ranked items and give each a distinct, source-supported use case without repetitive templates.",
     "Omit dry metrics like star counts or download numbers unless they directly serve a crucial narrative purpose.",
-    "Craft high-stakes, engaging narrative outros and calls-to-action instead of relying on generic filler text.",
-    "Create a compelling narrative arc instead of relying on generic countdown lists that cause viewer drop-off.",
+    "Build a clear narrative arc and relevant outros and calls-to-action instead of generic countdown filler; never invent stakes to improve a story score.",
     "Use unique and specific hooks instead of overused generic tech creator tropes.",
     "Avoid prolonged static shots of documentation or code scrolling; switch visuals dynamically to maintain pacing.",
-    "Ensure every outro and call-to-action features relevant, high-context visuals instead of generic backgrounds.",
-    "Verify that every visual asset or screenshot accurately matches the technical reality of the software being discussed.",
+    "Use relevant, contextual visuals through the outro and CTA; verify that assets and screenshots match the technical reality of the software discussed.",
     "Maintain consistency when citing engagement metrics by sticking to a single verified source type.",
     "Keep all text elements safely within the inner title-safe zone and away from the top and bottom edges.",
     "Ensure captions and subtitles have sufficient padding to avoid being clipped by screen interfaces."
+  ],
+  "produktionsdiagnosen": [
+    {
+      "datum": "2026-10-06",
+      "quelle": "GitHub-Produktionsbericht, Skript und Joblog; kein Nutzerqualitaetsurteil",
+      "run_id": 37434817863,
+      "artifact_id": 11398733278,
+      "status": "gesperrt_vor_videobau",
+      "story_note": 7,
+      "aufloesung_note": 6,
+      "sekunden": 1145.6,
+      "befunde": [
+        "Generatives Sprachmodell und nicht-generative Entscheidungsmodelle wurden unter Hallucination-Free AI zusammengefasst.",
+        "Faktenpruefer verwarfen mehrere Story-Ueberarbeitungen wegen unbelegter Detail-/Hardwareaussagen.",
+        "Im gespeicherten Entwurf bleibt single forward pass als unbelegter Detailhinweis stehen.",
+        "Der Kritiker schlug eine neue Null-Halluzinations-Garantie und andere Tools vor; diese Vorschlaege sind keine Quellen.",
+        "Kein Video erzeugt, keine Video-Note und keine Telegram-Videozustellung."
+      ]
+    }
   ]
 }

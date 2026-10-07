@@ -146,6 +146,14 @@ class Wortgrenze(unittest.TestCase):
         quelle = (Path(__file__).resolve().parents[1] / 'fabrik' / 'skript.py').read_text(encoding='utf-8')
         self.assertIn('(2.65 if lang else 2.4)', quelle)
 
+    def test_autorenauftrag_nennt_dieselbe_grenze(self):
+        # Vor dem Fix nannte der Auftrag noch 170-261 Woerter, die Pruefung erlaubte 216.
+        import json, skript
+        kanal = json.loads((Path(__file__).resolve().parents[1] / 'kanaele/business-origin-stories.json')
+                           .read_text(encoding='utf-8'))
+        with patch('prompts.skript', side_effect=lambda k, t, f, b, w: w):
+            self.assertEqual(skript.anweisung(kanal, 'WeWork', []), '170-216')
+
 
 if __name__ == '__main__':
     unittest.main()

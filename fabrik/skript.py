@@ -343,7 +343,9 @@ def story_bewerten(entwurf):
 def anweisung(kanal, thema, frueher):
     import prompts
     lmin, lmax = dramaturgie.laengen(kanal)
-    wmin, wmax = (2.35, 2.65) if dramaturgie.videoformat(kanal) == 'lang' else (2.75, 2.9)
+    # Muss zur Pruefgrenze in main() passen (Short 2.4), sonst schreibt der Autor zu lang
+    # und jede Fassung wird verworfen.
+    wmin, wmax = (2.35, 2.65) if dramaturgie.videoformat(kanal) == 'lang' else (2.75, 2.4)
     woerter = f'{int(lmin * wmin)}-{int(lmax * wmax)}'
     winkel = kanal.get('winkel', [])
     blick = kanal.get('_winkel') or (winkel[datetime.date.today().toordinal() % len(winkel)] if winkel else '')

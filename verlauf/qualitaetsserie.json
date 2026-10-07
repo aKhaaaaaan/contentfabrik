@@ -1039,6 +1039,100 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "37656294660.1:ai-tools-explained",
+      "run_id": "37656294660",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-07T17:17:30.735619+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "67a2b5729943f1208ceb0aff52f1158628dcdd45",
+      "produktionsversion": "a29334c33321da46b8f6d55c6263b9aaf1b708b1fecc44701d4f57be43fdf5e4",
+      "videoformat": "short",
+      "thema": "Whirl: an open-source AI chat app you can self-host",
+      "titel": [
+        "Run Your Own",
+        "*AI* *Chat* App"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "37656294660",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-07",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 180.1,
+            "bau_s": 450.9,
+            "status": "baufehler",
+            "sekunden": 631.0
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 1.8,
+            "status": "baufehler",
+            "sekunden": 1.8
+          },
+          {
+            "runde": 3,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 2.7,
+            "status": "baufehler",
+            "sekunden": 2.7
+          },
+          {
+            "runde": 4,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 3.7,
+            "status": "baufehler",
+            "sekunden": 3.7
+          },
+          {
+            "runde": 5,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 2.2,
+            "status": "baufehler",
+            "sekunden": 2.2
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Videobau fehlgeschlagen",
+        "sekunden": 641.5
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [
+          "So can you run your own chat app? Yes, but it takes setup, not a single download. - The source describes the required setup steps but does not state that the app cannot be run from a single download; the claim \"not a single download\" is unsupported."
+        ],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

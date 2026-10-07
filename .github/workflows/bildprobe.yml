@@ -1,0 +1,42 @@
+# Probe: Gemini-Bildmodelle (Gratiskontingent?) mit der Business-Figur als Referenz.
+# Manuell starten; Ergebnis und Bilder kommen nach Telegram.
+name: bildprobe
+on:
+  workflow_dispatch:
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bilder erzeugen
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python3 fabrik/bildprobe_gemini.py proben
+      - name: In Telegram schicken
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python3 - <<'EOF'
+          import json, os, urllib.request, uuid
+          token, chat = os.environ['TELEGRAM_BOT_TOKEN'], os.environ['TELEGRAM_CHAT_ID']
+          def tg(methode, felder, datei=None):
+              grenze = uuid.uuid4().hex
+              teile = [f'--{grenze}\r\nContent-Disposition: form-data; name="{k}"\r\n\r\n{v}\r\n'.encode()
+                       for k, v in felder.items()]
+              if datei:
+                  teile.append(f'--{grenze}\r\nContent-Disposition: form-data; name="photo"; filename="{datei[0]}"\r\n'
+                               'Content-Type: image/png\r\n\r\n'.encode() + datei[1] + b'\r\n')
+              teile.append(f'--{grenze}--\r\n'.encode())
+              req = urllib.request.Request(f'https://api.telegram.org/bot{token}/{methode}', data=b''.join(teile),
+                                           headers={'Content-Type': f'multipart/form-data; boundary={grenze}'})
+              return json.load(urllib.request.urlopen(req, timeout=60))
+          ergebnis = json.load(open('proben/bildprobe.json', encoding='utf-8'))
+          for e in ergebnis:
+              if e.get('datei'):
+                  tg('sendPhoto', {'chat_id': chat, 'caption': f'🖼️ Bildprobe {e["modell"]} (gratis, mit deiner Figur)'},
+                     (e['datei'], open('proben/' + e['datei'], 'rb').read()))
+              else:
+                  tg('sendMessage', {'chat_id': chat, 'text': f'🖼️ Bildprobe {e["modell"]}: kein Bild ({e["status"][:200]})'})
+          EOF

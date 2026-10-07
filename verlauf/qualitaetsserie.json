@@ -477,6 +477,97 @@
         "probleme": [],
         "leicht": []
       }
+    },
+    {
+      "id": "37602505284.1:business-origin-stories",
+      "run_id": "37602505284",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-07T09:55:45.964868+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "eb57a8b38feefac7ffb06e5829d14a48be088969",
+      "produktionsversion": "1ca9b14acc3584fe46bd66ca4bba1e5f531e49a7b07525b4bed39e94ccf1078f",
+      "videoformat": "short",
+      "thema": "KFC Business Origin Story",
+      "titel": [
+        "Pressure Fryer Hack",
+        "The Secret *Chicken* Empire"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "37602505284",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-07",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "skript_probleme": [
+              "Clause \"Harland Sanders began serving travelers from a roadside filling station\" is a historical fact missing its 1930 date.",
+              "Clause \"He eventually finalized his recipe of 11 herbs and spices\" is a historical fact missing its July 1940 date.",
+              "Clause \"He franchised the recipe to Pete Harman\" is a historical fact missing its 1952 date.",
+              "Clause \"When a new interstate bypassed his restaurant, Sanders sold his properties\" is a historical fact missing its 1955 date.",
+              "Clause \"Harman soon introduced the iconic 14-piece cardboard bucket meal\" is a historical fact missing its 1957 date.",
+              "Clause \"Success made this the largest fast-food operation in the United States\" is a historical fact missing its 1963 date.",
+              "Clause \"He sold the corporation to investors for 2 million dollars\" is a historical fact missing its 1964 date.",
+              "Clause \"Currently, the brand operates in 150 countries\" uses \"Currently\" but the source explicitly dates the 150-country scope to \"as of September 2025\".",
+              "Clause \"It remains the world's second-largest restaurant chain by sales\" uses the present tense \"remains\" but the source explicitly dates this rank to \"as of September 2025\".",
+              "Clause \"11 herbs\" in the description omits \"and spices\" which is a material part of the recipe name mentioned in the source.",
+              "[second checker] After receiving an honorary title of Kentucky Colonel, he began dressing the part. - The source states Sanders was given an honorary Kentucky Colonel title in 1936, but he only began dressing the part after being recommissioned as a Kentucky Colonel in 1950. The claim links the dressing directly to the earlier honorary title, which is not supported."
+            ],
+            "sekunden": 672.9
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Faktenpruefung nicht bestanden",
+        "sekunden": 672.9
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": false,
+        "probleme": [
+          "Clause \"Harland Sanders began serving travelers from a roadside filling station\" is a historical fact missing its 1930 date.",
+          "Clause \"He eventually finalized his recipe of 11 herbs and spices\" is a historical fact missing its July 1940 date.",
+          "Clause \"He franchised the recipe to Pete Harman\" is a historical fact missing its 1952 date.",
+          "Clause \"When a new interstate bypassed his restaurant, Sanders sold his properties\" is a historical fact missing its 1955 date.",
+          "Clause \"Harman soon introduced the iconic 14-piece cardboard bucket meal\" is a historical fact missing its 1957 date.",
+          "Clause \"Success made this the largest fast-food operation in the United States\" is a historical fact missing its 1963 date.",
+          "Clause \"He sold the corporation to investors for 2 million dollars\" is a historical fact missing its 1964 date.",
+          "Clause \"Currently, the brand operates in 150 countries\" uses \"Currently\" but the source explicitly dates the 150-country scope to \"as of September 2025\".",
+          "Clause \"It remains the world's second-largest restaurant chain by sales\" uses the present tense \"remains\" but the source explicitly dates this rank to \"as of September 2025\".",
+          "Clause \"11 herbs\" in the description omits \"and spices\" which is a material part of the recipe name mentioned in the source.",
+          "[second checker] After receiving an honorary title of Kentucky Colonel, he began dressing the part. - The source states Sanders was given an honorary Kentucky Colonel title in 1936, but he only began dressing the part after being recommissioned as a Kentucky Colonel in 1950. The claim links the dressing directly to the earlier honorary title, which is not supported."
+        ],
+        "leicht": []
+      }
     }
   ]
 }

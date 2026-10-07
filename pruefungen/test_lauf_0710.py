@@ -140,6 +140,14 @@ class Geraeusche(unittest.TestCase):
         self.assertIn('geraeusch', dramaturgie.auftrag({'videoformat': 'short'}))
 
 
+class KeineBildschirme(unittest.TestCase):
+    def test_szenenregel_verbietet_bildschirm_als_motiv(self):
+        # Vor dem Fix verlangten Bildplaene Dashboards/Monitore -> lesbare Zahlen, Bilder verworfen.
+        import prompts
+        self.assertIn('Never make a screen', prompts.SZENEN)
+        self.assertIn('physical', prompts.SZENEN)
+
+
 class Wortgrenze(unittest.TestCase):
     def test_short_hoechstens_216_woerter(self):
         # Vor dem Fix: 90 s * 2.9 = 261 Woerter erlaubt -> 117 s Ton, Tempo 1.25.

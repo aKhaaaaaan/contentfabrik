@@ -46,13 +46,14 @@ jobs:
         run: |
           git config user.name 'contentfabrik-bot'
           git config user.email 'contentfabrik-bot@users.noreply.github.com'
-          for pfad in vorrat lernen; do
+          for pfad in vorrat lernen verlauf themen; do
             [ ! -d "$pfad" ] || git add -- "$pfad"
           done
           git diff --cached --quiet && exit 0
           git commit -qm "Skript-Vorrat aktualisiert"
           for i in 1 2 3 4 5; do
-            git pull -q --rebase || exit 1
+            # Weitere Laufdateien (z. B. Kontingentstand) duerfen das Sichern nicht blockieren.
+            git pull -q --rebase --autostash || exit 1
             git push -q && exit 0
             sleep $((i * 5))
           done

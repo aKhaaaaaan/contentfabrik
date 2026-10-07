@@ -825,6 +825,23 @@ def angleichen(woerter, skripttext):
     return aus
 
 
+def musik_kette(pegel, laenge, pausen=(), stille=0.55):
+    """ffmpeg-Filter fuer das Musikbett.
+
+    GEMELDET 07.10.2026: Zuschauer sollen nicht wegwischen; rund 70 % entscheiden in
+    den ersten 2 s. Darum kein 1-s-Einblenden mehr (Musik von Bild 1 an da), und vor
+    jedem Wendepunkt setzt die Musik ~0,5 s ganz aus - die Stille vor Riser-Ende und
+    Impact ist ein Musterbruch. Pausen in den ersten 2 s und am Ende entfallen.
+    """
+    fenster = [(max(0.0, t - stille), t) for t in sorted(set(pausen)) if 2.0 <= t <= laenge - 1.5]
+    kette = (f'loudnorm=I=-18:TP=-3:LRA=7,aresample=48000,volume={pegel},afade=t=in:d=0.05,'
+             f'afade=t=out:st={max(0, laenge - 1.2):.3f}:d=1.2')
+    if fenster:
+        bedingung = '+'.join(f'between(t,{a:.3f},{b:.3f})' for a, b in fenster)
+        kette += f",volume=0:enable='{bedingung}'"
+    return kette
+
+
 def illustration_mit_ausweg(szene, ziel, kanal_slug, mit_figur, rand, videoformat):
     """Illustration; scheitert das Einsetzen der Kanalfigur, nicht das ganze Video verlieren.
 
@@ -1072,6 +1089,7 @@ def main(skript_pfad, aus, vorlage=None):
     kartenvideo = any(str(t.get('quelle_url', '')).startswith('http') for t in s['teile'])
     with messen('clips_und_stuecke'):
         ereignisse = [(0.0, 'impact')] if H > B else []
+        musikpausen = []  # Wendepunkte: Musik setzt kurz davor aus (Stille als Musterbruch)
         kanal_slug = re.sub(r'[^a-z0-9]+', '-', s.get('kanal', '').lower()).strip('-')
         FORTSCHRITT['plaetze'] = sorted((t['platz'] for t in s['teile'] if t.get('platz')), reverse=True)
         FORTSCHRITT['aktuell'] = None
@@ -1081,6 +1099,7 @@ def main(skript_pfad, aus, vorlage=None):
             FORTSCHRITT['aktuell'] = t.get('platz') or FORTSCHRITT['aktuell']
             if phasenstart and (t.get('platz') == 1 or (i > 0 and t.get('beat') == 'wendung')):
                 ereignisse += [(t0, 'riser'), (t0, 'impact')]
+                musikpausen.append(t0)
             key = rendercache.stueck_key(visuell, i, dauer, code_key)
             alt = cache.get('stuecke', {}).get(str(i), {})
             if alt.get('key') == key and rendercache.dateien_ok(aus, alt.get('dateien', [])):
@@ -1329,8 +1348,7 @@ def main(skript_pfad, aus, vorlage=None):
             # Musik: Grundpegel -20 dB, unter der Stimme automatisch weitere ~10 dB
             # leiser (Sidechain) - die Stimme bleibt immer klar verstaendlich.
             '-filter_complex',
-            ((f'[2:a]loudnorm=I=-18:TP=-3:LRA=7,aresample=48000,volume={musik_pegel},afade=t=in:d=1,'
-              f'afade=t=out:st={max(0, sum(laengen) - 1.2):.3f}:d=1.2[m];'
+            ((f'[2:a]{musik_kette(musik_pegel, sum(laengen), musikpausen)}[m];'
               '[1:a]aresample=48000,asplit=2[v][sc];'
               '[m][sc]sidechaincompress=threshold=0.015:ratio=6:attack=15:release=350[md];'
               f'[{fx}:a]aresample=48000,volume={effekt_pegel}[fx];'

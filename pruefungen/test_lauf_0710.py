@@ -82,6 +82,29 @@ class FigurAusweg(unittest.TestCase):
         self.assertEqual(bild.call_count, 1)
 
 
+class Fesseln(unittest.TestCase):
+    """Nutzerwunsch: nicht wegwischen. Vorher 1 s Einblenden, keine Stille vor der Wendung.
+    Mit echtem ffmpeg 7.1 nachgemessen: Pegel ab 0,05 s voll, 5,45-6,0 s exakt 0."""
+
+    def test_musik_sofort_und_still_vor_wendung(self):
+        import bauen
+        k = bauen.musik_kette(0.1, 80, [30.0])
+        self.assertIn('afade=t=in:d=0.05', k)
+        self.assertNotIn('afade=t=in:d=1,', k)
+        self.assertIn("volume=0:enable='between(t,29.450,30.000)'", k)
+
+    def test_keine_pause_am_anfang_oder_ende(self):
+        import bauen
+        self.assertNotIn('enable', bauen.musik_kette(0.1, 80, [1.0, 79.5]))
+
+    def test_skriptauftrag_verlangt_wendung_ohne_begruessung(self):
+        import dramaturgie
+        a = dramaturgie.auftrag({'videoformat': 'short'})
+        self.assertIn('beat wendung', a)
+        self.assertIn('No greeting', a)
+        self.assertIn('like', a.lower())  # Like/Teilen/Speichern bleibt Pflicht
+
+
 class Wortgrenze(unittest.TestCase):
     def test_short_hoechstens_216_woerter(self):
         # Vor dem Fix: 90 s * 2.9 = 261 Woerter erlaubt -> 117 s Ton, Tempo 1.25.

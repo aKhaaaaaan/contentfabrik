@@ -29,7 +29,8 @@ class ThemenTest(TempTest):
         self.assertEqual([x['thema'] for x in themen.laden()], [f'Marke {i}' for i in range(1, 11)])
         self.assertEqual(len({x['id'] for x in themen.laden()}), 10)
         ki.assert_not_called()
-        tg.assert_called_once_with('getUpdates', offset=0, limit=100)
+        tg.assert_called_once_with('getUpdates', offset=0, limit=100,
+                                   allowed_updates='["message", "callback_query"]')
         self.assertEqual(themen.telegram_laden()['offset'], 21)
 
     def test_wiederholte_updates_duplizieren_keine_themen(self):

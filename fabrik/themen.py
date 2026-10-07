@@ -100,7 +100,9 @@ def abholen():
     zustand = telegram_laden()
     # Dieser Offset stammt aus dem gesicherten Repository. Neue Nachrichten
     # erst nach Git-Push bestaetigen, damit ein Pushfehler keine Ideen verliert.
-    antwort = _tg('getUpdates', offset=zustand['offset'], limit=100)
+    # callback_query ausdruecklich anfordern: ein frueher gesetzter Filter bliebe sonst bestehen.
+    antwort = _tg('getUpdates', offset=zustand['offset'], limit=100,
+                  allowed_updates=json.dumps(['message', 'callback_query']))
     if antwort.get('ok') is False:
         raise RuntimeError('Telegram-Eingang abgelehnt')
     updates = antwort.get('result', [])
@@ -111,10 +113,26 @@ def abholen():
         if u['update_id'] < zustand['offset']:
             continue
         zustand['offset'] = u['update_id'] + 1
+        import bewertung
+        cb = u.get('callback_query')
+        if cb:
+            # Nur Knoepfe unter Nachrichten in UNSEREM Chat zaehlen.
+            if str(((cb.get('message') or {}).get('chat') or {}).get('id')) == chat:
+                merken(u['update_id'], bewertung.knopf(u['update_id'], cb))
+                try:  # Telegram nimmt alte Antworten nicht mehr an - nur Ladeanzeige beenden
+                    _tg('answerCallbackQuery', callback_query_id=cb['id'], text='Gespeichert')
+                except Exception:
+                    pass
+            continue
         m = u.get('message') or {}
         text = (m.get('text') or '').strip()
         if str(m.get('chat', {}).get('id')) != chat or not text:
             continue
+        if m.get('reply_to_message'):
+            antwort_video = bewertung.antwort_auf_video(u['update_id'], m)
+            if antwort_video:
+                merken(u['update_id'], antwort_video)
+                continue
         if text.startswith('/') or text.lower() in ('hilfe', 'help', 'hallo', 'hi', 'start', 'test'):
             merken(u['update_id'], HILFE)
             continue

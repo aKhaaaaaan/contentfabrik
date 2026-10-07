@@ -133,7 +133,9 @@ def nutzerfeedback(text, ident):
 def abgelehnt(video_hash):
     p = ORDNER / 'redaktion.json'
     d = json.loads(p.read_text(encoding='utf-8')) if p.exists() else {}
-    return any(e.get('video_sha256') == video_hash and e.get('status') == 'abgelehnt'
+    # Telegram-Knoepfe tragen nur die ersten 16 Zeichen (callback_data <= 64 Byte).
+    return any(e.get('status') == 'abgelehnt' and (e.get('video_sha256') == video_hash or (
+               e.get('video_sha256_prefix') and video_hash.startswith(e['video_sha256_prefix'])))
                for e in d.get('nutzerfeedback', []))
 
 

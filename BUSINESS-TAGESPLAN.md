@@ -161,3 +161,12 @@ Naechster konfigurierter regulaerer Start **08.10. um 10:23 Berlin** (08:23 UTC)
 mit neuem internen Tagesbudget. Das ist ein Starttermin, keine garantierte
 Videozustellung. Qualitaetsgates und Provider-Verfuegbarkeit bleiben erforderlich.
 Neun Ideen bleiben erhalten, bis die jeweilige neue MP4 wirklich gesendet wurde.
+
+## Abschliessende Pruefung
+
+Code auf `main`: `ddfbd92`. Linux-CI
+[37626916098](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37626916098)
+bestanden, **254 Tests in 1,684 Sekunden** plus Code-/Zeitplanchecks.
+Vorpruefung mit den echten aktuellen Budgetdateien lokal ausgefuehrt:
+`Offen: []`, wie beabsichtigt kein neuer Aufbau in den verbleibenden kleinen
+Tagesfenstern. Neue echte Filmproduktion mit Prompt v5 bleibt nachzuweisen.

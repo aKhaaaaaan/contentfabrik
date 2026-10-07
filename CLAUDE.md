@@ -16,6 +16,8 @@ Ausgabelimit/Laengenauftrag jetzt korrigiert; kleine Restfenster ohne
 geprueften Entwurf ueberspringen. Heute beide Kanaele nicht mehr startbar.
 Naechster regulaerer Start 08.10. 10:23 Berlin, kein Versandversprechen.
 Keine fertige MP4 behaupten.
+Code `ddfbd92` auf main, Linux-CI 37626916098 mit 254 Tests bestanden.
+Echte aktuelle Vorpruefung ergibt `Offen: []`; kein neuer Aufbau heute.
 Die folgenden Meldungen beschreiben aeltere Stufen desselben Tages.
 
 **Aktuell 07.10.:** [Betriebspruefung](BETRIEB-2026-10-07.md) zuerst lesen.

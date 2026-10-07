@@ -17,6 +17,12 @@ Videozustellung entfernen. Bedienung und Grenzen: [THEMEN-PER-TELEGRAM.md](THEME
 Dashboard zur Themeneingabe weiterhin nicht vorhanden. Die folgenden Angaben
 zum Wiederanlauf beschreiben fruehere Kontrollen dieses Tages.
 
+Code-Commit `15ee0d8` auf `main`. **236 Tests lokal bestanden**;
+Linux-CI [37606596885](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37606596885)
+erfolgreich, inklusive Kompilierung und Node-Zeitplanpruefung. Das beweist
+keinen neuen Film und keine erfolgreiche Themenaufnahme einer noch nicht
+eingereichten Nutzerliste. Keine Beispielthemen ungefragt einreihen.
+
 Nach Eintrag des Nutzers ist `GH_TOKEN` bestaetigt und der echte GitHub-
 Teststart aus Cloudflare erfolgreich (Run 37601775597). Normalcode danach
 wiederhergestellt, Secret erhalten. Normaler Cron-Nachweis noch offen.

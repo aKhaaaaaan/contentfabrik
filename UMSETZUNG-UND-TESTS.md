@@ -11,6 +11,10 @@ die gebauten Erweiterungen, ihre Dateien und die tatsaechlichen Pruefungen.
 `pruefungen/ergebnisse/2026-10-07/themen-budget-tests.json`.
 18 neue Regressionen gegenueber dem zuvor bestandenen Stand mit 218 Tests.
 
+Code-Commit `15ee0d8` deployed auf `main`, Linux-CI
+[37606596885](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37606596885)
+erfolgreich: Regression, Kompilierung und Node-Zeitplanchecks bestanden.
+
 Neue Regressionen in `test_themen_budget.py`, `test_betrieb.py` und
 `test_ki_speicher.py`: Zehnerliste ohne KI, Reihenfolge, Deduplizierung,
 ungueltige Listen, Rueckmeldung erst nach Sicherung, Speicher-/Telegram-

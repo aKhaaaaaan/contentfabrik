@@ -1437,6 +1437,82 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "37684594909.1:ai-tools-explained",
+      "run_id": "37684594909",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-07T20:59:05.284823+00:00",
+      "ereignis": "schedule",
+      "commit": "aa1d235c7804e389dfe1d119fa7e979e301c11af",
+      "produktionsversion": "093ff66b5c5b10e5c945b17ef38833d93904bc5f97fb27a5b92aaaf751564788",
+      "videoformat": "short",
+      "thema": "Whirl: an open-source AI chat app you can host yourself",
+      "titel": [
+        "Run Your Own",
+        "AI Chat App"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 6,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Skript-Note 6/10 unter 7/10",
+        "Skript-spannung 6/10 unter 7/10",
+        "Skript-ueberraschung 5/10 unter 7/10",
+        "Skript-tempo 6/10 unter 7/10",
+        "Skript-aufloesung 6/10 unter 7/10",
+        "Skript-teilbarkeit 5/10 unter 6/10",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "37684594909",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-07",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 6/10 unter 7/10",
+              "Skript-spannung 6/10 unter 7/10",
+              "Skript-ueberraschung 5/10 unter 7/10",
+              "Skript-tempo 6/10 unter 7/10",
+              "Skript-aufloesung 6/10 unter 7/10",
+              "Skript-teilbarkeit 5/10 unter 6/10"
+            ],
+            "story_note": 6,
+            "skript_probleme": [],
+            "sekunden": 190.2
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sekunden": 190.3
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

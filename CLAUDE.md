@@ -1,6 +1,12 @@
 # Einstieg fuer Claude
 
 **Aktuell 07.10.:** [Betriebspruefung](BETRIEB-2026-10-07.md) zuerst lesen.
+Nach Eintrag des Nutzers ist `GH_TOKEN` bestaetigt und der echte GitHub-
+Teststart aus Cloudflare erfolgreich (Run 37601775597). Normalcode danach
+wiederhergestellt, Secret erhalten. Normaler Cron-Nachweis noch offen.
+Erster Tageslauf ohne MP4: AI-Zeitbudget, Business unpassende Stadtportraets
+statt Kueche. Szenen-/Figurenreferenzen getrennt, Bau-Checkpoints und
+Fortsetzung desselben Skripts eingebaut; 218 Tests lokal bestanden.
 Cloudflare direkt geprueft: eigener Zeitplan-Worker fehlte, jetzt deployed
 und drei kompakte Cron-Trigger gespeichert. `GH_TOKEN` fehlte bei Kontrolle;
 Eingabedialog fuer den vorhandenen PAT vorbereitet, Nutzer informiert.

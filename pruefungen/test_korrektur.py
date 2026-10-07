@@ -245,6 +245,14 @@ class CacheTest(TempTest):
                 patch('bauen.clip_fuer', return_value=(Path('stock.mp4'), {'quelle': 'Pixabay', 'id': 3})), \
                 patch('bauen.karte_fuer', return_value=None), patch('bauen.musik_holen', return_value=(None, None)), \
                 patch('bauen.effekte_spur'), patch('bauen.foto_fuer', return_value=(None, None)):
+            with patch('bauen.clip_fuer', return_value=(None, None)), self.assertRaises(ValueError):
+                bauen.main('neu/skript.json', 'neu', 'alt')
+            # Ein Bildfehler verliert weder Stimme noch den bereits fertigen Clip.
+            checkpoint = rendercache.laden('neu')
+            self.assertEqual(checkpoint['audio']['key'], rendercache.audio_key(s, code))
+            self.assertIn('0', checkpoint['stuecke'])
+            self.assertNotIn('1', checkpoint['stuecke'])
+            self.assertFalse(Path('neu/short.mp4').exists())
             bauen.main('neu/skript.json', 'neu', 'alt')
         m = json.loads(Path('neu/messung.json').read_text())
         self.assertTrue(m['stimme_wiederverwendet'])

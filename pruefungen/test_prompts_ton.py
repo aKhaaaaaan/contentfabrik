@@ -149,6 +149,46 @@ class BildTest(TempTest):
         self.assertGreater(api.call_args.args[1]['height'], api.call_args.args[1]['width'])
         self.assertNotIn('steps', api.call_args.args[1])
 
+    def test_figur_verwendet_neue_szene_und_identitaet_als_getrennte_referenzen(self):
+        Path('figuren').mkdir()
+        Image.new('RGB', (800, 800)).save('figuren/test.jpg')
+        roh = self.png()
+        with patch.dict(os.environ, {'GEMINI_API_KEY': 'test'}), \
+                patch('illustration.FIGUREN', Path('figuren')), \
+                patch('illustration._anfrage', return_value=roh) as api, \
+                patch('illustration.pruefen', return_value={'ok': True, 'grund': ''}) as pruefer:
+            self.assertEqual(illustration.bild('host in restaurant kitchen', 'bild.jpg', 'test', figur=True), Path('bild.jpg'))
+        self.assertEqual(api.call_count, 2)
+        self.assertNotIn('datei', api.call_args_list[0].kwargs)
+        self.assertEqual(api.call_args.kwargs['datei'], roh)
+        self.assertEqual(api.call_args.kwargs['charakter'], Path('figuren/test.jpg'))
+        self.assertIn('Do not import the city backdrop', api.call_args.args[1]['prompt'])
+        self.assertEqual(pruefer.call_args.args[2], Path('figuren/test.jpg'))
+
+    def test_fehlende_szenenbasis_startet_keinen_falschen_portraetersatz(self):
+        Path('figuren').mkdir()
+        Image.new('RGB', (800, 800)).save('figuren/test.jpg')
+        with patch.dict(os.environ, {'GEMINI_API_KEY': 'test'}), \
+                patch('illustration.FIGUREN', Path('figuren')), \
+                patch('illustration._anfrage', return_value=None) as api, \
+                patch('illustration.pruefen') as pruefer:
+            self.assertIsNone(illustration.bild('host in restaurant kitchen', 'bild.jpg', 'test', figur=True))
+        self.assertEqual(api.call_count, 1)
+        pruefer.assert_not_called()
+
+    def test_beide_referenzen_werden_klein_als_multipart_uebertragen(self):
+        Image.new('RGB', (1000, 800)).save('ref.jpg')
+        d = {'success': True, 'result': {'image': base64.b64encode(b'bild').decode()}}
+        with patch.dict(os.environ, {'CLOUDFLARE_AI_TOKEN': 'test'}), \
+                patch('illustration.urllib.request.urlopen', return_value=antwort(d)) as api:
+            illustration._anfrage('flux-2-klein-4b', {'prompt': 'scene'}, self.png(), 'ref.jpg')
+        body = api.call_args.args[0].data
+        self.assertIn(b'name="input_image_0"', body)
+        self.assertIn(b'name="input_image_1"', body)
+        for part in body.split(b'Content-Type: image/jpeg\r\n\r\n')[1:]:
+            with Image.open(io.BytesIO(part.split(b'\r\n--')[0])) as im:
+                self.assertLess(max(im.size), 512)
+
     def test_referenz_upload_begrenzt_groesse_und_erhaelt_original(self):
         Image.new('RGB', (1000, 800)).save('ref.jpg')
         d = {'success': True, 'result': {'image': base64.b64encode(b'bild').decode()}}

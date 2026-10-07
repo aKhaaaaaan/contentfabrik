@@ -151,6 +151,26 @@ class BudgetTest(TempTest):
 
 
 class LaufTest(TempTest):
+    def test_baufehler_setzt_selbes_geprueftes_skript_mit_cache_fort(self):
+        self.feedback = [dict(KRITIK, note=10)]
+        baut = []
+        def fake(args, deadline):
+            if args[0] == 'fabrik/bauen.py':
+                baut.append(args)
+                if len(baut) == 1:
+                    return 1
+                Path(args[2], 'short.mp4').write_bytes(b'fertiges-video')
+            return self.fake_schritt(args, deadline)
+        with patch('lauf.schritt', side_effect=fake) as schritte, patch('lauf.melden'), \
+                patch('lauf.VERSUCHE_MAX', 2):
+            # Nur 600 Sekunden frei: neuer Entwurf passt nicht, Fortsetzung schon.
+            lauf.produzieren('kanaele/test.json', 'test', '', time.monotonic(), 600, self.themen)
+        self.assertEqual(sum(c.args[0][0] == 'fabrik/skript.py' for c in schritte.call_args_list), 1)
+        self.assertEqual(baut[1][-1], 'versuch1')
+        self.assertEqual(json.loads(Path('versuch1/skript.json').read_text()),
+                         json.loads(Path('versuch2/skript.json').read_text()))
+        self.assertEqual(json.loads(Path('ausgabe/bericht.json').read_text())['status'], 'gesendet')
+
     def setUp(self):
         super().setUp()
         Path('kanaele').mkdir()

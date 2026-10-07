@@ -1018,6 +1018,8 @@ def main(skript_pfad, aus, vorlage=None):
                   for i, (t, d) in enumerate(zip(s['teile'], laengen))]}, indent=2), encoding='utf-8')
     zustand = {'audio': {'key': akey, 'rate': rate, 'laengen': laengen, 'tempo': tempo},
                'bildplan': plan_cache, 'stuecke': {}}
+    # Auch bei einem spaeteren Bildfehler Stimme und Regie wiederverwenden.
+    rendercache.speichern(aus, zustand)
     bildablauf = {'videoformat': dramaturgie.videoformat(s), 'einstellungen': []}
     zeiten['stuecke_wiederverwendet'] = 0
     zeiten['stuecke_neu'] = 0
@@ -1056,6 +1058,7 @@ def main(skript_pfad, aus, vorlage=None):
                 bildablauf['einstellungen'].append(dict(shot, teil=None,
                     material_id=alt.get('material_id'), material_art=alt.get('material_art')))
                 zeiten['stuecke_wiederverwendet'] += 1
+                rendercache.speichern(aus, zustand)
                 continue
             zeiten['stuecke_neu'] += 1
             l0, q0, e0 = len(liste), len(quellen), len(ereignisse)
@@ -1069,6 +1072,7 @@ def main(skript_pfad, aus, vorlage=None):
                 bildablauf['einstellungen'].append(dict(shot, teil=None,
                     material_id=material_hash, material_art=material_art))
                 (aus / 'bildablauf.json').write_text(json.dumps(bildablauf, indent=2), encoding='utf-8')
+                rendercache.speichern(aus, zustand)
             stueck = aus / f'stueck_{i:02d}.mp4'
             ebene = aus / f'ebene_{i:02d}.png'
             modus = t.get('bildmodus', 'auto')

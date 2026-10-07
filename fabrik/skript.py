@@ -82,6 +82,7 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(),
             koerper['generationConfig']['temperature'] = temperatur
         for versuch in range(2):
             try:
+                print(f'KI-Anfrage: {modell}; Versuch {versuch + 1}', flush=True)
                 req = urllib.request.Request(
                     f'https://generativelanguage.googleapis.com/v1beta/models/{modell}:generateContent?key={schluessel}',
                     data=json.dumps(koerper).encode(), headers={'Content-Type': 'application/json'})
@@ -106,6 +107,7 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(),
                         print('KI-Pruefcache konnte nicht gespeichert werden; Ergebnis bleibt frisch geprueft')
                 return ergebnis, modell
             except Exception as e:  # Kontingent/Netz: kurz warten, dann naechster Versuch
+                print(f'KI-Anfrage fehlgeschlagen: {modell}; {type(e).__name__}', flush=True)
                 # Kein roher API-Fehler: URLs/Antworttexte koennen Zugangsdaten enthalten.
                 letzter = f'{modell}: {type(e).__name__}'
                 koerper_fehler = ''
@@ -307,7 +309,9 @@ def main(kanal_pfad, aus_pfad, thema=None):
     frueher = '; '.join(v['thema'] for v in verlauf[-60:])
 
     t0 = time.time()
+    print('Skript: Quellen fuer den Kanal abrufen', flush=True)
     zusatz, quellen = hinweise(kanal, thema)
+    print(f'Skript: {len(quellen)} Quellen abgerufen; Entwurf und Pruefungen folgen', flush=True)
     # Die Pruefung bekommt dieselben Quellen - sonst haelt sie eine heute
     # belegte Neuheit fuer „unverifizierbar", nur weil ihr Wissen aelter ist.
     def pruef_text():

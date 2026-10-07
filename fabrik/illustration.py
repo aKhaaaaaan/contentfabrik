@@ -23,7 +23,7 @@ FIGUREN = Path(__file__).resolve().parent.parent / 'figuren'
 GEZAEHLT = {'bilder': 0, 'abgelehnt': 0}
 
 
-def _anfrage(modell, felder, datei=None):
+def _anfrage(modell, felder, datei=None, charakter=None):
     token = os.environ.get('CLOUDFLARE_AI_TOKEN')
     if not token:
         return None
@@ -32,16 +32,15 @@ def _anfrage(modell, felder, datei=None):
     if datei or modell == 'flux-2-klein-4b':  # FLUX.2 erwartet auch ohne Referenz multipart
         # Laut Cloudflare muessen Referenzen kleiner als 512x512 sein.
         # Original im Projekt erhalten; nur die API-Kopie vorbereiten.
-        if datei:
-            with Image.open(datei) as im:
+        g = uuid.uuid4().hex
+        teile = [f'--{g}\r\nContent-Disposition: form-data; name="{k}"\r\n\r\n{v}\r\n'.encode() for k, v in felder.items()]
+        for index, referenz_datei in enumerate([p for p in (datei, charakter) if p is not None]):
+            with Image.open(io.BytesIO(referenz_datei) if isinstance(referenz_datei, bytes) else referenz_datei) as im:
                 referenz = ImageOps.exif_transpose(im).convert('RGB')
                 referenz.thumbnail((511, 511), Image.Resampling.LANCZOS)
                 puffer = io.BytesIO()
                 referenz.save(puffer, 'JPEG', quality=95)
-        g = uuid.uuid4().hex
-        teile = [f'--{g}\r\nContent-Disposition: form-data; name="{k}"\r\n\r\n{v}\r\n'.encode() for k, v in felder.items()]
-        if datei:
-            teile.append(f'--{g}\r\nContent-Disposition: form-data; name="input_image_0"; filename="ref.jpg"\r\n'
+            teile.append(f'--{g}\r\nContent-Disposition: form-data; name="input_image_{index}"; filename="ref.jpg"\r\n'
                          'Content-Type: image/jpeg\r\n\r\n'.encode() + puffer.getvalue() + b'\r\n')
         teile.append(f'--{g}--\r\n'.encode())
         daten, kopf['Content-Type'] = b''.join(teile), f'multipart/form-data; boundary={g}'
@@ -83,13 +82,32 @@ def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short'):
         return None
     ref = FIGUREN / f'{kanal}.jpg' if kanal else None
     ref = ref if figur and ref and ref.exists() else None
+    breite, hoehe = (1360, 768) if videoformat == 'lang' else (768, 1360)
+    szene_roh = None
+    if ref:
+        # Erst eine neue Szene aufbauen. Das Stadtportraet allein als Referenz
+        # hielt im KFC-Tageslauf beide Versuche im falschen Hintergrund fest.
+        szene_roh = _anfrage('flux-2-klein-4b', {'prompt': prompts.illustration(szene, False, videoformat=videoformat),
+                            'width': breite, 'height': hoehe})
+        if not szene_roh:
+            return None
+        try:
+            with Image.open(io.BytesIO(szene_roh)) as im:
+                im.verify()
+                if min(im.size) < 512:
+                    return None
+        except (OSError, ValueError):
+            return None
     korrektur = ''
     for v in range(versuche):
         text = prompts.illustration(szene, bool(ref), korrektur, videoformat)
+        if ref:
+            text = prompts.figur_in_szene(szene, korrektur, videoformat)
         if ref or v == 0:
             # Klein ist bei Cloudflare auf vier Schritte festgelegt.
-            breite, hoehe = (1360, 768) if videoformat == 'lang' else (768, 1360)
-            roh = _anfrage('flux-2-klein-4b', {'prompt': text, 'width': breite, 'height': hoehe}, datei=ref)
+            felder = {'prompt': text, 'width': breite, 'height': hoehe}
+            roh = (_anfrage('flux-2-klein-4b', felder, datei=szene_roh, charakter=ref) if ref
+                   else _anfrage('flux-2-klein-4b', felder))
         else:
             roh = _anfrage('flux-1-schnell', {'prompt': text, 'steps': 8})
         if not roh:

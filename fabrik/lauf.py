@@ -125,6 +125,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     versuch = 0
     korrekturen = 0
     basis = None  # bereits gebautes Video, das weiter verbessert/geprueft wird
+    bau_basis = None  # noch unvollstaendiger Bau; geprueftes Skript bleibt erhalten
     ausstehende_korrektur = None  # auch nach einem Ausfall der Video-Pruefung
     bericht = {'id': os.environ.get('GITHUB_RUN_ID') or uuid.uuid4().hex,
                'kanal': kanal, 'datum': budget.heute(), 'runden': [], 'status': 'offen'}
@@ -142,7 +143,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         pfad.write_text(json.dumps((liste + [bericht])[-60:], indent=2, ensure_ascii=False), encoding='utf-8')
     # Neuer Versuch nur, wenn er noch sicher ins Zeitbudget passt
     while versuch < VERSUCHE_MAX and (versuch == 0 or time.monotonic()
-            + (KORREKTUR_S if basis else VERSUCH_S) <= arbeit_ende):
+            + (KORREKTUR_S if basis or bau_basis else VERSUCH_S) <= arbeit_ende):
         versuch += 1
         ordner = Path(f'versuch{versuch}')
         shutil.rmtree(ordner, ignore_errors=True)
@@ -151,7 +152,12 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         runde = {'runde': versuch, 'art': 'korrektur' if basis else 'produktion'}
         bericht['runden'].append(runde)
         try:
-            if basis:
+            if bau_basis:
+                ordner.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(bau_basis / 'skript.json', ordner / 'skript.json')
+                r = 0
+                runde['art'] = 'bau_fortsetzen'
+            elif basis:
                 if basis[1] is None:
                     # Ein API-Ausfall rechtfertigt kein neues Skript oder Rendern.
                     shutil.copytree(basis[0], ordner)
@@ -206,7 +212,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                 continue
             b = (0 if basis and basis[1] is None else schritt(
                 ['fabrik/bauen.py', str(ordner / 'skript.json'), str(ordner)]
-                + ([str(basis[0])] if basis else []), arbeit_ende))
+                + ([str(bau_basis)] if bau_basis else [str(basis[0])] if basis else []), arbeit_ende))
             if b != 0:
                 letzter_grund = 'Videobau fehlgeschlagen'
                 print(f'Versuch {versuch}: {letzter_grund}')
@@ -214,7 +220,9 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                 runde['status'] = 'baufehler'
                 if basis:
                     break
+                bau_basis = ordner
                 continue
+            bau_basis = None
             (ordner / 'kritik.json').unlink(missing_ok=True)
             k = schritt(['fabrik/kritik.py', str(ordner / 'short.mp4'), str(ordner / 'skript.json'),
                          str(ordner / 'kritik.json')], arbeit_ende)

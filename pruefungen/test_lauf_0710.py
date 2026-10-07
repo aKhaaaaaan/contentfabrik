@@ -38,6 +38,17 @@ class GroqObjektStattText(unittest.TestCase):
         self.assertEqual(d['note'], 7)
 
     @patch.dict(os.environ, {'GROQ_API_KEY': 'x'})
+    def test_liste_statt_text_wird_angeglichen(self):
+        # Run 37659694533: '/teile/0/suche' expected string, but got array -> kein Skript.
+        schema = {'type': 'OBJECT', 'properties': {'teile': {'type': 'ARRAY', 'items': {
+            'type': 'OBJECT', 'properties': {'suche': {'type': 'STRING'}}, 'required': ['suche']}}},
+            'required': ['teile']}
+        roh = {'teile': [{'suche': ['coworking office', 'empty desks']}]}
+        with patch.object(av.urllib.request, 'urlopen', side_effect=groq_400(roh)):
+            d, _, _ = av.groq('p', schema, ausgabe_tokens=100)
+        self.assertEqual(d['teile'][0]['suche'], 'coworking office, empty desks')
+
+    @patch.dict(os.environ, {'GROQ_API_KEY': 'x'})
     def test_fehlendes_pflichtfeld_bleibt_fehler(self):
         with patch.object(av.urllib.request, 'urlopen', side_effect=groq_400({'schwaechen': []})):
             with self.assertRaises(RuntimeError):

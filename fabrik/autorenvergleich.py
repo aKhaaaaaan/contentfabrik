@@ -85,6 +85,9 @@ def angleichen(d, schema):
     if art == 'STRING' and isinstance(d, dict):
         return ' - '.join(str(v) for v in d.values() if isinstance(v, (str, int, float))
                           and not isinstance(v, bool))
+    # GEMESSEN 07.10.2026 (Run 37659694533): 'suche' kam als Liste von Suchwoertern.
+    if art == 'STRING' and isinstance(d, list) and all(isinstance(v, str) for v in d):
+        return ', '.join(v.strip() for v in d if v.strip())
     if art == 'OBJECT' and isinstance(d, dict):
         return {k: angleichen(v, schema['properties'][k]) if k in schema['properties'] else v
                 for k, v in d.items()}

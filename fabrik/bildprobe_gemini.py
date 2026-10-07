@@ -38,7 +38,10 @@ def erzeugen(modell, referenz):
         with urllib.request.urlopen(req, timeout=180) as r:
             d = json.load(r)
     except urllib.error.HTTPError as e:
-        return None, f'HTTP {e.code}: {e.read()[:400].decode("utf-8", "replace")}'
+        # 429 unterscheiden: 'limit: 0' = kein Gratiskontingent fuer Bilder, sonst heute verbraucht.
+        roh = e.read().decode('utf-8', 'replace')
+        kern = [z.strip() for z in roh.splitlines() if any(w in z for w in ('quota', 'limit', 'retryDelay'))]
+        return None, f'HTTP {e.code}: ' + ' | '.join(kern)[:1200]
     for c in d.get('candidates', []):
         for p in c.get('content', {}).get('parts', []):
             if str(p.get('inlineData', {}).get('mimeType', '')).startswith('image'):
@@ -53,11 +56,11 @@ def main(aus):
     ergebnis = []
     for modell in MODELLE:
         bild, status = erzeugen(modell, ref)
-        eintrag = {'modell': modell, 'status': status[:400]}
+        eintrag = {'modell': modell, 'status': status[:1200]}
         if bild:
             (aus / f'{modell}.png').write_bytes(bild)
             eintrag['datei'] = f'{modell}.png'
-        print(modell, '->', status[:200])
+        print(modell, '->', status[:1200])
         ergebnis.append(eintrag)
     (aus / 'bildprobe.json').write_text(json.dumps(ergebnis, indent=1, ensure_ascii=False), encoding='utf-8')
     return 0

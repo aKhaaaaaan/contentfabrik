@@ -56,8 +56,10 @@ Zustellfehler entfernt die Idee **nicht**. Erst nach erfolgreicher Telegram-
 Videozustellung wird genau der verwendete Eintrag entfernt. Ein manuell ueber
 GitHub vorgegebenes Thema und ein Pilot leeren die Telegram-Warteschlange nicht.
 Noch nicht eingebaut: Telegram-Befehle zum Umordnen/Loeschen und Dashboard-
-Bearbeitung. Ein dauerhaft ungeeignetes erstes Thema braucht daher eine
-gezielte Korrektur der Warteschlange, bevor nachfolgende Ideen drankommen.
+Bearbeitung. Als `recherche` markierte Ideen und noch nicht faellige Themen
+werden jetzt uebersprungen. Ein fehlerhaftes, weiterhin `bereit` markiertes
+Thema bleibt erhalten und braucht bei dauerhafter Ungeeignetheit eine Korrektur.
+Die echte Nutzerliste und ihr Tagesplan stehen in [BUSINESS-TAGESPLAN.md](BUSINESS-TAGESPLAN.md).
 
 ## Umsetzung und Grenzen fuer Claude
 

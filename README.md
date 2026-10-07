@@ -13,6 +13,13 @@ Neu am 07.10.: [Betriebsanalyse und Budgetkorrekturen](BETRIEB-2026-10-07.md).
 Unnoetige Themen-/Countdown-Schleifen korrigiert, Skriptzeit begrenzt und
 gepruefte Skriptzwischenfassungen vor optionalen Verbesserungen gesichert.
 
+Der [Business-Tagesplan](BUSINESS-TAGESPLAN.md) enthaelt jetzt die echte
+Telegram-Liste: neun recherchierbare Geschichten plus eine ungeklaerte Idee,
+aktiv eine je Tag. Reiner Text kann im Tageslauf bei Gemini-Ausfall begrenzt
+ueber Groq ausweichen; Fakten/Story/Video-Gates bleiben bestehen. Gepruefte
+Entwuerfe und Teilbau koennen maximal sechs Stunden zwischen Runs fortgesetzt
+werden. AI Tools Explained erklaert nun eine belegte praktische Anwendung.
+
 ## Was heute funktioniert
 
 1. Themen aus oeffentlichen Quellen oder der Telegram-Warteschlange.

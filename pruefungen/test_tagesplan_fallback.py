@@ -1,5 +1,5 @@
 """Tagesplanung, gepruefte Teilproduktion und Text-Ausweichweg ohne echte API-Aufrufe."""
-import copy, datetime, json, os, time
+import copy, datetime, json, math, os, time
 from pathlib import Path
 from unittest.mock import patch
 from test_betrieb import TempTest, SKRIPT
@@ -97,6 +97,36 @@ class EntwurfCacheTest(TempTest):
 
 
 class TextFallbackTest(TempTest):
+    def test_echter_wework_auftrag_passt_mit_vollstaendiger_quelle_ins_groq_budget(self):
+        root = Path(__file__).resolve().parents[1]
+        kanal = json.loads((root / 'kanaele/business-origin-stories.json').read_text(encoding='utf-8'))
+        quelle = json.loads((root / 'themen/quellen/telegram-597759583-1.json').read_text(encoding='utf-8'))
+        original = skript.anweisung(kanal, 'WeWork', '')
+        prompt = skript.groq_skriptauftrag(kanal, 'WeWork', [quelle], original, 170, 261)
+        ausgabeformat = {'type': 'json_schema', 'json_schema': {
+            'name': 'contentfabrik_antwort', 'strict': True, 'schema': av.groq_schema(skript.SKRIPT_SCHEMA)}}
+        reserve = math.ceil((len(prompt) + len(json.dumps(ausgabeformat))) / 3) + 2048
+        self.assertLessEqual(reserve, 7900)
+        self.assertIn(json.dumps(quelle['text'], ensure_ascii=False)[1:-1], prompt)
+        self.assertIn(quelle['url'], prompt)
+        self.assertIn('like', prompt.lower())
+        self.assertIn('share', prompt.lower())
+        self.assertIn('save', prompt.lower())
+
+    def test_kompakter_auftrag_erhaelt_fakten_und_story_reparaturen(self):
+        kanal = {'name': 'Business Origin Stories', 'format': 'geschichte'}
+        entwurf = {'thema': 'WeWork', 'titel_zeile1': 'OFFICE EMPIRE', 'teile': [
+            {'text': 'Preserve this supported narration.', 'szene': 'An original illustrated office scene.'}]}
+        for marker, ende in [('\nHere is a draft.', '\nDRAFT:\n'),
+                             ('\nREWRITE for a stronger story',
+                              '\nCURRENT DRAFT - improve THIS draft, preserve only source-supported facts:\n')]:
+            with self.subTest(marker=marker):
+                auftrag = 'Original instructions' + marker + '\nRemove the unsupported nine billion claim.'
+                auftrag += ende + json.dumps(entwurf)
+                prompt = skript.groq_skriptauftrag(kanal, 'WeWork', [], auftrag, 170, 261)
+                self.assertIn('Preserve this supported narration.', prompt)
+                self.assertIn('Remove the unsupported nine billion claim.', prompt)
+
     def test_text_bei_ausfall_groq_schema_geprueft_kein_kuenstliches_ok(self):
         with patch.dict(os.environ, {'CF_TEXT_FALLBACK': 'groq', 'GROQ_API_KEY': 'test'}), \
                 patch('skript._gemini', side_effect=RuntimeError('503')) as gem, \

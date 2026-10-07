@@ -42,7 +42,7 @@ import atexit  # noqa: E402
 atexit.register(_verbrauch_melden)
 
 
-def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(), cache=None):
+def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(), cache=None, fallback_prompt=None):
     """Text darf im Tageslauf ausweichen; Medien bleiben beim echten Vision-Modell."""
     kwargs = dict(temperatur=temperatur, bilder=bilder, modelle=modelle, dateien=dateien, cache=cache)
     fallback = os.environ.get('CF_TEXT_FALLBACK') == 'groq' and not bilder and not dateien
@@ -52,6 +52,7 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(),
         if not fallback or 'abgelehnt' in str(e):
             raise
     import autorenvergleich as av
+    prompt = fallback_prompt if fallback_prompt is not None else prompt
     global WIEDERVERWENDET
     modell = 'groq:' + av.GROQ_MODELL
     key = ki_speicher.cache_key(prompt, schema, [modell], temperatur, cache) if cache else None
@@ -68,8 +69,8 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(),
     ausgabe = 768 if any(k in schema.get('properties', {}) for k in ('probleme', 'schwaechen')) else 2048
     try:
         antwort, _, _ = av.groq(prompt, schema, ausgabe_tokens=ausgabe, deadline=ende)
-    except (RuntimeError, ValueError, OSError):
-        raise RuntimeError('Text-Ausweichweg nicht verfuegbar; keine Freigabe') from None
+    except (RuntimeError, ValueError, OSError) as e:
+        raise RuntimeError('Text-Ausweichweg nicht verfuegbar: ' + av.fehlertext(e)) from None
     if not ki_speicher.schema_ok(antwort, schema):
         raise RuntimeError('Text-Ausweichweg lieferte kein vollstaendiges Schema')
     if key:
@@ -346,6 +347,42 @@ def anweisung(kanal, thema, frueher):
     return prompts.skript(kanal, thema, frueher, blick, woerter)
 
 
+def groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens):
+    """Gleiche Quellen und konkrete Reparaturen, ohne lange technische Renderer-Regie."""
+    korrektur, entwurf = '', None
+    marker = next((m for m in ('\nHere is a draft.', '\nREWRITE for a stronger story') if m in auftrag), None)
+    if marker:
+        tail = auftrag[auftrag.index(marker):]
+        m = re.search(r'\n(?:CURRENT DRAFT[^\n]*|DRAFT):?\n(\{.*)$', tail, re.S)
+        if m:
+            entwurf = json.loads(m[1])
+            korrektur = tail[:m.start()]
+            entwurf = {k: entwurf[k] for k in ('thema', 'titel_zeile1', 'titel_zeile2',
+                       'beschreibung', 'teile') if k in entwurf}
+            entwurf['teile'] = [{k: t[k] for k in ('text', 'suche', 'szene', 'platz', 'name', 'quelle_url')
+                                 if k in t} for t in entwurf['teile']]
+    ranking = kanal.get('format', 'ranking') == 'ranking'
+    struktur = ('Strict countdown using only the supplied sources and their fixed ranks.' if ranking else
+                'One real obstacle, response and consequence; no invented crisis or emotions.'
+                if kanal.get('format') == 'geschichte' else
+                'One everyday problem, one documented tool, practical steps, supported use and honest limitation.')
+    return (prompts.DATEN + prompts.FAKTEN + prompts.SPRECHEN
+        + f'Write an original English video in {mindest}-{hoechstens} spoken words. '
+        + ('Use 24-50 unranked beats. ' if dramaturgie.videoformat(kanal) == 'lang' else
+           'Aim for 190-220 words in 8-10 short beats. ')
+        + struktur + ' First sentence max 9 words; answer the hook before the final request. '
+        + dramaturgie.interaktion(kanal) + prompts.SZENEN
+        + 'Original painted urban game-poster aesthetic, fictional presenter; no copied game characters. '
+          'Two factual title lines max 22/28 characters; keywords, description, hashtags and fitting '
+          'instrumental music searches. Preserve source URLs. Omit platz for nonrankings. '
+          'User ideas are research hypotheses, not verified facts. Return requested JSON only.\n'
+        + json.dumps({'channel': kanal['name'], 'topic': thema,
+            'user_request': kanal.get('_themenauftrag', {}),
+            'lessons': kanal.get('_regeln', [])[:4],
+            'sources': [{k: q.get(k, '') for k in ('name', 'text', 'url')} for q in quellen],
+            'current_draft': entwurf, 'corrections': korrektur}, ensure_ascii=False))
+
+
 def wiki_waehlen(thema, auftrag, schema, grenze):
     """Eindeutige Markennamen zuerst direkt recherchieren, ohne KI-Auswahl."""
     import trends
@@ -446,7 +483,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
         zusatz_ = ''
         nachgebessert = False
         for versuch in range(4):
-            e, m = gemini(auftrag + zusatz_, SKRIPT_SCHEMA)
+            e, m = gemini(auftrag + zusatz_, SKRIPT_SCHEMA,
+                         fallback_prompt=groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens) + zusatz_)
             ranking = kanal.get('format', 'ranking') == 'ranking'
             if not ranking:
                 for teil in e['teile']:

@@ -93,11 +93,31 @@ Die konkreten Kontingente/Verfuegbarkeit gelten fuer das eingerichtete Konto;
 ein erreichbarer Dienst beweist keine 10/10-Qualitaet. Google listet aktuelle
 Modelle in seiner [API-Dokumentation](https://ai.google.dev/gemini-api/docs/models).
 
-**250 lokale Regressionstests bestanden**, 6,315 Sekunden. Neue Faelle:
+**252 lokale Regressionstests bestanden**, 8,729 Sekunden. Prompt `2026-10-07.4`. Neue Faelle:
 Listenueberschrift, bereite/recherchierte/zukuenftige Ideen, Quellenalter und
 Artikelbindung, Tagesziel, providerbezogener Text-Fallback, falsches Schema,
 keine Vision-Umgehung, kein Aufruf nach Deadline, cachefaehiger Teilbau,
 Thema-/Profil-/Hash-/Altersbindung und keine TTL-Verlaengerung durch Bauarbeit.
 Nachweis: `pruefungen/ergebnisse/2026-10-07/tagesplan-fallback-tests.json`.
 Diese Tests verwenden simulierte Dienste. Reale neue Film-/Versandergebnisse
-separat nachtragen; 250 Tests sind kein Nachweis einer Videozustellung.
+separat nachtragen; 252 Tests sind kein Nachweis einer Videozustellung.
+
+Linux-CI fuer Code-Commit `68c1ace` erfolgreich:
+[37623020063](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37623020063),
+einschliesslich Kompilierung und Node-Zeitplanchecks. Danach um **14:44 Berlin**
+ein neuer echter Tageslauf aus der Nutzerwarteschlange gestartet:
+[37623180283](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37623180283).
+Kein Budget reset, keine Pilot-Vorlage, keine alte MP4 erneut gesendet.
+Dieser Versuch endete **ohne Video**: der neue Groq-Ausweichweg lehnte den
+zu grossen Skriptauftrag lokal ab, bevor irgendeine Groq-Anfrage gestellt wurde.
+13 Sekunden statt langer Wiederholungen; Business danach 1324,719 von 1800
+Sekunden verbraucht. Rund 475 Sekunden verbleiben, kein Budgetreset.
+
+Korrektur: kompakter Groq-Skriptauftrag mit unveraenderten vollstaendigen
+Quellen und konkreten Fakten-/Story-Reparaturauftraegen. Technische Renderer-
+Regie gekuerzt. Der reale WeWork-Auftrag mit 7.000 Zeichen Quelle braucht
+konservativ ca. 6.387 statt 9.242 Tokens einschliesslich Ausgabe-/Schemareserve
+(Grenze 7.900). Eigene Regressionen pruefen genau diesen realen Auftrag und
+das Erhalten eines bestehenden Entwurfs samt Reparaturhinweisen. Sichere
+Fehlerdetails werden protokolliert, statt alle Ausfaelle pauschal zu verstecken.
+Die API-Erreichbarkeit und eine fertige MP4 sind dadurch noch nicht bewiesen.

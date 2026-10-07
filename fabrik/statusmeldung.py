@@ -56,6 +56,22 @@ def text(phase, env=None):
         return f'⚠️ {titel}: Kein freigegebenes Video zugestellt.\nGrund: {grund[:600]}\n{url}'
     if phase == 'nachricht':
         return e.get('NACHRICHT', '')
+    if phase == 'tagesstart':
+        kanaele = json.loads(e.get('KANAELE', '[]'))
+        if not isinstance(kanaele, list) or not kanaele or not all(isinstance(k, str) for k in kanaele):
+            raise ValueError('Keine gueltigen offenen Kanaele')
+        return ('Contentfabrik: Tageslauf angenommen fuer ' + ', '.join(kanaele)[:250] + '.\n'
+                'Die Kanaele werden nacheinander bearbeitet; Einrichtung und Pruefung folgen. '
+                'Ein Video kommt erst nach bestandener Freigabe. Ohne freigegebenes Video folgt eine Statusmeldung.\n' + url)
+    if phase == 'tagesende':
+        bericht = lesen(Path('ausgabe') / 'bericht.json')
+        # Nur eine bestaetigte Videozustellung unterdrueckt die Fehlermeldung.
+        if bericht.get('status') == 'gesendet' and e.get('PRODUKTION') == 'success':
+            return None
+        grund = e.get('GRUND') or fehlergrund()
+        if bericht.get('status') == 'gesendet':
+            return (f'{titel}: Video zugestellt, aber Nachbereitung fehlgeschlagen.\n{url}')
+        return f'{titel}: Kein freigegebenes Video zugestellt.\nGrund: {grund[:600]}\n{url}'
     raise ValueError('Unbekannte Statusmeldung')
 
 
@@ -70,7 +86,7 @@ def senden(nachricht):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('phase', choices=['start', 'fehlgeschlagen', 'nachricht', 'grund'])
+    parser.add_argument('phase', choices=['start', 'fehlgeschlagen', 'nachricht', 'grund', 'tagesstart', 'tagesende'])
     args = parser.parse_args()
     if args.phase == 'grund':
         grund = fehlergrund().replace('\n', ' ').replace('\r', ' ')
@@ -79,4 +95,8 @@ if __name__ == '__main__':
                 f.write('grund=' + grund + '\n')
         print(grund)
     else:
-        senden(text(args.phase))
+        nachricht = text(args.phase)
+        if nachricht is not None:
+            senden(nachricht)
+        else:
+            print('Video bereits bestaetigt zugestellt; keine zusaetzliche Statusmeldung.')

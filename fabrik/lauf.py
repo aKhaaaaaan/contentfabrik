@@ -23,7 +23,7 @@ PY = sys.executable
 
 
 def melden(text):
-    if os.environ.get('CF_PILOT') == '1':
+    if os.environ.get('CF_PILOT') == '1' or os.environ.get('CF_WORKFLOW_STATUS') == '1':
         print(text)
         return
     token, chat = os.environ.get('TELEGRAM_BOT_TOKEN'), os.environ.get('TELEGRAM_CHAT_ID')

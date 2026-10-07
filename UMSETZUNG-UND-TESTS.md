@@ -230,3 +230,11 @@ Vor Versand fertige MP4 kontrollieren, Fakten und Technik pruefen und die
 reale Telegram-Zustellung bestaetigen. Die automatische Gesamtpruefung und
 Unit-Tests garantieren keine 10/10 oder Zuschauerbindung; das Nutzerurteil
 bleibt entscheidend. Die 10/10-Zielsetzung darf keine Noten kuenstlich erhoehen.
+# Betriebsreparatur 07.10.2026
+
+Cloudflare direkt geprueft, fehlenden Zeitplan-Worker erstellt und Crons
+zurueckgelesen. Secret `GH_TOKEN` noch vom Nutzer einzutragen; kein erfolgreicher
+Cron-Dispatch behauptet. Taegliche Telegram-Startmeldung und bestaetigte
+Abschlussmeldung auch bei Qualitaetssperren mit Exit 0 eingebaut. 214 lokale
+Tests, Worker-Pruefungen und Compileall bestanden. Details:
+[BETRIEB-2026-10-07.md](BETRIEB-2026-10-07.md).

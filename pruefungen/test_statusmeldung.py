@@ -8,6 +8,38 @@ import statusmeldung
 
 
 class StatusTest(TempTest):
+    def test_tagesstart_meldet_wartende_kanaele_ohne_fertiges_video(self):
+        nachricht = statusmeldung.text('tagesstart', {'KANAELE': '["ai-tools-explained", "business-origin-stories"]'})
+        self.assertIn('ai-tools-explained', nachricht)
+        self.assertIn('business-origin-stories', nachricht)
+        self.assertIn('nacheinander', nachricht)
+        self.assertNotIn('Video zugestellt', nachricht)
+
+    def test_tagesstart_ohne_offene_kanaele_ist_fehler(self):
+        for kanaele in ('[]', '{}', '[1]'):
+            with self.assertRaises(ValueError):
+                statusmeldung.text('tagesstart', {'KANAELE': kanaele})
+
+    def test_erfolgreicher_job_mit_qualitaetssperre_meldet_keinen_film(self):
+        self.speichern(bericht={'status': 'gesperrt', 'grund': 'Video: 6/10'})
+        nachricht = statusmeldung.text('tagesende', {'PRODUKTION': 'success'})
+        self.assertIn('Kein freigegebenes Video zugestellt', nachricht)
+        self.assertIn('6/10', nachricht)
+
+    def test_bestaetigt_gesendeter_film_braucht_keine_zusaetzliche_meldung(self):
+        self.speichern(bericht={'status': 'gesendet'})
+        self.assertIsNone(statusmeldung.text('tagesende', {'PRODUKTION': 'success'}))
+
+    def test_versand_mit_nachfolgendem_produktionsfehler_meldet_nicht_keinen_film(self):
+        self.speichern(bericht={'status': 'gesendet'})
+        nachricht = statusmeldung.text('tagesende', {'PRODUKTION': 'failure'})
+        self.assertIn('Video zugestellt, aber Nachbereitung fehlgeschlagen', nachricht)
+        self.assertNotIn('Kein freigegebenes Video', nachricht)
+
+    def test_einrichtungsfehler_ohne_bericht_hat_ehrliche_statusmeldung(self):
+        nachricht = statusmeldung.text('tagesende', {'PRODUKTION': 'skipped'})
+        self.assertIn('Cloud-Lauf fehlgeschlagen oder abgebrochen', nachricht)
+
     def speichern(self, skript=None, bericht=None):
         Path('ausgabe').mkdir()
         if skript is not None:

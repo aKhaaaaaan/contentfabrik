@@ -75,6 +75,16 @@ jobs:
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
               f.write(f'kanaele={json.dumps(offen)}\n')
           EOF
+      - name: Tagesstart auf Telegram bestaetigen
+        if: steps.offen.outputs.kanaele != '[]'
+        # Eine Telegram-Stoerung soll die Videoproduktion nicht verhindern.
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          KANAELE: ${{ steps.offen.outputs.kanaele }}
+          CF_ORIGINAL_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python3 fabrik/statusmeldung.py tagesstart
   video:
     needs: vorpruefung
     if: needs.vorpruefung.outputs.kanaele != '[]'
@@ -128,6 +138,7 @@ jobs:
           key: ki-pruefungen-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.kanal }}
           restore-keys: ki-pruefungen-v1-${{ runner.os }}-
       - name: Erzeugen, pruefen, lernen, senden
+        id: produktion
         # fabrik/lauf.py: Erstbau und bis zu 2 gezielte Korrekturen im Tagesbudget;
         # gesendet wird ab Story und Video 7/10, jeder Kategorie 7/10,
         # mit bestandenen Fakten- und Technikpruefungen.
@@ -143,6 +154,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           KANAL: ${{ matrix.kanal }}
           THEMA: ${{ inputs.thema }}
+          CF_WORKFLOW_STATUS: '1'
         run: python fabrik/lauf.py "kanaele/${KANAL}.json" "$THEMA"
       - name: Tageslauf fuer die Qualitaetsserie erfassen
         if: always()
@@ -174,17 +186,16 @@ jobs:
       - name: Qualitaetsbericht
         if: always()
         run: python fabrik/bericht.py
-      - name: Meldung bei Fehlschlag
-        if: failure()
+      - name: Ergebnis ohne Video auf Telegram bestaetigen
+        # Qualitaetssperren koennen Exit 0 liefern: auch diese muessen gemeldet werden.
+        if: always()
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: |
-          grund="Lauf abgebrochen"
-          [ -f ausgabe/skript.json ] && ! grep -q '"ok": true' ausgabe/skript.json && grund="Faktenprüfung nicht bestanden"
-          curl -s -o /dev/null "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
-            --data-urlencode "text=⚠️ Heute kein Video für ${{ matrix.kanal }}: ${grund}. Details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          KANAL: ${{ matrix.kanal }}
+          PRODUKTION: ${{ steps.produktion.outcome }}
+          CF_ORIGINAL_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python fabrik/statusmeldung.py tagesende
       - uses: actions/upload-artifact@v4
         if: always()
         with:

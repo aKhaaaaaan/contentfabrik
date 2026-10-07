@@ -1,5 +1,13 @@
 # Einstieg fuer Claude
 
+**Aktuell 07.10.:** [Betriebspruefung](BETRIEB-2026-10-07.md) zuerst lesen.
+Cloudflare direkt geprueft: eigener Zeitplan-Worker fehlte, jetzt deployed
+und drei kompakte Cron-Trigger gespeichert. `GH_TOKEN` fehlte bei Kontrolle;
+Eingabedialog fuer den vorhandenen PAT vorbereitet, Nutzer informiert.
+Keinen funktionierenden Cron/GitHub-Dispatch behaupten, bevor nachgewiesen.
+Tageslauf manuell wieder gestartet, Telegram-Wiederanlaufstatus bestaetigt.
+Neue Start-/Abschlussmeldungen und Doppelstartschutz; 214 lokale Tests bestanden.
+
 Bitte zuerst [UEBERGABE-CLAUDE.md](UEBERGABE-CLAUDE.md) und danach
 [README.md](README.md), [PROMPTS.md](PROMPTS.md) und [KONZEPT.md](KONZEPT.md)
 lesen. Die Uebergabe beschreibt die neuen Aenderungen, den aktuellen

@@ -736,6 +736,13 @@ kein Mechanismus fuer unbegrenzte Ersatzstarts.
 
 ### Cloudflare-Zeitplan und vom Nutzer erstellter PAT
 
+**Aktualisierung 07.10.:** Die folgenden Angaben beschreiben den alten Stand.
+Der angemeldete Browser wurde inzwischen direkt genutzt: eigener Zeitplan-
+Worker fehlte, jetzt `contentfabrik-zeitplan` deployed und drei kompakte Crons
+gespeichert. `GH_TOKEN` fehlte bei Kontrolle; Dialog fuer den Nutzer vorbereitet.
+Live-Dispatch weiter offen. Vollstaendige Befunde, Wiederanlauf und Tests:
+[BETRIEB-2026-10-07.md](BETRIEB-2026-10-07.md).
+
 `cloudflare/zeitplan-worker.js` ist vorhanden und lokal mit fuenf Faellen
 geprueft. Er startet `video.yml` mit `kanal=alle` bzw. `themen.yml` ueber
 GitHub `workflow_dispatch`. Geplante UTC-Crons: `23 8 * * *`, `41 10 * * *`,

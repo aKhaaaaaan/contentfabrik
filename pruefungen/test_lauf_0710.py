@@ -105,6 +105,41 @@ class Fesseln(unittest.TestCase):
         self.assertIn('like', a.lower())  # Like/Teilen/Speichern bleibt Pflicht
 
 
+class Geraeusche(unittest.TestCase):
+    """Passende Geraeusche nur CC0 von Freesound; Ausfall kippt nie das Video.
+    Live geprueft 07.10.: 'cash register' -> Freesound CC0, Pegel 3,15-4,65 s, weich aus."""
+
+    def antwort(self, results):
+        return io.BytesIO(json.dumps({'results': results}).encode())
+
+    def test_nur_cc0_freesound_kurz(self):
+        import bauen, tempfile
+        results = [{'id': 'a', 'license': 'by', 'source': 'freesound', 'url': 'https://cdn.example/s.mp3', 'duration': 2000, 'title': 'x'},
+                   {'id': 'b', 'license': 'cc0', 'source': 'jamendo', 'url': 'https://cdn.example/s.mp3', 'duration': 2000, 'title': 'x'},
+                   {'id': 'c', 'license': 'cc0', 'source': 'freesound', 'url': 'https://cdn.example/s.mp3', 'duration': 900_000, 'title': 'x'},
+                   {'id': 'd', 'license': 'cc0', 'source': 'freesound', 'url': 'https://cdn.example/s.mp3', 'duration': 3000,
+                    'title': 'Cash register music loop'},
+                   {'id': 'ok', 'license': 'cc0', 'source': 'freesound', 'url': 'https://cdn.example/s.mp3', 'duration': 3000,
+                    'title': 'Cash register', 'creator': 'someone'}]
+        with tempfile.TemporaryDirectory() as t, patch.object(bauen, 'PIXABAY_CACHE', Path(t)), \
+                patch('urllib.request.urlopen', side_effect=[self.antwort(results), io.BytesIO(b'mp3')]):
+            pfad, nennung = bauen.geraeusch_holen('cash register')
+            self.assertEqual(pfad.name, 'geraeusch_ok.mp3')
+        self.assertIn('CC0', nennung)
+
+    def test_ausfall_liefert_nichts_statt_fehler(self):
+        import bauen
+        with patch('urllib.request.urlopen', side_effect=OSError('offline')):
+            self.assertEqual(bauen.geraeusch_holen('crowd cheering'), (None, None))
+        self.assertEqual(bauen.geraeusch_holen(''), (None, None))
+
+    def test_skript_darf_geraeusch_nennen(self):
+        import skript, dramaturgie
+        teil = skript.SKRIPT_SCHEMA['properties']['teile']['items']['properties']
+        self.assertIn('geraeusch', teil)
+        self.assertIn('geraeusch', dramaturgie.auftrag({'videoformat': 'short'}))
+
+
 class Wortgrenze(unittest.TestCase):
     def test_short_hoechstens_216_woerter(self):
         # Vor dem Fix: 90 s * 2.9 = 261 Woerter erlaubt -> 117 s Ton, Tempo 1.25.

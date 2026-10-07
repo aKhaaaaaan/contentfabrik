@@ -215,6 +215,7 @@ SKRIPT_SCHEMA = {
             'suche': {'type': 'STRING'}, 'text': {'type': 'STRING'}, 'quelle_url': {'type': 'STRING'},
             'szene': {'type': 'STRING'},
             'bildtext': {'type': 'STRING'},
+            'geraeusch': {'type': 'STRING'},  # optional: echtes Umgebungsgeraeusch der Szene
             'beat': {'type': 'STRING', 'enum': ['hook', 'frage', 'beleg', 'erklaerung', 'wendung', 'aufloesung']},
             'bildmodus': {'type': 'STRING', 'enum': ['auto', 'foto', 'stock', 'illustration', 'karte']}},
             'required': ['suche', 'text']}},

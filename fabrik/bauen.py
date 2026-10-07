@@ -100,11 +100,24 @@ def bildtext_layout(text, profil=None):
     return f, zeilen, LAYOUT.get('akzent_x', LAYOUT['mitte']), y
 
 
-def effekte_spur(ereignisse, laenge_s, rate, ziel, glitch=False):
+def effekte_spur(ereignisse, laenge_s, rate, ziel, glitch=False, geraeusche=()):
     """Tonspur nur mit Effekten: [(sekunde, 'whoosh'|'pop'), ...]. Whoosh-Varianten
     wechseln sich ab (immer derselbe Klang wirkt billig). Begrenzte kurze Effekte,
-    deutlich unter der Stimme."""
+    deutlich unter der Stimme. geraeusche: [(sekunde, mp3-Pfad)] passend zur Szene."""
     lade = {}
+    spur_geraeusche = []
+    for sek, pfad in geraeusche:
+        try:
+            roh = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', str(pfad), '-t', '2', '-f', 'f32le',
+                                  '-ac', '1', '-ar', str(rate), '-'], capture_output=True, check=True).stdout
+        except (OSError, subprocess.CalledProcessError):
+            continue
+        x = audioqualitaet.effekt(np.frombuffer(roh, dtype=np.float32), 'geraeusch', rate)
+        aus_n = min(len(x), int(rate * 0.3))  # weich ausklingen statt hart abgeschnitten
+        if aus_n:
+            x[-aus_n:] *= np.linspace(1, 0, aus_n, dtype=np.float32)
+        if 0 <= sek < laenge_s and len(x):
+            spur_geraeusche.append((int(sek * rate), x))
     def klang(name):
         if name not in lade:
             roh = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', str(SFX / f'{name}.mp3'), '-f', 'f32le',
@@ -134,6 +147,9 @@ def effekte_spur(ereignisse, laenge_s, rate, ziel, glitch=False):
         else:
             x = klang(art)
             start = int(sek * rate)
+        ende = min(len(spur), start + len(x))
+        spur[start:ende] += x[:ende - start]
+    for start, x in spur_geraeusche:
         ende = min(len(spur), start + len(x))
         spur[start:ende] += x[:ende - start]
     spur = audioqualitaet.begrenzen(spur)
@@ -241,6 +257,43 @@ def musik_holen(suchen):
         print('Musik:', nennung)
         return ziel, {'quelle': 'Musik', 'id': r['id'], 'nennung': nennung, 'seite': r.get('foreign_landing_url', '')}
     return None, None
+
+
+def geraeusch_holen(suche):
+    """Zur Szene passendes Geraeusch (z. B. Kasse, jubelnde Menge) ueber Openverse.
+
+    GEMELDET 07.10.2026: Ton soll fesseln; Codex-Vorgabe: Geraeusche muessen
+    inhaltlich passen. Bisher nur 6 allgemeine Effekte (sfx/). GEPRUEFT 07.10.2026:
+    Openverse liefert Freesound-Klaenge mit CC0 (z. B. 89 Treffer 'cash register');
+    der Filter category=sound_effect lieferte 0 Treffer, darum Quelle+Dauer pruefen.
+    Nur CC0: keine Namensnennungspflicht, jede Plattform. Gibt (pfad, nennung) oder
+    (None, None) - ein fehlendes Geraeusch kippt nie das Video.
+    """
+    import urllib.parse, urllib.request
+    suche = re.sub(r'[^A-Za-z ]', ' ', str(suche or '')).strip()[:40]
+    if len(suche.split()) < 1:
+        return None, None
+    try:
+        d = json.load(urllib.request.urlopen(urllib.request.Request(
+            'https://api.openverse.org/v1/audio/?' + urllib.parse.urlencode(
+                {'q': suche, 'license': 'cc0', 'page_size': 20}), headers=WIKI_KENNUNG), timeout=20))
+        treffer = [r for r in d.get('results', []) if r.get('license') == 'cc0' and r.get('url')
+                   and r.get('source') == 'freesound' and 300 <= (r.get('duration') or 0) <= 30_000
+                   and not re.search(r'\b(music|song|loop|beat|vocals?|speech)\b', str(r.get('title', '')), re.I)]
+        if not treffer:
+            return None, None
+        r = treffer[0]  # relevantester Treffer: das Geraeusch soll zur Szene passen
+        PIXABAY_CACHE.mkdir(exist_ok=True)
+        ziel = PIXABAY_CACHE / f"geraeusch_{re.sub(r'[^A-Za-z0-9-]', '', str(r['id']))[:60]}.mp3"
+        if not ziel.exists():
+            ziel.write_bytes(urllib.request.urlopen(urllib.request.Request(r['url'], headers=WIKI_KENNUNG),
+                                                    timeout=30).read())
+        nennung = f"Sound: \"{r.get('title', '')}\" by {r.get('creator') or 'unknown'} (CC0, via Freesound)"
+        print('Geraeusch:', suche, '->', nennung[:100])
+        return ziel, nennung
+    except Exception as e:
+        print('Geraeusch nicht geholt:', str(e)[:120])
+        return None, None
 
 
 def foto_fuer(bilder, satz, benutzt):
@@ -1090,6 +1143,7 @@ def main(skript_pfad, aus, vorlage=None):
     with messen('clips_und_stuecke'):
         ereignisse = [(0.0, 'impact')] if H > B else []
         musikpausen = []  # Wendepunkte: Musik setzt kurz davor aus (Stille als Musterbruch)
+        geraeusche = []  # (sekunde, mp3) passend zur Szene, hoechstens 3
         kanal_slug = re.sub(r'[^a-z0-9]+', '-', s.get('kanal', '').lower()).strip('-')
         FORTSCHRITT['plaetze'] = sorted((t['platz'] for t in s['teile'] if t.get('platz')), reverse=True)
         FORTSCHRITT['aktuell'] = None
@@ -1100,6 +1154,12 @@ def main(skript_pfad, aus, vorlage=None):
             if phasenstart and (t.get('platz') == 1 or (i > 0 and t.get('beat') == 'wendung')):
                 ereignisse += [(t0, 'riser'), (t0, 'impact')]
                 musikpausen.append(t0)
+            if phasenstart and i > 0 and str(t.get('geraeusch') or '').strip() and len(geraeusche) < 3:
+                pfad, nennung = geraeusch_holen(t['geraeusch'])
+                if pfad:
+                    geraeusche.append((t0 + 0.15, pfad))
+                    quellen.append({'quelle': 'Geraeusch', 'seite': 'Freesound via Openverse (CC0)',
+                                    'nennung': nennung})
             key = rendercache.stueck_key(visuell, i, dauer, code_key)
             alt = cache.get('stuecke', {}).get(str(i), {})
             if alt.get('key') == key and rendercache.dateien_ok(aus, alt.get('dateien', [])):
@@ -1328,7 +1388,7 @@ def main(skript_pfad, aus, vorlage=None):
     (aus / 'quellen.json').write_text(json.dumps(quellen, indent=2, ensure_ascii=False), encoding='utf-8')
     ereignisse = audioqualitaet.ereignisse(ereignisse, sum(laengen))
     effekte_spur(ereignisse, sum(laengen), rate, aus / 'effekte.wav',
-                 glitch=bool(FORTSCHRITT['plaetze']) and 'AI' in s.get('kanal', ''))
+                 glitch=bool(FORTSCHRITT['plaetze']) and 'AI' in s.get('kanal', ''), geraeusche=geraeusche)
     zeiten['effekte'] = len(ereignisse)
     # Effekte nicht in die Sidechain: nur die Stimme senkt die Musik ab
     fx = 3 if musik else 2

@@ -55,6 +55,9 @@ def auftrag(daten):
         'Optional bildtext: an exact contiguous 2-5 word phrase copied from that part\'s narration, '
         'maximum 26 characters, identifying its crucial detail; at most one in every two parts. '
         'It appears ONLY when those words are spoken, so choose useful details, not generic hype. '
+        'Optional geraeusch: 2-3 plain English words naming one literal, recognizable sound that '
+        'would really be heard in that part\'s scene (e.g. cash register, crowd cheering, rain on '
+        'window); at most 3 parts in a Short, never the first part; empty string when nothing fits. '
         + interaktion(daten))
     if videoformat(daten) == 'lang':
         return (gemeinsam + 'LONG FORM: Start with a specific outcome, surprising sourced detail or '

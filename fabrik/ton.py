@@ -40,8 +40,8 @@ def musikbett(ziel, technisch=False, rate=24000):
         w.writeframes((spur * 32767).astype(np.int16).tobytes())
     return Path(ziel)
 
-PEGEL = {'riser': 0.12, 'impact': 0.20, 'pop': 0.12, 'glitch': 0.10}
-LAENGE = {'riser': 2.0, 'impact': 0.8, 'pop': 0.25, 'glitch': 0.35}
+PEGEL = {'riser': 0.12, 'impact': 0.20, 'pop': 0.12, 'glitch': 0.10, 'geraeusch': 0.10}
+LAENGE = {'riser': 2.0, 'impact': 0.8, 'pop': 0.25, 'glitch': 0.35, 'geraeusch': 1.5}
 
 
 def sprechen(kokoro, text, stimme, tempo):

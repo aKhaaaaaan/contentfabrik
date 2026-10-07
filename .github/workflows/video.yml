@@ -199,7 +199,7 @@ jobs:
         run: |
           git config user.name 'contentfabrik-bot'
           git config user.email 'contentfabrik-bot@users.noreply.github.com'
-          for pfad in verlauf lernen themen; do
+          for pfad in verlauf lernen themen vorrat; do
             [ ! -d "$pfad" ] || git add -- "$pfad"
           done
           git diff --cached --quiet && exit 0

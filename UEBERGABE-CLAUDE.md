@@ -1,5 +1,15 @@
 # Uebergabe an Claude – Contentfabrik
 
+**Neu 07.10. nachts (Claude): Skript-Vorrat.** `fabrik/vorrat.py` +
+`.github/workflows/skripte.yml` (03:07 und 07:07 Berlin, manuell startbar)
+schreiben je Kanal bis zu 2 Skripte vor (Warteschlange zuerst) und nehmen nur
+Skripte mit bestandener Fakten-/Storypruefung auf (`vorrat/<kanal>/*.json`, im
+Repo). Der Videolauf nimmt ein passendes Vorratsskript (gleiches Thema; ohne
+Thema nur frei gewaehlte) und baut nur noch; nach Versand wird es entfernt,
+Baufehler behalten es. Haltbarkeit: Geschichten 14 Tage, sonst 3. Grund: Abo-
+Limit tagsueber geteilt, Skriptphase frass Budget. Referenz Laenge: die beiden
+gelobten Codex-Piloten hatten 199/197 Woerter (1:22/1:30) - Grenze 170-216 passt.
+
 **Nachtrag 07.10. spaetabends (Claude), neuester Stand:** Echte Laeufe heute
 37649294220 und 37652008678: Claude schrieb beide Skripte (WeWork Story 8/10,
 AI 7/10), aber kein Video - nacheinander behoben (alle mit Test, der den alten

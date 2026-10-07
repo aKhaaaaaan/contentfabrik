@@ -145,6 +145,10 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         bau_basis = entwurf_cache.laden(kanal, kanal_pfad, festes_thema)
         if bau_basis:
             print('Geprueften Entwurf aus vorherigem Lauf fortsetzen; keine neue Skriptanfrage')
+        else:
+            # Vorab geschriebenes, geprueftes Skript (vorrat.py, nachts) - spart die Skriptphase.
+            import vorrat
+            bau_basis = vorrat.nehmen(kanal_pfad, festes_thema)
     ausstehende_korrektur = None  # auch nach einem Ausfall der Video-Pruefung
     bericht = {'id': os.environ.get('GITHUB_RUN_ID') or uuid.uuid4().hex,
                'kanal': kanal, 'datum': budget.heute(), 'runden': [], 'status': 'offen'}
@@ -371,6 +375,8 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         raise RuntimeError(f'Telegram-Zustellung fehlgeschlagen (Code {code})')
     verlauf_eintragen(kanal, skript, 'gesendet', note, messung.get('abschnitte_s'), messung)
     entwurf_cache.erledigen(kanal)
+    import vorrat
+    vorrat.erledigen(kanal, skript)
     if aus_warteschlange and festes_thema:
         themen.erledigen(kanal, festes_thema)
     protokoll('gesendet')

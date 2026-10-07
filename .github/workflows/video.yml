@@ -126,6 +126,8 @@ jobs:
           done
           command -v ffmpeg
           pip install -q -r requirements.txt
+          # Claude Code CLI fuer den Skript-Autor (Abo-Token); faellt sonst auf Gemini/Groq zurueck
+          npm install -g -s @anthropic-ai/claude-code || echo "Claude-CLI fehlt - Autor Gemini/Groq"
           # Bildschirmaufnahmen der Modellseiten (fabrik/bauen.py aufnahme_fuer):
           # nur der schlanke Browser; Chrome-Bibliotheken bringt der Runner mit
           python -m playwright install chromium --only-shell || echo "Playwright fehlt - ohne Aufnahmen"
@@ -164,6 +166,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}  # Zweitpruefer (fabrik/zweit.py)
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}  # Skript-Autor (fabrik/claude_ki.py)
           CLOUDFLARE_AI_TOKEN: ${{ secrets.CLOUDFLARE_AI_TOKEN }}  # Bilder (FLUX, Workers AI)
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}

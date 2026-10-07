@@ -494,8 +494,22 @@ def main(kanal_pfad, aus_pfad, thema=None):
         zusatz_ = ''
         nachgebessert = False
         for versuch in range(4):
-            e, m = gemini(auftrag + zusatz_, SKRIPT_SCHEMA,
-                         fallback_prompt=groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens) + zusatz_)
+            # GEMESSEN 07.10.2026: Gemini-Gratiskontingent ueberlastet/leer -> AI-Skriptphase
+            # 1620 s, kein Video an zwei Tagen. Claude (Abo des Nutzers, eigenes Kontingent)
+            # schreibt zuerst; Fakten-/Storypruefung bleiben bei Gemini/Groq (Autor != Pruefer).
+            e, m = None, None
+            import claude_ki
+            if claude_ki.verfuegbar():
+                rest = float(os.environ.get('CF_SCHRITT_ENDE', 'inf')) - time.monotonic()
+                e, m = claude_ki.schreiben(auftrag + zusatz_, SKRIPT_SCHEMA, zeit=int(max(60, min(240, rest - 30))))
+                if e is None or not ki_speicher.schema_ok(e, SKRIPT_SCHEMA):
+                    print('Claude-Autor nicht nutzbar, weiter mit Gemini/Groq:', str(m)[:160], flush=True)
+                    e = None
+                else:
+                    m = 'claude:' + m
+            if e is None:
+                e, m = gemini(auftrag + zusatz_, SKRIPT_SCHEMA,
+                             fallback_prompt=groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens) + zusatz_)
             ranking = kanal.get('format', 'ranking') == 'ranking'
             if not ranking:
                 for teil in e['teile']:

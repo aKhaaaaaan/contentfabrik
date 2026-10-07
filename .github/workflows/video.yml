@@ -56,6 +56,12 @@ jobs:
           sys.path.insert(0, 'fabrik')
           import budget
           from lauf import BUDGET_S, SENDEN_S
+          def tagesziel(kanal):
+              profil = json.loads(Path(f'kanaele/{kanal}.json').read_text(encoding='utf-8'))
+              ziel = profil.get('tagesziel', 1)
+              if type(ziel) is not int or ziel not in (1, 2):
+                  raise ValueError('Tagesziel muss 1 oder 2 sein')
+              return ziel
           alle = sorted(p.stem for p in Path('kanaele').glob('*.json'))
           heute = budget.heute()
           # kanal=alle: Start durch den Cloudflare-Zeitplan (puenktlich) - gleiche Regel wie schedule
@@ -65,14 +71,17 @@ jobs:
                   p = Path(f'verlauf/{k}.json')
                   v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
                   # nur GESENDETE Videos zaehlen - verworfene Versuche nicht
-                  if not any(e.get('datum') == heute and e.get('status') == 'gesendet' for e in v) \
+                  if sum(e.get('datum') == heute and e.get('status') == 'gesendet' for e in v) < tagesziel(k) \
                           and budget.rest(k, BUDGET_S) > SENDEN_S:
                       offen.append(k)
           else:
               kanal = os.environ['EINGABE'] or 'business-origin-stories'
               if kanal not in alle:
                   raise SystemExit('Unbekannter Kanal')
-              offen = [kanal] if budget.rest(kanal, BUDGET_S) > SENDEN_S else []
+              p = Path(f'verlauf/{kanal}.json')
+              v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
+              gesendet = sum(e.get('datum') == heute and e.get('status') == 'gesendet' for e in v)
+              offen = [kanal] if gesendet < tagesziel(kanal) and budget.rest(kanal, BUDGET_S) > SENDEN_S else []
           print('Offen:', offen)
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
               f.write(f'kanaele={json.dumps(offen)}\n')
@@ -139,7 +148,14 @@ jobs:
           path: ki-cache
           key: ki-pruefungen-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.kanal }}
           restore-keys: ki-pruefungen-v1-${{ runner.os }}-
+      - uses: actions/cache/restore@v4
+        id: bau-cache
+        with:
+          path: produktions-cache/${{ matrix.kanal }}
+          key: teilbau-v1-${{ matrix.kanal }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: teilbau-v1-${{ matrix.kanal }}-
       - name: Erzeugen, pruefen, lernen, senden
+        # Gepruefte Entwuerfe stehen im Repository; Medien ergaenzen den Teilbau.
         id: produktion
         # fabrik/lauf.py: Erstbau und bis zu 2 gezielte Korrekturen im Tagesbudget;
         # gesendet wird ab Story und Video 7/10, jeder Kategorie 7/10,
@@ -157,12 +173,18 @@ jobs:
           KANAL: ${{ matrix.kanal }}
           THEMA: ${{ inputs.thema }}
           CF_WORKFLOW_STATUS: '1'
+          CF_TEXT_FALLBACK: 'groq'
         run: python fabrik/lauf.py "kanaele/${KANAL}.json" "$THEMA"
       - name: Tageslauf fuer die Qualitaetsserie erfassen
         if: always()
         env:
           KANAL: ${{ matrix.kanal }}
         run: python fabrik/qualitaetsserie.py erfassen "$KANAL"
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: produktions-cache/${{ matrix.kanal }}
+          key: teilbau-v1-${{ matrix.kanal }}-${{ github.run_id }}-${{ github.run_attempt }}
       - uses: actions/cache/save@v4
         if: always() && steps.ki-cache.outputs.cache-hit != 'true'
         with:

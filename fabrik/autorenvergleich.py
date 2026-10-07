@@ -87,7 +87,7 @@ def groq_schema(schema):
     return d
 
 
-def groq(prompt, schema, ausgabe_tokens=3840):
+def groq(prompt, schema, ausgabe_tokens=3840, deadline=None):
     key = os.environ['GROQ_API_KEY']
     auftrag = prompt
     ausgabeformat = {'type': 'json_schema', 'json_schema': {
@@ -96,15 +96,21 @@ def groq(prompt, schema, ausgabe_tokens=3840):
     reserve = math.ceil((len(auftrag) + len(json.dumps(ausgabeformat))) / 3) + ausgabe_tokens
     if reserve > 7900:
         raise ValueError('Auftrag zu gross fuer das kostenlose Groq-Minutenkontingent')
+    ende = min(time.monotonic() + 180, deadline if deadline is not None else float('inf'))
     while GROQ_VERBRAUCH:
         jetzt = time.monotonic()
         GROQ_VERBRAUCH[:] = [(t, n) for t, n in GROQ_VERBRAUCH if jetzt - t < 61]
         if sum(n for _, n in GROQ_VERBRAUCH) + reserve <= 8000:
             break
         warte = min(60, max(0.1, 61 - (jetzt - GROQ_VERBRAUCH[0][0])))
+        if warte + 5 >= ende - time.monotonic():
+            raise RuntimeError('Groq-Minutenreserve passt nicht in die verbleibende Frist')
         print(f'Groq-Kontingent: {warte:.1f} Sekunden warten', flush=True)
         time.sleep(warte)
     for versuch in range(2):
+        rest = ende - time.monotonic()
+        if rest <= 0:
+            raise RuntimeError('Groq-Zeitlimit erreicht')
         req = urllib.request.Request('https://api.groq.com/openai/v1/chat/completions',
             data=json.dumps({'model': GROQ_MODELL, 'include_reasoning': False,
                 'reasoning_effort': 'low', 'max_completion_tokens': ausgabe_tokens,
@@ -113,7 +119,7 @@ def groq(prompt, schema, ausgabe_tokens=3840):
             headers={'Authorization': 'Bearer ' + key, 'Content-Type': 'application/json',
                      'User-Agent': 'Contentfabrik-Autorenvergleich/1.0'})
         try:
-            with urllib.request.urlopen(req, timeout=120) as r:
+            with urllib.request.urlopen(req, timeout=min(45 if deadline is not None else 120, rest)) as r:
                 antwort = json.load(r)
             usage = antwort.get('usage', {})
             GROQ_VERBRAUCH.append((time.monotonic(), usage.get('total_tokens', reserve)))
@@ -139,6 +145,8 @@ def groq(prompt, schema, ausgabe_tokens=3840):
             except Exception:
                 detail = 'Keine strukturierte Fehlerbeschreibung'
             if e.code == 429 and versuch == 0:
+                if ende - time.monotonic() <= 65:
+                    raise RuntimeError('Groq-Minutenlimit; keine Zeit fuer erneute Anfrage') from None
                 time.sleep(60)
                 continue
             raise RuntimeError(f'Groq HTTP {e.code}: {detail}') from None

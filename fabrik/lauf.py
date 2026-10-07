@@ -114,6 +114,7 @@ def main(kanal_pfad, thema='', entwurf=''):
 
 def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     import lernen
+    import entwurf_cache
     # Thema aus Telegram hat Vorrang (GEMELDET: eigene Themen einbringen)
     aus_warteschlange = not thema
     if not thema:
@@ -128,6 +129,10 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     korrekturen = 0
     basis = None  # bereits gebautes Video, das weiter verbessert/geprueft wird
     bau_basis = None  # noch unvollstaendiger Bau; geprueftes Skript bleibt erhalten
+    if not entwurf and os.environ.get('CF_PILOT') != '1':
+        bau_basis = entwurf_cache.laden(kanal, kanal_pfad, festes_thema)
+        if bau_basis:
+            print('Geprueften Entwurf aus vorherigem Lauf fortsetzen; keine neue Skriptanfrage')
     ausstehende_korrektur = None  # auch nach einem Ausfall der Video-Pruefung
     bericht = {'id': os.environ.get('GITHUB_RUN_ID') or uuid.uuid4().hex,
                'kanal': kanal, 'datum': budget.heute(), 'runden': [], 'status': 'offen'}
@@ -282,6 +287,11 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             continue
         finally:
             runde.setdefault('sekunden', round(time.monotonic() - rundenstart, 1))
+            if os.environ.get('CF_PILOT') != '1' and (ordner / 'skript.json').exists():
+                try:
+                    entwurf_cache.sichern(kanal, kanal_pfad, festes_thema, ordner)
+                except (OSError, ValueError, KeyError, TypeError):
+                    print('Entwurf-/Teilbau-Sicherung fehlgeschlagen; keine falsche Freigabe')
             if ausstehende_korrektur and 'lernergebnis' not in runde:
                 # Auch abgebrochene Korrekturen bleiben sichtbar; ohne Note kein
                 # Urteil ueber den Nutzen einer Einstellung ableiten.
@@ -348,6 +358,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         protokoll('zustellfehler')
         raise RuntimeError(f'Telegram-Zustellung fehlgeschlagen (Code {code})')
     verlauf_eintragen(kanal, skript, 'gesendet', note, messung.get('abschnitte_s'), messung)
+    entwurf_cache.erledigen(kanal)
     if aus_warteschlange and festes_thema:
         themen.erledigen(kanal, festes_thema)
     protokoll('gesendet')

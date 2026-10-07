@@ -58,6 +58,7 @@ def vorbereiten(s, laengen, woerter, cache=None):
     if daten is None:
         auftrag = (prompts.DATEN + prompts.SZENEN + '\nTASK: Plan the actual visual edit, NOT new narration. '
             'Each timed slot below needs a distinct relevant shot, within its original spoken phase. '
+            'Keep each szene to 20-22 English words, motiv to 2-5 words. '
             'Prefer asset for a genuinely relevant approved library illustration. Set asset to its '
             'exact id from illustration_library; use only this channel. Do not use a library image '
             'just to fill time when its subject does not match. Illustrative scenes are the visual '

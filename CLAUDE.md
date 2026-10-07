@@ -1,5 +1,14 @@
 # Einstieg fuer Claude
 
+**Neuester Stand, 07.10. nach 14:07 Berlin:** Nutzerliste wirklich abgeholt,
+elfte Ueberschrift entfernt, neun konkrete Unternehmensgeschichten mit
+Quellen vorbereitet plus eine ungeklaerte App/Person-Idee. Eine Story je Tag
+eingeplant, Uploads weiterhin manuell. [BUSINESS-TAGESPLAN.md](BUSINESS-TAGESPLAN.md)
+zuerst lesen: neue Text-Ausweichroute, AI-Erklaerformat, 6h Teilbau-/Entwurfcache,
+aktuelle Fehlversuche und ehrliche Provider-/Budgetgrenzen. **250 lokale Tests
+bestanden**, neue echte Videozustellung noch offen. Prompt `2026-10-07.3`.
+Die folgenden Meldungen beschreiben aeltere Stufen desselben Tages.
+
 **Aktuell 07.10.:** [Betriebspruefung](BETRIEB-2026-10-07.md) zuerst lesen.
 **Nachtrag gegen 12:20 Berlin:** Zweiter Business-Lauf `37602505284` ebenfalls
 ohne Video: 672,9 Sekunden bis zur Fakten-Sperre. Bekannte Schwachstellen jetzt

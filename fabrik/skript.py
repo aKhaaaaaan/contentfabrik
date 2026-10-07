@@ -43,6 +43,44 @@ atexit.register(_verbrauch_melden)
 
 
 def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(), cache=None):
+    """Text darf im Tageslauf ausweichen; Medien bleiben beim echten Vision-Modell."""
+    kwargs = dict(temperatur=temperatur, bilder=bilder, modelle=modelle, dateien=dateien, cache=cache)
+    fallback = os.environ.get('CF_TEXT_FALLBACK') == 'groq' and not bilder and not dateien
+    try:
+        return _gemini(prompt, schema, **kwargs, anfrage_s=12 if fallback else 180)
+    except RuntimeError as e:
+        if not fallback or 'abgelehnt' in str(e):
+            raise
+    import autorenvergleich as av
+    global WIEDERVERWENDET
+    modell = 'groq:' + av.GROQ_MODELL
+    key = ki_speicher.cache_key(prompt, schema, [modell], temperatur, cache) if cache else None
+    treffer = ki_speicher.cache_lesen(key, schema, [modell]) if key else None
+    if treffer:
+        WIEDERVERWENDET += 1
+        return treffer
+    if float(os.environ.get('CF_SCHRITT_ENDE', 'inf')) <= time.monotonic():
+        raise RuntimeError('Text-Ausweichweg: Schrittfrist erreicht')
+    if not os.environ.get('GROQ_API_KEY'):
+        raise RuntimeError('Text-Ausweichweg: Groq-Zugang fehlt')
+    ende = min(time.monotonic() + 90, float(os.environ.get('CF_SCHRITT_ENDE', 'inf')))
+    print('Text-Ausweichweg: Groq GPT-OSS; Fakten- und Qualitaetsgates bleiben bestehen', flush=True)
+    ausgabe = 768 if any(k in schema.get('properties', {}) for k in ('probleme', 'schwaechen')) else 2048
+    try:
+        antwort, _, _ = av.groq(prompt, schema, ausgabe_tokens=ausgabe, deadline=ende)
+    except (RuntimeError, ValueError, OSError):
+        raise RuntimeError('Text-Ausweichweg nicht verfuegbar; keine Freigabe') from None
+    if not ki_speicher.schema_ok(antwort, schema):
+        raise RuntimeError('Text-Ausweichweg lieferte kein vollstaendiges Schema')
+    if key:
+        try:
+            ki_speicher.cache_schreiben(key, antwort, modell, schema)
+        except OSError:
+            print('Text-Pruefcache nicht gesichert; frisches Ergebnis bleibt erhalten')
+    return antwort, modell
+
+
+def _gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(), cache=None, anfrage_s=180):
     """bilder: JPEG-Bytes, die die KI mit ansieht (Clip-Auswahl in bauen.py).
     modelle: eigene Reihenfolge, z. B. das schnelle Lite-Modell zuerst."""
     import base64
@@ -57,7 +95,7 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(),
         WIEDERVERWENDET += 1
         return treffer
     # Eine Anfrage darf nicht neun Modelle mit je zwei langen Timeouts abwarten.
-    ende = min(time.monotonic() + 180,
+    ende = min(time.monotonic() + anfrage_s,
                float(os.environ.get('CF_SCHRITT_ENDE', 'inf')))
     def bildteil(b):
         mime = ('image/png' if b.startswith(b'\x89PNG\r\n\x1a\n') else
@@ -217,7 +255,11 @@ def hinweise(kanal, thema):
     if kanal.get('nur_quellen'):
         # GEMESSEN: Ohne aktuelle Quellen fiel „Top 5 AI Video Tools" zweimal
         # durch die Faktenpruefung (veraltetes Wissen). Darum nur Belegtes.
-        quellen = trends.ki_quellen()
+        quellen = (trends.ki_quellen(maximal=1) if kanal.get('format') == 'erklaerung'
+                   else trends.ki_quellen())
+        if kanal.get('format') == 'erklaerung':
+            # Eine ausfuehrlich belegte Anwendung statt dreier Repos und langer Sternelisten.
+            quellen = [q for q in quellen if q.get('belegt')][:1]
         if kanal.get('format', 'ranking') == 'ranking':
             quellen = rangliste(quellen, kanal)
         if quellen:
@@ -307,6 +349,12 @@ def anweisung(kanal, thema, frueher):
 def wiki_waehlen(thema, auftrag, schema, grenze):
     """Eindeutige Markennamen zuerst direkt recherchieren, ohne KI-Auswahl."""
     import trends
+    import themen
+    vorgabe = themen.details('business-origin-stories', thema)
+    if vorgabe.get('wikipedia'):
+        quelle = (themen.quelle(vorgabe) if grenze <= 7000 else None) \
+                  or trends.wikipedia(vorgabe['wikipedia'], grenze=grenze)
+        return {'thema': thema, 'wikipedia': vorgabe['wikipedia']}, quelle
     if thema and len(thema) <= 80 and len(thema.split()) <= 4:
         quelle = trends.wikipedia(thema, grenze=grenze)
         if quelle:
@@ -322,6 +370,11 @@ def main(kanal_pfad, aus_pfad, thema=None):
     kanal = json.loads(Path(kanal_pfad).read_text(encoding='utf-8'))
     import lernen
     kanal['_regeln'] = lernen.regeln(Path(kanal_pfad).stem)
+    import themen
+    vorgabe = themen.details(Path(kanal_pfad).stem, thema)
+    if vorgabe.get('idee_original'):
+        kanal['_themenauftrag'] = {'idee': vorgabe['idee_original'],
+                                  'rechercheauftrag': vorgabe.get('rechercheauftrag', '')}
     # GEMELDET: aus den Videos lernen, die wirklich liefen (Aufrufe, Zuschauerbindung)
     import erfolg
     stem = Path(kanal_pfad).stem
@@ -339,6 +392,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
     t0 = time.time()
     print('Skript: Quellen fuer den Kanal abrufen', flush=True)
     zusatz, quellen = hinweise(kanal, thema)
+    if kanal.get('nur_quellen') and not quellen:
+        raise RuntimeError('Keine belegte KI-Anwendung gefunden; keine unbelegte Skriptanfrage')
     print(f'Skript: {len(quellen)} Quellen abgerufen; Entwurf und Pruefungen folgen', flush=True)
     # Die Pruefung bekommt dieselben Quellen - sonst haelt sie eine heute
     # belegte Neuheit fuer „unverifizierbar", nur weil ihr Wissen aelter ist.
@@ -350,7 +405,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
         keiner Quelle steht, laesst das Skript durchfallen - auch wenn die KI sie
         durchwinkt. Der Modellname zaehlt als Quelle („gemma-3-27b" belegt 27B)."""
         import zahlen
-        p, _ = gemini(prompts.fakten(pruef_text(), e), PRUEF_SCHEMA, temperatur=0.1, cache='fakten')
+        p, pruefmodell = gemini(prompts.fakten(pruef_text(), e), PRUEF_SCHEMA,
+                              temperatur=0.1, cache='fakten', modelle=SEHEN)
         fehlt = zahlen.unbelegt(e, [f"{q.get('name', '')} {q.get('text', '')}" for q in quellen])
         if fehlt:
             print('Zahlenprobe: nicht in den Quellen:', fehlt)
@@ -359,7 +415,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 for z in fehlt]}
         # Zweitpruefer einer anderen Firma (zweit.py): schwere Fehler sperren,
         # Ausschmueckungen gehen als Auftrag in die Story-Ueberarbeitung.
-        if quellen:
+        z = None
+        if quellen and not pruefmodell.startswith('groq:'):
             import zweit
             z = zweit.pruefen(' '.join(t['text'] for t in e['teile']),
                               '\n'.join(f"{q.get('name', '')}: {q.get('text', '')}" for q in quellen))
@@ -368,6 +425,9 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 if not z['ok']:
                     p = {'ok': False, 'probleme': p['probleme'] + ['[second checker] ' + x for x in z['probleme']]}
                 p['leicht'] = z['leicht']
+        p['modell'] = pruefmodell
+        p['zweitpruefer_modell'] = z['modell'] if z else None
+        p['zweitpruefer_anderer_anbieter'] = bool(z and not pruefmodell.startswith('groq:'))
         return p
     # GEMESSEN 02.10.2026: „Burt's Bees" fiel auch nach der Ueberarbeitung
     # durch (Detailfehler) - ohne zweites Thema gab es an dem Tag kein Video.
@@ -460,12 +520,12 @@ def main(kanal_pfad, aus_pfad, thema=None):
             # einziges freies Foto (nur unscharfer Hintergrund) und ohne Gruendungsdrama
             # (ein Firmen-Update). Trend-Firmen nur mit mindestens 4 freien Fotos.
             mit_fotos = []
-            for a in aktuell:
+            for a in aktuell if kanal.get('bildstil') != 'illustration' else []:
                 time.sleep(0.5)
                 if len(trends.wiki_bilder(a[0])) >= 4:
                     mit_fotos.append(a)
             print(f'Trend-Firmen mit Fotos: {[a[0] for a in mit_fotos]} (von {len(aktuell)})')
-            aktuell = mit_fotos
+            aktuell = mit_fotos if kanal.get('bildstil') != 'illustration' else aktuell
             wahl, q = wiki_waehlen(thema, prompts.DATEN + f'Pick ONE {kanal["name"]} topic with a source-rich origin story '
                              'and identifiable visual material. Do not invent proof of future popularity. '
                              + (f'Topic: {thema}. ' if thema else '')
@@ -494,7 +554,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 verworfen.append(wahl['thema'])
                 continue
             quellen = [q]
-            wiki_fotos = trends.wiki_bilder(q['name'])
+            wiki_fotos = trends.wiki_bilder(q['name']) if kanal.get('bildstil') != 'illustration' else []
             kanal['_bildmaterial'] = [{'titel': b['titel'], 'beschreibung': b['beschreibung'][:240]}
                                       for b in wiki_fotos[:40]]
             print(f'Freie Fotos: {len(wiki_fotos)}')
@@ -597,6 +657,10 @@ def main(kanal_pfad, aus_pfad, thema=None):
         try:
             for runde in range(3):  # Ziel 10/10; keine unbeschraenkten Textschleifen.
                 if story['note'] >= 10 and not redaktion(story, STORY_KATEGORIEN, 'Skript')[1]:
+                    break
+                if not redaktion(story, STORY_KATEGORIEN, 'Skript')[1] \
+                        and float(os.environ.get('CF_SCHRITT_ENDE', 'inf')) - time.monotonic() < 120:
+                    print('Gepruefte Story bleibt erhalten; Restzeit fuer den Videobau lassen', flush=True)
                     break
                 neu, m, mangel = schreiben(
                     anweisung(kanal, entwurf['thema'], frueher) + zusatz

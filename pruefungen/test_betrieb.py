@@ -361,6 +361,14 @@ class LaufTest(TempTest):
 
 
 class WorkflowTest(TempTest):
+    def test_tagesziel_eins_oder_zwei_auch_bei_manuellem_start(self):
+        Path('verlauf').mkdir()
+        Path('verlauf/test.json').write_text(json.dumps([
+            {'datum': budget.heute(), 'status': 'gesendet'}]), encoding='utf-8')
+        self.assertEqual(self.vorpruefung('workflow_dispatch', 'test'), [])
+        Path('kanaele/test.json').write_text('{"tagesziel": 2}')
+        self.assertEqual(self.vorpruefung('workflow_dispatch', 'alle'), ['test'])
+
     def setUp(self):
         super().setUp()
         workflow = Path(__file__).resolve().parents[1] / '.github/workflows/video.yml'

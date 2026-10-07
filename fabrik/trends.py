@@ -123,7 +123,7 @@ def beschreibung(q):
     return q
 
 
-def ki_quellen(tage=7):
+def ki_quellen(tage=7, maximal=None):
     """Aktuelle KI-Neuheiten mit Beschreibung - die EINZIGEN Fakten, die der
     Kanal „AI Tools Explained" verwenden darf (Konzept: Quellen-Methode)."""
     aus = []
@@ -164,6 +164,15 @@ def ki_quellen(tage=7):
     # ein englisches Publikum unverstaendlich, die Karte zeigt fremde Schrift.
     geeignet = [q for q in aus if not UNGEEIGNET.search(q['name'] + ' ' + q['text'])
                 and _englisch(q['name'] + ' ' + q['text'])]
+    if maximal is not None:
+        belegt = []
+        for q in geeignet[:6]:
+            q = beschreibung(q)
+            if q.get('belegt'):
+                belegt.append(q)
+            if len(belegt) >= maximal:
+                break
+        return belegt
     with ThreadPoolExecutor(max_workers=4) as pool:
         return list(pool.map(beschreibung, geeignet))
 

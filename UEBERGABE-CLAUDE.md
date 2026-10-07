@@ -6,6 +6,21 @@ aktualisiert. Es enthaelt keine Zugangsschluessel.
 
 ## Nutzerauftrag und zugesagtes Ergebnis
 
+### Aktuell: echte Business-Liste und weitere Produktionsfehler, 07.10.2026
+
+Nutzer will eine oder zwei Geschichten pro Tag und beklagt erneut fehlende
+MP4s beider Kanaele. Telegram-Liste im Run `37618751907` um 14:07 abgeholt;
+Ueberschrift faelschlich elfter Auftrag, jetzt korrigiert. Neun konkrete
+Unternehmensgeschichten mit Quellen und fruehesten Tagen eingereiht, eine
+anonyme App-Erfolgsgeschichte wartet auf Person/Originalquelle. Aktiv eine
+Business-Story am Tag; manuelle Plattform-Uploads beibehalten. Details/Original-
+Archiv und technische Aenderungen: [BUSINESS-TAGESPLAN.md](BUSINESS-TAGESPLAN.md).
+250 Tests lokal bestanden. Texte koennen begrenzt nach Groq ausweichen;
+Medien bleiben echte Vision-Pruefungen. Profil/Hash/6h-gebundene gepruefte
+Entwuerfe und Teilbauten zwischen Runs erhalten. Keine Provider-Unabhaengigkeit
+behaupten, wenn Autor/Checker beim gleichen Anbieter liefen. Kein Tagesbudget
+zurueckgesetzt. Noch keinen neuen erfolgreichen Film/Versand behaupten.
+
 ### Neuester Stand: Telegram-Listen und begrenzte Skriptarbeit, 07.10.2026
 
 Der Nutzer moechte ca. zehn eigene Business-Ideen einreichen. Jetzt per

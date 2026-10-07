@@ -52,6 +52,10 @@ def themenliste(text):
         return None
     ideen = [re.sub(r'^(?:[-*•]\s+|\d+[.)]\s*)', '', z.strip()).strip()
              for z in m[2].splitlines() if z.strip()]
+    if len(ideen) > 1 and re.fullmatch(
+            r'(?:die\s+)?(?:\d+\s+)?(?:besten\s+)?(?:video[- ]?ideen|themen|ideen)'
+            r'(?:\s+f[uü]r\s+.+)?', ideen[0], re.I):
+        ideen.pop(0)  # Ueberschrift einer echten Liste ist kein Produktionsauftrag.
     if not ideen or len(ideen) > 25 or any(not t or len(t) > 200 for t in ideen):
         raise ValueError('Bitte 1 bis 25 Ideen mit maximal 200 Zeichen je Idee senden.')
     return kanal, ideen
@@ -172,7 +176,35 @@ def bestaetigen():
 
 def nehmen(kanal):
     """Aeltestes Thema lesen. Erst erfolgreicher Versand entfernt es."""
-    return next((x['thema'] for x in laden() if x['kanal'] == kanal), '')
+    from zoneinfo import ZoneInfo
+    heute = datetime.datetime.now(ZoneInfo('Europe/Berlin')).date().isoformat()
+    return next((x['thema'] for x in laden() if x['kanal'] == kanal
+                 and x.get('status', 'bereit') == 'bereit'
+                 and x.get('geplant_ab', heute) <= heute), '')
+
+
+def details(kanal, thema):
+    return next((dict(x) for x in laden() if x['kanal'] == kanal and x['thema'] == thema), {})
+
+
+def quelle(vorgabe):
+    """Datierter Quellenabruf, maximal 24 Stunden; keine alte Tagesbehauptung."""
+    kennung = vorgabe.get('id', '')
+    if not re.fullmatch(r'telegram-\d+-\d+', kennung):
+        return None
+    pfad = Path('themen/quellen') / (kennung + '.json')
+    try:
+        q = json.loads(pfad.read_text(encoding='utf-8'))
+        ab = datetime.datetime.fromisoformat(q['abgerufen_utc'])
+        alter = (datetime.datetime.now(datetime.timezone.utc) - ab).total_seconds()
+        if not 0 <= alter <= 86400 or q.get('quelle') != 'Wikipedia' or not q.get('url'):
+            return None
+        # Artikelueberschriften koennen bei echten Redirects abweichen.
+        if q.get('angefragter_artikel') != vorgabe['wikipedia']:
+            return None
+        return q
+    except (OSError, ValueError, KeyError, TypeError):
+        return None
 
 
 def erledigen(kanal, thema):

@@ -568,6 +568,58 @@
         ],
         "leicht": []
       }
+    },
+    {
+      "id": "37609036124.1:business-origin-stories",
+      "run_id": "37609036124",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-07T10:45:55.414869+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "9c07c1273253b98ca550c219e213770479220bb7",
+      "produktionsversion": "0e5c059ca42a9cc6f6e2644af7bc02e2c14faace2ab92be5d4892e7a9757154c",
+      "videoformat": "short",
+      "thema": null,
+      "titel": null,
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "37609036124",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-07",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "zeitbudget",
+            "phase": "Skript",
+            "sekunden": 205.1
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Skript-Zeitlimit erreicht (Arbeiter beendet)",
+        "sekunden": 205.1
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": null
     }
   ]
 }

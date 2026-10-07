@@ -1225,6 +1225,59 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "37659694533.1:ai-tools-explained",
+      "run_id": "37659694533",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-07T17:34:04.113290+00:00",
+      "ereignis": "schedule",
+      "commit": "1fc2c413f45256675eac5e667640fae2b2ac42f5",
+      "produktionsversion": "36006c2a0410c75e90151a19f948b5c910cbf8f327d3b6a3e31d1cd9c6c8f157",
+      "videoformat": "short",
+      "thema": null,
+      "titel": null,
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "37659694533",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-07",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "Skript fehlgeschlagen (Code 1)",
+            "sekunden": 21.4
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Skript fehlgeschlagen (Code 1)",
+        "sekunden": 21.5
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": null
     }
   ]
 }

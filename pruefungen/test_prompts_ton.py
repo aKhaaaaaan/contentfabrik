@@ -124,6 +124,20 @@ class BildTest(TempTest):
             self.assertIsNone(illustration.bild('factory', 'bild.jpg'))
         api.assert_not_called()
 
+    def test_bildschirmszene_verlangt_keine_lesbare_schrift(self):
+        # Run 37652008678: 'BILLING'-Dashboard -> Buchstabensalat, >20 Bilder verworfen.
+        szene = 'presenter at a dashboard showing "Usage limits" and BILLING on Clerk.com'
+        with patch.dict(os.environ, {'GEMINI_API_KEY': 'test'}), \
+                patch('illustration._anfrage', return_value=self.png()) as api, \
+                patch('illustration.pruefen', return_value={'ok': True, 'grund': ''}) as pruefer:
+            illustration.bild(szene, 'bild.jpg')
+        prompt = api.call_args.args[1]['prompt']
+        for wort in ('BILLING', 'Usage limits', 'Clerk.com'):
+            self.assertNotIn(wort, prompt)
+            self.assertNotIn(wort, pruefer.call_args.args[1])
+        self.assertIn('abstract glowing shapes', prompt)
+        self.assertNotIn('abstract glowing', prompts.szene_ohne_schrift('a baker at dawn'))
+
     def test_korrektur_erhaelt_szene_und_uebernimmt_sichtbaren_fehler(self):
         szene = 'a worker assembling a bicycle, a workshop in 1900, warm window light'
         with patch.dict(os.environ, {'GEMINI_API_KEY': 'test'}), \

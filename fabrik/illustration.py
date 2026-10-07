@@ -80,6 +80,9 @@ def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short'):
     Gibt den Pfad oder None zurueck."""
     if not os.environ.get('GEMINI_API_KEY'):
         return None
+    # Erzeugung UND Bildpruefung sehen dieselbe schriftfreie Szene - sonst
+    # verwirft die Pruefung ein Bild, weil das verlangte Wort 'BILLING' fehlt.
+    szene = prompts.szene_ohne_schrift(szene)
     ref = FIGUREN / f'{kanal}.jpg' if kanal else None
     ref = ref if figur and ref and ref.exists() else None
     breite, hoehe = (1360, 768) if videoformat == 'lang' else (768, 1360)

@@ -17,6 +17,11 @@ Prompt `2026-10-07.9`, 284 Tests. Tagesbudget 07.10. auf Nutzerauftrag mehrfach
 freigegeben. Offen: Repo oeffentlich (Nutzer stellt selbst um; vorher Anschrift
 aus Historie entfernen, `website/` aus Git nehmen), Composio-Upload und
 Higgsfield erst spaeter. Noch KEIN erfolgreicher Videoversand heute nachgewiesen.
+Lauf 37659694533 (19:31, Zeitplan): Claude-Abo-Limit erreicht ("session limit,
+resets 8pm UTC") - Pipeline und interaktive Claude-Sitzungen TEILEN das Abo-
+Kontingent; vor 10:23 keine lange Sitzung. Groq-Ausweg lieferte 'suche' als Liste
+(jetzt angeglichen) und Business-Entwuerfe mit 139-167 statt >=170 Woertern
+(offen). Cloudflare-Bildkontingent war ab ca. 19 Uhr leer (Reset 00:00 UTC).
 
 **Nachtrag 07.10. abends (Claude):** Skript-Autor fuer beide Kanaele ist jetzt
 Claude (Abo-Token, kein API-Geld), siehe Commit `2ba0450` und

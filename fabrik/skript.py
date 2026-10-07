@@ -503,6 +503,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 rest = float(os.environ.get('CF_SCHRITT_ENDE', 'inf')) - time.monotonic()
                 e, m = claude_ki.schreiben(auftrag + zusatz_, SKRIPT_SCHEMA, zeit=int(max(60, min(240, rest - 30))))
                 if e is None or not ki_speicher.schema_ok(e, SKRIPT_SCHEMA):
+                    if e is not None:
+                        claude_ki.sperren('Antwort passt nicht zum Schema')
                     print('Claude-Autor nicht nutzbar, weiter mit Gemini/Groq:', str(m)[:160], flush=True)
                     e = None
                 else:

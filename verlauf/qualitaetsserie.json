@@ -947,6 +947,98 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "37652008678.1:business-origin-stories",
+      "run_id": "37652008678",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-07T17:01:16.046920+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "20241f4cca84875b56a866906f2ba142fdc789e2",
+      "produktionsversion": "31b35a08030c3a666b94a88bfbd4e3312901bf81495f1809d216d81b1bfe6c23",
+      "videoformat": "short",
+      "thema": "WeWork: Gruendung, Expansion und die Folgen des Wachstums",
+      "titel": [
+        "WeWork's $47B Fall",
+        "From Desks to Chapter 11"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "37652008678",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-07",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 90.5,
+            "bau_s": 266.9,
+            "status": "baufehler",
+            "sekunden": 357.4
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 50.3,
+            "status": "baufehler",
+            "sekunden": 50.3
+          },
+          {
+            "runde": 3,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 40.4,
+            "status": "baufehler",
+            "sekunden": 40.4
+          },
+          {
+            "runde": 4,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 54.1,
+            "status": "baufehler",
+            "sekunden": 54.1
+          },
+          {
+            "runde": 5,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 76.4,
+            "status": "baufehler",
+            "sekunden": 76.4
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Videobau fehlgeschlagen",
+        "sekunden": 578.7
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

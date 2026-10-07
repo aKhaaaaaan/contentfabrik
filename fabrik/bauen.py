@@ -878,6 +878,87 @@ def angleichen(woerter, skripttext):
     return aus
 
 
+def kokoro_ton(s, tempo, laengenziel):
+    """Bisherige Kokoro-Stimme je Teil; gemessene Dauer einmal ans Ziel anpassen."""
+    from kokoro_onnx import Kokoro
+    kokoro = Kokoro('modelle/kokoro-v1.0.onnx', 'modelle/voices-v1.0.bin')
+    rate = 24000
+    # Gemessene Dauer einmal anpassen; keine Beschleunigung jenseits
+    # natuerlicher Grenzen, feste Pausen bleiben in der Rechnung.
+    for runde in range(2):
+        teile, laengen = [], []
+        for t in s['teile']:
+            audio, rate = audioqualitaet.sprechen(kokoro, t['text'], s.get('stimme', 'af_heart'), tempo)
+            pause = np.zeros(int(rate * 0.25), dtype=np.float32)
+            teile.append(np.concatenate([audio.astype(np.float32), pause]))
+            laengen.append(len(teile[-1]) / rate)
+        if runde:
+            break
+        neu = audioqualitaet.tempo_fuer(sum(laengen), laengenziel, tempo,
+                                       dramaturgie.videoformat(s), .25 * len(s['teile']))
+        if neu == tempo:
+            break
+        print(f'Ton {sum(laengen):.0f} s, Ziel {laengenziel} s - Tempo {tempo} -> {neu}')
+        tempo = neu
+    return np.concatenate(teile), rate, laengen, tempo
+
+
+def erzaehlstimme(s):
+    """Kanaleinstellung 'erzaehlstimme' (z. B. Gemini Orus) aus kanaele/*.json, sonst None."""
+    for p in Path('kanaele').glob('*.json'):
+        try:
+            d = json.loads(p.read_text(encoding='utf-8'))
+        except (OSError, ValueError):
+            continue
+        if d.get('name') == s.get('kanal') and isinstance(d.get('erzaehlstimme'), dict):
+            return d['erzaehlstimme']
+    return None
+
+
+def gemini_ton(s, wahl, grenzen):
+    """Ganzes Skript in EINEM Gemini-TTS-Aufruf (Gratiskontingent knapp).
+
+    GEMELDET 07.10.2026 nach Hoerprobe (Lauf 37680915854): „Stimme 4 ist schon
+    dramatisch, ich denke das catcht die Aufmerksamkeit" = Gemini Orus mit
+    Trailer-Regie. Kurze Pause vor der Wendung als Regie im Text. Zu lang ->
+    tonhoehenerhaltend mit ffmpeg atempo, hoechstens 1,15. Gibt (ton, rate) oder None.
+    """
+    import stimme_gemini
+    teile = []
+    for i, t in enumerate(s['teile']):
+        teile.append(('<short pause> ' if i and t.get('beat') == 'wendung' else '') + t['text'].strip())
+    try:
+        wav, modell = stimme_gemini.sprechen(' '.join(teile), wahl.get('stimme', 'Orus'), wahl.get('stil', ''))
+    except (RuntimeError, OSError, KeyError) as e:
+        print('Gemini-Stimme nicht verfuegbar, Kokoro spricht:', str(e)[:200])
+        return None
+    import io
+    with wave.open(io.BytesIO(wav)) as w:
+        rate = w.getframerate()
+        ton = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32) / 32768
+    dauer = len(ton) / rate
+    oben = grenzen[1]
+    if dauer > oben:
+        faktor = min(1.15, dauer / oben)
+        roh = subprocess.run(['ffmpeg', '-loglevel', 'error', '-f', 'f32le', '-ar', str(rate), '-ac', '1', '-i', '-',
+                              '-filter:a', f'atempo={faktor:.3f}', '-f', 'f32le', '-'],
+                             input=ton.tobytes(), capture_output=True, check=True).stdout
+        ton = np.frombuffer(roh, dtype=np.float32).copy()
+        print(f'Gemini-Stimme {dauer:.0f} s > {oben} s - Tempo x{faktor:.2f}')
+    print(f'Erzaehlstimme: Gemini {wahl.get("stimme")} ({modell}), {len(ton) / rate:.1f} s')
+    return ton, rate
+
+
+def laengen_aus_woertern(woerter, teile, gesamt):
+    """Abschnittslaengen aus den Wortzeiten (angleichen() liefert genau die Skriptwoerter)."""
+    starts, n = [], 0
+    for t in teile:
+        starts.append(woerter[n]['s'] if n < len(woerter) else gesamt)
+        n += len(t['text'].split())
+    grenzen = [0.0] + starts[1:] + [gesamt]
+    return [max(0.3, b - a) for a, b in zip(grenzen, grenzen[1:])]
+
+
 def musik_kette(pegel, laenge, pausen=(), stille=0.55):
     """ffmpeg-Filter fuer das Musikbett.
 
@@ -1057,7 +1138,9 @@ def main(skript_pfad, aus, vorlage=None):
             if p.is_file() and ((p.suffix in ('.wav', '.png', '.jpg', '.mp4') and p.name != 'short.mp4')
                                 or p.name == 'woerter.json'):
                 shutil.copy2(p, aus / p.name)
-    akey = rendercache.audio_key(s, code_key)
+    wahl = erzaehlstimme(s)
+    # Andere Stimme = anderer Ton: eigener Cache-Schluessel (Kokoro-Ton nie fuer Gemini halten).
+    akey = rendercache.audio_key(dict(s, stimme=f"gemini:{wahl.get('stimme')}") if wahl else s, code_key)
     audio_cache = cache.get('audio') or {}
     audio_ok = (audio_cache.get('key') == akey
                 and rendercache.dateien_ok(aus, ['stimme.wav', 'woerter.json'])
@@ -1068,32 +1151,17 @@ def main(skript_pfad, aus, vorlage=None):
         rate, laengen, tempo = audio_cache['rate'], audio_cache['laengen'], audio_cache['tempo']
         woerter = json.loads((aus / 'woerter.json').read_text(encoding='utf-8'))
     else:
-        with messen('stimme_laden'):
-            from kokoro_onnx import Kokoro
-            kokoro = Kokoro('modelle/kokoro-v1.0.onnx', 'modelle/voices-v1.0.bin')
-        teile, rate, laengen = [], 24000, []
         tempo = s.get('tempo', 1.05)
         laengenziel = dramaturgie.laengen(s)
         with messen('stimme'):
-            # Gemessene Dauer einmal anpassen; keine Beschleunigung jenseits
-            # natuerlicher Grenzen, feste Pausen bleiben in der Rechnung.
-            for runde in range(2):
-                teile, laengen = [], []
-                for t in s['teile']:
-                    stimme = s.get('stimme', 'af_heart')
-                    audio, rate = audioqualitaet.sprechen(kokoro, t['text'], stimme, tempo)
-                    pause = np.zeros(int(rate * 0.25), dtype=np.float32)
-                    teile.append(np.concatenate([audio.astype(np.float32), pause]))
-                    laengen.append(len(teile[-1]) / rate)
-                if runde:
-                    break
-                neu = audioqualitaet.tempo_fuer(sum(laengen), laengenziel, tempo,
-                                               dramaturgie.videoformat(s), .25 * len(s['teile']))
-                if neu == tempo:
-                    break
-                print(f'Ton {sum(laengen):.0f} s, Ziel {laengenziel} s - Tempo {tempo} -> {neu}')
-                tempo = neu
-        ton = np.concatenate(teile)
+            gemini = gemini_ton(s, wahl, laengenziel) if wahl and wahl.get('anbieter') == 'gemini' else None
+            if gemini:
+                ton, rate = gemini
+                laengen = None  # folgt aus den Wortzeiten
+            else:
+                if wahl:
+                    akey = rendercache.audio_key(s, code_key)  # Rueckfall Kokoro: passender Schluessel
+                ton, rate, laengen, tempo = kokoro_ton(s, tempo, laengenziel)
         with wave.open(str(aus / 'stimme.wav'), 'wb') as w:
             w.setnchannels(1); w.setsampwidth(2); w.setframerate(rate)
             w.writeframes((np.clip(ton, -1, 1) * 32767).astype(np.int16).tobytes())
@@ -1108,6 +1176,8 @@ def main(skript_pfad, aus, vorlage=None):
             woerter = [{'w': x.word.strip(), 's': x.start, 'e': x.end} for seg in segs for x in seg.words]
         woerter = angleichen(woerter, ' '.join(t['text'] for t in s['teile']))
         (aus / 'woerter.json').write_text(json.dumps(woerter), encoding='utf-8')
+        if laengen is None:  # Gemini: ein durchgehender Ton, Abschnitte aus den Wortzeiten
+            laengen = laengen_aus_woertern(woerter, s['teile'], len(ton) / rate)
     zeiten['tempo'] = tempo
     shots, plan_cache = bildplan.vorbereiten(s, laengen, woerter, cache)
     visuell = dict(s, teile=[shot['teil'] for shot in shots])

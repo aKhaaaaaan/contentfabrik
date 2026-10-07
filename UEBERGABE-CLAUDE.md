@@ -1,5 +1,15 @@
 # Uebergabe an Claude – Contentfabrik
 
+**Neu 07.10. nachts (Claude): Erzaehlstimme Gemini Orus.** Hoerprobe
+(stimmvergleich.yml, Lauf 37680915854): Nutzer waehlte Stimme 4 = Gemini 3.8
+Flash TTS „Orus" mit Trailer-Regie („dramatisch, catcht die Aufmerksamkeit").
+Eingetragen als `erzaehlstimme` in beiden Kanalprofilen; `bauen.gemini_ton`
+spricht das ganze Skript in EINEM Aufruf (Gratiskontingent knapp), kurze Pause
+vor der Wendung, zu lang -> atempo hoechstens 1,15; Abschnittslaengen aus den
+Whisper-Wortzeiten. Jeder Fehler/leeres Kontingent -> Kokoro wie bisher.
+Noch kein echtes Video mit Orus. Gemini-Bildprobe ergab HTTP 429 (Ursache
+offen: limit 0 oder verbraucht) - nach dem Reset erneut starten (bildprobe.yml).
+
 **Neu 07.10. nachts (Claude): Skript-Vorrat.** `fabrik/vorrat.py` +
 `.github/workflows/skripte.yml` (03:07 und 07:07 Berlin, manuell startbar)
 schreiben je Kanal bis zu 2 Skripte vor (Warteschlange zuerst) und nehmen nur

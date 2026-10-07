@@ -795,6 +795,98 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "37649294220.1:business-origin-stories",
+      "run_id": "37649294220",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-07T16:21:43.879879+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "64b178b999881f540d4e5803e20285d9391a8401",
+      "produktionsversion": "18516693ebad7b357b9fa60996303a698d8f2a6086fd1d175bc9e7d4614401bb",
+      "videoformat": "short",
+      "thema": "WeWork: Gruendung, Expansion und die Folgen des Wachstums",
+      "titel": [
+        "WeWork's $47B Rise",
+        "And Its *Bankruptcy* Fall"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "37649294220",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-07",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "Skript fehlgeschlagen (Code 1)",
+            "sekunden": 42.5
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "Skript fehlgeschlagen (Code 1)",
+            "sekunden": 46.4
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "skript_s": 101.0,
+            "bau_s": 155.1,
+            "status": "baufehler",
+            "sekunden": 256.0
+          },
+          {
+            "runde": 4,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 162.7,
+            "status": "baufehler",
+            "sekunden": 162.7
+          },
+          {
+            "runde": 5,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 151.7,
+            "status": "baufehler",
+            "sekunden": 151.7
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Videobau fehlgeschlagen",
+        "sekunden": 659.4
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

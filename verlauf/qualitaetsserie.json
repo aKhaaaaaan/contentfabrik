@@ -422,6 +422,61 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "37594170866.1:business-origin-stories",
+      "run_id": "37594170866",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-07T09:07:39.673925+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "4105e872e4754302332ff3406f654783ff438a3c",
+      "produktionsversion": "fcbfb3ab976c335f4f202ebf5466507e50dcd88543dd7f7563f8aad6c2658bcf",
+      "videoformat": "short",
+      "thema": "How Colonel Sanders built the KFC empire",
+      "titel": [
+        "From Roadside Diner",
+        "To Global Chicken Empire"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "37594170866",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-07",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "baufehler",
+            "sekunden": 434.0
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Videobau fehlgeschlagen",
+        "sekunden": 434.4
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": []
+      }
     }
   ]
 }

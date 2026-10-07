@@ -13,7 +13,9 @@ Aufrufer schreibt dann wie bisher mit Gemini. Es kommt immer ein Video.
 """
 import json, os, re, shutil, subprocess
 
-MODELL = os.environ.get('CLAUDE_MODELL', 'claude-sonnet-5')
+# GEMESSEN 07.10.2026 mit CLI 2.1.292: 'claude-sonnet-5' antwortet zwar, ist aber das
+# aeltere Modell; der Alias 'sonnet' loest auf das neueste Sonnet auf (claude-sonnet-5-5).
+MODELL = os.environ.get('CLAUDE_MODELL', 'sonnet')
 
 
 def verfuegbar():

@@ -1,5 +1,17 @@
 # Einstieg fuer Claude
 
+**Neuester Stand, 07.10. abends (Claude):** Skript-Autor fuer BEIDE Kanaele
+(AI Tools Explained und Business Origin Stories) ist jetzt **Claude** ueber das
+Abo-Token des Nutzers (`fabrik/claude_ki.py`, Secret `CLAUDE_CODE_OAUTH_TOKEN`,
+Commit `2ba0450`). Gemini/Groq schreiben nur noch als Reserve, wenn Claude
+ausfaellt; Fakten-/Story-Pruefung bleibt bei Gemini/Groq (Autor != Pruefer).
+Modell-Alias `sonnet` (lokal geprueft: loest auf claude-sonnet-5-5 auf).
+Erster echter Test ist der regulaere Lauf am 08.10. um 10:23 Berlin; im Log
+zeigt `claude:sonnet` als Skriptmodell, dass Claude geschrieben hat. Die
+Aussagen unten "Standardautor weiterhin Gemini" sind damit ueberholt.
+Referenz fuer Qualitaet bleiben die beiden 8/10-Piloten vom 05.10., die der
+Nutzer auf YouTube und TikTok hochgeladen hat.
+
 **Neuester Stand, 07.10. nach 14:07 Berlin:** Nutzerliste wirklich abgeholt,
 elfte Ueberschrift entfernt, neun konkrete Unternehmensgeschichten mit
 Quellen vorbereitet plus eine ungeklaerte App/Person-Idee. Eine Story je Tag

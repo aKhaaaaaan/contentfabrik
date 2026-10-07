@@ -1,5 +1,9 @@
 # Kostenlose KI fuer Skripte: gepruefter Stand 06.10.2026
 
+**Aenderung 07.10.2026:** Im Tageslauf schreibt jetzt Claude (`sonnet`, Abo des
+Nutzers) zuerst, fuer beide Kanaele. Gemini/Groq sind Reserve-Autor und Pruefer.
+Der Autorenvergleich unten bleibt als Messung bestehen, er hat keinen Sieger.
+
 Nutzerfrage: "Können wir denn nicht bessere ki für skript erstellung einsetzen? kostenlose?"
 Kostenlose Alternativen sind vorhanden. Ein besseres Ergebnis fuer unsere
 Kanaele ist damit noch nicht nachgewiesen; keinen pauschalen Sieger behaupten.

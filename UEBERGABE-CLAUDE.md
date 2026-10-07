@@ -1,5 +1,13 @@
 # Uebergabe an Claude – Contentfabrik
 
+**Nachtrag 07.10. abends (Claude):** Skript-Autor fuer beide Kanaele ist jetzt
+Claude (Abo-Token, kein API-Geld), siehe Commit `2ba0450` und
+`fabrik/claude_ki.py`. Einziger Schreibaufruf: `skript.main()`, auch fuer
+Reparaturrunden; Gemini/Groq nur als Reserve-Autor und weiterhin als Pruefer.
+Modell-Alias `sonnet`. Pro Versuch maximal 240 s, danach Rueckfall. Noch kein
+echter Lauf mit Claude-Autor: erster Nachweis am 08.10. ab 10:23 Berlin
+(Log `claude:sonnet`). Die Angaben "Standardautor Gemini" weiter unten sind Historie.
+
 **Nachtrag 07.10. 15:12 Berlin:** Neun echte Nutzerideen recherchiert/eingeplant,
 eine App-Idee braucht Identitaet/Quelle. Ein Video je Tag nach Telegram,
 Plattform-Upload manuell. [BUSINESS-TAGESPLAN.md](BUSINESS-TAGESPLAN.md) mit

@@ -23,6 +23,22 @@ def fehler(code, text='', headers=None):
 
 
 class KiSpeicherTest(TempTest):
+    def test_netzwerk_timeout_wechselt_modell_statt_doppeltem_timeout(self):
+        with patch('skript.urllib.request.urlopen', side_effect=[TimeoutError(), antwort()]) as netz, \
+                patch('skript.time.sleep') as warten:
+            skript.gemini('Auftrag', skript.PRUEF_SCHEMA, modelle=['haengt', 'antwortet'])
+        self.assertEqual(netz.call_count, 2)
+        self.assertIn('haengt', netz.call_args_list[0].args[0].full_url)
+        self.assertIn('antwortet', netz.call_args_list[1].args[0].full_url)
+        self.assertLessEqual(netz.call_args.kwargs['timeout'], 45)
+        warten.assert_not_called()
+
+    def test_abgelaufene_schritt_deadline_verbraucht_keine_anfrage(self):
+        with patch.dict(os.environ, {'CF_SCHRITT_ENDE': str(time.monotonic() - 1)}), \
+                patch('skript.urllib.request.urlopen') as netz:
+            self.assertRaisesRegex(RuntimeError, 'Zeitbudget', self.anfrage)
+        netz.assert_not_called()
+
     def setUp(self):
         super().setUp()
         p = patch.dict(os.environ, {'GEMINI_API_KEY': 'secret'})

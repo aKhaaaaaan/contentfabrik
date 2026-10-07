@@ -31,7 +31,7 @@ def slots(s, laengen, woerter):
 
 
 def vorbereiten(s, laengen, woerter, cache=None):
-    from skript import gemini
+    from skript import gemini, SEHEN
     import lernen
     import bibliothek
     from rendercache import signatur
@@ -102,7 +102,7 @@ def vorbereiten(s, laengen, woerter, cache=None):
                 'slots': zeitplan, 'phases': s['teile'], 'photos': s.get('bilder', []),
                 'illustration_library': [b for b in bibliothek.katalog() if b['kanal'] == s.get('kanal')],
                 'editorial_feedback': lernen.redaktionsregeln()}, ensure_ascii=False))
-        d, modell = gemini(auftrag, SCHEMA)
+        d, modell = gemini(auftrag, SCHEMA, modelle=SEHEN)
         daten = d['einstellungen']
         print('Gemini-Bildplan:', modell, '| Einstellungen:', len(daten))
     if len(daten) != len(zeitplan) or [d.get('index') for d in daten] != list(range(len(zeitplan))):

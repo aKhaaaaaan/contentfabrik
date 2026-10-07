@@ -56,6 +56,9 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(),
     if treffer:
         WIEDERVERWENDET += 1
         return treffer
+    # Eine Anfrage darf nicht neun Modelle mit je zwei langen Timeouts abwarten.
+    ende = min(time.monotonic() + 180,
+               float(os.environ.get('CF_SCHRITT_ENDE', 'inf')))
     def bildteil(b):
         mime = ('image/png' if b.startswith(b'\x89PNG\r\n\x1a\n') else
                 'image/webp' if b[:4] == b'RIFF' and b[8:12] == b'WEBP' else 'image/jpeg')
@@ -81,12 +84,15 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(),
         if temperatur is not None and not modell.startswith('gemini-3') and 'latest' not in modell:
             koerper['generationConfig']['temperature'] = temperatur
         for versuch in range(2):
+            rest = ende - time.monotonic()
+            if rest <= 0:
+                raise RuntimeError('KI-Zeitbudget fuer diese Anfrage erreicht')
             try:
                 print(f'KI-Anfrage: {modell}; Versuch {versuch + 1}', flush=True)
                 req = urllib.request.Request(
                     f'https://generativelanguage.googleapis.com/v1beta/models/{modell}:generateContent?key={schluessel}',
                     data=json.dumps(koerper).encode(), headers={'Content-Type': 'application/json'})
-                d = json.load(urllib.request.urlopen(req, timeout=120))
+                d = json.load(urllib.request.urlopen(req, timeout=min(45, rest)))
                 # GEMELDET: „In der Pipeline sparsam mit Tokens sein" - erst messen:
                 # Anfragen und Tokens je Modell, Ausgabe am Ende jedes Laufs.
                 n = d.get('usageMetadata', {})
@@ -110,6 +116,9 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(),
                 print(f'KI-Anfrage fehlgeschlagen: {modell}; {type(e).__name__}', flush=True)
                 # Kein roher API-Fehler: URLs/Antworttexte koennen Zugangsdaten enthalten.
                 letzter = f'{modell}: {type(e).__name__}'
+                if isinstance(e, TimeoutError):
+                    ki_speicher.sperren(schluessel, modell, 'Netzwerk-Zeitlimit', 60)
+                    break  # Nicht denselben haengenden Anbieter sofort erneut abwarten.
                 koerper_fehler = ''
                 if isinstance(e, urllib.error.HTTPError):
                     try:
@@ -142,11 +151,13 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(),
                         pause = max(1, float(e.headers.get('Retry-After', 60)))
                     except (ValueError, TypeError, AttributeError):
                         pass
-                    if pause > 60:
+                    if pause > 60 or pause + 5 >= ende - time.monotonic():
                         ki_speicher.sperren(schluessel, modell, 'Minuten-/Tokenkontingent erschoepft', min(pause, 3600))
                         break
                     time.sleep(pause)
                 elif versuch == 0:
+                    if ende - time.monotonic() <= 5:
+                        raise RuntimeError('KI-Zeitbudget fuer diese Anfrage erreicht') from None
                     time.sleep(5)
     raise RuntimeError(f'Gemini nicht erreichbar: {letzter}')
 
@@ -293,6 +304,20 @@ def anweisung(kanal, thema, frueher):
     return prompts.skript(kanal, thema, frueher, blick, woerter)
 
 
+def wiki_waehlen(thema, auftrag, schema, grenze):
+    """Eindeutige Markennamen zuerst direkt recherchieren, ohne KI-Auswahl."""
+    import trends
+    if thema and len(thema) <= 80 and len(thema.split()) <= 4:
+        quelle = trends.wikipedia(thema, grenze=grenze)
+        if quelle:
+            return {'thema': thema, 'wikipedia': quelle['name']}, quelle
+    if thema:
+        auftrag += ('\nThis explicit user topic is binding. Identify its company/article only; '
+                    'do not replace it with another company or reject it because of earlier attempts.')
+    wahl, _ = gemini(auftrag, schema, temperatur=0.9, modelle=SEHEN)
+    return wahl, trends.wikipedia(wahl['wikipedia'], grenze=grenze)
+
+
 def main(kanal_pfad, aus_pfad, thema=None):
     kanal = json.loads(Path(kanal_pfad).read_text(encoding='utf-8'))
     import lernen
@@ -306,7 +331,10 @@ def main(kanal_pfad, aus_pfad, thema=None):
     kanal['_vorbilder'] = erfolg.vorbilder(stem, videoformat=dramaturgie.videoformat(kanal))
     verlauf_pfad = Path('verlauf') / (Path(kanal_pfad).stem + '.json')
     verlauf = json.loads(verlauf_pfad.read_text(encoding='utf-8')) if verlauf_pfad.exists() else []
-    frueher = '; '.join(v['thema'] for v in verlauf[-60:])
+    # Gescheiterte Versuche sind kein Grund, ein ausdrueckliches Nutzerthema zu meiden.
+    frueher = '; '.join(v['thema'] for v in verlauf[-60:] if v.get('status') == 'gesendet')
+    if thema:
+        frueher = ''
 
     t0 = time.time()
     print('Skript: Quellen fuer den Kanal abrufen', flush=True)
@@ -359,16 +387,20 @@ def main(kanal_pfad, aus_pfad, thema=None):
         nachgebessert = False
         for versuch in range(4):
             e, m = gemini(auftrag + zusatz_, SKRIPT_SCHEMA)
+            ranking = kanal.get('format', 'ranking') == 'ranking'
+            if not ranking:
+                for teil in e['teile']:
+                    teil.pop('platz', None)
             zahl = woerter_von(e)
             plaetze = sum(1 for t in e['teile'] if t.get('platz'))
             # GEMESSEN: Ranking kam mit 4 statt 5-7 Plaetzen.
             zu_wenig = kanal.get('format', 'ranking') == 'ranking' and plaetze < pmin
             zuordnen(e, quellen)
-            soll = {q['url']: n for n, q in enumerate(rangliste(quellen, kanal), 1)}
+            soll = {q['url']: n for n, q in enumerate(rangliste(quellen, kanal), 1)} if ranking else {}
             # GEMELDET (2 Analysen): gewuerfelte Reihenfolge (#4 -> #6 -> #3 ...)
             # verwirrt. Jetzt Countdown - und das prueft der Code, nicht die KI.
             folge = [t['platz'] for t in e['teile'] if t.get('platz')]
-            if folge != sorted(folge, reverse=True):
+            if ranking and folge != sorted(folge, reverse=True):
                 print(f'Versuch {versuch + 1}: kein Countdown: {folge}')
                 zusatz_ = f'\nYour previous draft used the order {folge}. Use a strict countdown down to 1.'
                 continue
@@ -434,7 +466,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
                     mit_fotos.append(a)
             print(f'Trend-Firmen mit Fotos: {[a[0] for a in mit_fotos]} (von {len(aktuell)})')
             aktuell = mit_fotos
-            wahl, _ = gemini(prompts.DATEN + f'Pick ONE {kanal["name"]} topic with a source-rich origin story '
+            wahl, q = wiki_waehlen(thema, prompts.DATEN + f'Pick ONE {kanal["name"]} topic with a source-rich origin story '
                              'and identifiable visual material. Do not invent proof of future popularity. '
                              + (f'Topic: {thema}. ' if thema else '')
                              + f'Do NOT use: {"; ".join(filter(None, [frueher] + verworfen)) or "none"}. '
@@ -449,9 +481,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
                              'Give the exact title of its English Wikipedia article.' + basis_zusatz,
                              {'type': 'OBJECT', 'properties': {'thema': {'type': 'STRING'},
                                                                'wikipedia': {'type': 'STRING'}},
-                              'required': ['thema', 'wikipedia']}, temperatur=0.9)
-            import trends
-            q = trends.wikipedia(wahl['wikipedia'], grenze=30000 if lang else 7000)
+                              'required': ['thema', 'wikipedia']}, 30000 if lang else 7000)
             # GEMESSEN: Aus 1.353 Zeichen Quelle (Balaji Wafers) liess sich keine
             # 60-s-Geschichte schreiben, ohne zu strecken - sofort naechstes Thema.
             # GEMESSEN 05.10.2026: Jollibee (2.555 Zeichen), Balaji Wafers (1.353) - aus so
@@ -504,107 +534,120 @@ def main(kanal_pfad, aus_pfad, thema=None):
         verworfen.append(entwurf['thema'])
 
     # Story-Pruefung vor dem Bau: zentrale Mindestnote, keine schwache Einzelkategorie.
-    # (bis zu 2 Runden). Jede neue Fassung muss WIEDER durch die Faktenpruefung -
+    # Bis zu drei optionale Runden innerhalb der Skriptfrist. Jede neue Fassung
+    # muss WIEDER durch die Faktenpruefung -
     # Spannung nie auf Kosten der Wahrheit. Behalten wird die beste Fassung.
+    def fassung_speichern(entwurf, modell, pruefung, story):
+        zuordnen(entwurf, quellen)
+        # GEMESSEN: Die KI liess „name" leer - dann fehlte der Name unter der Karte.
+        for t in entwurf['teile']:
+            if t.get('platz') and not t.get('name') and t.get('quelle_url'):
+                t['name'] = t['quelle_url'].rstrip('/').split('/')[-1].replace('-', ' ').replace('_', ' ')[:24]
+        # Bild-Aufhaenger: Der Einstieg zeigt schon die Karte von Platz 1
+        # (Neugier: „was ist das?"), statt eines leeren Farbverlaufs.
+        erster = next((t for t in entwurf['teile'] if t.get('platz') == 1 and t.get('quelle_url')), None)
+        if erster and not entwurf['teile'][0].get('platz'):
+            entwurf['teile'][0]['quelle_url'] = erster['quelle_url']
+
+        # Stimme abwechselnd nach Tag (Abwechslung gegen Massenware-Regel)
+        stimmen = kanal.get('stimmen', ['am_michael'])
+        # Nur die Stimmen des Nutzers; welche, entscheidet der Erfolg (erfolg.py)
+        stimme = erfolg.waehlen(Path(kanal_pfad).stem, 'stimme', stimmen,
+                              videoformat=dramaturgie.videoformat(kanal))
+        zeile = lambda z: ' '.join(f'*{w}*' if any(w.strip('.,!?').lower() == s.lower() for s in
+                                                    ' '.join(entwurf['schluesselwoerter']).split()) else w
+                                    for w in z.split())
+        skript = {
+            **lernen.erprobte_einstellungen(Path(kanal_pfad).stem),
+            'kanal': kanal['name'], 'thema': entwurf['thema'],
+            'titel': [zeile(entwurf['titel_zeile1']), zeile(entwurf['titel_zeile2'])],
+            'stimme': stimme, 'tempo': 1.05, 'teile': entwurf['teile'],
+            'titel_farbe': kanal.get('titel_farbe', '#20D2BE'),
+            'untertitel_profil': lernen.erprobte_einstellungen(stem).get('untertitel_profil', 'ruhig'),
+            'posten_ny': kanal.get('posten_ny', '15:00'),
+            'laenge_s': dramaturgie.laengen(kanal), 'videoformat': dramaturgie.videoformat(kanal),
+            'regeln': kanal.get('_regeln', []),
+            'winkel': kanal.get('_winkel', ''), 'format': kanal.get('format', 'ranking'),
+            'story': story,
+            'hintergrund_suche': kanal.get('hintergrund_suche', ''),
+            'musik_suche': [q.strip()[:100] for q in entwurf.get('musik_suche', [])
+                            if isinstance(q, str) and q.strip()][:3] or kanal.get('musik_suche', []),
+            'bilder': wiki_fotos,
+            'beschreibung': entwurf['beschreibung'] + '\nClips: Pixabay'
+                            + (''.join(f"\nSource: Wikipedia - {q['name']} (CC BY-SA)" for q in quellen
+                                       if q.get('quelle') == 'Wikipedia')), 'hashtags': entwurf['hashtags'],
+            'pruefung': pruefung, 'quellen': [q['url'] for q in quellen if q.get('url')],
+            'belege': [{'name': q.get('name', ''), 'text': q.get('text', ''),
+                        'url': q.get('url', ''), 'quelle': q.get('quelle', '')} for q in quellen],
+            'modell': modell, 'sekunden_ki': round(time.time() - t0, 1),
+            'prompt_version': prompts.VERSION,
+        }
+        Path(aus_pfad).parent.mkdir(parents=True, exist_ok=True)
+        tmp = Path(str(aus_pfad) + '.tmp')
+        tmp.write_text(json.dumps(skript, indent=2, ensure_ascii=False), encoding='utf-8')
+        tmp.replace(aus_pfad)
+        return skript
+
     story = None
     if pruefung['ok']:
         entwurf['videoformat'] = dramaturgie.videoformat(kanal)
         story = story_bewerten(entwurf)
         print(f"Story: {story['note']}/10 {story['kategorien']}")
-        for runde in range(3):  # Ziel 10/10 (GEMELDET); Text kostet kaum Rechenzeit
-            if story['note'] >= 10 and not redaktion(story, STORY_KATEGORIEN, 'Skript')[1]:
-                break
-            neu, m, mangel = schreiben(
-                anweisung(kanal, entwurf['thema'], frueher) + zusatz
-                + '\nREWRITE for a stronger story (same topic, same facts and sources). A story editor found:\n- '
-                + '\n- '.join(story['schwaechen'])
-                + f"\nConsider this opening: {story['besserer_hook']}\nKeep the tension until the end and pay off "
-                  'the hook in the last part.'
-                + (('\nAlso remove these details the sources do not support:\n- ' + '\n- '.join(pruefung['leicht']))
-                   if pruefung.get('leicht') else '')
-                # GEMESSEN 04.10.2026: Ohne den bisherigen Entwurf schrieb die KI jede
-                # Runde neu von vorn - Story 6 -> 6 -> 5. In doku.py (mit Entwurf) 7 -> 8.
-                + '\nCURRENT DRAFT - improve THIS draft, preserve only source-supported facts:\n'
-                + json.dumps(entwurf, ensure_ascii=False))
-            if mangel:
-                continue
-            p2 = pruefen(neu)
-            if not p2['ok']:
-                # GEMESSEN 04.10.2026 (Lamborghini): Alle 3 spannenderen Fassungen
-                # fielen durch die Faktenpruefung, die Story blieb bei 4/10. Statt sie
-                # wegzuwerfen: EINMAL nur die gemeldeten Fehler reparieren lassen.
-                print('Story-Fassung fiel durch die Faktenpruefung - Reparatur:', [x[:80] for x in p2['probleme']])
-                repariert, m, mangel = schreiben(
+        fassung_speichern(entwurf, modell, pruefung, story)
+        try:
+            for runde in range(3):  # Ziel 10/10; keine unbeschraenkten Textschleifen.
+                if story['note'] >= 10 and not redaktion(story, STORY_KATEGORIEN, 'Skript')[1]:
+                    break
+                neu, m, mangel = schreiben(
                     anweisung(kanal, entwurf['thema'], frueher) + zusatz
-                    + '\nHere is a draft. Keep its story, structure and wording, but FIX ONLY these fact problems '
-                      '(remove or correct the claim using the sources):\n- ' + '\n- '.join(p2['probleme'])
-                    + '\nDRAFT:\n' + json.dumps(neu, ensure_ascii=False))
+                    + '\nREWRITE for a stronger story (same topic, same facts and sources). A story editor found:\n- '
+                    + '\n- '.join(story['schwaechen'])
+                    + f"\nConsider this opening: {story['besserer_hook']}\nKeep the tension until the end and pay off "
+                      'the hook in the last part.'
+                    + (('\nAlso remove these details the sources do not support:\n- ' + '\n- '.join(pruefung['leicht']))
+                       if pruefung.get('leicht') else '')
+                    # GEMESSEN 04.10.2026: Ohne den bisherigen Entwurf schrieb die KI jede
+                    # Runde neu von vorn - Story 6 -> 6 -> 5. In doku.py (mit Entwurf) 7 -> 8.
+                    + '\nCURRENT DRAFT - improve THIS draft, preserve only source-supported facts:\n'
+                    + json.dumps(entwurf, ensure_ascii=False))
                 if mangel:
                     continue
-                p2 = pruefen(repariert)
+                p2 = pruefen(neu)
                 if not p2['ok']:
-                    print('Auch die Reparatur fiel durch - verworfen')
-                    continue
-                neu = repariert
-            neu['videoformat'] = dramaturgie.videoformat(kanal)
-            s2 = story_bewerten(neu)
-            print(f"Story neu: {s2['note']}/10 (vorher {story['note']})")
-            if rang(s2, STORY_KATEGORIEN) > rang(story, STORY_KATEGORIEN):
-                entwurf, modell, pruefung, story = neu, m, p2, s2
-            else:
-                # Sparsam: Bringt eine Runde keine bessere Note, bringen weitere
-                # meist auch nichts (GEMESSEN: 6 -> 6 -> 5) - abbrechen.
-                break
+                    # GEMESSEN 04.10.2026 (Lamborghini): Alle 3 spannenderen Fassungen
+                    # fielen durch die Faktenpruefung, die Story blieb bei 4/10. Statt sie
+                    # wegzuwerfen: EINMAL nur die gemeldeten Fehler reparieren lassen.
+                    print('Story-Fassung fiel durch die Faktenpruefung - Reparatur:', [x[:80] for x in p2['probleme']])
+                    repariert, m, mangel = schreiben(
+                        anweisung(kanal, entwurf['thema'], frueher) + zusatz
+                        + '\nHere is a draft. Keep its story, structure and wording, but FIX ONLY these fact problems '
+                          '(remove or correct the claim using the sources):\n- ' + '\n- '.join(p2['probleme'])
+                        + '\nDRAFT:\n' + json.dumps(neu, ensure_ascii=False))
+                    if mangel:
+                        continue
+                    p2 = pruefen(repariert)
+                    if not p2['ok']:
+                        print('Auch die Reparatur fiel durch - verworfen')
+                        continue
+                    neu = repariert
+                neu['videoformat'] = dramaturgie.videoformat(kanal)
+                s2 = story_bewerten(neu)
+                print(f"Story neu: {s2['note']}/10 (vorher {story['note']})")
+                if rang(s2, STORY_KATEGORIEN) > rang(story, STORY_KATEGORIEN):
+                    entwurf, modell, pruefung, story = neu, m, p2, s2
+                    fassung_speichern(entwurf, modell, pruefung, story)
+                else:
+                    # Sparsam: Bringt eine Runde keine bessere Note, bringen weitere
+                    # meist auch nichts (GEMESSEN: 6 -> 6 -> 5) - abbrechen.
+                    break
+
+        except RuntimeError:
+            print("Optionale Story-Verbesserung abgebrochen; gepruefte Fassung bleibt erhalten", flush=True)
 
     if entwurf is None:  # kein einziges Thema hatte eine brauchbare Quelle
         print('Kein Thema gefunden - Versuch beendet', file=sys.stderr)
         sys.exit(2)
-    zuordnen(entwurf, quellen)
-    # GEMESSEN: Die KI liess „name" leer - dann fehlte der Name unter der Karte.
-    for t in entwurf['teile']:
-        if t.get('platz') and not t.get('name') and t.get('quelle_url'):
-            t['name'] = t['quelle_url'].rstrip('/').split('/')[-1].replace('-', ' ').replace('_', ' ')[:24]
-    # Bild-Aufhaenger: Der Einstieg zeigt schon die Karte von Platz 1
-    # (Neugier: „was ist das?"), statt eines leeren Farbverlaufs.
-    erster = next((t for t in entwurf['teile'] if t.get('platz') == 1 and t.get('quelle_url')), None)
-    if erster and not entwurf['teile'][0].get('platz'):
-        entwurf['teile'][0]['quelle_url'] = erster['quelle_url']
-
-    # Stimme abwechselnd nach Tag (Abwechslung gegen Massenware-Regel)
-    stimmen = kanal.get('stimmen', ['am_michael'])
-    # Nur die Stimmen des Nutzers; welche, entscheidet der Erfolg (erfolg.py)
-    stimme = erfolg.waehlen(Path(kanal_pfad).stem, 'stimme', stimmen,
-                          videoformat=dramaturgie.videoformat(kanal))
-    zeile = lambda z: ' '.join(f'*{w}*' if any(w.strip('.,!?').lower() == s.lower() for s in
-                                                ' '.join(entwurf['schluesselwoerter']).split()) else w
-                                for w in z.split())
-    skript = {
-        **lernen.erprobte_einstellungen(Path(kanal_pfad).stem),
-        'kanal': kanal['name'], 'thema': entwurf['thema'],
-        'titel': [zeile(entwurf['titel_zeile1']), zeile(entwurf['titel_zeile2'])],
-        'stimme': stimme, 'tempo': 1.05, 'teile': entwurf['teile'],
-        'titel_farbe': kanal.get('titel_farbe', '#20D2BE'),
-        'untertitel_profil': lernen.erprobte_einstellungen(stem).get('untertitel_profil', 'ruhig'),
-        'posten_ny': kanal.get('posten_ny', '15:00'),
-        'laenge_s': dramaturgie.laengen(kanal), 'videoformat': dramaturgie.videoformat(kanal),
-        'regeln': kanal.get('_regeln', []),
-        'winkel': kanal.get('_winkel', ''), 'format': kanal.get('format', 'ranking'),
-        'story': story,
-        'hintergrund_suche': kanal.get('hintergrund_suche', ''),
-        'musik_suche': [q.strip()[:100] for q in entwurf.get('musik_suche', [])
-                        if isinstance(q, str) and q.strip()][:3] or kanal.get('musik_suche', []),
-        'bilder': wiki_fotos,
-        'beschreibung': entwurf['beschreibung'] + '\nClips: Pixabay'
-                        + (''.join(f"\nSource: Wikipedia - {q['name']} (CC BY-SA)" for q in quellen
-                                   if q.get('quelle') == 'Wikipedia')), 'hashtags': entwurf['hashtags'],
-        'pruefung': pruefung, 'quellen': [q['url'] for q in quellen if q.get('url')],
-        'belege': [{'name': q.get('name', ''), 'text': q.get('text', ''),
-                    'url': q.get('url', ''), 'quelle': q.get('quelle', '')} for q in quellen],
-        'modell': modell, 'sekunden_ki': round(time.time() - t0, 1),
-        'prompt_version': prompts.VERSION,
-    }
-    Path(aus_pfad).parent.mkdir(parents=True, exist_ok=True)
-    Path(aus_pfad).write_text(json.dumps(skript, indent=2, ensure_ascii=False), encoding='utf-8')
+    skript = fassung_speichern(entwurf, modell, pruefung, story)
     print(json.dumps({k: skript[k] for k in ('thema', 'titel', 'stimme', 'pruefung', 'modell', 'sekunden_ki')},
                      indent=2, ensure_ascii=False))
     # Konzept 4a: Was durchfaellt, wird nicht vorgelegt. GEMESSEN: Bei

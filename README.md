@@ -1,8 +1,17 @@
 # Contentfabrik
 
-Stand: 06.10.2026. Eine private Cloud-Pipeline fuer eigene englische
+Stand: 07.10.2026. Eine private Cloud-Pipeline fuer eigene englische
 Kurzvideos: **AI Tools Explained** und **Business Origin Stories**.
 Ziel sind gute Originalinhalte mit moeglichst 0 EUR laufenden Kosten.
+
+Eigene Themen: [Bedienung per Telegram](THEMEN-PER-TELEGRAM.md).
+`Business:` oder `KI:` fuer Einzelideen oder Listen mit bis zu 25 Ideen.
+Neue Ideen werden erst nach Git-Sicherung bestaetigt und bleiben bei
+Produktionsfehlern in der Warteschlange. Dashboard-Eingabe ist nicht eingebaut.
+
+Neu am 07.10.: [Betriebsanalyse und Budgetkorrekturen](BETRIEB-2026-10-07.md).
+Unnoetige Themen-/Countdown-Schleifen korrigiert, Skriptzeit begrenzt und
+gepruefte Skriptzwischenfassungen vor optionalen Verbesserungen gesichert.
 
 ## Was heute funktioniert
 
@@ -46,7 +55,8 @@ in Folge je Kanal sind ein Kontrollpunkt; Plattform-Uploads bleiben manuell.
   Defekte Videos verbrauchen keine KI-Anfrage fuer die Video-Bewertung.
 - Alle Tagesfenster teilen **30 Minuten je Kanal und UTC-Tag**, gespeichert
   in `verlauf/budget/<kanal>.json`. Unterprozesse haben eine gemeinsame
-  Deadline; das Lernen bekommt davon hoechstens 90 Sekunden.
+  Deadline; die Skriptphase bekommt maximal acht Minuten bzw. 40 Prozent der
+  verbleibenden Arbeitszeit. Das Lernen bekommt davon hoechstens 90 Sekunden.
 - Vor Arbeitsbeginn wird das Restbudget reserviert, beim normalen Ende die
   ungenutzte Zeit erstattet. Bei einem harten Prozessabbruch bleibt die
   Reservierung erhalten, sofern der Sicherungsschritt noch ausgefuehrt wird.

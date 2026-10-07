@@ -1,8 +1,33 @@
 # Technische Umsetzung und Testnachweise fuer Claude
 
-Stand: 06.10.2026. Neueste fachliche Vorgaben stehen in [CLAUDE.md](CLAUDE.md)
+Stand: 07.10.2026. Neueste fachliche Vorgaben stehen in [CLAUDE.md](CLAUDE.md)
 und [UEBERGABE-CLAUDE.md](UEBERGABE-CLAUDE.md). Dieses Dokument beschreibt
 die gebauten Erweiterungen, ihre Dateien und die tatsaechlichen Pruefungen.
+
+## Erweiterung am 07.10.2026: Themenlisten und Zeitverschwendung
+
+**236 lokale Tests bestanden**, 6,789 Sekunden Testzeit; Kompilierung und
+`git diff --check` bestanden. Nachweis:
+`pruefungen/ergebnisse/2026-10-07/themen-budget-tests.json`.
+18 neue Regressionen gegenueber dem zuvor bestandenen Stand mit 218 Tests.
+
+Neue Regressionen in `test_themen_budget.py`, `test_betrieb.py` und
+`test_ki_speicher.py`: Zehnerliste ohne KI, Reihenfolge, Deduplizierung,
+ungueltige Listen, Rueckmeldung erst nach Sicherung, Speicher-/Telegram-
+Fehler, Idee behalten bis erfolgreichem Versand, direkte Markenrecherche,
+keine Countdown-Reparatur fuer Geschichte, KI-Deadline und Modellwechsel
+nach Timeout. Bestandene Skriptzwischenfassung bleibt bei API-/Prozessabbruch
+erhalten; schwache Fassung darf trotz Checkpoint nicht in den Bau gelangen.
+
+Implementierung: `themen.py`, Themenworkflow, `lauf.py`, `skript.py`,
+`bildplan.py`, Prompt-Version `2026-10-07.2`. Details/Bedienung:
+[THEMEN-PER-TELEGRAM.md](THEMEN-PER-TELEGRAM.md), reale Fehlerdiagnose und
+offene Betriebsgrenzen: [BETRIEB-2026-10-07.md](BETRIEB-2026-10-07.md).
+Die Tests simulieren externe Dienste und sind kein neuer Film-/Versandnachweis.
+Timeout-Berichte nennen nun die konkrete Phase; Skript-/Bau-/Pruefdauer werden
+getrennt protokolliert. Die neuen Fristen koennen auch langsam antwortende,
+grundsaetzlich funktionierende Dienste abbrechen; reale Laufzeiten nach Deployment
+kontrollieren und nicht als nachgewiesene Kosteneinsparung ausgeben.
 
 ## Erweiterung am 06.10.2026: Kontingent, Cache und fertiger Ton
 

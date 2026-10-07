@@ -151,6 +151,39 @@ class BudgetTest(TempTest):
 
 
 class LaufTest(TempTest):
+    def test_schwache_skriptzwischenfassung_nach_timeout_wird_nicht_gebaut(self):
+        def fake(args, deadline):
+            if args[0] == 'fabrik/skript.py':
+                with patch.dict(SKRIPT, story={'note': 6, 'kategorien': dict.fromkeys(STORY_KATEGORIEN, 6)}):
+                    self.fake_schritt(args, deadline)
+                raise subprocess.TimeoutExpired(args, 1)
+            return 0
+        with patch('lauf.schritt', side_effect=fake) as schritte, patch('lauf.melden'):
+            lauf.produzieren('kanaele/test.json', 'test', '', time.monotonic(), 1800, self.themen)
+        self.assertFalse(any(c.args[0][0] == 'fabrik/bauen.py' for c in schritte.call_args_list))
+
+    def test_telegramthema_nur_nach_erfolgreicher_zustellung_entfernen(self):
+        self.themen.nehmen.return_value = 'LEGO'
+        self.ausfuehren([dict(KRITIK, note=10)], sendefehler=True)
+        self.themen.erledigen.assert_not_called()
+        self.ausfuehren([dict(KRITIK, note=10)])
+        self.themen.erledigen.assert_called_once_with('test', 'LEGO')
+
+    def test_gepruefte_skriptzwischenfassung_nach_timeout_wird_gebaut(self):
+        self.feedback = [dict(KRITIK, note=10)]
+        def fake(args, deadline):
+            if args[0] == 'fabrik/skript.py':
+                self.fake_schritt(args, deadline)
+                raise subprocess.TimeoutExpired(args, 1)
+            return self.fake_schritt(args, deadline)
+        with patch('lauf.schritt', side_effect=fake) as schritte, patch('lauf.melden'), \
+                patch('lauf.VERSUCHE_MAX', 1):
+            lauf.produzieren('kanaele/test.json', 'test', '', time.monotonic(), 1800, self.themen)
+        self.assertTrue(any(c.args[0][0] == 'fabrik/bauen.py' for c in schritte.call_args_list))
+        bericht = json.loads(Path('ausgabe/bericht.json').read_text())
+        self.assertEqual(bericht['status'], 'gesendet')
+        self.assertTrue(bericht['runden'][0]['skript_zwischenfassung'])
+
     def test_baufehler_setzt_selbes_geprueftes_skript_mit_cache_fort(self):
         self.feedback = [dict(KRITIK, note=10)]
         baut = []

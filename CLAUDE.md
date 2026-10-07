@@ -1,6 +1,22 @@
 # Einstieg fuer Claude
 
 **Aktuell 07.10.:** [Betriebspruefung](BETRIEB-2026-10-07.md) zuerst lesen.
+**Nachtrag gegen 12:20 Berlin:** Zweiter Business-Lauf `37602505284` ebenfalls
+ohne Video: 672,9 Sekunden bis zur Fakten-Sperre. Bekannte Schwachstellen jetzt
+korrigiert: feste Marke direkt recherchieren, keine Countdown-Pruefung fuer
+Geschichten, historische Datierung aus dem Kontext statt wiederholter Jahreszahl.
+Gemini-Modellwechsel zeitlich begrenzt, kein doppeltes Warten auf einen Timeout;
+Skriptfrist maximal acht Minuten/40 Prozent der Restarbeit. Gepruefte Skripte
+vor optionalen Verbesserungen atomar speichern und bei Abbruch weiterverwenden.
+Bildplanung verwendet Lite zuerst. Keine Budgetruecksetzung, kein Modellvergleich-
+Sieger und kein erfolgreiches neues Tagesvideo behaupten.
+
+Neue Nutzerfrage: zehn eigene Business-Ideen einreichen. Listen in einer Telegram-
+Nachricht eingebaut, nach Git-Push bestaetigen; Idee erst nach erfolgreicher
+Videozustellung entfernen. Bedienung und Grenzen: [THEMEN-PER-TELEGRAM.md](THEMEN-PER-TELEGRAM.md).
+Dashboard zur Themeneingabe weiterhin nicht vorhanden. Die folgenden Angaben
+zum Wiederanlauf beschreiben fruehere Kontrollen dieses Tages.
+
 Nach Eintrag des Nutzers ist `GH_TOKEN` bestaetigt und der echte GitHub-
 Teststart aus Cloudflare erfolgreich (Run 37601775597). Normalcode danach
 wiederhergestellt, Secret erhalten. Normaler Cron-Nachweis noch offen.

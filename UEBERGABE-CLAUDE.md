@@ -1,10 +1,35 @@
 # Uebergabe an Claude – Contentfabrik
 
-Stand: 06.10.2026, nach Uebernahme der Vorarbeit und der neuen Qualitaets-
+Stand: 07.10.2026, nach Uebernahme der Vorarbeit und der neuen Qualitaets-
 und Formatverbesserungen. Dieses Dokument wird mit den Pilot-Ergebnissen
 aktualisiert. Es enthaelt keine Zugangsschluessel.
 
 ## Nutzerauftrag und zugesagtes Ergebnis
+
+### Neuester Stand: Telegram-Listen und begrenzte Skriptarbeit, 07.10.2026
+
+Der Nutzer moechte ca. zehn eigene Business-Ideen einreichen. Jetzt per
+`Business:` plus eine Idee je Zeile in einer Nachricht moeglich; `KI:` analog.
+Kein Dashboard vorhanden. [Bedienung/technische Grenzen](THEMEN-PER-TELEGRAM.md)
+lesen: erst nach Git-Push bestaetigen, wiederholte Update-IDs nicht duplizieren,
+Idee erst nach erfolgreicher Videozustellung entfernen. Fehlversuche behalten sie.
+
+Heute beide Wiederanlaeufe ohne neuen freigegebenen Film. Ursachen und konkrete
+Run-IDs: [BETRIEB-2026-10-07.md](BETRIEB-2026-10-07.md). Das interne Zeitbudget
+ist keine Gemini-Tagesquote; Fehler zeigten temporaere Ueberlastung. Keine
+Budgetruecksetzung. Feste Marken direkt recherchieren, keine Countdown-Pruefung
+fuer Geschichte und keine unnoetig wiederholten historischen Jahreszahlen.
+Skriptfrist maximal acht Minuten/40 Prozent Restarbeit; KI-Modellwechsel und
+Netzwartezeiten begrenzt. Gepruefte JSON-Zwischenfassung atomar speichern,
+bei optionalem KI-Ausfall oder Prozess-Timeout nur nach normalen Gates nutzen.
+Bildplanung Lite zuerst; keine Qualitaetsschwelle reduziert. Aktuelle Prompt-
+Version `2026-10-07.2`, Standardautor weiterhin Gemini; kein Vergleichssieger.
+
+Code-/Testbeschreibung: [UMSETZUNG-UND-TESTS.md](UMSETZUNG-UND-TESTS.md).
+Normaler Cloudflare-Cron und neuer Film-/Telegram-Versand muessen weiterhin
+live bewiesen werden; Unit-Tests und der erfolgreiche Token-Testdispatch
+reichen dafuer nicht. Ganze Teilproduktionen zwischen verschiedenen GitHub-
+Runs werden noch nicht wiederverwendet. Folgende Abschnitte sind Historie.
 
 ### Neuester Stand: Arbeiten ohne neues Gemini-Kontingent, 06.10.2026
 

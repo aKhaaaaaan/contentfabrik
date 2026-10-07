@@ -42,7 +42,8 @@ def schritt(argumente, deadline):
     rest = deadline - time.monotonic()
     if rest <= 0:
         raise subprocess.TimeoutExpired(argumente, 0)
-    p = subprocess.Popen([PY, *argumente], start_new_session=os.name != 'nt')
+    p = subprocess.Popen([PY, *argumente], start_new_session=os.name != 'nt',
+                         env={**os.environ, 'CF_SCHRITT_ENDE': str(deadline)})
     try:
         return p.wait(timeout=rest)
     except subprocess.TimeoutExpired:
@@ -114,6 +115,7 @@ def main(kanal_pfad, thema='', entwurf=''):
 def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     import lernen
     # Thema aus Telegram hat Vorrang (GEMELDET: eigene Themen einbringen)
+    aus_warteschlange = not thema
     if not thema:
         thema = themen.nehmen(kanal)
         if thema:
@@ -151,6 +153,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         plan = None
         runde = {'runde': versuch, 'art': 'korrektur' if basis else 'produktion'}
         bericht['runden'].append(runde)
+        phase = 'Skript'
         try:
             if bau_basis:
                 ordner.mkdir(parents=True, exist_ok=True)
@@ -180,9 +183,20 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                     runde['status'] = 'korrekturgrenze'
                     break
             else:
-                r = schritt(['fabrik/pilot_entwurf.py', entwurf, kanal_pfad, str(ordner / 'skript.json')]
-                            if entwurf else
-                            ['fabrik/skript.py', kanal_pfad, str(ordner / 'skript.json'), thema], arbeit_ende)
+                # Auch im Ersatzfenster Zeit fuer Bilder, Rendern und Pruefung lassen.
+                skript_ende = min(arbeit_ende, time.monotonic()
+                                  + min(480, max(0, arbeit_ende - time.monotonic()) * .4))
+                try:
+                    r = schritt(['fabrik/pilot_entwurf.py', entwurf, kanal_pfad, str(ordner / 'skript.json')]
+                                if entwurf else
+                                ['fabrik/skript.py', kanal_pfad, str(ordner / 'skript.json'), thema], skript_ende)
+                except subprocess.TimeoutExpired:
+                    pfad = ordner / 'skript.json'
+                    if not pfad.exists() or skript_gruende(json.loads(pfad.read_text(encoding='utf-8'))):
+                        raise
+                    print('Skriptphase beendet; vollstaendig gepruefte Zwischenfassung wird gebaut')
+                    runde['skript_zwischenfassung'] = True
+                    r = 0
             if r != 0:
                 letzter_grund = ('Faktenpruefung nicht bestanden' if r == 2 else
                                 'Skriptqualitaet unter Freigabe' if r == 3 else f'Skript fehlgeschlagen (Code {r})')
@@ -210,9 +224,13 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                 if basis:
                     break
                 continue
+            runde['skript_s'] = round(time.monotonic() - rundenstart, 1)
+            phase = 'Videobau'
+            bau_start = time.monotonic()
             b = (0 if basis and basis[1] is None else schritt(
                 ['fabrik/bauen.py', str(ordner / 'skript.json'), str(ordner)]
                 + ([str(bau_basis)] if bau_basis else [str(basis[0])] if basis else []), arbeit_ende))
+            runde['bau_s'] = round(time.monotonic() - bau_start, 1)
             if b != 0:
                 letzter_grund = 'Videobau fehlgeschlagen'
                 print(f'Versuch {versuch}: {letzter_grund}')
@@ -224,8 +242,11 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                 continue
             bau_basis = None
             (ordner / 'kritik.json').unlink(missing_ok=True)
+            phase = 'Video-Pruefung'
+            pruef_start = time.monotonic()
             k = schritt(['fabrik/kritik.py', str(ordner / 'short.mp4'), str(ordner / 'skript.json'),
                          str(ordner / 'kritik.json')], arbeit_ende)
+            runde['pruefung_s'] = round(time.monotonic() - pruef_start, 1)
             if k != 0 or not (ordner / 'kritik.json').exists():
                 letzter_grund = 'Video-Pruefung nicht verfuegbar'
                 print(letzter_grund + ' - Video bleibt gesperrt')
@@ -247,9 +268,10 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                     kanal, a['vorher'], kritik, a['plan'], time.monotonic() - a['start'], a['id'])
                 ausstehende_korrektur = None
         except subprocess.TimeoutExpired:
-            letzter_grund = 'Zeitbudget erreicht (Arbeiter beendet)'
+            letzter_grund = f'{phase}-Zeitlimit erreicht (Arbeiter beendet)'
             print(letzter_grund)
             runde['status'] = 'zeitbudget'
+            runde['phase'] = phase
             break
         except (ValueError, KeyError, TypeError, OSError) as e:
             letzter_grund = f'Versuch fehlgeschlagen ({type(e).__name__})'
@@ -326,6 +348,8 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         protokoll('zustellfehler')
         raise RuntimeError(f'Telegram-Zustellung fehlgeschlagen (Code {code})')
     verlauf_eintragen(kanal, skript, 'gesendet', note, messung.get('abschnitte_s'), messung)
+    if aus_warteschlange and festes_thema:
+        themen.erledigen(kanal, festes_thema)
     protokoll('gesendet')
     return 0
 

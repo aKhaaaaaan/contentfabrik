@@ -39,6 +39,7 @@ jobs:
           [ "$(date -u +%H)" = "12" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ] || exit 0
           python3 fabrik/erfolg.py
       - name: Warteschlange sichern
+        id: sichern
         run: |
           git config user.name 'contentfabrik-bot'
           git config user.email 'contentfabrik-bot@users.noreply.github.com'
@@ -53,4 +54,22 @@ jobs:
             sleep $((i * 5))
           done
           echo "Warteschlange konnte nicht gesichert werden" >&2
+          exit 1
+      - name: Gesicherte Nachrichten bestaetigen
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 fabrik/themen.py bestaetigen
+      - name: Bestaetigungsstand sichern
+        if: always() && steps.sichern.outcome == 'success'
+        run: |
+          git add -- themen
+          git diff --cached --quiet && exit 0
+          git commit -qm "Themen: Telegram-Bestaetigungsstand"
+          for i in 1 2 3 4 5; do
+            git pull -q --rebase || exit 1
+            git push -q && exit 0
+            sleep $((i * 5))
+          done
+          echo "Bestaetigungsstand konnte nicht gesichert werden" >&2
           exit 1

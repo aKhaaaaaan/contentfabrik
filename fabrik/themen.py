@@ -14,7 +14,10 @@ HILFE = ('So schickst du mir ein Thema:\nBusiness: Wie LEGO entstand\nKI: Ein pr
          'Mehrere Ideen: Business: in die erste Zeile, darunter je eine Idee pro Zeile '
          '(auch nummeriert, maximal 25, je 200 Zeichen). Abholung alle vier Stunden. '
          'Ideen bleiben bis zur erfolgreichen Videozustellung in der Warteschlange. '
-         'Ein YouTube-Link liefert nur das Thema, nie fremden Text.')
+         'Ein YouTube-Link liefert nur das Thema, nie fremden Text.\n\n'
+         'Eigenes Skript:\nSkript Business: Wie WeWork scheiterte\n<dein Text, 40-900 Woerter>\n\n'
+         'Video-Link (YouTube/TikTok): Business: <Link> - das Thema wird neu recherchiert.\n\n'
+         'Unter jedem Video: ✅/❌ oder Note antippen; antworte auf das Video fuer Feedback.')
 
 
 def _tg(methode, **felder):
@@ -59,6 +62,47 @@ def themenliste(text):
     if not ideen or len(ideen) > 25 or any(not t or len(t) > 200 for t in ideen):
         raise ValueError('Bitte 1 bis 25 Ideen mit maximal 200 Zeichen je Idee senden.')
     return kanal, ideen
+
+
+def nutzerskript(text):
+    """'Skript Business: Thema' + Zeilenumbruch + eigener Text -> (kanal, thema, text) oder None.
+
+    GEMELDET 07.10.2026: „Kann ich meine eigenen Skripte ... im Telegram-Chat einfuegen
+    und daraus Videos machen?" Der Text bleibt Daten; Fakten prueft die Pipeline wie immer.
+    """
+    m = re.match(r'\s*skript\s+(\w+)\s*:\s*([^\n]+)\n(.+)', text, re.S | re.I)
+    if not m:
+        return None
+    kanal = next((k for k, namen in KANAELE.items() if m[1].lower() in namen), None)
+    thema, skripttext = m[2].strip(), m[3].strip()
+    if not kanal:
+        raise ValueError('Welcher Kanal? Beispiel:\nSkript Business: Wie WeWork scheiterte\n<dein Text>')
+    if not 0 < len(thema) <= 200 or not 40 <= len(skripttext.split()) <= 900:
+        raise ValueError('Skript: Thema in der ersten Zeile (max. 200 Zeichen), darunter 40-900 Woerter Text.')
+    return kanal, thema, skripttext
+
+
+VIDEO_LINK = re.compile(r'https?://(?:www\.|m\.|vm\.|vt\.)?(youtube\.com/(?:watch\?v=|shorts/)[\w-]{6,}[^\s]*|'
+                        r'youtu\.be/[\w-]{6,}[^\s]*|tiktok\.com/[^\s]+|instagram\.com/[^\s]+)', re.I)
+
+
+def link_titel(url):
+    """Titel/Kanal ueber die offizielle, kostenlose oEmbed-Schnittstelle (kein Herunterladen).
+
+    Fremde Videos werden NICHT abgeschrieben (Urheberrecht, YouTube-Regeln): der Titel
+    wird zum Rechercheauftrag, das Skript entsteht neu aus eigenen Quellen.
+    """
+    if 'instagram.com' in url.lower():
+        raise ValueError('Instagram-Links kann ich ohne Meta-Zugang nicht lesen. '
+                         'Schreib mir bitte das Thema dazu, z. B. Business: Wie Red Bull entstand')
+    basis = ('https://www.tiktok.com/oembed?url=' if 'tiktok.com' in url.lower()
+             else 'https://www.youtube.com/oembed?format=json&url=')
+    d = json.load(urllib.request.urlopen(urllib.request.Request(
+        basis + urllib.parse.quote(url, safe=''), headers={'User-Agent': 'contentfabrik/1.0'}), timeout=20))
+    titel = re.sub(r'\s+', ' ', re.sub(r'#\S+', '', str(d.get('title') or ''))).strip()[:200]
+    if not titel:
+        raise ValueError('Zu diesem Link habe ich keinen Titel gefunden. Schreib mir bitte das Thema dazu.')
+    return titel, str(d.get('author_name') or '')[:80]
 
 
 def zuordnen(text):
@@ -142,6 +186,40 @@ def abholen():
             Path('themen/stimmwahl.json').write_text(json.dumps(
                 {'nummern': nummern, 'eingang': datetime.date.today().isoformat()}) + '\n', encoding='utf-8')
             merken(u['update_id'], f'Stimmwahl gespeichert: {nummern}.')
+            continue
+        try:
+            eigen = nutzerskript(text)
+            link = None if eigen else VIDEO_LINK.search(text)
+            if link:
+                titel, autor = link_titel(link[0])
+        except (ValueError, OSError) as e:
+            merken(u['update_id'], str(e)[:300] if isinstance(e, ValueError) else
+                   'Link gerade nicht lesbar. Schreib mir bitte das Thema dazu.')
+            continue
+        if eigen:
+            kanal, thema, skripttext = eigen
+            liste.append({'kanal': kanal, 'thema': thema, 'eingang': datetime.date.today().isoformat(),
+                          'id': f'telegram-{u["update_id"]}-0', 'nutzerskript': skripttext[:6000]})
+            merken(u['update_id'], f'Dein Skript fuer {kanal} ist gespeichert: {thema[:100]}\n'
+                   'Ich behalte Wortlaut und Aufbau, so weit die Quellen es tragen; Fakten werden '
+                   'wie immer geprueft. Kein Sofortversand versprochen.')
+            continue
+        if link:
+            vorsatz = text[:link.start()].strip().rstrip(':').strip()
+            kanal = next((k for k, namen in KANAELE.items() if vorsatz.lower() in namen), None) \
+                if vorsatz else None
+            if not kanal:
+                kanal, _ = zuordnen(titel)
+            if not kanal:
+                merken(u['update_id'], f'Link gelesen: „{titel[:100]}". Welcher Kanal? '
+                       'Schick ihn bitte mit Business: oder KI: davor.')
+                continue
+            liste.append({'kanal': kanal, 'thema': titel, 'eingang': datetime.date.today().isoformat(),
+                          'id': f'telegram-{u["update_id"]}-0', 'idee_original': titel,
+                          'rechercheauftrag': f'Inspired by a video by {autor or "another creator"} ({link[0][:200]}). '
+                                              'Research the topic independently; do not copy that video.'})
+            merken(u['update_id'], f'Link gelesen und als Thema fuer {kanal} gespeichert:\n„{titel[:150]}"\n'
+                   'Ich recherchiere das Thema neu mit eigenen Quellen; das fremde Video wird nicht kopiert.')
             continue
         try:
             eingabe = themenliste(text)

@@ -4,6 +4,39 @@ Stand: 07.10.2026. Eigene Ideen im **gleichen Telegram-Bot** schicken, der
 die Videovorschauen sendet. Es gibt derzeit kein Dashboard zur Themeneingabe;
 die vorhandene Website ist eine Informationsseite.
 
+## Neu 07.10.2026 abends (Claude)
+
+**Eigenes Skript** - erste Zeile Kanal und Thema, darunter dein Text (40-900 Woerter,
+auch Deutsch; erzaehlt wird Englisch):
+
+```text
+Skript Business: Wie WeWork scheiterte
+WeWork wollte Bueros wie Software verkaufen ...
+```
+
+Claude behaelt Hook, Reihenfolge und Wortlaut, soweit die Quellen es tragen; nur
+widerlegte/unbelegte Aussagen werden ersetzt. Fakten-, Story- und Videopruefung
+laufen unveraendert.
+
+**Video-Link** (YouTube, YouTube Shorts, TikTok), optional mit Kanal davor:
+
+```text
+Business: https://www.youtube.com/shorts/...
+```
+
+Titel und Kanal kommen ueber die offizielle, kostenlose oEmbed-Schnittstelle
+(live geprueft 07.10.). Das fremde Video wird NICHT heruntergeladen oder
+abgeschrieben (Urheberrecht, YouTube-Regeln); der Titel wird ein Rechercheauftrag.
+Instagram braucht einen Meta-Zugang - der Bot bittet dann um das Thema als Text.
+
+**Bewerten unter jedem Video:** Knoepfe ✅ Gefaellt / ❌ Ablehnen / Note ≤4-10.
+Antwort (Wischen) auf das Video = Feedback genau zu diesem Video. Ablehnen
+(oder Note ≤4) sperrt die Datei fuer erneuten Versand. Abholung mit dem
+Themenlauf alle vier Stunden; die Bestaetigung kommt danach. Das ist ein
+Schnellurteil, keine vollstaendige Sichtpruefung der Qualitaetsserie.
+Code: `fabrik/bewertung.py`, `fabrik/themen.py`; Tests `test_bewertung.py`,
+`test_telegram_eingang.py`.
+
 Eine einzelne Idee:
 
 ```text

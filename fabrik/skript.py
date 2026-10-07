@@ -426,6 +426,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
     if vorgabe.get('idee_original'):
         kanal['_themenauftrag'] = {'idee': vorgabe['idee_original'],
                                   'rechercheauftrag': vorgabe.get('rechercheauftrag', '')}
+    if vorgabe.get('nutzerskript'):
+        kanal['_nutzerskript'] = vorgabe['nutzerskript']
     # GEMELDET: aus den Videos lernen, die wirklich liefen (Aufrufe, Zuschauerbindung)
     import erfolg
     stem = Path(kanal_pfad).stem

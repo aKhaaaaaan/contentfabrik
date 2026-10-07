@@ -1,5 +1,23 @@
 # Uebergabe an Claude – Contentfabrik
 
+**Nachtrag 07.10. spaetabends (Claude), neuester Stand:** Echte Laeufe heute
+37649294220 und 37652008678: Claude schrieb beide Skripte (WeWork Story 8/10,
+AI 7/10), aber kein Video - nacheinander behoben (alle mit Test, der den alten
+Stand erkennt): Groq-Storypruefung lieferte Objekte statt Text (lokal
+angleichen), doppelte Wortzeiten im Untertitel (gemeinsam zeigen), KI-Bilder mit
+Schrift (Szenen ohne Zitate/Grossbuchstaben, Bildschirme abstrakt), Figur-
+Einsetzen scheiterte an Einstellung 0 (Originalfigur am Rand, Szene ohne Figur
+in der Mitte), Short zu lang (Grenze 170-216 Woerter in Auftrag UND Pruefung),
+Claude-Ausfall kostet nur noch einen Versuch. Neu auf Nutzerwunsch: Musik ab
+Bild 1 statt 1 s Einblenden, 0,55 s Musikstille vor der Wendung (mit echtem
+ffmpeg gemessen), passende CC0-Geraeusche (Freesound via Openverse, max. 3),
+Bewertungsknoepfe unter jedem Telegram-Video, eigene Skripte und YouTube/
+TikTok-Links per Telegram ([THEMEN-PER-TELEGRAM.md](THEMEN-PER-TELEGRAM.md)).
+Prompt `2026-10-07.9`, 284 Tests. Tagesbudget 07.10. auf Nutzerauftrag mehrfach
+freigegeben. Offen: Repo oeffentlich (Nutzer stellt selbst um; vorher Anschrift
+aus Historie entfernen, `website/` aus Git nehmen), Composio-Upload und
+Higgsfield erst spaeter. Noch KEIN erfolgreicher Videoversand heute nachgewiesen.
+
 **Nachtrag 07.10. abends (Claude):** Skript-Autor fuer beide Kanaele ist jetzt
 Claude (Abo-Token, kein API-Geld), siehe Commit `2ba0450` und
 `fabrik/claude_ki.py`. Einziger Schreibaufruf: `skript.main()`, auch fuer

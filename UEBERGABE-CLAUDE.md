@@ -1,5 +1,14 @@
 # Uebergabe an Claude – Contentfabrik
 
+**Nachtrag 07.10. 15:12 Berlin:** Neun echte Nutzerideen recherchiert/eingeplant,
+eine App-Idee braucht Identitaet/Quelle. Ein Video je Tag nach Telegram,
+Plattform-Upload manuell. [BUSINESS-TAGESPLAN.md](BUSINESS-TAGESPLAN.md) mit
+kompletten realen Ursachen, zwei erfolglosen Wiederanlaeufen, Prompt v5,
+254 Tests und Budgetstand zuerst lesen. Keine erfolgreichen neuen MP4s.
+Ausgabelimits/Groq-Auftragsgroesse korrigiert; kleine Restfenster nur fuer
+geprueften Teilbau. Beide Kanaele heute nicht mehr startbar; naechster
+regulaerer Start 08.10. 10:23 Berlin, kein Zustellversprechen.
+
 Stand: 07.10.2026, nach Uebernahme der Vorarbeit und der neuen Qualitaets-
 und Formatverbesserungen. Dieses Dokument wird mit den Pilot-Ergebnissen
 aktualisiert. Es enthaelt keine Zugangsschluessel.

@@ -396,6 +396,21 @@ class WorkflowTest(TempTest):
         budget.reservieren('test', lauf.BUDGET_S)
         self.assertEqual(self.vorpruefung('workflow_dispatch', 'alle'), [])
 
+    def test_kleiner_rest_ohne_gueltigen_entwurf_startet_keinen_neubau(self):
+        with patch('budget.rest', return_value=393):
+            self.assertEqual(self.vorpruefung('workflow_dispatch', 'alle'), [])
+            self.assertEqual(self.vorpruefung('workflow_dispatch', 'test'), [])
+
+    def test_kleiner_rest_darf_gueltigen_entwurf_fortsetzen(self):
+        import entwurf_cache
+        Path('bau').mkdir()
+        Path('bau/skript.json').write_text(json.dumps(SKRIPT))
+        entwurf_cache.sichern('test', 'kanaele/test.json', '', 'bau')
+        with patch('budget.rest', return_value=393):
+            self.assertEqual(self.vorpruefung('workflow_dispatch', 'alle'), ['test'])
+        with patch('budget.rest', return_value=180):
+            self.assertEqual(self.vorpruefung('workflow_dispatch', 'alle'), [])
+
     def test_unbekannte_kanaleingabe_wird_abgelehnt(self):
         with self.assertRaises(SystemExit):
             self.vorpruefung('workflow_dispatch', '../../anderer-pfad')

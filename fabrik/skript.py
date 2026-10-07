@@ -66,7 +66,9 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(),
         raise RuntimeError('Text-Ausweichweg: Groq-Zugang fehlt')
     ende = min(time.monotonic() + 90, float(os.environ.get('CF_SCHRITT_ENDE', 'inf')))
     print('Text-Ausweichweg: Groq GPT-OSS; Fakten- und Qualitaetsgates bleiben bestehen', flush=True)
-    ausgabe = 768 if any(k in schema.get('properties', {}) for k in ('probleme', 'schwaechen')) else 2048
+    # GPT-OSS rechnet interne Reasoning-Tokens ins Completion-Limit ein,
+    # auch bei include_reasoning=False. Die reale Reparatur mit 2048 war unvollstaendig.
+    ausgabe = 1536 if any(k in schema.get('properties', {}) for k in ('probleme', 'schwaechen')) else 3072
     try:
         antwort, _, _ = av.groq(prompt, schema, ausgabe_tokens=ausgabe, deadline=ende)
     except (RuntimeError, ValueError, OSError) as e:
@@ -359,20 +361,29 @@ def groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens):
             korrektur = tail[:m.start()]
             entwurf = {k: entwurf[k] for k in ('thema', 'titel_zeile1', 'titel_zeile2',
                        'beschreibung', 'teile') if k in entwurf}
-            entwurf['teile'] = [{k: t[k] for k in ('text', 'suche', 'szene', 'platz', 'name', 'quelle_url')
+            # Reparaturen beziehen sich auf Behauptungen/Erzaehlung. Die neue
+            # Bildregie folgt diesem Text; alte Szenen nicht erneut einsenden.
+            entwurf['teile'] = [{k: t[k] for k in ('text', 'platz', 'name')
                                  if k in t} for t in entwurf['teile']]
     ranking = kanal.get('format', 'ranking') == 'ranking'
     struktur = ('Strict countdown using only the supplied sources and their fixed ranks.' if ranking else
                 'One real obstacle, response and consequence; no invented crisis or emotions.'
                 if kanal.get('format') == 'geschichte' else
                 'One everyday problem, one documented tool, practical steps, supported use and honest limitation.')
+    cta = ('Speak exactly TWO concise like/share/save requests: after first useful context within '
+           '20-30 seconds and after the ending payoff; never before the hook.' if
+           dramaturgie.videoformat(kanal) == 'lang' else
+           'After the final payoff speak exactly ONCE: Be sure to like, share and save this video.')
     return (prompts.DATEN + prompts.FAKTEN + prompts.SPRECHEN
         + f'Write an original English video in {mindest}-{hoechstens} spoken words. '
         + ('Use 24-50 unranked beats. ' if dramaturgie.videoformat(kanal) == 'lang' else
-           'Aim for 190-220 words in 8-10 short beats. ')
+           'Use 9 short beats of 22-24 spoken words each (198-216 total). Count narration only. ')
         + struktur + ' First sentence max 9 words; answer the hook before the final request. '
-        + dramaturgie.interaktion(kanal) + prompts.SZENEN
-        + 'Original painted urban game-poster aesthetic, fictional presenter; no copied game characters. '
+        + cta + ' Include CTA words in the narration budget. Each suche: 2-4 concrete English search words. '
+          'Each szene: 20-25 words, visible subject/action, era, setting, framing and light; matching '
+          'illustration, never invented historical evidence. Central vertical crop, no text/logos/real-person likeness. '
+        + 'Original painted urban game-poster aesthetic; fictional presenter opens and recurs during the story; '
+          'no copied game characters. '
           'Two factual title lines max 22/28 characters; keywords, description, hashtags and fitting '
           'instrumental music searches. Preserve source URLs. Omit platz for nonrankings. '
           'User ideas are research hypotheses, not verified facts. Return requested JSON only.\n'

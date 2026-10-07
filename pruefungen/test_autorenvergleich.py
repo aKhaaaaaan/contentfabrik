@@ -188,7 +188,7 @@ class AutorenvergleichTest(TempTest):
         with patch.dict(os.environ, {'GROQ_API_KEY': 'unit-test-key'}), \
              patch.object(av, 'GROQ_VERBRAUCH', []), \
              patch.object(av.urllib.request, 'urlopen', return_value=io.StringIO(json.dumps(data))), \
-             self.assertRaises(ValueError):
+             self.assertRaisesRegex(ValueError, 'finish_reason=length'):
             av.groq('Test', av.AUTOR_SCHEMA)
 
     def test_groq_zu_grosser_auftrag_verbraucht_keine_anfrage(self):

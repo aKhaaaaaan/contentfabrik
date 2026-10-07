@@ -93,14 +93,14 @@ Die konkreten Kontingente/Verfuegbarkeit gelten fuer das eingerichtete Konto;
 ein erreichbarer Dienst beweist keine 10/10-Qualitaet. Google listet aktuelle
 Modelle in seiner [API-Dokumentation](https://ai.google.dev/gemini-api/docs/models).
 
-**252 lokale Regressionstests bestanden**, 8,729 Sekunden. Prompt `2026-10-07.4`. Neue Faelle:
+**254 lokale Regressionstests bestanden**, 7,164 Sekunden. Prompt `2026-10-07.5`. Neue Faelle:
 Listenueberschrift, bereite/recherchierte/zukuenftige Ideen, Quellenalter und
 Artikelbindung, Tagesziel, providerbezogener Text-Fallback, falsches Schema,
 keine Vision-Umgehung, kein Aufruf nach Deadline, cachefaehiger Teilbau,
 Thema-/Profil-/Hash-/Altersbindung und keine TTL-Verlaengerung durch Bauarbeit.
 Nachweis: `pruefungen/ergebnisse/2026-10-07/tagesplan-fallback-tests.json`.
 Diese Tests verwenden simulierte Dienste. Reale neue Film-/Versandergebnisse
-separat nachtragen; 252 Tests sind kein Nachweis einer Videozustellung.
+separat nachtragen; 254 Tests sind kein Nachweis einer Videozustellung.
 
 Linux-CI fuer Code-Commit `68c1ace` erfolgreich:
 [37623020063](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37623020063),
@@ -121,3 +121,43 @@ konservativ ca. 6.387 statt 9.242 Tokens einschliesslich Ausgabe-/Schemareserve
 das Erhalten eines bestehenden Entwurfs samt Reparaturhinweisen. Sichere
 Fehlerdetails werden protokolliert, statt alle Ausfaelle pauschal zu verstecken.
 Die API-Erreichbarkeit und eine fertige MP4 sind dadurch noch nicht bewiesen.
+
+## Echter Wiederanlauf und verbleibende Grenze
+
+[37624945333](https://github.com/aKhaaaaaan/contentfabrik/actions/runs/37624945333)
+startete um **14:58 Berlin**, Produktion **15:00-15:01**. Richtige WeWork-Idee,
+Quelle sofort vorhanden, Groq tatsaechlich erreichbar. Erster Entwurf nur
+150 Woerter; nach Laengenkorrektur kam eine unvollstaendige Antwort. Der genaue
+`finish_reason` wurde dabei noch nicht geloggt: Token-Abbruch ist die
+Arbeitshypothese, kein belegter Provider-Tagesquota-Fehler. **Kein Film.**
+
+Neu: Ausgabelimit fuer kreative JSON-Antworten 3072 statt 2048, fuer kurze
+Pruefungen 1536 statt 768. GPT-OSS braucht auch Platz fuer interne Reasoning-
+Tokens; `include_reasoning=False` entfernt deren Ausgabe, deaktiviert aber
+nicht Reasoning (siehe [Groq Reasoning](https://console.groq.com/docs/reasoning)
+und [API-Referenz](https://console.groq.com/docs/api-reference)). Expliziter
+Laengenauftrag: neun Phasen mit jeweils 22-24 gesprochenen Woertern. JSON,
+Fakten, Zahlen, Wortzahl und Story weiter strikt pruefen. Kompakte Reparatur
+enthaelt vorherige Erzaehlung und konkrete Korrekturen; alte Bildregie wird
+neu aus dem reparierten Text abgeleitet. Keine Quelle kuerzen. Aktueller
+realer Erstauftrag inklusive Nutzeridee/Lernregeln: 7.111 Tokens konservative
+Reserve einschliesslich 3072 Ausgabetokens, Grenze 7.900. Regression prueft
+auch einen realistisch langen Reparaturauftrag mit voller Quelle.
+`finish_reason` bei unvollstaendigen Antworten kuenftig sicher protokollieren.
+Diese neue Fassung ist lokal geprueft, **noch kein erfolgreicher echter
+Film-/Versandlauf damit**.
+
+Business-Tagesverbrauch jetzt **1406,342 / 1800 Sekunden**, Rest **393,658**.
+AI-Rest **179,53 Sekunden**. Kein Budgetreset. Vorpruefung startet neuen Aufbau
+nur mit mindestens **600 Sekunden** insgesamt. Bei kleineren Restfenstern
+nur einen noch gueltigen geprueften Entwurf fortsetzen, oberhalb der
+180-Sekunden-Versandreserve. Fruehere Regel `Rest > 180` liess selbst dann
+neue Skripte anfangen, wenn kaum Zeit fuer Bilder, Ton und Pruefung blieb.
+Neue Regressionen pruefen kleine Restfenster, echte gueltige Fortsetzung und
+unveraenderte Versandreserve. Heute beide Kanaele im korrigierten Zustand
+nicht mehr startbar; keine weiteren blinden Vollversuche angestossen.
+
+Naechster konfigurierter regulaerer Start **08.10. um 10:23 Berlin** (08:23 UTC),
+mit neuem internen Tagesbudget. Das ist ein Starttermin, keine garantierte
+Videozustellung. Qualitaetsgates und Provider-Verfuegbarkeit bleiben erforderlich.
+Neun Ideen bleiben erhalten, bis die jeweilige neue MP4 wirklich gesendet wurde.

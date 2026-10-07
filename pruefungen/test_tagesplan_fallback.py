@@ -105,13 +105,26 @@ class TextFallbackTest(TempTest):
         prompt = skript.groq_skriptauftrag(kanal, 'WeWork', [quelle], original, 170, 261)
         ausgabeformat = {'type': 'json_schema', 'json_schema': {
             'name': 'contentfabrik_antwort', 'strict': True, 'schema': av.groq_schema(skript.SKRIPT_SCHEMA)}}
-        reserve = math.ceil((len(prompt) + len(json.dumps(ausgabeformat))) / 3) + 2048
+        reserve = math.ceil((len(prompt) + len(json.dumps(ausgabeformat))) / 3) + 3072
         self.assertLessEqual(reserve, 7900)
         self.assertIn(json.dumps(quelle['text'], ensure_ascii=False)[1:-1], prompt)
         self.assertIn(quelle['url'], prompt)
         self.assertIn('like', prompt.lower())
         self.assertIn('share', prompt.lower())
         self.assertIn('save', prompt.lower())
+        # Realistische Reparatur: 207 Woerter plus Titel/Beschreibung und
+        # konkrete Korrektur. Dieselbe komplette Quelle muss erneut passen.
+        entwurf = {'thema': 'WeWork', 'titel_zeile1': 'OFFICE EMPIRE', 'titel_zeile2': 'THE WEWORK STORY',
+                   'beschreibung': 'A sourced founding story.', 'teile': [
+                       {'text': 'A shared office offered desks and community to people working independently. '
+                                'Expansion required leases, even when customers could leave much more quickly.',
+                        'szene': 'An original office illustration. '*8} for _ in range(9)]}
+        reparatur = original + '\nHere is a draft. Remove the unsupported revenue comparison; '
+        reparatur += 'keep the sourced founding chronology.\nDRAFT:\n' + json.dumps(entwurf)
+        prompt = skript.groq_skriptauftrag(kanal, 'WeWork', [quelle], reparatur, 170, 261)
+        reserve = math.ceil((len(prompt) + len(json.dumps(ausgabeformat))) / 3) + 3072
+        self.assertLessEqual(reserve, 7900)
+        self.assertIn(json.dumps(quelle['text'], ensure_ascii=False)[1:-1], prompt)
 
     def test_kompakter_auftrag_erhaelt_fakten_und_story_reparaturen(self):
         kanal = {'name': 'Business Origin Stories', 'format': 'geschichte'}
@@ -136,7 +149,7 @@ class TextFallbackTest(TempTest):
         self.assertFalse(d['ok'])
         self.assertTrue(m.startswith('groq:'))
         self.assertEqual(gem.call_args.kwargs['anfrage_s'], 12)
-        self.assertEqual(groq.call_args.kwargs['ausgabe_tokens'], 768)
+        self.assertEqual(groq.call_args.kwargs['ausgabe_tokens'], 1536)
 
     def test_medien_oder_permanenter_requestfehler_weichen_nicht_auf_text_aus(self):
         for kw, fehler in [({'bilder': [b'JPEG']}, '503'), ({}, 'Gemini-Anfrage abgelehnt (HTTP 400)')]:

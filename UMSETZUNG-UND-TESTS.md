@@ -1,8 +1,8 @@
 # Technische Umsetzung und Testnachweise fuer Claude
 
 **Neuerer Tagesstand:** [BUSINESS-TAGESPLAN.md](BUSINESS-TAGESPLAN.md):
-Nutzerideen importiert, Text-Fallback/Teilbau-Cache umgesetzt, 252 Tests;
-echter WeWork-Versuch noch ohne Film, korrigierter Wiederanlauf folgt.
+Nutzerideen importiert, Text-Fallback/Teilbau-Cache umgesetzt, 254 Tests;
+beide echten WeWork-Versuche ohne Film, neue Limits/Restfenster korrigiert.
 Die folgenden Abschnitte beschreiben auch fruehere Stufen.
 
 Stand: 07.10.2026. Neueste fachliche Vorgaben stehen in [CLAUDE.md](CLAUDE.md)

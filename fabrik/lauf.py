@@ -19,7 +19,19 @@ VERSUCHE_MAX = 5
 KORREKTUREN_MAX = 2
 KORREKTUR_S = 4 * 60   # Mindestreserve fuer Plan, Teilbau und erneute Pruefung
 SENDEN_S = 180  # Zeit fuer Kopie und Telegram innerhalb des Budgets lassen
+NEUBAU_MIN_S = 600  # Kleine Restfenster nicht mit einem neuen Skript verbrauchen.
 PY = sys.executable
+
+
+def start_moeglich(kanal, thema=''):
+    """Knappe Restfenster nur fuer einen gueltigen vorhandenen Teilbau nutzen."""
+    frei = budget.rest(kanal, BUDGET_S)
+    if frei >= NEUBAU_MIN_S:
+        return True
+    if frei <= SENDEN_S:
+        return False
+    import entwurf_cache, themen
+    return entwurf_cache.laden(kanal, f'kanaele/{kanal}.json', thema or themen.nehmen(kanal)) is not None
 
 
 def melden(text):

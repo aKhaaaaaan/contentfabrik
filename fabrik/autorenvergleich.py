@@ -125,7 +125,9 @@ def groq(prompt, schema, ausgabe_tokens=3840, deadline=None):
             GROQ_VERBRAUCH.append((time.monotonic(), usage.get('total_tokens', reserve)))
             choice = antwort['choices'][0]
             if choice.get('finish_reason') != 'stop':
-                raise ValueError('Groq-Antwort nicht vollstaendig')
+                grund = choice.get('finish_reason')
+                grund = grund if grund in ('length', 'content_filter', 'tool_calls', 'function_call') else 'unbekannt'
+                raise ValueError(f'Groq-Antwort nicht vollstaendig (finish_reason={grund})')
             d = json.loads(choice['message']['content'])
             schema_pruefen(d, schema)
             return d, GROQ_MODELL, usage

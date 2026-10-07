@@ -5,12 +5,17 @@ elfte Ueberschrift entfernt, neun konkrete Unternehmensgeschichten mit
 Quellen vorbereitet plus eine ungeklaerte App/Person-Idee. Eine Story je Tag
 eingeplant, Uploads weiterhin manuell. [BUSINESS-TAGESPLAN.md](BUSINESS-TAGESPLAN.md)
 zuerst lesen: neue Text-Ausweichroute, AI-Erklaerformat, 6h Teilbau-/Entwurfcache,
-aktuelle Fehlversuche und ehrliche Provider-/Budgetgrenzen. **252 lokale Tests
-bestanden**, neue echte Videozustellung noch offen. Prompt `2026-10-07.4`.
+aktuelle Fehlversuche und ehrliche Provider-/Budgetgrenzen. **254 lokale Tests
+bestanden**, neue echte Videozustellung noch offen. Prompt `2026-10-07.5`.
 Nachtrag: echter WeWork-Lauf 37623180283 ohne Video, Groq-Auftrag zu gross.
 Vollstaendige Quellen beibehalten, technischen Auftrag gekuerzt; realer
 Payload und Reparaturhinweise jetzt durch Regressionen geprueft. Rund
-475 Business-Sekunden verbleiben. Keine fertige MP4 behaupten.
+393,658 Business-Sekunden verbleiben nach erneutem Fehlschlag 37624945333:
+Groq erreichbar, erster Entwurf zu kurz, Reparaturantwort unvollstaendig.
+Ausgabelimit/Laengenauftrag jetzt korrigiert; kleine Restfenster ohne
+geprueften Entwurf ueberspringen. Heute beide Kanaele nicht mehr startbar.
+Naechster regulaerer Start 08.10. 10:23 Berlin, kein Versandversprechen.
+Keine fertige MP4 behaupten.
 Die folgenden Meldungen beschreiben aeltere Stufen desselben Tages.
 
 **Aktuell 07.10.:** [Betriebspruefung](BETRIEB-2026-10-07.md) zuerst lesen.

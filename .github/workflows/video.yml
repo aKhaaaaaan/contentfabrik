@@ -49,13 +49,14 @@ jobs:
         env:
           EREIGNIS: ${{ github.event_name }}
           EINGABE: ${{ inputs.kanal }}
+          THEMA: ${{ inputs.thema }}
         run: |
           python3 - <<'EOF'
           import json, os, sys
           from pathlib import Path
           sys.path.insert(0, 'fabrik')
           import budget
-          from lauf import BUDGET_S, SENDEN_S
+          from lauf import start_moeglich
           def tagesziel(kanal):
               profil = json.loads(Path(f'kanaele/{kanal}.json').read_text(encoding='utf-8'))
               ziel = profil.get('tagesziel', 1)
@@ -72,7 +73,7 @@ jobs:
                   v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
                   # nur GESENDETE Videos zaehlen - verworfene Versuche nicht
                   if sum(e.get('datum') == heute and e.get('status') == 'gesendet' for e in v) < tagesziel(k) \
-                          and budget.rest(k, BUDGET_S) > SENDEN_S:
+                          and start_moeglich(k):
                       offen.append(k)
           else:
               kanal = os.environ['EINGABE'] or 'business-origin-stories'
@@ -81,7 +82,7 @@ jobs:
               p = Path(f'verlauf/{kanal}.json')
               v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
               gesendet = sum(e.get('datum') == heute and e.get('status') == 'gesendet' for e in v)
-              offen = [kanal] if gesendet < tagesziel(kanal) and budget.rest(kanal, BUDGET_S) > SENDEN_S else []
+              offen = [kanal] if gesendet < tagesziel(kanal) and start_moeglich(kanal, os.environ.get('THEMA', '')) else []
           print('Offen:', offen)
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
               f.write(f'kanaele={json.dumps(offen)}\n')

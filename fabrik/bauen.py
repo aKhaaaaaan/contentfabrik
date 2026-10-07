@@ -865,6 +865,13 @@ def untertitel(woerter, pfad, profil=None, akzente=()):
             w['w'] = ' '.join(x['w'] for x in offen) + ' ' + w['w']
             w['s'] = offen[0]['s']
             offen = []
+        if normal and w['s'] == normal[-1]['s']:
+            # GEMESSEN 07.10.2026 (Run 37649294220, WeWork): zwei Woerter mit
+            # gleichem Start brachen den fertig geprueften Bau ab. Wie bei
+            # Null-Dauer gemeinsam zeigen statt Zeiten zu erfinden.
+            normal[-1]['w'] += ' ' + w['w']
+            normal[-1]['e'] = max(normal[-1]['e'], w['e'])
+            continue
         normal.append(w)
     if offen:
         if not normal or offen[-1]['e'] - normal[-1]['e'] > .7:

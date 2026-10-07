@@ -74,6 +74,25 @@ def schema_pruefen(d, schema, pfad='antwort'):
             schema_pruefen(wert, schema['items'], f'{pfad}[{n}]')
 
 
+def angleichen(d, schema):
+    """Objekt statt Text in einer Textliste zu Text machen; sonst nichts aendern.
+
+    GEMESSEN 07.10.2026 (Run 37649294220, 5 von 5 Story-Pruefungen): GPT-OSS gab
+    'schwaechen' als Objekte zurueck, Groq lehnte mit HTTP 400 ab, obwohl die
+    mitgeschickte Antwort gueltiges JSON war - beide Kanaele ohne Video.
+    """
+    art = schema['type']
+    if art == 'STRING' and isinstance(d, dict):
+        return ' - '.join(str(v) for v in d.values() if isinstance(v, (str, int, float))
+                          and not isinstance(v, bool))
+    if art == 'OBJECT' and isinstance(d, dict):
+        return {k: angleichen(v, schema['properties'][k]) if k in schema['properties'] else v
+                for k, v in d.items()}
+    if art == 'ARRAY' and isinstance(d, list):
+        return [angleichen(v, schema['items']) for v in d]
+    return d
+
+
 def groq_schema(schema):
     """Dasselbe fachliche Schema als geschlossenes JSON Schema fuer Groq."""
     d = {'type': schema['type'].lower()}
@@ -145,7 +164,16 @@ def groq(prompt, schema, ausgabe_tokens=3840, deadline=None):
                     except json.JSONDecodeError as j:
                         detail += f' JSON-Syntax={j.msg} Position={j.pos}'
             except Exception:
-                detail = 'Keine strukturierte Fehlerbeschreibung'
+                detail, fehl = 'Keine strukturierte Fehlerbeschreibung', None
+            if e.code == 400 and isinstance(fehl, str):
+                # Gueltiges JSON mit nur falscher Form: lokal angleichen und normal pruefen.
+                try:
+                    d = angleichen(json.loads(fehl), schema)
+                    schema_pruefen(d, schema)
+                    GROQ_VERBRAUCH.append((time.monotonic(), reserve))
+                    return d, GROQ_MODELL, {}
+                except (ValueError, KeyError, TypeError):
+                    pass
             if e.code == 429 and versuch == 0:
                 if ende - time.monotonic() <= 65:
                     raise RuntimeError('Groq-Minutenlimit; keine Zeit fuer erneute Anfrage') from None

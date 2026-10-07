@@ -94,8 +94,10 @@ class GestaltungTest(TempTest):
         self.assertNotIn(r'\pos(0,0)', Path('text.ass').read_text())
 
     def test_defekte_wortzeiten_brechen_die_darstellung_ab(self):
+        # Gleicher Start zweier Woerter ist seit 07.10. kein Abbruch mehr (gemeinsam
+        # gezeigt, siehe test_lauf_0710); rueckwaerts laufende Zeiten bleiben Fehler.
         for words in ([{'w': 'word', 's': 1, 'e': .5}],
-                      [{'w': 'one', 's': 1, 'e': 1.5}, {'w': 'two', 's': 1, 'e': 2}]):
+                      [{'w': 'one', 's': 1, 'e': 1.5}, {'w': 'two', 's': .5, 'e': 2}]):
             with self.assertRaises(ValueError):
                 bauen.untertitel(words, 'text.ass')
 

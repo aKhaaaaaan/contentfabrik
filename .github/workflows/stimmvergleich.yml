@@ -1,0 +1,63 @@
+# Hoerprobe: bisherige Kokoro-Stimme gegen Gemini Flash TTS mit Erzaehlregie,
+# direkt in Telegram. Manuell starten; Antwort im Chat „Stimme: N".
+name: stimmvergleich
+on:
+  workflow_dispatch:
+jobs:
+  proben:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Werkzeuge
+        run: |
+          timeout 240 sudo apt-get update -qq && timeout 240 sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install -q -r requirements.txt
+      - uses: actions/cache@v4
+        with:
+          path: modelle
+          key: kokoro-v1.0
+      - run: |
+          mkdir -p modelle
+          [ -f modelle/kokoro-v1.0.onnx ] || curl -sL -o modelle/kokoro-v1.0.onnx https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx
+          [ -f modelle/voices-v1.0.bin ] || curl -sL -o modelle/voices-v1.0.bin https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin
+      - name: Proben erzeugen
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python fabrik/stimmvergleich.py proben
+      - name: In Telegram schicken
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python3 - <<'EOF'
+          import json, os, subprocess, urllib.request, uuid
+          token, chat = os.environ['TELEGRAM_BOT_TOKEN'], os.environ['TELEGRAM_CHAT_ID']
+          def tg(methode, felder, datei=None):
+              grenze = uuid.uuid4().hex
+              teile = [f'--{grenze}\r\nContent-Disposition: form-data; name="{k}"\r\n\r\n{v}\r\n'.encode()
+                       for k, v in felder.items()]
+              if datei:
+                  teile.append(f'--{grenze}\r\nContent-Disposition: form-data; name="audio"; filename="{datei[0]}"\r\n'
+                               'Content-Type: audio/mpeg\r\n\r\n'.encode() + datei[1] + b'\r\n')
+              teile.append(f'--{grenze}--\r\n'.encode())
+              req = urllib.request.Request(f'https://api.telegram.org/bot{token}/{methode}', data=b''.join(teile),
+                                           headers={'Content-Type': f'multipart/form-data; boundary={grenze}'})
+              antwort = json.load(urllib.request.urlopen(req, timeout=60))
+              if antwort.get('ok') is not True:
+                  raise SystemExit(f'Telegram {methode} abgelehnt')
+          d = json.load(open('proben/proben.json', encoding='utf-8'))
+          tg('sendMessage', {'chat_id': chat, 'text':
+             f'🎙️ Stimmvergleich - dieselbe Passage ({d["herkunft"]}) in {len(d["proben"])} Fassungen. '
+             'Nr. 1 ist die bisherige Stimme. Hoer dir alle an und antworte hier: Stimme: N'})
+          for p in d['proben']:
+              mp3 = 'proben/' + p['datei'].replace('.wav', '.mp3')
+              subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', 'proben/' + p['datei'], '-b:a', '128k', mp3], check=True)
+              tg('sendAudio', {'chat_id': chat, 'title': f'Stimme {p["nr"]}', 'performer': p['name'][:60],
+                               'caption': f'Stimme {p["nr"]}: {p["name"]}'}, (os.path.basename(mp3), open(mp3, 'rb').read()))
+          print('gesendet:', len(d['proben']))
+          EOF

@@ -825,6 +825,32 @@ def angleichen(woerter, skripttext):
     return aus
 
 
+def illustration_mit_ausweg(szene, ziel, kanal_slug, mit_figur, rand, videoformat):
+    """Illustration; scheitert das Einsetzen der Kanalfigur, nicht das ganze Video verlieren.
+
+    GEMESSEN 07.10.2026 (Run 37652008678, WeWork, Story 8/10): Figur in neue Szene
+    einsetzen scheiterte 5x an Einstellung 0 (Hintergrund der Referenz blieb).
+    Anfang/Ende (rand): freigegebenes Originalbild der Kanalfigur (wie modus
+    'figur'); Mitte: gepruefte Szene ohne Figur. Kein fremder Hintergrundersatz.
+    """
+    import illustration
+    def versuch(figur):
+        try:
+            return illustration.bild(szene, ziel, kanal_slug, figur=figur, videoformat=videoformat)
+        except Exception as e:  # nie den ganzen Videobau kippen
+            print('Illustration nicht moeglich:', str(e)[:120])
+            return None
+    ill = versuch(mit_figur)
+    if ill or not mit_figur:
+        return ill
+    original = illustration.FIGUREN / f'{kanal_slug}.jpg'
+    if rand and original.is_file():
+        print('Figur nicht einsetzbar - Originalbild der Kanalfigur')
+        return original
+    print('Figur nicht einsetzbar - gepruefte Szene ohne Figur')
+    return versuch(False)
+
+
 def untertitel(woerter, pfad, profil=None, akzente=()):
     """Wort-fuer-Wort-Untertitel: drei Woerter sichtbar, das gesprochene gelb."""
     # GEMESSEN 04.10.2026 am Vorbild (alan.buildz): schmale fette Schrift in
@@ -1130,12 +1156,9 @@ def main(skript_pfad, aus, vorlage=None):
                     szene = ('A clearly illustrative reconstruction of a generic period-appropriate '
                              'setting or object, not an actual archive photograph and not a likeness '
                              'of a named historical person. ' + szene)
-                try:
-                    ill = illustration.bild(szene, aus / f'ill_{i:02d}.jpg', kanal_slug,
-                                           figur=t.get('figur', i == 0 or letzt),
-                                           videoformat=dramaturgie.videoformat(s))
-                except Exception as e:  # nie den ganzen Videobau kippen
-                    print('Illustration nicht moeglich:', str(e)[:120]); ill = None
+                ill = illustration_mit_ausweg(szene, aus / f'ill_{i:02d}.jpg', kanal_slug,
+                                              t.get('figur', i == 0 or letzt), i == 0 or letzt,
+                                              dramaturgie.videoformat(s))
                 if ill:
                     karte, foto = None, None
                     quellen.append({'quelle': 'Illustration', 'seite': 'KI-generiert (Cloudflare Workers AI, FLUX)'})

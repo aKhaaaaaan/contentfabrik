@@ -483,7 +483,10 @@ def main(kanal_pfad, aus_pfad, thema=None):
     verworfen = []
     lang = dramaturgie.videoformat(kanal) == 'lang'
     mindest = int(dramaturgie.laengen(kanal)[0] * (2.35 if lang else 2.75))
-    hoechstens = int(dramaturgie.laengen(kanal)[1] * (2.65 if lang else 2.9))
+    # GEMESSEN 07.10.2026 (Run 37652008678, WeWork): 2.9 Woerter/s erlaubte ~261
+    # Woerter; Kokoro sprach daraus 117 s statt hoechstens 90 s -> Tempo 1.25.
+    # Gesprochen werden ~2.2-2.4 Woerter/s; 2.4 entspricht Codex' Groq-Vorgabe 198-216.
+    hoechstens = int(dramaturgie.laengen(kanal)[1] * (2.65 if lang else 2.4))
     pmin = kanal.get('plaetze', [5, 7])[0]
     woerter_von = lambda e: sum(len(t['text'].split()) for t in e['teile'])
     def schreiben(auftrag):

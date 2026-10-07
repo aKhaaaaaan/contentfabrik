@@ -57,5 +57,37 @@ class Wortzeiten(unittest.TestCase):
         self.assertIn('0:00:01.20,0:00:01.60', ass)  # keine erfundenen Zeiten
 
 
+class FigurAusweg(unittest.TestCase):
+    """Vor dem Fix: Einstellung 0 ohne Bild -> 'kein passendes Hauptbild', kein Video."""
+
+    def test_anfang_nimmt_originalfigur(self):
+        import bauen, illustration
+        with patch.object(illustration, 'bild', return_value=None) as bild:
+            ill = bauen.illustration_mit_ausweg('office', 'x.jpg', 'business-origin-stories', True, True, 'short')
+        self.assertEqual(ill, illustration.FIGUREN / 'business-origin-stories.jpg')
+        self.assertTrue(ill.is_file())
+        self.assertEqual(bild.call_count, 1)
+
+    def test_mitte_nimmt_szene_ohne_figur(self):
+        import bauen, illustration
+        with patch.object(illustration, 'bild', side_effect=[None, Path('szene.jpg')]) as bild:
+            ill = bauen.illustration_mit_ausweg('office', 'x.jpg', 'business-origin-stories', True, False, 'short')
+        self.assertEqual(ill, Path('szene.jpg'))
+        self.assertFalse(bild.call_args.kwargs['figur'])
+
+    def test_ohne_figur_kein_zweiter_versuch(self):
+        import bauen, illustration
+        with patch.object(illustration, 'bild', return_value=None) as bild:
+            self.assertIsNone(bauen.illustration_mit_ausweg('x', 'x.jpg', 'k', False, True, 'short'))
+        self.assertEqual(bild.call_count, 1)
+
+
+class Wortgrenze(unittest.TestCase):
+    def test_short_hoechstens_216_woerter(self):
+        # Vor dem Fix: 90 s * 2.9 = 261 Woerter erlaubt -> 117 s Ton, Tempo 1.25.
+        quelle = (Path(__file__).resolve().parents[1] / 'fabrik' / 'skript.py').read_text(encoding='utf-8')
+        self.assertIn('(2.65 if lang else 2.4)', quelle)
+
+
 if __name__ == '__main__':
     unittest.main()

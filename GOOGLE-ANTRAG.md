@@ -1,5 +1,16 @@
 # YouTube-API-Prüfantrag (Audit) – fertige Antworten (Stand 03.10.2026)
 
+**Nachtrag 08.10.2026 (Claude):** Google (youtube-disputes, Mail 08.10. 01:21)
+verlangte binnen 7 Werktagen (1) Upload-Skript/Screencast auf Englisch mit
+Endergebnis und (2) ausgewerteten Beispielbericht der API-Daten. Beantwortet
+am 08.10. 08:11 aus [privates Google-Konto] an youtube-disputes + savehours24 mit
+[antrag/Contentfabrik_YouTube_API_Review.pdf](antrag/Contentfabrik_YouTube_API_Review.pdf):
+echter privater API-Upload auf AI Tools Explained (Video 5xBDlGZWbys, privat,
+verarbeitet, 1:23) plus Analysebericht aus den am 08.10. abgerufenen Zahlen.
+Lokaler OAuth-Zugang fuer Business Origin Stories ist abgelaufen (Token-Refresh
+HTTP 400) - neu anmelden (`fabrik/anmelden.py`), bevor Business-Uploads/Analytics
+ueber diesen Zugang laufen. Das Testvideo kann nach der Pruefung geloescht werden.
+
 **Einordnung 05.10.2026:** Dieses Dokument protokolliert den am 04.10.
 eingereichten Antrag. Geplanter Upload (`publishAt`), Editieren/Stornieren
 und die Diagramme sind teilweise Zielarchitektur. Der aktive Tageslauf

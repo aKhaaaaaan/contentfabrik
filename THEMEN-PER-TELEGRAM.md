@@ -4,6 +4,19 @@ Stand: 07.10.2026. Eigene Ideen im **gleichen Telegram-Bot** schicken, der
 die Videovorschauen sendet. Es gibt derzeit kein Dashboard zur Themeneingabe;
 die vorhandene Website ist eine Informationsseite.
 
+## Neu 08.10.2026: Befehls-Bot (Start/Status sofort)
+
+Ein **zweiter** Bot nur fuer Befehle, beantwortet vom Cloudflare-Worker
+`contentfabrik-zeitplan` innerhalb von Sekunden (der Videobot liest nur alle 4 h):
+`Start` (beide Kanaele), `Start Business`, `Start KI`, `Status`.
+`Status` zeigt den Gesamtfortschritt in Prozent (geschaetzt: je Kanal
+Einrichtung 0-10 %, Produktion 10-90 % nach Zeit bei max. 30 Min, Sichern
+90-100 %), den aktuellen Schritt und schon fertige Kanaele. Nur der eigene Chat
+(`TG_CHAT_ID`) darf starten; hoechstens 6 manuelle Laeufe am Tag; ein laufender
+Lauf wird nicht doppelt gestartet. `/start` beim ersten Oeffnen startet nichts.
+Einrichtung: Kopf von `cloudflare/zeitplan-worker.js`. Tests: `pruefungen/befehlsbot.mjs`.
+Genauere Prozente (z. B. „Bild 14 von 25") brauchen spaeter einen Cloudflare-KV-Speicher.
+
 ## Neu 07.10.2026 abends (Claude)
 
 **Eigenes Skript** - erste Zeile Kanal und Thema, darunter dein Text (40-900 Woerter,

@@ -112,7 +112,8 @@ class KeinIllustrationsLabel(unittest.TestCase):
         # Nutzer 08.10.: alles gemalt, GTA als Inspiration, keine echten Charaktere.
         import prompts
         p = prompts.illustration('a founder in a rented loft')
-        self.assertIn('Loading-screen key-art look', p)
+        self.assertIn('painted urban open-world-game poster style', p)
+        self.assertIn('warm sunset amber highlights and cool shadows', p)
         self.assertIn('never photographic', p)
         self.assertIn('Original fictional character', p)
         self.assertNotIn('GTA', p)

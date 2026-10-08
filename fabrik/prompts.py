@@ -222,17 +222,16 @@ def illustration(szene, referenz=False, korrektur='', videoformat='short'):
     figur = ('Use the person in reference image 0 as the same fictional character: preserve face, '
              'hair, proportions and outfit. Change pose, framing, lighting and background to fit '
              'the scene; do not copy the reference composition. ' if referenz else '')
-    return ('Full-bleed artwork with completely blank corners, unmarked objects and no signature. '
+    return ('Full-bleed artwork, unmarked objects and no signature. '
             + figur + f'Scene: {szene.strip()[:500]}. '
             'A single coherent ' + ('landscape' if videoformat == 'lang' else 'vertical')
-            + ' editorial illustration, semi-realistic painted video-game '
-            'artwork with an original urban open-world-game aesthetic, realistic proportions, '
-            'bold controlled ink contours and textured painted shading. '
-            # GEMELDET 08.10.2026: „Alles gemalt, Inspiration GTA, aber keine echten Charaktere."
-            # Merkmale statt Spielname: der Name foerdert Kopien und gesperrte Ausgaben.
-            'Loading-screen key-art look: thick black ink outlines, flat cel-shaded painted color '
-            'fields, saturated warm sunset or neon palette, dramatic low-angle hero framing, '
-            'comic poster composition; painted, never photographic. Original fictional character '
+            # GEMELDET 08.10.2026: „Alles gemalt, Inspiration GTA, keine echten Charaktere - so wie
+            # die letzten zwei Videos von Codex." Deren dokumentierte Auftraege (assets/
+            # illustrationen/*PROMPTS.json) als Stilvorlage; Spielname bewusst nicht genannt.
+            + ' editorial illustration in textured semi-realistic painted urban open-world-game '
+            'poster style, strong ink contours, warm sunset amber highlights and cool shadows, '
+            'restrained orange/cyan accents, realistic proportions; painted, never photographic. '
+            'Original fictional character '
             'designs only; do not reproduce recognizable characters, distinctive outfits, logos or '
             'specific scenes from existing games. '
             'One clear focal action in the central 60 percent, medium or close shot, coherent '

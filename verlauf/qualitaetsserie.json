@@ -1872,6 +1872,98 @@
         "zweitpruefer_modell": null,
         "zweitpruefer_anderer_anbieter": false
       }
+    },
+    {
+      "id": "37753715598.1:business-origin-stories",
+      "run_id": "37753715598",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-08T09:51:59.627239+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "bbdb3bb5bb2fb32848bd106921f440cb76daec55",
+      "produktionsversion": "ac6f7b5a2ac3cc5814bb9aba44e64b480dd74a476edd182c3942a431a4565f02",
+      "videoformat": "short",
+      "thema": "WeWork: from a SoHo office to bankruptcy",
+      "titel": [
+        "WeWork's $47B Fall",
+        "From SoHo to Chapter 11"
+      ],
+      "status": "gesperrt",
+      "video_sha256": "6c8a37eef026b3730af675542adf4c28cdb48a01d43e9a1c55156b4745a71794",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "KI-Pruefung gehoert nicht zur vorliegenden Videodatei"
+      ],
+      "einstellungen": 26,
+      "unterschiedliche_motive": 25,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "37753715598",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-08",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 185.1,
+            "bau_s": 826.6,
+            "status": "baufehler",
+            "sekunden": 1011.7
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 24.6,
+            "status": "baufehler",
+            "sekunden": 24.6
+          },
+          {
+            "runde": 3,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 26.5,
+            "status": "baufehler",
+            "sekunden": 26.5
+          },
+          {
+            "runde": 4,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 29.8,
+            "status": "baufehler",
+            "sekunden": 29.8
+          },
+          {
+            "runde": 5,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "status": "zeitbudget",
+            "phase": "Videobau",
+            "sekunden": 347.3
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Videobau-Zeitlimit erreicht (Arbeiter beendet)",
+        "sekunden": 1440.2
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

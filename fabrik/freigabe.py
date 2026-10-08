@@ -109,7 +109,12 @@ def senden(skript_pfad, video_pfad):
     kritik_pfad = Path(skript_pfad).with_name('kritik.json')
     kritik = json.loads(kritik_pfad.read_text(encoding='utf-8')) if kritik_pfad.exists() else None
     note, gruende = bewerten(skript, kritik)
-    if gruende:
+    from qualitaet import ENTWURF_MIN, nur_ki_geschmack
+    # Entwurf (Nutzerentscheidung 08.10.2026): nur wenn AUSSCHLIESSLICH KI-Geschmacksnoten
+    # sperren und die Note >= ENTWURF_MIN ist. Fakten/Technik/Endton bleiben harte Sperren.
+    entwurf = bool(gruende) and os.environ.get('CF_ENTWURF') == '1' \
+        and nur_ki_geschmack(gruende) and (note or 0) >= ENTWURF_MIN
+    if gruende and not entwurf:
         raise ValueError('Video bleibt gesperrt: ' + '; '.join(gruende))
     video = Path(video_pfad).read_bytes()
     import lernen
@@ -157,7 +162,9 @@ def senden(skript_pfad, video_pfad):
     import bewertung
     video_antwort = telegram('sendVideo', {'chat_id': chat, 'supports_streaming': 'true',
                            'reply_markup': json.dumps(bewertung.knoepfe(sha)),
-                           'caption': f"🎬 {skript['kanal'][:100]}\n{titel[:200]}\n\n"
+                           'caption': (f"⚠️ ENTWURF - KI-Note {note}/10, nicht freigegeben. Du entscheidest.\n"
+                                       f"KI-Kritik: {str((kritik or {}).get('fazit', ''))[:300]}\n\n" if entwurf else '')
+                                      + f"🎬 {skript['kanal'][:100]}\n{titel[:200]}\n\n"
                                       f"✅ Fakten und Technik bestanden · KI-Bewertung {note}/10"
                                       + ('\nKomprimierte Vorschau; Original siehe Begleitnachricht.'
                                          if komprimiert and os.environ.get('CF_ORIGINAL_URL') else

@@ -7,7 +7,7 @@ Aufruf: python fabrik/lauf.py kanaele/ai-tools-explained.json [thema]
 import datetime, json, os, re, shutil, signal, subprocess, sys, time, urllib.parse, urllib.request, uuid
 from pathlib import Path
 import budget
-from qualitaet import SCHWELLE, bewerten, skript_gruende, rang
+from qualitaet import SCHWELLE, ENTWURF_MIN, bewerten, nur_ki_geschmack, skript_gruende, rang
 
 # GEMELDET: „Das Ziel ist immer 10/10, nicht bis 8/10." Verbessert wird bis
 # 10 oder bis das Zeitbudget erreicht ist; unter 7 bleibt das Video gesperrt.
@@ -138,6 +138,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             print(f'Thema aus Telegram: {thema}')
     festes_thema = thema
     bester = None  # nur Kandidaten mit bestandenen Pruefungen
+    entwurf_kandidat = None  # nur KI-Geschmack unter 7/10, Pflichtpruefungen bestanden
     arbeit_ende = start + frei - SENDEN_S
     letzter_grund = 'Kein Versuch abgeschlossen'
     versuch = 0
@@ -329,6 +330,13 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         print(f'Versuch {versuch}: {note}/10; Sperrgruende: {gruende}')
         if not gruende and (bester is None or rang(kritik) > rang(bester[2])):
             bester = (note, ordner, kritik)
+        if gruende and nur_ki_geschmack(gruende) and (note or 0) >= ENTWURF_MIN \
+                and (entwurf_kandidat is None or (note or 0) > entwurf_kandidat[0]):
+            # Fertig gebaut, nur an KI-Geschmack gescheitert: als markierter Entwurf merken.
+            entwurf_versand = Path('entwurf-kandidat')
+            shutil.rmtree(entwurf_versand, ignore_errors=True)
+            shutil.copytree(ordner, entwurf_versand)
+            entwurf_kandidat = (note, entwurf_versand, kritik)
         # Weitere Korrekturen setzen auf dem besten bestandenen Video auf.
         # Ohne bestandenen Kandidaten wird der zuletzt gepruefte Entwurf repariert.
         basis = (bester[1], bester[2]) if bester else (ordner, kritik)
@@ -353,6 +361,11 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         thema = festes_thema
         print(f'{(time.monotonic() - start) / 60:.1f} Min. im aktuellen Lauf verbraucht')
 
+    entwurf = False
+    if bester is None and entwurf_kandidat is not None and os.environ.get('CF_PILOT') != '1':
+        # Nutzer entscheidet (08.10.2026): fertig gebautes Video mit KI-Note >= 5 als Entwurf.
+        bester, entwurf = entwurf_kandidat, True
+        print(f'Kein freigegebenes Video - Entwurf mit KI-Note {bester[0]}/10 geht zur Nutzerentscheidung')
     if bester is None:
         # Den letzten Versuch fuer die Fehlersuche als Artefakt behalten.
         if versuch and ordner.exists():
@@ -375,6 +388,8 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         protokoll('pilot_bestanden')
         return 0
     try:
+        if entwurf:
+            os.environ['CF_ENTWURF'] = '1'
         code = schritt(['fabrik/freigabe.py', str(aus / 'skript.json'), str(aus / 'short.mp4')], start + frei)
     except (subprocess.TimeoutExpired, OSError):
         protokoll('zustellfehler')
@@ -382,7 +397,8 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     if code:
         protokoll('zustellfehler')
         raise RuntimeError(f'Telegram-Zustellung fehlgeschlagen (Code {code})')
-    verlauf_eintragen(kanal, skript, 'gesendet', note, messung.get('abschnitte_s'), messung)
+    verlauf_eintragen(kanal, skript, 'gesendet', note, messung.get('abschnitte_s'),
+                      dict(messung, entwurf=True) if entwurf else messung)
     entwurf_cache.erledigen(kanal)
     import vorrat
     vorrat.erledigen(kanal, skript)

@@ -233,6 +233,22 @@ class BildausfallKipptNichtAlles(unittest.TestCase):
         self.assertIn('Do not reject for secondary blocking details', p)
 
 
+class EntwurfNurBeiKiGeschmack(unittest.TestCase):
+    """Nutzerentscheidung 08.10.2026: Entwurf nur, wenn ausschliesslich KI-Noten sperren."""
+
+    def test_regel(self):
+        import qualitaet as q
+        self.assertTrue(q.nur_ki_geschmack(['Video-Note 6/10 unter 7/10', 'Video-bild_passt 5/10 unter 7/10',
+                                            'Offenes Problem (mittel): abstrakte Bilder']))
+        for hart in ('Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden',
+                     'Offenes Problem (schwer): falsche Person im Bild',
+                     'Faktenpruefung fehlt oder ist nicht bestanden',
+                     'Skript-aufloesung 6/10 unter 7/10',
+                     'Video durch ausdrueckliches Nutzerfeedback abgelehnt'):
+            self.assertFalse(q.nur_ki_geschmack(['Video-Note 6/10 unter 7/10', hart]), hart)
+        self.assertFalse(q.nur_ki_geschmack([]))
+
+
 class Wortgrenze(unittest.TestCase):
     def test_short_standard_kokoro_170_216(self):
         # Vor dem 07.10.: 90 s * 2.9 = 261 Woerter erlaubt -> 117 s Ton, Tempo 1.25.

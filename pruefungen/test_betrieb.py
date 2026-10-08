@@ -251,8 +251,18 @@ class LaufTest(TempTest):
         self.assertFalse(any(a[0] == 'fabrik/freigabe.py' for a in calls))
         self.assertEqual(json.loads(Path('verlauf/test.json').read_text())[0]['status'], 'pruefung_fehlt')
 
-    def test_sechs_sendet_nichts(self):
+    def test_sechs_geht_nur_als_markierter_entwurf(self):
+        # Nutzerentscheidung 08.10.2026: fertig gebaut, nur KI-Note 6/10 -> Entwurf zur
+        # Nutzerentscheidung (vorher: gar nichts). Ein Freigabe-Versand OHNE Entwurfsmarker
+        # darf es dafuer nie geben.
+        os.environ.pop('CF_ENTWURF', None)
         _, calls = self.ausfuehren([dict(KRITIK, note=6)])
+        self.assertTrue(any(a[0] == 'fabrik/freigabe.py' for a in calls))
+        self.assertEqual(os.environ.pop('CF_ENTWURF', None), '1')
+
+    def test_vier_sendet_nichts(self):
+        os.environ.pop('CF_ENTWURF', None)
+        _, calls = self.ausfuehren([dict(KRITIK, note=4)])
         self.assertFalse(any(a[0] == 'fabrik/freigabe.py' for a in calls))
 
     def test_schwache_story_verbraucht_keinen_videobau(self):

@@ -1,5 +1,6 @@
 """Gemeinsame Zugangskontrolle fuer Lauf und Telegram-Vorschau."""
 import math
+import re
 
 SCHWELLE = 7
 KATEGORIE_MIN = 7
@@ -97,6 +98,20 @@ def rang(daten, kategorien=VIDEO_KATEGORIEN):
     werte = werte if isinstance(werte, dict) else {}
     einzeln = [note({'note': werte.get(k)}) or 0 for k in kategorien]
     return (not gruende, wert or 0, min(einzeln), sum(einzeln) / len(einzeln))
+
+
+ENTWURF_MIN = 5
+_KI_NOTE = re.compile(r'^Video-[\w ]+ \d+/10 unter \d+/10$|^Offenes Problem \(mittel\):')
+
+
+def nur_ki_geschmack(gruende):
+    """True, wenn ein Video NUR an KI-Geschmacksnoten scheitert (nie an Fakten/Technik/Ton).
+
+    GEMELDET 08.10.2026: „Deine Meinung zaehlt, nicht die der KI" - nach Tagen ohne Video
+    sieht der Nutzer fertig gebaute Videos mit KI-Note 5-6/10 als markierten Entwurf und
+    entscheidet selbst. Skript-, Fakten-, Technik-, Endton- und Nutzer-Sperren bleiben hart.
+    """
+    return bool(gruende) and all(_KI_NOTE.search(str(g)) for g in gruende)
 
 
 def bewerten(skript, kritik):

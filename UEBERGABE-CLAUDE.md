@@ -1,5 +1,17 @@
 # Uebergabe an Claude – Contentfabrik
 
+**08.10.2026 nachmittags (Claude): ERSTES ZUGESTELLTES VIDEO.** Lauf 37774195592
+(per Befehls-Bot gestartet): Business WeWork, Skript aus dem Vorrat, Orus-Stimme,
+25 bezahlte Cloudflare-Bilder, KI-Kritik 8/10 ohne Sperrgrund, gesendet ~15:03.
+Wirksam waren: Cloudflare Workers Paid (Nutzer), Budget 45 statt 30 Min, Bild-
+pruefung nach Kernidee, Nachbar-Ersatzbild (nie das vorherige), Figur-Sperre,
+CTA kein Fakteneinwand. Neu: Entwurfsversand (KI 5-6/10, nur KI-Geschmack sperrt)
+mit Marker; Befehls-Bot „Contentfabrik Steuerung" (Worker contentfabrik-zeitplan,
+taktgeber.workers.dev; Secrets GH_TOKEN, TG_BEFEHL_TOKEN, TG_CHAT_ID). Gemini-
+Bildmodelle: kein Gratiskontingent (429 auch nach Reset). Offen: Adresse aus der
+Historie entfernen (Force-Push vom Nutzer auszufuehren, Auto-Modus blockiert),
+danach Repo oeffentlich; AI-Kanal noch ohne zugestelltes Video.
+
 **Neu 07.10. nachts (Claude): Erzaehlstimme Gemini Orus.** Hoerprobe
 (stimmvergleich.yml, Lauf 37680915854): Nutzer waehlte Stimme 4 = Gemini 3.8
 Flash TTS „Orus" mit Trailer-Regie („dramatisch, catcht die Aufmerksamkeit").

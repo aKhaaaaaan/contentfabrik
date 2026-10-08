@@ -12,9 +12,10 @@ from qualitaet import SCHWELLE, ENTWURF_MIN, bewerten, nur_ki_geschmack, skript_
 # GEMELDET: „Das Ziel ist immer 10/10, nicht bis 8/10." Verbessert wird bis
 # 10 oder bis das Zeitbudget erreicht ist; unter 7 bleibt das Video gesperrt.
 ZIEL = 10
-# 2.000 Gratis-Minuten / 30 Tage / 2 Kanaele = ~33 Min. je Kanal und Tag
-BUDGET_S = 45 * 60      # Zeitbudget je Kanal und Tag; GEMESSEN 08.10.2026: Bau mit bezahlten
-# Cloudflare-Bildern braucht ~35-40 Min (20-25 Einstellungen inkl. Bildpruefung) - 30 Min reichten 3x nicht.
+# Repo seit 08.10.2026 oeffentlich -> GitHub-Minuten unbegrenzt (vorher 2.000/Monat = ~33 Min. je Kanal).
+# GEMESSEN 08.10.: ein Bau braucht ~35-40 Min; 45 Min liessen keinen Platz fuer eine Korrektur
+# oder Gemini-Ueberlast. Nutzerentscheidung 08.10.: 90 Min je Kanal und Tag.
+BUDGET_S = 90 * 60
 VERSUCH_S = 25 * 60     # gemessen: ~12 Min. Bau + bis zu 15 Min. Skript mit Story-Pruefung
 VERSUCHE_MAX = 5
 KORREKTUREN_MAX = 2

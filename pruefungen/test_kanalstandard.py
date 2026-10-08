@@ -11,6 +11,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
+import test_betrieb  # noqa: F401 - setzt sys.path auf fabrik/
 import bauen
 import hochladen
 import kanalstandard
@@ -76,6 +77,18 @@ class BestehendeKanaele(unittest.TestCase):
 
     def test_unbekannter_kanal_ohne_profil(self):
         self.assertIsNone(bauen.erzaehlstimme({'kanal': 'Gibt es nicht'}))
+
+
+
+class Zeitbudget(unittest.TestCase):
+    """Nutzerentscheidung 08.10.: Repo oeffentlich -> 90 Min je Kanal. Alter Stand 45 Min / Job 60 Min."""
+    def test_budget_90_und_job_passt(self):
+        import re
+        import lauf
+        self.assertEqual(lauf.BUDGET_S, 90 * 60)
+        yml = Path('.github/workflows/video.yml').read_text(encoding='utf-8')
+        jobs = [int(m) for m in re.findall(r'timeout-minutes:\s*(\d+)', yml)]
+        self.assertTrue(any(m >= lauf.BUDGET_S / 60 + 15 for m in jobs), jobs)
 
 
 if __name__ == '__main__':

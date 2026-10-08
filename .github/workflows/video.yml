@@ -101,7 +101,7 @@ jobs:
     needs: vorpruefung
     if: needs.vorpruefung.outputs.kanaele != '[]'
     runs-on: ubuntu-latest
-    timeout-minutes: 60   # Tagesbudget 45 Min. plus Einrichtung/Sicherung
+    timeout-minutes: 110  # Tagesbudget 90 Min. (lauf.BUDGET_S) plus Einrichtung/Sicherung
     strategy:
       fail-fast: false
       max-parallel: 1  # Warteschlange/Budget des vorherigen Kanals zuerst sichern

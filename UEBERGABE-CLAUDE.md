@@ -1,5 +1,7 @@
 # Uebergabe an Claude – Contentfabrik
 
+**08.10.2026 nachts - Langvideo-Pilot vorbereitet:** formate/business-origin-stories.json 8-10 Min. (480-600 s, 2.0 W/s, Orus/Stil aus dem Kanalprofil, keine Stockclips). Stimme in Abschnitten <= 380 Woerter (bauen.sprechbloecke; ein Aufruf hat 120 s Limit). Wortgrenze Langvideo wie Short aus der Wortrate (vorher Kokoro 2.35-2.65). lauf.BUDGET_LANG_S 200 Min., pilot.yml 240 Min. + Claude-Autor. Bauzeit/TTS-Kosten noch NICHT gemessen. Start: pilot.yml kanal=business-origin-stories videoformat=lang telegram=true. Auto-Upload bewusst spaeter: unverifizierte API-Projekte laden nur privat (Google-Pruefung offen).
+
 **08.10.2026 spaetabends:** Historie ohne Wohnadresse per Force-Push auf main (9f98f20), Nutzer hat das Repo **oeffentlich** gestellt (API: visibility public) -> GitHub-Minuten unbegrenzt. Daraufhin Tagesbudget **90 Min je Kanal** (lauf.BUDGET_S, Job-Timeout 110). Neu `fabrik/kanalstandard.py`: alle (auch kuenftige) Kanaele erben Orus, Tempo 1.08, 2.1 W/s, keine Stockclips; Anleitung [NEUER-KANAL.md](NEUER-KANAL.md). Erster Lauf damit 09.10. 10:23 Berlin - ungeprueft.
 
 **08.10.2026 abends:** Modellprobe FLUX.2 Klein 4B vs 9B (modellprobe.yml) - Nutzer sieht kaum Unterschied, Entscheidung: **bei 4B bleiben** (9B ~0,015 $/Bild). Beide Kanaele heute geliefert und vom Nutzer hochgeladen (AI 7/10, Business 8/10).

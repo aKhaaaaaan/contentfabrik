@@ -921,8 +921,29 @@ def erzaehlstimme(s):
     return d if isinstance(d, dict) else None
 
 
+SPRECHBLOCK_WOERTER = 380
+
+
+def sprechbloecke(teile, grenze=SPRECHBLOCK_WOERTER):
+    """Lange Videos in Abschnitten sprechen (08.10.2026, erstes Langvideo): ein Aufruf hat
+    120 s Zeitlimit, und die Gemini-TTS-Ausgabe ist begrenzt - 9 Minuten Ton passen nicht
+    sicher in EINEN Aufruf. Getrennt wird nur zwischen Skriptteilen, nie mitten im Satz;
+    ein Short (<= grenze Woerter) bleibt ein einziger Aufruf wie bisher."""
+    bloecke, aktuell, n = [], [], 0
+    for t in teile:
+        w = len(t.split())
+        if aktuell and n + w > grenze:
+            bloecke.append(' '.join(aktuell))
+            aktuell, n = [], 0
+        aktuell.append(t)
+        n += w
+    if aktuell:
+        bloecke.append(' '.join(aktuell))
+    return bloecke
+
+
 def gemini_ton(s, wahl, grenzen):
-    """Ganzes Skript in EINEM Gemini-TTS-Aufruf (Gratiskontingent knapp).
+    """Skript per Gemini-TTS; Shorts in EINEM Aufruf, lange Videos in Abschnitten (sprechbloecke).
 
     GEMELDET 07.10.2026 nach Hoerprobe (Lauf 37680915854): „Stimme 4 ist schon
     dramatisch, ich denke das catcht die Aufmerksamkeit" = Gemini Orus mit
@@ -933,15 +954,20 @@ def gemini_ton(s, wahl, grenzen):
     teile = []
     for i, t in enumerate(s['teile']):
         teile.append(('<short pause> ' if i and t.get('beat') == 'wendung' else '') + t['text'].strip())
+    import io
+    stuecke, rate = [], None
     try:
-        wav, modell = stimme_gemini.sprechen(' '.join(teile), wahl.get('stimme', 'Orus'), wahl.get('stil', ''))
+        for block in sprechbloecke(teile):
+            wav, modell = stimme_gemini.sprechen(block, wahl.get('stimme', 'Orus'), wahl.get('stil', ''))
+            with wave.open(io.BytesIO(wav)) as w:
+                if rate not in (None, w.getframerate()):
+                    raise RuntimeError('Abtastraten der Abschnitte passen nicht zusammen')
+                rate = w.getframerate()
+                stuecke.append(np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32) / 32768)
     except (RuntimeError, OSError, KeyError) as e:
         print('Gemini-Stimme nicht verfuegbar, Kokoro spricht:', str(e)[:200])
         return None
-    import io
-    with wave.open(io.BytesIO(wav)) as w:
-        rate = w.getframerate()
-        ton = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32) / 32768
+    ton = np.concatenate(stuecke)
     dauer = len(ton) / rate
     oben = grenzen[1]
     # GEMELDET 08.10.2026 nach dem ersten Video (WeWork): „ein Tick schneller abspielen".

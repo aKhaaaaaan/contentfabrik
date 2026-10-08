@@ -16,6 +16,9 @@ ZIEL = 10
 # GEMESSEN 08.10.: ein Bau braucht ~35-40 Min; 45 Min liessen keinen Platz fuer eine Korrektur
 # oder Gemini-Ueberlast. Nutzerentscheidung 08.10.: 90 Min je Kanal und Tag.
 BUDGET_S = 90 * 60
+# Langvideo (8-10 Min., ~70-80 Bilder statt 25) - erster Pilot 08.10.2026, Bauzeit noch nicht
+# gemessen; hochgerechnet aus ~35-40 Min. je Short. GitHub-Jobs enden spaetestens nach 6 h.
+BUDGET_LANG_S = 200 * 60
 VERSUCH_S = 25 * 60     # gemessen: ~12 Min. Bau + bis zu 15 Min. Skript mit Story-Pruefung
 VERSUCHE_MAX = 5
 KORREKTUREN_MAX = 2
@@ -108,16 +111,21 @@ def verlauf_eintragen(kanal, skript, status, note, abschnitte=None, messung=None
     p.write_text(json.dumps(v, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
 
 
+def budget_fuer(profil):
+    return BUDGET_LANG_S if profil.get('videoformat') == 'lang' else BUDGET_S
+
+
 def main(kanal_pfad, thema='', entwurf=''):
     import themen
     kanal = Path(kanal_pfad).stem
     budgetkanal = f'pilot-{kanal}' if os.environ.get('CF_PILOT') == '1' else kanal
     if not Path(kanal_pfad).is_file():
         raise ValueError(f'Kanal-Datei fehlt: {kanal_pfad}')
-    if budget.rest(budgetkanal, BUDGET_S) <= SENDEN_S:
+    gesamt = budget_fuer(json.loads(Path(kanal_pfad).read_text(encoding='utf-8')))
+    if budget.rest(budgetkanal, gesamt) <= SENDEN_S:
         print(f'{kanal}: Tagesbudget verbraucht - keine neue Produktion')
         return 0
-    reservierung = budget.reservieren(budgetkanal, BUDGET_S)
+    reservierung = budget.reservieren(budgetkanal, gesamt)
     start = time.monotonic()
     try:
         return produzieren(kanal_pfad, kanal, thema, start, reservierung[0], themen,

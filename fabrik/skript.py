@@ -378,7 +378,9 @@ def anweisung(kanal, thema, frueher):
     # Muss zur Pruefgrenze in main() passen (Short 2.4), sonst schreibt der Autor zu lang
     # und jede Fassung wird verworfen.
     rate = wortrate(kanal)
-    wmin, wmax = (2.35, 2.65) if dramaturgie.videoformat(kanal) == 'lang' else (2.75 * rate / 2.4, rate)
+    # Seit 08.10.2026 gleiche Regel fuer Short UND Langvideo: Orus spricht beide (vorher
+    # Langvideo fest 2.35-2.65 W/s fuer Kokoro -> 10 Min. Text waeren mit Orus ~13 Min.).
+    wmin, wmax = (2.75 * rate / 2.4, rate)
     woerter = f'{int(lmin * wmin)}-{int(lmax * wmax)}'
     winkel = kanal.get('winkel', [])
     blick = kanal.get('_winkel') or (winkel[datetime.date.today().toordinal() % len(winkel)] if winkel else '')
@@ -523,11 +525,11 @@ def main(kanal_pfad, aus_pfad, thema=None):
     verworfen = []
     lang = dramaturgie.videoformat(kanal) == 'lang'
     rate = wortrate(kanal)
-    mindest = int(dramaturgie.laengen(kanal)[0] * (2.35 if lang else 2.75 * rate / 2.4))
+    mindest = int(dramaturgie.laengen(kanal)[0] * 2.75 * rate / 2.4)
     # GEMESSEN 07.10.2026 (Run 37652008678, WeWork): 2.9 Woerter/s erlaubte ~261
     # Woerter; Kokoro sprach daraus 117 s statt hoechstens 90 s -> Tempo 1.25.
     # Gesprochen werden ~2.2-2.4 Woerter/s; 2.4 entspricht Codex' Groq-Vorgabe 198-216.
-    hoechstens = int(dramaturgie.laengen(kanal)[1] * (2.65 if lang else rate))
+    hoechstens = int(dramaturgie.laengen(kanal)[1] * rate)
     pmin = kanal.get('plaetze', [5, 7])[0]
     woerter_von = lambda e: sum(len(t['text'].split()) for t in e['teile'])
     def schreiben(auftrag):

@@ -13,7 +13,7 @@ on:
           - ai-tools-explained
         default: business-origin-stories
       videoformat:
-        description: 'Format (lang derzeit nur Business Origin Stories)'
+        description: 'Format (lang = 8-10 Min., derzeit nur Business Origin Stories)'
         type: choice
         options:
           - short
@@ -42,7 +42,7 @@ concurrency:
 jobs:
   pruefen:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 240  # Langvideo: lauf.BUDGET_LANG_S (200 Min.) plus Einrichtung
     outputs:
       grund: ${{ steps.bericht.outputs.grund }}
       versand: ${{ steps.versand.outcome }}
@@ -97,6 +97,7 @@ jobs:
           timeout 240 sudo apt-get -o Acquire::Retries=3 install -y -qq ffmpeg fonts-dejavu-core
           pip install -q -r requirements.txt
           python -m playwright install chromium --only-shell
+          npm install -g -s @anthropic-ai/claude-code || echo "Claude-CLI fehlt - Autor Gemini/Groq"
       - uses: actions/cache@v4
         with:
           path: modelle
@@ -122,6 +123,7 @@ jobs:
           CF_PILOT: '1'
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}  # Skript-Autor wie im Tageslauf
           CLOUDFLARE_AI_TOKEN: ${{ secrets.CLOUDFLARE_AI_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}

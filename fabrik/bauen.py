@@ -938,13 +938,18 @@ def gemini_ton(s, wahl, grenzen):
         ton = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32) / 32768
     dauer = len(ton) / rate
     oben = grenzen[1]
-    if dauer > oben:
-        faktor = min(1.15, dauer / oben)
+    # GEMELDET 08.10.2026 nach dem ersten Video (WeWork): „ein Tick schneller abspielen".
+    # Grundtempo aus dem Kanalprofil (erzaehlstimme.tempo, Standard 1.08), zu lang -> mehr,
+    # zusammen hoechstens 1.2; atempo erhaelt die Tonhoehe.
+    grund = wahl.get('tempo', 1.08)
+    grund = grund if isinstance(grund, (int, float)) and not isinstance(grund, bool) and 1.0 <= grund <= 1.2 else 1.08
+    faktor = round(min(1.2, max(grund, dauer / oben if dauer > oben else 1.0)), 3)
+    if faktor > 1.0:
         roh = subprocess.run(['ffmpeg', '-loglevel', 'error', '-f', 'f32le', '-ar', str(rate), '-ac', '1', '-i', '-',
                               '-filter:a', f'atempo={faktor:.3f}', '-f', 'f32le', '-'],
                              input=ton.tobytes(), capture_output=True, check=True).stdout
         ton = np.frombuffer(roh, dtype=np.float32).copy()
-        print(f'Gemini-Stimme {dauer:.0f} s > {oben} s - Tempo x{faktor:.2f}')
+        print(f'Gemini-Stimme {dauer:.0f} s - Tempo x{faktor:.2f}')
     print(f'Erzaehlstimme: Gemini {wahl.get("stimme")} ({modell}), {len(ton) / rate:.1f} s')
     return ton, rate
 
@@ -1371,12 +1376,10 @@ def main(skript_pfad, aus, vorlage=None):
             material_art = 'illustration' if ill else 'foto' if foto else 'karte' if karte else 'clip'
             bild_fuer(t, s['titel'], i, len(shots), durchsichtig=not karte,
                      karte=karte, akzent=akzent_farbe(s)).save(ebene)
-            if ill:
-                with Image.open(ebene) as im:
-                    im = im.convert('RGBA')
-                schrift_text(im, (LAYOUT['links'], H * .12), 'ILLUSTRATION', schrift(28), (210, 210, 210))
-                im.save(ebene)
-            elif modus == 'demo':
+            # GEMELDET 08.10.2026: Nutzer will das Wort 'ILLUSTRATION' im Bild nicht ("ganz
+            # entfernen"). KI-Kennzeichnung bleibt: Plattform-Einstellung (containsSyntheticMedia)
+            # und Beschreibung 'Illustrations are AI-generated.' (freigabe.py).
+            if modus == 'demo':
                 with Image.open(ebene) as im:
                     im = im.convert('RGBA')
                 schrift_text(im, (LAYOUT['links'], H * .12), 'MODEL CARD EXAMPLE', schrift(28), (210, 210, 210))

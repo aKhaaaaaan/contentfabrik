@@ -60,7 +60,7 @@ class ErzaehlstimmeTest(unittest.TestCase):
 
     def test_ein_aufruf_mit_pause_vor_wendung(self):
         with patch('stimme_gemini.sprechen', return_value=(wav(5), 'gemini-3.8-flash-tts')) as sp:
-            ton, rate = bauen.gemini_ton(SKRIPT, {'stimme': 'Orus', 'stil': 'dramatic'}, [62, 90])
+            ton, rate = bauen.gemini_ton(SKRIPT, {'stimme': 'Orus', 'stil': 'dramatic', 'tempo': 1.0}, [62, 90])
         self.assertEqual(sp.call_count, 1)
         self.assertEqual(sp.call_args.args[0], 'In 2019 one office company was worth billions. '
                                                '<short pause> Then everything changed.')
@@ -71,15 +71,31 @@ class ErzaehlstimmeTest(unittest.TestCase):
             self.assertIsNone(bauen.gemini_ton(SKRIPT, {'stimme': 'Orus'}, [62, 90]))
 
     @unittest.skipUnless(shutil.which('ffmpeg'), 'ffmpeg fehlt lokal')
-    def test_zu_lang_wird_hoechstens_um_15_prozent_gestrafft(self):
+    def test_zu_lang_wird_hoechstens_um_20_prozent_gestrafft(self):
         with patch('stimme_gemini.sprechen', return_value=(wav(100), 'gemini-3.8-flash-tts')):
             ton, rate = bauen.gemini_ton(SKRIPT, {'stimme': 'Orus'}, [62, 90])
         self.assertAlmostEqual(len(ton) / rate, 100 / 1.111, delta=0.5)
         with patch('stimme_gemini.sprechen', return_value=(wav(120), 'gemini-3.8-flash-tts')):
             ton, rate = bauen.gemini_ton(SKRIPT, {'stimme': 'Orus'}, [62, 90])
-        self.assertAlmostEqual(len(ton) / rate, 120 / 1.15, delta=0.5)
+        self.assertAlmostEqual(len(ton) / rate, 120 / 1.2, delta=0.5)
+
+    @unittest.skipUnless(shutil.which('ffmpeg'), 'ffmpeg fehlt lokal')
+    def test_grundtempo_ein_tick_schneller(self):
+        # Nutzer 08.10.: „ein Tick schneller". Vorher blieb ein 80-s-Ton unveraendert.
+        with patch('stimme_gemini.sprechen', return_value=(wav(80), 'gemini-3.8-flash-tts')):
+            ton, rate = bauen.gemini_ton(SKRIPT, {'stimme': 'Orus'}, [62, 90])
+        self.assertAlmostEqual(len(ton) / rate, 80 / 1.08, delta=0.5)
 
     def test_abschnitte_aus_wortzeiten(self):
         teile = [{'text': 'a b c'}, {'text': 'd e'}, {'text': 'f'}]
         woerter = [{'w': w, 's': s, 'e': s + .3} for w, s in zip('abcdef', [0, .4, .8, 2.0, 2.4, 3.5])]
         self.assertEqual(bauen.laengen_aus_woertern(woerter, teile, 5.0), [2.0, 1.5, 1.5])
+
+
+class KeinIllustrationsLabel(unittest.TestCase):
+    def test_wort_illustration_nicht_mehr_im_bild(self):
+        # Nutzer 08.10.: 'ILLUSTRATION' im Bild ganz entfernen; Kennzeichnung ueber Plattform/Beschreibung.
+        quelle = (WURZEL / 'fabrik/bauen.py').read_text(encoding='utf-8')
+        self.assertNotIn("'ILLUSTRATION', schrift(", quelle)
+        self.assertIn('Illustrations are AI-generated.', (WURZEL / 'fabrik/freigabe.py').read_text(encoding='utf-8'))
+

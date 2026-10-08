@@ -99,3 +99,12 @@ class KeinIllustrationsLabel(unittest.TestCase):
         self.assertNotIn("'ILLUSTRATION', schrift(", quelle)
         self.assertIn('Illustrations are AI-generated.', (WURZEL / 'fabrik/freigabe.py').read_text(encoding='utf-8'))
 
+    def test_business_ohne_stockclips(self):
+        # Nutzer 08.10.: Stockclips (Tastatur, 'SALE') brechen den gemalten Look - vorher immer erlaubt.
+        import json as _json
+        d = _json.loads((WURZEL / 'kanaele/business-origin-stories.json').read_text(encoding='utf-8'))
+        self.assertIs(d.get('stockclips'), False)
+        quelle = (WURZEL / 'fabrik/bauen.py').read_text(encoding='utf-8')
+        self.assertIn("or not stock_erlaubt else", quelle)
+        self.assertIn("if modus == 'stock' and not stock_erlaubt:", quelle)
+

@@ -903,6 +903,24 @@ def kokoro_ton(s, tempo, laengenziel):
     return np.concatenate(teile), rate, laengen, tempo
 
 
+def kanalprofil(s):
+    """Kanalprofil (kanaele/*.json) passend zu s['kanal'], sonst {}."""
+    for p in Path('kanaele').glob('*.json'):
+        try:
+            d = json.loads(p.read_text(encoding='utf-8'))
+        except (OSError, ValueError):
+            continue
+        if d.get('name') == s.get('kanal'):
+            return d
+    return {}
+
+
+def stockclips_erlaubt(s):
+    """GEMELDET 08.10.2026 nach dem WeWork-Video: Stockclips (Tastatur, Laptop, 'SALE')
+    brechen den gemalten Spielplakat-Look. Kanalprofil 'stockclips': false sperrt sie."""
+    return kanalprofil(s).get('stockclips', True) is not False
+
+
 def erzaehlstimme(s):
     """Kanaleinstellung 'erzaehlstimme' (z. B. Gemini Orus) aus kanaele/*.json, sonst None."""
     for p in Path('kanaele').glob('*.json'):
@@ -1237,6 +1255,7 @@ def main(skript_pfad, aus, vorlage=None):
         musikpausen = []  # Wendepunkte: Musik setzt kurz davor aus (Stille als Musterbruch)
         geraeusche = []  # (sekunde, mp3) passend zur Szene, hoechstens 3
         bild_ersatz = 0  # Einstellungen mit gepruefter Nachbar-Illustration statt eigenem Bild
+        stock_erlaubt = stockclips_erlaubt(s)
         vorherige_id = None  # Bild-Fingerabdruck der direkt vorherigen Einstellung
         kanal_slug = re.sub(r'[^a-z0-9]+', '-', s.get('kanal', '').lower()).strip('-')
         FORTSCHRITT['plaetze'] = sorted((t['platz'] for t in s['teile'] if t.get('platz')), reverse=True)
@@ -1283,6 +1302,8 @@ def main(skript_pfad, aus, vorlage=None):
             stueck = aus / f'stueck_{i:02d}.mp4'
             ebene = aus / f'ebene_{i:02d}.png'
             modus = t.get('bildmodus', 'auto')
+            if modus == 'stock' and not stock_erlaubt:
+                modus = 'illustration'  # gemalte Szene statt Stockclip (Kanalvorgabe)
             karte = karte_fuer(t.get('quelle_url')) if modus in ('auto', 'karte') else None
             foto, fq = ((None, None) if karte or modus in ('stock', 'illustration', 'demo', 'figur', 'grafik', 'asset')
                         else foto_fuer(s.get('bilder') or [], t['text'] + ' Visual: ' + t.get('szene', ''), benutzte_fotos))
@@ -1344,7 +1365,7 @@ def main(skript_pfad, aus, vorlage=None):
                     quellen.append({'quelle': 'Illustration', 'seite': 'KI-generiert (Cloudflare Workers AI, FLUX)'})
             # GEMESSEN: Im Kartenvideo holte der Schluss einen fremden Clip
             # (halber „Subscribe"-Knopf) - dort gilt jetzt derselbe Hintergrund.
-            clip, quelle = ((None, None) if karte or foto or ill or (kartenvideo and modus == 'auto') else
+            clip, quelle = ((None, None) if karte or foto or ill or (kartenvideo and modus == 'auto') or not stock_erlaubt else
                             clip_fuer(t.get('suche') or s.get('suche'), schon, dauer,
                                       t['text'] + ' Visual: ' + t.get('szene', '')))
             material = ill or foto or karte or clip

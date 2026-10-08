@@ -127,6 +127,8 @@ def main(kanal_pfad, thema='', entwurf=''):
 def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     import lernen
     import entwurf_cache
+    import illustration
+    illustration.KONTINGENT_LEER.unlink(missing_ok=True)  # Merker gilt nur fuer diesen Lauf
     # Thema aus Telegram hat Vorrang (GEMELDET: eigene Themen einbringen)
     aus_warteschlange = not thema
     if not thema:
@@ -254,10 +256,16 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             runde['bau_s'] = round(time.monotonic() - bau_start, 1)
             if b != 0:
                 letzter_grund = 'Videobau fehlgeschlagen'
+                import illustration
+                kontingent_leer = illustration.KONTINGENT_LEER.exists()
+                if kontingent_leer:
+                    # Ein neuer Versuch erzeugt ohne Bildkontingent nur denselben Fehler.
+                    letzter_grund = ('Cloudflare-Bildkontingent aufgebraucht - neue Bilder erst nach '
+                                     'Freigabe durch Cloudflare; Skript bleibt im Vorrat')
                 print(f'Versuch {versuch}: {letzter_grund}')
                 verlauf_eintragen(kanal, skript, 'baufehler', None)
                 runde['status'] = 'baufehler'
-                if basis:
+                if basis or kontingent_leer:
                     break
                 bau_basis = ordner
                 continue

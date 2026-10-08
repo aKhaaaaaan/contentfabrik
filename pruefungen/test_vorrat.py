@@ -51,6 +51,18 @@ class VorratTest(TempTest):
         self.ablegen('WeWork', ok=False, name='b')
         self.assertIsNone(vorrat.nehmen(self.pfad, 'WeWork'))
 
+    def test_zu_langes_skript_fuer_die_stimme_ungueltig(self):
+        # Lauf 37749486997: 207 Woerter fuer Orus (2 W/s) -> 109 s. Vorher galt es als gueltig.
+        self.ablegen('WeWork')
+        p = Path('vorrat/business-origin-stories/a.json')
+        e = json.loads(p.read_text())
+        e['skript']['teile'] = [{'text': ' '.join(['word'] * 200)}]
+        p.write_text(json.dumps(e))
+        Path(self.pfad).write_text(json.dumps(dict(KANAL, woerter_pro_sekunde=2.0)), encoding='utf-8')
+        self.assertIsNone(vorrat.nehmen(self.pfad, 'WeWork'))
+        Path(self.pfad).write_text(json.dumps(dict(KANAL, woerter_pro_sekunde=2.4)), encoding='utf-8')
+        self.assertIsNotNone(vorrat.nehmen(self.pfad, 'WeWork'))
+
     def test_erledigen_entfernt_nur_das_gesendete(self):
         self.ablegen('WeWork', name='a')
         self.ablegen('Netflix', name='b')

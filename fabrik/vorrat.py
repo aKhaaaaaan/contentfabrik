@@ -55,6 +55,12 @@ def gueltig(eintrag, daten, jetzt=None):
     try:
         alter = jetzt - datetime.datetime.fromisoformat(eintrag['erstellt_utc'])
         s = eintrag['skript']
+        # Laengengrenze der aktuellen Erzaehlstimme (z. B. Orus ~2 W/s): ein vorher fuer
+        # Kokoro geschriebenes Skript wuerde zu lang (GEMESSEN 08.10.: 207 Woerter = 109 s).
+        import dramaturgie, skript as skriptmodul
+        if dramaturgie.videoformat(daten) == 'short' and sum(len(t['text'].split()) for t in s['teile']) \
+                > int(dramaturgie.laengen(daten)[1] * skriptmodul.wortrate(daten)):
+            return False
         return (datetime.timedelta(0) <= alter <= datetime.timedelta(days=_max_tage(daten))
                 and s.get('pruefung', {}).get('ok') is True and not skript_gruende(s))
     except (KeyError, TypeError, ValueError):

@@ -23,9 +23,16 @@ FIGUREN = Path(__file__).resolve().parent.parent / 'figuren'
 GEZAEHLT = {'bilder': 0, 'abgelehnt': 0}
 
 
+# GEMESSEN 08.10.2026 (Lauf 37749486997): Cloudflare meldete „daily free allocation
+# used up", obwohl das Dashboard „0/10k heute" zeigte (Verbrauch lag am Vorabend) -
+# offenbar zaehlt das Limit rollierend. Der Lauf versuchte trotzdem 5x neu zu bauen.
+# Merker im Arbeitsordner: weitere Anfragen sparen, lauf.py bricht ohne Wiederholung ab.
+KONTINGENT_LEER = Path('bildkontingent-leer.flag')
+
+
 def _anfrage(modell, felder, datei=None, charakter=None):
     token = os.environ.get('CLOUDFLARE_AI_TOKEN')
-    if not token:
+    if not token or KONTINGENT_LEER.exists():
         return None
     url = f'https://api.cloudflare.com/client/v4/accounts/{KONTO}/ai/run/@cf/black-forest-labs/{modell}'
     kopf = {'Authorization': 'Bearer ' + token, 'User-Agent': 'Contentfabrik/1.0'}
@@ -54,6 +61,8 @@ def _anfrage(modell, felder, datei=None, charakter=None):
         return base64.b64decode(d['result']['image'])
     GEZAEHLT['abgelehnt'] += 1
     print('Illustration abgelehnt:', str(d.get('errors'))[:140])
+    if 'free allocation' in str(d.get('errors')).lower():
+        KONTINGENT_LEER.write_text('Cloudflare Workers AI: Gratiskontingent aufgebraucht\n', encoding='utf-8')
     return None
 
 

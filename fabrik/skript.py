@@ -340,12 +340,23 @@ def story_bewerten(entwurf):
     return erg
 
 
+def wortrate(kanal):
+    """Gesprochene Woerter pro Sekunde der Erzaehlstimme (Kanalprofil, Standard Kokoro 2.4).
+
+    GEMESSEN 08.10.2026 (Lauf 37749486997): Gemini Orus sprach 207 Woerter in 109-110 s
+    (~1.9 W/s) - trotz Tempo x1.15 noch 95 s statt hoechstens 90 s.
+    """
+    wert = kanal.get('woerter_pro_sekunde', 2.4)
+    return wert if isinstance(wert, (int, float)) and not isinstance(wert, bool) and 1.5 <= wert <= 3 else 2.4
+
+
 def anweisung(kanal, thema, frueher):
     import prompts
     lmin, lmax = dramaturgie.laengen(kanal)
     # Muss zur Pruefgrenze in main() passen (Short 2.4), sonst schreibt der Autor zu lang
     # und jede Fassung wird verworfen.
-    wmin, wmax = (2.35, 2.65) if dramaturgie.videoformat(kanal) == 'lang' else (2.75, 2.4)
+    rate = wortrate(kanal)
+    wmin, wmax = (2.35, 2.65) if dramaturgie.videoformat(kanal) == 'lang' else (2.75 * rate / 2.4, rate)
     woerter = f'{int(lmin * wmin)}-{int(lmax * wmax)}'
     winkel = kanal.get('winkel', [])
     blick = kanal.get('_winkel') or (winkel[datetime.date.today().toordinal() % len(winkel)] if winkel else '')
@@ -487,11 +498,12 @@ def main(kanal_pfad, aus_pfad, thema=None):
     # Ein festes Thema vom Nutzer wird nicht ausgetauscht.
     verworfen = []
     lang = dramaturgie.videoformat(kanal) == 'lang'
-    mindest = int(dramaturgie.laengen(kanal)[0] * (2.35 if lang else 2.75))
+    rate = wortrate(kanal)
+    mindest = int(dramaturgie.laengen(kanal)[0] * (2.35 if lang else 2.75 * rate / 2.4))
     # GEMESSEN 07.10.2026 (Run 37652008678, WeWork): 2.9 Woerter/s erlaubte ~261
     # Woerter; Kokoro sprach daraus 117 s statt hoechstens 90 s -> Tempo 1.25.
     # Gesprochen werden ~2.2-2.4 Woerter/s; 2.4 entspricht Codex' Groq-Vorgabe 198-216.
-    hoechstens = int(dramaturgie.laengen(kanal)[1] * (2.65 if lang else 2.4))
+    hoechstens = int(dramaturgie.laengen(kanal)[1] * (2.65 if lang else rate))
     pmin = kanal.get('plaetze', [5, 7])[0]
     woerter_von = lambda e: sum(len(t['text'].split()) for t in e['teile'])
     def schreiben(auftrag):

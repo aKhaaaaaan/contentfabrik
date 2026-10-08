@@ -159,19 +159,51 @@ class KeineBildschirme(unittest.TestCase):
         self.assertIn('physical', prompts.SZENEN)
 
 
-class Wortgrenze(unittest.TestCase):
-    def test_short_hoechstens_216_woerter(self):
-        # Vor dem Fix: 90 s * 2.9 = 261 Woerter erlaubt -> 117 s Ton, Tempo 1.25.
-        quelle = (Path(__file__).resolve().parents[1] / 'fabrik' / 'skript.py').read_text(encoding='utf-8')
-        self.assertIn('(2.65 if lang else 2.4)', quelle)
+class BildkontingentLeer(unittest.TestCase):
+    """Lauf 37749486997: 'free allocation used up' -> 5 sinnlose Bauversuche."""
 
-    def test_autorenauftrag_nennt_dieselbe_grenze(self):
-        # Vor dem Fix nannte der Auftrag noch 170-261 Woerter, die Pruefung erlaubte 216.
-        import json, skript
-        kanal = json.loads((Path(__file__).resolve().parents[1] / 'kanaele/business-origin-stories.json')
-                           .read_text(encoding='utf-8'))
+    def test_erster_fehler_setzt_merker_und_spart_weitere_anfragen(self):
+        import illustration, tempfile
+        body = json.dumps({'success': False, 'errors': [{'message': "AiError: you have used up your daily "
+                           "free allocation of 10,000 neurons, please upgrade"}]}).encode()
+        fehler = urllib.error.HTTPError('https://api.cloudflare.com', 429, 'x', {}, io.BytesIO(body))
+        alt = os.getcwd()
+        with tempfile.TemporaryDirectory() as t:
+            os.chdir(t)
+            try:
+                with patch.dict(os.environ, {'CLOUDFLARE_AI_TOKEN': 'x'}), \
+                        patch.object(illustration.urllib.request, 'urlopen', side_effect=fehler) as up:
+                    self.assertIsNone(illustration._anfrage('flux-1-schnell', {'prompt': 'p'}))
+                    self.assertTrue(illustration.KONTINGENT_LEER.exists())
+                    self.assertIsNone(illustration._anfrage('flux-1-schnell', {'prompt': 'p'}))
+                self.assertEqual(up.call_count, 1)
+            finally:
+                os.chdir(alt)
+
+    def test_lauf_wiederholt_bei_leerem_kontingent_nicht(self):
+        quelle = (Path(__file__).resolve().parents[1] / 'fabrik/lauf.py').read_text(encoding='utf-8')
+        self.assertIn('if basis or kontingent_leer:', quelle)
+        self.assertIn('Cloudflare-Bildkontingent aufgebraucht', quelle)
+
+
+class Wortgrenze(unittest.TestCase):
+    def test_short_standard_kokoro_170_216(self):
+        # Vor dem 07.10.: 90 s * 2.9 = 261 Woerter erlaubt -> 117 s Ton, Tempo 1.25.
+        import skript
+        kanal = {'name': 'X', 'format': 'geschichte'}
         with patch('prompts.skript', side_effect=lambda k, t, f, b, w: w):
             self.assertEqual(skript.anweisung(kanal, 'WeWork', []), '170-216')
+
+    def test_orus_kanaele_kuerzer(self):
+        # Lauf 37749486997: Orus 207 Woerter = 109 s (~1.9 W/s). Vorher galt fuer alle 170-216.
+        import json, skript
+        wurzel = Path(__file__).resolve().parents[1]
+        erwartet = {'business-origin-stories': '142-180', 'ai-tools-explained': '156-198'}
+        for k, grenzen in erwartet.items():
+            kanal = json.loads((wurzel / f'kanaele/{k}.json').read_text(encoding='utf-8'))
+            with patch('prompts.skript', side_effect=lambda a, t, f, b, w: w):
+                self.assertEqual(skript.anweisung(kanal, 'X', []), grenzen)
+        self.assertEqual(skript.wortrate({'woerter_pro_sekunde': 'quatsch'}), 2.4)
 
 
 if __name__ == '__main__':

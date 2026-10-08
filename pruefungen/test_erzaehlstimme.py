@@ -108,3 +108,13 @@ class KeinIllustrationsLabel(unittest.TestCase):
         self.assertIn("or not stock_erlaubt else", quelle)
         self.assertIn("if modus == 'stock' and not stock_erlaubt:", quelle)
 
+    def test_gemalter_spielplakat_stil_ohne_spielnamen(self):
+        # Nutzer 08.10.: alles gemalt, GTA als Inspiration, keine echten Charaktere.
+        import prompts
+        p = prompts.illustration('a founder in a rented loft')
+        self.assertIn('Loading-screen key-art look', p)
+        self.assertIn('never photographic', p)
+        self.assertIn('Original fictional character', p)
+        self.assertNotIn('GTA', p)
+        self.assertNotIn('Grand Theft Auto', p)
+

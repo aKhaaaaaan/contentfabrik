@@ -1789,6 +1789,89 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "37753715598.1:ai-tools-explained",
+      "run_id": "37753715598",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-08T09:26:27.872379+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "bbdb3bb5bb2fb32848bd106921f440cb76daec55",
+      "produktionsversion": "7ddc7f5cdb7b7d55f9eadd146f94bc6ff53c126ca510e05967361ab84bb65a84",
+      "videoformat": "short",
+      "thema": "Whirl: an MIT-licensed AI chat app you can run yourself",
+      "titel": [
+        "Run Your Own *AI* *Chat*",
+        "With Whirl's Open Code"
+      ],
+      "status": "gesperrt",
+      "video_sha256": "27e1e9d0062b0cba31aa1d8f1b67fa10bd75a660ceec6d00faa5f613d3f8127a",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "KI-Pruefung gehoert nicht zur vorliegenden Videodatei"
+      ],
+      "einstellungen": 24,
+      "unterschiedliche_motive": 24,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "37753715598",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-08",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 155.2,
+            "bau_s": 45.2,
+            "status": "baufehler",
+            "sekunden": 200.4
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 389.8,
+            "status": "baufehler",
+            "sekunden": 389.8
+          },
+          {
+            "runde": 3,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 53.3,
+            "status": "baufehler",
+            "sekunden": 53.3
+          },
+          {
+            "runde": 4,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "status": "zeitbudget",
+            "phase": "Videobau",
+            "sekunden": 787.5
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Videobau-Zeitlimit erreicht (Arbeiter beendet)",
+        "sekunden": 1431.6
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "modell": "groq:openai/gpt-oss-120b",
+        "zweitpruefer_modell": null,
+        "zweitpruefer_anderer_anbieter": false
+      }
     }
   ]
 }

@@ -221,6 +221,11 @@ class BildausfallKipptNichtAlles(unittest.TestCase):
             (Path(t) / 'ill_10.jpg').unlink()
             self.assertIsNone(bauen.nachbar_bild(t, 16, bildplan.material_id(erstes)))
 
+    def test_fehlendes_tool_beispiel_zeigt_quellseite(self):
+        # Lauf 37774195592: 'kein echtes Tool-Beispiel' brach die Korrektur ab.
+        quelle = (Path(__file__).resolve().parents[1] / 'fabrik/bauen.py').read_text(encoding='utf-8')
+        self.assertIn('echte Quellseite als Karte', quelle)
+
     def test_bildpruefung_urteilt_ueber_kernidee(self):
         import prompts
         p = prompts.bildpruefung('a host at a desk')

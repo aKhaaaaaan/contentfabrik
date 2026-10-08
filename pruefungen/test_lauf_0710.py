@@ -186,6 +186,31 @@ class BildkontingentLeer(unittest.TestCase):
         self.assertIn('Cloudflare-Bildkontingent aufgebraucht', quelle)
 
 
+class BildausfallKipptNichtAlles(unittest.TestCase):
+    """Lauf 37753715598 (bezahltes Cloudflare): Bilder kamen, Video trotzdem verloren."""
+
+    def test_ungueltiges_bibliotheksbild_wird_neu_gemalt(self):
+        # Vorher: ValueError 'Unbekannte oder fuer diesen Kanal ungeeignete Illustration' -> Bau weg.
+        import bildplan
+        s = {'kanal': 'AI Tools Explained', 'titel': ['A', 'B'], 'teile': [{
+            'text': 'One two three.', 'bildfolge': [{'bildmodus': 'asset', 'asset': 'gibt-es-nicht',
+                                                     'suche': 'desk', 'szene': 'a calm desk', 'motiv': 'desk'}]}]}
+        woerter = [{'w': w, 's': i * .5, 'e': i * .5 + .4} for i, w in enumerate(['One', 'two', 'three.'])]
+        shots, _ = bildplan.vorbereiten(s, [3.0], woerter)
+        self.assertEqual(shots[0]['teil']['bildmodus'], 'illustration')
+        self.assertNotIn('asset', shots[0]['teil'])
+
+    def test_fehlendes_bild_nimmt_gepruefte_nachbar_illustration(self):
+        quelle = (Path(__file__).resolve().parents[1] / 'fabrik/bauen.py').read_text(encoding='utf-8')
+        self.assertIn('if not material and bild_ersatz < 2:', quelle)
+
+    def test_bildpruefung_urteilt_ueber_kernidee(self):
+        import prompts
+        p = prompts.bildpruefung('a host at a desk')
+        self.assertIn('core idea', p)
+        self.assertIn('Do not reject for secondary blocking details', p)
+
+
 class Wortgrenze(unittest.TestCase):
     def test_short_standard_kokoro_170_216(self):
         # Vor dem 07.10.: 90 s * 2.9 = 261 Woerter erlaubt -> 117 s Ton, Tempo 1.25.

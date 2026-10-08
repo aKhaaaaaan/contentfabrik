@@ -124,8 +124,13 @@ def vorbereiten(s, laengen, woerter, cache=None):
             if 'grafik_variante' in d:
                 t['grafik_variante'] = d['grafik_variante']
         if d.get('bildmodus') == 'asset':
-            bibliothek.bild(d.get('asset'), s.get('kanal'))
-            t['asset'] = d['asset']
+            try:
+                bibliothek.bild(d.get('asset'), s.get('kanal'))
+                t['asset'] = d['asset']
+            except ValueError:
+                # GEMESSEN 08.10.2026 (Lauf 37753715598): ein fuer den Kanal nicht freigegebenes
+                # Bibliotheksbild liess den ganzen Bau abbrechen. Szene stattdessen neu malen.
+                d = dict(d, bildmodus='illustration')
         if 'figur' in d:
             t['figur'] = d['figur']
         t.update({k: d[k] for k in ('bildmodus', 'suche', 'szene', 'motiv')})

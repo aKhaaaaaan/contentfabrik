@@ -1214,6 +1214,7 @@ def main(skript_pfad, aus, vorlage=None):
         ereignisse = [(0.0, 'impact')] if H > B else []
         musikpausen = []  # Wendepunkte: Musik setzt kurz davor aus (Stille als Musterbruch)
         geraeusche = []  # (sekunde, mp3) passend zur Szene, hoechstens 3
+        bild_ersatz = 0  # Einstellungen mit gepruefter Nachbar-Illustration statt eigenem Bild
         kanal_slug = re.sub(r'[^a-z0-9]+', '-', s.get('kanal', '').lower()).strip('-')
         FORTSCHRITT['plaetze'] = sorted((t['platz'] for t in s['teile'] if t.get('platz')), reverse=True)
         FORTSCHRITT['aktuell'] = None
@@ -1317,6 +1318,17 @@ def main(skript_pfad, aus, vorlage=None):
                             clip_fuer(t.get('suche') or s.get('suche'), schon, dauer,
                                       t['text'] + ' Visual: ' + t.get('szene', '')))
             material = ill or foto or karte or clip
+            if not material and bild_ersatz < 2:
+                # GEMESSEN 08.10.2026 (Lauf 37753715598): eine einzige Einstellung ohne
+                # bestandenes Bild kippte das ganze Video (3x). Hoechstens zweimal ein schon
+                # GEPRUEFTES Bild des naechsten Abschnitts - kein beliebiger Hintergrund wie
+                # beim abgelehnten Nintendo-Short (27 s Kerzen).
+                kandidaten = [p for p in aus.glob('ill_*.jpg') if re.fullmatch(r'ill_\d\d\.jpg', p.name)
+                              and p.name != f'ill_{i:02d}.jpg']
+                if kandidaten:
+                    ill = material = min(kandidaten, key=lambda p: abs(int(p.stem[4:]) - i))
+                    bild_ersatz += 1
+                    print(f'Einstellung {i}: kein Bild bestanden - gepruefte Nachbar-Illustration {ill.name}')
             if not material:
                 raise ValueError(f'Phase {shot["phase"]}, Einstellung {i}: kein passendes Hauptbild; kein Hintergrundersatz')
             material_hash = bildplan.material_id(material)

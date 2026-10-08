@@ -208,6 +208,19 @@ class BildausfallKipptNichtAlles(unittest.TestCase):
         quelle = (Path(__file__).resolve().parents[1] / 'fabrik/bauen.py').read_text(encoding='utf-8')
         self.assertIn('if not material and bild_ersatz < 2:', quelle)
 
+    def test_ersatz_wiederholt_nie_das_vorherige_bild(self):
+        # Lauf 37760482364: Einstellung 15 und 16 bekamen beide ill_13 -> Motiv zu lange gehalten.
+        import bauen, bildplan, tempfile
+        with tempfile.TemporaryDirectory() as t:
+            for n, inhalt in ((10, b'zehn'), (13, b'dreizehn')):
+                (Path(t) / f'ill_{n:02d}.jpg').write_bytes(inhalt)
+            erstes = bauen.nachbar_bild(t, 15, None)
+            self.assertEqual(erstes.name, 'ill_13.jpg')
+            zweites = bauen.nachbar_bild(t, 16, bildplan.material_id(erstes))
+            self.assertEqual(zweites.name, 'ill_10.jpg')
+            (Path(t) / 'ill_10.jpg').unlink()
+            self.assertIsNone(bauen.nachbar_bild(t, 16, bildplan.material_id(erstes)))
+
     def test_bildpruefung_urteilt_ueber_kernidee(self):
         import prompts
         p = prompts.bildpruefung('a host at a desk')

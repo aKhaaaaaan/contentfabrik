@@ -976,6 +976,13 @@ def musik_kette(pegel, laenge, pausen=(), stille=0.55):
     return kette
 
 
+def nachbar_bild(aus, i, vorherige_id):
+    """Naechste schon gepruefte Illustration fuer Einstellung i, nie das Bild davor."""
+    kandidaten = [p for p in Path(aus).glob('ill_*.jpg') if re.fullmatch(r'ill_\d\d\.jpg', p.name)
+                  and p.name != f'ill_{i:02d}.jpg' and bildplan.material_id(p) != vorherige_id]
+    return min(kandidaten, key=lambda p: abs(int(p.stem[4:]) - i)) if kandidaten else None
+
+
 FIGUR_EINSETZEN = {'moeglich': True}  # gilt fuer einen bauen.py-Prozess (= einen Bauversuch)
 
 
@@ -1225,6 +1232,7 @@ def main(skript_pfad, aus, vorlage=None):
         musikpausen = []  # Wendepunkte: Musik setzt kurz davor aus (Stille als Musterbruch)
         geraeusche = []  # (sekunde, mp3) passend zur Szene, hoechstens 3
         bild_ersatz = 0  # Einstellungen mit gepruefter Nachbar-Illustration statt eigenem Bild
+        vorherige_id = None  # Bild-Fingerabdruck der direkt vorherigen Einstellung
         kanal_slug = re.sub(r'[^a-z0-9]+', '-', s.get('kanal', '').lower()).strip('-')
         FORTSCHRITT['plaetze'] = sorted((t['platz'] for t in s['teile'] if t.get('platz')), reverse=True)
         FORTSCHRITT['aktuell'] = None
@@ -1251,6 +1259,7 @@ def main(skript_pfad, aus, vorlage=None):
                 bildablauf['einstellungen'].append(dict(shot, teil=None,
                     material_id=alt.get('material_id'), material_art=alt.get('material_art')))
                 zeiten['stuecke_wiederverwendet'] += 1
+                vorherige_id = alt.get('material_id')
                 rendercache.speichern(aus, zustand)
                 continue
             zeiten['stuecke_neu'] += 1
@@ -1333,15 +1342,18 @@ def main(skript_pfad, aus, vorlage=None):
                 # bestandenes Bild kippte das ganze Video (3x). Hoechstens zweimal ein schon
                 # GEPRUEFTES Bild des naechsten Abschnitts - kein beliebiger Hintergrund wie
                 # beim abgelehnten Nintendo-Short (27 s Kerzen).
-                kandidaten = [p for p in aus.glob('ill_*.jpg') if re.fullmatch(r'ill_\d\d\.jpg', p.name)
-                              and p.name != f'ill_{i:02d}.jpg']
-                if kandidaten:
-                    ill = material = min(kandidaten, key=lambda p: abs(int(p.stem[4:]) - i))
+                # GEMESSEN 08.10.2026 (Lauf 37760482364, Business): Einstellung 15 UND 16
+                # bekamen beide ill_13 -> 'Gleiches Motiv zu lange gehalten', Video gesperrt.
+                # Nie das Bild der direkt vorherigen Einstellung wiederholen.
+                ersatz = nachbar_bild(aus, i, vorherige_id)
+                if ersatz:
+                    ill = material = ersatz
                     bild_ersatz += 1
                     print(f'Einstellung {i}: kein Bild bestanden - gepruefte Nachbar-Illustration {ill.name}')
             if not material:
                 raise ValueError(f'Phase {shot["phase"]}, Einstellung {i}: kein passendes Hauptbild; kein Hintergrundersatz')
             material_hash = bildplan.material_id(material)
+            vorherige_id = material_hash
             material_art = 'illustration' if ill else 'foto' if foto else 'karte' if karte else 'clip'
             bild_fuer(t, s['titel'], i, len(shots), durchsichtig=not karte,
                      karte=karte, akzent=akzent_farbe(s)).save(ebene)

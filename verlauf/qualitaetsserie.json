@@ -1605,6 +1605,98 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "37749486997.1:ai-tools-explained",
+      "run_id": "37749486997",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-08T08:28:04.271865+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "e68a177cea58aefbb360885e11e1e4b2dfc7bd28",
+      "produktionsversion": "093ff66b5c5b10e5c945b17ef38833d93904bc5f97fb27a5b92aaaf751564788",
+      "videoformat": "short",
+      "thema": "Whirl: an open-source AI chat app you can host yourself",
+      "titel": [
+        "Host Your Own",
+        "AI Chat Assistant"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "37749486997",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-08",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 119.8,
+            "status": "baufehler",
+            "sekunden": 119.9
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 38.0,
+            "status": "baufehler",
+            "sekunden": 38.0
+          },
+          {
+            "runde": 3,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 4.2,
+            "status": "baufehler",
+            "sekunden": 4.2
+          },
+          {
+            "runde": 4,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 4.6,
+            "status": "baufehler",
+            "sekunden": 4.6
+          },
+          {
+            "runde": 5,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 21.9,
+            "status": "baufehler",
+            "sekunden": 21.9
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Videobau fehlgeschlagen",
+        "sekunden": 188.6
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

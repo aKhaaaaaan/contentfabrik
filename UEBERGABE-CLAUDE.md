@@ -1,5 +1,7 @@
 # Uebergabe an Claude – Contentfabrik
 
+**08.10.2026 abends:** Modellprobe FLUX.2 Klein 4B vs 9B (modellprobe.yml) - Nutzer sieht kaum Unterschied, Entscheidung: **bei 4B bleiben** (9B ~0,015 $/Bild). Beide Kanaele heute geliefert und vom Nutzer hochgeladen (AI 7/10, Business 8/10).
+
 **08.10.2026 nachmittags (Claude): ERSTES ZUGESTELLTES VIDEO.** Lauf 37774195592
 (per Befehls-Bot gestartet): Business WeWork, Skript aus dem Vorrat, Orus-Stimme,
 25 bezahlte Cloudflare-Bilder, KI-Kritik 8/10 ohne Sperrgrund, gesendet ~15:03.

@@ -99,7 +99,7 @@ const berlin = (iso) => new Date(iso).toLocaleTimeString('de-DE',
 // GEMELDET 08.10.2026: „Ein Status-Wort, zum Beispiel noch 60 % bei Bildgenerierung."
 // Grundversion: aktueller GitHub-Schritt + Zeit. Die Produktion hat hoechstens 30 Minuten
 // (BUDGET_S), daraus eine ehrliche Schaetzung - keine gemessene Bildzahl.
-const PRODUKTION_MIN = 30;
+const PRODUKTION_MIN = 45;
 
 export async function fortschritt(env, lauf) {
   const r = await fetch(`https://api.github.com/repos/${REPO}/actions/runs/${lauf.id}/jobs`, { headers: ghKopf(env) });

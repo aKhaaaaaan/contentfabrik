@@ -75,15 +75,15 @@ try {
   runs = [{ id: 1, status: 'in_progress', created_at: new Date().toISOString(), html_url: 'u' }];
   jobs = [{ name: 'video (ai-tools-explained)', status: 'in_progress', steps: [
     { name: 'Erzeugen, pruefen, lernen, senden', status: 'in_progress',
-      started_at: new Date(Date.now() - 15 * 60000).toISOString() }] }];
+      started_at: new Date(Date.now() - 22.5 * 60000).toISOString() }] }];
   await senden('Status');
   assert.match(antwort(), /ai-tools-explained/);
-  assert.match(antwort(), /Gesamt: ca\. 50 %/);   // 10 % + 80 % * 15/30
+  assert.match(antwort(), /Gesamt: ca\. 50 %/);   // 10 % + 80 % * 22.5/45
   // Zwei Kanaele: AI fertig, Business halb durch -> (1 + 0.5) / 2 = 75 %.
   jobs = [{ name: 'video (ai-tools-explained)', status: 'completed', steps: [] },
           { name: 'video (business-origin-stories)', status: 'in_progress', steps: [
             { name: 'Erzeugen, pruefen, lernen, senden', status: 'in_progress',
-              started_at: new Date(Date.now() - 15 * 60000).toISOString() }] }];
+              started_at: new Date(Date.now() - 22.5 * 60000).toISOString() }] }];
   await senden('Status');
   assert.match(antwort(), /Gesamt: ca\. 75 %/);
   assert.match(antwort(), /Schon fertig: ai-tools-explained/);

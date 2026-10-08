@@ -649,5 +649,189 @@
     "status": "gesperrt",
     "grund": "Videobau-Zeitlimit erreicht (Arbeiter beendet)",
     "sekunden": 1328.4
+  },
+  {
+    "id": "37797900296",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-10-08",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 1170.2,
+        "pruefung_s": 172.2,
+        "note": 7,
+        "sperrgruende": [
+          "Video-bild_passt 6/10 unter 7/10",
+          "Offenes Problem (mittel): Metaphorische Bilder (Radio, Schublade) schwächen den technischen Bezug ab."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "stimme": 225.3,
+          "zeitmarken": 10.8,
+          "tempo": 1.043,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 18,
+          "clips_und_stuecke": 794.9,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 18,
+            "motive": 18,
+            "motive_min": 9
+          },
+          "effekte": 11,
+          "rendern": 129.6,
+          "gesamt": 1169.8,
+          "videolaenge_s": 61.8,
+          "abschnitte_s": [
+            7.61,
+            7.29,
+            6.86,
+            6.59,
+            8.21,
+            7.08,
+            6.42,
+            6.12,
+            5.67
+          ],
+          "woerter": 178
+        },
+        "kategorien": {
+          "hook": 7,
+          "bild_passt": 6,
+          "dynamik": 7,
+          "text": 7,
+          "ton_stimme": 7,
+          "tempo": 7,
+          "inhalt": 7,
+          "schluss_loop": 7,
+          "regeln": 7,
+          "story": 7
+        },
+        "probleme": [
+          {
+            "zeit": "00:07-00:09",
+            "art": "bild_passt_nicht",
+            "schwere": "leicht",
+            "text": "Interface-Screenshot wirkt leicht verwaschen."
+          },
+          {
+            "zeit": "00:50-00:55",
+            "art": "bild_passt_nicht",
+            "schwere": "mittel",
+            "text": "Metaphorische Bilder (Radio, Schublade) schwächen den technischen Bezug ab."
+          }
+        ],
+        "sekunden": 1342.4,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "karte",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 6
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 7
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bf_emma",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            0,
+            1,
+            6,
+            7
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-10-08.2"
+        },
+        "skript_s": 1.8,
+        "status": "zeitbudget",
+        "phase": "Videobau",
+        "sekunden": 1163.6,
+        "lernergebnis": {
+          "id": "37797900296-2",
+          "datum": "2026-10-08",
+          "vorher": 7,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 1163.7,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "karte",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 6
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 7
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bf_emma",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "hook": 7,
+            "bild_passt": 6,
+            "dynamik": 7,
+            "text": 7,
+            "ton_stimme": 7,
+            "tempo": 7,
+            "inhalt": 7,
+            "schluss_loop": 7,
+            "regeln": 7,
+            "story": 7
+          },
+          "kategorien_nachher": {},
+          "auswertbar": false,
+          "prompt_version": "2026-10-08.2",
+          "verbessert": false
+        }
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 2529.4
   }
 ]

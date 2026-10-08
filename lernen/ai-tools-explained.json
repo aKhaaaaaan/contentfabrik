@@ -1,17 +1,17 @@
 {
   "stand": "2026-10-08",
   "regeln": [
-    "Use 3‑5 s distinct, relevant visual motifs per spoken segment for Shorts; long videos may include longer demonstrations but must still match narration.",
-    "A new motif must be a genuinely different visual (different subject, action, or tool view); zooms, crops, subtitle changes, or decorative backgrounds do not count.",
-    "Show the main image or tool interface prominently; never substitute symbolic illustrations for real screenshots or genuine UI views.",
-    "Place all on‑screen text, captions, and overlays within the inner title‑safe zone with enough padding to avoid clipping or overlap with other graphics.",
-    "Introduce the correct presenter at the start and bring them back for useful actions throughout; never replace channel figures with unrelated characters.",
-    "Include the required spoken CTA (like, share, save) at the format‑specific position; do not replace it with a different call‑to‑action.",
-    "For AI‑Tools Explained, name the tool briefly, then show authentic interface views and source‑supported examples; avoid generic stock or illustration substitutes.",
-    "Maintain factual accuracy: never add unsupported specs, performance guarantees, or invented details; resolve any unsupported‑detail warnings first.",
+    "Use 3‑5 seconds of a distinct, relevant visual motif per spoken segment in Shorts; long videos may have longer demonstrations but must still align tightly with the narration.",
+    "A new motif must be a genuinely different visual (different subject, action, or tool view); zooms, crops, subtitle changes, decorative backgrounds, or minor label tweaks do not count.",
+    "Show the primary image or tool interface prominently and clearly; never replace real screenshots or authentic UI views with symbolic illustrations or unrelated stock.",
+    "Place all on‑screen text, captions, and overlays within the inner title‑safe zone with sufficient padding to avoid clipping or overlap.",
+    "Introduce the correct presenter at the start and bring them back for useful actions throughout; do not substitute channel figures with unrelated characters.",
+    "Include the mandatory spoken CTA (like, share, save) at the format‑specific position; do not replace it with a different call‑to‑action.",
+    "For AI‑Tools Explained, name each tool briefly then show authentic interface views and source‑supported examples; avoid generic stock or illustration substitutes.",
+    "Maintain factual accuracy: never add unsupported specifications, performance guarantees, or invented details; resolve any unsupported‑detail warnings first.",
     "Vary visual pacing: avoid prolonged static shots of code or documentation; switch to dynamic, relevant visuals that illustrate the narration.",
-    "Craft a clear narrative arc with a concrete, source‑backed answer to the opening question before the CTA; generic praise is not a resolution.",
-    "Use unique, specific hooks and varied sentence structures for ranked items; avoid overused tech‑creator tropes and repetitive templates.",
+    "Craft a clear narrative arc: open with a compelling hook that creates curiosity, develop the explanation, and provide a concrete, source‑backed answer before the CTA.",
+    "Use unique, specific hooks and varied sentence structures; avoid overused tropes, repetitive templates, and metaphorical images that dilute technical relevance.",
     "Keep music, branding, and visual style consistent with the channel’s original painted open‑world aesthetic while ensuring each motif adds narrative value."
   ],
   "produktionsdiagnosen": [
@@ -103,6 +103,61 @@
         "schluss_loop": 7,
         "regeln": 6,
         "story": 6
+      },
+      "kategorien_nachher": {},
+      "auswertbar": false,
+      "prompt_version": "2026-10-08.2",
+      "verbessert": false
+    },
+    {
+      "id": "37797900296-2",
+      "datum": "2026-10-08",
+      "vorher": 7,
+      "nachher": null,
+      "vorher_gesperrt": true,
+      "nachher_gesperrt": true,
+      "sekunden": 1163.7,
+      "aktionen": [
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 0
+        },
+        {
+          "art": "bild",
+          "variante": "karte",
+          "index": 1
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 6
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 7
+        }
+      ],
+      "einstellungen": {
+        "stimme": "bf_emma",
+        "tempo": 1.05,
+        "untertitel_profil": "ruhig",
+        "musik_pegel": null,
+        "effekt_pegel": null
+      },
+      "schwerpunkt": "bild",
+      "kategorien_vorher": {
+        "hook": 7,
+        "bild_passt": 6,
+        "dynamik": 7,
+        "text": 7,
+        "ton_stimme": 7,
+        "tempo": 7,
+        "inhalt": 7,
+        "schluss_loop": 7,
+        "regeln": 7,
+        "story": 7
       },
       "kategorien_nachher": {},
       "auswertbar": false,

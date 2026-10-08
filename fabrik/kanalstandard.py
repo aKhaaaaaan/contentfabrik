@@ -60,3 +60,20 @@ def alle(ordner=ORDNER):
 def nach_name(name, ordner=ORDNER):
     """Vollstaendiges Profil zum Anzeigenamen (skript['kanal']); unbekannt -> None."""
     return next((d for d in alle(ordner).values() if d.get('name') == name), None)
+
+
+def laden(pfad):
+    """Profil aus Datei, vollstaendig: Standard <- kanaele/<slug>.json <- formate/<slug>.json.
+
+    GEFUNDEN 08.10.2026 beim ersten Langvideo-Pilot: formate/<slug>.json stand allein und
+    verlor alles, was fuer Shorts eingestellt war (bildstil illustration -> echte Fotos,
+    Hintergrund-/Trendsuche). Ein Formatprofil ueberschreibt jetzt NUR, was es selbst nennt.
+    """
+    pfad = Path(pfad)
+    daten = json.loads(pfad.read_text(encoding='utf-8'))
+    basis = {}
+    if pfad.parent.name == 'formate':
+        kanal = pfad.parent.parent / 'kanaele' / pfad.name
+        if kanal.is_file():
+            basis = json.loads(kanal.read_text(encoding='utf-8'))
+    return profil(mischen(basis, daten))

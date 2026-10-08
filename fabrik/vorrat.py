@@ -29,7 +29,8 @@ MAX_TAGE_STANDARD = 3
 
 
 def _kanal_daten(kanal_pfad):
-    return json.loads(Path(kanal_pfad).read_text(encoding='utf-8'))
+    import kanalstandard
+    return kanalstandard.laden(kanal_pfad)
 
 
 def _max_tage(daten):
@@ -58,6 +59,10 @@ def gueltig(eintrag, daten, jetzt=None):
         # Laengengrenze der aktuellen Erzaehlstimme (z. B. Orus ~2 W/s): ein vorher fuer
         # Kokoro geschriebenes Skript wuerde zu lang (GEMESSEN 08.10.: 207 Woerter = 109 s).
         import dramaturgie, skript as skriptmodul
+        # GEFUNDEN 08.10.: Short und Langvideo teilen den Vorrat-Ordner (gleicher Slug) -
+        # der Langvideo-Pilot haette ein 180-Woerter-Short-Skript gebaut.
+        if dramaturgie.videoformat(s) != dramaturgie.videoformat(daten):
+            return False
         if dramaturgie.videoformat(daten) == 'short' and sum(len(t['text'].split()) for t in s['teile']) \
                 > int(dramaturgie.laengen(daten)[1] * skriptmodul.wortrate(daten)):
             return False

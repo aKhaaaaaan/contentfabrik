@@ -17,7 +17,10 @@ import dramaturgie
 import lauf
 import skript
 
-PROFIL = json.loads(Path('formate/business-origin-stories.json').read_text(encoding='utf-8'))
+import kanalstandard
+import vorrat
+
+PROFIL = kanalstandard.laden('formate/business-origin-stories.json')
 
 
 class Sprechbloecke(unittest.TestCase):
@@ -62,6 +65,33 @@ class Zeit(unittest.TestCase):
         self.assertLess(max(jobs), 360, 'GitHub beendet Jobs nach 6 h')
         self.assertIn('CLAUDE_CODE_OAUTH_TOKEN', yml)
         self.assertIn('@anthropic-ai/claude-code', yml)
+
+
+
+class ErbtShortEinstellungen(unittest.TestCase):
+    """Alter Stand: formate/-Profil stand allein -> echte Fotos statt gemalt, Short-Skript aus dem Vorrat."""
+    def test_alles_vom_kanal_ausser_format_und_laenge(self):
+        kanal = kanalstandard.laden('kanaele/business-origin-stories.json')
+        self.assertEqual(PROFIL['bildstil'], 'illustration')
+        self.assertFalse(PROFIL['stockclips'])
+        for feld in ('bildstil', 'hintergrund_suche', 'trend_suche', 'erzaehlstimme', 'youtube_kanal_id', 'name'):
+            self.assertEqual(PROFIL[feld], kanal[feld], feld)
+        self.assertEqual((PROFIL['videoformat'], kanal['videoformat']), ('lang', 'short'))
+
+    def test_vorrat_gibt_kein_short_skript_fuer_langvideo(self):
+        import datetime
+        kurz = kanalstandard.laden('kanaele/business-origin-stories.json')
+        echte = [json.loads(p.read_text(encoding='utf-8'))
+                 for p in Path('vorrat/business-origin-stories').glob('*.json')]
+        self.assertTrue(echte, 'Vorrat leer - Test braucht ein echtes Short-Skript')
+        e = echte[0]
+        # Die echten Eintraege sind fuer Orus etwas zu lang (207-211 > 180 Woerter) - auf
+        # Short-Laenge kuerzen, damit die Kontrolle einen fuer Shorts GUELTIGEN Eintrag hat.
+        woerter = ' '.join(t['text'] for t in e['skript']['teile']).split()[:170]
+        e['skript']['teile'] = [dict(e['skript']['teile'][0], text=' '.join(woerter))]
+        jetzt = datetime.datetime.fromisoformat(e['erstellt_utc']) + datetime.timedelta(hours=1)
+        self.assertTrue(vorrat.gueltig(e, kurz, jetzt), 'Kontrolle: fuer den Short gueltig')
+        self.assertFalse(vorrat.gueltig(e, PROFIL, jetzt))
 
 
 if __name__ == '__main__':

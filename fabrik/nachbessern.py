@@ -206,7 +206,8 @@ def main(vorlage, kanal_pfad, aus):
     skript = json.loads((v / 'skript.json').read_text(encoding='utf-8'))
     kritik = json.loads((v / 'kritik.json').read_text(encoding='utf-8'))
     messung = json.loads((v / 'messung.json').read_text(encoding='utf-8'))
-    config = json.loads(Path(kanal_pfad).read_text(encoding='utf-8'))
+    import kanalstandard
+    config = kanalstandard.laden(kanal_pfad)
     neu, plan = planen(skript, kritik, messung, config, Path(kanal_pfad).stem)
     ziel.mkdir(parents=True, exist_ok=True)
     (ziel / 'korrektur.json').write_text(json.dumps(plan, indent=2, ensure_ascii=False), encoding='utf-8')

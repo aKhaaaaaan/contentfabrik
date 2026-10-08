@@ -101,7 +101,9 @@ def vorbereiten(s, laengen, woerter, cache=None):
             'Return EXACTLY one entry per slot, same integer index. motiv states the distinct visible '
             'subject/action. No extra words or factual assertions in the narration.\n' + json.dumps({
                 'slots': zeitplan, 'phases': s['teile'], 'photos': s.get('bilder', []),
-                'illustration_library': [b for b in bibliothek.katalog() if b['kanal'] == s.get('kanal')],
+                # Bibliotheksbilder sind Hochformat - im Langvideo (16:9) waeren sie beschnitten.
+                'illustration_library': [b for b in bibliothek.katalog() if b['kanal'] == s.get('kanal')]
+                                        if dramaturgie.videoformat(s) == 'short' else [],
                 'editorial_feedback': lernen.redaktionsregeln()}, ensure_ascii=False))
         try:
             d, modell = gemini(auftrag, SCHEMA, modelle=SEHEN)

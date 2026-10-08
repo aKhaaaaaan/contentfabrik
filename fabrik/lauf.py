@@ -121,7 +121,8 @@ def main(kanal_pfad, thema='', entwurf=''):
     budgetkanal = f'pilot-{kanal}' if os.environ.get('CF_PILOT') == '1' else kanal
     if not Path(kanal_pfad).is_file():
         raise ValueError(f'Kanal-Datei fehlt: {kanal_pfad}')
-    gesamt = budget_fuer(json.loads(Path(kanal_pfad).read_text(encoding='utf-8')))
+    import kanalstandard
+    gesamt = budget_fuer(kanalstandard.laden(kanal_pfad))
     if budget.rest(budgetkanal, gesamt) <= SENDEN_S:
         print(f'{kanal}: Tagesbudget verbraucht - keine neue Produktion')
         return 0
@@ -139,6 +140,9 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     import entwurf_cache
     import illustration
     illustration.KONTINGENT_LEER.unlink(missing_ok=True)  # Merker gilt nur fuer diesen Lauf
+    import kanalstandard
+    # Langvideo: ~1.200 Woerter plus Fakten-/Storypruefung brauchen mehr als die 8 Min. eines Shorts.
+    skriptfrist = 20 * 60 if kanalstandard.laden(kanal_pfad).get('videoformat') == 'lang' else 480
     # Thema aus Telegram hat Vorrang (GEMELDET: eigene Themen einbringen)
     aus_warteschlange = not thema
     if not thema:
@@ -219,7 +223,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             else:
                 # Auch im Ersatzfenster Zeit fuer Bilder, Rendern und Pruefung lassen.
                 skript_ende = min(arbeit_ende, time.monotonic()
-                                  + min(480, max(0, arbeit_ende - time.monotonic()) * .4))
+                                  + min(skriptfrist, max(0, arbeit_ende - time.monotonic()) * .4))
                 try:
                     r = schritt(['fabrik/pilot_entwurf.py', entwurf, kanal_pfad, str(ordner / 'skript.json')]
                                 if entwurf else

@@ -454,7 +454,8 @@ def wiki_waehlen(thema, auftrag, schema, grenze):
 
 
 def main(kanal_pfad, aus_pfad, thema=None):
-    kanal = json.loads(Path(kanal_pfad).read_text(encoding='utf-8'))
+    import kanalstandard
+    kanal = kanalstandard.laden(kanal_pfad)
     import lernen
     kanal['_regeln'] = lernen.regeln(Path(kanal_pfad).stem)
     import themen

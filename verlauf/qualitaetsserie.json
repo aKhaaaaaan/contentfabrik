@@ -3826,6 +3826,86 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "37784030675.1:ai-tools-explained",
+      "run_id": "37784030675",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-08T13:47:49.695252+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "7b0727cb5c0a018598682e096a1879299c8c9c03",
+      "produktionsversion": "14fdbc4dbce307c94bc15e911e8f36d7dbc03b6f360589ad360fc9943b33bd7b",
+      "videoformat": "short",
+      "thema": "Whirl: open source AI chat app you can run yourself",
+      "titel": [
+        "Run Your Own",
+        "*AI* *Chat* App"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 5,
+      "unterschiedliche_motive": 5,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "37784030675",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-08",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 139.6,
+            "bau_s": 529.7,
+            "status": "baufehler",
+            "sekunden": 669.2
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 51.9,
+            "status": "baufehler",
+            "sekunden": 51.9
+          },
+          {
+            "runde": 3,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "status": "zeitbudget",
+            "phase": "Videobau",
+            "sekunden": 607.1
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Videobau-Zeitlimit erreicht (Arbeiter beendet)",
+        "sekunden": 1328.4
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [
+          "Stop drowning in five different AI chat tabs. - The source does not mention any specific number of AI chat tabs; the claim of \"five\" tabs is unsupported.",
+          "So one conversation can replace several tabs. - The source states that Whirl can combine models into one conversation, but it does not quantify how many tabs it replaces; the claim of \"several\" tabs is unsupported.",
+          "So the answer to five tabs is one app you host yourself. - The source does not reference a specific count of five tabs; this numeric claim is unsupported."
+        ],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

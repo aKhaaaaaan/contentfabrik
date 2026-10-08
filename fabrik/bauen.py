@@ -1013,6 +1013,17 @@ def musik_kette(pegel, laenge, pausen=(), stille=0.55):
     return kette
 
 
+def ersatz_grenze(einstellungen):
+    """Hoechstens so viele Einstellungen mit Ersatzbild: Short 2, Langvideo ~6 Prozent."""
+    return max(2, math.ceil(einstellungen * .06))
+
+
+def illustration_figur(kanal_slug):
+    import illustration
+    pfad = illustration.FIGUREN / f'{kanal_slug}.jpg'
+    return pfad if pfad.is_file() else None
+
+
 def nachbar_bild(aus, i, vorherige_id):
     """Naechste schon gepruefte Illustration fuer Einstellung i, nie das Bild davor."""
     kandidaten = [p for p in Path(aus).glob('ill_*.jpg') if re.fullmatch(r'ill_\d\d\.jpg', p.name)
@@ -1284,6 +1295,9 @@ def main(skript_pfad, aus, vorlage=None):
         musikpausen = []  # Wendepunkte: Musik setzt kurz davor aus (Stille als Musterbruch)
         geraeusche = []  # (sekunde, mp3) passend zur Szene, hoechstens 3
         bild_ersatz = 0  # Einstellungen mit gepruefter Nachbar-Illustration statt eigenem Bild
+        # GEMESSEN 08.10.2026 (Langvideo-Pilot 37831023275): bei ~85 Einstellungen waren 2 Ersatzbilder
+        # nach 4 Einstellungen verbraucht -> Abbruch. Anteil statt fester Zahl (Short weiter 2).
+        ersatz_max = ersatz_grenze(len(shots))
         stock_erlaubt = stockclips_erlaubt(s)
         vorherige_id = None  # Bild-Fingerabdruck der direkt vorherigen Einstellung
         kanal_slug = re.sub(r'[^a-z0-9]+', '-', s.get('kanal', '').lower()).strip('-')
@@ -1398,7 +1412,7 @@ def main(skript_pfad, aus, vorlage=None):
                             clip_fuer(t.get('suche') or s.get('suche'), schon, dauer,
                                       t['text'] + ' Visual: ' + t.get('szene', '')))
             material = ill or foto or karte or clip
-            if not material and bild_ersatz < 2:
+            if not material and bild_ersatz < ersatz_max:
                 # GEMESSEN 08.10.2026 (Lauf 37753715598): eine einzige Einstellung ohne
                 # bestandenes Bild kippte das ganze Video (3x). Hoechstens zweimal ein schon
                 # GEPRUEFTES Bild des naechsten Abschnitts - kein beliebiger Hintergrund wie
@@ -1419,6 +1433,14 @@ def main(skript_pfad, aus, vorlage=None):
                     ill = material = ersatz
                     bild_ersatz += 1
                     print(f'Einstellung {i}: kein Bild bestanden - gepruefte Nachbar-Illustration {ill.name}')
+                figur = None if material or ersatz else illustration_figur(kanal_slug)
+                if figur and bildplan.material_id(figur) != vorherige_id:
+                    # GEMESSEN 08.10.2026 (Pilot 37831023275): Einstellung 1 hatte nur ill_00 als
+                    # Nachbarn - und das ist das Bild davor. Freigegebene Kanalfigur statt Abbruch.
+                    ill = material = figur
+                    bild_ersatz += 1
+                    quellen.append({'quelle': 'Illustration', 'seite': 'Originale Kanalfigur: vorhandenes Referenzbild'})
+                    print(f'Einstellung {i}: kein Bild bestanden - Originalbild der Kanalfigur')
             if not material:
                 raise ValueError(f'Phase {shot["phase"]}, Einstellung {i}: kein passendes Hauptbild; kein Hintergrundersatz')
             material_hash = bildplan.material_id(material)

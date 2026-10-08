@@ -130,5 +130,29 @@ class Pilot37826232160(unittest.TestCase):
         self.assertEqual(len(bildplan._planen(gemini, [], 'x', [0, 1])), 2)
 
 
+
+class Pilot37831023275(unittest.TestCase):
+    """Dritter Langvideo-Lauf: Skript 8/10 bestanden, Bau scheiterte an Ersatzbildern;
+    die Telegram-Meldung klang, als sei 8/10 durchgefallen."""
+    def test_ersatzbilder_wachsen_mit_der_laenge(self):
+        self.assertEqual(bauen.ersatz_grenze(24), 2)
+        self.assertGreaterEqual(bauen.ersatz_grenze(85), 5)
+
+    def test_kanalfigur_als_letzter_ausweg(self):
+        self.assertTrue(bauen.illustration_figur('business-origin-stories'))
+        self.assertIsNone(bauen.illustration_figur('gibt-es-nicht'))
+
+    def test_bestandene_note_klingt_bestanden(self):
+        import tempfile
+        import statusmeldung
+        with tempfile.TemporaryDirectory() as d:
+            Path(d, 'bericht.json').write_text(json.dumps({'grund': 'Videobau fehlgeschlagen'}), encoding='utf-8')
+            Path(d, 'skript.json').write_text(json.dumps({'pruefung': {'ok': True, 'probleme': []},
+                                                          'story': {'note': 8}}), encoding='utf-8')
+            text = statusmeldung.fehlergrund(d)
+        self.assertIn('Skript bestanden', text)
+        self.assertNotIn('erforderlich mindestens', text)
+
+
 if __name__ == '__main__':
     unittest.main()

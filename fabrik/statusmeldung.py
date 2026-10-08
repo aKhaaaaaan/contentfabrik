@@ -30,7 +30,13 @@ def fehlergrund(ordner='ausgabe'):
         else:
             story = skript.get('story') or {}
             if story.get('note') is not None:
-                gruende.append(f"Skript/Story: {story['note']}/10; erforderlich mindestens {SCHWELLE}/10.")
+                # GEMELDET 08.10.2026: „8/10 ist doch ok oder ist es wirklich weniger als 7/10?" -
+                # eine bestandene Note darf nicht wie der Abbruchgrund klingen.
+                if story['note'] >= SCHWELLE:
+                    gruende.append(f"Skript bestanden (Story {story['note']}/10, Minimum {SCHWELLE}) - "
+                                   'gescheitert ist ein spaeterer Schritt.')
+                else:
+                    gruende.append(f"Skript/Story: {story['note']}/10; erforderlich mindestens {SCHWELLE}/10.")
             gruende.extend(skript_gruende(skript)[:3])
     if not gruende:
         for r in reversed(bericht.get('runden', [])):
@@ -78,7 +84,8 @@ def text(phase, env=None):
 def senden(nachricht):
     if not nachricht.strip() or len(nachricht.encode('utf-16-le')) // 2 > 3500:
         raise ValueError('Statusnachricht leer oder zu lang')
-    antwort = telegram('sendMessage', {'chat_id': os.environ['TELEGRAM_CHAT_ID'], 'text': nachricht})
+    antwort = telegram('sendMessage', {'chat_id': os.environ['TELEGRAM_CHAT_ID'], 'text': nachricht,
+                                         'link_preview_options': {'is_disabled': True}})
     if antwort.get('ok') is not True:
         raise RuntimeError('Telegram hat die Statusmeldung nicht bestaetigt')
     print('Telegram-Statusmeldung bestaetigt; message_id:', antwort.get('result', {}).get('message_id'))

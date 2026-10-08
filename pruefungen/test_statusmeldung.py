@@ -89,7 +89,8 @@ class StatusTest(TempTest):
         with patch.dict(os.environ, {'TELEGRAM_CHAT_ID': 'test'}), \
                 patch('statusmeldung.telegram', return_value={'ok': True, 'result': {'message_id': 1}}) as tg:
             statusmeldung.senden('Beide Piloten gesperrt.')
-        tg.assert_called_once_with('sendMessage', {'chat_id': 'test', 'text': 'Beide Piloten gesperrt.'})
+        tg.assert_called_once_with('sendMessage', {'chat_id': 'test', 'text': 'Beide Piloten gesperrt.',
+                                                   'link_preview_options': {'is_disabled': True}})
 
     def test_unbestaetigte_zustellung_ist_fehler(self):
         with patch.dict(os.environ, {'TELEGRAM_CHAT_ID': 'test'}), \

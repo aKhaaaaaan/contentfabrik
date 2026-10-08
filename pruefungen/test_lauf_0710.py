@@ -205,8 +205,11 @@ class BildausfallKipptNichtAlles(unittest.TestCase):
         self.assertNotIn('asset', shots[0]['teil'])
 
     def test_fehlendes_bild_nimmt_gepruefte_nachbar_illustration(self):
+        # Seit 08.10. (Langvideo) waechst die Grenze mit der Laenge; ein Short behaelt 2.
+        import bauen
         quelle = (Path(__file__).resolve().parents[1] / 'fabrik/bauen.py').read_text(encoding='utf-8')
-        self.assertIn('if not material and bild_ersatz < 2:', quelle)
+        self.assertIn('if not material and bild_ersatz < ersatz_max:', quelle)
+        self.assertEqual(bauen.ersatz_grenze(25), 2)
 
     def test_ersatz_wiederholt_nie_das_vorherige_bild(self):
         # Lauf 37760482364: Einstellung 15 und 16 bekamen beide ill_13 -> Motiv zu lange gehalten.

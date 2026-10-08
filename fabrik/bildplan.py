@@ -30,6 +30,38 @@ def slots(s, laengen, woerter):
     return aus
 
 
+ETAPPE = 30
+
+
+def etappen(zeitplan, groesse=ETAPPE):
+    """GEMESSEN 08.10.2026 (Langvideo-Pilot 37826232160): fuer ~80 Einstellungen lieferte das
+    Lite-Modell nur 24 -> 'deckt nicht alle Sprechphasen ab', Versuch verloren. Lange Plaene
+    darum in Etappen; ein Short (<= 30 Einstellungen) bleibt EIN Auftrag wie bisher."""
+    return [zeitplan[i:i + groesse] for i in range(0, len(zeitplan), groesse)] or [[]]
+
+
+def _planen(gemini, modelle, auftrag, indizes):
+    """Ein Bildplan-Auftrag; bei Ueberlast oder unvollstaendiger Antwort genau ein neuer Versuch."""
+    import time
+    for runde in range(2):
+        try:
+            d, modell = gemini(auftrag, SCHEMA, modelle=modelle)
+        except RuntimeError as e:
+            # GEMESSEN 08.10.2026 (Lauf 37784030675): Gemini kurz ueberlastet, der Groq-Ausweg
+            # war fuer den Bildplan zu gross -> Bau weg. Nach kurzer Pause Gemini erneut.
+            if runde:
+                raise
+            print('Bildplan: Gemini nicht erreichbar, neuer Versuch in 20 s -', str(e)[:120])
+            time.sleep(20)
+            continue
+        daten = d['einstellungen']
+        print('Gemini-Bildplan:', modell, '| Einstellungen:', len(daten), f'(erwartet {len(indizes)})')
+        if [x.get('index') for x in daten] == indizes:
+            return daten
+        print('Bildplan unvollstaendig - neuer Versuch')
+    return daten  # die Pruefung unten meldet die Luecke
+
+
 def vorbereiten(s, laengen, woerter, cache=None):
     from skript import gemini, SEHEN
     import lernen
@@ -99,23 +131,17 @@ def vorbereiten(s, laengen, woerter, cache=None):
             'the spoken subject and era. foto refers to the '
             'available indexed photo metadata; illustration is useful when no genuine photo fits. '
             'Return EXACTLY one entry per slot, same integer index. motiv states the distinct visible '
-            'subject/action. No extra words or factual assertions in the narration.\n' + json.dumps({
-                'slots': zeitplan, 'phases': s['teile'], 'photos': s.get('bilder', []),
+            'subject/action. No extra words or factual assertions in the narration.\n')
+        kontext = {
+                'phases': s['teile'], 'photos': s.get('bilder', []),
                 # Bibliotheksbilder sind Hochformat - im Langvideo (16:9) waeren sie beschnitten.
                 'illustration_library': [b for b in bibliothek.katalog() if b['kanal'] == s.get('kanal')]
                                         if dramaturgie.videoformat(s) == 'short' else [],
-                'editorial_feedback': lernen.redaktionsregeln()}, ensure_ascii=False))
-        try:
-            d, modell = gemini(auftrag, SCHEMA, modelle=SEHEN)
-        except RuntimeError as e:
-            # GEMESSEN 08.10.2026 (Lauf 37784030675): Gemini kurz ueberlastet, der Groq-Ausweg
-            # war fuer den Bildplan zu gross -> Bau weg. Nach kurzer Pause Gemini erneut.
-            import time
-            print('Bildplan: Gemini nicht erreichbar, neuer Versuch in 20 s -', str(e)[:120])
-            time.sleep(20)
-            d, modell = gemini(auftrag, SCHEMA, modelle=SEHEN)
-        daten = d['einstellungen']
-        print('Gemini-Bildplan:', modell, '| Einstellungen:', len(daten))
+                'editorial_feedback': lernen.redaktionsregeln()}
+        daten = []
+        for teil in etappen(zeitplan):
+            daten += _planen(gemini, SEHEN, auftrag + json.dumps(dict(kontext, slots=teil), ensure_ascii=False),
+                             [x['index'] for x in teil])
     if len(daten) != len(zeitplan) or [d.get('index') for d in daten] != list(range(len(zeitplan))):
         raise ValueError('Bildplan deckt nicht alle Sprechphasen lueckenlos ab')
     aus = []

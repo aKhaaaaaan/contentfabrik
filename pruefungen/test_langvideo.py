@@ -94,5 +94,41 @@ class ErbtShortEinstellungen(unittest.TestCase):
         self.assertFalse(vorrat.gueltig(e, PROFIL, jetzt))
 
 
+
+class Pilot37826232160(unittest.TestCase):
+    """Echte Fehler des ersten vollstaendigen Langvideo-Laufs (5 Versuche, kein Video)."""
+    def test_null_dauer_folge_bricht_nicht_ab(self):
+        import tempfile
+        w = [{'w': 'The', 's': 10.0, 'e': 10.3}, {'w': 'company', 's': 10.3, 'e': 10.8}]
+        w += [{'w': x, 's': 10.8, 'e': 10.8} for x in ('had', 'no', 'money', 'left')]
+        w += [{'w': 'Then', 's': 12.4, 'e': 12.7}, {'w': 'everything', 's': 12.7, 'e': 13.2}]
+        with tempfile.TemporaryDirectory() as d:
+            ziel = Path(d) / 'u.ass'
+            bauen.untertitel(w, ziel)
+            text = ziel.read_text(encoding='utf-8').upper()
+        for wort in ('MONEY', 'LEFT', 'THEN'):
+            self.assertIn(wort, text)
+        verteilt = bauen.verteilen(w[2:6], 12.4)
+        self.assertEqual((verteilt[0]['s'], verteilt[-1]['e']), (10.8, 12.4))
+        self.assertTrue(all(a['e'] <= b['s'] + 1e-9 and a['s'] < a['e'] for a, b in zip(verteilt, verteilt[1:])))
+
+    def test_null_dauer_am_ende(self):
+        import tempfile
+        w = [{'w': 'Save', 's': 1.0, 'e': 1.4}] + [{'w': x, 's': 2.5, 'e': 2.5} for x in ('this', 'video')]
+        with tempfile.TemporaryDirectory() as d:
+            bauen.untertitel(w, Path(d) / 'u.ass')
+
+    def test_bildplan_in_etappen_mit_wiederholung(self):
+        import bildplan
+        zeitplan = [{'index': i} for i in range(85)]
+        teile = bildplan.etappen(zeitplan)
+        self.assertEqual([len(t) for t in teile], [30, 30, 25])
+        self.assertEqual(len(bildplan.etappen(zeitplan[:24])), 1, 'Short bleibt ein Auftrag')
+        antworten = [({'einstellungen': [{'index': 0}]}, 'lite'),            # zu kurz (wie gemessen)
+                     ({'einstellungen': [{'index': 0}, {'index': 1}]}, 'lite')]
+        gemini = lambda *a, **k: antworten.pop(0)
+        self.assertEqual(len(bildplan._planen(gemini, [], 'x', [0, 1])), 2)
+
+
 if __name__ == '__main__':
     unittest.main()

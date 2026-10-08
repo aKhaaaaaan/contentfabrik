@@ -1056,6 +1056,14 @@ def illustration_mit_ausweg(szene, ziel, kanal_slug, mit_figur, rand, videoforma
     return versuch(False)
 
 
+def verteilen(offen, ende):
+    """Null-Dauer-Woerter gleichmaessig zwischen ihrem ersten Zeitstempel und ende zeigen."""
+    start = offen[0]['s']
+    schritt = max(ende - start, .01) / len(offen)
+    return [dict(x, s=round(start + i * schritt, 3), e=round(start + (i + 1) * schritt, 3))
+            for i, x in enumerate(offen)]
+
+
 def untertitel(woerter, pfad, profil=None, akzente=()):
     """Wort-fuer-Wort-Untertitel: drei Woerter sichtbar, das gesprochene gelb."""
     # GEMESSEN 04.10.2026 am Vorbild (alan.buildz): schmale fette Schrift in
@@ -1092,9 +1100,14 @@ def untertitel(woerter, pfad, profil=None, akzente=()):
             continue
         if offen:
             if w['s'] - offen[0]['s'] > .7:
-                raise ValueError('Null-Wortzeiten ohne nahes gesprochenes Wort')
-            w['w'] = ' '.join(x['w'] for x in offen) + ' ' + w['w']
-            w['s'] = offen[0]['s']
+                # GEMESSEN 08.10.2026 (Langvideo-Pilot 37826232160): bei 9 Min. Ton liefert Whisper
+                # laengere Null-Dauer-Folgen; 4 von 5 Versuchen brachen NUR deshalb ab. Die Woerter
+                # werden in IHRER Luecke bis zum naechsten Wort gleichmaessig gezeigt - keine Zeit
+                # ausserhalb dessen, was Whisper gemessen hat.
+                normal.extend(verteilen(offen, w['s']))
+            else:
+                w['w'] = ' '.join(x['w'] for x in offen) + ' ' + w['w']
+                w['s'] = offen[0]['s']
             offen = []
         if normal and w['s'] == normal[-1]['s']:
             # GEMESSEN 07.10.2026 (Run 37649294220, WeWork): zwei Woerter mit
@@ -1106,9 +1119,11 @@ def untertitel(woerter, pfad, profil=None, akzente=()):
         normal.append(w)
     if offen:
         if not normal or offen[-1]['e'] - normal[-1]['e'] > .7:
-            raise ValueError('Null-Wortzeiten ohne nahes gesprochenes Wort')
-        normal[-1]['w'] += ' ' + ' '.join(x['w'] for x in offen)
-        normal[-1]['e'] = max(normal[-1]['e'], offen[-1]['e'])
+            # Am Ende: hoechstens 0,35 s je Wort hinter dem letzten Zeitstempel.
+            normal.extend(verteilen(offen, offen[-1]['e'] + .35 * len(offen)))
+        else:
+            normal[-1]['w'] += ' ' + ' '.join(x['w'] for x in offen)
+            normal[-1]['e'] = max(normal[-1]['e'], offen[-1]['e'])
     # GEMESSEN: Whisper trennt Zahlen („16" + „,000") - wieder zusammenfuegen.
     zusammen = []
     for w in normal:

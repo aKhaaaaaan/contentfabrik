@@ -114,6 +114,7 @@ class KeinIllustrationsLabel(unittest.TestCase):
         p = prompts.illustration('a founder in a rented loft')
         self.assertIn('painted urban open-world-game poster style', p)
         self.assertIn('warm sunset amber highlights and cool shadows', p)
+        self.assertIn('vivid lived-in painted city world', p)
         self.assertIn('never photographic', p)
         self.assertIn('Original fictional character', p)
         self.assertNotIn('GTA', p)

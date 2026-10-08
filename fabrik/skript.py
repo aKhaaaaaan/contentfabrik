@@ -340,6 +340,26 @@ def story_bewerten(entwurf):
     return erg
 
 
+CTA = re.compile(r'be sure to like|like,?\s*(?:and\s*)?share|share,?\s*(?:and\s*)?save', re.I)
+
+
+def ohne_cta_einwand(p):
+    """Einwaende gegen den Pflicht-Aufruf (Like/Teilen/Speichern) aus der Faktenpruefung nehmen.
+
+    GEMESSEN 08.10.2026 (Lauf 37757439013): Der Pruefer meldete „Be sure to like, share
+    and save this video." als 'Source mismatch' - jede verbesserte Story-Fassung fiel
+    dadurch durch, das Skript blieb bei Aufloesung 6/10 und wurde gesperrt. Der Aufruf
+    ist Nutzervorgabe, keine Tatsachenbehauptung. Nur Einwaende, deren beanstandete
+    Stelle der Aufruf ist, fallen weg; andere Fehler bleiben.
+    """
+    probleme = p.get('probleme') or []
+    rest = [x for x in probleme if not CTA.search(str(x)[:200])]
+    if len(rest) == len(probleme):
+        return p
+    print('Faktenpruefung: Pflicht-Aufruf (Like/Teilen/Speichern) ist keine Tatsachenbehauptung - Einwand ignoriert')
+    return dict(p, probleme=rest, ok=bool(p.get('ok')) or not rest)
+
+
 def wortrate(kanal):
     """Gesprochene Woerter pro Sekunde der Erzaehlstimme (Kanalprofil, Standard Kokoro 2.4).
 
@@ -471,6 +491,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         import zahlen
         p, pruefmodell = gemini(prompts.fakten(pruef_text(), e), PRUEF_SCHEMA,
                               temperatur=0.1, cache='fakten', modelle=SEHEN)
+        p = ohne_cta_einwand(p)
         fehlt = zahlen.unbelegt(e, [f"{q.get('name', '')} {q.get('text', '')}" for q in quellen])
         if fehlt:
             print('Zahlenprobe: nicht in den Quellen:', fehlt)

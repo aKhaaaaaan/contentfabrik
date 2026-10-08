@@ -2090,6 +2090,107 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "37760482364.1:business-origin-stories",
+      "run_id": "37760482364",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-08T10:49:07.134265+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "b5c81bccbed128cf91948e00524890d6fb39032d",
+      "produktionsversion": "70db8c807cb8d6736eeb5b2eaf5e4a43f9e03ddb9357ab53bed6337e2134ed59",
+      "videoformat": "short",
+      "thema": "WeWork: Gruendung, Expansion und die Folgen des Wachstums",
+      "titel": [
+        "WeWork's $47B Rise",
+        "And Its *Bankruptcy*"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 25,
+      "unterschiedliche_motive": 22,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "37760482364",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-08",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-ueberraschung 6/10 unter 7/10"
+            ],
+            "story_note": 8,
+            "skript_probleme": [],
+            "sekunden": 119.9
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "skript_s": 185.5,
+            "bau_s": 996.1,
+            "status": "baufehler",
+            "sekunden": 1181.6
+          },
+          {
+            "runde": 3,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 0.3,
+            "status": "baufehler",
+            "sekunden": 0.3
+          },
+          {
+            "runde": 4,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 0.3,
+            "status": "baufehler",
+            "sekunden": 0.3
+          },
+          {
+            "runde": 5,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 0.3,
+            "status": "baufehler",
+            "sekunden": 0.3
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Videobau fehlgeschlagen",
+        "sekunden": 1302.8
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [
+          "The money poured in. - Qualitative claim not directly supported by the source; the source provides financing amounts but does not use this phrasing.",
+          "Trouble showed early. - Vague statement with no explicit support in the source material.",
+          "But it didn't vanish. - Assertion about the company's existence lacks direct evidence in the source; the source mentions continued operations but does not phrase it this way."
+        ],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

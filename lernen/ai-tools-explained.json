@@ -1,18 +1,18 @@
 {
-  "stand": "2026-10-06",
+  "stand": "2026-10-08",
   "regeln": [
-    "Pay off the specific opening question with a concrete, source-supported answer before the spoken like/share/save reminder. Generic praise is not a resolution.",
-    "Compare tools within a documented common role; never label a generative language model as a non-generative decision model just to fill a ranking. A title or hook must not promise hallucination-free results without explicit source support and scope.",
-    "Story revisions must preserve verified facts. Do not invent required GPUs, parameter counts, runtime guarantees or single-forward-pass behavior; resolve unsupported-detail warnings before treating a draft as ready. A critic's stronger hook or replacement tool is only a suggestion, never a source.",
-    "Vary sentence structure across ranked items and give each a distinct, source-supported use case without repetitive templates.",
-    "Omit dry metrics like star counts or download numbers unless they directly serve a crucial narrative purpose.",
-    "Build a clear narrative arc and relevant outros and calls-to-action instead of generic countdown filler; never invent stakes to improve a story score.",
-    "Use unique and specific hooks instead of overused generic tech creator tropes.",
-    "Avoid prolonged static shots of documentation or code scrolling; switch visuals dynamically to maintain pacing.",
-    "Use relevant, contextual visuals through the outro and CTA; verify that assets and screenshots match the technical reality of the software discussed.",
-    "Maintain consistency when citing engagement metrics by sticking to a single verified source type.",
-    "Keep all text elements safely within the inner title-safe zone and away from the top and bottom edges.",
-    "Ensure captions and subtitles have sufficient padding to avoid being clipped by screen interfaces."
+    "Use 3‑5 s distinct, relevant visual motifs per spoken segment for Shorts; long videos may include longer demonstrations but must still match narration.",
+    "A new motif must be a genuinely different visual (different subject, action, or tool view); zooms, crops, subtitle changes, or decorative backgrounds do not count.",
+    "Show the main image or tool interface prominently; never substitute symbolic illustrations for real screenshots or genuine UI views.",
+    "Place all on‑screen text, captions, and overlays within the inner title‑safe zone with enough padding to avoid clipping or overlap with other graphics.",
+    "Introduce the correct presenter at the start and bring them back for useful actions throughout; never replace channel figures with unrelated characters.",
+    "Include the required spoken CTA (like, share, save) at the format‑specific position; do not replace it with a different call‑to‑action.",
+    "For AI‑Tools Explained, name the tool briefly, then show authentic interface views and source‑supported examples; avoid generic stock or illustration substitutes.",
+    "Maintain factual accuracy: never add unsupported specs, performance guarantees, or invented details; resolve any unsupported‑detail warnings first.",
+    "Vary visual pacing: avoid prolonged static shots of code or documentation; switch to dynamic, relevant visuals that illustrate the narration.",
+    "Craft a clear narrative arc with a concrete, source‑backed answer to the opening question before the CTA; generic praise is not a resolution.",
+    "Use unique, specific hooks and varied sentence structures for ranked items; avoid overused tech‑creator tropes and repetitive templates.",
+    "Keep music, branding, and visual style consistent with the channel’s original painted open‑world aesthetic while ensuring each motif adds narrative value."
   ],
   "produktionsdiagnosen": [
     {
@@ -31,6 +31,83 @@
         "Der Kritiker schlug eine neue Null-Halluzinations-Garantie und andere Tools vor; diese Vorschlaege sind keine Quellen.",
         "Kein Video erzeugt, keine Video-Note und keine Telegram-Videozustellung."
       ]
+    }
+  ],
+  "korrekturen": [
+    {
+      "id": "37774195592-2",
+      "datum": "2026-10-08",
+      "vorher": 6,
+      "nachher": null,
+      "vorher_gesperrt": true,
+      "nachher_gesperrt": true,
+      "sekunden": 51.4,
+      "aktionen": [
+        {
+          "art": "bild",
+          "variante": "foto",
+          "index": 1
+        },
+        {
+          "art": "bild",
+          "variante": "foto",
+          "index": 2
+        },
+        {
+          "art": "bild",
+          "variante": "karte",
+          "index": 3
+        },
+        {
+          "art": "bild",
+          "variante": "foto",
+          "index": 4
+        },
+        {
+          "art": "bild",
+          "variante": "foto",
+          "index": 5
+        },
+        {
+          "art": "bild",
+          "variante": "foto",
+          "index": 6
+        },
+        {
+          "art": "bild",
+          "variante": "foto",
+          "index": 7
+        },
+        {
+          "art": "bild",
+          "variante": "foto",
+          "index": 8
+        }
+      ],
+      "einstellungen": {
+        "stimme": "bf_emma",
+        "tempo": 1.05,
+        "untertitel_profil": "ruhig",
+        "musik_pegel": null,
+        "effekt_pegel": null
+      },
+      "schwerpunkt": "bild",
+      "kategorien_vorher": {
+        "hook": 6,
+        "bild_passt": 5,
+        "dynamik": 6,
+        "text": 6,
+        "ton_stimme": 7,
+        "tempo": 6,
+        "inhalt": 6,
+        "schluss_loop": 7,
+        "regeln": 6,
+        "story": 6
+      },
+      "kategorien_nachher": {},
+      "auswertbar": false,
+      "prompt_version": "2026-10-08.2",
+      "verbessert": false
     }
   ]
 }

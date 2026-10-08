@@ -378,5 +378,242 @@
     "status": "gesperrt",
     "grund": "Videobau-Zeitlimit erreicht (Arbeiter beendet)",
     "sekunden": 1620.1
+  },
+  {
+    "id": "37774195592",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-10-08",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 1061.8,
+        "pruefung_s": 64.7,
+        "note": 6,
+        "sperrgruende": [
+          "Video-Note 6/10 unter 7/10",
+          "Video-hook 6/10 unter 7/10",
+          "Video-bild_passt 5/10 unter 7/10",
+          "Video-dynamik 6/10 unter 7/10",
+          "Video-text 6/10 unter 7/10",
+          "Video-tempo 6/10 unter 7/10",
+          "Video-inhalt 6/10 unter 7/10",
+          "Video-regeln 6/10 unter 7/10",
+          "Video-story 6/10 unter 7/10",
+          "Offenes Problem (mittel): Ausschliesslich symbolische Illustrationen statt echter Interface-Ansichten des Tools Whirl."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "stimme": 28.8,
+          "zeitmarken": 12.5,
+          "tempo": 1.05,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 22,
+          "clips_und_stuecke": 807.0,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 22,
+            "motive": 21,
+            "motive_min": 13
+          },
+          "effekte": 12,
+          "rendern": 201.4,
+          "gesamt": 1061.5,
+          "videolaenge_s": 88.4,
+          "abschnitte_s": [
+            9.0,
+            10.36,
+            5.98,
+            8.84,
+            8.7,
+            8.3,
+            8.42,
+            8.82,
+            15.96,
+            4.02
+          ],
+          "woerter": 184
+        },
+        "kategorien": {
+          "hook": 6,
+          "bild_passt": 5,
+          "dynamik": 6,
+          "text": 6,
+          "ton_stimme": 7,
+          "tempo": 6,
+          "inhalt": 6,
+          "schluss_loop": 7,
+          "regeln": 6,
+          "story": 6
+        },
+        "probleme": [
+          {
+            "zeit": "00:09-01:20",
+            "art": "bild_passt_nicht",
+            "schwere": "mittel",
+            "text": "Ausschliesslich symbolische Illustrationen statt echter Interface-Ansichten des Tools Whirl."
+          },
+          {
+            "zeit": "00:00-00:04",
+            "art": "text",
+            "schwere": "leicht",
+            "text": "Header-Text ueberschneidet sich leicht mit dem Kennzeichnungs-Overlay im oberen Bildbereich."
+          }
+        ],
+        "sekunden": 1126.5,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "karte",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 5
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 6
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 7
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 8
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bf_emma",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-10-08.2"
+        },
+        "skript_s": 2.5,
+        "bau_s": 48.9,
+        "status": "baufehler",
+        "sekunden": 51.3,
+        "lernergebnis": {
+          "id": "37774195592-2",
+          "datum": "2026-10-08",
+          "vorher": 6,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 51.4,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "karte",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 5
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 6
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 7
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 8
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bf_emma",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "hook": 6,
+            "bild_passt": 5,
+            "dynamik": 6,
+            "text": 6,
+            "ton_stimme": 7,
+            "tempo": 6,
+            "inhalt": 6,
+            "schluss_loop": 7,
+            "regeln": 6,
+            "story": 6
+          },
+          "kategorien_nachher": {},
+          "auswertbar": false,
+          "prompt_version": "2026-10-08.2",
+          "verbessert": false
+        }
+      }
+    ],
+    "status": "gesperrt",
+    "grund": "Videobau fehlgeschlagen",
+    "sekunden": 1191.7
   }
 ]

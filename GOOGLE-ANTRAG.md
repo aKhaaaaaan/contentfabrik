@@ -46,7 +46,7 @@ veröffentlicht zur geplanten Zeit – du musst nichts mehr von Hand machen.
 ## Abschnitt 2 – Organisation und Kontakt
 - Antrag: siehe Punkt 2 oben
 - Website: `https://contentfabrik.pages.dev`
-- Land: Deutschland · Adresse: [Anschrift entfernt] · Stadt: [Ort entfernt] · Bundesland: Hessen · PLZ: [entfernt]
+- Land: Deutschland · Anschrift: siehe Impressum der Website (nicht im Repository)
 - Kategorie: **Medien und Unterhaltung**
 - Größe/Art: **Entwickler*in (unabhängig) / Alleininhaber*in**
 - Primärer Kontakt: dein Name · `[Kontakt-E-Mail, privat]`

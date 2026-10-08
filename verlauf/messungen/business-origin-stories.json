@@ -575,5 +575,85 @@
     "status": "gesperrt",
     "grund": "Videobau fehlgeschlagen",
     "sekunden": 1302.8
+  },
+  {
+    "id": "37774195592",
+    "kanal": "business-origin-stories",
+    "datum": "2026-10-08",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 1963.0,
+        "pruefung_s": 180.1,
+        "note": 8,
+        "sperrgruende": [],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "stimme": 33.5,
+          "zeitmarken": 13.0,
+          "tempo": 1.05,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 25,
+          "clips_und_stuecke": 1704.5,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 25,
+            "motive": 25,
+            "motive_min": 13
+          },
+          "effekte": 11,
+          "rendern": 200.8,
+          "gesamt": 1962.7,
+          "videolaenge_s": 90.0,
+          "abschnitte_s": [
+            12.5,
+            7.7,
+            10.08,
+            9.1,
+            8.22,
+            9.4,
+            12.48,
+            9.66,
+            10.83
+          ],
+          "woerter": 174
+        },
+        "kategorien": {
+          "hook": 9,
+          "bild_passt": 8,
+          "dynamik": 8,
+          "text": 9,
+          "ton_stimme": 9,
+          "tempo": 9,
+          "inhalt": 9,
+          "schluss_loop": 9,
+          "regeln": 10,
+          "story": 9
+        },
+        "probleme": [
+          {
+            "zeit": "00:08",
+            "art": "bild_passt_nicht",
+            "schwere": "leicht",
+            "text": "Das Bild zeigt einen Schluessel auf einem Tisch, waehrend von einer SoHo-Immobilie gesprochen wird."
+          }
+        ],
+        "sekunden": 2143.1,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "status": "skriptfehler",
+        "exitcode": 1,
+        "grund": "Skript fehlgeschlagen (Code 1)",
+        "sekunden": 12.1
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 2167.6
   }
 ]

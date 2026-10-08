@@ -226,6 +226,22 @@ class BildausfallKipptNichtAlles(unittest.TestCase):
         quelle = (Path(__file__).resolve().parents[1] / 'fabrik/bauen.py').read_text(encoding='utf-8')
         self.assertIn('echte Quellseite als Karte', quelle)
 
+    def test_bildplan_wiederholt_bei_gemini_ausfall(self):
+        # Lauf 37784030675: Gemini ueberlastet + Groq-Auftrag zu gross -> Bau weg.
+        import bildplan, skript
+        s = {'kanal': 'AI Tools Explained', 'titel': ['A', 'B'], 'teile': [{'text': 'One two three.'}]}
+        woerter = [{'w': w, 's': i * .5, 'e': i * .5 + .4} for i, w in enumerate(['One', 'two', 'three.'])]
+        plan = {'einstellungen': [{'index': 0, 'bildmodus': 'illustration', 'suche': 'desk',
+                                   'szene': 'a calm desk', 'motiv': 'desk'}]}
+        with patch.object(skript, 'gemini', side_effect=[RuntimeError('ueberlastet'), (plan, 'm')]) as g,                 patch('time.sleep'):
+            shots, _ = bildplan.vorbereiten(s, [3.0], woerter)
+        self.assertEqual(g.call_count, 2)
+        self.assertEqual(shots[0]['teil']['bildmodus'], 'illustration')
+
+    def test_ohne_nachbarbild_echte_quellseite(self):
+        quelle = (Path(__file__).resolve().parents[1] / 'fabrik/bauen.py').read_text(encoding='utf-8')
+        self.assertIn("if not ersatz and t.get('quelle_url'):", quelle)
+
     def test_bildpruefung_urteilt_ueber_kernidee(self):
         import prompts
         p = prompts.bildpruefung('a host at a desk')

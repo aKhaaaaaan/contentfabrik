@@ -103,7 +103,15 @@ def vorbereiten(s, laengen, woerter, cache=None):
                 'slots': zeitplan, 'phases': s['teile'], 'photos': s.get('bilder', []),
                 'illustration_library': [b for b in bibliothek.katalog() if b['kanal'] == s.get('kanal')],
                 'editorial_feedback': lernen.redaktionsregeln()}, ensure_ascii=False))
-        d, modell = gemini(auftrag, SCHEMA, modelle=SEHEN)
+        try:
+            d, modell = gemini(auftrag, SCHEMA, modelle=SEHEN)
+        except RuntimeError as e:
+            # GEMESSEN 08.10.2026 (Lauf 37784030675): Gemini kurz ueberlastet, der Groq-Ausweg
+            # war fuer den Bildplan zu gross -> Bau weg. Nach kurzer Pause Gemini erneut.
+            import time
+            print('Bildplan: Gemini nicht erreichbar, neuer Versuch in 20 s -', str(e)[:120])
+            time.sleep(20)
+            d, modell = gemini(auftrag, SCHEMA, modelle=SEHEN)
         daten = d['einstellungen']
         print('Gemini-Bildplan:', modell, '| Einstellungen:', len(daten))
     if len(daten) != len(zeitplan) or [d.get('index') for d in daten] != list(range(len(zeitplan))):

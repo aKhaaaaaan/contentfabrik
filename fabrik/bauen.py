@@ -1352,6 +1352,14 @@ def main(skript_pfad, aus, vorlage=None):
                 # bekamen beide ill_13 -> 'Gleiches Motiv zu lange gehalten', Video gesperrt.
                 # Nie das Bild der direkt vorherigen Einstellung wiederholen.
                 ersatz = nachbar_bild(aus, i, vorherige_id)
+                if not ersatz and t.get('quelle_url'):
+                    # GEMESSEN 08.10.2026 (Lauf 37784030675): Einstellung 1 hatte noch keine
+                    # gepruefte Nachbar-Illustration. Echte Quellseite (GitHub/HF) statt Abbruch.
+                    karte = karte_fuer(t.get('quelle_url'))
+                    if karte and bildplan.material_id(karte) != vorherige_id:
+                        material = karte
+                        bild_ersatz += 1
+                        print(f'Einstellung {i}: kein Bild bestanden - echte Quellseite als Karte')
                 if ersatz:
                     ill = material = ersatz
                     bild_ersatz += 1

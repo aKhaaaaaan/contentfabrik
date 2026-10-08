@@ -12,7 +12,12 @@ from pathlib import Path
 
 GEHEIM = Path(os.environ.get('CF_GEHEIM', Path.home() / 'Downloads' / 'contentfabrik-geheim'))
 # YouTube-Kategorien: 28 Wissenschaft & Technik, 27 Bildung, 24 Unterhaltung
-KATEGORIE = {'AI Tools Explained': '28', 'Business Origin Stories': '27'}
+
+
+def kategorie(name):
+    """YouTube-Kategorie aus dem Kanalprofil (kanalstandard: '27' Bildung)."""
+    import kanalstandard
+    return str((kanalstandard.nach_name(name) or kanalstandard.STANDARD)['youtube_kategorie'])
 
 
 def zugang(kanal_id):
@@ -33,7 +38,7 @@ def metadaten(skript):
     beschreibung = skript['beschreibung'] + '\n\n' + ' '.join('#' + t for t in tags)
     return {
         'snippet': {'title': titel + ' #shorts', 'description': beschreibung[:4900], 'tags': tags,
-                    'categoryId': KATEGORIE.get(skript.get('kanal'), '27'), 'defaultLanguage': 'en',
+                    'categoryId': kategorie(skript.get('kanal')), 'defaultLanguage': 'en',
                     'defaultAudioLanguage': 'en'},
         'status': {'privacyStatus': 'private', 'selfDeclaredMadeForKids': False,
                    # Pflicht laut YouTube-Richtlinie: KI-Stimme = synthetischer Inhalt

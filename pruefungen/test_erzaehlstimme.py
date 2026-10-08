@@ -114,9 +114,17 @@ class KeinIllustrationsLabel(unittest.TestCase):
         p = prompts.illustration('a founder in a rented loft')
         self.assertIn('painted urban open-world-game poster style', p)
         self.assertIn('warm sunset amber highlights and cool shadows', p)
-        self.assertIn('vivid lived-in painted city world', p)
+        self.assertIn('Vivid, warm, inviting and richly filled', p)
         self.assertIn('never photographic', p)
         self.assertIn('Original fictional character', p)
         self.assertNotIn('GTA', p)
         self.assertNotIn('Grand Theft Auto', p)
+
+    def test_ai_kanal_mit_emotion(self):
+        # Nutzer 08.10. zum Whirl-Video: wenig Emotion, Tempo gut. Vorher: sachlicher Erklaerauftrag.
+        import json as _json, prompts
+        d = _json.loads((WURZEL / 'kanaele/ai-tools-explained.json').read_text(encoding='utf-8'))
+        self.assertIn('genuine excitement', d['erzaehlstimme']['stil'])
+        auftrag = prompts.skript(dict(d, name='AI Tools Explained'), 'X', '', '', '156-198')
+        self.assertIn('Make it felt', auftrag)
 

@@ -361,13 +361,15 @@ def ohne_cta_einwand(p):
 
 
 def wortrate(kanal):
-    """Gesprochene Woerter pro Sekunde der Erzaehlstimme (Kanalprofil, Standard Kokoro 2.4).
+    """Gesprochene Woerter pro Sekunde der Erzaehlstimme (Kanalprofil, sonst kanalstandard).
 
     GEMESSEN 08.10.2026 (Lauf 37749486997): Gemini Orus sprach 207 Woerter in 109-110 s
     (~1.9 W/s) - trotz Tempo x1.15 noch 95 s statt hoechstens 90 s.
     """
-    wert = kanal.get('woerter_pro_sekunde', 2.4)
-    return wert if isinstance(wert, (int, float)) and not isinstance(wert, bool) and 1.5 <= wert <= 3 else 2.4
+    from kanalstandard import STANDARD
+    grund = STANDARD['woerter_pro_sekunde']
+    wert = kanal.get('woerter_pro_sekunde', grund)
+    return wert if isinstance(wert, (int, float)) and not isinstance(wert, bool) and 1.5 <= wert <= 3 else grund
 
 
 def anweisung(kanal, thema, frueher):
@@ -403,7 +405,8 @@ def groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens):
     struktur = ('Strict countdown using only the supplied sources and their fixed ranks.' if ranking else
                 'One real obstacle, response and consequence; no invented crisis or emotions.'
                 if kanal.get('format') == 'geschichte' else
-                'One everyday problem, one documented tool, practical steps, supported use and honest limitation.')
+                'One everyday problem, one documented tool, practical steps, supported use and honest limitation; '
+                'make the frustration and the payoff felt (human stakes, factual).')
     cta = ('Speak exactly TWO concise like/share/save requests: after first useful context within '
            '20-30 seconds and after the ending payoff; never before the hook.' if
            dramaturgie.videoformat(kanal) == 'lang' else

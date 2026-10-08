@@ -266,12 +266,13 @@ class EntwurfNurBeiKiGeschmack(unittest.TestCase):
 
 
 class Wortgrenze(unittest.TestCase):
-    def test_short_standard_kokoro_170_216(self):
+    def test_short_standard_orus_149_189(self):
         # Vor dem 07.10.: 90 s * 2.9 = 261 Woerter erlaubt -> 117 s Ton, Tempo 1.25.
+        # Seit 08.10. (kanalstandard): Kanal ohne eigene Wortrate spricht Orus x1.08 -> 2.1 W/s.
         import skript
         kanal = {'name': 'X', 'format': 'geschichte'}
         with patch('prompts.skript', side_effect=lambda k, t, f, b, w: w):
-            self.assertEqual(skript.anweisung(kanal, 'WeWork', []), '170-216')
+            self.assertEqual(skript.anweisung(kanal, 'WeWork', []), '149-189')
 
     def test_orus_kanaele_kuerzer(self):
         # Lauf 37749486997: Orus 207 Woerter = 109 s (~1.9 W/s). Vorher galt fuer alle 170-216.
@@ -282,7 +283,7 @@ class Wortgrenze(unittest.TestCase):
             kanal = json.loads((wurzel / f'kanaele/{k}.json').read_text(encoding='utf-8'))
             with patch('prompts.skript', side_effect=lambda a, t, f, b, w: w):
                 self.assertEqual(skript.anweisung(kanal, 'X', []), grenzen)
-        self.assertEqual(skript.wortrate({'woerter_pro_sekunde': 'quatsch'}), 2.4)
+        self.assertEqual(skript.wortrate({'woerter_pro_sekunde': 'quatsch'}), 2.1)
 
 
 if __name__ == '__main__':

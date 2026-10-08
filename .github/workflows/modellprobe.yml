@@ -1,0 +1,51 @@
+# Bildprobe FLUX.2 Klein 4B gegen 9B mit der Business-Figur; Ergebnis paarweise nach Telegram.
+name: modellprobe
+on:
+  workflow_dispatch:
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -q pillow
+      - name: Bilder erzeugen
+        env:
+          CLOUDFLARE_AI_TOKEN: ${{ secrets.CLOUDFLARE_AI_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: python fabrik/modellprobe.py proben
+      - name: In Telegram schicken
+        if: always()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python3 - <<'EOF'
+          import json, os, urllib.request, uuid
+          token, chat = os.environ['TELEGRAM_BOT_TOKEN'], os.environ['TELEGRAM_CHAT_ID']
+          def tg(methode, felder, datei=None):
+              grenze = uuid.uuid4().hex
+              teile = [f'--{grenze}\r\nContent-Disposition: form-data; name="{k}"\r\n\r\n{v}\r\n'.encode() for k, v in felder.items()]
+              if datei:
+                  teile.append(f'--{grenze}\r\nContent-Disposition: form-data; name="photo"; filename="{datei[0]}"\r\n'
+                               'Content-Type: image/jpeg\r\n\r\n'.encode() + datei[1] + b'\r\n')
+              teile.append(f'--{grenze}--\r\n'.encode())
+              req = urllib.request.Request(f'https://api.telegram.org/bot{token}/{methode}', data=b''.join(teile),
+                                           headers={'Content-Type': f'multipart/form-data; boundary={grenze}'})
+              return json.load(urllib.request.urlopen(req, timeout=60))
+          tg('sendMessage', {'chat_id': chat, 'text': '🖼️ Modellprobe: dieselbe Szene mit deiner Hut-Figur, jeweils 4B (bisher, ~0,2 Cent) und 9B (~1,5 Cent). Welches ist besser? Antworte z. B. „9B besser" oder „kein Unterschied".'})
+          try:
+              ergebnis = json.load(open('proben/modellprobe.json', encoding='utf-8'))
+          except OSError:
+              ergebnis = []
+          for e in ergebnis:
+              name = 'Klein 4B (bisher)' if e['modell'].endswith('4b') else 'Klein 9B (neu)'
+              if e.get('datei'):
+                  tg('sendPhoto', {'chat_id': chat, 'caption': f"Szene {e['szene']} - {name}"},
+                     (e['datei'], open('proben/' + e['datei'], 'rb').read()))
+              else:
+                  tg('sendMessage', {'chat_id': chat, 'text': f"Szene {e['szene']} - {name}: kein Bild"})
+          EOF

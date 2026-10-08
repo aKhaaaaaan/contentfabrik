@@ -36,7 +36,7 @@ def _anfrage(modell, felder, datei=None, charakter=None):
         return None
     url = f'https://api.cloudflare.com/client/v4/accounts/{KONTO}/ai/run/@cf/black-forest-labs/{modell}'
     kopf = {'Authorization': 'Bearer ' + token, 'User-Agent': 'Contentfabrik/1.0'}
-    if datei or modell == 'flux-2-klein-4b':  # FLUX.2 erwartet auch ohne Referenz multipart
+    if datei or charakter or modell.startswith('flux-2'):  # FLUX.2 (4B/9B) erwartet multipart
         # Laut Cloudflare muessen Referenzen kleiner als 512x512 sein.
         # Original im Projekt erhalten; nur die API-Kopie vorbereiten.
         g = uuid.uuid4().hex

@@ -19,7 +19,7 @@
 //   Befehle: Start | Start Business | Start KI | Status (Gesamtfortschritt in %) | Abholen
 
 const REPO = 'aKhaaaaaan/contentfabrik';
-const VERSION = '2026-10-08.2';
+const VERSION = '2026-10-08.3';
 // Zusammengefasste Stunden sparen Trigger: Workers Free hat fuenf pro Konto.
 const VIDEO_CRONS = new Set(['23 8,13 * * *', '41 10,15 * * *',
   '23 8 * * *', '41 10 * * *', '23 13 * * *', '41 15 * * *']);
@@ -77,7 +77,8 @@ async function geheimnis(env) {
 async function antworten(env, chat, text) {
   await fetch(`https://api.telegram.org/bot${tgToken(env)}/sendMessage`, {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: chat, text }),
+    // Ohne Vorschau: sonst haengt Telegram unter jede Statusmeldung eine grosse GitHub-Karte.
+    body: JSON.stringify({ chat_id: chat, text, link_preview_options: { is_disabled: true } }),
   });
 }
 
@@ -86,8 +87,8 @@ function ghKopf(env) {
     'User-Agent': 'contentfabrik-zeitplan', 'X-GitHub-Api-Version': '2022-11-28' };
 }
 
-async function laeufe(env, zusatz = '') {
-  const r = await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/video.yml/runs?per_page=20${zusatz}`,
+async function laeufe(env, zusatz = '', workflow = 'video.yml', anzahl = 20) {
+  const r = await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/${workflow}/runs?per_page=${anzahl}${zusatz}`,
     { headers: ghKopf(env) });
   if (!r.ok) throw new Error(`Status HTTP ${r.status}`);
   return (await r.json()).workflow_runs || [];
@@ -128,15 +129,46 @@ export async function fortschritt(env, lauf) {
   return text + `\n${lauf.html_url}`;
 }
 
+// GEMELDET 08.10.2026 (Screenshot 21:09): Status zeigte nur Tageslaeufe - der laufende
+// Langvideo-Pilot (pilot.yml) war unsichtbar. Jetzt beide Ablaeufe, mit Art und Datum.
+const PILOT_MIN = { lang: 150, short: 45 };  // geschaetzte Bauzeit, Langvideo noch nicht gemessen
+const art = r => r.path && r.path.includes('pilot.yml')
+  ? (/\/ lang \//.test(r.display_title || '') ? 'Langvideo-Probe' : 'Short-Probe') : 'Tageslauf';
+const tag = (iso) => new Date(iso).toLocaleDateString('de-DE', { timeZone: 'Europe/Berlin', day: '2-digit', month: '2-digit' });
+
+export async function pilotFortschritt(env, lauf) {
+  const r = await fetch(`https://api.github.com/repos/${REPO}/actions/runs/${lauf.id}/jobs`, { headers: ghKopf(env) });
+  const job = (r.ok ? ((await r.json()).jobs || []) : []).find(j => j.status === 'in_progress');
+  const titel = art(lauf);
+  if (!job) return `${titel}: wartet auf einen freien Rechner (seit ${berlin(lauf.created_at)}).\n${lauf.html_url}`;
+  const schritt = (job.steps || []).find(x => x.status === 'in_progress');
+  const bau = (job.steps || []).find(x => x.name.startsWith('Video bauen'));
+  const ziel = PILOT_MIN[titel === 'Langvideo-Probe' ? 'lang' : 'short'];
+  let anteil = 0.05, zeile = '';
+  if (bau && bau.status === 'completed') anteil = 0.95;
+  else if (schritt && schritt.name.startsWith('Video bauen')) {
+    const minuten = Math.max(0, (Date.now() - new Date(schritt.started_at)) / 60000);
+    anteil = 0.1 + 0.8 * Math.min(1, minuten / ziel);
+    zeile = `\nSkript, Stimme, Bilder, Pruefung laufen seit ${Math.round(minuten)} Min (erwartet ca. ${ziel} Min)`;
+  }
+  return `${titel}: ca. ${Math.min(99, Math.round(anteil * 100))} % (geschaetzt)\n`
+    + `Jetzt: ${schritt ? schritt.name : 'Vorbereitung'}${zeile}\n${lauf.html_url}`;
+}
+
 export async function befehl(env, text) {
   const t = String(text || '').trim().toLowerCase();
   if (t === 'status') {
-    const rs = (await laeufe(env)).slice(0, 4);
+    const [video, pilot] = await Promise.all([laeufe(env, '', 'video.yml', 5),
+      laeufe(env, '', 'pilot.yml', 5).catch(() => [])]);
+    const rs = [...video, ...pilot].sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
     if (!rs.length) return 'Noch keine Videolaeufe.';
-    const aktiv = rs.find(r => r.status !== 'completed');
-    if (aktiv) return await fortschritt(env, aktiv);
-    return 'Letzte Videolaeufe:\n' + rs.map(r => `${berlin(r.created_at)} - ${
-      r.status === 'completed' ? (r.conclusion === 'success' ? 'beendet' : 'Fehler') : 'laeuft/wartet'}\n${r.html_url}`)
+    const aktiv = rs.filter(r => r.status !== 'completed');
+    if (aktiv.length) {
+      const teile = await Promise.all(aktiv.map(r => art(r) === 'Tageslauf' ? fortschritt(env, r) : pilotFortschritt(env, r)));
+      return teile.join('\n\n');
+    }
+    return 'Gerade laeuft nichts. Letzte Laeufe:\n' + rs.slice(0, 4).map(r => `${tag(r.created_at)} ${berlin(r.created_at)} - ${art(r)} - ${
+      r.conclusion === 'success' ? 'beendet' : r.conclusion === 'cancelled' ? 'abgebrochen' : 'Fehler'}\n${r.html_url}`)
       .join('\n') + '\n\n„Beendet" heisst nicht automatisch Video - das Ergebnis meldet der Videobot.';
   }
   if (t === 'abholen') {

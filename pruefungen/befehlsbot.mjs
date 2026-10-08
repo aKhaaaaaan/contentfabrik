@@ -6,7 +6,7 @@ const code = await readFile(new URL('../cloudflare/zeitplan-worker.js', import.m
 const { default: worker } = await import(`data:text/javascript;base64,${Buffer.from(code).toString('base64')}`);
 const original = globalThis.fetch;
 const ENV = { GH_TOKEN: 'gh', TG_BEFEHL_TOKEN: '123:abc', TG_CHAT_ID: '42' };
-let anfragen, runs, heuteManuell, jobs;
+let anfragen, runs, heuteManuell, jobs, pilotRuns;
 
 async function geheim(token) {
   const h = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('cf-befehl:' + token));
@@ -26,12 +26,13 @@ try {
   globalThis.fetch = async (url, options = {}) => {
     anfragen.push({ url, options });
     if (url.includes('event=workflow_dispatch')) return { ok: true, json: async () => ({ workflow_runs: Array(heuteManuell).fill({}) }) };
+    if (url.includes('/pilot.yml/runs?')) return { ok: true, json: async () => ({ workflow_runs: pilotRuns }) };
     if (url.includes('/runs?')) return { ok: true, json: async () => ({ workflow_runs: runs }) };
     if (url.includes('/jobs')) return { ok: true, json: async () => ({ jobs }) };
     if (url.includes('setWebhook')) return { ok: true, json: async () => ({ ok: true }) };
     return { ok: true, status: 204, json: async () => ({ ok: true }) };
   };
-  runs = []; heuteManuell = 0; jobs = [];
+  runs = []; heuteManuell = 0; jobs = []; pilotRuns = [];
 
   // Fremde Aufrufer ohne richtiges Webhook-Geheimnis: nichts passiert.
   assert.equal((await senden('Start', { schluessel: 'falsch' })).status, 403);
@@ -87,6 +88,27 @@ try {
   await senden('Status');
   assert.match(antwort(), /Gesamt: ca\. 75 %/);
   assert.match(antwort(), /Schon fertig: ai-tools-explained/);
+
+  // GEMELDET 08.10. 21:09: laufender Langvideo-Pilot war im Status unsichtbar.
+  runs = [{ id: 1, status: 'completed', conclusion: 'success', created_at: '2026-10-08T17:34:00Z', html_url: 'v', path: '.github/workflows/video.yml' }];
+  pilotRuns = [{ id: 2, status: 'in_progress', created_at: new Date().toISOString(), html_url: 'p',
+    path: '.github/workflows/pilot.yml', display_title: 'Pilot business-origin-stories / lang / ' }];
+  jobs = [{ name: 'pruefen', status: 'in_progress', steps: [
+    { name: 'Video bauen, gezielt korrigieren und erneut pruefen', status: 'in_progress',
+      started_at: new Date(Date.now() - 75 * 60000).toISOString() }] }];
+  anfragen = [];
+  await senden('Status');
+  assert.match(antwort(), /Langvideo-Probe: ca\. 50 %/);   // 10 % + 80 % * 75/150
+  assert.match(antwort(), /seit 75 Min/);
+  assert.equal(JSON.parse(anfragen.find(a => a.url.includes('/sendMessage')).options.body).link_preview_options.is_disabled, true);
+  // Nichts aktiv: Liste mit Art und Datum, abgebrochen ehrlich benannt.
+  pilotRuns = [{ ...pilotRuns[0], status: 'completed', conclusion: 'cancelled' }];
+  anfragen = [];
+  await senden('Status');
+  assert.match(antwort(), /Gerade laeuft nichts/);
+  assert.match(antwort(), /Langvideo-Probe - abgebrochen/);
+  assert.match(antwort(), /08\.10\. 19:34 - Tageslauf - beendet/);
+  pilotRuns = [];
 
   // Einrichtung des Webhooks auf die eigene Worker-Adresse mit abgeleitetem Geheimnis.
   anfragen = [];

@@ -16,7 +16,7 @@
 //   4. @BotFather -> /newbot -> Token als Secret TG_BEFEHL_TOKEN eintragen
 //   5. <worker-url>/einrichten einmal im Browser oeffnen (setzt den Webhook)
 //   6. dem neuen Bot „Hallo" schreiben -> er nennt die Chat-ID -> Variable TG_CHAT_ID
-//   Befehle: Start | Start Business | Start KI | Status (Gesamtfortschritt in %)
+//   Befehle: Start | Start Business | Start KI | Status (Gesamtfortschritt in %) | Abholen
 
 const REPO = 'aKhaaaaaan/contentfabrik';
 const VERSION = '2026-10-08.1';
@@ -60,8 +60,9 @@ async function starte(env, workflow, inputs) {
 const START_MAX = 6;
 const KANAELE = { business: 'business-origin-stories', ki: 'ai-tools-explained', ai: 'ai-tools-explained' };
 const HILFE = 'Befehle:\nStart - beide Kanaele\nStart Business - nur Business Origin Stories\n' +
-  'Start KI - nur AI Tools Explained\nStatus - die letzten Laeufe\n\n' +
-  'Videos, Themen und Bewertungen laufen weiter ueber den Videobot.';
+  'Start KI - nur AI Tools Explained\nStatus - Fortschritt in Prozent\n' +
+  'Abholen - Feedback/Themen aus dem Videobot sofort verarbeiten\n\n' +
+  'Feedback gibst du im Videobot: auf ein Video antworten oder „Feedback: ..." schreiben.';
 
 async function geheimnis(env) {
   // Webhook-Schutz ohne weiteres Secret: aus dem Bot-Token abgeleitet (A-Z, a-z, 0-9 erlaubt).
@@ -133,6 +134,13 @@ export async function befehl(env, text) {
     return 'Letzte Videolaeufe:\n' + rs.map(r => `${berlin(r.created_at)} - ${
       r.status === 'completed' ? (r.conclusion === 'success' ? 'beendet' : 'Fehler') : 'laeuft/wartet'}\n${r.html_url}`)
       .join('\n') + '\n\n„Beendet" heisst nicht automatisch Video - das Ergebnis meldet der Videobot.';
+  }
+  if (t === 'abholen') {
+    // GEMELDET 08.10.2026: Feedback soll gleich im naechsten Lauf wirken, nicht erst nach 4 h.
+    const e = await starte(env, 'themen.yml', {});
+    return e.includes('bereits aktiv') ? 'Die Abholung laeuft gerade schon.'
+      : 'Abholung gestartet: Feedback, Themen, Skripte, Links und Bewertungen aus dem Videobot ' +
+        'werden jetzt verarbeitet. Der Videobot bestaetigt in ca. 2-3 Minuten.';
   }
   const m = t.match(/^start(?:\s+(business|ki|ai))?$/);
   if (!m) return HILFE;

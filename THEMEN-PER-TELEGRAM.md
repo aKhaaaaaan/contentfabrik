@@ -8,7 +8,7 @@ die vorhandene Website ist eine Informationsseite.
 
 Ein **zweiter** Bot nur fuer Befehle, beantwortet vom Cloudflare-Worker
 `contentfabrik-zeitplan` innerhalb von Sekunden (der Videobot liest nur alle 4 h):
-`Start` (beide Kanaele), `Start Business`, `Start KI`, `Status`.
+`Start` (beide Kanaele), `Start Business`, `Start KI`, `Status`, `Abholen` (Feedback/Themen aus dem Videobot sofort verarbeiten).
 `Status` zeigt den Gesamtfortschritt in Prozent (geschaetzt: je Kanal
 Einrichtung 0-10 %, Produktion 10-90 % nach Zeit bei max. 30 Min, Sichern
 90-100 %), den aktuellen Schritt und schon fertige Kanaele. Nur der eigene Chat

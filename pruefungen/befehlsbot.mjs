@@ -65,6 +65,12 @@ try {
   assert.equal(gestartet().length, 0);
   assert.match(antwort(), /Befehle/);
 
+  // Abholen startet sofort die Themen-/Feedback-Abholung.
+  runs = [];
+  await senden('Abholen');
+  assert.ok(gestartet()[0].url.endsWith('/themen.yml/dispatches'));
+  assert.match(antwort(), /Abholung gestartet/);
+
   // Status mit Schaetzung: 15 von 30 Minuten Produktion = 50 %.
   runs = [{ id: 1, status: 'in_progress', created_at: new Date().toISOString(), html_url: 'u' }];
   jobs = [{ name: 'video (ai-tools-explained)', status: 'in_progress', steps: [

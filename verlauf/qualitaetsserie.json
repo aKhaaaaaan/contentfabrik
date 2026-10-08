@@ -1964,6 +1964,72 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "37757439013.1:ai-tools-explained",
+      "run_id": "37757439013",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-08T09:56:21.551008+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "37149d1a6fa8dc44e534320099caeec321477c1e",
+      "produktionsversion": "053ce169b5deec75be25a7922cd580a1bcc092a2abb372c5d988896322d38d1a",
+      "videoformat": "short",
+      "thema": "Whirl, an MIT-licensed AI chat app you can self-host",
+      "titel": [
+        "Run Your Own",
+        "*AI* *Chat* App"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Skript-aufloesung 6/10 unter 7/10",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "37757439013",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-08",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-aufloesung 6/10 unter 7/10"
+            ],
+            "story_note": 7,
+            "skript_probleme": [],
+            "sekunden": 151.2
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sekunden": 151.4
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

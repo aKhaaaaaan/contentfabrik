@@ -19,7 +19,7 @@
 //   Befehle: Start | Start Business | Start KI | Status (Gesamtfortschritt in %) | Abholen
 
 const REPO = 'aKhaaaaaan/contentfabrik';
-const VERSION = '2026-10-08.1';
+const VERSION = '2026-10-08.2';
 // Zusammengefasste Stunden sparen Trigger: Workers Free hat fuenf pro Konto.
 const VIDEO_CRONS = new Set(['23 8,13 * * *', '41 10,15 * * *',
   '23 8 * * *', '41 10 * * *', '23 13 * * *', '41 15 * * *']);
@@ -64,14 +64,18 @@ const HILFE = 'Befehle:\nStart - beide Kanaele\nStart Business - nur Business Or
   'Abholen - Feedback/Themen aus dem Videobot sofort verarbeiten\n\n' +
   'Feedback gibst du im Videobot: auf ein Video antworten oder „Feedback: ..." schreiben.';
 
+// GEMESSEN 08.10.2026: Am Handy eingefuegter Token -> Telegram 'Not Found' (ungueltig).
+// Leerzeichen/Zeilenumbrueche und ein mitkopiertes 'bot' davor entfernen.
+const tgToken = (env) => String(env.TG_BEFEHL_TOKEN || '').trim().replace(/^bot/i, '').replace(/\s+/g, '');
+
 async function geheimnis(env) {
   // Webhook-Schutz ohne weiteres Secret: aus dem Bot-Token abgeleitet (A-Z, a-z, 0-9 erlaubt).
-  const h = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('cf-befehl:' + env.TG_BEFEHL_TOKEN));
+  const h = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('cf-befehl:' + tgToken(env)));
   return [...new Uint8Array(h)].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 48);
 }
 
 async function antworten(env, chat, text) {
-  await fetch(`https://api.telegram.org/bot${env.TG_BEFEHL_TOKEN}/sendMessage`, {
+  await fetch(`https://api.telegram.org/bot${tgToken(env)}/sendMessage`, {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ chat_id: chat, text }),
   });
@@ -179,12 +183,16 @@ async function telegram(request, env) {
 async function einrichten(request, env) {
   if (!env.TG_BEFEHL_TOKEN) return new Response('TG_BEFEHL_TOKEN fehlt', { status: 503 });
   const ziel = new URL(request.url).origin + '/telegram';
-  const r = await fetch(`https://api.telegram.org/bot${env.TG_BEFEHL_TOKEN}/setWebhook`, {
+  const r = await fetch(`https://api.telegram.org/bot${tgToken(env)}/setWebhook`, {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ url: ziel, secret_token: await geheimnis(env), allowed_updates: ['message'] }),
   });
   const d = await r.json().catch(() => ({}));
-  return Response.json({ webhook: ziel, ok: d.ok === true, beschreibung: d.description || '' },
+  // Diagnose ohne den Token zu verraten: Form pruefen (Zahl:Zeichenfolge, ~45 Zeichen).
+  const t = tgToken(env);
+  const form = /^\d{6,12}:[A-Za-z0-9_-]{30,}$/.test(t) ? 'Form ok' :
+    `Form ungueltig (Laenge ${t.length}, Doppelpunkt ${t.includes(':') ? 'ja' : 'nein'}) - Token bei BotFather neu kopieren`;
+  return Response.json({ webhook: ziel, ok: d.ok === true, beschreibung: d.description || '', token: form },
     { status: d.ok ? 200 : 502 });
 }
 

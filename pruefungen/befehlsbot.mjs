@@ -95,6 +95,12 @@ try {
   const hook = JSON.parse(anfragen[0].options.body);
   assert.equal(hook.url, 'https://w.example/telegram');
   assert.equal(hook.secret_token, await geheim('123:abc'));
+  // Am Handy eingefuegt: Leerzeichen/Umbruch und 'bot' davor duerfen nicht stoeren (08.10.: 'Not Found').
+  anfragen = [];
+  await worker.fetch(new Request('https://w.example/einrichten'), { ...ENV, TG_BEFEHL_TOKEN: ' bot123:abc 
+' });
+  assert.ok(anfragen[0].url.includes('/bot123:abc/setWebhook'));
+  assert.equal(JSON.parse(anfragen[0].options.body).secret_token, await geheim('123:abc'));
   console.log('Befehls-Bot-Pruefungen bestanden: Geheimnis, Einrichtung, fremder Chat, Start, Grenze, /start, Status, Webhook.');
 } finally {
   globalThis.fetch = original;

@@ -976,6 +976,9 @@ def musik_kette(pegel, laenge, pausen=(), stille=0.55):
     return kette
 
 
+FIGUR_EINSETZEN = {'moeglich': True}  # gilt fuer einen bauen.py-Prozess (= einen Bauversuch)
+
+
 def illustration_mit_ausweg(szene, ziel, kanal_slug, mit_figur, rand, videoformat):
     """Illustration; scheitert das Einsetzen der Kanalfigur, nicht das ganze Video verlieren.
 
@@ -991,9 +994,16 @@ def illustration_mit_ausweg(szene, ziel, kanal_slug, mit_figur, rand, videoforma
         except Exception as e:  # nie den ganzen Videobau kippen
             print('Illustration nicht moeglich:', str(e)[:120])
             return None
-    ill = versuch(mit_figur)
+    # GEMESSEN 08.10.2026 (Lauf 37760482364): 7x 'Figur nicht einsetzbar', je ~2 min
+    # (Szene + 2 Einsetzversuche + Pruefungen) - der Bau lief ins Zeitlimit. Nach dem
+    # ersten Fehlschlag im Lauf nicht weiter versuchen.
+    if mit_figur and not FIGUR_EINSETZEN['moeglich']:
+        ill = None
+    else:
+        ill = versuch(mit_figur)
     if ill or not mit_figur:
         return ill
+    FIGUR_EINSETZEN['moeglich'] = False
     original = illustration.FIGUREN / f'{kanal_slug}.jpg'
     if rand and original.is_file():
         print('Figur nicht einsetzbar - Originalbild der Kanalfigur')

@@ -30,6 +30,27 @@ SKRIPT = {'kanal': 'Business Origin Stories', 'teile': [
     {'text': 'Then everything changed.', 'beat': 'wendung'}]}
 
 
+class FigurNurEinmalTest(unittest.TestCase):
+    """Lauf 37760482364: 7 teure Einsetzversuche der Figur, Bau im Zeitlimit."""
+
+    def setUp(self):
+        bauen.FIGUR_EINSETZEN['moeglich'] = True
+
+    tearDown = setUp
+
+    def test_nach_erstem_fehlschlag_kein_einsetzversuch_mehr(self):
+        import illustration
+        aufrufe = []
+        def bild(szene, ziel, kanal, figur=False, videoformat='short'):
+            aufrufe.append(figur)
+            return None if figur else Path('szene.jpg')
+        with patch.object(illustration, 'bild', side_effect=bild):
+            for _ in range(5):
+                bauen.illustration_mit_ausweg('x', 'x.jpg', 'k', True, False, 'short')
+        self.assertEqual(aufrufe.count(True), 1)
+        self.assertEqual(aufrufe.count(False), 5)
+
+
 class ErzaehlstimmeTest(unittest.TestCase):
     def test_beide_kanaele_haben_orus(self):
         # Vor dem Einbau sprach immer Kokoro (keine Regie moeglich).

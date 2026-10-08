@@ -71,6 +71,10 @@ class Wortzeiten(unittest.TestCase):
 class FigurAusweg(unittest.TestCase):
     """Vor dem Fix: Einstellung 0 ohne Bild -> 'kein passendes Hauptbild', kein Video."""
 
+    def setUp(self):
+        import bauen
+        bauen.FIGUR_EINSETZEN['moeglich'] = True  # Sperre gilt je Bauprozess, nicht testuebergreifend
+
     def test_anfang_nimmt_originalfigur(self):
         import bauen, illustration
         with patch.object(illustration, 'bild', return_value=None) as bild:

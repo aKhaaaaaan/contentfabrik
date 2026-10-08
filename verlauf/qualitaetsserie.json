@@ -2030,6 +2030,66 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "37760482364.1:ai-tools-explained",
+      "run_id": "37760482364",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-08T10:25:47.682794+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "b5c81bccbed128cf91948e00524890d6fb39032d",
+      "produktionsversion": "9c222b93daf9e55fb39ead77c5e3112164ee9832c3fea9d00cfdba6ae733420c",
+      "videoformat": "short",
+      "thema": "Whirl, an open-source AI chat app you can self-host",
+      "titel": [
+        "CHAT THE SERVER",
+        "CAN'T READ"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 20,
+      "unterschiedliche_motive": 19,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "37760482364",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-08",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 169.0,
+            "status": "zeitbudget",
+            "phase": "Videobau",
+            "sekunden": 1468.6
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Videobau-Zeitlimit erreicht (Arbeiter beendet)",
+        "sekunden": 1469.0
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

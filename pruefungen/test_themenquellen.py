@@ -63,5 +63,15 @@ class Themenquellen(unittest.TestCase):
             self.assertTrue(q['text'] and q['name'])
 
 
+    def test_pruefdatum_im_quellenkopf_zaehlt_als_beleg(self):
+        # Pilot 37962348927: "checked six official pricing pages on October 9, 2026" fiel durch die
+        # Zahlenprobe, weil sie nur name+text las, nicht den Quellenkopf mit dem Pruefdatum.
+        quelle = (WURZEL / 'fabrik/skript.py').read_text(encoding='utf-8')
+        self.assertIn("f\"{q.get('quelle', '')} {q.get('name', '')} {q.get('text', '')}\" for q in quellen", quelle)
+        liste = json.loads((WURZEL / 'themen/warteschlange.json').read_text(encoding='utf-8'))
+        eintrag = next(x for x in liste if x.get('id') == 'redaktion-2026-10-09-1')
+        self.assertTrue(all('October 9, 2026' in q['text'] for q in eintrag['quellen']))
+
+
 if __name__ == '__main__':
     unittest.main()

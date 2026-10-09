@@ -523,7 +523,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         p, pruefmodell = gemini(prompts.fakten(pruef_text(), e), PRUEF_SCHEMA,
                               temperatur=0.1, cache='fakten', modelle=SEHEN)
         p = ohne_cta_einwand(p)
-        fehlt = zahlen.unbelegt(e, [f"{q.get('name', '')} {q.get('text', '')}" for q in quellen])
+        fehlt = zahlen.unbelegt(e, [f"{q.get('quelle', '')} {q.get('name', '')} {q.get('text', '')}" for q in quellen])
         if fehlt:
             print('Zahlenprobe: nicht in den Quellen:', fehlt)
             p = {'ok': False, 'probleme': p['probleme'] + [

@@ -126,6 +126,8 @@ jobs:
           done
           command -v ffmpeg
           pip install -q -r requirements.txt
+          # Versionen ins Log (09.10.2026: ungepinnte Pakete; Grundlage zum Festlegen)
+          pip freeze | grep -i -E "^(kokoro|faster-whisper|av|pillow|numpy|playwright|onnxruntime|ctranslate2)" || true
           # Claude Code CLI fuer den Skript-Autor (Abo-Token); faellt sonst auf Gemini/Groq zurueck
           npm install -g -s @anthropic-ai/claude-code || echo "Claude-CLI fehlt - Autor Gemini/Groq"
           # Bildschirmaufnahmen der Modellseiten (fabrik/bauen.py aufnahme_fuer):

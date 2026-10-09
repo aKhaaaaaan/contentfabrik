@@ -1,115 +1,106 @@
 {
  "thema_eingabe": "Volkswagen: Dieselgate und seine Folgen",
- "erstellt_utc": "2026-10-07T20:21:12.295688+00:00",
+ "erstellt_utc": "2026-10-09T07:19:36.408632+00:00",
  "modell": "claude:sonnet",
  "story_note": 8,
  "skript": {
   "kanal": "Business Origin Stories",
   "thema": "Volkswagen: Dieselgate und seine Folgen",
   "titel": [
-   "VW's Rigged Diesels",
-   "Cost $33.3 Billion"
+   "How VW Cheated",
+   "Its Own Emissions Test"
   ],
   "stimme": "bm_george",
   "tempo": 1.05,
   "teile": [
    {
     "name": "Hook",
-    "beat": "hook",
     "suche": "diesel car exhaust",
-    "text": "About 11 million cars were secretly cheating. Volkswagen's diesels passed emissions tests, then emitted up to 40 times more nitrogen oxide on real roads.",
-    "quelle_url": "https://en.wikipedia.org/wiki/Volkswagen_emissions_scandal",
-    "szene": "Painted open-world-game poster style: a man in a fedora, grey suit, dark tie and gold pocket watch stands beside a row of identical diesel hatchbacks on a city street at dusk, exhaust haze drifting, medium shot, moody amber light.",
+    "text": "Can a car cheat its test? US regulators said Volkswagen's diesel engines did exactly that.",
+    "szene": "Original presenter in a fedora, grey suit, dark tie and gold pocket watch stands beside a diesel hatchback on a laboratory test roller, medium shot, cool lab light, painted open-world-game poster style, bold ink contours.",
+    "bildtext": "",
+    "geraeusch": "",
+    "beat": "hook",
+    "bildmodus": "illustration"
+   },
+   {
+    "name": "Das Problem",
+    "suche": "car exhaust pipe smoke",
+    "text": "Diesel engines emit 20 times more nitrogen oxide unless treated.",
+    "szene": "Painted close shot of a diesel car tailpipe releasing grey exhaust in a busy city street, hazy afternoon light, bold ink contours, calm sky above and empty pavement below.",
+    "bildtext": "20 times more",
+    "geraeusch": "",
+    "beat": "frage",
+    "bildmodus": "illustration"
+   },
+   {
+    "name": "Die Entscheidung",
+    "suche": "engineers compact car",
+    "text": "In 2005, Volkswagen licensed Mercedes' BlueTec cleaning system. It cut NOx, but cost a lot and needed more space. In 2007, Volkswagen canceled the deal for its own cheaper system.",
+    "szene": "Painted 2000s engineering workshop, engineers around a compact hatchback engine bay with a large bulky exhaust unit set beside it, wide shot, warm overhead light, urban poster style.",
+    "bildtext": "",
+    "geraeusch": "",
+    "beat": "erklaerung",
+    "bildmodus": "illustration"
+   },
+   {
+    "name": "Der Haken",
+    "suche": "engine control computer",
+    "text": "That cheaper system hurt fuel economy. Around 2006, Volkswagen chose to program its engine computer to detect emissions tests. Then it switched to a low-emission mode.",
+    "szene": "Painted close shot of a technician's hands plugging a cable into an engine control unit under a car hood, moody blue-green workshop light, bold ink contours.",
+    "bildtext": "",
+    "geraeusch": "",
+    "beat": "erklaerung",
+    "bildmodus": "illustration"
+   },
+   {
+    "name": "Die Wendung",
+    "suche": "car driving highway",
+    "text": "On the road, the cars emitted up to 40 times more NOx. Yet the company kept marketing diesel as affordable and eco-friendly.",
+    "szene": "Painted diesel sedan driving a long highway at dusk, dark exhaust trailing behind, wide cinematic shot, orange sunset, calm sky above and road below.",
     "bildtext": "40 times more",
     "geraeusch": "",
-    "bildmodus": "illustration"
-   },
-   {
-    "name": "Frage",
-    "beat": "frage",
-    "suche": "diesel engine smoke",
-    "text": "Why would a carmaker do that? Diesel engines emit about 20 times more nitrogen oxide than petrol engines, unless it's treated.",
-    "quelle_url": "https://en.wikipedia.org/wiki/Volkswagen_emissions_scandal",
-    "szene": "Painted urban game-poster style: close shot of two engines side by side on a workshop bench, one with thick gray exhaust haze, one clean, mechanic's gloved hands between them, warm overhead workshop light.",
-    "bildtext": "",
-    "geraeusch": "",
-    "bildmodus": "illustration"
-   },
-   {
-    "name": "Teure Lösung",
-    "beat": "erklaerung",
-    "suche": "car engine workshop",
-    "text": "Volkswagen had licensed a Mercedes cleaning system. It worked, but it was expensive and needed more space than compact cars like the Golf could spare.",
-    "quelle_url": "https://en.wikipedia.org/wiki/Volkswagen_emissions_scandal",
-    "szene": "Painted game-poster style: engineers in 2000s work clothes lean over a cramped compact-car engine bay, trying to fit a large bulky exhaust-cleaning tank beside it, wide workshop shot, cool fluorescent light.",
-    "bildtext": "",
-    "geraeusch": "",
-    "bildmodus": "illustration"
-   },
-   {
-    "name": "Billige Wahl",
-    "beat": "erklaerung",
-    "suche": "managers meeting table",
-    "text": "Some managers preferred a cheaper system of their own. It hurt fuel economy and couldn't keep emissions legal.",
-    "quelle_url": "https://en.wikipedia.org/wiki/Volkswagen_emissions_scandal",
-    "szene": "Painted open-world-game poster style: managers in suits around a conference table, one pushing a small simple exhaust part toward the center while a large expensive one sits aside, medium shot, tense side lighting.",
-    "bildtext": "",
-    "geraeusch": "",
-    "bildmodus": "illustration"
-   },
-   {
-    "name": "Wendepunkt",
     "beat": "wendung",
-    "suche": "engineer laptop car",
-    "text": "So Volkswagen programmed the engine software to spot emissions tests. In the lab, it switched to a clean mode. In daily driving, it didn't.",
-    "quelle_url": "https://en.wikipedia.org/wiki/Volkswagen_emissions_scandal",
-    "szene": "Painted game-poster style: a car on a laboratory test roller, its engine glowing clean blue inside; split with the same car on a highway trailing dark exhaust, medium-wide shot, cool versus warm light.",
-    "bildtext": "switched to a clean mode",
-    "geraeusch": "engine idling",
     "bildmodus": "illustration"
    },
    {
     "name": "Entdeckung",
-    "beat": "beleg",
-    "suche": "california highway driving",
-    "text": "Then researchers at West Virginia University tested diesel cars on California roads. Two of three cars, both Volkswagens, showed extra emissions.",
-    "quelle_url": "https://en.wikipedia.org/wiki/Volkswagen_emissions_scandal",
-    "szene": "Painted open-world-game poster style: researchers in a sedan on a sunlit California freeway, measuring equipment strapped in the trunk, exhaust pipe visible behind, wide road shot, golden daylight.",
-    "bildtext": "",
-    "geraeusch": "tires on asphalt",
-    "bildmodus": "illustration"
-   },
-   {
-    "name": "Folgen",
-    "beat": "beleg",
-    "suche": "stock market crash",
-    "text": "In September 2015, the EPA announced Volkswagen had violated the Clean Air Act. Its stock fell by a third within days, and the CEO resigned.",
-    "quelle_url": "https://en.wikipedia.org/wiki/Volkswagen_emissions_scandal",
-    "szene": "Painted game-poster style: a stern executive in a dark suit carries a cardboard box out of a glass corporate tower at dawn, reporters blurred behind, medium shot, cold blue light.",
-    "bildtext": "stock fell by a third",
-    "geraeusch": "",
-    "bildmodus": "illustration"
-   },
-   {
-    "name": "Eingeständnis",
-    "beat": "erklaerung",
-    "suche": "courtroom judge gavel",
-    "text": "Years later, Volkswagen admitted that management asked engineers to build the devices, because its diesels couldn't pass US tests without them.",
-    "quelle_url": "https://en.wikipedia.org/wiki/Volkswagen_emissions_scandal",
-    "szene": "Painted open-world-game poster style: a courtroom with a judge's bench and a lawyer in a grey suit standing before it, thick case folders on the table, medium-wide shot, warm wood tones, restrained light.",
+    "suche": "researchers testing car",
+    "text": "In 2013, researchers at West Virginia University tested diesel cars on real roads. Two of three cars, both Volkswagens, showed extra NOx.",
+    "szene": "Painted researchers fitting a portable measuring device to a car's exhaust on a sunny California road, medium shot, bright daylight, urban poster style.",
     "bildtext": "",
     "geraeusch": "",
+    "beat": "beleg",
     "bildmodus": "illustration"
    },
    {
-    "name": "Auflösung",
+    "name": "Der Knall",
+    "suche": "stock market falling",
+    "text": "In September 2015, the EPA issued its notice of violation. Volkswagen's stock fell by a third, and CEO Martin Winterkorn resigned.",
+    "szene": "Painted executive office at night, an empty leather chair behind a big desk with a briefcase beside it, city lights through the window, wide shot, tense shadows.",
+    "bildtext": "fell by a third",
+    "geraeusch": "",
+    "beat": "beleg",
+    "bildmodus": "illustration"
+   },
+   {
+    "name": "Das Gestaendnis",
+    "suche": "courtroom gavel judge",
+    "text": "In 2017, Volkswagen pleaded guilty. Its agreed facts said management asked engineers to develop the devices.",
+    "szene": "Painted courtroom with a judge's gavel on a wooden bench, lawyers in the background, medium shot, warm side light, bold ink contours.",
+    "bildtext": "pleaded guilty",
+    "geraeusch": "",
+    "beat": "beleg",
+    "bildmodus": "illustration"
+   },
+   {
+    "name": "Die Rechnung",
+    "suche": "businessman gold watch",
+    "text": "By 2020, the scandal had cost $33.3 billion. Be sure to like, share and save this video.",
+    "szene": "Original presenter in fedora, grey suit, dark tie and gold pocket watch looks at the watch beside a parked diesel car at twilight, medium shot, warm restrained light, painted poster style.",
+    "bildtext": "$33.3 billion",
+    "geraeusch": "",
     "beat": "aufloesung",
-    "suche": "cash money pile",
-    "text": "By June 2020, the scandal had cost $33.3 billion in fines, penalties, settlements and buybacks. That was the bill for cheating the test. Be sure to like, share and save this video.",
-    "quelle_url": "https://en.wikipedia.org/wiki/Volkswagen_emissions_scandal",
-    "szene": "Painted game-poster style: the fedora-wearing man in a grey suit checks his gold pocket watch beside a long line of identical diesel cars parked in an empty lot at dusk, medium shot, warm restrained light.",
-    "bildtext": "",
-    "geraeusch": "",
     "bildmodus": "illustration"
    }
   ],
@@ -137,39 +128,45 @@
    "For AI Tools Explained Shorts comparable to the approved 82-second pilot, aim for 14-18 distinct relevant motifs instead of the previous 12 across 23 shots. Reduce repeated identical imagery and add genuinely different demonstrations, details or illustrative actions supported by the narration. Zooms, crops and label changes do not count as new motifs. This is a planning target, not a retroactive rejection of the positively received pilot.",
    "For Business Origin Stories the user's latest refinement on 2026-10-05 is to aim for about 24 shots with 18 distinct relevant motifs for comparable 90-second Shorts. The delivered 24-shot/14-motif video was positively received; 18 motifs is the next improvement target, not its actual delivered count. Reduce repeats by adding four genuinely different relevant subjects or actions. Preserve useful pacing and the original channel character. Do not count zooms, crops or label changes as new motifs; adapt other video lengths to their story.",
    "Explicit viewer feedback about our videos (not source facts): Es wurden einfach viel zu wenig Fotos verwendet",
-   "Start every video with a highly visual, specific, and engaging hook with immediate stakes without giving away the core twist or relying on vague academic setups.",
-   "Ensure every single scene features dynamic, contextually accurate visual clips or animations that strictly match the specific subject matter without using metaphorical or mismatched imagery like gardening tools for corporate growth.",
-   "Eliminate generic business history phrasing and chronological filler like 'Growth happened fast' to maintain constant narrative tension and a fast-paced story.",
-   "Eliminate historical dates, exact employee counts, names, and chronological transitions like 'In [Year]' to maintain a fast-paced story rather than a textbook timeline.",
-   "Eliminate corporate jargon, technical financial figures, and biographical filler to maintain high retention.",
-   "Replace generic narrative transitions with engaging, specific hooks that sustain momentum through the middle section.",
-   "Omit serial markers like Part 1 or Part 2 from the text and screen to avoid confusing viewers in short-form videos.",
-   "Design unique, story-specific calls to action that blend smoothly into the final seconds for a seamless loop without repeating the opening hook or using generic save reminders.",
-   "Verify that characters, settings, and time periods depicted in visuals accurately reflect the specific details mentioned in the voiceover without appearing generic."
+   "Explicit viewer feedback about our videos (not source facts): Nutzerfeedback 08.10.2026 nach den ersten automatischen Videos: Bilder lebendig, warm und ausgefuellt, damit die Leute Lust haben zu schauen; alles gemalt im Open-World-Spielplakat-Stil (keine echten Spielfiguren), keine Stockclips. AI-Tools-Video (Whirl) hatte zu wenig Emotion, die Sprechgeschwindigkeit war gut.",
+   "Ensure every scene features dynamic, contextually accurate visual clips that strictly match the specific subject matter without mismatched imagery.",
+   "Eliminate chronological lists of dates to prevent predictable list filler; replace timelines with the underlying causal mechanisms.",
+   "Within each spoken phase use multiple distinct relevant shots, roughly 3-5 seconds each for Shorts; long videos allow purposeful longer demonstrations.",
+   "A zoom, crop, subtitle change or decorative background does not count as a new motif. Never fill missing images with irrelevant stock or background-only frames.",
+   "Show the main image prominently; avoid tiny repeated photos in a mostly empty vertical frame while preserving genuine evidence.",
+   "Introduce the correct presenter at the opening and bring that same presenter back during the video in useful actions.",
+   "Start every video with a highly visual, specific, and engaging hook with immediate stakes without giving away the core twist.",
+   "Eliminate generic business history phrasing and chronological filler to maintain constant narrative tension and a fast-paced story.",
+   "Verify that characters, settings, and time periods depicted in visuals accurately reflect the specific details mentioned in the voiceover.",
+   "Include mandatory spoken like, share and save calls at the correct format-specific positions without replacing this requirement with a different CTA.",
+   "Design unique, story-specific calls to action that blend smoothly into the final seconds for a seamless loop.",
+   "Inspect useful motif changes and narration-image alignment over the entire video; missing main imagery is a substantial defect."
   ],
   "winkel": "",
   "format": "geschichte",
   "story": {
    "note": 8,
    "kategorien": {
-    "hook": 8,
+    "hook": 7,
     "spannung": 8,
     "ueberraschung": 8,
-    "tempo": 9,
-    "aufloesung": 9,
+    "tempo": 7,
+    "aufloesung": 8,
     "teilbarkeit": 8
    },
-   "schwaechen": [],
-   "besserer_hook": "About 11 million cars were secretly cheating emissions tests."
+   "schwaechen": [
+    "Around 2006, Volkswagen chose to program its engine computer to detect emissions tests. - Jumping back to 2006 right after mentioning 2007 breaks chronological coherence and disrupts spoken listening flow. - Fix: Group the 2006 software choice chronologically before or alongside the 2007 decision to cancel the Mercedes deal."
+   ],
+   "besserer_hook": "US regulators discovered Volkswagen programmed its diesel cars to cheat emissions tests."
   },
   "hintergrund_suche": "dark bokeh light background",
   "musik_suche": [
-   "sparse tension instrumental",
+   "sparse tense underscore",
    "restrained investigative pulse",
-   "minimal documentary underscore"
+   "minimal instrumental suspense"
   ],
   "bilder": [],
-  "beschreibung": "In September 2015 the US EPA found that Volkswagen had programmed diesel engines to pass emissions tests while polluting more on the road. By June 2020 the scandal had cost the company $33.3 billion.\nClips: Pixabay\nSource: Wikipedia - Volkswagen emissions scandal (CC BY-SA)",
+  "beschreibung": "Volkswagen programmed diesel engines to pass emissions tests but emit far more NOx on the road. The scandal began in September 2015 and had cost $33.3 billion by June 2020.\nClips: Pixabay\nSource: Wikipedia - Volkswagen emissions scandal (CC BY-SA)",
   "hashtags": [
    "#Volkswagen",
    "#Dieselgate",
@@ -196,7 +193,7 @@
    }
   ],
   "modell": "claude:sonnet",
-  "sekunden_ki": 86.0,
-  "prompt_version": "2026-10-07.10"
+  "sekunden_ki": 108.3,
+  "prompt_version": "2026-10-08.5"
  }
 }

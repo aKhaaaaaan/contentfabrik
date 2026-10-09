@@ -1,7 +1,11 @@
-kokoro-onnx
+# Versionen festgelegt 09.10.2026 nach pip freeze im GitHub-Lauf 37972418814 (laeuft dort).
+# Ungepinnt konnte ein neues Release ueber Nacht den Videobau brechen.
+kokoro-onnx==0.6.1
 faster-whisper==1.2.1
-av>=11,<19
-pillow
-numpy
-playwright
+av==18.1.0
+pillow==12.3.0
+numpy==2.5.3
+playwright==1.63.0
+onnxruntime==1.31.0
+ctranslate2==4.8.2
 tzdata

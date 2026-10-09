@@ -1512,8 +1512,12 @@ def main(skript_pfad, aus, vorlage=None):
                     # Bilder scheiterten - meist Cloudflare „output flagged" (Zufall) oder Figur-Pose.
                     # Bisher rettete nur der falsch zurueckgesetzte Ersatzzaehler das Video. Jetzt ein
                     # letzter Versuch mit vereinfachter Szene ohne Kanalfigur, bevor ein Ersatzbild kommt.
-                    einfach = ('One clear subject in a calm, simple composition, no close-up faces: '
-                               + str(t.get('motiv') or t.get('suche') or '') + '. ' + szene[:240])
+                    # Ohne die Original-Szene: die verlangte oft Schrift (Preistafel, Geldscheine) - genau
+                    # daran scheiterten die ersten Versuche (Pilot 37972418814).
+                    einfach = ('One clear subject in a calm, simple painted composition, no close-up faces, '
+                               'and no object that could carry writing (no signs, papers, screens, money, '
+                               'cards, menus, price boards or books): '
+                               + str(t.get('suche') or t.get('motiv') or 'a person at work in a warm room'))
                     ill = illustration_mit_ausweg(einfach, aus / f'ill_{i:02d}.jpg', kanal_slug, False, False,
                                                   dramaturgie.videoformat(s))
                     if ill:

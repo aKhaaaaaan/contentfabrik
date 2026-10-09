@@ -55,7 +55,7 @@ class Auswahl(unittest.TestCase):
         self.ordner.stop(); self.liste.stop(); self.tmp.cleanup()
 
     def signale(self, yt, wiki, google=(), firmen=()):
-        return [patch.object(trendcheck, 'yt_faktor', side_effect=lambda b: (yt.get(b), [])),
+        return [patch.object(trendcheck, 'yt_faktor', side_effect=lambda b, z='': (yt.get(b), [])),
                 patch.object(trendcheck, 'wiki_aufwind', side_effect=lambda t, h=None: wiki.get(t)),
                 patch.object(trendcheck, 'google_heute', return_value=list(google)),
                 patch('trends.firmen_im_trend', return_value=list(firmen))]
@@ -109,6 +109,17 @@ class Auswahl(unittest.TestCase):
             thema, _ = self.waehle('business-origin-stories',
                                    patch.object(trendcheck, 'bewerten', side_effect=RuntimeError('Netz weg')))
         self.assertEqual(thema, 'Netflix: Wandel')
+
+
+class Suchwinkel(unittest.TestCase):
+    def test_business_sucht_die_geschichte_nicht_die_trailer(self):
+        # Live 09.10.: „Netflix" allein -> Serientrailer 79,5x. Titel muss den Begriff enthalten.
+        videos = [{'titel': 'Stranger Things 5 | Official Trailer', 'faktor': 80, 'aufrufe': 1, 'id': 'a'},
+                  {'titel': 'How Netflix Killed Blockbuster', 'faktor': 6, 'aufrufe': 1, 'id': 'b'}]
+        with patch('trends.youtube_ausreisser', return_value=videos) as yt:
+            faktor, _ = trendcheck.yt_faktor('Netflix', trendcheck.ZUSATZ['business-origin-stories'])
+        self.assertEqual(yt.call_args.args[0], ['Netflix story'])
+        self.assertEqual(faktor, 6)
 
 
 class Einbau(unittest.TestCase):

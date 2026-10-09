@@ -96,11 +96,13 @@ def google_treffer(begriff, heute_liste):
     return None
 
 
-def yt_faktor(begriff):
-    """Groesster Ausreisser-Faktor eines Videos, dessen Titel den Begriff wirklich enthaelt."""
+def yt_faktor(begriff, zusatz=''):
+    """Groesster Ausreisser-Faktor eines Videos, dessen Titel den Begriff wirklich enthaelt.
+    GEMESSEN 09.10.2026 (Live-Vorschau): „Netflix" allein fand Serientrailer (79,5x) - das misst
+    Interesse an Netflix-Serien, nicht an der Firmengeschichte. Darum mit Kanal-Zusatz suchen."""
     import trends
     kern = _kern(begriff)
-    treffer = [v for v in trends.youtube_ausreisser([begriff], tage=30, je_begriff=15, top=15)
+    treffer = [v for v in trends.youtube_ausreisser([f'{begriff} {zusatz}'.strip()], tage=30, je_begriff=15, top=15)
                if kern and all(w in v['titel'].lower() for w in kern)]
     return max((v['faktor'] for v in treffer), default=None), treffer[:2]
 
@@ -118,9 +120,12 @@ def kandidaten(kanal, themen, mit_trendfirmen=True):
     return aus
 
 
-def bewerten(liste, google_liste, heute=None):
+ZUSATZ = {'business-origin-stories': 'story'}  # Suchwinkel des Kanals, nicht Pflichtwort im Titel
+
+
+def bewerten(liste, google_liste, heute=None, kanal=''):
     for k in liste:
-        k['youtube'], k['beispiele'] = yt_faktor(k['begriff'])
+        k['youtube'], k['beispiele'] = yt_faktor(k['begriff'], ZUSATZ.get(kanal, ''))
         k['wiki'] = wiki_aufwind(k['wikipedia'], heute) if k.get('wikipedia') else None
         k['google'] = google_treffer(k['begriff'], google_liste)
         k['punkte'] = punkte(k['youtube'], k['wiki'], bool(k['google']), k['eigen'])
@@ -171,7 +176,7 @@ def waehlen(kanal, heute=None, themen=None):
     if not liste:
         return themen.nehmen(kanal), None
     try:
-        bewertet = bewerten(liste, google_heute(), heute)
+        bewertet = bewerten(liste, google_heute(), heute, kanal)
         thema, grund = entscheiden(bewertet)
     except Exception as e:  # nie den Tageslauf am Trend-Check scheitern lassen
         print('Trend-Check fehlgeschlagen:', type(e).__name__, str(e)[:120])

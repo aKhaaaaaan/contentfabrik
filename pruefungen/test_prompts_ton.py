@@ -116,7 +116,7 @@ class BildTest(TempTest):
 
     def test_nicht_erreichbare_pruefung_gibt_bild_nicht_frei(self):
         with patch.dict(os.environ, {'GEMINI_API_KEY': 'test'}), \
-                patch('skript.gemini', side_effect=RuntimeError('Ausfall')):
+                patch('skript.gemini', side_effect=RuntimeError('Ausfall')),                 patch.object(illustration, 'PRUEF_PAUSE_S', 0):  # seit 09.10. ein Neuversuch nach Pause
             self.assertFalse(illustration.pruefen(self.png(), 'a factory')['ok'])
 
     def test_ohne_pruefer_wird_keine_bildgenerierung_bezahlt(self):

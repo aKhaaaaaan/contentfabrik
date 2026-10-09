@@ -13,7 +13,7 @@ jedes Bild prueft Gemini (Schrift, Logos, verformte Haende/Gesichter).
 Eine konkrete Bildkritik geht in den zweiten Auftrag, die Szene bleibt erhalten.
 Nach zwei Versuchen oder bei ausgefallener Pruefung: Foto-/Clip-Rueckfall.
 """
-import base64, io, json, os, uuid, urllib.error, urllib.request
+import base64, io, json, os, time, uuid, urllib.error, urllib.request
 from pathlib import Path
 from PIL import Image, ImageOps
 import prompts
@@ -66,6 +66,9 @@ def _anfrage(modell, felder, datei=None, charakter=None):
     return None
 
 
+PRUEF_PAUSE_S = 30
+
+
 def pruefen(roh, szene, referenz=None, videoformat='short'):
     """Konkreter Bildbefund; fehlende Pruefung nimmt kein ungeprueftes Bild an."""
     if not os.environ.get('GEMINI_API_KEY'):
@@ -73,9 +76,18 @@ def pruefen(roh, szene, referenz=None, videoformat='short'):
     try:
         from skript import gemini, SEHEN
         bilder = [roh] + ([Path(referenz).read_bytes()] if referenz else [])
-        a, _ = gemini(prompts.bildpruefung(szene, bool(referenz), videoformat),
-                      {'type': 'OBJECT', 'properties': {'ok': {'type': 'BOOLEAN'}, 'grund': {'type': 'STRING'}},
-                       'required': ['ok', 'grund']}, temperatur=0.1, bilder=bilder, modelle=SEHEN)
+        auftrag = (prompts.bildpruefung(szene, bool(referenz), videoformat),
+                   {'type': 'OBJECT', 'properties': {'ok': {'type': 'BOOLEAN'}, 'grund': {'type': 'STRING'}},
+                    'required': ['ok', 'grund']})
+        try:
+            a, _ = gemini(*auftrag, temperatur=0.1, bilder=bilder, modelle=SEHEN)
+        except Exception as e:
+            # GEMESSEN 09.10.2026 (Langvideo-Pilot 37888005599): 20x 'Bildpruefung nicht verfuegbar'
+            # (Zeitlimit/Ueberlast der Lite-Modelle) -> jedes Bild verworfen, Ersatzbilder aufgebraucht.
+            # Kurze Ueberlast: einmal nach 30 s neu pruefen statt ein gutes Bild wegzuwerfen.
+            print('Bildpruefung ueberlastet, neuer Versuch in 30 s:', type(e).__name__)
+            time.sleep(PRUEF_PAUSE_S)
+            a, _ = gemini(*auftrag, temperatur=0.1, bilder=bilder, modelle=SEHEN)
         if a.get('ok') is not True:
             print('Illustration verworfen:', a.get('grund', '')[:120])
         return {'ok': a.get('ok') is True, 'grund': str(a.get('grund', ''))[:220]}

@@ -632,6 +632,56 @@ def karte_fuer(url):
         return None
 
 
+def readme_medien(url):
+    """[(bild_url, alt_text)] aus der README einer GitHub-/Hugging-Face-Seite; None ohne README.
+    Logos, Abzeichen, SVG und Sternediagramme fallen weg (zeigen nicht, WAS das Werkzeug macht)."""
+    import urllib.request, urllib.parse
+    m = re.match(r'https?://(github\.com|huggingface\.co)/([\w.-]+/[\w.-]+)', url or '')
+    if not m:
+        return None
+    roh, basis = ((f'https://huggingface.co/{m[2]}/raw/main/README.md', f'https://huggingface.co/{m[2]}/resolve/main/')
+                  if m[1] == 'huggingface.co' else
+                  (f'https://raw.githubusercontent.com/{m[2]}/HEAD/README.md',
+                   f'https://raw.githubusercontent.com/{m[2]}/HEAD/'))
+    try:
+        text = urllib.request.urlopen(urllib.request.Request(roh, headers=KENNUNG), timeout=20).read().decode(
+            'utf-8', 'replace')
+    except Exception as e:
+        print('Keine Beschreibung fuer Beispielbilder:', m[2], str(e)[:80])
+        return None
+    links = [(l, a) for a, l in re.findall(r'!\[([^\]]*)\]\(\s*([^)\s]+)', text)]
+    links += [(l, '') for l in re.findall(r'<img[^>]+src=["\']([^"\']+)', text, re.I)]
+    aus = []
+    for l, a in links:
+        l = urllib.parse.urljoin(basis, l.replace('/blob/', '/raw/'))
+        if re.search(r'shields\.io|badge|logo|icon|avatar|\.svg(\?|$)|license|star-history|discord|twitter',
+                     l, re.I) or l in [x for x, _ in aus]:
+            continue
+        aus.append((l, a.strip()[:200]))
+    return aus
+
+
+def gif_bilder(ziel, anzahl=4):
+    """Animierte Vorfuehrung (README-GIF) -> bis zu `anzahl` gleichmaessig verteilte Standbilder.
+    GEMELDET 09.10.2026 (Aurelio, Nutzernote 6/10): das demo.gif zeigte genau Vermoegen,
+    Fonds-Durchblick und Chat - genutzt wurde kein einziges Bild davon."""
+    try:
+        with Image.open(ziel) as im:
+            n = getattr(im, 'n_frames', 1)
+            if n < 2:
+                return []
+            aus = []
+            for k in range(anzahl):
+                im.seek(min(n - 1, int((k + .5) * n / anzahl)))
+                f = ziel.with_name(f'{ziel.name}_bild{k}.jpg')
+                if not f.exists():
+                    bild_rgb(im).save(f, 'JPEG', quality=92)
+                aus.append(f)
+            return aus
+    except Exception:
+        return []
+
+
 def demo_fuer(url, satz='', benutzt=None, gewollt=None):
     """Echtes Anwendungsbeispiel von der Modellseite statt Symbol-Clip.
     GEMELDET (KI-Analyse 04.10.2026): „Keine echten Anwendungsbeispiele - nur
@@ -644,36 +694,34 @@ def demo_fuer(url, satz='', benutzt=None, gewollt=None):
     m = re.match(r'https?://(github\.com|huggingface\.co)/([\w.-]+/[\w.-]+)', url or '')
     if not m:
         return None, None
-    roh, basis = ((f'https://huggingface.co/{m[2]}/raw/main/README.md', f'https://huggingface.co/{m[2]}/resolve/main/')
-                  if m[1] == 'huggingface.co' else
-                  (f'https://raw.githubusercontent.com/{m[2]}/HEAD/README.md',
-                   f'https://raw.githubusercontent.com/{m[2]}/HEAD/'))
-    try:
-        text = urllib.request.urlopen(urllib.request.Request(roh, headers=KENNUNG), timeout=20).read().decode(
-            'utf-8', 'replace')
-    except Exception as e:
-        print('Keine Beschreibung fuer Beispielbilder:', m[2], str(e)[:80])
+    medien = readme_medien(url)
+    if medien is None:
         return None, None
-    links = re.findall(r'!\[[^\]]*\]\(\s*([^)\s]+)', text) + re.findall(r'<img[^>]+src=["\']([^"\']+)', text, re.I)
-    kandidaten = []
-    for l in links:
-        l = urllib.parse.urljoin(basis, l.replace('/blob/', '/raw/'))
-        if re.search(r'shields\.io|badge|logo|icon|avatar|\.svg(\?|$)|license|star-history|discord|twitter',
-                     l, re.I) or l in kandidaten:
-            continue
-        kandidaten.append(l)
+    kandidaten = [l for l, _ in medien]
     kandidaten = [l for l in kandidaten if l not in (benutzt or set())]
     if m[2] == 'Qwen/Qwen-Image-2.1':
         kandidaten = [l for l in kandidaten if not l.endswith(('example-01.png', 'example-43.png'))]
     if gewollt:
-        kandidaten = [l for l in kandidaten if l == gewollt]
+        kandidaten = [l for l in kandidaten if l == gewollt.split('#bild')[0]]
     bilder, pfade = [], []
     PIXABAY_CACHE.mkdir(exist_ok=True)
+    eintraege = []
     for l in kandidaten[:8]:
         ziel = PIXABAY_CACHE / f"demo_{hashlib.sha1(l.encode()).hexdigest()[:12]}"
         try:
             if not ziel.exists():
                 ziel.write_bytes(urllib.request.urlopen(urllib.request.Request(l, headers=KENNUNG), timeout=30).read())
+        except Exception:
+            continue
+        frames = gif_bilder(ziel)
+        # Jedes GIF-Standbild ist ein eigener Kandidat (eigene Kennung '#bildN'), damit
+        # dieselbe Vorfuehrung mehrere verschiedene Einstellungen liefern kann.
+        eintraege += ([(f, f'{l}#bild{k}') for k, f in enumerate(frames)
+                       if f'{l}#bild{k}' not in (benutzt or set())] if frames else [(ziel, l)])
+    if gewollt:
+        eintraege = [e for e in eintraege if e[1] == gewollt]
+    for ziel, l in eintraege:
+        try:
             with Image.open(ziel) as im:
                 if im.width < 480 or im.height < 270:  # Vorschau-Schnipsel, Symbole
                     continue

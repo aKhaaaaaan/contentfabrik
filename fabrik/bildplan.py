@@ -62,6 +62,27 @@ def _planen(gemini, modelle, auftrag, indizes):
     return daten  # die Pruefung unten meldet die Luecke
 
 
+def demo_material(s):
+    """Echte README-Bilder je Quellseite fuer den Bildplaner (nur Werkzeug-Seiten auf GitHub/HF)."""
+    urls = []
+    for t in s['teile']:
+        u = t.get('quelle_url')
+        if u and u not in urls and ('github.com/' in u or 'huggingface.co/' in u):
+            urls.append(u)
+    aus = []
+    try:
+        import bauen
+        for u in urls[:3]:
+            medien = bauen.readme_medien(u) or []
+            if medien:
+                aus.append({'source_url': u, 'media': [{'file': l.rsplit('/', 1)[-1], 'alt': a,
+                                                        'animated': l.lower().endswith('.gif')}
+                                                       for l, a in medien[:8]]})
+    except Exception as e:  # Netz weg: Plan ohne Liste wie bisher
+        print('README-Bilder nicht abrufbar:', str(e)[:100])
+    return aus
+
+
 def vorbereiten(s, laengen, woerter, cache=None):
     from skript import gemini, SEHEN
     import lernen
@@ -131,8 +152,18 @@ def vorbereiten(s, laengen, woerter, cache=None):
             'the spoken subject and era. foto refers to the '
             'available indexed photo metadata; illustration is useful when no genuine photo fits. '
             'Return EXACTLY one entry per slot, same integer index. motiv states the distinct visible '
-            'subject/action. No extra words or factual assertions in the narration.\n')
+            'subject/action. No extra words or factual assertions in the narration.\n'
+            # GEMELDET 09.10.2026 (Aurelio-Short, Nutzernote 6/10): „Fotos, die nicht mit dem Text
+            # zusammenhaengen" - 21 Symbolbilder (Sparschwein, Muenzen, Schluessel), obwohl die README
+            # ein demo.gif mit genau den genannten Funktionen hatte.
+            'TOOL DEMO MATERIAL lists real README images/animations of the tool. When it is not empty, '
+            'every slot whose narration names a concrete feature, screen, output or result of the tool '
+            'MUST use demo (aim for at least a third of all slots); an animated demo yields several '
+            'different stills. Never show symbolic props (piggy banks, coins, keys, stamps, generic '
+            'paperwork) for a concrete tool feature. Use illustration for the human problem, the hook, '
+            'the presenter and the call to action.\n')
         kontext = {
+                'tool_demo_material': demo_material(s),
                 'phases': s['teile'], 'photos': s.get('bilder', []),
                 # Bibliotheksbilder sind Hochformat - im Langvideo (16:9) waeren sie beschnitten.
                 'illustration_library': [b for b in bibliothek.katalog() if b['kanal'] == s.get('kanal')]

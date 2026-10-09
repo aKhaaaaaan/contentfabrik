@@ -265,8 +265,10 @@ def hinweise(kanal, thema):
     if kanal.get('nur_quellen'):
         # GEMESSEN: Ohne aktuelle Quellen fiel „Top 5 AI Video Tools" zweimal
         # durch die Faktenpruefung (veraltetes Wissen). Darum nur Belegtes.
-        quellen = (trends.ki_quellen(maximal=1) if kanal.get('format') == 'erklaerung'
-                   else trends.ki_quellen())
+        sp = trends.schwerpunkt(kanal)
+        bevorzugt = sp['begriffe'] if sp else None
+        quellen = (trends.ki_quellen(maximal=1, bevorzugt=bevorzugt) if kanal.get('format') == 'erklaerung'
+                   else trends.ki_quellen(bevorzugt=bevorzugt))
         if kanal.get('format') == 'erklaerung':
             # Eine ausfuehrlich belegte Anwendung statt dreier Repos und langer Sternelisten.
             quellen = [q for q in quellen if q.get('belegt')][:1]

@@ -123,11 +123,62 @@ def beschreibung(q):
     return q
 
 
-def ki_quellen(tage=7, maximal=None):
+def schwerpunkt(kanal, heute=None):
+    """Aktiver Themen-Schwerpunkt des Kanalprofils {'begriffe': [...], 'bis': 'JJJJ-MM-TT'} oder None."""
+    sp = kanal.get('themen_schwerpunkt') or {}
+    heute = heute or datetime.date.today().isoformat()
+    return sp if sp.get('begriffe') and str(sp.get('bis', '')) >= heute else None
+
+
+SPAM = re.compile(r'setup|crack|keygen|download|guide|companion|activat|license[- ]?key|free[- ]?full', re.I)
+KI_BEZUG = re.compile(r'\bAI\b|\bLLM|GPT|machine learning|\bagent|ollama|openai|claude', re.I)
+SCHWERPUNKT_THEMEN = ['personal-finance', 'accounting', 'budget', 'invoice', 'finance', 'expense-tracker',
+                      'bookkeeping', 'fintech', 'investing', 'receipts', 'tax']
+
+
+def schwerpunkt_quellen(begriffe, themen=SCHWERPUNKT_THEMEN, tage=21):
+    """Bekannte, aktiv gepflegte Werkzeuge eines Themenfelds MIT KI-Bezug (GitHub-Themen).
+
+    GEMESSEN 09.10.2026: neue Finanz-KI-Repos (30 Tage, >30 Sterne) gab es kaum - Treffer waren
+    Aurelio (schon Video) und Spam wie „TaxAct-Windows-Setup-Companion"/„...-Crack". Etablierte
+    Projekte (>800 Sterne, in 21 Tagen gepflegt) mit KI in der Beschreibung liefern echte Themen:
+    TaxHacker (KI-Buchhalter), BeeCount, Invoice Ninja, Kimai."""
+    aus, gesehen = [], set()
+    kopf = {'Accept': 'application/vnd.github+json'}
+    if os.environ.get('GITHUB_TOKEN'):
+        kopf['Authorization'] = 'Bearer ' + os.environ['GITHUB_TOKEN']
+    gepflegt = (datetime.date.today() - datetime.timedelta(days=tage)).isoformat()
+    for thema in themen:
+        try:
+            d = json.loads(_hole('https://api.github.com/search/repositories?' + urllib.parse.urlencode({
+                'q': f'topic:{thema} stars:>300 pushed:>{gepflegt}', 'sort': 'stars', 'order': 'desc',
+                'per_page': 10}), kopf))
+        except Exception as e:
+            print('Schwerpunkt-Suche nicht verfuegbar:', thema, e)
+            continue
+        for r in d.get('items', []):
+            text = f"{r.get('description') or ''} {' '.join(r.get('topics') or [])}"
+            if r['full_name'] in gesehen or SPAM.search(r['full_name']) or not KI_BEZUG.search(text):
+                continue
+            gesehen.add(r['full_name'])
+            aus.append({'quelle': 'GitHub', 'name': r['full_name'], 'url': r['html_url'],
+                        'zahl': r['stargazers_count'],
+                        'text': f"{r.get('description') or ''} - {r['stargazers_count']} stars, license: "
+                                f"{(r.get('license') or {}).get('spdx_id', 'unknown')}, actively maintained"})
+    return aus
+
+
+def ki_quellen(tage=7, maximal=None, bevorzugt=None):
     """Aktuelle KI-Neuheiten mit Beschreibung - die EINZIGEN Fakten, die der
-    Kanal „AI Tools Explained" verwenden darf (Konzept: Quellen-Methode)."""
+    Kanal „AI Tools Explained" verwenden darf (Konzept: Quellen-Methode).
+
+    bevorzugt: Begriffe eines befristeten Schwerpunkts (Nutzerentscheidung 09.10.2026: eine Woche
+    Finanz-/Spar-/Business-KI-Tools testen). Passende Quellen kommen nach vorn; eine Zusatzsuche
+    ueber 30 Tage findet sie, weil sie unter den allgemeinen Sterne-Spitzen selten sind."""
     aus = []
     seit = (datetime.date.today() - datetime.timedelta(days=tage)).isoformat()
+    if bevorzugt:
+        aus += schwerpunkt_quellen(bevorzugt)
     try:  # GitHub: neue Repos zu KI, nach Sternen
         kopf = {'Accept': 'application/vnd.github+json'}
         if os.environ.get('GITHUB_TOKEN'):
@@ -164,6 +215,12 @@ def ki_quellen(tage=7, maximal=None):
     # ein englisches Publikum unverstaendlich, die Karte zeigt fremde Schrift.
     geeignet = [q for q in aus if not UNGEEIGNET.search(q['name'] + ' ' + q['text'])
                 and _englisch(q['name'] + ' ' + q['text'])]
+    if bevorzugt:
+        muster = re.compile('|'.join(re.escape(b) for b in bevorzugt), re.I)
+        # stabil sortiert: Schwerpunkt-Treffer zuerst, sonst Reihenfolge wie bisher
+        geeignet.sort(key=lambda q: not muster.search(q['name'] + ' ' + q['text']))
+        doppelt = set()
+        geeignet = [q for q in geeignet if not (q['url'] in doppelt or doppelt.add(q['url']))]
     if maximal is not None:
         belegt = []
         for q in geeignet[:6]:

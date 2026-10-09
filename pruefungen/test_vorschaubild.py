@@ -143,5 +143,34 @@ class Kommentare(unittest.TestCase):
         self.assertNotIn('RE-HOOK', dramaturgie.auftrag({'videoformat': 'short'}))
 
 
+
+class Finanzschwerpunkt(unittest.TestCase):
+    """Nutzerentscheidung 09.10.: Finanz-KI-Tools sanft bevorzugen; Spam filtern; keine Beratung."""
+    def test_schwerpunkt_gilt_befristet(self):
+        import trends
+        kanal = {'themen_schwerpunkt': {'begriffe': ['finance'], 'bis': '2026-10-16'}}
+        self.assertTrue(trends.schwerpunkt(kanal, '2026-10-16'))
+        self.assertIsNone(trends.schwerpunkt(kanal, '2026-10-17'))
+        self.assertIsNone(trends.schwerpunkt({}, '2026-10-10'))
+
+    def test_nur_ki_werkzeuge_ohne_spam(self):
+        import trends
+        antwort = {'items': [
+            {'full_name': 'vas3k/TaxHacker', 'html_url': 'u1', 'stargazers_count': 6737, 'license': None,
+             'description': 'Self-hosted AI accounting app. LLM analyzer for receipts', 'topics': []},
+            {'full_name': 'x/TaxAct-Windows-Setup-Companion', 'html_url': 'u2', 'stargazers_count': 900,
+             'license': None, 'description': 'AI tax setup', 'topics': []},
+            {'full_name': 'actualbudget/actual', 'html_url': 'u3', 'stargazers_count': 29372, 'license': None,
+             'description': 'A local-first personal finance app', 'topics': ['personal-finance']}]}
+        with patch('trends._hole', return_value=json.dumps(antwort)):
+            namen = [q['name'] for q in trends.schwerpunkt_quellen(['finance'], themen=['accounting'])]
+        self.assertEqual(namen, ['vas3k/TaxHacker'])
+
+    def test_keine_finanzberatung(self):
+        import prompts
+        text = prompts.skript({'name': 'AI Tools Explained', 'format': 'erklaerung'}, 'TaxHacker', [], '', '150-180')
+        self.assertIn('not financial advice', text)
+
+
 if __name__ == '__main__':
     unittest.main()

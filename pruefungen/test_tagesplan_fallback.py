@@ -177,6 +177,6 @@ class TextFallbackTest(TempTest):
         q = {'name': 'Tool', 'quelle': 'Test', 'url': 'https://test', 'text': 'Primary facts', 'belegt': True}
         with patch('trends.ki_quellen', return_value=[q, dict(q, name='Other')]) as netz:
             text, quellen = skript.hinweise({'nur_quellen': True, 'format': 'erklaerung'}, 'Tool')
-        netz.assert_called_once_with(maximal=1)
+        netz.assert_called_once_with(maximal=1, bevorzugt=None)  # 09.10.: optionaler Schwerpunkt
         self.assertEqual(len(quellen), 1)
         self.assertNotIn('FIXED RANKING', text)

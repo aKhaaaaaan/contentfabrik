@@ -73,7 +73,12 @@ def skript(kanal, thema, frueher, blick, woerter):
                     # GEMELDET 08.10.2026 zum Whirl-Video: „wenig Emotion, Geschwindigkeit gut".
                     'Make it felt: open on a relatable person-level frustration, let the viewer '
                     'feel the moment it clicks, and land on genuine excitement about what they can '
-                    'now do - human stakes, not a feature list; stay factual.')
+                    'now do - human stakes, not a feature list; stay factual. '
+                    # 09.10.2026: Finanz-Werkzeuge werden bevorzugt (trends.schwerpunkt) - ein Kanal
+                    # darf keine Anlage-/Steuerberatung geben (Haftung, YouTube-Regeln zu Finanzinhalten).
+                    'If the tool touches money, investing, taxes or accounting: describe what the tool '
+                    'does, never recommend investments, returns or tax strategies, and say briefly that '
+                    'this is not financial advice.')
     else:
         aufbau = (('24-50 unranked visual beats' if lang else '8-10 short unranked visual beats')
                   + ': a specific source-supported contradiction or consequential '

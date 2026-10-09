@@ -790,7 +790,9 @@ def main(kanal_pfad, aus_pfad, thema=None):
             'musik_suche': [q.strip()[:100] for q in entwurf.get('musik_suche', [])
                             if isinstance(q, str) and q.strip()][:3] or kanal.get('musik_suche', []),
             'bilder': wiki_fotos,
-            'beschreibung': entwurf['beschreibung'] + '\nClips: Pixabay'
+            # „Clips: Pixabay" setzt freigabe.py nur, wenn wirklich ein Pixabay-Clip im Video ist
+            # (09.10.2026: Netflix-Langvideo nur mit Illustrationen trug die Angabe trotzdem).
+            'beschreibung': entwurf['beschreibung']
                             + (''.join(f"\nSource: Wikipedia - {q['name']} (CC BY-SA)" for q in quellen
                                        if q.get('quelle') == 'Wikipedia')), 'hashtags': entwurf['hashtags'],
             'pruefung': pruefung, 'quellen': [q['url'] for q in quellen if q.get('url')],

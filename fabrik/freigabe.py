@@ -161,6 +161,8 @@ def senden(skript_pfad, video_pfad):
     quellen = json.loads(qpfad.read_text(encoding='utf-8')) if qpfad.exists() else []
     fotos = [q for q in quellen if q.get('quelle') == 'Wikimedia Commons']
     musik = [q for q in quellen if q.get('quelle') == 'Musik']
+    if any(q.get('quelle') == 'Pixabay' for q in quellen) and 'Clips: Pixabay' not in skript['beschreibung']:
+        skript['beschreibung'] += '\nClips: Pixabay'  # Bitte von Pixabay - nur wenn wirklich verwendet
     if musik:
         skript['beschreibung'] += '\n' + musik[0]['nennung']
     if any(q.get('quelle') == 'Illustration' for q in quellen):

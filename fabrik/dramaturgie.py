@@ -68,6 +68,9 @@ def auftrag(daten):
                 'Set name to a short useful chapter heading when a chapter begins. Move from '
                 'orientation to complication, deeper understanding and the full central answer. '
                 'Use occasional concise recaps only at transitions where they aid understanding. '
+                'NOT A TIMELINE: build chapters around decisions, conflicts and their consequences, '
+                f'not around years. At most {CHRONIK_MAX} sentences in the whole script may start with a '
+                'date; mention a year only where it matters to the story. '
                 # RECHERCHE 09.10.2026 (outlierkit.com, faceless growth 2026): erfolgreiche Kanaele ohne
                 # Gesicht holen den Zuschauer alle 30-60 s neu ab - Frage-Schleife, Bildwechsel, offener
                 # Erzaehlfaden. Hier als ehrliche, belegte Re-Hooks, nicht als leeres Teasing.
@@ -86,6 +89,19 @@ def auftrag(daten):
             # Der Videobau setzt an der 'wendung' Musikpause, Riser und Impact.
             'No greeting, channel name or "in this video" before the first fact. Label exactly '
             'one real turning point (the beat where the story changes) as beat wendung.')
+
+
+CHRONIK_MAX = 8  # Langvideo: hoechstens so viele Saetze duerfen mit einem Datum beginnen
+_DATUMSSATZ = re.compile(r'(?:^|[.!?]\s+)(?:In|By|On|From|Since|After|Before|Until)\s+(?:early\s+|late\s+|mid-?)?'
+                         r'(?:[A-Z][a-z]+\s+)?(?:\d{1,2},?\s+)?(?:1[89]|20)\d\d\b')
+
+
+def chronik_saetze(teile):
+    """Saetze, die mit einem Datum beginnen ("In 2005, ...", "By early 2000, ...").
+    GEMESSEN 09.10.2026 (Langvideo Netflix, Story 6/10, Spannung 4, Tempo 5): 28 von rund 90
+    Saetzen begannen mit einem Datum, 42 Jahreszahlen auf 1.160 Woerter - eine Chronik,
+    keine Geschichte."""
+    return len(_DATUMSSATZ.findall(' '.join(t.get('text', '') for t in teile)))
 
 
 def akzente(teile, woerter, abschnitte):

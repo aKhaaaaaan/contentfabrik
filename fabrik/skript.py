@@ -562,6 +562,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         # Bis zu drei; danach gilt der Entwurf als durchgefallen.
         zusatz_ = ''
         nachgebessert = False
+        chronik_gemeldet = False
         for versuch in range(4):
             # GEMESSEN 07.10.2026: Gemini-Gratiskontingent ueberlastet/leer -> AI-Skriptphase
             # 1620 s, kein Video an zwei Tagen. Claude (Abo des Nutzers, eigenes Kontingent)
@@ -622,6 +623,17 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 nachgebessert = True
                 print(f'Versuch {versuch + 1}: Loop/Floskel nachbessern ({floskel or schluss[-40:]})')
                 zusatz_ = f'\nYour previous draft used banned phrases {floskel}. Keep everything else.'
+                continue
+            chronik = dramaturgie.chronik_saetze(e['teile']) if lang else 0
+            if lang and chronik > dramaturgie.CHRONIK_MAX and not chronik_gemeldet \
+                    and mindest <= zahl <= hoechstens:
+                chronik_gemeldet = True
+                print(f'Versuch {versuch + 1}: Zeitleiste statt Geschichte ({chronik} Saetze beginnen mit Datum)')
+                zusatz_ = (f'\nYour previous draft reads like a timeline: {chronik} sentences start with a date. '
+                           f'Rewrite it as a story with at most {dramaturgie.CHRONIK_MAX} such sentences: organise '
+                           'chapters around decisions, rivals, risks and consequences; keep every sourced fact, '
+                           'keep the length, keep both engagement requests.\nPREVIOUS DRAFT:\n'
+                           + json.dumps(e, ensure_ascii=False))
                 continue
             if mindest <= zahl <= hoechstens and not zu_wenig and not falsch:
                 return e, m, None

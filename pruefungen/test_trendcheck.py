@@ -122,6 +122,27 @@ class Suchwinkel(unittest.TestCase):
         self.assertEqual(faktor, 6)
 
 
+class VorratReihenfolge(unittest.TestCase):
+    def test_vorrat_schreibt_das_heisseste_thema_zuerst(self):
+        # Alter Stand: Warteschlangen-Reihenfolge (Netflix vor Enron), egal was gerade gefragt ist.
+        import vorrat
+        bericht = {'kandidaten': [{'thema': 'Enron: Aufstieg und Fall', 'punkte': 7.2},
+                                  {'thema': 'Netflix: Wandel', 'punkte': 1.0}]}
+        with patch.object(themen, 'laden', return_value=[dict(x) for x in LISTE]), \
+                patch.object(vorrat, 'eintraege', return_value=[]), \
+                patch.object(trendcheck, 'waehlen', return_value=('Enron: Aufstieg und Fall', bericht)):
+            self.assertEqual(vorrat.offene_themen('business-origin-stories'),
+                             ['Enron: Aufstieg und Fall', 'Netflix: Wandel'])
+
+    def test_ohne_trendcheck_bleibt_die_reihenfolge(self):
+        import vorrat
+        with patch.object(themen, 'laden', return_value=[dict(x) for x in LISTE]), \
+                patch.object(vorrat, 'eintraege', return_value=[]), \
+                patch.object(trendcheck, 'waehlen', side_effect=RuntimeError('Netz weg')):
+            self.assertEqual(vorrat.offene_themen('business-origin-stories'),
+                             ['Netflix: Wandel', 'Enron: Aufstieg und Fall'])
+
+
 class Einbau(unittest.TestCase):
     def test_lauf_nutzt_den_trendcheck(self):
         quelle = (WURZEL / 'fabrik/lauf.py').read_text(encoding='utf-8')

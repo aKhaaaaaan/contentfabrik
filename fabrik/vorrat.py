@@ -114,8 +114,19 @@ def offene_themen(kanal):
     """Naechste Warteschlangen-Themen ohne Vorratsskript (auch spaeter geplante)."""
     import themen
     vorhanden = {e.get('thema_eingabe') for _, e in eintraege(kanal)}
-    return [x['thema'] for x in themen.laden() if x['kanal'] == kanal
-            and x.get('status', 'bereit') == 'bereit' and x['thema'] not in vorhanden]
+    offen = [x['thema'] for x in themen.laden() if x['kanal'] == kanal
+             and x.get('status', 'bereit') == 'bereit' and x['thema'] not in vorhanden]
+    # GEMELDET 09.10.2026: „Themen so sortieren, was aktuell gehypt ist." Der Trend-Check des
+    # Tages (derselbe, den der Videolauf danach aus verlauf/trendcheck/ wiederverwendet) legt
+    # die Reihenfolge fest - das Skript fuer das heisseste Thema liegt morgens schon bereit.
+    try:
+        import trendcheck
+        _, bericht = trendcheck.waehlen(kanal, themen=themen)
+        punkte = {k['thema']: k.get('punkte') or 0 for k in (bericht or {}).get('kandidaten', [])}
+        offen.sort(key=lambda t: -punkte.get(t, 0))
+    except Exception as e:
+        print('Trend-Reihenfolge nicht verfuegbar, Warteschlangen-Reihenfolge:', str(e)[:100])
+    return offen
 
 
 def fuellen(kanal_pfad, frist_s=1500):

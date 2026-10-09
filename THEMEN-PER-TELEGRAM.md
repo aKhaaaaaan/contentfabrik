@@ -139,4 +139,6 @@ Eigene Themen bekommen +1 Punkt Bonus. Unter 1,5 Punkten Trendsignal bleibt ein 
 liegen; dann waehlt der Kanal frei aus aktuellen Trends. Faellt jede Quelle aus, gilt die
 alte Reihenfolge. Suchbegriff: Feld `trend_suche`, sonst `wikipedia`, sonst das Thema.
 Der Grund steht im Telegram-Video („Warum heute") und in `verlauf/trendcheck/`.
-Live-Vorschau: Workflow `themen` manuell starten.
+Live-Vorschau: Workflow `themen` manuell starten. Auch der naechtliche Skript-Vorrat
+(`vorrat.py`) schreibt die Themen in Trend-Reihenfolge; der Videolauf nutzt denselben
+Tagesstand aus `verlauf/trendcheck/`.

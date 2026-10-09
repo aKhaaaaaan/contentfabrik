@@ -19,21 +19,47 @@ MODELLE = ['openai/gpt-oss-120b', 'qwen/qwen3.8-27b']
 GRENZE_ZEICHEN = 14000  # ~3.500 Tokens Quelle + Skript + Antwort < 8.000 Tokens/Minute
 
 
+def _saetze(absatz):
+    return [s for s in re.split(r'(?<=[.!?])\s+(?=[A-Z0-9"(])', absatz.strip()) if s]
+
+
 def auszug(quelle, text, grenze=GRENZE_ZEICHEN):
-    """Die Absaetze der Quelle, die Namen, Zahlen und Woerter mit dem Text teilen -
-    in Originalreihenfolge, bis zur Zeichengrenze."""
+    """Je Satz des Textes der Quellsatz mit den meisten gemeinsamen Namen/Zahlen/Woertern,
+    danach dessen Nachbarsaetze als Kontext - in Originalreihenfolge, bis zur Zeichengrenze.
+
+    GEMESSEN 09.10.2026 (Langvideo Netflix, Run 37945779063): Die alte Auswahl ganzer Absaetze
+    nach Gesamtueberschneidung mit dem 7.000-Zeichen-Skript liess den Absatz mit „Breaking Bad"
+    weg; der Pruefer meldete einen woertlich belegten Satz als „nicht in der Quelle" und sperrte
+    das Video viermal. Bei langen Texten passt jeder Absatz ein bisschen - darum je Satz suchen."""
     if len(quelle) <= grenze:
         return quelle
-    merkmale = lambda s: {w.lower() for w in re.findall(r'\b(?:[A-Z][\w.-]+|\d[\d,.]*)\b', s)}
-    ziel = merkmale(text)
-    absaetze = [a for a in re.split(r'\n+', quelle) if a.strip()]
-    rang = sorted(range(len(absaetze)), key=lambda i: -len(merkmale(absaetze[i]) & ziel))
+    namen = lambda s: {w.lower() for w in re.findall(r'\b(?:[A-Z][\w.-]+|\d[\d,.]*)\b', s)}
+    woerter = lambda s: {w for w in re.findall(r'[a-z]{5,}', s.lower())}
+    absaetze = [_saetze(a) for a in re.split(r'\n+', quelle) if a.strip()]
+    orte = [(a, s) for a, saetze in enumerate(absaetze) for s in range(len(saetze))]
+    merk = [(namen(absaetze[a][s]), woerter(absaetze[a][s])) for a, s in orte]
+    treffer = {}  # Quellsatz-Index -> beste Punktzahl
+    for satz in _saetze(text.replace('\n', ' ')):
+        n, w = namen(satz), woerter(satz)
+        punkte = [3 * len(n & mn) + len(w & mw) for mn, mw in merk]
+        if punkte and max(punkte) >= 3:
+            i = max(range(len(punkte)), key=punkte.__getitem__)
+            treffer[i] = max(treffer.get(i, 0), punkte[i])
     nimm, laenge = set(), 0
-    for i in rang:
-        if laenge + len(absaetze[i]) > grenze:
+    # Erst die Belege (beste zuerst), dann Nachbarsaetze als Kontext.
+    kandidaten = sorted(treffer, key=lambda i: -treffer[i])
+    kandidaten += [j for i in kandidaten for j in (i - 1, i + 1)
+                   if 0 <= j < len(orte) and orte[j][0] == orte[i][0]]
+    for i in kandidaten:
+        a, s = orte[i]
+        if i in nimm or laenge + len(absaetze[a][s]) + 1 > grenze:
             continue
-        nimm.add(i); laenge += len(absaetze[i])
-    return '\n'.join(absaetze[i] for i in sorted(nimm))
+        nimm.add(i); laenge += len(absaetze[a][s]) + 1
+    teile = {}
+    for i in sorted(nimm):
+        a, s = orte[i]
+        teile.setdefault(a, []).append(absaetze[a][s])
+    return '\n'.join(' '.join(saetze) for saetze in teile.values())
 
 
 def pruefen(text, quelle, art='YouTube Short script'):

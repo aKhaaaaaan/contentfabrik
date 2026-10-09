@@ -45,5 +45,28 @@ class LetzterVersuch(unittest.TestCase):
         self.assertIn("kanal_slug, False, False,", quelle[neu:neu + 400])  # ohne Kanalfigur
 
 
+class Vollbild(unittest.TestCase):
+    def test_langvideo_illustration_fuellt_den_bildschirm(self):
+        # Nutzer 09.10. zum Netflix-Langvideo: Bilder zu klein, halber Bildschirm leer, fremder
+        # unscharfer Hintergrund. Alter Stand: Querformat-Illustration als Karte auf hintergrund_holen().
+        quelle = (WURZEL / 'fabrik/bauen.py').read_text(encoding='utf-8')
+        # Nutzerwunsch: Motiv gross, dahinter DASSELBE Bild verschwommen (nicht hintergrund_holen()).
+        stelle = quelle.index('            if ill and B > H:')
+        block = quelle[stelle:stelle + 300]
+        self.assertIn("karten_ebene(ill, kasten='gross')", block)
+        self.assertIn('karten_filter(ill, ebene, kpfad)', block)
+        self.assertNotIn('hintergrund_holen', block)
+
+    def test_grosser_kasten_fuellt_mindestens_drei_viertel_der_breite(self):
+        import bauen
+        bauen.format_setzen('lang')
+        try:
+            x1, y1, x2, y2 = bauen.LAYOUT['gross']
+            self.assertGreaterEqual((x2 - x1) / bauen.B, 0.75)
+            self.assertAlmostEqual((x1 + x2) / 2, bauen.B / 2)  # mittig, keine leere Haelfte
+        finally:
+            bauen.format_setzen('short')
+
+
 if __name__ == '__main__':
     unittest.main()

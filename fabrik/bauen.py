@@ -48,12 +48,16 @@ def format_setzen(art='short'):
     LAYOUT.update({'links': 80, 'rechts': 1840, 'mitte': 960, 'titel_y': 46,
                    'titel_font': 56, 'progress_y': 220, 'platz_y': 255, 'name_y': 355,
                    'karte': (80, 420, 1320, 840), 'foto': (80, 220, 1320, 840),
+                   # GEMELDET 09.10.2026: Motiv gross und mittig (80 % Breite, 16:9) statt links
+                   # in 1240x620 mit leerer rechter Haelfte.
+                   'gross': (192, 108, 1728, 972),
                    'akzent_y': 540, 'akzent_x': 1610, 'akzent_breite': 420,
                    'untertitel_y': 965, 'mini': (80, 270, 500, 405)}
                   if art == 'lang' else
                   {'links': 72, 'rechts': 900, 'mitte': 486, 'titel_y': 190,
                    'titel_font': 72, 'progress_y': 414, 'platz_y': 455, 'name_y': 605,
                    'karte': (72, 700, 900, 1180), 'foto': (48, 260, 960, 1180),
+                   'gross': (48, 260, 960, 1180),
                    'akzent_y': 1250, 'untertitel_y': 1420, 'mini': (72, 480, 492, 650)})
 
 
@@ -386,7 +390,8 @@ def bild_rgb(im):
 def karten_ebene(karte, kasten=None):
     """Die Karte allein (abgerundet, mit Schatten) auf durchsichtigem Bild."""
     k = bild_rgb(Image.open(karte))
-    x, y, w, h = einpassen(k.size, LAYOUT['foto'] if kasten else LAYOUT['karte'])
+    x, y, w, h = einpassen(k.size, LAYOUT['gross'] if kasten == 'gross' else
+                           LAYOUT['foto'] if kasten else LAYOUT['karte'])
     k = k.resize((w, h), Image.LANCZOS)
     img = Image.new('RGBA', (B, H), (0, 0, 0, 0))
     schatten = Image.new('RGBA', (B, H), (0, 0, 0, 0))
@@ -1567,11 +1572,14 @@ def main(skript_pfad, aus, vorlage=None):
                     im = im.convert('RGBA')
                 schrift_text(im, (LAYOUT['links'], H * .12), 'MODEL CARD EXAMPLE', schrift(28), (210, 210, 210))
                 im.save(ebene)
+            # GEMELDET 09.10.2026 (Netflix-Langvideo): „Die meisten Bilder sind zu klein, die Haelfte
+            # des Bildschirms leer“ - jede Illustration lag links in 1240x620 auf einem FREMDEN
+            # unscharfen Hintergrundclip. Nutzerwunsch: das Motiv gross zeigen, dahinter DASSELBE Bild
+            # verschwommen (wie in den ersten Videos). Short: weiter Vollbild mit Zoom.
             if ill and B > H:
                 kpfad = aus / f'karte_{i:02d}.png'
-                karten_ebene(ill, kasten=True).save(kpfad)
-                hg_clip = hg_clip or hintergrund_holen(s, schon, dauer, quellen, aus)
-                ein, filt = karten_filter(hg_clip, ebene, kpfad)
+                karten_ebene(ill, kasten='gross').save(kpfad)
+                ein, filt = karten_filter(ill, ebene, kpfad)
             elif ill:
                 n = max(1, int(dauer * FPS))
                 filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,'
@@ -1581,7 +1589,7 @@ def main(skript_pfad, aus, vorlage=None):
             elif foto:
                 quellen.append(fq)
                 kpfad = aus / f'karte_{i:02d}.png'
-                karten_ebene(foto, kasten=True).save(kpfad)
+                karten_ebene(foto, kasten='gross' if B > H else True).save(kpfad)
                 ein, filt = karten_filter(foto, ebene, kpfad)
             elif karte:
                 kpfad = None

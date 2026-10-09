@@ -158,7 +158,10 @@ def _gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=()
                         print('KI-Pruefcache konnte nicht gespeichert werden; Ergebnis bleibt frisch geprueft')
                 return ergebnis, modell
             except Exception as e:  # Kontingent/Netz: kurz warten, dann naechster Versuch
-                print(f'KI-Anfrage fehlgeschlagen: {modell}; {type(e).__name__}', flush=True)
+                # HTTP-Code mitloggen (09.10.2026: 20x nur „HTTPError" - Kontingent, Ueberlast und
+                # falsche Anfrage waren im Log nicht zu unterscheiden). Nie den Antworttext loggen.
+                print(f'KI-Anfrage fehlgeschlagen: {modell}; {type(e).__name__}'
+                      + (f' {e.code}' if isinstance(e, urllib.error.HTTPError) else ''), flush=True)
                 # Kein roher API-Fehler: URLs/Antworttexte koennen Zugangsdaten enthalten.
                 letzter = f'{modell}: {type(e).__name__}'
                 if isinstance(e, TimeoutError):

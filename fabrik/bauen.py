@@ -1409,9 +1409,13 @@ def main(skript_pfad, aus, vorlage=None):
                     # Aufnahmen, die Korrektur plante 'demo' - das Repo hatte keine Beispielbilder,
                     # der Bau brach ab. Dann die echte Quellseite als Karte zeigen (authentisch).
                     karte = karte_fuer(t.get('quelle_url'))
-                    if not karte:
-                        raise ValueError(f'Phase {shot["phase"]}: kein echtes Tool-Beispiel fuer {t.get("quelle_url")}')
-                    print(f'Einstellung {i}: kein Tool-Beispielbild - echte Quellseite als Karte')
+                    if karte:
+                        print(f'Einstellung {i}: kein Tool-Beispielbild - echte Quellseite als Karte')
+                    else:
+                        # Preis-/Herstellerseite statt GitHub (Themen mit festen Quellen, 09.10.2026):
+                        # keine Karte moeglich - gemalte Szene statt Abbruch des ganzen Baus.
+                        print(f'Einstellung {i}: weder Beispielbild noch Karte - gemalte Szene')
+                        modus = 'illustration'
             # GEMELDET: „wirkt langweilig und eiskalt" - Illustrationen im Spiel-Plakat-Stil
             # (fabrik/illustration.py): die Kanalfigur im Einstieg und am Schluss; sonst eine
             # Szene nur dort, wo kein echtes Foto passt - echte Fotos bleiben fuer Fakten.

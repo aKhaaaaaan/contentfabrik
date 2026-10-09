@@ -63,6 +63,16 @@ def skript(kanal, thema, frueher, blick, woerter):
                   'Manufacturer examples are documentation examples, not our own tests. Avoid claims '
                   'of free access, commercial licensing, speed or superiority unless explicitly sourced. '
                   'Do not present an unrelated example as an actual output of the named tool.')
+    elif kanal.get('_themenquellen'):
+        # Faktencheck-Thema mit festen Quellen (09.10.2026): mehrere Werkzeuge, Preise/Grenzen
+        # sind hier ausdruecklich belegt und duerfen genannt werden - nur exakt wie in der Quelle.
+        aufbau = (('24-50 unranked visual beats' if lang else '8-10 short unranked visual beats')
+                  + ': open on the promise viewers keep hearing ("free AI tools"), then check each '
+                    'tool in the SOURCES: what is really free, the exact documented limit or price, '
+                    'and what that means for a creator. Use only numbers exactly as sourced, say the '
+                    'check date once, and do not claim we tested the tools. Fair tone: name what is '
+                    'genuinely free too; no mocking other creators. End with one practical rule the '
+                    'viewer can apply. Omit platz; no countdown.')
     elif kanal.get('format') == 'erklaerung':
         aufbau = (('24-50 unranked visual beats' if lang else '8-10 short unranked visual beats')
                   + ': one concrete everyday problem, one documented tool, clear steps, supported '

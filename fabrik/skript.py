@@ -262,7 +262,15 @@ def hinweise(kanal, thema):
         if gefragt:
             text += ('\nToday\'s Google search trends (US). Only use one if it fits this niche naturally, otherwise ignore:\n- '
                      + '\n- '.join(gefragt[:12]) + '\n')
-    if kanal.get('nur_quellen'):
+    if kanal.get('_themenquellen'):
+        # Nutzerthema mit fest hinterlegten, datierten Quellen (themen/warteschlange.json, Feld
+        # quellen) - z. B. Preisseiten fuer einen Faktencheck. Ersetzt die GitHub-/HF-Suche,
+        # die zu so einem Thema nichts Passendes liefert; ohne Rangliste.
+        quellen = [dict(q) for q in kanal['_themenquellen']]
+        text += ('\nSOURCES checked by the editor (date in each entry). Every factual claim MUST come from '
+                 'these sources; mention nothing that is not in them:\n'
+                 + '\n'.join(f"- [{q['quelle']}] {q['name']} ({q['url']}): {q['text']}" for q in quellen) + '\n')
+    elif kanal.get('nur_quellen'):
         # GEMESSEN: Ohne aktuelle Quellen fiel „Top 5 AI Video Tools" zweimal
         # durch die Faktenpruefung (veraltetes Wissen). Darum nur Belegtes.
         sp = trends.schwerpunkt(kanal)
@@ -471,6 +479,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
     if vorgabe.get('idee_original'):
         kanal['_themenauftrag'] = {'idee': vorgabe['idee_original'],
                                   'rechercheauftrag': vorgabe.get('rechercheauftrag', '')}
+    if vorgabe.get('quellen'):
+        kanal['_themenquellen'] = vorgabe['quellen']
     if vorgabe.get('nutzerskript'):
         kanal['_nutzerskript'] = vorgabe['nutzerskript']
     # GEMELDET: aus den Videos lernen, die wirklich liefen (Aufrufe, Zuschauerbindung)

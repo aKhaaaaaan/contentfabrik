@@ -38,5 +38,14 @@ class Chronik(unittest.TestCase):
         self.assertIn('dramaturgie.chronik_saetze(e[', quelle)
 
 
+    def test_schlusspruefung_verlangt_keine_chronologie(self):
+        # Alter Prompt: "unranked chronological or causal structure" - lud zur Zeitleiste ein.
+        import prompts
+        kanal = {'name': 'Business Origin Stories', 'format': 'geschichte', 'videoformat': 'lang'}
+        text = prompts.skript(kanal, 'Netflix', '', '', '1000-1200')
+        self.assertNotIn('chronological or causal', text)
+        self.assertIn('not a year-by-year chronology', text)
+
+
 if __name__ == '__main__':
     unittest.main()

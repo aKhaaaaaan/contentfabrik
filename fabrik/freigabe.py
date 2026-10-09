@@ -202,7 +202,7 @@ def senden(skript_pfad, video_pfad):
     print('Telegram-Video bestaetigt; message_id:', message_id)
     if message_id is not None:
         try:  # Zuordnung fuer Knoepfe/Antworten; darf den gelieferten Versand nicht kippen
-            bewertung.video_merken(message_id, sha, skript)
+            bewertung.video_merken(message_id, sha, skript, kritik)
         except (OSError, ValueError) as e:
             print('Video-Zuordnung fuer Bewertung nicht gespeichert:', str(e)[:120])
     # 2. Die Texte einzeln - antippen kopiert sie (Monospace-Format in Telegram)

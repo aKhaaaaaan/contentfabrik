@@ -96,6 +96,33 @@ def schema_ok(wert, schema):
     return 'enum' not in schema or wert in schema['enum']
 
 
+def bereinigen(wert, schema, pfad='', entfernt=None):
+    """Optionale Felder mit falschem Typ/Wert entfernen (rekursiv), Pflichtfelder nie.
+    GEMESSEN 09.10.2026 (Langvideo-Pilot 37945779063): Claudes ganzes Skript fiel durch die
+    Schemapruefung und Claude wurde fuer den Lauf gesperrt - wegen eines Nebenfelds.
+    Gibt (bereinigter_wert, [entfernte Pfade]) zurueck; der Aufrufer prueft danach schema_ok."""
+    entfernt = [] if entfernt is None else entfernt
+    art = schema.get('type', '').upper()
+    if art == 'OBJECT' and isinstance(wert, dict):
+        pflicht = set(schema.get('required', []))
+        aus = {}
+        for k, v in wert.items():
+            s = schema.get('properties', {}).get(k)
+            if s is None:
+                aus[k] = v
+                continue
+            v, _ = bereinigen(v, s, f'{pfad}.{k}', entfernt)
+            if k in pflicht or schema_ok(v, s):
+                aus[k] = v
+            else:
+                entfernt.append(f'{pfad}.{k}={str(v)[:30]}')
+        return aus, entfernt
+    if art == 'ARRAY' and isinstance(wert, list):
+        return [bereinigen(x, schema.get('items', {}), f'{pfad}[{i}]', entfernt)[0]
+                for i, x in enumerate(wert)], entfernt
+    return wert, entfernt
+
+
 def cache_key(prompt, schema, modelle, temperatur, zweck, medien=None):
     return hashwert({'version': VERSION, 'prompt': prompt, 'schema': schema,
                     'modelle': modelle, 'temperatur': temperatur, 'zweck': zweck, 'medien': medien})

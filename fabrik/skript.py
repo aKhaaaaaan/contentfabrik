@@ -42,12 +42,14 @@ import atexit  # noqa: E402
 atexit.register(_verbrauch_melden)
 
 
-def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(), cache=None, fallback_prompt=None):
+def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(), cache=None, fallback_prompt=None,
+           antwort_s=45):
     """Text darf im Tageslauf ausweichen; Medien bleiben beim echten Vision-Modell."""
-    kwargs = dict(temperatur=temperatur, bilder=bilder, modelle=modelle, dateien=dateien, cache=cache)
+    kwargs = dict(temperatur=temperatur, bilder=bilder, modelle=modelle, dateien=dateien, cache=cache,
+                  antwort_s=antwort_s)
     fallback = os.environ.get('CF_TEXT_FALLBACK') == 'groq' and not bilder and not dateien
     try:
-        return _gemini(prompt, schema, **kwargs, anfrage_s=12 if fallback else 180)
+        return _gemini(prompt, schema, **kwargs, anfrage_s=12 if fallback else max(180, 3 * antwort_s))
     except RuntimeError as e:
         if not fallback or 'abgelehnt' in str(e):
             raise
@@ -73,6 +75,7 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(),
         antwort, _, _ = av.groq(prompt, schema, ausgabe_tokens=ausgabe, deadline=ende)
     except (RuntimeError, ValueError, OSError) as e:
         raise RuntimeError('Text-Ausweichweg nicht verfuegbar: ' + av.fehlertext(e)) from None
+    antwort, _ = ki_speicher.bereinigen(antwort, schema)  # falsche Nebenfelder kosten nicht die Antwort
     if not ki_speicher.schema_ok(antwort, schema):
         raise RuntimeError('Text-Ausweichweg lieferte kein vollstaendiges Schema')
     if key:
@@ -83,7 +86,8 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(),
     return antwort, modell
 
 
-def _gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(), cache=None, anfrage_s=180):
+def _gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(), cache=None, anfrage_s=180,
+            antwort_s=45):
     """bilder: JPEG-Bytes, die die KI mit ansieht (Clip-Auswahl in bauen.py).
     modelle: eigene Reihenfolge, z. B. das schnelle Lite-Modell zuerst."""
     import base64
@@ -133,7 +137,7 @@ def _gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=()
                 req = urllib.request.Request(
                     f'https://generativelanguage.googleapis.com/v1beta/models/{modell}:generateContent?key={schluessel}',
                     data=json.dumps(koerper).encode(), headers={'Content-Type': 'application/json'})
-                d = json.load(urllib.request.urlopen(req, timeout=min(45, rest)))
+                d = json.load(urllib.request.urlopen(req, timeout=min(antwort_s, rest)))
                 # GEMELDET: „In der Pipeline sparsam mit Tokens sein" - erst messen:
                 # Anfragen und Tokens je Modell, Ausgabe am Ende jedes Laufs.
                 n = d.get('usageMetadata', {})
@@ -144,7 +148,7 @@ def _gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=()
                     raise ValueError('KI-Antwort unvollstaendig oder gesperrt')
                 # Thought-Parts sind kein JSON-Pruefresultat.
                 text = ''.join(p.get('text', '') for p in kandidat['content']['parts'] if not p.get('thought'))
-                ergebnis = json.loads(text)
+                ergebnis, _ = ki_speicher.bereinigen(json.loads(text), schema)
                 if not ki_speicher.schema_ok(ergebnis, schema):
                     raise ValueError('KI-Antwort entspricht nicht dem erforderlichen Schema')
                 if key:
@@ -567,15 +571,23 @@ def main(kanal_pfad, aus_pfad, thema=None):
             if claude_ki.verfuegbar():
                 rest = float(os.environ.get('CF_SCHRITT_ENDE', 'inf')) - time.monotonic()
                 e, m = claude_ki.schreiben(auftrag + zusatz_, SKRIPT_SCHEMA, zeit=int(max(60, min(240, rest - 30))))
+                if e is not None:
+                    e, entfernt = ki_speicher.bereinigen(e, SKRIPT_SCHEMA)
+                    if entfernt:
+                        print('Claude-Skript: ungueltige Nebenfelder entfernt:', '; '.join(entfernt[:8]), flush=True)
                 if e is None or not ki_speicher.schema_ok(e, SKRIPT_SCHEMA):
                     if e is not None:
-                        claude_ki.sperren('Antwort passt nicht zum Schema')
+                        fehlt = [k for k in SKRIPT_SCHEMA['required'] if k not in e] if isinstance(e, dict) else []
+                        m = f'Antwort passt nicht zum Schema (fehlt/falsch: {fehlt or "Pflichtfeld-Typ"})'
+                        claude_ki.sperren(m)
                     print('Claude-Autor nicht nutzbar, weiter mit Gemini/Groq:', str(m)[:160], flush=True)
                     e = None
                 else:
                     m = 'claude:' + m
             if e is None:
-                e, m = gemini(auftrag + zusatz_, SKRIPT_SCHEMA,
+                # GEMESSEN 09.10.2026 (Langvideo-Pilot): 45 s je Antwort reichen fuer ~1.200 Woerter
+                # JSON nicht - 3.8-flash/3.5-flash liefen jedes Mal in TimeoutError. Langvideo: 150 s.
+                e, m = gemini(auftrag + zusatz_, SKRIPT_SCHEMA, antwort_s=150 if lang else 45,
                              fallback_prompt=groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens) + zusatz_)
             ranking = kanal.get('format', 'ranking') == 'ranking'
             if not ranking:

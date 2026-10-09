@@ -68,6 +68,12 @@ def auftrag(daten):
                 'Set name to a short useful chapter heading when a chapter begins. Move from '
                 'orientation to complication, deeper understanding and the full central answer. '
                 'Use occasional concise recaps only at transitions where they aid understanding. '
+                # RECHERCHE 09.10.2026 (outlierkit.com, faceless growth 2026): erfolgreiche Kanaele ohne
+                # Gesicht holen den Zuschauer alle 30-60 s neu ab - Frage-Schleife, Bildwechsel, offener
+                # Erzaehlfaden. Hier als ehrliche, belegte Re-Hooks, nicht als leeres Teasing.
+                'RE-HOOK about every 40-60 seconds of narration (roughly every 90-130 words): open a new '
+                'concrete question, reveal a sourced surprising detail, or raise real stakes that the next '
+                'beats answer. Each re-hook must be paid off later in the video. '
                 'End after the delivered conclusion; no long outro. Do not apply relentless '
                 'Shorts-style speed or cliffhangers to every sentence.')
     return (gemeinsam + 'SHORT FORM: The first frame must already show the subject or the problem. '

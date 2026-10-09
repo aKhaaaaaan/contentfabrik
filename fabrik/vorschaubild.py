@@ -230,28 +230,35 @@ def logo_tafel(logo, wortmarke, max_b, max_h):
     return tafel
 
 
-def zusammensetzen(grund, skript, ziel, logo=None, weich=False):
+def zusammensetzen(grund, skript, ziel, logo=None, weich=False, variante='a'):
+    """variante a: Logo links + Text rechts; b: nur Logo gross mittig; c: Text links + Logo rechts."""
     with Image.open(grund) as im:
         im = _passend(im)
     if weich:
         # Ersatz aus dem Video (oft mit Kanalfigur): weichgezeichnet, damit Logo und Thema vorn stehen
         from PIL import ImageFilter
         im = im.filter(ImageFilter.GaussianBlur(9))
-    # leicht abdunkeln, rechts staerker - Logo und wenige Woerter springen heraus
+    # leicht abdunkeln, auf der Textseite staerker - Logo und wenige Woerter springen heraus
     schatten = Image.new('L', (B, H), 60)
     d = ImageDraw.Draw(schatten)
     for x in range(int(B * .55), B):
-        d.line([(x, 0), (x, H)], fill=int(60 + 150 * (x - B * .55) / (B * .45)))
+        staerke = int(60 + 150 * (x - B * .55) / (B * .45))
+        spalte = B - 1 - x if variante == 'c' else x  # bei c liegt der Text links
+        d.line([(spalte, 0), (spalte, H)], fill=staerke)
     im = Image.composite(Image.new('RGB', (B, H), (8, 8, 12)), im, schatten).convert('RGBA')
-    woerter_ = text(skript)
+    woerter_ = [] if variante == 'b' else text(skript)
     if not woerter_:  # nur das Logo - gross und mittig
         tafel = logo_tafel(logo, name(skript) or skript.get('thema', ''), int(B * .74), int(H * .66))
         im.alpha_composite(tafel, ((B - tafel.width) // 2, (H - tafel.height) // 2))
         return _speichern(im, ziel)
     tafel = logo_tafel(logo, name(skript) or skript.get('thema', ''), int(B * .56), int(H * .62))
-    im.alpha_composite(tafel, (48, (H - tafel.height) // 2))
-    links = 48 + tafel.width + 36
-    breite = B - links - 36
+    breite = B - tafel.width - 48 - 36 - 36
+    if variante == 'c':
+        im.alpha_composite(tafel, (B - 48 - tafel.width, (H - tafel.height) // 2))
+        links = 36
+    else:
+        im.alpha_composite(tafel, (48, (H - tafel.height) // 2))
+        links = 48 + tafel.width + 36
     zeile_h = min(int(H * .30), int((H - 80) / max(1, len(woerter_))))
     schriften = [_schrift(w, breite, zeile_h) for w, _ in woerter_]
     groesse = min((f.size for f in schriften), default=40)
@@ -300,7 +307,23 @@ def erstellen(skript_pfad, ziel):
         return None
     logo = logo_bild(skript)
     print('Vorschaubild-Logo:', 'echtes Logo' if logo else 'Wortmarke', '-', name(skript))
-    return zusammensetzen(grund, skript, ziel, logo, weich)
+    erstes = zusammensetzen(grund, skript, ziel, logo, weich)
+    # RECHERCHE 09.10.2026 (thumbnailtest.com/vidanalyze.com): YouTube Studio „Test & Compare" testet
+    # bis zu 3 Vorschaubilder kostenlos und waehlt nach Wiedergabezeit. Zwei Varianten aus demselben
+    # Material - keine weitere Bilderzeugung.
+    for v in ('b', 'c'):
+        try:
+            zusammensetzen(grund, skript, ziel.with_name(f'{ziel.stem}_{v}{ziel.suffix}'), logo, weich, v)
+        except Exception as e:
+            print(f'Vorschaubild-Variante {v} nicht erstellt:', str(e)[:80])
+    return erstes
+
+
+def varianten(ziel):
+    """Pfade aller vorhandenen Vorschaubilder (A, B, C)."""
+    ziel = Path(ziel)
+    return [p for p in (ziel, ziel.with_name(f'{ziel.stem}_b{ziel.suffix}'),
+                        ziel.with_name(f'{ziel.stem}_c{ziel.suffix}')) if p.exists()]
 
 
 if __name__ == '__main__':

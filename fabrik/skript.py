@@ -242,6 +242,12 @@ def hinweise(kanal, thema):
     ausfallen; dann schreibt die KI ohne sie."""
     import trends
     text, quellen = '', []
+    try:  # Zuschauerwuensche aus Kommentaren der Nische (kommentare.py, 7 Tage gueltig)
+        import kommentare
+        slug = re.sub(r'[^a-z0-9]+', '-', str(kanal.get('name', '')).lower()).strip('-')
+        text += kommentare.auftrag(kommentare.wuensche(slug, kanal))
+    except Exception as e:
+        print('Zuschauerwuensche uebersprungen:', type(e).__name__)
     if not thema:
         vorbilder = trends.youtube_ausreisser(kanal.get('trend_suche', []))
         if vorbilder:

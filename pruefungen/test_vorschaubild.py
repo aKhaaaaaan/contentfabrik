@@ -52,6 +52,9 @@ class Vorschaubild(unittest.TestCase):
                 blau = sum(1 for p in im.getdata() if p[2] > 90 and p[0] < 40 and p[1] < 70)
             self.assertLessEqual(pfad.stat().st_size, 2 * 1024 * 1024)
             self.assertGreater(blau / (1280 * 720), .15, 'Logo nimmt mindestens 15 % der Flaeche ein')
+            # drei Varianten fuer YouTube „Test & Compare" (Recherche 09.10.2026)
+            self.assertEqual([p.name for p in vorschaubild.varianten(pfad)],
+                             ['thumbnail.jpg', 'thumbnail_b.jpg', 'thumbnail_c.jpg'])
 
     def test_lauf_erstellt_es_nur_fuer_langvideo(self):
         quelle = (Path(__file__).resolve().parents[1] / 'fabrik/lauf.py').read_text(encoding='utf-8')
@@ -112,6 +115,32 @@ class Haende(unittest.TestCase):
             ergebnis = illustration.pruefen(b'bild', 'szene', ref)
         self.assertFalse(ergebnis['ok'])
         self.assertIn('3 Haende', ergebnis['grund'])
+
+
+
+class Kommentare(unittest.TestCase):
+    """Zuschauerwuensche aus Kommentaren (Nutzerauftrag 09.10.2026) - nur Muster, nie Zitate."""
+    def test_auftrag_und_speicher(self):
+        import datetime
+        import kommentare
+        with tempfile.TemporaryDirectory() as d, patch.object(kommentare, 'ORDNER', Path(d)):
+            muster = {'gefiel': ['comebacks'], 'fehlte': ['more on failures'], 'fragen': ['how to start small']}
+            with patch.dict(os.environ, {'YOUTUBE_API_KEY': 'k'}),                     patch('trends.youtube_ausreisser', return_value=[{'id': 'v1', 'titel': 'T'}]),                     patch('kommentare.kommentare', return_value=['great story']) as hol,                     patch('kommentare.auswerten', return_value=muster):
+                self.assertEqual(kommentare.wuensche('b', {'trend_suche': ['x']}), muster)
+                kommentare.wuensche('b', {'trend_suche': ['x']})  # zweiter Aufruf: aus dem Speicher
+            self.assertEqual(hol.call_count, 1)
+            spaeter = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(days=8)
+            with patch.dict(os.environ, {}, clear=True):
+                self.assertIsNone(kommentare.wuensche('b', {'trend_suche': ['x']}, spaeter))
+        text = kommentare.auftrag(muster)
+        self.assertIn('AUDIENCE INSIGHTS', text)
+        self.assertIn('never copy', text)
+        self.assertEqual(kommentare.auftrag(None), '')
+
+    def test_langvideo_mit_re_hooks(self):
+        import dramaturgie
+        self.assertIn('RE-HOOK', dramaturgie.auftrag({'videoformat': 'lang'}))
+        self.assertNotIn('RE-HOOK', dramaturgie.auftrag({'videoformat': 'short'}))
 
 
 if __name__ == '__main__':

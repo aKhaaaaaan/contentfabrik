@@ -108,14 +108,15 @@ def planungszeit(uhrzeit_ny, jetzt=None):
     return f"{tage[b.weekday()]} {b:%d.%m.} {b:%H:%M} Uhr Berlin (= {termin:%H:%M} New York)"
 
 
-def vorschaubild_senden(chat, pfad):
+def vorschaubild_senden(chat, pfad, variante='A'):
     """Langvideo: Vorschaubild als DATEI (volle Qualitaet, 1280x720) - Telegram-Fotos werden
     verkleinert. Darf den bereits gelieferten Versand nie kippen."""
     if not pfad.exists():
         return False
     try:
-        telegram('sendDocument', {'chat_id': chat, 'caption': 'Vorschaubild fuer YouTube (1280x720) - '
-                                  'beim Hochladen unter „Thumbnail" einsetzen.'},
+        # Drei Varianten fuer YouTube Studio „Test & Compare" (bis zu 3, kostenlos, gewinnt nach Wiedergabezeit)
+        telegram('sendDocument', {'chat_id': chat, 'caption': f'Vorschaubild {variante} fuer YouTube (1280x720). '
+                                  'A als Thumbnail einsetzen; A, B und C unter „Test & Compare" testen.'},
                  (pfad.name, pfad.read_bytes()), feld='document', typ='image/jpeg')
         return True
     except (RuntimeError, OSError) as e:
@@ -220,7 +221,9 @@ def senden(skript_pfad, video_pfad):
     kopieren_senden(chat, 'YouTube-Titel', titel if lang else f'{titel} #shorts')
     kopieren_senden(chat, 'YouTube-Beschreibung', f"{skript['beschreibung']}\n\n{tags}")
     if lang:
-        vorschaubild_senden(chat, Path(skript_pfad).with_name('thumbnail.jpg'))
+        basis = Path(skript_pfad).with_name('thumbnail.jpg')
+        for v, pfad in zip('ABC', [basis, basis.with_name('thumbnail_b.jpg'), basis.with_name('thumbnail_c.jpg')]):
+            vorschaubild_senden(chat, pfad, v)
         print('Gesendet:', antwort.get('ok'))
         return
     # 3. TikTok von Hand - eigene Nachricht, damit die Texte nicht an Telegrams

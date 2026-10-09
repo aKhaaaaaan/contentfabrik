@@ -34,5 +34,16 @@ class Ersatzzaehlung(unittest.TestCase):
         self.assertIn('ersatz0 = bild_ersatz', quelle)
 
 
+class LetzterVersuch(unittest.TestCase):
+    def test_vereinfachte_szene_vor_dem_ersatzbild(self):
+        # Netflix-Langvideo 09.10.: 3 Bauabbrueche; mit korrekt gezaehlten Ersatzbildern waere das
+        # Video gescheitert. Erst ein vereinfachter Versuch, dann Ersatzbild.
+        quelle = (WURZEL / 'fabrik/bauen.py').read_text(encoding='utf-8')
+        neu = quelle.index("einfach = ('One clear subject in a calm, simple composition")
+        ersatz = quelle.index('if not material and bild_ersatz < ersatz_max:')
+        self.assertLess(neu, ersatz)
+        self.assertIn("kanal_slug, False, False,", quelle[neu:neu + 400])  # ohne Kanalfigur
+
+
 if __name__ == '__main__':
     unittest.main()

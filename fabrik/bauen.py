@@ -1502,6 +1502,18 @@ def main(skript_pfad, aus, vorlage=None):
                 ill = illustration_mit_ausweg(szene, aus / f'ill_{i:02d}.jpg', kanal_slug,
                                               t.get('figur', i == 0 or letzt), i == 0 or letzt,
                                               dramaturgie.videoformat(s))
+                if not ill and not illustration.KONTINGENT_LEER.exists():
+                    # GEMESSEN 09.10.2026 (Langvideo Netflix, 94 Einstellungen): 3 Bauabbrueche, weil
+                    # Bilder scheiterten - meist Cloudflare „output flagged" (Zufall) oder Figur-Pose.
+                    # Bisher rettete nur der falsch zurueckgesetzte Ersatzzaehler das Video. Jetzt ein
+                    # letzter Versuch mit vereinfachter Szene ohne Kanalfigur, bevor ein Ersatzbild kommt.
+                    einfach = ('One clear subject in a calm, simple composition, no close-up faces: '
+                               + str(t.get('motiv') or t.get('suche') or '') + '. ' + szene[:240])
+                    ill = illustration_mit_ausweg(einfach, aus / f'ill_{i:02d}.jpg', kanal_slug, False, False,
+                                                  dramaturgie.videoformat(s))
+                    if ill:
+                        zeiten['bilder_vereinfacht'] = zeiten.get('bilder_vereinfacht', 0) + 1
+                        print(f'Einstellung {i}: vereinfachte Szene bestanden')
                 if ill:
                     karte, foto = None, None
                     quellen.append({'quelle': 'Illustration', 'seite': 'KI-generiert (Cloudflare Workers AI, FLUX)'})

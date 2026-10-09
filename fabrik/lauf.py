@@ -39,6 +39,32 @@ def start_moeglich(kanal, thema=''):
     return entwurf_cache.laden(kanal, f'kanaele/{kanal}.json', thema or themen.nehmen(kanal)) is not None
 
 
+def aus_fehlern_lernen(kanal, runden, deadline):
+    """Auch ein Lauf OHNE Video lehrt etwas (Nutzerauftrag 09.10.2026: „selber daraus lernen, was
+    er falsch gemacht hat"). Vorher lernte nur ein fertig gebautes und bewertetes Video; die meisten
+    Fehlschlaege (Faktenpruefung, Story-Note, Skriptqualitaet) gingen spurlos verloren.
+    Baufehler sind Technik, keine Schreibregel - die bleiben im Verlauf (grund), nicht im Regelbuch."""
+    probleme = []
+    for r in runden:
+        probleme += [{'zeit': '-', 'art': 'fakten', 'text': str(x)[:300]} for x in r.get('skript_probleme') or []]
+        probleme += [{'zeit': '-', 'art': 'story', 'text': str(x)[:300]} for x in r.get('story_schwaechen') or []]
+        probleme += [{'zeit': '-', 'art': 'skript', 'text': str(x)[:300]} for x in r.get('sperrgruende') or []]
+    probleme = list({p['text']: p for p in probleme}.values())[:15]
+    if not probleme:
+        return False
+    try:
+        lp = Path('ausgabe-lernen') / f'{kanal}.json'
+        lp.parent.mkdir(exist_ok=True)
+        lp.write_text(json.dumps({'probleme': probleme, 'kategorien': {}}, ensure_ascii=False), encoding='utf-8')
+        if schritt(['fabrik/lernen.py', kanal, str(lp)], deadline):
+            print('Lernen aus Fehlschlaegen fehlgeschlagen')
+            return False
+        return True
+    except Exception as e:  # Lernen darf nie den Lauf kippen
+        print('Lernen aus Fehlschlaegen nicht moeglich:', type(e).__name__)
+        return False
+
+
 def melden(text):
     if os.environ.get('CF_PILOT') == '1' or os.environ.get('CF_WORKFLOW_STATUS') == '1':
         print(text)
@@ -260,6 +286,8 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                     abgelehnt = json.loads((ordner / 'skript.json').read_text(encoding='utf-8'))
                     runde.update(sperrgruende=skript_gruende(abgelehnt),
                                  story_note=(abgelehnt.get('story') or {}).get('note'),
+                                 story_schwaechen=[str(w)[:300] for w in
+                                                   ((abgelehnt.get('story') or {}).get('schwaechen') or [])[:5]],
                                  skript_probleme=abgelehnt.get('pruefung', {}).get('probleme', []))
                     verlauf_eintragen(kanal, abgelehnt,
                                       'faktenpruefung' if r == 2 else 'skriptqualitaet' if r == 3 else 'skriptfehler', None,
@@ -407,6 +435,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             aus = Path('ausgabe')
             shutil.rmtree(aus, ignore_errors=True)
             shutil.copytree(ordner, aus)
+        aus_fehlern_lernen(kanal, bericht['runden'], min(start + frei, time.monotonic() + 90))
         melden(f'🔁 {kanal}: noch kein freigabefaehiges Video. Grund: {letzter_grund}. '
                'Weitere Zeitfenster versuchen es nur, solange Tagesbudget uebrig ist.')
         protokoll('gesperrt')

@@ -1,5 +1,8 @@
 # YouTube-API-Prüfantrag (Audit) – fertige Antworten (Stand 03.10.2026)
 
+> Hinweis 09.10.2026: Die Dateien unter `antrag/` liegen nur noch lokal beim Nutzer (Datenschutz, aus der oeffentlichen Git-Historie entfernt).
+
+
 **Nachtrag 08.10.2026 (Claude):** Google (youtube-disputes, Mail 08.10. 01:21)
 verlangte binnen 7 Werktagen (1) Upload-Skript/Screencast auf Englisch mit
 Endergebnis und (2) ausgewerteten Beispielbericht der API-Daten. Beantwortet

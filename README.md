@@ -281,7 +281,7 @@ mit Ersatzantworten; sie belegt noch keine Verbesserung eines echten Videos.
 | [GOOGLE-ANTRAG.md](GOOGLE-ANTRAG.md) | Eingereichter Antrag vom 04.10.; beschreibt auch geplante Funktionen |
 | [TIKTOK-ANTRAG.md](TIKTOK-ANTRAG.md) | Entwurf und konkretes Hindernis fuer Direct Post |
 | [sfx/LIZENZ.md](sfx/LIZENZ.md) | Herkunft/Lizenzen der Soundeffekte |
-| `website/` / `antrag/` | Informationsseiten und Antragsnachweise |
+| `website/` / `antrag/` | Informationsseiten und Antragsnachweise (beide nur lokal, nicht im Repo) |
 
 TikTok nennt reine Werkzeuge zum Hochladen auf eigene/Team-Konten als
 unzulässigen Anwendungsfall fuer Direct Post. Deshalb ist die Pruefung des

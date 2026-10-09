@@ -80,7 +80,7 @@ def schritt(argumente, deadline):
         raise
 
 
-def verlauf_eintragen(kanal, skript, status, note, abschnitte=None, messung=None):
+def verlauf_eintragen(kanal, skript, status, note, abschnitte=None, messung=None, grund=None):
     p = Path('verlauf') / f'{kanal}.json'
     p.parent.mkdir(exist_ok=True)
     v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
@@ -104,6 +104,8 @@ def verlauf_eintragen(kanal, skript, status, note, abschnitte=None, messung=None
                                 'story_note': story.get('note')},
               'gliederung': [' '.join(t['text'].split()[:7]) for t in teile],
               'abschnitte_s': abschnitte})
+    if grund:  # Warum ein Versuch scheiterte - sonst nur im vergaenglichen GitHub-Log
+        v[-1]['grund'] = str(grund)[:300]
     v[-1]['einstellungen'].update(
         tempo=(messung or {}).get('tempo', skript.get('tempo', 1.05)),
         untertitel_profil=skript.get('untertitel_profil', 'standard'),
@@ -260,7 +262,8 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                                  story_note=(abgelehnt.get('story') or {}).get('note'),
                                  skript_probleme=abgelehnt.get('pruefung', {}).get('probleme', []))
                     verlauf_eintragen(kanal, abgelehnt,
-                                      'faktenpruefung' if r == 2 else 'skriptqualitaet' if r == 3 else 'skriptfehler', None)
+                                      'faktenpruefung' if r == 2 else 'skriptqualitaet' if r == 3 else 'skriptfehler', None,
+                                      grund='; '.join((runde['sperrgruende'] or [])[:2] + runde['skript_probleme'][:2]))
                 if entwurf:
                     break  # Eine gesperrte feste Vorlage nicht unveraendert erneut pruefen.
                 continue
@@ -269,7 +272,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             if skriptfehler:
                 letzter_grund = '; '.join(skriptfehler)
                 runde.update(status='skriptqualitaet', sperrgruende=skriptfehler)
-                verlauf_eintragen(kanal, skript, 'skriptqualitaet', None)
+                verlauf_eintragen(kanal, skript, 'skriptqualitaet', None, grund=letzter_grund)
                 if basis:
                     break
                 continue
@@ -288,8 +291,16 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                     # Ein neuer Versuch erzeugt ohne Bildkontingent nur denselben Fehler.
                     letzter_grund = ('Cloudflare-Bildkontingent aufgebraucht - neue Bilder erst nach '
                                      'Freigabe durch Cloudflare; Skript bleibt im Vorrat')
+                try:
+                    detail = (ordner / 'baufehler.txt').read_text(encoding='utf-8').strip()
+                    (ordner / 'baufehler.txt').unlink()
+                except OSError:
+                    detail = ''
+                if detail and not kontingent_leer:
+                    letzter_grund = f'Videobau fehlgeschlagen ({detail[:160]})'
                 print(f'Versuch {versuch}: {letzter_grund}')
-                verlauf_eintragen(kanal, skript, 'baufehler', None)
+                runde['baufehler'] = detail or letzter_grund
+                verlauf_eintragen(kanal, skript, 'baufehler', None, grund=detail or letzter_grund)
                 runde['status'] = 'baufehler'
                 if basis or kontingent_leer:
                     break

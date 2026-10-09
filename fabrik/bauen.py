@@ -1712,4 +1712,15 @@ def main(skript_pfad, aus, vorlage=None):
 
 
 if __name__ == '__main__':
-    main(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)
+    try:
+        main(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)
+    except BaseException as fehler:
+        # GEMESSEN 09.10.2026: 8 Baufehler im Verlauf, kein einziger Grund gespeichert (nur im
+        # GitHub-Log, das nach Tagen verschwindet). lauf.py uebernimmt diese Zeile in den Verlauf.
+        if not isinstance(fehler, SystemExit) or fehler.code not in (0, None):
+            try:
+                Path(sys.argv[2], 'baufehler.txt').write_text(
+                    f'{type(fehler).__name__}: {str(fehler)[:300]}', encoding='utf-8')
+            except OSError:
+                pass
+        raise

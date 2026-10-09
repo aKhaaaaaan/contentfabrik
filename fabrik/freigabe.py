@@ -20,6 +20,10 @@ def telegram(methode, felder, datei=None):
     grenze = uuid.uuid4().hex
     teile = []
     for k, v in felder.items():
+        # GEMESSEN 09.10.2026 (Pilot 37840254844): ein dict (link_preview_options) wurde als
+        # Python-Text {'is_disabled': True} gesendet -> Telegram lehnte ab, Lauf brach ab.
+        if isinstance(v, (dict, list, bool)):
+            v = json.dumps(v)
         teile.append(f'--{grenze}\r\nContent-Disposition: form-data; name="{k}"\r\n\r\n{v}\r\n'.encode())
     if datei:
         name, inhalt = datei

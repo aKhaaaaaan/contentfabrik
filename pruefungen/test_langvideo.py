@@ -154,5 +154,26 @@ class Pilot37831023275(unittest.TestCase):
         self.assertNotIn('erforderlich mindestens', text)
 
 
+
+class Pilot37840254844(unittest.TestCase):
+    """Startmeldung brach ab: verschachteltes Feld als Python-Text statt JSON an Telegram."""
+    def test_verschachtelte_felder_als_json(self):
+        import os
+        from unittest.mock import patch, MagicMock
+        import freigabe
+        gesendet = {}
+
+        def urlopen(req, timeout=0):
+            gesendet['body'] = req.data.decode()
+            antwort = MagicMock()
+            antwort.__enter__.return_value.read.return_value = b'{"ok": true}'
+            return antwort
+        with patch.dict(os.environ, {'TELEGRAM_BOT_TOKEN': 't'}), patch('urllib.request.urlopen', urlopen),                 patch('json.load', lambda r: {'ok': True}):
+            freigabe.telegram('sendMessage', {'chat_id': '1', 'text': 'x',
+                                              'link_preview_options': {'is_disabled': True}})
+        self.assertIn('{"is_disabled": true}', gesendet['body'])
+        self.assertNotIn("{'is_disabled': True}", gesendet['body'])
+
+
 if __name__ == '__main__':
     unittest.main()

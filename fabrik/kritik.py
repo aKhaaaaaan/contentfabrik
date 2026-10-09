@@ -26,7 +26,10 @@ BASIS = 'https://generativelanguage.googleapis.com'
 # Gemini aus dem Bild nicht verlaesslich.
 KATEGORIEN = {
     'hook': 'a concrete opening promise and immediate reason to watch, fitting the video format',
-    'bild_passt': 'do the visuals match what is said at every moment?',
+    # GEMELDET 09.10.2026 (Aurelio 6/10): Sinnbilder (Sparschwein, Muenzen) statt der genannten Funktion.
+    'bild_passt': 'do the visuals show what is said at every moment - the named tool, product, person, '
+                  'place or action - rather than a generic symbol (coins, piggy bank, key, light bulb) '
+                  'standing in for it?',
     'dynamik': 'purposeful visual discoveries and evidence, no monotonous repetition or empty screens',
     'text': 'on-screen text and subtitles: readable, no overlaps, not jumping, inside the safe zone '
             '(not hidden by the platform buttons at the bottom and right)',

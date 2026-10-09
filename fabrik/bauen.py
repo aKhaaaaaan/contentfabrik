@@ -1394,6 +1394,7 @@ def main(skript_pfad, aus, vorlage=None):
         FORTSCHRITT['aktuell'] = None
         for i, shot in enumerate(shots):
             t, dauer, t0 = shot['teil'], shot['dauer_s'], shot['s']
+            ersatz0 = bild_ersatz
             phasenstart = i == 0 or shots[i - 1]['phase'] != shot['phase']
             FORTSCHRITT['aktuell'] = t.get('platz') or FORTSCHRITT['aktuell']
             if phasenstart and (t.get('platz') == 1 or (i > 0 and t.get('beat') == 'wendung')):
@@ -1415,6 +1416,10 @@ def main(skript_pfad, aus, vorlage=None):
                 bildablauf['einstellungen'].append(dict(shot, teil=None,
                     material_id=alt.get('material_id'), material_art=alt.get('material_art')))
                 zeiten['stuecke_wiederverwendet'] += 1
+                # GEMESSEN 09.10.2026 (Aurelio, Nutzer 6/10): Jeder Neuversuch des Baus begann wieder
+                # bei 0 Ersatzbildern; aus dem Cache uebernommene Ersatzbilder zaehlten nicht. Ergebnis:
+                # 6 doppelt genutzte Bilder in 21 Einstellungen statt hoechstens 2.
+                bild_ersatz += 1 if alt.get('ersatz') else 0
                 vorherige_id = alt.get('material_id')
                 rendercache.speichern(aus, zustand)
                 continue
@@ -1426,7 +1431,8 @@ def main(skript_pfad, aus, vorlage=None):
                     'dateien': [z[6:-1] for z in liste[l0:]], 'quellen': quellen[q0:],
                     'ereignisse': [(sek - t0, art) for sek, art in ereignisse[e0:]],
                     'fotos': sorted(benutzte_fotos - fotos0),
-                    'material_id': material_hash, 'material_art': material_art}
+                    'material_id': material_hash, 'material_art': material_art,
+                    'ersatz': bild_ersatz > ersatz0}
                 bildablauf['einstellungen'].append(dict(shot, teil=None,
                     material_id=material_hash, material_art=material_art))
                 (aus / 'bildablauf.json').write_text(json.dumps(bildablauf, indent=2), encoding='utf-8')

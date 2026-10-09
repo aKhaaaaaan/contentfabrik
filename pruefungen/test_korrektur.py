@@ -223,7 +223,9 @@ class CacheTest(TempTest):
             {'w': 'First.', 's': 0, 'e': 1}, {'w': 'Second.', 's': 3, 'e': 4}]), encoding='utf-8')
         for i in range(2):
             Path(f'alt/stueck_{i:02d}.mp4').write_bytes(b'video')
-        rendercache.speichern('alt', {'audio': {'key': rendercache.audio_key(s, code),
+        # Ton-Schluessel seit 09.10.2026 nur aus tonrelevantem Code (bauen.stimm_code_key).
+        rendercache.speichern('alt', {'audio': {'key': rendercache.audio_key(
+            s, bauen.stimm_code_key(bauen.erzaehlstimme(s))),
             'rate': 24000, 'laengen': [3, 4], 'tempo': 1.05},
             'stuecke': {str(i): {'key': rendercache.stueck_key(s, i, d, code),
                 'dateien': [f'stueck_{i:02d}.mp4'], 'quellen': [], 'ereignisse': [], 'fotos': [],
@@ -249,7 +251,8 @@ class CacheTest(TempTest):
                 bauen.main('neu/skript.json', 'neu', 'alt')
             # Ein Bildfehler verliert weder Stimme noch den bereits fertigen Clip.
             checkpoint = rendercache.laden('neu')
-            self.assertEqual(checkpoint['audio']['key'], rendercache.audio_key(s, code))
+            self.assertEqual(checkpoint['audio']['key'], rendercache.audio_key(
+                s, bauen.stimm_code_key(bauen.erzaehlstimme(s))))
             self.assertIn('0', checkpoint['stuecke'])
             self.assertNotIn('1', checkpoint['stuecke'])
             self.assertFalse(Path('neu/short.mp4').exists())

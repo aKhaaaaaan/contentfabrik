@@ -165,7 +165,9 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     korrekturen = 0
     basis = None  # bereits gebautes Video, das weiter verbessert/geprueft wird
     bau_basis = None  # noch unvollstaendiger Bau; geprueftes Skript bleibt erhalten
-    if not entwurf and os.environ.get('CF_PILOT') != '1':
+    # GEMELDET 09.10.2026: „hoffentlich faengt nicht immer alles von vorne an". Auch Probelaeufe
+    # setzen ein geprueftes Skript samt Stimme/Bildern fort (eigener Cache in pilot.yml, 6 h).
+    if not entwurf:
         bau_basis = entwurf_cache.laden(kanal, kanal_pfad, festes_thema)
         if bau_basis:
             print('Geprueften Entwurf aus vorherigem Lauf fortsetzen; keine neue Skriptanfrage')
@@ -335,7 +337,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             continue
         finally:
             runde.setdefault('sekunden', round(time.monotonic() - rundenstart, 1))
-            if os.environ.get('CF_PILOT') != '1' and (ordner / 'skript.json').exists():
+            if (ordner / 'skript.json').exists():
                 try:
                     entwurf_cache.sichern(kanal, kanal_pfad, festes_thema, ordner)
                 except (OSError, ValueError, KeyError, TypeError):

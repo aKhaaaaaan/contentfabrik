@@ -154,7 +154,9 @@ jobs:
       - uses: actions/cache/restore@v4
         id: bau-cache
         with:
-          path: produktions-cache/${{ matrix.kanal }}
+          path: |
+            produktions-cache/${{ matrix.kanal }}
+            stimm-cache
           key: teilbau-v1-${{ matrix.kanal }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: teilbau-v1-${{ matrix.kanal }}-
       - name: Erzeugen, pruefen, lernen, senden
@@ -188,7 +190,9 @@ jobs:
       - uses: actions/cache/save@v4
         if: always()
         with:
-          path: produktions-cache/${{ matrix.kanal }}
+          path: |
+            produktions-cache/${{ matrix.kanal }}
+            stimm-cache
           key: teilbau-v1-${{ matrix.kanal }}-${{ github.run_id }}-${{ github.run_attempt }}
       - uses: actions/cache/save@v4
         if: always() && steps.ki-cache.outputs.cache-hit != 'true'

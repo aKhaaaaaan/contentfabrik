@@ -119,6 +119,18 @@ jobs:
           path: clips
           key: clips-pilot-${{ inputs.kanal }}-${{ github.run_id }}
           restore-keys: clips-
+      # Fortsetzen statt neu anfangen (09.10.2026): gepruefte Skripte, Teilbau und bezahlte
+      # Stimmbloecke des letzten Probelaufs desselben Kanals/Formats (eigener Schluessel,
+      # vermischt sich nie mit dem Tageslauf). Gueltigkeit regelt entwurf_cache (6 h).
+      - uses: actions/cache/restore@v4
+        with:
+          path: |
+            produktions-cache
+            verlauf/entwuerfe
+            verlauf/trendcheck
+            stimm-cache
+          key: teilbau-pilot-v1-${{ inputs.kanal }}-${{ inputs.videoformat }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: teilbau-pilot-v1-${{ inputs.kanal }}-${{ inputs.videoformat }}-
       - name: Video bauen, gezielt korrigieren und erneut pruefen
         env:
           CF_PILOT: '1'
@@ -140,6 +152,15 @@ jobs:
           else
             python fabrik/lauf.py "$PILOT_PROFIL" "$THEMA"
           fi
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: |
+            produktions-cache
+            verlauf/entwuerfe
+            verlauf/trendcheck
+            stimm-cache
+          key: teilbau-pilot-v1-${{ inputs.kanal }}-${{ inputs.videoformat }}-${{ github.run_id }}-${{ github.run_attempt }}
       - uses: actions/cache/save@v4
         if: always() && steps.ki-cache.outputs.cache-hit != 'true'
         with:

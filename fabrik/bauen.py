@@ -990,6 +990,21 @@ def sprechbloecke(teile, grenze=SPRECHBLOCK_WOERTER):
     return bloecke
 
 
+STIMM_SPEICHER = Path('stimm-cache')  # in GitHub per actions/cache zwischen Laeufen erhalten
+
+
+def stimm_code_key(wahl):
+    """Schluessel fuer den fertigen Ton: nur Code, der den Ton beeinflusst, plus Stimmwahl.
+    Vorher hing er am ganzen bauen.py/illustration.py - jede Bild-Aenderung machte die bezahlte
+    Stimme ungueltig."""
+    import inspect, stimme_gemini
+    teile = [Path(stimme_gemini.__file__).read_bytes(), Path(audioqualitaet.__file__).read_bytes()]
+    teile += [inspect.getsource(f).encode() for f in (gemini_ton, kokoro_ton, sprechbloecke, angleichen,
+                                                       laengen_aus_woertern, erzaehlstimme)]
+    teile.append(json.dumps(wahl or {}, sort_keys=True, ensure_ascii=False).encode())
+    return hashlib.sha256(b'\0'.join(teile)).hexdigest()
+
+
 def gemini_ton(s, wahl, grenzen):
     """Skript per Gemini-TTS; Shorts in EINEM Aufruf, lange Videos in Abschnitten (sprechbloecke).
 
@@ -1003,10 +1018,27 @@ def gemini_ton(s, wahl, grenzen):
     for i, t in enumerate(s['teile']):
         teile.append(('<short pause> ' if i and t.get('beat') == 'wendung' else '') + t['text'].strip())
     import io
-    stuecke, rate = [], None
+    for alt in STIMM_SPEICHER.glob('*.wav') if STIMM_SPEICHER.is_dir() else []:
+        if time.time() - alt.stat().st_mtime > 7 * 86400:  # Cache klein halten
+            alt.unlink(missing_ok=True)
+    stuecke, rate, modell = [], None, 'Speicher'
     try:
         for block in sprechbloecke(teile):
-            wav, modell = stimme_gemini.sprechen(block, wahl.get('stimme', 'Orus'), wahl.get('stil', ''))
+            # Bezahlte Stimme (seit 09.10.2026): jeder fertige Block wird gespeichert. Faellt Block 3
+            # von 4 aus, kostet der naechste Versuch nur noch Block 3 und 4 - vorher gingen die
+            # bezahlten Bloecke verloren und Kokoro sprach das ganze Video.
+            datei = STIMM_SPEICHER / (hashlib.sha256(json.dumps(
+                [block, wahl.get('stimme', 'Orus'), wahl.get('stil', '')], ensure_ascii=False).encode()
+            ).hexdigest()[:32] + '.wav')
+            if datei.is_file():
+                wav = datei.read_bytes()
+            else:
+                wav, modell = stimme_gemini.sprechen(block, wahl.get('stimme', 'Orus'), wahl.get('stil', ''))
+                try:
+                    STIMM_SPEICHER.mkdir(parents=True, exist_ok=True)
+                    datei.write_bytes(wav)
+                except OSError as e:
+                    print('Stimmblock nicht gespeichert:', str(e)[:80])
             with wave.open(io.BytesIO(wav)) as w:
                 if rate not in (None, w.getframerate()):
                     raise RuntimeError('Abtastraten der Abschnitte passen nicht zusammen')
@@ -1268,7 +1300,8 @@ def main(skript_pfad, aus, vorlage=None):
                 shutil.copy2(p, aus / p.name)
     wahl = erzaehlstimme(s)
     # Andere Stimme = anderer Ton: eigener Cache-Schluessel (Kokoro-Ton nie fuer Gemini halten).
-    akey = rendercache.audio_key(dict(s, stimme=f"gemini:{wahl.get('stimme')}") if wahl else s, code_key)
+    ton_key = stimm_code_key(wahl)
+    akey = rendercache.audio_key(dict(s, stimme=f"gemini:{wahl.get('stimme')}") if wahl else s, ton_key)
     audio_cache = cache.get('audio') or {}
     audio_ok = (audio_cache.get('key') == akey
                 and rendercache.dateien_ok(aus, ['stimme.wav', 'woerter.json'])
@@ -1288,7 +1321,7 @@ def main(skript_pfad, aus, vorlage=None):
                 laengen = None  # folgt aus den Wortzeiten
             else:
                 if wahl:
-                    akey = rendercache.audio_key(s, code_key)  # Rueckfall Kokoro: passender Schluessel
+                    akey = rendercache.audio_key(s, ton_key)  # Rueckfall Kokoro: passender Schluessel
                 ton, rate, laengen, tempo = kokoro_ton(s, tempo, laengenziel)
         with wave.open(str(aus / 'stimme.wav'), 'wb') as w:
             w.setnchannels(1); w.setsampwidth(2); w.setframerate(rate)

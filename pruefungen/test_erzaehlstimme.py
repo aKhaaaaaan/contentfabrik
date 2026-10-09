@@ -12,6 +12,20 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'fabrik'))
 import bauen  # noqa: E402
+import tempfile  # noqa: E402
+
+_SPEICHER = tempfile.TemporaryDirectory()
+
+
+def setUpModule():
+    # Eigener Stimmen-Speicher: sonst liefert ein frueherer Lauf den Ton und sprechen() wird nie gerufen.
+    global _patch
+    _patch = patch.object(bauen, 'STIMM_SPEICHER', Path(_SPEICHER.name) / 'leer')
+    _patch.start()
+
+
+def tearDownModule():
+    _patch.stop()
 
 WURZEL = Path(__file__).resolve().parents[1]
 

@@ -1310,6 +1310,7 @@ def main(skript_pfad, aus, vorlage=None):
 
     if audio_ok:
         rate, laengen, tempo = audio_cache['rate'], audio_cache['laengen'], audio_cache['tempo']
+        zeiten['erzaehlstimme'] = audio_cache.get('erzaehlstimme', '?')
         woerter = json.loads((aus / 'woerter.json').read_text(encoding='utf-8'))
     else:
         tempo = s.get('tempo', 1.05)
@@ -1319,7 +1320,9 @@ def main(skript_pfad, aus, vorlage=None):
             if gemini:
                 ton, rate = gemini
                 laengen = None  # folgt aus den Wortzeiten
+                zeiten['erzaehlstimme'] = f"gemini:{wahl.get('stimme', 'Orus')}"
             else:
+                zeiten['erzaehlstimme'] = f"kokoro:{s.get('stimme', 'af_heart')}"
                 if wahl:
                     akey = rendercache.audio_key(s, ton_key)  # Rueckfall Kokoro: passender Schluessel
                 ton, rate, laengen, tempo = kokoro_ton(s, tempo, laengenziel)
@@ -1350,7 +1353,12 @@ def main(skript_pfad, aus, vorlage=None):
         'beats': [{'teil': i, 's': round(sum(laengen[:i]), 2), 'dauer_s': round(d, 2),
                    'beat': t.get('beat'), 'bildmodus': t.get('bildmodus', 'auto')}
                   for i, (t, d) in enumerate(zip(s['teile'], laengen))]}, indent=2), encoding='utf-8')
-    zustand = {'audio': {'key': akey, 'rate': rate, 'laengen': laengen, 'tempo': tempo},
+    # GEMESSEN 09.10.2026: Fiel die bezahlte Orus-Stimme aus (Kontingent/5-EUR-Limit), sprach Kokoro
+    # - und niemand erfuhr es. Jetzt steht die echte Stimme in messung.json; freigabe.py warnt.
+    zeiten['stimme_ersatz'] = bool(wahl and wahl.get('anbieter') == 'gemini'
+                                   and not str(zeiten.get('erzaehlstimme', '')).startswith('gemini:'))
+    zustand = {'audio': {'key': akey, 'rate': rate, 'laengen': laengen, 'tempo': tempo,
+                         'erzaehlstimme': zeiten.get('erzaehlstimme', '?')},
                'bildplan': plan_cache, 'stuecke': {}}
     # Auch bei einem spaeteren Bildfehler Stimme und Regie wiederverwenden.
     rendercache.speichern(aus, zustand)

@@ -178,12 +178,18 @@ def senden(skript_pfad, video_pfad):
             '; these modified photos are licensed under the same CC BY-SA license'
             if any('SA' in q['lizenz'] for q in fotos) else '')
     chat = os.environ['TELEGRAM_CHAT_ID']
+    try:
+        ersatz = json.loads(Path(video_pfad).with_name('messung.json').read_text(encoding='utf-8')).get('stimme_ersatz')
+    except (OSError, ValueError):
+        ersatz = False
     # 1. Das Video selbst - kurze Bildunterschrift, damit es gut lesbar bleibt
     import bewertung
     video_antwort = telegram('sendVideo', {'chat_id': chat, 'supports_streaming': 'true',
                            'reply_markup': json.dumps(bewertung.knoepfe(sha)),
                            'caption': (f"⚠️ ENTWURF - KI-Note {note}/10, nicht freigegeben. Du entscheidest.\n"
                                        f"KI-Kritik: {str((kritik or {}).get('fazit', ''))[:300]}\n\n" if entwurf else '')
+                                      + ("⚠️ ERSATZSTIMME Kokoro - Orus war nicht verfuegbar (Kontingent/Limit?). "
+                                         "Lieber nicht hochladen.\n\n" if ersatz else '')
                                       + f"🎬 {skript['kanal'][:100]}\n{titel[:200]}\n\n"
                                       f"✅ Fakten und Technik bestanden · KI-Bewertung {note}/10"
                                       + (f"\n📈 Warum heute: {os.environ['CF_TRENDGRUND'][:300]}"

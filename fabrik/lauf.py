@@ -145,10 +145,17 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     skriptfrist = 20 * 60 if kanalstandard.laden(kanal_pfad).get('videoformat') == 'lang' else 480
     # Thema aus Telegram hat Vorrang (GEMELDET: eigene Themen einbringen)
     aus_warteschlange = not thema
+    trend = None
     if not thema:
-        thema = themen.nehmen(kanal)
+        # GEMELDET 09.10.2026: Themen muessen aus Google Trends/YouTube-Viralem kommen.
+        # Der Trend-Check waehlt unter Warteschlange + Trendfirmen; '' = freie Trendwahl.
+        import trendcheck
+        thema, trend = trendcheck.waehlen(kanal, themen=themen)
         if thema:
-            print(f'Thema aus Telegram: {thema}')
+            print(f'Thema nach Trend-Check: {thema}')
+        if trend and thema:
+            # Telegram zeigt dem Nutzer, WARUM heute dieses Thema (freigabe.py liest es).
+            os.environ['CF_TRENDGRUND'] = trend['grund'][:300]
     festes_thema = thema
     bester = None  # nur Kandidaten mit bestandenen Pruefungen
     entwurf_kandidat = None  # nur KI-Geschmack unter 7/10, Pflichtpruefungen bestanden
@@ -169,6 +176,8 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     ausstehende_korrektur = None  # auch nach einem Ausfall der Video-Pruefung
     bericht = {'id': os.environ.get('GITHUB_RUN_ID') or uuid.uuid4().hex,
                'kanal': kanal, 'datum': budget.heute(), 'runden': [], 'status': 'offen'}
+    if trend:
+        bericht['trendcheck'] = trend['grund']
     def protokoll(status):
         bericht['status'] = status
         bericht['grund'] = letzter_grund if status not in ('gesendet', 'pilot_bestanden') else ''

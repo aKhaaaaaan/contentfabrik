@@ -124,3 +124,19 @@ Die echte Nutzerliste und ihr Tagesplan stehen in [BUSINESS-TAGESPLAN.md](BUSINE
   `test_betrieb.py`: Zehnerliste ohne KI, Reihenfolge, Update-Deduplizierung,
   ungueltige Listen, Speicher-/Telegram-Fehler, Sicherung vor ACK und Entfernung
   erst nach erfolgreichem Versand. Die Tests nutzen simulierte Telegram-Antworten.
+
+## Trend-Check (ab 10.10.2026)
+
+Eingereichte Themen werden nicht mehr stur der Reihe nach gebaut. Vor jedem Tageslauf
+bewertet `fabrik/trendcheck.py` jedes offene Thema (Business zusaetzlich die gestern
+meistgelesenen Firmen auf Wikipedia):
+
+- YouTube: Ausreisser der letzten 30 Tage zum Begriff (Aufrufe / Kanaldurchschnitt)
+- Wikipedia: Aufwind (letzte 2 Tage gegen Median der 4 Wochen davor) - nicht die Groesse
+- Google Trends: Begriff steht heute in den US-Tagestrends oder deren Schlagzeilen
+
+Eigene Themen bekommen +1 Punkt Bonus. Unter 1,5 Punkten Trendsignal bleibt ein Thema
+liegen; dann waehlt der Kanal frei aus aktuellen Trends. Faellt jede Quelle aus, gilt die
+alte Reihenfolge. Suchbegriff: Feld `trend_suche`, sonst `wikipedia`, sonst das Thema.
+Der Grund steht im Telegram-Video („Warum heute") und in `verlauf/trendcheck/`.
+Live-Vorschau: Workflow `themen` manuell starten.

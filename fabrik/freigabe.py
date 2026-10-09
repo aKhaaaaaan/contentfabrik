@@ -186,6 +186,8 @@ def senden(skript_pfad, video_pfad):
                                        f"KI-Kritik: {str((kritik or {}).get('fazit', ''))[:300]}\n\n" if entwurf else '')
                                       + f"🎬 {skript['kanal'][:100]}\n{titel[:200]}\n\n"
                                       f"✅ Fakten und Technik bestanden · KI-Bewertung {note}/10"
+                                      + (f"\n📈 Warum heute: {os.environ['CF_TRENDGRUND'][:300]}"
+                                         if os.environ.get('CF_TRENDGRUND') else '')
                                       + ('\nKomprimierte Vorschau; Original siehe Begleitnachricht.'
                                          if komprimiert and os.environ.get('CF_ORIGINAL_URL') else
                                          '\nFuer Telegram komprimierte Kopie.' if komprimiert else '')},

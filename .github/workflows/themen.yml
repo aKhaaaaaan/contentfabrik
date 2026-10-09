@@ -38,6 +38,14 @@ jobs:
         run: |
           [ "$(date -u +%H)" = "12" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ] || exit 0
           python3 fabrik/erfolg.py
+      - name: Trend-Check Vorschau (nur bei manuellem Start, nichts wird gespeichert)
+        if: github.event_name == 'workflow_dispatch'
+        continue-on-error: true
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python3 fabrik/trendcheck.py business-origin-stories
+          python3 fabrik/trendcheck.py ai-tools-explained
       - name: Warteschlange sichern
         id: sichern
         run: |

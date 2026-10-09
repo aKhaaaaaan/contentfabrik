@@ -165,6 +165,7 @@ jobs:
         # mit bestandenen Fakten- und Technikpruefungen.
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_TTS_API_KEY: ${{ secrets.GEMINI_TTS_API_KEY }}  # optional: bezahltes Projekt nur fuer die Stimme
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}  # Zweitpruefer (fabrik/zweit.py)
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}  # Skript-Autor (fabrik/claude_ki.py)
           CLOUDFLARE_AI_TOKEN: ${{ secrets.CLOUDFLARE_AI_TOKEN }}  # Bilder (FLUX, Workers AI)
@@ -234,6 +235,7 @@ jobs:
           path: |
             ausgabe/short.mp4
             ausgabe/skript.json
+            ausgabe/thumbnail.jpg
             ausgabe/quellen.json
             ausgabe/messung.json
             ausgabe/bildablauf.json

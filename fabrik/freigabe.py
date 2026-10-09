@@ -15,7 +15,7 @@ from dramaturgie import videoformat
 GRENZE = 50 * 1024 * 1024  # Telegram-Bots duerfen hoechstens 50 MB senden
 
 
-def telegram(methode, felder, datei=None):
+def telegram(methode, felder, datei=None, feld='video', typ='video/mp4'):
     token = os.environ['TELEGRAM_BOT_TOKEN']
     grenze = uuid.uuid4().hex
     teile = []
@@ -27,8 +27,8 @@ def telegram(methode, felder, datei=None):
         teile.append(f'--{grenze}\r\nContent-Disposition: form-data; name="{k}"\r\n\r\n{v}\r\n'.encode())
     if datei:
         name, inhalt = datei
-        teile.append(f'--{grenze}\r\nContent-Disposition: form-data; name="video"; filename="{name}"\r\n'
-                     'Content-Type: video/mp4\r\n\r\n'.encode() + inhalt + b'\r\n')
+        teile.append(f'--{grenze}\r\nContent-Disposition: form-data; name="{feld}"; filename="{name}"\r\n'
+                     f'Content-Type: {typ}\r\n\r\n'.encode() + inhalt + b'\r\n')
     teile.append(f'--{grenze}--\r\n'.encode())
     req = urllib.request.Request(f'https://api.telegram.org/bot{token}/{methode}', data=b''.join(teile),
                                  headers={'Content-Type': f'multipart/form-data; boundary={grenze}'})
@@ -106,6 +106,21 @@ def planungszeit(uhrzeit_ny, jetzt=None):
     b = termin.astimezone(berlin)
     tage = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So']
     return f"{tage[b.weekday()]} {b:%d.%m.} {b:%H:%M} Uhr Berlin (= {termin:%H:%M} New York)"
+
+
+def vorschaubild_senden(chat, pfad):
+    """Langvideo: Vorschaubild als DATEI (volle Qualitaet, 1280x720) - Telegram-Fotos werden
+    verkleinert. Darf den bereits gelieferten Versand nie kippen."""
+    if not pfad.exists():
+        return False
+    try:
+        telegram('sendDocument', {'chat_id': chat, 'caption': 'Vorschaubild fuer YouTube (1280x720) - '
+                                  'beim Hochladen unter „Thumbnail" einsetzen.'},
+                 (pfad.name, pfad.read_bytes()), feld='document', typ='image/jpeg')
+        return True
+    except (RuntimeError, OSError) as e:
+        print('Vorschaubild nicht gesendet:', str(e)[:120])
+        return False
 
 
 def senden(skript_pfad, video_pfad):
@@ -205,6 +220,7 @@ def senden(skript_pfad, video_pfad):
     kopieren_senden(chat, 'YouTube-Titel', titel if lang else f'{titel} #shorts')
     kopieren_senden(chat, 'YouTube-Beschreibung', f"{skript['beschreibung']}\n\n{tags}")
     if lang:
+        vorschaubild_senden(chat, Path(skript_pfad).with_name('thumbnail.jpg'))
         print('Gesendet:', antwort.get('ok'))
         return
     # 3. TikTok von Hand - eigene Nachricht, damit die Texte nicht an Telegrams

@@ -20,9 +20,19 @@ import wave
 BASIS = 'https://generativelanguage.googleapis.com/v1beta'
 
 
+def schluessel():
+    """Eigener Stimmen-Schluessel (bezahltes Google-Projekt) vor dem Gratis-Schluessel.
+
+    GEMESSEN 09.10.2026 (Langvideo-Pilot 37888005599): Free Tier 3.8 Flash TTS = 10 Anfragen/Tag,
+    danach sprach Kokoro. Ein separates Projekt mit Abrechnung haelt die uebrigen Gemini-Pruefungen
+    im kostenlosen Projekt (ai.google.dev/gemini-api/docs/billing: Projekte je Schluessel getrennt).
+    """
+    return os.environ.get('GEMINI_TTS_API_KEY', '').strip() or os.environ['GEMINI_API_KEY']
+
+
 def _post(pfad, daten):
     req = urllib.request.Request(BASIS + pfad, data=json.dumps(daten).encode(),
-                                 headers={'x-goog-api-key': os.environ['GEMINI_API_KEY'],
+                                 headers={'x-goog-api-key': schluessel(),
                                           'Content-Type': 'application/json'})
     try:
         with urllib.request.urlopen(req, timeout=120) as r:

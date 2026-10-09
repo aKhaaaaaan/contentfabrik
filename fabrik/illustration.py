@@ -67,6 +67,34 @@ def _anfrage(modell, felder, datei=None, charakter=None):
 
 
 PRUEF_PAUSE_S = 30
+# GEMELDET 09.10.2026: „Der Typ auf dem Bild hat 3 Haende mit Anzug" (ill_00 VW-Langvideo, Bildpruefung
+# bestanden). GEMESSEN am selben Bild: die Gesamtpruefung gab es frei (Lite UND 3.5-Flash, auch mit
+# Zaehlregel); eine EIGENE Zaehlfrage erkannte 3 Haende mit 3.5-Flash, das Original der Figur 1.
+# Lite meldete als Zahl 2, listete aber 4 -> gezaehlt wird die Liste, nicht die gemeldete Zahl.
+HAENDE_MODELLE = ['gemini-3.5-flash', 'gemini-3.6-flash', 'gemini-flash-latest', 'gemini-flash-lite-latest']
+
+
+def haende_zaehlen(roh):
+    """Grund bei mehr als zwei Haenden einer Person, sonst ''. Ausfall der Zaehlung sperrt nicht
+    (die Hauptpruefung hat bestanden) - lieber ein Bild mehr als ein abgebrochenes Video."""
+    try:
+        from skript import gemini
+        a, _ = gemini('Look only at anatomy. For each person in the image, list every visible hand '
+                      'separately with where it is (e.g. holding watch at chest, fist at waist left). '
+                      'Count hands that belong to the person even if partly hidden.',
+                      {'type': 'OBJECT', 'properties': {'personen': {'type': 'ARRAY', 'items': {
+                          'type': 'OBJECT', 'properties': {'wer': {'type': 'STRING'},
+                                                           'haende': {'type': 'ARRAY', 'items': {'type': 'STRING'}}},
+                          'required': ['wer', 'haende']}}}, 'required': ['personen']},
+                      temperatur=0.0, bilder=[roh], modelle=HAENDE_MODELLE)
+    except Exception as e:
+        print('Haende-Zaehlung nicht moeglich:', type(e).__name__)
+        return ''
+    for person in a.get('personen') or []:
+        haende = person.get('haende') or []
+        if len(haende) > 2:
+            return f"{person.get('wer', 'Person')} hat {len(haende)} Haende: " + '; '.join(map(str, haende))[:150]
+    return ''
 
 
 def pruefen(roh, szene, referenz=None, videoformat='short'):
@@ -88,6 +116,10 @@ def pruefen(roh, szene, referenz=None, videoformat='short'):
             print('Bildpruefung ueberlastet, neuer Versuch in 30 s:', type(e).__name__)
             time.sleep(PRUEF_PAUSE_S)
             a, _ = gemini(*auftrag, temperatur=0.1, bilder=bilder, modelle=SEHEN)
+        if a.get('ok') is True and referenz:
+            zuviel = haende_zaehlen(roh)
+            if zuviel:
+                a = {'ok': False, 'grund': zuviel}
         if a.get('ok') is not True:
             print('Illustration verworfen:', a.get('grund', '')[:120])
         return {'ok': a.get('ok') is True, 'grund': str(a.get('grund', ''))[:220]}

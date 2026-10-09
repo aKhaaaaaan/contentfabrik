@@ -28,6 +28,7 @@ jobs:
       - name: Proben erzeugen
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_TTS_API_KEY: ${{ secrets.GEMINI_TTS_API_KEY }}  # optional: bezahltes Projekt nur fuer die Stimme
         run: python fabrik/stimmvergleich.py proben
       - name: In Telegram schicken
         env:

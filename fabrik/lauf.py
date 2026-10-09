@@ -396,6 +396,13 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     skript = json.loads((aus / 'skript.json').read_text(encoding='utf-8'))
     messung = json.loads((aus / 'messung.json').read_text(encoding='utf-8')) \
         if (aus / 'messung.json').exists() else {}
+    if skript.get('videoformat') == 'lang':
+        # Langvideo braucht ein Vorschaubild (Nutzerauftrag 09.10.2026); best effort, hoechstens 6 Min.
+        try:
+            schritt(['fabrik/vorschaubild.py', str(aus / 'skript.json'), str(aus / 'thumbnail.jpg')],
+                    min(start + frei, time.monotonic() + 360))
+        except (subprocess.TimeoutExpired, OSError):
+            print('Vorschaubild nicht erstellt - Video wird trotzdem zugestellt')
     if os.environ.get('CF_PILOT') == '1':
         verlauf_eintragen(kanal, skript, 'pilot', note, messung.get('abschnitte_s'), messung)
         protokoll('pilot_bestanden')

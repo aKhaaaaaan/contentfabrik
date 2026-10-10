@@ -193,7 +193,8 @@ def senden(skript_pfad, video_pfad):
                                       + ("⚠️ ERSATZSTIMME Kokoro - Orus war nicht verfuegbar (Kontingent/Limit?). "
                                          "Lieber nicht hochladen.\n\n" if ersatz else '')
                                       + f"🎬 {skript['kanal'][:100]}\n{titel[:200]}\n\n"
-                                      f"✅ Fakten und Technik bestanden · KI-Bewertung {note}/10"
+                                      f"✅ Fakten und Technik bestanden · KI-Bewertung {note}/10\n"
+                                      "Bewerte unten: 📖 Story · 🎬 Video. Antworte auf dieses Video mit Kritik."
                                       + (f"\n📈 Warum heute: {os.environ['CF_TRENDGRUND'][:300]}"
                                          if os.environ.get('CF_TRENDGRUND') else '')
                                       + ('\nKomprimierte Vorschau; Original siehe Begleitnachricht.'

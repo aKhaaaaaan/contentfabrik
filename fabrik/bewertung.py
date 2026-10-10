@@ -23,12 +23,20 @@ REDAKTION = Path('lernen/redaktion.json')
 NOTEN = ('4', '5', '6', '7', '8', '9', '10')
 
 
+ARTEN = {'bw': 'gesamt', 'bs': 'story', 'bv': 'video'}
+
+
 def knoepfe(sha):
+    """GEMELDET 10.10.2026: „Ich brauche zwei Balken: Story-Bewertung und Video-Bewertung, mit
+    Kommentar, damit das Tool weiss, was es naechstes Mal besser machen kann.“"""
     kurz = sha[:16]
+    leiste = lambda zeichen, art: [{'text': f"{zeichen}{'≤4' if n == '4' else n}", 'callback_data': f'{art}:{kurz}:{n}'}
+                                   for n in NOTEN]
     return {'inline_keyboard': [
+        leiste('📖', 'bs'),
+        leiste('🎬', 'bv'),
         [{'text': '✅ Gefällt mir', 'callback_data': f'bw:{kurz}:ok'},
-         {'text': '❌ Ablehnen', 'callback_data': f'bw:{kurz}:nein'}],
-        [{'text': ('≤4' if n == '4' else n), 'callback_data': f'bw:{kurz}:{n}'} for n in NOTEN]]}
+         {'text': '❌ Ablehnen', 'callback_data': f'bw:{kurz}:nein'}]]}
 
 
 def _lesen(pfad, standard):
@@ -50,6 +58,8 @@ def video_merken(message_id, sha, skript, kritik=None):
                   'thema': skript.get('thema'), 'titel': titel,
                   # Fuer das Lernen aus der Nutzernote: was die KI an genau diesem Video bemaengelte.
                   'ki_note': kritik.get('note'),
+                  'story_note': (skript.get('story') or {}).get('note'),
+                  'story_schwaechen': [str(w)[:200] for w in ((skript.get('story') or {}).get('schwaechen') or [])][:6],
                   'ki_probleme': [f"[{p.get('art', '')}] {str(p.get('text', ''))[:200]}"
                                   for p in (kritik.get('probleme') or []) if isinstance(p, dict)][:8],
                   'datum_utc': datetime.datetime.now(datetime.timezone.utc).isoformat()})
@@ -78,9 +88,11 @@ def _eintragen(eintrag):
 def knopf(update_id, callback):
     """Knopfdruck speichern; gibt die Bestaetigung fuer den Nutzer zurueck."""
     teile = str(callback.get('data', '')).split(':')
-    if len(teile) != 3 or teile[0] != 'bw' or teile[2] not in ('ok', 'nein') + NOTEN:
+    if len(teile) != 3 or teile[0] not in ARTEN or teile[2] not in ('ok', 'nein') + NOTEN \
+            or (teile[0] != 'bw' and teile[2] in ('ok', 'nein')):
         return 'Unbekannter Knopf - nichts gespeichert.'
-    _, kurz, wert = teile
+    praefix, kurz, wert = teile
+    art = ARTEN[praefix]
     video = video_zu((callback.get('message') or {}).get('message_id'), kurz) or {}
     note = int(wert) if wert.isdigit() else None
     status = 'abgelehnt' if wert == 'nein' or (note is not None and note <= 4) else \
@@ -90,10 +102,10 @@ def knopf(update_id, callback):
                'datum_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
                'kanal': video.get('kanal'), 'thema': video.get('thema'), 'titel': titel,
                'video_sha256': video.get('video_sha256'), 'video_sha256_prefix': kurz,
-               'status': status, 'note': note,
-               'wortlaut': f'Nutzerknopf zu „{titel}": ' + (
+               'status': status, 'note': note, 'art': art,
+               'wortlaut': f'Nutzerknopf ({art}) zu „{titel}": ' + (
                    f'Note {note}/10' if note is not None else 'gefaellt' if wert == 'ok' else 'abgelehnt')}
-    ki = video.get('ki_note')
+    ki = video.get('story_note') if art == 'story' else video.get('ki_note')
     if note is not None and isinstance(ki, (int, float)) and ki - note >= 2:
         # Kalibrierung: KI deutlich milder als der Nutzer (Nintendo: KI 9, Nutzer < 5).
         eintrag['wortlaut'] += f' (KI-Bewertung war {ki}/10 - die KI war zu mild)'
@@ -102,17 +114,19 @@ def knopf(update_id, callback):
     import lernen
     lernen.nutzerfeedback(eintrag['wortlaut'], eintrag['id'])
     if status == 'abgelehnt' or (note is not None and note <= 7):
-        aus_nutzernote_lernen(video, note, status)
+        aus_nutzernote_lernen(video, note, status, art)
+    name = {'story': 'Story', 'video': 'Video'}.get(art, '')
     return (f'❌ Abgelehnt gespeichert: {titel}. Diese Datei wird nicht erneut gesendet. '
             'Antworte auf das Video mit einem Satz, was nicht passt.' if status == 'abgelehnt' else
-            f'✅ Gespeichert: {titel} - ' + (f'Note {note}/10.' if note is not None else 'gefaellt dir.'))
+            f'✅ Gespeichert: {titel} - ' + (f'{name} {note}/10.'.strip() if note is not None else 'gefaellt dir.')
+            + (' Antworte auf das Video mit einem Satz, was besser werden soll.' if note is not None and note <= 7 else ''))
 
 
-def aus_nutzernote_lernen(video, note, status):
+def aus_nutzernote_lernen(video, note, status, art='gesamt'):
     """Eine schwache Nutzernote macht die KI-Befunde GENAU dieses Videos zu Kanal-Regeln.
     GEMESSEN 09.10.2026: Knopf-Noten landeten nur als nackter Satz „Note 6/10" im Regelbuch -
     der Autor erfuhr nie, WAS schlecht war. Ohne gespeicherte Befunde (aeltere Videos) nichts tun."""
-    befunde = video.get('ki_probleme') or []
+    befunde = (video.get('story_schwaechen') if art == 'story' else video.get('ki_probleme')) or []
     kanal = re.sub(r'[^a-z0-9]+', '-', str(video.get('kanal') or '').lower()).strip('-')
     if not befunde or not kanal:
         return False
@@ -143,4 +157,11 @@ def antwort_auf_video(update_id, nachricht):
     if _eintragen(eintrag):
         import lernen
         lernen.nutzerfeedback(eintrag['wortlaut'], eintrag['id'])
-    return f'Danke - als Feedback zu „{video.get("titel")}" gespeichert.'
+        kanal = re.sub(r'[^a-z0-9]+', '-', str(video.get('kanal') or '').lower()).strip('-')
+        if kanal and text:
+            try:  # Kommentar = bestaetigte Schwaeche dieses Kanals; Lernen darf nie die Antwort kippen
+                lernen.aktualisieren(kanal, {'kategorien': {}, 'probleme': [
+                    {'art': 'nutzer', 'text': f'Channel owner comment on a delivered video (high priority): {text}'}]})
+            except Exception as e:
+                print('Lernen aus Kommentar nicht moeglich:', type(e).__name__)
+    return f'Danke - als Feedback zu „{video.get("titel")}" gespeichert. Die Fabrik lernt daraus.'

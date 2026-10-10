@@ -62,7 +62,10 @@ def aus_fehlern_lernen(kanal, runden, deadline):
     for r in runden:
         probleme += [{'zeit': '-', 'art': 'fakten', 'text': str(x)[:300]} for x in r.get('skript_probleme') or []]
         probleme += [{'zeit': '-', 'art': 'story', 'text': str(x)[:300]} for x in r.get('story_schwaechen') or []]
-        probleme += [{'zeit': '-', 'art': 'skript', 'text': str(x)[:300]} for x in r.get('sperrgruende') or []]
+        # Nur Sperrgruende des Skripts: nach dem Videobau sind es Pruef-/Technikmeldungen
+        # („Video-Note fehlt", „unter 61 s") - daraus wurden 10.10.2026 Unsinnsregeln gelernt.
+        if r.get('status') in ('skriptfehler', 'skriptqualitaet'):
+            probleme += [{'zeit': '-', 'art': 'skript', 'text': str(x)[:300]} for x in r.get('sperrgruende') or []]
     probleme = list({p['text']: p for p in probleme}.values())[:15]
     if not probleme:
         return False
@@ -432,8 +435,9 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             lern = dict(kritik)
             lern['probleme'] = kritik.get('probleme', []) + [{'zeit': '-', 'art': 'story', 'text': w}
                                                              for w in story.get('schwaechen', [])]
-            lern['probleme'] += [{'zeit': '-', 'art': 'technik', 'text': str(b)}
-                                 for b in kritik.get('technik', {}).get('befunde', [])]
+            # Technik-Messwerte (Dauer, Lautheit, Codec) sind keine Redaktionsregeln.
+            # GEMESSEN 10.10.2026 (Pilot 38058541190): aus „unter 61 s" lernte das Regelbuch
+            # „Shorts mindestens 61 s" - gegen die Nutzerentscheidung 35-45 s.
             lp = ordner / 'lernfeedback.json'
             lp.write_text(json.dumps(lern, ensure_ascii=False), encoding='utf-8')
             if schritt(['fabrik/lernen.py', kanal, str(lp)], min(arbeit_ende, time.monotonic() + 90)):

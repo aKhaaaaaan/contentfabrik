@@ -68,10 +68,15 @@ def technik(video, skript=None):
         elif a.get('codec_name') != 'aac' or int(a.get('sample_rate', 0)) != 48000 or a.get('channels') != 2:
             befunde.append(f"Ton {a.get('codec_name')} {a.get('sample_rate')} Hz {a.get('channels')} Kanaele "
                            '(Soll: AAC 48 kHz Stereo - sonst Handy-Player stumm, gemessen)')
-        if art == 'short' and dauer <= 61:
-            befunde.append(f'nur {dauer:.1f} s - unter 61 s keine TikTok-Verguetung')
-        if art == 'short' and dauer > 180:
-            befunde.append(f'{dauer:.0f} s - laenger als ein Short (3 Min.)')
+        if art == 'short':
+            # Nutzerentscheidung 10.10.2026: Shorts 35-45 s (Wachstum vor TikTok-Verguetung).
+            # GEMESSEN 10.10.2026 (Pilot 38058541190, Starbucks): die alte Sperre „unter 61 s"
+            # verwarf den 49,6-s-Short vor jeder Videobewertung. Massstab ist jetzt laenge_s.
+            smin, smax = dramaturgie.laengen(skript or {})
+            if dauer < smin - 5:
+                befunde.append(f'nur {dauer:.1f} s - kuerzer als die geplante Short-Laenge {smin}-{smax} s')
+            elif dauer > min(180, smax + 15):
+                befunde.append(f'{dauer:.0f} s - deutlich laenger als die geplante Short-Laenge {smin}-{smax} s')
         if art == 'lang':
             lmin, lmax = dramaturgie.laengen(skript)
             if not lmin - 5 <= dauer <= lmax + 5:

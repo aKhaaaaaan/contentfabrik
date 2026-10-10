@@ -746,7 +746,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 if pruefung['ok'] and not mangel:
                     break
                 probleme = pruefung['probleme'] + ([mangel] if mangel else [])
-        if mangel:  # zu kurz = unter 60 s = keine TikTok-Verguetung: nicht vorlegen
+        if mangel:  # Laenge ausserhalb von laenge_s: nicht vorlegen
             pruefung = {'ok': False, 'probleme': pruefung['probleme'] + [mangel]}
         if pruefung['ok']:
             break

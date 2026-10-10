@@ -1,13 +1,15 @@
-# Themen-Nachrichten des Nutzers aus Telegram abholen (alle 4 Stunden).
-# Telegram haelt unbestaetigte Nachrichten nur 24 h - einmal taeglich beim
-# Video-Lauf zu lesen waere zu knapp. Kosten: ~1 Minute je Lauf.
+# Themen, Bewertungsknoepfe und Kommentare des Nutzers aus Telegram abholen.
+# GEMELDET 10.10.2026: „4 Std. ist viel zu lang - wieso nicht in 5 Minuten?" Die 4 Std. sparten
+# GitHub-Minuten, als das Repo privat war; oeffentlich sind sie unbegrenzt. Jetzt alle 5 Minuten
+# und eine EIGENE Warteschlange - in 'contentfabrik-zustand' wartete die Abholung sonst hinter
+# einem 1-2-stuendigen Videobau. Push-Konflikte faengt pull --rebase --autostash mit Wiederholung ab.
 name: themen
 on:
   schedule:
-    - cron: '17 */4 * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 concurrency:
-  group: contentfabrik-zustand
+  group: contentfabrik-themen
   cancel-in-progress: false
   queue: max
 permissions:
@@ -29,15 +31,22 @@ jobs:
         run: python3 fabrik/themen.py abholen
       - name: Erfolgszahlen abrufen (einmal taeglich)
         # Huckepack auf den Themen-Lauf: nur im Lauf gegen 12 Uhr UTC
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 */4 * * *'
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '*/5 * * * *'
         continue-on-error: true
         env:
           YT_CLIENT: ${{ secrets.YT_CLIENT }}
           YT_TOKENS: ${{ secrets.YT_TOKENS }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          [ "$(date -u +%H)" = "12" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ] || exit 0
+          # Einmal je Tag ab 12 Uhr UTC (Markierung in erfolg/, wird mitgesichert) - der 5-Minuten-Takt
+          # wuerde sonst die YouTube-Analytics-Abfrage dutzendfach ausloesen.
+          heute="$(date -u +%F)"
+          if [ "${{ github.event_name }}" != "workflow_dispatch" ]; then
+            [ "$(date -u +%H)" -ge 12 ] || exit 0
+            [ "$(cat erfolg/.letzter_abruf 2>/dev/null)" != "$heute" ] || exit 0
+          fi
           python3 fabrik/erfolg.py
+          mkdir -p erfolg && echo "$heute" > erfolg/.letzter_abruf
       - name: Trend-Check Vorschau (nur bei manuellem Start, nichts wird gespeichert)
         if: github.event_name == 'workflow_dispatch'
         continue-on-error: true

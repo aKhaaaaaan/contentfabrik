@@ -39,6 +39,20 @@ def start_moeglich(kanal, thema=''):
     return entwurf_cache.laden(kanal, f'kanaele/{kanal}.json', thema or themen.nehmen(kanal)) is not None
 
 
+def bildplan_verwerfen(ordner):
+    """Gespeicherten Bildplan im Teilbau loeschen, damit der naechste Bau neu plant; Ton bleibt."""
+    pfad = Path(ordner) / 'bauzustand.json'
+    try:
+        d = json.loads(pfad.read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return False
+    if not d.pop('bildplan', None):
+        return False
+    pfad.write_text(json.dumps(d), encoding='utf-8')
+    print('Gleicher Bildfehler zweimal - Bildplan wird neu erstellt (Stimme bleibt)')
+    return True
+
+
 def aus_fehlern_lernen(kanal, runden, deadline):
     """Auch ein Lauf OHNE Video lehrt etwas (Nutzerauftrag 09.10.2026: „selber daraus lernen, was
     er falsch gemacht hat"). Vorher lernte nur ein fertig gebautes und bewertetes Video; die meisten
@@ -191,6 +205,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     letzter_grund = 'Kein Versuch abgeschlossen'
     versuch = 0
     korrekturen = 0
+    letzter_baufehler = ''
     basis = None  # bereits gebautes Video, das weiter verbessert/geprueft wird
     bau_basis = None  # noch unvollstaendiger Bau; geprueftes Skript bleibt erhalten
     # GEMELDET 09.10.2026: „hoffentlich faengt nicht immer alles von vorne an". Auch Probelaeufe
@@ -332,6 +347,12 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                 runde['status'] = 'baufehler'
                 if basis or kontingent_leer:
                     break
+                if detail and detail == letzter_baufehler:
+                    # GEMESSEN 10.10.2026 (Tageslauf 38037738527): 5x „Einstellung 1: kein passendes
+                    # Hauptbild" - der zwischengespeicherte Bildplan schickte jedes Mal dieselbe
+                    # aussichtslose Szene. Gleicher Fehler zweimal -> Bildplan neu (Stimme bleibt).
+                    bildplan_verwerfen(ordner)
+                letzter_baufehler = detail
                 bau_basis = ordner
                 continue
             bau_basis = None

@@ -8229,6 +8229,104 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "38037738527.1:business-origin-stories",
+      "run_id": "38037738527",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-10T08:51:45.609893+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "89e4532eecbe52423dc5bebb48d05c6574ee2574",
+      "produktionsversion": "c5d58bc1809bffa986a1112ea37a338f87c4cda534e3e61682e7318032229ce1",
+      "videoformat": "short",
+      "thema": "Netflix: der Wandel vom DVD-Verleih zum Streaming",
+      "titel": [
+        "*Netflix* Splits Itself",
+        "DVDs Versus Streaming"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38037738527",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-10",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 565.2,
+            "baufehler": "ValueError: Phase 1, Einstellung 4: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 565.2
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 217.3,
+            "baufehler": "ValueError: Phase 2, Einstellung 6: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 217.3
+          },
+          {
+            "runde": 3,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 81.6,
+            "baufehler": "ValueError: Phase 2, Einstellung 6: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 81.6
+          },
+          {
+            "runde": 4,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 67.4,
+            "baufehler": "ValueError: Phase 2, Einstellung 6: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 67.4
+          },
+          {
+            "runde": 5,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 59.0,
+            "baufehler": "ValueError: Phase 2, Einstellung 6: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 59.0
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "Netflix: der Wandel vom DVD-Verleih zum Streaming: 6.0 Punkte - YouTube-Ausreisser 48.4x Kanalschnitt, Wikipedia -12 % gegenueber Vormonat",
+        "grund": "Videobau fehlgeschlagen (ValueError: Phase 2, Einstellung 6: kein passendes Hauptbild; kein Hintergrundersatz)",
+        "sekunden": 991.2
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

@@ -280,6 +280,16 @@ def hinweise(kanal, thema):
         text += ('\nSOURCES checked by the editor (date in each entry). Every factual claim MUST come from '
                  'these sources; mention nothing that is not in them:\n'
                  + '\n'.join(f"- [{q['quelle']}] {q['name']} ({q['url']}): {q['text']}" for q in quellen) + '\n')
+    elif kanal.get('nur_quellen') and thema:
+        # Nutzerthema ohne hinterlegte Quellen (Nutzerauftrag 10.10.2026, z. B. „Opus 5.5 spart mehr Token
+        # als Fable 5"): vorher bekam es die allgemeinen Trend-Repos als Belege - fremde Fakten zum falschen
+        # Thema. Jetzt gezielte Recherche; ohne lesbare Quelle wird nichts geschrieben (Thema bleibt liegen).
+        quellen = trends.thema_recherche(thema)
+        if quellen:
+            text += ('\nSOURCES researched today for THIS topic (official pages first). Every factual claim - '
+                     'prices, token counts, benchmark scores, dates - MUST come from these sources; if a comparison '
+                     'is not supported by them, say so instead of guessing:\n'
+                     + '\n'.join(f"- [{q['quelle']}] {q['name']} ({q['url']}): {q['text']}" for q in quellen) + '\n')
     elif kanal.get('nur_quellen'):
         # GEMESSEN: Ohne aktuelle Quellen fiel „Top 5 AI Video Tools" zweimal
         # durch die Faktenpruefung (veraltetes Wissen). Darum nur Belegtes.

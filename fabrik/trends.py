@@ -200,6 +200,100 @@ def hn_geschichten(tage=7, mindest=50):
     return sorted(aus, key=lambda h: -h['punkte'])
 
 
+FUELLWOERTER = {'the', 'and', 'for', 'with', 'what', 'how', 'why', 'from', 'that', 'this', 'than', 'vs', 'versus',
+                'der', 'die', 'das', 'und', 'oder', 'mit', 'als', 'wie', 'was', 'warum', 'mehr', 'besser', 'spart',
+                'sparen', 'laut', 'benchmark', 'benchmarks', 'vergleich', 'test', 'tokens', 'token', 'tool', 'tools',
+                'free', 'kostenlos', 'gratis', 'neue', 'new', 'best', 'beste', 'ai', 'ki'}
+
+
+def themen_begriffe(thema):
+    """Markante Suchbegriffe: Namen (Grossbuchstabe) und Versionsnummern zuerst, Fuellwoerter raus.
+    Nutzerthemen kommen oft deutsch („Opus 5.5 spart mehr Token als Fable 5") - die Namen tragen."""
+    woerter = re.findall(r'[A-Za-z0-9][\w.+-]*', thema or '')
+    markant = [w.strip('.') for w in woerter if (w[0].isupper() or re.search(r'\d', w))
+               and w.lower().strip('.') not in FUELLWOERTER]
+    rest = [w for w in woerter if len(w) >= 4 and w.lower() not in FUELLWOERTER and w not in markant]
+    return list(dict.fromkeys(markant or rest))[:6]
+
+
+def passt_zum_thema(text, begriffe):
+    """GEMESSEN 10.10.2026 (Live-Probe): „EmbeddingGemma 2" fand „F-Droid 2.0" und Wikipedia „YouTube" -
+    reine Zahlen passen ueberall. Zaehlen nur Namen: mindestens zwei, bei nur einem Namen genau dieser."""
+    namen = [b for b in begriffe if not re.fullmatch(r'[\d.]+', b)]
+    if not namen:
+        return False
+    klein = text.lower()
+    treffer = sum(1 for b in namen if re.search(r'(?<![\w])' + re.escape(b.lower()) + r'(?![\w])', klein))
+    return treffer >= min(2, len(namen))
+
+
+def seitentext(url, grenze=6000):
+    """Lesbarer Text einer Webseite (Ankuendigung, Preisseite, Blog) oder ''. Kein Login, keine Umgehung."""
+    # Twitter/X und Co. zeigen ohne Anmeldung keinen Inhalt (gemessen: 288 Woerter Anmelde-Text)
+    if re.match(r'https?://(?:www\.)?(?:twitter\.com|x\.com|facebook\.com|instagram\.com|linkedin\.com)/', url or ''):
+        return ''
+    try:
+        # GEMESSEN 10.10.2026: blog.google bettet vor dem Artikel >600 KB CSS ein - 49 Woerter Text
+        roh = _hole(url, KENNUNG, zeit=15).decode('utf-8', 'replace')[:3_000_000]
+    except Exception:
+        return ''
+    roh = re.sub(r'<(script|style|nav|footer|header|noscript|svg)\b.*?</\1>', ' ', roh, flags=re.I | re.S)
+    roh = re.sub(r'<(br|p|div|li|h[1-6]|tr)\b[^>]*>', '\n', roh, flags=re.I)
+    text = html.unescape(re.sub(r'<[^>]+>', ' ', roh))
+    zeilen = [re.sub(r'[ \t]+', ' ', z).strip() for z in text.splitlines()]
+    # Nur Zeilen mit Satzcharakter: Menues und Knoepfe sind kurz
+    text = '\n'.join(z for z in zeilen if len(z.split()) >= 6 and not re.search(r'[{};]\s*\S*[{};]|@keyframes|var\(--', z))
+    return text[:grenze]
+
+
+def thema_recherche(thema, tage=120, maximal=4):
+    """Quellen GENAU zu einem Nutzerthema des AI-Kanals (Nutzerauftrag 10.10.2026: auch bezahlte
+    Modelle/Tools vergleichen, z. B. Tokenverbrauch). Vorher bekam ein solches Thema die allgemeinen
+    Trend-Repos als „Belege" - fremde Fakten zum falschen Thema. Kostenlos: Hacker-News-Suche
+    (verlinkt oft offizielle Ankuendigungen) + Wikipedia; jede Seite wird gelesen, nur Text zaehlt."""
+    begriffe = themen_begriffe(thema)
+    if not begriffe:
+        return []
+    ab = int(time.time()) - tage * 86400
+    treffer = []
+    for suche in (' '.join(begriffe), *begriffe[:3]):
+        try:
+            d = json.loads(_hole('https://hn.algolia.com/api/v1/search?' + urllib.parse.urlencode({
+                'query': suche, 'tags': 'story', 'numericFilters': f'created_at_i>{ab},points>20',
+                'hitsPerPage': 20}), zeit=15))
+        except Exception as e:
+            print('Hacker-News-Suche nicht verfuegbar:', type(e).__name__)
+            continue
+        for h in d.get('hits', []):
+            titel = h.get('title') or ''
+            if h.get('url') and passt_zum_thema(titel, begriffe):
+                treffer.append({'titel': titel, 'url': h['url'], 'punkte': h.get('points') or 0,
+                                'datum': (h.get('created_at') or '')[:10]})
+    aus, gesehen = [], set()
+    for h in sorted(treffer, key=lambda h: -h['punkte']):
+        if h['url'] in gesehen or len(gesehen) >= 8:  # hoechstens 8 Seitenabrufe je Thema
+            continue
+        gesehen.add(h['url'])
+        text = seitentext(h['url'])
+        if len(text.split()) >= 150 and _englisch(text[:2000]):
+            aus.append({'quelle': 'Webseite', 'name': h['titel'][:120], 'url': h['url'], 'belegt': True,
+                        'text': f"Discussed on Hacker News ({h['punkte']} points, {h['datum']}).\n"
+                                f"PAGE TEXT (fetched today):\n{text}"})
+        if len(aus) >= maximal:
+            break
+    try:  # Wikipedia-Suche: Hintergrund (Hersteller, Erscheinen), nie Benchmark-Ersatz
+        d = json.loads(_hole('https://en.wikipedia.org/w/api.php?' + urllib.parse.urlencode({
+            'action': 'query', 'list': 'search', 'srsearch': ' '.join(begriffe), 'srlimit': 1, 'format': 'json'}),
+            WIKI_KENNUNG, zeit=15))
+        seite = (d.get('query', {}).get('search') or [{}])[0].get('title')
+        w = wikipedia(seite) if seite else None
+        if w and passt_zum_thema(w['name'] + ' ' + w['text'][:3000], begriffe):
+            aus.append(dict(w, belegt=True))
+    except Exception as e:
+        print('Wikipedia-Suche nicht verfuegbar:', type(e).__name__)
+    return aus
+
+
 def github_repo(url):
     """'owner/repo' aus einer GitHub-Projektadresse, sonst None."""
     m = re.match(r'https?://(?:www\.)?github\.com/([\w.-]+)/([\w.-]+?)(?:\.git)?/?(?:[#?].*)?$', url or '')

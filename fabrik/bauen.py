@@ -1081,10 +1081,11 @@ def gemini_ton(s, wahl, grenzen):
     oben = grenzen[1]
     # GEMELDET 08.10.2026 nach dem ersten Video (WeWork): „ein Tick schneller abspielen".
     # Grundtempo aus dem Kanalprofil (erzaehlstimme.tempo, Standard 1.08), zu lang -> mehr,
-    # zusammen hoechstens 1.2; atempo erhaelt die Tonhoehe.
+    # zusammen hoechstens 1.25 (GEMELDET 10.10.2026, Business 1.08: „redet bisschen zu langsam" -> 1.2
+    # als Grundtempo, darueber noch Spielraum fuer zu lange Texte); atempo erhaelt die Tonhoehe.
     grund = wahl.get('tempo', 1.08)
-    grund = grund if isinstance(grund, (int, float)) and not isinstance(grund, bool) and 1.0 <= grund <= 1.2 else 1.08
-    faktor = round(min(1.2, max(grund, dauer / oben if dauer > oben else 1.0)), 3)
+    grund = grund if isinstance(grund, (int, float)) and not isinstance(grund, bool) and 1.0 <= grund <= 1.25 else 1.08
+    faktor = round(min(1.25, max(grund, dauer / oben if dauer > oben else 1.0)), 3)
     if dauer / faktor < grenzen[0]:
         # GEMESSEN 10.10.2026 (Pilot 38060628587, AI): Orus sprach 96 Woerter in 32 s (3.0 W/s;
         # beim 8/10-Short 2.2 W/s) -> 29,8 s statt mindestens 35 s. Dann hoechstens 10 % langsamer.

@@ -18,7 +18,9 @@ from qualitaet import skript_gruende, redaktion, rang, STORY_KATEGORIEN
 # GEMESSEN 04.10.2026 im konkreten Projekt: mehrere Tageslimits bei 20,
 # einige Modelle nicht freigeschaltet. Keine allgemeine Gratis-Grenze:
 # Quoten gelten pro Projekt; Aliase sind keine unabhaengigen Kontingente.
-MODELLE = ['gemini-3.8-flash', 'gemini-flash-latest', 'gemini-3.7-flash', 'gemini-3.6-flash', 'gemini-3.5-flash',
+# Google 10.10.2026 (Mail): gemini-3.7-flash ist eingestellt und leitet auf 3.8-flash um - ein
+# 3.7-Ausweichversuch nach einem 3.8-Fehler fragte also dasselbe Modell erneut.
+MODELLE = ['gemini-3.8-flash', 'gemini-flash-latest', 'gemini-3.6-flash', 'gemini-3.5-flash',
            'gemini-3-flash-preview', 'gemini-flash-lite-latest', 'gemini-3.5-flash-lite', 'gemini-3.1-flash-lite']
 # Bildauswahl (eine Anfrage je Abschnitt, ~10 je Video): schnelle Lite-Modelle
 # zuerst, damit die starken Modelle fuer Skript und Pruefung uebrig bleiben.

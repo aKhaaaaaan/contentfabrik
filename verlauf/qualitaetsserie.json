@@ -8131,6 +8131,104 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "38037738527.1:ai-tools-explained",
+      "run_id": "38037738527",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-10T08:33:35.944133+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "89e4532eecbe52423dc5bebb48d05c6574ee2574",
+      "produktionsversion": "da4b5d5442b25d1d90decded1ab1ed0427398d05f37de3f370b38c21e2afc601",
+      "videoformat": "short",
+      "thema": "Free AI tools fact-checked: what the free plans really include",
+      "titel": [
+        "Is *Free* *AI* *Free?*",
+        "Six Plans Checked"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38037738527",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-10",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 79.9,
+            "bau_s": 169.6,
+            "baufehler": "ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 249.5
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 61.2,
+            "baufehler": "ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 61.2
+          },
+          {
+            "runde": 3,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 77.4,
+            "baufehler": "ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 77.4
+          },
+          {
+            "runde": 4,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 49.7,
+            "baufehler": "ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 49.7
+          },
+          {
+            "runde": 5,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 56.7,
+            "baufehler": "ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 56.7
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "\"Free\" AI tools fact-checked: what the free plans really include: 3.96 Punkte - YouTube-Ausreisser 7.8x Kanalschnitt",
+        "grund": "Videobau fehlgeschlagen (ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz)",
+        "sekunden": 494.8
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

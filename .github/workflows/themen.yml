@@ -57,7 +57,7 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -qm "Themen: neue Nachrichten"
           for i in 1 2 3 4 5; do
-            git pull -q --rebase || exit 1
+            git pull -q --rebase --autostash || exit 1
             git push -q && exit 0
             sleep $((i * 5))
           done
@@ -75,7 +75,7 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -qm "Themen: Telegram-Bestaetigungsstand"
           for i in 1 2 3 4 5; do
-            git pull -q --rebase || exit 1
+            git pull -q --rebase --autostash || exit 1
             git push -q && exit 0
             sleep $((i * 5))
           done

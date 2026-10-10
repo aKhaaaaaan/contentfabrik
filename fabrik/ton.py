@@ -40,8 +40,10 @@ def musikbett(ziel, technisch=False, rate=24000):
         w.writeframes((spur * 32767).astype(np.int16).tobytes())
     return Path(ziel)
 
-PEGEL = {'riser': 0.12, 'impact': 0.20, 'pop': 0.12, 'glitch': 0.10, 'geraeusch': 0.10}
-LAENGE = {'riser': 2.0, 'impact': 0.8, 'pop': 0.25, 'glitch': 0.35, 'geraeusch': 1.5}
+PEGEL = {'riser': 0.12, 'impact': 0.20, 'pop': 0.12, 'glitch': 0.10, 'geraeusch': 0.10, 'ausloeser': 0.12,
+         'tippen': 0.08}
+LAENGE = {'riser': 2.0, 'impact': 0.8, 'pop': 0.25, 'glitch': 0.35, 'geraeusch': 1.5, 'ausloeser': 0.25,
+          'tippen': 1.0}
 
 
 def sprechen(kokoro, text, stimme, tempo):
@@ -85,7 +87,7 @@ def ereignisse(saetze, dauer):
     letzter_schnitt = -math.inf
     gueltig = [(sek, art) for sek, art in saetze
                if isinstance(sek, (int, float)) and not isinstance(sek, bool) and math.isfinite(sek)
-               and 0 <= sek < dauer and art in ('riser', 'impact', 'pop', 'whoosh')]
+               and 0 <= sek < dauer and art in ('riser', 'impact', 'pop', 'whoosh', 'ausloeser', 'tippen')]
     for sek, art in sorted(gueltig, key=lambda e: e[0]):
         key = (round(sek, 2), art)
         if key in bekannt or (art == 'riser' and sek == 0):

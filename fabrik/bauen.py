@@ -104,6 +104,39 @@ def bildtext_layout(text, profil=None):
     return f, zeilen, LAYOUT.get('akzent_x', LAYOUT['mitte']), y
 
 
+SYNTH_KLAENGE = ('ausloeser', 'tippen')
+
+
+def synth_klang(name, rate):
+    """Selbst erzeugte Effekte - eigenes Werk, keine Lizenzfrage, immer gleich (fester Zufallskeim).
+    Nutzerhinweis 10.10.2026 (TikTok-Analyse erfolgreicher Erklaervideos): Kamera-Ausloeser, wenn
+    ein Screenshot erscheint; Tipp-Geraeusch zum Titel."""
+    zufall = np.random.default_rng(7)
+
+    def klick(dauer_s, hell, abkling_s, lautst):
+        n = int(rate * dauer_s)
+        t = np.arange(n) / rate
+        rauschen = zufall.standard_normal(n).astype(np.float32)
+        if hell:  # Hochpass erster Ordnung: metallisch statt dumpf
+            rauschen = np.diff(rauschen, prepend=0.0).astype(np.float32)
+        return (rauschen * np.exp(-t / abkling_s) * lautst).astype(np.float32)
+    if name == 'ausloeser':  # Verschluss auf (hell) und zu (etwas dumpfer), 70 ms Abstand
+        x = np.zeros(int(rate * 0.25), dtype=np.float32)
+        a, b = klick(0.06, True, 0.008, 0.9), klick(0.08, False, 0.015, 0.6)
+        x[:len(a)] += a
+        x[int(rate * 0.07):int(rate * 0.07) + len(b)] += b
+    else:  # tippen: 9 Anschlaege mit wechselndem Abstand und wechselnder Staerke
+        x = np.zeros(int(rate * 1.0), dtype=np.float32)
+        pos = 0.0
+        for _ in range(9):
+            k = klick(0.04, True, 0.006, float(zufall.uniform(0.35, 0.7)))
+            s = int(pos * rate)
+            x[s:s + len(k)] += k[:len(x) - s]
+            pos += float(zufall.uniform(0.07, 0.11))
+    spitze = float(np.max(np.abs(x))) or 1.0
+    return (x / spitze * 0.8).astype(np.float32)
+
+
 def effekte_spur(ereignisse, laenge_s, rate, ziel, glitch=False, geraeusche=()):
     """Tonspur nur mit Effekten: [(sekunde, 'whoosh'|'pop'), ...]. Whoosh-Varianten
     wechseln sich ab (immer derselbe Klang wirkt billig). Begrenzte kurze Effekte,
@@ -123,6 +156,8 @@ def effekte_spur(ereignisse, laenge_s, rate, ziel, glitch=False, geraeusche=()):
         if 0 <= sek < laenge_s and len(x):
             spur_geraeusche.append((int(sek * rate), x))
     def klang(name):
+        if name in SYNTH_KLAENGE and name not in lade:
+            lade[name] = audioqualitaet.effekt(synth_klang(name, rate), name, rate)
         if name not in lade:
             roh = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', str(SFX / f'{name}.mp3'), '-f', 'f32le',
                                   '-ac', '1', '-ar', str(rate), '-'], capture_output=True, check=True).stdout
@@ -1640,7 +1675,7 @@ def main(skript_pfad, aus, vorlage=None):
             if not material:
                 raise ValueError(f'Phase {shot["phase"]}, Einstellung {i}: kein passendes Hauptbild; kein Hintergrundersatz')
             material_hash = bildplan.material_id(material)
-            vorherige_id = material_hash
+            vorher_id_merk, vorherige_id = vorherige_id, material_hash
             material_art = 'illustration' if ill else 'foto' if foto else 'karte' if karte else 'clip'
             # GEMELDET 10.10.2026: Business - Firmenname gross oben im ganzen Video, Logo am Anfang.
             werkzeug = str(t.get('werkzeug') or kopf_firma).strip()
@@ -1763,6 +1798,8 @@ def main(skript_pfad, aus, vorlage=None):
             liste.append(f"file '{stueck.name}'")
             if i and phasenstart and (H > B or t.get('name') or t.get('beat') == 'wendung'):
                 ereignisse.append((t0, 'whoosh'))
+            if i and (material_art == 'karte' or (modus == 'demo' and material_art == 'foto')) and material_hash != vorher_id_merk:
+                ereignisse.append((t0, 'ausloeser'))  # echter Screenshot/Quellseite erscheint
             merken()
         (aus / 'stuecke.txt').write_text('\n'.join(liste) + '\n', encoding='utf-8')
     bildpruefung = bildplan.pruefen(bildablauf, sum(laengen), dramaturgie.videoformat(s))

@@ -147,16 +147,14 @@ def planen(skript, kritik, messung, config, kanal):
             'RECENT CORRECTION RESULTS (AI scores, not audience results):\n'
             + json.dumps(lernen.laden(kanal).get('korrekturen', [])[-8:], ensure_ascii=False),
             SCHEMA, temperatur=0.2, modelle=None if textziele else SEHEN)
+        # GEMESSEN 10.10.2026 (Run 38060674129): EIN ungueltiger Eintrag brach die ganze Korrektur ab
+        # (Code 1) - gueltige Vorschlaege gingen mit verloren. Jetzt: ungueltige einzeln verwerfen.
         for b in vorschlag.get('bilder', []):
-            i = b.get('index')
-            if isinstance(i, bool) or not isinstance(i, int) or i not in bildziele:
-                raise ValueError('Bildkorrektur ausserhalb des beanstandeten Abschnitts')
-            modus = b.get('bildmodus')
-            if modus not in ('auto', 'foto', 'stock', 'illustration', 'karte'):
-                raise ValueError('Unbekannter Bildmodus')
+            i, modus = b.get('index'), b.get('bildmodus')
+            if isinstance(i, bool) or not isinstance(i, int) or i not in bildziele                     or modus not in ('auto', 'foto', 'stock', 'illustration', 'karte')                     or not all(isinstance(b.get(k), str) and b[k].strip() for k in ('suche', 'szene')):
+                print('Ungueltige Bildkorrektur verworfen:', json.dumps(b, ensure_ascii=False)[:160])
+                continue
             for key in ('suche', 'szene'):
-                if not isinstance(b.get(key), str) or not b[key].strip():
-                    raise ValueError('Bildkorrektur ohne konkrete Such-/Szenenangabe')
                 neu['teile'][i][key] = b[key].strip()[:600]
             neu['teile'][i]['bildmodus'] = modus
             plan['aktionen'].append({'art': 'bild', 'variante': modus, 'index': i})
@@ -165,7 +163,8 @@ def planen(skript, kritik, messung, config, kanal):
             i = t.get('index')
             if isinstance(i, bool) or not isinstance(i, int) or i not in textziele \
                     or not isinstance(t.get('text'), str) or not t['text'].strip():
-                raise ValueError('Ungueltige Sprechtextkorrektur')
+                print('Ungueltige Sprechtextkorrektur verworfen:', json.dumps(t, ensure_ascii=False)[:160])
+                continue
             if t['text'].strip() != skript['teile'][i]['text']:
                 neu['teile'][i]['text'] = t['text'].strip()
                 geaendert = True

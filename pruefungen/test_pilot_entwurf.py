@@ -14,7 +14,7 @@ class PilotEntwurfTest(TempTest):
         self.s = copy.deepcopy(SKRIPT)
         self.s['teile'] = [{'text': 'One supported claim. ' * 60}]
         Path('vorlage.json').write_text(json.dumps(self.s), encoding='utf-8')
-        Path('profil.json').write_text(json.dumps({'name': 'Test', 'videoformat': 'short'}), encoding='utf-8')
+        Path('profil.json').write_text(json.dumps({'name': 'Test', 'videoformat': 'short', 'laenge_s': [62, 90]}), encoding='utf-8')
 
     def pruefen(self, note=9):
         def check(s):

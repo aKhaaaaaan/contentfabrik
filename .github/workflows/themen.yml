@@ -37,6 +37,8 @@ jobs:
           YT_CLIENT: ${{ secrets.YT_CLIENT }}
           YT_TOKENS: ${{ secrets.YT_TOKENS }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           # Einmal je Tag ab 12 Uhr UTC (Markierung in erfolg/, wird mitgesichert) - der 5-Minuten-Takt
           # wuerde sonst die YouTube-Analytics-Abfrage dutzendfach ausloesen.
@@ -45,7 +47,9 @@ jobs:
             [ "$(date -u +%H)" -ge 12 ] || exit 0
             [ "$(cat erfolg/.letzter_abruf 2>/dev/null)" != "$heute" ] || exit 0
           fi
-          python3 fabrik/erfolg.py
+          python3 fabrik/erfolg.py || true
+          # Erinnerung TikTok-Umstellung ab 8.000 Followern (Entscheidung 10.10.2026), einmal je Tag
+          python3 fabrik/tiktok_schwelle.py || true
           mkdir -p erfolg && echo "$heute" > erfolg/.letzter_abruf
       - name: Trend-Check Vorschau (nur bei manuellem Start, nichts wird gespeichert)
         if: github.event_name == 'workflow_dispatch'

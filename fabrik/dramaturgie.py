@@ -11,7 +11,7 @@ def videoformat(daten):
 
 
 def laengen(daten):
-    standard = [360, 600] if videoformat(daten) == 'lang' else [62, 90]
+    standard = [360, 600] if videoformat(daten) == 'lang' else [35, 45]
     werte = daten.get('laenge_s', standard)
     if not isinstance(werte, (list, tuple)) or len(werte) != 2 or any(
             isinstance(x, bool) or not isinstance(x, (int, float)) or not math.isfinite(x)

@@ -7,7 +7,8 @@ from unittest.mock import patch
 from test_betrieb import TempTest
 import vorrat
 
-KANAL = {'name': 'Business Origin Stories', 'format': 'geschichte'}
+# Feste Laenge: diese Tests pruefen Vorrat-Regeln, nicht die Shorts-Laenge (seit 10.10. 35-45 s).
+KANAL = {'name': 'Business Origin Stories', 'format': 'geschichte', 'laenge_s': [62, 90]}
 
 
 def skript(thema='WeWork', ok=True):

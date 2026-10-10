@@ -276,13 +276,14 @@ class Wortgrenze(unittest.TestCase):
         import skript
         kanal = {'name': 'X', 'format': 'geschichte'}
         with patch('prompts.skript', side_effect=lambda k, t, f, b, w: w):
-            self.assertEqual(skript.anweisung(kanal, 'WeWork', []), '149-189')
+            # Seit 10.10.2026 Shorts 35-45 s (YouTube-Zuschauerbindung): 35*2.1*1.14 .. 45*2.1 Woerter
+            self.assertEqual(skript.anweisung(kanal, 'WeWork', []), '84-94')
 
     def test_orus_kanaele_kuerzer(self):
         # Lauf 37749486997: Orus 207 Woerter = 109 s (~1.9 W/s). Vorher galt fuer alle 170-216.
         import json, skript
         wurzel = Path(__file__).resolve().parents[1]
-        erwartet = {'business-origin-stories': '142-180', 'ai-tools-explained': '156-198'}
+        erwartet = {'business-origin-stories': '80-90', 'ai-tools-explained': '88-99'}  # 35-45 s seit 10.10.
         for k, grenzen in erwartet.items():
             kanal = json.loads((wurzel / f'kanaele/{k}.json').read_text(encoding='utf-8'))
             with patch('prompts.skript', side_effect=lambda a, t, f, b, w: w):

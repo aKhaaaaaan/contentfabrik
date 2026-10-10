@@ -87,7 +87,8 @@ class ErbtShortEinstellungen(unittest.TestCase):
         e = echte[0]
         # Die echten Eintraege sind fuer Orus etwas zu lang (207-211 > 180 Woerter) - auf
         # Short-Laenge kuerzen, damit die Kontrolle einen fuer Shorts GUELTIGEN Eintrag hat.
-        woerter = ' '.join(t['text'] for t in e['skript']['teile']).split()[:170]
+        # Seit 10.10.2026 Shorts 35-45 s: hoechstens ~90 Woerter (45 s * 2.0 W/s)
+        woerter = ' '.join(t['text'] for t in e['skript']['teile']).split()[:85]
         e['skript']['teile'] = [dict(e['skript']['teile'][0], text=' '.join(woerter))]
         jetzt = datetime.datetime.fromisoformat(e['erstellt_utc']) + datetime.timedelta(hours=1)
         self.assertTrue(vorrat.gueltig(e, kurz, jetzt), 'Kontrolle: fuer den Short gueltig')

@@ -1,5 +1,11 @@
 # Einstieg fuer Claude
 
+> **ERINNERUNG (Nutzerentscheidung 10.10.2026) - TikTok-Umstellung:** Shorts sind 35-45 s fuer YouTube
+> UND TikTok (YouTube-Studio: gesehen wurden nur 21-24 s von 90 s). Sobald ein TikTok-Kanal ~8.000
+> Follower hat, zusaetzlich eine TikTok-Fassung > 60 s bauen (Creator Rewards: ab 10.000 Followern,
+> 100.000 Aufrufen/30 Tage, nur Videos > 1 Min.; persoenliches Konto noetig). Der Waechter
+> `fabrik/tiktok_schwelle.py` (taeglich in themen.yml) meldet das per Telegram; Verlauf in `erfolg/tiktok.json`.
+
 **Neuester Stand, 07.10. abends (Claude):** Skript-Autor fuer BEIDE Kanaele
 (AI Tools Explained und Business Origin Stories) ist jetzt **Claude** ueber das
 Abo-Token des Nutzers (`fabrik/claude_ki.py`, Secret `CLAUDE_CODE_OAUTH_TOKEN`,

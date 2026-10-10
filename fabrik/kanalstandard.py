@@ -13,7 +13,10 @@ from pathlib import Path
 STANDARD = {
     'videoformat': 'short',
     'tagesziel': 1,
-    'laenge_s': [62, 90],
+    # GEMESSEN 10.10.2026 (YouTube Studio): Shorts wurden im Schnitt 21-24 s gesehen (23,6 % / 27,4 %)
+    # bei 90 s Laenge. Vergleichsdaten 2026: erfolgreiche Shorts ~30-45 s. Nutzerentscheidung:
+    # 35-45 s fuer YouTube UND TikTok, bis TikTok 10.000 Follower hat (dann TikTok-Fassung > 60 s).
+    'laenge_s': [35, 45],
     # Gemessen 08.10.: Orus ~1.9-2.0 W/s; mit Tempo 1.08 etwa 2.1.
     'woerter_pro_sekunde': 2.1,
     'stockclips': False,

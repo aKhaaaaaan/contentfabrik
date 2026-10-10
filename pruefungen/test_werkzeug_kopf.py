@@ -42,6 +42,24 @@ class Kopf(unittest.TestCase):
         self.assertEqual(magenta(mit), 0)
 
 
+    def test_titelbild_bleibt_frei(self):
+        # Vorschau 10.10.: auf Bild 0 rutschten Name und Logo ueber das Gesicht der Figur.
+        logo = Image.new('RGBA', (256, 256), (250, 0, 250, 255))
+        mit = bauen.bild_fuer({'text': 'x', 'werkzeug': 'Netflix'}, ['A', 'B'], 0, 10, durchsichtig=True, logo=logo)
+        self.assertEqual(magenta(mit), 0)
+
+
+class BusinessFirma(unittest.TestCase):
+    def test_business_zeigt_firmennamen_im_ganzen_video(self):
+        import json
+        profil = json.loads((WURZEL / 'kanaele/business-origin-stories.json').read_text(encoding='utf-8'))
+        self.assertEqual(profil.get('ueberschrift'), 'firma')
+        quelle = (WURZEL / 'fabrik/bauen.py').read_text(encoding='utf-8')
+        self.assertIn("kopf_firma = vorschaubild.name(s)[:40] if kanalprofil(s).get('ueberschrift') == 'firma' else ''", quelle)
+        self.assertIn("werkzeug = str(t.get('werkzeug') or kopf_firma).strip()", quelle)
+        self.assertEqual(vorschaubild.name({'thema': 'Netflix: from DVD rental to streaming'}), 'Netflix')
+
+
 class Skript(unittest.TestCase):
     def test_schema_und_auftrag(self):
         felder = skript.SKRIPT_SCHEMA['properties']['teile']['items']['properties']

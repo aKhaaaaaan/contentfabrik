@@ -481,9 +481,11 @@ def fortschritt_zeichnen(img, akzent):
 def werkzeug_kopf(img, werkzeug, nr, akzent, logo=None):
     """GEMELDET 10.10.2026 (AI Tools): Tool-Name gross oben, solange es um dieses Tool geht;
     am Anfang jedes Tool-Abschnitts zusaetzlich sein echtes Logo."""
+    if nr == 0:
+        return  # Bild 0 traegt oben den Videotitel; Name/Logo dort verdeckten die Figur (Vorschau 10.10.)
     d = ImageDraw.Draw(img)
     f = text_font(werkzeug.upper(), 76 if B < H else 64)
-    y = LAYOUT['titel_y'] if nr else LAYOUT['name_y']  # Bild 0 traegt oben den Videotitel
+    y = LAYOUT['titel_y']
     schrift_text(img, (B / 2 - d.textlength(werkzeug.upper(), font=f) / 2, y), werkzeug.upper(), f, akzent, rand=4)
     if logo is not None:
         breite = int(B * (.34 if B < H else .22))
@@ -1429,6 +1431,8 @@ def main(skript_pfad, aus, vorlage=None):
         bild_ersatz = 0  # Einstellungen mit gepruefter Nachbar-Illustration statt eigenem Bild
         benutzte_bibliothek = set()  # Notfall-Ersatz aus der Bibliothek: jedes Bild hoechstens einmal
         logos, letztes_werkzeug = {}, ''  # AI-Kanal: Logo je Werkzeug, einmal am Abschnittsanfang
+        import vorschaubild
+        kopf_firma = vorschaubild.name(s)[:40] if kanalprofil(s).get('ueberschrift') == 'firma' else ''
         # GEMESSEN 08.10.2026 (Langvideo-Pilot 37831023275): bei ~85 Einstellungen waren 2 Ersatzbilder
         # nach 4 Einstellungen verbraucht -> Abbruch. Anteil statt fester Zahl (Short weiter 2).
         ersatz_max = ersatz_grenze(len(shots))
@@ -1625,14 +1629,17 @@ def main(skript_pfad, aus, vorlage=None):
             material_hash = bildplan.material_id(material)
             vorherige_id = material_hash
             material_art = 'illustration' if ill else 'foto' if foto else 'karte' if karte else 'clip'
-            werkzeug = str(t.get('werkzeug') or '').strip()
+            # GEMELDET 10.10.2026: Business - Firmenname gross oben im ganzen Video, Logo am Anfang.
+            werkzeug = str(t.get('werkzeug') or kopf_firma).strip()
+            if werkzeug and not t.get('werkzeug'):
+                t = dict(t, werkzeug=werkzeug)
             logo = None
-            if werkzeug and werkzeug != letztes_werkzeug:  # neuer Tool-Abschnitt: Logo zeigen
+            if werkzeug and werkzeug != letztes_werkzeug and i > 0:  # neuer Abschnitt: Logo (nicht auf dem Titelbild)
                 if werkzeug not in logos:
                     import vorschaubild
                     logos[werkzeug] = vorschaubild.werkzeug_logo(werkzeug, t.get('quelle_url') or '')
                 logo = logos[werkzeug]
-            letztes_werkzeug = werkzeug or letztes_werkzeug
+            letztes_werkzeug = (werkzeug or letztes_werkzeug) if i > 0 else letztes_werkzeug
             bild_fuer(t, s['titel'], i, len(shots), durchsichtig=not karte,
                      karte=karte, akzent=akzent_farbe(s), logo=logo).save(ebene)
             # GEMELDET 08.10.2026: Nutzer will das Wort 'ILLUSTRATION' im Bild nicht ("ganz

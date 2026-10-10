@@ -54,7 +54,9 @@ class Themenquellen(unittest.TestCase):
 
     def test_eingetragenes_thema_ist_vollstaendig_belegt(self):
         liste = json.loads((WURZEL / 'themen/warteschlange.json').read_text(encoding='utf-8'))
-        eintrag = next(x for x in liste if x.get('id') == 'redaktion-2026-10-09-1')
+        eintrag = next((x for x in liste if x.get('id') == 'redaktion-2026-10-09-1'), None)
+        if eintrag is None:  # nach erfolgreicher Zustellung regulaer aus der Warteschlange entfernt
+            self.skipTest('Faktencheck-Thema bereits produziert und entfernt')
         self.assertEqual(eintrag['kanal'], 'ai-tools-explained')
         self.assertGreaterEqual(len(eintrag['quellen']), 5)
         for q in eintrag['quellen']:
@@ -69,7 +71,9 @@ class Themenquellen(unittest.TestCase):
         quelle = (WURZEL / 'fabrik/skript.py').read_text(encoding='utf-8')
         self.assertIn("f\"{q.get('quelle', '')} {q.get('name', '')} {q.get('text', '')}\" for q in quellen", quelle)
         liste = json.loads((WURZEL / 'themen/warteschlange.json').read_text(encoding='utf-8'))
-        eintrag = next(x for x in liste if x.get('id') == 'redaktion-2026-10-09-1')
+        eintrag = next((x for x in liste if x.get('id') == 'redaktion-2026-10-09-1'), None)
+        if eintrag is None:  # nach erfolgreicher Zustellung regulaer aus der Warteschlange entfernt
+            self.skipTest('Faktencheck-Thema bereits produziert und entfernt')
         self.assertTrue(all('October 9, 2026' in q['text'] for q in eintrag['quellen']))
 
 

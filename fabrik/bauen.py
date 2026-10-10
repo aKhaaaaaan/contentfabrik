@@ -57,7 +57,7 @@ def format_setzen(art='short'):
                   {'links': 72, 'rechts': 900, 'mitte': 486, 'titel_y': 190,
                    'titel_font': 72, 'progress_y': 414, 'platz_y': 455, 'name_y': 605,
                    'karte': (72, 700, 900, 1180), 'foto': (48, 260, 960, 1180),
-                   'gross': (48, 260, 960, 1180),
+                   'gross': (90, 300, 990, 1700),
                    'akzent_y': 1250, 'untertitel_y': 1420, 'mini': (72, 480, 492, 650)})
 
 
@@ -478,7 +478,27 @@ def fortschritt_zeichnen(img, akzent):
             d.ellipse((x - 11, y - 11, x + 11, y + 11), fill=(20, 26, 36, 255), outline=grau, width=4)
 
 
-def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None, akzent=(32, 210, 190)):
+def werkzeug_kopf(img, werkzeug, nr, akzent, logo=None):
+    """GEMELDET 10.10.2026 (AI Tools): Tool-Name gross oben, solange es um dieses Tool geht;
+    am Anfang jedes Tool-Abschnitts zusaetzlich sein echtes Logo."""
+    d = ImageDraw.Draw(img)
+    f = text_font(werkzeug.upper(), 76 if B < H else 64)
+    y = LAYOUT['titel_y'] if nr else LAYOUT['name_y']  # Bild 0 traegt oben den Videotitel
+    schrift_text(img, (B / 2 - d.textlength(werkzeug.upper(), font=f) / 2, y), werkzeug.upper(), f, akzent, rand=4)
+    if logo is not None:
+        breite = int(B * (.34 if B < H else .22))
+        l = logo.copy()
+        l.thumbnail((breite, breite), Image.LANCZOS)
+        rand = 34
+        tafel = Image.new('RGBA', (l.width + 2 * rand, l.height + 2 * rand), (0, 0, 0, 0))
+        ImageDraw.Draw(tafel).rounded_rectangle((0, 0, tafel.width - 1, tafel.height - 1), 36,
+                                                fill=(255, 255, 255, 240), outline=akzent + (255,), width=6)
+        tafel.alpha_composite(l, (rand, rand))
+        oben = y + f.size + 40
+        img.alpha_composite(tafel, (int(B / 2 - tafel.width / 2), int(oben)))
+
+
+def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None, akzent=(32, 210, 190), logo=None):
     """Ebene je Abschnitt: Titel, Platz, Name.
     durchsichtig=True: nur Schrift + sanfte Abdunklung, als Ebene ueber einem
     Videoclip. karte: Vorschaubild der Quelle, gross in der Mitte."""
@@ -521,6 +541,8 @@ def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None, akzent=(3
         y = LAYOUT['name_y'] if teil.get('platz') else 150
         schrift_text(img, (LAYOUT['mitte'] - d.textlength(teil['name'], font=f) / 2,
                            y), teil['name'], f, akzent)
+    if str(teil.get('werkzeug') or '').strip() and not teil.get('platz'):
+        werkzeug_kopf(img, str(teil['werkzeug']).strip()[:40], nr, akzent, logo)
     return img
 
 
@@ -1406,6 +1428,7 @@ def main(skript_pfad, aus, vorlage=None):
         geraeusche = []  # (sekunde, mp3) passend zur Szene, hoechstens 3
         bild_ersatz = 0  # Einstellungen mit gepruefter Nachbar-Illustration statt eigenem Bild
         benutzte_bibliothek = set()  # Notfall-Ersatz aus der Bibliothek: jedes Bild hoechstens einmal
+        logos, letztes_werkzeug = {}, ''  # AI-Kanal: Logo je Werkzeug, einmal am Abschnittsanfang
         # GEMESSEN 08.10.2026 (Langvideo-Pilot 37831023275): bei ~85 Einstellungen waren 2 Ersatzbilder
         # nach 4 Einstellungen verbraucht -> Abbruch. Anteil statt fester Zahl (Short weiter 2).
         ersatz_max = ersatz_grenze(len(shots))
@@ -1602,8 +1625,16 @@ def main(skript_pfad, aus, vorlage=None):
             material_hash = bildplan.material_id(material)
             vorherige_id = material_hash
             material_art = 'illustration' if ill else 'foto' if foto else 'karte' if karte else 'clip'
+            werkzeug = str(t.get('werkzeug') or '').strip()
+            logo = None
+            if werkzeug and werkzeug != letztes_werkzeug:  # neuer Tool-Abschnitt: Logo zeigen
+                if werkzeug not in logos:
+                    import vorschaubild
+                    logos[werkzeug] = vorschaubild.werkzeug_logo(werkzeug, t.get('quelle_url') or '')
+                logo = logos[werkzeug]
+            letztes_werkzeug = werkzeug or letztes_werkzeug
             bild_fuer(t, s['titel'], i, len(shots), durchsichtig=not karte,
-                     karte=karte, akzent=akzent_farbe(s)).save(ebene)
+                     karte=karte, akzent=akzent_farbe(s), logo=logo).save(ebene)
             # GEMELDET 08.10.2026: Nutzer will das Wort 'ILLUSTRATION' im Bild nicht ("ganz
             # entfernen"). KI-Kennzeichnung bleibt: Plattform-Einstellung (containsSyntheticMedia)
             # und Beschreibung 'Illustrations are AI-generated.' (freigabe.py).
@@ -1616,7 +1647,7 @@ def main(skript_pfad, aus, vorlage=None):
             # des Bildschirms leer“ - jede Illustration lag links in 1240x620 auf einem FREMDEN
             # unscharfen Hintergrundclip. Nutzerwunsch: das Motiv gross zeigen, dahinter DASSELBE Bild
             # verschwommen (wie in den ersten Videos). Short: weiter Vollbild mit Zoom.
-            if ill and B > H:
+            if ill:  # GEMELDET 10.10.2026: auch im Short Motiv gross, dahinter dasselbe Bild verschwommen
                 kpfad = aus / f'karte_{i:02d}.png'
                 karten_ebene(ill, kasten='gross').save(kpfad)
                 ein, filt = karten_filter(ill, ebene, kpfad)

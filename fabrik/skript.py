@@ -219,6 +219,7 @@ SKRIPT_SCHEMA = {
         'schluesselwoerter': {'type': 'ARRAY', 'items': {'type': 'STRING'}},
         'teile': {'type': 'ARRAY', 'items': {'type': 'OBJECT', 'properties': {
             'platz': {'type': 'INTEGER'}, 'name': {'type': 'STRING'},
+            'werkzeug': {'type': 'STRING'},  # AI-Kanal: Tool dieses Abschnitts (Ueberschrift + Logo)
             'suche': {'type': 'STRING'}, 'text': {'type': 'STRING'}, 'quelle_url': {'type': 'STRING'},
             'szene': {'type': 'STRING'},
             'bildtext': {'type': 'STRING'},

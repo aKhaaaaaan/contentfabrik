@@ -114,6 +114,34 @@ def logo_readme(url):
     return None
 
 
+def logo_favicon(url):
+    """Offizielles Seiten-Symbol (Google-Favicon-Dienst, 256 px) fuer Herstellerseiten ohne Wikidata-Logo."""
+    m = re.match(r'https?://([^/]+)', url or '')
+    if not m or re.match(r'(github\.com|huggingface\.co)$', m[1]):
+        return None
+    try:
+        return _holen('https://www.google.com/s2/favicons?' + urllib.parse.urlencode({'domain': m[1], 'sz': 256}))
+    except Exception:
+        return None
+
+
+def werkzeug_logo(name, url=''):
+    """Logo eines Werkzeugs als RGBA oder None: README (GitHub/HF), Wikidata, Seiten-Symbol.
+    Zu kleine Bilder (< 128 px) werden verworfen - hochskaliert wirken sie unscharf."""
+    for holen in (lambda: logo_readme(url), lambda: logo_wikidata(name), lambda: logo_favicon(url)):
+        daten = holen()
+        if not daten:
+            continue
+        try:
+            im = Image.open(io.BytesIO(daten))
+            im.load()
+            if min(im.size) >= 128 or (im.width >= 256 and im.height >= 64):
+                return im.convert('RGBA')
+        except Exception:
+            continue
+    return None
+
+
 def logo_bild(skript):
     """Echtes Logo als RGBA-Bild oder None. Werkzeug (GitHub/HF-Quelle): README zuerst."""
     quelle = next((t.get('quelle_url') for t in skript.get('teile', []) if t.get('quelle_url')), '')

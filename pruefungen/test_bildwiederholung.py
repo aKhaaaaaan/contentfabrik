@@ -55,7 +55,7 @@ class Vollbild(unittest.TestCase):
         # unscharfer Hintergrund. Alter Stand: Querformat-Illustration als Karte auf hintergrund_holen().
         quelle = (WURZEL / 'fabrik/bauen.py').read_text(encoding='utf-8')
         # Nutzerwunsch: Motiv gross, dahinter DASSELBE Bild verschwommen (nicht hintergrund_holen()).
-        stelle = quelle.index('            if ill and B > H:')
+        stelle = quelle.index("            if ill:  # GEMELDET 10.10.2026: auch im Short")
         block = quelle[stelle:stelle + 300]
         self.assertIn("karten_ebene(ill, kasten='gross')", block)
         self.assertIn('karten_filter(ill, ebene, kpfad)', block)

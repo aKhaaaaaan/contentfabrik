@@ -156,6 +156,16 @@ def senden(skript_pfad, video_pfad):
     import texte
     titel = texte.titel_text(skript['titel'])
     lang = videoformat(skript) == 'lang'
+    if not lang:
+        import datetime
+        import re
+        from zoneinfo import ZoneInfo
+        slug = re.sub(r'[^a-z0-9]+', '-', str(skript.get('kanal', '')).lower()).strip('-')
+        try:
+            serie = json.loads(Path(f'kanaele/{slug}.json').read_text(encoding='utf-8')).get('serie')
+        except (OSError, ValueError):
+            serie = None
+        titel = texte.serien_titel(titel, serie, datetime.datetime.now(ZoneInfo('Europe/Berlin')).date())
     tags = ' '.join('#' + h.lstrip('#') for h in skript.get('hashtags', []))
     # CC-Lizenzen verlangen Urheber, Lizenz und Quelle - automatisch anhaengen
     qpfad = Path(skript_pfad).with_name('quellen.json')

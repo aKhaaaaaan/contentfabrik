@@ -17,6 +17,25 @@ def titel_text(zeilen):
     return f'{erste} {rest}' if re.search(r'[:?!.,–-]$', erste) else f'{erste}: {rest}'
 
 
+def serien_titel(titel, serie, datum, grenze=92):
+    """„<Titel> | AI Tool #N" - N = Tag seit Serienstart (Nutzerauftrag 10.10.2026: Serie mit Nummer
+    bindet Zuschauer, Mitte des Funnels). Nach Datum statt Zaehler: Pilotlaeufe schreiben keinen
+    Stand ins Repo zurueck - ein Zaehler vergaebe dort doppelte Nummern. Ausfalltage = Luecke,
+    nie eine Doppelung. Ohne gueltige Serie oder vor dem Start: Titel unveraendert."""
+    import datetime
+    try:
+        start = datetime.date.fromisoformat(str((serie or {}).get('start', '')))
+        name = str(serie['name']).strip()
+    except (ValueError, KeyError, TypeError):
+        return titel
+    nummer = (datum - start).days + 1
+    if not name or nummer < 1:
+        return titel
+    zusatz = f' | {name} #{nummer}'
+    # grenze 92: YouTube erlaubt 100 Zeichen, freigabe.py haengt bei Shorts noch ' #shorts' an
+    return (titel[:grenze - len(zusatz)].rstrip() + zusatz) if titel else zusatz.strip(' |')
+
+
 def hashtags_bereinigen(tags, inhalt):
     """Nur Hashtags, die im Video vorkommen oder allgemeine Kategorien sind.
     GEMESSEN 10.10.2026: #gta unter dem Whirl-Video - die KI uebernahm den Stilhinweis aus dem

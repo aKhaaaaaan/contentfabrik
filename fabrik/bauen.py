@@ -1103,6 +1103,22 @@ def ersatz_grenze(einstellungen):
     return max(2, math.ceil(einstellungen * .06))
 
 
+def bibliothek_ersatz(kanal, vorherige_id, benutzt):
+    """Pfad einer noch ungenutzten Bibliotheks-Illustration dieses Kanals (nicht das Bild davor) oder None."""
+    import bibliothek
+    for eintrag in bibliothek.katalog():
+        if eintrag['kanal'] != kanal or eintrag['id'] in benutzt:
+            continue
+        try:
+            pfad = bibliothek.bild(eintrag['id'], kanal)
+        except ValueError:
+            continue
+        if bildplan.material_id(pfad) != vorherige_id:
+            benutzt.add(eintrag['id'])
+            return pfad
+    return None
+
+
 def illustration_figur(kanal_slug):
     import illustration
     pfad = illustration.FIGUREN / f'{kanal_slug}.jpg'
@@ -1389,6 +1405,7 @@ def main(skript_pfad, aus, vorlage=None):
         musikpausen = []  # Wendepunkte: Musik setzt kurz davor aus (Stille als Musterbruch)
         geraeusche = []  # (sekunde, mp3) passend zur Szene, hoechstens 3
         bild_ersatz = 0  # Einstellungen mit gepruefter Nachbar-Illustration statt eigenem Bild
+        benutzte_bibliothek = set()  # Notfall-Ersatz aus der Bibliothek: jedes Bild hoechstens einmal
         # GEMESSEN 08.10.2026 (Langvideo-Pilot 37831023275): bei ~85 Einstellungen waren 2 Ersatzbilder
         # nach 4 Einstellungen verbraucht -> Abbruch. Anteil statt fester Zahl (Short weiter 2).
         ersatz_max = ersatz_grenze(len(shots))
@@ -1567,6 +1584,17 @@ def main(skript_pfad, aus, vorlage=None):
                     bild_ersatz += 1
                     quellen.append({'quelle': 'Illustration', 'seite': 'Originale Kanalfigur: vorhandenes Referenzbild'})
                     print(f'Einstellung {i}: kein Bild bestanden - Originalbild der Kanalfigur')
+            if not material and B < H:
+                # GEMESSEN 10.10.2026 (Tageslauf 38037738527): AI-Short 5x an Einstellung 1 gescheitert -
+                # davor nur das Figurbild, also weder Nachbar- noch Figur-Ersatz erlaubt. Letzte Rettung:
+                # eine noch ungenutzte, vom Nutzer sichtgepruefte Bibliotheks-Illustration des Kanals
+                # (keine Wiederholung, keine Schrift). Nur Shorts: die Bibliothek ist Hochformat.
+                buch = bibliothek_ersatz(s.get('kanal'), vorherige_id, benutzte_bibliothek)
+                if buch:
+                    ill = material = buch
+                    quellen.append({'quelle': 'Illustration',
+                                    'seite': 'Eigene sichtgepruefte KI-Illustration (Bibliothek, Notfall-Ersatz)'})
+                    print(f'Einstellung {i}: kein Bild bestanden - Bibliotheks-Illustration {buch.name}')
             if not material:
                 raise ValueError(f'Phase {shot["phase"]}, Einstellung {i}: kein passendes Hauptbild; kein Hintergrundersatz')
             material_hash = bildplan.material_id(material)

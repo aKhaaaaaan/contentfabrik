@@ -128,6 +128,18 @@ def pruefen(roh, szene, referenz=None, videoformat='short'):
         return {'ok': False, 'grund': 'Bildpruefung nicht verfuegbar'}
 
 
+def referenz(kanal):
+    """Vorbild der Kanalfigur fuer die Bild-KI.
+
+    GEMESSEN 10.10.2026: Figur einsetzen scheiterte 12 von 12 Mal (Netflix-Langvideo, AI-Piloten).
+    Ablehnungsgruende: Portraet vor Stadtkulisse statt Handlung (die KI kopierte das ganze Vorbild),
+    Ziffern „103 1035" in den Brillenglaesern, Zifferblatt/Markenschrift der Taschenuhr. Darum ein
+    ARBEITS-Vorbild: Figur freigestellt (rembg) auf neutralem Grau, Glaeser und Zifferblatt ohne Schrift.
+    Das vom Nutzer bestaetigte Original bleibt unveraendert (Anzeige, Modus 'figur')."""
+    arbeit = FIGUREN / f'{kanal}_referenz.jpg'
+    return arbeit if arbeit.is_file() else FIGUREN / f'{kanal}.jpg'
+
+
 def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short'):
     """Szene als Illustration (hochkant). figur=True: die feste Figur des Kanals per Referenzbild.
     Gibt den Pfad oder None zurueck."""
@@ -136,7 +148,7 @@ def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short'):
     # Erzeugung UND Bildpruefung sehen dieselbe schriftfreie Szene - sonst
     # verwirft die Pruefung ein Bild, weil das verlangte Wort 'BILLING' fehlt.
     szene = prompts.szene_ohne_schrift(szene)
-    ref = FIGUREN / f'{kanal}.jpg' if kanal else None
+    ref = referenz(kanal) if kanal else None
     ref = ref if figur and ref and ref.exists() else None
     breite, hoehe = (1360, 768) if videoformat == 'lang' else (768, 1360)
     szene_roh = None

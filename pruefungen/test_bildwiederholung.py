@@ -20,7 +20,11 @@ class Schrifttraeger(unittest.TestCase):
         for szene in ('an analog meter dial measuring token input costs on a workbench',
                       'a woman at a cafe table holds a card', 'stacks of banknotes and a receipt'):
             with self.subTest(szene=szene):
-                self.assertIn('no printed letters, digits', prompts.szene_ohne_schrift(szene))
+                aus = prompts.szene_ohne_schrift(szene)
+                self.assertIn('plain and unmarked', aus)
+                # 10.10.: nie Gegenstaende aufzaehlen - die Bild-KI malt sie sonst hinein
+                for wort in ('dial', 'banknote', 'book', 'clock'):
+                    self.assertNotIn(wort, aus[len(szene):])
 
     def test_szene_ohne_schrifttraeger_bleibt_unveraendert(self):
         self.assertEqual(prompts.szene_ohne_schrift('a calm harbor at dusk'), 'a calm harbor at dusk')
@@ -75,7 +79,7 @@ class SchriftWunsch(unittest.TestCase):
         self.assertNotIn('terms', aus)
         self.assertNotIn('numbers above', aus)
         self.assertIn('blank shapes', aus)
-        self.assertIn('no printed letters, digits', aus)
+        self.assertIn('plain and unmarked', aus)
 
     def test_harmlose_szene_bleibt(self):
         self.assertEqual(prompts.szene_ohne_schrift('a calm harbor at dusk'), 'a calm harbor at dusk')
@@ -84,7 +88,10 @@ class SchriftWunsch(unittest.TestCase):
         quelle = (WURZEL / 'fabrik/bauen.py').read_text(encoding='utf-8')
         start = quelle.index("einfach = ('One clear subject")
         block = quelle[start:start + 500]
-        self.assertIn('no object that could carry writing', block)
+        self.assertIn('plain unmarked surfaces', block)
+        self.assertIn('ohne_schrifttraeger', block)
+        for wort in ('signs', 'papers', 'money', 'books'):
+            self.assertNotIn(wort, block.split('+')[0])
         self.assertNotIn('szene[:240]', block)
 
 

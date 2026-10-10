@@ -1535,10 +1535,12 @@ def main(skript_pfad, aus, vorlage=None):
                     # letzter Versuch mit vereinfachter Szene ohne Kanalfigur, bevor ein Ersatzbild kommt.
                     # Ohne die Original-Szene: die verlangte oft Schrift (Preistafel, Geldscheine) - genau
                     # daran scheiterten die ersten Versuche (Pilot 37972418814).
+                    # Keine Gegenstaende aufzaehlen, die NICHT im Bild sein sollen (10.10.2026: genau die
+                    # wurden gemalt); Schrifttraeger aus den Suchwoertern entfernen.
                     einfach = ('One clear subject in a calm, simple painted composition, no close-up faces, '
-                               'and no object that could carry writing (no signs, papers, screens, money, '
-                               'cards, menus, price boards or books): '
-                               + str(t.get('suche') or t.get('motiv') or 'a person at work in a warm room'))
+                               'plain unmarked surfaces: '
+                               + (prompts.ohne_schrifttraeger(str(t.get('suche') or t.get('motiv') or ''))
+                                  or 'a person at work in a warm room'))
                     ill = illustration_mit_ausweg(einfach, aus / f'ill_{i:02d}.jpg', kanal_slug, False, False,
                                                   dramaturgie.videoformat(s))
                     if ill:

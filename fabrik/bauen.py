@@ -1658,11 +1658,9 @@ def main(skript_pfad, aus, vorlage=None):
             # GEMELDET 08.10.2026: Nutzer will das Wort 'ILLUSTRATION' im Bild nicht ("ganz
             # entfernen"). KI-Kennzeichnung bleibt: Plattform-Einstellung (containsSyntheticMedia)
             # und Beschreibung 'Illustrations are AI-generated.' (freigabe.py).
-            if modus == 'demo':
-                with Image.open(ebene) as im:
-                    im = im.convert('RGBA')
-                schrift_text(im, (LAYOUT['links'], H * .12), 'MODEL CARD EXAMPLE', schrift(28), (210, 210, 210))
-                im.save(ebene)
+            # GEMELDET 10.10.2026 (Pilot 38070382003, TaxHacker): „vor jedem Motiv steht Model Cars
+            # example" - eine feste Beschriftung fuer 'demo' ueberlagerte den Tool-Namen oben und war
+            # falsch (App-Screenshots, keine Model Card). Keine Zusatzbeschriftung mehr.
             # GEMELDET 09.10.2026 (Netflix-Langvideo): „Die meisten Bilder sind zu klein, die Haelfte
             # des Bildschirms leer“ - jede Illustration lag links in 1240x620 auf einem FREMDEN
             # unscharfen Hintergrundclip. Nutzerwunsch: das Motiv gross zeigen, dahinter DASSELBE Bild

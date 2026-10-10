@@ -3,7 +3,6 @@ on:
   push:
     paths:
       - 'fabrik/**'
-      - 'pruefungen/**'
       - '.github/workflows/**'
       - 'cloudflare/**'
   pull_request:
@@ -19,11 +18,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install pillow numpy
-      - run: python -m unittest discover -s pruefungen -v
-      - run: python -m compileall -q fabrik pruefungen
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - run: node pruefungen/zeitplan.mjs
-      - run: node pruefungen/befehlsbot.mjs
+      # Tests und Doku liegen seit 10.10.2026 nur lokal (Nutzerentscheidung); online nur Kompilierpruefung.
+      - run: python -m compileall -q fabrik
+      - run: node --check cloudflare/zeitplan-worker.js

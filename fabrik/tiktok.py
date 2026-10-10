@@ -146,10 +146,58 @@ def hochladen(video_pfad, skript_pfad, open_id):
     print(json.dumps({'publish_id': d['publish_id'], 'status': status, 'sichtbarkeit': privat}, indent=2))
 
 
+def entwurf(video_pfad, open_id):
+    """Video als ENTWURF ins TikTok-Postfach des Kontos (Scope video.upload, „Upload to TikTok").
+    Nutzerwunsch 10.10.2026: Upload automatisieren. Direct Post ist ohne TikTok-Pruefung nur privat
+    (SELF_ONLY, privates Konto noetig) und die Pruefung schliesst private Werkzeuge aus. Beim Entwurf
+    tippt der Nutzer auf die Benachrichtigung und veroeffentlicht selbst - oeffentlich, mit eigener
+    Musik und Beschreibung. Gibt den Endstatus zurueck ('SEND_TO_USER_INBOX' = angekommen)."""
+    token = zugang(open_id)
+    daten = Path(video_pfad).read_bytes()
+    groesse = len(daten)
+    init = _post(API + 'post/publish/inbox/video/init/', token=token, json_daten={
+        'source_info': {'source': 'FILE_UPLOAD', 'video_size': groesse, 'chunk_size': groesse,
+                        'total_chunk_count': 1}})
+    if init.get('error', {}).get('code') not in (None, 'ok'):
+        raise RuntimeError(f"TikTok lehnt ab: {init['error'].get('code')} - {init['error'].get('message')}")
+    d = init['data']
+    urllib.request.urlopen(urllib.request.Request(d['upload_url'], data=daten, method='PUT', headers={
+        'Content-Type': 'video/mp4', 'Content-Length': str(groesse),
+        'Content-Range': f'bytes 0-{groesse - 1}/{groesse}'}), timeout=600)
+    status, s = None, {}
+    for _ in range(40):
+        s = _post(API + 'post/publish/status/fetch/', token=token, json_daten={'publish_id': d['publish_id']})
+        status = s.get('data', {}).get('status')
+        if status in ('SEND_TO_USER_INBOX', 'PUBLISH_COMPLETE', 'FAILED'):
+            break
+        time.sleep(6)
+    if status == 'FAILED':
+        raise RuntimeError(f"TikTok-Verarbeitung fehlgeschlagen: {s.get('data', {}).get('fail_reason')}")
+    print(json.dumps({'publish_id': d['publish_id'], 'status': status}, indent=2))
+    return status
+
+
+def konten():
+    """Lokal angemeldete TikTok-Konten: [(konto, open_id)] - ohne Schluessel auszugeben."""
+    aus = []
+    for p in sorted(GEHEIM.glob('tiktok-*.json')):
+        try:
+            d = json.loads(p.read_text(encoding='utf-8'))
+            aus.append((d.get('konto', '?'), d['open_id']))
+        except (OSError, ValueError, KeyError):
+            continue
+    return aus
+
+
 if __name__ == '__main__':
     if sys.argv[1:2] == ['anmelden']:
         anmelden()
     elif sys.argv[1:2] == ['hochladen']:
         hochladen(sys.argv[2], sys.argv[3], sys.argv[4])
+    elif sys.argv[1:2] == ['entwurf']:
+        entwurf(sys.argv[2], sys.argv[3])
+    elif sys.argv[1:2] == ['konten']:
+        for name, oid in konten():
+            print(name, oid[:6] + '...')
     else:
         print(__doc__)

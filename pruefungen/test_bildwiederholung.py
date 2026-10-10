@@ -88,6 +88,23 @@ class SchriftWunsch(unittest.TestCase):
         self.assertNotIn('szene[:240]', block)
 
 
+class KarteOhneQuelle(unittest.TestCase):
+    def test_karte_ohne_karte_wird_illustration(self):
+        # Pilot 37990152213: 'karte' fuer looka.com -> kein Bild versucht, 4x Bauabbruch an Einstellung 4.
+        quelle = (WURZEL / 'fabrik/bauen.py').read_text(encoding='utf-8')
+        i = quelle.index("if modus == 'karte' and not karte:")
+        self.assertIn("modus = 'illustration'", quelle[i:i + 400])
+        self.assertLess(i, quelle.index("if os.environ.get('CLOUDFLARE_AI_TOKEN') and modus in ('auto', 'illustration', 'foto')"))
+        self.assertIn('auch vereinfachte Szene nicht bestanden', quelle)
+
+
+class SchrifttraegerNichtPlanen(unittest.TestCase):
+    def test_szenenregel_verbietet_papiere_als_motiv(self):
+        # Pilot 37990152213: "floating price sheets" -> Schriftsalat, Bild verworfen.
+        self.assertIn('papers, price sheets, receipts, banknotes', prompts.SZENEN)
+        self.assertIn('never the written object itself', prompts.SZENEN)
+
+
 class Versionen(unittest.TestCase):
     def test_pakete_sind_festgelegt(self):
         zeilen = [z.strip() for z in (WURZEL / 'requirements.txt').read_text(encoding='utf-8').splitlines()

@@ -1448,6 +1448,10 @@ def main(skript_pfad, aus, vorlage=None):
             if modus == 'stock' and not stock_erlaubt:
                 modus = 'illustration'  # gemalte Szene statt Stockclip (Kanalvorgabe)
             karte = karte_fuer(t.get('quelle_url')) if modus in ('auto', 'karte') else None
+            if modus == 'karte' and not karte:
+                # GEMESSEN 10.10.2026 (Pilot 37990152213): Planer setzte 'karte' fuer eine Preisseite
+                # (keine GitHub/HF-Karte moeglich) - es wurde gar kein Bild versucht, 4x Bauabbruch.
+                modus = 'illustration'
             foto, fq = ((None, None) if karte or modus in ('stock', 'illustration', 'demo', 'figur', 'grafik', 'asset')
                         else foto_fuer(s.get('bilder') or [], t['text'] + ' Visual: ' + t.get('szene', ''), benutzte_fotos))
             if modus == 'demo':
@@ -1523,6 +1527,8 @@ def main(skript_pfad, aus, vorlage=None):
                     if ill:
                         zeiten['bilder_vereinfacht'] = zeiten.get('bilder_vereinfacht', 0) + 1
                         print(f'Einstellung {i}: vereinfachte Szene bestanden')
+                    else:
+                        print(f'Einstellung {i}: auch vereinfachte Szene nicht bestanden')
                 if ill:
                     karte, foto = None, None
                     quellen.append({'quelle': 'Illustration', 'seite': 'KI-generiert (Cloudflare Workers AI, FLUX)'})

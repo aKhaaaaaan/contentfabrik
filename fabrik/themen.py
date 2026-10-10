@@ -151,7 +151,15 @@ def ist_feedback(text):
                             r'thumbnails?|vorschaubild|stimme|story|hintergrund|animation)\b', text, re.I)
     wertung = re.search(r'\b(leider|w[aä]re|sollte|sollten|fehlt|fehlen|muss|m[uü]ssen|bitte|besser|schlechter|'
                         r'gef[aä]llt|passen|passt)\b', text, re.I)
-    return bool(bestandteil and wertung)
+    if bestandteil and wertung:
+        return True
+    # GEMELDET 10.10.2026: „Naechstes Mal bisschen sprechen etwas beschleunigen" landete als AI-Thema in
+    # der Warteschlange (Pilot 38073171809 nahm es als Thema). Anweisungen zur Machart = Feedback.
+    machart = re.search(r'\b(sprech\w*|sprecher\w*|tempo|schneller|langsamer|lauter|leiser|beschleunig\w*|'
+                        r'verlangsam\w*|musik|lautst[aä]rke|schnitte?|l[aä]nger|k[uü]rzer)\b', text, re.I)
+    anweisung = re.search(r'n[aä]chste[sn]?\s+mal|beim\s+n[aä]chsten|k[uü]nftig|ab\s+jetzt|\b(bisschen|etwas|'
+                          r'mehr|weniger|zu)\b', text, re.I)
+    return bool(machart and (anweisung or wertung))
 
 
 def telegram_laden():

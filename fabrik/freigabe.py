@@ -153,7 +153,8 @@ def senden(skript_pfad, video_pfad):
         komprimiert = True
         if len(video) > GRENZE:
             sys.exit(f'Video auch verkleinert zu gross ({len(video) // 2**20} MB > 50 MB)')
-    titel = ' '.join(z.replace('*', '') for z in skript['titel'])
+    import texte
+    titel = texte.titel_text(skript['titel'])
     lang = videoformat(skript) == 'lang'
     tags = ' '.join('#' + h.lstrip('#') for h in skript.get('hashtags', []))
     # CC-Lizenzen verlangen Urheber, Lizenz und Quelle - automatisch anhaengen

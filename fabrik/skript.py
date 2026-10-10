@@ -795,7 +795,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
             # (09.10.2026: Netflix-Langvideo nur mit Illustrationen trug die Angabe trotzdem).
             'beschreibung': entwurf['beschreibung']
                             + (''.join(f"\nSource: Wikipedia - {q['name']} (CC BY-SA)" for q in quellen
-                                       if q.get('quelle') == 'Wikipedia')), 'hashtags': entwurf['hashtags'],
+                                       if q.get('quelle') == 'Wikipedia')), 'hashtags': __import__('texte').hashtags_bereinigen(entwurf['hashtags'], json.dumps([entwurf.get('thema'), entwurf.get('titel_zeile1'), entwurf.get('titel_zeile2'), entwurf.get('beschreibung'), [t.get('text') for t in entwurf.get('teile', [])]], ensure_ascii=False)),
             'pruefung': pruefung, 'quellen': [q['url'] for q in quellen if q.get('url')],
             'belege': [{'name': q.get('name', ''), 'text': q.get('text', ''),
                         'url': q.get('url', ''), 'quelle': q.get('quelle', '')} for q in quellen],

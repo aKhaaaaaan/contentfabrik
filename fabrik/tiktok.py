@@ -116,7 +116,8 @@ def hochladen(video_pfad, skript_pfad, open_id):
     privat = 'SELF_ONLY'  # ungepruefte App: nur privat (Doku); nach der Pruefung waehlt der Nutzer
     if erlaubt and privat not in erlaubt:
         sys.exit(f'Konto erlaubt kein SELF_ONLY: {erlaubt}')
-    titel = ' '.join(z.replace('*', '') for z in skript['titel'])
+    import texte
+    titel = texte.titel_text(skript['titel'])
     tags = ' '.join('#' + h.lstrip('#') for h in skript.get('hashtags', []))
     daten = Path(video_pfad).read_bytes()
     groesse = len(daten)

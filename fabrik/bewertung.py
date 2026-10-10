@@ -51,7 +51,8 @@ def _schreiben(pfad, daten):
 
 
 def video_merken(message_id, sha, skript, kritik=None):
-    titel = ' '.join(z.replace('*', '') for z in skript.get('titel', []))
+    import texte
+    titel = texte.titel_text(skript.get('titel', []))
     liste = [v for v in _lesen(VIDEOS, []) if v.get('message_id') != message_id]
     kritik = kritik if isinstance(kritik, dict) else {}
     liste.append({'message_id': message_id, 'video_sha256': sha, 'kanal': skript.get('kanal'),

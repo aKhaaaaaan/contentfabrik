@@ -206,7 +206,34 @@ def github_repo(url):
     return f'{m.group(1)}/{m.group(2)}' if m and m.group(1).lower() not in ('orgs', 'topics', 'sponsors') else None
 
 
-def ki_quellen(tage=7, maximal=None, bevorzugt=None):
+def gezeigte_themen(kanal_slug, tage=30, heute=None):
+    """Themen der in den letzten Tagen GESENDETEN Videos (verlauf/<kanal>.json), kleingeschrieben."""
+    heute = heute or datetime.date.today()
+    try:
+        v = json.loads(open(f'verlauf/{kanal_slug}.json', encoding='utf-8').read())
+    except (OSError, ValueError):
+        return []
+    grenze = (heute - datetime.timedelta(days=tage)).isoformat()
+    return [str(e.get('thema', '')).lower() for e in v if e.get('status') == 'gesendet' and e.get('datum', '') >= grenze]
+
+
+def schon_gezeigt(q, gezeigt):
+    """GEMESSEN 10.10.2026 (Pilot 38062320498): Der Finanz-Schwerpunkt waehlte erneut Aurelio
+    (am 09.10. gesendet, Nutzer 6/10) - fuenf Versuche, Story 4-6/10. Ein Werkzeug, zu dem
+    kuerzlich ein Video ging, ist kein neues Thema."""
+    # Repo „aurelio-finance", Video „Aurelio, a self-hosted ..." -> das markante erste Namenswort zaehlt.
+    woerter = [w for w in re.findall(r'[a-z0-9]+', q.get('name', '').split('/')[-1].lower())
+               if len(w) >= 4 and w not in ALLGEMEINE_NAMENSWOERTER]
+    return bool(woerter) and any(re.search(r'\b' + re.escape(woerter[0]) + r'\b', t) for t in gezeigt)
+
+
+ALLGEMEINE_NAMENSWOERTER = {'open', 'free', 'awesome', 'local', 'easy', 'simple', 'tiny', 'mini', 'nano', 'super',
+                            'auto', 'agent', 'agents', 'chat', 'model', 'models', 'tool', 'tools', 'next', 'code',
+                            'python', 'rust', 'deep', 'fast', 'smart', 'self', 'hosted', 'source', 'finance', 'image',
+                            'video', 'voice', 'text', 'data', 'learn', 'learning', 'with', 'your', 'multi'}
+
+
+def ki_quellen(tage=7, maximal=None, bevorzugt=None, gezeigt=()):
     """Aktuelle KI-Neuheiten mit Beschreibung - die EINZIGEN Fakten, die der
     Kanal „AI Tools Explained" verwenden darf (Konzept: Quellen-Methode).
 
@@ -267,7 +294,7 @@ def ki_quellen(tage=7, maximal=None, bevorzugt=None):
     # GEMESSEN: „AIHOT" (Beschreibung auf Chinesisch) landete auf Platz 1 - fuer
     # ein englisches Publikum unverstaendlich, die Karte zeigt fremde Schrift.
     geeignet = [q for q in aus if not UNGEEIGNET.search(q['name'] + ' ' + q['text'])
-                and _englisch(q['name'] + ' ' + q['text'])]
+                and _englisch(q['name'] + ' ' + q['text']) and not schon_gezeigt(q, gezeigt)]
     if bevorzugt:
         muster = re.compile('|'.join(re.escape(b) for b in bevorzugt), re.I)
         # stabil sortiert: Schwerpunkt-Treffer zuerst, sonst Reihenfolge wie bisher

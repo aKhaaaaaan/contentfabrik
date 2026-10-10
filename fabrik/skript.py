@@ -285,8 +285,9 @@ def hinweise(kanal, thema):
         # durch die Faktenpruefung (veraltetes Wissen). Darum nur Belegtes.
         sp = trends.schwerpunkt(kanal)
         bevorzugt = sp['begriffe'] if sp else None
-        quellen = (trends.ki_quellen(maximal=1, bevorzugt=bevorzugt) if kanal.get('format') == 'erklaerung'
-                   else trends.ki_quellen(bevorzugt=bevorzugt))
+        gezeigt = trends.gezeigte_themen(re.sub(r'[^a-z0-9]+', '-', kanal.get('name', '').lower()).strip('-'))
+        quellen = (trends.ki_quellen(maximal=1, bevorzugt=bevorzugt, gezeigt=gezeigt)
+                   if kanal.get('format') == 'erklaerung' else trends.ki_quellen(bevorzugt=bevorzugt, gezeigt=gezeigt))
         if kanal.get('format') == 'erklaerung':
             # Eine ausfuehrlich belegte Anwendung statt dreier Repos und langer Sternelisten.
             quellen = [q for q in quellen if q.get('belegt')][:1]

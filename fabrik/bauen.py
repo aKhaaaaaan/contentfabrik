@@ -229,13 +229,21 @@ def schrift_text(img, xy, text, f, farbe=(255, 255, 255), rand=3):
     ImageDraw.Draw(img).text(xy, text, font=f, fill=farbe, stroke_width=rand, stroke_fill=(0, 0, 0))
 
 
-def titel_zeichnen(img, titel, akzent):
+def titel_zeichen(titel):
+    """Anzahl sichtbarer Zeichen des Titels (ohne Betonungs-Sternchen) - Massstab der Tipp-Animation."""
+    return sum(len(w.strip('*')) for zeile in titel for w in zeile.split(' '))
+
+
+def titel_zeichnen(img, titel, akzent, zeichen=None):
     """Titel: zwei Zeilen im Short, eine im Querformat, Schluesselwoerter farbig; die
-    Groesse passt sich an (Probelauf 1: Zeile 2 war breiter als das Bild)."""
+    Groesse passt sich an (Probelauf 1: Zeile 2 war breiter als das Bild).
+    zeichen: nur die ersten N Buchstaben (Tipp-Animation) - Lage und Groesse wie beim
+    fertigen Titel, damit nichts springt."""
     d = ImageDraw.Draw(img)
     y = LAYOUT['titel_y']
     if B > H:
         titel = [' '.join(titel)]
+    rest = math.inf if zeichen is None else zeichen
     for zeile in titel:
         teile = [(w, w.strip('*') != w) for w in zeile.split(' ')]
         groesse = LAYOUT['titel_font']
@@ -249,9 +257,12 @@ def titel_zeichnen(img, titel, akzent):
             groesse -= 4
         x = LAYOUT['mitte'] - breite / 2
         for w, betont in teile:
-            wort = w.strip('*') + ' '
-            schrift_text(img, (x, y), wort, f, akzent if betont else (255, 255, 255))
-            x += d.textlength(wort, font=f)
+            buchstaben = w.strip('*')
+            sichtbar = buchstaben if rest >= len(buchstaben) else buchstaben[:max(0, int(rest))]
+            if sichtbar:
+                schrift_text(img, (x, y), sichtbar + ' ', f, akzent if betont else (255, 255, 255))
+            rest -= len(buchstaben)
+            x += d.textlength(buchstaben + ' ', font=f)
         y += groesse + 22
 
 
@@ -439,6 +450,25 @@ def karten_ebene(karte, kasten=None):
     return img
 
 
+TIPP_S_JE_ZEICHEN, TIPP_HOECHSTENS_S = 0.03, 0.9
+
+
+def tipp_eingabe(ein, ebene, zeichne, titel, ordner):
+    """Titel der ersten Einstellung Buchstabe fuer Buchstabe (Nutzerhinweis 10.10.2026, TikTok-Analyse:
+    „Titel mit Typing-Sound - der Zuschauer weiss sofort, worum es geht"). Statt des festen Ebenen-
+    Bildes eine kurze Bildfolge; overlay haelt danach das letzte (vollstaendige) Bild."""
+    gesamt = titel_zeichen(titel)
+    bilder = max(2, min(int(TIPP_HOECHSTENS_S * FPS), int(gesamt * TIPP_S_JE_ZEICHEN * FPS)))
+    for k in range(bilder):
+        zeichne(math.ceil(gesamt * (k + 1) / bilder)).save(Path(ordner) / f'tipp_{k:03d}.png')
+    pos = ein.index(str(ebene))
+    start = pos - 1
+    if ein[max(0, start - 4):start] == ['-loop', '1', '-framerate', str(FPS)]:
+        start -= 4
+    return ein[:start] + ['-framerate', str(FPS), '-start_number', '0', '-i',
+                          str(Path(ordner) / 'tipp_%03d.png')] + ein[pos + 1:]
+
+
 def karten_filter(hg, ebene, kpfad):
     """ffmpeg-Eingaben und Filter fuer einen Karten-Abschnitt: Hintergrund
     abgedunkelt und weich, Karte gleitet in 0,35 s von unten herein und blendet
@@ -535,7 +565,8 @@ def werkzeug_kopf(img, werkzeug, nr, akzent, logo=None):
         img.alpha_composite(tafel, (int(B / 2 - tafel.width / 2), int(oben)))
 
 
-def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None, akzent=(32, 210, 190), logo=None):
+def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None, akzent=(32, 210, 190), logo=None,
+              titel_bis=None):
     """Ebene je Abschnitt: Titel, Platz, Name.
     durchsichtig=True: nur Schrift + sanfte Abdunklung, als Ebene ueber einem
     Videoclip. karte: Vorschaubild der Quelle, gross in der Mitte."""
@@ -562,7 +593,7 @@ def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None, akzent=(3
     else:
         img = hintergrund(nr)
     if nr == 0 or teil.get('platz'):
-        titel_zeichnen(img, titel, akzent)
+        titel_zeichnen(img, titel, akzent, titel_bis)
     fortschritt_zeichnen(img, akzent)
     d = ImageDraw.Draw(img)
     if teil.get('platz'):
@@ -1732,6 +1763,11 @@ def main(skript_pfad, aus, vorlage=None):
                 # Hintergrund mit Text" - passte kein Clip, blieb eine leere
                 # Flaeche. Jetzt der bewegte Kanal-Hintergrund.
                 raise ValueError('Kein geeignetes Bildmaterial')
+            if i == 0:
+                ein = tipp_eingabe(ein, ebene, lambda n: bild_fuer(
+                    t, s['titel'], i, len(shots), durchsichtig=not karte, karte=karte, akzent=akzent_farbe(s),
+                    logo=logo, titel_bis=n), s['titel'], aus)
+                ereignisse.append((0.05, 'tippen'))
             # GEMELDET (KI-Analyse): „Ablauf ueber 1,5 Minuten exakt gleich",
             # „Praxisbeispiele wuerden es lebendiger machen". Je Platz zwei
             # Stuecke: erst die Karte (2,8 s, Einflug), dann ein Clip, der zeigt,

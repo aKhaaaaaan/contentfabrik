@@ -40,6 +40,55 @@ def etappen(zeitplan, groesse=ETAPPE):
     return [zeitplan[i:i + groesse] for i in range(0, len(zeitplan), groesse)] or [[]]
 
 
+# GEMELDET 10.10.2026 (Business-Short Netflix): „Die Motive passen wenig zu den Woertern."
+# Gemessen: "streams overtook DVD shipments" -> jemand oeffnet einen DVD-Umschlag; "$7.99 a month"
+# -> Kalender; Like/Share-Satz -> Blick auf die Uhr. Den Plan machte Flash-Lite (schwaechstes Modell).
+# Planen jetzt mit starken Modellen zuerst, Lite nur als Rueckfall; danach eine Bezugspruefung.
+PLANEN = ['gemini-3.8-flash', 'gemini-flash-latest', 'gemini-3.6-flash', 'gemini-3.5-flash',
+          'gemini-flash-lite-latest', 'gemini-3.5-flash-lite']
+BEZUG_MIN = 7
+BEZUG_SCHEMA = {'type': 'OBJECT', 'properties': {'pruefung': {'type': 'ARRAY', 'items': {
+    'type': 'OBJECT', 'properties': {'index': {'type': 'INTEGER'}, 'note': {'type': 'INTEGER'},
+                                     'motiv': {'type': 'STRING'}, 'szene': {'type': 'STRING'},
+                                     'suche': {'type': 'STRING'}},
+    'required': ['index', 'note', 'motiv', 'szene', 'suche']}}}, 'required': ['pruefung']}
+
+
+def bezug_pruefen(gemini, teil, daten):
+    """Vor dem Malen: zeigt jedes geplante Motiv, was in seinem Slot GESAGT wird? Schwache
+    Illustrations-Motive (Note < BEZUG_MIN) werden durch einen woertlicheren Vorschlag ersetzt.
+    Faellt die Pruefung aus, bleibt der Plan unveraendert (kein Abbruch)."""
+    plan = {d['index']: d for d in daten}
+    eintraege = [{'index': x['index'], 'spoken_words': x['text'], 'planned_motif': plan[x['index']].get('motiv'),
+                  'planned_scene': plan[x['index']].get('szene')}
+                 for x in teil if plan.get(x['index'], {}).get('bildmodus') in ('illustration', 'stock', 'foto')]
+    if not eintraege:
+        return daten, 0
+    try:
+        d, _ = gemini(prompts.DATEN + prompts.SZENEN
+                      + '\nTASK: For each slot, rate 1-10 how directly the planned image shows what its spoken words '
+                        'say: the named subject, action, place or consequence a viewer hears at that moment. A loosely '
+                        'related or opposite image (e.g. opening a DVD envelope while hearing that streaming overtook '
+                        'DVDs) scores low. For every score below ' + str(BEZUG_MIN) + ', give a better motif (2-5 words), '
+                        'a 20-45 word painted scene that literally shows the spoken words, and 2-4 search words. For a '
+                        'number, price or statistic, show the people or place it affects doing the concrete action. '
+                        'Keep good slots unchanged (repeat their motif/scene). Return every slot.\n'
+                      + json.dumps(eintraege, ensure_ascii=False), BEZUG_SCHEMA, modelle=PLANEN)
+    except Exception as e:  # Pruefung ist Verbesserung, kein Pflichtschritt
+        print('Bezugspruefung nicht verfuegbar:', str(e)[:100])
+        return daten, 0
+    ersetzt = 0
+    for p_ in d.get('pruefung', []):
+        alt = plan.get(p_.get('index'))
+        if alt and alt.get('bildmodus') in ('illustration', 'stock', 'foto') and p_.get('note', 10) < BEZUG_MIN \
+                and p_.get('szene') and p_.get('motiv'):
+            alt.update(motiv=p_['motiv'][:80], szene=p_['szene'][:400], suche=p_.get('suche') or alt.get('suche'),
+                       bildmodus='illustration')
+            ersetzt += 1
+    print(f'Bezugspruefung: {ersetzt} von {len(eintraege)} Motiven woertlicher gemacht')
+    return daten, ersetzt
+
+
 def _planen(gemini, modelle, auftrag, indizes):
     """Ein Bildplan-Auftrag; bei Ueberlast oder unvollstaendiger Antwort genau ein neuer Versuch."""
     import time
@@ -171,8 +220,10 @@ def vorbereiten(s, laengen, woerter, cache=None):
                 'editorial_feedback': lernen.redaktionsregeln()}
         daten = []
         for teil in etappen(zeitplan):
-            daten += _planen(gemini, SEHEN, auftrag + json.dumps(dict(kontext, slots=teil), ensure_ascii=False),
-                             [x['index'] for x in teil])
+            neu = _planen(gemini, PLANEN, auftrag + json.dumps(dict(kontext, slots=teil), ensure_ascii=False),
+                          [x['index'] for x in teil])
+            neu, _ = bezug_pruefen(gemini, teil, neu)
+            daten += neu
     if len(daten) != len(zeitplan) or [d.get('index') for d in daten] != list(range(len(zeitplan))):
         raise ValueError('Bildplan deckt nicht alle Sprechphasen lueckenlos ab')
     aus = []

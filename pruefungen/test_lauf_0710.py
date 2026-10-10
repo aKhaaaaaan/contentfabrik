@@ -238,7 +238,8 @@ class BildausfallKipptNichtAlles(unittest.TestCase):
                                    'szene': 'a calm desk', 'motiv': 'desk'}]}
         with patch.object(skript, 'gemini', side_effect=[RuntimeError('ueberlastet'), (plan, 'm')]) as g,                 patch('time.sleep'):
             shots, _ = bildplan.vorbereiten(s, [3.0], woerter)
-        self.assertEqual(g.call_count, 2)
+        # 2 Planversuche + 1 Bezugspruefung (seit 10.10.2026; faellt sie aus, bleibt der Plan)
+        self.assertEqual(g.call_count, 3)
         self.assertEqual(shots[0]['teil']['bildmodus'], 'illustration')
 
     def test_ohne_nachbarbild_echte_quellseite(self):

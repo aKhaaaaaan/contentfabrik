@@ -10,6 +10,8 @@ Punkte aus drei offiziellen, kostenlosen Signalen:
   Wikipedia  AUFWIND statt Groesse: Aufrufe der letzten zwei Tage gegen den Median der vier
              Wochen davor. Netflix hat immer viele Aufrufe; zaehlt nur, wenn es gerade steigt.
   Google     Steht der Begriff heute in den US-Tagestrends (inkl. Schlagzeilen dazu)?
+  HackerNews Wird es diese Woche auf Hacker News diskutiert (Punkte; Nutzerauftrag 10.10.2026)?
+             Dort tauchen neue KI-Tools oft frueher auf als auf YouTube.
 
 Eigene Themen bekommen einen kleinen Bonus (Nutzerwunsch zaehlt), schlagen aber kein echtes
 Trendthema. Ohne Signal bleibt ein Thema liegen, bis es gefragt ist. Faellt JEDE Quelle aus
@@ -31,7 +33,7 @@ SCHWELLE = 1.5  # darunter kein echtes Trendsignal
 FREIE_KANDIDATEN = 5
 
 
-def punkte(yt_faktor=None, wiki_aufwind=None, google=False, eigen=False):
+def punkte(yt_faktor=None, wiki_aufwind=None, google=False, eigen=False, hn=None):
     """Reine Rechenregel (testbar). Jedes Signal hoechstens 5 Punkte, damit keins allein alles kippt.
     YouTube logarithmisch: 3x Kanalschnitt ~1,6, 10x ~3,3, 30x ~4,9 Punkte."""
     p = 0.0
@@ -41,6 +43,8 @@ def punkte(yt_faktor=None, wiki_aufwind=None, google=False, eigen=False):
         p += min(5.0, max(0.0, (wiki_aufwind - 1.0) * 2.5))  # +40 % ~1 Punkt, verdoppelt 2,5
     if google:
         p += 4.0
+    if hn:
+        p += min(4.0, max(0.0, math.log2(hn / 25)))  # 100 Punkte = 2, 400 Punkte = 4
     if eigen:
         p += BONUS_EIGEN
     return round(p, 2)
@@ -96,6 +100,15 @@ def google_treffer(begriff, heute_liste):
     return None
 
 
+def hn_treffer(begriff, hn_liste):
+    """Hoechste HN-Punktzahl einer Geschichte, deren Titel alle Kernwoerter enthaelt; sonst None."""
+    kern = _kern(begriff)
+    if not kern:
+        return None
+    return max((h['punkte'] for h in hn_liste
+                if all(re.search(r'\b' + re.escape(w) + r'\b', h['titel'].lower()) for w in kern)), default=None)
+
+
 def yt_faktor(begriff, zusatz=''):
     """Groesster Ausreisser-Faktor eines Videos, dessen Titel den Begriff wirklich enthaelt.
     GEMESSEN 09.10.2026 (Live-Vorschau): „Netflix" allein fand Serientrailer (79,5x) - das misst
@@ -123,19 +136,20 @@ def kandidaten(kanal, themen, mit_trendfirmen=True):
 ZUSATZ = {'business-origin-stories': 'story'}  # Suchwinkel des Kanals, nicht Pflichtwort im Titel
 
 
-def bewerten(liste, google_liste, heute=None, kanal=''):
+def bewerten(liste, google_liste, heute=None, kanal='', hn_liste=()):
     for k in liste:
         k['youtube'], k['beispiele'] = yt_faktor(k['begriff'], ZUSATZ.get(kanal, ''))
         k['wiki'] = wiki_aufwind(k['wikipedia'], heute) if k.get('wikipedia') else None
         k['google'] = google_treffer(k['begriff'], google_liste)
-        k['punkte'] = punkte(k['youtube'], k['wiki'], bool(k['google']), k['eigen'])
+        k['hn'] = hn_treffer(k['begriff'], hn_liste)
+        k['punkte'] = punkte(k['youtube'], k['wiki'], bool(k['google']), k['eigen'], k['hn'])
     return sorted(liste, key=lambda k: -k['punkte'])
 
 
 def entscheiden(bewertet):
     """(thema, grund). '' = freie Wahl (Business: Trendfirmen, AI: Trend-Repos).
     None = keine einzige Quelle hat geantwortet -> Aufrufer nimmt die alte Reihenfolge."""
-    if not any(k.get('youtube') or k.get('wiki') or k.get('google') for k in bewertet):
+    if not any(k.get('youtube') or k.get('wiki') or k.get('google') or k.get('hn') for k in bewertet):
         return None, 'kein Trendsignal abrufbar'
     beste = bewertet[0]
     if beste['punkte'] - (BONUS_EIGEN if beste['eigen'] else 0) < SCHWELLE:
@@ -151,6 +165,8 @@ def beschreibung(k):
         teile.append(f"Wikipedia {round((k['wiki'] - 1) * 100):+d} % gegenueber Vormonat")
     if k.get('google'):
         teile.append(f"heute in Google Trends ({k['google']})")
+    if k.get('hn'):
+        teile.append(f"Hacker News {k['hn']} Punkte")
     return f"{k['thema'] or k['begriff']}: {k['punkte']} Punkte - " + ', '.join(teile or ['ohne Signal'])
 
 
@@ -176,7 +192,8 @@ def waehlen(kanal, heute=None, themen=None):
     if not liste:
         return themen.nehmen(kanal), None
     try:
-        bewertet = bewerten(liste, google_heute(), heute, kanal)
+        import trends
+        bewertet = bewerten(liste, google_heute(), heute, kanal, trends.hn_geschichten())
         thema, grund = entscheiden(bewertet)
     except Exception as e:  # nie den Tageslauf am Trend-Check scheitern lassen
         print('Trend-Check fehlgeschlagen:', type(e).__name__, str(e)[:120])
@@ -186,7 +203,7 @@ def waehlen(kanal, heute=None, themen=None):
         grund += ' - alte Reihenfolge der Warteschlange'
     bericht = {'datum': heute.isoformat(), 'thema': thema, 'grund': grund,
                'kandidaten': [{k: x.get(k) for k in ('thema', 'begriff', 'eigen', 'punkte', 'youtube', 'wiki',
-                                                     'google', 'beispiele')} for x in bewertet]}
+                                                     'google', 'hn', 'beispiele')} for x in bewertet]}
     ORDNER.mkdir(parents=True, exist_ok=True)
     pfad.write_text(json.dumps(bericht, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
     print('Trend-Check:', grund)

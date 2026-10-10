@@ -168,6 +168,44 @@ def schwerpunkt_quellen(begriffe, themen=SCHWERPUNKT_THEMEN, tage=21):
     return aus
 
 
+HN_VORRANG = 100  # ab so vielen Punkten ist ein Projekt auf HN „im Gespraech" und kommt nach vorn
+HN_SUCHEN = (('', 'show_hn'), ('AI', 'story'), ('LLM', 'story'), ('open source AI', 'story'), ('AI agent', 'story'))
+# GEMESSEN 10.10.2026 (Live-Abfrage): Die Volltextsuche lieferte auch „The lamps in my house" und
+# F1-Softwarefehler - darum muss der TITEL selbst ein KI-Wort enthalten.
+KI_WORT = re.compile(r'\b(?:AI|A\.I\.|LLMs?|GPT\w*|agents?|agentic|models?|ML|machine learning|neural|diffusion|'
+                     r'chatbots?|Claude|Gemini|ChatGPT|Llama|Mistral|Qwen|DeepSeek|embedding\w*|transformer\w*|'
+                     r'inference|RAG|copilot|speech-to-text|text-to-speech|TTS|OCR)\b', re.I)
+
+
+def hn_geschichten(tage=7, mindest=50):
+    """KI-Geschichten der letzten Tage von Hacker News (offizielle Algolia-API, kostenlos, ohne
+    Schluessel), nach Punkten sortiert, ohne Dubletten. [] bei Ausfall."""
+    ab = int(time.time()) - tage * 86400
+    gesehen, aus = set(), []
+    for suche, tags in HN_SUCHEN:
+        try:
+            d = json.loads(_hole('https://hn.algolia.com/api/v1/search?' + urllib.parse.urlencode({
+                'query': suche, 'tags': tags, 'numericFilters': f'created_at_i>{ab},points>{mindest}',
+                'hitsPerPage': 30}), zeit=15))
+        except Exception as e:
+            print('Hacker News nicht verfuegbar:', type(e).__name__)
+            continue
+        for h in d.get('hits', []):
+            titel = re.sub(r'^(?:Show|Ask|Tell) HN:\s*', '', h.get('title') or '')
+            if h.get('objectID') in gesehen or not KI_WORT.search(titel):
+                continue
+            gesehen.add(h.get('objectID'))
+            aus.append({'titel': titel, 'url': h.get('url') or '', 'punkte': h.get('points') or 0,
+                        'kommentare': h.get('num_comments') or 0, 'datum': (h.get('created_at') or '')[:10]})
+    return sorted(aus, key=lambda h: -h['punkte'])
+
+
+def github_repo(url):
+    """'owner/repo' aus einer GitHub-Projektadresse, sonst None."""
+    m = re.match(r'https?://(?:www\.)?github\.com/([\w.-]+)/([\w.-]+?)(?:\.git)?/?(?:[#?].*)?$', url or '')
+    return f'{m.group(1)}/{m.group(2)}' if m and m.group(1).lower() not in ('orgs', 'topics', 'sponsors') else None
+
+
 def ki_quellen(tage=7, maximal=None, bevorzugt=None):
     """Aktuelle KI-Neuheiten mit Beschreibung - die EINZIGEN Fakten, die der
     Kanal „AI Tools Explained" verwenden darf (Konzept: Quellen-Methode).
@@ -200,15 +238,30 @@ def ki_quellen(tage=7, maximal=None, bevorzugt=None):
                                 + (f", {m['downloads']} downloads" if m.get('downloads') else '')})
     except Exception as e:
         print('Hugging Face nicht verfuegbar:', e)
-    try:  # Hacker News: worueber Technik-Leute gerade reden
-        ab = int(time.time()) - tage * 86400
-        d = json.loads(_hole('https://hn.algolia.com/api/v1/search?' + urllib.parse.urlencode({
-            'query': 'AI tool', 'tags': 'story', 'numericFilters': f'created_at_i>{ab},points>100', 'hitsPerPage': 10})))
-        for h in d.get('hits', []):
-            aus.append({'quelle': 'Hacker News', 'name': h.get('title', ''), 'url': h.get('url') or '',
-                        'text': f"{h.get('points', 0)} points, {h.get('num_comments', 0)} comments"})
-    except Exception as e:
-        print('Hacker News nicht verfuegbar:', e)
+    # Hacker News: worueber Technik-Leute GERADE reden (Nutzerauftrag 10.10.2026). Ein dort
+    # diskutiertes GitHub-Projekt wird eine normale GitHub-Quelle (README als Beleg) und kommt nach vorn.
+    hn = hn_geschichten(tage)
+    hn_repo = {}
+    for h in hn:
+        repo = github_repo(h['url'])
+        if repo and repo.lower() not in hn_repo:
+            hn_repo[repo.lower()] = h
+    for q in aus:
+        h = hn_repo.pop(q['name'].lower(), None) if q['quelle'] == 'GitHub' else None
+        if h:
+            q['hn'] = h['punkte']
+            q['text'] += f" - discussed on Hacker News: {h['punkte']} points ({h['titel'][:120]})"
+    for repo, h in list(hn_repo.items())[:4]:
+        aus.append({'quelle': 'GitHub', 'name': repo, 'url': f'https://github.com/{repo}', 'zahl': h['punkte'],
+                    'hn': h['punkte'],
+                    'text': f"Hacker News: \"{h['titel'][:160]}\" - {h['punkte']} points, "
+                            f"{h['kommentare']} comments, {h['datum']}"})
+    for h in hn:
+        if not github_repo(h['url']) and h['url']:
+            aus.append({'quelle': 'Hacker News', 'name': h['titel'][:120], 'url': h['url'],
+                        'text': f"{h['punkte']} points, {h['kommentare']} comments"})
+    # Stabil: auf HN stark diskutierte Projekte zuerst, sonst Reihenfolge wie bisher
+    aus.sort(key=lambda q: -(q.get('hn') or 0) if (q.get('hn') or 0) >= HN_VORRANG else 0)
     # GEMESSEN 02.10.2026: Unter den Hugging-Face-Trends war ein „Uncensored"-
     # Modell. Fuer einen werbefaehigen Kanal ungeeignet - nie als Fakt anbieten.
     # GEMESSEN: „AIHOT" (Beschreibung auf Chinesisch) landete auf Platz 1 - fuer

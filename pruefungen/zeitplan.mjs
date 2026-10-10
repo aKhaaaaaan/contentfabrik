@@ -26,6 +26,8 @@ try {
   assert.equal(anfragen[0].options.headers['Content-Type'], 'application/json');
   await start('7 */4 * * *');
   assert.ok(anfragen.filter(a => a.options.method === 'POST')[1].url.endsWith('/themen.yml/dispatches'));
+  await start('*/5 * * * *');  // 10.10.2026: Abholung alle 5 Minuten
+  assert.ok(anfragen.filter(a => a.options.method === 'POST')[2].url.endsWith('/themen.yml/dispatches'));
   for (const cron of ['23 8,13 * * *', '41 10,15 * * *']) {
     await start(cron);
     assert.ok(anfragen.at(-1).url.endsWith('/video.yml/dispatches'));

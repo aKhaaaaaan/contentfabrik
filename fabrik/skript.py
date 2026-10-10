@@ -789,6 +789,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
             'regeln': kanal.get('_regeln', []),
             'winkel': kanal.get('_winkel', ''), 'format': kanal.get('format', 'ranking'),
             'story': story,
+            **({'hooklabor': hook_protokoll} if hook_protokoll else {}),
             'hintergrund_suche': kanal.get('hintergrund_suche', ''),
             'musik_suche': [q.strip()[:100] for q in entwurf.get('musik_suche', [])
                             if isinstance(q, str) and q.strip()][:3] or kanal.get('musik_suche', []),
@@ -810,6 +811,24 @@ def main(kanal_pfad, aus_pfad, thema=None):
         tmp.replace(aus_pfad)
         return skript
 
+    def hook_labor(e):
+        import claude_ki
+        import hooklabor
+
+        def schreiber(auftrag_, schema):
+            # Autor wie beim Skript: Claude zuerst, Gemini als Reserve
+            if claude_ki.verfuegbar():
+                d, _ = claude_ki.schreiben(auftrag_, schema, zeit=120)
+                if d is not None:
+                    return d
+            return gemini(auftrag_, schema, temperatur=0.9)[0]
+
+        def richter(auftrag_, schema):  # Autor != Pruefer
+            return gemini(auftrag_, schema, temperatur=0.2)[0]
+        belege = '\n\n'.join(f"{q.get('name', '')}: {q.get('text', '')[:1500]}" for q in quellen)
+        return hooklabor.verbessern(e, belege, schreiber, richter)
+
+    hook_protokoll = None
     story = None
     if pruefung['ok']:
         entwurf['videoformat'] = dramaturgie.videoformat(kanal)
@@ -869,6 +888,28 @@ def main(kanal_pfad, aus_pfad, thema=None):
 
         except RuntimeError:
             print("Optionale Story-Verbesserung abgebrochen; gepruefte Fassung bleibt erhalten", flush=True)
+
+        # Hook-Labor (Nutzerauftrag 10.10.2026): fuenf Einstiegssaetze, ein anderer Richter waehlt.
+        # Optional wie die Story-Runden: nur mit Restzeit, nie auf Kosten der gepruefte Fassung.
+        if float(os.environ.get('CF_SCHRITT_ENDE', 'inf')) - time.monotonic() > 180:
+            try:
+                neu, hook_protokoll = hook_labor(entwurf)
+                if neu is not None:
+                    zahl = woerter_von(neu)
+                    p2 = pruefen(neu) if mindest <= zahl <= hoechstens else {'ok': False, 'probleme': ['Laenge']}
+                    s2 = story_bewerten(dict(neu, videoformat=dramaturgie.videoformat(kanal))) if p2['ok'] else None
+                    if s2 and rang(s2, STORY_KATEGORIEN) >= rang(story, STORY_KATEGORIEN):
+                        entwurf, pruefung, story = neu, p2, s2
+                        hook_protokoll['ergebnis'] = f"uebernommen (Story {s2['note']}/10)"
+                    else:
+                        hook_protokoll['ergebnis'] = ('verworfen: Faktenpruefung' if not p2['ok'] else
+                                                      f"verworfen: Story {s2['note'] if s2 else '-'}/10 "
+                                                      f"statt {story['note']}/10")
+                print('Hook-Labor:', hook_protokoll.get('ergebnis'), '|', hook_protokoll.get('gewaehlt', '')[:120],
+                      flush=True)
+                fassung_speichern(entwurf, modell, pruefung, story)
+            except Exception as e:  # optional: nie die gepruefte Fassung kippen
+                print('Hook-Labor uebersprungen:', type(e).__name__, str(e)[:120], flush=True)
 
     if entwurf is None:  # kein einziges Thema hatte eine brauchbare Quelle
         print('Kein Thema gefunden - Versuch beendet', file=sys.stderr)

@@ -141,8 +141,17 @@ def zuordnen(text):
 def ist_feedback(text):
     if re.match(r'\s*(feedback|rueckmeldung|rückmeldung|kritik)\s*:', text, re.I):
         return True
-    return bool(re.search(r'\b(video|skript|fotos?|bilder|ton|sound)\b', text, re.I)
-                and re.search(r'zu\s+wenig(?:e)?|langweilig|viel\s+schlechter|passt\s+nicht|unpassend', text, re.I))
+    if re.search(r'\b(video|skript|fotos?|bilder|ton|sound)\b', text, re.I) \
+            and re.search(r'zu\s+wenig(?:e)?|langweilig|viel\s+schlechter|passt\s+nicht|unpassend', text, re.I):
+        return True
+    # GEMELDET 10.10.2026: „Business Stories hat leider nicht die Ueberschrift Funktion ... waere besser"
+    # wurde als Themen-Idee gespeichert. Aussagen ueber Bestandteile der Videos/Fabrik plus Wertung
+    # oder Wunsch sind Feedback, keine Themen.
+    bestandteil = re.search(r'\b(ueberschrift|überschrift|logo|motive?|funktion|tool|fabrik|pipeline|untertitel|'
+                            r'thumbnails?|vorschaubild|stimme|story|hintergrund|animation)\b', text, re.I)
+    wertung = re.search(r'\b(leider|w[aä]re|sollte|sollten|fehlt|fehlen|muss|m[uü]ssen|bitte|besser|schlechter|'
+                        r'gef[aä]llt|passen|passt)\b', text, re.I)
+    return bool(bestandteil and wertung)
 
 
 def telegram_laden():

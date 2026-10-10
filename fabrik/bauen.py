@@ -1085,7 +1085,11 @@ def gemini_ton(s, wahl, grenzen):
     grund = wahl.get('tempo', 1.08)
     grund = grund if isinstance(grund, (int, float)) and not isinstance(grund, bool) and 1.0 <= grund <= 1.2 else 1.08
     faktor = round(min(1.2, max(grund, dauer / oben if dauer > oben else 1.0)), 3)
-    if faktor > 1.0:
+    if dauer / faktor < grenzen[0]:
+        # GEMESSEN 10.10.2026 (Pilot 38060628587, AI): Orus sprach 96 Woerter in 32 s (3.0 W/s;
+        # beim 8/10-Short 2.2 W/s) -> 29,8 s statt mindestens 35 s. Dann hoechstens 10 % langsamer.
+        faktor = round(max(0.9, dauer / grenzen[0]), 3)
+    if faktor != 1.0:
         roh = subprocess.run(['ffmpeg', '-loglevel', 'error', '-f', 'f32le', '-ar', str(rate), '-ac', '1', '-i', '-',
                               '-filter:a', f'atempo={faktor:.3f}', '-f', 'f32le', '-'],
                              input=ton.tobytes(), capture_output=True, check=True).stdout
@@ -1496,6 +1500,9 @@ def main(skript_pfad, aus, vorlage=None):
                 # GEMESSEN 10.10.2026 (Pilot 37990152213): Planer setzte 'karte' fuer eine Preisseite
                 # (keine GitHub/HF-Karte moeglich) - es wurde gar kein Bild versucht, 4x Bauabbruch.
                 modus = 'illustration'
+            if karte and bildplan.material_id(karte) == vorherige_id:
+                print(f'Einstellung {i}: gleiche Quellseite wie davor - gemalte Szene')
+                karte, modus = None, 'illustration'
             foto, fq = ((None, None) if karte or modus in ('stock', 'illustration', 'demo', 'figur', 'grafik', 'asset')
                         else foto_fuer(s.get('bilder') or [], t['text'] + ' Visual: ' + t.get('szene', ''), benutzte_fotos))
             if modus == 'demo':
@@ -1509,7 +1516,12 @@ def main(skript_pfad, aus, vorlage=None):
                     # Aufnahmen, die Korrektur plante 'demo' - das Repo hatte keine Beispielbilder,
                     # der Bau brach ab. Dann die echte Quellseite als Karte zeigen (authentisch).
                     karte = karte_fuer(t.get('quelle_url'))
-                    if karte:
+                    # GEMESSEN 10.10.2026 (Pilot 38060628587): 'demo' in drei Einstellungen hintereinander
+                    # -> dreimal DIESELBE Quellseiten-Karte, 3x „Gleiches Motiv zu lange gehalten".
+                    if karte and bildplan.material_id(karte) == vorherige_id:
+                        print(f'Einstellung {i}: kein Tool-Beispielbild, Quellseite schon davor - gemalte Szene')
+                        karte, modus = None, 'illustration'
+                    elif karte:
                         print(f'Einstellung {i}: kein Tool-Beispielbild - echte Quellseite als Karte')
                     else:
                         # Preis-/Herstellerseite statt GitHub (Themen mit festen Quellen, 09.10.2026):

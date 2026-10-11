@@ -9,9 +9,10 @@ API-Guthaben. Darum nur fuer das Schreiben (wenige Aufrufe); Pruefen und
 Bildauswahl bleiben bei Gemini/Groq.
 
 Faellt Claude aus (Limit, Token abgelehnt, nicht installiert): None - der
-Aufrufer schreibt dann wie bisher mit Gemini. Es kommt immer ein Video.
+Aufrufer versucht dann Gemini/Groq. Alle Fakten- und Qualitaetspruefungen bleiben bestehen.
 """
-import json, os, re, shutil, subprocess
+import datetime, json, os, re, shutil, subprocess
+from pathlib import Path
 
 # GEMESSEN 07.10.2026 mit CLI 2.1.292: 'claude-sonnet-5' antwortet zwar, ist aber das
 # aeltere Modell; der Alias 'sonnet' loest auf das neueste Sonnet auf (claude-sonnet-5-5).
@@ -20,10 +21,26 @@ MODELL = os.environ.get('CLAUDE_MODELL', 'sonnet')
 # immer. Ohne Sperre kostete jeder der bis zu 4 Schreibversuche erneut bis zu 240 s -
 # genau die Zeitfalle, an der am 07.10. das AI-Budget ohne Video verbraucht wurde.
 _gesperrt = None
+LIMIT = Path('verlauf/claude-limit.json')
+
+
+def pause(jetzt=None):
+    """Bekanntes Abo-Limit prozessuebergreifend beachten; nach Ablauf wieder versuchen."""
+    try:
+        if not LIMIT.exists():
+            return None
+        d = json.loads(LIMIT.read_text(encoding='utf-8'))
+        ende = datetime.datetime.fromisoformat(d['gesperrt_bis_utc'].replace('Z', '+00:00'))
+        if ende.tzinfo is None:
+            raise ValueError('Zeitzone fehlt')
+    except (OSError, ValueError, KeyError, TypeError, AttributeError):
+        return 'Claude-Limitdatei ungueltig; anderer Autor wird verwendet'
+    jetzt = jetzt or datetime.datetime.now(datetime.timezone.utc)
+    return 'Claude wegen bekanntem Abo-Limit pausiert bis ' + ende.isoformat() if jetzt < ende else None
 
 
 def verfuegbar():
-    return _gesperrt is None and bool(os.environ.get('CLAUDE_CODE_OAUTH_TOKEN')) and bool(shutil.which('claude'))
+    return _gesperrt is None and pause() is None and bool(os.environ.get('CLAUDE_CODE_OAUTH_TOKEN')) and bool(shutil.which('claude'))
 
 
 def json_aus(text):
@@ -37,6 +54,9 @@ def schreiben(prompt, schema, zeit=300):
     """Gibt (daten, modell) oder (None, grund) zurueck."""
     if _gesperrt:
         return None, _gesperrt
+    grund = pause()
+    if grund:
+        return None, grund
     if not verfuegbar():
         return None, 'Claude nicht eingerichtet'
     daten, grund = _schreiben(prompt, schema, zeit)

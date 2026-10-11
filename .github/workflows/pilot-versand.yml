@@ -12,7 +12,7 @@ on:
         options: [business-origin-stories, ai-tools-explained]
         required: true
 permissions:
-  contents: read
+  contents: write
   actions: read
 concurrency:
   group: contentfabrik-pilot-versand
@@ -41,3 +41,18 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           CF_ORIGINAL_URL: https://github.com/${{ github.repository }}/actions/runs/${{ inputs.run_id }}
         run: python fabrik/freigabe.py pilotdateien/ausgabe/skript.json pilotdateien/ausgabe/short.mp4
+      - name: Telegram-Videozuordnung sichern
+        if: always()
+        run: |
+          git config user.name 'contentfabrik-bot'
+          git config user.email 'contentfabrik-bot@users.noreply.github.com'
+          git config merge.contentfabrik-themen.driver 'python fabrik/zustand_merge.py %O %A %B'
+          [ ! -f verlauf/telegram-videos.json ] || git add -- verlauf/telegram-videos.json
+          git diff --cached --quiet && exit 0
+          git commit -qm "Pilotversand: Telegram-Videozuordnung"
+          for i in 1 2 3 4 5; do
+            git pull -q --rebase --autostash || exit 1
+            git push -q && exit 0
+            sleep $((i * 5))
+          done
+          exit 1

@@ -208,19 +208,25 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           CF_ORIGINAL_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: python fabrik/freigabe.py ausgabe/skript.json ausgabe/short.mp4
-      - name: Gesendetes Thema fuer die Wiederholsperre merken
+      - name: Gesendetes Video fuer Bewertung, Freigabe und Wiederholsperre sichern
         # GEMELDET 11.10.2026: Tageslauf waehlte TaxHacker erneut, das am Vortag als Pilot ging.
-        if: success() && inputs.telegram && steps.versand.outcome == 'success'
+        if: always() && inputs.telegram && steps.versand.outcome != 'skipped'
         timeout-minutes: 3
         env:
           KANAL: ${{ inputs.kanal }}
+          VERSAND: ${{ steps.versand.outcome }}
         run: |
-          python -c "import os, sys; sys.path.insert(0, 'fabrik'); import trends; trends.pilot_eintragen(os.environ['KANAL'], 'ausgabe/skript.json')"
+          if [ "$VERSAND" = "success" ]; then
+            python -c "import os, sys; sys.path.insert(0, 'fabrik'); import trends; trends.pilot_eintragen(os.environ['KANAL'], 'ausgabe/skript.json')"
+          fi
           git config user.name 'contentfabrik-bot'
           git config user.email 'contentfabrik-bot@users.noreply.github.com'
-          git add -- verlauf/piloten
+          git config merge.contentfabrik-themen.driver 'python fabrik/zustand_merge.py %O %A %B'
+          for pfad in verlauf/piloten verlauf/telegram-videos.json; do
+            [ ! -e "$pfad" ] || git add -- "$pfad"
+          done
           git diff --cached --quiet && exit 0
-          git commit -qm "Pilot gesendet: $KANAL"
+          git commit -qm "Pilot: Videozuordnung und Wiederholsperre $KANAL"
           for i in 1 2 3 4 5; do
             git pull -q --rebase --autostash || exit 1
             git push -q && exit 0

@@ -586,6 +586,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
             # schreibt zuerst; Fakten-/Storypruefung bleiben bei Gemini/Groq (Autor != Pruefer).
             e, m = None, None
             import claude_ki
+            if versuch == 0 and claude_ki.pause():
+                print(claude_ki.pause() + '; weiter mit Gemini/Groq', flush=True)
             if claude_ki.verfuegbar():
                 rest = float(os.environ.get('CF_SCHRITT_ENDE', 'inf')) - time.monotonic()
                 e, m = claude_ki.schreiben(auftrag + zusatz_, SKRIPT_SCHEMA, zeit=int(max(60, min(240, rest - 30))))

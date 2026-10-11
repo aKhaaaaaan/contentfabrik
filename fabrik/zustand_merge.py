@@ -37,10 +37,14 @@ def feld(base, remote, lokal):
 
 
 def warteschlange(base, remote, lokal):
+    if any(not isinstance(x, list) for x in (base, remote, lokal)):
+        raise Konflikt('Themenliste ist keine Liste')
+    alle = base + remote + lokal
+    id_key = 'message_id' if alle and all(isinstance(x, dict) and 'message_id' in x for x in alle) else 'id'
     def mapping(liste):
-        if not isinstance(liste, list) or any(not isinstance(x, dict) or not x.get('id') for x in liste):
+        if not isinstance(liste, list) or any(not isinstance(x, dict) or not x.get(id_key) for x in liste):
             raise Konflikt('Themenliste ohne eindeutige IDs')
-        d = {x['id']: x for x in liste}
+        d = {x[id_key]: x for x in liste}
         if len(d) != len(liste):
             raise Konflikt('Doppelte Themen-IDs')
         return d
@@ -54,10 +58,10 @@ def warteschlange(base, remote, lokal):
         else:
             aus[key] = feld(b.get(key, {}), r[key], l[key])
     # Bei ausdruecklichem lokalen Umordnen dessen Reihenfolge erhalten. Sonst aktuelle Hauptliste.
-    gemeinsam = [x['id'] for x in base if x['id'] in aus]
-    lokal_alt = [x['id'] for x in lokal if x['id'] in b and x['id'] in aus]
+    gemeinsam = [x[id_key] for x in base if x[id_key] in aus]
+    lokal_alt = [x[id_key] for x in lokal if x[id_key] in b and x[id_key] in aus]
     reihenfolge = lokal + remote if lokal_alt != gemeinsam else remote + lokal
-    ids = list(dict.fromkeys(x['id'] for x in reihenfolge if x['id'] in aus))
+    ids = list(dict.fromkeys(x[id_key] for x in reihenfolge if x[id_key] in aus))
     return [aus[key] for key in ids]
 
 

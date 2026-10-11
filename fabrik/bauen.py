@@ -18,6 +18,7 @@ import numpy as np
 import prompts
 import dramaturgie
 import bildplan
+import motivbudget
 import ton as audioqualitaet
 from PIL import Image, ImageDraw, ImageFont
 
@@ -1201,7 +1202,7 @@ def ersatz_grenze(einstellungen):
     return max(2, math.ceil(einstellungen * .06))
 
 
-def bibliothek_ersatz(kanal, vorherige_id, benutzt):
+def bibliothek_ersatz(kanal, vorherige_id, benutzt, gesperrt=()):
     """Pfad einer noch ungenutzten Bibliotheks-Illustration dieses Kanals (nicht das Bild davor) oder None."""
     import bibliothek
     for eintrag in bibliothek.katalog():
@@ -1211,7 +1212,7 @@ def bibliothek_ersatz(kanal, vorherige_id, benutzt):
             pfad = bibliothek.bild(eintrag['id'], kanal)
         except ValueError:
             continue
-        if bildplan.material_id(pfad) != vorherige_id:
+        if bildplan.material_id(pfad) not in {vorherige_id, *gesperrt}:
             benutzt.add(eintrag['id'])
             return pfad
     return None
@@ -1223,10 +1224,11 @@ def illustration_figur(kanal_slug):
     return pfad if pfad.is_file() else None
 
 
-def nachbar_bild(aus, i, vorherige_id):
+def nachbar_bild(aus, i, vorherige_id, gesperrt=()):
     """Naechste schon gepruefte Illustration fuer Einstellung i, nie das Bild davor."""
     kandidaten = [p for p in Path(aus).glob('ill_*.jpg') if re.fullmatch(r'ill_\d\d\.jpg', p.name)
-                  and p.name != f'ill_{i:02d}.jpg' and bildplan.material_id(p) != vorherige_id]
+                  and p.name != f'ill_{i:02d}.jpg'
+                  and bildplan.material_id(p) not in {vorherige_id, *gesperrt}]
     return min(kandidaten, key=lambda p: abs(int(p.stem[4:]) - i)) if kandidaten else None
 
 
@@ -1405,6 +1407,7 @@ def main(skript_pfad, aus, vorlage=None):
     code_key = hashlib.sha256(Path(__file__).read_bytes() + Path(prompts.__file__).read_bytes()
                              + Path(audioqualitaet.__file__).read_bytes()
                              + Path(dramaturgie.__file__).read_bytes()
+                             + Path(motivbudget.__file__).read_bytes()
                              + Path(__file__).with_name('illustration.py').read_bytes()
                              + Path(__file__).with_name('infografik.py').read_bytes()
                              + Path(__file__).with_name('bibliothek.py').read_bytes()
@@ -1515,11 +1518,19 @@ def main(skript_pfad, aus, vorlage=None):
         ersatz_max = ersatz_grenze(len(shots))
         stock_erlaubt = stockclips_erlaubt(s)
         vorherige_id = None  # Bild-Fingerabdruck der direkt vorherigen Einstellung
+        benutzte_materialien = set()
         kanal_slug = re.sub(r'[^a-z0-9]+', '-', s.get('kanal', '').lower()).strip('-')
         FORTSCHRITT['plaetze'] = sorted((t['platz'] for t in s['teile'] if t.get('platz')), reverse=True)
         FORTSCHRITT['aktuell'] = None
         for i, shot in enumerate(shots):
             t, dauer, t0 = shot['teil'], shot['dauer_s'], shot['s']
+            # 18 Schnitte sind keine 18 Motive: auch nicht benachbarte Wiederholungen zaehlen.
+            verbleibend = len(shots) - i - 1
+            gesperrt = (benutzte_materialien if motivbudget.neues_noetig(
+                benutzte_materialien, verbleibend, bildablauf['motive_min']) else set())
+            def motiv_ok(pfad):
+                return bool(pfad) and motivbudget.erlaubt(bildplan.material_id(pfad),
+                    benutzte_materialien, verbleibend, bildablauf['motive_min'])
             ersatz0 = bild_ersatz
             phasenstart = i == 0 or shots[i - 1]['phase'] != shot['phase']
             FORTSCHRITT['aktuell'] = t.get('platz') or FORTSCHRITT['aktuell']
@@ -1534,7 +1545,9 @@ def main(skript_pfad, aus, vorlage=None):
                                     'nennung': nennung})
             key = rendercache.stueck_key(visuell, i, dauer, code_key)
             alt = cache.get('stuecke', {}).get(str(i), {})
-            if alt.get('key') == key and rendercache.dateien_ok(aus, alt.get('dateien', [])):
+            if alt.get('key') == key and rendercache.dateien_ok(aus, alt.get('dateien', [])) \
+                    and motivbudget.erlaubt(alt.get('material_id'), benutzte_materialien,
+                                           verbleibend, bildablauf['motive_min']):
                 liste += [f"file '{n}'" for n in alt['dateien']]
                 quellen += alt.get('quellen', [])
                 ereignisse += [(t0 + sek, art) for sek, art in alt.get('ereignisse', [])]
@@ -1547,6 +1560,7 @@ def main(skript_pfad, aus, vorlage=None):
                 # 6 doppelt genutzte Bilder in 21 Einstellungen statt hoechstens 2.
                 bild_ersatz += 1 if alt.get('ersatz') else 0
                 vorherige_id = alt.get('material_id')
+                benutzte_materialien.add(vorherige_id)
                 rendercache.speichern(aus, zustand)
                 continue
             zeiten['stuecke_neu'] += 1
@@ -1573,7 +1587,7 @@ def main(skript_pfad, aus, vorlage=None):
                 # GEMESSEN 10.10.2026 (Pilot 37990152213): Planer setzte 'karte' fuer eine Preisseite
                 # (keine GitHub/HF-Karte moeglich) - es wurde gar kein Bild versucht, 4x Bauabbruch.
                 modus = 'illustration'
-            if karte and bildplan.material_id(karte) == vorherige_id:
+            if karte and (bildplan.material_id(karte) == vorherige_id or not motiv_ok(karte)):
                 print(f'Einstellung {i}: gleiche Quellseite wie davor - gemalte Szene')
                 karte, modus = None, 'illustration'
             foto, fq = ((None, None) if karte or modus in ('stock', 'illustration', 'demo', 'figur', 'grafik', 'asset')
@@ -1581,7 +1595,7 @@ def main(skript_pfad, aus, vorlage=None):
             if modus == 'demo':
                 demo, fq = demo_fuer(t.get('quelle_url'), t['text'] + ' Visual: ' + t.get('szene', ''),
                                     benutzte_demos, t.get('demo_url'))
-                if demo:
+                if demo and motiv_ok(demo):
                     foto = demo
                     benutzte_demos.add(fq['datei'])
                 else:
@@ -1591,7 +1605,7 @@ def main(skript_pfad, aus, vorlage=None):
                     karte = karte_fuer(t.get('quelle_url'))
                     # GEMESSEN 10.10.2026 (Pilot 38060628587): 'demo' in drei Einstellungen hintereinander
                     # -> dreimal DIESELBE Quellseiten-Karte, 3x „Gleiches Motiv zu lange gehalten".
-                    if karte and bildplan.material_id(karte) == vorherige_id:
+                    if karte and (bildplan.material_id(karte) == vorherige_id or not motiv_ok(karte)):
                         print(f'Einstellung {i}: kein Tool-Beispielbild, Quellseite schon davor - gemalte Szene')
                         karte, modus = None, 'illustration'
                     elif karte:
@@ -1624,6 +1638,11 @@ def main(skript_pfad, aus, vorlage=None):
                 if not ill.is_file():
                     raise ValueError('Keine vorhandene originale Kanalfigur')
                 quellen.append({'quelle': 'Illustration', 'seite': 'Originale Kanalfigur: vorhandenes Referenzbild'})
+            if ill and not motiv_ok(ill):
+                print(f'Einstellung {i}: Motiv schon verwendet - neue Illustration erforderlich')
+                ill, modus = None, 'illustration'
+            if foto and not motiv_ok(foto):
+                foto, fq, modus = None, None, 'illustration'
             if os.environ.get('CLOUDFLARE_AI_TOKEN') and modus in ('auto', 'illustration', 'foto') \
                     and not karte and not foto:
                 import illustration
@@ -1669,6 +1688,8 @@ def main(skript_pfad, aus, vorlage=None):
                             clip_fuer(t.get('suche') or s.get('suche'), schon, dauer,
                                       t['text'] + ' Visual: ' + t.get('szene', '')))
             material = ill or foto or karte or clip
+            if material and not motiv_ok(material):
+                material = ill = foto = karte = clip = None
             if not material and bild_ersatz < ersatz_max:
                 # GEMESSEN 08.10.2026 (Lauf 37753715598): eine einzige Einstellung ohne
                 # bestandenes Bild kippte das ganze Video (3x). Hoechstens zweimal ein schon
@@ -1677,12 +1698,12 @@ def main(skript_pfad, aus, vorlage=None):
                 # GEMESSEN 08.10.2026 (Lauf 37760482364, Business): Einstellung 15 UND 16
                 # bekamen beide ill_13 -> 'Gleiches Motiv zu lange gehalten', Video gesperrt.
                 # Nie das Bild der direkt vorherigen Einstellung wiederholen.
-                ersatz = nachbar_bild(aus, i, vorherige_id)
+                ersatz = nachbar_bild(aus, i, vorherige_id, gesperrt)
                 if not ersatz and t.get('quelle_url'):
                     # GEMESSEN 08.10.2026 (Lauf 37784030675): Einstellung 1 hatte noch keine
                     # gepruefte Nachbar-Illustration. Echte Quellseite (GitHub/HF) statt Abbruch.
                     karte = karte_fuer(t.get('quelle_url'))
-                    if karte and bildplan.material_id(karte) != vorherige_id:
+                    if karte and bildplan.material_id(karte) != vorherige_id and motiv_ok(karte):
                         material = karte
                         bild_ersatz += 1
                         print(f'Einstellung {i}: kein Bild bestanden - echte Quellseite als Karte')
@@ -1691,7 +1712,7 @@ def main(skript_pfad, aus, vorlage=None):
                     bild_ersatz += 1
                     print(f'Einstellung {i}: kein Bild bestanden - gepruefte Nachbar-Illustration {ill.name}')
                 figur = None if material or ersatz else illustration_figur(kanal_slug)
-                if figur and bildplan.material_id(figur) != vorherige_id:
+                if figur and bildplan.material_id(figur) != vorherige_id and motiv_ok(figur):
                     # GEMESSEN 08.10.2026 (Pilot 37831023275): Einstellung 1 hatte nur ill_00 als
                     # Nachbarn - und das ist das Bild davor. Freigegebene Kanalfigur statt Abbruch.
                     ill = material = figur
@@ -1703,7 +1724,7 @@ def main(skript_pfad, aus, vorlage=None):
                 # davor nur das Figurbild, also weder Nachbar- noch Figur-Ersatz erlaubt. Letzte Rettung:
                 # eine noch ungenutzte, vom Nutzer sichtgepruefte Bibliotheks-Illustration des Kanals
                 # (keine Wiederholung, keine Schrift). Nur Shorts: die Bibliothek ist Hochformat.
-                buch = bibliothek_ersatz(s.get('kanal'), vorherige_id, benutzte_bibliothek)
+                buch = bibliothek_ersatz(s.get('kanal'), vorherige_id, benutzte_bibliothek, gesperrt)
                 if buch:
                     ill = material = buch
                     quellen.append({'quelle': 'Illustration',
@@ -1712,6 +1733,7 @@ def main(skript_pfad, aus, vorlage=None):
             if not material:
                 raise ValueError(f'Phase {shot["phase"]}, Einstellung {i}: kein passendes Hauptbild; kein Hintergrundersatz')
             material_hash = bildplan.material_id(material)
+            benutzte_materialien.add(material_hash)
             vorher_id_merk, vorherige_id = vorherige_id, material_hash
             material_art = 'illustration' if ill else 'foto' if foto else 'karte' if karte else 'clip'
             # GEMELDET 10.10.2026: Business - Firmenname gross oben im ganzen Video, Logo am Anfang.

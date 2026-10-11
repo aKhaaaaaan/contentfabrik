@@ -59,6 +59,13 @@ def cta_bewerten(roh, art, dauer):
         return {'ok': False, 'befunde': ['Endton-Rohtranskript fehlt, ist ungueltig oder hat eine andere Dauer'],
                 'treffer': [], 'fenster': []}
     tokens = [(t, w) for w in roh['woerter'] for t in re.findall(r"[a-z]+(?:'[a-z]+)?", w['w'].lower())]
+    # Satznummer je Token: Die Verneinung zaehlt nur im selben Satz. Am 11.10.2026 sperrte
+    # "...not financial advice. Be sure to like, share, and save this video." den korrekt
+    # gesprochenen Aufruf, weil das "not" aus dem Vorsatz im 7-Woerter-Fenster lag.
+    satz, n = [], 0
+    for w in roh['woerter']:
+        satz += [n] * len(re.findall(r"[a-z]+(?:'[a-z]+)?", w['w'].lower()))
+        n += bool(re.search(r'[.!?]["\')\]]*$', w['w']))
     text = ' '.join(t for t, _ in tokens)
     starts, pos = [], 0
     for t, _ in tokens:
@@ -69,7 +76,8 @@ def cta_bewerten(roh, art, dauer):
     for m in re.finditer(muster, text):
         indices = [i for i, s in enumerate(starts) if m.start() <= s < m.end()]
         erkannt = [tokens[i][1] for i in indices]
-        davor = ' '.join(t for t, _ in tokens[max(0, indices[0] - 7):indices[0]])
+        davor = ' '.join(t for i, (t, _) in enumerate(tokens[:indices[0]])
+                         if i >= indices[0] - 7 and satz[i] == satz[indices[0]])
         if re.search(r'\b(?:not|never|no need|don\x27t)\b', davor) and 'forget' not in davor:
             continue
         if erkannt[-1]['e'] - erkannt[0]['s'] > 8 or min(w['p'] for w in erkannt) < .25 \

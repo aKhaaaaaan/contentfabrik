@@ -213,6 +213,12 @@ def abholen():
         if text.startswith('/') or text.lower() in ('hilfe', 'help', 'hallo', 'hi', 'start', 'test'):
             merken(u['update_id'], HILFE)
             continue
+        # GEMELDET 11.10.2026: „Status" an den Videobot landete als Business-Idee Nr. 8. Befehle des
+        # Steuerungs-Bots sind nie Themen - Hinweis auf den richtigen Bot statt Warteschlange.
+        if re.fullmatch(r'(status|abholen|start(\s+(business|ki|ai))?)[.!?]?', text.strip(), re.I):
+            merken(u['update_id'], f'„{text[:30]}" ist ein Befehl fuer den Bot „Contentfabrik Steuerung" - '
+                   'bitte dort schicken. Hier wurde nichts als Thema gespeichert.')
+            continue
         if re.match(r'\s*stimm', text, re.I):
             nummern = [int(n) for n in re.findall(r'\d+', text)][:3]
             Path('themen').mkdir(exist_ok=True)

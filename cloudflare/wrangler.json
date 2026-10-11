@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
+  "name": "contentfabrik-zeitplan",
+  "main": "zeitplan-worker.js",
+  "account_id": "09e49429346ef780d0e59a7fae936f95",
+  "compatibility_date": "2026-10-07",
+  "workers_dev": true,
+  "preview_urls": false,
+  "keep_vars": true,
+  "send_metrics": false,
+  "triggers": {
+    "crons": ["23 8,13 * * *", "41 10,15 * * *", "*/5 * * * *"]
+  }
+}

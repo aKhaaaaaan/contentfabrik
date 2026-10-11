@@ -10,7 +10,8 @@
 //   2. Settings -> Variables and Secrets -> Secret GH_TOKEN = GitHub-Fine-grained-Token
 //      (nur Repository aKhaaaaaan/contentfabrik, nur "Actions: Read and write")
 //   3. Settings -> Triggers -> Cron Triggers (UTC): 23 8,13 * * *, 41 10,15 * * *
-//      und fuer die Themen-Abholung: 7 */4 * * *
+//      und fuer die Themen-Abholung: */5 * * * *
+//   Alternativ: npx wrangler deploy --config cloudflare/wrangler.json --keep-vars
 //
 // Befehls-Bot (08.10.2026): zweiter Telegram-Bot nur fuer Start/Status.
 //   4. @BotFather -> /newbot -> Token als Secret TG_BEFEHL_TOKEN eintragen

@@ -56,7 +56,10 @@ def _hole(url, token):
 
 
 def _norm(titel):
-    return re.sub(r'[^a-z0-9]', '', re.sub(r'#\w+', '', (titel or '').lower()))
+    # Uploadtitel traegt seit 11.10. den Serienzusatz, Verlauf speichert den Basistitel.
+    # Nur den kontrollierten Schlusszusatz entfernen, keine beliebigen Titelwoerter.
+    titel = re.sub(r'\s+\|\s+AI Tool\s+#\d+(?=\s*(?:#\w+\s*)*$)', '', titel or '', flags=re.I)
+    return re.sub(r'[^a-z0-9]', '', re.sub(r'#\w+', '', titel.lower()))
 
 
 def laden(kanal):
@@ -91,11 +94,10 @@ def abrufen(kanal):
         print(f'{kanal}: keine Uploads')
         return
     videos = _hole(API + 'videos?part=snippet,statistics,status&id=' + ','.join(ids), token)['items']
-    # Anteil gesehen (Zuschauerbindung) - der wichtigste Wert fuer den Algorithmus
+    # Gesehener Anteil und weitere beobachtbare Publikums-Signale getrennt abrufen.
     heute = datetime.date.today()
-    # RECHERCHE 03.10.2026 (vidIQ, Metricool, YouTube-API-Doku): Fuer Shorts
-    # zaehlen Engaged Views, gesehener Anteil, Teilen (~8x so viel wie Likes)
-    # und Abos aus dem Video. „Angesehen vs. weggewischt" gibt es nur in Studio.
+    # Offizielle Analytics-Metriken; keine bekannten festen Algorithmus-Gewichte.
+    # "Angesehen vs. weggewischt" bleibt eine gesonderte Studio-Kennzahl.
     bindung = {}
     ANALYTICS = 'https://youtubeanalytics.googleapis.com/v2/reports?'
     zeitraum = {'ids': 'channel==MINE', 'startDate': (heute - datetime.timedelta(days=90)).isoformat(),
@@ -225,12 +227,17 @@ def _bewertet(kanal, videoformat='short'):
           and (videoformat is None or v.get('einstellungen', {}).get('videoformat', 'short') == videoformat)]
     if not vs:
         return []
-    median = statistics.median(v['aufrufe'] for v in vs) or 1
+    def basis(v):
+        return v['engaged'] if v.get('engaged') is not None else v['aufrufe']
+    median = statistics.median(basis(v) for v in vs) or 1
     for v in vs:
-        basis = v.get('engaged') or v['aufrufe']
-        # Teilen und Abos wiegen schwer (Recherche: Teilen ~8x Like), dazu der gesehene Anteil
-        v['wert'] = (basis / median * ((v.get('anteil_prozent') or 50) / 100)
-                     * (1 + 8 * (v.get('teilungen') or 0) / max(basis, 1) + 5 * (v.get('abos') or 0) / max(basis, 1)))
+        gesehen = basis(v)
+        anteil = v['anteil_prozent'] if v.get('anteil_prozent') is not None else 50
+        # 8/5 sind bestehende Projekt-Heuristiken, KEINE Gewichte des YouTube-Algorithmus.
+        # Ein gemessener Nullwert darf niemals durch viele Roh-Aufrufe/50 Prozent ersetzt werden.
+        v['wert'] = (gesehen / median * (anteil / 100)
+                     * (1 + 8 * (v.get('teilungen') or 0) / max(gesehen, 1)
+                        + 5 * (v.get('abos') or 0) / max(gesehen, 1)))
     return vs
 
 

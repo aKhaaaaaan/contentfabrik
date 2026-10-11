@@ -61,3 +61,78 @@ def hashtags_bereinigen(tags, inhalt):
         if kern and (kern in ALLGEMEIN or kern in roh) and kern not in [re.sub(r'[^a-z0-9]', '', a.lower()) for a in aus]:
             aus.append(str(t).lstrip('#'))
     return aus
+
+
+def tiktok_hashtags(skript):
+    """Bis zu fuenf belegte Tags: konkretes Thema vor zwei Kanal-Kategorien.
+
+    Keine Trendbehauptung oder neue KI-Anfrage. Zusammengesetzte Tags muessen aus
+    benachbarten Woertern stammen; #cat passt nicht allein wegen 'application'.
+    """
+    inhalt = ' '.join([str(skript.get('thema', '')), titel_text(skript.get('titel', [])),
+                      *[str(t.get('text', '')) for t in skript.get('teile', [])]])
+    woerter = re.findall(r'[a-z0-9]+', inhalt.lower())
+    belegt = {''.join(woerter[i:i + n]) for i in range(len(woerter)) for n in range(1, 5)}
+    belegt |= {w[:-1] for w in woerter if len(w) > 4 and w.endswith('s')}
+    kategorien = {'AI Tools Explained': ['AITools', 'AI'],
+                  'Business Origin Stories': ['BusinessHistory', 'Business']}.get(skript.get('kanal'), [])
+    allgemein = {t.lower() for t in kategorien}
+    # Keine generischen Reichweiten-Tags oder Zugangs-/Lizenzbehauptungen aus Worttreffern.
+    ausgeschlossen = {'fyp', 'foryou', 'foryoupage', 'viral', 'trending', 'short', 'shorts', 'freeai', 'opensource'}
+    aus, gesehen = [], set()
+    werkzeuge = {re.sub(r'[^a-z0-9]', '', str(w).lower()) for w in
+                 [skript.get('thema', ''), *[t.get('werkzeug', '') for t in skript.get('teile', [])]]}
+    for tag in skript.get('hashtags', []) or []:
+        sauber = re.sub(r'[^a-zA-Z0-9_]', '', str(tag).lstrip('#'))
+        kern = sauber.replace('_', '').lower()
+        if kern and kern not in allgemein | ausgeschlossen and kern in belegt and kern not in gesehen:
+            aus.append(sauber)
+            gesehen.add(kern)
+    aus.sort(key=lambda tag: tag.replace('_', '').lower() not in werkzeuge)
+    return (aus[:5 - len(kategorien)] + kategorien)[:5]
+
+
+def beschreibung_mit_quellen(beschreibung, quellen):
+    """Gemeinsame vollstaendige Musik-/Foto-Nennung fuer alle Upload-Texte."""
+    nennungen = []
+    fotos = [q for q in quellen if q.get('quelle') == 'Wikimedia Commons']
+    musik = [q for q in quellen if q.get('quelle') == 'Musik']
+    if any(q.get('quelle') == 'Pixabay' for q in quellen):
+        nennungen.append('Clips: Pixabay')
+    if musik:
+        nennungen.append(musik[0]['nennung'])
+    if any(q.get('quelle') == 'Illustration' for q in quellen):
+        nennungen.append('Illustrations are AI-generated.')
+    if fotos:
+        nennungen.append('Photos (Wikimedia Commons): ' + '; '.join(
+            f"{q['von']}, {q['lizenz']} ({q['seite']})" for q in fotos)
+            + ' - cropped, animated and captioned' + (
+                '; these modified photos are licensed under the same CC BY-SA license'
+                if any('SA' in q['lizenz'] for q in fotos) else ''))
+    for nennung in nennungen:
+        if nennung not in beschreibung:
+            beschreibung += '\n' + nennung
+    return beschreibung
+
+
+def tiktok_text(skript, datum=None, quellen=()):
+    """Titel, kurzer Inhalt, belegte Hashtags und vollstaendige Quellenangaben.
+
+    Video-Inbox unterstuetzt KEINE Caption; dieser Text ist fuer Telegram und
+    einen kuenftigen freigeschalteten Direct-Post-Weg. Lizenztexte niemals abschneiden.
+    """
+    zeilen = beschreibung_mit_quellen(str(skript.get('beschreibung', '')), quellen).splitlines()
+    beginn = next((i for i, z in enumerate(zeilen) if z.strip().lower().startswith(
+        ('source:', 'sources:', 'music:', 'photos', 'clips:', 'illustrations are'))), len(zeilen))
+    beschreibung = ' '.join(' '.join(zeilen[:beginn]).split())
+    if len(beschreibung) > 280:
+        saetze = re.split(r'(?<=[.!?])\s+(?=[A-Z])', beschreibung)
+        beschreibung = saetze[0] if len(saetze[0]) <= 280 else beschreibung[:277].rsplit(' ', 1)[0] + '...'
+    tags = ' '.join('#' + tag for tag in tiktok_hashtags(skript))
+    nennungen = '\n'.join(zeilen[beginn:]).strip()
+    return '\n\n'.join(t for t in (upload_titel(skript, datum), beschreibung, tags, nennungen) if t)
+
+
+def tiktok_laenge(text):
+    """TikTok zaehlt Caption-Zeichen als UTF-16-Einheiten (Emoji oft zwei)."""
+    return len(text.encode('utf-16-le')) // 2

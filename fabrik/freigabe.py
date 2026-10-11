@@ -160,26 +160,7 @@ def senden(skript_pfad, video_pfad):
     # CC-Lizenzen verlangen Urheber, Lizenz und Quelle - automatisch anhaengen
     qpfad = Path(skript_pfad).with_name('quellen.json')
     quellen = json.loads(qpfad.read_text(encoding='utf-8')) if qpfad.exists() else []
-    fotos = [q for q in quellen if q.get('quelle') == 'Wikimedia Commons']
-    musik = [q for q in quellen if q.get('quelle') == 'Musik']
-    if any(q.get('quelle') == 'Pixabay' for q in quellen) and 'Clips: Pixabay' not in skript['beschreibung']:
-        skript['beschreibung'] += '\nClips: Pixabay'  # Bitte von Pixabay - nur wenn wirklich verwendet
-    if musik:
-        skript['beschreibung'] += '\n' + musik[0]['nennung']
-    if any(q.get('quelle') == 'Illustration' for q in quellen):
-        skript['beschreibung'] += '\nIllustrations are AI-generated.'
-    if fotos:
-        skript['beschreibung'] += '\nPhotos (Wikimedia Commons): ' + '; '.join(
-            f"{q['von']}, {q['lizenz']} ({q['seite']})" for q in fotos)
-        # CC BY verlangt den Hinweis, DASS geaendert wurde; BY-SA verlangt, die
-        # geaenderte Fassung des FOTOS unter BY-SA zu stellen. Ob ein Foto im
-        # Video das ganze Video zur Bearbeitung macht, ist offen (CC-FAQ und
-        # Commons-Hilfe lassen es offen, GEPRUEFT 03.10.2026) - wir erfuellen
-        # die Pflichten fuer das Foto selbst; Verbot haette die Haelfte der
-        # passenden Firmenfotos gekostet (GEMESSEN: 56 von 102 bei 8 Firmen).
-        skript['beschreibung'] += ' - cropped, animated and captioned' + (
-            '; these modified photos are licensed under the same CC BY-SA license'
-            if any('SA' in q['lizenz'] for q in fotos) else '')
+    skript['beschreibung'] = texte.beschreibung_mit_quellen(skript['beschreibung'], quellen)
     chat = os.environ['TELEGRAM_CHAT_ID']
     try:
         ersatz = json.loads(Path(video_pfad).with_name('messung.json').read_text(encoding='utf-8')).get('stimme_ersatz')
@@ -247,15 +228,11 @@ def senden(skript_pfad, video_pfad):
             vorschaubild_senden(chat, pfad, v)
         print('Gesendet:', antwort.get('ok'))
         return
-    # 3. TikTok von Hand - eigene Nachricht, damit die Texte nicht an Telegrams
-    # 4096-Zeichen-Grenze stossen. GEMESSEN 03.10.2026: Ein neues Konto wurde
-    # nach API-Uploads einer ungeprueften App gesperrt („Spam und irrefuehrendes
-    # Kontoverhalten"), Hand-Uploads im zweiten Konto gehen. Bis zur TikTok-
-    # Pruefung laedt der Nutzer darum selbst hoch. CC BY verlangt die Nennung
-    # auch auf TikTok - Musik/Fotos stehen deshalb mit im Text.
-    nennung = '\n'.join(z for z in skript['beschreibung'].split('\n') if z.startswith(('Music:', 'Photos')))
-    tiktok = f'{titel} {tags}' + (f'\n\n{nennung}' if nennung else '')
-    if len(tiktok) > 2200:
+    # Video-Inbox kann keine Caption annehmen. Text trotzdem automatisch erzeugen;
+    # Telegram und spaeter Direct Post verwenden dieselbe Quelle inklusive Nennungen.
+    tiktok = texte.tiktok_text(skript)
+    Path(skript_pfad).with_name('tiktok-text.txt').write_text(tiktok, encoding='utf-8')
+    if texte.tiktok_laenge(tiktok) > 2200:
         telegram('sendMessage', {'chat_id': chat, 'text':
                  '📱 TikTok-Text ist laenger als 2.200 Zeichen. Titel/Hashtags vor dem Posten kuerzen; '
                  'Quellen- und Lizenzangaben vollstaendig erhalten. KI-generierte Inhalte einschalten.'})

@@ -115,21 +115,24 @@ def zugang(open_id):
 
 
 def hochladen(video_pfad, skript_pfad, open_id):
-    token = zugang(open_id)
     skript = json.loads(Path(skript_pfad).read_text(encoding='utf-8'))
+    import texte
+    qpfad = Path(skript_pfad).with_name('quellen.json')
+    quellen = json.loads(qpfad.read_text(encoding='utf-8')) if qpfad.exists() else []
+    caption = texte.tiktok_text(skript, quellen=quellen)
+    if texte.tiktok_laenge(caption) > 2200:
+        raise ValueError('TikTok-Caption zu lang; Quellenangaben nicht automatisch abschneiden')
+    token = zugang(open_id)
     # Pflicht laut Doku: vor dem Posten die Moeglichkeiten des Kontos abfragen
     info = _post(API + 'post/publish/creator_info/query/', token=token, json_daten={}).get('data', {})
     erlaubt = info.get('privacy_level_options', [])
     privat = 'SELF_ONLY'  # ungepruefte App: nur privat (Doku); nach der Pruefung waehlt der Nutzer
     if erlaubt and privat not in erlaubt:
         sys.exit(f'Konto erlaubt kein SELF_ONLY: {erlaubt}')
-    import texte
-    titel = texte.upload_titel(skript)
-    tags = ' '.join('#' + h.lstrip('#') for h in skript.get('hashtags', []))
     daten = Path(video_pfad).read_bytes()
     groesse = len(daten)
     init = _post(API + 'post/publish/video/init/', token=token, json_daten={
-        'post_info': {'title': f'{titel} {tags}'[:2200], 'privacy_level': privat, 'disable_duet': False,
+        'post_info': {'title': caption, 'privacy_level': privat, 'disable_duet': False,
                       'disable_stitch': False, 'disable_comment': False, 'brand_content_toggle': False,
                       'brand_organic_toggle': False, 'is_aigc': True},  # KI-Stimme -> als KI gekennzeichnet
         # Ein Stueck reicht bis 64 MB (unsere Videos: 20-56 MB)

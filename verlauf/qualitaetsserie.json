@@ -11898,6 +11898,1074 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "38124657997.1:business-origin-stories",
+      "run_id": "38124657997",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-11T09:12:49.172674+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "19a576a85cc5671136ca8dc499669bbc15700808",
+      "produktionsversion": "a611cb67611ee104ebabe7d0e48dd291bfd6f33cf0574a223254135886ae12f5",
+      "videoformat": "short",
+      "thema": "Yahoo: Aufstieg, Uebernahmen und Verkauf",
+      "titel": [
+        "*Yahoo* Missed *Google*",
+        "Two Deals That Failed"
+      ],
+      "status": "gesendet",
+      "video_sha256": "182e4efb1d757ee722d74d40b6f6c1e870ef2e5a5b8a9edc971b3737ef977cb5",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": 6,
+      "prompt_version": "2026-10-10.4",
+      "sperrgruende": [
+        "Video-Note 6/10 unter 7/10",
+        "Video-bild_passt 6/10 unter 7/10",
+        "Video-dynamik 6/10 unter 7/10",
+        "Video-tempo 6/10 unter 7/10"
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 13,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38124657997",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-11",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 559.4,
+            "pruefung_s": 27.4,
+            "note": 6,
+            "sperrgruende": [
+              "Video-Note 6/10 unter 7/10",
+              "Video-bild_passt 6/10 unter 7/10",
+              "Video-dynamik 6/10 unter 7/10",
+              "Video-tempo 6/10 unter 7/10"
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Orus",
+              "stimme": 18.6,
+              "zeitmarken": 6.5,
+              "tempo": 1.05,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 455.0,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 7
+              },
+              "effekte": 9,
+              "rendern": 38.2,
+              "gesamt": 559.1,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                8.34,
+                4.54,
+                7.86,
+                6.12,
+                9.86,
+                8.26
+              ],
+              "woerter": 86
+            },
+            "kategorien": {
+              "hook": 7,
+              "bild_passt": 6,
+              "dynamik": 6,
+              "text": 7,
+              "ton_stimme": 7,
+              "tempo": 6,
+              "inhalt": 7,
+              "schluss_loop": 7,
+              "regeln": 7,
+              "story": 7
+            },
+            "probleme": [
+              {
+                "zeit": "00:04-00:08",
+                "art": "bild_passt_nicht",
+                "schwere": "leicht",
+                "text": "Visuelle Darstellung zeigt nur eine Person statt der erwähnten zwei Stanford-Studenten."
+              },
+              {
+                "zeit": "00:33-00:36",
+                "art": "tempo",
+                "schwere": "leicht",
+                "text": "Etwas hektischer Übergang beim Microsoft-Deal ohne deutlichen visuellen Frequenzwechsel."
+              }
+            ],
+            "sekunden": 586.8,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-10.4"
+            },
+            "skript_s": 0.9,
+            "bau_s": 479.7,
+            "pruefung_s": 52.6,
+            "note": 6,
+            "sperrgruende": [
+              "Video-Note 6/10 unter 7/10",
+              "Video-hook 6/10 unter 7/10",
+              "Video-bild_passt 5/10 unter 7/10",
+              "Video-dynamik 5/10 unter 7/10",
+              "Video-text 6/10 unter 7/10",
+              "Video-ton_stimme 6/10 unter 7/10",
+              "Video-tempo 6/10 unter 7/10",
+              "Video-inhalt 6/10 unter 7/10",
+              "Video-schluss_loop 6/10 unter 7/10",
+              "Video-regeln 6/10 unter 7/10",
+              "Video-story 6/10 unter 7/10"
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.05,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 435.0,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 7
+              },
+              "effekte": 9,
+              "rendern": 37.7,
+              "gesamt": 479.5,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                8.34,
+                4.54,
+                7.86,
+                6.12,
+                9.86,
+                8.26
+              ],
+              "woerter": 86
+            },
+            "kategorien": {
+              "hook": 6,
+              "bild_passt": 5,
+              "dynamik": 5,
+              "text": 6,
+              "ton_stimme": 6,
+              "tempo": 6,
+              "inhalt": 6,
+              "schluss_loop": 6,
+              "regeln": 6,
+              "story": 6
+            },
+            "probleme": [
+              {
+                "zeit": "00:04",
+                "art": "bild_passt_nicht",
+                "schwere": "leicht",
+                "text": "Historische Inkonsistenz bei Kleidung."
+              },
+              {
+                "zeit": "00:33",
+                "art": "bild_passt_nicht",
+                "schwere": "leicht",
+                "text": "Anachronistische Technikdarstellung."
+              }
+            ],
+            "sekunden": 533.2,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "38124657997-2",
+              "datum": "2026-10-11",
+              "vorher": 6,
+              "nachher": 6,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 533.2,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "hook": 7,
+                "bild_passt": 6,
+                "dynamik": 6,
+                "text": 7,
+                "ton_stimme": 7,
+                "tempo": 6,
+                "inhalt": 7,
+                "schluss_loop": 7,
+                "regeln": 7,
+                "story": 7
+              },
+              "kategorien_nachher": {
+                "hook": 6,
+                "bild_passt": 5,
+                "dynamik": 5,
+                "text": 6,
+                "ton_stimme": 6,
+                "tempo": 6,
+                "inhalt": 6,
+                "schluss_loop": 6,
+                "regeln": 6,
+                "story": 6
+              },
+              "auswertbar": true,
+              "prompt_version": "2026-10-10.4",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                4
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-10.4"
+            },
+            "skript_s": 2.4,
+            "bau_s": 484.4,
+            "pruefung_s": 20.8,
+            "note": 6,
+            "sperrgruende": [
+              "Video-Note 6/10 unter 7/10",
+              "Video-bild_passt 5/10 unter 7/10",
+              "Video-dynamik 5/10 unter 7/10",
+              "Video-tempo 6/10 unter 7/10",
+              "Video-schluss_loop 5/10 unter 7/10",
+              "Offenes Problem (mittel): Starke Diskrepanz zwischen Erzaehlung (Studenten, Tech-Konzerne) und den generischen Bueroszenen ohne Logos oder Wiedererkennungswert.",
+              "Offenes Problem (mittel): Kanal-Identitaet (Presenter mit Fedora) erscheint erst ganz am Ende, was den Wiedererkennungswert mindert."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.05,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 439.8,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 7
+              },
+              "effekte": 9,
+              "rendern": 37.0,
+              "gesamt": 484.1,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                8.34,
+                4.54,
+                7.86,
+                6.12,
+                9.86,
+                8.26
+              ],
+              "woerter": 86
+            },
+            "kategorien": {
+              "hook": 7,
+              "bild_passt": 5,
+              "dynamik": 5,
+              "text": 7,
+              "ton_stimme": 7,
+              "tempo": 6,
+              "inhalt": 7,
+              "schluss_loop": 5,
+              "regeln": 7,
+              "story": 7
+            },
+            "probleme": [
+              {
+                "zeit": "00:00-00:44",
+                "art": "bild_passt_nicht",
+                "schwere": "mittel",
+                "text": "Starke Diskrepanz zwischen Erzaehlung (Studenten, Tech-Konzerne) und den generischen Bueroszenen ohne Logos oder Wiedererkennungswert."
+              },
+              {
+                "zeit": "00:37-00:44",
+                "art": "sonstiges",
+                "schwere": "mittel",
+                "text": "Kanal-Identitaet (Presenter mit Fedora) erscheint erst ganz am Ende, was den Wiedererkennungswert mindert."
+              },
+              {
+                "zeit": "00:42-00:44",
+                "art": "ton",
+                "schwere": "leicht",
+                "text": "Die Musik bricht am Ende abrupt ab, statt sanft auszuklingen."
+              }
+            ],
+            "sekunden": 507.6,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "38124657997-3",
+              "datum": "2026-10-11",
+              "vorher": 6,
+              "nachher": 6,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 507.6,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "hook": 6,
+                "bild_passt": 5,
+                "dynamik": 5,
+                "text": 6,
+                "ton_stimme": 6,
+                "tempo": 6,
+                "inhalt": 6,
+                "schluss_loop": 6,
+                "regeln": 6,
+                "story": 6
+              },
+              "kategorien_nachher": {
+                "hook": 7,
+                "bild_passt": 5,
+                "dynamik": 5,
+                "text": 7,
+                "ton_stimme": 7,
+                "tempo": 6,
+                "inhalt": 7,
+                "schluss_loop": 5,
+                "regeln": 7,
+                "story": 7
+              },
+              "auswertbar": true,
+              "prompt_version": "2026-10-10.4",
+              "verbessert": true
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "trendcheck": "Yahoo: Aufstieg, Uebernahmen und Verkauf: 3.23 Punkte - YouTube-Ausreisser 4.7x Kanalschnitt, Wikipedia -2 % gegenueber Vormonat",
+        "grund": "",
+        "sekunden": 1675.0
+      },
+      "ki_pruefung": {
+        "note": 6,
+        "kategorien": {
+          "hook": 7,
+          "bild_passt": 6,
+          "dynamik": 6,
+          "text": 7,
+          "ton_stimme": 7,
+          "tempo": 6,
+          "inhalt": 7,
+          "schluss_loop": 7,
+          "regeln": 7,
+          "story": 7
+        },
+        "staerken": [
+          "Klar verständliche Narration mit konsistentem Bildstil",
+          "Vollständiger gesprochener Call-to-Action am Ende",
+          "Gute inhaltliche Strukturierung des historischen Ablaufs"
+        ],
+        "probleme": [
+          {
+            "zeit": "00:04-00:08",
+            "art": "bild_passt_nicht",
+            "schwere": "leicht",
+            "text": "Visuelle Darstellung zeigt nur eine Person statt der erwähnten zwei Stanford-Studenten."
+          },
+          {
+            "zeit": "00:33-00:36",
+            "art": "tempo",
+            "schwere": "leicht",
+            "text": "Etwas hektischer Übergang beim Microsoft-Deal ohne deutlichen visuellen Frequenzwechsel."
+          }
+        ],
+        "fazit": "Solides Kurzvideo mit klarer Storyline und allen erforderlichen Bildelementen, das visuell noch etwas präziser auf die Narration abgestimmt werden kann.",
+        "modell": "gemini-3.6-flash",
+        "prompt_version": "2026-10-10.4",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -15.0,
+          "befunde": []
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 13,
+          "motive_min": 7
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 42.12,
+              "bis_s": 44.54,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.985
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Did",
+                "s": 0.0,
+                "e": 0.36,
+                "p": 0.9472827911376953
+              },
+              {
+                "w": "Yahoo",
+                "s": 0.36,
+                "e": 0.6,
+                "p": 0.9896296858787537
+              },
+              {
+                "w": "really",
+                "s": 0.6,
+                "e": 1.24,
+                "p": 0.8505510091781616
+              },
+              {
+                "w": "fail",
+                "s": 1.24,
+                "e": 1.64,
+                "p": 0.738208532333374
+              },
+              {
+                "w": "to",
+                "s": 1.64,
+                "e": 2.0,
+                "p": 0.9975817203521729
+              },
+              {
+                "w": "buy",
+                "s": 2.0,
+                "e": 2.24,
+                "p": 0.9977177381515503
+              },
+              {
+                "w": "Google",
+                "s": 2.24,
+                "e": 2.56,
+                "p": 0.9724374413490295
+              },
+              {
+                "w": "twice?",
+                "s": 2.56,
+                "e": 3.22,
+                "p": 0.9219349026679993
+              },
+              {
+                "w": "It",
+                "s": 4.16,
+                "e": 4.34,
+                "p": 0.9779085516929626
+              },
+              {
+                "w": "began",
+                "s": 4.34,
+                "e": 4.58,
+                "p": 0.9978444576263428
+              },
+              {
+                "w": "with",
+                "s": 4.58,
+                "e": 5.1,
+                "p": 0.919317364692688
+              },
+              {
+                "w": "two",
+                "s": 5.1,
+                "e": 5.38,
+                "p": 0.9714431762695312
+              },
+              {
+                "w": "Stanford",
+                "s": 5.38,
+                "e": 5.82,
+                "p": 0.9956055283546448
+              },
+              {
+                "w": "students",
+                "s": 5.82,
+                "e": 6.4,
+                "p": 0.9967867136001587
+              },
+              {
+                "w": "in",
+                "s": 6.4,
+                "e": 6.66,
+                "p": 0.9945101737976074
+              },
+              {
+                "w": "1994.",
+                "s": 6.66,
+                "e": 7.38,
+                "p": 0.9987069368362427
+              },
+              {
+                "w": "By",
+                "s": 8.24,
+                "e": 8.58,
+                "p": 0.9858799576759338
+              },
+              {
+                "w": "1998,",
+                "s": 8.58,
+                "e": 8.92,
+                "p": 0.9981839060783386
+              },
+              {
+                "w": "Yahoo",
+                "s": 9.62,
+                "e": 9.92,
+                "p": 0.9996402263641357
+              },
+              {
+                "w": "was",
+                "s": 9.92,
+                "e": 10.32,
+                "p": 0.9564192891120911
+              },
+              {
+                "w": "the",
+                "s": 10.32,
+                "e": 10.42,
+                "p": 0.9977743029594421
+              },
+              {
+                "w": "web's",
+                "s": 10.42,
+                "e": 10.8,
+                "p": 0.9221513569355011
+              },
+              {
+                "w": "most",
+                "s": 10.8,
+                "e": 10.92,
+                "p": 0.9986506104469299
+              },
+              {
+                "w": "popular",
+                "s": 10.92,
+                "e": 11.42,
+                "p": 0.9981106519699097
+              },
+              {
+                "w": "starting",
+                "s": 11.42,
+                "e": 11.8,
+                "p": 0.9965656399726868
+              },
+              {
+                "w": "point.",
+                "s": 11.8,
+                "e": 12.22,
+                "p": 0.9916430711746216
+              },
+              {
+                "w": "In",
+                "s": 12.82,
+                "e": 13.04,
+                "p": 0.9925450682640076
+              },
+              {
+                "w": "1998,",
+                "s": 13.04,
+                "e": 13.54,
+                "p": 0.9972048401832581
+              },
+              {
+                "w": "Paige",
+                "s": 14.06,
+                "e": 14.26,
+                "p": 0.7738974690437317
+              },
+              {
+                "w": "and",
+                "s": 14.26,
+                "e": 14.6,
+                "p": 0.9966254234313965
+              },
+              {
+                "w": "Bryn",
+                "s": 14.6,
+                "e": 14.82,
+                "p": 0.7118651568889618
+              },
+              {
+                "w": "offered",
+                "s": 14.82,
+                "e": 15.16,
+                "p": 0.772273600101471
+              },
+              {
+                "w": "Yahoo",
+                "s": 15.16,
+                "e": 15.44,
+                "p": 0.9995213747024536
+              },
+              {
+                "w": "their",
+                "s": 15.44,
+                "e": 15.7,
+                "p": 0.961384654045105
+              },
+              {
+                "w": "search",
+                "s": 15.7,
+                "e": 15.96,
+                "p": 0.9874967336654663
+              },
+              {
+                "w": "engine",
+                "s": 15.96,
+                "e": 16.26,
+                "p": 0.9979077577590942
+              },
+              {
+                "w": "for",
+                "s": 16.26,
+                "e": 16.68,
+                "p": 0.9917526841163635
+              },
+              {
+                "w": "$1",
+                "s": 16.68,
+                "e": 17.14,
+                "p": 0.8710515201091766
+              },
+              {
+                "w": "million.",
+                "s": 17.14,
+                "e": 17.72,
+                "p": 0.917660117149353
+              },
+              {
+                "w": "Yahoo",
+                "s": 18.76,
+                "e": 19.28,
+                "p": 0.9939464926719666
+              },
+              {
+                "w": "declined.",
+                "s": 19.28,
+                "e": 19.56,
+                "p": 0.9848902821540833
+              },
+              {
+                "w": "In",
+                "s": 20.84,
+                "e": 20.84,
+                "p": 0.9946638345718384
+              },
+              {
+                "w": "2002,",
+                "s": 20.84,
+                "e": 21.06,
+                "p": 0.9982132911682129
+              },
+              {
+                "w": "Yahoo's",
+                "s": 21.78,
+                "e": 22.2,
+                "p": 0.9972190856933594
+              },
+              {
+                "w": "final",
+                "s": 22.2,
+                "e": 22.36,
+                "p": 0.9975948929786682
+              },
+              {
+                "w": "offer",
+                "s": 22.36,
+                "e": 22.8,
+                "p": 0.99903404712677
+              },
+              {
+                "w": "was",
+                "s": 22.8,
+                "e": 23.04,
+                "p": 0.9990645051002502
+              },
+              {
+                "w": "$3",
+                "s": 23.04,
+                "e": 23.5,
+                "p": 0.9943562150001526
+              },
+              {
+                "w": "billion.",
+                "s": 23.5,
+                "e": 23.8,
+                "p": 0.9834665656089783
+              },
+              {
+                "w": "billion.",
+                "s": 23.8,
+                "e": 23.96,
+                "p": 0.09984432905912399
+              },
+              {
+                "w": "Google's",
+                "s": 24.9,
+                "e": 25.5,
+                "p": 0.9618359506130219
+              },
+              {
+                "w": "leadership",
+                "s": 25.5,
+                "e": 25.98,
+                "p": 0.9871233701705933
+              },
+              {
+                "w": "rejected",
+                "s": 25.98,
+                "e": 26.54,
+                "p": 0.9871327877044678
+              },
+              {
+                "w": "it.",
+                "s": 26.54,
+                "e": 26.86,
+                "p": 0.9954043626785278
+              },
+              {
+                "w": "In",
+                "s": 27.62,
+                "e": 27.74,
+                "p": 0.9715167284011841
+              },
+              {
+                "w": "2008,",
+                "s": 27.74,
+                "e": 28.52,
+                "p": 0.9955266118049622
+              },
+              {
+                "w": "Microsoft",
+                "s": 28.9,
+                "e": 29.16,
+                "p": 0.9973959922790527
+              },
+              {
+                "w": "bid",
+                "s": 29.16,
+                "e": 29.64,
+                "p": 0.7054929137229919
+              },
+              {
+                "w": "$44",
+                "s": 29.64,
+                "e": 30.06,
+                "p": 0.8940886855125427
+              },
+              {
+                "w": ".6",
+                "s": 30.06,
+                "e": 31.0,
+                "p": 0.9882563352584839
+              },
+              {
+                "w": "billion.",
+                "s": 31.0,
+                "e": 31.52,
+                "p": 0.9719067811965942
+              },
+              {
+                "w": "Yahoo",
+                "s": 32.58,
+                "e": 32.9,
+                "p": 0.9925496578216553
+              },
+              {
+                "w": "refused.",
+                "s": 32.9,
+                "e": 33.34,
+                "p": 0.7516211867332458
+              },
+              {
+                "w": "Microsoft",
+                "s": 34.2,
+                "e": 34.44,
+                "p": 0.9979104399681091
+              },
+              {
+                "w": "canceled",
+                "s": 34.44,
+                "e": 35.0,
+                "p": 0.6874803304672241
+              },
+              {
+                "w": "in",
+                "s": 35.0,
+                "e": 35.46,
+                "p": 0.9797477126121521
+              },
+              {
+                "w": "May.",
+                "s": 35.46,
+                "e": 35.68,
+                "p": 0.9925636649131775
+              },
+              {
+                "w": "The",
+                "s": 36.68,
+                "e": 36.78,
+                "p": 0.8697553873062134
+              },
+              {
+                "w": "Google",
+                "s": 36.78,
+                "e": 36.92,
+                "p": 0.9640695452690125
+              },
+              {
+                "w": "miss",
+                "s": 36.92,
+                "e": 37.22,
+                "p": 0.5076122879981995
+              },
+              {
+                "w": "is",
+                "s": 37.22,
+                "e": 37.66,
+                "p": 0.979573130607605
+              },
+              {
+                "w": "widely",
+                "s": 37.66,
+                "e": 37.94,
+                "p": 0.9973520040512085
+              },
+              {
+                "w": "considered",
+                "s": 37.94,
+                "e": 38.46,
+                "p": 0.9937100410461426
+              },
+              {
+                "w": "one",
+                "s": 38.46,
+                "e": 38.72,
+                "p": 0.9946793913841248
+              },
+              {
+                "w": "of",
+                "s": 38.72,
+                "e": 38.8,
+                "p": 0.997210681438446
+              },
+              {
+                "w": "corporate",
+                "s": 38.8,
+                "e": 39.0,
+                "p": 0.7735395431518555
+              },
+              {
+                "w": "history's",
+                "s": 39.0,
+                "e": 39.7,
+                "p": 0.9333229959011078
+              },
+              {
+                "w": "largest",
+                "s": 39.7,
+                "e": 40.16,
+                "p": 0.9975558519363403
+              },
+              {
+                "w": "errors.",
+                "s": 40.16,
+                "e": 40.64,
+                "p": 0.9805209636688232
+              },
+              {
+                "w": "Be",
+                "s": 41.74,
+                "e": 41.82,
+                "p": 0.9912450909614563
+              },
+              {
+                "w": "sure",
+                "s": 41.82,
+                "e": 42.0,
+                "p": 0.9988232254981995
+              },
+              {
+                "w": "to",
+                "s": 42.0,
+                "e": 42.12,
+                "p": 0.9943364262580872
+              },
+              {
+                "w": "like,",
+                "s": 42.12,
+                "e": 42.32,
+                "p": 0.9370391964912415
+              },
+              {
+                "w": "share,",
+                "s": 42.66,
+                "e": 42.98,
+                "p": 0.9941695928573608
+              },
+              {
+                "w": "and",
+                "s": 43.54,
+                "e": 43.66,
+                "p": 0.9978725910186768
+              },
+              {
+                "w": "save",
+                "s": 43.66,
+                "e": 43.94,
+                "p": 0.9916024804115295
+              },
+              {
+                "w": "this",
+                "s": 43.94,
+                "e": 44.24,
+                "p": 0.992868959903717
+              },
+              {
+                "w": "video.",
+                "s": 44.24,
+                "e": 44.54,
+                "p": 0.9987332224845886
+              }
+            ],
+            "dauer_s": 44.992,
+            "sprache": "en"
+          },
+          "roh_key": "b7e898dca83424b1fd108ea0e2bf75776d4ec5093f409b13c263af3e4c789058",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "version": 1,
+          "video_sha256": "182e4efb1d757ee722d74d40b6f6c1e870ef2e5a5b8a9edc971b3737ef977cb5",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "ki_cache_wiederverwendet": false,
+        "video_sha256": "182e4efb1d757ee722d74d40b6f6c1e870ef2e5a5b8a9edc971b3737ef977cb5"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

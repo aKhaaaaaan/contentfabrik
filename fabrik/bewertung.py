@@ -26,7 +26,7 @@ NOTEN = ('4', '5', '6', '7', '8', '9', '10')
 ARTEN = {'bw': 'gesamt', 'bs': 'story', 'bv': 'video'}
 
 
-def knoepfe(sha):
+def knoepfe(sha, tiktok=False):
     """GEMELDET 10.10.2026: „Ich brauche zwei Balken: Story-Bewertung und Video-Bewertung, mit
     Kommentar, damit das Tool weiss, was es naechstes Mal besser machen kann.“"""
     kurz = sha[:16]
@@ -35,8 +35,9 @@ def knoepfe(sha):
     return {'inline_keyboard': [
         leiste('📖', 'bs'),
         leiste('🎬', 'bv'),
-        [{'text': '✅ Gefällt mir', 'callback_data': f'bw:{kurz}:ok'},
-         {'text': '❌ Ablehnen', 'callback_data': f'bw:{kurz}:nein'}]]}
+        [{'text': '✅ Passt · TikTok-Entwurf' if tiktok else '✅ Gefällt mir',
+          'callback_data': f'{"tu" if tiktok else "bw"}:{kurz}:ok'},
+         {'text': '❌ Ablehnen', 'callback_data': f'{"tu" if tiktok else "bw"}:{kurz}:nein'}]]}
 
 
 def _lesen(pfad, standard):
@@ -50,12 +51,13 @@ def _schreiben(pfad, daten):
     tmp.replace(pfad)
 
 
-def video_merken(message_id, sha, skript, kritik=None):
+def video_merken(message_id, sha, skript, kritik=None, upload_run_id=None):
     import texte
     titel = texte.titel_text(skript.get('titel', []))
     liste = [v for v in _lesen(VIDEOS, []) if v.get('message_id') != message_id]
     kritik = kritik if isinstance(kritik, dict) else {}
     liste.append({'message_id': message_id, 'video_sha256': sha, 'kanal': skript.get('kanal'),
+                  'upload_run_id': upload_run_id,
                   'thema': skript.get('thema'), 'titel': titel,
                   # Fuer das Lernen aus der Nutzernote: was die KI an genau diesem Video bemaengelte.
                   'ki_note': kritik.get('note'),
@@ -89,6 +91,12 @@ def _eintragen(eintrag):
 def knopf(update_id, callback):
     """Knopfdruck speichern; gibt die Bestaetigung fuer den Nutzer zurueck."""
     teile = str(callback.get('data', '')).split(':')
+    if len(teile) == 3 and teile[0] == 'tu' and teile[2] in ('ok', 'nein'):
+        video = video_zu((callback.get('message') or {}).get('message_id'), teile[1])
+        if not video or not video.get('video_sha256', '').startswith(teile[1]):
+            return 'Videobezug fehlt - kein Upload freigegeben.'
+        from tiktok_freigabe import entscheiden
+        return entscheiden(video, teile[2] == 'ok', update_id)
     if len(teile) != 3 or teile[0] not in ARTEN or teile[2] not in ('ok', 'nein') + NOTEN \
             or (teile[0] != 'bw' and teile[2] in ('ok', 'nein')):
         return 'Unbekannter Knopf - nichts gespeichert.'

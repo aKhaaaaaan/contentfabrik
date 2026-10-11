@@ -14,10 +14,11 @@ concurrency:
   queue: max
 permissions:
   contents: write
+  actions: read
 jobs:
   abholen:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
         with:
@@ -64,7 +65,8 @@ jobs:
         run: |
           git config user.name 'contentfabrik-bot'
           git config user.email 'contentfabrik-bot@users.noreply.github.com'
-          for pfad in themen erfolg lernen; do
+          git config merge.contentfabrik-themen.driver 'python3 fabrik/zustand_merge.py %O %A %B'
+          for pfad in themen erfolg lernen verlauf; do
             [ ! -d "$pfad" ] || git add -- "$pfad"
           done
           git diff --cached --quiet && exit 0
@@ -93,4 +95,42 @@ jobs:
             sleep $((i * 5))
           done
           echo "Bestaetigungsstand konnte nicht gesichert werden" >&2
+          exit 1
+      - uses: actions/cache/restore@v4
+        with:
+          path: tiktok-token-cache
+          key: tiktok-tokens-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: tiktok-tokens-v1-
+      - name: Bestaetigte TikTok-Entwuerfe hochladen und Status nachpruefen
+        continue-on-error: true
+        env:
+          TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
+          TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
+          TIKTOK_TOKENS: ${{ secrets.TIKTOK_TOKENS }}
+          TIKTOK_TOKEN_CACHE: tiktok-token-cache/tokens.enc
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          # Bei fehlender Freigabe oder Einrichtung kein Netz-/Paketaufruf.
+          [ -n "$TIKTOK_CLIENT_KEY" ] && [ -n "$TIKTOK_CLIENT_SECRET" ] && [ -n "$TIKTOK_TOKENS" ] || exit 0
+          python3 -c "import sys; sys.path.insert(0, 'fabrik'); from tiktok_freigabe import laden, offen; sys.exit(0 if any(offen(e) for e in laden()) else 1)" || exit 0
+          python3 -m pip install -q cryptography==50.0.2
+          python3 fabrik/tiktok.py freigaben
+      - uses: actions/cache/save@v4
+        if: always() && hashFiles('tiktok-token-cache/**') != ''
+        with:
+          path: tiktok-token-cache
+          key: tiktok-tokens-v1-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: TikTok-Uploadstand sichern
+        if: always() && steps.sichern.outcome == 'success'
+        run: |
+          git add -- verlauf
+          git diff --cached --quiet && exit 0
+          git commit -qm "TikTok: bestaetigte Entwuerfe und Uploadstatus"
+          for i in 1 2 3 4 5; do
+            git pull -q --rebase --autostash || exit 1
+            git push -q && exit 0
+            sleep $((i * 5))
+          done
           exit 1

@@ -1,0 +1,190 @@
+"""Bestaetigtes Video exakt per SHA laden, harte Gates pruefen, als TikTok-Entwurf hochladen."""
+import datetime
+import hashlib
+import io
+import json
+import os
+from pathlib import Path
+import re
+import tempfile
+import urllib.parse
+import urllib.request
+import zipfile
+
+import kanalstandard
+import lernen
+import tiktok
+from tiktok_entwurf import konto_finden, hinweis
+from tiktok_tokens import atomar
+
+QUEUE = Path('verlauf/tiktok-freigaben.json')
+AKTIV = ('freigegeben', 'PROCESSING_UPLOAD', 'PROCESSING_DOWNLOAD', 'wartet_api')
+FERTIG = ('SEND_TO_USER_INBOX', 'PUBLISH_COMPLETE', 'gesperrt', 'fehlgeschlagen', 'FAILED')
+
+
+def offen(e):
+    return e['status'] in AKTIV or (e['status'] in FERTIG and not e.get('gemeldet'))
+
+
+def melden(e, konto, q):
+    if e['status'] not in FERTIG or e.get('gemeldet') or not all(os.environ.get(k) for k in (
+            'TELEGRAM_BOT_TOKEN', 'TELEGRAM_CHAT_ID')):
+        return
+    from freigabe import telegram
+    text = hinweis(e['status'], konto) if e['status'] in ('SEND_TO_USER_INBOX', 'PUBLISH_COMPLETE') else \
+        f'TikTok-Entwurf fuer @{konto}: {e["status"]}. Kein neuer Upload wird automatisch gestartet.'
+    try:
+        telegram('sendMessage', {'chat_id': os.environ['TELEGRAM_CHAT_ID'], 'text': text})
+        e['gemeldet'] = True
+        speichern(q)
+    except Exception:
+        pass
+
+
+def laden():
+    return json.loads(QUEUE.read_text(encoding='utf-8')) if QUEUE.exists() else []
+
+
+def speichern(d):
+    atomar(QUEUE, (json.dumps(d, indent=1, ensure_ascii=False) + '\n').encode())
+
+
+def entscheiden(video, passt, update_id):
+    sha = video.get('video_sha256') or ''
+    profil = kanalstandard.nach_name(video.get('kanal')) or {}
+    cfg = profil.get('tiktok_entwurf') or {}
+    if not re.fullmatch(r'[a-f0-9]{64}', sha) or cfg.get('aktiv') is not True or cfg.get('freigabe') != 'telegram':
+        return 'Fuer dieses Video ist kein TikTok-Entwurf-Upload eingerichtet.'
+    q = laden()
+    alt = next((x for x in q if x['id'] == sha), None)
+    if not passt:
+        eintrag = {'id': f'tiktok-ablehnen-{update_id}', 'video_sha256': sha, 'status': 'abgelehnt',
+                   'kanal': video.get('kanal'), 'wortlaut': 'Nutzer hat dieses Video vor TikTok-Upload abgelehnt.'}
+        import bewertung
+        bewertung._eintragen(eintrag)
+        if alt:
+            alt['status'] = 'abgelehnt'
+            speichern(q)
+        return 'Abgelehnt gespeichert. Diese Datei wird nicht zu TikTok hochgeladen.'
+    if lernen.abgelehnt(sha):
+        return 'Dieses Video wurde bereits abgelehnt und bleibt fuer Uploads gesperrt.'
+    if not str(video.get('upload_run_id') or '').isdigit():
+        return 'Originaldatei nicht zugeordnet - kein Upload gestartet.'
+    if alt:
+        return 'Freigabe war schon gespeichert. Es wird kein zweiter Upload gestartet.'
+    q.append({'id': sha, 'video_sha256': sha, 'kanal': video['kanal'], 'run_id': str(video['upload_run_id']),
+              'status': 'freigegeben', 'update_id': update_id,
+              'datum_utc': datetime.datetime.now(datetime.timezone.utc).isoformat()})
+    speichern(q)
+    return 'Passt gespeichert. Der automatische Upload ins TikTok-Postfach wird vorbereitet.'
+
+
+class OhneTokenRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        if urllib.parse.urlsplit(newurl).scheme != 'https':
+            raise RuntimeError('Unsicherer Artefakt-Redirect')
+        r = super().redirect_request(req, fp, code, msg, headers, newurl)
+        if r and urllib.parse.urlsplit(req.full_url).netloc != urllib.parse.urlsplit(newurl).netloc:
+            r.remove_header('Authorization')
+        return r
+
+
+def _github(url, roh=False):
+    token = os.environ['GITHUB_TOKEN']
+    req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + token,
+        'Accept': 'application/vnd.github+json', 'User-Agent': 'contentfabrik-tiktok'})
+    with urllib.request.build_opener(OhneTokenRedirect()).open(req, timeout=60) as r:
+        data = r.read(128 * 1024 * 1024 + 1)
+    if len(data) > 128 * 1024 * 1024:
+        raise ValueError('TikTok-Artefakt zu gross')
+    return data if roh else json.loads(data)
+
+
+def original_laden(eintrag, ordner):
+    run = eintrag['run_id']
+    if not str(run).isdigit():
+        raise ValueError('Ungueltiger Originallauf')
+    repo = os.environ.get('GITHUB_REPOSITORY', 'aKhaaaaaan/contentfabrik')
+    api = f'https://api.github.com/repos/{repo}'
+    d = _github(f'{api}/actions/runs/{run}/artifacts?per_page=100')
+    profil = kanalstandard.nach_name(eintrag['kanal'])
+    slug = next(k for k, p in kanalstandard.alle().items() if p['name'] == profil['name'])
+    a = next((a for a in d['artifacts'] if a['name'] in (f'video-{slug}', f'pilot-{slug}-short')
+              and not a['expired']), None)
+    if a is None:
+        if any(a['name'] in (f'video-{slug}', f'pilot-{slug}-short') and a['expired'] for a in d['artifacts']):
+            raise FileNotFoundError('Originalartefakt abgelaufen')
+        raise RuntimeError('Originalartefakt noch nicht verfuegbar')
+    blob = _github(f'{api}/actions/artifacts/{a["id"]}/zip', roh=True)
+    with zipfile.ZipFile(io.BytesIO(blob)) as z:
+        for name in ('short.mp4', 'skript.json', 'kritik.json'):
+            files = [p for p in z.infolist() if Path(p.filename).name == name]
+            if len(files) != 1 or files[0].file_size > 128 * 1024 * 1024:
+                raise ValueError('Originalartefakt ist unvollstaendig oder mehrdeutig')
+            # Nur ausdruecklich ausgewaehlte Dateien unter festem Namen, keine Zip-Pfade extrahieren.
+            (Path(ordner) / name).write_bytes(z.read(files[0]))
+
+
+def pruefen(eintrag, ordner):
+    from qualitaet import bewerten, nur_ki_geschmack, ENTWURF_MIN
+    from dramaturgie import videoformat
+    p = Path(ordner)
+    with (p / 'short.mp4').open('rb') as f:
+        sha = hashlib.file_digest(f, 'sha256').hexdigest()
+    s, k = [json.loads((p / (name + '.json')).read_text(encoding='utf-8')) for name in ('skript', 'kritik')]
+    if sha != eintrag['video_sha256'] or k.get('video_sha256') != sha or s.get('kanal') != eintrag['kanal'] \
+            or videoformat(s) != 'short' or lernen.abgelehnt(sha):
+        raise ValueError('Freigabe gehoert nicht zu dieser Datei oder Datei wurde abgelehnt')
+    note, gruende = bewerten(s, k)
+    # Menschliches „Passt“ kann KI-Geschmack ueberstimmen, nie Fakten, Technik oder Endton.
+    if gruende and not (nur_ki_geschmack(gruende) and (note or 0) >= ENTWURF_MIN):
+        raise ValueError('Harte Qualitaetssperre - kein TikTok-Upload')
+
+
+def abarbeiten():
+    q = laden()
+    if not any(offen(e) for e in q):
+        return
+    if not all(os.environ.get(k) for k in ('TIKTOK_CLIENT_KEY', 'TIKTOK_CLIENT_SECRET', 'TIKTOK_TOKENS',
+                                          'TIKTOK_TOKEN_CACHE', 'GITHUB_TOKEN')):
+        print('TikTok-Freigaben warten auf die Einrichtung der GitHub-Secrets.')
+        return
+    for e in q:
+        if e['status'] not in AKTIV:
+            profil = kanalstandard.nach_name(e['kanal']) or {}
+            melden(e, profil.get('tiktok_name', '?'), q)
+            continue
+        profil = kanalstandard.nach_name(e['kanal']) or {}
+        konto = profil.get('tiktok_name')
+        cfg = profil.get('tiktok_entwurf') or {}
+        if cfg.get('aktiv') is not True or cfg.get('freigabe') != 'telegram' or lernen.abgelehnt(e['video_sha256']):
+            e['status'] = 'abgelehnt'
+            speichern(q)
+            continue
+        journal = Path('verlauf/tiktok') / f'{e["video_sha256"]}.json'
+        try:
+            oid = konto_finden(konto)
+            stand = json.loads(journal.read_text(encoding='utf-8')) if journal.exists() else {}
+            if stand.get('publish_id'):
+                if stand.get('konto_sha256') != hashlib.sha256(oid.encode()).hexdigest() \
+                        or stand.get('video_sha256') != e['video_sha256']:
+                    raise ValueError('Uploadjournal passt nicht zur Freigabe')
+                status = tiktok.status_abfragen(stand['publish_id'], open_id=oid)
+                stand.update(status)
+                atomar(journal, json.dumps(stand, indent=2).encode())
+                e['status'] = stand['status']
+            else:
+                with tempfile.TemporaryDirectory(prefix='contentfabrik-tiktok-') as tmp:
+                    original_laden(e, tmp)
+                    pruefen(e, tmp)
+                    e['status'] = tiktok.entwurf(Path(tmp) / 'short.mp4', oid, journal, max_warte_s=0)
+            e.pop('fehler_typ', None)
+        except (ValueError, FileNotFoundError):
+            e['status'] = 'gesperrt'
+        except Exception as err:
+            e['versuche'] = e.get('versuche', 0) + 1
+            e['status'] = 'wartet_api' if e['versuche'] < 3 else 'fehlgeschlagen'
+            e['fehler_typ'] = type(err).__name__
+        speichern(q)  # Originalhash/publish_id vor jeder weiteren Bearbeitung dauerhaft sichern.
+        melden(e, konto, q)
+        print('TikTok-Freigabe:', e['video_sha256'][:16], e['status'])

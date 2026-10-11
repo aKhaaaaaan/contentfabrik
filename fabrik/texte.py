@@ -36,6 +36,20 @@ def serien_titel(titel, serie, datum, grenze=92):
     return (titel[:grenze - len(zusatz)].rstrip() + zusatz) if titel else zusatz.strip(' |')
 
 
+def upload_titel(skript, datum=None):
+    """Gemeinsamer Upload-Titel fuer Telegram, Berichte und Plattformen."""
+    import datetime
+    from zoneinfo import ZoneInfo
+    from dramaturgie import videoformat
+    import kanalstandard
+    titel = titel_text(skript['titel'])
+    if videoformat(skript) == 'lang':
+        return titel
+    profil = kanalstandard.nach_name(skript.get('kanal')) or {}
+    datum = datum or datetime.datetime.now(ZoneInfo('Europe/Berlin')).date()
+    return serien_titel(titel, profil.get('serie'), datum)
+
+
 def hashtags_bereinigen(tags, inhalt):
     """Nur Hashtags, die im Video vorkommen oder allgemeine Kategorien sind.
     GEMESSEN 10.10.2026: #gta unter dem Whirl-Video - die KI uebernahm den Stilhinweis aus dem

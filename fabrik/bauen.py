@@ -1483,7 +1483,8 @@ def main(skript_pfad, aus, vorlage=None):
                'bildplan': plan_cache, 'stuecke': {}}
     # Auch bei einem spaeteren Bildfehler Stimme und Regie wiederverwenden.
     rendercache.speichern(aus, zustand)
-    bildablauf = {'videoformat': dramaturgie.videoformat(s), 'einstellungen': []}
+    bildablauf = {'videoformat': dramaturgie.videoformat(s), 'einstellungen': [],
+                 'motive_min': bildplan.motivziel(s)}
     zeiten['stuecke_wiederverwendet'] = 0
     zeiten['stuecke_neu'] = 0
 

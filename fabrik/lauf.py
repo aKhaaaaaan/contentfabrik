@@ -232,6 +232,13 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         bericht['sekunden'] = round(time.monotonic() - start, 1)
         aus = Path('ausgabe')
         aus.mkdir(exist_ok=True)
+        try:
+            import texte
+            bericht['upload_titel'] = texte.upload_titel(
+                json.loads((aus / 'skript.json').read_text(encoding='utf-8')),
+                datetime.date.fromisoformat(bericht['datum']))
+        except (OSError, ValueError, KeyError):
+            pass
         (aus / 'bericht.json').write_text(json.dumps(bericht, indent=2, ensure_ascii=False), encoding='utf-8')
         pfad = Path('verlauf/messungen') / f'{kanal}.json'
         pfad.parent.mkdir(parents=True, exist_ok=True)

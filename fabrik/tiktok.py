@@ -13,7 +13,7 @@ will be restricted to private viewing mode" - ungepruefte Apps posten nur
 SELF_ONLY, und das Konto muss privat sein
 (Fehler unaudited_client_can_only_post_to_private_accounts).
 """
-import http.server, json, os, secrets, sys, time, urllib.parse, urllib.request, urllib.error, webbrowser
+import hashlib, http.server, json, os, secrets, sys, time, urllib.parse, urllib.request, urllib.error, webbrowser
 from pathlib import Path
 
 GEHEIM = Path(os.environ.get('CF_GEHEIM', Path.home() / 'Downloads' / 'contentfabrik-geheim'))
@@ -24,14 +24,14 @@ RECHTE = 'user.info.basic,video.upload,video.publish'
 
 def _schluessel():
     k, s = os.environ.get('TIKTOK_CLIENT_KEY'), os.environ.get('TIKTOK_CLIENT_SECRET')
-    if not (k and s):
+    if not (k and s) and os.name == 'nt':
         import subprocess  # lokal: per setx gesetzt, in dieser Shell evtl. noch nicht geladen
         hol = lambda n: subprocess.run(['powershell', '-NoProfile', '-Command',
                                         f"[Environment]::GetEnvironmentVariable('{n}','User')"],
                                        capture_output=True, text=True).stdout.strip()
         k, s = k or hol('TIKTOK_CLIENT_KEY'), s or hol('TIKTOK_CLIENT_SECRET')
     if not (k and s):
-        sys.exit('TIKTOK_CLIENT_KEY / TIKTOK_CLIENT_SECRET fehlen')
+        raise RuntimeError('TIKTOK_CLIENT_KEY / TIKTOK_CLIENT_SECRET fehlen')
     return k, s
 
 
@@ -92,7 +92,9 @@ def anmelden():
 def zugang(open_id):
     key, secret = _schluessel()
     if os.environ.get('TIKTOK_TOKENS'):
-        refresh = json.loads(os.environ['TIKTOK_TOKENS'])[open_id]
+        import tiktok_tokens
+        wert = tiktok_tokens.laden(secret)[open_id]
+        refresh = wert['refresh_token'] if isinstance(wert, dict) else wert
         datei = None
     else:
         datei = GEHEIM / f'tiktok-{open_id}.json'
@@ -100,10 +102,15 @@ def zugang(open_id):
     t = _post(API + 'oauth/token/', {'client_key': key, 'client_secret': secret, 'grant_type': 'refresh_token',
                                      'refresh_token': refresh})
     if 'access_token' not in t:
-        sys.exit(f'TikTok-Zugang abgelaufen: {t.get("error")} - bitte neu anmelden (tiktok.py anmelden)')
+        raise RuntimeError('TikTok-Zugang abgelaufen - bitte neu anmelden (tiktok.py anmelden)')
+    if t.get('open_id') and t['open_id'] != open_id:
+        raise RuntimeError('TikTok-Zugang gehoert zu einem anderen Konto')
+    if datei is None and t.get('refresh_token') and t['refresh_token'] != refresh:
+        tiktok_tokens.speichern(open_id, t['refresh_token'], secret)
     if datei and t.get('refresh_token') and t['refresh_token'] != refresh:  # TikTok kann ihn erneuern
         d = json.loads(datei.read_text(encoding='utf-8')); d['refresh_token'] = t['refresh_token']
-        datei.write_text(json.dumps(d, indent=2), encoding='utf-8')
+        from tiktok_tokens import atomar
+        atomar(datei, json.dumps(d, indent=2).encode())
     return t['access_token']
 
 
@@ -117,7 +124,7 @@ def hochladen(video_pfad, skript_pfad, open_id):
     if erlaubt and privat not in erlaubt:
         sys.exit(f'Konto erlaubt kein SELF_ONLY: {erlaubt}')
     import texte
-    titel = texte.titel_text(skript['titel'])
+    titel = texte.upload_titel(skript)
     tags = ' '.join('#' + h.lstrip('#') for h in skript.get('hashtags', []))
     daten = Path(video_pfad).read_bytes()
     groesse = len(daten)
@@ -146,35 +153,110 @@ def hochladen(video_pfad, skript_pfad, open_id):
     print(json.dumps({'publish_id': d['publish_id'], 'status': status, 'sichtbarkeit': privat}, indent=2))
 
 
-def entwurf(video_pfad, open_id):
+def entwurf(video_pfad, open_id, journal_pfad=None, max_warte_s=90):
     """Video als ENTWURF ins TikTok-Postfach des Kontos (Scope video.upload, „Upload to TikTok").
     Nutzerwunsch 10.10.2026: Upload automatisieren. Direct Post ist ohne TikTok-Pruefung nur privat
     (SELF_ONLY, privates Konto noetig) und die Pruefung schliesst private Werkzeuge aus. Beim Entwurf
     tippt der Nutzer auf die Benachrichtigung und veroeffentlicht selbst - oeffentlich, mit eigener
     Musik und Beschreibung. Gibt den Endstatus zurueck ('SEND_TO_USER_INBOX' = angekommen)."""
+    pfad = Path(video_pfad)
+    groesse = pfad.stat().st_size
+    if groesse <= 0:
+        raise ValueError('Leeres TikTok-Video')
+    with pfad.open('rb') as f:
+        sha = hashlib.file_digest(f, 'sha256').hexdigest()
+    konto = hashlib.sha256(open_id.encode()).hexdigest()
+    journal = Path(journal_pfad) if journal_pfad else GEHEIM / 'uploads' / f'{konto}-{sha}.json'
+    stand = json.loads(journal.read_text(encoding='utf-8')) if journal and journal.exists() else {}
+    if stand and (stand.get('video_sha256') != sha or stand.get('konto_sha256') != konto):
+        raise ValueError('TikTok-Uploadjournal gehoert zu einem anderen Video/Konto')
+    def sichern():
+        if journal:
+            from tiktok_tokens import atomar
+            atomar(journal, json.dumps(stand, indent=2).encode())
+    if stand.get('status') in ('SEND_TO_USER_INBOX', 'PUBLISH_COMPLETE'):
+        return stand['status']
+    if stand.get('status') == 'FAILED':
+        raise RuntimeError('Vorheriger TikTok-Upload fehlgeschlagen; vor neuem Upload pruefen')
+    if stand and not stand.get('publish_id') and stand.get('status') != 'INIT_ABGELEHNT':
+        raise RuntimeError('Vorherige TikTok-Initialisierung unbestaetigt; vor neuem Upload pruefen')
     token = zugang(open_id)
-    daten = Path(video_pfad).read_bytes()
-    groesse = len(daten)
-    init = _post(API + 'post/publish/inbox/video/init/', token=token, json_daten={
-        'source_info': {'source': 'FILE_UPLOAD', 'video_size': groesse, 'chunk_size': groesse,
-                        'total_chunk_count': 1}})
-    if init.get('error', {}).get('code') not in (None, 'ok'):
-        raise RuntimeError(f"TikTok lehnt ab: {init['error'].get('code')} - {init['error'].get('message')}")
-    d = init['data']
-    urllib.request.urlopen(urllib.request.Request(d['upload_url'], data=daten, method='PUT', headers={
-        'Content-Type': 'video/mp4', 'Content-Length': str(groesse),
-        'Content-Range': f'bytes 0-{groesse - 1}/{groesse}'}), timeout=600)
-    status, s = None, {}
-    for _ in range(40):
-        s = _post(API + 'post/publish/status/fetch/', token=token, json_daten={'publish_id': d['publish_id']})
-        status = s.get('data', {}).get('status')
-        if status in ('SEND_TO_USER_INBOX', 'PUBLISH_COMPLETE', 'FAILED'):
+    if not stand.get('publish_id'):
+        # Falls /init nach Annahme die Verbindung verliert, nicht blind einen zweiten Upload starten.
+        stand.update(video_sha256=sha, konto_sha256=konto, status='INIT_UNKLAR')
+        sichern()
+        chunk, anzahl = chunk_plan(groesse)
+        try:
+            d = _daten(_post(API + 'post/publish/inbox/video/init/', token=token, json_daten={
+                'source_info': {'source': 'FILE_UPLOAD', 'video_size': groesse, 'chunk_size': chunk,
+                                'total_chunk_count': anzahl}}))
+        except TikTokAPIError:
+            stand['status'] = 'INIT_ABGELEHNT'  # API bestaetigt Ablehnung; spaeterer Neuversuch ist sicher.
+            sichern()
+            raise
+        stand.update(publish_id=d['publish_id'], status='PROCESSING_UPLOAD')
+        sichern()  # publish_id vor dem ersten Byte sichern; keine Upload-URL/Schluessel ins Journal
+        with pfad.open('rb') as f:
+            offset = 0
+            for i in range(anzahl):
+                daten = f.read(chunk if i < anzahl - 1 else groesse - offset)
+                req = urllib.request.Request(d['upload_url'], data=daten, method='PUT', headers={
+                    'Content-Type': 'video/mp4', 'Content-Length': str(len(daten)),
+                    'Content-Range': f'bytes {offset}-{offset + len(daten) - 1}/{groesse}'})
+                try:
+                    with urllib.request.urlopen(req, timeout=120) as reply:
+                        if reply.status != (201 if i == anzahl - 1 else 206):
+                            raise RuntimeError('TikTok hat den Dateitransfer nicht bestaetigt')
+                except (urllib.error.URLError, TimeoutError):
+                    raise RuntimeError('TikTok-Dateitransfer unbestaetigt; bestehenden Status pruefen') from None
+                offset += len(daten)
+    ende = time.monotonic() + max_warte_s
+    while True:
+        s = status_abfragen(stand['publish_id'], token=token)
+        stand.update(s)
+        sichern()
+        if stand['status'] in ('SEND_TO_USER_INBOX', 'PUBLISH_COMPLETE', 'FAILED') or time.monotonic() >= ende:
             break
-        time.sleep(6)
-    if status == 'FAILED':
-        raise RuntimeError(f"TikTok-Verarbeitung fehlgeschlagen: {s.get('data', {}).get('fail_reason')}")
-    print(json.dumps({'publish_id': d['publish_id'], 'status': status}, indent=2))
-    return status
+        time.sleep(min(6, max(0, ende - time.monotonic())))
+    if stand['status'] == 'FAILED':
+        raise RuntimeError('TikTok-Verarbeitung fehlgeschlagen: ' + str(stand.get('fail_reason', 'unbekannt')))
+    print(json.dumps({'publish_id': stand['publish_id'], 'status': stand['status']}))
+    return stand['status']
+
+
+class TikTokAPIError(RuntimeError):
+    pass
+
+
+def _daten(reply):
+    error = reply.get('error')
+    code = error.get('code') if isinstance(error, dict) else None
+    if code and code != 'ok':
+        raise TikTokAPIError('TikTok-Anfrage fehlgeschlagen: ' + str(code))
+    if reply.get('_http') or code != 'ok' or not isinstance(reply.get('data'), dict):
+        raise RuntimeError('TikTok-Anfrage mit ungueltiger Antwort')
+    return reply['data']
+
+
+def status_abfragen(publish_id, open_id=None, token=None):
+    d = _daten(_post(API + 'post/publish/status/fetch/', token=token or zugang(open_id),
+                     json_daten={'publish_id': publish_id}))
+    if not isinstance(d.get('status'), str) or not d['status']:
+        raise RuntimeError('TikTok-Antwort ohne Status')
+    return {k: d[k] for k in ('status', 'uploaded_bytes', 'fail_reason') if k in d}
+
+
+def chunk_plan(groesse):
+    """TikTok: max. 64 MB je Stueck; Restbytes in das letzte Stueck (max. 128 MB)."""
+    chunk = min(groesse, 64 * 1024 * 1024)
+    if chunk <= 0:
+        raise ValueError('Leeres TikTok-Video')
+    anzahl = max(1, groesse // chunk)
+    if groesse > chunk and anzahl == 1:
+        chunk, anzahl = groesse // 2, 2
+    if anzahl > 1000:
+        raise ValueError('TikTok-Video zu gross')
+    return chunk, anzahl
 
 
 def konten():
@@ -199,5 +281,16 @@ if __name__ == '__main__':
     elif sys.argv[1:2] == ['konten']:
         for name, oid in konten():
             print(name, oid[:6] + '...')
+    elif sys.argv[1:2] == ['status']:
+        print(json.dumps(status_abfragen(sys.argv[2], sys.argv[3])))
+    elif sys.argv[1:2] == ['tageslauf']:
+        from tiktok_entwurf import tageslauf
+        tageslauf(sys.argv[2])
+    elif sys.argv[1:2] == ['secrets-vorbereiten']:
+        from tiktok_entwurf import secrets_vorbereiten
+        secrets_vorbereiten(sys.argv[2])
+    elif sys.argv[1:2] == ['freigaben']:
+        from tiktok_freigabe import abarbeiten
+        abarbeiten()
     else:
         print(__doc__)

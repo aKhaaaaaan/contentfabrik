@@ -16,11 +16,28 @@ SCHEMA = {'type': 'OBJECT', 'properties': {'einstellungen': {'type': 'ARRAY', 'i
     'required': ['index', 'bildmodus', 'suche', 'szene', 'motiv']}}}, 'required': ['einstellungen']}
 
 
+def motivziel(s):
+    if dramaturgie.videoformat(s) == 'lang':
+        return 0
+    import kanalstandard
+    profil = kanalstandard.nach_name(s.get('kanal')) or {}
+    wert = profil.get('short_motive_min', 0)
+    if type(wert) is not int or not 0 <= wert <= 40:
+        raise ValueError('short_motive_min muss eine ganze Zahl zwischen 0 und 40 sein')
+    return wert
+
+
 def slots(s, laengen, woerter):
     ziel = 8 if dramaturgie.videoformat(s) == 'lang' else 4.5
+    anzahlen = [max(1, math.ceil(d / ziel)) for d in laengen]
+    minimum = motivziel(s) if sum(laengen) >= 30 else 0
+    # Die laengste Einstellung teilen, ohne Sprechphasen oder Wortzeiten zu veraendern.
+    while anzahlen and sum(anzahlen) < minimum:
+        phase = max(range(len(laengen)), key=lambda i: laengen[i] / anzahlen[i])
+        anzahlen[phase] += 1
     aus, start = [], 0.0
     for phase, (t, dauer) in enumerate(zip(s['teile'], laengen)):
-        anzahl = max(1, math.ceil(dauer / ziel))
+        anzahl = anzahlen[phase]
         for j in range(anzahl):
             a, b = start + dauer * j / anzahl, start + dauer * (j + 1) / anzahl
             text = ' '.join(w['w'] for w in woerter if a <= (w['s'] + w['e']) / 2 < b)
@@ -138,7 +155,7 @@ def vorbereiten(s, laengen, woerter, cache=None):
     import bibliothek
     from rendercache import signatur
     zeitplan = slots(s, laengen, woerter)
-    key = signatur([s['teile'], laengen, s.get('bilder', []), prompts.VERSION,
+    key = signatur([s['teile'], laengen, s.get('bilder', []), prompts.VERSION, motivziel(s),
                     lernen.redaktionsregeln(), bibliothek.signatur().decode('utf-8'), Path(__file__).read_text(encoding='utf-8')])
     alt = (cache or {}).get('bildplan') or {}
     daten = alt.get('einstellungen') if alt.get('key') == key else None
@@ -160,6 +177,9 @@ def vorbereiten(s, laengen, woerter, cache=None):
     if daten is None:
         auftrag = (prompts.DATEN + prompts.SZENEN + '\nTASK: Plan the actual visual edit, NOT new narration. '
             'Each timed slot below needs a distinct relevant shot, within its original spoken phase. '
+            f'This video requires at least {motivziel(s)} genuinely distinct visible motifs. '
+            'Use each library asset and each source image at most once. Do not repeat the same '
+            'office or presenter pose with only a different label, crop or zoom. '
             'Keep each szene to 20-22 English words, motiv to 2-5 words. '
             'Prefer asset for a genuinely relevant approved library illustration. Set asset to its '
             'exact id from illustration_library; use only this channel. Do not use a library image '
@@ -289,6 +309,12 @@ def pruefen(daten, dauer, art='short'):
                 befunde.append('Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten')
         ende = shot.get('s', ende) + d
     minimum = math.ceil(dauer / (16 if art == 'lang' else 7))
+    if art == 'short' and dauer >= 30:
+        ziel = daten.get('motive_min', 0)
+        if type(ziel) is not int or not 0 <= ziel <= 40:
+            befunde.append('Ungueltige Mindestzahl fuer Motive')
+        else:
+            minimum = max(minimum, ziel)
     if len(material) < minimum:
         befunde.append(f'Zu wenig unterschiedliche Motive: {len(material)} statt mindestens {minimum}')
     if abs(ende - dauer) > .15:

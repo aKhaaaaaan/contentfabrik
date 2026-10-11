@@ -12,6 +12,8 @@ def markdown(d):
               f"Status: **{sauber(d['status'])}** · Laufzeit: {d.get('sekunden', 0):.1f} s", '',
               '| Runde | Arbeit | Note | Neu / wiederverwendet | Zeit |',
               '|---|---|---|---|---|']
+    if d.get('upload_titel'):
+        zeilen[4:4] = [f"Upload-Titel: **{sauber(d['upload_titel'])}**", '']
     for r in d.get('runden', []):
         m = r.get('messung') or {}
         zeilen.append(f"| {r['runde']} | {sauber(r['art'])} | {r.get('note') or 'offen'} | "

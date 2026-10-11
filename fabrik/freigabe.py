@@ -154,18 +154,8 @@ def senden(skript_pfad, video_pfad):
         if len(video) > GRENZE:
             sys.exit(f'Video auch verkleinert zu gross ({len(video) // 2**20} MB > 50 MB)')
     import texte
-    titel = texte.titel_text(skript['titel'])
+    titel = texte.upload_titel(skript)
     lang = videoformat(skript) == 'lang'
-    if not lang:
-        import datetime
-        import re
-        from zoneinfo import ZoneInfo
-        slug = re.sub(r'[^a-z0-9]+', '-', str(skript.get('kanal', '')).lower()).strip('-')
-        try:
-            serie = json.loads(Path(f'kanaele/{slug}.json').read_text(encoding='utf-8')).get('serie')
-        except (OSError, ValueError):
-            serie = None
-        titel = texte.serien_titel(titel, serie, datetime.datetime.now(ZoneInfo('Europe/Berlin')).date())
     tags = ' '.join('#' + h.lstrip('#') for h in skript.get('hashtags', []))
     # CC-Lizenzen verlangen Urheber, Lizenz und Quelle - automatisch anhaengen
     qpfad = Path(skript_pfad).with_name('quellen.json')
@@ -197,8 +187,16 @@ def senden(skript_pfad, video_pfad):
         ersatz = False
     # 1. Das Video selbst - kurze Bildunterschrift, damit es gut lesbar bleibt
     import bewertung
+    import kanalstandard
+    profil = kanalstandard.nach_name(skript.get('kanal')) or {}
+    tik_config = profil.get('tiktok_entwurf') or {}
+    tik_freigabe = not lang and tik_config.get('aktiv') is True and tik_config.get('freigabe') == 'telegram'
+    import re
+    upload_run = re.search(r'/actions/runs/(\d+)', os.environ.get('CF_ORIGINAL_URL', ''))
+    upload_run = upload_run.group(1) if upload_run else os.environ.get('GITHUB_RUN_ID')
+    tik_freigabe = tik_freigabe and bool(upload_run)
     video_antwort = telegram('sendVideo', {'chat_id': chat, 'supports_streaming': 'true',
-                           'reply_markup': json.dumps(bewertung.knoepfe(sha)),
+                           'reply_markup': json.dumps(bewertung.knoepfe(sha, tiktok=tik_freigabe)),
                            'caption': (f"⚠️ ENTWURF - KI-Note {note}/10, nicht freigegeben. Du entscheidest.\n"
                                        f"KI-Kritik: {str((kritik or {}).get('fazit', ''))[:300]}\n\n" if entwurf else '')
                                       + ("⚠️ ERSATZSTIMME Kokoro - Orus war nicht verfuegbar (Kontingent/Limit?). "
@@ -206,6 +204,7 @@ def senden(skript_pfad, video_pfad):
                                       + f"🎬 {skript['kanal'][:100]}\n{titel[:200]}\n\n"
                                       f"✅ Fakten und Technik bestanden · KI-Bewertung {note}/10\n"
                                       "Bewerte unten: 📖 Story · 🎬 Video. Antworte auf dieses Video mit Kritik."
+                                      + ('\n„Passt“ startet den TikTok-Entwurf-Upload; „Ablehnen“ sperrt ihn.' if tik_freigabe else '')
                                       + (f"\n📈 Warum heute: {os.environ['CF_TRENDGRUND'][:300]}"
                                          if os.environ.get('CF_TRENDGRUND') else '')
                                       + ('\nKomprimierte Vorschau; Original siehe Begleitnachricht.'
@@ -216,7 +215,7 @@ def senden(skript_pfad, video_pfad):
     print('Telegram-Video bestaetigt; message_id:', message_id)
     if message_id is not None:
         try:  # Zuordnung fuer Knoepfe/Antworten; darf den gelieferten Versand nicht kippen
-            bewertung.video_merken(message_id, sha, skript, kritik)
+            bewertung.video_merken(message_id, sha, skript, kritik, upload_run_id=upload_run)
         except (OSError, ValueError) as e:
             print('Video-Zuordnung fuer Bewertung nicht gespeichert:', str(e)[:120])
     # 2. Die Texte einzeln - antippen kopiert sie (Monospace-Format in Telegram)

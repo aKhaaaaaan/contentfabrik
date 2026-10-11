@@ -34,6 +34,7 @@ zeiten = {}
 # auf jeden Schnitt und ein „Pop", wenn etwas Neues erscheint.
 SFX = Path(__file__).resolve().parent.parent / 'sfx'
 # Ruhige Bewegung auf Illustrationen; Bildwechsel folgen inhaltlichen Beats.
+GEMINI_FAKTOR = 1.0  # zuletzt angewandtes Gemini-Tempo (gemini_ton), fuer messung.json
 ZOOM = '1+0.035*min(on/{n},1)'
 LAYOUT = {}
 
@@ -1156,6 +1157,8 @@ def gemini_ton(s, wahl, grenzen):
         # GEMESSEN 10.10.2026 (Pilot 38060628587, AI): Orus sprach 96 Woerter in 32 s (3.0 W/s;
         # beim 8/10-Short 2.2 W/s) -> 29,8 s statt mindestens 35 s. Dann hoechstens 10 % langsamer.
         faktor = round(max(0.9, dauer / grenzen[0]), 3)
+    global GEMINI_FAKTOR
+    GEMINI_FAKTOR = faktor  # fuer messung.json (vorher stand dort der Kokoro-Wert 1.05)
     if faktor != 1.0:
         roh = subprocess.run(['ffmpeg', '-loglevel', 'error', '-f', 'f32le', '-ar', str(rate), '-ac', '1', '-i', '-',
                               '-filter:a', f'atempo={faktor:.3f}', '-f', 'f32le', '-'],
@@ -1435,6 +1438,8 @@ def main(skript_pfad, aus, vorlage=None):
             gemini = gemini_ton(s, wahl, laengenziel) if wahl and wahl.get('anbieter') == 'gemini' else None
             if gemini:
                 ton, rate = gemini
+                # GEMESSEN 11.10.2026 (Run 38124657997): Log „Tempo x1.24", messung.json zeigte 1.05
+                tempo = GEMINI_FAKTOR
                 laengen = None  # folgt aus den Wortzeiten
                 zeiten['erzaehlstimme'] = f"gemini:{wahl.get('stimme', 'Orus')}"
             else:

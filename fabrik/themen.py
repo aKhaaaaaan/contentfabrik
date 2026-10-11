@@ -172,6 +172,15 @@ def telegram_speichern(zustand):
     TELEGRAM.write_text(json.dumps(zustand, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
 
 
+def tiktok_zuordnung_fehlt(callback):
+    """Ein frueher echter Knopfdruck darf vor dem Push der Videozuordnung nicht verloren gehen."""
+    m = re.fullmatch(r'tu:([a-f0-9]{16}):(ok|nein)', str(callback.get('data', '')))
+    if not m:
+        return False
+    import bewertung
+    return bewertung.video_zu((callback.get('message') or {}).get('message_id'), m[1]) is None
+
+
 def abholen():
     chat = str(os.environ['TELEGRAM_CHAT_ID'])
     zustand = telegram_laden()
@@ -186,6 +195,22 @@ def abholen():
     liste = laden()
     def merken(update, text):
         zustand['bestaetigungen'].append({'update_id': update, 'text': text})
+    import bewertung
+    jetzt = datetime.datetime.now(datetime.timezone.utc)
+    wartende = []
+    for e in zustand.get('wartende_tiktok_klicks', []):
+        cb = e['callback']
+        if str(((cb.get('message') or {}).get('chat') or {}).get('id')) != chat:
+            continue
+        if tiktok_zuordnung_fehlt(cb):
+            alter = (jetzt - datetime.datetime.fromisoformat(e['datum_utc'])).total_seconds()
+            if alter >= 86400:
+                merken(e['update_id'], 'Videobezug nach 24 Stunden weiterhin nicht verfuegbar; kein Upload gestartet.')
+            else:
+                wartende.append(e)
+        else:
+            merken(e['update_id'], bewertung.knopf(e['update_id'], cb))
+    zustand['wartende_tiktok_klicks'] = wartende
     for u in updates:
         if u['update_id'] < zustand['offset']:
             continue
@@ -195,9 +220,18 @@ def abholen():
         if cb:
             # Nur Knoepfe unter Nachrichten in UNSEREM Chat zaehlen.
             if str(((cb.get('message') or {}).get('chat') or {}).get('id')) == chat:
-                merken(u['update_id'], bewertung.knopf(u['update_id'], cb))
+                warten = tiktok_zuordnung_fehlt(cb)
+                if warten:
+                    message = cb.get('message') or {}
+                    zustand['wartende_tiktok_klicks'].append({
+                        'update_id': u['update_id'], 'datum_utc': jetzt.isoformat(),
+                        'callback': {'data': cb['data'], 'message': {
+                            'message_id': message.get('message_id'), 'chat': {'id': chat}}}})
+                else:
+                    merken(u['update_id'], bewertung.knopf(u['update_id'], cb))
                 try:  # Telegram nimmt alte Antworten nicht mehr an - nur Ladeanzeige beenden
-                    _tg('answerCallbackQuery', callback_query_id=cb['id'], text='Gespeichert')
+                    _tg('answerCallbackQuery', callback_query_id=cb['id'],
+                        text='Vorgemerkt; Videozuordnung wird noch gespeichert' if warten else 'Gespeichert')
                 except Exception:
                     pass
             continue

@@ -1,18 +1,18 @@
 {
   "stand": "2026-10-11",
   "regeln": [
-    "Show authentic, source-supported tool interfaces or demos for every tool mentioned; never substitute with avatars, logos, symbolic icons, or unrelated stock footage.",
-    "Use 3-5 seconds of a genuinely distinct visual motif for each spoken segment in Shorts; long videos may have longer demonstrations but must still align tightly with narration.",
-    "A new motif must be a truly different visual element; zooms, crops, subtitle changes, decorative backgrounds, or minor label tweaks do not count as new motifs.",
-    "Introduce the correct channel presenter at the opening and reuse them for relevant actions throughout the video; do not replace them with unrelated characters.",
-    "Place all on-screen text, captions, and overlays within the inner title-safe zone with adequate padding to avoid clipping or overlap.",
-    "Maintain factual accuracy: avoid unsupported specifications, performance guarantees, invented details, or claims that a technique guarantees retention or views.",
+    "Ensure every visual directly matches the specific spoken action or detail rather than using generic symbolic illustrations.",
+    "Maintain narrative momentum by eliminating technical disclaimers, pricing nuances, or side notes that break flow, folding essential facts into the primary workflow.",
+    "Verify that all visual text, code, and terminal commands are technically accurate and typo-free to ensure credibility.",
+    "In Shorts, use 18+ distinct relevant motifs (3-5 seconds each); allow purposeful longer demonstrations in long videos while maintaining tight narration-visual alignment.",
+    "Ensure logos and tool interfaces are larger and more prominent than the presenter in key scenes so the viewer immediately identifies the tool being discussed.",
+    "Identify the human task and concrete source-supported action; never substitute useful explanations with architecture tags, parameter counts, or benchmark claims.",
+    "Feature the specific 'AI Tools Explained' presenter (black hair, leather jacket, cyan glasses) in the opening and during relevant actions throughout the video.",
+    "A new motif must be a distinct visual subject; do not count zooms, crops, subtitle changes, or background tweaks as new motifs.",
+    "Front-load the hook with a direct factual or stakes-driven premise to eliminate cliché rhetorical questions and narrative stalls.",
+    "Keep all text, captions, and overlays within title-safe zones and ensure every visual adds narrative value in the original painted open-world style.",
     "Include the mandatory spoken CTA (like, share, save) at the format-specific position; never replace it with a different call-to-action.",
-    "Follow the channel's original painted open-world aesthetic for backgrounds and branding; ensure each visual adds narrative value and avoids lifeless documentary photos.",
-    "Craft a clear narrative arc: hook, concise explanation, source-backed answer, then CTA, keeping the tone straightforward and informational.",
-    "When a script calls for a concrete example or demo, provide a brief, source-supported walkthrough that visually demonstrates the described benefit.",
-    "For Shorts, aim for 14-18 distinct relevant motifs (approx. 23 shots) as a planning target; for Business-Origin-Stories Shorts aim for about 18 distinct motifs (approx. 24 shots).",
-    "Front-load a direct factual or stakes-driven premise in hooks to eliminate cliché rhetorical questions and prevent narrative stalls or redundancies."
+    "Never override source data or factual limits; avoid inventing specifications or claiming techniques guarantee specific viewer retention or performance scores."
   ],
   "produktionsdiagnosen": [
     {
@@ -162,6 +162,107 @@
       "kategorien_nachher": {},
       "auswertbar": false,
       "prompt_version": "2026-10-08.2",
+      "verbessert": false
+    },
+    {
+      "id": "38134312923-2",
+      "datum": "2026-10-11",
+      "vorher": 6,
+      "nachher": 8,
+      "vorher_gesperrt": true,
+      "nachher_gesperrt": false,
+      "sekunden": 932.9,
+      "aktionen": [
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 2
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 3
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 6
+        }
+      ],
+      "einstellungen": {
+        "stimme": "am_michael",
+        "tempo": 1.05,
+        "untertitel_profil": "ruhig",
+        "musik_pegel": null,
+        "effekt_pegel": null
+      },
+      "schwerpunkt": "bild",
+      "kategorien_vorher": {
+        "hook": 6,
+        "bild_passt": 5,
+        "dynamik": 5,
+        "text": 6,
+        "ton_stimme": 7,
+        "tempo": 6,
+        "inhalt": 6,
+        "schluss_loop": 6,
+        "regeln": 7,
+        "story": 6
+      },
+      "kategorien_nachher": {
+        "hook": 9,
+        "bild_passt": 8,
+        "dynamik": 9,
+        "text": 9,
+        "ton_stimme": 9,
+        "tempo": 9,
+        "inhalt": 9,
+        "schluss_loop": 9,
+        "regeln": 10,
+        "story": 9
+      },
+      "auswertbar": true,
+      "prompt_version": "2026-10-10.4",
+      "verbessert": true
+    },
+    {
+      "id": "38134312923-3",
+      "datum": "2026-10-11",
+      "vorher": 8,
+      "nachher": null,
+      "vorher_gesperrt": false,
+      "nachher_gesperrt": true,
+      "sekunden": 459.8,
+      "aktionen": [
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 1
+        }
+      ],
+      "einstellungen": {
+        "stimme": "am_michael",
+        "tempo": 1.05,
+        "untertitel_profil": "ruhig",
+        "musik_pegel": null,
+        "effekt_pegel": null
+      },
+      "schwerpunkt": "bild",
+      "kategorien_vorher": {
+        "hook": 9,
+        "bild_passt": 8,
+        "dynamik": 9,
+        "text": 9,
+        "ton_stimme": 9,
+        "tempo": 9,
+        "inhalt": 9,
+        "schluss_loop": 9,
+        "regeln": 10,
+        "story": 9
+      },
+      "kategorien_nachher": {},
+      "auswertbar": false,
+      "prompt_version": "2026-10-10.4",
       "verbessert": false
     }
   ]

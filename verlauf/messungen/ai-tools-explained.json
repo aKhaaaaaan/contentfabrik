@@ -1265,5 +1265,331 @@
     "grund": "Videobau fehlgeschlagen (ValueError: Bildablauf gesperrt: Zu wenig unterschiedliche Motive: 17 statt mindestens 18)",
     "sekunden": 1861.1,
     "upload_titel": "Stop Costly AI Loops: Floe Guard Saves Budgets | AI Tool #1"
+  },
+  {
+    "id": "38134312923",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-10-11",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 826.9,
+        "pruefung_s": 30.8,
+        "note": 6,
+        "sperrgruende": [
+          "Video-Note 6/10 unter 7/10",
+          "Video-hook 6/10 unter 7/10",
+          "Video-bild_passt 5/10 unter 7/10",
+          "Video-dynamik 5/10 unter 7/10",
+          "Video-text 6/10 unter 7/10",
+          "Video-tempo 6/10 unter 7/10",
+          "Video-inhalt 6/10 unter 7/10",
+          "Video-schluss_loop 6/10 unter 7/10",
+          "Video-story 6/10 unter 7/10",
+          "Offenes Problem (mittel): Inhaltlich unzusammenhängende Straßenszene statt technischem Beleg.",
+          "Offenes Problem (mittel): Blumenmotiv ohne Bezug zur Kostenersparnis oder zum Skript-Stopp."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Orus",
+          "tempo": 1.08,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 18,
+          "bilder_vereinfacht": 3,
+          "clips_und_stuecke": 731.3,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 18,
+            "motive": 18,
+            "motive_min": 18
+          },
+          "effekte": 13,
+          "rendern": 29.9,
+          "gesamt": 826.7,
+          "videolaenge_s": 44.2,
+          "abschnitte_s": [
+            5.16,
+            5.08,
+            4.7,
+            4.6,
+            4.86,
+            3.56,
+            5.08,
+            4.88,
+            6.31
+          ],
+          "woerter": 97
+        },
+        "kategorien": {
+          "hook": 6,
+          "bild_passt": 5,
+          "dynamik": 5,
+          "text": 6,
+          "ton_stimme": 7,
+          "tempo": 6,
+          "inhalt": 6,
+          "schluss_loop": 6,
+          "regeln": 7,
+          "story": 6
+        },
+        "probleme": [
+          {
+            "zeit": "00:11",
+            "art": "bild_passt_nicht",
+            "schwere": "leicht",
+            "text": "Tippfehler im Terminal-Befehl ('gard' statt 'guard')."
+          },
+          {
+            "zeit": "00:19",
+            "art": "bild_passt_nicht",
+            "schwere": "mittel",
+            "text": "Inhaltlich unzusammenhängende Straßenszene statt technischem Beleg."
+          },
+          {
+            "zeit": "00:32",
+            "art": "bild_passt_nicht",
+            "schwere": "mittel",
+            "text": "Blumenmotiv ohne Bezug zur Kostenersparnis oder zum Skript-Stopp."
+          }
+        ],
+        "sekunden": 857.7,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 6
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            2,
+            3,
+            6
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-10-10.4"
+        },
+        "skript_s": 3.2,
+        "bau_s": 910.5,
+        "pruefung_s": 19.2,
+        "note": 8,
+        "sperrgruende": [],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Orus",
+          "tempo": 1.08,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 18,
+          "bilder_vereinfacht": 3,
+          "clips_und_stuecke": 874.1,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 18,
+            "motive": 18,
+            "motive_min": 18
+          },
+          "effekte": 14,
+          "rendern": 28.9,
+          "gesamt": 910.3,
+          "videolaenge_s": 44.2,
+          "abschnitte_s": [
+            5.16,
+            5.08,
+            4.7,
+            4.6,
+            4.86,
+            3.56,
+            5.08,
+            4.88,
+            6.31
+          ],
+          "woerter": 97
+        },
+        "kategorien": {
+          "hook": 9,
+          "bild_passt": 8,
+          "dynamik": 9,
+          "text": 9,
+          "ton_stimme": 9,
+          "tempo": 9,
+          "inhalt": 9,
+          "schluss_loop": 9,
+          "regeln": 10,
+          "story": 9
+        },
+        "probleme": [
+          {
+            "zeit": "00:08",
+            "art": "bild_passt_nicht",
+            "schwere": "leicht",
+            "text": "Das Bild zeigt hier etwas generische Muenzen auf dem Tisch, waehrend im Text versteckte Gebuehren erwaehnt werden."
+          }
+        ],
+        "sekunden": 932.9,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "38134312923-2",
+          "datum": "2026-10-11",
+          "vorher": 6,
+          "nachher": 8,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": false,
+          "sekunden": 932.9,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 6
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "hook": 6,
+            "bild_passt": 5,
+            "dynamik": 5,
+            "text": 6,
+            "ton_stimme": 7,
+            "tempo": 6,
+            "inhalt": 6,
+            "schluss_loop": 6,
+            "regeln": 7,
+            "story": 6
+          },
+          "kategorien_nachher": {
+            "hook": 9,
+            "bild_passt": 8,
+            "dynamik": 9,
+            "text": 9,
+            "ton_stimme": 9,
+            "tempo": 9,
+            "inhalt": 9,
+            "schluss_loop": 9,
+            "regeln": 10,
+            "story": 9
+          },
+          "auswertbar": true,
+          "prompt_version": "2026-10-10.4",
+          "verbessert": true
+        }
+      },
+      {
+        "runde": 3,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            1
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-10-10.4"
+        },
+        "skript_s": 2.7,
+        "status": "zeitbudget",
+        "phase": "Videobau",
+        "sekunden": 459.4,
+        "lernergebnis": {
+          "id": "38134312923-3",
+          "datum": "2026-10-11",
+          "vorher": 8,
+          "nachher": null,
+          "vorher_gesperrt": false,
+          "nachher_gesperrt": true,
+          "sekunden": 459.8,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "hook": 9,
+            "bild_passt": 8,
+            "dynamik": 9,
+            "text": 9,
+            "ton_stimme": 9,
+            "tempo": 9,
+            "inhalt": 9,
+            "schluss_loop": 9,
+            "regeln": 10,
+            "story": 9
+          },
+          "kategorien_nachher": {},
+          "auswertbar": false,
+          "prompt_version": "2026-10-10.4",
+          "verbessert": false
+        }
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 2272.9,
+    "upload_titel": "Stop Costly AI Loops: Floe Guard Saves Budgets | AI Tool #1"
   }
 ]

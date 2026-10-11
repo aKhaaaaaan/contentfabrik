@@ -20,7 +20,7 @@ def pruefen(auftrag):
     if not gesetzt:
         return result | {'status': 'nicht_eingerichtet'}
     try:
-        request = urllib.request.Request(url, headers=headers)
+        request = urllib.request.Request(url, headers={'User-Agent': 'Contentfabrik-Autorenvergleich/1.0', **headers})
         with urllib.request.build_opener(KeinRedirect()).open(request, timeout=20) as response:
             data = json.load(response)
         models = data.get(feld)

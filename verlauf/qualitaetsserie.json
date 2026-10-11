@@ -11031,6 +11031,873 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "38124657997.1:ai-tools-explained",
+      "run_id": "38124657997",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-11T08:43:24.070830+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "19a576a85cc5671136ca8dc499669bbc15700808",
+      "produktionsversion": "e14b2c966d8a2802684a3d995dc1ac1deefc87913ad843b81f65d104cd874cf3",
+      "videoformat": "short",
+      "thema": "TaxHacker: a self-hosted AI app that reads receipts",
+      "titel": [
+        "*RECEIPTS* TO ROWS",
+        "*TaxHacker,* self-hosted"
+      ],
+      "status": "gesperrt",
+      "video_sha256": "3d9013cedf188626a67bdf3f582ab17505e925168b6507b3f567b75d3be8660b",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden"
+      ],
+      "einstellungen": 15,
+      "unterschiedliche_motive": 14,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38124657997",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-11",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "Skript fehlgeschlagen (Code 1)",
+            "sekunden": 30.1
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "Skript fehlgeschlagen (Code 1)",
+            "sekunden": 28.5
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 6/10 unter 7/10",
+              "Skript-hook 5/10 unter 7/10",
+              "Skript-spannung 5/10 unter 7/10",
+              "Skript-ueberraschung 6/10 unter 7/10",
+              "Skript-tempo 6/10 unter 7/10"
+            ],
+            "story_note": 6,
+            "story_schwaechen": [
+              "Exact sentence: \"Ever waste hours typing receipt details into spreadsheets?\" Why it matters: A cliché rhetorical question slows viewer entry and invites a passive drop-off instead of front-loading a concrete stakes-driven premise. Feasible fix: Replace with a direct factual claim: \"Typing receipt de",
+              "Exact sentence: \"Snap a receipt with your phone, then drag it into the app.\" Why it matters: Beat 3 already explains uploading photos, making this sentence redundant and stalling the narrative pace. Feasible fix: Cut the duplicate upload instruction and transition straight to the extraction options:"
+            ],
+            "skript_probleme": [],
+            "sekunden": 303.7
+          },
+          {
+            "runde": 4,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "Skript fehlgeschlagen (Code 1)",
+            "sekunden": 170.4
+          },
+          {
+            "runde": 5,
+            "art": "produktion",
+            "skript_s": 133.7,
+            "bau_s": 408.4,
+            "pruefung_s": 6.0,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Einzelbewertungen fehlen",
+              "Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt",
+              "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden"
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Orus",
+              "stimme": 16.2,
+              "zeitmarken": 4.6,
+              "tempo": 1.05,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 15,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 362.8,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 15,
+                "motive": 14,
+                "motive_min": 7
+              },
+              "effekte": 18,
+              "rendern": 18.2,
+              "gesamt": 408.2,
+              "videolaenge_s": 44.4,
+              "abschnitte_s": [
+                6.66,
+                5.76,
+                5.98,
+                4.98,
+                5.22,
+                6.38,
+                9.37
+              ],
+              "woerter": 105
+            },
+            "kategorien": {},
+            "probleme": [],
+            "sekunden": 548.1,
+            "status": "geprueft"
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Video-Note fehlt oder ist ungueltig; Video-Einzelbewertungen fehlen; Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt; Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "sekunden": 1096.4
+      },
+      "ki_pruefung": {
+        "note": null,
+        "staerken": [],
+        "probleme": [],
+        "fazit": "Technik-/Endton-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 44.4,
+          "fps": 30.0,
+          "lufs": -14.2,
+          "befunde": [
+            "Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt"
+          ]
+        },
+        "audio_pruefung": {
+          "ok": false,
+          "befunde": [
+            "Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt"
+          ],
+          "treffer": [],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 24.4,
+              "bis_s": 44.9,
+              "erkannt": false
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Ever",
+                "s": 0.0,
+                "e": 0.44,
+                "p": 0.8657436966896057
+              },
+              {
+                "w": "wish",
+                "s": 0.44,
+                "e": 0.66,
+                "p": 0.9810681939125061
+              },
+              {
+                "w": "your",
+                "s": 0.66,
+                "e": 0.88,
+                "p": 0.9853683114051819
+              },
+              {
+                "w": "receipts",
+                "s": 0.88,
+                "e": 1.2,
+                "p": 0.9841676354408264
+              },
+              {
+                "w": "filed",
+                "s": 1.2,
+                "e": 1.76,
+                "p": 0.9876656532287598
+              },
+              {
+                "w": "themselves?",
+                "s": 1.76,
+                "e": 2.1,
+                "p": 0.9939481019973755
+              },
+              {
+                "w": "Tax",
+                "s": 3.2,
+                "e": 3.48,
+                "p": 0.8784127235412598
+              },
+              {
+                "w": "Hacker",
+                "s": 3.48,
+                "e": 3.84,
+                "p": 0.36046910285949707
+              },
+              {
+                "w": "is",
+                "s": 3.84,
+                "e": 4.16,
+                "p": 0.9806367754936218
+              },
+              {
+                "w": "a",
+                "s": 4.16,
+                "e": 4.24,
+                "p": 0.9952310919761658
+              },
+              {
+                "w": "self",
+                "s": 4.24,
+                "e": 4.48,
+                "p": 0.9918128252029419
+              },
+              {
+                "w": "-hosted",
+                "s": 4.48,
+                "e": 5.04,
+                "p": 0.9756829937299093
+              },
+              {
+                "w": "AI",
+                "s": 5.04,
+                "e": 5.34,
+                "p": 0.9448230862617493
+              },
+              {
+                "w": "accounting",
+                "s": 5.34,
+                "e": 5.88,
+                "p": 0.9075098633766174
+              },
+              {
+                "w": "app.",
+                "s": 5.88,
+                "e": 6.24,
+                "p": 0.9966651797294617
+              },
+              {
+                "w": "Snap",
+                "s": 6.68,
+                "e": 7.04,
+                "p": 0.7593119144439697
+              },
+              {
+                "w": "a",
+                "s": 7.04,
+                "e": 7.2,
+                "p": 0.9542770981788635
+              },
+              {
+                "w": "receipt",
+                "s": 7.2,
+                "e": 7.42,
+                "p": 0.9819024801254272
+              },
+              {
+                "w": "photo,",
+                "s": 7.42,
+                "e": 7.78,
+                "p": 0.9924188852310181
+              },
+              {
+                "w": "or",
+                "s": 8.1,
+                "e": 8.24,
+                "p": 0.9976033568382263
+              },
+              {
+                "w": "upload",
+                "s": 8.24,
+                "e": 8.6,
+                "p": 0.9934665560722351
+              },
+              {
+                "w": "an",
+                "s": 8.6,
+                "e": 8.78,
+                "p": 0.9945006370544434
+              },
+              {
+                "w": "invoice",
+                "s": 8.78,
+                "e": 9.06,
+                "p": 0.9032870531082153
+              },
+              {
+                "w": "PDF.",
+                "s": 9.06,
+                "e": 9.42,
+                "p": 0.9750345945358276
+              },
+              {
+                "w": "Even",
+                "s": 10.42,
+                "e": 10.42,
+                "p": 0.9796293377876282
+              },
+              {
+                "w": "hand",
+                "s": 10.42,
+                "e": 10.66,
+                "p": 0.8222114443778992
+              },
+              {
+                "w": "-written",
+                "s": 10.66,
+                "e": 11.06,
+                "p": 0.8570805191993713
+              },
+              {
+                "w": "receipts",
+                "s": 11.06,
+                "e": 11.38,
+                "p": 0.9912571907043457
+              },
+              {
+                "w": "work.",
+                "s": 11.38,
+                "e": 11.72,
+                "p": 0.9973377585411072
+              },
+              {
+                "w": "The",
+                "s": 12.44,
+                "e": 12.48,
+                "p": 0.9767130017280579
+              },
+              {
+                "w": "AI",
+                "s": 12.48,
+                "e": 12.8,
+                "p": 0.9912774562835693
+              },
+              {
+                "w": "extract",
+                "s": 12.8,
+                "e": 13.26,
+                "p": 0.6885680556297302
+              },
+              {
+                "w": "date,",
+                "s": 13.26,
+                "e": 13.74,
+                "p": 0.9155481457710266
+              },
+              {
+                "w": "amount,",
+                "s": 14.14,
+                "e": 14.32,
+                "p": 0.9969525337219238
+              },
+              {
+                "w": "merchant,",
+                "s": 15.06,
+                "e": 15.06,
+                "p": 0.9978421926498413
+              },
+              {
+                "w": "and",
+                "s": 15.38,
+                "e": 15.44,
+                "p": 0.9987226128578186
+              },
+              {
+                "w": "taxes",
+                "s": 15.44,
+                "e": 15.84,
+                "p": 0.9977685213088989
+              },
+              {
+                "w": "into",
+                "s": 15.84,
+                "e": 16.42,
+                "p": 0.9559951424598694
+              },
+              {
+                "w": "an",
+                "s": 16.42,
+                "e": 16.6,
+                "p": 0.9956973791122437
+              },
+              {
+                "w": "Excel",
+                "s": 16.6,
+                "e": 16.94,
+                "p": 0.8392535448074341
+              },
+              {
+                "w": "-like",
+                "s": 16.94,
+                "e": 17.32,
+                "p": 0.9810698628425598
+              },
+              {
+                "w": "database.",
+                "s": 17.32,
+                "e": 17.72,
+                "p": 0.996615469455719
+              },
+              {
+                "w": "For",
+                "s": 18.4,
+                "e": 18.6,
+                "p": 0.6381198167800903
+              },
+              {
+                "w": "in",
+                "s": 18.6,
+                "e": 18.76,
+                "p": 0.6645982265472412
+              },
+              {
+                "w": "-bill,",
+                "s": 18.76,
+                "e": 18.92,
+                "p": 0.8426882326602936
+              },
+              {
+                "w": "it",
+                "s": 19.48,
+                "e": 19.56,
+                "p": 0.9952999353408813
+              },
+              {
+                "w": "converts",
+                "s": 19.56,
+                "e": 19.84,
+                "p": 0.9991851449012756
+              },
+              {
+                "w": "currency",
+                "s": 19.84,
+                "e": 20.28,
+                "p": 0.9976027607917786
+              },
+              {
+                "w": "using",
+                "s": 20.28,
+                "e": 20.88,
+                "p": 0.9263449311256409
+              },
+              {
+                "w": "the",
+                "s": 20.88,
+                "e": 21.1,
+                "p": 0.9989084005355835
+              },
+              {
+                "w": "rate",
+                "s": 21.1,
+                "e": 21.3,
+                "p": 0.9590872526168823
+              },
+              {
+                "w": "from",
+                "s": 21.3,
+                "e": 21.56,
+                "p": 0.9954694509506226
+              },
+              {
+                "w": "the",
+                "s": 21.56,
+                "e": 21.7,
+                "p": 0.9941617846488953
+              },
+              {
+                "w": "transaction",
+                "s": 21.7,
+                "e": 21.98,
+                "p": 0.9917471408843994
+              },
+              {
+                "w": "date.",
+                "s": 21.98,
+                "e": 22.56,
+                "p": 0.9918264150619507
+              },
+              {
+                "w": "Here's",
+                "s": 23.36,
+                "e": 23.74,
+                "p": 0.8409175276756287
+              },
+              {
+                "w": "the",
+                "s": 23.74,
+                "e": 23.88,
+                "p": 0.9977678060531616
+              },
+              {
+                "w": "click.",
+                "s": 23.88,
+                "e": 24.08,
+                "p": 0.9865359663963318
+              },
+              {
+                "w": "Write",
+                "s": 24.94,
+                "e": 25.0,
+                "p": 0.9863748550415039
+              },
+              {
+                "w": "your",
+                "s": 25.0,
+                "e": 25.24,
+                "p": 0.996783971786499
+              },
+              {
+                "w": "own",
+                "s": 25.24,
+                "e": 25.56,
+                "p": 0.9964893460273743
+              },
+              {
+                "w": "prompts",
+                "s": 25.56,
+                "e": 25.92,
+                "p": 0.9927680492401123
+              },
+              {
+                "w": "for",
+                "s": 25.92,
+                "e": 26.32,
+                "p": 0.998649537563324
+              },
+              {
+                "w": "custom",
+                "s": 26.32,
+                "e": 26.64,
+                "p": 0.9959386587142944
+              },
+              {
+                "w": "fields,",
+                "s": 26.64,
+                "e": 27.0,
+                "p": 0.996593177318573
+              },
+              {
+                "w": "like",
+                "s": 27.42,
+                "e": 27.52,
+                "p": 0.9987623691558838
+              },
+              {
+                "w": "extra",
+                "s": 27.52,
+                "e": 27.76,
+                "p": 0.9306303262710571
+              },
+              {
+                "w": "spreadsheet",
+                "s": 27.76,
+                "e": 28.18,
+                "p": 0.987380862236023
+              },
+              {
+                "w": "columns.",
+                "s": 28.18,
+                "e": 28.64,
+                "p": 0.9936763644218445
+              },
+              {
+                "w": "Post",
+                "s": 28.64,
+                "e": 29.44,
+                "p": 0.030242230743169785
+              },
+              {
+                "w": "it",
+                "s": 29.44,
+                "e": 29.64,
+                "p": 0.9759030342102051
+              },
+              {
+                "w": "with",
+                "s": 29.64,
+                "e": 29.76,
+                "p": 0.9950073957443237
+              },
+              {
+                "w": "Docker",
+                "s": 29.76,
+                "e": 29.94,
+                "p": 0.26316678524017334
+              },
+              {
+                "w": "and",
+                "s": 29.94,
+                "e": 30.54,
+                "p": 0.7108333110809326
+              },
+              {
+                "w": "pick",
+                "s": 30.54,
+                "e": 30.7,
+                "p": 0.9868935346603394
+              },
+              {
+                "w": "OpenAI,",
+                "s": 30.7,
+                "e": 31.22,
+                "p": 0.8630005121231079
+              },
+              {
+                "w": "Gemini,",
+                "s": 31.78,
+                "e": 31.9,
+                "p": 0.9206646084785461
+              },
+              {
+                "w": "Mistral,",
+                "s": 32.64,
+                "e": 32.84,
+                "p": 0.8261078000068665
+              },
+              {
+                "w": "or",
+                "s": 33.28,
+                "e": 33.46,
+                "p": 0.9908161163330078
+              },
+              {
+                "w": "a",
+                "s": 33.46,
+                "e": 33.68,
+                "p": 0.9754383563995361
+              },
+              {
+                "w": "local",
+                "s": 33.68,
+                "e": 33.9,
+                "p": 0.8394431471824646
+              },
+              {
+                "w": "model,",
+                "s": 33.9,
+                "e": 34.22,
+                "p": 0.9965847730636597
+              },
+              {
+                "w": "then",
+                "s": 35.0,
+                "e": 35.0,
+                "p": 0.9566259384155273
+              },
+              {
+                "w": "filter",
+                "s": 35.0,
+                "e": 35.28,
+                "p": 0.6413102149963379
+              },
+              {
+                "w": "and",
+                "s": 35.28,
+                "e": 35.62,
+                "p": 0.9123935103416443
+              },
+              {
+                "w": "export",
+                "s": 35.62,
+                "e": 36.02,
+                "p": 0.9596052169799805
+              },
+              {
+                "w": "to",
+                "s": 36.02,
+                "e": 36.36,
+                "p": 0.9980303645133972
+              },
+              {
+                "w": "CSV.",
+                "s": 36.36,
+                "e": 36.7,
+                "p": 0.9618147611618042
+              },
+              {
+                "w": "It's",
+                "s": 37.82,
+                "e": 38.02,
+                "p": 0.8603975772857666
+              },
+              {
+                "w": "early",
+                "s": 38.02,
+                "e": 38.2,
+                "p": 0.9868727922439575
+              },
+              {
+                "w": "development",
+                "s": 38.2,
+                "e": 38.52,
+                "p": 0.9743502140045166
+              },
+              {
+                "w": "so",
+                "s": 38.52,
+                "e": 38.96,
+                "p": 0.4507633447647095
+              },
+              {
+                "w": "use",
+                "s": 38.96,
+                "e": 39.22,
+                "p": 0.9923642873764038
+              },
+              {
+                "w": "it",
+                "s": 39.22,
+                "e": 39.36,
+                "p": 0.9967249035835266
+              },
+              {
+                "w": "at",
+                "s": 39.36,
+                "e": 39.42,
+                "p": 0.9894692897796631
+              },
+              {
+                "w": "your",
+                "s": 39.42,
+                "e": 39.54,
+                "p": 0.9942438006401062
+              },
+              {
+                "w": "own",
+                "s": 39.54,
+                "e": 39.68,
+                "p": 0.9982838034629822
+              },
+              {
+                "w": "risk,",
+                "s": 39.68,
+                "e": 39.9,
+                "p": 0.9990002512931824
+              },
+              {
+                "w": "not",
+                "s": 40.26,
+                "e": 40.38,
+                "p": 0.9965489506721497
+              },
+              {
+                "w": "financial",
+                "s": 40.38,
+                "e": 40.7,
+                "p": 0.9872791767120361
+              },
+              {
+                "w": "advice.",
+                "s": 40.7,
+                "e": 41.08,
+                "p": 0.9856873154640198
+              },
+              {
+                "w": "Be",
+                "s": 41.78,
+                "e": 41.8,
+                "p": 0.9957298636436462
+              },
+              {
+                "w": "sure",
+                "s": 41.8,
+                "e": 41.96,
+                "p": 0.9995100498199463
+              },
+              {
+                "w": "to",
+                "s": 41.96,
+                "e": 42.06,
+                "p": 0.9967621564865112
+              },
+              {
+                "w": "like,",
+                "s": 42.06,
+                "e": 42.26,
+                "p": 0.8957432508468628
+              },
+              {
+                "w": "share,",
+                "s": 42.46,
+                "e": 42.7,
+                "p": 0.9920654892921448
+              },
+              {
+                "w": "and",
+                "s": 43.1,
+                "e": 43.16,
+                "p": 0.9983641505241394
+              },
+              {
+                "w": "save",
+                "s": 43.16,
+                "e": 43.38,
+                "p": 0.992332935333252
+              },
+              {
+                "w": "this",
+                "s": 43.38,
+                "e": 43.58,
+                "p": 0.9962168335914612
+              },
+              {
+                "w": "video.",
+                "s": 43.58,
+                "e": 43.92,
+                "p": 0.9991266131401062
+              }
+            ],
+            "dauer_s": 44.352,
+            "sprache": "en"
+          },
+          "roh_key": "efc072f81bc6781cd7968843b552e83801aab3b8730f91ccd3d2c9d78ea7b3fa",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "version": 1,
+          "video_sha256": "3d9013cedf188626a67bdf3f582ab17505e925168b6507b3f567b75d3be8660b",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 44.4,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 15,
+          "motive": 14,
+          "motive_min": 7
+        },
+        "video_sha256": "3d9013cedf188626a67bdf3f582ab17505e925168b6507b3f567b75d3be8660b"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [
+          "Not financial advice. - The source does not contain any statement that TaxHacker is not financial advice; this disclaimer is unsupported by the provided source."
+        ],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

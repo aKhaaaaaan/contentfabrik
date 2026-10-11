@@ -306,9 +306,33 @@ def gezeigte_themen(kanal_slug, tage=30, heute=None):
     try:
         v = json.loads(open(f'verlauf/{kanal_slug}.json', encoding='utf-8').read())
     except (OSError, ValueError):
-        return []
+        v = []
     grenze = (heute - datetime.timedelta(days=tage)).isoformat()
-    return [str(e.get('thema', '')).lower() for e in v if e.get('status') == 'gesendet' and e.get('datum', '') >= grenze]
+    # GEMELDET 11.10.2026: Der Tageslauf waehlte TaxHacker, das am Vortag als Pilot gesendet wurde
+    # (Nutzer 8/10). Piloten stehen bewusst NICHT im Kanalverlauf (Qualitaetsserie/Budget zaehlen nur
+    # Tageslaeufe), darum eine eigene Liste.
+    try:
+        p = json.loads(open(f'verlauf/piloten/{kanal_slug}.json', encoding='utf-8').read())
+    except (OSError, ValueError):
+        p = []
+    return [str(e.get('thema', '')).lower() for e in v if e.get('status') == 'gesendet' and e.get('datum', '') >= grenze] \
+        + [str(e.get('thema', '')).lower() for e in p if e.get('datum', '') >= grenze]
+
+
+def pilot_eintragen(kanal_slug, skript_pfad, heute=None):
+    """Gesendeten Pilot fuer die Wiederholsperre merken (pilot.yml nach erfolgreichem Versand)."""
+    skript = json.loads(open(skript_pfad, encoding='utf-8').read())
+    pfad = f'verlauf/piloten/{kanal_slug}.json'
+    os.makedirs(os.path.dirname(pfad), exist_ok=True)
+    try:
+        liste = json.loads(open(pfad, encoding='utf-8').read())
+    except (OSError, ValueError):
+        liste = []
+    titel = skript.get('titel')
+    liste.append({'datum': (heute or datetime.date.today()).isoformat(), 'thema': skript.get('thema', ''),
+                  'titel': ' '.join(titel) if isinstance(titel, list) else titel})
+    with open(pfad, 'w', encoding='utf-8') as f:
+        f.write(json.dumps(liste, indent=1, ensure_ascii=False) + '\n')
 
 
 def schon_gezeigt(q, gezeigt):

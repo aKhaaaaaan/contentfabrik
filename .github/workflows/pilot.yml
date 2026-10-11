@@ -43,6 +43,8 @@ jobs:
   pruefen:
     runs-on: ubuntu-latest
     timeout-minutes: 240  # Langvideo: lauf.BUDGET_LANG_S (200 Min.) plus Einrichtung
+    permissions:
+      contents: write  # nur fuer die Wiederholsperre (verlauf/piloten) nach dem Versand
     outputs:
       grund: ${{ steps.bericht.outputs.grund }}
       versand: ${{ steps.versand.outcome }}
@@ -206,6 +208,25 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           CF_ORIGINAL_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: python fabrik/freigabe.py ausgabe/skript.json ausgabe/short.mp4
+      - name: Gesendetes Thema fuer die Wiederholsperre merken
+        # GEMELDET 11.10.2026: Tageslauf waehlte TaxHacker erneut, das am Vortag als Pilot ging.
+        if: success() && inputs.telegram && steps.versand.outcome == 'success'
+        timeout-minutes: 3
+        env:
+          KANAL: ${{ inputs.kanal }}
+        run: |
+          python -c "import os, sys; sys.path.insert(0, 'fabrik'); import trends; trends.pilot_eintragen(os.environ['KANAL'], 'ausgabe/skript.json')"
+          git config user.name 'contentfabrik-bot'
+          git config user.email 'contentfabrik-bot@users.noreply.github.com'
+          git add -- verlauf/piloten
+          git diff --cached --quiet && exit 0
+          git commit -qm "Pilot gesendet: $KANAL"
+          for i in 1 2 3 4 5; do
+            git pull -q --rebase --autostash || exit 1
+            git push -q && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
   fehlermeldung:
     needs: pruefen
     if: always() && inputs.telegram && needs.pruefen.result != 'success' && needs.pruefen.outputs.versand != 'success'

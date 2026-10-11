@@ -1209,5 +1209,61 @@
     "status": "gesperrt",
     "grund": "Video-Note fehlt oder ist ungueltig; Video-Einzelbewertungen fehlen; Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt; Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
     "sekunden": 1096.4
+  },
+  {
+    "id": "38131687462",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-10-11",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "skript_s": 450.4,
+        "bau_s": 540.3,
+        "baufehler": "ValueError: Bildablauf gesperrt: Zu wenig unterschiedliche Motive: 11 statt mindestens 18",
+        "status": "baufehler",
+        "sekunden": 990.7
+      },
+      {
+        "runde": 2,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 0.6,
+        "baufehler": "ValueError: Bildablauf gesperrt: Zu wenig unterschiedliche Motive: 11 statt mindestens 18",
+        "status": "baufehler",
+        "sekunden": 0.6
+      },
+      {
+        "runde": 3,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 369.5,
+        "baufehler": "ValueError: Bildablauf gesperrt: Zu wenig unterschiedliche Motive: 10 statt mindestens 18",
+        "status": "baufehler",
+        "sekunden": 369.5
+      },
+      {
+        "runde": 4,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 0.6,
+        "baufehler": "ValueError: Bildablauf gesperrt: Zu wenig unterschiedliche Motive: 10 statt mindestens 18",
+        "status": "baufehler",
+        "sekunden": 0.6
+      },
+      {
+        "runde": 5,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 499.1,
+        "baufehler": "ValueError: Bildablauf gesperrt: Zu wenig unterschiedliche Motive: 17 statt mindestens 18",
+        "status": "baufehler",
+        "sekunden": 499.1
+      }
+    ],
+    "status": "gesperrt",
+    "grund": "Videobau fehlgeschlagen (ValueError: Bildablauf gesperrt: Zu wenig unterschiedliche Motive: 17 statt mindestens 18)",
+    "sekunden": 1861.1,
+    "upload_titel": "Stop Costly AI Loops: Floe Guard Saves Budgets | AI Tool #1"
   }
 ]

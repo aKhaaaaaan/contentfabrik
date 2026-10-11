@@ -20,7 +20,7 @@
 //   Befehle: Start | Start Business | Start KI | Status (Gesamtfortschritt in %) | Abholen
 
 const REPO = 'aKhaaaaaan/contentfabrik';
-const VERSION = '2026-10-10.1';
+const VERSION = '2026-10-11.1';
 // Zusammengefasste Stunden sparen Trigger: Workers Free hat fuenf pro Konto.
 const VIDEO_CRONS = new Set(['23 8,13 * * *', '41 10,15 * * *',
   '23 8 * * *', '41 10 * * *', '23 13 * * *', '41 15 * * *']);
@@ -234,7 +234,10 @@ export default {
     let job;
     // GEMELDET 10.10.2026: Telegram-Bewertungen/-Themen in ~5 Min. statt alle 4 Std. abholen;
     // der GitHub-Zeitplan lief unzuverlaessig. '7 */4' bleibt als Rueckfall gueltig.
-    if (event.cron === '*/5 * * * *' || event.cron === '7 */4 * * *') job = starte(env, 'themen.yml', {});
+    if (event.cron === '*/5 * * * *' || event.cron === '7 */4 * * *') {
+      // workflow_dispatch allein bedeutet keinen Nutzerstart: Tagesauswertung weiter nur einmal.
+      job = starte(env, 'themen.yml', { automatisch: 'true' });
+    }
     else if (VIDEO_CRONS.has(event.cron)) job = starte(env, 'video.yml', { kanal: 'alle', thema: '' });
     else throw new Error('Unbekannter Contentfabrik-Zeitplan');
     ctx.waitUntil(job.then((t) => console.log(t)));

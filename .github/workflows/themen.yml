@@ -8,6 +8,11 @@ on:
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
+    inputs:
+      automatisch:
+        description: 'Zeitgeber-Abholung ohne wiederholte Tagesauswertung/Trendvorschau'
+        type: boolean
+        default: false
 concurrency:
   group: contentfabrik-themen
   cancel-in-progress: false
@@ -35,6 +40,7 @@ jobs:
         if: github.event_name == 'workflow_dispatch' || github.event.schedule == '*/5 * * * *'
         continue-on-error: true
         env:
+          AUTOMATISCH: ${{ github.event_name != 'workflow_dispatch' || inputs.automatisch }}
           YT_CLIENT: ${{ secrets.YT_CLIENT }}
           YT_TOKENS: ${{ secrets.YT_TOKENS }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -44,7 +50,7 @@ jobs:
           # Einmal je Tag ab 12 Uhr UTC (Markierung in erfolg/, wird mitgesichert) - der 5-Minuten-Takt
           # wuerde sonst die YouTube-Analytics-Abfrage dutzendfach ausloesen.
           heute="$(date -u +%F)"
-          if [ "${{ github.event_name }}" != "workflow_dispatch" ]; then
+          if [ "$AUTOMATISCH" = 'true' ]; then
             [ "$(date -u +%H)" -ge 12 ] || exit 0
             [ "$(cat erfolg/.letzter_abruf 2>/dev/null)" != "$heute" ] || exit 0
           fi
@@ -53,7 +59,7 @@ jobs:
           python3 fabrik/tiktok_schwelle.py || true
           mkdir -p erfolg && echo "$heute" > erfolg/.letzter_abruf
       - name: Trend-Check Vorschau (nur bei manuellem Start, nichts wird gespeichert)
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' && inputs.automatisch != true
         continue-on-error: true
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}

@@ -15639,6 +15639,155 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "38245445769.1:ai-tools-explained",
+      "run_id": "38245445769",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-12T12:00:20.984183+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "a80de9505ddc53057be1fe01e5f8611add5669b9",
+      "produktionsversion": "60dc2f3f5ebb48f78d6d76c17db6131ea73074636e93d4a4fb27d4e184b14651",
+      "videoformat": "short",
+      "thema": "Tony Jaa film career and martial arts training",
+      "titel": [
+        "How *Tony* *Jaa*",
+        "Changed Action Cinema"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38245445769",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-12",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 6/10 unter 7/10",
+              "Skript-spannung 5/10 unter 7/10",
+              "Skript-ueberraschung 4/10 unter 7/10",
+              "Skript-tempo 6/10 unter 7/10",
+              "Skript-aufloesung 6/10 unter 7/10",
+              "Skript-teilbarkeit 5/10 unter 6/10"
+            ],
+            "story_note": 6,
+            "story_schwaechen": [
+              "Sentence: Before acting, Jaa worked as a stuntman for Muay Thai Stunt for 14 years. Why it matters: It lacks a specific example of his stunt work, making it feel like a generic chronological list. Fix: Specify a dangerous stunt he performed during those 14 years to make the beat concrete."
+            ],
+            "skript_probleme": [],
+            "sekunden": 204.8
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "He began training in Muay Thai at age 10: The source states both 'Jaa began training in Muay Thai at age 8' and 'Jaa began training in Muay Thai at his local temple at 10 years old.' Correction: state he began training at age 8 or age 10 to match the sources accurately."
+            ],
+            "sekunden": 32.9
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "\"He began training at age 8\" contradicts the source text, which states: \"Jaa began training in Muay Thai at age 8... Jaa began training in Muay Thai at his local temple at 10 years old.\" Correction: state that he began training at age 8 or 10 according to the respective source mentions, or align with the source's exact age statements.",
+              "[second checker] He began training at age 8 - The source contains conflicting information: the first paragraph states he began training at age 8, but the 'Early life' section explicitly states he began training at his local temple at 10 years old. The text presents the age 8 claim as a definitive fact without acknowledging the discrepancy or the specific context (temple training vs general start)."
+            ],
+            "sekunden": 61.5
+          },
+          {
+            "runde": 4,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "Born in 1976, he began training in Muay Thai at age 10 after watching films by Bruce Lee and Jackie Chan. -> Source says he began training in Muay Thai at age 8 in the first section, and at 10 years old in the early life section. Furthermore, the source states he began training first and watched films by Bruce Lee and Jackie Chan in his youth, but does not establish the exact causal sequence that he began training *after* watching them. Correction: State that he began training in Muay Thai at age 8 or 10."
+            ],
+            "sekunden": 40.8
+          },
+          {
+            "runde": 5,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "Skript ausserhalb der Laenge oder Rangfolge falsch (87 Woerter, 0 Plaetze)"
+            ],
+            "sekunden": 60.9
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "kein Trendsignal abrufbar - alte Reihenfolge der Warteschlange",
+        "grund": "Faktenpruefung nicht bestanden",
+        "sekunden": 402.6,
+        "upload_titel": "How Tony Jaa: Changed Action Cinema | AI Tool #2"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": false,
+        "probleme": [
+          "Skript ausserhalb der Laenge oder Rangfolge falsch (87 Woerter, 0 Plaetze)"
+        ]
+      }
     }
   ]
 }

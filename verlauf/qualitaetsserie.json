@@ -16842,6 +16842,89 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "38317520904.1:ai-tools-explained",
+      "run_id": "38317520904",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-12T22:38:11.094392+00:00",
+      "ereignis": "schedule",
+      "commit": "dda5875bfcf4377e6a78f5946fea7fe8517728e1",
+      "produktionsversion": "ef6057fc5d36661f931d26ee38e8e2bd988a5e5d7146161519cdc6cc173dc1a0",
+      "videoformat": "short",
+      "thema": "Automating Quantitative Investment Research with Qlib",
+      "titel": [
+        "Automating Quant Work",
+        "Microsoft *Qlib* Explained"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 5,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Skript-Note 5/10 unter 7/10",
+        "Skript-hook 5/10 unter 7/10",
+        "Skript-spannung 6/10 unter 7/10",
+        "Skript-ueberraschung 4/10 unter 7/10",
+        "Skript-aufloesung 4/10 unter 7/10",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38317520904",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-12",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 5/10 unter 7/10",
+              "Skript-hook 5/10 unter 7/10",
+              "Skript-spannung 6/10 unter 7/10",
+              "Skript-ueberraschung 4/10 unter 7/10",
+              "Skript-aufloesung 4/10 unter 7/10"
+            ],
+            "story_note": 5,
+            "story_schwaechen": [
+              "The opening line states a result but doesn’t create a clear curiosity gap or specific promise, so viewers may not feel compelled to keep watching; rewrite it as a question or bold claim that hints at how the automation works.",
+              "No genuine \"I did not know that\" moment is presented; add a surprising fact about Qlib’s reinforcement‑learning capability or its speed advantage over traditional pipelines.",
+              "The script never delivers on the hook’s promise of saving hours – it lists features without showing the concrete payoff, leaving the ending unsatisfying; briefly illustrate a before‑and‑after example of time saved.",
+              "The call to action appears correctly, but it is the only CTA and is placed immediately after the last feature, not after a clear payoff; move the CTA to follow the brief resolution of the time‑saving example."
+            ],
+            "skript_probleme": [],
+            "sekunden": 71.2
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sekunden": 75.5,
+        "upload_titel": "Automating Quant Work: Microsoft Qlib Explained | AI Tool #2"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [
+          "A quant researcher just saved hours of manual data processing by automating their entire investment chain. - Source does not provide any evidence that a quant researcher saved hours; the claim of time saved is unsupported."
+        ],
+        "modell": "gemini-3.1-flash-lite",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

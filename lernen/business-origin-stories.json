@@ -1,16 +1,131 @@
 {
-  "stand": "2026-10-10",
+  "stand": "2026-10-12",
   "regeln": [
-    "Begin each video with a vivid, specific visual hook that establishes stakes and draws attention within the first 3 to 5 seconds.",
-    "Use 3 to 5 second distinct, relevant shots for each spoken segment in Shorts; long videos may extend demonstrations but must still align visual changes with narration.",
-    "Show the primary subject prominently; avoid tiny or repeated filler images and never substitute missing content with unrelated stock or background only frames.",
-    "Zooms, crops, subtitle changes, or decorative backgrounds do not count as new motifs, only genuinely different visual content fulfills the motif count.",
-    "Match every visual element, including characters, settings, and props, to the details mentioned in the voice over to prevent mismatched imagery.",
-    "Introduce the correct presenter at the start and bring them back in useful actions throughout the video without limiting their presence to the ending.",
-    "Maintain clear, natural speech flow, eliminate unnatural pauses, and ensure captions sync precisely with narration.",
-    "Integrate the mandatory spoken call to like, share, and save naturally by tying it contextually to the topic rather than treating it as a tacked on addition.",
-    "Prefer original painted in open world game poster style visuals and avoid real game characters, stock clips, or unrelated illustrations.",
-    "Ensure dynamic, context accurate visual clips that directly illustrate the narrated point, avoiding chronological date lists as filler and focusing on causal storytelling.",
-    "Plan motif targets as guidelines rather than retroactive rejections, reducing repeats by adding genuinely different relevant visuals."
+    "Maintain high motif density with at least 18 genuinely distinct shots per Short; never substitute zooms, crops, or subtitle changes for new motifs.",
+    "Feature the specific company name, logo, or tool prominently; ensure signage uses actual names from the script instead of generic placeholders like \"COMPANY\".",
+    "Inspect all imagery for anatomical defects such as distorted faces or extra limbs and ensure settings and props strictly match the script's era and region.",
+    "Introduce the channel-specific presenter in the opening and integrate them into meaningful actions throughout the video rather than confining them to the end.",
+    "Establish a vivid visual hook within the first 3-5 seconds to define the stakes and capture attention immediately.",
+    "Show genuine evidence, such as real tool interfaces and source-supported examples, instead of abstract illustrations or placeholder frames.",
+    "Prioritize causal storytelling with dynamic imagery that illustrates narrated points, avoiding chronological date lists or lifeless documentary holds.",
+    "Ensure every frame, including supporting visuals and CTAs, is strictly relevant to the specific story context rather than using generic filler motifs.",
+    "Follow the painted open-world game poster style exclusively; never use stock clips, unrelated symbol-illustrations, or real game characters.",
+    "Synchronize captions perfectly with clear narration, eliminating gaps, unnatural pauses, or misaligned text across the entire video.",
+    "Integrate mandatory spoken calls to like, share, and save contextually at the correct format-specific positions.",
+    "Maintain continuous narration-image alignment, ensuring every motif change directly supports the spoken script and preserves the painted-world aesthetic."
+  ],
+  "korrekturen": [
+    {
+      "id": "38223287501-4",
+      "datum": "2026-10-12",
+      "vorher": 6,
+      "nachher": 6,
+      "vorher_gesperrt": true,
+      "nachher_gesperrt": true,
+      "sekunden": 1000.0,
+      "aktionen": [
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 4
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 5
+        }
+      ],
+      "einstellungen": {
+        "stimme": "bm_george",
+        "tempo": 1.05,
+        "untertitel_profil": "ruhig",
+        "musik_pegel": null,
+        "effekt_pegel": null
+      },
+      "schwerpunkt": "bild",
+      "kategorien_vorher": {
+        "hook": 6,
+        "bild_passt": 5,
+        "dynamik": 6,
+        "text": 6,
+        "ton_stimme": 6,
+        "tempo": 6,
+        "inhalt": 6,
+        "schluss_loop": 7,
+        "regeln": 6,
+        "story": 6
+      },
+      "kategorien_nachher": {
+        "hook": 9,
+        "bild_passt": 5,
+        "dynamik": 7,
+        "text": 9,
+        "ton_stimme": 9,
+        "tempo": 8,
+        "inhalt": 9,
+        "schluss_loop": 10,
+        "regeln": 5,
+        "story": 9
+      },
+      "auswertbar": true,
+      "prompt_version": "2026-10-10.4",
+      "verbessert": true
+    },
+    {
+      "id": "38223287501-5",
+      "datum": "2026-10-12",
+      "vorher": 6,
+      "nachher": 9,
+      "vorher_gesperrt": true,
+      "nachher_gesperrt": false,
+      "sekunden": 875.9,
+      "aktionen": [
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 5
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 6
+        }
+      ],
+      "einstellungen": {
+        "stimme": "bm_george",
+        "tempo": 1.05,
+        "untertitel_profil": "ruhig",
+        "musik_pegel": null,
+        "effekt_pegel": null
+      },
+      "schwerpunkt": "bild",
+      "kategorien_vorher": {
+        "hook": 9,
+        "bild_passt": 5,
+        "dynamik": 7,
+        "text": 9,
+        "ton_stimme": 9,
+        "tempo": 8,
+        "inhalt": 9,
+        "schluss_loop": 10,
+        "regeln": 5,
+        "story": 9
+      },
+      "kategorien_nachher": {
+        "hook": 9,
+        "bild_passt": 9,
+        "dynamik": 10,
+        "text": 9,
+        "ton_stimme": 9,
+        "tempo": 9,
+        "inhalt": 9,
+        "schluss_loop": 10,
+        "regeln": 9,
+        "story": 9
+      },
+      "auswertbar": true,
+      "prompt_version": "2026-10-10.4",
+      "verbessert": true
+    }
   ]
 }

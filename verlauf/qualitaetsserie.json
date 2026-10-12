@@ -14267,6 +14267,1099 @@
           "Skript ausserhalb der Laenge oder Rangfolge falsch (160 Woerter, 0 Plaetze)"
         ]
       }
+    },
+    {
+      "id": "38223287501.1:business-origin-stories",
+      "run_id": "38223287501",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-12T09:27:28.497039+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "0e182fe127f23614cd920b6e23701c6a3ba78796",
+      "produktionsversion": "acc39cc4a6e45dce5d528f93e98d0ebd64023da7cb4f008c3e2b302ced17a1e4",
+      "videoformat": "short",
+      "thema": "AOL",
+      "titel": [
+        "How *America* *Online*",
+        "Conquered The Net"
+      ],
+      "status": "gesendet",
+      "video_sha256": "72fd84ada7bbe87ee82c847bfbc52ee6e6eea34961d2a3b42cb8c5a0bbd3b40f",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": 9,
+      "prompt_version": "2026-10-10.4",
+      "sperrgruende": [],
+      "einstellungen": 18,
+      "unterschiedliche_motive": 18,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38223287501",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-12",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 6/10 unter 7/10",
+              "Skript-hook 6/10 unter 7/10",
+              "Skript-spannung 5/10 unter 7/10",
+              "Skript-ueberraschung 6/10 unter 7/10",
+              "Skript-aufloesung 6/10 unter 7/10",
+              "Skript-teilbarkeit 5/10 unter 6/10"
+            ],
+            "story_note": 6,
+            "story_schwaechen": [
+              "Sentence: Free trial disks spread everywhere via a massive marketing campaign. Why it matters: It relies on vague corporate speak instead of concrete narrative detail. Fix: Describe how the silver disks flooded mailboxes and magazine covers by the millions."
+            ],
+            "skript_probleme": [],
+            "sekunden": 18.3
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "Skript ausserhalb der Laenge oder Rangfolge falsch (123 Woerter, 0 Plaetze)"
+            ],
+            "sekunden": 152.8
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "skript_s": 167.2,
+            "bau_s": 845.5,
+            "pruefung_s": 46.2,
+            "note": 6,
+            "sperrgruende": [
+              "Video-Note 6/10 unter 7/10",
+              "Video-hook 6/10 unter 7/10",
+              "Video-bild_passt 5/10 unter 7/10",
+              "Video-dynamik 6/10 unter 7/10",
+              "Video-text 6/10 unter 7/10",
+              "Video-ton_stimme 6/10 unter 7/10",
+              "Video-tempo 6/10 unter 7/10",
+              "Video-inhalt 6/10 unter 7/10",
+              "Video-regeln 6/10 unter 7/10",
+              "Video-story 6/10 unter 7/10",
+              "Offenes Problem (mittel): Historische ostasiatische Strassenszene passt thematisch nicht zu CompuServe und Prodigy."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Orus",
+              "stimme": 18.0,
+              "zeitmarken": 4.5,
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 18,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 759.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 18,
+                "motive": 18,
+                "motive_min": 18
+              },
+              "effekte": 11,
+              "rendern": 20.8,
+              "gesamt": 845.2,
+              "videolaenge_s": 42.3,
+              "abschnitte_s": [
+                4.74,
+                6.72,
+                5.22,
+                4.5,
+                5.5,
+                6.4,
+                6.0,
+                3.22
+              ],
+              "woerter": 83
+            },
+            "kategorien": {
+              "hook": 6,
+              "bild_passt": 5,
+              "dynamik": 6,
+              "text": 6,
+              "ton_stimme": 6,
+              "tempo": 6,
+              "inhalt": 6,
+              "schluss_loop": 7,
+              "regeln": 6,
+              "story": 6
+            },
+            "probleme": [
+              {
+                "zeit": "00:24-00:26",
+                "art": "bild_passt_nicht",
+                "schwere": "leicht",
+                "text": "Darstellung zeigt moderne Tablet-Geraete statt historischer Commodore-Heimcomputer."
+              },
+              {
+                "zeit": "00:31-00:32",
+                "art": "bild_passt_nicht",
+                "schwere": "mittel",
+                "text": "Historische ostasiatische Strassenszene passt thematisch nicht zu CompuServe und Prodigy."
+              }
+            ],
+            "sekunden": 1058.9,
+            "status": "geprueft"
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-10.4"
+            },
+            "skript_s": 2.4,
+            "bau_s": 953.4,
+            "pruefung_s": 44.2,
+            "note": 6,
+            "sperrgruende": [
+              "Video-Note 6/10 unter 7/10",
+              "Video-bild_passt 5/10 unter 7/10",
+              "Video-regeln 5/10 unter 7/10",
+              "Offenes Problem (schwer): Der Presenter (Mann im grauen Anzug/Fedora) fehlt am Anfang und erscheint nur am Ende; er muss laut Vorgabe am Anfang eingeführt werden.",
+              "Offenes Problem (mittel): Die Szene zeigt eine japanische Marktszene, während der Text von CompuServe und Prodigy (US-Onlinedienste) spricht.",
+              "Offenes Problem (mittel): Während des CTA werden Spiel- oder Tarotkarten gezeigt, die keinerlei Bezug zur Geschichte von AOL haben."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 18,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 924.3,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 18,
+                "motive": 18,
+                "motive_min": 18
+              },
+              "effekte": 11,
+              "rendern": 21.6,
+              "gesamt": 953.3,
+              "videolaenge_s": 42.3,
+              "abschnitte_s": [
+                4.74,
+                6.72,
+                5.22,
+                4.5,
+                5.5,
+                6.4,
+                6.0,
+                3.22
+              ],
+              "woerter": 83
+            },
+            "kategorien": {
+              "hook": 9,
+              "bild_passt": 5,
+              "dynamik": 7,
+              "text": 9,
+              "ton_stimme": 9,
+              "tempo": 8,
+              "inhalt": 9,
+              "schluss_loop": 10,
+              "regeln": 5,
+              "story": 9
+            },
+            "probleme": [
+              {
+                "zeit": "00:00",
+                "art": "sonstiges",
+                "schwere": "schwer",
+                "text": "Der Presenter (Mann im grauen Anzug/Fedora) fehlt am Anfang und erscheint nur am Ende; er muss laut Vorgabe am Anfang eingeführt werden."
+              },
+              {
+                "zeit": "00:28",
+                "art": "bild_passt_nicht",
+                "schwere": "mittel",
+                "text": "Die Szene zeigt eine japanische Marktszene, während der Text von CompuServe und Prodigy (US-Onlinedienste) spricht."
+              },
+              {
+                "zeit": "00:39",
+                "art": "bild_passt_nicht",
+                "schwere": "mittel",
+                "text": "Während des CTA werden Spiel- oder Tarotkarten gezeigt, die keinerlei Bezug zur Geschichte von AOL haben."
+              },
+              {
+                "zeit": "00:00-00:41",
+                "art": "tempo",
+                "schwere": "leicht",
+                "text": "Mit ca. 17 Motiven wird die Mindestvorgabe von 18 Motiven für diese Videolänge knapp unterschritten."
+              }
+            ],
+            "sekunden": 1000.0,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "38223287501-4",
+              "datum": "2026-10-12",
+              "vorher": 6,
+              "nachher": 6,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 1000.0,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "hook": 6,
+                "bild_passt": 5,
+                "dynamik": 6,
+                "text": 6,
+                "ton_stimme": 6,
+                "tempo": 6,
+                "inhalt": 6,
+                "schluss_loop": 7,
+                "regeln": 6,
+                "story": 6
+              },
+              "kategorien_nachher": {
+                "hook": 9,
+                "bild_passt": 5,
+                "dynamik": 7,
+                "text": 9,
+                "ton_stimme": 9,
+                "tempo": 8,
+                "inhalt": 9,
+                "schluss_loop": 10,
+                "regeln": 5,
+                "story": 9
+              },
+              "auswertbar": true,
+              "prompt_version": "2026-10-10.4",
+              "verbessert": true
+            }
+          },
+          {
+            "runde": 5,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                5,
+                6
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-10.4"
+            },
+            "skript_s": 2.6,
+            "bau_s": 823.6,
+            "pruefung_s": 49.8,
+            "note": 9,
+            "sperrgruende": [],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 18,
+              "bilder_vereinfacht": 3,
+              "clips_und_stuecke": 794.5,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 18,
+                "motive": 18,
+                "motive_min": 18
+              },
+              "effekte": 11,
+              "rendern": 21.3,
+              "gesamt": 823.4,
+              "videolaenge_s": 42.3,
+              "abschnitte_s": [
+                4.74,
+                6.72,
+                5.22,
+                4.5,
+                5.5,
+                6.4,
+                6.0,
+                3.22
+              ],
+              "woerter": 83
+            },
+            "kategorien": {
+              "hook": 9,
+              "bild_passt": 9,
+              "dynamik": 10,
+              "text": 9,
+              "ton_stimme": 9,
+              "tempo": 9,
+              "inhalt": 9,
+              "schluss_loop": 10,
+              "regeln": 9,
+              "story": 9
+            },
+            "probleme": [
+              {
+                "zeit": "00:11",
+                "art": "sonstiges",
+                "schwere": "leicht",
+                "text": "Gesichtszüge des Charakters in der weiten Einstellung leicht verzeichnet"
+              },
+              {
+                "zeit": "00:27",
+                "art": "bild_passt_nicht",
+                "schwere": "leicht",
+                "text": "Das Firmenschild zeigt nur 'COMPANY' anstatt des spezifischen Firmennamens AOL"
+              }
+            ],
+            "sekunden": 875.9,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "38223287501-5",
+              "datum": "2026-10-12",
+              "vorher": 6,
+              "nachher": 9,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": false,
+              "sekunden": 875.9,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "hook": 9,
+                "bild_passt": 5,
+                "dynamik": 7,
+                "text": 9,
+                "ton_stimme": 9,
+                "tempo": 8,
+                "inhalt": 9,
+                "schluss_loop": 10,
+                "regeln": 5,
+                "story": 9
+              },
+              "kategorien_nachher": {
+                "hook": 9,
+                "bild_passt": 9,
+                "dynamik": 10,
+                "text": 9,
+                "ton_stimme": 9,
+                "tempo": 9,
+                "inhalt": 9,
+                "schluss_loop": 10,
+                "regeln": 9,
+                "story": 9
+              },
+              "auswertbar": true,
+              "prompt_version": "2026-10-10.4",
+              "verbessert": true
+            }
+          }
+        ],
+        "status": "gesendet",
+        "trendcheck": "AOL und Time Warner: der grosse Zusammenschluss: 5.02 Punkte - YouTube-Ausreisser 16.2x Kanalschnitt, Wikipedia -12 % gegenueber Vormonat",
+        "grund": "",
+        "sekunden": 3148.6,
+        "upload_titel": "How America Online: Conquered The Net"
+      },
+      "ki_pruefung": {
+        "note": 9,
+        "kategorien": {
+          "hook": 9,
+          "bild_passt": 9,
+          "dynamik": 10,
+          "text": 9,
+          "ton_stimme": 9,
+          "tempo": 9,
+          "inhalt": 9,
+          "schluss_loop": 10,
+          "regeln": 9,
+          "story": 9
+        },
+        "staerken": [
+          "Präzise Einhaltung der 18-Motive-Regel sorgt für eine sehr hohe visuelle Dichte",
+          "Exzellente Umsetzung des Marken-Presenters mit konsistentem Outfit und Fedora",
+          "Spannender Erzählbogen von Atari-Gaming zu Internet-Pionieren",
+          "Korrekte und natürliche Integration der geforderten Like-Share-Save-Aufforderung"
+        ],
+        "probleme": [
+          {
+            "zeit": "00:11",
+            "art": "sonstiges",
+            "schwere": "leicht",
+            "text": "Gesichtszüge des Charakters in der weiten Einstellung leicht verzeichnet"
+          },
+          {
+            "zeit": "00:27",
+            "art": "bild_passt_nicht",
+            "schwere": "leicht",
+            "text": "Das Firmenschild zeigt nur 'COMPANY' anstatt des spezifischen Firmennamens AOL"
+          }
+        ],
+        "fazit": "Ein sehr starker Short, der die Geschichte von AOL visuell ansprechend und inhaltlich schlüssig vermittelt. Die hohe Schlagzahl an Motiven hält die Aufmerksamkeit hoch und der Presenter stärkt den Wiedererkennungswert des Kanals.",
+        "modell": "gemini-3-flash-preview",
+        "prompt_version": "2026-10-10.4",
+        "technik": {
+          "dauer_s": 42.3,
+          "fps": 30.0,
+          "lufs": -14.5,
+          "befunde": []
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 18,
+          "motive": 18,
+          "motive_min": 18
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 39.44,
+              "bis_s": 41.8,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.965
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 22.299999999999997,
+              "bis_s": 42.8,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Could",
+                "s": 0.0,
+                "e": 0.3,
+                "p": 0.908669114112854
+              },
+              {
+                "w": "an",
+                "s": 0.3,
+                "e": 0.42,
+                "p": 0.9836560487747192
+              },
+              {
+                "w": "Atari",
+                "s": 0.42,
+                "e": 0.74,
+                "p": 0.9931881427764893
+              },
+              {
+                "w": "Game",
+                "s": 0.74,
+                "e": 1.22,
+                "p": 0.7008528709411621
+              },
+              {
+                "w": "Console",
+                "s": 1.22,
+                "e": 1.82,
+                "p": 0.8997762799263
+              },
+              {
+                "w": "launch",
+                "s": 1.82,
+                "e": 2.58,
+                "p": 0.9832507967948914
+              },
+              {
+                "w": "an",
+                "s": 2.58,
+                "e": 2.94,
+                "p": 0.9804108738899231
+              },
+              {
+                "w": "internet",
+                "s": 2.94,
+                "e": 3.28,
+                "p": 0.4033236503601074
+              },
+              {
+                "w": "giant?",
+                "s": 3.28,
+                "e": 3.82,
+                "p": 0.9987357258796692
+              },
+              {
+                "w": "In",
+                "s": 4.84,
+                "e": 4.94,
+                "p": 0.9513148665428162
+              },
+              {
+                "w": "1983,",
+                "s": 4.94,
+                "e": 5.74,
+                "p": 0.9970237612724304
+              },
+              {
+                "w": "Control",
+                "s": 6.32,
+                "e": 6.72,
+                "p": 0.887322187423706
+              },
+              {
+                "w": "Video",
+                "s": 6.72,
+                "e": 7.2,
+                "p": 0.9541019201278687
+              },
+              {
+                "w": "Corporation",
+                "s": 7.2,
+                "e": 7.74,
+                "p": 0.9696224331855774
+              },
+              {
+                "w": "offered",
+                "s": 7.74,
+                "e": 8.6,
+                "p": 0.994778037071228
+              },
+              {
+                "w": "game",
+                "s": 8.6,
+                "e": 8.92,
+                "p": 0.7194029092788696
+              },
+              {
+                "w": "line",
+                "s": 8.92,
+                "e": 9.22,
+                "p": 0.7076165676116943
+              },
+              {
+                "w": "for",
+                "s": 9.22,
+                "e": 9.66,
+                "p": 0.9985981583595276
+              },
+              {
+                "w": "Atari",
+                "s": 9.66,
+                "e": 9.96,
+                "p": 0.9967908263206482
+              },
+              {
+                "w": "consoles.",
+                "s": 9.96,
+                "e": 10.48,
+                "p": 0.9696328639984131
+              },
+              {
+                "w": "By",
+                "s": 11.48,
+                "e": 11.58,
+                "p": 0.9977961778640747
+              },
+              {
+                "w": "1985,",
+                "s": 11.58,
+                "e": 12.16,
+                "p": 0.9992325305938721
+              },
+              {
+                "w": "mounting",
+                "s": 12.82,
+                "e": 13.16,
+                "p": 0.9325162768363953
+              },
+              {
+                "w": "debts",
+                "s": 13.16,
+                "e": 13.56,
+                "p": 0.7303868532180786
+              },
+              {
+                "w": "brought",
+                "s": 13.56,
+                "e": 14.02,
+                "p": 0.9938073754310608
+              },
+              {
+                "w": "the",
+                "s": 14.02,
+                "e": 14.2,
+                "p": 0.9909517765045166
+              },
+              {
+                "w": "venture",
+                "s": 14.2,
+                "e": 14.48,
+                "p": 0.9842633605003357
+              },
+              {
+                "w": "near",
+                "s": 14.48,
+                "e": 14.9,
+                "p": 0.9912424087524414
+              },
+              {
+                "w": "bankruptcy.",
+                "s": 14.9,
+                "e": 15.32,
+                "p": 0.9845477938652039
+              },
+              {
+                "w": "Jim",
+                "s": 16.68,
+                "e": 16.68,
+                "p": 0.9728319048881531
+              },
+              {
+                "w": "Kimsey",
+                "s": 16.68,
+                "e": 17.12,
+                "p": 0.7706301212310791
+              },
+              {
+                "w": "took",
+                "s": 17.12,
+                "e": 17.42,
+                "p": 0.9979214072227478
+              },
+              {
+                "w": "over",
+                "s": 17.42,
+                "e": 17.6,
+                "p": 0.998171329498291
+              },
+              {
+                "w": "the",
+                "s": 17.6,
+                "e": 17.72,
+                "p": 0.9944493770599365
+              },
+              {
+                "w": "remnants",
+                "s": 17.72,
+                "e": 17.96,
+                "p": 0.988976776599884
+              },
+              {
+                "w": "and",
+                "s": 17.96,
+                "e": 18.46,
+                "p": 0.9856036901473999
+              },
+              {
+                "w": "founded",
+                "s": 18.46,
+                "e": 18.9,
+                "p": 0.9953118562698364
+              },
+              {
+                "w": "Quantum",
+                "s": 18.9,
+                "e": 19.14,
+                "p": 0.8147931098937988
+              },
+              {
+                "w": "Computer",
+                "s": 19.14,
+                "e": 19.88,
+                "p": 0.9852168560028076
+              },
+              {
+                "w": "Services.",
+                "s": 19.88,
+                "e": 20.36,
+                "p": 0.9887085556983948
+              },
+              {
+                "w": "They",
+                "s": 21.2,
+                "e": 21.28,
+                "p": 0.9968807697296143
+              },
+              {
+                "w": "launched",
+                "s": 21.28,
+                "e": 21.46,
+                "p": 0.9975563287734985
+              },
+              {
+                "w": "Quantum",
+                "s": 21.46,
+                "e": 21.92,
+                "p": 0.9428333640098572
+              },
+              {
+                "w": "Link",
+                "s": 21.92,
+                "e": 22.26,
+                "p": 0.4992554485797882
+              },
+              {
+                "w": "for",
+                "s": 22.26,
+                "e": 22.74,
+                "p": 0.9929619431495667
+              },
+              {
+                "w": "Commodore",
+                "s": 22.74,
+                "e": 23.08,
+                "p": 0.992194652557373
+              },
+              {
+                "w": "Computers",
+                "s": 23.08,
+                "e": 23.8,
+                "p": 0.6850302368402481
+              },
+              {
+                "w": "targeting",
+                "s": 23.8,
+                "e": 24.2,
+                "p": 0.5923056602478027
+              },
+              {
+                "w": "everyday",
+                "s": 24.2,
+                "e": 24.8,
+                "p": 0.8845751881599426
+              },
+              {
+                "w": "home",
+                "s": 24.8,
+                "e": 25.42,
+                "p": 0.9873716831207275
+              },
+              {
+                "w": "users.",
+                "s": 25.42,
+                "e": 25.88,
+                "p": 0.9670131802558899
+              },
+              {
+                "w": "Renamed",
+                "s": 25.88,
+                "e": 27.08,
+                "p": 0.516572616994381
+              },
+              {
+                "w": "America",
+                "s": 27.08,
+                "e": 27.76,
+                "p": 0.7104682326316833
+              },
+              {
+                "w": "Online",
+                "s": 27.76,
+                "e": 28.16,
+                "p": 0.9484177231788635
+              },
+              {
+                "w": "in",
+                "s": 28.16,
+                "e": 28.82,
+                "p": 0.8464533090591431
+              },
+              {
+                "w": "1989,",
+                "s": 28.82,
+                "e": 29.66,
+                "p": 0.9948959946632385
+              },
+              {
+                "w": "it",
+                "s": 30.14,
+                "e": 30.24,
+                "p": 0.9541447758674622
+              },
+              {
+                "w": "grew",
+                "s": 30.24,
+                "e": 30.46,
+                "p": 0.998434841632843
+              },
+              {
+                "w": "past",
+                "s": 30.46,
+                "e": 30.84,
+                "p": 0.9981021285057068
+              },
+              {
+                "w": "CompuServe",
+                "s": 30.84,
+                "e": 31.56,
+                "p": 0.6785899847745895
+              },
+              {
+                "w": "and",
+                "s": 31.56,
+                "e": 31.88,
+                "p": 0.920113742351532
+              },
+              {
+                "w": "Prodigy.",
+                "s": 31.88,
+                "e": 32.26,
+                "p": 0.9722091257572174
+              },
+              {
+                "w": "By",
+                "s": 33.08,
+                "e": 33.1,
+                "p": 0.9730196595191956
+              },
+              {
+                "w": "2000,",
+                "s": 33.1,
+                "e": 33.58,
+                "p": 0.9540597200393677
+              },
+              {
+                "w": "over",
+                "s": 34.0,
+                "e": 34.26,
+                "p": 0.9936887621879578
+              },
+              {
+                "w": "20",
+                "s": 34.26,
+                "e": 34.6,
+                "p": 0.9450831413269043
+              },
+              {
+                "w": "million",
+                "s": 34.6,
+                "e": 34.98,
+                "p": 0.9873043894767761
+              },
+              {
+                "w": "consumers",
+                "s": 34.98,
+                "e": 35.56,
+                "p": 0.9920200705528259
+              },
+              {
+                "w": "relied",
+                "s": 35.56,
+                "e": 36.2,
+                "p": 0.9920137524604797
+              },
+              {
+                "w": "on",
+                "s": 36.2,
+                "e": 36.62,
+                "p": 0.9976525902748108
+              },
+              {
+                "w": "its",
+                "s": 36.62,
+                "e": 36.76,
+                "p": 0.9753138422966003
+              },
+              {
+                "w": "dial",
+                "s": 36.76,
+                "e": 37.0,
+                "p": 0.9708695411682129
+              },
+              {
+                "w": "-up",
+                "s": 37.0,
+                "e": 37.28,
+                "p": 0.9117965698242188
+              },
+              {
+                "w": "internet",
+                "s": 37.28,
+                "e": 37.54,
+                "p": 0.6685120463371277
+              },
+              {
+                "w": "service.",
+                "s": 37.54,
+                "e": 38.18,
+                "p": 0.9929921627044678
+              },
+              {
+                "w": "Be",
+                "s": 39.08,
+                "e": 39.16,
+                "p": 0.9911417961120605
+              },
+              {
+                "w": "sure",
+                "s": 39.16,
+                "e": 39.34,
+                "p": 0.9986359477043152
+              },
+              {
+                "w": "to",
+                "s": 39.34,
+                "e": 39.44,
+                "p": 0.9945808053016663
+              },
+              {
+                "w": "like,",
+                "s": 39.44,
+                "e": 39.66,
+                "p": 0.8215148448944092
+              },
+              {
+                "w": "share,",
+                "s": 39.96,
+                "e": 40.24,
+                "p": 0.9966782331466675
+              },
+              {
+                "w": "and",
+                "s": 40.72,
+                "e": 40.82,
+                "p": 0.9984159469604492
+              },
+              {
+                "w": "save",
+                "s": 40.82,
+                "e": 41.08,
+                "p": 0.9875990152359009
+              },
+              {
+                "w": "this",
+                "s": 41.08,
+                "e": 41.44,
+                "p": 0.9894558787345886
+              },
+              {
+                "w": "video.",
+                "s": 41.44,
+                "e": 41.8,
+                "p": 0.9988359808921814
+              }
+            ],
+            "dauer_s": 42.1973125,
+            "sprache": "en"
+          },
+          "roh_key": "8af0231c28fee85d9c58bd2fdb1aeed0dc4374857126fa6395444f1d66cbb221",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "version": 1,
+          "video_sha256": "72fd84ada7bbe87ee82c847bfbc52ee6e6eea34961d2a3b42cb8c5a0bbd3b40f",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 42.3,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "ki_cache_wiederverwendet": false,
+        "video_sha256": "72fd84ada7bbe87ee82c847bfbc52ee6e6eea34961d2a3b42cb8c5a0bbd3b40f"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [
+          "By 1985, mounting debts brought the venture near bankruptcy. - Source does not mention mounting debts; it only notes the company was near bankruptcy without specifying debt levels, so the claim is unsupported."
+        ],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

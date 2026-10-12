@@ -16157,6 +16157,91 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "38254245235.1:ai-tools-explained",
+      "run_id": "38254245235",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-12T13:15:30.726838+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "17b817b2be577cf1d64d42d561bced983c4063ff",
+      "produktionsversion": "164482d03404463c106359aaa268b5cb370c1004bda879c2cc400e0b03472304",
+      "videoformat": "short",
+      "thema": null,
+      "titel": null,
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38254245235",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-12",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "Skript fehlgeschlagen (Code 1)",
+            "sekunden": 6.0
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "Skript fehlgeschlagen (Code 1)",
+            "sekunden": 1.7
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "Skript fehlgeschlagen (Code 1)",
+            "sekunden": 1.2
+          },
+          {
+            "runde": 4,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "Skript fehlgeschlagen (Code 1)",
+            "sekunden": 1.1
+          },
+          {
+            "runde": 5,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "Skript fehlgeschlagen (Code 1)",
+            "sekunden": 1.1
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Skript fehlgeschlagen (Code 1)",
+        "sekunden": 11.3
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": null
     }
   ]
 }

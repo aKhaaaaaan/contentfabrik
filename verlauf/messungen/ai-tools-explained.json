@@ -2310,5 +2310,61 @@
     "status": "gesperrt",
     "grund": "Skript fehlgeschlagen (Code 1)",
     "sekunden": 11.3
+  },
+  {
+    "id": "38255371835",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-10-12",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 42.0,
+        "baufehler": "AnbieterNichtVerfuegbar: Textanbieter voruebergehend nicht verfuegbar: Groq voruebergehend gesperrt: HTTP429; Serverfrist 665s",
+        "status": "baufehler",
+        "sekunden": 42.1
+      },
+      {
+        "runde": 2,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 24.4,
+        "baufehler": "AnbieterNichtVerfuegbar: Textanbieter voruebergehend nicht verfuegbar: Groq voruebergehend gesperrt: HTTP429; Serverfrist 665s",
+        "status": "baufehler",
+        "sekunden": 24.4
+      },
+      {
+        "runde": 3,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 24.3,
+        "baufehler": "RuntimeError: Text-Ausweichweg nicht verfuegbar: Auftrag zu gross fuer das kostenlose Groq-Minutenkontingent",
+        "status": "baufehler",
+        "sekunden": 24.3
+      },
+      {
+        "runde": 4,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 24.4,
+        "baufehler": "RuntimeError: Text-Ausweichweg nicht verfuegbar: Auftrag zu gross fuer das kostenlose Groq-Minutenkontingent",
+        "status": "baufehler",
+        "sekunden": 24.4
+      },
+      {
+        "runde": 5,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 24.4,
+        "baufehler": "RuntimeError: Text-Ausweichweg nicht verfuegbar: Auftrag zu gross fuer das kostenlose Groq-Minutenkontingent",
+        "status": "baufehler",
+        "sekunden": 24.4
+      }
+    ],
+    "status": "gesperrt",
+    "grund": "Videobau fehlgeschlagen (RuntimeError: Text-Ausweichweg nicht verfuegbar: Auftrag zu gross fuer das kostenlose Groq-Minutenkontingent)",
+    "sekunden": 139.7,
+    "upload_titel": "Stop Runaway AI Spend: Before Ceilings Break | AI Tool #2"
   }
 ]

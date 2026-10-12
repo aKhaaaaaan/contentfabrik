@@ -16242,6 +16242,106 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "38255371835.1:ai-tools-explained",
+      "run_id": "38255371835",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-12T13:27:24.716516+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "b12f607fab54d6d5513bd7acf46d8ad4caf2bc3e",
+      "produktionsversion": "09afbf999e5593ef3140b7c5bb9f5e2ef785aa9b64ba3f27ea6281ff8d2124eb",
+      "videoformat": "short",
+      "thema": "Floe Guard AI Spend Meter",
+      "titel": [
+        "Stop Runaway *AI* *Spend*",
+        "Before Ceilings Break"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38255371835",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-12",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 42.0,
+            "baufehler": "AnbieterNichtVerfuegbar: Textanbieter voruebergehend nicht verfuegbar: Groq voruebergehend gesperrt: HTTP429; Serverfrist 665s",
+            "status": "baufehler",
+            "sekunden": 42.1
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 24.4,
+            "baufehler": "AnbieterNichtVerfuegbar: Textanbieter voruebergehend nicht verfuegbar: Groq voruebergehend gesperrt: HTTP429; Serverfrist 665s",
+            "status": "baufehler",
+            "sekunden": 24.4
+          },
+          {
+            "runde": 3,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 24.3,
+            "baufehler": "RuntimeError: Text-Ausweichweg nicht verfuegbar: Auftrag zu gross fuer das kostenlose Groq-Minutenkontingent",
+            "status": "baufehler",
+            "sekunden": 24.3
+          },
+          {
+            "runde": 4,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 24.4,
+            "baufehler": "RuntimeError: Text-Ausweichweg nicht verfuegbar: Auftrag zu gross fuer das kostenlose Groq-Minutenkontingent",
+            "status": "baufehler",
+            "sekunden": 24.4
+          },
+          {
+            "runde": 5,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 24.4,
+            "baufehler": "RuntimeError: Text-Ausweichweg nicht verfuegbar: Auftrag zu gross fuer das kostenlose Groq-Minutenkontingent",
+            "status": "baufehler",
+            "sekunden": 24.4
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Videobau fehlgeschlagen (RuntimeError: Text-Ausweichweg nicht verfuegbar: Auftrag zu gross fuer das kostenlose Groq-Minutenkontingent)",
+        "sekunden": 139.7,
+        "upload_titel": "Stop Runaway AI Spend: Before Ceilings Break | AI Tool #2"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [
+          "AI agents can drain your budget on a single runaway loop. - The source does not explicitly state that AI agents can drain a budget on a single runaway loop; it only describes a demo of a runaway loop and that floe‑guard can stop it, so the claim is an unsupported extrapolation."
+        ],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

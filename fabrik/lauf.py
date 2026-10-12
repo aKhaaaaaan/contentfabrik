@@ -301,7 +301,11 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                     r = 0
             if r != 0:
                 letzter_grund = ('Faktenpruefung nicht bestanden' if r == 2 else
-                                'Skriptqualitaet unter Freigabe' if r == 3 else f'Skript fehlgeschlagen (Code {r})')
+                                'Skriptqualitaet unter Freigabe' if r == 3 else
+                                'Textanbieter voruebergehend gesperrt' if r == 4 else f'Skript fehlgeschlagen (Code {r})')
+                if r == 4 and (ordner / 'skriptfehler.json').exists():
+                    letzter_grund = json.loads((ordner / 'skriptfehler.json').read_text(encoding='utf-8')).get(
+                        'grund', letzter_grund)
                 print(f'Versuch {versuch}: {letzter_grund}')
                 runde['status'] = 'skriptfehler'
                 runde.update(exitcode=r, grund=letzter_grund)
@@ -317,6 +321,9 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                     verlauf_eintragen(kanal, abgelehnt,
                                       'faktenpruefung' if r == 2 else 'skriptqualitaet' if r == 3 else 'skriptfehler', None,
                                       grund='; '.join((runde['sperrgruende'] or [])[:2] + runde['skript_probleme'][:2]))
+                if r == 4:
+                    runde['status'] = 'anbieterpause'
+                    break  # Eine bekannte Kontingentsperre nicht durch neue Entwuerfe wiederholen.
                 if entwurf:
                     break  # Eine gesperrte feste Vorlage nicht unveraendert erneut pruefen.
                 continue

@@ -110,6 +110,10 @@ def groq_schema(schema):
     return d
 
 
+class GroqKontingentFehler(RuntimeError):
+    """Befristete Kontingentsperre, getrennt von inhaltlichen/schema Fehlern."""
+
+
 def groq_wartezeit(headers, detail):
     """Serverfrist beachten: Tages-Tokenlimit kann sich schon nach Minuten erholen."""
     fristen = []
@@ -133,7 +137,7 @@ def groq(prompt, schema, ausgabe_tokens=3840, deadline=None):
     cache_modell = 'groq:' + GROQ_MODELL
     gesperrt = ki_speicher.sperre(key, cache_modell)
     if gesperrt:
-        raise RuntimeError('Groq voruebergehend gesperrt: ' + gesperrt)
+        raise GroqKontingentFehler('Groq voruebergehend gesperrt: ' + gesperrt)
     auftrag = prompt
     ausgabeformat = {'type': 'json_schema', 'json_schema': {
         'name': 'contentfabrik_antwort', 'strict': True, 'schema': groq_schema(schema)}}
@@ -208,7 +212,7 @@ def groq(prompt, schema, ausgabe_tokens=3840, deadline=None):
                 if versuch or warte > 60 or warte + 5 >= ende - time.monotonic():
                     grund = f'HTTP429; Serverfrist {warte}s'
                     ki_speicher.sperren(key, cache_modell, grund, warte)
-                    raise RuntimeError('Groq-Kontingent nicht verfuegbar: ' + grund) from None
+                    raise GroqKontingentFehler('Groq-Kontingent nicht verfuegbar: ' + grund) from None
                 time.sleep(warte)
                 continue
             raise RuntimeError(f'Groq HTTP {e.code}: {detail}') from None

@@ -32,6 +32,10 @@ VERBRAUCH = {}  # modell -> [anfragen, tokens_rein, tokens_raus]
 WIEDERVERWENDET = 0
 
 
+class AnbieterNichtVerfuegbar(RuntimeError):
+    """Textanbieter derzeit gesperrt; ein neuer Entwurf behebt das nicht."""
+
+
 def _verbrauch_melden():
     if VERBRAUCH:
         print('Gemini-Verbrauch: ' + '; '.join(f'{m}: {a} Anfragen, {r // 1000}k rein, {o // 1000}k raus'
@@ -76,6 +80,9 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(),
     try:
         antwort, _, _ = av.groq(prompt, schema, ausgabe_tokens=ausgabe, deadline=ende)
     except (RuntimeError, ValueError, OSError) as e:
+        if isinstance(e, av.GroqKontingentFehler):
+            raise AnbieterNichtVerfuegbar('Textanbieter voruebergehend nicht verfuegbar: '
+                                         + av.fehlertext(e)) from None
         raise RuntimeError('Text-Ausweichweg nicht verfuegbar: ' + av.fehlertext(e)) from None
     antwort, _ = ki_speicher.bereinigen(antwort, schema)  # falsche Nebenfelder kosten nicht die Antwort
     if not ki_speicher.schema_ok(antwort, schema):
@@ -420,12 +427,18 @@ def laengenkorrektur(entwurf, mindest, hoechstens):
     """Entwurf gezielt anpassen, ohne eine unerreichbare Mindestlaenge zu fordern."""
     zahl = sum(len(t['text'].split()) for t in entwurf['teile'])
     ziel = (mindest + hoechstens) // 2
+    # Die Reparatur betrifft Sprache, nicht alte Bildregie. Ganze Szenen/Metadaten
+    # sprengten am12.10. das Groq-Minutenbudget nach einem sonst gueltigen Erstauftrag.
+    basis = {k: entwurf[k] for k in ('thema', 'titel_zeile1', 'titel_zeile2') if k in entwurf}
+    basis['teile'] = [{k: t[k] for k in ('text', 'platz', 'name', 'werkzeug', 'quelle_url') if k in t}
+                      for t in entwurf['teile']]
     return (f'\nYour draft has {zahl} spoken words. Revise THIS draft to about {ziel} spoken words; '
             f'the hard allowed range is {mindest}-{hoechstens}, including the final engagement request. '
             'Count only whitespace-separated words in parts.text, not scene directions, titles or metadata. '
             'Preserve the supported claims and payoff. Expand with supported practical context when short; '
             'remove repetition and secondary details when long. Never add unsupported facts or filler. '
-            'Return the complete revised JSON.\nPREVIOUS DRAFT:\n' + json.dumps(entwurf, ensure_ascii=False))
+            'Regenerate the scene directions and metadata in the complete revised JSON.\nPREVIOUS DRAFT:\n'
+            + json.dumps(basis, ensure_ascii=False))
 
 
 def anweisung(kanal, thema, frueher):
@@ -951,4 +964,11 @@ def main(kanal_pfad, aus_pfad, thema=None):
 
 
 if __name__ == '__main__':
-    main(sys.argv[1], sys.argv[2], (sys.argv[3] if len(sys.argv) > 3 else '') or None)
+    try:
+        main(sys.argv[1], sys.argv[2], (sys.argv[3] if len(sys.argv) > 3 else '') or None)
+    except AnbieterNichtVerfuegbar as e:
+        fehler = Path(sys.argv[2]).with_name('skriptfehler.json')
+        fehler.parent.mkdir(parents=True, exist_ok=True)
+        fehler.write_text(json.dumps({'status': 'anbieterpause', 'grund': str(e)}, ensure_ascii=False), encoding='utf-8')
+        print(str(e), file=sys.stderr)
+        sys.exit(4)

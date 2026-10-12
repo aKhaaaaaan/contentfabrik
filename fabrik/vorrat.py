@@ -83,6 +83,10 @@ def nehmen(kanal_pfad, thema=''):
     daten = _kanal_daten(kanal_pfad)
     for pfad, e in eintraege(kanal):
         if (e.get('thema_eingabe') or '') == (thema or '') and gueltig(e, daten):
+            import trends
+            if not thema and daten.get('nur_quellen') and trends.bereits_gezeigte_quellen(kanal, e['skript']):
+                print('Vorrat uebersprungen: Quelle bereits gesendet:', e['skript'].get('thema'))
+                continue
             ziel = Path('vorrat-nutzung') / kanal
             shutil.rmtree(ziel, ignore_errors=True)
             ziel.mkdir(parents=True)

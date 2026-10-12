@@ -140,6 +140,7 @@ def verlauf_eintragen(kanal, skript, status, note, abschnitte=None, messung=None
     story = skript.get('story') or {}
     v.append({'datum': heute, 'thema': skript['thema'], 'titel': skript['titel'],
               'status': status, 'note': note, 'hook': erster,
+              'quellen': skript.get('quellen', []),
               'einstellungen': {'stimme': skript.get('stimme'), 'winkel': skript.get('winkel'),
                                 'format': skript.get('format'), 'hook_art': art, 'teile': len(teile),
                                 'videoformat': skript.get('videoformat', 'short'),
@@ -362,6 +363,9 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                 runde['baufehler'] = detail or letzter_grund
                 verlauf_eintragen(kanal, skript, 'baufehler', None, grund=detail or letzter_grund)
                 runde['status'] = 'baufehler'
+                if b == 4:
+                    runde['status'] = 'anbieterpause'
+                    break  # Bekannte Anbietersperre gilt auch fuer die Bildplanung.
                 if basis or kontingent_leer:
                     break
                 if detail and detail == letzter_baufehler:

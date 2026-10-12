@@ -50,6 +50,19 @@ def slots(s, laengen, woerter):
 ETAPPE = 30
 
 
+def aktuelles_feedback(regeln, maximal=2500):
+    """Neueste optionale Redaktionshinweise, ganze Eintraege im Textbudget."""
+    aus, zeichen = [], 0
+    for regel in reversed(regeln):
+        if not isinstance(regel, str):
+            continue
+        if zeichen + len(regel) > maximal:
+            break
+        aus.append(regel)
+        zeichen += len(regel)
+    return list(reversed(aus))
+
+
 def etappen(zeitplan, groesse=ETAPPE):
     """GEMESSEN 08.10.2026 (Langvideo-Pilot 37826232160): fuer ~80 Einstellungen lieferte das
     Lite-Modell nur 24 -> 'deckt nicht alle Sprechphasen ab', Versuch verloren. Lange Plaene
@@ -106,12 +119,16 @@ def bezug_pruefen(gemini, teil, daten):
     return daten, ersetzt
 
 
-def _planen(gemini, modelle, auftrag, indizes):
+def _planen(gemini, modelle, auftrag, indizes, fallback_prompt=None):
     """Ein Bildplan-Auftrag; bei Ueberlast oder unvollstaendiger Antwort genau ein neuer Versuch."""
     import time
+    from skript import AnbieterNichtVerfuegbar
     for runde in range(2):
         try:
-            d, modell = gemini(auftrag, SCHEMA, modelle=modelle)
+            d, modell = gemini(auftrag, SCHEMA, modelle=modelle,
+                              **({'fallback_prompt': fallback_prompt} if fallback_prompt is not None else {}))
+        except AnbieterNichtVerfuegbar:
+            raise  # Eine bekannte Sperre ist keine voruebergehende Netzstoerung.
         except RuntimeError as e:
             # GEMESSEN 08.10.2026 (Lauf 37784030675): Gemini kurz ueberlastet, der Groq-Ausweg
             # war fuer den Bildplan zu gross -> Bau weg. Nach kurzer Pause Gemini erneut.
@@ -238,10 +255,21 @@ def vorbereiten(s, laengen, woerter, cache=None):
                 'illustration_library': [b for b in bibliothek.katalog() if b['kanal'] == s.get('kanal')]
                                         if dramaturgie.videoformat(s) == 'short' else [],
                 'editorial_feedback': lernen.redaktionsregeln()}
+        # Groq braucht die Bildregie, nicht lokale Dateipfade, Hashes/Sichtkontrollnotizen
+        # oder mehrfach wiederholte Phasentexte in jedem Slot. Regeln/Fakten erhalten.
+        kompakt = dict(kontext,
+            phases=[{k: t[k] for k in ('text', 'szene', 'werkzeug', 'quelle_url', 'demo_url', 'bildmodus', 'figur')
+                     if k in t} for t in s['teile']],
+            illustration_library=[{k: b[k] for k in ('id', 'motiv') if k in b}
+                                  for b in kontext['illustration_library']],
+            editorial_feedback=aktuelles_feedback(kontext['editorial_feedback']))
         daten = []
         for teil in etappen(zeitplan):
+            fallback = auftrag + json.dumps(dict(kompakt, slots=[{
+                k: x[k] for k in ('index', 'phase', 'text', 'dauer_s') if k in x}
+                for x in teil]), ensure_ascii=False, separators=(',', ':'))
             neu = _planen(gemini, PLANEN, auftrag + json.dumps(dict(kontext, slots=teil), ensure_ascii=False),
-                          [x['index'] for x in teil])
+                          [x['index'] for x in teil], fallback_prompt=fallback)
             neu, _ = bezug_pruefen(gemini, teil, neu)
             daten += neu
     if len(daten) != len(zeitplan) or [d.get('index') for d in daten] != list(range(len(zeitplan))):

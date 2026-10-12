@@ -315,8 +315,35 @@ def gezeigte_themen(kanal_slug, tage=30, heute=None):
         p = json.loads(open(f'verlauf/piloten/{kanal_slug}.json', encoding='utf-8').read())
     except (OSError, ValueError):
         p = []
-    return [str(e.get('thema', '')).lower() for e in v if e.get('status') == 'gesendet' and e.get('datum', '') >= grenze] \
-        + [str(e.get('thema', '')).lower() for e in p if e.get('datum', '') >= grenze]
+    gesehen = [e for e in v if e.get('status') == 'gesendet' and e.get('datum', '') >= grenze] \
+        + [e for e in p if e.get('datum', '') >= grenze]
+    # Quellen bleiben bei einer Umbenennung des Themas stabil. Bestehende Namens-
+    # heuristik weiterverwenden und fruehere Quellen schon vor der Recherche meiden.
+    return [str(e.get('thema', '')).lower() for e in gesehen] \
+        + [u.lower() for e in gesehen for u in (e.get('quellen') or []) if isinstance(u, str)]
+
+
+def bereits_gezeigte_quellen(kanal_slug, skript, tage=30, heute=None):
+    """Gleiche belegte Quelle auch bei anderem Titel erkennen, nur gesendete Inhalte."""
+    def normal(url):
+        if not isinstance(url, str):
+            return ''
+        p = urllib.parse.urlsplit(url)
+        return (p.netloc.lower() + p.path.rstrip('/')).casefold() if p.scheme in ('http', 'https') else ''
+    gesucht = {normal(u) for u in skript.get('quellen', [])} - {''}
+    if not gesucht:
+        return False
+    grenze = ((heute or datetime.date.today()) - datetime.timedelta(days=tage)).isoformat()
+    for pfad, pilot in [(f'verlauf/{kanal_slug}.json', False), (f'verlauf/piloten/{kanal_slug}.json', True)]:
+        try:
+            liste = json.loads(open(pfad, encoding='utf-8').read())
+        except (OSError, ValueError):
+            continue
+        for e in liste:
+            if e.get('datum', '') >= grenze and (pilot or e.get('status') == 'gesendet') \
+                    and gesucht.intersection(normal(u) for u in e.get('quellen', [])):
+                return True
+    return False
 
 
 def pilot_eintragen(kanal_slug, skript_pfad, heute=None):
@@ -330,6 +357,7 @@ def pilot_eintragen(kanal_slug, skript_pfad, heute=None):
         liste = []
     titel = skript.get('titel')
     liste.append({'datum': (heute or datetime.date.today()).isoformat(), 'thema': skript.get('thema', ''),
+                  'quellen': skript.get('quellen', []),
                   'titel': ' '.join(titel) if isinstance(titel, list) else titel})
     with open(pfad, 'w', encoding='utf-8') as f:
         f.write(json.dumps(liste, indent=1, ensure_ascii=False) + '\n')
@@ -339,6 +367,9 @@ def schon_gezeigt(q, gezeigt):
     """GEMESSEN 10.10.2026 (Pilot 38062320498): Der Finanz-Schwerpunkt waehlte erneut Aurelio
     (am 09.10. gesendet, Nutzer 6/10) - fuenf Versuche, Story 4-6/10. Ein Werkzeug, zu dem
     kuerzlich ein Video ging, ist kein neues Thema."""
+    url = (q.get('url') or '').split('?', 1)[0].split('#', 1)[0].rstrip('/').lower()
+    if url and any(t.split('?', 1)[0].split('#', 1)[0].rstrip('/').lower() == url for t in gezeigt):
+        return True
     # Repo „aurelio-finance", Video „Aurelio, a self-hosted ..." -> das markante erste Namenswort zaehlt.
     woerter = [w for w in re.findall(r'[a-z0-9]+', q.get('name', '').split('/')[-1].lower())
                if len(w) >= 4 and w not in ALLGEMEINE_NAMENSWOERTER]

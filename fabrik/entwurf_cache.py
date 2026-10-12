@@ -26,6 +26,10 @@ def laden(kanal, profil, thema):
     try:
         d = json.loads(meta.read_text(encoding='utf-8'))
         s = d['skript']
+        import trends
+        profil_daten = json.loads(Path(profil).read_text(encoding='utf-8'))
+        if not thema and profil_daten.get('nur_quellen') and trends.bereits_gezeigte_quellen(kanal, s):
+            return None
         if d['version'] != 1 or d['thema_eingabe'] != thema or d['profil'] != profil_key(profil) \
                 or not 0 <= time.time() - d['erstellt'] <= TTL or skript_gruende(s) \
                 or d['skript_sha'] != ki_speicher.hashwert(s):

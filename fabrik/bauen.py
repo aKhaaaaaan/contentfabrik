@@ -1947,4 +1947,7 @@ if __name__ == '__main__':
                     f'{type(fehler).__name__}: {str(fehler)[:300]}', encoding='utf-8')
             except OSError:
                 pass
+        from skript import AnbieterNichtVerfuegbar
+        if isinstance(fehler, AnbieterNichtVerfuegbar):
+            sys.exit(4)  # Tageslauf darf diese Sperre nicht als neuen Bauversuch behandeln.
         raise

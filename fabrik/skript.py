@@ -55,19 +55,13 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(),
                   antwort_s=antwort_s)
     fallback = os.environ.get('CF_TEXT_FALLBACK') == 'groq' and not bilder and not dateien
     try:
-        return _gemini(prompt, schema, **kwargs, anfrage_s=12 if fallback else max(180, 3 * antwort_s))
+        return _gemini(prompt, schema, **kwargs, anfrage_s=30 if fallback else max(180, 3 * antwort_s))
     except RuntimeError as e:
         if not fallback or 'abgelehnt' in str(e):
             raise
     import autorenvergleich as av
     prompt = fallback_prompt if fallback_prompt is not None else prompt
     global WIEDERVERWENDET
-    modell = 'groq:' + av.GROQ_MODELL
-    key = ki_speicher.cache_key(prompt, schema, [modell], temperatur, cache) if cache else None
-    treffer = ki_speicher.cache_lesen(key, schema, [modell]) if key else None
-    if treffer:
-        WIEDERVERWENDET += 1
-        return treffer
     if float(os.environ.get('CF_SCHRITT_ENDE', 'inf')) <= time.monotonic():
         raise RuntimeError('Text-Ausweichweg: Schrittfrist erreicht')
     if not os.environ.get('GROQ_API_KEY'):
@@ -77,22 +71,35 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(),
     # GPT-OSS rechnet interne Reasoning-Tokens ins Completion-Limit ein,
     # auch bei include_reasoning=False. Die reale Reparatur mit 2048 war unvollstaendig.
     ausgabe = 1536 if any(k in schema.get('properties', {}) for k in ('probleme', 'schwaechen')) else 3072
-    try:
-        antwort, _, _ = av.groq(prompt, schema, ausgabe_tokens=ausgabe, deadline=ende)
-    except (RuntimeError, ValueError, OSError) as e:
-        if isinstance(e, av.GroqKontingentFehler):
-            raise AnbieterNichtVerfuegbar('Textanbieter voruebergehend nicht verfuegbar: '
-                                         + av.fehlertext(e)) from None
-        raise RuntimeError('Text-Ausweichweg nicht verfuegbar: ' + av.fehlertext(e)) from None
-    antwort, _ = ki_speicher.bereinigen(antwort, schema)  # falsche Nebenfelder kosten nicht die Antwort
-    if not ki_speicher.schema_ok(antwort, schema):
-        raise RuntimeError('Text-Ausweichweg lieferte kein vollstaendiges Schema')
-    if key:
+    letzter = None
+    for groq_modell in av.GROQ_TEXT_MODELLE:
+        modell = 'groq:' + groq_modell
+        key = ki_speicher.cache_key(prompt, schema, [modell], temperatur, cache) if cache else None
+        treffer = ki_speicher.cache_lesen(key, schema, [modell]) if key else None
+        if treffer:
+            WIEDERVERWENDET += 1
+            return treffer
         try:
-            ki_speicher.cache_schreiben(key, antwort, modell, schema)
-        except OSError:
-            print('Text-Pruefcache nicht gesichert; frisches Ergebnis bleibt erhalten')
-    return antwort, modell
+            if ende <= time.monotonic():
+                raise AnbieterNichtVerfuegbar('Text-Ausweichweg: Schrittfrist erreicht')
+            antwort, _, _ = av.groq(prompt, schema, ausgabe_tokens=ausgabe, deadline=ende,
+                                   **({'modell': groq_modell} if groq_modell != av.GROQ_MODELL else {}))
+        except av.GroqKontingentFehler as e:
+            letzter = av.fehlertext(e)
+            print(f'Text-Ausweichweg: {groq_modell} gesperrt; naechstes geprueftes Modell', flush=True)
+            continue
+        except (RuntimeError, ValueError, OSError) as e:
+            raise RuntimeError('Text-Ausweichweg nicht verfuegbar: ' + av.fehlertext(e)) from None
+        antwort, _ = ki_speicher.bereinigen(antwort, schema)
+        if not ki_speicher.schema_ok(antwort, schema):
+            raise RuntimeError('Text-Ausweichweg lieferte kein vollstaendiges Schema')
+        if key:
+            try:
+                ki_speicher.cache_schreiben(key, antwort, modell, schema)
+            except OSError:
+                print('Text-Pruefcache nicht gesichert; frisches Ergebnis bleibt erhalten')
+        return antwort, modell
+    raise AnbieterNichtVerfuegbar('Textanbieter voruebergehend nicht verfuegbar: ' + (letzter or 'keine Reserve'))
 
 
 def _gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(), cache=None, anfrage_s=180,
@@ -478,6 +485,7 @@ def groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens):
            'After the final payoff speak exactly ONCE: Be sure to like, share and save this video.')
     return (prompts.DATEN + prompts.FAKTEN + prompts.SPRECHEN
         + f'Write an original English video in {mindest}-{hoechstens} spoken words. '
+        + prompts.wortplan(kanal, f'{mindest}-{hoechstens}')
         + ('Use 24-50 unranked beats. ' if dramaturgie.videoformat(kanal) == 'lang' else
            'Use 6-8 short beats. Distribute the spoken-word budget across them; '
            'do not apply a separate per-beat word quota. Count narration only. ')
@@ -597,7 +605,10 @@ def main(kanal_pfad, aus_pfad, thema=None):
     # Gesprochen werden ~2.2-2.4 Woerter/s; 2.4 entspricht Codex' Groq-Vorgabe 198-216.
     pmin = kanal.get('plaetze', [5, 7])[0]
     woerter_von = lambda e: sum(len(t['text'].split()) for t in e['teile'])
+    import skript_entwurf
+    erste_fassung = True
     def schreiben(auftrag):
+        nonlocal erste_fassung
         # GEMESSEN: Auch die Ueberarbeitung nach der Faktenpruefung kuerzte
         # das Skript (45 s Video) - darum gilt die Mindestlaenge fuer JEDEN Entwurf.
         # GEMESSEN: Eine Nachbesserung reichte nicht (147 Woerter = 56,8 s).
@@ -610,10 +621,18 @@ def main(kanal_pfad, aus_pfad, thema=None):
             # 1620 s, kein Video an zwei Tagen. Claude (Abo des Nutzers, eigenes Kontingent)
             # schreibt zuerst; Fakten-/Storypruefung bleiben bei Gemini/Groq (Autor != Pruefer).
             e, m = None, None
+            fortgesetzt = False
+            if erste_fassung:
+                erste_fassung = False
+                gespeichert = skript_entwurf.laden(kanal_pfad, thema, quellen, SKRIPT_SCHEMA)
+                if gespeichert:
+                    e, m = gespeichert
+                    fortgesetzt = True
+                    print('Ungeprueften Skriptentwurf fortsetzen; alle Fakten-/Storypruefungen bleiben erforderlich', flush=True)
             import claude_ki
             if versuch == 0 and claude_ki.pause():
                 print(claude_ki.pause() + '; weiter mit Gemini/Groq', flush=True)
-            if claude_ki.verfuegbar():
+            if e is None and claude_ki.verfuegbar():
                 rest = float(os.environ.get('CF_SCHRITT_ENDE', 'inf')) - time.monotonic()
                 e, m = claude_ki.schreiben(auftrag + zusatz_, SKRIPT_SCHEMA, zeit=int(max(60, min(240, rest - 30))))
                 if e is not None:
@@ -634,6 +653,11 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 # JSON nicht - 3.8-flash/3.5-flash liefen jedes Mal in TimeoutError. Langvideo: 150 s.
                 e, m = gemini(auftrag + zusatz_, SKRIPT_SCHEMA, antwort_s=150 if lang else 45,
                              fallback_prompt=groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens) + zusatz_)
+            if not fortgesetzt:
+                try:
+                    skript_entwurf.sichern(kanal_pfad, thema, quellen, SKRIPT_SCHEMA, e, m)
+                except OSError:
+                    print('Ungepruefter Autorenentwurf nicht gesichert; Pruefungen bleiben aktiv', flush=True)
             ranking = kanal.get('format', 'ranking') == 'ranking'
             if not ranking:
                 for teil in e['teile']:
@@ -961,6 +985,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
     if gruende:
         print('SKRIPTQUALITAET NICHT BESTANDEN: ' + '; '.join(gruende), file=sys.stderr)
         sys.exit(3)
+    skript_entwurf.erledigen(kanal_pfad)
 
 
 if __name__ == '__main__':

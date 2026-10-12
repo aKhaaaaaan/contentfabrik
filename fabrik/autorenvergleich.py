@@ -28,6 +28,7 @@ from qualitaet import redaktion, STORY_KATEGORIEN
 AUTOREN = ('gemini', 'groq')
 VERSION = '2026-10-06.4'
 GROQ_MODELL = 'openai/gpt-oss-120b'
+GROQ_TEXT_MODELLE = (GROQ_MODELL, 'openai/gpt-oss-20b')  # beide produktiv/Strict-JSON,12.10.geprueft
 GEMINI_MODELLE = [m for m in skript.MODELLE if 'lite' not in m.lower()]
 AUTOR_SCHEMA = {'type': 'OBJECT', 'properties': {
     'thema': {'type': 'STRING'}, 'titel_zeile1': {'type': 'STRING'},
@@ -38,6 +39,7 @@ AUTOR_SCHEMA = {'type': 'OBJECT', 'properties': {
 PRUEF_SCHEMA = {'type': 'OBJECT', 'properties': {
     'fakten': skript.PRUEF_SCHEMA, 'story': skript.STORY_SCHEMA}, 'required': ['fakten', 'story']}
 GROQ_VERBRAUCH = []
+GROQ_MODELL_VERBRAUCH = {}
 
 
 def fehlertext(fehler):
@@ -132,9 +134,12 @@ def groq_wartezeit(headers, detail):
     return min(ki_speicher.SPERRE_MAX - 1, math.ceil(max(fristen or [grundwert])) + 1)
 
 
-def groq(prompt, schema, ausgabe_tokens=3840, deadline=None):
+def groq(prompt, schema, ausgabe_tokens=3840, deadline=None, modell=None):
     key = os.environ['GROQ_API_KEY']
-    cache_modell = 'groq:' + GROQ_MODELL
+    modell = modell or GROQ_MODELL
+    if modell not in GROQ_TEXT_MODELLE:
+        raise ValueError('Ungeprueftes Groq-Textmodell')
+    cache_modell = 'groq:' + modell
     gesperrt = ki_speicher.sperre(key, cache_modell)
     if gesperrt:
         raise GroqKontingentFehler('Groq voruebergehend gesperrt: ' + gesperrt)
@@ -146,12 +151,13 @@ def groq(prompt, schema, ausgabe_tokens=3840, deadline=None):
     if reserve > 7900:
         raise ValueError('Auftrag zu gross fuer das kostenlose Groq-Minutenkontingent')
     ende = min(time.monotonic() + 180, deadline if deadline is not None else float('inf'))
-    while GROQ_VERBRAUCH:
+    verbrauch = GROQ_VERBRAUCH if modell == GROQ_MODELL else GROQ_MODELL_VERBRAUCH.setdefault(modell, [])
+    while verbrauch:
         jetzt = time.monotonic()
-        GROQ_VERBRAUCH[:] = [(t, n) for t, n in GROQ_VERBRAUCH if jetzt - t < 61]
-        if sum(n for _, n in GROQ_VERBRAUCH) + reserve <= 8000:
+        verbrauch[:] = [(t, n) for t, n in verbrauch if jetzt - t < 61]
+        if sum(n for _, n in verbrauch) + reserve <= 8000:
             break
-        warte = min(60, max(0.1, 61 - (jetzt - GROQ_VERBRAUCH[0][0])))
+        warte = min(60, max(0.1, 61 - (jetzt - verbrauch[0][0])))
         if warte + 5 >= ende - time.monotonic():
             raise RuntimeError('Groq-Minutenreserve passt nicht in die verbleibende Frist')
         print(f'Groq-Kontingent: {warte:.1f} Sekunden warten', flush=True)
@@ -161,7 +167,7 @@ def groq(prompt, schema, ausgabe_tokens=3840, deadline=None):
         if rest <= 0:
             raise RuntimeError('Groq-Zeitlimit erreicht')
         req = urllib.request.Request('https://api.groq.com/openai/v1/chat/completions',
-            data=json.dumps({'model': GROQ_MODELL, 'include_reasoning': False,
+            data=json.dumps({'model': modell, 'include_reasoning': False,
                 'reasoning_effort': 'low', 'max_completion_tokens': ausgabe_tokens,
                 'response_format': ausgabeformat,
                 'messages': [{'role': 'user', 'content': auftrag}]}).encode(),
@@ -171,7 +177,7 @@ def groq(prompt, schema, ausgabe_tokens=3840, deadline=None):
             with urllib.request.urlopen(req, timeout=min(45 if deadline is not None else 120, rest)) as r:
                 antwort = json.load(r)
             usage = antwort.get('usage', {})
-            GROQ_VERBRAUCH.append((time.monotonic(), usage.get('total_tokens', reserve)))
+            verbrauch.append((time.monotonic(), usage.get('total_tokens', reserve)))
             choice = antwort['choices'][0]
             if choice.get('finish_reason') != 'stop':
                 grund = choice.get('finish_reason')
@@ -179,7 +185,7 @@ def groq(prompt, schema, ausgabe_tokens=3840, deadline=None):
                 raise ValueError(f'Groq-Antwort nicht vollstaendig (finish_reason={grund})')
             d = json.loads(choice['message']['content'])
             schema_pruefen(d, schema)
-            return d, GROQ_MODELL, usage
+            return d, modell, usage
         except urllib.error.HTTPError as e:
             try:
                 error = json.loads(e.read()).get('error', {})
@@ -200,8 +206,8 @@ def groq(prompt, schema, ausgabe_tokens=3840, deadline=None):
                 try:
                     d = angleichen(json.loads(fehl), schema)
                     schema_pruefen(d, schema)
-                    GROQ_VERBRAUCH.append((time.monotonic(), reserve))
-                    return d, GROQ_MODELL, {}
+                    verbrauch.append((time.monotonic(), reserve))
+                    return d, modell, {}
                 except (ValueError, KeyError, TypeError):
                     pass
             if e.code == 429:

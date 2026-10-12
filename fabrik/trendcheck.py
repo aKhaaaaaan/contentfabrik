@@ -123,7 +123,8 @@ def yt_faktor(begriff, zusatz=''):
 def kandidaten(kanal, themen, mit_trendfirmen=True):
     aus = [{'thema': x['thema'], 'begriff': x.get('trend_suche') or x.get('wikipedia') or x['thema'],
             'wikipedia': x.get('wikipedia'), 'eigen': True}
-           for x in themen.laden() if x['kanal'] == kanal and x.get('status', 'bereit') == 'bereit']
+           for x in themen.laden() if x['kanal'] == kanal and x.get('status', 'bereit') == 'bereit'
+           and not themen.gespraech_grund(x['thema'])]
     if mit_trendfirmen and kanal == 'business-origin-stories':
         import trends
         bekannt = {a.get('wikipedia') for a in aus}
@@ -180,7 +181,8 @@ def waehlen(kanal, heute=None, themen=None):
     try:
         alt = json.loads(pfad.read_text(encoding='utf-8'))
         offen = {x['thema'] for x in themen.laden() if x['kanal'] == kanal}
-        if not alt['thema'] or alt['thema'] in offen:  # bereits erledigt -> neu waehlen
+        if not themen.gespraech_grund(alt['thema']) and (not alt['thema'] or alt['thema'] in offen):
+            # Bereits erledigte Ideen und alte Fehlklassifikationen neu waehlen.
             return alt['thema'], alt
     except (OSError, ValueError, KeyError):
         pass

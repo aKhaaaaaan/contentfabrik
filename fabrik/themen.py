@@ -26,7 +26,7 @@ def _kanaele():
 KANAELE = _kanaele()
 HILFE = ('So schickst du mir ein Thema:\nBusiness: Wie LEGO entstand\nKI: Ein praktischer Bildworkflow\n'
          'Mehrere Ideen: Business: in die erste Zeile, darunter je eine Idee pro Zeile '
-         '(auch nummeriert, maximal 25, je 200 Zeichen). Abholung alle vier Stunden. '
+         '(auch nummeriert, maximal 25, je 200 Zeichen). Abholung etwa alle fuenf Minuten. '
          'Ideen bleiben bis zur erfolgreichen Videozustellung in der Warteschlange. '
          'Ein YouTube-Link liefert nur das Thema, nie fremden Text.\n\n'
          'Eigenes Skript:\nSkript Business: Wie WeWork scheiterte\n<dein Text, 40-900 Woerter>\n\n'
@@ -119,7 +119,29 @@ def link_titel(url):
     return titel, str(d.get('author_name') or '')[:80]
 
 
+def gespraech_grund(text):
+    """Eindeutige Bestaetigungen/Befehle sind keine Produktionsideen.
+
+    12.10.2026: 'Jaa das ist richtig' wurde ueber die Recherche zu Tony Jaa,
+    'TikTok hochladen' ebenfalls als Idee gespeichert. Nur ganze, eng begrenzte
+    Saetze erkennen; 'Tony Jaa' oder 'TikTok Upload Tool' bleiben echte Themen.
+    """
+    normal = ' '.join(str(text or '').casefold().split()).strip(' .!?')
+    normal = normal.replace(',', '')
+    if re.fullmatch(r'(?:j+a+|yes|ok(?:ay)?|passt|danke|vielen dank|verstanden|alles klar|'
+                    r'genau|richtig|das ist richtig|das passt|sehr gut|'
+                    r'(?:j+a+|yes|ok(?:ay)?) (?:das ist richtig|genau|richtig|das passt|passt|'
+                    r'alles klar|sehr gut|danke))', normal):
+        return 'bestaetigung'
+    if re.fullmatch(r'(?:bitte )?(?:(?:auf|zu) )?tiktok (?:hochladen|uploaden|posten|veroeffentlichen|'
+                    r'veröffentlichen)|(?:bitte )?(?:hochladen|uploaden|posten)(?: (?:auf|zu) tiktok)?', normal):
+        return 'uploadauftrag'
+    return None
+
+
 def zuordnen(text):
+    if gespraech_grund(text):
+        return None, text.strip()
     eingabe = themenliste(text)
     if eingabe:
         return eingabe[0], eingabe[1][0]
@@ -244,6 +266,13 @@ def abholen():
             if antwort_video:
                 merken(u['update_id'], antwort_video)
                 continue
+        gespraech = gespraech_grund(text)
+        if gespraech:
+            merken(u['update_id'], 'Danke, deine Bestaetigung wurde gelesen; kein neues Videothema gespeichert.'
+                   if gespraech == 'bestaetigung' else
+                   'Fuer den TikTok-Entwurf tippe auf den Passt-Knopf beim jeweiligen Video. '
+                   'So ist die genaue Datei zugeordnet. Diese Nachricht wurde nicht als Videothema gespeichert.')
+            continue
         if text.startswith('/') or text.lower() in ('hilfe', 'help', 'hallo', 'hi', 'start', 'test'):
             merken(u['update_id'], HILFE)
             continue
@@ -349,6 +378,7 @@ def nehmen(kanal):
     heute = datetime.datetime.now(ZoneInfo('Europe/Berlin')).date().isoformat()
     return next((x['thema'] for x in laden() if x['kanal'] == kanal
                  and x.get('status', 'bereit') == 'bereit'
+                 and not gespraech_grund(x['thema'])
                  and x.get('geplant_ab', heute) <= heute), '')
 
 

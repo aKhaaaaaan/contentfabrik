@@ -115,7 +115,8 @@ def offene_themen(kanal):
     import themen
     vorhanden = {e.get('thema_eingabe') for _, e in eintraege(kanal)}
     offen = [x['thema'] for x in themen.laden() if x['kanal'] == kanal
-             and x.get('status', 'bereit') == 'bereit' and x['thema'] not in vorhanden]
+             and x.get('status', 'bereit') == 'bereit' and x['thema'] not in vorhanden
+             and not themen.gespraech_grund(x['thema'])]
     # GEMELDET 09.10.2026: „Themen so sortieren, was aktuell gehypt ist." Der Trend-Check des
     # Tages (derselbe, den der Videolauf danach aus verlauf/trendcheck/ wiederverwendet) legt
     # die Reihenfolge fest - das Skript fuer das heisseste Thema liegt morgens schon bereit.

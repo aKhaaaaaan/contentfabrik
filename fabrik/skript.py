@@ -409,16 +409,29 @@ def wortrate(kanal):
     return wert if isinstance(wert, (int, float)) and not isinstance(wert, bool) and 1.5 <= wert <= 3 else grund
 
 
+def wortgrenzen(kanal):
+    """Gleiche harten Wortgrenzen fuer Autor, Reparaturen und Pruefung."""
+    lmin, lmax = dramaturgie.laengen(kanal)
+    rate = wortrate(kanal)
+    return int(lmin * 2.75 * rate / 2.4), int(lmax * rate)
+
+
+def laengenkorrektur(entwurf, mindest, hoechstens):
+    """Entwurf gezielt anpassen, ohne eine unerreichbare Mindestlaenge zu fordern."""
+    zahl = sum(len(t['text'].split()) for t in entwurf['teile'])
+    ziel = (mindest + hoechstens) // 2
+    return (f'\nYour draft has {zahl} spoken words. Revise THIS draft to about {ziel} spoken words; '
+            f'the hard allowed range is {mindest}-{hoechstens}, including the final engagement request. '
+            'Count only whitespace-separated words in parts.text, not scene directions, titles or metadata. '
+            'Preserve the supported claims and payoff. Expand with supported practical context when short; '
+            'remove repetition and secondary details when long. Never add unsupported facts or filler. '
+            'Return the complete revised JSON.\nPREVIOUS DRAFT:\n' + json.dumps(entwurf, ensure_ascii=False))
+
+
 def anweisung(kanal, thema, frueher):
     import prompts
-    lmin, lmax = dramaturgie.laengen(kanal)
-    # Muss zur Pruefgrenze in main() passen (Short 2.4), sonst schreibt der Autor zu lang
-    # und jede Fassung wird verworfen.
-    rate = wortrate(kanal)
-    # Seit 08.10.2026 gleiche Regel fuer Short UND Langvideo: Orus spricht beide (vorher
-    # Langvideo fest 2.35-2.65 W/s fuer Kokoro -> 10 Min. Text waeren mit Orus ~13 Min.).
-    wmin, wmax = (2.75 * rate / 2.4, rate)
-    woerter = f'{int(lmin * wmin)}-{int(lmax * wmax)}'
+    mindest, hoechstens = wortgrenzen(kanal)
+    woerter = f'{mindest}-{hoechstens}'
     winkel = kanal.get('winkel', [])
     blick = kanal.get('_winkel') or (winkel[datetime.date.today().toordinal() % len(winkel)] if winkel else '')
     return prompts.skript(kanal, thema, frueher, blick, woerter)
@@ -453,7 +466,8 @@ def groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens):
     return (prompts.DATEN + prompts.FAKTEN + prompts.SPRECHEN
         + f'Write an original English video in {mindest}-{hoechstens} spoken words. '
         + ('Use 24-50 unranked beats. ' if dramaturgie.videoformat(kanal) == 'lang' else
-           'Use 9 short beats of 22-24 spoken words each (198-216 total). Count narration only. ')
+           'Use 6-8 short beats. Distribute the spoken-word budget across them; '
+           'do not apply a separate per-beat word quota. Count narration only. ')
         + struktur + ' First sentence max 9 words; answer the hook before the final request. '
         + cta + ' Include CTA words in the narration budget. Each suche: 2-4 concrete English search words. '
           'Each szene: 20-25 words, visible subject/action, era, setting, framing and light; matching '
@@ -564,12 +578,10 @@ def main(kanal_pfad, aus_pfad, thema=None):
     # Ein festes Thema vom Nutzer wird nicht ausgetauscht.
     verworfen = []
     lang = dramaturgie.videoformat(kanal) == 'lang'
-    rate = wortrate(kanal)
-    mindest = int(dramaturgie.laengen(kanal)[0] * 2.75 * rate / 2.4)
+    mindest, hoechstens = wortgrenzen(kanal)
     # GEMESSEN 07.10.2026 (Run 37652008678, WeWork): 2.9 Woerter/s erlaubte ~261
     # Woerter; Kokoro sprach daraus 117 s statt hoechstens 90 s -> Tempo 1.25.
     # Gesprochen werden ~2.2-2.4 Woerter/s; 2.4 entspricht Codex' Groq-Vorgabe 198-216.
-    hoechstens = int(dramaturgie.laengen(kanal)[1] * rate)
     pmin = kanal.get('plaetze', [5, 7])[0]
     woerter_von = lambda e: sum(len(t['text'].split()) for t in e['teile'])
     def schreiben(auftrag):
@@ -657,10 +669,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
             if mindest <= zahl <= hoechstens and not zu_wenig and not falsch:
                 return e, m, None
             if zahl > hoechstens:
-                zusatz_ = (f'\nYour draft has {zahl} spoken words; the maximum is {hoechstens}. '
-                           'Shorten repeated explanations and secondary facts while keeping the '
-                           'main evidence, full ranking and complete payoff. Do not solve this '
-                           'with faster speech. Keep at least ' + str(mindest) + ' words.')
+                zusatz_ = laengenkorrektur(e, mindest, hoechstens)
                 continue
             if falsch:
                 print(f'Versuch {versuch + 1}: Rangfolge falsch: {falsch}')
@@ -668,10 +677,9 @@ def main(kanal_pfad, aus_pfad, thema=None):
                            + '). Use exactly the given ranks.')
                 continue
             print(f'Versuch {versuch + 1}: {zahl} Woerter, {plaetze} Plaetze - zu wenig')
-            zusatz_ = (f'\nYour previous draft had only {zahl} spoken words and {plaetze} ranked entries. '
-                       f'The script MUST have at least {mindest + 20} spoken words in total'
-                       + (f' and at least {pmin} ranked entries' if zu_wenig else '')
-                       + ' - give each entry 2-3 sentences with concrete facts from the sources, no filler.')
+            zusatz_ = laengenkorrektur(e, mindest, hoechstens)
+            if zu_wenig:
+                zusatz_ += f'\nUse at least {pmin} ranked entries, within the SAME total word budget.'
         return e, m, f'Skript ausserhalb der Laenge oder Rangfolge falsch ({zahl} Woerter, {plaetze} Plaetze)'
 
     basis_zusatz = zusatz

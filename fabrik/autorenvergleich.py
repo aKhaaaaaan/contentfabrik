@@ -22,6 +22,7 @@ import lernen
 import prompts
 import skript
 import zahlen
+import ki_speicher
 from qualitaet import redaktion, STORY_KATEGORIEN
 
 AUTOREN = ('gemini', 'groq')
@@ -109,8 +110,30 @@ def groq_schema(schema):
     return d
 
 
+def groq_wartezeit(headers, detail):
+    """Serverfrist beachten: Tages-Tokenlimit kann sich schon nach Minuten erholen."""
+    fristen = []
+    try:
+        wert = float((headers or {}).get('Retry-After', 'nan'))
+        if math.isfinite(wert) and wert > 0:
+            fristen.append(wert)
+    except (ValueError, TypeError):
+        pass
+    m = re.search(r'try again in\s+((?:\d+(?:\.\d+)?[hms])+)', detail, re.I)
+    if m:
+        fristen.append(sum(float(n) * {'h': 3600, 'm': 60, 's': 1}[u.lower()]
+                           for n, u in re.findall(r'(\d+(?:\.\d+)?)([hms])', m[1], re.I)))
+    # Ohne Serverfrist nur befristet erneut pruefen, keine Tagesreset-Zeit erfinden.
+    grundwert = 3600 if re.search(r'per day|\bTPD\b|\bRPD\b', detail, re.I) else 60
+    return min(ki_speicher.SPERRE_MAX - 1, math.ceil(max(fristen or [grundwert])) + 1)
+
+
 def groq(prompt, schema, ausgabe_tokens=3840, deadline=None):
     key = os.environ['GROQ_API_KEY']
+    cache_modell = 'groq:' + GROQ_MODELL
+    gesperrt = ki_speicher.sperre(key, cache_modell)
+    if gesperrt:
+        raise RuntimeError('Groq voruebergehend gesperrt: ' + gesperrt)
     auftrag = prompt
     ausgabeformat = {'type': 'json_schema', 'json_schema': {
         'name': 'contentfabrik_antwort', 'strict': True, 'schema': groq_schema(schema)}}
@@ -177,10 +200,16 @@ def groq(prompt, schema, ausgabe_tokens=3840, deadline=None):
                     return d, GROQ_MODELL, {}
                 except (ValueError, KeyError, TypeError):
                     pass
-            if e.code == 429 and versuch == 0:
-                if ende - time.monotonic() <= 65:
-                    raise RuntimeError('Groq-Minutenlimit; keine Zeit fuer erneute Anfrage') from None
-                time.sleep(60)
+            if e.code == 429:
+                warte = groq_wartezeit(e.headers, detail)
+                # GEMESSEN 12.10.: "try again in 18m19.44s" wurde nach60s erneut
+                # angefragt, danach wieder in jedem Skriptprozess. Sperre kontobezogen
+                # sichern, damit derselbe Ausweichweg nicht die Tageszeit verbraucht.
+                if versuch or warte > 60 or warte + 5 >= ende - time.monotonic():
+                    grund = f'HTTP429; Serverfrist {warte}s'
+                    ki_speicher.sperren(key, cache_modell, grund, warte)
+                    raise RuntimeError('Groq-Kontingent nicht verfuegbar: ' + grund) from None
+                time.sleep(warte)
                 continue
             raise RuntimeError(f'Groq HTTP {e.code}: {detail}') from None
     raise RuntimeError('Groq-Anfrage nicht abgeschlossen')

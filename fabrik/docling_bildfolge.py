@@ -32,7 +32,9 @@ def grafik(ziel, variante):
             tx, ty = x+20, y+95
             for a in range(4): d.line((tx,ty+a*55,tx+w-40,ty+a*55),fill='#244859',width=3)
             for a in range(3): d.line((tx+a*(w-40)/2,ty,tx+a*(w-40)/2,ty+165),fill='#244859',width=3)
-            text(tx+12,ty+14,'A',24,'#16303b');text(tx+w/2,ty+14,'B',24,'#16303b')
+            for ry,vals in enumerate((('ITEM','QTY'),('PENS','2'),('BOOK','1'))):
+                for cx,value in enumerate(vals):
+                    text(tx+12+cx*(w-40)/2,ty+14+ry*55,value, min(24,max(17,(w-40)//12)), '#16303b')
         else:
             for a in range(max(1,min(5,(h-120)//38+1))):
                 d.rounded_rectangle((x+22,y+105+a*38,x+w-26,y+117+a*38),radius=3,fill='#9db4be')
@@ -79,8 +81,11 @@ def grafik(ziel, variante):
         text(560,465,'{',36);text(590,525,'"document": {',26);text(620,590,'"tables": [...]',23);text(590,655,'}',36)
         text(75,850,'FORMAT DIAGRAM · NOT A MEASURED RESULT',22,'#8daebf')
     elif variante==6:
-        terminal(['$ pip install docling'], 'INSTALL · OFFICIAL README')
-        text(100,680,'PYTHON PACKAGE',36,'#20d2be')
+        terminal(['$ pip install docling'], 'TERMINAL · DOCUMENTED COMMAND')
+        for x,c in ((102,'#fa6c67'),(132,'#ffc66d'),(162,'#20d2be')):
+            d.ellipse((x,270,x+15,285),fill=c)
+        text(100,500,'RUN THIS COMMAND ON YOUR MACHINE',24,'#20d2be')
+        text(100,620,'INSTALL THE DOCLING PYTHON PACKAGE',25)
     elif variante==7:
         terminal(['from docling.document_converter', 'import DocumentConverter', '', 'converter = DocumentConverter()'])
     elif variante==8:

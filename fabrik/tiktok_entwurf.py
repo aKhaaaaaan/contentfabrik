@@ -26,7 +26,9 @@ def konto_finden(name):
 
 def hinweis(status, konto):
     if status == 'SEND_TO_USER_INBOX':
-        return (f'Entwurf liegt im TikTok-Postfach von @{konto}. Oeffne die Upload-Benachrichtigung, '
+        return (f'TikTok hat die Zustellung ins Postfach von @{konto} bestaetigt. '
+                'Wechsle in der TikTok-App zu diesem Konto und oeffne Posteingang / Systembenachrichtigungen. '
+                'Oeffne dort die Upload-Benachrichtigung, '
                 'pruefe das Video, kopiere den automatisch erzeugten TikTok-Text aus Telegram und '
                 'schalte KI-generierte Inhalte ein. TikToks Video-Entwurf-API nimmt keine Beschreibung '
                 'oder Hashtags entgegen; der Text wird deshalb noch nicht automatisch eingetragen.')

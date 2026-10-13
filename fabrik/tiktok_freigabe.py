@@ -27,18 +27,59 @@ def offen(e):
 
 
 def melden(e, konto, q):
-    if e['status'] not in FERTIG or e.get('gemeldet') or not all(os.environ.get(k) for k in (
+    terminal = e['status'] in FERTIG
+    if (e['status'] not in FERTIG + ('PROCESSING_UPLOAD', 'PROCESSING_DOWNLOAD', 'wartet_api')
+            or (terminal and e.get('gemeldet'))
+            or (not terminal and e['status'] in e.get('status_meldungen', []))) or not all(os.environ.get(k) for k in (
             'TELEGRAM_BOT_TOKEN', 'TELEGRAM_CHAT_ID')):
         return
-    from freigabe import telegram
-    text = hinweis(e['status'], konto) if e['status'] in ('SEND_TO_USER_INBOX', 'PUBLISH_COMPLETE') else \
-        f'TikTok-Entwurf fuer @{konto}: {e["status"]}. Kein neuer Upload wird automatisch gestartet.'
+    text = _stand_text(e, konto)
     try:
+        from freigabe import telegram
         telegram('sendMessage', {'chat_id': os.environ['TELEGRAM_CHAT_ID'], 'text': text})
-        e['gemeldet'] = True
+        if terminal:
+            e['gemeldet'] = True
+        else:
+            e.setdefault('status_meldungen', []).append(e['status'])
         speichern(q)
     except Exception:
         pass
+
+
+def _stand_text(e, konto):
+    status = e['status']
+    prefix = f'TikTok @{konto}: '
+    if status in ('SEND_TO_USER_INBOX', 'PUBLISH_COMPLETE'):
+        return hinweis(status, konto)
+    messages = {
+        'freigegeben': 'Freigabe gespeichert; der automatische Upload ist vorgemerkt. '
+                      'TikTok hat noch keine Zustellung bestaetigt.',
+        'PROCESSING_UPLOAD': 'Die Datei wurde uebertragen und wird von TikTok verarbeitet. '
+                             'Die Postfach-Benachrichtigung ist noch nicht bestaetigt.',
+        'PROCESSING_DOWNLOAD': 'TikTok verarbeitet die Datei. Die Postfach-Benachrichtigung '
+                               'ist noch nicht bestaetigt.',
+        'wartet_api': 'Der Upload oder die Statusabfrage konnte nicht abgeschlossen werden. '
+                      'Die Pipeline versucht es erneut; eine Zustellung ist noch nicht bestaetigt.',
+        'abgelehnt': 'Dieses Video ist abgelehnt; kein Upload wird gestartet.',
+        'gesperrt': 'Die Datei, Qualitaetspruefung oder Kontozuordnung ist gesperrt. '
+                    'Kein neuer Upload wird automatisch gestartet.',
+        'fehlgeschlagen': 'Upload oder Statusabfrage nach drei Versuchen fehlgeschlagen. '
+                         'Die Zustellung ist nicht bestaetigt; kein neuer Upload wird gestartet.',
+        'FAILED': 'TikTok hat die Verarbeitung abgelehnt. Kein neuer Upload wird gestartet.',
+    }
+    return prefix + messages.get(status, 'Status unbekannt; Zustellung nicht bestaetigt.')
+
+
+def status_text(video):
+    """Nur gespeicherte Freigabe lesen: Statusklick autorisiert niemals einen Upload."""
+    e = next((x for x in laden() if x.get('id') == video.get('video_sha256')), None)
+    profil = kanalstandard.nach_name(video.get('kanal')) or {}
+    konto = profil.get('tiktok_name', '?')
+    if e is None:
+        return (f'TikTok @{konto}: Fuer dieses Video ist noch keine Uploadfreigabe gespeichert. '
+                'Story-/Videonoten starten keinen Upload. Tippe beim Video auf '
+                '"TikTok-Entwurf hochladen", wenn es passt.')
+    return _stand_text(e, konto)
 
 
 def laden():
@@ -71,12 +112,14 @@ def entscheiden(video, passt, update_id):
     if not str(video.get('upload_run_id') or '').isdigit():
         return 'Originaldatei nicht zugeordnet - kein Upload gestartet.'
     if alt:
-        return 'Freigabe war schon gespeichert. Es wird kein zweiter Upload gestartet.'
+        return 'Freigabe war schon gespeichert. Es wird kein zweiter Upload gestartet.\n' + status_text(video)
     q.append({'id': sha, 'video_sha256': sha, 'kanal': video['kanal'], 'run_id': str(video['upload_run_id']),
               'status': 'freigegeben', 'update_id': update_id,
               'datum_utc': datetime.datetime.now(datetime.timezone.utc).isoformat()})
     speichern(q)
-    return 'Passt gespeichert. Der automatische Upload ins TikTok-Postfach wird vorbereitet.'
+    return ('Passt gespeichert. Der automatische Upload ins TikTok-Postfach wird vorbereitet. '
+            'Du erhaeltst eine weitere Nachricht, sobald TikTok die Zustellung bestaetigt. '
+            'Der Abholer laeuft etwa alle 5 Minuten; GitHub kann den Start verzoegern.')
 
 
 class OhneTokenRedirect(urllib.request.HTTPRedirectHandler):

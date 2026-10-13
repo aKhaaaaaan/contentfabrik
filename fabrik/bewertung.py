@@ -32,12 +32,18 @@ def knoepfe(sha, tiktok=False):
     kurz = sha[:16]
     leiste = lambda zeichen, art: [{'text': f"{zeichen}{'≤4' if n == '4' else n}", 'callback_data': f'{art}:{kurz}:{n}'}
                                    for n in NOTEN]
-    return {'inline_keyboard': [
+    reihen = [
         leiste('📖', 'bs'),
-        leiste('🎬', 'bv'),
-        [{'text': '✅ Passt · TikTok-Entwurf' if tiktok else '✅ Gefällt mir',
-          'callback_data': f'{"tu" if tiktok else "bw"}:{kurz}:ok'},
-         {'text': '❌ Ablehnen', 'callback_data': f'{"tu" if tiktok else "bw"}:{kurz}:nein'}]]}
+        leiste('🎬', 'bv')]
+    if tiktok:
+        reihen.extend([
+            [{'text': '📮 TikTok-Status prüfen', 'callback_data': f'ts:{kurz}:status'}],
+            [{'text': '✅ TikTok-Entwurf hochladen', 'callback_data': f'tu:{kurz}:ok'}],
+            [{'text': '❌ Video ablehnen', 'callback_data': f'tu:{kurz}:nein'}]])
+    else:
+        reihen.append([{'text': '✅ Gefällt mir', 'callback_data': f'bw:{kurz}:ok'},
+                        {'text': '❌ Ablehnen', 'callback_data': f'bw:{kurz}:nein'}])
+    return {'inline_keyboard': reihen}
 
 
 def _lesen(pfad, standard):
@@ -91,6 +97,12 @@ def _eintragen(eintrag):
 def knopf(update_id, callback):
     """Knopfdruck speichern; gibt die Bestaetigung fuer den Nutzer zurueck."""
     teile = str(callback.get('data', '')).split(':')
+    if len(teile) == 3 and teile[0] == 'ts' and teile[2] == 'status':
+        video = video_zu((callback.get('message') or {}).get('message_id'), teile[1])
+        if not video or not video.get('video_sha256', '').startswith(teile[1]):
+            return 'Videobezug fehlt - TikTok-Status nicht zugeordnet.'
+        from tiktok_freigabe import status_text
+        return status_text(video)
     if len(teile) == 3 and teile[0] == 'tu' and teile[2] in ('ok', 'nein'):
         video = video_zu((callback.get('message') or {}).get('message_id'), teile[1])
         if not video or not video.get('video_sha256', '').startswith(teile[1]):

@@ -270,7 +270,7 @@ def abholen():
         if gespraech:
             merken(u['update_id'], 'Danke, deine Bestaetigung wurde gelesen; kein neues Videothema gespeichert.'
                    if gespraech == 'bestaetigung' else
-                   'Fuer den TikTok-Entwurf tippe auf den Passt-Knopf beim jeweiligen Video. '
+                   'Fuer den TikTok-Entwurf tippe auf "TikTok-Entwurf hochladen" beim jeweiligen Video. '
                    'So ist die genaue Datei zugeordnet. Diese Nachricht wurde nicht als Videothema gespeichert.')
             continue
         if text.startswith('/') or text.lower() in ('hilfe', 'help', 'hallo', 'hi', 'start', 'test'):

@@ -11,6 +11,15 @@ on:
         type: choice
         options: [business-origin-stories, ai-tools-explained]
         required: true
+      quelle:
+        description: 'Artefakttyp des bereits erzeugten Videos'
+        type: choice
+        options: [pilot, video]
+        default: pilot
+      entwurf:
+        description: 'Bestehenden Entwurfsmodus nutzen: nur KI-Geschmack, harte Gates bleiben'
+        type: boolean
+        default: false
 permissions:
   contents: write
   actions: read
@@ -30,7 +39,7 @@ jobs:
         run: sudo apt-get install -y -qq ffmpeg
       - uses: actions/download-artifact@v4
         with:
-          name: pilot-${{ inputs.kanal }}-short
+          name: ${{ inputs.quelle == 'video' && format('video-{0}', inputs.kanal) || format('pilot-{0}-short', inputs.kanal) }}
           path: pilotdateien
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
@@ -40,7 +49,10 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           CF_ORIGINAL_URL: https://github.com/${{ github.repository }}/actions/runs/${{ inputs.run_id }}
-        run: python fabrik/freigabe.py pilotdateien/ausgabe/skript.json pilotdateien/ausgabe/short.mp4
+          CF_ENTWURF: ${{ inputs.entwurf && '1' || '0' }}
+          SKRIPT_PFAD: ${{ inputs.quelle == 'video' && 'pilotdateien/skript.json' || 'pilotdateien/ausgabe/skript.json' }}
+          VIDEO_PFAD: ${{ inputs.quelle == 'video' && 'pilotdateien/short.mp4' || 'pilotdateien/ausgabe/short.mp4' }}
+        run: python fabrik/freigabe.py "$SKRIPT_PFAD" "$VIDEO_PFAD"
       - name: Telegram-Videozuordnung sichern
         if: always()
         run: |

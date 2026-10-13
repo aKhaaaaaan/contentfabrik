@@ -103,7 +103,7 @@ def main(original, ausgabe):
     import kritik
     import freigabe
     from lauf import BUDGET_S
-    from qualitaet import bewerten
+    from qualitaet import bewerten, nur_ki_geschmack, ENTWURF_MIN
     slug = 'ai-tools-explained'
     if budget.rest(slug, BUDGET_S) < 600:
         raise RuntimeError('Tagesbudget reicht nicht fuer Bildkorrektur und echte Neupruefung')
@@ -111,21 +111,27 @@ def main(original, ausgabe):
     start = time.monotonic()
     os.environ['CF_SCHRITT_ENDE'] = str(start + min(1200, reservation[0]) - 180)
     status = 'fehlgeschlagen'
+    draft = False
     try:
         s = korrigieren(original, ausgabe)
         out = Path(ausgabe)
         k = kritik.kritik(str(out/'short.mp4'), str(out/'skript.json'), str(out/'kritik.json'))
-        _, reasons = bewerten(s,k)
+        note, reasons = bewerten(s,k)
+        draft = bool(reasons) and nur_ki_geschmack(reasons) and (note or 0) >= ENTWURF_MIN
         if reasons:
-            status = 'gesperrt'
-            raise RuntimeError('Neue Bildkorrektur besteht die Freigabegates nicht')
+            if not draft:
+                status = 'gesperrt'
+                raise RuntimeError('Neue Bildkorrektur besteht die Freigabegates nicht')
+            # Derselbe menschliche Entwurfsmodus wie lauf.py: keine harte Sperre umgehen.
+            os.environ['CF_ENTWURF'] = '1'
         freigabe.senden(str(out/'skript.json'), str(out/'short.mp4'))
         status = 'gesendet'
     finally:
         seconds = time.monotonic()-start
         budget.abschliessen(slug,reservation,seconds)
         ki_speicher.speichern(Path(ausgabe)/'bericht.json',{
-            'kanal':slug,'datum':budget.heute(),'status':status,'sekunden':round(seconds,2),'runden':[]})
+            'kanal':slug,'datum':budget.heute(),'status':status,'entwurf':draft,
+            'sekunden':round(seconds,2),'runden':[]})
 
 
 if __name__ == '__main__':

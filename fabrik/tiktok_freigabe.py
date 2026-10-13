@@ -75,6 +75,11 @@ def status_text(video):
     e = next((x for x in laden() if x.get('id') == video.get('video_sha256')), None)
     profil = kanalstandard.nach_name(video.get('kanal')) or {}
     konto = profil.get('tiktok_name', '?')
+    from bildbezug import revision_gruende
+    if revision_gruende(video.get('video_sha256')):
+        return (f'TikTok @{konto}: Die nachtraegliche Bild-Text-Pruefung sperrt diese Videodatei. '
+                'Die Motive passen nicht ausreichend zum Sprechtext. Warte auf die korrigierte Fassung; '
+                'fuer dieses Original wird kein neuer Upload gestartet.')
     if e is None:
         return (f'TikTok @{konto}: Fuer dieses Video ist noch keine Uploadfreigabe gespeichert. '
                 'Story-/Videonoten starten keinen Upload. Tippe beim Video auf '

@@ -2,15 +2,10 @@
 import io
 import json
 import math
+import re
 from pathlib import Path
 import subprocess
 import tempfile
-
-from PIL import Image
-import bildplan
-import dramaturgie
-import ki_speicher
-import prompts
 
 VERSION = '2026-10-13.1'
 MINIMUM = 7
@@ -27,7 +22,8 @@ def bewerten(ergebnisse, slots):
     """Vollstaendige Einzelbefunde; ein fehlender/abgelehnter Slot besteht nie."""
     befunde = []
     ids = [s['index'] for s in slots]
-    if not isinstance(ergebnisse, list) or [e.get('index') for e in ergebnisse if isinstance(e, dict)] != ids:
+    if not isinstance(ergebnisse, list) or any(not isinstance(e, dict) for e in ergebnisse) \
+            or [e.get('index') for e in ergebnisse] != ids:
         return ['Bild-Text-Pruefung deckt nicht alle Einstellungen eindeutig ab']
     for e in ergebnisse:
         n = e.get('note')
@@ -41,6 +37,7 @@ def bewerten(ergebnisse, slots):
 
 
 def frame(video, sekunde, art, ziel):
+    from PIL import Image
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-ss', f'{sekunde:.3f}', '-i', str(video),
                     '-frames:v', '1', str(ziel)], check=True, timeout=30,
                    stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
@@ -57,6 +54,10 @@ def frame(video, sekunde, art, ziel):
 
 
 def pruefen(video, skript, ablauf, ziel):
+    import bildplan
+    import dramaturgie
+    import ki_speicher
+    import prompts
     from skript import gemini, SEHEN
     slots = ablauf.get('einstellungen') or []
     sha = bildplan.material_id(video)
@@ -137,3 +138,17 @@ def gruende(d, sha):
     if type(n) is not int or n < 1:
         return ['Bild-Text-Pruefung: Abdeckung fehlt']
     return bewerten(d['pruefung'], [{'index': i} for i in range(n)])
+
+
+def revision_gruende(sha):
+    """Eine echte Neupruefung gilt auch fuer ein bereits zugestelltes aelteres Artefakt."""
+    if not isinstance(sha, str) or not re.fullmatch(r'[a-f0-9]{64}', sha):
+        return []
+    p = Path('verlauf/bildpruefungen') / (sha + '.json')
+    if not p.exists():
+        return []
+    try:
+        d = json.loads(p.read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        d = None
+    return gruende(d, sha)

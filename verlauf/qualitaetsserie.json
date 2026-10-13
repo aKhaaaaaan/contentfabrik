@@ -17057,6 +17057,766 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "38368946997.1:business-origin-stories",
+      "run_id": "38368946997",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-13T08:51:18.368896+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "711d29ac5318a720ad66fe9496832d2e0ada32d1",
+      "produktionsversion": "7690f1c049d9991b7fa27fbf1192e774317121829e7b74c1a9a54616f62ce65c",
+      "videoformat": "short",
+      "thema": "Louis Vuitton",
+      "titel": [
+        "Why Stackable *Trunks*",
+        "Changed Luxury Travel"
+      ],
+      "status": "gesendet",
+      "video_sha256": "e9be372fa33a96d65463acfa4bc30203e4f5cdebe358c1645789c5752d0d8c8f",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": 8,
+      "prompt_version": "2026-10-12.1",
+      "sperrgruende": [],
+      "einstellungen": 18,
+      "unterschiedliche_motive": 18,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38368946997",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-13",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 6/10 unter 7/10",
+              "Skript-spannung 5/10 unter 7/10",
+              "Skript-ueberraschung 6/10 unter 7/10",
+              "Skript-tempo 5/10 unter 7/10",
+              "Skript-aufloesung 6/10 unter 7/10",
+              "Skript-teilbarkeit 5/10 unter 6/10"
+            ],
+            "story_note": 6,
+            "story_schwaechen": [
+              "Sentence: They played seasons in the American League before switching to the National League. Why it matters: This detail lacks a narrative consequence or tension. Fix: Remove or replace with a specific challenge they overcame."
+            ],
+            "skript_probleme": [],
+            "sekunden": 163.7
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "skript_s": 87.6,
+            "bau_s": 813.0,
+            "pruefung_s": 39.5,
+            "note": 8,
+            "sperrgruende": [],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Orus",
+              "stimme": 17.8,
+              "zeitmarken": 5.7,
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 18,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 743.8,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 18,
+                "motive": 18,
+                "motive_min": 18
+              },
+              "effekte": 10,
+              "rendern": 35.4,
+              "gesamt": 812.7,
+              "videolaenge_s": 42.9,
+              "abschnitte_s": [
+                5.08,
+                6.9,
+                6.36,
+                6.22,
+                6.44,
+                8.54,
+                3.4
+              ],
+              "woerter": 86
+            },
+            "kategorien": {
+              "hook": 9,
+              "bild_passt": 9,
+              "dynamik": 9,
+              "text": 9,
+              "ton_stimme": 9,
+              "tempo": 9,
+              "inhalt": 9,
+              "schluss_loop": 9,
+              "regeln": 10,
+              "story": 9
+            },
+            "probleme": [],
+            "sekunden": 940.2,
+            "status": "geprueft"
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "trendcheck": "Google: 5.0 Punkte - YouTube-Ausreisser 107.4x Kanalschnitt",
+        "grund": "",
+        "sekunden": 1112.4,
+        "upload_titel": "Why Stackable Trunks: Changed Luxury Travel"
+      },
+      "ki_pruefung": {
+        "note": 8,
+        "kategorien": {
+          "hook": 9,
+          "bild_passt": 9,
+          "dynamik": 9,
+          "text": 9,
+          "ton_stimme": 9,
+          "tempo": 9,
+          "inhalt": 9,
+          "schluss_loop": 9,
+          "regeln": 10,
+          "story": 9
+        },
+        "staerken": [
+          "Sehr guter Open-World-Spielplakat-Stil mit hoher visueller Konsistenz",
+          "Klares Storytelling mit direktem Einstieg und logischem Verlauf",
+          "Saubere Platzierung des Pflicht-Call-to-Actions am Ende"
+        ],
+        "probleme": [],
+        "fazit": "Ein sehr gut produziertes und visuell ansprechendes Video im gewohnten Stil ohne nennenswerte Mängel.",
+        "modell": "gemini-flash-lite-latest",
+        "prompt_version": "2026-10-12.1",
+        "technik": {
+          "dauer_s": 42.9,
+          "fps": 30.0,
+          "lufs": -15.0,
+          "befunde": []
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 18,
+          "motive": 18,
+          "motive_min": 18
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 40.0,
+              "bis_s": 42.4,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.911
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 22.9,
+              "bis_s": 43.4,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "How",
+                "s": 0.0,
+                "e": 0.38,
+                "p": 0.708210825920105
+              },
+              {
+                "w": "did",
+                "s": 0.38,
+                "e": 0.64,
+                "p": 0.9769113659858704
+              },
+              {
+                "w": "flat",
+                "s": 0.64,
+                "e": 0.92,
+                "p": 0.8742882013320923
+              },
+              {
+                "w": "trunks",
+                "s": 0.92,
+                "e": 1.64,
+                "p": 0.9735571444034576
+              },
+              {
+                "w": "create",
+                "s": 1.64,
+                "e": 2.32,
+                "p": 0.9778979420661926
+              },
+              {
+                "w": "a",
+                "s": 2.32,
+                "e": 2.64,
+                "p": 0.9949818253517151
+              },
+              {
+                "w": "global",
+                "s": 2.64,
+                "e": 2.92,
+                "p": 0.9749059081077576
+              },
+              {
+                "w": "fashion",
+                "s": 2.92,
+                "e": 3.6,
+                "p": 0.7456799149513245
+              },
+              {
+                "w": "giant?",
+                "s": 3.6,
+                "e": 4.1,
+                "p": 0.9990070462226868
+              },
+              {
+                "w": "Before",
+                "s": 5.12,
+                "e": 5.3,
+                "p": 0.9801643490791321
+              },
+              {
+                "w": "1858,",
+                "s": 5.3,
+                "e": 6.42,
+                "p": 0.9833451807498932
+              },
+              {
+                "w": "rounded",
+                "s": 6.78,
+                "e": 7.26,
+                "p": 0.9811384081840515
+              },
+              {
+                "w": "trunks",
+                "s": 7.26,
+                "e": 7.74,
+                "p": 0.998292088508606
+              },
+              {
+                "w": "were",
+                "s": 7.74,
+                "e": 7.94,
+                "p": 0.9938411712646484
+              },
+              {
+                "w": "used",
+                "s": 7.94,
+                "e": 8.2,
+                "p": 0.9956964254379272
+              },
+              {
+                "w": "to",
+                "s": 8.2,
+                "e": 8.44,
+                "p": 0.9957558512687683
+              },
+              {
+                "w": "shed",
+                "s": 8.44,
+                "e": 8.64,
+                "p": 0.9963322281837463
+              },
+              {
+                "w": "water,",
+                "s": 8.64,
+                "e": 9.04,
+                "p": 0.9981473684310913
+              },
+              {
+                "w": "but",
+                "s": 9.44,
+                "e": 9.64,
+                "p": 0.9963001608848572
+              },
+              {
+                "w": "they",
+                "s": 9.64,
+                "e": 9.76,
+                "p": 0.9865423440933228
+              },
+              {
+                "w": "could",
+                "s": 9.76,
+                "e": 9.9,
+                "p": 0.9856833815574646
+              },
+              {
+                "w": "not",
+                "s": 9.9,
+                "e": 10.16,
+                "p": 0.9974762797355652
+              },
+              {
+                "w": "stack",
+                "s": 10.16,
+                "e": 10.58,
+                "p": 0.9796943068504333
+              },
+              {
+                "w": "together.",
+                "s": 10.58,
+                "e": 11.1,
+                "p": 0.9971683621406555
+              },
+              {
+                "w": "Louis",
+                "s": 12.0,
+                "e": 12.16,
+                "p": 0.4906046688556671
+              },
+              {
+                "w": "Vuitton",
+                "s": 12.16,
+                "e": 12.66,
+                "p": 0.9720775187015533
+              },
+              {
+                "w": "introduced",
+                "s": 12.66,
+                "e": 13.12,
+                "p": 0.9580433964729309
+              },
+              {
+                "w": "lightweight,",
+                "s": 13.12,
+                "e": 13.7,
+                "p": 0.869096040725708
+              },
+              {
+                "w": "flat",
+                "s": 14.16,
+                "e": 14.44,
+                "p": 0.9920986890792847
+              },
+              {
+                "w": "-topped",
+                "s": 14.44,
+                "e": 14.88,
+                "p": 0.7848021984100342
+              },
+              {
+                "w": "trunks",
+                "s": 14.88,
+                "e": 15.36,
+                "p": 0.9981383681297302
+              },
+              {
+                "w": "covered",
+                "s": 15.36,
+                "e": 15.8,
+                "p": 0.8297824263572693
+              },
+              {
+                "w": "in",
+                "s": 15.8,
+                "e": 16.02,
+                "p": 0.9977433681488037
+              },
+              {
+                "w": "gray",
+                "s": 16.02,
+                "e": 16.28,
+                "p": 0.48789146542549133
+              },
+              {
+                "w": "tree",
+                "s": 16.28,
+                "e": 16.62,
+                "p": 0.33407777547836304
+              },
+              {
+                "w": "and",
+                "s": 16.62,
+                "e": 16.82,
+                "p": 0.35694727301597595
+              },
+              {
+                "w": "on",
+                "s": 16.82,
+                "e": 16.92,
+                "p": 0.7383930087089539
+              },
+              {
+                "w": "canvas.",
+                "s": 16.92,
+                "e": 17.3,
+                "p": 0.9947302341461182
+              },
+              {
+                "w": "This",
+                "s": 18.34,
+                "e": 18.4,
+                "p": 0.986839234828949
+              },
+              {
+                "w": "flat",
+                "s": 18.4,
+                "e": 18.68,
+                "p": 0.9961323738098145
+              },
+              {
+                "w": "design",
+                "s": 18.68,
+                "e": 19.02,
+                "p": 0.9984967708587646
+              },
+              {
+                "w": "allowed",
+                "s": 19.02,
+                "e": 19.72,
+                "p": 0.9828760027885437
+              },
+              {
+                "w": "travelers",
+                "s": 19.72,
+                "e": 20.18,
+                "p": 0.8464560508728027
+              },
+              {
+                "w": "to",
+                "s": 20.18,
+                "e": 20.56,
+                "p": 0.9977580904960632
+              },
+              {
+                "w": "stack",
+                "s": 20.56,
+                "e": 20.82,
+                "p": 0.9978452920913696
+              },
+              {
+                "w": "multiple",
+                "s": 20.82,
+                "e": 21.14,
+                "p": 0.9982228875160217
+              },
+              {
+                "w": "trunks",
+                "s": 21.14,
+                "e": 21.74,
+                "p": 0.9975197315216064
+              },
+              {
+                "w": "with",
+                "s": 21.74,
+                "e": 21.92,
+                "p": 0.9973440766334534
+              },
+              {
+                "w": "ease",
+                "s": 21.92,
+                "e": 22.24,
+                "p": 0.9766256809234619
+              },
+              {
+                "w": "for",
+                "s": 22.24,
+                "e": 22.82,
+                "p": 0.9809236526489258
+              },
+              {
+                "w": "long",
+                "s": 22.82,
+                "e": 23.02,
+                "p": 0.9955553412437439
+              },
+              {
+                "w": "voyages.",
+                "s": 23.02,
+                "e": 23.7,
+                "p": 0.9946227669715881
+              },
+              {
+                "w": "Competitors",
+                "s": 24.54,
+                "e": 25.2,
+                "p": 0.9055706858634949
+              },
+              {
+                "w": "quickly",
+                "s": 25.2,
+                "e": 25.5,
+                "p": 0.9987967014312744
+              },
+              {
+                "w": "copied",
+                "s": 25.5,
+                "e": 26.02,
+                "p": 0.9755966067314148
+              },
+              {
+                "w": "the",
+                "s": 26.02,
+                "e": 26.24,
+                "p": 0.9984355568885803
+              },
+              {
+                "w": "style,",
+                "s": 26.24,
+                "e": 26.6,
+                "p": 0.9919058084487915
+              },
+              {
+                "w": "forcing",
+                "s": 26.6,
+                "e": 27.42,
+                "p": 0.5837456583976746
+              },
+              {
+                "w": "Vuitton",
+                "s": 27.42,
+                "e": 27.76,
+                "p": 0.6711403131484985
+              },
+              {
+                "w": "to",
+                "s": 27.76,
+                "e": 28.02,
+                "p": 0.9935814142227173
+              },
+              {
+                "w": "create",
+                "s": 28.02,
+                "e": 28.28,
+                "p": 0.9986162185668945
+              },
+              {
+                "w": "the",
+                "s": 28.28,
+                "e": 28.5,
+                "p": 0.9953846335411072
+              },
+              {
+                "w": "beige",
+                "s": 28.5,
+                "e": 28.96,
+                "p": 0.9370024800300598
+              },
+              {
+                "w": "and",
+                "s": 28.96,
+                "e": 29.08,
+                "p": 0.9472301006317139
+              },
+              {
+                "w": "brown",
+                "s": 29.08,
+                "e": 29.32,
+                "p": 0.9765483736991882
+              },
+              {
+                "w": "stripes",
+                "s": 29.32,
+                "e": 29.62,
+                "p": 0.7625421285629272
+              },
+              {
+                "w": "design.",
+                "s": 29.62,
+                "e": 30.18,
+                "p": 0.9899935126304626
+              },
+              {
+                "w": "Counterfeiting",
+                "s": 31.02,
+                "e": 31.66,
+                "p": 0.8105668127536774
+              },
+              {
+                "w": "persisted,",
+                "s": 31.66,
+                "e": 31.9,
+                "p": 0.7094456553459167
+              },
+              {
+                "w": "so",
+                "s": 32.78,
+                "e": 32.84,
+                "p": 0.9386606216430664
+              },
+              {
+                "w": "George",
+                "s": 32.84,
+                "e": 33.04,
+                "p": 0.7227652072906494
+              },
+              {
+                "w": "Vuitton",
+                "s": 33.04,
+                "e": 33.64,
+                "p": 0.9964096248149872
+              },
+              {
+                "w": "launched",
+                "s": 33.64,
+                "e": 34.12,
+                "p": 0.9712780714035034
+              },
+              {
+                "w": "the",
+                "s": 34.12,
+                "e": 34.42,
+                "p": 0.9930665493011475
+              },
+              {
+                "w": "signature",
+                "s": 34.42,
+                "e": 34.76,
+                "p": 0.8683285117149353
+              },
+              {
+                "w": "monogram",
+                "s": 34.76,
+                "e": 35.36,
+                "p": 0.9155559241771698
+              },
+              {
+                "w": "canvas",
+                "s": 35.36,
+                "e": 35.92,
+                "p": 0.9694265723228455
+              },
+              {
+                "w": "with",
+                "s": 35.92,
+                "e": 36.34,
+                "p": 0.9805976748466492
+              },
+              {
+                "w": "worldwide",
+                "s": 36.34,
+                "e": 36.62,
+                "p": 0.9477962255477905
+              },
+              {
+                "w": "patents",
+                "s": 36.62,
+                "e": 37.26,
+                "p": 0.4549955427646637
+              },
+              {
+                "w": "in",
+                "s": 37.26,
+                "e": 37.62,
+                "p": 0.9946191310882568
+              },
+              {
+                "w": "1896.",
+                "s": 37.62,
+                "e": 38.3,
+                "p": 0.9828146696090698
+              },
+              {
+                "w": "Be",
+                "s": 39.56,
+                "e": 39.58,
+                "p": 0.9920835494995117
+              },
+              {
+                "w": "sure",
+                "s": 39.58,
+                "e": 39.8,
+                "p": 0.9985424280166626
+              },
+              {
+                "w": "to",
+                "s": 39.8,
+                "e": 40.0,
+                "p": 0.995057225227356
+              },
+              {
+                "w": "like,",
+                "s": 40.0,
+                "e": 40.24,
+                "p": 0.9289820790290833
+              },
+              {
+                "w": "share",
+                "s": 40.58,
+                "e": 40.86,
+                "p": 0.9957361221313477
+              },
+              {
+                "w": "and",
+                "s": 40.86,
+                "e": 41.44,
+                "p": 0.5666761994361877
+              },
+              {
+                "w": "save",
+                "s": 41.44,
+                "e": 41.74,
+                "p": 0.9822841286659241
+              },
+              {
+                "w": "this",
+                "s": 41.74,
+                "e": 42.06,
+                "p": 0.9952285289764404
+              },
+              {
+                "w": "video.",
+                "s": 42.06,
+                "e": 42.4,
+                "p": 0.998791515827179
+              }
+            ],
+            "dauer_s": 42.7946875,
+            "sprache": "en"
+          },
+          "roh_key": "c90305bcaaa8e02f0772bd4bc349340d86f92879ded2a90d7cadad7eded9be7a",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "version": 1,
+          "video_sha256": "e9be372fa33a96d65463acfa4bc30203e4f5cdebe358c1645789c5752d0d8c8f",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 42.9,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "ki_cache_wiederverwendet": false,
+        "video_sha256": "e9be372fa33a96d65463acfa4bc30203e4f5cdebe358c1645789c5752d0d8c8f"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [
+          "Counterfeiting persisted, so Georges Vuitton launched the signature Monogram canvas with worldwide patents in 1896. - The source confirms the 1896 launch of the Monogram canvas and its patents, but it does not state that counterfeiting persisted as a cause; the causal link is not supported."
+        ],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

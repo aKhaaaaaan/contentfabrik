@@ -50,8 +50,21 @@ def korrigieren(original, ausgabe):
         i = t['index']; im = docling_bildfolge.grafik(out / f'g{i:02d}.jpg', i)
         frames = round((t['s'] + t['dauer_s']) * 30) - round(t['s'] * 30)
         clip = out / f'g{i:02d}.mp4'
+        # Leichte Kamerabewegung plus nacheinander markierte Erklaerschritte.
+        # Keine fingierten Programm-Ergebnisse oder Installationsfortschritte.
+        regions = ([(65,320,350,475),(545,320,350,475)] if i in (0,1,2,4,5,8,12,15) else
+                   [(85,355,780,100),(85,510,780,215)] if i in (6,7,9,10,14) else
+                   [(70,330,345,430),(510,380,370,390)] if i in (3,11,13,16) else
+                   [(55,370,230,350),(365,370,230,350),(675,370,230,350)])
+        effects = [f"zoompan=z='1+0.04*on/{frames}':x='iw/2-iw/zoom/2':"
+                   "y='ih/2-ih/zoom/2':d=1:s=960x1040:fps=30"]
+        for n,(x,y,w,h) in enumerate(regions):
+            begin = t['dauer_s'] * n / len(regions)
+            end = t['dauer_s'] * (n+1) / len(regions)
+            effects.append(f"drawbox=x={x}:y={y}:w={w}:h={h}:color=0x20d2be@0.8:t=5:"
+                           f"enable='between(t,{begin:.3f},{end:.3f})'")
         subprocess.run(['ffmpeg','-y','-v','error','-loop','1','-i',str(im),'-frames:v',str(frames),
-                        '-r','30','-an','-c:v','libx264','-preset','veryfast','-crf','18',
+                        '-vf',','.join(effects),'-r','30','-an','-c:v','libx264','-preset','veryfast','-crf','18',
                         '-pix_fmt','yuv420p',str(clip)],check=True,timeout=120)
         lines.append(f"file '{clip.name}'")
         t.update(material_id=bildplan.material_id(im), material_art='grafik')
@@ -79,6 +92,7 @@ def korrigieren(original, ausgabe):
     ki_speicher.speichern(out / 'korrektur-nachweis.json', {
         'original_sha256':sha, 'video_sha256':bildplan.material_id(out / 'short.mp4'),
         'audio_unveraendert':True, 'einstellungen':18, 'renderzeit_s':round(time.monotonic()-start,2),
+        'bewegte_hervorhebungen':True,
         'quelle':docling_bildfolge.SOURCE})
     # Alte Video-/ASR-Noten werden nicht auf eine neue Datei umgeschrieben.
     return s

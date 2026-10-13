@@ -140,7 +140,8 @@ def kritik(video, skript_pfad, aus):
     messung = technik(video, skript)
     import bildplan
     bp = Path(skript_pfad).with_name('bildablauf.json')
-    bildpruefung = bildplan.pruefen(json.loads(bp.read_text(encoding='utf-8')) if bp.exists() else {},
+    ablauf = ki_speicher.lesen_json(bp)
+    bildpruefung = bildplan.pruefen(ablauf,
                                   messung.get('dauer_s', 0), dramaturgie.videoformat(skript))
     messung['befunde'].extend(bildpruefung['befunde'])
     audio = None
@@ -159,6 +160,23 @@ def kritik(video, skript_pfad, aus):
         print(ergebnis['fazit'], messung['befunde'])
         return ergebnis
     sha = bildplan.material_id(video)
+    import bildbezug
+    bezug = bildbezug.pruefen(video, skript, ablauf,
+                             Path(aus).with_name('bildbezug.json'))
+    if not bezug['ok']:
+        scores = [e['note'] for e in bezug['pruefung'] if type(e.get('note')) is int]
+        ergebnis = {'note': None, 'kategorien': {'bild_passt': min(scores)} if scores else {},
+                    'staerken': [], 'probleme': [
+                        {'zeit': f"{int(s['s']) // 60:02d}:{int(s['s']) % 60:02d}", 'art': 'bild_passt_nicht', 'schwere': 'schwer',
+                         'text': e['grund'] + ' Korrektur: ' + e.get('erforderliches_bild', '')}
+                        for s, e in zip(ablauf.get('einstellungen', []), bezug['pruefung'])
+                        if not e.get('passt') or e.get('note', 0) < bildbezug.MINIMUM],
+                    'fazit': 'Bild-Text-Pruefung nicht bestanden', 'technik': messung,
+                    'audio_pruefung': audio, 'bildpruefung': bildpruefung, 'bildbezug': bezug,
+                    'bildbezug_pflicht': True, 'video_sha256': sha, 'prompt_version': prompts.VERSION}
+        Path(aus).write_text(json.dumps(ergebnis, indent=2, ensure_ascii=False), encoding='utf-8')
+        print(ergebnis['fazit'], bezug['befunde'])
+        return ergebnis
     auftrag = prompts.video(skript, KATEGORIEN)
     key = ki_speicher.cache_key(auftrag, SCHEMA, list(skript_ki.MODELLE), .2, 'video', sha)
     treffer = ki_speicher.cache_lesen(key, SCHEMA, skript_ki.MODELLE)
@@ -188,6 +206,8 @@ def kritik(video, skript_pfad, aus):
     ergebnis['prompt_version'] = prompts.VERSION
     ergebnis['technik'] = messung
     ergebnis['bildpruefung'] = bildpruefung
+    ergebnis['bildbezug'] = bezug
+    ergebnis['bildbezug_pflicht'] = True
     ergebnis['audio_pruefung'] = audio
     ergebnis['ki_cache_wiederverwendet'] = bool(treffer)
     ergebnis['video_sha256'] = sha

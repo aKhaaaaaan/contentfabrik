@@ -289,6 +289,8 @@ def vorbereiten(s, laengen, woerter, cache=None):
                 t['demo_url'] = d['demo_url']
             if 'grafik_variante' in d:
                 t['grafik_variante'] = d['grafik_variante']
+            if 'grafik_typ' in d:
+                t['grafik_typ'] = d['grafik_typ']
         if d.get('bildmodus') == 'asset':
             try:
                 bibliothek.bild(d.get('asset'), s.get('kanal'))

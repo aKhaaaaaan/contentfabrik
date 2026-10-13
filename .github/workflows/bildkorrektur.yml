@@ -1,0 +1,88 @@
+name: bildkorrektur
+run-name: Docling-Bildkorrektur aus Lauf ${{ inputs.run_id }}
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: 'Lauf mit dem originalen Docling-Short; Ton und Titel bleiben erhalten'
+        required: true
+        type: string
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: contentfabrik-zustand
+  cancel-in-progress: false
+  queue: max
+jobs:
+  korrigieren:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Werkzeuge fuer Rendern und echte Endtonpruefung
+        run: |
+          sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install -q -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: video-ai-tools-explained
+          path: original
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.run_id }}
+      - uses: actions/cache@v4
+        with:
+          path: modelle/whisper
+          key: whisper-base-en-v1
+      - uses: actions/cache@v4
+        with:
+          path: ki-cache
+          key: ki-bildkorrektur-${{ github.run_id }}
+          restore-keys: ki-pruefungen-v1-
+      - name: Bilder korrigieren, alle Gates neu pruefen, auf Telegram zustellen
+        env:
+          PYTHONUNBUFFERED: '1'
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          CF_ORIGINAL_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python fabrik/bildkorrektur.py original ausgabe
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: video-ai-tools-explained
+          retention-days: 3
+          path: |
+            ausgabe/short.mp4
+            ausgabe/skript.json
+            ausgabe/bildablauf.json
+            ausgabe/quellen.json
+            ausgabe/kritik.json
+            ausgabe/audio-pruefung.json
+            ausgabe/bildbezug.json
+            ausgabe/korrektur-nachweis.json
+            ausgabe/bericht.json
+            ausgabe/tiktok-text.txt
+      - name: Reales Tagesbudget und Telegram-Videozuordnung sichern
+        if: always()
+        run: |
+          git config user.name 'contentfabrik-bot'
+          git config user.email 'contentfabrik-bot@users.noreply.github.com'
+          git config merge.contentfabrik-themen.driver 'python fabrik/zustand_merge.py %O %A %B'
+          git add -- verlauf
+          git diff --cached --quiet && exit 0
+          git commit -qm "Bildkorrektur: Budget und Videozuordnung"
+          for i in 1 2 3 4 5; do
+            git pull -q --rebase --autostash || exit 1
+            git push -q && exit 0
+            sleep $((i * 5))
+          done
+          exit 1

@@ -1,6 +1,8 @@
 """Gemeinsame Zugangskontrolle fuer Lauf und Telegram-Vorschau."""
 import math
 import re
+import json
+from pathlib import Path
 
 SCHWELLE = 7
 KATEGORIE_MIN = 7
@@ -61,6 +63,19 @@ def technik_gruende(kritik):
 def video_bewerten(kritik):
     wert, gruende = redaktion(kritik, VIDEO_KATEGORIEN, 'Video')
     gruende += technik_gruende(kritik)
+    if isinstance(kritik, dict) and kritik.get('bildbezug_pflicht') is True:
+        import bildbezug
+        gruende += bildbezug.gruende(kritik.get('bildbezug'), kritik.get('video_sha256'))
+    sha = kritik.get('video_sha256') if isinstance(kritik, dict) else None
+    if isinstance(sha, str) and re.fullmatch(r'[a-f0-9]{64}', sha):
+        revision = Path('verlauf/bildpruefungen') / (sha + '.json')
+        if revision.exists():
+            import bildbezug
+            try:
+                d = json.loads(revision.read_text(encoding='utf-8'))
+            except (OSError, ValueError):
+                d = None
+            gruende += bildbezug.gruende(d, sha)
     audio = kritik.get('audio_pruefung') if isinstance(kritik, dict) else None
     if not isinstance(audio, dict) or audio.get('ok') is not True or audio.get('befunde') != []:
         gruende.append('Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden')

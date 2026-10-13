@@ -1627,11 +1627,17 @@ def main(skript_pfad, aus, vorlage=None):
                 quellen.append({'quelle': 'Illustration', 'seite': 'Eigene sichtgepruefte KI-Illustration (built-in image_gen)',
                                 'asset': t['asset'], 'sha256': bildplan.material_id(ill)})
             if modus == 'grafik':
-                if s.get('thema') != 'Nintendo: The Problem with Durable Cards':
-                    raise ValueError('Diese Vergleichsgrafik passt ausschliesslich zur belegten Karten-Geschichte')
-                import infografik
-                ill = infografik.karten(aus / f'ill_{i:02d}.jpg', t.get('grafik_variante', 0), B, H)
-                quellen.append({'quelle': 'Illustration', 'seite': 'Eigene redaktionelle Vergleichsgrafik, keine historische Aufnahme'})
+                if t.get('grafik_typ') == 'docling' and 'https://github.com/docling-project/docling' in s.get('quellen', []):
+                    import docling_bildfolge
+                    ill = docling_bildfolge.grafik(aus / f'ill_{i:02d}.jpg', t.get('grafik_variante'))
+                    quellen.append({'quelle': 'Dokumentationsgrafik', 'seite': docling_bildfolge.SOURCE,
+                                    'nennung': 'Illustrated Docling documentation workflow, not our measured tool output'})
+                elif s.get('thema') == 'Nintendo: The Problem with Durable Cards':
+                    import infografik
+                    ill = infografik.karten(aus / f'ill_{i:02d}.jpg', t.get('grafik_variante', 0), B, H)
+                    quellen.append({'quelle': 'Illustration', 'seite': 'Eigene redaktionelle Vergleichsgrafik, keine historische Aufnahme'})
+                else:
+                    raise ValueError('Vergleichsgrafik passt nicht zur belegten Geschichte/Projektquelle')
             if modus == 'figur':
                 import illustration
                 ill = illustration.FIGUREN / f'{kanal_slug}.jpg'

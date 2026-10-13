@@ -36,6 +36,10 @@ class AnbieterNichtVerfuegbar(RuntimeError):
     """Textanbieter derzeit gesperrt; ein neuer Entwurf behebt das nicht."""
 
 
+class AuftragZuGross(RuntimeError):
+    """Struktureller Auftragsfehler, kein Kontingentproblem."""
+
+
 def _verbrauch_melden():
     if VERBRAUCH:
         print('Gemini-Verbrauch: ' + '; '.join(f'{m}: {a} Anfragen, {r // 1000}k rein, {o // 1000}k raus'
@@ -49,18 +53,26 @@ atexit.register(_verbrauch_melden)
 
 
 def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(), cache=None, fallback_prompt=None,
-           antwort_s=45):
+           antwort_s=45, autor_groq=False):
     """Text darf im Tageslauf ausweichen; Medien bleiben beim echten Vision-Modell."""
     kwargs = dict(temperatur=temperatur, bilder=bilder, modelle=modelle, dateien=dateien, cache=cache,
                   antwort_s=antwort_s)
     fallback = os.environ.get('CF_TEXT_FALLBACK') == 'groq' and not bilder and not dateien
+    if autor_groq and fallback and os.environ.get('GROQ_API_KEY'):
+        try:
+            return _groq_text(fallback_prompt if fallback_prompt is not None else prompt, schema, temperatur, cache)
+        except AnbieterNichtVerfuegbar:
+            print('Groq-Autor ohne Reserve; normaler Gemini-Ausweichweg bleibt aktiv', flush=True)
     try:
         return _gemini(prompt, schema, **kwargs, anfrage_s=30 if fallback else max(180, 3 * antwort_s))
     except RuntimeError as e:
         if not fallback or 'abgelehnt' in str(e):
             raise
+    return _groq_text(fallback_prompt if fallback_prompt is not None else prompt, schema, temperatur, cache)
+
+
+def _groq_text(prompt, schema, temperatur=None, cache=None):
     import autorenvergleich as av
-    prompt = fallback_prompt if fallback_prompt is not None else prompt
     global WIEDERVERWENDET
     if float(os.environ.get('CF_SCHRITT_ENDE', 'inf')) <= time.monotonic():
         raise RuntimeError('Text-Ausweichweg: Schrittfrist erreicht')
@@ -88,6 +100,12 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(),
             letzter = av.fehlertext(e)
             print(f'Text-Ausweichweg: {groq_modell} gesperrt; naechstes geprueftes Modell', flush=True)
             continue
+        except av.GroqAuftragsFehler as e:
+            raise AuftragZuGross(av.fehlertext(e)) from None
+        except av.GroqAntwortFehler as e:
+            letzter = av.fehlertext(e)
+            print(f'Text-Ausweichweg: {groq_modell} ungueltige Antwort; anderes Modell pruefen', flush=True)
+            continue
         except (RuntimeError, ValueError, OSError) as e:
             raise RuntimeError('Text-Ausweichweg nicht verfuegbar: ' + av.fehlertext(e)) from None
         antwort, _ = ki_speicher.bereinigen(antwort, schema)
@@ -99,7 +117,7 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(),
             except OSError:
                 print('Text-Pruefcache nicht gesichert; frisches Ergebnis bleibt erhalten')
         return antwort, modell
-    raise AnbieterNichtVerfuegbar('Textanbieter voruebergehend nicht verfuegbar: ' + (letzter or 'keine Reserve'))
+    raise AnbieterNichtVerfuegbar('Textanbieter lieferte keine nutzbare Antwort: ' + (letzter or 'keine Reserve'))
 
 
 def _gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(), cache=None, anfrage_s=180,
@@ -309,7 +327,8 @@ def hinweise(kanal, thema):
         # durch die Faktenpruefung (veraltetes Wissen). Darum nur Belegtes.
         sp = trends.schwerpunkt(kanal)
         bevorzugt = sp['begriffe'] if sp else None
-        gezeigt = trends.gezeigte_themen(re.sub(r'[^a-z0-9]+', '-', kanal.get('name', '').lower()).strip('-'))
+        slug = re.sub(r'[^a-z0-9]+', '-', kanal.get('name', '').lower()).strip('-')
+        gezeigt = trends.gezeigte_themen(slug) + trends.heute_verworfene_quellen(slug)
         quellen = (trends.ki_quellen(maximal=1, bevorzugt=bevorzugt, gezeigt=gezeigt)
                    if kanal.get('format') == 'erklaerung' else trends.ki_quellen(bevorzugt=bevorzugt, gezeigt=gezeigt))
         if kanal.get('format') == 'erklaerung':
@@ -454,25 +473,38 @@ def anweisung(kanal, thema, frueher):
     woerter = f'{mindest}-{hoechstens}'
     winkel = kanal.get('winkel', [])
     blick = kanal.get('_winkel') or (winkel[datetime.date.today().toordinal() % len(winkel)] if winkel else '')
+    if kanal.get('format') == 'erklaerung' and re.search(r'rank|ordered|selection|releases this week', blick, re.I):
+        blick = 'One source-supported tool, one everyday problem, a concrete workflow and an honest limitation.'
     return prompts.skript(kanal, thema, frueher, blick, woerter)
 
 
-def groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens):
+def groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens,
+                      *, entwurf=None, korrekturen=None, zusatz=''):
     """Gleiche Quellen und konkrete Reparaturen, ohne lange technische Renderer-Regie."""
-    korrektur, entwurf = '', None
+    korrektur = '\n'.join(korrekturen) if korrekturen is not None else ''
     marker = next((m for m in ('\nHere is a draft.', '\nREWRITE for a stronger story') if m in auftrag), None)
-    if marker:
+    if korrekturen is None and entwurf is None and marker:
         tail = auftrag[auftrag.index(marker):]
         m = re.search(r'\n(?:CURRENT DRAFT[^\n]*|DRAFT):?\n(\{.*)$', tail, re.S)
         if m:
             entwurf = json.loads(m[1])
             korrektur = tail[:m.start()]
-            entwurf = {k: entwurf[k] for k in ('thema', 'titel_zeile1', 'titel_zeile2',
-                       'beschreibung', 'teile') if k in entwurf}
-            # Reparaturen beziehen sich auf Behauptungen/Erzaehlung. Die neue
-            # Bildregie folgt diesem Text; alte Szenen nicht erneut einsenden.
-            entwurf['teile'] = [{k: t[k] for k in ('text', 'platz', 'name')
-                                 if k in t} for t in entwurf['teile']]
+    if entwurf is not None:
+        entwurf = {k: entwurf[k] for k in ('thema', 'titel_zeile1', 'titel_zeile2',
+                   'beschreibung', 'teile') if k in entwurf}
+        entwurf['teile'] = [{k: t[k] for k in ('text', 'platz', 'name', 'werkzeug', 'quelle_url')
+                             if k in t} for t in entwurf['teile']]
+        if len(quellen) == 1:
+            for teil in entwurf['teile']:
+                if teil.get('quelle_url') == quellen[0].get('url'):
+                    teil.pop('quelle_url')  # dieselbe URL steht schon vollstaendig im Quellenobjekt
+    # Zusatzregeln getrennt vom aktuellsten Entwurf. Am13.10. wurden alter UND neuer
+    # Entwurf aneinandergehaengt, auch bei der Laengenreparatur einer Faktenreparatur.
+    korrektur += '\n' + zusatz.split('\nPREVIOUS DRAFT:\n', 1)[0]
+    lessons, zeichen = [], 0
+    for regel in kanal.get('_regeln', [])[:4]:
+        if isinstance(regel, str) and zeichen + len(regel) <= 500:
+            lessons.append(regel); zeichen += len(regel)
     ranking = kanal.get('format', 'ranking') == 'ranking'
     struktur = ('Strict countdown using only the supplied sources and their fixed ranks.' if ranking else
                 'One real obstacle, response and consequence; no invented crisis or emotions.'
@@ -483,7 +515,7 @@ def groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens):
            '20-30 seconds and after the ending payoff; never before the hook.' if
            dramaturgie.videoformat(kanal) == 'lang' else
            'After the final payoff speak exactly ONCE: Be sure to like, share and save this video.')
-    return (prompts.DATEN + prompts.FAKTEN + prompts.SPRECHEN
+    prefix = (prompts.DATEN + prompts.FAKTEN_KURZ + prompts.SPRECHEN
         + f'Write an original English video in {mindest}-{hoechstens} spoken words. '
         + prompts.wortplan(kanal, f'{mindest}-{hoechstens}')
         + ('Use 24-50 unranked beats. ' if dramaturgie.videoformat(kanal) == 'lang' else
@@ -493,16 +525,52 @@ def groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens):
         + cta + ' Include CTA words in the narration budget. Each suche: 2-4 concrete English search words. '
           'Each szene: 20-25 words, visible subject/action, era, setting, framing and light; matching '
           'illustration, never invented historical evidence. Central vertical crop, no text/logos/real-person likeness. '
+          'Generated scenes show people doing the task, not screens, charts or written documents. '
         + 'Original painted urban game-poster aesthetic; fictional presenter opens and recurs during the story; '
           'no copied game characters. '
           'Two factual title lines max 22/28 characters; keywords, description, hashtags and fitting '
           'instrumental music searches. Preserve source URLs. Omit platz for nonrankings. '
           'User ideas are research hypotheses, not verified facts. Return requested JSON only.\n'
-        + json.dumps({'channel': kanal['name'], 'topic': thema,
+        )
+    daten = {'channel': kanal['name'], 'topic': thema,
             'user_request': kanal.get('_themenauftrag', {}),
-            'lessons': kanal.get('_regeln', [])[:4],
+            'lessons': lessons,
+            'user_script_to_adapt': kanal.get('_nutzerskript', ''),
             'sources': [{k: q.get(k, '') for k in ('name', 'text', 'url')} for q in quellen],
-            'current_draft': entwurf, 'corrections': korrektur}, ensure_ascii=False))
+            'current_draft': entwurf, 'corrections': korrektur}
+    while True:
+        prompt = prefix + json.dumps(daten, ensure_ascii=False, separators=(',', ':'))
+        reserve = groq_skriptreserve(prompt)
+        if reserve <= 7900 or not lessons:
+            return prompt
+        lessons.pop()  # Nur optionale Altregeln; Belege/Fehlerliste/aktueller Text bleiben vollstaendig.
+
+
+def groq_skriptreserve(prompt):
+    import autorenvergleich as av
+    import math
+    f = {'type': 'json_schema', 'json_schema': {
+        'name': 'contentfabrik_antwort', 'strict': True, 'schema': av.groq_schema(SKRIPT_SCHEMA)}}
+    return math.ceil((len(prompt) + len(json.dumps(f))) / 3) + 3072
+
+
+def korrekturen_schreiben(schreiber, kanal, thema, quellen, auftrag, mindest, hoechstens,
+                         entwurf, korrekturen):
+    """Ganze Fakteneinwaende nacheinander bearbeiten; keine Fehlerliste abschneiden."""
+    rest = list(korrekturen)
+    modell, mangel = None, None
+    while rest:
+        n = len(rest)
+        while n > 1 and groq_skriptreserve(groq_skriptauftrag(kanal, thema, quellen, auftrag,
+                mindest, hoechstens, entwurf=entwurf, korrekturen=rest[:n])) > 7900:
+            n -= 1
+        if n < len(rest):
+            print(f'Faktenkorrekturen aufteilen: {n} jetzt, {len(rest) - n} anschliessend', flush=True)
+        entwurf, modell, mangel = schreiber(auftrag, entwurf, rest[:n])
+        if mangel:
+            return entwurf, modell, mangel
+        rest = rest[n:]
+    return entwurf, modell, mangel
 
 
 def wiki_waehlen(thema, auftrag, schema, grenze):
@@ -589,6 +657,11 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 print(f"Zweitpruefer ({z['modell']}): {len(z['probleme'])} schwer, {len(z['leicht'])} leicht")
                 if not z['ok']:
                     p = {'ok': False, 'probleme': p['probleme'] + ['[second checker] ' + x for x in z['probleme']]}
+                if kanal.get('nur_quellen') and kanal.get('format') == 'erklaerung' and z['leicht']:
+                    # 13.10.: Lite winkte "instantly/perfectly/saves hours" durch. Eine
+                    # optionale Storyrunde fiel aus; unbelegte Versprechen blieben trotzdem.
+                    # Tool-Versprechen erst nach Faktenkorrektur, nie durch Storynoten freigeben.
+                    p = {'ok': False, 'probleme': p['probleme'] + ['[unsupported tool claim] ' + x for x in z['leicht']]}
                 p['leicht'] = z['leicht']
         p['modell'] = pruefmodell
         p['zweitpruefer_modell'] = z['modell'] if z else None
@@ -607,7 +680,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
     woerter_von = lambda e: sum(len(t['text'].split()) for t in e['teile'])
     import skript_entwurf
     erste_fassung = True
-    def schreiben(auftrag):
+    def schreiben_einzeln(auftrag, entwurf_basis=None, korrekturen=()):
         nonlocal erste_fassung
         # GEMESSEN: Auch die Ueberarbeitung nach der Faktenpruefung kuerzte
         # das Skript (45 s Video) - darum gilt die Mindestlaenge fuer JEDEN Entwurf.
@@ -616,6 +689,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         zusatz_ = ''
         nachgebessert = False
         chronik_gemeldet = False
+        aktueller_entwurf = entwurf_basis
         for versuch in range(4):
             # GEMESSEN 07.10.2026: Gemini-Gratiskontingent ueberlastet/leer -> AI-Skriptphase
             # 1620 s, kein Video an zwei Tagen. Claude (Abo des Nutzers, eigenes Kontingent)
@@ -652,7 +726,11 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 # GEMESSEN 09.10.2026 (Langvideo-Pilot): 45 s je Antwort reichen fuer ~1.200 Woerter
                 # JSON nicht - 3.8-flash/3.5-flash liefen jedes Mal in TimeoutError. Langvideo: 150 s.
                 e, m = gemini(auftrag + zusatz_, SKRIPT_SCHEMA, antwort_s=150 if lang else 45,
-                             fallback_prompt=groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens) + zusatz_)
+                             autor_groq=bool(kanal.get('nur_quellen') and kanal.get('format') == 'erklaerung'),
+                             fallback_prompt=groq_skriptauftrag(kanal, thema or (quellen[0]['name'] if quellen
+                                 and kanal.get('format') == 'erklaerung' else None), quellen, auftrag, mindest, hoechstens,
+                                 entwurf=aktueller_entwurf, korrekturen=korrekturen, zusatz=zusatz_))
+            aktueller_entwurf = e
             if not fortgesetzt:
                 try:
                     skript_entwurf.sichern(kanal_pfad, thema, quellen, SKRIPT_SCHEMA, e, m)
@@ -719,6 +797,12 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 zusatz_ += f'\nUse at least {pmin} ranked entries, within the SAME total word budget.'
         return e, m, f'Skript ausserhalb der Laenge oder Rangfolge falsch ({zahl} Woerter, {plaetze} Plaetze)'
 
+    def schreiben(auftrag, entwurf_basis=None, korrekturen=()):
+        if korrekturen and os.environ.get('CF_TEXT_FALLBACK') == 'groq':
+            return korrekturen_schreiben(schreiben_einzeln, kanal, thema, quellen, auftrag,
+                                         mindest, hoechstens, entwurf_basis, korrekturen)
+        return schreiben_einzeln(auftrag, entwurf_basis, korrekturen)
+
     basis_zusatz = zusatz
     wiki_fotos = []
     # GEMESSEN 04.10.2026: Fielen alle Themen weg (Wikipedia 429), war 'pruefung'
@@ -726,6 +810,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
     pruefung, entwurf = {'ok': False, 'probleme': ['Kein Thema mit brauchbarer Quelle gefunden']}, None
     for runde in range(1 if thema else 3):
         runden_thema = thema
+        if not thema and kanal.get('nur_quellen') and kanal.get('format') == 'erklaerung' and quellen:
+            runden_thema = quellen[0]['name']
         if kanal.get('quelle') == 'wikipedia':
             # Erst das Thema, dann die Quelle, dann das Skript NUR aus der Quelle
             import trends
@@ -799,7 +885,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
                     anweisung(kanal, entwurf['thema'], frueher) + zusatz
                     + '\nHere is a draft. Keep its story, structure and wording, but FIX ONLY these problems '
                       '(correct or remove each claim using the sources):\n- ' + '\n- '.join(probleme)
-                    + '\nDRAFT:\n' + json.dumps(entwurf, ensure_ascii=False))
+                    + '\nDRAFT:\n' + json.dumps(entwurf, ensure_ascii=False),
+                    entwurf_basis=entwurf, korrekturen=probleme)
                 pruefung = pruefen(entwurf)
                 if pruefung['ok'] and not mangel:
                     break
@@ -912,7 +999,11 @@ def main(kanal_pfad, aus_pfad, thema=None):
                     # GEMESSEN 04.10.2026: Ohne den bisherigen Entwurf schrieb die KI jede
                     # Runde neu von vorn - Story 6 -> 6 -> 5. In doku.py (mit Entwurf) 7 -> 8.
                     + '\nCURRENT DRAFT - improve THIS draft, preserve only source-supported facts:\n'
-                    + json.dumps(entwurf, ensure_ascii=False))
+                    + json.dumps(entwurf, ensure_ascii=False), entwurf_basis=entwurf,
+                    korrekturen=story['schwaechen'] + [
+                        'Improve the hook without a new factual claim: ' + story['besserer_hook'],
+                        'Pay off the opening through a documented example, not a feature list.']
+                        + pruefung.get('leicht', []))
                 if mangel:
                     continue
                 p2 = pruefen(neu)
@@ -925,7 +1016,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
                         anweisung(kanal, entwurf['thema'], frueher) + zusatz
                         + '\nHere is a draft. Keep its story, structure and wording, but FIX ONLY these fact problems '
                           '(remove or correct the claim using the sources):\n- ' + '\n- '.join(p2['probleme'])
-                        + '\nDRAFT:\n' + json.dumps(neu, ensure_ascii=False))
+                        + '\nDRAFT:\n' + json.dumps(neu, ensure_ascii=False),
+                        entwurf_basis=neu, korrekturen=p2['probleme'])
                     if mangel:
                         continue
                     p2 = pruefen(repariert)
@@ -983,6 +1075,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         sys.exit(2)
     gruende = skript_gruende(skript)
     if gruende:
+        skript_entwurf.erledigen(kanal_pfad)  # Abgeschlossene schlechte Fassung nicht endlos fortsetzen.
         print('SKRIPTQUALITAET NICHT BESTANDEN: ' + '; '.join(gruende), file=sys.stderr)
         sys.exit(3)
     skript_entwurf.erledigen(kanal_pfad)
@@ -991,9 +1084,10 @@ def main(kanal_pfad, aus_pfad, thema=None):
 if __name__ == '__main__':
     try:
         main(sys.argv[1], sys.argv[2], (sys.argv[3] if len(sys.argv) > 3 else '') or None)
-    except AnbieterNichtVerfuegbar as e:
+    except (AnbieterNichtVerfuegbar, AuftragZuGross) as e:
         fehler = Path(sys.argv[2]).with_name('skriptfehler.json')
         fehler.parent.mkdir(parents=True, exist_ok=True)
-        fehler.write_text(json.dumps({'status': 'anbieterpause', 'grund': str(e)}, ensure_ascii=False), encoding='utf-8')
+        code = 4 if isinstance(e, AnbieterNichtVerfuegbar) else 5
+        fehler.write_text(json.dumps({'status': 'anbieterpause' if code == 4 else 'auftragsfehler', 'grund': str(e)}, ensure_ascii=False), encoding='utf-8')
         print(str(e), file=sys.stderr)
-        sys.exit(4)
+        sys.exit(code)

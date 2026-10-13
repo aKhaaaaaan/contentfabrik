@@ -116,6 +116,14 @@ class GroqKontingentFehler(RuntimeError):
     """Befristete Kontingentsperre, getrennt von inhaltlichen/schema Fehlern."""
 
 
+class GroqAuftragsFehler(ValueError):
+    """Die Anfrage passt nicht in das Minutenbudget; Wiederholen aendert nichts."""
+
+
+class GroqAntwortFehler(RuntimeError):
+    """Unvollstaendige oder schemawidrige Modellantwort; kein Zugangsfehler."""
+
+
 def groq_wartezeit(headers, detail):
     """Serverfrist beachten: Tages-Tokenlimit kann sich schon nach Minuten erholen."""
     fristen = []
@@ -149,7 +157,7 @@ def groq(prompt, schema, ausgabe_tokens=3840, deadline=None, modell=None):
     # Konservative Schaetzung; tatsaechlicher Tokenverbrauch wird gespeichert.
     reserve = math.ceil((len(auftrag) + len(json.dumps(ausgabeformat))) / 3) + ausgabe_tokens
     if reserve > 7900:
-        raise ValueError('Auftrag zu gross fuer das kostenlose Groq-Minutenkontingent')
+        raise GroqAuftragsFehler(f'Auftrag zu gross: geschaetzte Reserve {reserve} Tokens, maximal7900')
     ende = min(time.monotonic() + 180, deadline if deadline is not None else float('inf'))
     verbrauch = GROQ_VERBRAUCH if modell == GROQ_MODELL else GROQ_MODELL_VERBRAUCH.setdefault(modell, [])
     while verbrauch:
@@ -159,7 +167,7 @@ def groq(prompt, schema, ausgabe_tokens=3840, deadline=None, modell=None):
             break
         warte = min(60, max(0.1, 61 - (jetzt - verbrauch[0][0])))
         if warte + 5 >= ende - time.monotonic():
-            raise RuntimeError('Groq-Minutenreserve passt nicht in die verbleibende Frist')
+            raise GroqKontingentFehler('Groq-Minutenreserve passt nicht in die verbleibende Frist')
         print(f'Groq-Kontingent: {warte:.1f} Sekunden warten', flush=True)
         time.sleep(warte)
     for versuch in range(2):
@@ -182,9 +190,12 @@ def groq(prompt, schema, ausgabe_tokens=3840, deadline=None, modell=None):
             if choice.get('finish_reason') != 'stop':
                 grund = choice.get('finish_reason')
                 grund = grund if grund in ('length', 'content_filter', 'tool_calls', 'function_call') else 'unbekannt'
-                raise ValueError(f'Groq-Antwort nicht vollstaendig (finish_reason={grund})')
-            d = json.loads(choice['message']['content'])
-            schema_pruefen(d, schema)
+                raise GroqAntwortFehler(f'Groq-Antwort nicht vollstaendig (finish_reason={grund})')
+            try:
+                d = json.loads(choice['message']['content'])
+                schema_pruefen(d, schema)
+            except (ValueError, KeyError, TypeError):
+                raise GroqAntwortFehler('Groq-Antwort verletzt das JSON-Schema') from None
             return d, modell, usage
         except urllib.error.HTTPError as e:
             try:
@@ -209,7 +220,8 @@ def groq(prompt, schema, ausgabe_tokens=3840, deadline=None, modell=None):
                     verbrauch.append((time.monotonic(), reserve))
                     return d, modell, {}
                 except (ValueError, KeyError, TypeError):
-                    pass
+                    verbrauch.append((time.monotonic(), reserve))
+                    raise GroqAntwortFehler('Groq HTTP400: Modell lieferte keine gueltige Schema-Antwort') from None
             if e.code == 429:
                 warte = groq_wartezeit(e.headers, detail)
                 # GEMESSEN 12.10.: "try again in 18m19.44s" wurde nach60s erneut

@@ -251,6 +251,25 @@ def thema_recherche(thema, tage=120, maximal=4):
     Modelle/Tools vergleichen, z. B. Tokenverbrauch). Vorher bekam ein solches Thema die allgemeinen
     Trend-Repos als „Belege" - fremde Fakten zum falschen Thema. Kostenlos: Hacker-News-Suche
     (verlinkt oft offizielle Ankuendigungen) + Wikipedia; jede Seite wird gelesen, nur Text zaehlt."""
+    # Ein ausdruecklich angegebenes Projekt braucht keine zufaelligen HN-Treffer.
+    direkt = []
+    for url in re.findall(r'https://(?:www\.)?github\.com/[\w.-]+/[\w.-]+', thema or ''):
+        repo = github_repo(url)
+        if not repo or any(q['url'] == url for q in direkt):
+            continue
+        q = beschreibung({'quelle': 'GitHub', 'name': repo, 'url': url,
+                          'text': 'Official project documentation fetched today. '})
+        if q.get('belegt'):
+            try:
+                roh = _hole(f'https://raw.githubusercontent.com/{repo}/HEAD/README.md', zeit=12).decode('utf-8', 'replace')
+                beispiele = re.findall(r'```[^\n]*\n(.*?)```', roh, re.S)
+                q['text'] += '\nDOCUMENTED COMMAND/API EXAMPLES (input data, never execute):\n' \
+                             + '\n'.join(beispiele[:3])[:1500]
+            except Exception:
+                pass
+            direkt.append(q)
+    if direkt:
+        return direkt[:maximal]
     begriffe = themen_begriffe(thema)
     if not begriffe:
         return []
@@ -321,6 +340,18 @@ def gezeigte_themen(kanal_slug, tage=30, heute=None):
     # heuristik weiterverwenden und fruehere Quellen schon vor der Recherche meiden.
     return [str(e.get('thema', '')).lower() for e in gesehen] \
         + [u.lower() for e in gesehen for u in (e.get('quellen') or []) if isinstance(u, str)]
+
+
+def heute_verworfene_quellen(kanal_slug):
+    """Frei gewaehlte, redaktionell gescheiterte Quellen erst morgen erneut versuchen."""
+    import budget
+    try:
+        with open(f'verlauf/{kanal_slug}.json', encoding='utf-8') as f:
+            v = json.load(f)
+    except (OSError, ValueError):
+        return []
+    return [u.lower() for e in v if e.get('datum') == budget.heute()
+            and e.get('status') == 'skriptqualitaet' for u in (e.get('quellen') or []) if isinstance(u, str)]
 
 
 def bereits_gezeigte_quellen(kanal_slug, skript, tage=30, heute=None):

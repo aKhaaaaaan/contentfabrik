@@ -303,8 +303,9 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             if r != 0:
                 letzter_grund = ('Faktenpruefung nicht bestanden' if r == 2 else
                                 'Skriptqualitaet unter Freigabe' if r == 3 else
-                                'Textanbieter voruebergehend gesperrt' if r == 4 else f'Skript fehlgeschlagen (Code {r})')
-                if r == 4 and (ordner / 'skriptfehler.json').exists():
+                                'Textanbieter voruebergehend gesperrt' if r == 4 else
+                                'KI-Auftrag zu gross' if r == 5 else f'Skript fehlgeschlagen (Code {r})')
+                if r in (4, 5) and (ordner / 'skriptfehler.json').exists():
                     letzter_grund = json.loads((ordner / 'skriptfehler.json').read_text(encoding='utf-8')).get(
                         'grund', letzter_grund)
                 print(f'Versuch {versuch}: {letzter_grund}')
@@ -322,8 +323,8 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                     verlauf_eintragen(kanal, abgelehnt,
                                       'faktenpruefung' if r == 2 else 'skriptqualitaet' if r == 3 else 'skriptfehler', None,
                                       grund='; '.join((runde['sperrgruende'] or [])[:2] + runde['skript_probleme'][:2]))
-                if r == 4:
-                    runde['status'] = 'anbieterpause'
+                if r in (4, 5):
+                    runde['status'] = 'anbieterpause' if r == 4 else 'auftragsfehler'
                     break  # Eine bekannte Kontingentsperre nicht durch neue Entwuerfe wiederholen.
                 if entwurf:
                     break  # Eine gesperrte feste Vorlage nicht unveraendert erneut pruefen.
@@ -363,8 +364,8 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                 runde['baufehler'] = detail or letzter_grund
                 verlauf_eintragen(kanal, skript, 'baufehler', None, grund=detail or letzter_grund)
                 runde['status'] = 'baufehler'
-                if b == 4:
-                    runde['status'] = 'anbieterpause'
+                if b in (4, 5):
+                    runde['status'] = 'anbieterpause' if b == 4 else 'auftragsfehler'
                     break  # Bekannte Anbietersperre gilt auch fuer die Bildplanung.
                 if basis or kontingent_leer:
                     break

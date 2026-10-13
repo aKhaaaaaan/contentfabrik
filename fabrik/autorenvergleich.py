@@ -221,6 +221,16 @@ def groq(prompt, schema, ausgabe_tokens=3840, deadline=None, modell=None):
                     return d, modell, {}
                 except (ValueError, KeyError, TypeError):
                     verbrauch.append((time.monotonic(), reserve))
+                    if versuch == 0 and sum(n for _, n in verbrauch) + reserve <= 8000:
+                        # 13.10.: Strict-JSON brach trotz korrektem Schema mit64Zeichen
+                        # ohne JSON ab. Einmal JSON-Objekt anfordern; dasselbe fachliche
+                        # Schema weiterhin lokal validieren, niemals fehlende Noten ersetzen.
+                        auftrag = prompt + '\nReturn only JSON matching this schema:\n' + json.dumps(groq_schema(schema))
+                        ausgabeformat = {'type': 'json_object'}
+                        reserve = math.ceil((len(auftrag) + len(json.dumps(ausgabeformat))) / 3) + ausgabe_tokens
+                        if reserve <= 7900 and sum(n for _, n in verbrauch) + reserve <= 8000:
+                            print('Groq: Strict-JSON ungueltig; einmal JSON-Objekt mit lokaler Schemapruefung', flush=True)
+                            continue
                     raise GroqAntwortFehler('Groq HTTP400: Modell lieferte keine gueltige Schema-Antwort') from None
             if e.code == 429:
                 warte = groq_wartezeit(e.headers, detail)

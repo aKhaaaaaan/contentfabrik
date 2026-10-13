@@ -16925,6 +16925,138 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "38368946997.1:ai-tools-explained",
+      "run_id": "38368946997",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-13T08:31:27.403429+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "711d29ac5318a720ad66fe9496832d2e0ada32d1",
+      "produktionsversion": "ef6057fc5d36661f931d26ee38e8e2bd988a5e5d7146161519cdc6cc173dc1a0",
+      "videoformat": "short",
+      "thema": "AI Tools Explained",
+      "titel": [
+        "AI Quant Platform",
+        "Automate Factor Mining"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 5,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Skript-Note 5/10 unter 7/10",
+        "Skript-hook 5/10 unter 7/10",
+        "Skript-spannung 4/10 unter 7/10",
+        "Skript-ueberraschung 4/10 unter 7/10",
+        "Skript-tempo 5/10 unter 7/10",
+        "Skript-aufloesung 6/10 unter 7/10",
+        "Skript-teilbarkeit 3/10 unter 6/10",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38368946997",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-13",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "Skript fehlgeschlagen (Code 1)",
+            "sekunden": 143.8
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "Skript fehlgeschlagen (Code 1)",
+            "sekunden": 41.9
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "Skript fehlgeschlagen (Code 1)",
+            "sekunden": 49.7
+          },
+          {
+            "runde": 4,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 4/10 unter 7/10",
+              "Skript-hook 3/10 unter 7/10",
+              "Skript-spannung 3/10 unter 7/10",
+              "Skript-ueberraschung 4/10 unter 7/10",
+              "Skript-tempo 4/10 unter 7/10",
+              "Skript-aufloesung 4/10 unter 7/10",
+              "Skript-teilbarkeit 3/10 unter 6/10"
+            ],
+            "story_note": 4,
+            "story_schwaechen": [
+              "Financial market data contains complex patterns requiring supervised learning models to analyze properly today. - This sounds like an academic textbook introduction rather than a compelling hook for general viewers. Fix by focusing on the specific problem of beating the market with AI.",
+              "New source builds require verifying storage permissions and setting trusted mode before artifact loading. - This is dry technical documentation instruction that kills viewer retention for a general audience. Fix by translating the technical requirement into what it lets the AI achieve.",
+              "Researchers can build customized workflows to execute trading strategies and analyze comprehensive performance reports. - This generic wrap-up lacks a concrete visual payoff or surprising insight. Fix by stating a specific result or insight discovered through the workflow."
+            ],
+            "skript_probleme": [],
+            "sekunden": 71.6
+          },
+          {
+            "runde": 5,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 5/10 unter 7/10",
+              "Skript-hook 5/10 unter 7/10",
+              "Skript-spannung 4/10 unter 7/10",
+              "Skript-ueberraschung 4/10 unter 7/10",
+              "Skript-tempo 5/10 unter 7/10",
+              "Skript-aufloesung 6/10 unter 7/10",
+              "Skript-teilbarkeit 3/10 unter 6/10"
+            ],
+            "story_note": 5,
+            "story_schwaechen": [
+              "Sentence: New source builds require verifying storage permissions and setting trusted mode before artifact loading begins. Why it matters: This dry technical instruction about storage permissions halts the narrative momentum with irrelevant setup. Fix: Replace with a concrete example of what the AI "
+            ],
+            "skript_probleme": [],
+            "sekunden": 70.8
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sekunden": 379.9,
+        "upload_titel": "AI Quant Platform: Automate Factor Mining | AI Tool #3"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [
+          "Researchers build customized workflows to execute trading strategies and analyze comprehensive performance reports together safely. - The source does not explicitly state that researchers build customized workflows or that comprehensive performance reports are analyzed together safely; this detail is unsupported."
+        ],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

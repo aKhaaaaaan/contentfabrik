@@ -17817,6 +17817,814 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "38378043407.1:ai-tools-explained",
+      "run_id": "38378043407",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-13T10:00:58.686635+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "266ee3afab527c45d6b6284ff4e6b03930c0eb90",
+      "produktionsversion": "3fc34e4d9b03baa07ccabbba838e5fa94b3982748c6ef32fec25d3deb5e0b943",
+      "videoformat": "short",
+      "thema": "Docling",
+      "titel": [
+        "Keep PDF *Structure*",
+        "Docling Explained"
+      ],
+      "status": "gesendet",
+      "video_sha256": "f26cd86361fa3d4973fad80851275379e4eea12ff55d4a6a9454398b003b1b61",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": 8,
+      "prompt_version": "2026-10-13.2",
+      "sperrgruende": [],
+      "einstellungen": 18,
+      "unterschiedliche_motive": 18,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38378043407",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-13",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 1016.9,
+            "pruefung_s": 81.0,
+            "note": 8,
+            "sperrgruende": [],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Orus",
+              "stimme": 18.7,
+              "zeitmarken": 6.0,
+              "tempo": 1.196,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 18,
+              "bilder_vereinfacht": 8,
+              "clips_und_stuecke": 845.3,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 18,
+                "motive": 18,
+                "motive_min": 18
+              },
+              "effekte": 11,
+              "rendern": 37.2,
+              "gesamt": 1016.6,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.14,
+                7.56,
+                6.5,
+                5.94,
+                8.48,
+                6.82,
+                2.56
+              ],
+              "woerter": 100
+            },
+            "kategorien": {
+              "hook": 9,
+              "bild_passt": 9,
+              "dynamik": 9,
+              "text": 9,
+              "ton_stimme": 9,
+              "tempo": 9,
+              "inhalt": 9,
+              "schluss_loop": 9,
+              "regeln": 10,
+              "story": 9
+            },
+            "probleme": [],
+            "sekunden": 1097.9,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 1106.5,
+        "upload_titel": "Keep PDF Structure: Docling Explained | AI Tool #3"
+      },
+      "ki_pruefung": {
+        "note": 8,
+        "kategorien": {
+          "hook": 9,
+          "bild_passt": 9,
+          "dynamik": 9,
+          "text": 9,
+          "ton_stimme": 9,
+          "tempo": 9,
+          "inhalt": 9,
+          "schluss_loop": 9,
+          "regeln": 10,
+          "story": 9
+        },
+        "staerken": [
+          "Klares Problem-Loesungs-Prinzip direkt zu Beginn",
+          "Flüssige und verständliche Sprachausgabe",
+          "Passende visuelle Untermalung im einheitlichen Stil",
+          "Vollständiger und korrekter Call-to-Action am Ende"
+        ],
+        "probleme": [],
+        "fazit": "Ein sehr gut strukturiertes und visuell ansprechendes Video, das das Tool Docling anschaulich erklärt und alle redaktionellen Vorgaben erfüllt.",
+        "modell": "gemini-flash-lite-latest",
+        "prompt_version": "2026-10-13.2",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -14.8,
+          "befunde": []
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 18,
+          "motive": 18,
+          "motive_min": 18
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 42.72,
+              "bis_s": 44.52,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.992
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Copying",
+                "s": 0.0,
+                "e": 0.56,
+                "p": 0.66753850877285
+              },
+              {
+                "w": "a",
+                "s": 0.56,
+                "e": 0.74,
+                "p": 0.9891049265861511
+              },
+              {
+                "w": "PDF",
+                "s": 0.74,
+                "e": 0.96,
+                "p": 0.9756154417991638
+              },
+              {
+                "w": "table",
+                "s": 0.96,
+                "e": 1.42,
+                "p": 0.871749222278595
+              },
+              {
+                "w": "but",
+                "s": 1.42,
+                "e": 1.84,
+                "p": 0.785111665725708
+              },
+              {
+                "w": "losing",
+                "s": 1.84,
+                "e": 2.16,
+                "p": 0.982069194316864
+              },
+              {
+                "w": "its",
+                "s": 2.16,
+                "e": 2.46,
+                "p": 0.9284240007400513
+              },
+              {
+                "w": "structure?",
+                "s": 2.46,
+                "e": 2.82,
+                "p": 0.9961291551589966
+              },
+              {
+                "w": "Here",
+                "s": 3.56,
+                "e": 3.82,
+                "p": 0.9805902242660522
+              },
+              {
+                "w": "is",
+                "s": 3.82,
+                "e": 4.04,
+                "p": 0.9626448154449463
+              },
+              {
+                "w": "a",
+                "s": 4.04,
+                "e": 4.14,
+                "p": 0.9894092082977295
+              },
+              {
+                "w": "documented",
+                "s": 4.14,
+                "e": 4.54,
+                "p": 0.9842270016670227
+              },
+              {
+                "w": "alternative",
+                "s": 4.54,
+                "e": 5.08,
+                "p": 0.9929225444793701
+              },
+              {
+                "w": "to",
+                "s": 5.08,
+                "e": 5.72,
+                "p": 0.994184672832489
+              },
+              {
+                "w": "copying",
+                "s": 5.72,
+                "e": 6.1,
+                "p": 0.9598982334136963
+              },
+              {
+                "w": "text.",
+                "s": 6.1,
+                "e": 6.4,
+                "p": 0.9962834715843201
+              },
+              {
+                "w": "Dockling,",
+                "s": 7.16,
+                "e": 7.6,
+                "p": 0.5798024386167526
+              },
+              {
+                "w": "parses",
+                "s": 7.98,
+                "e": 8.34,
+                "p": 0.837083101272583
+              },
+              {
+                "w": "PDF",
+                "s": 8.34,
+                "e": 8.62,
+                "p": 0.9745557904243469
+              },
+              {
+                "w": "layouts,",
+                "s": 8.62,
+                "e": 9.04,
+                "p": 0.9813656806945801
+              },
+              {
+                "w": "reading",
+                "s": 9.52,
+                "e": 9.6,
+                "p": 0.9847515225410461
+              },
+              {
+                "w": "order,",
+                "s": 9.6,
+                "e": 9.98,
+                "p": 0.9791682958602905
+              },
+              {
+                "w": "and",
+                "s": 10.3,
+                "e": 10.32,
+                "p": 0.9877168536186218
+              },
+              {
+                "w": "tables.",
+                "s": 10.32,
+                "e": 10.7,
+                "p": 0.994387686252594
+              },
+              {
+                "w": "Then",
+                "s": 11.46,
+                "e": 11.46,
+                "p": 0.9439104795455933
+              },
+              {
+                "w": "exports",
+                "s": 11.46,
+                "e": 11.6,
+                "p": 0.7834566235542297
+              },
+              {
+                "w": "formats",
+                "s": 11.6,
+                "e": 12.24,
+                "p": 0.9704218506813049
+              },
+              {
+                "w": "including",
+                "s": 12.24,
+                "e": 12.66,
+                "p": 0.7310677170753479
+              },
+              {
+                "w": "Markdown",
+                "s": 12.66,
+                "e": 13.14,
+                "p": 0.8957453072071075
+              },
+              {
+                "w": "and",
+                "s": 13.14,
+                "e": 13.54,
+                "p": 0.9769080877304077
+              },
+              {
+                "w": "JSON.",
+                "s": 13.54,
+                "e": 13.8,
+                "p": 0.9340617656707764
+              },
+              {
+                "w": "Start",
+                "s": 14.84,
+                "e": 14.98,
+                "p": 0.9779011011123657
+              },
+              {
+                "w": "by",
+                "s": 14.98,
+                "e": 15.24,
+                "p": 0.9987273812294006
+              },
+              {
+                "w": "installing",
+                "s": 15.24,
+                "e": 15.56,
+                "p": 0.9980168342590332
+              },
+              {
+                "w": "its",
+                "s": 15.56,
+                "e": 15.86,
+                "p": 0.9489885568618774
+              },
+              {
+                "w": "Python",
+                "s": 15.86,
+                "e": 16.04,
+                "p": 0.9198424220085144
+              },
+              {
+                "w": "package.",
+                "s": 16.04,
+                "e": 16.6,
+                "p": 0.9646669626235962
+              },
+              {
+                "w": "The",
+                "s": 17.32,
+                "e": 17.36,
+                "p": 0.983405590057373
+              },
+              {
+                "w": "Quick",
+                "s": 17.36,
+                "e": 17.46,
+                "p": 0.5916191935539246
+              },
+              {
+                "w": "Start",
+                "s": 17.46,
+                "e": 17.7,
+                "p": 0.5487768054008484
+              },
+              {
+                "w": "demonstrates",
+                "s": 17.7,
+                "e": 18.08,
+                "p": 0.9945054650306702
+              },
+              {
+                "w": "converting",
+                "s": 18.08,
+                "e": 18.52,
+                "p": 0.999021053314209
+              },
+              {
+                "w": "a",
+                "s": 18.52,
+                "e": 18.82,
+                "p": 0.9954966306686401
+              },
+              {
+                "w": "PDF",
+                "s": 18.82,
+                "e": 19.12,
+                "p": 0.997541069984436
+              },
+              {
+                "w": "with",
+                "s": 19.12,
+                "e": 19.6,
+                "p": 0.9948337078094482
+              },
+              {
+                "w": "Document",
+                "s": 19.6,
+                "e": 19.88,
+                "p": 0.6770585775375366
+              },
+              {
+                "w": "Converter.",
+                "s": 19.88,
+                "e": 20.52,
+                "p": 0.8037120401859283
+              },
+              {
+                "w": "Then",
+                "s": 21.2,
+                "e": 21.32,
+                "p": 0.9947152733802795
+              },
+              {
+                "w": "export",
+                "s": 21.32,
+                "e": 21.6,
+                "p": 0.8439912796020508
+              },
+              {
+                "w": "that",
+                "s": 21.6,
+                "e": 22.08,
+                "p": 0.9917700290679932
+              },
+              {
+                "w": "converted",
+                "s": 22.08,
+                "e": 22.34,
+                "p": 0.9858587384223938
+              },
+              {
+                "w": "document",
+                "s": 22.34,
+                "e": 22.7,
+                "p": 0.7875396013259888
+              },
+              {
+                "w": "as",
+                "s": 22.7,
+                "e": 23.14,
+                "p": 0.9933679699897766
+              },
+              {
+                "w": "Markdown.",
+                "s": 23.14,
+                "e": 23.5,
+                "p": 0.9913340508937836
+              },
+              {
+                "w": "The",
+                "s": 24.2,
+                "e": 24.26,
+                "p": 0.9964213371276855
+              },
+              {
+                "w": "documentation",
+                "s": 24.26,
+                "e": 24.5,
+                "p": 0.993220329284668
+              },
+              {
+                "w": "includes",
+                "s": 24.5,
+                "e": 25.06,
+                "p": 0.9946593642234802
+              },
+              {
+                "w": "both",
+                "s": 25.06,
+                "e": 25.34,
+                "p": 0.9987422823905945
+              },
+              {
+                "w": "Python",
+                "s": 25.34,
+                "e": 25.56,
+                "p": 0.9895667433738708
+              },
+              {
+                "w": "and",
+                "s": 25.56,
+                "e": 26.14,
+                "p": 0.9931573271751404
+              },
+              {
+                "w": "command",
+                "s": 26.14,
+                "e": 26.44,
+                "p": 0.503167450428009
+              },
+              {
+                "w": "line",
+                "s": 26.44,
+                "e": 26.82,
+                "p": 0.7532647848129272
+              },
+              {
+                "w": "examples.",
+                "s": 26.82,
+                "e": 27.1,
+                "p": 0.9970013499259949
+              },
+              {
+                "w": "The",
+                "s": 27.1,
+                "e": 28.24,
+                "p": 0.3843359649181366
+              },
+              {
+                "w": "surprise?",
+                "s": 28.24,
+                "e": 28.5,
+                "p": 0.6477561593055725
+              },
+              {
+                "w": "OCR",
+                "s": 29.3,
+                "e": 29.62,
+                "p": 0.9451672732830048
+              },
+              {
+                "w": "also",
+                "s": 29.62,
+                "e": 29.98,
+                "p": 0.9824114441871643
+              },
+              {
+                "w": "handles",
+                "s": 29.98,
+                "e": 30.52,
+                "p": 0.9654073715209961
+              },
+              {
+                "w": "scanned",
+                "s": 30.52,
+                "e": 30.78,
+                "p": 0.9661206007003784
+              },
+              {
+                "w": "pages.",
+                "s": 30.78,
+                "e": 31.28,
+                "p": 0.9930866360664368
+              },
+              {
+                "w": "Local",
+                "s": 32.16,
+                "e": 32.16,
+                "p": 0.9895443320274353
+              },
+              {
+                "w": "execution",
+                "s": 32.16,
+                "e": 32.44,
+                "p": 0.7531641721725464
+              },
+              {
+                "w": "supports",
+                "s": 32.44,
+                "e": 32.98,
+                "p": 0.9774362444877625
+              },
+              {
+                "w": "workflows",
+                "s": 32.98,
+                "e": 33.64,
+                "p": 0.9071463644504547
+              },
+              {
+                "w": "for",
+                "s": 33.64,
+                "e": 33.92,
+                "p": 0.9980181455612183
+              },
+              {
+                "w": "sensitive",
+                "s": 33.92,
+                "e": 34.3,
+                "p": 0.986190676689148
+              },
+              {
+                "w": "documents.",
+                "s": 34.3,
+                "e": 34.72,
+                "p": 0.9977097511291504
+              },
+              {
+                "w": "This",
+                "s": 35.72,
+                "e": 35.76,
+                "p": 0.9883517622947693
+              },
+              {
+                "w": "local",
+                "s": 35.76,
+                "e": 35.9,
+                "p": 0.9253166317939758
+              },
+              {
+                "w": "workflow",
+                "s": 35.9,
+                "e": 36.28,
+                "p": 0.9849804639816284
+              },
+              {
+                "w": "requires",
+                "s": 36.28,
+                "e": 36.7,
+                "p": 0.9988771080970764
+              },
+              {
+                "w": "installation.",
+                "s": 36.7,
+                "e": 37.22,
+                "p": 0.9983739852905273
+              },
+              {
+                "w": "The",
+                "s": 38.0,
+                "e": 38.02,
+                "p": 0.9946689009666443
+              },
+              {
+                "w": "payoff",
+                "s": 38.02,
+                "e": 38.24,
+                "p": 0.9398781657218933
+              },
+              {
+                "w": "is",
+                "s": 38.24,
+                "e": 38.62,
+                "p": 0.9949672818183899
+              },
+              {
+                "w": "structured",
+                "s": 38.62,
+                "e": 38.92,
+                "p": 0.8195883631706238
+              },
+              {
+                "w": "document",
+                "s": 38.92,
+                "e": 39.5,
+                "p": 0.9894340634346008
+              },
+              {
+                "w": "content",
+                "s": 39.5,
+                "e": 39.92,
+                "p": 0.9971299767494202
+              },
+              {
+                "w": "you",
+                "s": 39.92,
+                "e": 40.32,
+                "p": 0.939989447593689
+              },
+              {
+                "w": "can",
+                "s": 40.32,
+                "e": 40.4,
+                "p": 0.9916954636573792
+              },
+              {
+                "w": "connect",
+                "s": 40.4,
+                "e": 40.7,
+                "p": 0.9968666434288025
+              },
+              {
+                "w": "to",
+                "s": 40.7,
+                "e": 40.92,
+                "p": 0.9972631931304932
+              },
+              {
+                "w": "AI",
+                "s": 40.92,
+                "e": 41.12,
+                "p": 0.9645848870277405
+              },
+              {
+                "w": "workflows.",
+                "s": 41.12,
+                "e": 41.68,
+                "p": 0.9700723886489868
+              },
+              {
+                "w": "Be",
+                "s": 42.44,
+                "e": 42.46,
+                "p": 0.995995044708252
+              },
+              {
+                "w": "sure",
+                "s": 42.46,
+                "e": 42.6,
+                "p": 0.9987144470214844
+              },
+              {
+                "w": "to",
+                "s": 42.6,
+                "e": 42.72,
+                "p": 0.9963766932487488
+              },
+              {
+                "w": "like,",
+                "s": 42.72,
+                "e": 42.88,
+                "p": 0.9695644974708557
+              },
+              {
+                "w": "share,",
+                "s": 43.08,
+                "e": 43.36,
+                "p": 0.9970382452011108
+              },
+              {
+                "w": "and",
+                "s": 43.7,
+                "e": 43.78,
+                "p": 0.9983128309249878
+              },
+              {
+                "w": "save",
+                "s": 43.78,
+                "e": 44.02,
+                "p": 0.9946395754814148
+              },
+              {
+                "w": "this",
+                "s": 44.02,
+                "e": 44.26,
+                "p": 0.9944816827774048
+              },
+              {
+                "w": "video.",
+                "s": 44.26,
+                "e": 44.52,
+                "p": 0.9992433786392212
+              }
+            ],
+            "dauer_s": 45.0133125,
+            "sprache": "en"
+          },
+          "roh_key": "2fa4c63e9058a452227564b82f1024a801254961bc1bb6595504da00b20e2ccf",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "version": 1,
+          "video_sha256": "f26cd86361fa3d4973fad80851275379e4eea12ff55d4a6a9454398b003b1b61",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "ki_cache_wiederverwendet": false,
+        "video_sha256": "f26cd86361fa3d4973fad80851275379e4eea12ff55d4a6a9454398b003b1b61"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

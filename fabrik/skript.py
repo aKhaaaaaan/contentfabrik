@@ -1142,3 +1142,17 @@ if __name__ == '__main__':
         fehler.write_text(json.dumps({'status': 'anbieterpause' if code == 4 else 'auftragsfehler', 'grund': str(e)}, ensure_ascii=False), encoding='utf-8')
         print(str(e), file=sys.stderr)
         sys.exit(code)
+    except Exception as e:
+        # GEMESSEN 10.-14.10.2026: 32 KI-Skriptrunden endeten als „Code 1" ohne Grund im Verlauf;
+        # der Traceback stand nur im nach Tagen geloeschten Actions-Log. Ursache dauerhaft festhalten.
+        import traceback
+        ort = traceback.extract_tb(e.__traceback__)[-1]
+        fehler = Path(sys.argv[2]).with_name('skriptfehler.json')
+        try:
+            fehler.parent.mkdir(parents=True, exist_ok=True)
+            fehler.write_text(json.dumps({'status': 'absturz', 'grund': f'{type(e).__name__}: {str(e)[:200]} '
+                                          f'({Path(ort.filename).name}:{ort.lineno})'}, ensure_ascii=False),
+                              encoding='utf-8')
+        except OSError:
+            pass
+        raise

@@ -313,7 +313,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                                 'Skriptqualitaet unter Freigabe' if r == 3 else
                                 'Textanbieter voruebergehend gesperrt' if r == 4 else
                                 'KI-Auftrag zu gross' if r == 5 else f'Skript fehlgeschlagen (Code {r})')
-                if r in (4, 5) and (ordner / 'skriptfehler.json').exists():
+                if r in (1, 4, 5) and (ordner / 'skriptfehler.json').exists():
                     letzter_grund = json.loads((ordner / 'skriptfehler.json').read_text(encoding='utf-8')).get(
                         'grund', letzter_grund)
                 print(f'Versuch {versuch}: {letzter_grund}')

@@ -1627,7 +1627,12 @@ def main(skript_pfad, aus, vorlage=None):
                 quellen.append({'quelle': 'Illustration', 'seite': 'Eigene sichtgepruefte KI-Illustration (built-in image_gen)',
                                 'asset': t['asset'], 'sha256': bildplan.material_id(ill)})
             if modus == 'grafik':
-                if t.get('grafik_typ') == 'docling' and 'https://github.com/docling-project/docling' in s.get('quellen', []):
+                if t.get('grafik_typ') == 'bigarrow' and 'https://github.com/franzenzenhofer/big-arrow-on-the-screen' in s.get('quellen',[]):
+                    import bigarrow_bildfolge
+                    ill=bigarrow_bildfolge.grafik(aus/f'ill_{i:02d}.jpg',t.get('grafik_variante'))
+                    quellen.append({'quelle':'Dokumentationsgrafik','seite':bigarrow_bildfolge.SOURCE,
+                                    'nennung':'Illustrated documented commands, not our own Mac test'})
+                elif t.get('grafik_typ') == 'docling' and 'https://github.com/docling-project/docling' in s.get('quellen', []):
                     import docling_bildfolge
                     ill = docling_bildfolge.grafik(aus / f'ill_{i:02d}.jpg', t.get('grafik_variante'))
                     quellen.append({'quelle': 'Dokumentationsgrafik', 'seite': docling_bildfolge.SOURCE,

@@ -46,12 +46,38 @@ def grafik(ziel,variante):
         d.polygon([(610,830),(565,795),(565,865)],fill='#20d2be')
         d.polygon([(810,785),(910,785),(910,930),(860,895),(810,930)],fill='#20d2be')
         txt(105,1290,'SAVE THIS HUMAN-HANDOFF GUIDE',30)
+    elif variante==0:
+        for x,label in [(70,'WINDOW A'),(565,'WINDOW B')]:
+            box(x,640,440,510,'#dce4ec');txt(x+25,690,label,32,'#172635')
+            box(x+100,945,240,95,'#3677dd');txt(x+135,968,'ALLOW',35)
+        txt(155,1230,'SAME LABEL. WHICH CONTROL?',36,'#ffae35')
+    elif variante==2:
+        box(80,600,920,250);txt(120,660,'AGENT: PLEASE APPROVE',37)
+        arrow((540,880),(540,970))
+        box(80,1000,920,300);txt(120,1060,'HUMAN: I CHOOSE AND CLICK',35,'#20d2be')
+        txt(120,1160,'Agent instruction -> human action',30)
+    elif variante in (10,11,12,13):
+        box(80,560,920,730,'#dce4ec');txt(120,615,'PERMISSION EXAMPLE',34,'#172635')
+        if variante==13:
+            box(125,790,820,150,'#ffffff');txt(155,835,'Typing stays in this window |',33,'#172635')
+            arrow((260,1180),(855,835))
+            txt(130,1080,'Overlay does not take keyboard focus',27,'#172635')
+        else:
+            for x,label,color in [(140,'CANCEL','#607285'),(620,'ALLOW','#3677dd')]:
+                box(x,930,280,100,color);txt(x+30,960,label,34)
+            if variante==10:
+                txt(130,790,'APPROVE OR DECLINE: YOUR CHOICE',27,'#172635')
+            else:
+                arrow((250,1170),(760,945))
+                d.polygon([(735,1000),(735,1060),(752,1046),(770,1070),(782,1060),(764,1036),(790,1035)],fill='#172635')
+                txt(130,790,'HUMAN CLICKS THE BUTTON' if variante==11 else 'CLICK REACHES WINDOW THROUGH OVERLAY',24,'#172635')
+        txt(125,1360,'ILLUSTRATED INTERACTION',31,'#ffae35')
     else:
         box(70,565,940,735,'#dce4ec');txt(100,600,'System Settings',36,'#172635')
         box(105,700,840,430,'#f8fafc');txt(135,740,'Permission example',34,'#172635')
         txt(135,835,'Human approval required',32,'#172635')
         box(665,960,240,95,'#3677dd');txt(697,982,'ALLOW',35)
-        if variante!=14:arrow((200+(variante%3)*90,1180),(785,1010))
+        if variante not in (4,5,14):arrow((200+(variante%3)*90,1180),(785,945))
         if variante in (4,5):
             d.rectangle((650,945,920,1070),outline='#de7b2c',width=12)
         if variante in (2,5,9,10,11,12):

@@ -1410,6 +1410,8 @@ def main(skript_pfad, aus, vorlage=None):
                              + Path(motivbudget.__file__).read_bytes()
                              + Path(__file__).with_name('illustration.py').read_bytes()
                              + Path(__file__).with_name('infografik.py').read_bytes()
+                             + Path(__file__).with_name('bigarrow_bildfolge.py').read_bytes()
+                             + Path(__file__).with_name('docling_bildfolge.py').read_bytes()
                              + Path(__file__).with_name('bibliothek.py').read_bytes()
                              + (Path(__file__).resolve().parents[1] / 'assets/illustrationen/katalog.json').read_bytes()).hexdigest()
     cache = rendercache.laden(vorlage) if vorlage else {}

@@ -16,6 +16,10 @@ ZIEL = 10
 # GEMESSEN 08.10.: ein Bau braucht ~35-40 Min; 45 Min liessen keinen Platz fuer eine Korrektur
 # oder Gemini-Ueberlast. Nutzerentscheidung 08.10.: 90 Min je Kanal und Tag.
 BUDGET_S = 90 * 60
+# Einmaliges Zusatzbudget je (Kanal, UTC-Datum) - nur mit ausdruecklicher Nutzerfreigabe.
+# Nutzer 14.10.2026 ca. 18:45 Berlin, auf direkte Rueckfrage: "Ja, 30 Min. extra" nur heute,
+# nur Business (13/18 Motive + Ton im Cache, 5220/5400 s verbraucht). Gates unveraendert.
+ZUSATZ_S = {('business-origin-stories', '2026-10-14'): 30 * 60}
 # Langvideo (8-10 Min., ~70-80 Bilder statt 25) - erster Pilot 08.10.2026, Bauzeit noch nicht
 # gemessen; hochgerechnet aus ~35-40 Min. je Short. GitHub-Jobs enden spaetestens nach 6 h.
 BUDGET_LANG_S = 200 * 60
@@ -28,9 +32,13 @@ NEUBAU_MIN_S = 600  # Kleine Restfenster nicht mit einem neuen Skript verbrauche
 PY = sys.executable
 
 
+def tagesgrenze(kanal, grenze):
+    return grenze + ZUSATZ_S.get((kanal, budget.heute()), 0)
+
+
 def start_moeglich(kanal, thema=''):
     """Knappe Restfenster nur fuer einen gueltigen vorhandenen Teilbau nutzen."""
-    frei = budget.rest(kanal, BUDGET_S)
+    frei = budget.rest(kanal, tagesgrenze(kanal, BUDGET_S))
     if frei >= NEUBAU_MIN_S:
         return True
     if frei <= SENDEN_S:
@@ -168,7 +176,7 @@ def main(kanal_pfad, thema='', entwurf=''):
     if not Path(kanal_pfad).is_file():
         raise ValueError(f'Kanal-Datei fehlt: {kanal_pfad}')
     import kanalstandard
-    gesamt = budget_fuer(kanalstandard.laden(kanal_pfad))
+    gesamt = tagesgrenze(budgetkanal, budget_fuer(kanalstandard.laden(kanal_pfad)))
     if budget.rest(budgetkanal, gesamt) <= SENDEN_S:
         print(f'{kanal}: Tagesbudget verbraucht - keine neue Produktion')
         return 0

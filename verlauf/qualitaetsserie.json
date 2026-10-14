@@ -29991,6 +29991,87 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "38608447213.1:business-origin-stories",
+      "run_id": "38608447213",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-14T18:17:14.740050+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "0edfa68ee395eb9ff3eb4f3a40151e8b536353de",
+      "produktionsversion": "a00db5d03ad385525a3be6413685097dce1bcaacb3a65b20d2a46d0a080aa0cc",
+      "videoformat": "short",
+      "thema": "Milwaukee Brewers",
+      "titel": [
+        "*Seattle* *Pilots* to",
+        "Brewers' 103 Wins"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38608447213",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-14",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 147.5,
+            "bau_s": 154.3,
+            "baufehler": "ValueError: Bildplan deckt nicht alle Sprechphasen lueckenlos ab",
+            "status": "baufehler",
+            "sekunden": 301.9
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 1768.3,
+            "baufehler": "ValueError: Phase 4, Einstellung 11: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 1768.3
+          },
+          {
+            "runde": 3,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 125.6,
+            "baufehler": "ValueError: Phase 4, Einstellung 11: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 125.6
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "Google: 5.0 Punkte - YouTube-Ausreisser 107.8x Kanalschnitt",
+        "grund": "Videobau fehlgeschlagen (ValueError: Phase 4, Einstellung 11: kein passendes Hauptbild; kein Hintergrundersatz)",
+        "sekunden": 2196.0,
+        "upload_titel": "Seattle Pilots to: Brewers' 103 Wins"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

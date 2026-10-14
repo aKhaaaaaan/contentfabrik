@@ -2576,5 +2576,44 @@
     "grund": "Videobau-Zeitlimit erreicht (Arbeiter beendet)",
     "sekunden": 1800.3,
     "upload_titel": "How Panasonic Began: From 1918 Sockets"
+  },
+  {
+    "id": "38608447213",
+    "kanal": "business-origin-stories",
+    "datum": "2026-10-14",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "skript_s": 147.5,
+        "bau_s": 154.3,
+        "baufehler": "ValueError: Bildplan deckt nicht alle Sprechphasen lueckenlos ab",
+        "status": "baufehler",
+        "sekunden": 301.9
+      },
+      {
+        "runde": 2,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 1768.3,
+        "baufehler": "ValueError: Phase 4, Einstellung 11: kein passendes Hauptbild; kein Hintergrundersatz",
+        "status": "baufehler",
+        "sekunden": 1768.3
+      },
+      {
+        "runde": 3,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 125.6,
+        "baufehler": "ValueError: Phase 4, Einstellung 11: kein passendes Hauptbild; kein Hintergrundersatz",
+        "status": "baufehler",
+        "sekunden": 125.6
+      }
+    ],
+    "status": "gesperrt",
+    "trendcheck": "Google: 5.0 Punkte - YouTube-Ausreisser 107.8x Kanalschnitt",
+    "grund": "Videobau fehlgeschlagen (ValueError: Phase 4, Einstellung 11: kein passendes Hauptbild; kein Hintergrundersatz)",
+    "sekunden": 2196.0,
+    "upload_titel": "Seattle Pilots to: Brewers' 103 Wins"
   }
 ]

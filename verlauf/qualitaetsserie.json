@@ -19368,6 +19368,700 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "38577836924.1:business-origin-stories",
+      "run_id": "38577836924",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-14T14:40:11.926655+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "422d8363935ee6c8588cdc419b10735f21daa72a",
+      "produktionsversion": "3d1c27eca82b52b6243f07de28d0c8643eca66d304b153e59ec64649a73e62e4",
+      "videoformat": "short",
+      "thema": "Panasonic Origin Story",
+      "titel": [
+        "How *Panasonic* Began",
+        "From 1918 Sockets"
+      ],
+      "status": "gesperrt",
+      "video_sha256": "6c4738984974de959a22ceea437482843d3d3be6cfc7dcb995f3810dd425fdb8",
+      "video_gebaut": true,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden"
+      ],
+      "einstellungen": 18,
+      "unterschiedliche_motive": 18,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38577836924",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-14",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 254.5,
+            "bau_s": 618.1,
+            "pruefung_s": 18.9,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Einzelbewertungen fehlen",
+              "Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt",
+              "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden"
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Orus",
+              "stimme": 19.6,
+              "zeitmarken": 5.1,
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 18,
+              "clips_und_stuecke": 544.0,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 18,
+                "motive": 18,
+                "motive_min": 18
+              },
+              "effekte": 10,
+              "rendern": 37.9,
+              "gesamt": 617.4,
+              "videolaenge_s": 43.4,
+              "abschnitte_s": [
+                6.26,
+                6.58,
+                5.28,
+                5.28,
+                5.68,
+                10.9,
+                3.46
+              ],
+              "woerter": 84
+            },
+            "kategorien": {},
+            "probleme": [],
+            "sekunden": 891.5,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "Google: 5.0 Punkte - YouTube-Ausreisser 107.8x Kanalschnitt",
+        "grund": "Keine weitere gezielte Korrektur moeglich",
+        "sekunden": 893.4,
+        "upload_titel": "How Panasonic Began: From 1918 Sockets"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "staerken": [],
+        "probleme": [],
+        "fazit": "Technik-/Endton-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 43.5,
+          "fps": 30.0,
+          "lufs": -15.3,
+          "befunde": [
+            "Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt"
+          ]
+        },
+        "audio_pruefung": {
+          "ok": false,
+          "befunde": [
+            "Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt"
+          ],
+          "treffer": [],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 23.5,
+              "bis_s": 44.0,
+              "erkannt": false
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "How",
+                "s": 0.0,
+                "e": 0.42,
+                "p": 0.9106358289718628
+              },
+              {
+                "w": "did",
+                "s": 0.42,
+                "e": 0.68,
+                "p": 0.9849485754966736
+              },
+              {
+                "w": "a",
+                "s": 0.68,
+                "e": 0.76,
+                "p": 0.9909867644309998
+              },
+              {
+                "w": "tiny",
+                "s": 0.76,
+                "e": 1.1,
+                "p": 0.9749245643615723
+              },
+              {
+                "w": "Osaka",
+                "s": 1.1,
+                "e": 1.48,
+                "p": 0.9843981862068176
+              },
+              {
+                "w": "shop",
+                "s": 1.48,
+                "e": 2.14,
+                "p": 0.6612189412117004
+              },
+              {
+                "w": "become",
+                "s": 2.14,
+                "e": 2.92,
+                "p": 0.9553067684173584
+              },
+              {
+                "w": "the",
+                "s": 2.92,
+                "e": 3.16,
+                "p": 0.9889605641365051
+              },
+              {
+                "w": "world's",
+                "s": 3.16,
+                "e": 3.76,
+                "p": 0.9732180237770081
+              },
+              {
+                "w": "biggest",
+                "s": 3.76,
+                "e": 4.1,
+                "p": 0.9972391128540039
+              },
+              {
+                "w": "electronics",
+                "s": 4.1,
+                "e": 4.76,
+                "p": 0.9866607189178467
+              },
+              {
+                "w": "maker?",
+                "s": 4.76,
+                "e": 5.16,
+                "p": 0.9774829149246216
+              },
+              {
+                "w": "In",
+                "s": 6.36,
+                "e": 6.44,
+                "p": 0.9410766959190369
+              },
+              {
+                "w": "1918,",
+                "s": 6.44,
+                "e": 7.5,
+                "p": 0.9976038336753845
+              },
+              {
+                "w": "Konosuke",
+                "s": 8.02,
+                "e": 8.64,
+                "p": 0.7742494543393453
+              },
+              {
+                "w": "Matsushita",
+                "s": 8.64,
+                "e": 9.32,
+                "p": 0.8840364217758179
+              },
+              {
+                "w": "opened",
+                "s": 9.32,
+                "e": 9.92,
+                "p": 0.9929237365722656
+              },
+              {
+                "w": "a",
+                "s": 9.92,
+                "e": 10.14,
+                "p": 0.9972779154777527
+              },
+              {
+                "w": "duplex",
+                "s": 10.14,
+                "e": 10.58,
+                "p": 0.9830208122730255
+              },
+              {
+                "w": "socket",
+                "s": 10.58,
+                "e": 10.94,
+                "p": 0.5902714729309082
+              },
+              {
+                "w": "shop",
+                "s": 10.94,
+                "e": 11.3,
+                "p": 0.9894242882728577
+              },
+              {
+                "w": "in",
+                "s": 11.3,
+                "e": 11.54,
+                "p": 0.9941217303276062
+              },
+              {
+                "w": "Osaka.",
+                "s": 11.54,
+                "e": 11.94,
+                "p": 0.9987044334411621
+              },
+              {
+                "w": "By",
+                "s": 12.84,
+                "e": 13.02,
+                "p": 0.9941281080245972
+              },
+              {
+                "w": "1927,",
+                "s": 13.02,
+                "e": 13.64,
+                "p": 0.9960567951202393
+              },
+              {
+                "w": "he",
+                "s": 14.22,
+                "e": 14.36,
+                "p": 0.9973846077919006
+              },
+              {
+                "w": "marketed",
+                "s": 14.36,
+                "e": 14.7,
+                "p": 0.9989508390426636
+              },
+              {
+                "w": "bicycle",
+                "s": 14.7,
+                "e": 15.14,
+                "p": 0.8961995840072632
+              },
+              {
+                "w": "lamps",
+                "s": 15.14,
+                "e": 15.5,
+                "p": 0.9973031282424927
+              },
+              {
+                "w": "under",
+                "s": 15.5,
+                "e": 15.84,
+                "p": 0.9960662722587585
+              },
+              {
+                "w": "the",
+                "s": 15.84,
+                "e": 16.04,
+                "p": 0.995372474193573
+              },
+              {
+                "w": "National",
+                "s": 16.04,
+                "e": 16.44,
+                "p": 0.6985912322998047
+              },
+              {
+                "w": "Brand.",
+                "s": 16.44,
+                "e": 16.78,
+                "p": 0.6103449463844299
+              },
+              {
+                "w": "After",
+                "s": 18.16,
+                "e": 18.16,
+                "p": 0.9967161417007446
+              },
+              {
+                "w": "the",
+                "s": 18.16,
+                "e": 18.32,
+                "p": 0.9967772364616394
+              },
+              {
+                "w": "war,",
+                "s": 18.32,
+                "e": 18.6,
+                "p": 0.9799678325653076
+              },
+              {
+                "w": "the",
+                "s": 18.9,
+                "e": 19.02,
+                "p": 0.998610258102417
+              },
+              {
+                "w": "company",
+                "s": 19.02,
+                "e": 19.26,
+                "p": 0.9822694063186646
+              },
+              {
+                "w": "supplied",
+                "s": 19.26,
+                "e": 19.7,
+                "p": 0.9977951049804688
+              },
+              {
+                "w": "radios",
+                "s": 19.7,
+                "e": 20.12,
+                "p": 0.9859600067138672
+              },
+              {
+                "w": "and",
+                "s": 20.12,
+                "e": 20.52,
+                "p": 0.9969893097877502
+              },
+              {
+                "w": "appliances",
+                "s": 20.52,
+                "e": 20.82,
+                "p": 0.9996346235275269
+              },
+              {
+                "w": "for",
+                "s": 20.82,
+                "e": 21.42,
+                "p": 0.9985729455947876
+              },
+              {
+                "w": "Japan's",
+                "s": 21.42,
+                "e": 22.04,
+                "p": 0.9977124631404877
+              },
+              {
+                "w": "boom.",
+                "s": 22.04,
+                "e": 22.28,
+                "p": 0.9591821432113647
+              },
+              {
+                "w": "Unable",
+                "s": 23.4,
+                "e": 23.5,
+                "p": 0.9928374886512756
+              },
+              {
+                "w": "to",
+                "s": 23.5,
+                "e": 23.8,
+                "p": 0.9987272620201111
+              },
+              {
+                "w": "use",
+                "s": 23.8,
+                "e": 23.98,
+                "p": 0.9982263445854187
+              },
+              {
+                "w": "National",
+                "s": 23.98,
+                "e": 24.28,
+                "p": 0.7170313596725464
+              },
+              {
+                "w": "in",
+                "s": 24.28,
+                "e": 24.7,
+                "p": 0.9941972494125366
+              },
+              {
+                "w": "the",
+                "s": 24.7,
+                "e": 24.78,
+                "p": 0.9972590208053589
+              },
+              {
+                "w": "US,",
+                "s": 24.78,
+                "e": 25.12,
+                "p": 0.5514889359474182
+              },
+              {
+                "w": "it",
+                "s": 25.54,
+                "e": 25.72,
+                "p": 0.9962205290794373
+              },
+              {
+                "w": "introduced",
+                "s": 25.72,
+                "e": 26.08,
+                "p": 0.9968485236167908
+              },
+              {
+                "w": "Panasonic",
+                "s": 26.08,
+                "e": 26.62,
+                "p": 0.9953372478485107
+              },
+              {
+                "w": "in",
+                "s": 26.62,
+                "e": 27.36,
+                "p": 0.9932467937469482
+              },
+              {
+                "w": "1955.",
+                "s": 27.36,
+                "e": 28.1,
+                "p": 0.9977070093154907
+              },
+              {
+                "w": "By",
+                "s": 29.12,
+                "e": 29.92,
+                "p": 0.3589739501476288
+              },
+              {
+                "w": "the",
+                "s": 29.92,
+                "e": 30.02,
+                "p": 0.9906629323959351
+              },
+              {
+                "w": "late",
+                "s": 30.02,
+                "e": 30.18,
+                "p": 0.9911750555038452
+              },
+              {
+                "w": "20th",
+                "s": 30.18,
+                "e": 30.76,
+                "p": 0.918617308139801
+              },
+              {
+                "w": "century,",
+                "s": 30.76,
+                "e": 31.04,
+                "p": 0.872933566570282
+              },
+              {
+                "w": "Panasonic",
+                "s": 31.48,
+                "e": 31.66,
+                "p": 0.9801077842712402
+              },
+              {
+                "w": "overtook",
+                "s": 31.66,
+                "e": 32.48,
+                "p": 0.9961033761501312
+              },
+              {
+                "w": "Philips",
+                "s": 32.48,
+                "e": 32.74,
+                "p": 0.8515737056732178
+              },
+              {
+                "w": "as",
+                "s": 32.74,
+                "e": 33.26,
+                "p": 0.9850273132324219
+              },
+              {
+                "w": "the",
+                "s": 33.26,
+                "e": 33.36,
+                "p": 0.9946452379226685
+              },
+              {
+                "w": "world's",
+                "s": 33.36,
+                "e": 33.74,
+                "p": 0.9820018708705902
+              },
+              {
+                "w": "largest",
+                "s": 33.74,
+                "e": 34.18,
+                "p": 0.996171772480011
+              },
+              {
+                "w": "consumer",
+                "s": 34.18,
+                "e": 34.44,
+                "p": 0.9947389960289001
+              },
+              {
+                "w": "electronics",
+                "s": 34.44,
+                "e": 35.14,
+                "p": 0.9913899302482605
+              },
+              {
+                "w": "maker.",
+                "s": 35.34,
+                "e": 35.74,
+                "p": 0.9952341914176941
+              },
+              {
+                "w": "It",
+                "s": 36.62,
+                "e": 36.7,
+                "p": 0.989100992679596
+              },
+              {
+                "w": "began",
+                "s": 36.7,
+                "e": 36.98,
+                "p": 0.9979128241539001
+              },
+              {
+                "w": "by",
+                "s": 36.98,
+                "e": 37.64,
+                "p": 0.9799832701683044
+              },
+              {
+                "w": "selling",
+                "s": 37.64,
+                "e": 37.92,
+                "p": 0.9975005984306335
+              },
+              {
+                "w": "simple",
+                "s": 37.92,
+                "e": 38.4,
+                "p": 0.964217483997345
+              },
+              {
+                "w": "lamp",
+                "s": 38.4,
+                "e": 38.76,
+                "p": 0.8261843323707581
+              },
+              {
+                "w": "sockets,",
+                "s": 38.76,
+                "e": 39.16,
+                "p": 0.9916382431983948
+              },
+              {
+                "w": "like,",
+                "s": 39.76,
+                "e": 40.22,
+                "p": 0.9886067509651184
+              },
+              {
+                "w": "share,",
+                "s": 40.54,
+                "e": 40.92,
+                "p": 0.8894994854927063
+              },
+              {
+                "w": "and",
+                "s": 41.62,
+                "e": 41.66,
+                "p": 0.9953197836875916
+              },
+              {
+                "w": "save",
+                "s": 41.66,
+                "e": 41.96,
+                "p": 0.9902822971343994
+              },
+              {
+                "w": "this",
+                "s": 41.96,
+                "e": 42.36,
+                "p": 0.9156798124313354
+              },
+              {
+                "w": "story.",
+                "s": 42.36,
+                "e": 42.78,
+                "p": 0.9972556233406067
+              }
+            ],
+            "dauer_s": 43.456,
+            "sprache": "en"
+          },
+          "roh_key": "12004f989e11804b3792e35838e5536d85ea1bee93cf5257740978f76410e38e",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": false,
+              "befunde": [
+                "Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt"
+              ]
+            },
+            {
+              "modell": "small.en",
+              "ok": false,
+              "befunde": [
+                "Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt"
+              ]
+            }
+          ],
+          "version": 1,
+          "video_sha256": "6c4738984974de959a22ceea437482843d3d3be6cfc7dcb995f3810dd425fdb8",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 43.5,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 18,
+          "motive": 18,
+          "motive_min": 18
+        },
+        "video_sha256": "6c4738984974de959a22ceea437482843d3d3be6cfc7dcb995f3810dd425fdb8"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

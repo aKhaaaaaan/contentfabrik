@@ -31,8 +31,21 @@ def slots(s, laengen, woerter):
     ziel = 8 if dramaturgie.videoformat(s) == 'lang' else 4.5
     anzahlen = [max(1, math.ceil(d / ziel)) for d in laengen]
     minimum = motivziel(s) if sum(laengen) >= 30 else 0
+    redaktionell = len(s['teile']) == len(laengen) and all(
+        t.get('bildfolge') and all(all(v.get(k) for k in ('bildmodus','suche','szene','motiv'))
+                                  for v in t['bildfolge']) for t in s['teile'])
+    if redaktionell:
+        # Eine fertige Regie verteilt ihre Motive bewusst auf die Sprechphasen.
+        # Der automatische Dichteausgleich verschob zuvor einen Slot in eine
+        # andere Phase und verlangte dort ein nicht vorgesehenes neunzehntes Bild.
+        anzahlen = [len(t['bildfolge']) for t in s['teile']]
+        if sum(anzahlen) < minimum:
+            raise ValueError('Redaktionelle Bildfolge unterschreitet die Mindestzahl der Motive')
+        for i,(d,n) in enumerate(zip(laengen,anzahlen)):
+            if d/n > (10 if dramaturgie.videoformat(s) == 'lang' else 6):
+                raise ValueError(f'Phase {i}: redaktionelle Bildfolge haelt ein Motiv zu lange')
     # Die laengste Einstellung teilen, ohne Sprechphasen oder Wortzeiten zu veraendern.
-    while anzahlen and sum(anzahlen) < minimum:
+    while not redaktionell and anzahlen and sum(anzahlen) < minimum:
         phase = max(range(len(laengen)), key=lambda i: laengen[i] / anzahlen[i])
         anzahlen[phase] += 1
     aus, start = [], 0.0

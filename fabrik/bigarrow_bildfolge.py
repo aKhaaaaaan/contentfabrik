@@ -7,9 +7,11 @@ SOURCE='https://github.com/franzenzenhofer/big-arrow-on-the-screen'
 # GEMESSEN 14.10.2026 (Lauf 38591953175): Keynote-Ausschnitt (4) und statische
 # Einstellungsansicht (15) fielen bei der Einzelbildpruefung durch (3/10, 5/10) - die Boxen
 # waren zu klein, "no AI / no auto-click" war nicht sichtbar. Dafuer jetzt eigene Diagramme.
-DEMOS={0:'bigarrow-allow',3:'bigarrow-arrow-print',5:'bigarrow-label-chrome'}
+# Lauf 38600506228: dieselbe Druckdialog-Demo (3) bekam 4/10 statt zuvor 8/10, die Chrome-Demo (5)
+# 6/10 - kleine fremde UI-Details lesen sich fuer den Pruefer instabil. Eigene klare Diagramme.
+DEMOS={0:'bigarrow-allow'}
 TITLES=['WHICH ALLOW BUTTON?','POINT AT THE CONTROL','THAT CONTROL ON YOUR MAC',
-        'ARROWS','BOXES AND LABELS','LABELS','INSTALL WITH HOMEBREW','ADD THE SKILL','AGENT ISSUES A COMMAND',
+        'IT DRAWS ARROWS','BOXES AND LABELS','ABOVE YOUR WINDOWS','INSTALL WITH HOMEBREW','ADD THE SKILL','AGENT ISSUES A COMMAND',
         'SYSTEM SETTINGS EXAMPLE','YOU DECIDE','YOU CLICK','CLICKS PASS THROUGH',
         'KEYBOARD FOCUS STAYS','ARROW REMOVES ITSELF','NO AI INSIDE','NO AUTOMATIC CLICKING','LIKE / SHARE / SAVE']
 
@@ -84,9 +86,19 @@ def grafik(ziel,variante):
         d.polygon([(700,925),(700,1080),(735,1045),(780,1110),(808,1085),(760,1018),(820,1010)],fill='#172635')
         txt(125,1170,'Pointer does not press buttons',31,'#172635')
     elif variante==3:
-        box(80,650,920,580);box(690,770,220,200,'#3677dd')
-        txt(735,845,'UI',48);arrow((180,1160),(785,785))
-        txt(120,1330,'OVERLAY ARROW POINTS TO AN ELEMENT',27,'#ffae35')
+        fenster(70,560,940,560,'Preview')
+        box(120,670,380,90,'#c9d3dd');box(120,790,380,90,'#c9d3dd')
+        box(600,900,320,100,'#3677dd');txt(690,930,'SAVE',34)
+        arrow((180,1080),(610,950));arrow((960,700),(770,890))
+        txt(80,1160,'BIG ARROWS DRAWN OVER THE WINDOW',30,'#ffae35')
+    elif variante==5:
+        fenster(60,560,620,380,'Finder');fenster(400,760,620,400,'Mail')
+        d.rectangle((560,1030,860,1120),outline='#ffae35',width=10)
+        box(580,1045,260,60,'#3677dd');txt(640,1055,'Send',30)
+        d.rounded_rectangle((90,1000,470,1080),radius=14,fill='#ffae35')
+        txt(110,1018,'LABEL: send here',30,'#10202d')
+        arrow((200,860),(560,1060))
+        txt(80,1200,'ARROW + BOX + LABEL ABOVE YOUR WINDOWS',27,'#ffae35')
     elif variante==14:
         for x,label in [(65,'BEFORE'),(560,'AFTER')]:
             txt(x+85,580,label,43,'#20d2be')

@@ -20398,6 +20398,1321 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "38587713060.1:ai-tools-explained",
+      "run_id": "38587713060",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-14T15:26:53.975947+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "6eb681c94fc52b84281849a19a7a903911df26e3",
+      "produktionsversion": "9427f1a804a159cab9612cd549de5b333b176f1385b18c6d799844a5fec92bf4",
+      "videoformat": "short",
+      "thema": "Bigarrow: Human Handoffs for AI Agents",
+      "titel": [
+        "Your AI Says *Click*",
+        "Bigarrow Shows Where"
+      ],
+      "status": "gesperrt",
+      "video_sha256": "431013cabe24792a77ac7f7f755994394c2d6213d322114346696f928add9a4e",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-13.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt.",
+        "Einstellung 14: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige.",
+        "Offenes Problem (schwer): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet.",
+        "Offenes Problem (schwer): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt. Korrektur: Ein Screenshot, der konkret Pfeile, Boxen und Beschriftungen oberhalb von Fenstern darstellt.",
+        "Offenes Problem (schwer): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige. Korrektur: Eine Bildschirmaufnahme, die das Verschwinden des Pfeils nach der Anzeige einer Instruktion demonstriert."
+      ],
+      "einstellungen": 18,
+      "unterschiedliche_motive": 18,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38587713060",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-14",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 111.9,
+            "pruefung_s": 56.6,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt.",
+              "Einstellung 14: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige.",
+              "Offenes Problem (schwer): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt. Korrektur: Ein Screenshot, der konkret Pfeile, Boxen und Beschriftungen oberhalb von Fenstern darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige. Korrektur: Eine Bildschirmaufnahme, die das Verschwinden des Pfeils nach der Anzeige einer Instruktion demonstriert."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.08,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 18,
+              "clips_und_stuecke": 75.5,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 18,
+                "motive": 18,
+                "motive_min": 18
+              },
+              "effekte": 8,
+              "rendern": 35.8,
+              "gesamt": 111.7,
+              "videolaenge_s": 44.4,
+              "abschnitte_s": [
+                8.34,
+                4.0,
+                6.8,
+                6.94,
+                6.86,
+                8.34,
+                3.11
+              ],
+              "woerter": 98
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:08",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet."
+              },
+              {
+                "zeit": "00:09",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt. Korrektur: Ein Screenshot, der konkret Pfeile, Boxen und Beschriftungen oberhalb von Fenstern darstellt."
+              },
+              {
+                "zeit": "00:30",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige. Korrektur: Eine Bildschirmaufnahme, die das Verschwinden des Pfeils nach der Anzeige einer Instruktion demonstriert."
+              }
+            ],
+            "sekunden": 168.6,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                4
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-13.2"
+            },
+            "skript_s": 1.6,
+            "bau_s": 38.2,
+            "pruefung_s": 6.8,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt.",
+              "Einstellung 14: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige.",
+              "Offenes Problem (schwer): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt. Korrektur: Ein Screenshot, der konkret Pfeile, Boxen und Beschriftungen oberhalb von Fenstern darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige. Korrektur: Eine Bildschirmaufnahme, die das Verschwinden des Pfeils nach der Anzeige einer Instruktion demonstriert."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.08,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 18,
+              "stuecke_neu": 0,
+              "clips_und_stuecke": 1.7,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 18,
+                "motive": 18,
+                "motive_min": 18
+              },
+              "effekte": 8,
+              "rendern": 35.9,
+              "gesamt": 38.1,
+              "videolaenge_s": 44.4,
+              "abschnitte_s": [
+                8.34,
+                4.0,
+                6.8,
+                6.94,
+                6.86,
+                8.34,
+                3.11
+              ],
+              "woerter": 98
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:08",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet."
+              },
+              {
+                "zeit": "00:09",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt. Korrektur: Ein Screenshot, der konkret Pfeile, Boxen und Beschriftungen oberhalb von Fenstern darstellt."
+              },
+              {
+                "zeit": "00:30",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige. Korrektur: Eine Bildschirmaufnahme, die das Verschwinden des Pfeils nach der Anzeige einer Instruktion demonstriert."
+              }
+            ],
+            "sekunden": 46.7,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "38587713060-2",
+              "datum": "2026-10-14",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 46.7,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-13.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-13.2"
+            },
+            "skript_s": 1.8,
+            "bau_s": 38.8,
+            "pruefung_s": 6.7,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt.",
+              "Einstellung 14: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige.",
+              "Offenes Problem (schwer): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt. Korrektur: Ein Screenshot, der konkret Pfeile, Boxen und Beschriftungen oberhalb von Fenstern darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige. Korrektur: Eine Bildschirmaufnahme, die das Verschwinden des Pfeils nach der Anzeige einer Instruktion demonstriert."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.08,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 18,
+              "stuecke_neu": 0,
+              "clips_und_stuecke": 2.5,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 18,
+                "motive": 18,
+                "motive_min": 18
+              },
+              "effekte": 8,
+              "rendern": 35.6,
+              "gesamt": 38.5,
+              "videolaenge_s": 44.4,
+              "abschnitte_s": [
+                8.34,
+                4.0,
+                6.8,
+                6.94,
+                6.86,
+                8.34,
+                3.11
+              ],
+              "woerter": 98
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:08",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet."
+              },
+              {
+                "zeit": "00:09",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt. Korrektur: Ein Screenshot, der konkret Pfeile, Boxen und Beschriftungen oberhalb von Fenstern darstellt."
+              },
+              {
+                "zeit": "00:30",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige. Korrektur: Eine Bildschirmaufnahme, die das Verschwinden des Pfeils nach der Anzeige einer Instruktion demonstriert."
+              }
+            ],
+            "sekunden": 47.3,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "38587713060-3",
+              "datum": "2026-10-14",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 47.3,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-13.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Video-Note fehlt oder ist ungueltig; Video-Bewertung hook fehlt oder ist ungueltig; Video-bild_passt 2/10 unter 7/10; Video-Bewertung dynamik fehlt oder ist ungueltig; Video-Bewertung text fehlt oder ist ungueltig; Video-Bewertung ton_stimme fehlt oder ist ungueltig; Video-Bewertung tempo fehlt oder ist ungueltig; Video-Bewertung inhalt fehlt oder ist ungueltig; Video-Bewertung schluss_loop fehlt oder ist ungueltig; Video-Bewertung regeln fehlt oder ist ungueltig; Video-Bewertung story fehlt oder ist ungueltig; Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht.; Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt.; Einstellung 14: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige.; Offenes Problem (schwer): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet.; Offenes Problem (schwer): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt. Korrektur: Ein Screenshot, der konkret Pfeile, Boxen und Beschriftungen oberhalb von Fenstern darstellt.; Offenes Problem (schwer): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige. Korrektur: Eine Bildschirmaufnahme, die das Verschwinden des Pfeils nach der Anzeige einer Instruktion demonstriert.",
+        "sekunden": 270.1,
+        "upload_titel": "Your AI Says Click: Bigarrow Shows Where | AI Tool #4"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:08",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet."
+          },
+          {
+            "zeit": "00:09",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt. Korrektur: Ein Screenshot, der konkret Pfeile, Boxen und Beschriftungen oberhalb von Fenstern darstellt."
+          },
+          {
+            "zeit": "00:30",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige. Korrektur: Eine Bildschirmaufnahme, die das Verschwinden des Pfeils nach der Anzeige einer Instruktion demonstriert."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 44.3,
+          "fps": 30.0,
+          "lufs": -14.5,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 41.66,
+              "bis_s": 43.86,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.983
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 24.299999999999997,
+              "bis_s": 44.8,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Your",
+                "s": 0.0,
+                "e": 0.48,
+                "p": 0.8499125242233276
+              },
+              {
+                "w": "AI",
+                "s": 0.48,
+                "e": 0.76,
+                "p": 0.9348815679550171
+              },
+              {
+                "w": "says",
+                "s": 0.76,
+                "e": 1.44,
+                "p": 0.9887086749076843
+              },
+              {
+                "w": "click",
+                "s": 1.44,
+                "e": 1.88,
+                "p": 0.1747407466173172
+              },
+              {
+                "w": "allow,",
+                "s": 1.88,
+                "e": 2.32,
+                "p": 0.43907222151756287
+              },
+              {
+                "w": "which",
+                "s": 2.96,
+                "e": 3.28,
+                "p": 0.9719167947769165
+              },
+              {
+                "w": "button?",
+                "s": 3.28,
+                "e": 3.62,
+                "p": 0.9960228204727173
+              },
+              {
+                "w": "Big",
+                "s": 4.22,
+                "e": 4.48,
+                "p": 0.9726391434669495
+              },
+              {
+                "w": "arrow",
+                "s": 4.48,
+                "e": 4.74,
+                "p": 0.5651058554649353
+              },
+              {
+                "w": "points",
+                "s": 4.74,
+                "e": 5.16,
+                "p": 0.9938068985939026
+              },
+              {
+                "w": "directly",
+                "s": 5.16,
+                "e": 5.58,
+                "p": 0.991070032119751
+              },
+              {
+                "w": "at",
+                "s": 5.58,
+                "e": 6.22,
+                "p": 0.9966984391212463
+              },
+              {
+                "w": "that",
+                "s": 6.22,
+                "e": 6.36,
+                "p": 0.9951541423797607
+              },
+              {
+                "w": "control",
+                "s": 6.36,
+                "e": 6.76,
+                "p": 0.9953832030296326
+              },
+              {
+                "w": "on",
+                "s": 6.76,
+                "e": 7.18,
+                "p": 0.9936246871948242
+              },
+              {
+                "w": "your",
+                "s": 7.18,
+                "e": 7.34,
+                "p": 0.9977144002914429
+              },
+              {
+                "w": "Mac.",
+                "s": 7.34,
+                "e": 7.6,
+                "p": 0.9712225198745728
+              },
+              {
+                "w": "It",
+                "s": 8.4,
+                "e": 8.5,
+                "p": 0.987765908241272
+              },
+              {
+                "w": "draws",
+                "s": 8.5,
+                "e": 8.7,
+                "p": 0.9989583492279053
+              },
+              {
+                "w": "arrows,",
+                "s": 8.7,
+                "e": 9.06,
+                "p": 0.9902743697166443
+              },
+              {
+                "w": "boxes,",
+                "s": 9.52,
+                "e": 9.9,
+                "p": 0.9961842894554138
+              },
+              {
+                "w": "and",
+                "s": 10.14,
+                "e": 10.2,
+                "p": 0.9978499412536621
+              },
+              {
+                "w": "labels",
+                "s": 10.2,
+                "e": 10.5,
+                "p": 0.9984252452850342
+              },
+              {
+                "w": "above",
+                "s": 10.5,
+                "e": 10.86,
+                "p": 0.9987297654151917
+              },
+              {
+                "w": "your",
+                "s": 10.86,
+                "e": 11.2,
+                "p": 0.9969275593757629
+              },
+              {
+                "w": "windows.",
+                "s": 11.2,
+                "e": 11.56,
+                "p": 0.607155442237854
+              },
+              {
+                "w": "Install",
+                "s": 12.34,
+                "e": 12.58,
+                "p": 0.9846422076225281
+              },
+              {
+                "w": "the",
+                "s": 12.58,
+                "e": 13.0,
+                "p": 0.9978075623512268
+              },
+              {
+                "w": "homebrew",
+                "s": 13.0,
+                "e": 13.2,
+                "p": 0.282720685005188
+              },
+              {
+                "w": "package,",
+                "s": 13.2,
+                "e": 13.8,
+                "p": 0.9972302317619324
+              },
+              {
+                "w": "then",
+                "s": 14.26,
+                "e": 14.44,
+                "p": 0.9712121486663818
+              },
+              {
+                "w": "add",
+                "s": 14.44,
+                "e": 14.64,
+                "p": 0.9839824438095093
+              },
+              {
+                "w": "its",
+                "s": 14.64,
+                "e": 14.76,
+                "p": 0.9401939511299133
+              },
+              {
+                "w": "skill",
+                "s": 14.76,
+                "e": 15.06,
+                "p": 0.9854039549827576
+              },
+              {
+                "w": "so",
+                "s": 15.06,
+                "e": 15.52,
+                "p": 0.8082229495048523
+              },
+              {
+                "w": "your",
+                "s": 15.52,
+                "e": 15.66,
+                "p": 0.9901395440101624
+              },
+              {
+                "w": "coding",
+                "s": 15.66,
+                "e": 15.88,
+                "p": 0.9428195953369141
+              },
+              {
+                "w": "agent",
+                "s": 15.88,
+                "e": 16.26,
+                "p": 0.9971444010734558
+              },
+              {
+                "w": "can",
+                "s": 16.26,
+                "e": 16.52,
+                "p": 0.9987967014312744
+              },
+              {
+                "w": "issue",
+                "s": 16.52,
+                "e": 16.88,
+                "p": 0.9988434314727783
+              },
+              {
+                "w": "pointing",
+                "s": 16.88,
+                "e": 17.32,
+                "p": 0.9444693922996521
+              },
+              {
+                "w": "commands.",
+                "s": 17.32,
+                "e": 17.86,
+                "p": 0.9992896318435669
+              },
+              {
+                "w": "The",
+                "s": 19.18,
+                "e": 19.2,
+                "p": 0.9797655940055847
+              },
+              {
+                "w": "documented",
+                "s": 19.2,
+                "e": 19.6,
+                "p": 0.9680609107017517
+              },
+              {
+                "w": "system",
+                "s": 19.6,
+                "e": 20.0,
+                "p": 0.7883695363998413
+              },
+              {
+                "w": "settings",
+                "s": 20.0,
+                "e": 20.42,
+                "p": 0.9526367783546448
+              },
+              {
+                "w": "example",
+                "s": 20.42,
+                "e": 21.02,
+                "p": 0.9945289492607117
+              },
+              {
+                "w": "targets",
+                "s": 21.02,
+                "e": 21.48,
+                "p": 0.9913299083709717
+              },
+              {
+                "w": "an",
+                "s": 21.48,
+                "e": 21.88,
+                "p": 0.8732567429542542
+              },
+              {
+                "w": "allow",
+                "s": 21.88,
+                "e": 22.14,
+                "p": 0.9748539924621582
+              },
+              {
+                "w": "button.",
+                "s": 22.14,
+                "e": 22.52,
+                "p": 0.9976196885108948
+              },
+              {
+                "w": "You",
+                "s": 23.32,
+                "e": 23.4,
+                "p": 0.9943336248397827
+              },
+              {
+                "w": "choose",
+                "s": 23.4,
+                "e": 23.58,
+                "p": 0.9930964112281799
+              },
+              {
+                "w": "whether",
+                "s": 23.58,
+                "e": 24.0,
+                "p": 0.9815633296966553
+              },
+              {
+                "w": "to",
+                "s": 24.0,
+                "e": 24.24,
+                "p": 0.9992839694023132
+              },
+              {
+                "w": "approve",
+                "s": 24.24,
+                "e": 24.46,
+                "p": 0.9941942095756531
+              },
+              {
+                "w": "and",
+                "s": 24.46,
+                "e": 25.04,
+                "p": 0.9708842635154724
+              },
+              {
+                "w": "click.",
+                "s": 25.04,
+                "e": 25.32,
+                "p": 0.9975844621658325
+              },
+              {
+                "w": "Click's",
+                "s": 25.32,
+                "e": 26.48,
+                "p": 0.3417762517929077
+              },
+              {
+                "w": "pass",
+                "s": 26.48,
+                "e": 26.64,
+                "p": 0.8667532801628113
+              },
+              {
+                "w": "through",
+                "s": 26.64,
+                "e": 27.0,
+                "p": 0.5884331464767456
+              },
+              {
+                "w": "without",
+                "s": 27.0,
+                "e": 27.38,
+                "p": 0.9304180145263672
+              },
+              {
+                "w": "moving",
+                "s": 27.38,
+                "e": 27.92,
+                "p": 0.9944667220115662
+              },
+              {
+                "w": "keyboard",
+                "s": 27.92,
+                "e": 28.2,
+                "p": 0.9747382402420044
+              },
+              {
+                "w": "focus.",
+                "s": 28.2,
+                "e": 28.7,
+                "p": 0.9961129426956177
+              },
+              {
+                "w": "The",
+                "s": 29.52,
+                "e": 29.54,
+                "p": 0.9825129508972168
+              },
+              {
+                "w": "arrow",
+                "s": 29.54,
+                "e": 29.72,
+                "p": 0.9778953194618225
+              },
+              {
+                "w": "disappears",
+                "s": 29.72,
+                "e": 30.22,
+                "p": 0.9892420172691345
+              },
+              {
+                "w": "after",
+                "s": 30.22,
+                "e": 30.84,
+                "p": 0.994648277759552
+              },
+              {
+                "w": "displaying",
+                "s": 30.84,
+                "e": 31.32,
+                "p": 0.996663510799408
+              },
+              {
+                "w": "the",
+                "s": 31.32,
+                "e": 31.62,
+                "p": 0.9943559765815735
+              },
+              {
+                "w": "instruction.",
+                "s": 31.62,
+                "e": 31.92,
+                "p": 0.9872626662254333
+              },
+              {
+                "w": "The",
+                "s": 32.92,
+                "e": 33.12,
+                "p": 0.8991674184799194
+              },
+              {
+                "w": "twist?",
+                "s": 33.12,
+                "e": 33.32,
+                "p": 0.9591975808143616
+              },
+              {
+                "w": "There's",
+                "s": 34.08,
+                "e": 34.24,
+                "p": 0.966663122177124
+              },
+              {
+                "w": "no",
+                "s": 34.24,
+                "e": 34.46,
+                "p": 0.9947711825370789
+              },
+              {
+                "w": "AI",
+                "s": 34.46,
+                "e": 34.84,
+                "p": 0.9461200833320618
+              },
+              {
+                "w": "inside,",
+                "s": 34.84,
+                "e": 35.32,
+                "p": 0.9965678453445435
+              },
+              {
+                "w": "and",
+                "s": 35.94,
+                "e": 36.02,
+                "p": 0.9903028607368469
+              },
+              {
+                "w": "no",
+                "s": 36.02,
+                "e": 36.26,
+                "p": 0.995928943157196
+              },
+              {
+                "w": "automatic",
+                "s": 36.26,
+                "e": 36.62,
+                "p": 0.9888414740562439
+              },
+              {
+                "w": "clicking.",
+                "s": 36.62,
+                "e": 37.14,
+                "p": 0.9938708543777466
+              },
+              {
+                "w": "The",
+                "s": 37.88,
+                "e": 37.94,
+                "p": 0.9930525422096252
+              },
+              {
+                "w": "helper",
+                "s": 37.94,
+                "e": 38.1,
+                "p": 0.9724289774894714
+              },
+              {
+                "w": "shows",
+                "s": 38.1,
+                "e": 38.44,
+                "p": 0.9944408535957336
+              },
+              {
+                "w": "where?",
+                "s": 38.44,
+                "e": 38.76,
+                "p": 0.9969841837882996
+              },
+              {
+                "w": "You",
+                "s": 39.44,
+                "e": 39.46,
+                "p": 0.990036129951477
+              },
+              {
+                "w": "decide",
+                "s": 39.46,
+                "e": 39.68,
+                "p": 0.998647153377533
+              },
+              {
+                "w": "what",
+                "s": 39.68,
+                "e": 40.18,
+                "p": 0.9965511560440063
+              },
+              {
+                "w": "happens.",
+                "s": 40.18,
+                "e": 40.5,
+                "p": 0.9958648681640625
+              },
+              {
+                "w": "Be",
+                "s": 41.28,
+                "e": 41.34,
+                "p": 0.9959259033203125
+              },
+              {
+                "w": "sure",
+                "s": 41.34,
+                "e": 41.54,
+                "p": 0.9994321465492249
+              },
+              {
+                "w": "to",
+                "s": 41.54,
+                "e": 41.66,
+                "p": 0.9953495860099792
+              },
+              {
+                "w": "like,",
+                "s": 41.66,
+                "e": 41.88,
+                "p": 0.9565675854682922
+              },
+              {
+                "w": "share,",
+                "s": 42.12,
+                "e": 42.44,
+                "p": 0.997867226600647
+              },
+              {
+                "w": "and",
+                "s": 42.76,
+                "e": 42.8,
+                "p": 0.9976539015769958
+              },
+              {
+                "w": "save",
+                "s": 42.8,
+                "e": 43.1,
+                "p": 0.9545304179191589
+              },
+              {
+                "w": "this",
+                "s": 43.1,
+                "e": 43.52,
+                "p": 0.9929568767547607
+              },
+              {
+                "w": "video.",
+                "s": 43.52,
+                "e": 43.86,
+                "p": 0.9993498921394348
+              }
+            ],
+            "dauer_s": 44.3093125,
+            "sprache": "en"
+          },
+          "roh_key": "8abba35659ae35ae9dea9df38427300d76fdde7f4f957256e8b9b1aa67fe298c",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "431013cabe24792a77ac7f7f755994394c2d6213d322114346696f928add9a4e",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 44.3,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 18,
+          "motive": 18,
+          "motive_min": 18
+        },
+        "bildbezug": {
+          "version": "2026-10-13.1",
+          "video_sha256": "431013cabe24792a77ac7f7f755994394c2d6213d322114346696f928add9a4e",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Mac-Dialogfenster mit der Meldung 'Demo App' would like to access your Downloads folder. Ein grüner Pfeil zeigt auf den 'Allow'-Button.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt exakt die im gesprochenen Text erwähnte Situation, bei der ein großer Pfeil auf den 'Allow'-Button zeigt.",
+              "erforderliches_bild": "Keines, das Bild passt perfekt."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Dialogfeld mit der Aufschrift 'System Settings' zeigt den Text 'Permission example', 'Human approval required' und einen blauen 'ALLOW'-Knopf, auf den ein gelber Pfeil zeigt.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt genau den im Text erwähnten Kontrollknopf 'ALLOW' mit einem darauf zeigenden Pfeil.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Screenshot mit der Aufschrift BIGARROW / macOS, HUMAN HANDOFF, AGENT: PLEASE APPROVE und HUMAN: I CHOOSE AND CLICK.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt den beschriebenen macOS Human Handoff Kontrollbildschirm und passt zur Erwähnung der Steuerung auf dem Mac.",
+              "erforderliches_bild": "keines"
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Druckdialogfenster unter macOS mit TextEdit und roten und schwarzen Pfeilen, die Bedienhinweise ('Mom, click PDF...') geben.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht.",
+              "erforderliches_bild": "Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Screenshot zeigt die Bedienoberfläche einer Präsentationssoftware (Keynote) mit nummerierten UI-Tutorial-Schritten.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt.",
+              "erforderliches_bild": "Ein Screenshot, der konkret Pfeile, Boxen und Beschriftungen oberhalb von Fenstern darstellt."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein Computerbildschirm mit mehreren geöffneten Browserfenstern und Tabs, wobei ein Pfeil auf einen spezifischen Tab namens Sourdough zeigt.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell die in der Narration erwähnten Fenster und einen darauf zeigenden Pfeil.",
+              "erforderliches_bild": "Keines, da das Bild bereits perfekt passt."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Terminal-Befehl zur Installation des Homebrew-Pakets mit dem Text brew install franzenzenhofer/tap/bigarrow wird angezeigt.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das sichtbare Bild zeigt genau den dokumentierten Homebrew-Installationsbefehl, welcher zur gesprochenen Anweisung zur Installation des Homebrew-Pakets passt.",
+              "erforderliches_bild": "Keines, da das Bild bereits den passenden Befehl zeigt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein Terminal-Anleitungsbild mit dem Befehl 'bigarrow install-skill', Text über das Beibringen von Befehlen an den Agenten und dem Titel 'DOCUMENTED COMMANDS'.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt die dokumentierten Befehle und Terminalanweisungen zur Installation des Skills, was exakt dem gesprochenen Vorgang entspricht.",
+              "erforderliches_bild": "Nicht erforderlich."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Terminal-Anleitungsfenster zeigt einen Befehl für macOS: bigarrow point --element \"Allow\" --app \"System Settings\".",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt ein dokumentiertes Befehlstutorial für Zeigebefehle, passend zum gesprochenen Text.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein Dialogfenster mit der Überschrift System Settings, der Aufschrift Permission example und Human approval required sowie einem blauen ALLOW-Button.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt ein dokumentiertes System-Settings-Beispiel mit der Zielvorgabe eines Allow-Buttons, was exakt der gesprochenen Anweisung entspricht.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da das Bild perfekt passt."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein System-Dialogfenster mit den Schaltflächen CANCEL und ALLOW ist zu sehen.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt den erwähnten Allow button im System-Dialog.",
+              "erforderliches_bild": "Keines, das Bild passt perfekt."
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein Dialogfenster mit den Schaltflächen CANCEL und ALLOW, auf das ein Cursor zeigt, während ein orangefarbener Pfeil auf die ALLOW-Schaltfläche weist.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt genau die erwähnte Berechtigungsanfrage mit der Entscheidung, ob der Benutzer auf die ALLOW-Schaltfläche klickt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 12,
+              "gesehen": "Ein Interface-Beispiel zeigt ein Berechtigungsfenster mit den Schaltflaechen CANCEL und ALLOW, auf das ein Klick durchgreift.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell und anschaulich genau das erklaerte Verhalten von durchgreifenden Klicks im Overlay.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 13,
+              "gesehen": "Ein Screenshot zeigt ein Softwarefenster mit dem Titel \"PERMISSION EXAMPLE\", einem Texteingabefeld mit der Aufschrift \"Typing stays in this window |\" und einem grossen orangen Pfeil.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell ein Beispielfenster, das die Bedienung des Tastaturfokus veranschaulicht und zur gesprochenen Aussage passend dargestellt wird.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 14,
+              "gesehen": "Ein Dialogfeld mit der Aufschrift System Settings, Permission example, Human approval required und einem blauen ALLOW-Button, darunter Overlay is gone; window remains",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige.",
+              "erforderliches_bild": "Eine Bildschirmaufnahme, die das Verschwinden des Pfeils nach der Anzeige einer Instruktion demonstriert."
+            },
+            {
+              "index": 15,
+              "gesehen": "In den Mac Systemeinstellungen unter Device Control and Data Access ist ein Einstellungsfenster zu sehen, bei dem das Terminal aktiviert ist, sowie ein Hinweis-Text fuer Franz.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt die konkrete Einstellungsoberflaeche und den Hinweis zum Aktivieren von Terminal, was genau zu den gesprochenen Worten ueber manuelle Kontrolle und das Einschalten passt.",
+              "erforderliches_bild": "Kein Ersatz noetig, da die visuelle Entsprechung direkt gegeben ist."
+            },
+            {
+              "index": 16,
+              "gesehen": "Ein dunkles Einstellungsfenster mit dem Text BIGARROW / macOS, NO AUTOMATIC CLICKING und einem hellen Kasten, der den Text THE HUMAN MAKES THE CLICK, einen blauen APPROVE-Knopf mit Cursor und Pointer does not press buttons enthält.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen Mauszeiger in der Nähe eines blauen APPROVE-Knopfes mit dem Hinweis, dass der Mensch klickt, was exakt zur gesprochenen Aussage The helper shows where; you decide what happens passt.",
+              "erforderliches_bild": "keines"
+            },
+            {
+              "index": 17,
+              "gesehen": "Auf dem Bild sind drei grafische Symbole samt Beschriftung zu sehen: Daumen hoch mit der Aufschrift LIKE, ein Pfeil mit der Aufschrift SHARE und ein Lesezeichen mit der Aufschrift SAVE.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt erkennbar Like-, Share- und Save-Symbole und passt direkt zur Aufforderung aus der Sprachausgabe, das Video zu liken, zu teilen und zu speichern.",
+              "erforderliches_bild": "keines"
+            }
+          ],
+          "befunde": [
+            "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt.",
+            "Einstellung 14: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 18
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "431013cabe24792a77ac7f7f755994394c2d6213d322114346696f928add9a4e",
+        "prompt_version": "2026-10-13.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

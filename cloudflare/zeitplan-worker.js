@@ -20,7 +20,7 @@
 //   Befehle: Start | Start Business | Start KI | Status (Gesamtfortschritt in %) | Abholen
 
 const REPO = 'aKhaaaaaan/contentfabrik';
-const VERSION = '2026-10-11.1';
+const VERSION = '2026-10-14.1';
 // Zusammengefasste Stunden sparen Trigger: Workers Free hat fuenf pro Konto.
 const VIDEO_CRONS = new Set(['23 8,13 * * *', '41 10,15 * * *',
   '23 8 * * *', '41 10 * * *', '23 13 * * *', '41 15 * * *']);
@@ -237,6 +237,14 @@ export default {
     if (event.cron === '*/5 * * * *' || event.cron === '7 */4 * * *') {
       // workflow_dispatch allein bedeutet keinen Nutzerstart: Tagesauswertung weiter nur einmal.
       job = starte(env, 'themen.yml', { automatisch: 'true' });
+      // GEMESSEN 14.10.2026: GitHub startete zwischen 00 und 07 UTC nur 2 Zeitplanlaeufe; der
+      // Skript-Vorrat (skripte.yml, 01:07/05:07) lief deshalb hoechstens einmal taeglich. Ohne
+      // zusaetzlichen Cron-Trigger (Free-Plan: 5 je Konto) im ersten 5-Minuten-Takt um 01 und 05 UTC.
+      const zeit = event.scheduledTime ? new Date(event.scheduledTime) : null;
+      if (zeit && [1, 5].includes(zeit.getUTCHours()) && zeit.getUTCMinutes() >= 5 && zeit.getUTCMinutes() < 10) {
+        const vorrat = starte(env, 'skripte.yml', {});
+        job = Promise.all([job, vorrat]).then((t) => t.join(' | '));
+      }
     }
     else if (VIDEO_CRONS.has(event.cron)) job = starte(env, 'video.yml', { kanal: 'alle', thema: '' });
     else throw new Error('Unbekannter Contentfabrik-Zeitplan');

@@ -18677,6 +18677,131 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "38534578608.1:business-origin-stories",
+      "run_id": "38534578608",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-14T08:56:08.201413+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "34217dd9d511b584876f5f24deb44bfed008dcb3",
+      "produktionsversion": "a2cfe37de423f8e8b9fc0b66ec5a8cdd68bd97a075fff82b2e1d1bbcba4d2e24",
+      "videoformat": "short",
+      "thema": "Milwaukee Brewers History",
+      "titel": [
+        "*Brewers* Rise",
+        "*Pilots* to 103 Wins"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 5,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Skript-Note 5/10 unter 7/10",
+        "Skript-hook 5/10 unter 7/10",
+        "Skript-spannung 4/10 unter 7/10",
+        "Skript-ueberraschung 6/10 unter 7/10",
+        "Skript-tempo 5/10 unter 7/10",
+        "Skript-aufloesung 5/10 unter 7/10",
+        "Skript-teilbarkeit 4/10 unter 6/10",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38534578608",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-14",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-spannung 6/10 unter 7/10"
+            ],
+            "story_note": 7,
+            "story_schwaechen": [
+              "Sentence: Bud Selig acquired the team and quickly moved the franchise to Milwaukee. Why it matters: Skips the dramatic details of the bankruptcy court drama happening just days before Opening Day. Feasible fix: Mention the bankruptcy judge approved the emergency move just six days before the season "
+            ],
+            "skript_probleme": [],
+            "sekunden": 259.8
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 6/10 unter 7/10",
+              "Skript-spannung 6/10 unter 7/10",
+              "Skript-ueberraschung 5/10 unter 7/10",
+              "Skript-tempo 6/10 unter 7/10"
+            ],
+            "story_note": 6,
+            "story_schwaechen": [
+              "The script jumps from the 1886 creation straight to 1948 without a clear turning point, leaving viewers without a memorable narrative shift; insert a beat that explains how Asa Candler’s franchising dramatically accelerated Coke’s growth.",
+              "There is no visual contrast or concrete example that illustrates the scale of Coke’s market share versus competitors; add a brief comparison (e.g., \"By 1948 Coke owned 60% of U.S. soft‑drink sales, while its nearest rival had only 15%\") to create contrast.",
+              "The surprise element is weak – the $2,300 figure is mentioned but not highlighted as unexpected; emphasize it as a shock (e.g., \"He sold a formula that would become a $100‑billion empire for just $2,300\") to boost the 'I did not know that' moment."
+            ],
+            "skript_probleme": [],
+            "sekunden": 449.1
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "It began selling only beans worldwide. -> The source states Starbucks was a local coffee bean retailer in Seattle for its first ten years, not worldwide. Correction: change 'worldwide' to 'in Seattle'."
+            ],
+            "sekunden": 183.5
+          },
+          {
+            "runde": 4,
+            "art": "produktion",
+            "status": "zeitbudget",
+            "phase": "Skript",
+            "sekunden": 480.0
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "Google: 5.0 Punkte - YouTube-Ausreisser 107.8x Kanalschnitt",
+        "grund": "Skript-Zeitlimit erreicht (Arbeiter beendet)",
+        "sekunden": 1373.8,
+        "upload_titel": "Brewers Rise: Pilots to 103 Wins"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [
+          "Switching to the National League in 1998 set up a 2008 playoff return. - Implied causal link ('set up') not supported by source; source only notes the league switch and later playoff appearance, not that the switch caused the 2008 return."
+        ],
+        "modell": "gemini-3.5-flash-lite",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

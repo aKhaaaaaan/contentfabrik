@@ -71,7 +71,7 @@ def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(),
     return _groq_text(fallback_prompt if fallback_prompt is not None else prompt, schema, temperatur, cache)
 
 
-def _groq_text(prompt, schema, temperatur=None, cache=None):
+def _groq_text(prompt, schema, temperatur=None, cache=None, ausgabe_tokens=None):
     import autorenvergleich as av
     global WIEDERVERWENDET
     if float(os.environ.get('CF_SCHRITT_ENDE', 'inf')) <= time.monotonic():
@@ -82,7 +82,7 @@ def _groq_text(prompt, schema, temperatur=None, cache=None):
     print('Text-Ausweichweg: Groq GPT-OSS; Fakten- und Qualitaetsgates bleiben bestehen', flush=True)
     # GPT-OSS rechnet interne Reasoning-Tokens ins Completion-Limit ein,
     # auch bei include_reasoning=False. Die reale Reparatur mit 2048 war unvollstaendig.
-    ausgabe = 1536 if any(k in schema.get('properties', {}) for k in ('probleme', 'schwaechen')) else 3072
+    ausgabe = ausgabe_tokens or (1536 if any(k in schema.get('properties', {}) for k in ('probleme', 'schwaechen')) else 3072)
     letzter = None
     for groq_modell in av.GROQ_TEXT_MODELLE:
         modell = 'groq:' + groq_modell
@@ -91,6 +91,11 @@ def _groq_text(prompt, schema, temperatur=None, cache=None):
         if treffer:
             WIEDERVERWENDET += 1
             return treffer
+    modelle = sorted(av.GROQ_TEXT_MODELLE,
+                     key=lambda m:not av.minutenreserve_frei(prompt,schema,ausgabe,m))
+    for groq_modell in modelle:
+        modell = 'groq:' + groq_modell
+        key = ki_speicher.cache_key(prompt, schema, [modell], temperatur, cache) if cache else None
         try:
             if ende <= time.monotonic():
                 raise AnbieterNichtVerfuegbar('Text-Ausweichweg: Schrittfrist erreicht')
@@ -118,6 +123,38 @@ def _groq_text(prompt, schema, temperatur=None, cache=None):
                 print('Text-Pruefcache nicht gesichert; frisches Ergebnis bleibt erhalten')
         return antwort, modell
     raise AnbieterNichtVerfuegbar('Textanbieter lieferte keine nutzbare Antwort: ' + (letzter or 'keine Reserve'))
+
+
+REPARATUR_SCHEMA = {'type':'OBJECT','properties':{
+    **{k:{'type':'STRING'} for k in ('thema','titel_zeile1','titel_zeile2','beschreibung')},
+    'texte':{'type':'ARRAY','items':{'type':'STRING'}}},
+    'required':['thema','titel_zeile1','titel_zeile2','beschreibung','texte']}
+
+
+def sprechtext_reparieren(kanal, quellen, entwurf, korrekturen, mindest, hoechstens, zusatz=''):
+    """Nur Text reparieren; bestehende Regie/Quellenfelder werden nicht staendig neu geschrieben."""
+    import copy
+    daten = {'sources':[{k:q.get(k,'') for k in ('name','text','url')} for q in quellen],
+             'current_draft':{k:entwurf.get(k,'') for k in ('thema','titel_zeile1','titel_zeile2','beschreibung')},
+             'corrections':list(korrekturen),'extra':zusatz.split('\nPREVIOUS DRAFT:\n',1)[0]}
+    daten['current_draft']['texte'] = [t['text'] for t in entwurf['teile']]
+    prompt = (prompts.DATEN + prompts.FAKTEN_KURZ + prompts.SPRECHEN
+              + f'Repair this English narration using ONLY the supplied sources. Keep exactly {len(entwurf["teile"])} '
+                f'ordered spoken phases and {mindest}-{hoechstens} TOTAL spoken words, including the final '
+                'like/share/save request. Preserve the story and fix ALL listed problems. Remove unsupported '
+                'speed, ease, savings and performance claims. Do not add replacement facts. '
+                'Repair title/description claims too. Return texte containing speech only, no scenes or '
+                'production directions; retain the phase order. Do not output review scores.\n'
+              + json.dumps(daten,ensure_ascii=False,separators=(',',':')))
+    d, model = _groq_text(prompt,REPARATUR_SCHEMA,ausgabe_tokens=2048)
+    if len(d['texte']) != len(entwurf['teile']) or any(not t.strip() for t in d['texte']):
+        raise RuntimeError('Sprechtextreparatur verliert Phasen oder enthaelt leeren Text')
+    e = copy.deepcopy(entwurf)
+    for key in ('thema','titel_zeile1','titel_zeile2','beschreibung'):
+        e[key] = d[key]
+    for teil,text in zip(e['teile'],d['texte']):
+        teil['text'] = text
+    return e, model
 
 
 def _gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(), cache=None, anfrage_s=180,
@@ -546,12 +583,12 @@ def groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens,
         lessons.pop()  # Nur optionale Altregeln; Belege/Fehlerliste/aktueller Text bleiben vollstaendig.
 
 
-def groq_skriptreserve(prompt):
+def groq_skriptreserve(prompt, schema=None, ausgabe_tokens=3072):
     import autorenvergleich as av
     import math
     f = {'type': 'json_schema', 'json_schema': {
-        'name': 'contentfabrik_antwort', 'strict': True, 'schema': av.groq_schema(SKRIPT_SCHEMA)}}
-    return math.ceil((len(prompt) + len(json.dumps(f))) / 3) + 3072
+        'name': 'contentfabrik_antwort', 'strict': True, 'schema': av.groq_schema(schema or SKRIPT_SCHEMA)}}
+    return math.ceil((len(prompt) + len(json.dumps(f))) / 3) + ausgabe_tokens
 
 
 def korrekturen_schreiben(schreiber, kanal, thema, quellen, auftrag, mindest, hoechstens,
@@ -559,10 +596,14 @@ def korrekturen_schreiben(schreiber, kanal, thema, quellen, auftrag, mindest, ho
     """Ganze Fakteneinwaende nacheinander bearbeiten; keine Fehlerliste abschneiden."""
     rest = list(korrekturen)
     modell, mangel = None, None
+    textreparatur = kanal.get('format') in ('erklaerung','geschichte') \
+        and dramaturgie.videoformat(kanal) == 'short' and bool(os.environ.get('GROQ_API_KEY'))
     while rest:
         n = len(rest)
         while n > 1 and groq_skriptreserve(groq_skriptauftrag(kanal, thema, quellen, auftrag,
-                mindest, hoechstens, entwurf=entwurf, korrekturen=rest[:n])) > 7900:
+                mindest, hoechstens, entwurf=entwurf, korrekturen=rest[:n]),
+                REPARATUR_SCHEMA if textreparatur else SKRIPT_SCHEMA,
+                2048 if textreparatur else 3072) > 7900:
             n -= 1
         if n < len(rest):
             print(f'Faktenkorrekturen aufteilen: {n} jetzt, {len(rest) - n} anschliessend', flush=True)
@@ -722,6 +763,16 @@ def main(kanal_pfad, aus_pfad, thema=None):
                     e = None
                 else:
                     m = 'claude:' + m
+            if e is None:
+                if aktueller_entwurf and (korrekturen or zusatz_) and not lang \
+                        and kanal.get('format') in ('erklaerung','geschichte') and os.environ.get('CF_TEXT_FALLBACK') == 'groq' \
+                        and os.environ.get('GROQ_API_KEY'):
+                    try:
+                        print('Textreparatur: Sprechtext/Titel/Beschreibung, bestehende Regie bleibt erhalten',flush=True)
+                        e, m = sprechtext_reparieren(kanal, quellen, aktueller_entwurf,
+                                                    korrekturen, mindest, hoechstens, zusatz_)
+                    except AnbieterNichtVerfuegbar:
+                        print('Textreparatur derzeit ohne Groq-Reserve; normaler Autor bleibt moeglich', flush=True)
             if e is None:
                 # GEMESSEN 09.10.2026 (Langvideo-Pilot): 45 s je Antwort reichen fuer ~1.200 Woerter
                 # JSON nicht - 3.8-flash/3.5-flash liefen jedes Mal in TimeoutError. Langvideo: 150 s.

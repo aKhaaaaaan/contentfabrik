@@ -142,6 +142,16 @@ def groq_wartezeit(headers, detail):
     return min(ki_speicher.SPERRE_MAX - 1, math.ceil(max(fristen or [grundwert])) + 1)
 
 
+def minutenreserve_frei(prompt, schema, ausgabe_tokens, modell, jetzt=None):
+    """Nur vorhandenen Verbrauch lesen; weder Tokenkontingent noch Sperren zuruecksetzen."""
+    jetzt = time.monotonic() if jetzt is None else jetzt
+    fmt = {'type':'json_schema','json_schema':{'name':'contentfabrik_antwort',
+            'strict':True,'schema':groq_schema(schema)}}
+    reserve = math.ceil((len(prompt)+len(json.dumps(fmt)))/3)+ausgabe_tokens
+    verbrauch = GROQ_VERBRAUCH if modell == GROQ_MODELL else GROQ_MODELL_VERBRAUCH.get(modell, [])
+    return reserve <= 7900 and sum(n for t,n in verbrauch if jetzt-t < 61)+reserve <= 8000
+
+
 def groq(prompt, schema, ausgabe_tokens=3840, deadline=None, modell=None):
     key = os.environ['GROQ_API_KEY']
     modell = modell or GROQ_MODELL

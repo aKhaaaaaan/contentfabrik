@@ -184,6 +184,12 @@ jobs:
           CF_WORKFLOW_STATUS: '1'
           CF_TEXT_FALLBACK: 'groq'
         run: python fabrik/lauf.py "kanaele/${KANAL}.json" "$THEMA"
+      - name: Abgebrochene Budgetreservierung abrechnen
+        if: always() && steps.produktion.outcome == 'cancelled'
+        env:
+          KANAL: ${{ matrix.kanal }}
+          CF_PRODUKTION_OUTCOME: ${{ steps.produktion.outcome }}
+        run: python fabrik/budget.py abbruch "$KANAL"
       - name: Tageslauf fuer die Qualitaetsserie erfassen
         if: always()
         env:

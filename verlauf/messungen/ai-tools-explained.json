@@ -4543,5 +4543,418 @@
     "grund": "Video-Note fehlt oder ist ungueltig; Video-Bewertung hook fehlt oder ist ungueltig; Video-bild_passt 3/10 unter 7/10; Video-Bewertung dynamik fehlt oder ist ungueltig; Video-Bewertung text fehlt oder ist ungueltig; Video-Bewertung ton_stimme fehlt oder ist ungueltig; Video-Bewertung tempo fehlt oder ist ungueltig; Video-Bewertung inhalt fehlt oder ist ungueltig; Video-Bewertung schluss_loop fehlt oder ist ungueltig; Video-Bewertung regeln fehlt oder ist ungueltig; Video-Bewertung story fehlt oder ist ungueltig; Einstellung 15: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Systemeinstellungen mit einer Terminal-Berechtigung, aber die Aussage über das Fehlen von KI wird hier nicht visuell erklärt.; Offenes Problem (schwer): Das Bild zeigt Systemeinstellungen mit einer Terminal-Berechtigung, aber die Aussage über das Fehlen von KI wird hier nicht visuell erklärt. Korrektur: Ein Text oder Diagramm, das die Funktionsweise ohne KI veranschaulicht.",
     "sekunden": 195.3,
     "upload_titel": "Your AI Says Click: Bigarrow Shows Where | AI Tool #4"
+  },
+  {
+    "id": "38591953175",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-10-14",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 119.0,
+        "pruefung_s": 51.1,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 1/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (1/10): Die Szene zeigt nur Titeltext und eine Konzeptgrafik ohne spezifische macOS-Steuerelemente oder tatsächliche Mac-Umgebung.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt UI-Elemente und Pfeile zur Animation, aber keine spezifischen Boxen und Labels wie im gesprochenen Text beschrieben.",
+          "Einstellung 15: Bild passt nicht zum Sprechtext (5/10): Die gesprochenen Worte erwähnen nicht vorhandene KI und keine automatischen Klicks, was auf Pixelebene nicht beweisbar ist; das Bild zeigt lediglich die Systemeinstellungen mit aktiviertem Terminal.",
+          "Offenes Problem (schwer): Die Szene zeigt nur Titeltext und eine Konzeptgrafik ohne spezifische macOS-Steuerelemente oder tatsächliche Mac-Umgebung. Korrektur: Ein tatsächliches macOS-Fenster mit einem markierten Allow-Button und dem entsprechenden Bigarrow-Pfeil.",
+          "Offenes Problem (schwer): Das Bild zeigt UI-Elemente und Pfeile zur Animation, aber keine spezifischen Boxen und Labels wie im gesprochenen Text beschrieben. Korrektur: Ein Bild, das konkret das Zeichnen von Boxen und Labels über Softwarefenstern zeigt.",
+          "Offenes Problem (schwer): Die gesprochenen Worte erwähnen nicht vorhandene KI und keine automatischen Klicks, was auf Pixelebene nicht beweisbar ist; das Bild zeigt lediglich die Systemeinstellungen mit aktiviertem Terminal. Korrektur: Ein Bildschirmfoto, das eine Übersicht ohne KI-Komponenten oder einen Text zum Thema demonstriert."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Orus",
+          "tempo": 1.08,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 18,
+          "clips_und_stuecke": 82.7,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 18,
+            "motive": 18,
+            "motive_min": 18
+          },
+          "effekte": 8,
+          "rendern": 35.6,
+          "gesamt": 118.7,
+          "videolaenge_s": 44.4,
+          "abschnitte_s": [
+            8.34,
+            4.0,
+            6.8,
+            6.94,
+            6.86,
+            8.34,
+            3.11
+          ],
+          "woerter": 98
+        },
+        "kategorien": {
+          "bild_passt": 1
+        },
+        "probleme": [
+          {
+            "zeit": "00:05",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die Szene zeigt nur Titeltext und eine Konzeptgrafik ohne spezifische macOS-Steuerelemente oder tatsächliche Mac-Umgebung. Korrektur: Ein tatsächliches macOS-Fenster mit einem markierten Allow-Button und dem entsprechenden Bigarrow-Pfeil."
+          },
+          {
+            "zeit": "00:09",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt UI-Elemente und Pfeile zur Animation, aber keine spezifischen Boxen und Labels wie im gesprochenen Text beschrieben. Korrektur: Ein Bild, das konkret das Zeichnen von Boxen und Labels über Softwarefenstern zeigt."
+          },
+          {
+            "zeit": "00:32",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die gesprochenen Worte erwähnen nicht vorhandene KI und keine automatischen Klicks, was auf Pixelebene nicht beweisbar ist; das Bild zeigt lediglich die Systemeinstellungen mit aktiviertem Terminal. Korrektur: Ein Bildschirmfoto, das eine Übersicht ohne KI-Komponenten oder einen Text zum Thema demonstriert."
+          }
+        ],
+        "sekunden": 170.1,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 4
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            0,
+            1,
+            4
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-10-13.2"
+        },
+        "skript_s": 2.6,
+        "bau_s": 36.7,
+        "pruefung_s": 6.8,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 1/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (1/10): Die Szene zeigt nur Titeltext und eine Konzeptgrafik ohne spezifische macOS-Steuerelemente oder tatsächliche Mac-Umgebung.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt UI-Elemente und Pfeile zur Animation, aber keine spezifischen Boxen und Labels wie im gesprochenen Text beschrieben.",
+          "Einstellung 15: Bild passt nicht zum Sprechtext (5/10): Die gesprochenen Worte erwähnen nicht vorhandene KI und keine automatischen Klicks, was auf Pixelebene nicht beweisbar ist; das Bild zeigt lediglich die Systemeinstellungen mit aktiviertem Terminal.",
+          "Offenes Problem (schwer): Die Szene zeigt nur Titeltext und eine Konzeptgrafik ohne spezifische macOS-Steuerelemente oder tatsächliche Mac-Umgebung. Korrektur: Ein tatsächliches macOS-Fenster mit einem markierten Allow-Button und dem entsprechenden Bigarrow-Pfeil.",
+          "Offenes Problem (schwer): Das Bild zeigt UI-Elemente und Pfeile zur Animation, aber keine spezifischen Boxen und Labels wie im gesprochenen Text beschrieben. Korrektur: Ein Bild, das konkret das Zeichnen von Boxen und Labels über Softwarefenstern zeigt.",
+          "Offenes Problem (schwer): Die gesprochenen Worte erwähnen nicht vorhandene KI und keine automatischen Klicks, was auf Pixelebene nicht beweisbar ist; das Bild zeigt lediglich die Systemeinstellungen mit aktiviertem Terminal. Korrektur: Ein Bildschirmfoto, das eine Übersicht ohne KI-Komponenten oder einen Text zum Thema demonstriert."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Orus",
+          "tempo": 1.08,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 18,
+          "stuecke_neu": 0,
+          "clips_und_stuecke": 0.1,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 18,
+            "motive": 18,
+            "motive_min": 18
+          },
+          "effekte": 8,
+          "rendern": 35.9,
+          "gesamt": 36.5,
+          "videolaenge_s": 44.4,
+          "abschnitte_s": [
+            8.34,
+            4.0,
+            6.8,
+            6.94,
+            6.86,
+            8.34,
+            3.11
+          ],
+          "woerter": 98
+        },
+        "kategorien": {
+          "bild_passt": 1
+        },
+        "probleme": [
+          {
+            "zeit": "00:05",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die Szene zeigt nur Titeltext und eine Konzeptgrafik ohne spezifische macOS-Steuerelemente oder tatsächliche Mac-Umgebung. Korrektur: Ein tatsächliches macOS-Fenster mit einem markierten Allow-Button und dem entsprechenden Bigarrow-Pfeil."
+          },
+          {
+            "zeit": "00:09",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt UI-Elemente und Pfeile zur Animation, aber keine spezifischen Boxen und Labels wie im gesprochenen Text beschrieben. Korrektur: Ein Bild, das konkret das Zeichnen von Boxen und Labels über Softwarefenstern zeigt."
+          },
+          {
+            "zeit": "00:32",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die gesprochenen Worte erwähnen nicht vorhandene KI und keine automatischen Klicks, was auf Pixelebene nicht beweisbar ist; das Bild zeigt lediglich die Systemeinstellungen mit aktiviertem Terminal. Korrektur: Ein Bildschirmfoto, das eine Übersicht ohne KI-Komponenten oder einen Text zum Thema demonstriert."
+          }
+        ],
+        "sekunden": 46.0,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "38591953175-2",
+          "datum": "2026-10-14",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 46.0,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 4
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 1
+          },
+          "kategorien_nachher": {
+            "bild_passt": 1
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-10-13.2",
+          "verbessert": false
+        }
+      },
+      {
+        "runde": 3,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 4
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            0,
+            1
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-10-13.2"
+        },
+        "skript_s": 1.5,
+        "bau_s": 36.3,
+        "pruefung_s": 6.6,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 1/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (1/10): Die Szene zeigt nur Titeltext und eine Konzeptgrafik ohne spezifische macOS-Steuerelemente oder tatsächliche Mac-Umgebung.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt UI-Elemente und Pfeile zur Animation, aber keine spezifischen Boxen und Labels wie im gesprochenen Text beschrieben.",
+          "Einstellung 15: Bild passt nicht zum Sprechtext (5/10): Die gesprochenen Worte erwähnen nicht vorhandene KI und keine automatischen Klicks, was auf Pixelebene nicht beweisbar ist; das Bild zeigt lediglich die Systemeinstellungen mit aktiviertem Terminal.",
+          "Offenes Problem (schwer): Die Szene zeigt nur Titeltext und eine Konzeptgrafik ohne spezifische macOS-Steuerelemente oder tatsächliche Mac-Umgebung. Korrektur: Ein tatsächliches macOS-Fenster mit einem markierten Allow-Button und dem entsprechenden Bigarrow-Pfeil.",
+          "Offenes Problem (schwer): Das Bild zeigt UI-Elemente und Pfeile zur Animation, aber keine spezifischen Boxen und Labels wie im gesprochenen Text beschrieben. Korrektur: Ein Bild, das konkret das Zeichnen von Boxen und Labels über Softwarefenstern zeigt.",
+          "Offenes Problem (schwer): Die gesprochenen Worte erwähnen nicht vorhandene KI und keine automatischen Klicks, was auf Pixelebene nicht beweisbar ist; das Bild zeigt lediglich die Systemeinstellungen mit aktiviertem Terminal. Korrektur: Ein Bildschirmfoto, das eine Übersicht ohne KI-Komponenten oder einen Text zum Thema demonstriert."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Orus",
+          "tempo": 1.08,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 18,
+          "stuecke_neu": 0,
+          "clips_und_stuecke": 0.1,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 18,
+            "motive": 18,
+            "motive_min": 18
+          },
+          "effekte": 8,
+          "rendern": 35.5,
+          "gesamt": 36.1,
+          "videolaenge_s": 44.4,
+          "abschnitte_s": [
+            8.34,
+            4.0,
+            6.8,
+            6.94,
+            6.86,
+            8.34,
+            3.11
+          ],
+          "woerter": 98
+        },
+        "kategorien": {
+          "bild_passt": 1
+        },
+        "probleme": [
+          {
+            "zeit": "00:05",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die Szene zeigt nur Titeltext und eine Konzeptgrafik ohne spezifische macOS-Steuerelemente oder tatsächliche Mac-Umgebung. Korrektur: Ein tatsächliches macOS-Fenster mit einem markierten Allow-Button und dem entsprechenden Bigarrow-Pfeil."
+          },
+          {
+            "zeit": "00:09",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt UI-Elemente und Pfeile zur Animation, aber keine spezifischen Boxen und Labels wie im gesprochenen Text beschrieben. Korrektur: Ein Bild, das konkret das Zeichnen von Boxen und Labels über Softwarefenstern zeigt."
+          },
+          {
+            "zeit": "00:32",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die gesprochenen Worte erwähnen nicht vorhandene KI und keine automatischen Klicks, was auf Pixelebene nicht beweisbar ist; das Bild zeigt lediglich die Systemeinstellungen mit aktiviertem Terminal. Korrektur: Ein Bildschirmfoto, das eine Übersicht ohne KI-Komponenten oder einen Text zum Thema demonstriert."
+          }
+        ],
+        "sekunden": 44.4,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "38591953175-3",
+          "datum": "2026-10-14",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 44.4,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 4
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 1
+          },
+          "kategorien_nachher": {
+            "bild_passt": 1
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-10-13.2",
+          "verbessert": false
+        }
+      },
+      {
+        "runde": 4,
+        "art": "korrektur",
+        "status": "korrekturgrenze",
+        "sekunden": 0.0
+      }
+    ],
+    "status": "gesperrt",
+    "grund": "Video-Note fehlt oder ist ungueltig; Video-Bewertung hook fehlt oder ist ungueltig; Video-bild_passt 1/10 unter 7/10; Video-Bewertung dynamik fehlt oder ist ungueltig; Video-Bewertung text fehlt oder ist ungueltig; Video-Bewertung ton_stimme fehlt oder ist ungueltig; Video-Bewertung tempo fehlt oder ist ungueltig; Video-Bewertung inhalt fehlt oder ist ungueltig; Video-Bewertung schluss_loop fehlt oder ist ungueltig; Video-Bewertung regeln fehlt oder ist ungueltig; Video-Bewertung story fehlt oder ist ungueltig; Einstellung 2: Bild passt nicht zum Sprechtext (1/10): Die Szene zeigt nur Titeltext und eine Konzeptgrafik ohne spezifische macOS-Steuerelemente oder tatsächliche Mac-Umgebung.; Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt UI-Elemente und Pfeile zur Animation, aber keine spezifischen Boxen und Labels wie im gesprochenen Text beschrieben.; Einstellung 15: Bild passt nicht zum Sprechtext (5/10): Die gesprochenen Worte erwähnen nicht vorhandene KI und keine automatischen Klicks, was auf Pixelebene nicht beweisbar ist; das Bild zeigt lediglich die Systemeinstellungen mit aktiviertem Terminal.; Offenes Problem (schwer): Die Szene zeigt nur Titeltext und eine Konzeptgrafik ohne spezifische macOS-Steuerelemente oder tatsächliche Mac-Umgebung. Korrektur: Ein tatsächliches macOS-Fenster mit einem markierten Allow-Button und dem entsprechenden Bigarrow-Pfeil.; Offenes Problem (schwer): Das Bild zeigt UI-Elemente und Pfeile zur Animation, aber keine spezifischen Boxen und Labels wie im gesprochenen Text beschrieben. Korrektur: Ein Bild, das konkret das Zeichnen von Boxen und Labels über Softwarefenstern zeigt.; Offenes Problem (schwer): Die gesprochenen Worte erwähnen nicht vorhandene KI und keine automatischen Klicks, was auf Pixelebene nicht beweisbar ist; das Bild zeigt lediglich die Systemeinstellungen mit aktiviertem Terminal. Korrektur: Ein Bildschirmfoto, das eine Übersicht ohne KI-Komponenten oder einen Text zum Thema demonstriert.",
+    "sekunden": 273.4,
+    "upload_titel": "Your AI Says Click: Bigarrow Shows Where | AI Tool #4"
   }
 ]

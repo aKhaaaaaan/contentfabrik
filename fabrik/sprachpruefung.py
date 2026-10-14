@@ -87,7 +87,11 @@ def cta_bewerten(roh, art, dauer):
     for t, _ in tokens:
         starts.append(pos)
         pos += len(t) + 1
-    muster = r'\blike(?: this video)? (?:and )?share(?: this video)? (?:and )?save (?:this|the) video\b'
+    # Der Panasonic-Lauf sprach alle drei Aktionen klar, aber "save this story"
+    # wurde allein wegen des Wortes story verworfen. Nur konkrete Inhaltsobjekte
+    # zulassen; "save money" ist weiterhin kein Speichern dieses Beitrags.
+    objekt = r'(?:video|story|clip|short|guide)'
+    muster = rf'\blike(?: this {objekt})? (?:and )?share(?: this {objekt})? (?:and )?save (?:this|the) {objekt}\b'
     treffer = []
     for m in re.finditer(muster, text):
         indices = [i for i, s in enumerate(starts) if m.start() <= s < m.end()]

@@ -18975,6 +18975,59 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "38571338850.1:ai-tools-explained",
+      "run_id": "38571338850",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-14T13:28:02.291457+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "ccc3c5f47388ae417f24f453f58740f7ef474a7b",
+      "produktionsversion": "c1f436ba473dde527b40782f5a81fc729ee02a392f2d5e0e801b62ef656fab8f",
+      "videoformat": "short",
+      "thema": null,
+      "titel": null,
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38571338850",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-14",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "auftragsfehler",
+            "exitcode": 5,
+            "grund": "Auftrag zu gross: geschaetzte Reserve 7914 Tokens, maximal7900",
+            "sekunden": 213.5
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Auftrag zu gross: geschaetzte Reserve 7914 Tokens, maximal7900",
+        "sekunden": 213.7
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": null
     }
   ]
 }

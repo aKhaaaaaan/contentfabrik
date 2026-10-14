@@ -265,7 +265,7 @@ def vorbereiten(s, laengen, woerter, cache=None):
                 'tool_demo_material': demo_material(s),
                 'phases': s['teile'], 'photos': s.get('bilder', []),
                 # Bibliotheksbilder sind Hochformat - im Langvideo (16:9) waeren sie beschnitten.
-                'illustration_library': [b for b in bibliothek.katalog() if b['kanal'] == s.get('kanal')]
+                'illustration_library': bibliothek.auswahl(s.get('kanal'),' '.join(t['text'] for t in s['teile']))
                                         if dramaturgie.videoformat(s) == 'short' else [],
                 'editorial_feedback': lernen.redaktionsregeln()}
         # Groq braucht die Bildregie, nicht lokale Dateipfade, Hashes/Sichtkontrollnotizen
@@ -306,6 +306,9 @@ def vorbereiten(s, laengen, woerter, cache=None):
                 t['grafik_typ'] = d['grafik_typ']
         if d.get('bildmodus') == 'asset':
             try:
+                if d.get('asset') not in {b['id'] for b in bibliothek.auswahl(
+                        s.get('kanal'),' '.join(t['text'] for t in s['teile']))}:
+                    raise ValueError('Bibliotheksmotiv passt nicht zum gesprochenen Thema')
                 bibliothek.bild(d.get('asset'), s.get('kanal'))
                 t['asset'] = d['asset']
             except ValueError:

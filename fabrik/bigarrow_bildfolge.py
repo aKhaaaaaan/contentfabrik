@@ -4,10 +4,12 @@ import textwrap
 from PIL import Image,ImageDraw,ImageFont
 
 SOURCE='https://github.com/franzenzenhofer/big-arrow-on-the-screen'
-DEMOS={0:'bigarrow-allow',3:'bigarrow-arrow-print',4:'bigarrow-box-keynote',
-       5:'bigarrow-label-chrome',15:'bigarrow-human-settings'}
-TITLES=['WHICH ALLOW BUTTON?','POINT AT THE CONTROL','HUMAN HANDOFF',
-        'ARROWS','BOXES','LABELS','INSTALL WITH HOMEBREW','ADD THE SKILL','AGENT ISSUES A COMMAND',
+# GEMESSEN 14.10.2026 (Lauf 38591953175): Keynote-Ausschnitt (4) und statische
+# Einstellungsansicht (15) fielen bei der Einzelbildpruefung durch (3/10, 5/10) - die Boxen
+# waren zu klein, "no AI / no auto-click" war nicht sichtbar. Dafuer jetzt eigene Diagramme.
+DEMOS={0:'bigarrow-allow',3:'bigarrow-arrow-print',5:'bigarrow-label-chrome'}
+TITLES=['WHICH ALLOW BUTTON?','POINT AT THE CONTROL','THAT CONTROL ON YOUR MAC',
+        'ARROWS','BOXES AND LABELS','LABELS','INSTALL WITH HOMEBREW','ADD THE SKILL','AGENT ISSUES A COMMAND',
         'SYSTEM SETTINGS EXAMPLE','YOU DECIDE','YOU CLICK','CLICKS PASS THROUGH',
         'KEYBOARD FOCUS STAYS','ARROW REMOVES ITSELF','NO AI INSIDE','NO AUTOMATIC CLICKING','LIKE / SHARE / SAVE']
 
@@ -20,6 +22,16 @@ def grafik(ziel,variante):
         d.text((x,y),t,font=ImageFont.truetype(str(font),size),fill=color)
     def box(x,y,w,h,fill='#25394d'):
         d.rounded_rectangle((x,y,x+w,y+h),radius=20,fill=fill,outline='#7091a7',width=3)
+    def fenster(x,y,w,h,titel):
+        # macOS-Fenster: Titelleiste mit den drei Ampelpunkten, damit es als Mac erkennbar ist.
+        d.rounded_rectangle((x,y,x+w,y+h),radius=22,fill='#eef2f6',outline='#9fb3c4',width=3)
+        d.rounded_rectangle((x,y,x+w,y+70),radius=22,fill='#d3dbe3')
+        d.rectangle((x,y+48,x+w,y+70),fill='#d3dbe3')
+        for n,c in enumerate(('#ff5f57','#febc2e','#28c840')):
+            d.ellipse((x+28+n*42,y+22,x+54+n*42,y+48),fill=c)
+        txt(x+170,y+16,titel,30,'#172635')
+    def kreuz(x,y,w,h):
+        d.line((x,y,x+w,y+h),fill='#e5484d',width=16);d.line((x,y+h,x+w,y),fill='#e5484d',width=16)
     def arrow(start=(255,1040),end=(785,800)):
         d.line([start,end],fill='#ffae35',width=20)
         x,y=end;d.polygon([(x,y),(x-70,y-4),(x-35,y+58)],fill='#ffae35')
@@ -34,11 +46,36 @@ def grafik(ziel,variante):
                ['bigarrow point','--element "Allow"','--app "System Settings"'])
         for n,line in enumerate(lines):txt(100,725+n*100,line,36)
         txt(100,1205,'DOCUMENTED COMMANDS',30,'#ffae35')
+    elif variante==2:
+        fenster(70,600,940,620,'System Settings')
+        txt(115,720,'Privacy & Security',34,'#172635')
+        txt(115,790,'"Terminal" wants to control',30,'#172635')
+        txt(115,835,'this computer.',30,'#172635')
+        box(150,960,300,100,'#8a9aab');txt(195,990,"DON'T ALLOW",30)
+        box(620,960,300,100,'#3677dd');txt(705,990,'ALLOW',34)
+        arrow((330,1380),(700,1075))
+        box(90,1300,520,90,'#13283d');txt(115,1322,'THAT CONTROL',34,'#ffae35')
+    elif variante==4:
+        fenster(70,580,940,700,'Keynote')
+        for n in range(3):
+            d.rounded_rectangle((120,690+n*110,420,770+n*110),radius=10,fill='#c9d3dd')
+        box(520,760,420,110,'#3677dd');txt(585,792,'Export...',34)
+        d.rectangle((495,735,965,895),outline='#ffae35',width=12)
+        d.rounded_rectangle((520,960,960,1060),radius=16,fill='#ffae35')
+        txt(545,985,'LABEL: click Export',32,'#10202d')
+        d.line((740,960,740,900),fill='#ffae35',width=10)
+        txt(120,1130,'BOX + LABEL DRAWN ABOVE THE WINDOW',27,'#172635')
     elif variante==15:
-        box(80,570,920,320);txt(120,640,'A POINTER, NOT AN AI MODEL',35,'#ffae35')
-        txt(120,730,'Arrow + box + label',40)
-        box(80,985,920,320);txt(125,1045,'HUMAN DECISION',43,'#20d2be')
-        txt(125,1150,'Approve or close the dialog',35)
+        box(70,570,440,330,'#13283d');d.rounded_rectangle((200,610,380,760),radius=18,outline='#8dabbf',width=8)
+        txt(232,660,'AI',60,'#8dabbf');txt(160,820,'AI MODEL',36);kreuz(185,600,210,175)
+        box(570,570,440,330,'#13283d')
+        d.polygon([(720,610),(720,760),(752,728),(790,790),(812,778),(776,716),(820,714)],fill='#8dabbf')
+        txt(625,820,'AUTO-CLICK',36);kreuz(665,600,210,175)
+        fenster(70,960,940,420,'Your Mac')
+        box(640,1150,260,90,'#3677dd');txt(710,1170,'ALLOW',32)
+        arrow((260,1330),(650,1180))
+        txt(110,1060,'Bigarrow only draws the arrow.',30,'#172635')
+        txt(110,1430,'NO AI INSIDE / NO AUTOMATIC CLICKING',27,'#ffae35')
     elif variante==16:
         box(80,610,920,640,'#dce4ec');txt(120,675,'THE HUMAN MAKES THE CLICK',34,'#172635')
         box(580,860,320,120,'#3677dd');txt(620,900,'APPROVE',36)
@@ -71,11 +108,6 @@ def grafik(ziel,variante):
             box(x,640,440,510,'#dce4ec');txt(x+25,690,label,32,'#172635')
             box(x+100,945,240,95,'#3677dd');txt(x+135,968,'ALLOW',35)
         txt(155,1230,'SAME LABEL. WHICH CONTROL?',36,'#ffae35')
-    elif variante==2:
-        box(80,600,920,250);txt(120,660,'AGENT: PLEASE APPROVE',37)
-        arrow((540,880),(540,970))
-        box(80,1000,920,300);txt(120,1060,'HUMAN: I CHOOSE AND CLICK',35,'#20d2be')
-        txt(120,1160,'Agent instruction -> human action',30)
     elif variante in (10,11,12,13):
         box(80,560,920,730,'#dce4ec');txt(120,615,'PERMISSION EXAMPLE',34,'#172635')
         if variante==13:

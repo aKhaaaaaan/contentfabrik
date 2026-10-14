@@ -20195,6 +20195,147 @@
       "bericht": {},
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "38583452910.1:ai-tools-explained",
+      "run_id": "38583452910",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-14T15:04:54.538658+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "4ea74d423902ea829dd6a5986a05fd646d82a7b7",
+      "produktionsversion": "e53ba6fcd009aad7b6d498ddb06258c4a68f930ea3c02f6a57dee1b61f4a2992",
+      "videoformat": "short",
+      "thema": null,
+      "titel": null,
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38583452910",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-14",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 136.1,
+            "pruefung_s": 261.0,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Bild-Text-Pruefung nicht vollstaendig moeglich: RuntimeError",
+              "Offenes Problem (schwer): Es zeigt lediglich zwei ununterscheidbare Fenster mit gleichnamigen Buttons anstelle eines spezifischen Zeigers oder einer direkten Erklärung, welchen Button man wählen soll. Korrektur: Ein Screenshot von macOS, bei dem ein klarer großer Pfeil eindeutig auf einen bestimmten 'Allow'-Button zeigt.",
+              "Offenes Problem (schwer): Die visuelle Darstellung zeigt einen System-Dialog mit einem Erlaubnis-Button, während der gesprochene Text Boxen und Labels über Fenstern beschreibt. Korrektur: Ein Screenshot, der echte Boxen und Labels über Anwendungsfenstern darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt ein Berechtigungsfenster mit einem blauen ALLOW-Button, aber nicht das Zeichnen von Pfeilen, Boxen und Labels über Windows wie gesprochen. Korrektur: Ein Screenshot oder eine Animation, die zeigt, wie Pfeile, Boxen und Labels über Systemfenstern gezeichnet werden.",
+              "Offenes Problem (schwer): Es ist lediglich Text über Software-Prinzipien zu sehen, jedoch nicht die Anwendung selbst oder die im Text erwähnten Funktionen wie Zeiger, Box oder Label in Aktion. Korrektur: Ein Screenshot, der den Mauszeiger mit einer Box und einem Label in einer tatsächlichen Benutzeroberfläche zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Orus",
+              "stimme": 0.3,
+              "zeitmarken": 6.7,
+              "tempo": 1.08,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 18,
+              "clips_und_stuecke": 78.1,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 18,
+                "motive": 18,
+                "motive_min": 18
+              },
+              "effekte": 8,
+              "rendern": 35.8,
+              "gesamt": 135.9,
+              "videolaenge_s": 44.4,
+              "abschnitte_s": [
+                8.34,
+                4.0,
+                6.8,
+                6.94,
+                6.86,
+                8.34,
+                3.11
+              ],
+              "woerter": 98
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Es zeigt lediglich zwei ununterscheidbare Fenster mit gleichnamigen Buttons anstelle eines spezifischen Zeigers oder einer direkten Erklärung, welchen Button man wählen soll. Korrektur: Ein Screenshot von macOS, bei dem ein klarer großer Pfeil eindeutig auf einen bestimmten 'Allow'-Button zeigt."
+              },
+              {
+                "zeit": "00:09",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die visuelle Darstellung zeigt einen System-Dialog mit einem Erlaubnis-Button, während der gesprochene Text Boxen und Labels über Fenstern beschreibt. Korrektur: Ein Screenshot, der echte Boxen und Labels über Anwendungsfenstern darstellt."
+              },
+              {
+                "zeit": "00:11",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt ein Berechtigungsfenster mit einem blauen ALLOW-Button, aber nicht das Zeichnen von Pfeilen, Boxen und Labels über Windows wie gesprochen. Korrektur: Ein Screenshot oder eine Animation, die zeigt, wie Pfeile, Boxen und Labels über Systemfenstern gezeichnet werden."
+              },
+              {
+                "zeit": "00:32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Es ist lediglich Text über Software-Prinzipien zu sehen, jedoch nicht die Anwendung selbst oder die im Text erwähnten Funktionen wie Zeiger, Box oder Label in Aktion. Korrektur: Ein Screenshot, der den Mauszeiger mit einer Box und einem Label in einer tatsächlichen Benutzeroberfläche zeigt."
+              }
+            ],
+            "sekunden": 397.2,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "Skript fehlgeschlagen (Code 1)",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Skript fehlgeschlagen (Code 1)",
+        "sekunden": 400.1
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": null
     }
   ]
 }

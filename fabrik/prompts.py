@@ -333,7 +333,9 @@ def illustration(szene, referenz=False, korrektur='', videoformat='short'):
             # Nutzer 08.10.: „gemalt wie bei einer GTA-Welt" und „lebendig, warm, ausgefuellt,
             # damit die Leute Lust haben zu schauen".
             'Vivid, warm, inviting and richly filled, with visible emotion in faces and gestures; '
-            'where fitting a lived-in painted city with sunlit streets, glowing skyline, warm haze. '
+            # GEMESSEN 14.10.2026 (Panasonic, Lauf 38599959038): der feste Zusatz „glowing skyline"
+            # setzte Hochhaus-Skylines in das Osaka von 1918; der Bildpruefer lehnte 15/18 ab.
+            'where fitting lived-in streets, warm haze, buildings true to the scene period and place. '
             'Original fictional character '
             'designs only; do not reproduce recognizable characters, distinctive outfits, logos or '
             'specific scenes from existing games. '

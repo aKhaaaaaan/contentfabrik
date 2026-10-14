@@ -19,7 +19,8 @@ BUDGET_S = 90 * 60
 # Einmaliges Zusatzbudget je (Kanal, UTC-Datum) - nur mit ausdruecklicher Nutzerfreigabe.
 # Nutzer 14.10.2026 ca. 18:45 Berlin, auf direkte Rueckfrage: "Ja, 30 Min. extra" nur heute,
 # nur Business (13/18 Motive + Ton im Cache, 5220/5400 s verbraucht). Gates unveraendert.
-ZUSATZ_S = {('business-origin-stories', '2026-10-14'): 30 * 60}
+# Zweite Rueckfrage 14.10. ca. 19:30 Berlin: "Ja, 40 Min. extra" (insgesamt 70 Min. extra heute).
+ZUSATZ_S = {('business-origin-stories', '2026-10-14'): 70 * 60}
 # Langvideo (8-10 Min., ~70-80 Bilder statt 25) - erster Pilot 08.10.2026, Bauzeit noch nicht
 # gemessen; hochgerechnet aus ~35-40 Min. je Short. GitHub-Jobs enden spaetestens nach 6 h.
 BUDGET_LANG_S = 200 * 60

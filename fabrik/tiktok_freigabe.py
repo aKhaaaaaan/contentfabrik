@@ -18,7 +18,10 @@ from tiktok_entwurf import konto_finden, hinweis
 from tiktok_tokens import atomar
 
 QUEUE = Path('verlauf/tiktok-freigaben.json')
-AKTIV = ('freigegeben', 'PROCESSING_UPLOAD', 'PROCESSING_DOWNLOAD', 'wartet_api')
+AKTIV = ('freigegeben', 'PROCESSING_UPLOAD', 'PROCESSING_DOWNLOAD', 'wartet_api', 'postfach_voll')
+# TikTok-Doku (Upload-Endpunkt, geprueft 14.10.2026): hoechstens 5 offene Entwuerfe je 24 h,
+# danach HTTP 403 spam_risk_too_many_pending_share. Das ist kein Fehler der Datei: spaeter erneut.
+POSTFACH_VOLL_PAUSE_S = 3600
 FERTIG = ('SEND_TO_USER_INBOX', 'PUBLISH_COMPLETE', 'gesperrt', 'fehlgeschlagen', 'FAILED')
 
 
@@ -28,7 +31,7 @@ def offen(e):
 
 def melden(e, konto, q):
     terminal = e['status'] in FERTIG
-    if (e['status'] not in FERTIG + ('PROCESSING_UPLOAD', 'PROCESSING_DOWNLOAD', 'wartet_api')
+    if (e['status'] not in FERTIG + ('PROCESSING_UPLOAD', 'PROCESSING_DOWNLOAD', 'wartet_api', 'postfach_voll')
             or (terminal and e.get('gemeldet'))
             or (not terminal and e['status'] in e.get('status_meldungen', []))) or not all(os.environ.get(k) for k in (
             'TELEGRAM_BOT_TOKEN', 'TELEGRAM_CHAT_ID')):
@@ -37,6 +40,10 @@ def melden(e, konto, q):
     try:
         from freigabe import telegram
         telegram('sendMessage', {'chat_id': os.environ['TELEGRAM_CHAT_ID'], 'text': text})
+        if e['status'] == 'SEND_TO_USER_INBOX' and e.get('tiktok_text'):
+            # Genau jetzt wird der Text gebraucht; beim Videoversand lag er oft Stunden zurueck.
+            from freigabe import kopieren_senden
+            kopieren_senden(os.environ['TELEGRAM_CHAT_ID'], 'TikTok-Text zum Einfuegen', e['tiktok_text'])
         if terminal:
             e['gemeldet'] = True
         else:
@@ -61,6 +68,9 @@ def _stand_text(e, konto):
         'wartet_api': 'Der Upload oder die Statusabfrage konnte nicht abgeschlossen werden. '
                       'Die Pipeline versucht es erneut; eine Zustellung ist noch nicht bestaetigt.',
         'abgelehnt': 'Dieses Video ist abgelehnt; kein Upload wird gestartet.',
+        'postfach_voll': 'TikTok nimmt gerade keinen weiteren Entwurf an (hoechstens 5 offene Entwuerfe '
+                         'in 24 Stunden). Bitte offene Entwuerfe in der App veroeffentlichen oder loeschen. '
+                         'Der Upload wird automatisch stuendlich erneut versucht.',
         'gesperrt': 'Die Datei, Qualitaetspruefung oder Kontozuordnung ist gesperrt. '
                     'Kein neuer Upload wird automatisch gestartet.',
         'fehlgeschlagen': 'Upload oder Statusabfrage nach drei Versuchen fehlgeschlagen. '
@@ -198,6 +208,8 @@ def abarbeiten():
         print('TikTok-Freigaben warten auf die Einrichtung der GitHub-Secrets.')
         return
     for e in q:
+        if e['status'] == 'postfach_voll' and e.get('naechster_versuch', '') >                 datetime.datetime.now(datetime.timezone.utc).isoformat():
+            continue
         if e['status'] not in AKTIV:
             profil = kanalstandard.nach_name(e['kanal']) or {}
             melden(e, profil.get('tiktok_name', '?'), q)
@@ -225,11 +237,24 @@ def abarbeiten():
                 with tempfile.TemporaryDirectory(prefix='contentfabrik-tiktok-') as tmp:
                     original_laden(e, tmp)
                     pruefen(e, tmp)
+                    try:
+                        import texte
+                        e['tiktok_text'] = texte.tiktok_text(json.loads(
+                            (Path(tmp) / 'skript.json').read_text(encoding='utf-8')))
+                    except Exception:
+                        pass  # Komfort: fehlt der Text, bleibt der Upload trotzdem moeglich.
                     e['status'] = tiktok.entwurf(Path(tmp) / 'short.mp4', oid, journal, max_warte_s=0)
             e.pop('fehler_typ', None)
         except (ValueError, FileNotFoundError):
             e['status'] = 'gesperrt'
         except Exception as err:
+            if 'spam_risk_too_many_pending_share' in str(err):
+                e['status'] = 'postfach_voll'
+                e['naechster_versuch'] = (datetime.datetime.now(datetime.timezone.utc)
+                                          + datetime.timedelta(seconds=POSTFACH_VOLL_PAUSE_S)).isoformat()
+                speichern(q)
+                melden(e, konto, q)
+                continue
             e['versuche'] = e.get('versuche', 0) + 1
             e['status'] = 'wartet_api' if e['versuche'] < 3 else 'fehlgeschlagen'
             e['fehler_typ'] = type(err).__name__

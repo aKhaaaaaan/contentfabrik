@@ -24233,6 +24233,1212 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "38591489387.1:ai-tools-explained",
+      "run_id": "38591489387",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-14T15:45:53.186258+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "6bf7b29974124723e5e84d05b6c689d484907d77",
+      "produktionsversion": "091968658216e2db49413376a261289bce5cd4d755fdb1155ada37b0773a455d",
+      "videoformat": "short",
+      "thema": "Bigarrow: Human Handoffs for AI Agents",
+      "titel": [
+        "Your AI Says *Click*",
+        "Bigarrow Shows Where"
+      ],
+      "status": "gesperrt",
+      "video_sha256": "b20a038960708b1435729d7f32b4096b6ea1f9a323b687a43cf5067018266148",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-13.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 3/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 15: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Systemeinstellungen mit einer Terminal-Berechtigung, aber die Aussage über das Fehlen von KI wird hier nicht visuell erklärt.",
+        "Offenes Problem (schwer): Das Bild zeigt Systemeinstellungen mit einer Terminal-Berechtigung, aber die Aussage über das Fehlen von KI wird hier nicht visuell erklärt. Korrektur: Ein Text oder Diagramm, das die Funktionsweise ohne KI veranschaulicht."
+      ],
+      "einstellungen": 18,
+      "unterschiedliche_motive": 18,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38591489387",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-14",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 37.1,
+            "pruefung_s": 60.4,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 3/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 15: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Systemeinstellungen mit einer Terminal-Berechtigung, aber die Aussage über das Fehlen von KI wird hier nicht visuell erklärt.",
+              "Offenes Problem (schwer): Das Bild zeigt Systemeinstellungen mit einer Terminal-Berechtigung, aber die Aussage über das Fehlen von KI wird hier nicht visuell erklärt. Korrektur: Ein Text oder Diagramm, das die Funktionsweise ohne KI veranschaulicht."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.08,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 18,
+              "stuecke_neu": 0,
+              "clips_und_stuecke": 0.3,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 18,
+                "motive": 18,
+                "motive_min": 18
+              },
+              "effekte": 8,
+              "rendern": 35.8,
+              "gesamt": 36.9,
+              "videolaenge_s": 44.4,
+              "abschnitte_s": [
+                8.34,
+                4.0,
+                6.8,
+                6.94,
+                6.86,
+                8.34,
+                3.11
+              ],
+              "woerter": 98
+            },
+            "kategorien": {
+              "bild_passt": 3
+            },
+            "probleme": [
+              {
+                "zeit": "00:32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt Systemeinstellungen mit einer Terminal-Berechtigung, aber die Aussage über das Fehlen von KI wird hier nicht visuell erklärt. Korrektur: Ein Text oder Diagramm, das die Funktionsweise ohne KI veranschaulicht."
+              }
+            ],
+            "sekunden": 97.5,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                4
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-13.2"
+            },
+            "skript_s": 1.9,
+            "bau_s": 36.4,
+            "pruefung_s": 6.7,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 3/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 15: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Systemeinstellungen mit einer Terminal-Berechtigung, aber die Aussage über das Fehlen von KI wird hier nicht visuell erklärt.",
+              "Offenes Problem (schwer): Das Bild zeigt Systemeinstellungen mit einer Terminal-Berechtigung, aber die Aussage über das Fehlen von KI wird hier nicht visuell erklärt. Korrektur: Ein Text oder Diagramm, das die Funktionsweise ohne KI veranschaulicht."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.08,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 18,
+              "stuecke_neu": 0,
+              "clips_und_stuecke": 0.3,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 18,
+                "motive": 18,
+                "motive_min": 18
+              },
+              "effekte": 8,
+              "rendern": 35.5,
+              "gesamt": 36.2,
+              "videolaenge_s": 44.4,
+              "abschnitte_s": [
+                8.34,
+                4.0,
+                6.8,
+                6.94,
+                6.86,
+                8.34,
+                3.11
+              ],
+              "woerter": 98
+            },
+            "kategorien": {
+              "bild_passt": 3
+            },
+            "probleme": [
+              {
+                "zeit": "00:32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt Systemeinstellungen mit einer Terminal-Berechtigung, aber die Aussage über das Fehlen von KI wird hier nicht visuell erklärt. Korrektur: Ein Text oder Diagramm, das die Funktionsweise ohne KI veranschaulicht."
+              }
+            ],
+            "sekunden": 44.9,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "38591489387-2",
+              "datum": "2026-10-14",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 44.9,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 3
+              },
+              "kategorien_nachher": {
+                "bild_passt": 3
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-13.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                4
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-13.2"
+            },
+            "skript_s": 1.5,
+            "bau_s": 38.2,
+            "pruefung_s": 6.5,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 3/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 15: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Systemeinstellungen mit einer Terminal-Berechtigung, aber die Aussage über das Fehlen von KI wird hier nicht visuell erklärt.",
+              "Offenes Problem (schwer): Das Bild zeigt Systemeinstellungen mit einer Terminal-Berechtigung, aber die Aussage über das Fehlen von KI wird hier nicht visuell erklärt. Korrektur: Ein Text oder Diagramm, das die Funktionsweise ohne KI veranschaulicht."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.08,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 18,
+              "stuecke_neu": 0,
+              "clips_und_stuecke": 1.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 18,
+                "motive": 18,
+                "motive_min": 18
+              },
+              "effekte": 8,
+              "rendern": 35.7,
+              "gesamt": 38.0,
+              "videolaenge_s": 44.4,
+              "abschnitte_s": [
+                8.34,
+                4.0,
+                6.8,
+                6.94,
+                6.86,
+                8.34,
+                3.11
+              ],
+              "woerter": 98
+            },
+            "kategorien": {
+              "bild_passt": 3
+            },
+            "probleme": [
+              {
+                "zeit": "00:32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt Systemeinstellungen mit einer Terminal-Berechtigung, aber die Aussage über das Fehlen von KI wird hier nicht visuell erklärt. Korrektur: Ein Text oder Diagramm, das die Funktionsweise ohne KI veranschaulicht."
+              }
+            ],
+            "sekunden": 46.2,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "38591489387-3",
+              "datum": "2026-10-14",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 46.2,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 3
+              },
+              "kategorien_nachher": {
+                "bild_passt": 3
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-13.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Video-Note fehlt oder ist ungueltig; Video-Bewertung hook fehlt oder ist ungueltig; Video-bild_passt 3/10 unter 7/10; Video-Bewertung dynamik fehlt oder ist ungueltig; Video-Bewertung text fehlt oder ist ungueltig; Video-Bewertung ton_stimme fehlt oder ist ungueltig; Video-Bewertung tempo fehlt oder ist ungueltig; Video-Bewertung inhalt fehlt oder ist ungueltig; Video-Bewertung schluss_loop fehlt oder ist ungueltig; Video-Bewertung regeln fehlt oder ist ungueltig; Video-Bewertung story fehlt oder ist ungueltig; Einstellung 15: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Systemeinstellungen mit einer Terminal-Berechtigung, aber die Aussage über das Fehlen von KI wird hier nicht visuell erklärt.; Offenes Problem (schwer): Das Bild zeigt Systemeinstellungen mit einer Terminal-Berechtigung, aber die Aussage über das Fehlen von KI wird hier nicht visuell erklärt. Korrektur: Ein Text oder Diagramm, das die Funktionsweise ohne KI veranschaulicht.",
+        "sekunden": 195.3,
+        "upload_titel": "Your AI Says Click: Bigarrow Shows Where | AI Tool #4"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 3
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:32",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt Systemeinstellungen mit einer Terminal-Berechtigung, aber die Aussage über das Fehlen von KI wird hier nicht visuell erklärt. Korrektur: Ein Text oder Diagramm, das die Funktionsweise ohne KI veranschaulicht."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 44.3,
+          "fps": 30.0,
+          "lufs": -14.5,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 41.66,
+              "bis_s": 43.86,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.983
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 24.299999999999997,
+              "bis_s": 44.8,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Your",
+                "s": 0.0,
+                "e": 0.48,
+                "p": 0.8499125242233276
+              },
+              {
+                "w": "AI",
+                "s": 0.48,
+                "e": 0.76,
+                "p": 0.9348815679550171
+              },
+              {
+                "w": "says",
+                "s": 0.76,
+                "e": 1.44,
+                "p": 0.9887086749076843
+              },
+              {
+                "w": "click",
+                "s": 1.44,
+                "e": 1.88,
+                "p": 0.1747407466173172
+              },
+              {
+                "w": "allow,",
+                "s": 1.88,
+                "e": 2.32,
+                "p": 0.43907222151756287
+              },
+              {
+                "w": "which",
+                "s": 2.96,
+                "e": 3.28,
+                "p": 0.9719167947769165
+              },
+              {
+                "w": "button?",
+                "s": 3.28,
+                "e": 3.62,
+                "p": 0.9960228204727173
+              },
+              {
+                "w": "Big",
+                "s": 4.22,
+                "e": 4.48,
+                "p": 0.9726391434669495
+              },
+              {
+                "w": "arrow",
+                "s": 4.48,
+                "e": 4.74,
+                "p": 0.5651058554649353
+              },
+              {
+                "w": "points",
+                "s": 4.74,
+                "e": 5.16,
+                "p": 0.9938068985939026
+              },
+              {
+                "w": "directly",
+                "s": 5.16,
+                "e": 5.58,
+                "p": 0.991070032119751
+              },
+              {
+                "w": "at",
+                "s": 5.58,
+                "e": 6.22,
+                "p": 0.9966984391212463
+              },
+              {
+                "w": "that",
+                "s": 6.22,
+                "e": 6.36,
+                "p": 0.9951541423797607
+              },
+              {
+                "w": "control",
+                "s": 6.36,
+                "e": 6.76,
+                "p": 0.9953832030296326
+              },
+              {
+                "w": "on",
+                "s": 6.76,
+                "e": 7.18,
+                "p": 0.9936246871948242
+              },
+              {
+                "w": "your",
+                "s": 7.18,
+                "e": 7.34,
+                "p": 0.9977144002914429
+              },
+              {
+                "w": "Mac.",
+                "s": 7.34,
+                "e": 7.6,
+                "p": 0.9712225198745728
+              },
+              {
+                "w": "It",
+                "s": 8.4,
+                "e": 8.5,
+                "p": 0.987765908241272
+              },
+              {
+                "w": "draws",
+                "s": 8.5,
+                "e": 8.7,
+                "p": 0.9989583492279053
+              },
+              {
+                "w": "arrows,",
+                "s": 8.7,
+                "e": 9.06,
+                "p": 0.9902743697166443
+              },
+              {
+                "w": "boxes,",
+                "s": 9.52,
+                "e": 9.9,
+                "p": 0.9961842894554138
+              },
+              {
+                "w": "and",
+                "s": 10.14,
+                "e": 10.2,
+                "p": 0.9978499412536621
+              },
+              {
+                "w": "labels",
+                "s": 10.2,
+                "e": 10.5,
+                "p": 0.9984252452850342
+              },
+              {
+                "w": "above",
+                "s": 10.5,
+                "e": 10.86,
+                "p": 0.9987297654151917
+              },
+              {
+                "w": "your",
+                "s": 10.86,
+                "e": 11.2,
+                "p": 0.9969275593757629
+              },
+              {
+                "w": "windows.",
+                "s": 11.2,
+                "e": 11.56,
+                "p": 0.607155442237854
+              },
+              {
+                "w": "Install",
+                "s": 12.34,
+                "e": 12.58,
+                "p": 0.9846422076225281
+              },
+              {
+                "w": "the",
+                "s": 12.58,
+                "e": 13.0,
+                "p": 0.9978075623512268
+              },
+              {
+                "w": "homebrew",
+                "s": 13.0,
+                "e": 13.2,
+                "p": 0.282720685005188
+              },
+              {
+                "w": "package,",
+                "s": 13.2,
+                "e": 13.8,
+                "p": 0.9972302317619324
+              },
+              {
+                "w": "then",
+                "s": 14.26,
+                "e": 14.44,
+                "p": 0.9712121486663818
+              },
+              {
+                "w": "add",
+                "s": 14.44,
+                "e": 14.64,
+                "p": 0.9839824438095093
+              },
+              {
+                "w": "its",
+                "s": 14.64,
+                "e": 14.76,
+                "p": 0.9401939511299133
+              },
+              {
+                "w": "skill",
+                "s": 14.76,
+                "e": 15.06,
+                "p": 0.9854039549827576
+              },
+              {
+                "w": "so",
+                "s": 15.06,
+                "e": 15.52,
+                "p": 0.8082229495048523
+              },
+              {
+                "w": "your",
+                "s": 15.52,
+                "e": 15.66,
+                "p": 0.9901395440101624
+              },
+              {
+                "w": "coding",
+                "s": 15.66,
+                "e": 15.88,
+                "p": 0.9428195953369141
+              },
+              {
+                "w": "agent",
+                "s": 15.88,
+                "e": 16.26,
+                "p": 0.9971444010734558
+              },
+              {
+                "w": "can",
+                "s": 16.26,
+                "e": 16.52,
+                "p": 0.9987967014312744
+              },
+              {
+                "w": "issue",
+                "s": 16.52,
+                "e": 16.88,
+                "p": 0.9988434314727783
+              },
+              {
+                "w": "pointing",
+                "s": 16.88,
+                "e": 17.32,
+                "p": 0.9444693922996521
+              },
+              {
+                "w": "commands.",
+                "s": 17.32,
+                "e": 17.86,
+                "p": 0.9992896318435669
+              },
+              {
+                "w": "The",
+                "s": 19.18,
+                "e": 19.2,
+                "p": 0.9797655940055847
+              },
+              {
+                "w": "documented",
+                "s": 19.2,
+                "e": 19.6,
+                "p": 0.9680609107017517
+              },
+              {
+                "w": "system",
+                "s": 19.6,
+                "e": 20.0,
+                "p": 0.7883695363998413
+              },
+              {
+                "w": "settings",
+                "s": 20.0,
+                "e": 20.42,
+                "p": 0.9526367783546448
+              },
+              {
+                "w": "example",
+                "s": 20.42,
+                "e": 21.02,
+                "p": 0.9945289492607117
+              },
+              {
+                "w": "targets",
+                "s": 21.02,
+                "e": 21.48,
+                "p": 0.9913299083709717
+              },
+              {
+                "w": "an",
+                "s": 21.48,
+                "e": 21.88,
+                "p": 0.8732567429542542
+              },
+              {
+                "w": "allow",
+                "s": 21.88,
+                "e": 22.14,
+                "p": 0.9748539924621582
+              },
+              {
+                "w": "button.",
+                "s": 22.14,
+                "e": 22.52,
+                "p": 0.9976196885108948
+              },
+              {
+                "w": "You",
+                "s": 23.32,
+                "e": 23.4,
+                "p": 0.9943336248397827
+              },
+              {
+                "w": "choose",
+                "s": 23.4,
+                "e": 23.58,
+                "p": 0.9930964112281799
+              },
+              {
+                "w": "whether",
+                "s": 23.58,
+                "e": 24.0,
+                "p": 0.9815633296966553
+              },
+              {
+                "w": "to",
+                "s": 24.0,
+                "e": 24.24,
+                "p": 0.9992839694023132
+              },
+              {
+                "w": "approve",
+                "s": 24.24,
+                "e": 24.46,
+                "p": 0.9941942095756531
+              },
+              {
+                "w": "and",
+                "s": 24.46,
+                "e": 25.04,
+                "p": 0.9708842635154724
+              },
+              {
+                "w": "click.",
+                "s": 25.04,
+                "e": 25.32,
+                "p": 0.9975844621658325
+              },
+              {
+                "w": "Click's",
+                "s": 25.32,
+                "e": 26.48,
+                "p": 0.3417762517929077
+              },
+              {
+                "w": "pass",
+                "s": 26.48,
+                "e": 26.64,
+                "p": 0.8667532801628113
+              },
+              {
+                "w": "through",
+                "s": 26.64,
+                "e": 27.0,
+                "p": 0.5884331464767456
+              },
+              {
+                "w": "without",
+                "s": 27.0,
+                "e": 27.38,
+                "p": 0.9304180145263672
+              },
+              {
+                "w": "moving",
+                "s": 27.38,
+                "e": 27.92,
+                "p": 0.9944667220115662
+              },
+              {
+                "w": "keyboard",
+                "s": 27.92,
+                "e": 28.2,
+                "p": 0.9747382402420044
+              },
+              {
+                "w": "focus.",
+                "s": 28.2,
+                "e": 28.7,
+                "p": 0.9961129426956177
+              },
+              {
+                "w": "The",
+                "s": 29.52,
+                "e": 29.54,
+                "p": 0.9825129508972168
+              },
+              {
+                "w": "arrow",
+                "s": 29.54,
+                "e": 29.72,
+                "p": 0.9778953194618225
+              },
+              {
+                "w": "disappears",
+                "s": 29.72,
+                "e": 30.22,
+                "p": 0.9892420172691345
+              },
+              {
+                "w": "after",
+                "s": 30.22,
+                "e": 30.84,
+                "p": 0.994648277759552
+              },
+              {
+                "w": "displaying",
+                "s": 30.84,
+                "e": 31.32,
+                "p": 0.996663510799408
+              },
+              {
+                "w": "the",
+                "s": 31.32,
+                "e": 31.62,
+                "p": 0.9943559765815735
+              },
+              {
+                "w": "instruction.",
+                "s": 31.62,
+                "e": 31.92,
+                "p": 0.9872626662254333
+              },
+              {
+                "w": "The",
+                "s": 32.92,
+                "e": 33.12,
+                "p": 0.8991674184799194
+              },
+              {
+                "w": "twist?",
+                "s": 33.12,
+                "e": 33.32,
+                "p": 0.9591975808143616
+              },
+              {
+                "w": "There's",
+                "s": 34.08,
+                "e": 34.24,
+                "p": 0.966663122177124
+              },
+              {
+                "w": "no",
+                "s": 34.24,
+                "e": 34.46,
+                "p": 0.9947711825370789
+              },
+              {
+                "w": "AI",
+                "s": 34.46,
+                "e": 34.84,
+                "p": 0.9461200833320618
+              },
+              {
+                "w": "inside,",
+                "s": 34.84,
+                "e": 35.32,
+                "p": 0.9965678453445435
+              },
+              {
+                "w": "and",
+                "s": 35.94,
+                "e": 36.02,
+                "p": 0.9903028607368469
+              },
+              {
+                "w": "no",
+                "s": 36.02,
+                "e": 36.26,
+                "p": 0.995928943157196
+              },
+              {
+                "w": "automatic",
+                "s": 36.26,
+                "e": 36.62,
+                "p": 0.9888414740562439
+              },
+              {
+                "w": "clicking.",
+                "s": 36.62,
+                "e": 37.14,
+                "p": 0.9938708543777466
+              },
+              {
+                "w": "The",
+                "s": 37.88,
+                "e": 37.94,
+                "p": 0.9930525422096252
+              },
+              {
+                "w": "helper",
+                "s": 37.94,
+                "e": 38.1,
+                "p": 0.9724289774894714
+              },
+              {
+                "w": "shows",
+                "s": 38.1,
+                "e": 38.44,
+                "p": 0.9944408535957336
+              },
+              {
+                "w": "where?",
+                "s": 38.44,
+                "e": 38.76,
+                "p": 0.9969841837882996
+              },
+              {
+                "w": "You",
+                "s": 39.44,
+                "e": 39.46,
+                "p": 0.990036129951477
+              },
+              {
+                "w": "decide",
+                "s": 39.46,
+                "e": 39.68,
+                "p": 0.998647153377533
+              },
+              {
+                "w": "what",
+                "s": 39.68,
+                "e": 40.18,
+                "p": 0.9965511560440063
+              },
+              {
+                "w": "happens.",
+                "s": 40.18,
+                "e": 40.5,
+                "p": 0.9958648681640625
+              },
+              {
+                "w": "Be",
+                "s": 41.28,
+                "e": 41.34,
+                "p": 0.9959259033203125
+              },
+              {
+                "w": "sure",
+                "s": 41.34,
+                "e": 41.54,
+                "p": 0.9994321465492249
+              },
+              {
+                "w": "to",
+                "s": 41.54,
+                "e": 41.66,
+                "p": 0.9953495860099792
+              },
+              {
+                "w": "like,",
+                "s": 41.66,
+                "e": 41.88,
+                "p": 0.9565675854682922
+              },
+              {
+                "w": "share,",
+                "s": 42.12,
+                "e": 42.44,
+                "p": 0.997867226600647
+              },
+              {
+                "w": "and",
+                "s": 42.76,
+                "e": 42.8,
+                "p": 0.9976539015769958
+              },
+              {
+                "w": "save",
+                "s": 42.8,
+                "e": 43.1,
+                "p": 0.9545304179191589
+              },
+              {
+                "w": "this",
+                "s": 43.1,
+                "e": 43.52,
+                "p": 0.9929568767547607
+              },
+              {
+                "w": "video.",
+                "s": 43.52,
+                "e": 43.86,
+                "p": 0.9993498921394348
+              }
+            ],
+            "dauer_s": 44.3093125,
+            "sprache": "en"
+          },
+          "roh_key": "bf53afa88dbf019a602e4b220af78432b7d81b458fa7439961de5d9938077896",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "b20a038960708b1435729d7f32b4096b6ea1f9a323b687a43cf5067018266148",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 44.3,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 18,
+          "motive": 18,
+          "motive_min": 18
+        },
+        "bildbezug": {
+          "version": "2026-10-13.1",
+          "video_sha256": "b20a038960708b1435729d7f32b4096b6ea1f9a323b687a43cf5067018266148",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Dialogfenster mit der Aufschrift Demo App und der Abfrage zum Zugriff auf den Download-Ordner, auf dem ein grüner Pfeil auf den Erlauben-Button zeigt.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt den im Text erwähnten Allow-Button und den darauf zeigenden Pfeiler von Bigarrow.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da die visuelle Entsprechung direkt gegeben ist."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Interface mit der Aufschrift System Settings, Permission example, Human approval required und einem blauen ALLOW-Button, auf den ein orangener Pfeil zeigt.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt genau den beschriebenen Allow-Button mit einem darauf gerichteten Pfeil entsprechend der Anweisung.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein dunkler Bildschirm mit den Texten BIGARROW / macOS, HUMAN HANDOFF, AGENT: PLEASE APPROVE, einer orangen Pfeilgrafik und HUMAN: I CHOOSE AND CLICK mit dem Hinweis Agent instruction -> human action.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbaren Texte und der orange Pfeil illustrieren die Übergabe an den Menschen ('Human Handoff') und das Auswählen/Klicken passend zur gesprochenen Anweisung.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Mac-Druckdialogfenster wird gezeigt, wobei ein rosafarbener Kreis und Pfeil auf die PDF-Schaltfläche verweisen und ein schwarzer Pfeil auf die Abbrechen-Schaltfläche zeigt.",
+              "note": 9,
+              "passt": true,
+              "grund": "Die gesprochenen Worte 'It draws arrows' passen exakt zu den visuell dargestellten Pfeilen in der Benutzeroberfläche.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 4,
+              "gesehen": "In dem Bild ist ein Apple Keynote-Fenster zu sehen, über dem mit grafischen Markierungen (Pfeilen und beschrifteten Hinweisen wie '1. Click Animate', '2. Add an Effect', '3. Press play') erklärt wird, wie Animationen hinzugefügt werden. Die im Text erwähnten Elemente wie Boxen und Labels werden visuell über der Softwareoberfläche dargestellt.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell Boxen, Pfeile und beschriftete Labels über einem Anwendungsfenster und erklärt die Bedienschritte, was exakt dem gesprochenen Text 'It draws arrows, boxes and labels above your windows' entspricht.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein Computerbildschirm zeigt ein Fenster mit offenen Browser-Tabs und einen blauen Pfeil mit der Aufschrift 'It's this tab, not the other 33', der auf einen bestimmten Browser-Tab zeigt.",
+              "note": 9,
+              "passt": true,
+              "grund": "Die visuelle Darstellung zeigt das Zeichnen eines Pfeils über Anwendungsfenstern, was exakt der gesprochenen Handlung 'It draws arrows, boxes and labels above your windows' entspricht.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da der Pfeil über dem Fenster direkt sichtbar ist."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Screenshot zeigt Terminal-Anweisungen mit dem Homebrew-Befehl 'brew install franzenzenhofer/tap/bigarrow' für macOS.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt exakt die im Text erwähnte Homebrew-Installationsanweisung für das genannte Tool.",
+              "erforderliches_bild": "Das Bild passt bereits perfekt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Auf dem Bildschirm ist eine Terminal-Anweisungs-Oberflaeche von Bigarrow / macOS zu sehen mit dem Text 'ADD THE SKILL', 'bigarrow install-skill', 'Skill teaches the agent how to issue commands' und 'DOCUMENTED COMMANDS'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt die Dokumentation bzw. Anweisung zum Hinzufuegen des Skills im Terminal, was genau dem gesprochenen Text ueber das Hinzufuegen des Skills fuer den Agenten entspricht.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Terminal-Tutorial-Bildschirm zeigt den Befehl bigarrow point --element \"Allow\" --app \"System Settings\", was dem Befehl für den Coding-Agenten entspricht.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt den dokumentierten Befehl zur Ausführung von pointing commands, was perfekt zum gesprochenen Inhalt passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 9,
+              "gesehen": "In einem Popup-Fenster mit der Aufschrift 'System Settings' ist ein blauem Button 'ALLOW' zu sehen, auf den ein orangener Pfeil von unten links zeigt. Unten steht 'YOU CHOOSE AND CLICK'.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt exakt das dokumentierte System-Settings-Beispiel mit dem 'Allow'-Button, welches in der Narration erwähnt wird.",
+              "erforderliches_bild": "Keines, das Bild passt perfekt."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein Dialogfenster mit dem Titel 'PERMISSION EXAMPLE' und den Schaltflächen 'CANCEL' und 'ALLOW', was dem beispielhaften Berechtigungsdialog entspricht.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt den im Text erwähnten dokumentierten Beispieldialog, der auf die Schaltfläche 'Allow' abzielt.",
+              "erforderliches_bild": "Keines, da das Bild perfekt passt."
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein Pop-up-Fenster mit der Aufschrift PERMISSION EXAMPLE und zwei Schaltflächen CANCEL und ALLOW, wobei ein gelber Pfeil und ein schwarzer Cursor auf die Schaltfläche ALLOW zeigen.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt genau das dokumentierte System-Settings-Beispiel, das auf einen Allow-Button zielt, was perfekt zur gesprochenen Erwähnung des Klickens zur Genehmigung passt.",
+              "erforderliches_bild": "Keines, das Bild passt perfekt."
+            },
+            {
+              "index": 12,
+              "gesehen": "Ein Anwendungsfenster mit der Überschrift PERMISSION EXAMPLE, den Schaltflächen CANCEL und ALLOW sowie einem großen gelben Pfeil, der auf den ALLOW-Knopf zeigt.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt die simulierte Klick-Pass-Through-Funktion mit einem gezeichneten Pfeil auf dem macOS-Bildschirm.",
+              "erforderliches_bild": "Keines, das Bild passt perfekt."
+            },
+            {
+              "index": 13,
+              "gesehen": "Ein Screenshot zeigt ein dunkles Overlay mit der Überschrift 'BIGARROW / macOS', der Textzeile 'KEYBOARD FOCUS STAYS' und einer Box, in deren Eingabefeld 'Typing stays in this window |' steht, worauf ein oranger Pfeil zeigt. Darunter steht 'Overlay does not take keyboard focus'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das sichtbare Overlay demonstriert exakt das Thema der Sprachschnipsel 'keyboard focus' anhand des Beispiels für das Halten des Fokus im Fenster mit dem entsprechenden Pfeil und Text.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 14,
+              "gesehen": "Das Bild zeigt einen Vergleich mit den Bezeichnungen 'BEFORE' und 'AFTER'. Im linken Kasten ('BEFORE') befindet sich ein Button mit der Aufschrift 'ALLOW', auf den ein orangener Pfeil zeigt. Im rechten Kasten ('AFTER') ist derselbe Button ohne den Pfeil zu sehen.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt genau das im Kommentar genannte Verschwinden des Pfeils nach der Anzeige der Anweisung, dargestellt durch den Vorher-Nachher-Vergleich.",
+              "erforderliches_bild": "keines"
+            },
+            {
+              "index": 15,
+              "gesehen": "In den Mac-Systemeinstellungen ist das Menue zur Geraetesteuerung und Datenzugriff geoeffnet mit einer grünen Markierung an dem Schalter für Terminal.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt Systemeinstellungen mit einer Terminal-Berechtigung, aber die Aussage über das Fehlen von KI wird hier nicht visuell erklärt.",
+              "erforderliches_bild": "Ein Text oder Diagramm, das die Funktionsweise ohne KI veranschaulicht."
+            },
+            {
+              "index": 16,
+              "gesehen": "Ein dunkles Fenster zeigt den Text BIGARROW / macOS, NO AUTOMATIC CLICKING, THE HUMAN MAKES THE CLICK sowie einen blauen APPROVE-Knopf mit einem Mauszeiger, der darauf zeigt, und den Text Pointer does not press buttons.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt die Benutzeroberfläche zur menschlichen Entscheidung und Bestätigung (Approve), was exakt zur gesprochenen Aussage 'The helper shows where; you decide what happens.' passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 17,
+              "gesehen": "Drei abgerundete Kacheln mit Symbolen und Textbeschriftungen für 'LIKE', 'SHARE' und 'SAVE' vor dunklem Hintergrund.",
+              "note": 10,
+              "passt": true,
+              "grund": "Die sichtbaren Symbole für Like, Share und Save entsprechen direkt der gesprochenen Aufforderung zur Interaktion.",
+              "erforderliches_bild": ""
+            }
+          ],
+          "befunde": [
+            "Einstellung 15: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Systemeinstellungen mit einer Terminal-Berechtigung, aber die Aussage über das Fehlen von KI wird hier nicht visuell erklärt."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 18
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "b20a038960708b1435729d7f32b4096b6ea1f9a323b687a43cf5067018266148",
+        "prompt_version": "2026-10-13.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

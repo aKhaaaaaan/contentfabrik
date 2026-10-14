@@ -110,13 +110,22 @@ def pruefen(video, skript, ablauf, ziel):
                         'An engagement request is not an app tutorial: recognizable like, share and bookmark '
                         'icons or an engaging presenter can match it; do not require a simulated button press. '
                         'Check the whole phase as context; the slot can contain only part of a sentence. '
+                        'For overlay tools the visible arrow, outline box or sign is the demonstrated operation; '
+                        'the background app is not the narrated task. An arrow above a print dialog can demonstrate '
+                        'drawing arrows, and an outline above Keynote can demonstrate boxes and labels. '
+                        'Judge the actual marks, not just the background app category. Do not demand every '
+                        'operation from the whole phase in a slot containing only some words. '
+                        'Lowercase windows means application windows; infer Microsoft Windows only if explicitly '
+                        'named. Use the video context for platform, not to invent visible evidence. '
                         'Judge visual meaning only, independent of anatomy, style, audio or prior ratings. '
                         'Score1-3 wrong/unrelated,4-6 vague/partial,7-10 directly useful visual explanation. '
                         'Set passt=false when below7 or the operation is not visible. grund must name the '
                         'visible evidence and the exact spoken operation it matches or fails. On rejection '
                         'erforderliches_bild describes a feasible relevant replacement. Return every index '
                         'exactly once in given order. German findings; only the schema JSON.\n'
-                        + json.dumps(daten, ensure_ascii=False))
+                        + json.dumps({'video_context':{'subject':skript.get('thema',''),
+                            'narration':' '.join(t['text'] for t in skript.get('teile',[]))},
+                            'shots':daten}, ensure_ascii=False))
                     einzelkey = ki_speicher.cache_key(VERSION+code+auftrag,SCHEMA,SEHEN,.1,
                         'bildbezug-einzeln',[hashlib.sha256(b).hexdigest() for b in bilder])
                     einzeltreffer = ki_speicher.cache_lesen(einzelkey,SCHEMA,SEHEN)

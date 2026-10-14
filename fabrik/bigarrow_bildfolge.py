@@ -48,6 +48,15 @@ def grafik(ziel,variante):
         box(80,650,920,580);box(690,770,220,200,'#3677dd')
         txt(735,845,'UI',48);arrow((180,1160),(785,785))
         txt(120,1330,'OVERLAY ARROW POINTS TO AN ELEMENT',27,'#ffae35')
+    elif variante==14:
+        for x,label in [(65,'BEFORE'),(560,'AFTER')]:
+            txt(x+85,580,label,43,'#20d2be')
+            box(x,700,455,510,'#dce4ec')
+            txt(x+35,750,'Permission',30,'#172635')
+            box(x+120,905,215,90,'#3677dd');txt(x+150,930,'ALLOW',32)
+        arrow((120,1160),(300,890))
+        txt(180,1290,'INSTRUCTION FINISHED',38,'#ffae35')
+        txt(200,1390,'SAME WINDOW / OVERLAY REMOVED',28)
     elif variante==17:
         for x,title in [(80,'LIKE'),(405,'SHARE'),(730,'SAVE')]:
             box(x,710,270,450);txt(x+30,995,title,40)

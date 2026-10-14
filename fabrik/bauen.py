@@ -1627,9 +1627,21 @@ def main(skript_pfad, aus, vorlage=None):
                 import bibliothek
                 ill = bibliothek.bild(t.get('asset'), s.get('kanal'))
                 eintrag=next((b for b in bibliothek.katalog() if b['id']==t['asset']),{})
+                ausschnitt=eintrag.get('ausschnitt')
+                if ausschnitt is not None:
+                    with Image.open(ill) as original:
+                        if not isinstance(ausschnitt,list) or len(ausschnitt)!=4 \
+                                or any(type(v) is not int for v in ausschnitt) \
+                                or not 0<=ausschnitt[0]<ausschnitt[2]<=original.width \
+                                or not 0<=ausschnitt[1]<ausschnitt[3]<=original.height:
+                            raise ValueError('Ungueltiger redaktioneller Assetausschnitt')
+                        ansicht=aus/f'asset_{i:02d}_ausschnitt.jpg'
+                        bild_rgb(original.crop(tuple(ausschnitt))).save(ansicht,'JPEG',quality=95)
+                    ill=ansicht
                 quellen.append({'quelle': eintrag.get('quelle','Illustration'),
                                 'seite': eintrag.get('source_url','Eigene sichtgepruefte KI-Illustration (built-in image_gen)'),
                                 'hinweis':eintrag.get('hinweis',''),
+                                'ausschnitt':ausschnitt,
                                 'asset': t['asset'], 'sha256': bildplan.material_id(ill)})
             if modus == 'grafik':
                 if t.get('grafik_typ') == 'bigarrow' and 'https://github.com/franzenzenhofer/big-arrow-on-the-screen' in s.get('quellen',[]):

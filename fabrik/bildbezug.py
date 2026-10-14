@@ -1,5 +1,6 @@
 """Jede fertige Einstellung gegen ihren Sprechtext pruefen, ohne Titel-/Untertitelhilfe."""
 import io
+import hashlib
 import json
 import math
 import re
@@ -116,9 +117,20 @@ def pruefen(video, skript, ablauf, ziel):
                         'erforderliches_bild describes a feasible relevant replacement. Return every index '
                         'exactly once in given order. German findings; only the schema JSON.\n'
                         + json.dumps(daten, ensure_ascii=False))
-                    d, modell = gemini(auftrag, SCHEMA, bilder=bilder, modelle=SEHEN, temperatur=.1)
+                    einzelkey = ki_speicher.cache_key(VERSION+code+auftrag,SCHEMA,SEHEN,.1,
+                        'bildbezug-einzeln',[hashlib.sha256(b).hexdigest() for b in bilder])
+                    einzeltreffer = ki_speicher.cache_lesen(einzelkey,SCHEMA,SEHEN)
+                    if einzeltreffer:
+                        d,modell = einzeltreffer
+                    else:
+                        d, modell = gemini(auftrag, SCHEMA, bilder=bilder, modelle=SEHEN, temperatur=.1)
                     if [e.get('index') for e in d.get('pruefung', [])] != [s['index'] for s in teil]:
                         raise ValueError('Pruefantwort laesst Einstellungen aus oder verwechselt Bilder')
+                    if not einzeltreffer and ki_speicher.schema_ok(d,SCHEMA) and all(
+                            1<=e['note']<=10 and e['gesehen'].strip() and e['grund'].strip() for e in d['pruefung']):
+                        # Ein spaeterer API-Ausfall verwirft nicht die bereits echten Einzelurteile.
+                        # Bindung an extrahierte Bildbytes UND exakten Sprechtext, keine Fake-Abdeckung.
+                        ki_speicher.cache_schreiben(einzelkey,d,modell,SCHEMA)
                     ergebnis['pruefung'].extend(d['pruefung']); ergebnis['modelle'].append(modell)
             if ki_speicher.schema_ok({'pruefung': ergebnis['pruefung']}, SCHEMA) and all(
                     1 <= e['note'] <= 10 and e['gesehen'].strip() and e['grund'].strip()

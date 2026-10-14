@@ -4,6 +4,8 @@ import textwrap
 from PIL import Image,ImageDraw,ImageFont
 
 SOURCE='https://github.com/franzenzenhofer/big-arrow-on-the-screen'
+DEMOS={0:'bigarrow-allow',3:'bigarrow-arrow-print',4:'bigarrow-box-keynote',
+       5:'bigarrow-label-chrome',15:'bigarrow-human-settings'}
 TITLES=['WHICH ALLOW BUTTON?','POINT AT THE CONTROL','HUMAN HANDOFF',
         'ARROWS','BOXES','LABELS','INSTALL WITH HOMEBREW','ADD THE SKILL','AGENT ISSUES A COMMAND',
         'SYSTEM SETTINGS EXAMPLE','YOU DECIDE','YOU CLICK','CLICKS PASS THROUGH',
@@ -109,4 +111,8 @@ def bildfolge(s):
         t['bildfolge']=[{'bildmodus':'grafik','grafik_typ':'bigarrow','grafik_variante':i,
                         'motiv':TITLES[i],'szene':'Documented explanatory diagram: '+TITLES[i],
                         'suche':'documented macOS human handoff'} for i in ids]
+        for entry,i in zip(t['bildfolge'],ids):
+            if i in DEMOS:
+                entry.update(bildmodus='asset',asset=DEMOS[i],
+                             szene='Original documented Bigarrow macOS screenshot: '+TITLES[i])
     return s

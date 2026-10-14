@@ -475,15 +475,16 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         print(f'Kein freigegebenes Video - Entwurf mit KI-Note {bester[0]}/10 geht zur Nutzerentscheidung')
     if bester is None:
         # Den letzten Versuch fuer die Fehlersuche als Artefakt behalten.
-        if versuch and ordner.exists():
+        if versuch:
             if not (ordner / 'short.mp4').exists():
                 # Eine erfolglose Korrektur legt einen leeren Ordner an; das echte fehlerhafte
                 # MP4/ASR/Pruefprotokoll aus dem vorherigen Versuch muss erhalten bleiben.
                 ordner = next((Path(f'versuch{i}') for i in range(versuch-1,0,-1)
                                if Path(f'versuch{i}/short.mp4').exists()),ordner)
-            aus = Path('ausgabe')
-            shutil.rmtree(aus, ignore_errors=True)
-            shutil.copytree(ordner, aus)
+            if ordner.exists():
+                aus = Path('ausgabe')
+                shutil.rmtree(aus, ignore_errors=True)
+                shutil.copytree(ordner, aus)
         aus_fehlern_lernen(kanal, bericht['runden'], min(start + frei, time.monotonic() + 90))
         melden(f'🔁 {kanal}: noch kein freigabefaehiges Video. Grund: {letzter_grund}. '
                'Weitere Zeitfenster versuchen es nur, solange Tagesbudget uebrig ist.')

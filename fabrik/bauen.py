@@ -1626,7 +1626,10 @@ def main(skript_pfad, aus, vorlage=None):
             if modus == 'asset':
                 import bibliothek
                 ill = bibliothek.bild(t.get('asset'), s.get('kanal'))
-                quellen.append({'quelle': 'Illustration', 'seite': 'Eigene sichtgepruefte KI-Illustration (built-in image_gen)',
+                eintrag=next((b for b in bibliothek.katalog() if b['id']==t['asset']),{})
+                quellen.append({'quelle': eintrag.get('quelle','Illustration'),
+                                'seite': eintrag.get('source_url','Eigene sichtgepruefte KI-Illustration (built-in image_gen)'),
+                                'hinweis':eintrag.get('hinweis',''),
                                 'asset': t['asset'], 'sha256': bildplan.material_id(ill)})
             if modus == 'grafik':
                 if t.get('grafik_typ') == 'bigarrow' and 'https://github.com/franzenzenhofer/big-arrow-on-the-screen' in s.get('quellen',[]):

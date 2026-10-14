@@ -32,11 +32,20 @@ def grafik(ziel,variante):
                ['bigarrow point','--element "Allow"','--app "System Settings"'])
         for n,line in enumerate(lines):txt(100,725+n*100,line,36)
         txt(100,1205,'DOCUMENTED COMMANDS',30,'#ffae35')
-    elif variante in (15,16):
+    elif variante==15:
         box(80,570,920,320);txt(120,640,'A POINTER, NOT AN AI MODEL',35,'#ffae35')
         txt(120,730,'Arrow + box + label',40)
         box(80,985,920,320);txt(125,1045,'HUMAN DECISION',43,'#20d2be')
         txt(125,1150,'Approve or close the dialog',35)
+    elif variante==16:
+        box(80,610,920,640,'#dce4ec');txt(120,675,'THE HUMAN MAKES THE CLICK',34,'#172635')
+        box(580,860,320,120,'#3677dd');txt(620,900,'APPROVE',36)
+        d.polygon([(700,925),(700,1080),(735,1045),(780,1110),(808,1085),(760,1018),(820,1010)],fill='#172635')
+        txt(125,1170,'Pointer does not press buttons',31,'#172635')
+    elif variante==3:
+        box(80,650,920,580);box(690,770,220,200,'#3677dd')
+        txt(735,845,'UI',48);arrow((180,1160),(785,785))
+        txt(120,1330,'OVERLAY ARROW POINTS TO AN ELEMENT',27,'#ffae35')
     elif variante==17:
         for x,title in [(80,'LIKE'),(405,'SHARE'),(730,'SAVE')]:
             box(x,710,270,450);txt(x+30,995,title,40)

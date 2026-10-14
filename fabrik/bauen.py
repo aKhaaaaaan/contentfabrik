@@ -1715,7 +1715,8 @@ def main(skript_pfad, aus, vorlage=None):
                     # wurden gemalt); Schrifttraeger aus den Suchwoertern entfernen.
                     einfach = ('One clear subject in a calm, simple painted composition, no close-up faces, '
                                'plain unmarked surfaces: '
-                               + (prompts.ohne_schrifttraeger(str(t.get('suche') or t.get('motiv') or ''))
+                               + (prompts.rueckfall_motiv(t.get('suche') or t.get('motiv') or '',
+                                                          s['teile'][shot['phase']].get('suche', ''))
                                   or 'a person at work in a warm room'))
                     ill = illustration_mit_ausweg(einfach, aus / f'ill_{i:02d}.jpg', kanal_slug, False, False,
                                                   dramaturgie.videoformat(s))

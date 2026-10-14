@@ -317,6 +317,22 @@ def ohne_schrifttraeger(text):
     return re.sub(r'(?:\s+(?:with|and|or|of|on|at|in|a|an|the))+$', '', rest, flags=re.I).strip(' ,.')
 
 
+def rueckfall_motiv(einstellung, phase=''):
+    """Allgemeine Bildwoerter fuer den vereinfachten Rettungsversuch.
+
+    GEMESSEN 14.10.2026 (Lauf 38608447213, Einstellung 11): "2025, .118, Dodgers, slump" erzeugte
+    Vereinslogos und Trikotschrift - beides verbieten die Bildregeln. Woerter mit Ziffern und
+    grossgeschriebene Eigennamen entfallen; die allgemeinen Phasen-Suchwoerter ergaenzen das Motiv.
+    """
+    teile = []
+    for quelle in (einstellung, phase):
+        woerter = [w for w in re.findall(r"[A-Za-z][A-Za-z'-]*|\S*\d\S*", ohne_schrifttraeger(str(quelle or '')))
+                   if not any(z.isdigit() for z in w) and not w[0].isupper()]
+        if woerter and ' '.join(woerter) not in teile:
+            teile.append(' '.join(woerter))
+    return ', '.join(teile)
+
+
 def illustration(szene, referenz=False, korrektur='', videoformat='short'):
     figur = ('Use the person in reference image 0 as the same fictional character: preserve face, '
              'hair, proportions and outfit. Change pose, framing, lighting and background to fit '

@@ -27,13 +27,18 @@ def motivziel(s):
     return wert
 
 
+def feste_regie(s):
+    """Vollstaendige feste Regie: jede Phase hat eine komplette bildfolge, die den Bildplan bestimmt."""
+    return bool(s.get('teile')) and all(
+        t.get('bildfolge') and all(all(v.get(k) for k in ('bildmodus', 'suche', 'szene', 'motiv'))
+                                  for v in t['bildfolge']) for t in s['teile'])
+
+
 def slots(s, laengen, woerter):
     ziel = 8 if dramaturgie.videoformat(s) == 'lang' else 4.5
     anzahlen = [max(1, math.ceil(d / ziel)) for d in laengen]
     minimum = motivziel(s) if sum(laengen) >= 30 else 0
-    redaktionell = len(s['teile']) == len(laengen) and all(
-        t.get('bildfolge') and all(all(v.get(k) for k in ('bildmodus','suche','szene','motiv'))
-                                  for v in t['bildfolge']) for t in s['teile'])
+    redaktionell = len(s['teile']) == len(laengen) and feste_regie(s)
     if redaktionell:
         # Eine fertige Regie verteilt ihre Motive bewusst auf die Sprechphasen.
         # Der automatische Dichteausgleich verschob zuvor einen Slot in eine
@@ -191,9 +196,7 @@ def vorbereiten(s, laengen, woerter, cache=None):
     daten = alt.get('einstellungen') if alt.get('key') == key else None
     # Die menschlich kontrollierte Regie ist verbindlich und braucht keinen
     # zweiten KI-Auftrag, der dieselbe Bildfolge lediglich wieder ueberschreibt.
-    if daten is None and all(t.get('bildfolge') and all(
-            all(v.get(k) for k in ('bildmodus', 'suche', 'szene', 'motiv'))
-            for v in t['bildfolge']) for t in s['teile']):
+    if daten is None and feste_regie(s):
         daten, zaehler = [], {}
         for slot in zeitplan:
             phase = slot['phase']

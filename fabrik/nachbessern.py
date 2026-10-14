@@ -111,11 +111,18 @@ def planen(skript, kritik, messung, config, kanal):
     plan['schwerpunkt'] = familie
     if familie:
         probleme = [p for p in probleme if FAMILIEN.get(p.get('art'), (None,))[0] == familie]
+    import bildplan
+    feste_regie = bildplan.feste_regie(skript)
     for p in probleme:
         art = p.get('art')
         ids = abschnitte(p.get('zeit', ''), laengen)
         if art in VISUELL:
-            if ids:
+            if feste_regie:
+                # GEMESSEN 14.10.2026 (Lauf 38591953175): Die feste bildfolge ueberschreibt im
+                # Bildplan suche/szene der Phase. Zwei Korrekturen bauten und prueften dasselbe Video.
+                plan['offen'].append('Feste redaktionelle Bildfolge - Motiv nur redaktionell ersetzbar: '
+                                     + str(p.get('text', '')))
+            elif ids:
                 bildziele.update(ids)
             else:
                 plan['offen'].append('Bildproblem ohne gueltigen Zeitstempel: ' + str(p.get('text', '')))

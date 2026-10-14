@@ -17,6 +17,7 @@ VERSION = 1
 EINSTELLUNGEN = {'modell': 'base.en', 'device': 'cpu', 'compute_type': 'int8',
                  'language': 'en', 'word_timestamps': True, 'vad_filter': True,
                  'condition_on_previous_text': False, 'initial_prompt': None, 'beam_size': 5}
+RESERVE = 'small.en'
 
 
 @lru_cache(maxsize=1)
@@ -32,6 +33,21 @@ def transkribieren(video):
     woerter = [{'w': w.word.strip(), 's': w.start, 'e': w.end, 'p': w.probability}
                for segment in segmente for w in (segment.words or [])]
     return {'woerter': woerter, 'dauer_s': info.duration, 'sprache': info.language}
+
+
+@lru_cache(maxsize=1)
+def reservemodell():
+    from faster_whisper import WhisperModel
+    return WhisperModel(RESERVE,device='cpu',compute_type='int8',cpu_threads=4,
+                        download_root='modelle/whisper')
+
+
+def reserve_transkribieren(video):
+    segmente, info = reservemodell().transcribe(str(video), **{k:v for k,v in EINSTELLUNGEN.items()
+                                              if k not in ('modell','device','compute_type')})
+    return {'woerter':[{'w':w.word.strip(),'s':w.start,'e':w.end,'p':w.probability}
+                      for segment in segmente for w in (segment.words or [])],
+            'dauer_s':info.duration,'sprache':info.language}
 
 
 def roh_ok(daten):
@@ -104,16 +120,33 @@ def pruefen(video, skript, dauer, aus=None):
     try:
         bibliothek = importlib.metadata.version('faster-whisper')
         alt = ki_speicher.lesen_json(pfad)
-        key = ki_speicher.hashwert([VERSION, sha, EINSTELLUNGEN, bibliothek])
+        key = ki_speicher.hashwert([VERSION, sha, EINSTELLUNGEN, RESERVE, bibliothek])
         wiederverwendet = alt.get('roh_key') == key and roh_ok(alt.get('roh'))
         roh = alt['roh'] if wiederverwendet else transkribieren(video)
         ergebnis = cta_bewerten(roh, dramaturgie.videoformat(skript), dauer)
+        verwendet = alt.get('erkennungsmodell',EINSTELLUNGEN['modell']) if wiederverwendet else EINSTELLUNGEN['modell']
+        einzelpruefungen = alt.get('einzelpruefungen',[]) if wiederverwendet else [
+            {'modell':verwendet,'ok':ergebnis['ok'],'befunde':ergebnis['befunde']}]
+        if not wiederverwendet and not ergebnis['ok'] and roh_ok(roh):
+            # Zweite ECHTE Erkennung statt Einfuegen erwarteter Skriptwoerter oder Senken der Schwelle.
+            print('Endton: base.en ohne sicheren CTA; unabhaengige CPU-Erkennung mit small.en',flush=True)
+            try:
+                reserve_roh = reserve_transkribieren(video)
+                reserve_ergebnis = cta_bewerten(reserve_roh,dramaturgie.videoformat(skript),dauer)
+                einzelpruefungen.append({'modell':RESERVE,'ok':reserve_ergebnis['ok'],
+                                        'befunde':reserve_ergebnis['befunde']})
+                if reserve_ergebnis['ok']:
+                    roh, ergebnis, verwendet = reserve_roh, reserve_ergebnis, RESERVE
+            except Exception as e:
+                einzelpruefungen.append({'modell':RESERVE,'ok':False,'fehler_typ':type(e).__name__})
         ergebnis.update(roh=roh, roh_key=key, wiederverwendet=wiederverwendet,
-                        bibliothek_version=bibliothek)
+                        bibliothek_version=bibliothek,erkennungsmodell=verwendet,
+                        einzelpruefungen=einzelpruefungen)
     except Exception as e:
         ergebnis = {'ok': False, 'befunde': [f'Endton-Erkennung nicht moeglich ({type(e).__name__})'],
                     'treffer': [], 'fenster': []}
-    ergebnis.update(version=VERSION, video_sha256=sha, einstellungen=EINSTELLUNGEN,
+    ergebnis.update(version=VERSION, video_sha256=sha,
+                    einstellungen=dict(EINSTELLUNGEN,modell=ergebnis.get('erkennungsmodell',EINSTELLUNGEN['modell'])),
                     videoformat=dramaturgie.videoformat(skript), dauer_s=dauer,
                     methode='Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung')
     ki_speicher.speichern(pfad, ergebnis)

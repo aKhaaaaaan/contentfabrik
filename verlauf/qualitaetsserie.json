@@ -29027,6 +29027,970 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "38605565737.1:ai-tools-explained",
+      "run_id": "38605565737",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-14T17:23:04.489518+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "4008570033571b97530189553f71d282b32d3cb4",
+      "produktionsversion": "abe6350a7ad784fe4471446f4b3ff7b54938af736d95f3924d976abae5f0cf5b",
+      "videoformat": "short",
+      "thema": "Bigarrow: Human Handoffs for AI Agents",
+      "titel": [
+        "Your AI Says *Click*",
+        "Bigarrow Shows Where"
+      ],
+      "status": "gesendet",
+      "video_sha256": "991f37773b95c9e2ad98e832e8588e8524cb7a22674ac3c1511b91be21be82f0",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": 8,
+      "prompt_version": "2026-10-13.2",
+      "sperrgruende": [],
+      "einstellungen": 18,
+      "unterschiedliche_motive": 18,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38605565737",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-14",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 108.0,
+            "pruefung_s": 68.3,
+            "note": 8,
+            "sperrgruende": [],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.08,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 18,
+              "clips_und_stuecke": 78.3,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 18,
+                "motive": 18,
+                "motive_min": 18
+              },
+              "effekte": 8,
+              "rendern": 29.2,
+              "gesamt": 107.8,
+              "videolaenge_s": 44.4,
+              "abschnitte_s": [
+                8.34,
+                4.0,
+                6.8,
+                6.94,
+                6.86,
+                8.34,
+                3.11
+              ],
+              "woerter": 98
+            },
+            "kategorien": {
+              "hook": 9,
+              "bild_passt": 9,
+              "dynamik": 8,
+              "text": 9,
+              "ton_stimme": 9,
+              "tempo": 8,
+              "inhalt": 9,
+              "schluss_loop": 9,
+              "regeln": 10,
+              "story": 9
+            },
+            "probleme": [],
+            "sekunden": 176.4,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 182.2,
+        "upload_titel": "Your AI Says Click: Bigarrow Shows Where | AI Tool #4"
+      },
+      "ki_pruefung": {
+        "note": 8,
+        "kategorien": {
+          "hook": 9,
+          "bild_passt": 9,
+          "dynamik": 8,
+          "text": 9,
+          "ton_stimme": 9,
+          "tempo": 8,
+          "inhalt": 9,
+          "schluss_loop": 9,
+          "regeln": 10,
+          "story": 9
+        },
+        "staerken": [
+          "Klares Problem-Loesungs-Szenario direkt zu Beginn",
+          "Sehr saubere und gut lesbare Untertitel im sicheren Bereich",
+          "Praktische Demonstration des Open-Source-Tools Bigarrow",
+          "Vollstaendiger CTA (Like, Share, Save) am Ende enthalten"
+        ],
+        "probleme": [],
+        "fazit": "Ein sauber produzierter und inhaltlich klarer Tech-Short zu Bigarrow mit gutem visuellen Workflow und praeziser Erklaerung.",
+        "modell": "gemini-flash-lite-latest",
+        "prompt_version": "2026-10-13.2",
+        "technik": {
+          "dauer_s": 44.3,
+          "fps": 30.0,
+          "lufs": -14.5,
+          "befunde": []
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 18,
+          "motive": 18,
+          "motive_min": 18
+        },
+        "bildbezug": {
+          "version": "2026-10-13.1",
+          "video_sha256": "991f37773b95c9e2ad98e832e8588e8524cb7a22674ac3c1511b91be21be82f0",
+          "videoformat": "short",
+          "ok": true,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Mac-Dialogfenster einer App namens 'Demo App' mit der Frage 'would like to access your Downloads folder', wobei ein grüner Pfeil auf den 'Allow'-Button zeigt.",
+              "note": 10,
+              "passt": true,
+              "grund": "Der grüne Pfeil zeigt genau auf den im Text erwähnten 'Allow'-Button in einem macOS-Dialogfenster, was die Anweisung visuell perfekt unterstützt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Dialogfenster mit dem Titel System Settings zeigt einen blauen Allow-Knopf, auf den ein orangener Pfeil von unten links zeigt.",
+              "note": 10,
+              "passt": true,
+              "grund": "Der orangene Pfeil zeigt exakt auf den erwähnten Allow-Knopf, was die Anweisung passend illustriert.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da der Pfeil und das Steuerelement direkt sichtbar sind."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein macOS System-Settings-Dialogfenster mit den Schaltflächen DON'T ALLOW und ALLOW, auf dessen ALLOW-Button ein oranger Pfeil zeigt.",
+              "note": 10,
+              "passt": true,
+              "grund": "Der orange Pfeil zeigt direkt auf den im gesprochenen Text erwähnten Allow-Button in den macOS-Systemeinstellungen.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Vorschaubereich einer Mac-Anwendung zeigt ein Fenster mit zwei grauen Feldern und einem blauen 'SAVE'-Knopf, worüber zwei orangefarbene Pfeile gezeichnet sind.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt die in der Narration genannten gezeichneten Pfeile über dem Anwendungsfenster.",
+              "erforderliches_bild": "Keine Änderung erforderlich."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Keynote-Anwendungsfenster mit grauen Platzhalterelementen und einem blauen Export-Button wird gezeigt, wobei ein oranges Rechteck (Box) um den Export-Button gelegt ist und ein oranges Label mit der Aufschrift 'LABEL: click Export' darunter via Verbindungslinie dargestellt wird.",
+              "note": 10,
+              "passt": true,
+              "grund": "Die sichtbaren Elemente (Boxen und Label oberhalb des Fensters) entsprechen exakt der Beschreibung in der Narration 'draws arrows, boxes and labels above your windows'.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 5,
+              "gesehen": "In der Abbildung ist eine grafische Demonstration mit zwei App-Fenstern (Finder und Mail) zu sehen. Ein oranger Pfeil zeigt von links auf einen blauen 'Send'-Button im Mail-Fenster, welcher mit einem orangen Kasten umrandet ist. Dazu gibt es ein oranges Label mit der Aufschrift 'LABEL: send here'.",
+              "note": 10,
+              "passt": true,
+              "grund": "Die sichtbaren Elemente (Pfeil, Kasten und Label über den Fenstern) illustrieren exakt den gesprochenen Sachverhalt, dass Pfeile, Kästen und Beschriftungen über Fenstern gezeichnet werden.",
+              "erforderliches_bild": "keines"
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Terminal-Anweisungsfenster mit dem Befehl 'brew install franzenzenhofer/tap/bigarrow'",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt exakt den dokumentierten Homebrew-Installationsbefehl zur Installation des Pakets, was perfekt zur gesprochenen Erwähnung des Homebrew-Pakets passt.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein Terminal-Anleitungsfenster mit dem Befehl bigarrow install-skill und dem Text zum Hinzufuegen der Faehigkeit für den Agenten.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt die Terminal-Instruktion zum Hinzufuegen der Faehigkeit passend zum gesprochenen Text.",
+              "erforderliches_bild": "Kein Ersatz noetig."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Terminal-Tutorial-Bildschirm zeigt die Befehle 'bigarrow point', '--element \"Allow\"' und '--app \"System Settings\"'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das gesehene dokumentierte Befehls-Tutorial zeigt direkt die im Sprechtext genannten Zeilen für codierende Agenten und Zeigebefehle.",
+              "erforderliches_bild": "Keines, da der Befehl direkt und gut lesbar im Bild belegt ist."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein Dialogfenster mit der Aufschrift System Settings, Permission example, Human approval required, einem blauen Allow-Button sowie einem gelben Pfeil mit dem Text YOU CHOOSE AND CLICK.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt exakt das dokumentierte System-Settings-Beispiel mit dem Allow-Button und den Erklärungen aus dem gesprochenen Text.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein Dialogfenster mit dem Titel PERMISSION EXAMPLE zeigt die Optionen CANCEL und ALLOW.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die im Skript genannte System-Einstellung beziehungsweise der Allow-Button ist im Bild als Beispiel sichtbar.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, das Bild passt."
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein Dialogfenster mit 'PERMISSION EXAMPLE' und den Schaltflächen 'CANCEL' und 'ALLOW', wobei ein gelber Pfeil und ein Mauszeiger auf die 'ALLOW'-Schaltfläche zeigen.",
+              "note": 10,
+              "passt": true,
+              "grund": "Die visuelle Darstellung zeigt exakt das im Text beschriebene Ziel (Allow-Button) mit einem eindeutigen Pfeil und der menschlichen Interaktion.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 12,
+              "gesehen": "Ein Dialogfenster mit einer Ansicht namens PERMISSION EXAMPLE und einem blauen ALLOW-Button, über den ein gelber Pfeil und ein schwarzer Cursor gelegt sind.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt die im Text erwähnte Interaktion mit dem Allow-Button und den klickbaren Bereich bei durchgreifenden Klicks.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 13,
+              "gesehen": "In einem dunklen Overlay-Fenster ist mit der Überschrift 'BIGARROW / macOS' und 'KEYBOARD FOCUS STAYS' ein Eingabefeld zu sehen, in dem 'Typing stays in this window |' steht. Ein großer oranger Pfeil zeigt von unten links auf dieses Feld. Darunter steht 'Overlay does not take keyboard focus'.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt die Demonstration des fokussierten Schreibens und des durchscheinenden Overlays mit einem Pfeil zur Erläuterung des Tastaturfokus passend zur Narration.",
+              "erforderliches_bild": "entfällt"
+            },
+            {
+              "index": 14,
+              "gesehen": "Die Abbildung zeigt einen Vergleich von zwei Fenstern mit der Bezeichnung 'Before' und 'After', wobei im linken Bild ein gelber Zeiger auf eine Schaltfläche zeigt und im rechten Bild die Schaltfläche ohne Zeiger dargestellt ist.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell, wie der Zeiger verschwindet, was exakt der gesprochenen Operation 'The arrow disappears after displaying the instruction' entspricht.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da die visuelle Evidenz genau passt."
+            },
+            {
+              "index": 15,
+              "gesehen": "Ein Overlay-Fenster auf einem Mac zeigt die Beschriftungen 'AI MODEL' und 'AUTO-CLICK' mit roten Verbotssymbolen sowie ein darunterliegendes Dialogfenster mit der Aufschrift 'Bigarrow only draws the arrow.' und einem 'ALLOW'-Button, auf den ein gelber Pfeil zeigt. Unten steht 'NO AI INSIDE / NO AUTOMATIC CLICKING'.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell deutlich die Zusicherung von 'no AI inside and no automatic clicking' durch entsprechende erklärende Symbole und Text im Interface.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da die visuelle Evidenz genau zum Text passt."
+            },
+            {
+              "index": 16,
+              "gesehen": "Ein Dialogfenster mit dem Titel THE HUMAN MAKES THE CLICK, einer blauen Schaltfläche APPROVE und einem Mauszeiger, der darauf zeigt, sowie Text darunter über das manuelle Klicken.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt einen Mauszeiger und eine Schaltfläche im Kontext einer manuellen Entscheidung, was zur Aussage passt, dass der Helfer den Ort anzeigt und der Mensch entscheidet.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 17,
+              "gesehen": "Ein dunkelblauer Bildschirm zeigt drei Boxen mit gründen Symbolen und Beschriftungen für LIKE, SHARE und SAVE.",
+              "note": 10,
+              "passt": true,
+              "grund": "Die sichtbaren Like-, Share- und Speicher-Symbole passen exakt zu der Aufforderung, das Video zu liken, zu teilen und zu speichern.",
+              "erforderliches_bild": "kein Ersatz erforderlich"
+            }
+          ],
+          "befunde": [],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 18
+        },
+        "bildbezug_pflicht": true,
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 41.66,
+              "bis_s": 43.86,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.982
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 24.299999999999997,
+              "bis_s": 44.8,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Your",
+                "s": 0.0,
+                "e": 0.48,
+                "p": 0.8464515805244446
+              },
+              {
+                "w": "AI",
+                "s": 0.48,
+                "e": 0.76,
+                "p": 0.9421147704124451
+              },
+              {
+                "w": "says,",
+                "s": 0.76,
+                "e": 1.44,
+                "p": 0.987800121307373
+              },
+              {
+                "w": "click",
+                "s": 1.74,
+                "e": 1.9,
+                "p": 0.03600148484110832
+              },
+              {
+                "w": "Allow,",
+                "s": 1.9,
+                "e": 2.32,
+                "p": 0.34436362981796265
+              },
+              {
+                "w": "which",
+                "s": 3.08,
+                "e": 3.28,
+                "p": 0.9599312543869019
+              },
+              {
+                "w": "button?",
+                "s": 3.28,
+                "e": 3.56,
+                "p": 0.9933282136917114
+              },
+              {
+                "w": "Big",
+                "s": 4.22,
+                "e": 4.5,
+                "p": 0.969389021396637
+              },
+              {
+                "w": "Arrow",
+                "s": 4.5,
+                "e": 4.72,
+                "p": 0.5674499869346619
+              },
+              {
+                "w": "points",
+                "s": 4.72,
+                "e": 5.16,
+                "p": 0.9865024089813232
+              },
+              {
+                "w": "directly",
+                "s": 5.16,
+                "e": 5.58,
+                "p": 0.9919284582138062
+              },
+              {
+                "w": "at",
+                "s": 5.58,
+                "e": 6.22,
+                "p": 0.997205913066864
+              },
+              {
+                "w": "that",
+                "s": 6.22,
+                "e": 6.36,
+                "p": 0.9917612075805664
+              },
+              {
+                "w": "control",
+                "s": 6.36,
+                "e": 6.78,
+                "p": 0.9947202205657959
+              },
+              {
+                "w": "on",
+                "s": 6.78,
+                "e": 7.2,
+                "p": 0.9930399656295776
+              },
+              {
+                "w": "your",
+                "s": 7.2,
+                "e": 7.34,
+                "p": 0.997535228729248
+              },
+              {
+                "w": "Mac.",
+                "s": 7.34,
+                "e": 7.58,
+                "p": 0.9826757907867432
+              },
+              {
+                "w": "It",
+                "s": 8.42,
+                "e": 8.5,
+                "p": 0.9932977557182312
+              },
+              {
+                "w": "draws",
+                "s": 8.5,
+                "e": 8.7,
+                "p": 0.9994685053825378
+              },
+              {
+                "w": "arrows,",
+                "s": 8.7,
+                "e": 9.04,
+                "p": 0.9419577717781067
+              },
+              {
+                "w": "boxes,",
+                "s": 9.54,
+                "e": 9.88,
+                "p": 0.99681156873703
+              },
+              {
+                "w": "and",
+                "s": 10.14,
+                "e": 10.22,
+                "p": 0.9980272650718689
+              },
+              {
+                "w": "labels",
+                "s": 10.22,
+                "e": 10.5,
+                "p": 0.9985744953155518
+              },
+              {
+                "w": "above",
+                "s": 10.5,
+                "e": 10.84,
+                "p": 0.9986727237701416
+              },
+              {
+                "w": "your",
+                "s": 10.84,
+                "e": 11.2,
+                "p": 0.9971904158592224
+              },
+              {
+                "w": "windows.",
+                "s": 11.2,
+                "e": 11.54,
+                "p": 0.4683351218700409
+              },
+              {
+                "w": "Install",
+                "s": 12.38,
+                "e": 12.62,
+                "p": 0.9882290363311768
+              },
+              {
+                "w": "the",
+                "s": 12.62,
+                "e": 13.0,
+                "p": 0.9973289966583252
+              },
+              {
+                "w": "Homebrew",
+                "s": 13.0,
+                "e": 13.42,
+                "p": 0.589616596698761
+              },
+              {
+                "w": "package,",
+                "s": 13.42,
+                "e": 13.8,
+                "p": 0.7424048781394958
+              },
+              {
+                "w": "then",
+                "s": 14.32,
+                "e": 14.44,
+                "p": 0.9760800004005432
+              },
+              {
+                "w": "add",
+                "s": 14.44,
+                "e": 14.64,
+                "p": 0.987237811088562
+              },
+              {
+                "w": "its",
+                "s": 14.64,
+                "e": 14.76,
+                "p": 0.9539291858673096
+              },
+              {
+                "w": "skill",
+                "s": 14.76,
+                "e": 15.06,
+                "p": 0.9802331924438477
+              },
+              {
+                "w": "so",
+                "s": 15.06,
+                "e": 15.52,
+                "p": 0.8090952634811401
+              },
+              {
+                "w": "your",
+                "s": 15.52,
+                "e": 15.68,
+                "p": 0.9905062317848206
+              },
+              {
+                "w": "coding",
+                "s": 15.68,
+                "e": 15.88,
+                "p": 0.921181321144104
+              },
+              {
+                "w": "agent",
+                "s": 15.88,
+                "e": 16.26,
+                "p": 0.9965956807136536
+              },
+              {
+                "w": "can",
+                "s": 16.26,
+                "e": 16.52,
+                "p": 0.9990096092224121
+              },
+              {
+                "w": "issue",
+                "s": 16.52,
+                "e": 16.88,
+                "p": 0.9988186955451965
+              },
+              {
+                "w": "pointing",
+                "s": 16.88,
+                "e": 17.32,
+                "p": 0.9103004336357117
+              },
+              {
+                "w": "commands.",
+                "s": 17.32,
+                "e": 17.86,
+                "p": 0.9991583824157715
+              },
+              {
+                "w": "The",
+                "s": 19.18,
+                "e": 19.2,
+                "p": 0.9702978134155273
+              },
+              {
+                "w": "documented",
+                "s": 19.2,
+                "e": 19.62,
+                "p": 0.8965179324150085
+              },
+              {
+                "w": "system",
+                "s": 19.62,
+                "e": 20.0,
+                "p": 0.5789821147918701
+              },
+              {
+                "w": "settings",
+                "s": 20.0,
+                "e": 20.42,
+                "p": 0.9228218197822571
+              },
+              {
+                "w": "example",
+                "s": 20.42,
+                "e": 21.02,
+                "p": 0.9956501126289368
+              },
+              {
+                "w": "targets",
+                "s": 21.02,
+                "e": 21.5,
+                "p": 0.9928431510925293
+              },
+              {
+                "w": "an",
+                "s": 21.5,
+                "e": 21.88,
+                "p": 0.9370954036712646
+              },
+              {
+                "w": "Allow",
+                "s": 21.88,
+                "e": 22.12,
+                "p": 0.736810028553009
+              },
+              {
+                "w": "button.",
+                "s": 22.12,
+                "e": 22.54,
+                "p": 0.9929950833320618
+              },
+              {
+                "w": "You",
+                "s": 23.24,
+                "e": 23.4,
+                "p": 0.9958292841911316
+              },
+              {
+                "w": "choose",
+                "s": 23.4,
+                "e": 23.58,
+                "p": 0.9938070178031921
+              },
+              {
+                "w": "whether",
+                "s": 23.58,
+                "e": 24.0,
+                "p": 0.987169623374939
+              },
+              {
+                "w": "to",
+                "s": 24.0,
+                "e": 24.24,
+                "p": 0.9994118213653564
+              },
+              {
+                "w": "approve",
+                "s": 24.24,
+                "e": 24.44,
+                "p": 0.9799293875694275
+              },
+              {
+                "w": "and",
+                "s": 24.44,
+                "e": 25.04,
+                "p": 0.9617776274681091
+              },
+              {
+                "w": "click.",
+                "s": 25.04,
+                "e": 25.32,
+                "p": 0.9959943294525146
+              },
+              {
+                "w": "Click's",
+                "s": 25.32,
+                "e": 26.48,
+                "p": 0.36800964176654816
+              },
+              {
+                "w": "pass",
+                "s": 26.48,
+                "e": 26.64,
+                "p": 0.8842857480049133
+              },
+              {
+                "w": "-through",
+                "s": 26.64,
+                "e": 27.02,
+                "p": 0.692159116268158
+              },
+              {
+                "w": "without",
+                "s": 27.02,
+                "e": 27.36,
+                "p": 0.9416085481643677
+              },
+              {
+                "w": "moving",
+                "s": 27.36,
+                "e": 27.92,
+                "p": 0.9944103360176086
+              },
+              {
+                "w": "keyboard",
+                "s": 27.92,
+                "e": 28.2,
+                "p": 0.9792953729629517
+              },
+              {
+                "w": "focus.",
+                "s": 28.2,
+                "e": 28.7,
+                "p": 0.9944978356361389
+              },
+              {
+                "w": "The",
+                "s": 29.52,
+                "e": 29.54,
+                "p": 0.9834684133529663
+              },
+              {
+                "w": "arrow",
+                "s": 29.54,
+                "e": 29.72,
+                "p": 0.9777121543884277
+              },
+              {
+                "w": "disappears",
+                "s": 29.72,
+                "e": 30.2,
+                "p": 0.9911070466041565
+              },
+              {
+                "w": "after",
+                "s": 30.2,
+                "e": 30.84,
+                "p": 0.993613064289093
+              },
+              {
+                "w": "displaying",
+                "s": 30.84,
+                "e": 31.32,
+                "p": 0.996357262134552
+              },
+              {
+                "w": "the",
+                "s": 31.32,
+                "e": 31.62,
+                "p": 0.9953277111053467
+              },
+              {
+                "w": "instruction.",
+                "s": 31.62,
+                "e": 31.92,
+                "p": 0.9855988025665283
+              },
+              {
+                "w": "The",
+                "s": 32.92,
+                "e": 33.12,
+                "p": 0.9008910059928894
+              },
+              {
+                "w": "twist?",
+                "s": 33.12,
+                "e": 33.3,
+                "p": 0.9643843770027161
+              },
+              {
+                "w": "There's",
+                "s": 34.1,
+                "e": 34.24,
+                "p": 0.9678694307804108
+              },
+              {
+                "w": "no",
+                "s": 34.24,
+                "e": 34.46,
+                "p": 0.9944953322410583
+              },
+              {
+                "w": "AI",
+                "s": 34.46,
+                "e": 34.86,
+                "p": 0.9411235451698303
+              },
+              {
+                "w": "inside,",
+                "s": 34.86,
+                "e": 35.32,
+                "p": 0.9965577721595764
+              },
+              {
+                "w": "and",
+                "s": 35.96,
+                "e": 36.02,
+                "p": 0.9905459880828857
+              },
+              {
+                "w": "no",
+                "s": 36.02,
+                "e": 36.26,
+                "p": 0.9962489008903503
+              },
+              {
+                "w": "automatic",
+                "s": 36.26,
+                "e": 36.62,
+                "p": 0.990142285823822
+              },
+              {
+                "w": "clicking.",
+                "s": 36.62,
+                "e": 37.14,
+                "p": 0.993736743927002
+              },
+              {
+                "w": "The",
+                "s": 37.88,
+                "e": 37.94,
+                "p": 0.9940428137779236
+              },
+              {
+                "w": "helper",
+                "s": 37.94,
+                "e": 38.1,
+                "p": 0.9754511713981628
+              },
+              {
+                "w": "shows",
+                "s": 38.1,
+                "e": 38.44,
+                "p": 0.9954370856285095
+              },
+              {
+                "w": "where?",
+                "s": 38.44,
+                "e": 38.76,
+                "p": 0.9964324235916138
+              },
+              {
+                "w": "You",
+                "s": 39.44,
+                "e": 39.46,
+                "p": 0.989230215549469
+              },
+              {
+                "w": "decide",
+                "s": 39.46,
+                "e": 39.66,
+                "p": 0.9987892508506775
+              },
+              {
+                "w": "what",
+                "s": 39.66,
+                "e": 40.16,
+                "p": 0.9964396357536316
+              },
+              {
+                "w": "happens.",
+                "s": 40.16,
+                "e": 40.5,
+                "p": 0.9966290593147278
+              },
+              {
+                "w": "Be",
+                "s": 41.28,
+                "e": 41.34,
+                "p": 0.9956799745559692
+              },
+              {
+                "w": "sure",
+                "s": 41.34,
+                "e": 41.54,
+                "p": 0.9994016885757446
+              },
+              {
+                "w": "to",
+                "s": 41.54,
+                "e": 41.66,
+                "p": 0.9963171482086182
+              },
+              {
+                "w": "like,",
+                "s": 41.66,
+                "e": 41.88,
+                "p": 0.9511672854423523
+              },
+              {
+                "w": "share,",
+                "s": 42.1,
+                "e": 42.44,
+                "p": 0.9981788396835327
+              },
+              {
+                "w": "and",
+                "s": 42.76,
+                "e": 42.8,
+                "p": 0.998105525970459
+              },
+              {
+                "w": "save",
+                "s": 42.8,
+                "e": 43.1,
+                "p": 0.9491632580757141
+              },
+              {
+                "w": "this",
+                "s": 43.1,
+                "e": 43.52,
+                "p": 0.9934841990470886
+              },
+              {
+                "w": "video.",
+                "s": 43.52,
+                "e": 43.86,
+                "p": 0.9994481205940247
+              }
+            ],
+            "dauer_s": 44.3093125,
+            "sprache": "en"
+          },
+          "roh_key": "7711fac2057606d4778360ae331f57456f466022330f843284b48aea31a87296",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "991f37773b95c9e2ad98e832e8588e8524cb7a22674ac3c1511b91be21be82f0",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 44.3,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "ki_cache_wiederverwendet": false,
+        "video_sha256": "991f37773b95c9e2ad98e832e8588e8524cb7a22674ac3c1511b91be21be82f0"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

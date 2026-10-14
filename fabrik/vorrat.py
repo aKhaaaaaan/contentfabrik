@@ -112,6 +112,26 @@ def aufraeumen(kanal_pfad):
         if not gueltig(e, daten):
             print('Vorrat: abgelaufen/ungueltig entfernt:', pfad.name)
             pfad.unlink(missing_ok=True)
+    # GEMESSEN 14.10.2026: Verbrauchte Eintraege blockierten das Nachfuellen. Yahoo stand nicht
+    # mehr in der Warteschlange (nie nutzbar, Enron bekam kein Skript); das gesendete Floe Guard
+    # zaehlte als "frei gewaehltes Skript vorhanden" und verhinderte jedes neue.
+    try:
+        import themen
+        offen = {x['thema'] for x in themen.laden() if x.get('kanal') == kanal
+                 and x.get('status', 'bereit') in ('bereit', 'recherche')}
+    except Exception as fehler:
+        print('Vorrat: Warteschlange nicht lesbar, nichts entfernt:', type(fehler).__name__)
+        return
+    for pfad, e in eintraege(kanal):
+        thema = e.get('thema_eingabe') or ''
+        if thema and thema not in offen:
+            print('Vorrat: Thema nicht mehr in der Warteschlange, entfernt:', pfad.name)
+            pfad.unlink(missing_ok=True)
+        elif not thema and daten.get('nur_quellen'):
+            import trends
+            if trends.bereits_gezeigte_quellen(kanal, e.get('skript', {})):
+                print('Vorrat: Quelle bereits gesendet, entfernt:', pfad.name)
+                pfad.unlink(missing_ok=True)
 
 
 def offene_themen(kanal):

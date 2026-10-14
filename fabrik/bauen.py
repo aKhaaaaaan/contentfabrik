@@ -1396,6 +1396,32 @@ def untertitel(woerter, pfad, profil=None, akzente=()):
     Path(pfad).write_text(kopf + '\n'.join(zeilen) + '\n', encoding='utf-8')
 
 
+def clip_code_key(s):
+    """Einzige Formel fuer den Clip-Cache; Tests rufen sie auf statt sie abzuschreiben."""
+    return hashlib.sha256(Path(__file__).read_bytes() + Path(prompts.__file__).read_bytes()
+                          + Path(audioqualitaet.__file__).read_bytes()
+                          + Path(dramaturgie.__file__).read_bytes()
+                          + Path(motivbudget.__file__).read_bytes()
+                          + Path(__file__).with_name('illustration.py').read_bytes()
+                          + Path(__file__).with_name('infografik.py').read_bytes()
+                          + themen_grafikcode(s)
+                          + Path(__file__).with_name('bibliothek.py').read_bytes()
+                          + (Path(__file__).resolve().parents[1] / 'assets/illustrationen/katalog.json').read_bytes()
+                          ).hexdigest()
+
+
+def themen_grafikcode(s):
+    """Code themengebundener Diagramme nur in den Cache-Schluessel, wenn das Skript sie nutzt.
+
+    GEMESSEN 14.10.2026: Eine Bigarrow-Aenderung machte alle 13 fertigen Panasonic-Clips
+    ungueltig; der Business-Lauf musste jedes Bild neu erzeugen und lief ins Zeitlimit.
+    """
+    typen = {v.get('grafik_typ') for t in s.get('teile', []) for v in (t.get('bildfolge') or [])}
+    typen |= {t.get('grafik_typ') for t in s.get('teile', [])}
+    return b''.join(Path(__file__).with_name(f'{typ}_bildfolge.py').read_bytes()
+                    for typ in ('bigarrow', 'docling') if typ in typen)
+
+
 def main(skript_pfad, aus, vorlage=None):
     import rendercache
     aus = Path(aus); aus.mkdir(parents=True, exist_ok=True)
@@ -1404,16 +1430,7 @@ def main(skript_pfad, aus, vorlage=None):
     REGELN[:] = s.get('regeln', [])
     beginn = time.time()
     zeiten.clear()
-    code_key = hashlib.sha256(Path(__file__).read_bytes() + Path(prompts.__file__).read_bytes()
-                             + Path(audioqualitaet.__file__).read_bytes()
-                             + Path(dramaturgie.__file__).read_bytes()
-                             + Path(motivbudget.__file__).read_bytes()
-                             + Path(__file__).with_name('illustration.py').read_bytes()
-                             + Path(__file__).with_name('infografik.py').read_bytes()
-                             + Path(__file__).with_name('bigarrow_bildfolge.py').read_bytes()
-                             + Path(__file__).with_name('docling_bildfolge.py').read_bytes()
-                             + Path(__file__).with_name('bibliothek.py').read_bytes()
-                             + (Path(__file__).resolve().parents[1] / 'assets/illustrationen/katalog.json').read_bytes()).hexdigest()
+    code_key = clip_code_key(s)
     cache = rendercache.laden(vorlage) if vorlage else {}
     if vorlage and Path(vorlage).resolve() == aus.resolve():
         raise ValueError('Korrektur braucht einen eigenen Ausgabeordner')

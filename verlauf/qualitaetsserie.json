@@ -19279,6 +19279,95 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "38577836924.1:ai-tools-explained",
+      "run_id": "38577836924",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-14T14:23:57.288506+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "422d8363935ee6c8588cdc419b10735f21daa72a",
+      "produktionsversion": "fe58a70c07a525fa4b36eb27558c1fc9f174c1b5a66fb5ec0bc6eb555af59974",
+      "videoformat": "short",
+      "thema": "FinceptTerminal",
+      "titel": [
+        "Open Source *Finance*",
+        "*FinceptTerminal* Explained"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 6,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Skript-Note 6/10 unter 7/10",
+        "Skript-hook 6/10 unter 7/10",
+        "Skript-spannung 5/10 unter 7/10",
+        "Skript-ueberraschung 6/10 unter 7/10",
+        "Skript-aufloesung 6/10 unter 7/10",
+        "Skript-teilbarkeit 5/10 unter 6/10",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38577836924",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-14",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 5/10 unter 7/10",
+              "Skript-hook 3/10 unter 7/10",
+              "Skript-spannung 4/10 unter 7/10",
+              "Skript-ueberraschung 5/10 unter 7/10",
+              "Skript-tempo 5/10 unter 7/10",
+              "Skript-aufloesung 6/10 unter 7/10",
+              "Skript-teilbarkeit 4/10 unter 6/10"
+            ],
+            "story_note": 5,
+            "story_schwaechen": [
+              "Sentence 1: 'Microsoft Qlib is an open-source platform that supports supervised learning, market-dynamic modeling, and reinforcement learning.' This reads like a dry software manual and fails to create a curiosity gap or concrete promise for general viewers.",
+              "Sentence 5: 'The RD-Agent framework is described in a paper titled 'R&D-Agent-Quant...' unnecessarily introduces academic citation details that stall the narrative tempo."
+            ],
+            "skript_probleme": [],
+            "sekunden": 384.2
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "zeitbudget",
+            "phase": "Skript",
+            "sekunden": 480.0
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Skript-Zeitlimit erreicht (Arbeiter beendet)",
+        "sekunden": 866.4,
+        "upload_titel": "Open Source Finance: FinceptTerminal Explained | AI Tool #4"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

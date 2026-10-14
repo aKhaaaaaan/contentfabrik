@@ -363,7 +363,11 @@ def pruefen(daten, dauer, art='short'):
         if type(ziel) is not int or not 0 <= ziel <= 40:
             befunde.append('Ungueltige Mindestzahl fuer Motive')
         else:
-            minimum = max(minimum, ziel)
+            # Nutzerentscheidung 14.10.2026 (Option B): hoechstens EINE dokumentierte Ausnahme,
+            # wenn fuer genau eine Einstellung kein eigenes Bild bestand. Alles andere zaehlt als 0.
+            toleranz = daten.get('motiv_toleranz', 0)
+            toleranz = toleranz if type(toleranz) is int and toleranz in (0, 1) else 0
+            minimum = max(minimum, ziel - toleranz)
     if len(material) < minimum:
         befunde.append(f'Zu wenig unterschiedliche Motive: {len(material)} statt mindestens {minimum}')
     if abs(ende - dauer) > .15:

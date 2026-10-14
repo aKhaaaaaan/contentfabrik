@@ -1202,11 +1202,29 @@ def ersatz_grenze(einstellungen):
     return max(2, math.ceil(einstellungen * .06))
 
 
-def bibliothek_ersatz(kanal, vorherige_id, benutzt, gesperrt=()):
+def toleranz_ersatz(aus, i, vorherige_id, bildablauf, erlaubt=lambda pfad: True):
+    """Nutzerentscheidung 14.10.2026 (Option B): EINMAL je Video ein geprueftes Nachbarbild.
+
+    GEMESSEN 14.10.2026 (Lauf 38608447213): bei 18 Einstellungen und Pflicht 18 sperrte das
+    Motivbudget jedes Nachbarbild - eine einzige fehlende Einstellung brach den Bau ab.
+    Die Ausnahme steht als motiv_toleranz im Bildablauf; bildplan.pruefen erlaubt dann 17.
+    """
+    if bildablauf.get('motiv_toleranz'):
+        return None
+    pfad = nachbar_bild(aus, i, vorherige_id)
+    if pfad and erlaubt(pfad):
+        bildablauf['motiv_toleranz'] = 1
+        return pfad
+    return None
+
+
+def bibliothek_ersatz(kanal, vorherige_id, benutzt, gesperrt=(), text=''):
     """Pfad einer noch ungenutzten Bibliotheks-Illustration dieses Kanals (nicht das Bild davor) oder None."""
     import bibliothek
     for eintrag in bibliothek.katalog():
-        if eintrag['kanal'] != kanal or eintrag['id'] in benutzt:
+        # GEMESSEN 14.10.2026 (Lauf 38608447213): Ohne Themenbindung fuellte der Notfall-Ersatz
+        # ein Baseball-Video mit zehn Nintendo-Spielkartenbildern. Lieber kein Video als ein falsches.
+        if eintrag['kanal'] != kanal or eintrag['id'] in benutzt or not bibliothek.passt_zum_text(eintrag, text):
             continue
         try:
             pfad = bibliothek.bild(eintrag['id'], kanal)
@@ -1545,11 +1563,12 @@ def main(skript_pfad, aus, vorlage=None):
             t, dauer, t0 = shot['teil'], shot['dauer_s'], shot['s']
             # 18 Schnitte sind keine 18 Motive: auch nicht benachbarte Wiederholungen zaehlen.
             verbleibend = len(shots) - i - 1
+            mindest = bildablauf['motive_min'] - bildablauf.get('motiv_toleranz', 0)
             gesperrt = (benutzte_materialien if motivbudget.neues_noetig(
-                benutzte_materialien, verbleibend, bildablauf['motive_min']) else set())
+                benutzte_materialien, verbleibend, mindest) else set())
             def motiv_ok(pfad):
                 return bool(pfad) and motivbudget.erlaubt(bildplan.material_id(pfad),
-                    benutzte_materialien, verbleibend, bildablauf['motive_min'])
+                    benutzte_materialien, verbleibend, mindest)
             ersatz0 = bild_ersatz
             phasenstart = i == 0 or shots[i - 1]['phase'] != shot['phase']
             FORTSCHRITT['aktuell'] = t.get('platz') or FORTSCHRITT['aktuell']
@@ -1566,7 +1585,7 @@ def main(skript_pfad, aus, vorlage=None):
             alt = cache.get('stuecke', {}).get(str(i), {})
             if alt.get('key') == key and rendercache.dateien_ok(aus, alt.get('dateien', [])) \
                     and motivbudget.erlaubt(alt.get('material_id'), benutzte_materialien,
-                                           verbleibend, bildablauf['motive_min']):
+                                           verbleibend, mindest):
                 liste += [f"file '{n}'" for n in alt['dateien']]
                 quellen += alt.get('quellen', [])
                 ereignisse += [(t0 + sek, art) for sek, art in alt.get('ereignisse', [])]
@@ -1770,12 +1789,20 @@ def main(skript_pfad, aus, vorlage=None):
                 # davor nur das Figurbild, also weder Nachbar- noch Figur-Ersatz erlaubt. Letzte Rettung:
                 # eine noch ungenutzte, vom Nutzer sichtgepruefte Bibliotheks-Illustration des Kanals
                 # (keine Wiederholung, keine Schrift). Nur Shorts: die Bibliothek ist Hochformat.
-                buch = bibliothek_ersatz(s.get('kanal'), vorherige_id, benutzte_bibliothek, gesperrt)
+                buch = bibliothek_ersatz(s.get('kanal'), vorherige_id, benutzte_bibliothek, gesperrt,
+                                         ' '.join([str(s.get('thema', ''))] + [x['text'] for x in s['teile']]))
                 if buch:
                     ill = material = buch
                     quellen.append({'quelle': 'Illustration',
                                     'seite': 'Eigene sichtgepruefte KI-Illustration (Bibliothek, Notfall-Ersatz)'})
                     print(f'Einstellung {i}: kein Bild bestanden - Bibliotheks-Illustration {buch.name}')
+            if not material:
+                ersatz = toleranz_ersatz(aus, i, vorherige_id, bildablauf, lambda p: motivbudget.erlaubt(
+                    bildplan.material_id(p), benutzte_materialien, verbleibend, bildablauf['motive_min'] - 1))
+                if ersatz:
+                    ill = material = ersatz
+                    print(f'Einstellung {i}: kein Bild bestanden - einmalige Ausnahme, gepruefte '
+                          f'Nachbar-Illustration {ersatz.name} (17 statt 18 Motive)')
             if not material:
                 raise ValueError(f'Phase {shot["phase"]}, Einstellung {i}: kein passendes Hauptbild; kein Hintergrundersatz')
             material_hash = bildplan.material_id(material)

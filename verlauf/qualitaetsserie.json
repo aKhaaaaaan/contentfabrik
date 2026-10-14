@@ -19180,6 +19180,105 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "38575328103.1:business-origin-stories",
+      "run_id": "38575328103",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-14T14:02:13.604045+00:00",
+      "ereignis": "schedule",
+      "commit": "ba021892bcdb2e3a68d5c0448f901b8c064d5817",
+      "produktionsversion": "a2cfe37de423f8e8b9fc0b66ec5a8cdd68bd97a075fff82b2e1d1bbcba4d2e24",
+      "videoformat": "short",
+      "thema": null,
+      "titel": null,
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38575328103",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-14",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 28.6,
+            "pruefung_s": 8.0,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Einzelbewertungen fehlen",
+              "Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt",
+              "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden"
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 18,
+              "stuecke_neu": 0,
+              "clips_und_stuecke": 7.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 18,
+                "motive": 18,
+                "motive_min": 18
+              },
+              "effekte": 10,
+              "rendern": 20.0,
+              "gesamt": 28.3,
+              "videolaenge_s": 39.3,
+              "abschnitte_s": [
+                5.28,
+                5.68,
+                5.66,
+                6.76,
+                4.84,
+                7.6,
+                3.49
+              ],
+              "woerter": 82
+            },
+            "kategorien": {},
+            "probleme": [],
+            "sekunden": 36.6,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "Google: 5.0 Punkte - YouTube-Ausreisser 107.8x Kanalschnitt",
+        "grund": "Keine weitere gezielte Korrektur moeglich",
+        "sekunden": 42.6
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": null
     }
   ]
 }

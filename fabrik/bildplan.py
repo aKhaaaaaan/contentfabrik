@@ -186,6 +186,35 @@ def demo_material(s):
     return aus
 
 
+def groq_reserve(prompt):
+    """Dieselbe konservative Schaetzung wie autorenvergleich.groq fuer den Bildplan."""
+    import autorenvergleich as av
+    fmt = {'type': 'json_schema', 'json_schema': {'name': 'contentfabrik_antwort', 'strict': True,
+                                                   'schema': av.groq_schema(SCHEMA)}}
+    return math.ceil((len(prompt) + len(json.dumps(fmt))) / 3) + 3072
+
+
+def groq_ausweich(auftrag, kompakt, slots, grenze=7900):
+    """Groq-Ausweichauftrag: optionale Teile kuerzen, bis er in die Reserve passt.
+
+    GEMESSEN 15.10.2026 (Lauf 38708651708): Gemini ueberlastet, Groq-Bildplan 8009 > 7900 Tokens
+    -> Bauabbruch. Regie, Sprechtexte, Slots und Pflichtregeln bleiben vollstaendig; gekuerzt
+    werden README-Details (nur Dateinamen), aeltere Redaktionshinweise und die Bildbibliothek.
+    """
+    k = dict(kompakt)
+    def bauen():
+        return auftrag + json.dumps(dict(k, slots=slots), ensure_ascii=False, separators=(',', ':'))
+    if groq_reserve(bauen()) > grenze and k.get('tool_demo_material'):
+        k['tool_demo_material'] = [{'source_url': q.get('source_url'),
+                                    'files': [m.get('file') for m in q.get('media', [])]}
+                                   for q in k['tool_demo_material']]
+    while groq_reserve(bauen()) > grenze and k.get('editorial_feedback'):
+        k['editorial_feedback'] = list(k['editorial_feedback'])[:-1]
+    if groq_reserve(bauen()) > grenze and k.get('illustration_library'):
+        k['illustration_library'] = []
+    return bauen()
+
+
 def vorbereiten(s, laengen, woerter, cache=None):
     from skript import gemini, SEHEN
     import lernen
@@ -285,9 +314,8 @@ def vorbereiten(s, laengen, woerter, cache=None):
             editorial_feedback=aktuelles_feedback(kontext['editorial_feedback']))
         daten = []
         for teil in etappen(zeitplan):
-            fallback = auftrag + json.dumps(dict(kompakt, slots=[{
-                k: x[k] for k in ('index', 'phase', 'text', 'dauer_s') if k in x}
-                for x in teil]), ensure_ascii=False, separators=(',', ':'))
+            fallback = groq_ausweich(auftrag, kompakt, [{
+                k: x[k] for k in ('index', 'phase', 'text', 'dauer_s') if k in x} for x in teil])
             neu = _planen(gemini, PLANEN, auftrag + json.dumps(dict(kontext, slots=teil), ensure_ascii=False),
                           [x['index'] for x in teil], fallback_prompt=fallback)
             neu, _ = bezug_pruefen(gemini, teil, neu)

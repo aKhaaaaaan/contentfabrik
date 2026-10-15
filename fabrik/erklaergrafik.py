@@ -19,7 +19,7 @@ SYMBOLE = [
     ('rechnung', r'\b(bills?|billing|cost|costs|price|pricing|paid|charged?|per token|tokens?|\$\d)'),
     ('download', r'\b(download|install|release|setup|brew|pip|npm|clone)\b'),
     ('daten', r'\b(data|connectors?|sources?|api|feeds?|database|imports?)\b'),
-    ('warnung', r'\b(catch|risk|warning|not financial advice|careful|limit|limitation|but)\b'),
+    ('warnung', r'\b(catch|risk|warning|not financial advice|careful|limitation)\b'),
 ]
 STOPP = {'The', 'A', 'An', 'It', 'Its', 'Yes', 'No', 'And', 'But', 'Can', 'For', 'Catch', 'Data', 'The repo'}
 

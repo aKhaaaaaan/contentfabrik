@@ -1668,6 +1668,14 @@ def main(skript_pfad, aus, vorlage=None):
                 karte, modus = None, 'illustration'
             foto, fq = ((None, None) if karte or modus in ('stock', 'illustration', 'demo', 'figur', 'grafik', 'asset')
                         else foto_fuer(s.get('bilder') or [], t['text'] + ' Visual: ' + t.get('szene', ''), benutzte_fotos))
+            if modus == 'demo' and re.match(r'https?://(github\.com|huggingface\.co)/', t.get('quelle_url') or ''):
+                import erklaergrafik
+                if erklaergrafik.symbol(t['text']) != 'diagramm':
+                    # GEMESSEN 15.10.2026 (Lauf 38721176659): Fuer Saetze ueber API-Schluessel, Token-Kosten,
+                    # Datenquellen nahm die Bildauswahl lieber irgendeinen Screenshot (News, Node-Editor) -
+                    # 6 Ablehnungen. Dieselben Saetze bestanden als Erklaergrafik mit 8-10/10. Feste Weiche.
+                    print(f'Einstellung {i}: Satz ueber Schluessel/Kosten/Daten/Download - Erklaergrafik')
+                    t, modus = dict(t, grafik_typ='erklaerung'), 'grafik'
             if modus == 'demo':
                 demo, fq = demo_fuer(t.get('quelle_url'), t['text'] + ' Visual: ' + t.get('szene', ''),
                                     benutzte_demos, t.get('demo_url'))

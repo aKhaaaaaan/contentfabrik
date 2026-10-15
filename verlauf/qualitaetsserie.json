@@ -38036,6 +38036,890 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "38723213588.1:ai-tools-explained",
+      "run_id": "38723213588",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-15T11:20:45.485858+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "8cfd6e3d5dd2ddccd53ee5264d5ed156308bc663",
+      "produktionsversion": "ee67ed31f83eb7a3d892ecac1f30f50e502f9289d666370aded57abd5d2e9d1e",
+      "videoformat": "short",
+      "thema": "FinceptTerminal",
+      "titel": [
+        "Free *Finance* *Terminal*",
+        "*Fincept* *Terminal* Explained"
+      ],
+      "status": "gesperrt",
+      "video_sha256": "16ddd019c274bf1eafdf8423b8fba238894154c5d80b375b6498d9ad96ff2bd7",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-13.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 4/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Bild-Text-Pruefung nicht vollstaendig moeglich: RuntimeError",
+        "Offenes Problem (schwer): The image shows a promotional branding slide for 'Fincept Terminal' but does not demonstrate the capability of the app to handle market research as mentioned in the narration. Korrektur: A screen recording showing the actual Fincept Terminal user interface performing market research tasks like searching for financial data or analyzing a stock."
+      ],
+      "einstellungen": 12,
+      "unterschiedliche_motive": 12,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38723213588",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-15",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 173.7,
+            "pruefung_s": 44.5,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 4/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Bild-Text-Pruefung nicht vollstaendig moeglich: RuntimeError",
+              "Offenes Problem (schwer): The image shows a promotional branding slide for 'Fincept Terminal' but does not demonstrate the capability of the app to handle market research as mentioned in the narration. Korrektur: A screen recording showing the actual Fincept Terminal user interface performing market research tasks like searching for financial data or analyzing a stock."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.117,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 12,
+              "clips_und_stuecke": 139.7,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 12,
+                "motive": 12,
+                "motive_min": 8
+              },
+              "effekte": 14,
+              "rendern": 33.3,
+              "gesamt": 173.4,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.46,
+                7.48,
+                8.16,
+                7.34,
+                5.16,
+                6.58,
+                2.84
+              ],
+              "woerter": 102
+            },
+            "kategorien": {
+              "bild_passt": 4
+            },
+            "probleme": [
+              {
+                "zeit": "00:00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "The image shows a promotional branding slide for 'Fincept Terminal' but does not demonstrate the capability of the app to handle market research as mentioned in the narration. Korrektur: A screen recording showing the actual Fincept Terminal user interface performing market research tasks like searching for financial data or analyzing a stock."
+              }
+            ],
+            "sekunden": 218.2,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Keine weitere gezielte Korrektur moeglich",
+        "sekunden": 233.4,
+        "upload_titel": "Free Finance Terminal: Fincept Terminal Explained | AI Tool #5"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 4
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "The image shows a promotional branding slide for 'Fincept Terminal' but does not demonstrate the capability of the app to handle market research as mentioned in the narration. Korrektur: A screen recording showing the actual Fincept Terminal user interface performing market research tasks like searching for financial data or analyzing a stock."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -14.7,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 42.58,
+              "bis_s": 44.52,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.99
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Can",
+                "s": 0.0,
+                "e": 0.32,
+                "p": 0.855718195438385
+              },
+              {
+                "w": "a",
+                "s": 0.32,
+                "e": 0.42,
+                "p": 0.9951783418655396
+              },
+              {
+                "w": "free",
+                "s": 0.42,
+                "e": 0.76,
+                "p": 0.8944281339645386
+              },
+              {
+                "w": "app",
+                "s": 0.76,
+                "e": 1.2,
+                "p": 0.763726532459259
+              },
+              {
+                "w": "handle",
+                "s": 1.2,
+                "e": 1.72,
+                "p": 0.9981914162635803
+              },
+              {
+                "w": "market",
+                "s": 1.72,
+                "e": 2.06,
+                "p": 0.975340723991394
+              },
+              {
+                "w": "research?",
+                "s": 2.06,
+                "e": 2.5,
+                "p": 0.9967117309570312
+              },
+              {
+                "w": "FinSEP",
+                "s": 3.32,
+                "e": 3.84,
+                "p": 0.40158361196517944
+              },
+              {
+                "w": "Terminal's",
+                "s": 3.84,
+                "e": 4.42,
+                "p": 0.7377983629703522
+              },
+              {
+                "w": "Open",
+                "s": 4.42,
+                "e": 4.66,
+                "p": 0.8397722840309143
+              },
+              {
+                "w": "Edition",
+                "s": 4.66,
+                "e": 4.96,
+                "p": 0.9095962047576904
+              },
+              {
+                "w": "is",
+                "s": 4.96,
+                "e": 5.44,
+                "p": 0.9888096451759338
+              },
+              {
+                "w": "free",
+                "s": 5.44,
+                "e": 5.74,
+                "p": 0.9854017496109009
+              },
+              {
+                "w": "for",
+                "s": 5.74,
+                "e": 6.06,
+                "p": 0.9980278611183167
+              },
+              {
+                "w": "personal",
+                "s": 6.06,
+                "e": 6.4,
+                "p": 0.9943840503692627
+              },
+              {
+                "w": "use.",
+                "s": 6.4,
+                "e": 6.72,
+                "p": 0.9976872205734253
+              },
+              {
+                "w": "It's",
+                "s": 7.48,
+                "e": 7.56,
+                "p": 0.9793115258216858
+              },
+              {
+                "w": "a",
+                "s": 7.56,
+                "e": 7.62,
+                "p": 0.9964829683303833
+              },
+              {
+                "w": "desktop",
+                "s": 7.62,
+                "e": 7.86,
+                "p": 0.9521024227142334
+              },
+              {
+                "w": "app",
+                "s": 7.86,
+                "e": 8.36,
+                "p": 0.9920644164085388
+              },
+              {
+                "w": "with",
+                "s": 8.36,
+                "e": 8.66,
+                "p": 0.9424319863319397
+              },
+              {
+                "w": "built",
+                "s": 8.66,
+                "e": 8.82,
+                "p": 0.9982501864433289
+              },
+              {
+                "w": "-in",
+                "s": 8.82,
+                "e": 9.1,
+                "p": 0.976075679063797
+              },
+              {
+                "w": "tools",
+                "s": 9.1,
+                "e": 9.4,
+                "p": 0.9979872703552246
+              },
+              {
+                "w": "for",
+                "s": 9.4,
+                "e": 9.76,
+                "p": 0.9974195957183838
+              },
+              {
+                "w": "DCF",
+                "s": 9.76,
+                "e": 10.36,
+                "p": 0.944857269525528
+              },
+              {
+                "w": "valuation,",
+                "s": 10.36,
+                "e": 10.74,
+                "p": 0.9378208518028259
+              },
+              {
+                "w": "portfolio",
+                "s": 11.5,
+                "e": 11.74,
+                "p": 0.9772966504096985
+              },
+              {
+                "w": "optimization,",
+                "s": 11.74,
+                "e": 12.34,
+                "p": 0.9802087545394897
+              },
+              {
+                "w": "and",
+                "s": 13.12,
+                "e": 13.12,
+                "p": 0.9980525970458984
+              },
+              {
+                "w": "var",
+                "s": 13.12,
+                "e": 13.34,
+                "p": 0.4583300054073334
+              },
+              {
+                "w": "risk",
+                "s": 13.34,
+                "e": 13.74,
+                "p": 0.835181474685669
+              },
+              {
+                "w": "measures.",
+                "s": 13.74,
+                "e": 14.08,
+                "p": 0.9835754632949829
+              },
+              {
+                "w": "Data",
+                "s": 15.06,
+                "e": 15.14,
+                "p": 0.9232869148254395
+              },
+              {
+                "w": "comes",
+                "s": 15.14,
+                "e": 15.56,
+                "p": 0.9972596168518066
+              },
+              {
+                "w": "from",
+                "s": 15.56,
+                "e": 15.84,
+                "p": 0.9975208640098572
+              },
+              {
+                "w": "100",
+                "s": 15.84,
+                "e": 16.18,
+                "p": 0.9614812135696411
+              },
+              {
+                "w": "-plus",
+                "s": 16.18,
+                "e": 16.68,
+                "p": 0.5933191329240799
+              },
+              {
+                "w": "connectors,",
+                "s": 16.68,
+                "e": 17.06,
+                "p": 0.9918849468231201
+              },
+              {
+                "w": "including",
+                "s": 17.6,
+                "e": 17.84,
+                "p": 0.9989150762557983
+              },
+              {
+                "w": "Fred,",
+                "s": 17.84,
+                "e": 18.14,
+                "p": 0.5912683606147766
+              },
+              {
+                "w": "the",
+                "s": 18.66,
+                "e": 18.7,
+                "p": 0.9908677339553833
+              },
+              {
+                "w": "IMF",
+                "s": 18.7,
+                "e": 18.98,
+                "p": 0.9814167618751526
+              },
+              {
+                "w": "and",
+                "s": 18.98,
+                "e": 19.6,
+                "p": 0.5513601899147034
+              },
+              {
+                "w": "Yahoo",
+                "s": 19.6,
+                "e": 19.82,
+                "p": 0.9954577684402466
+              },
+              {
+                "w": "Finance,",
+                "s": 19.82,
+                "e": 20.28,
+                "p": 0.9414581060409546
+              },
+              {
+                "w": "and",
+                "s": 20.84,
+                "e": 21.0,
+                "p": 0.998489499092102
+              },
+              {
+                "w": "a",
+                "s": 21.0,
+                "e": 21.1,
+                "p": 0.9926021695137024
+              },
+              {
+                "w": "paper",
+                "s": 21.1,
+                "e": 21.34,
+                "p": 0.9621462821960449
+              },
+              {
+                "w": "-trading",
+                "s": 21.34,
+                "e": 21.86,
+                "p": 0.7865083515644073
+              },
+              {
+                "w": "engine.",
+                "s": 21.86,
+                "e": 22.14,
+                "p": 0.9860069751739502
+              },
+              {
+                "w": "Catch?",
+                "s": 23.22,
+                "e": 23.34,
+                "p": 0.8889238238334656
+              },
+              {
+                "w": "It's",
+                "s": 24.12,
+                "e": 24.3,
+                "p": 0.7529841661453247
+              },
+              {
+                "w": "37",
+                "s": 24.3,
+                "e": 24.66,
+                "p": 0.995185911655426
+              },
+              {
+                "w": "AI",
+                "s": 24.66,
+                "e": 25.26,
+                "p": 0.8365115523338318
+              },
+              {
+                "w": "agents",
+                "s": 25.26,
+                "e": 25.82,
+                "p": 0.9607898592948914
+              },
+              {
+                "w": "need",
+                "s": 25.82,
+                "e": 26.1,
+                "p": 0.9921293258666992
+              },
+              {
+                "w": "your",
+                "s": 26.1,
+                "e": 26.32,
+                "p": 0.9933655858039856
+              },
+              {
+                "w": "own",
+                "s": 26.32,
+                "e": 26.54,
+                "p": 0.9988663196563721
+              },
+              {
+                "w": "key,",
+                "s": 26.54,
+                "e": 26.78,
+                "p": 0.9944774508476257
+              },
+              {
+                "w": "B,",
+                "s": 26.78,
+                "e": 26.78,
+                "p": 0.07042871415615082
+              },
+              {
+                "w": "like",
+                "s": 27.18,
+                "e": 27.4,
+                "p": 0.9257888793945312
+              },
+              {
+                "w": "OpenAI,",
+                "s": 27.4,
+                "e": 27.88,
+                "p": 0.9042906761169434
+              },
+              {
+                "w": "Enthropic,",
+                "s": 28.46,
+                "e": 28.96,
+                "p": 0.6560382600873709
+              },
+              {
+                "w": "or",
+                "s": 29.26,
+                "e": 29.28,
+                "p": 0.9584375619888306
+              },
+              {
+                "w": "Olama.",
+                "s": 29.28,
+                "e": 29.86,
+                "p": 0.502993643283844
+              },
+              {
+                "w": "The",
+                "s": 30.4,
+                "e": 30.44,
+                "p": 0.9695689678192139
+              },
+              {
+                "w": "repo",
+                "s": 30.44,
+                "e": 30.58,
+                "p": 0.9369052052497864
+              },
+              {
+                "w": "says",
+                "s": 30.58,
+                "e": 30.96,
+                "p": 0.9951643943786621
+              },
+              {
+                "w": "the",
+                "s": 30.96,
+                "e": 31.18,
+                "p": 0.9001042246818542
+              },
+              {
+                "w": "cost",
+                "s": 31.18,
+                "e": 31.42,
+                "p": 0.9957701563835144
+              },
+              {
+                "w": "is",
+                "s": 31.42,
+                "e": 31.68,
+                "p": 0.995445728302002
+              },
+              {
+                "w": "your",
+                "s": 31.68,
+                "e": 31.88,
+                "p": 0.99162358045578
+              },
+              {
+                "w": "own",
+                "s": 31.88,
+                "e": 32.04,
+                "p": 0.992759108543396
+              },
+              {
+                "w": "data",
+                "s": 32.04,
+                "e": 32.28,
+                "p": 0.838250458240509
+              },
+              {
+                "w": "and",
+                "s": 32.28,
+                "e": 32.64,
+                "p": 0.9752659797668457
+              },
+              {
+                "w": "LLM",
+                "s": 32.64,
+                "e": 33.22,
+                "p": 0.9746102690696716
+              },
+              {
+                "w": "bills",
+                "s": 33.22,
+                "e": 33.44,
+                "p": 0.8558294773101807
+              },
+              {
+                "w": "charged",
+                "s": 33.44,
+                "e": 34.02,
+                "p": 0.5714062452316284
+              },
+              {
+                "w": "per",
+                "s": 34.02,
+                "e": 34.44,
+                "p": 0.9680466055870056
+              },
+              {
+                "w": "token.",
+                "s": 34.44,
+                "e": 34.7,
+                "p": 0.9986158609390259
+              },
+              {
+                "w": "Yes,",
+                "s": 35.6,
+                "e": 35.8,
+                "p": 0.9733859300613403
+              },
+              {
+                "w": "for",
+                "s": 35.86,
+                "e": 35.96,
+                "p": 0.9952613711357117
+              },
+              {
+                "w": "learning,",
+                "s": 35.96,
+                "e": 36.14,
+                "p": 0.9767249226570129
+              },
+              {
+                "w": "download",
+                "s": 36.76,
+                "e": 36.9,
+                "p": 0.9914267063140869
+              },
+              {
+                "w": "a",
+                "s": 36.9,
+                "e": 37.2,
+                "p": 0.5999237298965454
+              },
+              {
+                "w": "release,",
+                "s": 37.2,
+                "e": 37.42,
+                "p": 0.9980837106704712
+              },
+              {
+                "w": "but",
+                "s": 37.94,
+                "e": 38.02,
+                "p": 0.9927975535392761
+              },
+              {
+                "w": "budget",
+                "s": 38.02,
+                "e": 38.26,
+                "p": 0.9829932451248169
+              },
+              {
+                "w": "for",
+                "s": 38.26,
+                "e": 38.54,
+                "p": 0.9969402551651001
+              },
+              {
+                "w": "data",
+                "s": 38.54,
+                "e": 38.78,
+                "p": 0.9790826439857483
+              },
+              {
+                "w": "and",
+                "s": 38.78,
+                "e": 39.14,
+                "p": 0.9950470924377441
+              },
+              {
+                "w": "AI",
+                "s": 39.14,
+                "e": 39.42,
+                "p": 0.9583152532577515
+              },
+              {
+                "w": "keys.",
+                "s": 39.42,
+                "e": 39.78,
+                "p": 0.9240409135818481
+              },
+              {
+                "w": "Not",
+                "s": 40.7,
+                "e": 40.78,
+                "p": 0.9647670388221741
+              },
+              {
+                "w": "financial",
+                "s": 40.78,
+                "e": 41.0,
+                "p": 0.9930304884910583
+              },
+              {
+                "w": "advice.",
+                "s": 41.0,
+                "e": 41.48,
+                "p": 0.9953599572181702
+              },
+              {
+                "w": "Be",
+                "s": 42.22,
+                "e": 42.34,
+                "p": 0.9944337010383606
+              },
+              {
+                "w": "sure",
+                "s": 42.34,
+                "e": 42.48,
+                "p": 0.9990254640579224
+              },
+              {
+                "w": "to",
+                "s": 42.48,
+                "e": 42.58,
+                "p": 0.9962570667266846
+              },
+              {
+                "w": "like,",
+                "s": 42.58,
+                "e": 42.78,
+                "p": 0.9546473026275635
+              },
+              {
+                "w": "share,",
+                "s": 43.02,
+                "e": 43.3,
+                "p": 0.9954159259796143
+              },
+              {
+                "w": "and",
+                "s": 43.68,
+                "e": 43.76,
+                "p": 0.9985678195953369
+              },
+              {
+                "w": "save",
+                "s": 43.76,
+                "e": 44.04,
+                "p": 0.9958796501159668
+              },
+              {
+                "w": "this",
+                "s": 44.04,
+                "e": 44.24,
+                "p": 0.993922770023346
+              },
+              {
+                "w": "video.",
+                "s": 44.24,
+                "e": 44.52,
+                "p": 0.9993067979812622
+              }
+            ],
+            "dauer_s": 44.8853125,
+            "sprache": "en"
+          },
+          "roh_key": "cad955f9554d748d66669d43c385e3093aad6269a9c92b653fcb3f7fcb6dc386",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "16ddd019c274bf1eafdf8423b8fba238894154c5d80b375b6498d9ad96ff2bd7",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 12,
+          "motive": 12,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "16ddd019c274bf1eafdf8423b8fba238894154c5d80b375b6498d9ad96ff2bd7",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "A static graphic displaying the logo and name 'Fincept Terminal', the slogan 'Smarter Data. Sharper Trades.', a short description stating it is an 'all-in-one crypto intelligence' platform, and four icons representing 'Real-time Market Data', 'Trending Opportunities', 'Risk Analytics', and a lightning bolt icon.",
+              "note": 4,
+              "passt": false,
+              "grund": "The image shows a promotional branding slide for 'Fincept Terminal' but does not demonstrate the capability of the app to handle market research as mentioned in the narration.",
+              "erforderliches_bild": "A screen recording showing the actual Fincept Terminal user interface performing market research tasks like searching for financial data or analyzing a stock."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Computerbildschirm zeigt ein Software-Interface namens 'FinceptTerminal' mit verschiedenen Daten-Panels wie Commodities, Marktindizes und einem Videofenster, in dem eine Person spricht.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt die Softwareoberfläche, die als 'FinceptTerminal' bezeichnet wird, was direkt zum erzählten Inhalt passt, der die App und ihre Funktionen vorstellt.",
+              "erforderliches_bild": "Das Bild ist passend."
+            }
+          ],
+          "befunde": [
+            "Bild-Text-Pruefung nicht vollstaendig moeglich: RuntimeError"
+          ],
+          "modelle": [
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite"
+          ],
+          "einstellungen": 12,
+          "ausgenommen": [
+            11
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "16ddd019c274bf1eafdf8423b8fba238894154c5d80b375b6498d9ad96ff2bd7",
+        "prompt_version": "2026-10-13.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "modell": "groq:openai/gpt-oss-20b",
+        "zweitpruefer_modell": null,
+        "zweitpruefer_anderer_anbieter": false
+      }
     }
   ]
 }

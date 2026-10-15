@@ -20,7 +20,7 @@
 //   Befehle: Start | Start Business | Start KI | Status (Gesamtfortschritt in %) | Abholen
 
 const REPO = 'aKhaaaaaan/contentfabrik';
-const VERSION = '2026-10-15.1';
+const VERSION = '2026-10-15.3';
 // Zusammengefasste Stunden sparen Trigger: Workers Free hat fuenf pro Konto.
 const VIDEO_CRONS = new Set(['23 8,13 * * *', '41 10,15 * * *',
   '23 8 * * *', '41 10 * * *', '23 13 * * *', '41 15 * * *']);
@@ -76,7 +76,7 @@ async function geheimnis(env) {
 }
 
 async function antworten(env, chat, text) {
-  await fetch(`https://api.telegram.org/bot${tgToken(env)}/sendMessage`, {
+  return fetch(`https://api.telegram.org/bot${tgToken(env)}/sendMessage`, {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     // Ohne Vorschau: sonst haengt Telegram unter jede Statusmeldung eine grosse GitHub-Karte.
     body: JSON.stringify({ chat_id: chat, text, link_preview_options: { is_disabled: true } }),
@@ -226,6 +226,42 @@ async function telegram(request, env) {
   return new Response('ok');
 }
 
+// Nutzerwunsch 15.10.2026: bei 5 EUR Ausgabenobergrenze rechtzeitig per Telegram warnen.
+// Google-Budget -> Pub/Sub-Push -> hierher. Google schickt den Stand mehrmals taeglich, auch nach
+// ueberschrittener Schwelle immer wieder; ohne Merker (KV) kaeme dieselbe Warnung alle ~20 Minuten.
+function kostenText(d, schwelle, prognose) {
+  const eur = (x) => Number(x || 0).toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const prozent = Math.round(Number(schwelle) * 100);
+  const kopf = prognose
+    ? `Warnung Gemini-Kosten: Prognose fuer diesen Monat erreicht ${prozent} % der Grenze.`
+    : `Warnung Gemini-Kosten: ${prozent} % der Grenze erreicht.`;
+  return `${kopf}\nBisher ${eur(d.costAmount)} € von ${eur(d.budgetAmount)} € (${d.budgetDisplayName || 'Budget'}).\n` +
+    'Bei Erreichen der Grenze pausieren bezahlte Stimme und Gemini-Reserve bis zum Monatsersten.\n' +
+    'Grenze ansehen/aendern: https://aistudio.google.com/spend';
+}
+
+async function kosten(request, env) {
+  const t = new URL(request.url).searchParams.get('t') || '';
+  if (!env.KOSTEN_TOKEN || t !== String(env.KOSTEN_TOKEN)) return new Response('verboten', { status: 403 });
+  // Ohne Merker oder Chat lieber laut scheitern: Pub/Sub wiederholt dann, statt still zu verschlucken.
+  if (!env.ZUSTAND || !env.TG_CHAT_ID || !env.TG_BEFEHL_TOKEN) return new Response('nicht eingerichtet', { status: 503 });
+  const huelle = await request.json().catch(() => ({}));
+  let d;
+  try { d = JSON.parse(atob((huelle.message && huelle.message.data) || '')); } catch { return new Response('ok'); }
+  const meldungen = [];
+  if (d.alertThresholdExceeded != null) meldungen.push([d.alertThresholdExceeded, false]);
+  if (d.forecastThresholdExceeded != null) meldungen.push([d.forecastThresholdExceeded, true]);
+  for (const [schwelle, prognose] of meldungen) {
+    const merker = `kosten:${d.budgetDisplayName}:${d.costIntervalStart}:${prognose ? 'prognose' : 'ist'}:${schwelle}`;
+    if (await env.ZUSTAND.get(merker)) continue;
+    // Merker erst nach bestaetigter Zustellung; sonst 502 -> Pub/Sub stellt die Meldung erneut zu.
+    const r = await antworten(env, String(env.TG_CHAT_ID), kostenText(d, schwelle, prognose));
+    if (!r || !r.ok) return new Response('telegram fehlgeschlagen', { status: 502 });
+    await env.ZUSTAND.put(merker, '1', { expirationTtl: 40 * 24 * 3600 });
+  }
+  return new Response('ok');
+}
+
 async function einrichten(request, env) {
   if (!env.TG_BEFEHL_TOKEN) return new Response('TG_BEFEHL_TOKEN fehlt', { status: 503 });
   const ziel = new URL(request.url).origin + '/telegram';
@@ -268,6 +304,7 @@ export default {
   async fetch(request, env = {}) {
     const pfad = request ? new URL(request.url).pathname : '/';
     if (pfad === '/telegram' && request.method === 'POST') return telegram(request, env);
+    if (pfad === '/kosten' && request.method === 'POST') return kosten(request, env);
     if (pfad === '/einrichten') return einrichten(request, env);
     return Response.json({ worker: 'contentfabrik-zeitplan', version: VERSION, repository: REPO,
       github_schluessel_vorhanden: Boolean(env.GH_TOKEN),

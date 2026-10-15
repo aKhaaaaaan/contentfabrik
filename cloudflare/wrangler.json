@@ -9,6 +9,16 @@
   "keep_vars": true,
   "send_metrics": false,
   "triggers": {
-    "crons": ["23 8,13 * * *", "41 10,15 * * *", "*/5 * * * *"]
-  }
+    "crons": [
+      "23 8,13 * * *",
+      "41 10,15 * * *",
+      "*/5 * * * *"
+    ]
+  },
+  "kv_namespaces": [
+    {
+      "binding": "ZUSTAND",
+      "id": "b98ed3d24ddf42909ae5ebd41ab95f86"
+    }
+  ]
 }

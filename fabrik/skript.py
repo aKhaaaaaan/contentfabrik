@@ -53,10 +53,10 @@ atexit.register(_verbrauch_melden)
 
 
 def gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(), cache=None, fallback_prompt=None,
-           antwort_s=45, autor_groq=False):
+           antwort_s=45, autor_groq=False, schluessel=None):
     """Text darf im Tageslauf ausweichen; Medien bleiben beim echten Vision-Modell."""
     kwargs = dict(temperatur=temperatur, bilder=bilder, modelle=modelle, dateien=dateien, cache=cache,
-                  antwort_s=antwort_s)
+                  antwort_s=antwort_s, schluessel=schluessel)
     fallback = os.environ.get('CF_TEXT_FALLBACK') == 'groq' and not bilder and not dateien
     if autor_groq and fallback and os.environ.get('GROQ_API_KEY'):
         try:
@@ -157,13 +157,18 @@ def sprechtext_reparieren(kanal, quellen, entwurf, korrekturen, mindest, hoechst
     return e, model
 
 
+def reserve_noetig(letzter):
+    """Nur ein erschoepftes Kontingent rechtfertigt den bezahlten Reserve-Schluessel, keine Ueberlast."""
+    return bool(os.environ.get('GEMINI_API_KEY_RESERVE')) and bool(letzter) and         any(w in str(letzter) for w in ('Tageskontingent', 'Minuten-/Tokenkontingent'))
+
+
 def _gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(), cache=None, anfrage_s=180,
-            antwort_s=45):
+            antwort_s=45, schluessel=None):
     """bilder: JPEG-Bytes, die die KI mit ansieht (Clip-Auswahl in bauen.py).
     modelle: eigene Reihenfolge, z. B. das schnelle Lite-Modell zuerst."""
     import base64
     global WIEDERVERWENDET
-    schluessel = os.environ['GEMINI_API_KEY']
+    schluessel = schluessel or os.environ['GEMINI_API_KEY']
     modelle = list(modelle or MODELLE)
     if cache not in (None, 'fakten', 'story') or (cache and (bilder or dateien)):
         raise ValueError('Cache nur fuer explizite Fakten-/Storypruefungen ohne Medien')
@@ -278,6 +283,14 @@ def _gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=()
                     if ende - time.monotonic() <= 5:
                         raise RuntimeError('KI-Zeitbudget fuer diese Anfrage erreicht') from None
                     time.sleep(5)
+    # Nutzerentscheidung 15.10.2026: Ist das kostenlose Kontingent erschoepft, springt ein separates
+    # Prepay-Projekt (GEMINI_API_KEY_RESERVE) ein - nur dann, nie bei blosser Ueberlast. Gemessen: ein Lauf
+    # braucht 75-100 Anfragen, frei sind ~20 je Modell und Tag; mehrere Laeufe brachen deshalb ab.
+    # Hochgeladene Dateien gehoeren zum Projekt ihres Schluessels - dort waehlt kritik.py vorher.
+    if schluessel == os.environ.get('GEMINI_API_KEY') and not dateien and reserve_noetig(letzter):
+        print('Gemini: kostenloses Kontingent erschoepft - Reserve-Schluessel (bezahlt) wird genutzt', flush=True)
+        return _gemini(prompt, schema, temperatur, bilder, modelle, dateien, cache, anfrage_s, antwort_s,
+                       schluessel=os.environ['GEMINI_API_KEY_RESERVE'])
     raise RuntimeError(f'Gemini nicht erreichbar: {letzter}')
 
 

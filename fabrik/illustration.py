@@ -115,7 +115,8 @@ def pruefen(roh, szene, referenz=None, videoformat='short'):
             # erschoepft; die 30-s-Pause vor jedem Bild kostete ~20 von 40 Minuten ohne Chance auf
             # Erfolg. Sind alle Modelle gesperrt, ist ein zweiter Versuch sofort aussichtslos.
             import ki_speicher
-            if all(ki_speicher.sperre(os.environ['GEMINI_API_KEY'], m) for m in SEHEN):
+            if all(ki_speicher.sperre(k, m) for m in SEHEN for k in
+                   filter(None, (os.environ.get('GEMINI_API_KEY'), os.environ.get('GEMINI_API_KEY_RESERVE')))):
                 raise
             # GEMESSEN 09.10.2026 (Langvideo-Pilot 37888005599): 20x 'Bildpruefung nicht verfuegbar'
             # (Zeitlimit/Ueberlast der Lite-Modelle) -> jedes Bild verworfen, Ersatzbilder aufgebraucht.

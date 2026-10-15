@@ -1686,6 +1686,16 @@ def main(skript_pfad, aus, vorlage=None):
             if karte and (bildplan.material_id(karte) == vorherige_id or not motiv_ok(karte)):
                 print(f'Einstellung {i}: gleiche Quellseite wie davor - gemalte Szene')
                 karte, modus = None, 'illustration'
+            if kanalprofil(s).get('gemalt_nur_rand') and 0 < i < len(shots) - 1 and not karte \
+                    and modus in ('auto', 'illustration', 'stock', 'foto', 'figur'):
+                # Nutzerentscheidung 15.10.2026 (KI-Kanal, Kosten sparen): gemalt nur Anfang und Aufruf.
+                # Dazwischen echte Screenshots (demo) bzw. die lokal gerenderte Erklaergrafik zum Satz -
+                # kein Cloudflare-Bild, keine Gemini-Bildpruefung. Gemalte Laptop-Szenen bekamen beim
+                # Schlusspruefer 2-4/10, Erklaergrafiken an denselben Saetzen 8-10/10.
+                if re.match(r'https?://(github\.com|huggingface\.co)/', t.get('quelle_url') or ''):
+                    modus = 'demo'
+                else:
+                    t, modus = dict(t, grafik_typ='erklaerung'), 'grafik'
             foto, fq = ((None, None) if karte or modus in ('stock', 'illustration', 'demo', 'figur', 'grafik', 'asset')
                         else foto_fuer(s.get('bilder') or [], t['text'] + ' Visual: ' + t.get('szene', ''), benutzte_fotos))
             if modus == 'demo' and re.match(r'https?://(github\.com|huggingface\.co)/', t.get('quelle_url') or ''):
@@ -1728,6 +1738,9 @@ def main(skript_pfad, aus, vorlage=None):
                         # keine Karte moeglich - gemalte Szene statt Abbruch des ganzen Baus.
                         print(f'Einstellung {i}: weder Beispielbild noch Karte - gemalte Szene')
                         modus = 'illustration'
+            if modus == 'illustration' and kanalprofil(s).get('gemalt_nur_rand') and 0 < i < len(shots) - 1:
+                print(f'Einstellung {i}: Kanal malt nur Anfang/Aufruf - Erklaergrafik zum Satz')
+                t, modus = dict(t, grafik_typ='erklaerung'), 'grafik'
             # GEMELDET: „wirkt langweilig und eiskalt" - Illustrationen im Spiel-Plakat-Stil
             # (fabrik/illustration.py): die Kanalfigur im Einstieg und am Schluss; sonst eine
             # Szene nur dort, wo kein echtes Foto passt - echte Fotos bleiben fuer Fakten.

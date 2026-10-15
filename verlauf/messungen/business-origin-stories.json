@@ -3064,5 +3064,404 @@
     "grund": "Videobau fehlgeschlagen (ValueError: Phase 6, Einstellung 16: kein passendes Hauptbild; kein Hintergrundersatz)",
     "sekunden": 1962.1,
     "upload_titel": "Airbed And Breakfast: How RENT Started Airbnb"
+  },
+  {
+    "id": "38721176659",
+    "kanal": "business-origin-stories",
+    "datum": "2026-10-15",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 466.3,
+        "pruefung_s": 30.1,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine illustrierte Szene mit Männern in einem Wohnzimmer und das Airbnb-Logo, während die gesprochene Phase 'In October 2007, San Francisco roommates Brian' erwähnt. Es fehlt jeglicher konkreter Bezug zu den namentlich genannten Personen oder dem Oktober 2007.",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt eine große Menschenmenge in einer modernen Eingangshalle, jedoch ist kein lokaler Designkongress oder eine Konferenzsituation erkennbar.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Die Illustration zeigt drei junge Männer mit Laptops im Freien, was nicht zu der namentlichen Erwähnung der drei Gründer in dem historischen Kontext von 2008 passt.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar eine geschäftliche Vereinbarung oder Partnerschaft, aber Y Combinator oder eine konkrete Investition bzw. Finanzierungsrunde wird nicht dargestellt.",
+          "Offenes Problem (schwer): Das Bild zeigt eine illustrierte Szene mit Männern in einem Wohnzimmer und das Airbnb-Logo, während die gesprochene Phase 'In October 2007, San Francisco roommates Brian' erwähnt. Es fehlt jeglicher konkreter Bezug zu den namentlich genannten Personen oder dem Oktober 2007. Korrektur: Eine historische Fotografie oder eine thematische Illustration, die den Oktober 2007 in San Francisco oder die beiden Mitbewohner bei ihren ersten Schritten zeigt, ohne moderne Airbnb-Plattformlogos.",
+          "Offenes Problem (schwer): Die Szene zeigt eine große Menschenmenge in einer modernen Eingangshalle, jedoch ist kein lokaler Designkongress oder eine Konferenzsituation erkennbar. Korrektur: Eine Konferenzhalle mit ankommenden Design-Teilnehmern und überfüllten Hotels.",
+          "Offenes Problem (schwer): Die Illustration zeigt drei junge Männer mit Laptops im Freien, was nicht zu der namentlichen Erwähnung der drei Gründer in dem historischen Kontext von 2008 passt. Korrektur: Eine historische Darstellung oder realistische Szene, die die drei Gründer im Jahr 2008 bei der Arbeit an ihrer Plattform zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt zwar eine geschäftliche Vereinbarung oder Partnerschaft, aber Y Combinator oder eine konkrete Investition bzw. Finanzierungsrunde wird nicht dargestellt. Korrektur: Eine Szene, die Gründer und Investoren bei einer formellen Präsentation oder Finanzierungsübergabe in einem Büro zeigt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Orus",
+          "tempo": 1.168,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 9,
+          "clips_und_stuecke": 433.5,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 9,
+            "motive": 9,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 24.6,
+          "gesamt": 466.1,
+          "videolaenge_s": 35.0,
+          "abschnitte_s": [
+            4.76,
+            7.04,
+            5.3,
+            3.8,
+            6.1,
+            5.38,
+            2.64
+          ],
+          "woerter": 86
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:04",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt eine illustrierte Szene mit Männern in einem Wohnzimmer und das Airbnb-Logo, während die gesprochene Phase 'In October 2007, San Francisco roommates Brian' erwähnt. Es fehlt jeglicher konkreter Bezug zu den namentlich genannten Personen oder dem Oktober 2007. Korrektur: Eine historische Fotografie oder eine thematische Illustration, die den Oktober 2007 in San Francisco oder die beiden Mitbewohner bei ihren ersten Schritten zeigt, ohne moderne Airbnb-Plattformlogos."
+          },
+          {
+            "zeit": "00:11",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die Szene zeigt eine große Menschenmenge in einer modernen Eingangshalle, jedoch ist kein lokaler Designkongress oder eine Konferenzsituation erkennbar. Korrektur: Eine Konferenzhalle mit ankommenden Design-Teilnehmern und überfüllten Hotels."
+          },
+          {
+            "zeit": "00:23",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die Illustration zeigt drei junge Männer mit Laptops im Freien, was nicht zu der namentlichen Erwähnung der drei Gründer in dem historischen Kontext von 2008 passt. Korrektur: Eine historische Darstellung oder realistische Szene, die die drei Gründer im Jahr 2008 bei der Arbeit an ihrer Plattform zeigt."
+          },
+          {
+            "zeit": "00:27",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt zwar eine geschäftliche Vereinbarung oder Partnerschaft, aber Y Combinator oder eine konkrete Investition bzw. Finanzierungsrunde wird nicht dargestellt. Korrektur: Eine Szene, die Gründer und Investoren bei einer formellen Präsentation oder Finanzierungsübergabe in einem Büro zeigt."
+          }
+        ],
+        "sekunden": 496.3,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bm_george",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            0,
+            1,
+            4,
+            5
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-10-13.2"
+        },
+        "skript_s": 3.0,
+        "bau_s": 623.6,
+        "pruefung_s": 27.7,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Erwähnung von Brian Chesky und Joe Gebbia, die Miete zahlen müssen, wird nicht visuell als realistische historische Szene dargestellt, sondern als illustrierte Szene ohne jeglichen Bezug zu Zahlungen oder Miete.",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Die Personen mit Gepäck zeigen zwar Reisende, aber eine Designkonferenz oder ein gesättigter Markt ohne Übernachtungsmöglichkeiten sind nicht visuell darstellbar.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Es ist zwar ein Wohnzimmer zu sehen, aber die erwähnte Luftmatratze und das Frühstück fehlen komplett.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine allgemeine Szene von drei Männern, die an Laptops arbeiten, aber es gibt keinen Bezug zur Gründung von 'Airbed and Breakfast' oder dem historischen Kontext von 2008.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine generische Arbeitsszene ohne Bezug zu Nathan Blecharczyk, dem Jahr 2008 oder der Gründung von Airbnb.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine allgemeine geschäftliche Besprechungsszene, aber keine visuelle Repräsentation von Y Combinator, Finanzierungsmodellen oder einem Buchungsmodell.",
+          "Offenes Problem (schwer): Die gesprochene Erwähnung von Brian Chesky und Joe Gebbia, die Miete zahlen müssen, wird nicht visuell als realistische historische Szene dargestellt, sondern als illustrierte Szene ohne jeglichen Bezug zu Zahlungen oder Miete. Korrektur: Eine historische Darstellung der Mitbewohner Brian Chesky und Joe Gebbia in ihrem Wohnzimmer in San Francisco, wie sie Geldsorgen oder Rechnungen betrachten.",
+          "Offenes Problem (schwer): Die Personen mit Gepäck zeigen zwar Reisende, aber eine Designkonferenz oder ein gesättigter Markt ohne Übernachtungsmöglichkeiten sind nicht visuell darstellbar. Korrektur: Eine Gruppe gestresster Reisender mit Koffern vor einer voll besetzten Hotelrezeption oder ein Hinweis auf ausgebuchte Unterkünfte.",
+          "Offenes Problem (schwer): Es ist zwar ein Wohnzimmer zu sehen, aber die erwähnte Luftmatratze und das Frühstück fehlen komplett. Korrektur: Eine Szene in einem Wohnzimmer mit einer aufgepumpten Luftmatratze und einem Frühstück auf einem Tisch.",
+          "Offenes Problem (schwer): Das Bild zeigt eine allgemeine Szene von drei Männern, die an Laptops arbeiten, aber es gibt keinen Bezug zur Gründung von 'Airbed and Breakfast' oder dem historischen Kontext von 2008. Korrektur: Ein historisches Foto oder eine Illustration, die die Gründung von Airbed and Breakfast zeigt, zum Beispiel eine Darstellung der Gründer in ihrer Wohnung mit einer Luftmatratze.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine generische Arbeitsszene ohne Bezug zu Nathan Blecharczyk, dem Jahr 2008 oder der Gründung von Airbnb. Korrektur: Ein historisches Foto oder eine Dokumentation, die die drei Gründer Brian Chesky, Joe Gebbia und Nathan Blecharczyk bei der Arbeit im Jahr 2008 zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt eine allgemeine geschäftliche Besprechungsszene, aber keine visuelle Repräsentation von Y Combinator, Finanzierungsmodellen oder einem Buchungsmodell. Korrektur: Ein Bild, das den Logo-Schriftzug oder das Gebäude von Y Combinator zeigt, oder eine visuelle Darstellung eines Finanzierungs- oder Buchungsmodells."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Orus",
+          "tempo": 1.168,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 9,
+          "clips_und_stuecke": 593.7,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 9,
+            "motive": 9,
+            "motive_min": 7
+          },
+          "effekte": 10,
+          "rendern": 24.2,
+          "gesamt": 623.5,
+          "videolaenge_s": 35.0,
+          "abschnitte_s": [
+            4.76,
+            7.04,
+            5.3,
+            3.8,
+            6.1,
+            5.38,
+            2.64
+          ],
+          "woerter": 86
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:08",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die gesprochene Erwähnung von Brian Chesky und Joe Gebbia, die Miete zahlen müssen, wird nicht visuell als realistische historische Szene dargestellt, sondern als illustrierte Szene ohne jeglichen Bezug zu Zahlungen oder Miete. Korrektur: Eine historische Darstellung der Mitbewohner Brian Chesky und Joe Gebbia in ihrem Wohnzimmer in San Francisco, wie sie Geldsorgen oder Rechnungen betrachten."
+          },
+          {
+            "zeit": "00:11",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die Personen mit Gepäck zeigen zwar Reisende, aber eine Designkonferenz oder ein gesättigter Markt ohne Übernachtungsmöglichkeiten sind nicht visuell darstellbar. Korrektur: Eine Gruppe gestresster Reisender mit Koffern vor einer voll besetzten Hotelrezeption oder ein Hinweis auf ausgebuchte Unterkünfte."
+          },
+          {
+            "zeit": "00:17",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Es ist zwar ein Wohnzimmer zu sehen, aber die erwähnte Luftmatratze und das Frühstück fehlen komplett. Korrektur: Eine Szene in einem Wohnzimmer mit einer aufgepumpten Luftmatratze und einem Frühstück auf einem Tisch."
+          },
+          {
+            "zeit": "00:20",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt eine allgemeine Szene von drei Männern, die an Laptops arbeiten, aber es gibt keinen Bezug zur Gründung von 'Airbed and Breakfast' oder dem historischen Kontext von 2008. Korrektur: Ein historisches Foto oder eine Illustration, die die Gründung von Airbed and Breakfast zeigt, zum Beispiel eine Darstellung der Gründer in ihrer Wohnung mit einer Luftmatratze."
+          },
+          {
+            "zeit": "00:23",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt lediglich eine generische Arbeitsszene ohne Bezug zu Nathan Blecharczyk, dem Jahr 2008 oder der Gründung von Airbnb. Korrektur: Ein historisches Foto oder eine Dokumentation, die die drei Gründer Brian Chesky, Joe Gebbia und Nathan Blecharczyk bei der Arbeit im Jahr 2008 zeigt."
+          },
+          {
+            "zeit": "00:27",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt eine allgemeine geschäftliche Besprechungsszene, aber keine visuelle Repräsentation von Y Combinator, Finanzierungsmodellen oder einem Buchungsmodell. Korrektur: Ein Bild, das den Logo-Schriftzug oder das Gebäude von Y Combinator zeigt, oder eine visuelle Darstellung eines Finanzierungs- oder Buchungsmodells."
+          }
+        ],
+        "sekunden": 654.4,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "38721176659-2",
+          "datum": "2026-10-15",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 654.4,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bm_george",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 2
+          },
+          "kategorien_nachher": {
+            "bild_passt": 2
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-10-13.2",
+          "verbessert": false
+        }
+      },
+      {
+        "runde": 3,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "stock",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "stock",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bm_george",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-10-13.2"
+        },
+        "skript_s": 4.0,
+        "bau_s": 380.1,
+        "baufehler": "ValueError: Phase 2, Einstellung 3: kein passendes Hauptbild; kein Hintergrundersatz",
+        "status": "baufehler",
+        "sekunden": 384.1,
+        "lernergebnis": {
+          "id": "38721176659-3",
+          "datum": "2026-10-15",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 384.5,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "stock",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "stock",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bm_george",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 2
+          },
+          "kategorien_nachher": {},
+          "auswertbar": false,
+          "prompt_version": "2026-10-13.2",
+          "verbessert": false
+        }
+      }
+    ],
+    "status": "gesperrt",
+    "grund": "Videobau fehlgeschlagen (ValueError: Phase 2, Einstellung 3: kein passendes Hauptbild; kein Hintergrundersatz)",
+    "sekunden": 1550.7,
+    "upload_titel": "Airbed And Breakfast: How RENT Started Airbnb"
   }
 ]

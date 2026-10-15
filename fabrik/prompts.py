@@ -333,17 +333,9 @@ def rueckfall_motiv(einstellung, phase=''):
     return ', '.join(teile)
 
 
-def illustration(szene, referenz=False, korrektur='', videoformat='short'):
-    figur = ('Use the person in reference image 0 as the same fictional character: preserve face, '
-             'hair, proportions and outfit. Change pose, framing, lighting and background to fit '
-             'the scene; do not copy the reference composition. ' if referenz else '')
-    return ('Full-bleed artwork, unmarked objects and no signature. '
-            + figur + f'Scene: {szene.strip()[:500]}. '
-            'A single coherent ' + ('landscape' if videoformat == 'lang' else 'vertical')
-            # GEMELDET 08.10.2026: „Alles gemalt, Inspiration GTA, keine echten Charaktere - so wie
-            # die letzten zwei Videos von Codex." Deren dokumentierte Auftraege (assets/
-            # illustrationen/*PROMPTS.json) als Stilvorlage; Spielname bewusst nicht genannt.
-            + ' editorial illustration in textured semi-realistic painted urban open-world-game '
+# Stil-Block der gemalten Bilder; je Kanal ueberschreibbar (kanaele/<slug>.json 'bildstil_prompt',
+# Nutzerentscheidung 15.10.2026: Template je Kanal). Text unveraendert aus illustration() uebernommen.
+STIL_STANDARD = ('editorial illustration in textured semi-realistic painted urban open-world-game '
             'poster style, strong ink contours, warm sunset amber highlights and cool shadows, '
             'realistic proportions; painted, never photographic. '
             # Nutzer 08.10.: „gemalt wie bei einer GTA-Welt" und „lebendig, warm, ausgefuellt,
@@ -359,7 +351,20 @@ def illustration(szene, referenz=False, korrektur='', videoformat='short'):
             'perspective and plausible period-appropriate props. Keep the important subject inside '
             'the center crop; quiet uncluttered top and lower areas for later captions. '
             'Natural anatomy, simple readable hand poses, distinct objects. Unlettered '
-            'surfaces, without typography, numbers, signatures, watermarks, logos or collage panels. '
+            'surfaces, without typography, numbers, signatures, watermarks, logos or collage panels. ')
+
+
+def illustration(szene, referenz=False, korrektur='', videoformat='short', stil=None):
+    figur = ('Use the person in reference image 0 as the same fictional character: preserve face, '
+             'hair, proportions and outfit. Change pose, framing, lighting and background to fit '
+             'the scene; do not copy the reference composition. ' if referenz else '')
+    return ('Full-bleed artwork, unmarked objects and no signature. '
+            + figur + f'Scene: {szene.strip()[:500]}. '
+            'A single coherent ' + ('landscape' if videoformat == 'lang' else 'vertical')
+            # GEMELDET 08.10.2026: „Alles gemalt, Inspiration GTA, keine echten Charaktere - so wie
+            # die letzten zwei Videos von Codex." Deren dokumentierte Auftraege (assets/
+            # illustrationen/*PROMPTS.json) als Stilvorlage; Spielname bewusst nicht genannt.
+            + ' ' + (stil or STIL_STANDARD)
             + (f'Fix this observed defect while preserving the scene: {korrektur[:220]}.' if korrektur else ''))
 
 

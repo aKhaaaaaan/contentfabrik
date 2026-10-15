@@ -148,6 +148,15 @@ def referenz(kanal):
     return arbeit if arbeit.is_file() else FIGUREN / f'{kanal}.jpg'
 
 
+def kanal_stil(kanal):
+    """Stil-Block aus kanaele/<slug>.json 'bildstil_prompt' (Template je Kanal, 15.10.2026), sonst Standard."""
+    pfad = Path(__file__).resolve().parents[1] / 'kanaele' / f'{kanal}.json'
+    try:
+        return json.loads(pfad.read_text(encoding='utf-8')).get('bildstil_prompt') if kanal else None
+    except (OSError, ValueError):
+        return None
+
+
 def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short', satz=''):
     """Szene als Illustration (hochkant). figur=True: die feste Figur des Kanals per Referenzbild.
     Gibt den Pfad oder None zurueck."""
@@ -175,8 +184,9 @@ def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short', 
         except (OSError, ValueError):
             return None
     korrektur = ''
+    stil = kanal_stil(kanal)
     for v in range(versuche):
-        text = prompts.illustration(szene, bool(ref), korrektur, videoformat)
+        text = prompts.illustration(szene, bool(ref), korrektur, videoformat, stil)
         if ref:
             text = prompts.figur_in_szene(szene, korrektur, videoformat)
         if ref or v == 0:

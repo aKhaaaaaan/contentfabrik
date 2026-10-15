@@ -8,12 +8,20 @@ from pathlib import Path
 import dramaturgie
 import prompts
 
+# Nutzerentscheidung 15.10.2026: Bild-Prompts als Kanalvorlage mit Variablen statt freier Szenentexte -
+# praezise, pruefbar und fuer neue Kanaele/Themen ohne Sonderregeln skalierbar. Die KI fuellt nur kurze
+# Felder, der Code setzt den Prompt nach kanaele/<slug>.json 'bildvorlage' zusammen.
+EINSTELLUNGEN = ['close-up', 'medium shot', 'wide shot', 'detail shot', 'over-the-shoulder shot']
+VORLAGE_FELDER = ('motiv', 'aktion', 'ort', 'epoche', 'einstellung')
+
 SCHEMA = {'type': 'OBJECT', 'properties': {'einstellungen': {'type': 'ARRAY', 'items': {
     'type': 'OBJECT', 'properties': {
         'index': {'type': 'INTEGER'}, 'bildmodus': {'type': 'STRING', 'enum': ['foto', 'stock', 'illustration', 'karte', 'demo', 'figur', 'asset']},
         'asset': {'type': 'STRING'},
         'figur': {'type': 'BOOLEAN'},
-        'suche': {'type': 'STRING'}, 'szene': {'type': 'STRING'}, 'motiv': {'type': 'STRING'}},
+        'suche': {'type': 'STRING'}, 'szene': {'type': 'STRING'}, 'motiv': {'type': 'STRING'},
+        'aktion': {'type': 'STRING'}, 'ort': {'type': 'STRING'}, 'epoche': {'type': 'STRING'},
+        'einstellung': {'type': 'STRING', 'enum': EINSTELLUNGEN}},
     'required': ['index', 'bildmodus', 'suche', 'szene', 'motiv']}}}, 'required': ['einstellungen']}
 
 
@@ -149,8 +157,22 @@ BEZUG_MIN = 7
 BEZUG_SCHEMA = {'type': 'OBJECT', 'properties': {'pruefung': {'type': 'ARRAY', 'items': {
     'type': 'OBJECT', 'properties': {'index': {'type': 'INTEGER'}, 'note': {'type': 'INTEGER'},
                                      'motiv': {'type': 'STRING'}, 'szene': {'type': 'STRING'},
-                                     'suche': {'type': 'STRING'}},
+                                     'suche': {'type': 'STRING'}, 'aktion': {'type': 'STRING'}},
     'required': ['index', 'note', 'motiv', 'szene', 'suche']}}}, 'required': ['pruefung']}
+
+
+def szene_aus_vorlage(d, vorlage, text=''):
+    """Bild-Prompt aus der Kanalvorlage; fehlt ein Feld oder ist es unbrauchbar, bleibt die freie Szene.
+
+    Kostenlos geprueft: alle Felder gefuellt, Einstellungsgroesse aus der festen Liste und das Motiv
+    woertlich aus dem gesprochenen Satz - sonst wuerde die Vorlage ein falsches Motiv nur sauberer malen."""
+    if not vorlage or d.get('bildmodus') not in ('illustration', 'foto', 'stock'):
+        return d.get('szene')
+    werte = {k: re.sub(r'\s+', ' ', str(d.get(k) or '')).strip(' .,;:') for k in VORLAGE_FELDER}
+    if not all(werte.values()) or werte['einstellung'] not in EINSTELLUNGEN \
+            or (text and not woertlich(werte['motiv'], text)):
+        return d.get('szene')
+    return vorlage.format(**werte)
 
 
 FUELLWOERTER = {'with', 'from', 'that', 'this', 'their', 'there', 'they', 'into', 'over', 'scene', 'shot',
@@ -188,7 +210,8 @@ def bezug_pruefen(gemini, teil, daten):
                         'say: the named subject, action, place or consequence a viewer hears at that moment. A loosely '
                         'related or opposite image (e.g. opening a DVD envelope while hearing that streaming overtook '
                         'DVDs) scores low. For every score below ' + str(BEZUG_MIN) + ', give a better motif (2-5 words quoted verbatim from the spoken words), '
-                        'a 20-45 word painted scene that literally shows the spoken words, and 2-4 search words. For a '
+                        'a 20-45 word painted scene that literally shows the spoken words, aktion (3-8 words: what that '
+                        'motif visibly does) and 2-4 search words. For a '
                         'number, price or statistic, show the people or place it affects doing the concrete action. '
                         'motif_not_in_spoken_words=true means the planned motif is not quoted from the spoken '
                         'words: always replace it, scoring at most ' + str(BEZUG_MIN - 1) + '. '
@@ -209,6 +232,11 @@ def bezug_pruefen(gemini, teil, daten):
                 and p_.get('szene') and p_.get('motiv'):
             alt.update(motiv=p_['motiv'][:80], szene=p_['szene'][:400], suche=p_.get('suche') or alt.get('suche'),
                        bildmodus='illustration')
+            # Neues Motiv mit alter Handlung waere widerspruechlich: ohne neue aktion die freie Szene nehmen.
+            if p_.get('aktion'):
+                alt['aktion'] = p_['aktion'][:80]
+            else:
+                alt.pop('aktion', None)
             ersetzt += 1
     print(f'Bezugspruefung: {ersetzt} von {len(eintraege)} Motiven woertlicher gemacht')
     return daten, ersetzt
@@ -370,6 +398,11 @@ def vorbereiten(s, laengen, woerter, cache=None):
             # Modellvergleich 15.10.2026: "air mattress" wurde als normale Matratze gemalt.
             'For an object that is easily confused, describe its distinguishing look in szene (material, '
             'shape, state), e.g. "an inflated vinyl air mattress", not just "a mattress". '
+            'For illustration, foto and stock slots also fill the short fields the video code assembles '
+            'into the image prompt: aktion = what the focal subject visibly does, 3-8 words from the '
+            'spoken words; ort = the concrete place, 2-6 words; epoche = the period of the story '
+            'moment as words (e.g. "late 2000s", "1950s post-war Japan"); einstellung = one of '
+            + json.dumps(EINSTELLUNGEN) + ', varied between neighbouring slots. '
             'Return EXACTLY one entry per slot, same integer index. motiv states the distinct visible '
             'subject/action. No extra words or factual assertions in the narration.\n'
             # GEMELDET 09.10.2026 (Aurelio-Short, Nutzernote 6/10): „Fotos, die nicht mit dem Text
@@ -410,6 +443,8 @@ def vorbereiten(s, laengen, woerter, cache=None):
         raise ValueError('Bildplan deckt nicht alle Sprechphasen lueckenlos ab')
     aus = []
     pro_phase = {}
+    import kanalstandard
+    vorlage = (kanalstandard.nach_name(s.get('kanal')) or {}).get('bildvorlage')
     for slot, d in zip(zeitplan, daten):
         if d.get('bildmodus') not in ('foto', 'stock', 'illustration', 'karte', 'demo', 'figur', 'grafik', 'asset') or not d.get('szene') or not d.get('motiv'):
             raise ValueError('Bildplan enthaelt eine leere oder ungueltige Einstellung')
@@ -439,6 +474,9 @@ def vorbereiten(s, laengen, woerter, cache=None):
         if 'figur' in d:
             t['figur'] = d['figur']
         t.update({k: d[k] for k in ('bildmodus', 'suche', 'szene', 'motiv')})
+        szene = szene_aus_vorlage(d, vorlage, slot['text'])
+        if szene != d['szene']:
+            t['szene'], t['vorlage'] = szene, True
         t['text'] = slot['text']
         t['_phase'] = slot['phase']
         aus.append(dict(slot, teil=t))

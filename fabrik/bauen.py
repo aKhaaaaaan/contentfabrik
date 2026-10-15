@@ -751,7 +751,8 @@ def readme_medien(url):
     aus = []
     for l, a in links:
         l = urllib.parse.urljoin(basis, l.replace('/blob/', '/raw/'))
-        if re.search(r'shields\.io|badge|logo|icon|avatar|\.svg(\?|$)|license|star-history|discord|twitter',
+        # 15.10.2026 (Lauf 38723213588): Werbebanner zeigt keine Funktion ("promotional branding slide").
+        if re.search(r'shields\.io|badge|banner|logo|icon|avatar|\.svg(\?|$)|license|star-history|discord|twitter',
                      l, re.I) or l in [x for x, _ in aus]:
             continue
         aus.append((l, a.strip()[:200]))

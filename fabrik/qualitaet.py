@@ -121,6 +121,25 @@ def nur_ki_geschmack(gruende):
     return bool(gruende) and all(_KI_NOTE.search(str(g)) for g in gruende)
 
 
+_BILD = re.compile(r'^Einstellung \d+: Bild passt nicht zum Sprechtext|^Video-Note fehlt oder ist ungueltig$'
+                   r'|^Video-Bewertung \w+ fehlt oder ist ungueltig$|^Video-bild_passt \d+/10 unter \d+/10$')
+
+
+def nur_bildbezug(gruende):
+    """True, wenn ein fertiges Video NUR an der Bild-Text-Pruefung scheitert.
+
+    Nutzerentscheidung 15.10.2026: "Ich will heute definitiv jeweils ein Video" - nach einem Tag
+    ohne Video. Der strenge Pruefer bleibt; ein nur an Bildbezug gescheitertes Video geht als klar
+    markierter Entwurf zum Nutzer, der selbst entscheidet. Fakten, Technik, Endton, Aufruf und
+    Nutzer-Sperren bleiben hart. Schwere offene Probleme zaehlen nur, wenn die Gesamtkritik gar
+    nicht lief (dann stammen sie aus der Bildpruefung).
+    """
+    g = [str(x) for x in gruende or []]
+    ohne_gesamtkritik = 'Video-Note fehlt oder ist ungueltig' in g
+    return any(x.startswith('Einstellung ') for x in g) and all(
+        _BILD.search(x) or (ohne_gesamtkritik and x.startswith('Offenes Problem (schwer): ')) for x in g)
+
+
 def bewerten(skript, kritik):
     """(Note oder None, Sperrgruende). Fehlende Pruefungen bestehen nie."""
     wert, gruende = video_bewerten(kritik)

@@ -194,8 +194,10 @@ def pruefen(eintrag, ordner):
             or videoformat(s) != 'short' or lernen.abgelehnt(sha):
         raise ValueError('Freigabe gehoert nicht zu dieser Datei oder Datei wurde abgelehnt')
     note, gruende = bewerten(s, k)
-    # Menschliches „Passt“ kann KI-Geschmack ueberstimmen, nie Fakten, Technik oder Endton.
-    if gruende and not (nur_ki_geschmack(gruende) and (note or 0) >= ENTWURF_MIN):
+    # Menschliches „Passt“ kann KI-Geschmack und (seit 15.10.2026, Nutzerentscheidung) einen reinen
+    # Bildbezug-Befund ueberstimmen, nie Fakten, Technik oder Endton.
+    from qualitaet import nur_bildbezug
+    if gruende and not ((nur_ki_geschmack(gruende) and (note or 0) >= ENTWURF_MIN) or nur_bildbezug(gruende)):
         raise ValueError('Harte Qualitaetssperre - kein TikTok-Upload')
 
 

@@ -341,6 +341,9 @@ def vorbereiten(s, laengen, woerter, cache=None):
             'verbatim (e.g. words "They put an air mattress in their living room" -> motiv "air mattress"), '
             'and szene must show exactly that as the focal subject. Never a named real person or brand: '
             'use their spoken role or object instead (e.g. "roommates", "rent", "air mattress"). '
+            # Modellvergleich 15.10.2026: "air mattress" wurde als normale Matratze gemalt.
+            'For an object that is easily confused, describe its distinguishing look in szene (material, '
+            'shape, state), e.g. "an inflated vinyl air mattress", not just "a mattress". '
             'Return EXACTLY one entry per slot, same integer index. motiv states the distinct visible '
             'subject/action. No extra words or factual assertions in the narration.\n'
             # GEMELDET 09.10.2026 (Aurelio-Short, Nutzernote 6/10): „Fotos, die nicht mit dem Text

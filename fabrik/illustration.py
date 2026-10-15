@@ -28,6 +28,7 @@ GEZAEHLT = {'bilder': 0, 'abgelehnt': 0}
 # offenbar zaehlt das Limit rollierend. Der Lauf versuchte trotzdem 5x neu zu bauen.
 # Merker im Arbeitsordner: weitere Anfragen sparen, lauf.py bricht ohne Wiederholung ab.
 KONTINGENT_LEER = Path('bildkontingent-leer.flag')
+KLEIN9B_MAX = 4  # je Bauprozess; Gratiskontingent reicht fuer ~7 Hochformatbilder am Tag
 
 
 def _anfrage(modell, felder, datei=None, charakter=None):
@@ -182,6 +183,13 @@ def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short'):
             felder = {'prompt': text, 'width': breite, 'height': hoehe}
             roh = (_anfrage('flux-2-klein-4b', felder, datei=szene_roh, charakter=ref) if ref
                    else _anfrage('flux-2-klein-4b', felder))
+        elif GEZAEHLT.get('klein9b', 0) < KLEIN9B_MAX:
+            # GEMESSEN 15.10.2026 (Modellvergleich, ausgabe/proben/modellvergleich): klein-4b malte bei
+            # "air mattress" eine gesteppte normale Matratze, klein-9b eine eindeutige Luftmatratze;
+            # flux-1-schnell liefert nur quadratische Bilder (im Hochformat beschnitten). 9b kostet
+            # ~1.370 Neuronen je Hochformatbild (Gratis 10.000/Tag) - daher nur als begrenzter 2. Versuch.
+            GEZAEHLT['klein9b'] = GEZAEHLT.get('klein9b', 0) + 1
+            roh = _anfrage('flux-2-klein-9b', {'prompt': text, 'width': breite, 'height': hoehe})
         else:
             roh = _anfrage('flux-1-schnell', {'prompt': text, 'steps': 8})
         if not roh:

@@ -157,9 +157,24 @@ def sprechtext_reparieren(kanal, quellen, entwurf, korrekturen, mindest, hoechst
     return e, model
 
 
+def reserve_schluessel():
+    """Bezahlter Reserve-Schluessel: eigener GEMINI_API_KEY_RESERVE, sonst das bezahlte Stimmen-Projekt.
+
+    15.10.2026 in AI Studio nachgesehen: Das Rechnungskonto hat bereits ein kostenpflichtiges Projekt
+    "contentfabrik-stimme" (GEMINI_TTS_API_KEY, Abrechnung am Monatsende, 0,44 EUR im Oktober).
+    """
+    frei = os.environ.get('GEMINI_API_KEY', '')
+    for name in ('GEMINI_API_KEY_RESERVE', 'GEMINI_TTS_API_KEY'):
+        wert = os.environ.get(name, '').strip()
+        if wert and wert != frei:
+            return wert
+    return None
+
+
 def reserve_noetig(letzter):
     """Nur ein erschoepftes Kontingent rechtfertigt den bezahlten Reserve-Schluessel, keine Ueberlast."""
-    return bool(os.environ.get('GEMINI_API_KEY_RESERVE')) and bool(letzter) and         any(w in str(letzter) for w in ('Tageskontingent', 'Minuten-/Tokenkontingent'))
+    return bool(reserve_schluessel()) and bool(letzter) and \
+        any(w in str(letzter) for w in ('Tageskontingent', 'Minuten-/Tokenkontingent'))
 
 
 def _gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(), cache=None, anfrage_s=180,

@@ -9,6 +9,10 @@ import subprocess
 import tempfile
 
 VERSION = '2026-10-15.1'
+# 2026-10-13.1 ist inhaltlich gleich, nur strenger (ohne Ausnahme fuer den Like/Teilen-Aufruf):
+# echte Pruefergebnisse dieser Version bleiben gueltig (15.10.: sonst galt ein fertiges Business-
+# Video faelschlich als "nicht geprueft").
+GUELTIGE_VERSIONEN = {VERSION, '2026-10-13.1'}
 MINIMUM = 7
 GRUPPE = 1  # Ein Bild je Urteil: Lite vertauschte in der Liveprobe Bilder in Sechsergruppen.
 SCHEMA = {'type': 'OBJECT', 'properties': {'pruefung': {'type': 'ARRAY', 'items': {
@@ -175,7 +179,7 @@ def pruefen(video, skript, ablauf, ziel):
 
 
 def gruende(d, sha):
-    if not isinstance(d, dict) or d.get('version') != VERSION or d.get('video_sha256') != sha:
+    if not isinstance(d, dict) or d.get('version') not in GUELTIGE_VERSIONEN or d.get('video_sha256') != sha:
         return ['Bild-Text-Pruefung fehlt oder gehoert nicht zur aktuellen Videodatei']
     if d.get('ok') is not True or d.get('befunde') != [] or not d.get('pruefung'):
         return d.get('befunde') or ['Bild-Text-Pruefung nicht bestanden']

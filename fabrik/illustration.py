@@ -98,14 +98,14 @@ def haende_zaehlen(roh):
     return ''
 
 
-def pruefen(roh, szene, referenz=None, videoformat='short'):
+def pruefen(roh, szene, referenz=None, videoformat='short', satz=''):
     """Konkreter Bildbefund; fehlende Pruefung nimmt kein ungeprueftes Bild an."""
     if not os.environ.get('GEMINI_API_KEY'):
         return {'ok': False, 'grund': 'Bildpruefung nicht eingerichtet'}
     try:
         from skript import gemini, SEHEN
         bilder = [roh] + ([Path(referenz).read_bytes()] if referenz else [])
-        auftrag = (prompts.bildpruefung(szene, bool(referenz), videoformat),
+        auftrag = (prompts.bildpruefung(szene, bool(referenz), videoformat, satz),
                    {'type': 'OBJECT', 'properties': {'ok': {'type': 'BOOLEAN'}, 'grund': {'type': 'STRING'}},
                     'required': ['ok', 'grund']})
         try:
@@ -148,7 +148,7 @@ def referenz(kanal):
     return arbeit if arbeit.is_file() else FIGUREN / f'{kanal}.jpg'
 
 
-def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short'):
+def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short', satz=''):
     """Szene als Illustration (hochkant). figur=True: die feste Figur des Kanals per Referenzbild.
     Gibt den Pfad oder None zurueck."""
     if not os.environ.get('GEMINI_API_KEY'):
@@ -204,7 +204,7 @@ def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short'):
         except (OSError, ValueError):
             print('Ungueltige Bilddatei - kein Einsatz im Video')
             continue
-        bewertung = pruefen(roh, szene, ref, videoformat)
+        bewertung = pruefen(roh, szene, ref, videoformat, satz)
         # Fehlerbilder fuer echte Sichtkontrolle behalten, niemals als Videomaterial verwenden.
         if not bewertung['ok']:
             fehlerbild = Path(ziel).with_name(Path(ziel).stem + f'_abgelehnt_{v}.jpg')

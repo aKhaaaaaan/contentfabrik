@@ -376,8 +376,18 @@ def figur_in_szene(szene, korrektur='', videoformat='short'):
             + (f'Repair this visible defect while keeping the scene: {korrektur[:220]}.' if korrektur else ''))
 
 
-def bildpruefung(szene, referenz=False, videoformat='short'):
+def bildpruefung(szene, referenz=False, videoformat='short', satz=''):
+    # Nutzeraufgabe 15.10.2026 (Bilder muessen wortgenau passen): Bisher sah diese Pruefung nur die
+    # geplante Szene; erst die Schlusspruefung am fertigen Video verglich mit dem gesprochenen Satz.
+    # Ein Bild, das zur Szene, aber nicht zum Satz passte, kostete so den zweiten Bildversuch nicht -
+    # es fiel erst nach dem ganzen Bau durch. Gleiche Anfrage, kein zusaetzlicher Gemini-Aufruf.
+    gesprochen = ('This image is shown while the narrator says: ' + json.dumps(satz, ensure_ascii=False)
+                  + '. A viewer must see what these spoken words name (the narrated object, action, place '
+                    'or era); an image that fits the scene but not these words fails. Story illustrations '
+                    'are forbidden to show logos, lettering, written years or likenesses of real people, so '
+                    'never require a brand, date or recognizable founder. ' if satz.strip() else '')
     return ('TASK: Inspect the generated illustration actually supplied, not the desired prompt. '
+            + gesprochen
             + DATEN + 'Check that its visible subject, action, setting and era fit the requested '
               'scene; reject an attractive but unrelated image. Reject visible garbled/readable '
               'typography, numbers, signatures, watermarks or logos; recognizable copied video-game '

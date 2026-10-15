@@ -1304,7 +1304,7 @@ def nachbar_bild(aus, i, vorherige_id, gesperrt=()):
 FIGUR_EINSETZEN = {'moeglich': True}  # gilt fuer einen bauen.py-Prozess (= einen Bauversuch)
 
 
-def illustration_mit_ausweg(szene, ziel, kanal_slug, mit_figur, rand, videoformat, szene_zuerst=False):
+def illustration_mit_ausweg(szene, ziel, kanal_slug, mit_figur, rand, videoformat, szene_zuerst=False, satz=''):
     """Illustration; scheitert das Einsetzen der Kanalfigur, nicht das ganze Video verlieren.
 
     GEMESSEN 07.10.2026 (Run 37652008678, WeWork, Story 8/10): Figur in neue Szene
@@ -1315,7 +1315,7 @@ def illustration_mit_ausweg(szene, ziel, kanal_slug, mit_figur, rand, videoforma
     import illustration
     def versuch(figur):
         try:
-            return illustration.bild(szene, ziel, kanal_slug, figur=figur, videoformat=videoformat)
+            return illustration.bild(szene, ziel, kanal_slug, figur=figur, videoformat=videoformat, satz=satz)
         except Exception as e:  # nie den ganzen Videobau kippen
             print('Illustration nicht moeglich:', str(e)[:120])
             return None
@@ -1808,7 +1808,8 @@ def main(skript_pfad, aus, vorlage=None):
                     szene = f"Key visible subject (must be clearly shown): {t['motiv']}. {szene}"
                 ill = illustration_mit_ausweg(szene, aus / f'ill_{i:02d}.jpg', kanal_slug,
                                               t.get('figur', i == 0 or letzt), i == 0 or letzt,
-                                              dramaturgie.videoformat(s), szene_zuerst=not letzt)
+                                              dramaturgie.videoformat(s), szene_zuerst=not letzt,
+                                              satz='' if letzt else t['text'])
                 if not ill and not illustration.KONTINGENT_LEER.exists():
                     # GEMESSEN 09.10.2026 (Langvideo Netflix, 94 Einstellungen): 3 Bauabbrueche, weil
                     # Bilder scheiterten - meist Cloudflare „output flagged" (Zufall) oder Figur-Pose.

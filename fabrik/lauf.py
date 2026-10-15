@@ -201,7 +201,15 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     # Thema aus Telegram hat Vorrang (GEMELDET: eigene Themen einbringen)
     aus_warteschlange = not thema
     trend = None
-    if not thema:
+    vorrat_thema = None
+    if not thema and not entwurf:
+        import vorrat
+        vorrat_thema = vorrat.bereit(kanal_pfad)
+        if vorrat_thema is not None:
+            # Ein fertig geprueftes Skript schlaegt einen neuen, ungeprueften Versuch (15.10.2026).
+            print(f'Geprueftes Vorrat-Skript bereit ({vorrat_thema or "frei gewaehlt"}) - Trend-Check uebersprungen')
+            thema = vorrat_thema
+    if not thema and vorrat_thema is None:
         # GEMELDET 09.10.2026: Themen muessen aus Google Trends/YouTube-Viralem kommen.
         # Der Trend-Check waehlt unter Warteschlange + Trendfirmen; '' = freie Trendwahl.
         import trendcheck

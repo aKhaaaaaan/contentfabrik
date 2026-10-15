@@ -72,6 +72,33 @@ def gueltig(eintrag, daten, jetzt=None):
         return False
 
 
+def bereit(kanal_pfad):
+    """thema_eingabe des aeltesten nutzbaren Vorratsskripts ('' = frei gewaehlt) oder None.
+
+    GEMESSEN 15.10.2026 (Lauf 38703468700): Der Trend-Check waehlte Enron ohne Skript; Claude schrieb
+    fuenfmal Story 5-6 und der Lauf scheiterte, waehrend das gepruefte Coca-Cola-Skript (Story 8)
+    ungenutzt blieb. Die Nachtlaeufe schreiben bereits in Trend-Reihenfolge.
+    """
+    kanal = Path(kanal_pfad).stem
+    daten = _kanal_daten(kanal_pfad)
+    try:
+        import themen
+        offen = {x['thema'] for x in themen.laden() if x.get('kanal') == kanal
+                 and x.get('status', 'bereit') == 'bereit'}
+    except Exception:
+        return None
+    for _, e in eintraege(kanal):
+        thema = e.get('thema_eingabe') or ''
+        if not gueltig(e, daten) or (thema and thema not in offen):
+            continue
+        if not thema and daten.get('nur_quellen'):
+            import trends
+            if trends.bereits_gezeigte_quellen(kanal, e['skript']):
+                continue
+        return thema
+    return None
+
+
 def nehmen(kanal_pfad, thema=''):
     """Pfad eines Ordners mit skript.json fuer den Videolauf, oder None.
 

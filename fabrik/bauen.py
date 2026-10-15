@@ -779,6 +779,34 @@ def gif_bilder(ziel, anzahl=4):
         return []
 
 
+def bildteile(ziel):
+    """Breiten Screenshot in drei getrennte, nicht ueberlappende Bereiche teilen.
+
+    Nutzerentscheidung 15.10.2026: KI-Werkzeuge haben meist nur 2-6 README-Screenshots, das Video
+    braucht 18 Motive. Lauf 38703468700 fuellte die Luecke mit gemalten Laptop-Szenen (Pruefer
+    2/10). Jeder Bereich zeigt einen anderen Teil der echten Oberflaeche und passt ins Hochformat;
+    nie dieselbe Stelle zweimal. Hochformat/kleine Bilder bleiben ganz.
+    """
+    try:
+        with Image.open(ziel) as im:
+            if getattr(im, 'n_frames', 1) > 1:
+                return []
+            w, h = im.size
+            breite = w // 3
+            if w < 1.3 * h or breite < 300 or h < 270:
+                return []
+            rgb = bild_rgb(im)
+            aus = []
+            for k in range(3):
+                f = Path(ziel).with_name(f'{Path(ziel).name}_teil{k}.jpg')
+                if not f.exists():
+                    rgb.crop((k * breite, 0, (k + 1) * breite, h)).save(f, 'JPEG', quality=92)
+                aus.append(f)
+            return aus
+    except Exception:
+        return []
+
+
 def demo_fuer(url, satz='', benutzt=None, gewollt=None):
     """Echtes Anwendungsbeispiel von der Modellseite statt Symbol-Clip.
     GEMELDET (KI-Analyse 04.10.2026): „Keine echten Anwendungsbeispiele - nur
@@ -799,7 +827,7 @@ def demo_fuer(url, satz='', benutzt=None, gewollt=None):
     if m[2] == 'Qwen/Qwen-Image-2.1':
         kandidaten = [l for l in kandidaten if not l.endswith(('example-01.png', 'example-43.png'))]
     if gewollt:
-        kandidaten = [l for l in kandidaten if l == gewollt.split('#bild')[0]]
+        kandidaten = [l for l in kandidaten if l == gewollt.split('#')[0]]
     bilder, pfade = [], []
     PIXABAY_CACHE.mkdir(exist_ok=True)
     eintraege = []
@@ -813,14 +841,17 @@ def demo_fuer(url, satz='', benutzt=None, gewollt=None):
         frames = gif_bilder(ziel)
         # Jedes GIF-Standbild ist ein eigener Kandidat (eigene Kennung '#bildN'), damit
         # dieselbe Vorfuehrung mehrere verschiedene Einstellungen liefern kann.
+        teile = [] if frames else bildteile(ziel)
         eintraege += ([(f, f'{l}#bild{k}') for k, f in enumerate(frames)
-                       if f'{l}#bild{k}' not in (benutzt or set())] if frames else [(ziel, l)])
+                       if f'{l}#bild{k}' not in (benutzt or set())] if frames else
+                      [(f, f'{l}#teil{k}') for k, f in enumerate(teile)
+                       if f'{l}#teil{k}' not in (benutzt or set())] if teile else [(ziel, l)])
     if gewollt:
         eintraege = [e for e in eintraege if e[1] == gewollt]
     for ziel, l in eintraege:
         try:
             with Image.open(ziel) as im:
-                if im.width < 480 or im.height < 270:  # Vorschau-Schnipsel, Symbole
+                if (im.width < 480 and '#teil' not in l) or im.height < 270:  # Vorschau-Schnipsel, Symbole
                     continue
                 vorschau = bild_rgb(im)
                 if ('A' in im.getbands() or 'transparency' in im.info):

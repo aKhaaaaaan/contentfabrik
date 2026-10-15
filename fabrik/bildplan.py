@@ -176,8 +176,10 @@ def demo_material(s):
         for u in urls[:3]:
             medien = bauen.readme_medien(u) or []
             if medien:
+                # 15.10.2026: breite Screenshots liefern im Bau drei getrennte Bereiche (bauen.bildteile).
                 aus.append({'source_url': u, 'media': [{'file': l.rsplit('/', 1)[-1], 'alt': a,
-                                                        'animated': l.lower().endswith('.gif')}
+                                                        'animated': l.lower().endswith('.gif'),
+                                                        'region_crops_if_wide': 0 if l.lower().endswith('.gif') else 3}
                                                        for l, a in medien[:8]]})
     except Exception as e:  # Netz weg: Plan ohne Liste wie bisher
         print('README-Bilder nicht abrufbar:', str(e)[:100])
@@ -260,8 +262,10 @@ def vorbereiten(s, laengen, woerter, cache=None):
             # ein demo.gif mit genau den genannten Funktionen hatte.
             'TOOL DEMO MATERIAL lists real README images/animations of the tool. When it is not empty, '
             'every slot whose narration names a concrete feature, screen, output or result of the tool '
-            'MUST use demo (aim for at least a third of all slots); an animated demo yields several '
-            'different stills. Never show symbolic props (piggy banks, coins, keys, stamps, generic '
+            'MUST use demo (aim for at least half of all slots); an animated demo yields several '
+            'different stills and every wide static screenshot yields three different region crops '
+            '(left, centre, right part of the real interface), each usable once. A generic person at a '
+            'laptop never explains a software feature. Never show symbolic props (piggy banks, coins, keys, stamps, generic '
             'paperwork) for a concrete tool feature. Use illustration for the human problem, the hook, '
             'the presenter and the call to action.\n')
         kontext = {
@@ -324,7 +328,32 @@ def vorbereiten(s, laengen, woerter, cache=None):
         t['text'] = slot['text']
         t['_phase'] = slot['phase']
         aus.append(dict(slot, teil=t))
-    return aus, {'key': key, 'einstellungen': daten}
+    return demo_vorrang(aus, demo_material(s)), {'key': key, 'einstellungen': daten}
+
+
+def demo_vorrang(aus, material):
+    """Gemalte Szenen durch echte README-Bereiche ersetzen, solange welche verfuegbar sind.
+
+    GEMESSEN 15.10.2026: Lauf 38703468700 (FinceptTerminal) zeigte 11 gemalte Laptop-Szenen,
+    Pruefer 2/10. Auch mit neuem Auftrag plante das Modell nur 4x demo bei 15 echten Bereichen.
+    Feste Regel statt Modellgeschmack; die letzte Einstellung (Aufruf) bleibt frei, feste
+    Grafiken/Assets/Karten bleiben unberuehrt; die erste Einstellung bleibt der Kanalfigur. Welcher Bereich passt, waehlt bauen.demo_fuer.
+    """
+    if not material:
+        return aus
+    kapazitaet = sum(4 if m.get('animated') else (m.get('region_crops_if_wide') or 1)
+                     for q in material for m in q.get('media', []))
+    belegt = sum(1 for x in aus if x['teil'].get('bildmodus') == 'demo')
+    for x in aus[1:-1]:
+        if belegt >= kapazitaet:
+            break
+        t = x['teil']
+        # Kanalfigur am Anfang und wiederkehrend ist Nutzervorgabe (05.10.2026) - nie ersetzen.
+        if t.get('bildmodus') in ('illustration', 'stock', 'foto') and not t.get('figur'):
+            t['bildmodus'] = 'demo'
+            t['quelle_url'] = t.get('quelle_url') or material[0]['source_url']
+            belegt += 1
+    return aus
 
 
 def material_id(pfad):

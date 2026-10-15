@@ -185,9 +185,9 @@ def kritik(video, skript_pfad, aus):
         print('Identische KI-Videokritik wiederverwendet; lokale Pruefungen erneut ausgefuehrt')
     else:
         schluessel = os.environ['GEMINI_API_KEY']
-        if all(ki_speicher.sperre(schluessel, m) for m in skript_ki.MODELLE) and os.environ.get('GEMINI_API_KEY_RESERVE'):
+        if all(ki_speicher.sperre(schluessel, m) for m in skript_ki.MODELLE) and skript_ki.reserve_schluessel():
             # 15.10.2026: kostenloses Kontingent erschoepft -> Upload UND Kritik mit dem Reserve-Projekt.
-            schluessel = os.environ['GEMINI_API_KEY_RESERVE']
+            schluessel = skript_ki.reserve_schluessel()
         if all(ki_speicher.sperre(schluessel, m) for m in skript_ki.MODELLE):
             raise RuntimeError('Gemini-Videopruefung voruebergehend gesperrt; kein unnoetiger Video-Upload')
         datei = None

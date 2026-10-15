@@ -290,7 +290,7 @@ def _gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=()
     if schluessel == os.environ.get('GEMINI_API_KEY') and not dateien and reserve_noetig(letzter):
         print('Gemini: kostenloses Kontingent erschoepft - Reserve-Schluessel (bezahlt) wird genutzt', flush=True)
         return _gemini(prompt, schema, temperatur, bilder, modelle, dateien, cache, anfrage_s, antwort_s,
-                       schluessel=os.environ['GEMINI_API_KEY_RESERVE'])
+                       schluessel=reserve_schluessel())
     raise RuntimeError(f'Gemini nicht erreichbar: {letzter}')
 
 

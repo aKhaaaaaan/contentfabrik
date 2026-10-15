@@ -35392,6 +35392,1469 @@
         "zweitpruefer_modell": null,
         "zweitpruefer_anderer_anbieter": false
       }
+    },
+    {
+      "id": "38721176659.1:ai-tools-explained",
+      "run_id": "38721176659",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-15T10:47:32.870669+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "8137d92d003070f1024567b9e0b6e803420d6368",
+      "produktionsversion": "85db91c8fb14e41453a8b0bd48482da0f12df59a7e28329dac1018c4af22c5b9",
+      "videoformat": "short",
+      "thema": "FinceptTerminal",
+      "titel": [
+        "Free *Finance* *Terminal*",
+        "*Fincept* *Terminal* Explained"
+      ],
+      "status": "gesperrt",
+      "video_sha256": "4b94caeb9adff66ba1451f7f0087d4195432a41480618263e579d8f7a3adad76",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-13.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt allgemeine Aktien- und Marktdaten, aber keine spezifischen Datenkonnektoren für FRED, den IMF oder Yahoo Finance wie im Text genannt.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Erwähnung von Yahoo Finance und einer Paper-Trading-Engine ist auf dem Bild nicht direkt als Funktion oder Engine erkennbar, da nur allgemeine Finanzdaten angezeigt werden.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Die gezeigte Oberfläche zeigt Nodes und Datenflüsse, aber keinen Bezug zu AI-Agenten oder Schlüsseln.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Video zeigt nur einen Editor-Bildschirm mit Steuerungs-Knoten, während der gesprochene Text AI-Schlüssel von OpenAI, Anthropic oder Ollama erwähnt.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich die Repository-Ansicht und das Logo, während im gesprochenen Text über Kosten, Daten und LLM-Rechnungen pro Token gesprochen wird.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine News-Ansicht, während die Narration das Herunterladen eines Software-Release und das Budgetieren von Daten beschreibt.",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Oberfläche für Marktdaten, aber weder den Disclaimer bezüglich Finanzberatung noch eine direkte visuelle Erklärung des Themas.",
+        "Offenes Problem (schwer): Das Bild zeigt allgemeine Aktien- und Marktdaten, aber keine spezifischen Datenkonnektoren für FRED, den IMF oder Yahoo Finance wie im Text genannt. Korrektur: Eine Benutzeroberfläche oder Konfiguration, die die Konnektoren zu FRED, IMF und Yahoo Finance darstellt.",
+        "Offenes Problem (schwer): Die gesprochene Erwähnung von Yahoo Finance und einer Paper-Trading-Engine ist auf dem Bild nicht direkt als Funktion oder Engine erkennbar, da nur allgemeine Finanzdaten angezeigt werden. Korrektur: Ein Screenshot der Software, der die Integration von Yahoo Finance oder die Benutzeroberfläche der Paper-Trading-Engine zeigt.",
+        "Offenes Problem (schwer): Die gezeigte Oberfläche zeigt Nodes und Datenflüsse, aber keinen Bezug zu AI-Agenten oder Schlüsseln. Korrektur: Ein Einstellungsfenster oder Interface, in dem API-Schlüssel für AI-Dienste eingegeben werden können.",
+        "Offenes Problem (schwer): Das Video zeigt nur einen Editor-Bildschirm mit Steuerungs-Knoten, während der gesprochene Text AI-Schlüssel von OpenAI, Anthropic oder Ollama erwähnt. Korrektur: Eine Benutzeroberfläche oder ein Einstellungsmenü mit Eingabefeldern für API-Schlüssel der genannten AI-Anbieter.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich die Repository-Ansicht und das Logo, während im gesprochenen Text über Kosten, Daten und LLM-Rechnungen pro Token gesprochen wird. Korrektur: Eine Darstellung der Kostenaufstellung, Preisübersicht oder Dokumentation im Repository bezüglich der LLM-Token-Gebühren.",
+        "Offenes Problem (schwer): Das Bild zeigt eine News-Ansicht, während die Narration das Herunterladen eines Software-Release und das Budgetieren von Daten beschreibt. Korrektur: Ein Screenshot der Software-Release-Downloadseite oder ein entsprechender Download-Dialog.",
+        "Offenes Problem (schwer): Das Bild zeigt eine Software-Oberfläche für Marktdaten, aber weder den Disclaimer bezüglich Finanzberatung noch eine direkte visuelle Erklärung des Themas. Korrektur: Ein Textbild oder eine Ansicht mit einem deutlichen Hinweis 'Not financial advice' oder eine Zusammenfassung der Empfehlung."
+      ],
+      "einstellungen": 12,
+      "unterschiedliche_motive": 11,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38721176659",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-15",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 196.7,
+            "pruefung_s": 40.0,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen allgemeinen Nachrichten-Feed (mit Quellen wie BBC, Nikkei usw.), aber keine spezifischen Visualisierungen oder Erwähnungen der 100+ Connectors inklusive FRED oder IMF, die im gesprochenen Text genannt werden.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das gezeigte Terminal zeigt allgemeine Nachrichten und Marktmeldungen, aber kein konkretes Paper-Trading-Engine oder Benutzeroberflächenelement für den Papierhandel.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Es ist die Benutzeroberfläche der Software zu sehen, jedoch wird nicht spezifisch auf die 37 KI-Agenten oder die Notwendigkeit eigener API-Schlüssel eingegangen.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte erwähnen KI-Schlüssel wie OpenAI, Anthropic oder Ollama, während das Bild lediglich eine Software-Benutzeroberfläche mit Daten-Nodes zeigt, aber keinen Bezug zu API-Schlüsseln oder den genannten Anbietern herstellt.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Finanz-Benutzeroberfläche statt des genannten Code-Repositories oder Erklärungen zu LLM-Abrechnungen.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Oberfläche stellt eine Marktanalyse-App dar, aber das Herunterladen einer Version oder das Budgetieren für Daten wird visuell nicht gezeigt.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Phase erwähnt 'AI keys' und 'Not financial advice', zu sehen ist jedoch lediglich eine Nachrichtenansicht ohne Bezug zu API-Schlüsseln oder rechtlichen Hinweisen.",
+              "Offenes Problem (schwer): Das Bild zeigt einen allgemeinen Nachrichten-Feed (mit Quellen wie BBC, Nikkei usw.), aber keine spezifischen Visualisierungen oder Erwähnungen der 100+ Connectors inklusive FRED oder IMF, die im gesprochenen Text genannt werden. Korrektur: Ein Interface-Screenshot oder eine Übersicht, die explizit die Konnektoren oder Quellen wie FRED, IMF und Yahoo Finance in der Anwendung auflistet.",
+              "Offenes Problem (schwer): Das gezeigte Terminal zeigt allgemeine Nachrichten und Marktmeldungen, aber kein konkretes Paper-Trading-Engine oder Benutzeroberflächenelement für den Papierhandel. Korrektur: Ein Screenshot oder eine Benutzeroberfläche, die das Paper-Trading-Engine oder die Portfolio-Funktionen der Software zeigt.",
+              "Offenes Problem (schwer): Es ist die Benutzeroberfläche der Software zu sehen, jedoch wird nicht spezifisch auf die 37 KI-Agenten oder die Notwendigkeit eigener API-Schlüssel eingegangen. Korrektur: Ein Einstellungsfenster oder Interface-Bereich, der die Konfiguration von API-Schlüsseln für KI-Agenten (wie OpenAI oder Anthropic) im Fincept Terminal zeigt.",
+              "Offenes Problem (schwer): Die gesprochenen Worte erwähnen KI-Schlüssel wie OpenAI, Anthropic oder Ollama, während das Bild lediglich eine Software-Benutzeroberfläche mit Daten-Nodes zeigt, aber keinen Bezug zu API-Schlüsseln oder den genannten Anbietern herstellt. Korrektur: Ein Einstellungsfenster oder eine Code-Schnittstelle, in der API-Schlüssel für KI-Dienste eingegeben werden können.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Finanz-Benutzeroberfläche statt des genannten Code-Repositories oder Erklärungen zu LLM-Abrechnungen. Korrektur: Ein Screenshot eines Code-Repositories oder einer Dokumentationsseite, die Kosten, Open Source oder LLM-Token-Gebühren erwähnt.",
+              "Offenes Problem (schwer): Die gezeigte Oberfläche stellt eine Marktanalyse-App dar, aber das Herunterladen einer Version oder das Budgetieren für Daten wird visuell nicht gezeigt. Korrektur: Ein Bild eines Download-Fensters für eine Software-Releases-Version oder eine Installationsanleitung.",
+              "Offenes Problem (schwer): Die gesprochene Phase erwähnt 'AI keys' und 'Not financial advice', zu sehen ist jedoch lediglich eine Nachrichtenansicht ohne Bezug zu API-Schlüsseln oder rechtlichen Hinweisen. Korrektur: Ein Einstellungsmenü oder eine Konfigurationsmaske zur Eingabe von API-Schlüsseln für KI-Modelle."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.117,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 12,
+              "clips_und_stuecke": 146.7,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 12,
+                "motive": 12,
+                "motive_min": 8
+              },
+              "effekte": 20,
+              "rendern": 34.4,
+              "gesamt": 196.5,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.46,
+                7.48,
+                8.16,
+                7.34,
+                5.16,
+                6.58,
+                2.84
+              ],
+              "woerter": 102
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:14",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt einen allgemeinen Nachrichten-Feed (mit Quellen wie BBC, Nikkei usw.), aber keine spezifischen Visualisierungen oder Erwähnungen der 100+ Connectors inklusive FRED oder IMF, die im gesprochenen Text genannt werden. Korrektur: Ein Interface-Screenshot oder eine Übersicht, die explizit die Konnektoren oder Quellen wie FRED, IMF und Yahoo Finance in der Anwendung auflistet."
+              },
+              {
+                "zeit": "00:19",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das gezeigte Terminal zeigt allgemeine Nachrichten und Marktmeldungen, aber kein konkretes Paper-Trading-Engine oder Benutzeroberflächenelement für den Papierhandel. Korrektur: Ein Screenshot oder eine Benutzeroberfläche, die das Paper-Trading-Engine oder die Portfolio-Funktionen der Software zeigt."
+              },
+              {
+                "zeit": "00:23",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Es ist die Benutzeroberfläche der Software zu sehen, jedoch wird nicht spezifisch auf die 37 KI-Agenten oder die Notwendigkeit eigener API-Schlüssel eingegangen. Korrektur: Ein Einstellungsfenster oder Interface-Bereich, der die Konfiguration von API-Schlüsseln für KI-Agenten (wie OpenAI oder Anthropic) im Fincept Terminal zeigt."
+              },
+              {
+                "zeit": "00:26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die gesprochenen Worte erwähnen KI-Schlüssel wie OpenAI, Anthropic oder Ollama, während das Bild lediglich eine Software-Benutzeroberfläche mit Daten-Nodes zeigt, aber keinen Bezug zu API-Schlüsseln oder den genannten Anbietern herstellt. Korrektur: Ein Einstellungsfenster oder eine Code-Schnittstelle, in der API-Schlüssel für KI-Dienste eingegeben werden können."
+              },
+              {
+                "zeit": "00:30",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt eine Finanz-Benutzeroberfläche statt des genannten Code-Repositories oder Erklärungen zu LLM-Abrechnungen. Korrektur: Ein Screenshot eines Code-Repositories oder einer Dokumentationsseite, die Kosten, Open Source oder LLM-Token-Gebühren erwähnt."
+              },
+              {
+                "zeit": "00:35",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die gezeigte Oberfläche stellt eine Marktanalyse-App dar, aber das Herunterladen einer Version oder das Budgetieren für Daten wird visuell nicht gezeigt. Korrektur: Ein Bild eines Download-Fensters für eine Software-Releases-Version oder eine Installationsanleitung."
+              },
+              {
+                "zeit": "00:38",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die gesprochene Phase erwähnt 'AI keys' und 'Not financial advice', zu sehen ist jedoch lediglich eine Nachrichtenansicht ohne Bezug zu API-Schlüsseln oder rechtlichen Hinweisen. Korrektur: Ein Einstellungsmenü oder eine Konfigurationsmaske zur Eingabe von API-Schlüsseln für KI-Modelle."
+              }
+            ],
+            "sekunden": 236.8,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-13.2"
+            },
+            "skript_s": 2.8,
+            "bau_s": 159.3,
+            "pruefung_s": 37.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Die Benutzeroberfläche zeigt allgemeine Handelsvisualisierungen, aber keine spezifischen Tools für Portfolio-Optimierung oder VaR-Risikomaße.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich das Einstellungs- und Parameterfenster einer einzelnen Aktie (SPY) im Terminal, aber keine Visualisierung oder Liste von 100-plus Connectors oder Datenquellen wie FRED und IMF.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen Yahoo Finance und eine Paper-Trading-Engine, zu sehen ist jedoch nur ein GitHub-Repository-Vorschaubild ohne konkrete Datenquellen oder Handels-Engine.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich das GitHub-Repository der Software und keinen Bezug zu den erwähnten KI-Anbietern wie OpenAI, Anthropic oder Ollama, die im gesprochenen Satz genannt werden.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine illustrierte Person, die Grafikplatten hält, hat jedoch keinen Bezug zu Finanzsoftware, AI-Keys oder dem Satz 'Nicht als Finanzberatung gedacht'.",
+              "Offenes Problem (schwer): Die Benutzeroberfläche zeigt allgemeine Handelsvisualisierungen, aber keine spezifischen Tools für Portfolio-Optimierung oder VaR-Risikomaße. Korrektur: Ein Screenshot der Software, der explizit die Menüansicht oder ein Tool für Portfolio-Optimierung und VaR-Risikomaße darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich das Einstellungs- und Parameterfenster einer einzelnen Aktie (SPY) im Terminal, aber keine Visualisierung oder Liste von 100-plus Connectors oder Datenquellen wie FRED und IMF. Korrektur: Ein Screenshot oder eine Benutzeroberfläche, die die Liste der 100-plus Daten-Connectors oder Quellen wie FRED und IMF im Fincept Terminal anzeigt.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen Yahoo Finance und eine Paper-Trading-Engine, zu sehen ist jedoch nur ein GitHub-Repository-Vorschaubild ohne konkrete Datenquellen oder Handels-Engine. Korrektur: Ein Screenshot der Anwendung, der die Datenquellen wie Yahoo Finance oder die Benutzeroberfläche der Paper-Trading-Engine zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich das GitHub-Repository der Software und keinen Bezug zu den erwähnten KI-Anbietern wie OpenAI, Anthropic oder Ollama, die im gesprochenen Satz genannt werden. Korrektur: Ein Screenshot oder eine Grafik, die die Einstellungen für API-Schlüssel oder die Logos von OpenAI, Anthropic oder Ollama im Kontext der Software zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine illustrierte Person, die Grafikplatten hält, hat jedoch keinen Bezug zu Finanzsoftware, AI-Keys oder dem Satz 'Nicht als Finanzberatung gedacht'. Korrektur: Ein Screenshot der App-Oberfläche mit einer Warnhinweis-Meldung oder dem Hinweis auf AI-Schlüssel."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.117,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 1,
+              "stuecke_neu": 11,
+              "clips_und_stuecke": 118.6,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 12,
+                "motive": 10,
+                "motive_min": 8
+              },
+              "effekte": 17,
+              "rendern": 35.7,
+              "gesamt": 159.1,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.46,
+                7.48,
+                8.16,
+                7.34,
+                5.16,
+                6.58,
+                2.84
+              ],
+              "woerter": 102
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:11",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die Benutzeroberfläche zeigt allgemeine Handelsvisualisierungen, aber keine spezifischen Tools für Portfolio-Optimierung oder VaR-Risikomaße. Korrektur: Ein Screenshot der Software, der explizit die Menüansicht oder ein Tool für Portfolio-Optimierung und VaR-Risikomaße darstellt."
+              },
+              {
+                "zeit": "00:14",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt lediglich das Einstellungs- und Parameterfenster einer einzelnen Aktie (SPY) im Terminal, aber keine Visualisierung oder Liste von 100-plus Connectors oder Datenquellen wie FRED und IMF. Korrektur: Ein Screenshot oder eine Benutzeroberfläche, die die Liste der 100-plus Daten-Connectors oder Quellen wie FRED und IMF im Fincept Terminal anzeigt."
+              },
+              {
+                "zeit": "00:19",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die gesprochenen Wörter erwähnen Yahoo Finance und eine Paper-Trading-Engine, zu sehen ist jedoch nur ein GitHub-Repository-Vorschaubild ohne konkrete Datenquellen oder Handels-Engine. Korrektur: Ein Screenshot der Anwendung, der die Datenquellen wie Yahoo Finance oder die Benutzeroberfläche der Paper-Trading-Engine zeigt."
+              },
+              {
+                "zeit": "00:26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt lediglich das GitHub-Repository der Software und keinen Bezug zu den erwähnten KI-Anbietern wie OpenAI, Anthropic oder Ollama, die im gesprochenen Satz genannt werden. Korrektur: Ein Screenshot oder eine Grafik, die die Einstellungen für API-Schlüssel oder die Logos von OpenAI, Anthropic oder Ollama im Kontext der Software zeigt."
+              },
+              {
+                "zeit": "00:38",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt eine illustrierte Person, die Grafikplatten hält, hat jedoch keinen Bezug zu Finanzsoftware, AI-Keys oder dem Satz 'Nicht als Finanzberatung gedacht'. Korrektur: Ein Screenshot der App-Oberfläche mit einer Warnhinweis-Meldung oder dem Hinweis auf AI-Schlüssel."
+              }
+            ],
+            "sekunden": 199.4,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "38721176659-2",
+              "datum": "2026-10-15",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 199.4,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-13.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                1,
+                2,
+                3,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-13.2"
+            },
+            "skript_s": 3.8,
+            "bau_s": 190.4,
+            "pruefung_s": 45.9,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt allgemeine Aktien- und Marktdaten, aber keine spezifischen Datenkonnektoren für FRED, den IMF oder Yahoo Finance wie im Text genannt.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Erwähnung von Yahoo Finance und einer Paper-Trading-Engine ist auf dem Bild nicht direkt als Funktion oder Engine erkennbar, da nur allgemeine Finanzdaten angezeigt werden.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Die gezeigte Oberfläche zeigt Nodes und Datenflüsse, aber keinen Bezug zu AI-Agenten oder Schlüsseln.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Video zeigt nur einen Editor-Bildschirm mit Steuerungs-Knoten, während der gesprochene Text AI-Schlüssel von OpenAI, Anthropic oder Ollama erwähnt.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich die Repository-Ansicht und das Logo, während im gesprochenen Text über Kosten, Daten und LLM-Rechnungen pro Token gesprochen wird.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine News-Ansicht, während die Narration das Herunterladen eines Software-Release und das Budgetieren von Daten beschreibt.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Oberfläche für Marktdaten, aber weder den Disclaimer bezüglich Finanzberatung noch eine direkte visuelle Erklärung des Themas.",
+              "Offenes Problem (schwer): Das Bild zeigt allgemeine Aktien- und Marktdaten, aber keine spezifischen Datenkonnektoren für FRED, den IMF oder Yahoo Finance wie im Text genannt. Korrektur: Eine Benutzeroberfläche oder Konfiguration, die die Konnektoren zu FRED, IMF und Yahoo Finance darstellt.",
+              "Offenes Problem (schwer): Die gesprochene Erwähnung von Yahoo Finance und einer Paper-Trading-Engine ist auf dem Bild nicht direkt als Funktion oder Engine erkennbar, da nur allgemeine Finanzdaten angezeigt werden. Korrektur: Ein Screenshot der Software, der die Integration von Yahoo Finance oder die Benutzeroberfläche der Paper-Trading-Engine zeigt.",
+              "Offenes Problem (schwer): Die gezeigte Oberfläche zeigt Nodes und Datenflüsse, aber keinen Bezug zu AI-Agenten oder Schlüsseln. Korrektur: Ein Einstellungsfenster oder Interface, in dem API-Schlüssel für AI-Dienste eingegeben werden können.",
+              "Offenes Problem (schwer): Das Video zeigt nur einen Editor-Bildschirm mit Steuerungs-Knoten, während der gesprochene Text AI-Schlüssel von OpenAI, Anthropic oder Ollama erwähnt. Korrektur: Eine Benutzeroberfläche oder ein Einstellungsmenü mit Eingabefeldern für API-Schlüssel der genannten AI-Anbieter.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich die Repository-Ansicht und das Logo, während im gesprochenen Text über Kosten, Daten und LLM-Rechnungen pro Token gesprochen wird. Korrektur: Eine Darstellung der Kostenaufstellung, Preisübersicht oder Dokumentation im Repository bezüglich der LLM-Token-Gebühren.",
+              "Offenes Problem (schwer): Das Bild zeigt eine News-Ansicht, während die Narration das Herunterladen eines Software-Release und das Budgetieren von Daten beschreibt. Korrektur: Ein Screenshot der Software-Release-Downloadseite oder ein entsprechender Download-Dialog.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Software-Oberfläche für Marktdaten, aber weder den Disclaimer bezüglich Finanzberatung noch eine direkte visuelle Erklärung des Themas. Korrektur: Ein Textbild oder eine Ansicht mit einem deutlichen Hinweis 'Not financial advice' oder eine Zusammenfassung der Empfehlung."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.117,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 12,
+              "clips_und_stuecke": 148.4,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 12,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 20,
+              "rendern": 34.6,
+              "gesamt": 190.2,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.46,
+                7.48,
+                8.16,
+                7.34,
+                5.16,
+                6.58,
+                2.84
+              ],
+              "woerter": 102
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:14",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt allgemeine Aktien- und Marktdaten, aber keine spezifischen Datenkonnektoren für FRED, den IMF oder Yahoo Finance wie im Text genannt. Korrektur: Eine Benutzeroberfläche oder Konfiguration, die die Konnektoren zu FRED, IMF und Yahoo Finance darstellt."
+              },
+              {
+                "zeit": "00:19",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die gesprochene Erwähnung von Yahoo Finance und einer Paper-Trading-Engine ist auf dem Bild nicht direkt als Funktion oder Engine erkennbar, da nur allgemeine Finanzdaten angezeigt werden. Korrektur: Ein Screenshot der Software, der die Integration von Yahoo Finance oder die Benutzeroberfläche der Paper-Trading-Engine zeigt."
+              },
+              {
+                "zeit": "00:23",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die gezeigte Oberfläche zeigt Nodes und Datenflüsse, aber keinen Bezug zu AI-Agenten oder Schlüsseln. Korrektur: Ein Einstellungsfenster oder Interface, in dem API-Schlüssel für AI-Dienste eingegeben werden können."
+              },
+              {
+                "zeit": "00:26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Video zeigt nur einen Editor-Bildschirm mit Steuerungs-Knoten, während der gesprochene Text AI-Schlüssel von OpenAI, Anthropic oder Ollama erwähnt. Korrektur: Eine Benutzeroberfläche oder ein Einstellungsmenü mit Eingabefeldern für API-Schlüssel der genannten AI-Anbieter."
+              },
+              {
+                "zeit": "00:30",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt lediglich die Repository-Ansicht und das Logo, während im gesprochenen Text über Kosten, Daten und LLM-Rechnungen pro Token gesprochen wird. Korrektur: Eine Darstellung der Kostenaufstellung, Preisübersicht oder Dokumentation im Repository bezüglich der LLM-Token-Gebühren."
+              },
+              {
+                "zeit": "00:35",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt eine News-Ansicht, während die Narration das Herunterladen eines Software-Release und das Budgetieren von Daten beschreibt. Korrektur: Ein Screenshot der Software-Release-Downloadseite oder ein entsprechender Download-Dialog."
+              },
+              {
+                "zeit": "00:38",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt eine Software-Oberfläche für Marktdaten, aber weder den Disclaimer bezüglich Finanzberatung noch eine direkte visuelle Erklärung des Themas. Korrektur: Ein Textbild oder eine Ansicht mit einem deutlichen Hinweis 'Not financial advice' oder eine Zusammenfassung der Empfehlung."
+              }
+            ],
+            "sekunden": 240.0,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "38721176659-3",
+              "datum": "2026-10-15",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 240.0,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-13.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Video-Note fehlt oder ist ungueltig; Video-Bewertung hook fehlt oder ist ungueltig; Video-bild_passt 2/10 unter 7/10; Video-Bewertung dynamik fehlt oder ist ungueltig; Video-Bewertung text fehlt oder ist ungueltig; Video-Bewertung ton_stimme fehlt oder ist ungueltig; Video-Bewertung tempo fehlt oder ist ungueltig; Video-Bewertung inhalt fehlt oder ist ungueltig; Video-Bewertung schluss_loop fehlt oder ist ungueltig; Video-Bewertung regeln fehlt oder ist ungueltig; Video-Bewertung story fehlt oder ist ungueltig; Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt allgemeine Aktien- und Marktdaten, aber keine spezifischen Datenkonnektoren für FRED, den IMF oder Yahoo Finance wie im Text genannt.; Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Erwähnung von Yahoo Finance und einer Paper-Trading-Engine ist auf dem Bild nicht direkt als Funktion oder Engine erkennbar, da nur allgemeine Finanzdaten angezeigt werden.; Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Die gezeigte Oberfläche zeigt Nodes und Datenflüsse, aber keinen Bezug zu AI-Agenten oder Schlüsseln.; Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Video zeigt nur einen Editor-Bildschirm mit Steuerungs-Knoten, während der gesprochene Text AI-Schlüssel von OpenAI, Anthropic oder Ollama erwähnt.; Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich die Repository-Ansicht und das Logo, während im gesprochenen Text über Kosten, Daten und LLM-Rechnungen pro Token gesprochen wird.; Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine News-Ansicht, während die Narration das Herunterladen eines Software-Release und das Budgetieren von Daten beschreibt.; Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Oberfläche für Marktdaten, aber weder den Disclaimer bezüglich Finanzberatung noch eine direkte visuelle Erklärung des Themas.; Offenes Problem (schwer): Das Bild zeigt allgemeine Aktien- und Marktdaten, aber keine spezifischen Datenkonnektoren für FRED, den IMF oder Yahoo Finance wie im Text genannt. Korrektur: Eine Benutzeroberfläche oder Konfiguration, die die Konnektoren zu FRED, IMF und Yahoo Finance darstellt.; Offenes Problem (schwer): Die gesprochene Erwähnung von Yahoo Finance und einer Paper-Trading-Engine ist auf dem Bild nicht direkt als Funktion oder Engine erkennbar, da nur allgemeine Finanzdaten angezeigt werden. Korrektur: Ein Screenshot der Software, der die Integration von Yahoo Finance oder die Benutzeroberfläche der Paper-Trading-Engine zeigt.; Offenes Problem (schwer): Die gezeigte Oberfläche zeigt Nodes und Datenflüsse, aber keinen Bezug zu AI-Agenten oder Schlüsseln. Korrektur: Ein Einstellungsfenster oder Interface, in dem API-Schlüssel für AI-Dienste eingegeben werden können.; Offenes Problem (schwer): Das Video zeigt nur einen Editor-Bildschirm mit Steuerungs-Knoten, während der gesprochene Text AI-Schlüssel von OpenAI, Anthropic oder Ollama erwähnt. Korrektur: Eine Benutzeroberfläche oder ein Einstellungsmenü mit Eingabefeldern für API-Schlüssel der genannten AI-Anbieter.; Offenes Problem (schwer): Das Bild zeigt lediglich die Repository-Ansicht und das Logo, während im gesprochenen Text über Kosten, Daten und LLM-Rechnungen pro Token gesprochen wird. Korrektur: Eine Darstellung der Kostenaufstellung, Preisübersicht oder Dokumentation im Repository bezüglich der LLM-Token-Gebühren.; Offenes Problem (schwer): Das Bild zeigt eine News-Ansicht, während die Narration das Herunterladen eines Software-Release und das Budgetieren von Daten beschreibt. Korrektur: Ein Screenshot der Software-Release-Downloadseite oder ein entsprechender Download-Dialog.; Offenes Problem (schwer): Das Bild zeigt eine Software-Oberfläche für Marktdaten, aber weder den Disclaimer bezüglich Finanzberatung noch eine direkte visuelle Erklärung des Themas. Korrektur: Ein Textbild oder eine Ansicht mit einem deutlichen Hinweis 'Not financial advice' oder eine Zusammenfassung der Empfehlung.",
+        "sekunden": 712.1,
+        "upload_titel": "Free Finance Terminal: Fincept Terminal Explained | AI Tool #5"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:14",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt allgemeine Aktien- und Marktdaten, aber keine spezifischen Datenkonnektoren für FRED, den IMF oder Yahoo Finance wie im Text genannt. Korrektur: Eine Benutzeroberfläche oder Konfiguration, die die Konnektoren zu FRED, IMF und Yahoo Finance darstellt."
+          },
+          {
+            "zeit": "00:19",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die gesprochene Erwähnung von Yahoo Finance und einer Paper-Trading-Engine ist auf dem Bild nicht direkt als Funktion oder Engine erkennbar, da nur allgemeine Finanzdaten angezeigt werden. Korrektur: Ein Screenshot der Software, der die Integration von Yahoo Finance oder die Benutzeroberfläche der Paper-Trading-Engine zeigt."
+          },
+          {
+            "zeit": "00:23",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die gezeigte Oberfläche zeigt Nodes und Datenflüsse, aber keinen Bezug zu AI-Agenten oder Schlüsseln. Korrektur: Ein Einstellungsfenster oder Interface, in dem API-Schlüssel für AI-Dienste eingegeben werden können."
+          },
+          {
+            "zeit": "00:26",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Video zeigt nur einen Editor-Bildschirm mit Steuerungs-Knoten, während der gesprochene Text AI-Schlüssel von OpenAI, Anthropic oder Ollama erwähnt. Korrektur: Eine Benutzeroberfläche oder ein Einstellungsmenü mit Eingabefeldern für API-Schlüssel der genannten AI-Anbieter."
+          },
+          {
+            "zeit": "00:30",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt lediglich die Repository-Ansicht und das Logo, während im gesprochenen Text über Kosten, Daten und LLM-Rechnungen pro Token gesprochen wird. Korrektur: Eine Darstellung der Kostenaufstellung, Preisübersicht oder Dokumentation im Repository bezüglich der LLM-Token-Gebühren."
+          },
+          {
+            "zeit": "00:35",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt eine News-Ansicht, während die Narration das Herunterladen eines Software-Release und das Budgetieren von Daten beschreibt. Korrektur: Ein Screenshot der Software-Release-Downloadseite oder ein entsprechender Download-Dialog."
+          },
+          {
+            "zeit": "00:38",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt eine Software-Oberfläche für Marktdaten, aber weder den Disclaimer bezüglich Finanzberatung noch eine direkte visuelle Erklärung des Themas. Korrektur: Ein Textbild oder eine Ansicht mit einem deutlichen Hinweis 'Not financial advice' oder eine Zusammenfassung der Empfehlung."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -14.7,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 42.58,
+              "bis_s": 44.52,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.991
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Can",
+                "s": 0.0,
+                "e": 0.32,
+                "p": 0.8881720900535583
+              },
+              {
+                "w": "a",
+                "s": 0.32,
+                "e": 0.44,
+                "p": 0.9962360262870789
+              },
+              {
+                "w": "free",
+                "s": 0.44,
+                "e": 0.76,
+                "p": 0.9048619866371155
+              },
+              {
+                "w": "app",
+                "s": 0.76,
+                "e": 1.2,
+                "p": 0.8215477466583252
+              },
+              {
+                "w": "handle",
+                "s": 1.2,
+                "e": 1.72,
+                "p": 0.9993240833282471
+              },
+              {
+                "w": "market",
+                "s": 1.72,
+                "e": 2.04,
+                "p": 0.9864532351493835
+              },
+              {
+                "w": "research?",
+                "s": 2.04,
+                "e": 2.54,
+                "p": 0.9985955357551575
+              },
+              {
+                "w": "FinSEP",
+                "s": 3.3,
+                "e": 3.82,
+                "p": 0.46476254363854724
+              },
+              {
+                "w": "Terminal's",
+                "s": 3.82,
+                "e": 4.44,
+                "p": 0.7507235109806061
+              },
+              {
+                "w": "Open",
+                "s": 4.44,
+                "e": 4.68,
+                "p": 0.8158735632896423
+              },
+              {
+                "w": "Edition",
+                "s": 4.68,
+                "e": 4.94,
+                "p": 0.9069588780403137
+              },
+              {
+                "w": "is",
+                "s": 4.94,
+                "e": 5.44,
+                "p": 0.9911177158355713
+              },
+              {
+                "w": "free",
+                "s": 5.44,
+                "e": 5.74,
+                "p": 0.9896708130836487
+              },
+              {
+                "w": "for",
+                "s": 5.74,
+                "e": 6.06,
+                "p": 0.9987332224845886
+              },
+              {
+                "w": "personal",
+                "s": 6.06,
+                "e": 6.42,
+                "p": 0.9973095655441284
+              },
+              {
+                "w": "use.",
+                "s": 6.42,
+                "e": 6.74,
+                "p": 0.9984373450279236
+              },
+              {
+                "w": "It's",
+                "s": 7.48,
+                "e": 7.56,
+                "p": 0.9829993844032288
+              },
+              {
+                "w": "a",
+                "s": 7.56,
+                "e": 7.62,
+                "p": 0.998350977897644
+              },
+              {
+                "w": "desktop",
+                "s": 7.62,
+                "e": 7.86,
+                "p": 0.965016782283783
+              },
+              {
+                "w": "app",
+                "s": 7.86,
+                "e": 8.36,
+                "p": 0.9956100583076477
+              },
+              {
+                "w": "with",
+                "s": 8.36,
+                "e": 8.64,
+                "p": 0.9458099603652954
+              },
+              {
+                "w": "built",
+                "s": 8.64,
+                "e": 8.82,
+                "p": 0.9985199570655823
+              },
+              {
+                "w": "-in",
+                "s": 8.82,
+                "e": 9.12,
+                "p": 0.9759129583835602
+              },
+              {
+                "w": "tools",
+                "s": 9.12,
+                "e": 9.4,
+                "p": 0.9985648989677429
+              },
+              {
+                "w": "for",
+                "s": 9.4,
+                "e": 9.78,
+                "p": 0.9982391595840454
+              },
+              {
+                "w": "DCF",
+                "s": 9.78,
+                "e": 10.36,
+                "p": 0.9400182366371155
+              },
+              {
+                "w": "valuation,",
+                "s": 10.36,
+                "e": 10.78,
+                "p": 0.9649099707603455
+              },
+              {
+                "w": "portfolio",
+                "s": 11.56,
+                "e": 11.72,
+                "p": 0.986120343208313
+              },
+              {
+                "w": "optimization,",
+                "s": 11.72,
+                "e": 12.3,
+                "p": 0.9852240085601807
+              },
+              {
+                "w": "and",
+                "s": 13.08,
+                "e": 13.12,
+                "p": 0.9987566471099854
+              },
+              {
+                "w": "var",
+                "s": 13.12,
+                "e": 13.36,
+                "p": 0.42287564277648926
+              },
+              {
+                "w": "risk",
+                "s": 13.36,
+                "e": 13.74,
+                "p": 0.8774591684341431
+              },
+              {
+                "w": "measures.",
+                "s": 13.74,
+                "e": 14.08,
+                "p": 0.9876533150672913
+              },
+              {
+                "w": "Data",
+                "s": 15.0,
+                "e": 15.16,
+                "p": 0.9253976941108704
+              },
+              {
+                "w": "comes",
+                "s": 15.16,
+                "e": 15.58,
+                "p": 0.9979782700538635
+              },
+              {
+                "w": "from",
+                "s": 15.58,
+                "e": 15.84,
+                "p": 0.9977118968963623
+              },
+              {
+                "w": "100",
+                "s": 15.84,
+                "e": 16.18,
+                "p": 0.967384397983551
+              },
+              {
+                "w": "plus",
+                "s": 16.18,
+                "e": 16.64,
+                "p": 0.2819044888019562
+              },
+              {
+                "w": "connectors,",
+                "s": 16.64,
+                "e": 17.08,
+                "p": 0.9923123717308044
+              },
+              {
+                "w": "including",
+                "s": 17.56,
+                "e": 17.84,
+                "p": 0.9993150234222412
+              },
+              {
+                "w": "Fred,",
+                "s": 17.84,
+                "e": 18.14,
+                "p": 0.6461660861968994
+              },
+              {
+                "w": "the",
+                "s": 18.68,
+                "e": 18.7,
+                "p": 0.9907208681106567
+              },
+              {
+                "w": "IMF",
+                "s": 18.7,
+                "e": 19.04,
+                "p": 0.9780318140983582
+              },
+              {
+                "w": "and",
+                "s": 19.04,
+                "e": 19.6,
+                "p": 0.5881279110908508
+              },
+              {
+                "w": "Yahoo",
+                "s": 19.6,
+                "e": 19.8,
+                "p": 0.9965589642524719
+              },
+              {
+                "w": "Finance,",
+                "s": 19.8,
+                "e": 20.3,
+                "p": 0.9320027232170105
+              },
+              {
+                "w": "and",
+                "s": 20.84,
+                "e": 21.0,
+                "p": 0.9986067414283752
+              },
+              {
+                "w": "a",
+                "s": 21.0,
+                "e": 21.1,
+                "p": 0.9946584105491638
+              },
+              {
+                "w": "paper",
+                "s": 21.1,
+                "e": 21.34,
+                "p": 0.980072021484375
+              },
+              {
+                "w": "trading",
+                "s": 21.34,
+                "e": 21.76,
+                "p": 0.8298592567443848
+              },
+              {
+                "w": "engine.",
+                "s": 21.76,
+                "e": 22.14,
+                "p": 0.9982957243919373
+              },
+              {
+                "w": "Catch?",
+                "s": 23.02,
+                "e": 23.36,
+                "p": 0.8987681269645691
+              },
+              {
+                "w": "It's",
+                "s": 24.12,
+                "e": 24.3,
+                "p": 0.7352443635463715
+              },
+              {
+                "w": "37",
+                "s": 24.3,
+                "e": 24.66,
+                "p": 0.9942305088043213
+              },
+              {
+                "w": "AI",
+                "s": 24.66,
+                "e": 25.26,
+                "p": 0.9075725674629211
+              },
+              {
+                "w": "agents",
+                "s": 25.26,
+                "e": 25.82,
+                "p": 0.977523922920227
+              },
+              {
+                "w": "need",
+                "s": 25.82,
+                "e": 26.1,
+                "p": 0.9937357902526855
+              },
+              {
+                "w": "your",
+                "s": 26.1,
+                "e": 26.32,
+                "p": 0.9946584105491638
+              },
+              {
+                "w": "own",
+                "s": 26.32,
+                "e": 26.54,
+                "p": 0.999505877494812
+              },
+              {
+                "w": "key,",
+                "s": 26.54,
+                "e": 26.78,
+                "p": 0.9965835809707642
+              },
+              {
+                "w": "G,",
+                "s": 26.78,
+                "e": 26.78,
+                "p": 0.03570999950170517
+              },
+              {
+                "w": "like",
+                "s": 27.16,
+                "e": 27.38,
+                "p": 0.9175819158554077
+              },
+              {
+                "w": "OpenAI,",
+                "s": 27.38,
+                "e": 27.9,
+                "p": 0.884981781244278
+              },
+              {
+                "w": "Anthropic,",
+                "s": 28.62,
+                "e": 28.98,
+                "p": 0.5142509043216705
+              },
+              {
+                "w": "or",
+                "s": 29.28,
+                "e": 29.28,
+                "p": 0.9453909397125244
+              },
+              {
+                "w": "Olama.",
+                "s": 29.28,
+                "e": 29.86,
+                "p": 0.48786450425783795
+              },
+              {
+                "w": "The",
+                "s": 30.38,
+                "e": 30.44,
+                "p": 0.965154767036438
+              },
+              {
+                "w": "repo",
+                "s": 30.44,
+                "e": 30.58,
+                "p": 0.9335774779319763
+              },
+              {
+                "w": "says",
+                "s": 30.58,
+                "e": 30.96,
+                "p": 0.9953269958496094
+              },
+              {
+                "w": "the",
+                "s": 30.96,
+                "e": 31.18,
+                "p": 0.9028677940368652
+              },
+              {
+                "w": "cost",
+                "s": 31.18,
+                "e": 31.42,
+                "p": 0.9967572093009949
+              },
+              {
+                "w": "is",
+                "s": 31.42,
+                "e": 31.7,
+                "p": 0.995219886302948
+              },
+              {
+                "w": "your",
+                "s": 31.7,
+                "e": 31.88,
+                "p": 0.9924178123474121
+              },
+              {
+                "w": "own",
+                "s": 31.88,
+                "e": 32.04,
+                "p": 0.9929549098014832
+              },
+              {
+                "w": "data",
+                "s": 32.04,
+                "e": 32.28,
+                "p": 0.8851878046989441
+              },
+              {
+                "w": "and",
+                "s": 32.28,
+                "e": 32.64,
+                "p": 0.9839016795158386
+              },
+              {
+                "w": "LLM",
+                "s": 32.64,
+                "e": 33.22,
+                "p": 0.9755678474903107
+              },
+              {
+                "w": "bills",
+                "s": 33.22,
+                "e": 33.44,
+                "p": 0.8411234021186829
+              },
+              {
+                "w": "charged",
+                "s": 33.44,
+                "e": 34.02,
+                "p": 0.5262861847877502
+              },
+              {
+                "w": "per",
+                "s": 34.02,
+                "e": 34.44,
+                "p": 0.9688040614128113
+              },
+              {
+                "w": "token.",
+                "s": 34.44,
+                "e": 34.7,
+                "p": 0.9988665580749512
+              },
+              {
+                "w": "Yes",
+                "s": 35.56,
+                "e": 35.78,
+                "p": 0.9795963764190674
+              },
+              {
+                "w": "for",
+                "s": 35.78,
+                "e": 35.96,
+                "p": 0.6160890460014343
+              },
+              {
+                "w": "learning,",
+                "s": 35.96,
+                "e": 36.16,
+                "p": 0.9747110605239868
+              },
+              {
+                "w": "download",
+                "s": 36.74,
+                "e": 36.9,
+                "p": 0.990479052066803
+              },
+              {
+                "w": "a",
+                "s": 36.9,
+                "e": 37.2,
+                "p": 0.6442441940307617
+              },
+              {
+                "w": "release,",
+                "s": 37.2,
+                "e": 37.42,
+                "p": 0.9985604882240295
+              },
+              {
+                "w": "but",
+                "s": 37.94,
+                "e": 38.02,
+                "p": 0.9944286346435547
+              },
+              {
+                "w": "budget",
+                "s": 38.02,
+                "e": 38.28,
+                "p": 0.9916945099830627
+              },
+              {
+                "w": "for",
+                "s": 38.28,
+                "e": 38.54,
+                "p": 0.9975948929786682
+              },
+              {
+                "w": "data",
+                "s": 38.54,
+                "e": 38.8,
+                "p": 0.9846723675727844
+              },
+              {
+                "w": "and",
+                "s": 38.8,
+                "e": 39.14,
+                "p": 0.9955834746360779
+              },
+              {
+                "w": "AI",
+                "s": 39.14,
+                "e": 39.42,
+                "p": 0.9674322605133057
+              },
+              {
+                "w": "keys.",
+                "s": 39.42,
+                "e": 39.8,
+                "p": 0.9063668251037598
+              },
+              {
+                "w": "Not",
+                "s": 40.7,
+                "e": 40.78,
+                "p": 0.9705249071121216
+              },
+              {
+                "w": "financial",
+                "s": 40.78,
+                "e": 41.04,
+                "p": 0.9935619831085205
+              },
+              {
+                "w": "advice.",
+                "s": 41.04,
+                "e": 41.48,
+                "p": 0.9956573247909546
+              },
+              {
+                "w": "Be",
+                "s": 42.26,
+                "e": 42.34,
+                "p": 0.9951075315475464
+              },
+              {
+                "w": "sure",
+                "s": 42.34,
+                "e": 42.48,
+                "p": 0.9989509582519531
+              },
+              {
+                "w": "to",
+                "s": 42.48,
+                "e": 42.58,
+                "p": 0.9957377910614014
+              },
+              {
+                "w": "like,",
+                "s": 42.58,
+                "e": 42.78,
+                "p": 0.9594799876213074
+              },
+              {
+                "w": "share,",
+                "s": 43.02,
+                "e": 43.3,
+                "p": 0.9974101185798645
+              },
+              {
+                "w": "and",
+                "s": 43.68,
+                "e": 43.76,
+                "p": 0.998654842376709
+              },
+              {
+                "w": "save",
+                "s": 43.76,
+                "e": 44.02,
+                "p": 0.9960640072822571
+              },
+              {
+                "w": "this",
+                "s": 44.02,
+                "e": 44.24,
+                "p": 0.9934752583503723
+              },
+              {
+                "w": "video.",
+                "s": 44.24,
+                "e": 44.52,
+                "p": 0.9993616938591003
+              }
+            ],
+            "dauer_s": 44.8853125,
+            "sprache": "en"
+          },
+          "roh_key": "3aa2dcdb904ca61a6b06ba8b5e68ae50ba6ddfcb5580a75b9457eea4adf87d45",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "4b94caeb9adff66ba1451f7f0087d4195432a41480618263e579d8f7a3adad76",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 12,
+          "motive": 11,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "4b94caeb9adff66ba1451f7f0087d4195432a41480618263e579d8f7a3adad76",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Bildschirm zeigt ein Terminal-Interface mit Finanzdaten und Aktienkursen sowie ein glänzendes Logo einer Krypto- oder Trading-Plattform.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das sichtbare Terminal-Interface zeigt eine Finanzplattform, die zum erwähnten Thema 'Marktforschung und Apps' passt.",
+              "erforderliches_bild": "Ein passendes Terminal oder eine App mit Finanzdaten."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Screenshot eines GitHub-Repositories oder einer Projektseite für 'Fincept-Corporation/FinceptTerminal' mit Logo, Beschreibung und Statistiken zu Contributor, Issues, Discussions, Stars und Forks.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbare Projektseite zeigt exakt das erwähnte Open-Source-Tool 'FinceptTerminal', was zum gesprochenen Namen passt.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein schwarzes Desktop-Anwendungsfenster zeigt Finanzstatistiken, Kennzahlen und einen Aktienchart unter der Überschrift EQUITY RESEARCH AAPL.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das sichtbare Desktop-Anwendungsfenster zeigt Finanzstatistiken und Marktdaten, was perfekt zur Erwähnung der Desktop-App für Finanzanalyse passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Screenshot der Benutzeroberfläche einer Desktop-Finanzanwendung mit der Anzeige von 'PORTFOLIO VALUE', Beständen (Holdings wie AAPL, AMZN) und einem Performance-Diagramm.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbare Ansicht zeigt die Portfolio-Sektion der Anwendung, was direkt zur erwähnten 'portfolio optimisation' und Portfolio-Verwaltung im gesprochenen Text passt.",
+              "erforderliches_bild": "n/a"
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Chart und Finanzkennzahlen wie Analyst Targets, 52 Week Range und Profitability auf einer dunklen Benutzeroberfläche.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt allgemeine Aktien- und Marktdaten, aber keine spezifischen Datenkonnektoren für FRED, den IMF oder Yahoo Finance wie im Text genannt.",
+              "erforderliches_bild": "Eine Benutzeroberfläche oder Konfiguration, die die Konnektoren zu FRED, IMF und Yahoo Finance darstellt."
+            },
+            {
+              "index": 5,
+              "gesehen": "Die Benutzeroberfläche zeigt Marktdaten, einen Sektoren-Ring und eine Korrelationsmatrix, aber keine spezifischen Visualisierungen von Yahoo Finance oder einer Paper-Trading-Engine.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gesprochene Erwähnung von Yahoo Finance und einer Paper-Trading-Engine ist auf dem Bild nicht direkt als Funktion oder Engine erkennbar, da nur allgemeine Finanzdaten angezeigt werden.",
+              "erforderliches_bild": "Ein Screenshot der Software, der die Integration von Yahoo Finance oder die Benutzeroberfläche der Paper-Trading-Engine zeigt."
+            },
+            {
+              "index": 6,
+              "gesehen": "In der Benutzeroberfläche ist ein Node-basiertes Diagramm mit Modulen wie PY, LK (Tech), LF (Finance), einem Merge-Modul und Correl zu sehen. Keine Erwähnung oder visuelle Darstellung von AI-Agenten oder Schlüsseln.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gezeigte Oberfläche zeigt Nodes und Datenflüsse, aber keinen Bezug zu AI-Agenten oder Schlüsseln.",
+              "erforderliches_bild": "Ein Einstellungsfenster oder Interface, in dem API-Schlüssel für AI-Dienste eingegeben werden können."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein grafischer Node-Editor mit dunklem Interface und Code- bzw. Daten-Knoten auf der rechten Seite, keine Erwähnung oder Anzeige von AI-Agents wie OpenAI, Anthropic oder Ollama.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Video zeigt nur einen Editor-Bildschirm mit Steuerungs-Knoten, während der gesprochene Text AI-Schlüssel von OpenAI, Anthropic oder Ollama erwähnt.",
+              "erforderliches_bild": "Eine Benutzeroberfläche oder ein Einstellungsmenü mit Eingabefeldern für API-Schlüssel der genannten AI-Anbieter."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Vorschaubild eines GitHub-Repositories mit dem Projektnamen FinceptTerminal, Metriken wie Sternen, Forks und Committern sowie einem Logo.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich die Repository-Ansicht und das Logo, während im gesprochenen Text über Kosten, Daten und LLM-Rechnungen pro Token gesprochen wird.",
+              "erforderliches_bild": "Eine Darstellung der Kostenaufstellung, Preisübersicht oder Dokumentation im Repository bezüglich der LLM-Token-Gebühren."
+            },
+            {
+              "index": 9,
+              "gesehen": "In dem Bild ist eine dunkel gestaltete Nachrichtendurchlauf-Oberfläche mit schwarzem Hintergrund und orangen Akzenten zu sehen, ohne dass ein Download-Vorgang oder Release gezeigt wird.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine News-Ansicht, während die Narration das Herunterladen eines Software-Release und das Budgetieren von Daten beschreibt.",
+              "erforderliches_bild": "Ein Screenshot der Software-Release-Downloadseite oder ein entsprechender Download-Dialog."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein Terminal-Bildschirm mit Finanzdaten, Nachrichten und Börsenindikatoren in Grün und Rot.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine Software-Oberfläche für Marktdaten, aber weder den Disclaimer bezüglich Finanzberatung noch eine direkte visuelle Erklärung des Themas.",
+              "erforderliches_bild": "Ein Textbild oder eine Ansicht mit einem deutlichen Hinweis 'Not financial advice' oder eine Zusammenfassung der Empfehlung."
+            }
+          ],
+          "befunde": [
+            "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt allgemeine Aktien- und Marktdaten, aber keine spezifischen Datenkonnektoren für FRED, den IMF oder Yahoo Finance wie im Text genannt.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Erwähnung von Yahoo Finance und einer Paper-Trading-Engine ist auf dem Bild nicht direkt als Funktion oder Engine erkennbar, da nur allgemeine Finanzdaten angezeigt werden.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Die gezeigte Oberfläche zeigt Nodes und Datenflüsse, aber keinen Bezug zu AI-Agenten oder Schlüsseln.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Video zeigt nur einen Editor-Bildschirm mit Steuerungs-Knoten, während der gesprochene Text AI-Schlüssel von OpenAI, Anthropic oder Ollama erwähnt.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich die Repository-Ansicht und das Logo, während im gesprochenen Text über Kosten, Daten und LLM-Rechnungen pro Token gesprochen wird.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine News-Ansicht, während die Narration das Herunterladen eines Software-Release und das Budgetieren von Daten beschreibt.",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Oberfläche für Marktdaten, aber weder den Disclaimer bezüglich Finanzberatung noch eine direkte visuelle Erklärung des Themas."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 12,
+          "ausgenommen": [
+            11
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "4b94caeb9adff66ba1451f7f0087d4195432a41480618263e579d8f7a3adad76",
+        "prompt_version": "2026-10-13.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "modell": "groq:openai/gpt-oss-20b",
+        "zweitpruefer_modell": null,
+        "zweitpruefer_anderer_anbieter": false
+      }
     }
   ]
 }

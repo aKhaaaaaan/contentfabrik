@@ -153,14 +153,33 @@ BEZUG_SCHEMA = {'type': 'OBJECT', 'properties': {'pruefung': {'type': 'ARRAY', '
     'required': ['index', 'note', 'motiv', 'szene', 'suche']}}}, 'required': ['pruefung']}
 
 
+FUELLWOERTER = {'with', 'from', 'that', 'this', 'their', 'there', 'they', 'into', 'over', 'scene', 'shot',
+                'close', 'view', 'person', 'people', 'about', 'while', 'very', 'some'}
+
+
+def woertlich(motiv, text):
+    """Steht mindestens ein tragendes Wort des Motivs im gesprochenen Satz? Kostenlos, ohne KI.
+
+    GEMESSEN 15.10.2026 (Airbnb, Lauf 11962532089): "They put an air mattress in their living room"
+    bekam das Motiv "living room breakfast"; die KI-Bezugspruefung liess es stehen, gemalt wurde ein
+    Wohnzimmer ohne Matratze, Schlusspruefer 3/10. Ein Motiv nur aus Begleitwoertern ("living room")
+    zaehlt nicht: verlangt wird das konkreteste Wort, darum muss JEDES tragende Motivwort im Satz stehen."""
+    stamm = lambda w: w.lower()[:5]
+    gesagt = {stamm(w) for w in re.findall(r'[A-Za-z]{3,}', text or '')}
+    tragend = [w for w in re.findall(r'[A-Za-z]{3,}', motiv or '') if w.lower() not in FUELLWOERTER]
+    return bool(tragend) and all(stamm(w) in gesagt for w in tragend)
+
+
 def bezug_pruefen(gemini, teil, daten):
     """Vor dem Malen: zeigt jedes geplante Motiv, was in seinem Slot GESAGT wird? Schwache
     Illustrations-Motive (Note < BEZUG_MIN) werden durch einen woertlicheren Vorschlag ersetzt.
     Faellt die Pruefung aus, bleibt der Plan unveraendert (kein Abbruch)."""
     plan = {d['index']: d for d in daten}
     eintraege = [{'index': x['index'], 'spoken_words': x['text'], 'planned_motif': plan[x['index']].get('motiv'),
-                  'planned_scene': plan[x['index']].get('szene')}
+                  'planned_scene': plan[x['index']].get('szene'),
+                  'motif_not_in_spoken_words': not woertlich(plan[x['index']].get('motiv'), x['text'])}
                  for x in teil if plan.get(x['index'], {}).get('bildmodus') in ('illustration', 'stock', 'foto')]
+    gesagt = {x['index']: x['text'] for x in teil}
     if not eintraege:
         return daten, 0
     try:
@@ -171,6 +190,8 @@ def bezug_pruefen(gemini, teil, daten):
                         'DVDs) scores low. For every score below ' + str(BEZUG_MIN) + ', give a better motif (2-5 words quoted verbatim from the spoken words), '
                         'a 20-45 word painted scene that literally shows the spoken words, and 2-4 search words. For a '
                         'number, price or statistic, show the people or place it affects doing the concrete action. '
+                        'motif_not_in_spoken_words=true means the planned motif is not quoted from the spoken '
+                        'words: always replace it, scoring at most ' + str(BEZUG_MIN - 1) + '. '
                         'Keep good slots unchanged (repeat their motif/scene). Return every slot.\n'
                       + json.dumps(eintraege, ensure_ascii=False), BEZUG_SCHEMA, modelle=PLANEN)
     except Exception as e:  # Pruefung ist Verbesserung, kein Pflichtschritt
@@ -179,7 +200,12 @@ def bezug_pruefen(gemini, teil, daten):
     ersetzt = 0
     for p_ in d.get('pruefung', []):
         alt = plan.get(p_.get('index'))
-        if alt and alt.get('bildmodus') in ('illustration', 'stock', 'foto') and p_.get('note', 10) < BEZUG_MIN \
+        # Ein nicht woertliches Motiv wird ersetzt, auch wenn die KI es gut benotet - aber nur durch
+        # ein woertliches (sonst bliebe ein ebenso freies Motiv, nur anders formuliert).
+        frei = alt and not woertlich(alt.get('motiv'), gesagt.get(p_.get('index')))
+        if alt and alt.get('bildmodus') in ('illustration', 'stock', 'foto') \
+                and (p_.get('note', 10) < BEZUG_MIN
+                     or (frei and woertlich(p_.get('motiv'), gesagt.get(p_.get('index'))))) \
                 and p_.get('szene') and p_.get('motiv'):
             alt.update(motiv=p_['motiv'][:80], szene=p_['szene'][:400], suche=p_.get('suche') or alt.get('suche'),
                        bildmodus='illustration')

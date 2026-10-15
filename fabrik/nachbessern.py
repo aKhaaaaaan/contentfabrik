@@ -214,7 +214,14 @@ def main(vorlage, kanal_pfad, aus):
     messung = json.loads((v / 'messung.json').read_text(encoding='utf-8'))
     import kanalstandard
     config = kanalstandard.laden(kanal_pfad)
-    neu, plan = planen(skript, kritik, messung, config, Path(kanal_pfad).stem)
+    from skript import AnbieterNichtVerfuegbar, AuftragZuGross
+    try:
+        neu, plan = planen(skript, kritik, messung, config, Path(kanal_pfad).stem)
+    except (AnbieterNichtVerfuegbar, AuftragZuGross) as e:
+        # GEMESSEN 15.10.2026 (Lauf 38703468700): Gemini ueberlastet, Groq-Ausweichauftrag zu gross ->
+        # unbehandelter Absturz (Code 1). Ohne KI-Vorschlag ist keine gezielte Korrektur moeglich.
+        print('Keine gezielte Korrektur moeglich (Textanbieter):', type(e).__name__, str(e)[:160])
+        return 2
     ziel.mkdir(parents=True, exist_ok=True)
     (ziel / 'korrektur.json').write_text(json.dumps(plan, indent=2, ensure_ascii=False), encoding='utf-8')
     if neu is None:

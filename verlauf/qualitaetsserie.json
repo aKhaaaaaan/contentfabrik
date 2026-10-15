@@ -34035,6 +34035,1363 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "38711622156.1:ai-tools-explained",
+      "run_id": "38711622156",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-15T10:10:11.884017+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "36dada72d6a0557b0777e187cd0d30bc2cad9877",
+      "produktionsversion": "0d80f69f5e2ad6f2c9fb07962362cf2f539c963624b67d30844e0ed409f44b92",
+      "videoformat": "short",
+      "thema": "FinceptTerminal",
+      "titel": [
+        "Free *Finance* *Terminal*",
+        "*Fincept* *Terminal* Explained"
+      ],
+      "status": "gesperrt",
+      "video_sha256": "6b7c55ae91f43d673c50707033e8cc310f3acaecd112a2e83aa0985993dae4a2",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-13.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt das Marketing-Logo und Branding von Fincept Terminal, aber keine Demonstration oder Erläuterung dazu, ob eine kostenlose App Marktforschung bewältigen kann, weshalb es nur eine vage Verbindung darstellt.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (4/10): Die Benutzeroberfläche zeigt allgemeine Marktdaten und Sektoren, aber die Erwähnung von VaR-Risikomaßen wird visuell nicht explizit belegt.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich die GitHub-Repository-Vorschau von FinceptTerminal und nicht die Datenquellen, Konnektoren oder das erwähnte Yahoo Finance / FRED.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die Benutzeroberfläche zeigt allgemeine Marktdaten und Portfoliowerte, aber weder die erwähnten Datenquellen noch deren Integration sind sichtbar.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einem Büro, der Papiere liest, und bebildert weder Datenquellen noch eine Paper-Trading-Engine.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine allgemeine Finanz-Terminal-Oberfläche, jedoch keinen Bezug zu AI-Agenten wie im Text genannt.",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Finanz-Terminal-Oberfläche, aber kein Einstellungsfenster oder Interface für OpenAI-Schlüssel, das zur Erwähnung passt.",
+        "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Benutzeroberfläche für Nachrichten und Marktdaten, bildet jedoch weder Anthropic, Ollama noch API-Schlüssel oder KI-Agenten ab.",
+        "Einstellung 12: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Node-Oberfläche zur Datenverarbeitung, während der gesprochene Text Kosten und LLM-Token-Abrechnungen aus einem Repository thematisiert. Es gibt keine visuelle Entsprechung für Kosten oder Repositories.",
+        "Einstellung 13: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen Rechnungen und Token-Abrechnungen für LLMs, aber das Bild zeigt lediglich eine Benutzeroberfläche zur Workflow-Erstellung.",
+        "Einstellung 14: Bild passt nicht zum Sprechtext (2/10): Die sichtbare Straßenszene mit einem Mann und Tablet zeigt keine Software-Installation, keinen Download und keinen Release.",
+        "Einstellung 15: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Straßenszene mit Personen an einem Tisch statt einer Darstellung von Datenbudgets, API-Schlüsseln oder Softwarekosten.",
+        "Einstellung 16: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Frau in einem altmodischen Raum, was in keinerlei Zusammenhang mit dem Finanzhinweis Not financial advice steht.",
+        "Einstellung 17: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen porträtierten Mann in einem malerischen Stil und keinerlei Bezug zu dem gesprochenen Engagement-Aufruf wie Like, Share oder Speichern.",
+        "Offenes Problem (schwer): Das Bild zeigt das Marketing-Logo und Branding von Fincept Terminal, aber keine Demonstration oder Erläuterung dazu, ob eine kostenlose App Marktforschung bewältigen kann, weshalb es nur eine vage Verbindung darstellt. Korrektur: Eine Darstellung oder Benutzeroberfläche der App bei der Durchführung von Marktforschungsaufgaben.",
+        "Offenes Problem (schwer): Die Benutzeroberfläche zeigt allgemeine Marktdaten und Sektoren, aber die Erwähnung von VaR-Risikomaßen wird visuell nicht explizit belegt. Korrektur: Ein Screenshot der Benutzeroberfläche mit einer sichtbaren Sektion oder Metrik für VaR-Risikomaße.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich die GitHub-Repository-Vorschau von FinceptTerminal und nicht die Datenquellen, Konnektoren oder das erwähnte Yahoo Finance / FRED. Korrektur: Eine Liste oder ein Screenshot der Benutzeroberfläche, die die verschiedenen Datenquellen und Konnektoren wie FRED oder Yahoo Finance anzeigt.",
+        "Offenes Problem (schwer): Die Benutzeroberfläche zeigt allgemeine Marktdaten und Portfoliowerte, aber weder die erwähnten Datenquellen noch deren Integration sind sichtbar. Korrektur: Ein Screenshot oder eine Ansicht in der App, die explizit die Konnektoren oder Datenquellen wie FRED, IMF oder Yahoo Finance anzeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Mann in einem Büro, der Papiere liest, und bebildert weder Datenquellen noch eine Paper-Trading-Engine. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, die die Paper-Trading-Engine oder Börsendaten zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Finanz-Terminal-Oberfläche, jedoch keinen Bezug zu AI-Agenten wie im Text genannt. Korrektur: Eine Ansicht des Programms, die die Konfiguration oder Liste der AI-Agenten zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt eine Finanz-Terminal-Oberfläche, aber kein Einstellungsfenster oder Interface für OpenAI-Schlüssel, das zur Erwähnung passt. Korrektur: Ein Screenshot der Software-Einstellungen mit einem Feld zur Eingabe eines OpenAI-API-Schlüssels.",
+        "Offenes Problem (schwer): Das Bild zeigt eine Benutzeroberfläche für Nachrichten und Marktdaten, bildet jedoch weder Anthropic, Ollama noch API-Schlüssel oder KI-Agenten ab. Korrektur: Ein Screenshot der App-Einstellungen oder Konfigurationsoberfläche, in der API-Schlüssel für KI-Anbieter wie Anthropic oder Ollama eingegeben werden.",
+        "Offenes Problem (schwer): Das Bild zeigt eine Node-Oberfläche zur Datenverarbeitung, während der gesprochene Text Kosten und LLM-Token-Abrechnungen aus einem Repository thematisiert. Es gibt keine visuelle Entsprechung für Kosten oder Repositories. Korrektur: Ein Screenshot eines GitHub-Repositories oder einer Dokumentationsseite, die Details zur Kostenstruktur oder LLM-Token-Abrechnung zeigt.",
+        "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen Rechnungen und Token-Abrechnungen für LLMs, aber das Bild zeigt lediglich eine Benutzeroberfläche zur Workflow-Erstellung. Korrektur: Eine Darstellung einer Rechnung, einer Abrechnungsseite oder eines Software-Preismodells mit Token-Kosten.",
+        "Offenes Problem (schwer): Die sichtbare Straßenszene mit einem Mann und Tablet zeigt keine Software-Installation, keinen Download und keinen Release. Korrektur: Ein Screenshot der Download-Seite oder des Releasemanagers mit dem sichtbaren Download-Link für die App",
+        "Offenes Problem (schwer): Das Bild zeigt eine Straßenszene mit Personen an einem Tisch statt einer Darstellung von Datenbudgets, API-Schlüsseln oder Softwarekosten. Korrektur: Ein Screenshot einer Anwendungsoberfläche oder Preisübersicht, die die Kosten für Daten und AI-Schlüssel aufzeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt eine Frau in einem altmodischen Raum, was in keinerlei Zusammenhang mit dem Finanzhinweis Not financial advice steht. Korrektur: Ein Textbild oder eine Grafik mit einem sichtbaren Haftungsausschluss beziehungsweise Finanzhinweis",
+        "Offenes Problem (schwer): Das Bild zeigt einen porträtierten Mann in einem malerischen Stil und keinerlei Bezug zu dem gesprochenen Engagement-Aufruf wie Like, Share oder Speichern. Korrektur: Ein Moderator oder eindeutige Grafiken mit Like-, Share- und Speicher-Symbolen."
+      ],
+      "einstellungen": 18,
+      "unterschiedliche_motive": 18,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38711622156",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-15",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 377.3,
+            "pruefung_s": 84.0,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt das Marketing-Logo und Branding von Fincept Terminal, aber keine Demonstration oder Erläuterung dazu, ob eine kostenlose App Marktforschung bewältigen kann, weshalb es nur eine vage Verbindung darstellt.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (4/10): Die Benutzeroberfläche zeigt allgemeine Marktdaten und Sektoren, aber die Erwähnung von VaR-Risikomaßen wird visuell nicht explizit belegt.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich die GitHub-Repository-Vorschau von FinceptTerminal und nicht die Datenquellen, Konnektoren oder das erwähnte Yahoo Finance / FRED.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die Benutzeroberfläche zeigt allgemeine Marktdaten und Portfoliowerte, aber weder die erwähnten Datenquellen noch deren Integration sind sichtbar.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einem Büro, der Papiere liest, und bebildert weder Datenquellen noch eine Paper-Trading-Engine.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine allgemeine Finanz-Terminal-Oberfläche, jedoch keinen Bezug zu AI-Agenten wie im Text genannt.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Finanz-Terminal-Oberfläche, aber kein Einstellungsfenster oder Interface für OpenAI-Schlüssel, das zur Erwähnung passt.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Benutzeroberfläche für Nachrichten und Marktdaten, bildet jedoch weder Anthropic, Ollama noch API-Schlüssel oder KI-Agenten ab.",
+              "Einstellung 12: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Node-Oberfläche zur Datenverarbeitung, während der gesprochene Text Kosten und LLM-Token-Abrechnungen aus einem Repository thematisiert. Es gibt keine visuelle Entsprechung für Kosten oder Repositories.",
+              "Einstellung 13: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen Rechnungen und Token-Abrechnungen für LLMs, aber das Bild zeigt lediglich eine Benutzeroberfläche zur Workflow-Erstellung.",
+              "Einstellung 14: Bild passt nicht zum Sprechtext (2/10): Die sichtbare Straßenszene mit einem Mann und Tablet zeigt keine Software-Installation, keinen Download und keinen Release.",
+              "Einstellung 15: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Straßenszene mit Personen an einem Tisch statt einer Darstellung von Datenbudgets, API-Schlüsseln oder Softwarekosten.",
+              "Einstellung 16: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Frau in einem altmodischen Raum, was in keinerlei Zusammenhang mit dem Finanzhinweis Not financial advice steht.",
+              "Einstellung 17: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen porträtierten Mann in einem malerischen Stil und keinerlei Bezug zu dem gesprochenen Engagement-Aufruf wie Like, Share oder Speichern.",
+              "Offenes Problem (schwer): Das Bild zeigt das Marketing-Logo und Branding von Fincept Terminal, aber keine Demonstration oder Erläuterung dazu, ob eine kostenlose App Marktforschung bewältigen kann, weshalb es nur eine vage Verbindung darstellt. Korrektur: Eine Darstellung oder Benutzeroberfläche der App bei der Durchführung von Marktforschungsaufgaben.",
+              "Offenes Problem (schwer): Die Benutzeroberfläche zeigt allgemeine Marktdaten und Sektoren, aber die Erwähnung von VaR-Risikomaßen wird visuell nicht explizit belegt. Korrektur: Ein Screenshot der Benutzeroberfläche mit einer sichtbaren Sektion oder Metrik für VaR-Risikomaße.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich die GitHub-Repository-Vorschau von FinceptTerminal und nicht die Datenquellen, Konnektoren oder das erwähnte Yahoo Finance / FRED. Korrektur: Eine Liste oder ein Screenshot der Benutzeroberfläche, die die verschiedenen Datenquellen und Konnektoren wie FRED oder Yahoo Finance anzeigt.",
+              "Offenes Problem (schwer): Die Benutzeroberfläche zeigt allgemeine Marktdaten und Portfoliowerte, aber weder die erwähnten Datenquellen noch deren Integration sind sichtbar. Korrektur: Ein Screenshot oder eine Ansicht in der App, die explizit die Konnektoren oder Datenquellen wie FRED, IMF oder Yahoo Finance anzeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann in einem Büro, der Papiere liest, und bebildert weder Datenquellen noch eine Paper-Trading-Engine. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, die die Paper-Trading-Engine oder Börsendaten zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Finanz-Terminal-Oberfläche, jedoch keinen Bezug zu AI-Agenten wie im Text genannt. Korrektur: Eine Ansicht des Programms, die die Konfiguration oder Liste der AI-Agenten zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Finanz-Terminal-Oberfläche, aber kein Einstellungsfenster oder Interface für OpenAI-Schlüssel, das zur Erwähnung passt. Korrektur: Ein Screenshot der Software-Einstellungen mit einem Feld zur Eingabe eines OpenAI-API-Schlüssels.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Benutzeroberfläche für Nachrichten und Marktdaten, bildet jedoch weder Anthropic, Ollama noch API-Schlüssel oder KI-Agenten ab. Korrektur: Ein Screenshot der App-Einstellungen oder Konfigurationsoberfläche, in der API-Schlüssel für KI-Anbieter wie Anthropic oder Ollama eingegeben werden.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Node-Oberfläche zur Datenverarbeitung, während der gesprochene Text Kosten und LLM-Token-Abrechnungen aus einem Repository thematisiert. Es gibt keine visuelle Entsprechung für Kosten oder Repositories. Korrektur: Ein Screenshot eines GitHub-Repositories oder einer Dokumentationsseite, die Details zur Kostenstruktur oder LLM-Token-Abrechnung zeigt.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen Rechnungen und Token-Abrechnungen für LLMs, aber das Bild zeigt lediglich eine Benutzeroberfläche zur Workflow-Erstellung. Korrektur: Eine Darstellung einer Rechnung, einer Abrechnungsseite oder eines Software-Preismodells mit Token-Kosten.",
+              "Offenes Problem (schwer): Die sichtbare Straßenszene mit einem Mann und Tablet zeigt keine Software-Installation, keinen Download und keinen Release. Korrektur: Ein Screenshot der Download-Seite oder des Releasemanagers mit dem sichtbaren Download-Link für die App",
+              "Offenes Problem (schwer): Das Bild zeigt eine Straßenszene mit Personen an einem Tisch statt einer Darstellung von Datenbudgets, API-Schlüsseln oder Softwarekosten. Korrektur: Ein Screenshot einer Anwendungsoberfläche oder Preisübersicht, die die Kosten für Daten und AI-Schlüssel aufzeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Frau in einem altmodischen Raum, was in keinerlei Zusammenhang mit dem Finanzhinweis Not financial advice steht. Korrektur: Ein Textbild oder eine Grafik mit einem sichtbaren Haftungsausschluss beziehungsweise Finanzhinweis",
+              "Offenes Problem (schwer): Das Bild zeigt einen porträtierten Mann in einem malerischen Stil und keinerlei Bezug zu dem gesprochenen Engagement-Aufruf wie Like, Share oder Speichern. Korrektur: Ein Moderator oder eindeutige Grafiken mit Like-, Share- und Speicher-Symbolen."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.117,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 18,
+              "clips_und_stuecke": 343.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 18,
+                "motive": 18,
+                "motive_min": 18
+              },
+              "effekte": 22,
+              "rendern": 26.8,
+              "gesamt": 377.0,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.46,
+                7.48,
+                8.16,
+                7.34,
+                5.16,
+                6.58,
+                2.84
+              ],
+              "woerter": 102
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt das Marketing-Logo und Branding von Fincept Terminal, aber keine Demonstration oder Erläuterung dazu, ob eine kostenlose App Marktforschung bewältigen kann, weshalb es nur eine vage Verbindung darstellt. Korrektur: Eine Darstellung oder Benutzeroberfläche der App bei der Durchführung von Marktforschungsaufgaben."
+              },
+              {
+                "zeit": "00:12",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die Benutzeroberfläche zeigt allgemeine Marktdaten und Sektoren, aber die Erwähnung von VaR-Risikomaßen wird visuell nicht explizit belegt. Korrektur: Ein Screenshot der Benutzeroberfläche mit einer sichtbaren Sektion oder Metrik für VaR-Risikomaße."
+              },
+              {
+                "zeit": "00:14",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt lediglich die GitHub-Repository-Vorschau von FinceptTerminal und nicht die Datenquellen, Konnektoren oder das erwähnte Yahoo Finance / FRED. Korrektur: Eine Liste oder ein Screenshot der Benutzeroberfläche, die die verschiedenen Datenquellen und Konnektoren wie FRED oder Yahoo Finance anzeigt."
+              },
+              {
+                "zeit": "00:17",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die Benutzeroberfläche zeigt allgemeine Marktdaten und Portfoliowerte, aber weder die erwähnten Datenquellen noch deren Integration sind sichtbar. Korrektur: Ein Screenshot oder eine Ansicht in der App, die explizit die Konnektoren oder Datenquellen wie FRED, IMF oder Yahoo Finance anzeigt."
+              },
+              {
+                "zeit": "00:20",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt einen Mann in einem Büro, der Papiere liest, und bebildert weder Datenquellen noch eine Paper-Trading-Engine. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, die die Paper-Trading-Engine oder Börsendaten zeigt."
+              },
+              {
+                "zeit": "00:23",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt lediglich eine allgemeine Finanz-Terminal-Oberfläche, jedoch keinen Bezug zu AI-Agenten wie im Text genannt. Korrektur: Eine Ansicht des Programms, die die Konfiguration oder Liste der AI-Agenten zeigt."
+              },
+              {
+                "zeit": "00:25",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt eine Finanz-Terminal-Oberfläche, aber kein Einstellungsfenster oder Interface für OpenAI-Schlüssel, das zur Erwähnung passt. Korrektur: Ein Screenshot der Software-Einstellungen mit einem Feld zur Eingabe eines OpenAI-API-Schlüssels."
+              },
+              {
+                "zeit": "00:27",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt eine Benutzeroberfläche für Nachrichten und Marktdaten, bildet jedoch weder Anthropic, Ollama noch API-Schlüssel oder KI-Agenten ab. Korrektur: Ein Screenshot der App-Einstellungen oder Konfigurationsoberfläche, in der API-Schlüssel für KI-Anbieter wie Anthropic oder Ollama eingegeben werden."
+              },
+              {
+                "zeit": "00:30",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt eine Node-Oberfläche zur Datenverarbeitung, während der gesprochene Text Kosten und LLM-Token-Abrechnungen aus einem Repository thematisiert. Es gibt keine visuelle Entsprechung für Kosten oder Repositories. Korrektur: Ein Screenshot eines GitHub-Repositories oder einer Dokumentationsseite, die Details zur Kostenstruktur oder LLM-Token-Abrechnung zeigt."
+              },
+              {
+                "zeit": "00:33",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die gesprochenen Wörter erwähnen Rechnungen und Token-Abrechnungen für LLMs, aber das Bild zeigt lediglich eine Benutzeroberfläche zur Workflow-Erstellung. Korrektur: Eine Darstellung einer Rechnung, einer Abrechnungsseite oder eines Software-Preismodells mit Token-Kosten."
+              },
+              {
+                "zeit": "00:35",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die sichtbare Straßenszene mit einem Mann und Tablet zeigt keine Software-Installation, keinen Download und keinen Release. Korrektur: Ein Screenshot der Download-Seite oder des Releasemanagers mit dem sichtbaren Download-Link für die App"
+              },
+              {
+                "zeit": "00:37",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt eine Straßenszene mit Personen an einem Tisch statt einer Darstellung von Datenbudgets, API-Schlüsseln oder Softwarekosten. Korrektur: Ein Screenshot einer Anwendungsoberfläche oder Preisübersicht, die die Kosten für Daten und AI-Schlüssel aufzeigt."
+              },
+              {
+                "zeit": "00:39",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt eine Frau in einem altmodischen Raum, was in keinerlei Zusammenhang mit dem Finanzhinweis Not financial advice steht. Korrektur: Ein Textbild oder eine Grafik mit einem sichtbaren Haftungsausschluss beziehungsweise Finanzhinweis"
+              },
+              {
+                "zeit": "00:42",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt einen porträtierten Mann in einem malerischen Stil und keinerlei Bezug zu dem gesprochenen Engagement-Aufruf wie Like, Share oder Speichern. Korrektur: Ein Moderator oder eindeutige Grafiken mit Like-, Share- und Speicher-Symbolen."
+              }
+            ],
+            "sekunden": 461.3,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-13.2"
+            },
+            "skript_s": 2.5,
+            "bau_s": 843.8,
+            "baufehler": "ValueError: Phase 5, Einstellung 15: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 846.3,
+            "lernergebnis": {
+              "id": "38711622156-2",
+              "datum": "2026-10-15",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 846.7,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {},
+              "auswertbar": false,
+              "prompt_version": "2026-10-13.2",
+              "verbessert": false
+            }
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Videobau fehlgeschlagen (ValueError: Phase 5, Einstellung 15: kein passendes Hauptbild; kein Hintergrundersatz)",
+        "sekunden": 1317.2,
+        "upload_titel": "Free Finance Terminal: Fincept Terminal Explained | AI Tool #5"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt das Marketing-Logo und Branding von Fincept Terminal, aber keine Demonstration oder Erläuterung dazu, ob eine kostenlose App Marktforschung bewältigen kann, weshalb es nur eine vage Verbindung darstellt. Korrektur: Eine Darstellung oder Benutzeroberfläche der App bei der Durchführung von Marktforschungsaufgaben."
+          },
+          {
+            "zeit": "00:12",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die Benutzeroberfläche zeigt allgemeine Marktdaten und Sektoren, aber die Erwähnung von VaR-Risikomaßen wird visuell nicht explizit belegt. Korrektur: Ein Screenshot der Benutzeroberfläche mit einer sichtbaren Sektion oder Metrik für VaR-Risikomaße."
+          },
+          {
+            "zeit": "00:14",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt lediglich die GitHub-Repository-Vorschau von FinceptTerminal und nicht die Datenquellen, Konnektoren oder das erwähnte Yahoo Finance / FRED. Korrektur: Eine Liste oder ein Screenshot der Benutzeroberfläche, die die verschiedenen Datenquellen und Konnektoren wie FRED oder Yahoo Finance anzeigt."
+          },
+          {
+            "zeit": "00:17",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die Benutzeroberfläche zeigt allgemeine Marktdaten und Portfoliowerte, aber weder die erwähnten Datenquellen noch deren Integration sind sichtbar. Korrektur: Ein Screenshot oder eine Ansicht in der App, die explizit die Konnektoren oder Datenquellen wie FRED, IMF oder Yahoo Finance anzeigt."
+          },
+          {
+            "zeit": "00:20",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt einen Mann in einem Büro, der Papiere liest, und bebildert weder Datenquellen noch eine Paper-Trading-Engine. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, die die Paper-Trading-Engine oder Börsendaten zeigt."
+          },
+          {
+            "zeit": "00:23",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt lediglich eine allgemeine Finanz-Terminal-Oberfläche, jedoch keinen Bezug zu AI-Agenten wie im Text genannt. Korrektur: Eine Ansicht des Programms, die die Konfiguration oder Liste der AI-Agenten zeigt."
+          },
+          {
+            "zeit": "00:25",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt eine Finanz-Terminal-Oberfläche, aber kein Einstellungsfenster oder Interface für OpenAI-Schlüssel, das zur Erwähnung passt. Korrektur: Ein Screenshot der Software-Einstellungen mit einem Feld zur Eingabe eines OpenAI-API-Schlüssels."
+          },
+          {
+            "zeit": "00:27",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt eine Benutzeroberfläche für Nachrichten und Marktdaten, bildet jedoch weder Anthropic, Ollama noch API-Schlüssel oder KI-Agenten ab. Korrektur: Ein Screenshot der App-Einstellungen oder Konfigurationsoberfläche, in der API-Schlüssel für KI-Anbieter wie Anthropic oder Ollama eingegeben werden."
+          },
+          {
+            "zeit": "00:30",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt eine Node-Oberfläche zur Datenverarbeitung, während der gesprochene Text Kosten und LLM-Token-Abrechnungen aus einem Repository thematisiert. Es gibt keine visuelle Entsprechung für Kosten oder Repositories. Korrektur: Ein Screenshot eines GitHub-Repositories oder einer Dokumentationsseite, die Details zur Kostenstruktur oder LLM-Token-Abrechnung zeigt."
+          },
+          {
+            "zeit": "00:33",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die gesprochenen Wörter erwähnen Rechnungen und Token-Abrechnungen für LLMs, aber das Bild zeigt lediglich eine Benutzeroberfläche zur Workflow-Erstellung. Korrektur: Eine Darstellung einer Rechnung, einer Abrechnungsseite oder eines Software-Preismodells mit Token-Kosten."
+          },
+          {
+            "zeit": "00:35",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die sichtbare Straßenszene mit einem Mann und Tablet zeigt keine Software-Installation, keinen Download und keinen Release. Korrektur: Ein Screenshot der Download-Seite oder des Releasemanagers mit dem sichtbaren Download-Link für die App"
+          },
+          {
+            "zeit": "00:37",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt eine Straßenszene mit Personen an einem Tisch statt einer Darstellung von Datenbudgets, API-Schlüsseln oder Softwarekosten. Korrektur: Ein Screenshot einer Anwendungsoberfläche oder Preisübersicht, die die Kosten für Daten und AI-Schlüssel aufzeigt."
+          },
+          {
+            "zeit": "00:39",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt eine Frau in einem altmodischen Raum, was in keinerlei Zusammenhang mit dem Finanzhinweis Not financial advice steht. Korrektur: Ein Textbild oder eine Grafik mit einem sichtbaren Haftungsausschluss beziehungsweise Finanzhinweis"
+          },
+          {
+            "zeit": "00:42",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt einen porträtierten Mann in einem malerischen Stil und keinerlei Bezug zu dem gesprochenen Engagement-Aufruf wie Like, Share oder Speichern. Korrektur: Ein Moderator oder eindeutige Grafiken mit Like-, Share- und Speicher-Symbolen."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.1,
+          "fps": 30.0,
+          "lufs": -14.7,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 42.58,
+              "bis_s": 44.54,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.991
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.1,
+              "bis_s": 45.6,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Can",
+                "s": 0.0,
+                "e": 0.32,
+                "p": 0.896057665348053
+              },
+              {
+                "w": "a",
+                "s": 0.32,
+                "e": 0.42,
+                "p": 0.9964340925216675
+              },
+              {
+                "w": "free",
+                "s": 0.42,
+                "e": 0.76,
+                "p": 0.9133543372154236
+              },
+              {
+                "w": "app",
+                "s": 0.76,
+                "e": 1.2,
+                "p": 0.8326547145843506
+              },
+              {
+                "w": "handle",
+                "s": 1.2,
+                "e": 1.72,
+                "p": 0.9994163513183594
+              },
+              {
+                "w": "market",
+                "s": 1.72,
+                "e": 2.06,
+                "p": 0.9875215888023376
+              },
+              {
+                "w": "research?",
+                "s": 2.06,
+                "e": 2.52,
+                "p": 0.9984778761863708
+              },
+              {
+                "w": "FinSEP",
+                "s": 3.3,
+                "e": 3.82,
+                "p": 0.4538816163937251
+              },
+              {
+                "w": "Terminal's",
+                "s": 3.82,
+                "e": 4.42,
+                "p": 0.737576812505722
+              },
+              {
+                "w": "Open",
+                "s": 4.42,
+                "e": 4.66,
+                "p": 0.823121964931488
+              },
+              {
+                "w": "Edition",
+                "s": 4.66,
+                "e": 4.96,
+                "p": 0.916630208492279
+              },
+              {
+                "w": "is",
+                "s": 4.96,
+                "e": 5.44,
+                "p": 0.9910874962806702
+              },
+              {
+                "w": "free",
+                "s": 5.44,
+                "e": 5.74,
+                "p": 0.9913913011550903
+              },
+              {
+                "w": "for",
+                "s": 5.74,
+                "e": 6.06,
+                "p": 0.9987282156944275
+              },
+              {
+                "w": "personal",
+                "s": 6.06,
+                "e": 6.42,
+                "p": 0.9974520802497864
+              },
+              {
+                "w": "use.",
+                "s": 6.42,
+                "e": 6.74,
+                "p": 0.9984486103057861
+              },
+              {
+                "w": "It's",
+                "s": 7.48,
+                "e": 7.56,
+                "p": 0.984272837638855
+              },
+              {
+                "w": "a",
+                "s": 7.56,
+                "e": 7.62,
+                "p": 0.9981826543807983
+              },
+              {
+                "w": "desktop",
+                "s": 7.62,
+                "e": 7.86,
+                "p": 0.9664627909660339
+              },
+              {
+                "w": "app",
+                "s": 7.86,
+                "e": 8.36,
+                "p": 0.995864748954773
+              },
+              {
+                "w": "with",
+                "s": 8.36,
+                "e": 8.64,
+                "p": 0.9422465562820435
+              },
+              {
+                "w": "built",
+                "s": 8.64,
+                "e": 8.82,
+                "p": 0.9985126852989197
+              },
+              {
+                "w": "-in",
+                "s": 8.82,
+                "e": 9.12,
+                "p": 0.9741558730602264
+              },
+              {
+                "w": "tools",
+                "s": 9.12,
+                "e": 9.4,
+                "p": 0.9985685348510742
+              },
+              {
+                "w": "for",
+                "s": 9.4,
+                "e": 9.78,
+                "p": 0.9983153343200684
+              },
+              {
+                "w": "DCF",
+                "s": 9.78,
+                "e": 10.36,
+                "p": 0.932844489812851
+              },
+              {
+                "w": "valuation,",
+                "s": 10.36,
+                "e": 10.78,
+                "p": 0.9630616903305054
+              },
+              {
+                "w": "portfolio",
+                "s": 11.56,
+                "e": 11.74,
+                "p": 0.9830892086029053
+              },
+              {
+                "w": "optimization,",
+                "s": 11.74,
+                "e": 12.3,
+                "p": 0.9853302240371704
+              },
+              {
+                "w": "and",
+                "s": 13.08,
+                "e": 13.12,
+                "p": 0.9986771941184998
+              },
+              {
+                "w": "var",
+                "s": 13.12,
+                "e": 13.34,
+                "p": 0.4415441155433655
+              },
+              {
+                "w": "risk",
+                "s": 13.34,
+                "e": 13.74,
+                "p": 0.8485147953033447
+              },
+              {
+                "w": "measures.",
+                "s": 13.74,
+                "e": 14.08,
+                "p": 0.9866021871566772
+              },
+              {
+                "w": "Data",
+                "s": 15.06,
+                "e": 15.16,
+                "p": 0.9210477471351624
+              },
+              {
+                "w": "comes",
+                "s": 15.16,
+                "e": 15.56,
+                "p": 0.9980558156967163
+              },
+              {
+                "w": "from",
+                "s": 15.56,
+                "e": 15.84,
+                "p": 0.9977018237113953
+              },
+              {
+                "w": "100",
+                "s": 15.84,
+                "e": 16.2,
+                "p": 0.9685457944869995
+              },
+              {
+                "w": "plus",
+                "s": 16.2,
+                "e": 16.64,
+                "p": 0.2766678035259247
+              },
+              {
+                "w": "connectors,",
+                "s": 16.64,
+                "e": 17.08,
+                "p": 0.992611825466156
+              },
+              {
+                "w": "including",
+                "s": 17.54,
+                "e": 17.84,
+                "p": 0.9993983507156372
+              },
+              {
+                "w": "Fred,",
+                "s": 17.84,
+                "e": 18.14,
+                "p": 0.6504185199737549
+              },
+              {
+                "w": "the",
+                "s": 18.68,
+                "e": 18.7,
+                "p": 0.9902133345603943
+              },
+              {
+                "w": "IMF",
+                "s": 18.7,
+                "e": 19.02,
+                "p": 0.9831990599632263
+              },
+              {
+                "w": "and",
+                "s": 19.02,
+                "e": 19.6,
+                "p": 0.5345861911773682
+              },
+              {
+                "w": "Yahoo",
+                "s": 19.6,
+                "e": 19.8,
+                "p": 0.9965274930000305
+              },
+              {
+                "w": "Finance,",
+                "s": 19.8,
+                "e": 20.3,
+                "p": 0.9243545532226562
+              },
+              {
+                "w": "and",
+                "s": 20.84,
+                "e": 21.0,
+                "p": 0.9987545013427734
+              },
+              {
+                "w": "a",
+                "s": 21.0,
+                "e": 21.1,
+                "p": 0.9945730566978455
+              },
+              {
+                "w": "paper",
+                "s": 21.1,
+                "e": 21.34,
+                "p": 0.9816029667854309
+              },
+              {
+                "w": "trading",
+                "s": 21.34,
+                "e": 21.76,
+                "p": 0.7886907458305359
+              },
+              {
+                "w": "engine.",
+                "s": 21.76,
+                "e": 22.14,
+                "p": 0.9983344674110413
+              },
+              {
+                "w": "Catch?",
+                "s": 23.02,
+                "e": 23.36,
+                "p": 0.8992338180541992
+              },
+              {
+                "w": "It's",
+                "s": 24.12,
+                "e": 24.3,
+                "p": 0.7452619075775146
+              },
+              {
+                "w": "37",
+                "s": 24.3,
+                "e": 24.66,
+                "p": 0.9947570562362671
+              },
+              {
+                "w": "AI",
+                "s": 24.66,
+                "e": 25.26,
+                "p": 0.9120488166809082
+              },
+              {
+                "w": "agents",
+                "s": 25.26,
+                "e": 25.82,
+                "p": 0.9722267985343933
+              },
+              {
+                "w": "need",
+                "s": 25.82,
+                "e": 26.1,
+                "p": 0.9934942126274109
+              },
+              {
+                "w": "your",
+                "s": 26.1,
+                "e": 26.32,
+                "p": 0.9945352077484131
+              },
+              {
+                "w": "own",
+                "s": 26.32,
+                "e": 26.54,
+                "p": 0.9994882345199585
+              },
+              {
+                "w": "key,",
+                "s": 26.54,
+                "e": 26.8,
+                "p": 0.9967901110649109
+              },
+              {
+                "w": "B,",
+                "s": 26.8,
+                "e": 26.8,
+                "p": 0.06090933457016945
+              },
+              {
+                "w": "like",
+                "s": 27.16,
+                "e": 27.4,
+                "p": 0.9442920684814453
+              },
+              {
+                "w": "OpenAI,",
+                "s": 27.4,
+                "e": 27.9,
+                "p": 0.881508082151413
+              },
+              {
+                "w": "Anthropic,",
+                "s": 28.62,
+                "e": 28.98,
+                "p": 0.5050636976957321
+              },
+              {
+                "w": "or",
+                "s": 29.28,
+                "e": 29.28,
+                "p": 0.951549232006073
+              },
+              {
+                "w": "Olama.",
+                "s": 29.28,
+                "e": 29.86,
+                "p": 0.5004895329475403
+              },
+              {
+                "w": "The",
+                "s": 30.4,
+                "e": 30.44,
+                "p": 0.9589225053787231
+              },
+              {
+                "w": "repo",
+                "s": 30.44,
+                "e": 30.58,
+                "p": 0.9386830925941467
+              },
+              {
+                "w": "says",
+                "s": 30.58,
+                "e": 30.96,
+                "p": 0.9952141046524048
+              },
+              {
+                "w": "the",
+                "s": 30.96,
+                "e": 31.18,
+                "p": 0.9056366682052612
+              },
+              {
+                "w": "cost",
+                "s": 31.18,
+                "e": 31.42,
+                "p": 0.9967899918556213
+              },
+              {
+                "w": "is",
+                "s": 31.42,
+                "e": 31.7,
+                "p": 0.9951893091201782
+              },
+              {
+                "w": "your",
+                "s": 31.7,
+                "e": 31.88,
+                "p": 0.9923254251480103
+              },
+              {
+                "w": "own",
+                "s": 31.88,
+                "e": 32.04,
+                "p": 0.9938730001449585
+              },
+              {
+                "w": "data",
+                "s": 32.04,
+                "e": 32.28,
+                "p": 0.8967035412788391
+              },
+              {
+                "w": "and",
+                "s": 32.28,
+                "e": 32.64,
+                "p": 0.983986496925354
+              },
+              {
+                "w": "LLM",
+                "s": 32.64,
+                "e": 33.22,
+                "p": 0.9725069403648376
+              },
+              {
+                "w": "bills",
+                "s": 33.22,
+                "e": 33.44,
+                "p": 0.8381544947624207
+              },
+              {
+                "w": "charged",
+                "s": 33.44,
+                "e": 34.02,
+                "p": 0.4502296447753906
+              },
+              {
+                "w": "per",
+                "s": 34.02,
+                "e": 34.44,
+                "p": 0.9629515409469604
+              },
+              {
+                "w": "token.",
+                "s": 34.44,
+                "e": 34.7,
+                "p": 0.9988652467727661
+              },
+              {
+                "w": "Yes",
+                "s": 35.58,
+                "e": 35.78,
+                "p": 0.9765127897262573
+              },
+              {
+                "w": "for",
+                "s": 35.78,
+                "e": 35.96,
+                "p": 0.6368142366409302
+              },
+              {
+                "w": "learning,",
+                "s": 35.96,
+                "e": 36.16,
+                "p": 0.9721862077713013
+              },
+              {
+                "w": "download",
+                "s": 36.66,
+                "e": 36.9,
+                "p": 0.9923698902130127
+              },
+              {
+                "w": "a",
+                "s": 36.9,
+                "e": 37.2,
+                "p": 0.680978536605835
+              },
+              {
+                "w": "release,",
+                "s": 37.2,
+                "e": 37.42,
+                "p": 0.9986932873725891
+              },
+              {
+                "w": "but",
+                "s": 37.94,
+                "e": 38.02,
+                "p": 0.9943916201591492
+              },
+              {
+                "w": "budget",
+                "s": 38.02,
+                "e": 38.26,
+                "p": 0.9918592572212219
+              },
+              {
+                "w": "for",
+                "s": 38.26,
+                "e": 38.54,
+                "p": 0.9975099563598633
+              },
+              {
+                "w": "data",
+                "s": 38.54,
+                "e": 38.78,
+                "p": 0.9809622168540955
+              },
+              {
+                "w": "and",
+                "s": 38.78,
+                "e": 39.14,
+                "p": 0.9953294992446899
+              },
+              {
+                "w": "AI",
+                "s": 39.14,
+                "e": 39.42,
+                "p": 0.9652049541473389
+              },
+              {
+                "w": "keys.",
+                "s": 39.42,
+                "e": 39.78,
+                "p": 0.8935142159461975
+              },
+              {
+                "w": "Not",
+                "s": 40.7,
+                "e": 40.78,
+                "p": 0.9649014472961426
+              },
+              {
+                "w": "financial",
+                "s": 40.78,
+                "e": 41.02,
+                "p": 0.9931086301803589
+              },
+              {
+                "w": "advice.",
+                "s": 41.02,
+                "e": 41.5,
+                "p": 0.9957041144371033
+              },
+              {
+                "w": "Be",
+                "s": 42.26,
+                "e": 42.34,
+                "p": 0.9949654936790466
+              },
+              {
+                "w": "sure",
+                "s": 42.34,
+                "e": 42.48,
+                "p": 0.9990251064300537
+              },
+              {
+                "w": "to",
+                "s": 42.48,
+                "e": 42.58,
+                "p": 0.9962999224662781
+              },
+              {
+                "w": "like,",
+                "s": 42.58,
+                "e": 42.78,
+                "p": 0.9616755247116089
+              },
+              {
+                "w": "share,",
+                "s": 43.02,
+                "e": 43.3,
+                "p": 0.9974924325942993
+              },
+              {
+                "w": "and",
+                "s": 43.7,
+                "e": 43.76,
+                "p": 0.9985779523849487
+              },
+              {
+                "w": "save",
+                "s": 43.76,
+                "e": 44.04,
+                "p": 0.9957173466682434
+              },
+              {
+                "w": "this",
+                "s": 44.04,
+                "e": 44.24,
+                "p": 0.9932246804237366
+              },
+              {
+                "w": "video.",
+                "s": 44.24,
+                "e": 44.54,
+                "p": 0.9993403553962708
+              }
+            ],
+            "dauer_s": 44.9706875,
+            "sprache": "en"
+          },
+          "roh_key": "028a27ba33e69a71ed6766842d75bb704f299b67168f1c7aca68573a4b8e4830",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "6b7c55ae91f43d673c50707033e8cc310f3acaecd112a2e83aa0985993dae4a2",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.1,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 18,
+          "motive": 18,
+          "motive_min": 18
+        },
+        "bildbezug": {
+          "version": "2026-10-13.1",
+          "video_sha256": "6b7c55ae91f43d673c50707033e8cc310f3acaecd112a2e83aa0985993dae4a2",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Vorschaubild der Software Fincept Terminal mit Logo und Features wie Real-Time Market Data, Trending Opportunities und Risk Analytics auf dunklem Hintergrund.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt das Marketing-Logo und Branding von Fincept Terminal, aber keine Demonstration oder Erläuterung dazu, ob eine kostenlose App Marktforschung bewältigen kann, weshalb es nur eine vage Verbindung darstellt.",
+              "erforderliches_bild": "Eine Darstellung oder Benutzeroberfläche der App bei der Durchführung von Marktforschungsaufgaben."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Laptop-Bildschirm zeigt eine Trading-Software mit einem Dashboard (Fincept Terminal) und ein Krypto-Coin-Symbol davor.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Benutzeroberfläche des Fincept Terminals wird klar gezeigt und belegt die Erwähnung der App.",
+              "erforderliches_bild": "Keines, da das Bild passend ist."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Screenshot zeigt ein Terminal-Interface für Equity Research mit Kursen, Trading-Daten, Valuation-Metriken und Share Stats im Dark Mode.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Interface von Fincept Terminal wird passend zur Erwähnung der App und ihrer Nutzung gezeigt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Ausschnitt einer Benutzeroberfläche zeigt Marktdaten, Analystenziele, 52-Wochen-Spanne, Rentabilität und Unternehmensinfos.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt die Benutzeroberfläche der Desktop-App Fincept Terminal, was genau zu der Erwähnung der App und ihrer integrierten Tools passt.",
+              "erforderliches_bild": "Keines"
+            },
+            {
+              "index": 4,
+              "gesehen": "Gezeigt wird die Benutzeroberfläche einer Desktop-App (FinceptTerminal) mit einer Portfolio-Ansicht, Holdings, einer Performance-Grafik und Transaktionshistorie.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Benutzeroberfläche des Desktop-Finanz-Tools FinceptTerminal wird gezeigt, was zur Erwähnung von Portfolio-Tools passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 5,
+              "gesehen": "Das Bild zeigt die Benutzeroberfläche des Fincept Terminals, auf der Sektorendaten und Korrelationen zu sehen sind, jedoch keine spezifischen Tools für VaR-Risikomaße.",
+              "note": 4,
+              "passt": false,
+              "grund": "Die Benutzeroberfläche zeigt allgemeine Marktdaten und Sektoren, aber die Erwähnung von VaR-Risikomaßen wird visuell nicht explizit belegt.",
+              "erforderliches_bild": "Ein Screenshot der Benutzeroberfläche mit einer sichtbaren Sektion oder Metrik für VaR-Risikomaße."
+            },
+            {
+              "index": 6,
+              "gesehen": "Eine GitHub-Repository-Vorschaukarte für FinceptTerminal mit dem Projektnamen, einer Beschreibung und Statistiken wie 45 Contributors, 4 Issues, 40 Discussions, 33k Stars und 5k Forks.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich die GitHub-Repository-Vorschau von FinceptTerminal und nicht die Datenquellen, Konnektoren oder das erwähnte Yahoo Finance / FRED.",
+              "erforderliches_bild": "Eine Liste oder ein Screenshot der Benutzeroberfläche, die die verschiedenen Datenquellen und Konnektoren wie FRED oder Yahoo Finance anzeigt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Gezeigt wird die Benutzeroberfläche einer Desktop-App (Fincept Terminal) mit Diagrammen und Finanzmetriken, jedoch ist kein Bezug zu FRED, dem IMF oder Yahoo Finance zu sehen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Benutzeroberfläche zeigt allgemeine Marktdaten und Portfoliowerte, aber weder die erwähnten Datenquellen noch deren Integration sind sichtbar.",
+              "erforderliches_bild": "Ein Screenshot oder eine Ansicht in der App, die explizit die Konnektoren oder Datenquellen wie FRED, IMF oder Yahoo Finance anzeigt."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Mann sitzt an einem Holztisch in einem Büro mit großem Fenster, Aktenordnern im Regal und liest Dokumente.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Mann in einem Büro, der Papiere liest, und bebildert weder Datenquellen noch eine Paper-Trading-Engine.",
+              "erforderliches_bild": "Ein Screenshot der Software-Benutzeroberfläche, die die Paper-Trading-Engine oder Börsendaten zeigt."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein Terminal-Dashboard mit Nachrichtentickern und Marktdaten, ohne sichtbare Erwähnung von AI-Agenten.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine allgemeine Finanz-Terminal-Oberfläche, jedoch keinen Bezug zu AI-Agenten wie im Text genannt.",
+              "erforderliches_bild": "Eine Ansicht des Programms, die die Konfiguration oder Liste der AI-Agenten zeigt."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein Terminal-Software-Bildschirm mit Finanznachrichten, aber keine Erwähnung oder Eingabe von API-Schlüsseln wie OpenAI.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt eine Finanz-Terminal-Oberfläche, aber kein Einstellungsfenster oder Interface für OpenAI-Schlüssel, das zur Erwähnung passt.",
+              "erforderliches_bild": "Ein Screenshot der Software-Einstellungen mit einem Feld zur Eingabe eines OpenAI-API-Schlüssels."
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein Anzeigebild einer Finanz- und Marktanalyse-App mit Artikeln und Menüoptionen, aber kein Hinweis auf Anthropic, OpenAI, Ollama oder KI-Agenten.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine Benutzeroberfläche für Nachrichten und Marktdaten, bildet jedoch weder Anthropic, Ollama noch API-Schlüssel oder KI-Agenten ab.",
+              "erforderliches_bild": "Ein Screenshot der App-Einstellungen oder Konfigurationsoberfläche, in der API-Schlüssel für KI-Anbieter wie Anthropic oder Ollama eingegeben werden."
+            },
+            {
+              "index": 12,
+              "gesehen": "Ein Interface für Knotenpunkte (Nodes) mit Verbindungen zwischen In- und Out-Ports, aber kein Repository, Code oder textliche Erwähnung von LLM-Kosten oder Token-Abrechnungen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine Node-Oberfläche zur Datenverarbeitung, während der gesprochene Text Kosten und LLM-Token-Abrechnungen aus einem Repository thematisiert. Es gibt keine visuelle Entsprechung für Kosten oder Repositories.",
+              "erforderliches_bild": "Ein Screenshot eines GitHub-Repositories oder einer Dokumentationsseite, die Details zur Kostenstruktur oder LLM-Token-Abrechnung zeigt."
+            },
+            {
+              "index": 13,
+              "gesehen": "Ein Node-Editor-Interface mit Steuerungsfluss- und Trigger-Kategorien sowie einem Start-Knoten auf der Arbeitsfläche ist zu sehen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gesprochenen Wörter erwähnen Rechnungen und Token-Abrechnungen für LLMs, aber das Bild zeigt lediglich eine Benutzeroberfläche zur Workflow-Erstellung.",
+              "erforderliches_bild": "Eine Darstellung einer Rechnung, einer Abrechnungsseite oder eines Software-Preismodells mit Token-Kosten."
+            },
+            {
+              "index": 14,
+              "gesehen": "Ein Mann im stilvollen Lederjacken-Look steht auf einer Straßenszene und bedient ein Tablet, im Hintergrund sind Häuser und ein Bücherregal zu sehen",
+              "note": 2,
+              "passt": false,
+              "grund": "Die sichtbare Straßenszene mit einem Mann und Tablet zeigt keine Software-Installation, keinen Download und keinen Release.",
+              "erforderliches_bild": "Ein Screenshot der Download-Seite oder des Releasemanagers mit dem sichtbaren Download-Link für die App"
+            },
+            {
+              "index": 15,
+              "gesehen": "Mehrere Männer sitzen an einem Tisch auf einer belebten Straße und schauen auf Papiere und Dokumente, während im Hintergrund Häuser und Sonnenlicht zu sehen sind.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine Straßenszene mit Personen an einem Tisch statt einer Darstellung von Datenbudgets, API-Schlüsseln oder Softwarekosten.",
+              "erforderliches_bild": "Ein Screenshot einer Anwendungsoberfläche oder Preisübersicht, die die Kosten für Daten und AI-Schlüssel aufzeigt."
+            },
+            {
+              "index": 16,
+              "gesehen": "Eine an einem Holztisch sitzende junge Frau mit besorgtem Gesichtsausdruck in einem Zimmer vor einem Fenster mit Blick auf Altbauten",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine Frau in einem altmodischen Raum, was in keinerlei Zusammenhang mit dem Finanzhinweis Not financial advice steht.",
+              "erforderliches_bild": "Ein Textbild oder eine Grafik mit einem sichtbaren Haftungsausschluss beziehungsweise Finanzhinweis"
+            },
+            {
+              "index": 17,
+              "gesehen": "Ein gemaltes Bild eines Mannes mit Sonnenbrille und Lederjacke vor einer Stadtsilhouette im Sonnenuntergang. Kein Aufruf zu Interaktionen, keine Icons für Like, Share oder Speichern sind zu sehen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt einen porträtierten Mann in einem malerischen Stil und keinerlei Bezug zu dem gesprochenen Engagement-Aufruf wie Like, Share oder Speichern.",
+              "erforderliches_bild": "Ein Moderator oder eindeutige Grafiken mit Like-, Share- und Speicher-Symbolen."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt das Marketing-Logo und Branding von Fincept Terminal, aber keine Demonstration oder Erläuterung dazu, ob eine kostenlose App Marktforschung bewältigen kann, weshalb es nur eine vage Verbindung darstellt.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (4/10): Die Benutzeroberfläche zeigt allgemeine Marktdaten und Sektoren, aber die Erwähnung von VaR-Risikomaßen wird visuell nicht explizit belegt.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich die GitHub-Repository-Vorschau von FinceptTerminal und nicht die Datenquellen, Konnektoren oder das erwähnte Yahoo Finance / FRED.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die Benutzeroberfläche zeigt allgemeine Marktdaten und Portfoliowerte, aber weder die erwähnten Datenquellen noch deren Integration sind sichtbar.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einem Büro, der Papiere liest, und bebildert weder Datenquellen noch eine Paper-Trading-Engine.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine allgemeine Finanz-Terminal-Oberfläche, jedoch keinen Bezug zu AI-Agenten wie im Text genannt.",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Finanz-Terminal-Oberfläche, aber kein Einstellungsfenster oder Interface für OpenAI-Schlüssel, das zur Erwähnung passt.",
+            "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Benutzeroberfläche für Nachrichten und Marktdaten, bildet jedoch weder Anthropic, Ollama noch API-Schlüssel oder KI-Agenten ab.",
+            "Einstellung 12: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Node-Oberfläche zur Datenverarbeitung, während der gesprochene Text Kosten und LLM-Token-Abrechnungen aus einem Repository thematisiert. Es gibt keine visuelle Entsprechung für Kosten oder Repositories.",
+            "Einstellung 13: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen Rechnungen und Token-Abrechnungen für LLMs, aber das Bild zeigt lediglich eine Benutzeroberfläche zur Workflow-Erstellung.",
+            "Einstellung 14: Bild passt nicht zum Sprechtext (2/10): Die sichtbare Straßenszene mit einem Mann und Tablet zeigt keine Software-Installation, keinen Download und keinen Release.",
+            "Einstellung 15: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Straßenszene mit Personen an einem Tisch statt einer Darstellung von Datenbudgets, API-Schlüsseln oder Softwarekosten.",
+            "Einstellung 16: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Frau in einem altmodischen Raum, was in keinerlei Zusammenhang mit dem Finanzhinweis Not financial advice steht.",
+            "Einstellung 17: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen porträtierten Mann in einem malerischen Stil und keinerlei Bezug zu dem gesprochenen Engagement-Aufruf wie Like, Share oder Speichern."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 18
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "6b7c55ae91f43d673c50707033e8cc310f3acaecd112a2e83aa0985993dae4a2",
+        "prompt_version": "2026-10-13.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "modell": "groq:openai/gpt-oss-20b",
+        "zweitpruefer_modell": null,
+        "zweitpruefer_anderer_anbieter": false
+      }
     }
   ]
 }

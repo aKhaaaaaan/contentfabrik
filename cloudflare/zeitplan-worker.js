@@ -20,7 +20,7 @@
 //   Befehle: Start | Start Business | Start KI | Status (Gesamtfortschritt in %) | Abholen
 
 const REPO = 'aKhaaaaaan/contentfabrik';
-const VERSION = '2026-10-14.1';
+const VERSION = '2026-10-15.1';
 // Zusammengefasste Stunden sparen Trigger: Workers Free hat fuenf pro Konto.
 const VIDEO_CRONS = new Set(['23 8,13 * * *', '41 10,15 * * *',
   '23 8 * * *', '41 10 * * *', '23 13 * * *', '41 15 * * *']);
@@ -103,6 +103,17 @@ const berlin = (iso) => new Date(iso).toLocaleTimeString('de-DE',
 // (BUDGET_S), daraus eine ehrliche Schaetzung - keine gemessene Bildzahl.
 const PRODUKTION_MIN = 45;
 
+async function ergebnis(lauf, kanal) {
+  try {
+    const r = await fetch(`https://raw.githubusercontent.com/${REPO}/main/verlauf/messungen/${kanal}.json`);
+    const eintrag = r.ok ? ((await r.json()) || []).find(e => String(e.id) === String(lauf.id)) : null;
+    if (!eintrag) return 'beendet, Ergebnis meldet der Videobot';
+    return eintrag.status === 'gesendet' ? '✅ Video geliefert' : '❌ kein Video - Grund meldet der Videobot';
+  } catch (e) {
+    return 'beendet, Ergebnis meldet der Videobot';
+  }
+}
+
 export async function fortschritt(env, lauf) {
   const r = await fetch(`https://api.github.com/repos/${REPO}/actions/runs/${lauf.id}/jobs`, { headers: ghKopf(env) });
   const jobs = r.ok ? ((await r.json()).jobs || []) : [];
@@ -126,7 +137,9 @@ export async function fortschritt(env, lauf) {
   const gesamt = kanaljobs.length || 1;
   const prozent = Math.min(99, Math.round((fertig.length + anteil) / gesamt * 100));
   let text = `Gesamt: ca. ${prozent} % (geschaetzt)\nJetzt: ${name(job)} - ${schritt ? schritt.name : 'Vorbereitung'}` + zeile;
-  if (fertig.length) text += `\nSchon fertig: ${fertig.map(name).join(', ')}`;
+  // GEMELDET 15.10.2026: "Schon fertig" hiess auch "ohne Video" (Job-success = Lauf beendet).
+  // Das echte Ergebnis steht in verlauf/messungen/<kanal>.json (bericht.status 'gesendet').
+  for (const j of fertig) text += `\nFertig: ${name(j)} (${await ergebnis(lauf, name(j))})`;
   return text + `\n${lauf.html_url}`;
 }
 

@@ -7,7 +7,7 @@ Aufruf: python fabrik/lauf.py kanaele/ai-tools-explained.json [thema]
 import datetime, json, os, re, shutil, signal, subprocess, sys, time, urllib.parse, urllib.request, uuid
 from pathlib import Path
 import budget
-from qualitaet import SCHWELLE, ENTWURF_MIN, bewerten, nur_ki_geschmack, skript_gruende, rang
+from qualitaet import SCHWELLE, ENTWURF_MIN, bewerten, nur_ki_geschmack, nur_bildbezug, skript_gruende, rang
 
 # GEMELDET: „Das Ziel ist immer 10/10, nicht bis 8/10." Verbessert wird bis
 # 10 oder bis das Zeitbudget erreicht ist; unter 7 bleibt das Video gesperrt.
@@ -222,6 +222,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     festes_thema = thema
     bester = None  # nur Kandidaten mit bestandenen Pruefungen
     entwurf_kandidat = None  # nur KI-Geschmack unter 7/10, Pflichtpruefungen bestanden
+    entwurf_rang = None  # (1, Note) fuer KI-Geschmack vor (0, -abgelehnte Bilder) fuer Bildbezug
     arbeit_ende = start + frei - SENDEN_S
     letzter_grund = 'Kein Versuch abgeschlossen'
     versuch = 0
@@ -453,8 +454,13 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         print(f'Versuch {versuch}: {note}/10; Sperrgruende: {gruende}')
         if not gruende and (bester is None or rang(kritik) > rang(bester[2])):
             bester = (note, ordner, kritik)
-        if gruende and nur_ki_geschmack(gruende) and (note or 0) >= ENTWURF_MIN \
-                and (entwurf_kandidat is None or (note or 0) > entwurf_kandidat[0]):
+        # Nutzerentscheidung 15.10.2026: auch ein NUR an der Bildpruefung gescheitertes Video geht als
+        # markierter Entwurf zum Nutzer (heute von Hand fuer Airbnb/Fincept; beide fand er "ok").
+        kandidat_rang = ((1, note or 0) if gruende and nur_ki_geschmack(gruende) and (note or 0) >= ENTWURF_MIN
+                         else (0, -sum(1 for g in gruende if str(g).startswith('Einstellung ')))
+                         if gruende and nur_bildbezug(gruende) else None)
+        if kandidat_rang is not None and (entwurf_rang is None or kandidat_rang > entwurf_rang):
+            entwurf_rang = kandidat_rang
             # Fertig gebaut, nur an KI-Geschmack gescheitert: als markierter Entwurf merken.
             entwurf_versand = Path('entwurf-kandidat')
             shutil.rmtree(entwurf_versand, ignore_errors=True)
@@ -489,7 +495,8 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     if bester is None and entwurf_kandidat is not None and os.environ.get('CF_PILOT') != '1':
         # Nutzer entscheidet (08.10.2026): fertig gebautes Video mit KI-Note >= 5 als Entwurf.
         bester, entwurf = entwurf_kandidat, True
-        print(f'Kein freigegebenes Video - Entwurf mit KI-Note {bester[0]}/10 geht zur Nutzerentscheidung')
+        print('Kein freigegebenes Video - markierter Entwurf geht zur Nutzerentscheidung '
+              + (f'(KI-Note {bester[0]}/10)' if entwurf_rang[0] else f'({-entwurf_rang[1]} Bilder beanstandet)'))
     if bester is None:
         # Den letzten Versuch fuer die Fehlersuche als Artefakt behalten.
         if versuch:

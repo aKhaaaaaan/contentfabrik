@@ -808,6 +808,17 @@ def bildteile(ziel):
         return []
 
 
+def dateiname_treffer(pfade, satz):
+    """Erster freier Kandidat, dessen README-Dateiname ein Wort des Satzes nennt (ohne KI-Anfrage)."""
+    worte = {w for w in re.findall(r'[a-z]{4,}', satz.split(' Visual:')[0].lower())}
+    for ziel, l in pfade:
+        name = l.split('#')[0].rsplit('/', 1)[-1].rsplit('.', 1)[0]
+        teile = {t.lower() for t in re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?![a-z])', name) if len(t) >= 4}
+        if teile & worte:
+            return ziel, l
+    return None
+
+
 def demo_fuer(url, satz='', benutzt=None, gewollt=None):
     """Echtes Anwendungsbeispiel von der Modellseite statt Symbol-Clip.
     GEMELDET (KI-Analyse 04.10.2026): „Keine echten Anwendungsbeispiele - nur
@@ -870,6 +881,14 @@ def demo_fuer(url, satz='', benutzt=None, gewollt=None):
     if gewollt:
         ziel, l = pfade[0]
         print('Beispielbild (redaktionelle Regie):', m[2], l[:90])
+        return ziel, {'quelle': 'Beispielbild', 'seite': url, 'datei': l}
+    treffer = dateiname_treffer(pfade, satz)
+    if treffer:
+        # GEMESSEN 15.10.2026: Die Auswahl kostete je Demo-Einstellung eine Gemini-Bildanfrage (27 im
+        # Fincept-Lauf) - ein Grund fuer das erschoepfte Tageskontingent. Nennt der Satz den Dateinamen
+        # (z.B. "portfolio" -> Portfolio.png), ist die Zuordnung eindeutig; Gemini nur fuer den Rest.
+        ziel, l = treffer
+        print('Beispielbild (Dateiname passt zum Satz):', m[2], l[:90])
         return ziel, {'quelle': 'Beispielbild', 'seite': url, 'datei': l}
     # Sparsam: Die Wahl je Modellseite wird gespeichert - dasselbe Modell kommt
     # an mehreren Tagen vor, die KI muss nicht jedes Mal neu schauen.

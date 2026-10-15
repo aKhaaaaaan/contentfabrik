@@ -34,6 +34,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_API_KEY_RESERVE: ${{ secrets.GEMINI_API_KEY_RESERVE }}
+          GEMINI_TTS_API_KEY: ${{ secrets.GEMINI_TTS_API_KEY }}  # Reserve-Rueckfall, s. skript.reserve_schluessel
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: python3 fabrik/themen.py abholen
       - name: Erfolgszahlen abrufen (einmal taeglich)
@@ -46,6 +47,7 @@ jobs:
           YT_TOKENS: ${{ secrets.YT_TOKENS }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_API_KEY_RESERVE: ${{ secrets.GEMINI_API_KEY_RESERVE }}
+          GEMINI_TTS_API_KEY: ${{ secrets.GEMINI_TTS_API_KEY }}  # Reserve-Rueckfall, s. skript.reserve_schluessel
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |

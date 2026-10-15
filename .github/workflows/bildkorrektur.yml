@@ -51,6 +51,7 @@ jobs:
           PYTHONUNBUFFERED: '1'
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_API_KEY_RESERVE: ${{ secrets.GEMINI_API_KEY_RESERVE }}
+          GEMINI_TTS_API_KEY: ${{ secrets.GEMINI_TTS_API_KEY }}  # Reserve-Rueckfall, s. skript.reserve_schluessel
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

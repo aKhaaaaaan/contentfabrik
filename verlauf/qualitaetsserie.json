@@ -40029,6 +40029,77 @@
         "zweitpruefer_modell": null,
         "zweitpruefer_anderer_anbieter": false
       }
+    },
+    {
+      "id": "38743537400.1:business-origin-stories",
+      "run_id": "38743537400",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-15T14:08:41.335606+00:00",
+      "ereignis": "schedule",
+      "commit": "0798ed07c0eb18dee8fad81efc1bde3ecee64f19",
+      "produktionsversion": "96f12528e5269229ae2666c14f81c6950ef4c33fafa5edc1ca5641f85800853f",
+      "videoformat": "short",
+      "thema": "Airbnb: von der ersten Idee zum internationalen Unternehmen",
+      "titel": [
+        "Airbed And Breakfast",
+        "How RENT Started *Airbnb*"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 7,
+      "unterschiedliche_motive": 6,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38743537400",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-15",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 487.1,
+            "baufehler": "ValueError: Phase 2, Einstellung 3: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 487.1
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 448.0,
+            "baufehler": "ValueError: Phase 5, Einstellung 7: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 448.0
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Videobau fehlgeschlagen (ValueError: Phase 5, Einstellung 7: kein passendes Hauptbild; kein Hintergrundersatz)",
+        "sekunden": 935.4,
+        "upload_titel": "Airbed And Breakfast: How RENT Started Airbnb"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

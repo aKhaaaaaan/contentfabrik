@@ -3,6 +3,7 @@ import copy
 import hashlib
 import json
 import math
+import re
 from pathlib import Path
 import dramaturgie
 import prompts
@@ -49,6 +50,8 @@ def slots(s, laengen, woerter):
         for i,(d,n) in enumerate(zip(laengen,anzahlen)):
             if d/n > (10 if dramaturgie.videoformat(s) == 'lang' else 6):
                 raise ValueError(f'Phase {i}: redaktionelle Bildfolge haelt ein Motiv zu lange')
+    if not redaktionell and dramaturgie.videoformat(s) == 'short' and woerter:
+        return satz_slots(s, laengen, woerter, minimum)
     # Die laengste Einstellung teilen, ohne Sprechphasen oder Wortzeiten zu veraendern.
     while not redaktionell and anzahlen and sum(anzahlen) < minimum:
         phase = max(range(len(laengen)), key=lambda i: laengen[i] / anzahlen[i])
@@ -62,6 +65,54 @@ def slots(s, laengen, woerter):
             aus.append({'index': len(aus), 'phase': phase, 's': a, 'dauer_s': b - a,
                         'text': text or t['text'], 'phase_text': t['text']})
         start += dauer
+    return aus
+
+
+def satz_slots(s, laengen, woerter, minimum=0, kurz=1.5, lang=6.0):
+    """Nutzerentscheidung 15.10.2026: ein Motiv je gesprochenem Satz statt fester 18.
+
+    Bei 18 Motiven in 45 s wechselte das Bild alle 2,5 s; kein Satzfetzen liess sich wortgenau
+    bebildern (Louis Vuitton 2/18 beim strengen Pruefer). Saetze ueber 6 s werden geteilt, Saetze
+    unter 1,5 s an den Nachbarn gehaengt. Sprechphasen und Wortzeiten bleiben unveraendert.
+    """
+    roh, start = [], 0.0
+    for phase, (t, dauer) in enumerate(zip(s['teile'], laengen)):
+        ende = start + dauer
+        ws = [w for w in woerter if start <= (w['s'] + w['e']) / 2 < ende]
+        a, satz = start, []
+        for k, w in enumerate(ws):
+            satz.append(w['w'])
+            if re.search(r'[.!?]["\')]*$', w['w']) or k == len(ws) - 1:
+                b = ws[k + 1]['s'] if k + 1 < len(ws) else ende
+                roh.append({'phase': phase, 's': a, 'e': b if k + 1 < len(ws) else ende,
+                            'text': ' '.join(satz), 'phase_text': t['text']})
+                a, satz = b, []
+        if not ws:
+            roh.append({'phase': phase, 's': start, 'e': ende, 'text': t['text'], 'phase_text': t['text']})
+        start = ende
+    # Zu kurze Saetze innerhalb derselben Phase an den Vorgaenger (sonst Nachfolger) haengen.
+    zus = []
+    for x in roh:
+        if zus and x['e'] - x['s'] < kurz and zus[-1]['phase'] == x['phase']:
+            zus[-1].update(e=x['e'], text=zus[-1]['text'] + ' ' + x['text'])
+        elif zus and zus[-1]['e'] - zus[-1]['s'] < kurz and zus[-1]['phase'] == x['phase']:
+            x = dict(x, s=zus[-1]['s'], text=zus[-1]['text'] + ' ' + x['text']); zus[-1] = x
+        else:
+            zus.append(dict(x))
+    # Lange Saetze teilen; fehlen dann noch Motive, den laengsten weiter teilen.
+    teile = [max(1, math.ceil((x['e'] - x['s']) / lang - 1e-9)) for x in zus]
+    while sum(teile) < minimum and zus:
+        i = max(range(len(zus)), key=lambda j: (zus[j]['e'] - zus[j]['s']) / teile[j])
+        teile[i] += 1
+    aus = []
+    for x, n in zip(zus, teile):
+        for j in range(n):
+            a = x['s'] + (x['e'] - x['s']) * j / n
+            b = x['s'] + (x['e'] - x['s']) * (j + 1) / n
+            text = x['text'] if n == 1 else (' '.join(w['w'] for w in woerter if a <= (w['s'] + w['e']) / 2 < b)
+                                             or x['text'])
+            aus.append({'index': len(aus), 'phase': x['phase'], 's': a, 'dauer_s': b - a,
+                        'text': text, 'phase_text': x['phase_text']})
     return aus
 
 
@@ -117,7 +168,7 @@ def bezug_pruefen(gemini, teil, daten):
                       + '\nTASK: For each slot, rate 1-10 how directly the planned image shows what its spoken words '
                         'say: the named subject, action, place or consequence a viewer hears at that moment. A loosely '
                         'related or opposite image (e.g. opening a DVD envelope while hearing that streaming overtook '
-                        'DVDs) scores low. For every score below ' + str(BEZUG_MIN) + ', give a better motif (2-5 words), '
+                        'DVDs) scores low. For every score below ' + str(BEZUG_MIN) + ', give a better motif (2-5 words quoted verbatim from the spoken words), '
                         'a 20-45 word painted scene that literally shows the spoken words, and 2-4 search words. For a '
                         'number, price or statistic, show the people or place it affects doing the concrete action. '
                         'Keep good slots unchanged (repeat their motif/scene). Return every slot.\n'
@@ -284,6 +335,12 @@ def vorbereiten(s, laengen, woerter, cache=None):
             'of that same event. Do not plan foto unless the supplied metadata actually supports '
             'the spoken subject and era. foto refers to the '
             'available indexed photo metadata; illustration is useful when no genuine photo fits. '
+            # Nutzerentscheidung 15.10.2026 (wortgenau): Airbnb-Satz "They put an air mattress in their living
+            # room" bekam das Motiv "living room breakfast". Das Motiv kommt jetzt woertlich aus dem Satz.
+            'motiv MUST quote the most concrete visible thing from the own spoken words of the slot, '
+            'verbatim (e.g. words "They put an air mattress in their living room" -> motiv "air mattress"), '
+            'and szene must show exactly that as the focal subject. Never a named real person or brand: '
+            'use their spoken role or object instead (e.g. "roommates", "rent", "air mattress"). '
             'Return EXACTLY one entry per slot, same integer index. motiv states the distinct visible '
             'subject/action. No extra words or factual assertions in the narration.\n'
             # GEMELDET 09.10.2026 (Aurelio-Short, Nutzernote 6/10): „Fotos, die nicht mit dem Text
@@ -369,18 +426,14 @@ def demo_vorrang(aus, material):
     """
     if not material:
         return aus
-    kapazitaet = sum(4 if m.get('animated') else (m.get('region_crops_if_wide') or 1)
-                     for q in material for m in q.get('media', []))
-    belegt = sum(1 for x in aus if x['teil'].get('bildmodus') == 'demo')
     for x in aus[1:-1]:
-        if belegt >= kapazitaet:
-            break
+        # Seit 15.10.2026 auch ueber die Screenshot-Kapazitaet hinaus: bauen.py setzt dann eine
+        # Erklaergrafik mit den gesprochenen Begriffen statt einer gemalten Szene ein.
         t = x['teil']
         # Kanalfigur am Anfang und wiederkehrend ist Nutzervorgabe (05.10.2026) - nie ersetzen.
         if t.get('bildmodus') in ('illustration', 'stock', 'foto') and not t.get('figur'):
             t['bildmodus'] = 'demo'
             t['quelle_url'] = t.get('quelle_url') or material[0]['source_url']
-            belegt += 1
     return aus
 
 

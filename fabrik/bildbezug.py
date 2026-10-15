@@ -8,7 +8,7 @@ from pathlib import Path
 import subprocess
 import tempfile
 
-VERSION = '2026-10-13.1'
+VERSION = '2026-10-15.1'
 MINIMUM = 7
 GRUPPE = 1  # Ein Bild je Urteil: Lite vertauschte in der Liveprobe Bilder in Sechsergruppen.
 SCHEMA = {'type': 'OBJECT', 'properties': {'pruefung': {'type': 'ARRAY', 'items': {
@@ -17,6 +17,12 @@ SCHEMA = {'type': 'OBJECT', 'properties': {'pruefung': {'type': 'ARRAY', 'items'
         'passt': {'type': 'BOOLEAN'}, 'grund': {'type': 'STRING'}, 'erforderliches_bild': {'type': 'STRING'}},
     'required': ['index', 'gesehen', 'note', 'passt', 'grund', 'erforderliches_bild']}}},
     'required': ['pruefung']}
+
+
+def aufruf(text):
+    """Sprechphase ist der reine Like/Teilen/Speichern-Aufruf (Shorts-Ende)."""
+    t = text.lower()
+    return all(w in t for w in ('like', 'share', 'save')) and len(t.split()) <= 14
 
 
 def bewerten(ergebnisse, slots):
@@ -77,6 +83,11 @@ def pruefen(video, skript, ablauf, ziel):
                 or not math.isfinite(s[k]) or s[k] < 0 for k in ('s', 'dauer_s')) or not s['dauer_s']:
             ergebnis['befunde'] = ['Bild-Text-Pruefung: ungueltige Einstellung']
             return speichern()
+    # Eichung 15.10.2026: Selbst beim vom Nutzer freigegebenen Louis-Vuitton-Video lehnte der Pruefer
+    # beide Like/Teilen/Speichern-Einstellungen ab. Dort gibt es nichts zu illustrieren - offen
+    # ausnehmen statt eine Note zu erfinden; ausgenommene Indizes stehen im Ergebnis.
+    ergebnis['ausgenommen'] = [x['index'] for x in slots if aufruf(x['phase_text'])]
+    slots = [x for x in slots if x['index'] not in ergebnis['ausgenommen']]
     code = ki_speicher.hashwert(Path(__file__).read_text(encoding='utf-8'))
     key = ki_speicher.cache_key(VERSION + code + json.dumps(slots, sort_keys=True), SCHEMA, SEHEN, .1, 'bildbezug', sha)
     cached = ki_speicher.cache_lesen(key, SCHEMA, SEHEN)
@@ -171,7 +182,10 @@ def gruende(d, sha):
     n = d.get('einstellungen')
     if type(n) is not int or n < 1:
         return ['Bild-Text-Pruefung: Abdeckung fehlt']
-    return bewerten(d['pruefung'], [{'index': i} for i in range(n)])
+    aus = d.get('ausgenommen') or []
+    if not isinstance(aus, list) or len(aus) > 3 or any(type(i) is not int for i in aus):
+        return ['Bild-Text-Pruefung: ungueltige Ausnahmen']
+    return bewerten(d['pruefung'], [{'index': i} for i in range(n) if i not in aus])
 
 
 def revision_gruende(sha):

@@ -1284,7 +1284,7 @@ def nachbar_bild(aus, i, vorherige_id, gesperrt=()):
 FIGUR_EINSETZEN = {'moeglich': True}  # gilt fuer einen bauen.py-Prozess (= einen Bauversuch)
 
 
-def illustration_mit_ausweg(szene, ziel, kanal_slug, mit_figur, rand, videoformat):
+def illustration_mit_ausweg(szene, ziel, kanal_slug, mit_figur, rand, videoformat, szene_zuerst=False):
     """Illustration; scheitert das Einsetzen der Kanalfigur, nicht das ganze Video verlieren.
 
     GEMESSEN 07.10.2026 (Run 37652008678, WeWork, Story 8/10): Figur in neue Szene
@@ -1310,6 +1310,13 @@ def illustration_mit_ausweg(szene, ziel, kanal_slug, mit_figur, rand, videoforma
         return ill
     FIGUR_EINSETZEN['moeglich'] = False
     original = illustration.FIGUREN / f'{kanal_slug}.jpg'
+    if rand and szene_zuerst:
+        # 15.10.2026: Am Anfang zuerst die wortgenaue Szene ohne Figur; das blosse Figurbild zeigt den
+        # Satzinhalt nicht (Airbnb-Einstellung 0: 3/10 beim strengen Pruefer).
+        print('Figur nicht einsetzbar - wortgenaue Szene ohne Figur zuerst')
+        ohne = versuch(False)
+        if ohne:
+            return ohne
     if rand and original.is_file():
         print('Figur nicht einsetzbar - Originalbild der Kanalfigur')
         return original
@@ -1674,9 +1681,18 @@ def main(skript_pfad, aus, vorlage=None):
                     karte = karte_fuer(t.get('quelle_url'))
                     # GEMESSEN 10.10.2026 (Pilot 38060628587): 'demo' in drei Einstellungen hintereinander
                     # -> dreimal DIESELBE Quellseiten-Karte, 3x „Gleiches Motiv zu lange gehalten".
+                    werkzeug_quelle = bool(re.match(r'https?://(github\.com|huggingface\.co)/', t.get('quelle_url') or ''))
                     if karte and (bildplan.material_id(karte) == vorherige_id or not motiv_ok(karte)):
-                        print(f'Einstellung {i}: kein Tool-Beispielbild, Quellseite schon davor - gemalte Szene')
-                        karte, modus = None, 'illustration'
+                        karte = None
+                        # Nutzerentscheidung 15.10.2026 (wortgenaue Bilder): fuer Werkzeug-Saetze ohne
+                        # passenden Screenshot eine Erklaergrafik mit den gesprochenen Begriffen statt
+                        # einer gemalten Laptop-Szene (Lauf 38711622156: 2-4/10 beim Pruefer).
+                        if werkzeug_quelle:
+                            print(f'Einstellung {i}: kein Tool-Beispielbild - Erklaergrafik zum Satz')
+                            t, modus = dict(t, grafik_typ='erklaerung'), 'grafik'
+                        else:
+                            print(f'Einstellung {i}: kein Tool-Beispielbild, Quellseite schon davor - gemalte Szene')
+                            modus = 'illustration'
                     elif karte:
                         print(f'Einstellung {i}: kein Tool-Beispielbild - echte Quellseite als Karte')
                     else:
@@ -1721,6 +1737,12 @@ def main(skript_pfad, aus, vorlage=None):
                     ill = docling_bildfolge.grafik(aus / f'ill_{i:02d}.jpg', t.get('grafik_variante'))
                     quellen.append({'quelle': 'Dokumentationsgrafik', 'seite': docling_bildfolge.SOURCE,
                                     'nennung': 'Illustrated Docling documentation workflow, not our measured tool output'})
+                elif t.get('grafik_typ') == 'erklaerung':
+                    import erklaergrafik
+                    ill = erklaergrafik.grafik(aus / f'ill_{i:02d}.jpg', t['text'], t.get('motiv', ''),
+                                               s.get('thema') or t.get('werkzeug') or '')
+                    quellen.append({'quelle': 'Erklaergrafik', 'seite': t.get('quelle_url', ''),
+                                    'nennung': 'Explainer graphic of the narrated statement, not a screenshot or measurement'})
                 elif s.get('thema') == 'Nintendo: The Problem with Durable Cards':
                     import infografik
                     ill = infografik.karten(aus / f'ill_{i:02d}.jpg', t.get('grafik_variante', 0), B, H)
@@ -1751,9 +1773,14 @@ def main(skript_pfad, aus, vorlage=None):
                     szene = ('A clearly illustrative reconstruction of a generic period-appropriate '
                              'setting or object, not an actual archive photograph and not a likeness '
                              'of a named historical person. ' + szene)
+                if t.get('motiv') and not letzt:
+                    # Nutzerentscheidung 15.10.2026 (wortgenau): Airbnb-Einstellung 0 sollte ein Wohnzimmer
+                    # mit Luftmatratze zeigen; erzeugt wurde ein Mann mit Sofas, die Bildpruefung hielt die
+                    # Matratze fuer ein Nebendetail. Der Kern des Satzes ist Pflicht fuer Bild UND Pruefung.
+                    szene = f"Key visible subject (must be clearly shown): {t['motiv']}. {szene}"
                 ill = illustration_mit_ausweg(szene, aus / f'ill_{i:02d}.jpg', kanal_slug,
                                               t.get('figur', i == 0 or letzt), i == 0 or letzt,
-                                              dramaturgie.videoformat(s))
+                                              dramaturgie.videoformat(s), szene_zuerst=not letzt)
                 if not ill and not illustration.KONTINGENT_LEER.exists():
                     # GEMESSEN 09.10.2026 (Langvideo Netflix, 94 Einstellungen): 3 Bauabbrueche, weil
                     # Bilder scheiterten - meist Cloudflare „output flagged" (Zufall) oder Figur-Pose.
@@ -1833,7 +1860,7 @@ def main(skript_pfad, aus, vorlage=None):
                 if ersatz:
                     ill = material = ersatz
                     print(f'Einstellung {i}: kein Bild bestanden - einmalige Ausnahme, gepruefte '
-                          f'Nachbar-Illustration {ersatz.name} (17 statt 18 Motive)')
+                          f'Nachbar-Illustration {ersatz.name} (ein Motiv weniger als verlangt)')
             if not material:
                 raise ValueError(f'Phase {shot["phase"]}, Einstellung {i}: kein passendes Hauptbild; kein Hintergrundersatz')
             material_hash = bildplan.material_id(material)

@@ -399,6 +399,9 @@ def bildpruefung(szene, referenz=False, videoformat='short'):
               'Do not reject for secondary blocking details (exact furniture, which hand, prop '
               'position, small framing differences) when the core idea reads clearly. Reject '
               'anatomy only when a defect is noticeable at a glance in a short video. '
+            # 15.10.2026 (Nutzer: Bilder muessen wortgenau passen): Pflichtmotiv ist nie Nebensache.
+            + 'If the requested scene names a key visible subject, it must be clearly visible and '
+              'recognizable; its absence or replacement is never a secondary detail. '
             # GEMELDET 09.10.2026 (Nutzer am Vorschaubild): „Der Typ auf dem Bild hat 3 Haende mit Anzug" -
             # ill_00 des VW-Langvideos hatte die Pruefung bestanden. Die Lockerungen oben (welche Hand,
             # Handhaltung) gelten nie fuer die ANZAHL.

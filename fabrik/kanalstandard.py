@@ -20,7 +20,8 @@ STANDARD = {
     # Gemessen 08.10.: Orus ~1.9-2.0 W/s; mit Tempo 1.08 etwa 2.1.
     'woerter_pro_sekunde': 2.1,
     'stockclips': False,
-    'short_motive_min': 18,
+    # Nutzerentscheidung 15.10.2026: ein Motiv je Satz (bildplan.satz_slots); 8 ist nur die Untergrenze.
+    'short_motive_min': 8,
     'musik_technisch': False,
     'youtube_kategorie': '27',  # Bildung
     'erzaehlstimme': {

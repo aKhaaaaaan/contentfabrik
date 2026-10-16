@@ -203,7 +203,10 @@ def aktualisieren(kanal, kritik):
         + '\nProblems found:\n' + '\n'.join(f'- {p}' for p in probleme),
         {'type': 'OBJECT', 'properties': {'regeln': {'type': 'ARRAY', 'items': {'type': 'STRING'}}},
          'required': ['regeln']}, temperatur=0.2)
-    liste = [r.strip() for r in neu['regeln'] if r.strip() and r.strip() not in gemeinsam][:HOECHSTENS]
+    # GEMESSEN 16.10.2026: regeln() filterte Regeln gegen Code-Vorgaben nur beim Lesen; der Lauf schrieb
+    # "beat wendung"/"Moderator durchgehend" erneut ins Regelbuch. Darum schon beim Speichern verwerfen.
+    liste = [r.strip() for r in neu['regeln']
+             if r.strip() and r.strip() not in gemeinsam and not gegen_code(r)][:HOECHSTENS]
     daten = laden(kanal)
     daten['regeln'] = liste
     speichern(kanal, daten)

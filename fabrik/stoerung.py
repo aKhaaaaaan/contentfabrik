@@ -41,3 +41,9 @@ def melden(dienst, was, folge):
         return True
     except Exception:
         return False
+
+
+if __name__ == '__main__':
+    import sys
+    # Aufruf aus Workflow-Schritten: python fabrik/stoerung.py <dienst> <was> <folge>
+    melden(*sys.argv[1:4])

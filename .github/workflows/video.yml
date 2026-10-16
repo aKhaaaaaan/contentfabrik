@@ -217,6 +217,10 @@ jobs:
           key: ki-pruefungen-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.kanal }}
       - name: Verlauf und Gelerntes sichern
         if: always()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          KANAL: ${{ matrix.kanal }}
         run: |
           git config user.name 'contentfabrik-bot'
           git config user.email 'contentfabrik-bot@users.noreply.github.com'
@@ -227,11 +231,16 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -qm "Verlauf/Lernen ${{ matrix.kanal }}"
           for i in 1 2 3 4 5; do
-            git pull -q --rebase || exit 1
+            git pull -q --rebase || { git rebase --abort 2>/dev/null; break; }
             git push -q && exit 0
             sleep $((i * 5))
           done
           echo "Verlauf und Budget konnten nicht gesichert werden" >&2
+          # GEMELDET 16.10.2026: Ein Git-Konflikt verschluckte den Versandeintrag des KI-Videos; der
+          # Nachhol-Lauf 12:41 hielt den Kanal fuer offen und schickte dasselbe Video noch einmal.
+          python fabrik/stoerung.py verlauf-sichern \
+            "Verlauf/Budget von ${{ matrix.kanal }} konnten nicht in Git gesichert werden (Konflikt)." \
+            "Ein spaeterer Lauf koennte dasselbe Video erneut bauen. Doppeltes Video in Telegram ablehnen."
           exit 1
       - name: Qualitaetsbericht
         if: always()

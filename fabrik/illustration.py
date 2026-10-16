@@ -64,6 +64,10 @@ def _anfrage(modell, felder, datei=None, charakter=None):
     print('Illustration abgelehnt:', str(d.get('errors'))[:140])
     if 'free allocation' in str(d.get('errors')).lower():
         KONTINGENT_LEER.write_text('Cloudflare Workers AI: Gratiskontingent aufgebraucht\n', encoding='utf-8')
+        import stoerung
+        stoerung.melden('cloudflare-bilder', 'Gratis-Bildkontingent bei Cloudflare fuer heute aufgebraucht.',
+                        'Keine neuen gemalten Bilder bis 02:00 Uhr; es kommen gepruefte Bibliotheks-/Nachbarbilder '
+                        'oder Grafiken.')
     return None
 
 
@@ -108,22 +112,30 @@ def pruefen(roh, szene, referenz=None, videoformat='short', satz=''):
         auftrag = (prompts.bildpruefung(szene, bool(referenz), videoformat, satz),
                    {'type': 'OBJECT', 'properties': {'ok': {'type': 'BOOLEAN'}, 'grund': {'type': 'STRING'}},
                     'required': ['ok', 'grund']})
-        try:
-            a, _ = gemini(*auftrag, temperatur=0.1, bilder=bilder, modelle=SEHEN)
-        except Exception as e:
-            # GEMESSEN 14.10.2026 (Lauf 38608447213): Alle Pruefmodelle hatten ihr Tageskontingent
-            # erschoepft; die 30-s-Pause vor jedem Bild kostete ~20 von 40 Minuten ohne Chance auf
-            # Erfolg. Sind alle Modelle gesperrt, ist ein zweiter Versuch sofort aussichtslos.
-            import ki_speicher
-            if all(ki_speicher.sperre(k, m) for m in SEHEN for k in
-                   filter(None, (os.environ.get('GEMINI_API_KEY'), __import__('skript').reserve_schluessel()))):
-                raise
-            # GEMESSEN 09.10.2026 (Langvideo-Pilot 37888005599): 20x 'Bildpruefung nicht verfuegbar'
-            # (Zeitlimit/Ueberlast der Lite-Modelle) -> jedes Bild verworfen, Ersatzbilder aufgebraucht.
-            # Kurze Ueberlast: einmal nach 30 s neu pruefen statt ein gutes Bild wegzuwerfen.
-            print('Bildpruefung ueberlastet, neuer Versuch in 30 s:', type(e).__name__)
-            time.sleep(PRUEF_PAUSE_S)
-            a, _ = gemini(*auftrag, temperatur=0.1, bilder=bilder, modelle=SEHEN)
+        def mit_gemini():
+            try:
+                return gemini(*auftrag, temperatur=0.1, bilder=bilder, modelle=SEHEN)
+            except Exception as e:
+                if os.environ.get('GROQ_API_KEY') and not referenz:
+                    raise  # 16.10.2026: Groq-Ausweichweg (bildvision) sofort statt 30 s Pause je Bild
+                # GEMESSEN 14.10.2026 (Lauf 38608447213): Alle Pruefmodelle hatten ihr Tageskontingent
+                # erschoepft; die 30-s-Pause vor jedem Bild kostete ~20 von 40 Minuten ohne Chance auf
+                # Erfolg. Sind alle Modelle gesperrt, ist ein zweiter Versuch sofort aussichtslos.
+                import ki_speicher
+                if all(ki_speicher.sperre(k, m) for m in SEHEN for k in
+                       filter(None, (os.environ.get('GEMINI_API_KEY'), __import__('skript').reserve_schluessel()))):
+                    raise
+                # GEMESSEN 09.10.2026 (Langvideo-Pilot 37888005599): 20x 'Bildpruefung nicht verfuegbar'
+                # (Zeitlimit/Ueberlast der Lite-Modelle) -> jedes Bild verworfen, Ersatzbilder aufgebraucht.
+                # Kurze Ueberlast: einmal nach 30 s neu pruefen statt ein gutes Bild wegzuwerfen.
+                print('Bildpruefung ueberlastet, neuer Versuch in 30 s:', type(e).__name__)
+                time.sleep(PRUEF_PAUSE_S)
+                return gemini(*auftrag, temperatur=0.1, bilder=bilder, modelle=SEHEN)
+        if referenz:  # Identitaetsabgleich braucht beide Bilder - bleibt bei Gemini
+            a, _ = mit_gemini()
+        else:
+            import bildvision
+            a, _ = bildvision.mit_ausweichweg(mit_gemini, *auftrag, roh)
         if a.get('ok') is True and referenz:
             zuviel = haende_zaehlen(roh)
             if zuviel:

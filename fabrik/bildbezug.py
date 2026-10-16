@@ -153,7 +153,10 @@ def pruefen(video, skript, ablauf, ziel):
                     if einzeltreffer:
                         d,modell = einzeltreffer
                     else:
-                        d, modell = gemini(auftrag, SCHEMA, bilder=bilder, modelle=SEHEN, temperatur=.1)
+                        import bildvision
+                        d, modell = bildvision.mit_ausweichweg(
+                            lambda: gemini(auftrag, SCHEMA, bilder=bilder, modelle=SEHEN, temperatur=.1),
+                            auftrag, SCHEMA, bilder[0])
                     if [e.get('index') for e in d.get('pruefung', [])] != [s['index'] for s in teil]:
                         raise ValueError('Pruefantwort laesst Einstellungen aus oder verwechselt Bilder')
                     if not einzeltreffer and ki_speicher.schema_ok(d,SCHEMA) and all(

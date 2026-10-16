@@ -56,6 +56,9 @@ def schreiben(prompt, schema, zeit=300):
         return None, _gesperrt
     grund = pause()
     if grund:
+        import stoerung
+        stoerung.melden('claude', f'Claude schreibt gerade keine Skripte ({grund}).',
+                        'Gemini/Groq schreiben als Reserve; alle Pruefungen bleiben gleich.')
         return None, grund
     if not verfuegbar():
         return None, 'Claude nicht eingerichtet'

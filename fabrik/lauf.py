@@ -445,6 +445,9 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                         or arbeit_ende - time.monotonic() < warte + PRUEF_RESERVE_S:
                     break
                 print(f'Pruefdienst ausgefallen - dasselbe Video in {warte} s erneut pruefen')
+                import stoerung
+                stoerung.melden('videopruefung', 'Die Videopruefung fiel aus (Dienst antwortet nicht).',
+                                f'Das fertige Video wird in {warte // 60} Min. erneut geprueft, nicht neu gebaut.')
                 time.sleep(warte)
                 k = kritik_lauf()
             runde['pruefung_s'] = round(time.monotonic() - pruef_start, 1)

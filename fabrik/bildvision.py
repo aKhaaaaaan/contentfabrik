@@ -15,10 +15,12 @@ def pruefen(prompt,schema,bilder):
         raise RuntimeError('Groq-Vision derzeit gesperrt')
     ende=min(time.monotonic()+90,float(os.environ.get('CF_SCHRITT_ENDE','inf')))
     import autorenvergleich
-    text=prompt+'\nReturn exactly ONE evaluation in pruefung for the supplied index. JSON schema: '+json.dumps(schema)
+    liste='pruefung' in schema.get('properties',{})
+    text=prompt+('\nReturn exactly ONE evaluation in pruefung for the supplied index.' if liste else '')+' JSON schema: '+json.dumps(schema)
     fmt={'type':'json_schema','json_schema':{'name':'contentfabrik_bildpruefung',
          'strict':True,'schema':autorenvergleich.groq_schema(schema)}}
-    fmt['json_schema']['schema']['properties']['pruefung'].update(minItems=1,maxItems=1)
+    if liste:
+        fmt['json_schema']['schema']['properties']['pruefung'].update(minItems=1,maxItems=1)
     # Offizielle Gratisbasis8KTPM; ein Bild zaehlt2048Tokens, nie seineBase64zeichen.
     reserve=math.ceil((len(text)+len(json.dumps(fmt)))/3)+2048+1024
     if reserve>7900:
@@ -60,3 +62,26 @@ def pruefen(prompt,schema,bilder):
     if not ki_speicher.schema_ok(answer,schema):
         raise ValueError('Groq-Vision-Schema nicht bestanden')
     return answer,CACHE_MODELL
+
+
+def mit_ausweichweg(gemini_aufruf,prompt,schema,bild):
+    """Gemini-Bildurteil; antwortet Gemini GAR NICHT (503/429/Zeitlimit), urteilt Groq-Vision mit demselben Auftrag.
+
+    GEMESSEN 16.10.2026 (Laeufe 38873412464, 38878792792): stundenlang HTTP 503 bei allen Gemini-Modellen,
+    danach 429 - fertige Videos blieben ohne Urteil. Eichung 15.10.: Groq urteilte genauso streng (LV 0/7).
+    Eine echte Ablehnung durch Gemini bleibt bestehen; ausgewichen wird nur bei fehlender Antwort."""
+    try:
+        return gemini_aufruf()
+    except Exception as e:
+        if not os.environ.get('GROQ_API_KEY'):
+            raise
+        print(f'Gemini-Bildpruefung ausgefallen ({type(e).__name__}) - Groq-Vision urteilt mit demselben Auftrag',flush=True)
+        import stoerung
+        stoerung.melden('gemini-bild',f'Gemini-Bildpruefung antwortet nicht ({type(e).__name__}).',
+                        'Groq-Vision prueft die Bilder mit denselben Regeln weiter.')
+        try:
+            return pruefen(prompt,schema,[bild])
+        except Exception:
+            stoerung.melden('bildpruefung-aus','Auch Groq-Vision antwortet nicht - keine Bildpruefung moeglich.',
+                            'Ungepruefte Bilder werden nie verwendet; das Video wird spaeter erneut geprueft.')
+            raise

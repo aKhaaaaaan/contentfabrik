@@ -7,7 +7,7 @@ CACHE_MODELL='groq:'+MODELL
 VERBRAUCH=[]
 
 
-def pruefen(prompt,schema,bilder):
+def pruefen(prompt,schema,bilder,_nochmal=True):
     if len(bilder)!=1 or not isinstance(bilder[0],bytes) or not bilder[0]:
         raise ValueError('Bildpruefung braucht genau ein echtes JPEG')
     key=os.environ['GROQ_API_KEY']
@@ -51,7 +51,18 @@ def pruefen(prompt,schema,bilder):
             import autorenvergleich
             detail=e.read().decode(errors='replace')
             warte=autorenvergleich.groq_wartezeit(e.headers,detail)
+            # GEMESSEN 16.10.2026: Gratisstufe 8.000 Token/Minute, eine Bildpruefung ~5.000-6.000 -> 429 schon
+            # beim zweiten Bild einer Minute. Kurze Serverfrist abwarten statt die Bildpruefung aufzugeben.
+            if _nochmal and warte<=65 and float(os.environ.get('CF_SCHRITT_ENDE','inf'))-time.monotonic()>warte+120:
+                print(f'Groq-Vision: Minutenkontingent, {warte:.0f}s warten',flush=True)
+                time.sleep(warte+1)
+                return pruefen(prompt,schema,bilder,_nochmal=False)
             ki_speicher.sperren(key,CACHE_MODELL,'Groq-Vision HTTP429',warte)
+        if e.code==400 and _nochmal and 'json_validate_failed' in e.read().decode(errors='replace'):
+            # GEMESSEN 16.10.2026: etwa jede dritte Antwort von qwen3.8-27b war kaputtes JSON
+            # ("-ok-ok-ok..."). Ein neuer Versuch ist kein Lockern - das Urteil kommt nur aus gueltigem JSON.
+            print('Groq-Vision: ungueltiges JSON, neuer Versuch',flush=True)
+            return pruefen(prompt,schema,bilder,_nochmal=False)
         raise RuntimeError(f'Groq-Vision HTTP{e.code}') from None
     used=d.get('usage',{}).get('total_tokens')
     VERBRAUCH.append((time.monotonic(),used if type(used) is int and used>0 else reserve))

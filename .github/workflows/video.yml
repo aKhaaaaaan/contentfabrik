@@ -55,7 +55,7 @@ jobs:
           import json, os, sys
           from pathlib import Path
           sys.path.insert(0, 'fabrik')
-          import budget
+          import budget, themen
           from lauf import start_moeglich
           def tagesziel(kanal):
               profil = json.loads(Path(f'kanaele/{kanal}.json').read_text(encoding='utf-8'))
@@ -72,7 +72,7 @@ jobs:
                   p = Path(f'verlauf/{k}.json')
                   v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
                   # nur GESENDETE Videos zaehlen - verworfene Versuche nicht
-                  if sum(e.get('datum') == heute and e.get('status') == 'gesendet' for e in v) < tagesziel(k) \
+                  if sum(themen.zaehlt_als_tagesvideo(k, e, heute) for e in v) < tagesziel(k) \
                           and start_moeglich(k):
                       offen.append(k)
           else:
@@ -81,7 +81,8 @@ jobs:
                   raise SystemExit('Unbekannter Kanal')
               p = Path(f'verlauf/{kanal}.json')
               v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
-              gesendet = sum(e.get('datum') == heute and e.get('status') == 'gesendet' for e in v)
+              # Wiederholung eines schon gelieferten Themas zaehlt nicht als Tagesvideo (16.10.2026, Airbnb).
+              gesendet = sum(themen.zaehlt_als_tagesvideo(kanal, e, heute) for e in v)
               offen = [kanal] if gesendet < tagesziel(kanal) and start_moeglich(kanal, os.environ.get('THEMA', '')) else []
           print('Offen:', offen)
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:

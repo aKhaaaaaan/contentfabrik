@@ -1337,6 +1337,11 @@ def illustration_mit_ausweg(szene, ziel, kanal_slug, mit_figur, rand, videoforma
         ohne = versuch(False)
         if ohne:
             return ohne
+        # GEMESSEN 16.10.2026 (Laeufe 38873412464 Business, 38878792792 KI): das blosse Figurbild als
+        # Notloesung fiel in beiden Kanaelen mit 2/10 durch und machte das Video zum Entwurf. Lieber die
+        # vereinfachte Szene des Aufrufers (danach gepruefter Nachbar) als ein sicher falsches Bild.
+        print('Wortgenaue Szene nicht bestanden - vereinfachte Szene statt Figurbild')
+        return None
     if rand and original.is_file():
         print('Figur nicht einsetzbar - Originalbild der Kanalfigur')
         return original

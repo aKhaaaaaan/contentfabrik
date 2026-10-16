@@ -391,6 +391,25 @@ def schon_geliefert(kanal, thema):
         return False
 
 
+def zaehlt_als_tagesvideo(kanal, eintrag, heute):
+    """Gesendetes Video von heute, das kein schon frueher geliefertes Thema wiederholt.
+
+    GEMELDET 16.10.2026: Das doppelte Airbnb-Video zaehlte als Tagesvideo; der Neustart fuer ein
+    neues Business-Thema wurde deshalb uebersprungen ("Offen: []")."""
+    if eintrag.get('datum') != heute or eintrag.get('status') != 'gesendet':
+        return False
+    try:
+        import kanalstandard
+        name = (kanalstandard.alle().get(kanal) or {}).get('name')
+        norm = lambda t: re.sub(r'\W+', ' ', str(t)).strip().lower()
+        lieferungen = [e for e in json.loads(GELIEFERT.read_text(encoding='utf-8'))
+                       if e.get('kanal') == name and norm(e.get('thema')) == norm(eintrag.get('thema'))]
+        # Mehrere Lauf-IDs = dasselbe Thema wurde schon in einem anderen Lauf geliefert (Wiederholung).
+        return len({e.get('upload_run_id') for e in lieferungen}) <= 1
+    except (OSError, ValueError, AttributeError, TypeError):
+        return True
+
+
 def nehmen(kanal):
     """Aeltestes Thema lesen. Erst erfolgreicher Versand entfernt es; schon gelieferte Themen nie erneut."""
     from zoneinfo import ZoneInfo

@@ -394,7 +394,13 @@ def bildpruefung(szene, referenz=False, videoformat='short', satz=''):
                   + '. A viewer must see what these spoken words name (the narrated object, action, place '
                     'or era); an image that fits the scene but not these words fails. Story illustrations '
                     'are forbidden to show logos, lettering, written years or likenesses of real people, so '
-                    'never require a brand, date or recognizable founder. ' if satz.strip() else '')
+                    'never require a brand, date or recognizable founder. '
+                  # GEMESSEN 16.10.2026 (Groq, gleicher Schlusspruefer-Auftrag): "Gebbia needed to pay rent" -
+                  # besorgte Mitbewohner ohne Zettel 8/10 im Schlusspruefer, hier aber abgelehnt ("kein
+                  # Mietvertrag sichtbar"); verlangt wurde so ein Schriftstueck -> Schriftsalat. Gleiche Regel wie dort:
+                  'For an abstract notion (rent, money, funding, debt, success, growth) the people or place it '
+                  'affects in that concrete situation is a match; do not require a document, sign or chart. '
+                  if satz.strip() else '')
     return ('TASK: Inspect the generated illustration actually supplied, not the desired prompt. '
             + gesprochen
             + DATEN + 'Check that its visible subject, action, setting and era fit the requested '

@@ -226,7 +226,15 @@ def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short', 
         except (OSError, ValueError):
             print('Ungueltige Bilddatei - kein Einsatz im Video')
             continue
-        bewertung = pruefen(roh, szene, ref, videoformat, satz)
+        import schrifterkennung
+        schrift = schrifterkennung.gemalte_schrift(roh)
+        if schrift:
+            # 16.10.2026: deutliche gemalte Schrift lokal erkennen - spart die Gemini-Pruefanfrage.
+            print('Illustration verworfen (lokale Schrifterkennung):', ', '.join(schrift[:4])[:120])
+            bewertung = {'ok': False, 'grund': 'Painted lettering found: ' + ', '.join(schrift[:4])[:150],
+                         'korrektur': schrifterkennung.KORREKTUR}
+        else:
+            bewertung = pruefen(roh, szene, ref, videoformat, satz)
         # Fehlerbilder fuer echte Sichtkontrolle behalten, niemals als Videomaterial verwenden.
         if not bewertung['ok']:
             fehlerbild = Path(ziel).with_name(Path(ziel).stem + f'_abgelehnt_{v}.jpg')
@@ -238,7 +246,7 @@ def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short', 
             Path(ziel).write_bytes(roh)
             GEZAEHLT['bilder'] += 1
             return Path(ziel)
-        korrektur = bewertung['grund']
+        korrektur = bewertung.get('korrektur') or bewertung['grund']
         if korrektur in ('Bildpruefung nicht verfuegbar', 'Bildpruefung nicht eingerichtet'):
             break  # kein zweites Bild erzeugen, wenn der Pruefer ausgefallen ist
     return None

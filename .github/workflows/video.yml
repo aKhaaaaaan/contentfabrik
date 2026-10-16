@@ -127,6 +127,9 @@ jobs:
           done
           command -v ffmpeg
           pip install -q -r requirements.txt
+          # Lokale Schrifterkennung vor der Gemini-Bildpruefung (16.10.2026). --no-deps + headless-OpenCV:
+          # rapidocr verlangt opencv-python, das auf Linux libGL braucht. Fehlt es, prueft Gemini allein.
+          pip install -q --no-deps rapidocr_onnxruntime==1.2.3 && pip install -q opencv-python-headless==5.0.0.93 pyclipper==1.4.0 shapely==2.2.0 PyYAML==6.0.3 six==1.17.0 || echo "Schrifterkennung fehlt - nur Gemini-Pruefung"
           # Versionen ins Log (09.10.2026: ungepinnte Pakete; Grundlage zum Festlegen)
           pip freeze | grep -i -E "^(kokoro|faster-whisper|av|pillow|numpy|playwright|onnxruntime|ctranslate2)" || true
           # Claude Code CLI fuer den Skript-Autor (Abo-Token); faellt sonst auf Gemini/Groq zurueck

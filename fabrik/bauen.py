@@ -1810,8 +1810,21 @@ def main(skript_pfad, aus, vorlage=None):
                 ill, modus = None, 'illustration'
             if foto and not motiv_ok(foto):
                 foto, fq, modus = None, None, 'illustration'
+            if letzt and not ill and not karte and not foto and modus in ('auto', 'illustration', 'foto'):
+                # GEMESSEN 16.10.2026 (Business 38873412464, KI 38888929052): der gemalte Aufruf scheiterte in
+                # jedem Versuch 2-4x (Cloudflare "flagged", gemalte Schrift "Like/Share/Save", einmal ein
+                # bewaffneter Soldat) und endete trotzdem beim Figur-Original oder einem Nachbarbild.
+                # Kanalfigur + gesprochener Aufruf in der Sprechblase: kein Bildmodell, keine Pruefanfrage.
+                import erklaergrafik
+                import illustration
+                figur = illustration.FIGUREN / f'{kanal_slug}.jpg'
+                if figur.is_file():
+                    ill = erklaergrafik.figur_frage(aus / f'ill_{i:02d}.jpg', figur, t['text'],
+                                                    s.get('thema') or t.get('werkzeug') or '')
+                    quellen.append({'quelle': 'Illustration', 'seite': 'Originale Kanalfigur mit gesprochenem Aufruf'})
+                    print(f'Einstellung {i}: Aufruf mit Kanalfigur und Sprechblase (ohne Bildmodell)')
             if os.environ.get('CLOUDFLARE_AI_TOKEN') and modus in ('auto', 'illustration', 'foto') \
-                    and not karte and not foto:
+                    and not karte and not foto and not ill:
                 import illustration
                 if i == 0 or letzt:
                     szene = t.get('szene') or ('pointing straight at the viewer with a confident grin, close-up, '

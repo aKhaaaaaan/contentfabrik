@@ -100,6 +100,9 @@ jobs:
           timeout 240 sudo apt-get -o Acquire::Retries=3 update -qq
           timeout 240 sudo apt-get -o Acquire::Retries=3 install -y -qq ffmpeg fonts-dejavu-core
           pip install -q -r requirements.txt
+          # Lokale Schrifterkennung vor der Gemini-Bildpruefung (16.10.2026). --no-deps + headless-OpenCV:
+          # rapidocr verlangt opencv-python, das auf Linux libGL braucht. Fehlt es, prueft Gemini allein.
+          pip install -q --no-deps rapidocr_onnxruntime==1.2.3 && pip install -q opencv-python-headless==5.0.0.93 pyclipper==1.4.0 shapely==2.2.0 PyYAML==6.0.3 six==1.17.0 || echo "Schrifterkennung fehlt - nur Gemini-Pruefung"
           # Versionen ins Log (09.10.2026: ungepinnte Pakete; Grundlage zum Festlegen)
           pip freeze | grep -i -E "^(kokoro|faster-whisper|av|pillow|numpy|playwright|onnxruntime|ctranslate2)" || true
           python -m playwright install chromium --only-shell

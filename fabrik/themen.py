@@ -372,14 +372,34 @@ def bestaetigen():
         telegram_speichern(zustand)
 
 
+GELIEFERT = Path('verlauf/telegram-videos.json')
+
+
+def schon_geliefert(kanal, thema):
+    """Wurde dieses Thema auf diesem Kanal schon als Video zugestellt (Freigabe, Entwurf oder von Hand)?
+
+    GEMELDET 16.10.2026: Airbnb kam zwei Tage hintereinander. Am 15.10. ging es als markierter Entwurf
+    ueber den Handversand (pilot-versand) raus - der traegt nicht 'gesendet' in den Verlauf ein, also
+    blieb das Thema in der Warteschlange. Das Versandprotokoll kennt jede Zustellung."""
+    try:
+        import kanalstandard
+        name = (kanalstandard.alle().get(kanal) or {}).get('name')
+        norm = lambda t: re.sub(r'\W+', ' ', str(t)).strip().lower()
+        return any(e.get('kanal') == name and norm(e.get('thema')) == norm(thema)
+                   for e in json.loads(GELIEFERT.read_text(encoding='utf-8')))
+    except (OSError, ValueError, AttributeError, TypeError):
+        return False
+
+
 def nehmen(kanal):
-    """Aeltestes Thema lesen. Erst erfolgreicher Versand entfernt es."""
+    """Aeltestes Thema lesen. Erst erfolgreicher Versand entfernt es; schon gelieferte Themen nie erneut."""
     from zoneinfo import ZoneInfo
     heute = datetime.datetime.now(ZoneInfo('Europe/Berlin')).date().isoformat()
     return next((x['thema'] for x in laden() if x['kanal'] == kanal
                  and x.get('status', 'bereit') == 'bereit'
                  and not gespraech_grund(x['thema'])
-                 and x.get('geplant_ab', heute) <= heute), '')
+                 and x.get('geplant_ab', heute) <= heute
+                 and not schon_geliefert(kanal, x['thema'])), '')
 
 
 def details(kanal, thema):

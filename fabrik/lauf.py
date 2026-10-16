@@ -214,6 +214,15 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     import kanalstandard
     # Langvideo: ~1.200 Woerter plus Fakten-/Storypruefung brauchen mehr als die 8 Min. eines Shorts.
     skriptfrist = 20 * 60 if kanalstandard.laden(kanal_pfad).get('videoformat') == 'lang' else 480
+    # GEMELDET 16.10.2026: Airbnb kam zwei Tage hintereinander (Entwurf vom 15.10. per Handversand
+    # zugestellt, Thema blieb stehen). Vor jeder Themenwahl schon gelieferte Themen austragen.
+    try:  # Aufraeumen darf den Lauf nie kippen
+        for x in [x for x in themen.laden() if isinstance(x, dict) and x.get('kanal') == kanal]:
+            if themen.schon_geliefert(kanal, x['thema']) is True:
+                themen.erledigen(kanal, x['thema'])
+                print('Thema schon geliefert - aus der Warteschlange entfernt:', x['thema'])
+    except (TypeError, OSError, ValueError, KeyError) as e:
+        print('Warteschlange nicht bereinigt:', type(e).__name__)
     # Thema aus Telegram hat Vorrang (GEMELDET: eigene Themen einbringen)
     aus_warteschlange = not thema
     trend = None

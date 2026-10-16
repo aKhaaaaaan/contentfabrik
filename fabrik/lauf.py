@@ -154,7 +154,10 @@ def verlauf_eintragen(kanal, skript, status, note, abschnitte=None, messung=None
     v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
     # Wird ein zuerst verworfener Versuch doch gesendet: nur EIN Eintrag je Thema und Tag
     heute = budget.heute()
-    v = [e for e in v if not (e.get('datum') == heute and e.get('thema') == skript['thema'])]
+    # Short und Langvideo zum selben Thema sind zwei Videos - nur dasselbe Format ersetzen (16.10.2026).
+    format_neu = skript.get('videoformat', 'short')
+    v = [e for e in v if not (e.get('datum') == heute and e.get('thema') == skript['thema']
+                              and (e.get('einstellungen') or {}).get('videoformat', 'short') == format_neu)]
     # GEMELDET: aus erfolgreichen Videos Stimmen, Einstellungen UND Story-Aufbau
     # lernen - darum alles festhalten, was ein Video ausmacht (erfolg.py wertet aus).
     teile = skript.get('teile', [])
@@ -193,6 +196,10 @@ def main(kanal_pfad, thema='', entwurf=''):
     if not Path(kanal_pfad).is_file():
         raise ValueError(f'Kanal-Datei fehlt: {kanal_pfad}')
     import kanalstandard
+    if kanalstandard.laden(kanal_pfad).get('videoformat') == 'lang' and budgetkanal == kanal:
+        # 16.10.2026: woechentliches Langvideo. Mit gemeinsamem Tagesbudget haette es die Business-Shorts
+        # desselben Tages blockiert (90 Min.) - eigenes Budget, eigene Abrechnung.
+        budgetkanal = f'lang-{kanal}'
     gesamt = tagesgrenze(budgetkanal, budget_fuer(kanalstandard.laden(kanal_pfad)))
     if budget.rest(budgetkanal, gesamt) <= SENDEN_S:
         print(f'{kanal}: Tagesbudget verbraucht - keine neue Produktion')

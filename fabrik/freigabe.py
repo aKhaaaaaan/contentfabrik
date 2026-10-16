@@ -165,12 +165,17 @@ def senden(skript_pfad, video_pfad):
     # CC-Lizenzen verlangen Urheber, Lizenz und Quelle - automatisch anhaengen
     qpfad = Path(skript_pfad).with_name('quellen.json')
     quellen = json.loads(qpfad.read_text(encoding='utf-8')) if qpfad.exists() else []
+    try:
+        messung = json.loads(Path(video_pfad).with_name('messung.json').read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        messung = {}
+    if lang:
+        kapitel = texte.kapitelmarken(skript, messung.get('abschnitte_s') or [])
+        if kapitel and kapitel not in skript['beschreibung']:
+            skript['beschreibung'] = skript['beschreibung'].rstrip() + '\n\n' + kapitel
     skript['beschreibung'] = texte.beschreibung_mit_quellen(skript['beschreibung'], quellen)
     chat = os.environ['TELEGRAM_CHAT_ID']
-    try:
-        ersatz = json.loads(Path(video_pfad).with_name('messung.json').read_text(encoding='utf-8')).get('stimme_ersatz')
-    except (OSError, ValueError):
-        ersatz = False
+    ersatz = messung.get('stimme_ersatz') if isinstance(messung, dict) else False
     # 1. Das Video selbst - kurze Bildunterschrift, damit es gut lesbar bleibt
     import bewertung
     import kanalstandard

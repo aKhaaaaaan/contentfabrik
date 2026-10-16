@@ -62,7 +62,12 @@ def auftrag(daten):
     if videoformat(daten) == 'lang':
         return (gemeinsam + 'LONG FORM: Start with a specific outcome, surprising sourced detail or '
                 'problem; demonstrate why it matters within the first 20-30 seconds. No logo intro '
-                'or channel housekeeping. Organize 3-5 chapters, each with a local question, '
+                'or channel housekeeping. '
+                # Nutzer 16.10.2026 (Langvideo-Leitfaden): sofort zeigen, was der Zuschauer am Ende weiss -
+                # gibt ihm den Grund zu bleiben. Ein Satz, keine Kapitelaufzaehlung.
+                'Within the first 30 seconds, state in one sentence the concrete question this video '
+                'will fully answer by the end (what the viewer will understand), without listing chapters. '
+                'Organize 3-5 chapters, each with a local question, '
                 'demonstration/evidence and mini-payoff, leading to the next chapter. Use 24-50 '
                 'distinct visual beats scaled to length, not paragraphs repeated to fill time. '
                 'Set name to a short useful chapter heading when a chapter begins. Move from '

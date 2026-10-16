@@ -398,6 +398,8 @@ def zaehlt_als_tagesvideo(kanal, eintrag, heute):
     neues Business-Thema wurde deshalb uebersprungen ("Offen: []")."""
     if eintrag.get('datum') != heute or eintrag.get('status') != 'gesendet':
         return False
+    if (eintrag.get('einstellungen') or {}).get('videoformat') == 'lang':
+        return False  # das woechentliche Langvideo ersetzt nie den Tages-Short (16.10.2026)
     try:
         import kanalstandard
         name = (kanalstandard.alle().get(kanal) or {}).get('name')

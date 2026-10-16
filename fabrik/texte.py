@@ -92,6 +92,35 @@ def tiktok_hashtags(skript):
     return (aus[:5 - len(kategorien)] + kategorien)[:5]
 
 
+def kapitelmarken(skript, abschnitte_s):
+    """YouTube-Kapitel fuer Langvideos aus den Kapitelnamen des Skripts und den GEMESSENEN Abschnittslaengen.
+
+    16.10.2026 (Nutzerauftrag woechentliches Langvideo): Kapitel halten Zuschauer und erscheinen in der Suche
+    als eigene Treffer. YouTube erkennt sie nur mit erster Marke 0:00, mindestens 3 Kapiteln und je mindestens
+    10 s (support.google.com/youtube/answer/9884579). Sonst lieber gar keine Liste als eine kaputte."""
+    teile = skript.get('teile') or []
+    if len(abschnitte_s) != len(teile):
+        return ''
+    marken, t = [], 0.0
+    for teil, dauer in zip(teile, abschnitte_s):
+        name = str(teil.get('name') or '').strip()
+        if not marken:
+            marken.append([0.0, name or 'Intro'])
+        elif name and name != marken[-1][1]:
+            marken.append([t, name])
+        t += dauer
+    # Zu kurze Kapitel dem vorherigen zuschlagen (YouTube verwirft sonst ALLE Marken)
+    gut = [marken[0]]
+    for start, name in marken[1:]:
+        if start - gut[-1][0] >= 10:
+            gut.append([start, name])
+    if len(gut) > 1 and t - gut[-1][0] < 10:
+        gut.pop()
+    if len(gut) < 3:
+        return ''
+    return '\n'.join(f'{int(s) // 60}:{int(s) % 60:02d} {n[:60]}' for s, n in gut)
+
+
 def beschreibung_mit_quellen(beschreibung, quellen):
     """Gemeinsame vollstaendige Musik-/Foto-Nennung fuer alle Upload-Texte."""
     nennungen = []

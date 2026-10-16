@@ -230,6 +230,10 @@ def story(text, kategorien, titel='', videoformat='short'):
               'positions; a missing action or misplaced request is a concrete weakness to fix. '
               'Score each category:\n'
             + dramaturgie.auftrag({'videoformat': videoformat}) + '\n'
+            # GEMESSEN 16.10.2026 (Lauf 38873412464): Der Pruefer sah nur den Sprechtext und verlangte zweimal,
+            # "beat wendung" in die Narration zu schreiben. Die Markierung steht in einem eigenen Feld.
+            + 'Beat labels such as beat wendung are production metadata in a separate field, never spoken; '
+              'their absence from the narration is not a weakness. Judge the turning point by its content.\n'
             + '\n'.join(f'- {k}: {v}' for k, v in kategorien.items())
             + '\nList only material weaknesses, with an exact sentence, why it matters and a feasible '
               'fix using the SAME facts. An alternative hook must introduce no new claim. If there '

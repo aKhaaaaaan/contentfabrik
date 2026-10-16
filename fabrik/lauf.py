@@ -106,6 +106,22 @@ def melden(text):
             print('Statusmeldung konnte nicht zugestellt werden')
 
 
+PRUEF_WIEDERHOLUNG_S = (120, 300)  # Wartezeiten vor erneuter Pruefung nach Dienstausfall
+PRUEF_RESERVE_S = 420              # danach muss noch Zeit fuer Pruefung und Versand bleiben
+
+
+def pruefung_ausgefallen(code, pfad):
+    """Pruefung brach ab, ohne zu urteilen (Absturz/503/Zeitlimit des Dienstes) - kein Qualitaetsurteil."""
+    if code != 0 or not Path(pfad).exists():
+        return True
+    try:
+        k = json.loads(Path(pfad).read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return True
+    befunde = (k.get('bildbezug') or {}).get('befunde') or []
+    return any('nicht vollstaendig moeglich' in str(b) for b in befunde)
+
+
 def schritt(argumente, deadline):
     """Bei Zeitablauf auch ffmpeg/andere Kindprozesse des Arbeiters beenden."""
     rest = deadline - time.monotonic()
@@ -399,8 +415,22 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             (ordner / 'kritik.json').unlink(missing_ok=True)
             phase = 'Video-Pruefung'
             pruef_start = time.monotonic()
-            k = schritt(['fabrik/kritik.py', str(ordner / 'short.mp4'), str(ordner / 'skript.json'),
-                         str(ordner / 'kritik.json')], arbeit_ende)
+            def kritik_lauf():
+                (ordner / 'kritik.json').unlink(missing_ok=True)
+                return schritt(['fabrik/kritik.py', str(ordner / 'short.mp4'), str(ordner / 'skript.json'),
+                                str(ordner / 'kritik.json')], arbeit_ende)
+            k = kritik_lauf()
+            # GEMESSEN 16.10.2026 (Lauf 38873412464, KI): Video fertig gebaut, dann meldeten alle Gemini-
+            # Modelle 503 (Google ueberlastet) -> keine einzige Note, das Video wurde verworfen. Ein kurzer
+            # Ausfall ist kein Qualitaetsurteil: dasselbe Video spaeter erneut pruefen. Schon gepruefte
+            # Einzelbilder kommen aus dem Cache; Gates und Schwellen bleiben unveraendert.
+            for warte in PRUEF_WIEDERHOLUNG_S:
+                if not pruefung_ausgefallen(k, ordner / 'kritik.json') \
+                        or arbeit_ende - time.monotonic() < warte + PRUEF_RESERVE_S:
+                    break
+                print(f'Pruefdienst ausgefallen - dasselbe Video in {warte} s erneut pruefen')
+                time.sleep(warte)
+                k = kritik_lauf()
             runde['pruefung_s'] = round(time.monotonic() - pruef_start, 1)
             if k != 0 or not (ordner / 'kritik.json').exists():
                 letzter_grund = 'Video-Pruefung nicht verfuegbar'

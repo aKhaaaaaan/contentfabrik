@@ -1,21 +1,5 @@
 [
   {
-    "id": "37594170866",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-07",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "zeitbudget",
-        "sekunden": 1620.0
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Zeitbudget erreicht (Arbeiter beendet)",
-    "sekunden": 1620.5
-  },
-  {
     "id": "37649294220",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-07",
@@ -6784,6 +6768,447 @@
     "status": "gesperrt",
     "grund": "Keine weitere gezielte Korrektur moeglich",
     "sekunden": 1116.6,
+    "upload_titel": "Stop AI Tax Guessing: OpenAccountants | AI Tool #6"
+  },
+  {
+    "id": "38888929052",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-10-16",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 333.4,
+        "pruefung_s": 75.4,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (6/10): Das Bild zeigt eine Übersichtsgrafik über das OpenAccountants-System und Guides, jedoch keine spezifische visuelle Illustration zur Frage, ob eine KI Steuerraten errät oder zu Trainingsdaten.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (4/10): Das Diagramm zeigt lediglich eine visuelle Metapher zum Thema Guides, belegt aber nicht den konkreten Vorgang des Zitierens einer gefetchten Anleitung oder eines Reviewer-Eintrags.",
+          "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt den Text 'Financial advice' als Grafik und UI-Element, aber keine Darstellung von Finanzberatung oder eine Prüfung von Steuer-Guides bzw. Reviews wie im Text angesprochen.",
+          "Offenes Problem (schwer): Das Bild zeigt eine Übersichtsgrafik über das OpenAccountants-System und Guides, jedoch keine spezifische visuelle Illustration zur Frage, ob eine KI Steuerraten errät oder zu Trainingsdaten. Korrektur: Eine Darstellung einer KI-Benutzeroberfläche, die eine Steuersatzfrage stellt und eine unsichere oder geschätzte Antwort anzeigt.",
+          "Offenes Problem (schwer): Das Diagramm zeigt lediglich eine visuelle Metapher zum Thema Guides, belegt aber nicht den konkreten Vorgang des Zitierens einer gefetchten Anleitung oder eines Reviewer-Eintrags. Korrektur: Eine Benutzeroberfläche oder ein Dokument, das die konkrete Zitierung eines gefetchten Guides mitsamt Nennung des Reviewers darstellt.",
+          "Offenes Problem (schwer): Das Bild zeigt den Text 'Financial advice' als Grafik und UI-Element, aber keine Darstellung von Finanzberatung oder eine Prüfung von Steuer-Guides bzw. Reviews wie im Text angesprochen. Korrektur: Eine Szene, die einen Haftungsausschluss oder Warnhinweis darstellt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Orus",
+          "tempo": 1.15,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 11,
+          "clips_und_stuecke": 286.7,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 11,
+            "motive": 11,
+            "motive_min": 8
+          },
+          "effekte": 11,
+          "rendern": 35.2,
+          "gesamt": 333.1,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            7.94,
+            10.3,
+            5.94,
+            7.46,
+            5.12,
+            5.52,
+            2.74
+          ],
+          "woerter": 101
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt eine Übersichtsgrafik über das OpenAccountants-System und Guides, jedoch keine spezifische visuelle Illustration zur Frage, ob eine KI Steuerraten errät oder zu Trainingsdaten. Korrektur: Eine Darstellung einer KI-Benutzeroberfläche, die eine Steuersatzfrage stellt und eine unsichere oder geschätzte Antwort anzeigt."
+          },
+          {
+            "zeit": "00:31",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Diagramm zeigt lediglich eine visuelle Metapher zum Thema Guides, belegt aber nicht den konkreten Vorgang des Zitierens einer gefetchten Anleitung oder eines Reviewer-Eintrags. Korrektur: Eine Benutzeroberfläche oder ein Dokument, das die konkrete Zitierung eines gefetchten Guides mitsamt Nennung des Reviewers darstellt."
+          },
+          {
+            "zeit": "00:40",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt den Text 'Financial advice' als Grafik und UI-Element, aber keine Darstellung von Finanzberatung oder eine Prüfung von Steuer-Guides bzw. Reviews wie im Text angesprochen. Korrektur: Eine Szene, die einen Haftungsausschluss oder Warnhinweis darstellt."
+          }
+        ],
+        "sekunden": 408.8,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            0,
+            3,
+            5
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-10-13.2"
+        },
+        "skript_s": 2.7,
+        "bau_s": 233.8,
+        "pruefung_s": 24.2,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 3/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen animierten Mann mit einem Tablet, aber nicht die im Text erwähnte KI oder steuerliche Regeln bzw. Raten.",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar grafische Elemente, die zu Accountant-Quellen passen sollen, aber es enthält keinen konkreten Beleg für 53 geprüfte Konten und zitierte Entwürfe.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt den Text 'Florida Sales Tax Rate', der sich thematisch auf den Steuerkontext bezieht, aber das Diagramm und die visuelle Darstellung sind zu abstrakt und bieten keine konkrete Erklärung oder Daten zu Manatee County oder Steuersätzen für 2026.",
+          "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Text und ein generisches Balkendiagramm mit einem Disclaimer über Finanzberatung, aber keinerlei Verweis auf die im gesprochenen Text erwähnte Überprüfung von Review-Einträgen oder veralteten Guides.",
+          "Offenes Problem (schwer): Die Szene zeigt einen animierten Mann mit einem Tablet, aber nicht die im Text erwähnte KI oder steuerliche Regeln bzw. Raten. Korrektur: Ein Screenshot oder eine Animation, die eine KI zeigt, welche Steuervorschriften oder Raten abfragt bzw. errät.",
+          "Offenes Problem (schwer): Das Bild zeigt zwar grafische Elemente, die zu Accountant-Quellen passen sollen, aber es enthält keinen konkreten Beleg für 53 geprüfte Konten und zitierte Entwürfe. Korrektur: Ein Screenshot oder Diagramm, das explizit die Anzahl von 53 geprüften Berichten oder ähnliche Metadaten anzeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt den Text 'Florida Sales Tax Rate', der sich thematisch auf den Steuerkontext bezieht, aber das Diagramm und die visuelle Darstellung sind zu abstrakt und bieten keine konkrete Erklärung oder Daten zu Manatee County oder Steuersätzen für 2026. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die den konkreten Steuersatz für Manatee County und das Jahr 2026 auflistet.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich Text und ein generisches Balkendiagramm mit einem Disclaimer über Finanzberatung, aber keinerlei Verweis auf die im gesprochenen Text erwähnte Überprüfung von Review-Einträgen oder veralteten Guides. Korrektur: Ein Dokument oder Interface, das eine Liste von Review-Einträgen, Aktualitätsprüfungen oder Revisionsprotokollen für Steuer-Guides zeigt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Orus",
+          "tempo": 1.15,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 11,
+          "clips_und_stuecke": 192.7,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 11,
+            "motive": 11,
+            "motive_min": 8
+          },
+          "effekte": 11,
+          "rendern": 35.0,
+          "gesamt": 233.5,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            7.94,
+            10.3,
+            5.94,
+            7.46,
+            5.12,
+            5.52,
+            2.74
+          ],
+          "woerter": 101
+        },
+        "kategorien": {
+          "bild_passt": 3
+        },
+        "probleme": [
+          {
+            "zeit": "00:00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die Szene zeigt einen animierten Mann mit einem Tablet, aber nicht die im Text erwähnte KI oder steuerliche Regeln bzw. Raten. Korrektur: Ein Screenshot oder eine Animation, die eine KI zeigt, welche Steuervorschriften oder Raten abfragt bzw. errät."
+          },
+          {
+            "zeit": "00:13",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt zwar grafische Elemente, die zu Accountant-Quellen passen sollen, aber es enthält keinen konkreten Beleg für 53 geprüfte Konten und zitierte Entwürfe. Korrektur: Ein Screenshot oder Diagramm, das explizit die Anzahl von 53 geprüften Berichten oder ähnliche Metadaten anzeigt."
+          },
+          {
+            "zeit": "00:27",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt den Text 'Florida Sales Tax Rate', der sich thematisch auf den Steuerkontext bezieht, aber das Diagramm und die visuelle Darstellung sind zu abstrakt und bieten keine konkrete Erklärung oder Daten zu Manatee County oder Steuersätzen für 2026. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die den konkreten Steuersatz für Manatee County und das Jahr 2026 auflistet."
+          },
+          {
+            "zeit": "00:40",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt lediglich Text und ein generisches Balkendiagramm mit einem Disclaimer über Finanzberatung, aber keinerlei Verweis auf die im gesprochenen Text erwähnte Überprüfung von Review-Einträgen oder veralteten Guides. Korrektur: Ein Dokument oder Interface, das eine Liste von Review-Einträgen, Aktualitätsprüfungen oder Revisionsprotokollen für Steuer-Guides zeigt."
+          }
+        ],
+        "sekunden": 260.6,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "38888929052-2",
+          "datum": "2026-10-16",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 260.6,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 2
+          },
+          "kategorien_nachher": {
+            "bild_passt": 3
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-10-13.2",
+          "verbessert": false
+        }
+      },
+      {
+        "runde": 3,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "karte",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            0,
+            1,
+            3,
+            5
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-10-13.2"
+        },
+        "skript_s": 2.3,
+        "bau_s": 201.6,
+        "pruefung_s": 49.3,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Die Szene zeigt lediglich einen Mann mit Smartphone in einer Straßengalerie, was in keinerlei Zusammenhang mit der Frage zu Steuerratschlägen oder KI-Raten steht.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Benutzeroberfläche mit einem Balkendiagramm und Schaltflächen, jedoch wird kein konkreter Beleg, Reviewer-Eintrag oder Quellenzitat gezeigt, das zur gesprochenen Passage passt.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Passage verlangt das Überprüfen von Review-Records für veraltete oder fehlerhafte Guides, aber das Bild zeigt nur ein generisches Balkendiagramm ohne Review-Datensätze oder visuelle Bezüge zur Prüfung von Guides.",
+          "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Grafik mit Balkendiagramm und Disclaimer-Text erklärt keine inhaltliche Steuerprüfung oder den Inhalt der gesprochenen Warnung.",
+          "Offenes Problem (schwer): Die Szene zeigt lediglich einen Mann mit Smartphone in einer Straßengalerie, was in keinerlei Zusammenhang mit der Frage zu Steuerratschlägen oder KI-Raten steht. Korrektur: Ein KI-Assistenten-Interface oder eine Bildschirmdarstellung, die zeigt, wie eine Künstliche Intelligenz Steuerregeln errät oder verarbeitet.",
+          "Offenes Problem (schwer): Das Bild zeigt eine Benutzeroberfläche mit einem Balkendiagramm und Schaltflächen, jedoch wird kein konkreter Beleg, Reviewer-Eintrag oder Quellenzitat gezeigt, das zur gesprochenen Passage passt. Korrektur: Ein Screenshot oder eine Ansicht, die eine zitierte Quelle (Guide) mit namentlicher Nennung eines Prüfers (Reviewer) zeigt.",
+          "Offenes Problem (schwer): Die gesprochene Passage verlangt das Überprüfen von Review-Records für veraltete oder fehlerhafte Guides, aber das Bild zeigt nur ein generisches Balkendiagramm ohne Review-Datensätze oder visuelle Bezüge zur Prüfung von Guides. Korrektur: Ein Screenshot oder eine Ansicht, die eine Liste von Guides samt dazugehörigen Review-Einträgen oder Prüfprotokollen zeigt.",
+          "Offenes Problem (schwer): Die gezeigte Grafik mit Balkendiagramm und Disclaimer-Text erklärt keine inhaltliche Steuerprüfung oder den Inhalt der gesprochenen Warnung. Korrektur: Ein Hinweis- oder Warnschild im Kontext von Finanz- oder Steuerhinweisen ohne bildfremde Diagramme."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Orus",
+          "tempo": 1.15,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 11,
+          "clips_und_stuecke": 153.8,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 11,
+            "motive": 11,
+            "motive_min": 8
+          },
+          "effekte": 11,
+          "rendern": 34.8,
+          "gesamt": 201.4,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            7.94,
+            10.3,
+            5.94,
+            7.46,
+            5.12,
+            5.52,
+            2.74
+          ],
+          "woerter": 101
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die Szene zeigt lediglich einen Mann mit Smartphone in einer Straßengalerie, was in keinerlei Zusammenhang mit der Frage zu Steuerratschlägen oder KI-Raten steht. Korrektur: Ein KI-Assistenten-Interface oder eine Bildschirmdarstellung, die zeigt, wie eine Künstliche Intelligenz Steuerregeln errät oder verarbeitet."
+          },
+          {
+            "zeit": "00:31",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt eine Benutzeroberfläche mit einem Balkendiagramm und Schaltflächen, jedoch wird kein konkreter Beleg, Reviewer-Eintrag oder Quellenzitat gezeigt, das zur gesprochenen Passage passt. Korrektur: Ein Screenshot oder eine Ansicht, die eine zitierte Quelle (Guide) mit namentlicher Nennung eines Prüfers (Reviewer) zeigt."
+          },
+          {
+            "zeit": "00:36",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die gesprochene Passage verlangt das Überprüfen von Review-Records für veraltete oder fehlerhafte Guides, aber das Bild zeigt nur ein generisches Balkendiagramm ohne Review-Datensätze oder visuelle Bezüge zur Prüfung von Guides. Korrektur: Ein Screenshot oder eine Ansicht, die eine Liste von Guides samt dazugehörigen Review-Einträgen oder Prüfprotokollen zeigt."
+          },
+          {
+            "zeit": "00:40",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die gezeigte Grafik mit Balkendiagramm und Disclaimer-Text erklärt keine inhaltliche Steuerprüfung oder den Inhalt der gesprochenen Warnung. Korrektur: Ein Hinweis- oder Warnschild im Kontext von Finanz- oder Steuerhinweisen ohne bildfremde Diagramme."
+          }
+        ],
+        "sekunden": 253.2,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "38888929052-3",
+          "datum": "2026-10-16",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 253.2,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "karte",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 3
+          },
+          "kategorien_nachher": {
+            "bild_passt": 2
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-10-13.2",
+          "verbessert": false
+        }
+      },
+      {
+        "runde": 4,
+        "art": "korrektur",
+        "status": "korrekturgrenze",
+        "sekunden": 0.0
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 935.7,
     "upload_titel": "Stop AI Tax Guessing: OpenAccountants | AI Tool #6"
   }
 ]

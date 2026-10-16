@@ -161,6 +161,21 @@ BEZUG_SCHEMA = {'type': 'OBJECT', 'properties': {'pruefung': {'type': 'ARRAY', '
     'required': ['index', 'note', 'motiv', 'szene', 'suche']}}}, 'required': ['pruefung']}
 
 
+# GEMESSEN 16.10.2026 (Business Airbnb 38873412464 Einstellung 6, VW-Langvideo Einstellung 47): der Auftrag
+# beschrieb BEIDE Kanalfiguren, der Planer malte die KI-Figur (Lederjacke, cyan Brille) in Business-Szenen.
+# Jetzt nennt der Auftrag nur die eigene Figur; fremde_figur() faengt verbliebene Verwechslungen ab.
+FIGUR = {'Business Origin Stories': 'blue-eyed man with fedora, grey suit, dark tie and gold pocket watch',
+         'AI Tools Explained': 'black-haired man with black leather jacket and cyan glowing glasses'}
+FIGUR_MERKMALE = {'Business Origin Stories': r'\b(?:fedora|pocket watch)\b',
+                  'AI Tools Explained': r'\b(?:leather jacket|cyan(?: glowing)? glasses)\b'}
+
+
+def fremde_figur(szene, kanal):
+    """Beschreibt die Szene die Figur des ANDEREN Kanals?"""
+    return any(re.search(muster, szene or '', re.I) for name, muster in FIGUR_MERKMALE.items()
+               if kanal in FIGUR_MERKMALE and name != kanal)
+
+
 def szene_aus_vorlage(d, vorlage, text=''):
     """Bild-Prompt aus der Kanalvorlage; fehlt ein Feld oder ist es unbrauchbar, bleibt die freie Szene.
 
@@ -357,9 +372,8 @@ def vorbereiten(s, laengen, woerter, cache=None):
             'Introduce the original channel presenter in the opening and bring the same identity '
             'back during the story in useful actions, not only the closing CTA. Prefer presenter '
             'library assets; for a new illustration involving our presenter set figur=true so the '
-            'reference image is actually used. Business: blue-eyed man with fedora, grey suit, dark '
-            'tie and gold pocket watch. AI Tools: black-haired man with black leather jacket and '
-            'cyan glowing glasses. Never use the presenter as a named real historical founder. '
+            'reference image is actually used. Our presenter: ' + FIGUR.get(s.get('kanal'), 'the channel presenter')
+            + '. Never use the presenter as a named real historical founder. '
             'Use overview, object detail, visible process, comparison or outcome when supported. '
             'A zoom, different crop or title change is NOT a new motif. Never use unrelated candles, '
             'abstract loops or background-only frames to fill missing imagery. Every shot must '
@@ -419,7 +433,8 @@ def vorbereiten(s, laengen, woerter, cache=None):
                 # Bibliotheksbilder sind Hochformat - im Langvideo (16:9) waeren sie beschnitten.
                 'illustration_library': bibliothek.auswahl(s.get('kanal'),' '.join(t['text'] for t in s['teile']))
                                         if dramaturgie.videoformat(s) == 'short' else [],
-                'editorial_feedback': lernen.redaktionsregeln()}
+                # Regel vom 05.10. beschreibt beide Figuren - der Auftrag nennt die eigene schon.
+                'editorial_feedback': [r for r in lernen.redaktionsregeln() if not fremde_figur(r, s.get('kanal'))]}
         # Groq braucht die Bildregie, nicht lokale Dateipfade, Hashes/Sichtkontrollnotizen
         # oder mehrfach wiederholte Phasentexte in jedem Slot. Regeln/Fakten erhalten.
         kompakt = dict(kontext,
@@ -474,6 +489,10 @@ def vorbereiten(s, laengen, woerter, cache=None):
         szene = szene_aus_vorlage(d, vorlage, slot['text'])
         if szene != d['szene']:
             t['szene'], t['vorlage'] = szene, True
+        if fremde_figur(t['szene'], s.get('kanal')):
+            print(f"Einstellung {slot['index']}: Szene beschrieb die Figur des anderen Kanals - Motivszene ohne Figur")
+            t['szene'] = prompts.rueckfall_motiv(d['motiv'], d.get('suche', '')) or d['motiv']
+            t['figur'] = False
         t['text'] = slot['text']
         t['_phase'] = slot['phase']
         aus.append(dict(slot, teil=t))

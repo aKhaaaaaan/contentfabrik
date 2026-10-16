@@ -48,6 +48,7 @@ jobs:
         run: |
           git config user.name 'contentfabrik-bot'
           git config user.email 'contentfabrik-bot@users.noreply.github.com'
+          git config merge.contentfabrik-themen.driver 'python fabrik/zustand_merge.py %O %A %B'
           for pfad in vorrat lernen verlauf themen; do
             [ ! -d "$pfad" ] || git add -- "$pfad"
           done

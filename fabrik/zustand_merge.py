@@ -65,10 +65,30 @@ def warteschlange(base, remote, lokal):
     return [aus[key] for key in ids]
 
 
+def kontingent(base, remote, lokal):
+    """verlauf/gemini-kontingent.json: Sperren beider Seiten behalten, je Modell die spaetere Frist.
+
+    GEMESSEN 16.10.2026 (Lauf 38878792792): Video- und Themenlaeufe schrieben gleichzeitig Sperren;
+    der Rebase-Konflikt verhinderte das Sichern von Verlauf, Budget und Versandprotokoll des Laufs.
+    Eine laengere Sperre ist die vorsichtigere - so wird kein erschoepftes Modell erneut angefragt."""
+    aus = dict(remote, **{k: v for k, v in lokal.items() if k != 'modelle'})
+    modelle = {}
+    for teil in (remote.get('modelle') or {}, lokal.get('modelle') or {}):
+        for k, v in teil.items():
+            alt = modelle.get(k)
+            if alt is None or (v.get('bis') or 0) > (alt.get('bis') or 0):
+                modelle[k] = v
+    aus['modelle'] = modelle
+    return aus
+
+
 if __name__ == '__main__':
     try:
         base, remote, lokal = [json.loads(Path(p).read_text(encoding='utf-8')) for p in sys.argv[1:4]]
-        d = feld(base, remote, lokal)
+        if all(isinstance(x, dict) and isinstance(x.get('modelle'), dict) for x in (remote, lokal)):
+            d = kontingent(base, remote, lokal)
+        else:
+            d = feld(base, remote, lokal)
         Path(sys.argv[2]).write_text(json.dumps(d, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
     except (ValueError, OSError, KeyError, TypeError):
         print('Themenkonflikt nicht sicher aufloesbar; keine Liste ueberschrieben', file=sys.stderr)

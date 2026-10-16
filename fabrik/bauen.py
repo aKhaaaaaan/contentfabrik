@@ -1683,7 +1683,7 @@ def main(skript_pfad, aus, vorlage=None):
                 # GEMESSEN 10.10.2026 (Pilot 37990152213): Planer setzte 'karte' fuer eine Preisseite
                 # (keine GitHub/HF-Karte moeglich) - es wurde gar kein Bild versucht, 4x Bauabbruch.
                 modus = 'illustration'
-            if karte and (bildplan.material_id(karte) == vorherige_id or not motiv_ok(karte)):
+            if karte and (bildplan.material_id(karte) in {vorherige_id, *benutzte_materialien} or not motiv_ok(karte)):
                 print(f'Einstellung {i}: gleiche Quellseite wie davor - gemalte Szene')
                 karte, modus = None, 'illustration'
             if kanalprofil(s).get('gemalt_nur_rand') and 0 < i < len(shots) - 1 and not karte \
@@ -1720,7 +1720,7 @@ def main(skript_pfad, aus, vorlage=None):
                     # GEMESSEN 10.10.2026 (Pilot 38060628587): 'demo' in drei Einstellungen hintereinander
                     # -> dreimal DIESELBE Quellseiten-Karte, 3x „Gleiches Motiv zu lange gehalten".
                     werkzeug_quelle = bool(re.match(r'https?://(github\.com|huggingface\.co)/', t.get('quelle_url') or ''))
-                    if karte and (bildplan.material_id(karte) == vorherige_id or not motiv_ok(karte)):
+                    if karte and (bildplan.material_id(karte) in {vorherige_id, *benutzte_materialien} or not motiv_ok(karte)):
                         karte = None
                         # Nutzerentscheidung 15.10.2026 (wortgenaue Bilder): fuer Werkzeug-Saetze ohne
                         # passenden Screenshot eine Erklaergrafik mit den gesprochenen Begriffen statt

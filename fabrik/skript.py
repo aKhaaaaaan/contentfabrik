@@ -171,10 +171,16 @@ def reserve_schluessel():
     return None
 
 
-def reserve_noetig(letzter):
-    """Nur ein erschoepftes Kontingent rechtfertigt den bezahlten Reserve-Schluessel, keine Ueberlast."""
-    return bool(reserve_schluessel()) and bool(letzter) and \
-        any(w in str(letzter) for w in ('Tageskontingent', 'Minuten-/Tokenkontingent'))
+def reserve_noetig(gruende):
+    """Nur ein erschoepftes Kontingent rechtfertigt den bezahlten Reserve-Schluessel, keine Ueberlast.
+
+    gruende: Fehlergrund JEDES Modells der Anfrage. GEMESSEN 16.10.2026: Bisher entschied nur der Grund des
+    LETZTEN Modells - war das seit Stunden kontingentgesperrt, ging der Lauf nach Zeitlimit/503 der freien
+    Modelle (reine Ueberlast, Kontingent noch frei) auf den bezahlten Schluessel."""
+    if not isinstance(gruende, (list, tuple)):
+        gruende = [gruende] if gruende else []
+    return bool(reserve_schluessel()) and bool(gruende) and all(
+        any(w in str(g) for w in ('Tageskontingent', 'Minuten-/Tokenkontingent')) for g in gruende)
 
 
 def _gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=(), cache=None, anfrage_s=180,
@@ -209,10 +215,12 @@ def _gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=()
                              'responseSchema': schema},
     }
     letzter = None
+    gruende = []  # Fehlergrund je Modell - fuer die Reserve-Entscheidung zaehlen ALLE, nicht nur das letzte
     for modell in modelle:
         gesperrt = ki_speicher.sperre(schluessel, modell)
         if gesperrt:
             letzter = f'{modell}: {gesperrt}'
+            gruende.append(letzter)
             continue
         # Google empfiehlt fuer Gemini 3.x die Sampling-Standardwerte.
         # Latest-Aliase koennen ebenfalls auf 3.x zeigen: nicht heruntersetzen.
@@ -292,17 +300,19 @@ def _gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=()
                         pass
                     if pause > 60 or pause + 5 >= ende - time.monotonic():
                         ki_speicher.sperren(schluessel, modell, 'Minuten-/Tokenkontingent erschoepft', min(pause, 3600))
+                        letzter = f'{modell}: Minuten-/Tokenkontingent erschoepft'
                         break
                     time.sleep(pause)
                 elif versuch == 0:
                     if ende - time.monotonic() <= 5:
                         raise RuntimeError('KI-Zeitbudget fuer diese Anfrage erreicht') from None
                     time.sleep(5)
+        gruende.append(letzter)
     # Nutzerentscheidung 15.10.2026: Ist das kostenlose Kontingent erschoepft, springt ein separates
     # Prepay-Projekt (GEMINI_API_KEY_RESERVE) ein - nur dann, nie bei blosser Ueberlast. Gemessen: ein Lauf
     # braucht 75-100 Anfragen, frei sind ~20 je Modell und Tag; mehrere Laeufe brachen deshalb ab.
     # Hochgeladene Dateien gehoeren zum Projekt ihres Schluessels - dort waehlt kritik.py vorher.
-    if schluessel == os.environ.get('GEMINI_API_KEY') and not dateien and reserve_noetig(letzter):
+    if schluessel == os.environ.get('GEMINI_API_KEY') and not dateien and reserve_noetig(gruende):
         print('Gemini: kostenloses Kontingent erschoepft - Reserve-Schluessel (bezahlt) wird genutzt', flush=True)
         return _gemini(prompt, schema, temperatur, bilder, modelle, dateien, cache, anfrage_s, antwort_s,
                        schluessel=reserve_schluessel())
@@ -460,6 +470,27 @@ STORY_SCHEMA = {
     },
     'required': ['note', 'kategorien', 'schwaechen', 'besserer_hook'],
 }
+
+
+def story_ziele(story):
+    """Kategorien unter der Freigabegrenze mit Note und Kriterium fuer den Umschreibauftrag.
+
+    GEMESSEN 16.10.2026 (KI-Lauf 38873412464, FinRL): Gesamtnote 7, aber ueberraschung 3 und aufloesung 4 -
+    gesperrt, weil jede Kategorie mindestens 7 braucht. Der Autor sah nur freie Schwaechentexte, nicht welche
+    Kategorie mit welcher Note durchfiel; drei Themen scheiterten so nacheinander."""
+    werte = story.get('kategorien') if isinstance(story, dict) else None
+    if not isinstance(werte, dict):
+        return ''
+    from qualitaet import STORY_TEILBARKEIT_MIN
+    ziele = []
+    for k, frage in STORY_KATEGORIEN.items():
+        grenze = STORY_TEILBARKEIT_MIN if k == 'teilbarkeit' else 7
+        w = werte.get(k)
+        if type(w) in (int, float) and w < grenze:
+            ziele.append((w, f'{k} {w}/10 -> needs at least {grenze}: {frage}'))
+    ziele = [z for _, z in sorted(ziele, key=lambda x: x[0])]  # schwaechste zuerst
+    return ('\nThese story categories are below the release threshold and must reach it in this rewrite '
+            '(fix the weakest first, without new unsupported facts):\n- ' + '\n- '.join(ziele)) if ziele else ''
 
 
 def story_bewerten(entwurf):
@@ -1071,6 +1102,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
                     anweisung(kanal, entwurf['thema'], frueher) + zusatz
                     + '\nREWRITE for a stronger story (same topic, same facts and sources). A story editor found:\n- '
                     + '\n- '.join(story['schwaechen'])
+                    + story_ziele(story)
                     + f"\nConsider this opening: {story['besserer_hook']}\nKeep the tension until the end and pay off "
                       'the hook in the last part.'
                     + (('\nAlso remove these details the sources do not support:\n- ' + '\n- '.join(pruefung['leicht']))

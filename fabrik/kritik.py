@@ -135,6 +135,22 @@ def hochladen(pfad, schluessel):
     raise RuntimeError('Gemini-Verarbeitung dauerte zu lange')
 
 
+def bildbezug_probleme(ablauf, bezug):
+    """Abgelehnte Einzelbilder als Korrekturauftraege.
+
+    GEMESSEN 16.10.2026 (Lauf 38888929052): "00:31" statt 31.64 s ordnete Einstellung 7 dem falschen
+    Abschnitt zu, und zip() verrutscht, sobald eine ausgenommene Aufruf-Einstellung nicht am Ende liegt.
+    Jetzt Zuordnung ueber den Index, Zeit mit Hundertsteln und der Abschnitt (phase) direkt."""
+    import bildbezug
+    nach_index = {s.get('index'): s for s in ablauf.get('einstellungen', [])}
+    return [{'zeit': f"{int(s['s']) // 60:02d}:{s['s'] % 60:05.2f}", 'art': 'bild_passt_nicht',
+             'schwere': 'schwer', 'phase': s.get('phase'), 'einstellung': e.get('index'),
+             'gesprochen': s.get('text', ''),
+             'text': e['grund'] + ' Korrektur: ' + e.get('erforderliches_bild', '')}
+            for e in bezug['pruefung'] for s in [nach_index.get(e.get('index'))]
+            if s and (not e.get('passt') or e.get('note', 0) < bildbezug.MINIMUM)]
+
+
 def kritik(video, skript_pfad, aus):
     skript = json.loads(Path(skript_pfad).read_text(encoding='utf-8'))
     messung = technik(video, skript)
@@ -166,11 +182,7 @@ def kritik(video, skript_pfad, aus):
     if not bezug['ok']:
         scores = [e['note'] for e in bezug['pruefung'] if type(e.get('note')) is int]
         ergebnis = {'note': None, 'kategorien': {'bild_passt': min(scores)} if scores else {},
-                    'staerken': [], 'probleme': [
-                        {'zeit': f"{int(s['s']) // 60:02d}:{int(s['s']) % 60:02d}", 'art': 'bild_passt_nicht', 'schwere': 'schwer',
-                         'text': e['grund'] + ' Korrektur: ' + e.get('erforderliches_bild', '')}
-                        for s, e in zip(ablauf.get('einstellungen', []), bezug['pruefung'])
-                        if not e.get('passt') or e.get('note', 0) < bildbezug.MINIMUM],
+                    'staerken': [], 'probleme': bildbezug_probleme(ablauf, bezug),
                     'fazit': 'Bild-Text-Pruefung nicht bestanden', 'technik': messung,
                     'audio_pruefung': audio, 'bildpruefung': bildpruefung, 'bildbezug': bezug,
                     'bildbezug_pflicht': True, 'video_sha256': sha, 'prompt_version': prompts.VERSION}

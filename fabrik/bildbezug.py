@@ -105,7 +105,8 @@ def pruefen(video, skript, ablauf, ziel):
                     teil = slots[a:a + GRUPPE]
                     bilder = [frame(video, s['s'] + s['dauer_s'] / 2, art, Path(temp) / f"{s['index']}.jpg") for s in teil]
                     daten = [{'index': s['index'], 'spoken_words': s.get('text', ''),
-                              'whole_spoken_phase': s['phase_text'], 'time_s': round(s['s'], 2)} for s in teil]
+                              'whole_spoken_phase': s['phase_text'], 'time_s': round(s['s'], 2),
+                              **({'editor_logo_badge': True} if s.get('logo') else {})} for s in teil]
                     auftrag = (prompts.DATEN + 'TASK: Independently verify narration-to-image relevance. '
                         'Image i corresponds only to item i below. These are actual frames cropped to remove '
                         'branding and subtitles. Do NOT infer the image from narration or a planned scene. '
@@ -138,6 +139,9 @@ def pruefen(video, skript, ablauf, ziel):
                         'founder. Instead require the narrated action or object (e.g. a socket, lamp, radio, '
                         'shop or factory product) in a setting plausible for the stated period and place; '
                         'a generic scene that fits neither the object nor the era/place still fails. '
+                        # 16.10.2026 (Coca-Cola, 2/10): unser eigenes Abschnittslogo galt als verbotenes Logo.
+                        'A shot marked editor_logo_badge carries the company logo badge added by our editor '
+                        'at the section start: ignore that badge and judge only the illustration under it. '
                         'Judge visual meaning only, independent of anatomy, style, audio or prior ratings. '
                         'Score1-3 wrong/unrelated,4-6 vague/partial,7-10 directly useful visual explanation. '
                         'Set passt=false when below7 or the operation is not visible. grund must name the '

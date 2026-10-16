@@ -113,8 +113,13 @@ def erprobte_einstellungen(kanal):
 # Was der Code fest vorgibt, darf keine gelernte Regel ueberschreiben.
 GEGEN_CODE = [re.compile(m, re.I) for m in (
     r'beat\s*wendung',                                # internes Feld, nie Sprechtext
-    r'\b\d+\s+(?:genuinely\s+)?distinct\s+visual\s+motifs',  # Motivzahl regelt bildplan (ein Motiv je Satz)
+    # Motivzahl regelt bildplan (ein Motiv je Satz). 16.10.2026: "18 genuinely distinct relevant motifs" und
+    # "18 genuinely distinct, relevant visual motifs" rutschten am engen Muster vorbei.
+    r'\b\d+\s+(?:[\w-]+,?\s+){0,4}motifs?\b',
     r'presenter\b.*\b(?:throughout|keep\s+him\s+visible)',   # Figur nur Anfang/Aufruf (gemalt_nur_rand)
+    # 16.10.2026: "use authentic-looking documents", "reflect ... transactions, documents" - Schrifttraeger
+    # erzeugen Schriftsalat; Bild- und Schlusspruefung verlangen bei abstrakten Begriffen bewusst kein Dokument.
+    r'\bdocuments?\b',
 )]
 
 

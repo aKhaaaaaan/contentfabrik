@@ -4,6 +4,7 @@ import re
 
 SCHWELLE = 7
 KATEGORIE_MIN = 7
+STORY_TEILBARKEIT_MIN = 6  # spekulative Teilbarkeit: Nutzerentscheidung, eine Quelle fuer Gate und Umschreibauftrag
 STORY_KATEGORIEN = ('hook', 'spannung', 'ueberraschung', 'tempo', 'aufloesung', 'teilbarkeit')
 VIDEO_KATEGORIEN = ('hook', 'bild_passt', 'dynamik', 'text', 'ton_stimme', 'tempo',
                     'inhalt', 'schluss_loop', 'regeln', 'story')
@@ -26,7 +27,7 @@ def redaktion(daten, kategorien, art):
     if not isinstance(werte, dict):
         return wert, gruende + [f'{art}-Einzelbewertungen fehlen']
     for k in kategorien:
-        minimum = 6 if k == 'teilbarkeit' else KATEGORIE_MIN
+        minimum = STORY_TEILBARKEIT_MIN if k == 'teilbarkeit' else KATEGORIE_MIN
         v = note({'note': werte.get(k)})
         if v is None:
             gruende.append(f'{art}-Bewertung {k} fehlt oder ist ungueltig')

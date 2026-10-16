@@ -434,6 +434,12 @@ def bildpruefung(szene, referenz=False, videoformat='short', satz=''):
               'and legs. More than two hands or two arms on one person, a hand not attached to an arm, '
               'or a hand growing from a sleeve that already has one is ALWAYS a material defect, even '
               'when small - viewers notice it. Name the count in grund when rejecting. '
+            # GEMESSEN 16.10.2026 (Coca-Cola, Einstellung 4 "By 1888, three firms sold versions."): Das Bild
+            # zeigte Laptops und Bildschirme auf einer Strasse von 1888 und bestand die Bauprüfung.
+            + 'MANDATORY ERA CHECK: when the scene or the spoken words state a year or period, look for '
+              'objects that did not exist then (for example screens, computers, phones, modern cars, '
+              'plastic or LED light in the 19th century). Any such object is ALWAYS a material defect; '
+              'name it in grund. '
             + 'Return ok=true only if no material defect is observed; grund is a specific visible '
               'defect to repair, or empty when accepted.\nRequested illustrative scene: '
             + json.dumps(szene, ensure_ascii=False))

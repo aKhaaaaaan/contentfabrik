@@ -1654,7 +1654,8 @@ def main(skript_pfad, aus, vorlage=None):
                 ereignisse += [(t0 + sek, art) for sek, art in alt.get('ereignisse', [])]
                 zustand['stuecke'][str(i)] = alt
                 bildablauf['einstellungen'].append(dict(shot, teil=None,
-                    material_id=alt.get('material_id'), material_art=alt.get('material_art')))
+                    material_id=alt.get('material_id'), material_art=alt.get('material_art'),
+                    logo=bool(alt.get('logo'))))
                 zeiten['stuecke_wiederverwendet'] += 1
                 # GEMESSEN 09.10.2026 (Aurelio, Nutzer 6/10): Jeder Neuversuch des Baus begann wieder
                 # bei 0 Ersatzbildern; aus dem Cache uebernommene Ersatzbilder zaehlten nicht. Ergebnis:
@@ -1673,9 +1674,10 @@ def main(skript_pfad, aus, vorlage=None):
                     'ereignisse': [(sek - t0, art) for sek, art in ereignisse[e0:]],
                     'fotos': sorted(benutzte_fotos - fotos0),
                     'material_id': material_hash, 'material_art': material_art,
-                    'ersatz': bild_ersatz > ersatz0}
+                    'ersatz': bild_ersatz > ersatz0, 'logo': bool(logo)}
+                # Der Schlusspruefer muss unser eigenes Abschnittslogo vom Bildinhalt unterscheiden koennen.
                 bildablauf['einstellungen'].append(dict(shot, teil=None,
-                    material_id=material_hash, material_art=material_art))
+                    material_id=material_hash, material_art=material_art, logo=bool(logo)))
                 (aus / 'bildablauf.json').write_text(json.dumps(bildablauf, indent=2), encoding='utf-8')
                 rendercache.speichern(aus, zustand)
             stueck = aus / f'stueck_{i:02d}.mp4'
@@ -1683,6 +1685,7 @@ def main(skript_pfad, aus, vorlage=None):
             modus = t.get('bildmodus', 'auto')
             if modus == 'stock' and not stock_erlaubt:
                 modus = 'illustration'  # gemalte Szene statt Stockclip (Kanalvorgabe)
+            logo = None
             karte = karte_fuer(t.get('quelle_url')) if modus in ('auto', 'karte') else None
             if modus == 'karte' and not karte:
                 # GEMESSEN 10.10.2026 (Pilot 37990152213): Planer setzte 'karte' fuer eine Preisseite
@@ -1786,7 +1789,8 @@ def main(skript_pfad, aus, vorlage=None):
                 elif t.get('grafik_typ') == 'erklaerung':
                     import erklaergrafik
                     ill = erklaergrafik.grafik(aus / f'ill_{i:02d}.jpg', t['text'], t.get('motiv', ''),
-                                               s.get('thema') or t.get('werkzeug') or '')
+                                               s.get('thema') or t.get('werkzeug') or '',
+                                               shot.get('phase_text', ''))
                     quellen.append({'quelle': 'Erklaergrafik', 'seite': t.get('quelle_url', ''),
                                     'nennung': 'Explainer graphic of the narrated statement, not a screenshot or measurement'})
                 elif s.get('thema') == 'Nintendo: The Problem with Durable Cards':
@@ -1837,8 +1841,10 @@ def main(skript_pfad, aus, vorlage=None):
                     # daran scheiterten die ersten Versuche (Pilot 37972418814).
                     # Keine Gegenstaende aufzaehlen, die NICHT im Bild sein sollen (10.10.2026: genau die
                     # wurden gemalt); Schrifttraeger aus den Suchwoertern entfernen.
-                    einfach = ('One clear subject in a calm, simple painted composition, no close-up faces, '
-                               'plain unmarked surfaces: '
+                    # GEMESSEN 16.10.2026 (Lauf 38888929052): "no close-up faces" im Auftrag erzeugte zweimal genau
+                    # eine Nahaufnahme. Nur positiv beschreiben, was zu sehen sein soll.
+                    einfach = ('One clear subject in a calm, simple painted composition, wide shot from a '
+                               'distance showing the whole figure and the room, plain unmarked surfaces: '
                                + (prompts.rueckfall_motiv(t.get('suche') or t.get('motiv') or '',
                                                           s['teile'][shot['phase']].get('suche', ''))
                                   or 'a person at work in a warm room'))
@@ -1860,6 +1866,17 @@ def main(skript_pfad, aus, vorlage=None):
             material = ill or foto or karte or clip
             if material and not motiv_ok(material):
                 material = ill = foto = karte = clip = None
+            if not material and i == 0 and kanalprofil(s).get('gemalt_nur_rand'):
+                # GEMESSEN 16.10.2026 (Lauf 38888929052): Einstieg scheiterte 5x, Ersatz war die Grafik von
+                # Einstellung 1 doppelt (6/10). Kanalfigur + woertliche Frage in der Sprechblase, kostenlos.
+                import erklaergrafik
+                import illustration
+                figur = illustration.FIGUREN / f'{kanal_slug}.jpg'
+                if figur.is_file():
+                    ill = material = erklaergrafik.figur_frage(aus / f'ill_{i:02d}.jpg', figur, t['text'],
+                                                               s.get('thema') or t.get('werkzeug') or '')
+                    quellen.append({'quelle': 'Illustration', 'seite': 'Originale Kanalfigur mit gesprochenem Satz'})
+                    print(f'Einstellung {i}: Kanalfigur mit Sprechblase statt doppelter Nachbargrafik')
             if not material and bild_ersatz < ersatz_max:
                 # GEMESSEN 08.10.2026 (Lauf 37753715598): eine einzige Einstellung ohne
                 # bestandenes Bild kippte das ganze Video (3x). Hoechstens zweimal ein schon

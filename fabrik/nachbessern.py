@@ -53,8 +53,17 @@ def abschnitte(zeittext, laengen):
     for i, dauer in enumerate(laengen):
         if start < t + dauer and ende > t:
             treffer.append(i)
-        t += dauer
+        t = round(t + dauer, 3)  # 7.94+10.3+5.94+7.46 = 31.639999... -> Schnitt bei 31.64 traf zwei Abschnitte
     return treffer
+
+
+def ziel_abschnitte(p, laengen, anzahl):
+    """Abschnitt(e) eines Problems. GEMESSEN 16.10.2026 (Lauf 38888929052): Aus "00:31" (Einstellung 7
+    begann bei 31.64 s) wurde Abschnitt 3 statt 4; die Bildpruefung liefert den Abschnitt jetzt direkt."""
+    phase = p.get('phase')
+    if type(phase) is int and 0 <= phase < anzahl:
+        return [phase]
+    return abschnitte(p.get('zeit', ''), laengen)
 
 
 def faktencheck(skript):
@@ -98,7 +107,7 @@ def planen(skript, kritik, messung, config, kanal):
             wert = kategorien.get(kategorie, 5)
             if not isinstance(wert, (int, float)) or isinstance(wert, bool) or not math.isfinite(wert):
                 wert = 5
-            if familie == 'bild' and not abschnitte(p.get('zeit', ''), laengen):
+            if familie == 'bild' and not ziel_abschnitte(p, laengen, len(skript['teile'])):
                 continue
             if familie == 'story' and not skript.get('belege'):
                 continue
@@ -115,7 +124,7 @@ def planen(skript, kritik, messung, config, kanal):
     feste_regie = bildplan.feste_regie(skript)
     for p in probleme:
         art = p.get('art')
-        ids = abschnitte(p.get('zeit', ''), laengen)
+        ids = ziel_abschnitte(p, laengen, len(skript['teile']))
         if art in VISUELL:
             if feste_regie:
                 # GEMESSEN 14.10.2026 (Lauf 38591953175): Die feste bildfolge ueberschreibt im
@@ -138,7 +147,14 @@ def planen(skript, kritik, messung, config, kanal):
         textziele.clear()
     if bildziele or textziele:
         from skript import gemini, SEHEN
-        hinweise = '\n'.join(str(p.get('text', '')) for p in probleme)
+        # GEMESSEN 16.10.2026: Ohne Indexangabe korrigierte das Modell Abschnitte 1/2/4/6 statt der erlaubten
+        # 0/3/5 - alle elf Vorschlaege wurden verworfen, Runde 2 war fast wirkungslos.
+        def hinweis(p):
+            ids = ziel_abschnitte(p, laengen, len(skript['teile'])) if p.get('art') in VISUELL else []
+            kopf = (f"[index {', '.join(map(str, ids))}"
+                    + (f" | spoken: {p['gesprochen']}" if p.get('gesprochen') else '') + '] ') if ids else ''
+            return kopf + str(p.get('text', ''))
+        hinweise = '\n'.join(hinweis(p) for p in probleme)
         if familie == 'story':
             hinweise += '\n' + '\n'.join((skript.get('story') or {}).get('schwaechen', []))
         vorschlag, _ = gemini(

@@ -40100,6 +40100,918 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "38873412464.1:ai-tools-explained",
+      "run_id": "38873412464",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-16T08:43:39.713250+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "dce06f30cb405691aebf498e4a16c91e786e48e4",
+      "produktionsversion": "60bb6826c2e82913c5d8e7cf964b2c8fa604c1e2b21107c616a34725b04d1ee5",
+      "videoformat": "short",
+      "thema": "openaccountants/openaccountants",
+      "titel": [
+        "Stop AI *Tax* Guessing",
+        "*OpenAccountants*"
+      ],
+      "status": "gesperrt",
+      "video_sha256": "bd4c792d3f37da33e56f95487fc8664496724efa5ad795a7391d7e2b9a163d8e",
+      "video_gebaut": true,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-13.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-Bewertung bild_passt fehlt oder ist ungueltig",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Bild-Text-Pruefung nicht vollstaendig moeglich: RuntimeError"
+      ],
+      "einstellungen": 11,
+      "unterschiedliche_motive": 8,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38873412464",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-16",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-spannung 6/10 unter 7/10"
+            ],
+            "story_note": 7,
+            "story_schwaechen": [
+              "The narration fails to include the mandatory 'beat wendung' label at the turning point. This is a structural requirement for production. Fix: Insert the label 'beat wendung' before the sentence starting with 'The catch'.",
+              "Sentence: 'Microsoft's open-source Qlib platform aims to support that research.' - Problem: This sentence repeats the terms 'open-source' and 'research' from the hook without adding a new discovery. Fix: 'Microsoft's Qlib manages the complete machine learning cycle.'",
+              "Sentence: 'Researchers can try supervised learning, market dynamics modeling, or reinforcement learning, which models continuous investment decisions.' - Problem: This acts as a list of features (filler) rather than a narrative progression. Fix: 'It supports everything from market dynamics modeling "
+            ],
+            "skript_probleme": [],
+            "sekunden": 226.1
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 6/10 unter 7/10",
+              "Skript-hook 6/10 unter 7/10",
+              "Skript-spannung 5/10 unter 7/10",
+              "Skript-tempo 6/10 unter 7/10",
+              "Skript-teilbarkeit 5/10 unter 6/10"
+            ],
+            "story_note": 6,
+            "story_schwaechen": [
+              "The sentence 'The documented example: a 12.50 coffee from checking' has a stilted, manual-like rhythm. Fix: 'Record a simple twelve-dollar coffee to watch your reports update.'",
+              "The turning point regarding AI agents is not labeled. Fix: Insert the mandatory 'beat wendung' label before the sentence starting with 'Coding agents'.",
+              "The opening question 'Where did your money go this month?' is a generic cliche that fails to establish a specific reason to watch. Fix: Start directly with the USP: 'You can now manage your entire net worth in a plain text file you actually own.'"
+            ],
+            "skript_probleme": [],
+            "sekunden": 138.6
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-spannung 6/10 unter 7/10",
+              "Skript-ueberraschung 3/10 unter 7/10",
+              "Skript-aufloesung 4/10 unter 7/10",
+              "Skript-teilbarkeit 5/10 unter 6/10"
+            ],
+            "story_note": 7,
+            "story_schwaechen": [
+              "The ending does not clearly answer the hook’s promise; viewers leave unsure what the bot achieved.",
+              "There is no genuine “I did not know that” moment; the script simply lists data and models without an unexpected insight."
+            ],
+            "skript_probleme": [],
+            "sekunden": 177.7
+          },
+          {
+            "runde": 4,
+            "art": "produktion",
+            "skript_s": 212.8,
+            "bau_s": 320.3,
+            "pruefung_s": 30.0,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-Bewertung bild_passt fehlt oder ist ungueltig",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Bild-Text-Pruefung nicht vollstaendig moeglich: RuntimeError"
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Orus",
+              "stimme": 15.6,
+              "zeitmarken": 5.0,
+              "tempo": 1.15,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 11,
+              "clips_und_stuecke": 225.1,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 11,
+                "motive": 8,
+                "motive_min": 8
+              },
+              "effekte": 14,
+              "rendern": 33.9,
+              "gesamt": 320.0,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.94,
+                10.3,
+                5.94,
+                7.46,
+                5.12,
+                5.52,
+                2.74
+              ],
+              "woerter": 101
+            },
+            "kategorien": {},
+            "probleme": [],
+            "sekunden": 563.1,
+            "status": "geprueft"
+          },
+          {
+            "runde": 5,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Keine weitere gezielte Korrektur moeglich",
+        "sekunden": 1116.6,
+        "upload_titel": "Stop AI Tax Guessing: OpenAccountants | AI Tool #6"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {},
+        "staerken": [],
+        "probleme": [],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -14.6,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 42.58,
+              "bis_s": 44.56,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.975
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Is",
+                "s": 0.0,
+                "e": 0.3,
+                "p": 0.869868814945221
+              },
+              {
+                "w": "your",
+                "s": 0.3,
+                "e": 0.56,
+                "p": 0.9646663069725037
+              },
+              {
+                "w": "AI",
+                "s": 0.56,
+                "e": 0.92,
+                "p": 0.9662790894508362
+              },
+              {
+                "w": "guessing",
+                "s": 0.92,
+                "e": 1.46,
+                "p": 0.8087218403816223
+              },
+              {
+                "w": "tax",
+                "s": 1.46,
+                "e": 1.82,
+                "p": 0.9158965945243835
+              },
+              {
+                "w": "rules?",
+                "s": 1.82,
+                "e": 2.2,
+                "p": 0.9891905784606934
+              },
+              {
+                "w": "Without",
+                "s": 2.84,
+                "e": 3.04,
+                "p": 0.9755231142044067
+              },
+              {
+                "w": "open",
+                "s": 3.04,
+                "e": 3.44,
+                "p": 0.8050445914268494
+              },
+              {
+                "w": "accountants,",
+                "s": 3.44,
+                "e": 4.02,
+                "p": 0.9802242517471313
+              },
+              {
+                "w": "models",
+                "s": 4.26,
+                "e": 4.44,
+                "p": 0.9058070778846741
+              },
+              {
+                "w": "answer",
+                "s": 4.44,
+                "e": 5.02,
+                "p": 0.9829776287078857
+              },
+              {
+                "w": "from",
+                "s": 5.02,
+                "e": 5.22,
+                "p": 0.9956591129302979
+              },
+              {
+                "w": "training",
+                "s": 5.22,
+                "e": 5.5,
+                "p": 0.9852679967880249
+              },
+              {
+                "w": "data,",
+                "s": 5.5,
+                "e": 5.78,
+                "p": 0.9989173412322998
+              },
+              {
+                "w": "not",
+                "s": 6.4,
+                "e": 6.42,
+                "p": 0.9921312928199768
+              },
+              {
+                "w": "from",
+                "s": 6.42,
+                "e": 6.78,
+                "p": 0.9937169551849365
+              },
+              {
+                "w": "guides.",
+                "s": 6.78,
+                "e": 7.04,
+                "p": 0.9595887660980225
+              },
+              {
+                "w": "Its",
+                "s": 7.96,
+                "e": 8.08,
+                "p": 0.6536428332328796
+              },
+              {
+                "w": "page",
+                "s": 8.08,
+                "e": 8.24,
+                "p": 0.9632586240768433
+              },
+              {
+                "w": "lists",
+                "s": 8.24,
+                "e": 8.58,
+                "p": 0.9635018110275269
+              },
+              {
+                "w": "1",
+                "s": 8.58,
+                "e": 8.98,
+                "p": 0.31555870175361633
+              },
+              {
+                "w": ",903",
+                "s": 8.98,
+                "e": 9.92,
+                "p": 0.7605055272579193
+              },
+              {
+                "w": "guides",
+                "s": 9.92,
+                "e": 10.48,
+                "p": 0.9463590383529663
+              },
+              {
+                "w": "across",
+                "s": 10.48,
+                "e": 10.88,
+                "p": 0.9821892380714417
+              },
+              {
+                "w": "229",
+                "s": 10.88,
+                "e": 11.84,
+                "p": 0.9864556789398193
+              },
+              {
+                "w": "jurisdictions,",
+                "s": 11.84,
+                "e": 12.44,
+                "p": 0.9986392855644226
+              },
+              {
+                "w": "including",
+                "s": 13.28,
+                "e": 13.5,
+                "p": 0.9978442192077637
+              },
+              {
+                "w": "53",
+                "s": 13.5,
+                "e": 14.16,
+                "p": 0.9940845370292664
+              },
+              {
+                "w": "accountant",
+                "s": 14.16,
+                "e": 14.64,
+                "p": 0.9301707148551941
+              },
+              {
+                "w": "-reviewed",
+                "s": 14.64,
+                "e": 15.0,
+                "p": 0.9223032891750336
+              },
+              {
+                "w": "ones",
+                "s": 15.0,
+                "e": 15.66,
+                "p": 0.9905924201011658
+              },
+              {
+                "w": "and",
+                "s": 15.66,
+                "e": 15.98,
+                "p": 0.8558974266052246
+              },
+              {
+                "w": "source",
+                "s": 15.98,
+                "e": 16.3,
+                "p": 0.9742844700813293
+              },
+              {
+                "w": "-sided",
+                "s": 16.3,
+                "e": 16.72,
+                "p": 0.8294062614440918
+              },
+              {
+                "w": "drafts.",
+                "s": 16.72,
+                "e": 16.98,
+                "p": 0.9752198457717896
+              },
+              {
+                "w": "First,",
+                "s": 18.24,
+                "e": 18.24,
+                "p": 0.9822971224784851
+              },
+              {
+                "w": "add",
+                "s": 18.36,
+                "e": 18.6,
+                "p": 0.9964792132377625
+              },
+              {
+                "w": "the",
+                "s": 18.6,
+                "e": 18.78,
+                "p": 0.9944533705711365
+              },
+              {
+                "w": "Hosted",
+                "s": 18.78,
+                "e": 19.18,
+                "p": 0.6596734523773193
+              },
+              {
+                "w": "Connector",
+                "s": 19.18,
+                "e": 19.64,
+                "p": 0.9622664153575897
+              },
+              {
+                "w": "to",
+                "s": 19.64,
+                "e": 19.74,
+                "p": 0.946487307548523
+              },
+              {
+                "w": "Claude,",
+                "s": 19.74,
+                "e": 20.02,
+                "p": 0.4781486988067627
+              },
+              {
+                "w": "Chat",
+                "s": 20.5,
+                "e": 20.56,
+                "p": 0.7428855299949646
+              },
+              {
+                "w": "GPT,",
+                "s": 20.56,
+                "e": 21.0,
+                "p": 0.7166626006364822
+              },
+              {
+                "w": "Cursor,",
+                "s": 21.54,
+                "e": 21.7,
+                "p": 0.6689513474702835
+              },
+              {
+                "w": "WinSurf,",
+                "s": 22.36,
+                "e": 22.78,
+                "p": 0.6046351293722788
+              },
+              {
+                "w": "or",
+                "s": 22.92,
+                "e": 23.0,
+                "p": 0.9956178665161133
+              },
+              {
+                "w": "any",
+                "s": 23.0,
+                "e": 23.26,
+                "p": 0.9955437779426575
+              },
+              {
+                "w": "MCP",
+                "s": 23.26,
+                "e": 23.8,
+                "p": 0.9746326208114624
+              },
+              {
+                "w": "client.",
+                "s": 23.8,
+                "e": 24.16,
+                "p": 0.9539376497268677
+              },
+              {
+                "w": "client.",
+                "s": 24.16,
+                "e": 24.32,
+                "p": 0.08716831356287003
+              },
+              {
+                "w": "Then",
+                "s": 24.92,
+                "e": 25.04,
+                "p": 0.9855031967163086
+              },
+              {
+                "w": "ask",
+                "s": 25.04,
+                "e": 25.4,
+                "p": 0.7431883215904236
+              },
+              {
+                "w": "something",
+                "s": 25.4,
+                "e": 25.8,
+                "p": 0.9813756942749023
+              },
+              {
+                "w": "it",
+                "s": 25.8,
+                "e": 25.98,
+                "p": 0.955272376537323
+              },
+              {
+                "w": "would",
+                "s": 25.98,
+                "e": 26.1,
+                "p": 0.9800357222557068
+              },
+              {
+                "w": "guess,",
+                "s": 26.1,
+                "e": 26.3,
+                "p": 0.9865880608558655
+              },
+              {
+                "w": "like",
+                "s": 26.94,
+                "e": 27.02,
+                "p": 0.9865924715995789
+              },
+              {
+                "w": "Manatee",
+                "s": 27.02,
+                "e": 27.62,
+                "p": 0.8972863554954529
+              },
+              {
+                "w": "County,",
+                "s": 27.62,
+                "e": 27.76,
+                "p": 0.9565661549568176
+              },
+              {
+                "w": "Florida's",
+                "s": 28.12,
+                "e": 28.5,
+                "p": 0.947105199098587
+              },
+              {
+                "w": "combined",
+                "s": 28.5,
+                "e": 28.66,
+                "p": 0.6290655732154846
+              },
+              {
+                "w": "sales",
+                "s": 28.66,
+                "e": 29.2,
+                "p": 0.9914023280143738
+              },
+              {
+                "w": "tax",
+                "s": 29.2,
+                "e": 29.52,
+                "p": 0.9979153275489807
+              },
+              {
+                "w": "rate",
+                "s": 29.52,
+                "e": 29.84,
+                "p": 0.9800131916999817
+              },
+              {
+                "w": "for",
+                "s": 29.84,
+                "e": 30.04,
+                "p": 0.9772812724113464
+              },
+              {
+                "w": "2026.",
+                "s": 30.04,
+                "e": 30.68,
+                "p": 0.9618767201900482
+              },
+              {
+                "w": "The",
+                "s": 31.6,
+                "e": 31.8,
+                "p": 0.9664896130561829
+              },
+              {
+                "w": "answer",
+                "s": 31.8,
+                "e": 32.1,
+                "p": 0.9938014149665833
+              },
+              {
+                "w": "can",
+                "s": 32.1,
+                "e": 32.32,
+                "p": 0.9761582612991333
+              },
+              {
+                "w": "cite",
+                "s": 32.32,
+                "e": 32.56,
+                "p": 0.9765822291374207
+              },
+              {
+                "w": "the",
+                "s": 32.56,
+                "e": 32.72,
+                "p": 0.9810264706611633
+              },
+              {
+                "w": "fetched",
+                "s": 32.72,
+                "e": 33.06,
+                "p": 0.7694278359413147
+              },
+              {
+                "w": "guide,",
+                "s": 33.06,
+                "e": 33.34,
+                "p": 0.9639368057250977
+              },
+              {
+                "w": "naming",
+                "s": 33.68,
+                "e": 33.92,
+                "p": 0.993573009967804
+              },
+              {
+                "w": "a",
+                "s": 33.92,
+                "e": 34.1,
+                "p": 0.9971586465835571
+              },
+              {
+                "w": "reviewer",
+                "s": 34.1,
+                "e": 34.36,
+                "p": 0.9950580596923828
+              },
+              {
+                "w": "only",
+                "s": 34.36,
+                "e": 34.84,
+                "p": 0.9871485829353333
+              },
+              {
+                "w": "with",
+                "s": 34.84,
+                "e": 35.12,
+                "p": 0.9969496130943298
+              },
+              {
+                "w": "a",
+                "s": 35.12,
+                "e": 35.2,
+                "p": 0.981185257434845
+              },
+              {
+                "w": "published",
+                "s": 35.2,
+                "e": 35.52,
+                "p": 0.9925299286842346
+              },
+              {
+                "w": "review",
+                "s": 35.52,
+                "e": 35.78,
+                "p": 0.9838340878486633
+              },
+              {
+                "w": "record.",
+                "s": 35.78,
+                "e": 36.22,
+                "p": 0.9980948567390442
+              },
+              {
+                "w": "Guides",
+                "s": 36.78,
+                "e": 36.9,
+                "p": 0.9213536381721497
+              },
+              {
+                "w": "may",
+                "s": 36.9,
+                "e": 37.24,
+                "p": 0.9823344945907593
+              },
+              {
+                "w": "be",
+                "s": 37.24,
+                "e": 37.38,
+                "p": 0.9989417195320129
+              },
+              {
+                "w": "outdated",
+                "s": 37.38,
+                "e": 37.72,
+                "p": 0.9913028478622437
+              },
+              {
+                "w": "or",
+                "s": 37.72,
+                "e": 38.1,
+                "p": 0.9948644042015076
+              },
+              {
+                "w": "wrong,",
+                "s": 38.1,
+                "e": 38.36,
+                "p": 0.9982936978340149
+              },
+              {
+                "w": "so",
+                "s": 38.76,
+                "e": 38.82,
+                "p": 0.9985815286636353
+              },
+              {
+                "w": "track",
+                "s": 38.82,
+                "e": 39.04,
+                "p": 0.4575217366218567
+              },
+              {
+                "w": "each",
+                "s": 39.04,
+                "e": 39.32,
+                "p": 0.9977127313613892
+              },
+              {
+                "w": "review",
+                "s": 39.32,
+                "e": 39.62,
+                "p": 0.9505902528762817
+              },
+              {
+                "w": "record.",
+                "s": 39.62,
+                "e": 40.04,
+                "p": 0.9953705668449402
+              },
+              {
+                "w": "This",
+                "s": 40.54,
+                "e": 40.62,
+                "p": 0.9883672595024109
+              },
+              {
+                "w": "isn't",
+                "s": 40.62,
+                "e": 40.94,
+                "p": 0.9897148907184601
+              },
+              {
+                "w": "financial",
+                "s": 40.94,
+                "e": 41.14,
+                "p": 0.9927130341529846
+              },
+              {
+                "w": "advice.",
+                "s": 41.14,
+                "e": 41.6,
+                "p": 0.9932345747947693
+              },
+              {
+                "w": "Be",
+                "s": 42.28,
+                "e": 42.3,
+                "p": 0.9934062957763672
+              },
+              {
+                "w": "sure",
+                "s": 42.3,
+                "e": 42.44,
+                "p": 0.9983867406845093
+              },
+              {
+                "w": "to",
+                "s": 42.44,
+                "e": 42.58,
+                "p": 0.9947499632835388
+              },
+              {
+                "w": "like,",
+                "s": 42.58,
+                "e": 42.8,
+                "p": 0.897013247013092
+              },
+              {
+                "w": "share,",
+                "s": 43.06,
+                "e": 43.28,
+                "p": 0.9955908060073853
+              },
+              {
+                "w": "and",
+                "s": 43.6,
+                "e": 43.68,
+                "p": 0.996309220790863
+              },
+              {
+                "w": "save",
+                "s": 43.68,
+                "e": 43.98,
+                "p": 0.9786185026168823
+              },
+              {
+                "w": "this",
+                "s": 43.98,
+                "e": 44.28,
+                "p": 0.986415684223175
+              },
+              {
+                "w": "video.",
+                "s": 44.28,
+                "e": 44.56,
+                "p": 0.9982500672340393
+              }
+            ],
+            "dauer_s": 44.9493125,
+            "sprache": "en"
+          },
+          "roh_key": "93397d3a6daa98519315ed9000365968106deb85d5787667be7190fbfddb43b5",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "bd4c792d3f37da33e56f95487fc8664496724efa5ad795a7391d7e2b9a163d8e",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 11,
+          "motive": 8,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "bd4c792d3f37da33e56f95487fc8664496724efa5ad795a7391d7e2b9a163d8e",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [],
+          "befunde": [
+            "Bild-Text-Pruefung nicht vollstaendig moeglich: RuntimeError"
+          ],
+          "modelle": [],
+          "einstellungen": 11,
+          "ausgenommen": [
+            10
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "bd4c792d3f37da33e56f95487fc8664496724efa5ad795a7391d7e2b9a163d8e",
+        "prompt_version": "2026-10-13.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "modell": "groq:openai/gpt-oss-120b",
+        "zweitpruefer_modell": null,
+        "zweitpruefer_anderer_anbieter": false
+      }
     }
   ]
 }

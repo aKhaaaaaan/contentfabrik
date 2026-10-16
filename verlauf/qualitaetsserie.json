@@ -42036,6 +42036,1400 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "38882983998.1:business-origin-stories",
+      "run_id": "38882983998",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-16T10:25:16.827734+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "f4bd7a8f1dfb138654cdcd100f93274c2ba0d554",
+      "produktionsversion": "e0f173e3c398b78cb7e5462d089200db4db9c62f1d43a026f17e4d82bba41e4f",
+      "videoformat": "short",
+      "thema": "Coca-Cola",
+      "titel": [
+        "Who Owned *Coca-Cola?*",
+        "Candler's 1888 Takeover"
+      ],
+      "status": "gesendet",
+      "video_sha256": "e95d435dc43bb34f5148498c36163a899586a81a3eed4846375b55e1632816d4",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-13.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine generelle historische Szene mit Dokumentenübergabe, aber da es sich um eine Story-Illustration handelt, ist kein konkreter Beweis für die Eigentümerschaft oder die Jahreszahl 1888 erkennbar.",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die historische Illustration zeigt einen Mann, jedoch verbietet die Vorgabe Markenlogos, Schriftzüge sowie die Darstellung realer Personen oder deren Verwandte, und das Logo sowie der Bezug zu Pembertons Sohn sind hier rein illustrativ.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen Arbeitsplatz auf der Straße, aber keinerlei Bezug zu drei Firmen, die 1888 Versionen verkauften.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (4/10): Die Szene zeigt eine Geschäftsübergabe oder Vertragsunterzeichnung, aber es gibt keinen visuellen Bezug zu Candler oder Anteilen von Coca-Cola.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Die historische Situation um Asa Candler und den Firmenkauf von Coca-Cola wird durch ein generelles Bild eines Geschäftsmanns im Büro nicht spezifisch dargestellt.",
+        "Offenes Problem (schwer): Das Bild zeigt eine generelle historische Szene mit Dokumentenübergabe, aber da es sich um eine Story-Illustration handelt, ist kein konkreter Beweis für die Eigentümerschaft oder die Jahreszahl 1888 erkennbar. Korrektur: Eine zeitgenössische Szene in Atlanta aus dem Jahr 1888, die das Eigentum oder den Verkauf von Geschäftsanteilen an der Getränkemarke zeigt.",
+        "Offenes Problem (schwer): Die historische Illustration zeigt einen Mann, jedoch verbietet die Vorgabe Markenlogos, Schriftzüge sowie die Darstellung realer Personen oder deren Verwandte, und das Logo sowie der Bezug zu Pembertons Sohn sind hier rein illustrativ. Korrektur: Eine historische Szene aus dem Jahr 1888, die einen jungen Mann (den Sohn Pembertons) zeigt, ohne jegliche Markenlogos.",
+        "Offenes Problem (schwer): Die Szene zeigt einen Arbeitsplatz auf der Straße, aber keinerlei Bezug zu drei Firmen, die 1888 Versionen verkauften. Korrektur: Eine historische Illustration, die drei verschiedene Geschäftshäuser oder Firmen im Jahr 1888 zeigt.",
+        "Offenes Problem (schwer): Die Szene zeigt eine Geschäftsübergabe oder Vertragsunterzeichnung, aber es gibt keinen visuellen Bezug zu Candler oder Anteilen von Coca-Cola. Korrektur: Ein historisches Dokument oder eine Illustration, die den Kauf eines Anteils an Coca-Cola durch Candlers Firma im Jahr 1888 zeigt.",
+        "Offenes Problem (schwer): Die historische Situation um Asa Candler und den Firmenkauf von Coca-Cola wird durch ein generelles Bild eines Geschäftsmanns im Büro nicht spezifisch dargestellt. Korrektur: Eine historische Illustration oder Darstellung des Geschäftsmanns Asa Candler, der Dokumente prüft oder Verträge verhandelt."
+      ],
+      "einstellungen": 11,
+      "unterschiedliche_motive": 11,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "38882983998",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-16",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 749.7,
+            "pruefung_s": 51.3,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Die historische Illustration zeigt einen Mann mit Waffe auf der Straße, aber keine Darstellung des Eigentümers oder der Frage zum Coca-Cola-Namen von 1888, zudem sind Jahreszahlen und Logos im Bild unzulässig.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar eine historische Figur und ein Logo, aber der dargestellte Mann entspricht keinem dokumentierten Beweis für den Sohn von John Pemberton im Jahr 1888, und Markenzeichen in historischen Illustrationen sind unzulässig.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen modernen oder stilisierten Getränkeverkauf an einem Kiosk, aber es ist keine historische Darstellung von Atlanta im Jahr 1886 oder Pembertons Getränkeverkauf.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (4/10): Die Szene zeigt drei Männer im Büro, was vage zu drei Konkurrenzfirmen passt, aber das spezifische Detail von drei Firmen wird nicht visuell belegt.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die Bildszene zeigt einen historischen Handschlag oder eine Vertragsunterzeichnung im Stil einer Geschichte, bildet jedoch keine konkreten Beweise für den Kauf eines Anteils von einem Drittel durch Candlers Firma ab.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Die historische Szene passt zum Thema John Pemberton und dem Jahr 1888, aber das Bild enthält explizit eingeblendete Jahreszahlen und Text unten, was gegen die Vorgabe verstößt, dass historische Illustrationen keine lesbaren Jahreszahlen zeigen dürfen.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen fiktiven Mann in einem historischen Raum ohne Bezug zu Candlers Geschäftsaktivitäten oder der Übernahme von Coca-Cola.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (6/10): Das Bild zeigt zwar eine historische Geschäftsszene, aber das spezifische Ereignis des Eigentumserwerbs oder die Jahresangabe 1889 sind rein visuell nicht belegbar.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (6/10): Die Szene zeigt zwar eine historische Zahlung von Munzen, belegt aber nicht direkt die spezifischen Gesamtausgaben von 2300 Dollar für Coca-Cola im Jahr 1889.",
+              "Offenes Problem (schwer): Die historische Illustration zeigt einen Mann mit Waffe auf der Straße, aber keine Darstellung des Eigentümers oder der Frage zum Coca-Cola-Namen von 1888, zudem sind Jahreszahlen und Logos im Bild unzulässig. Korrektur: Eine Darstellung von John Pemberton oder einem historischen Dokument aus dem Jahr 1888 bezüglich des Namensrechts.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar eine historische Figur und ein Logo, aber der dargestellte Mann entspricht keinem dokumentierten Beweis für den Sohn von John Pemberton im Jahr 1888, und Markenzeichen in historischen Illustrationen sind unzulässig. Korrektur: Eine historische Illustration einer jüngeren männlichen Person in einer Umgebung des späten 19. Jahrhunderts, die den Sohn von John Pemberton ohne illegitime Logos darstellt.",
+              "Offenes Problem (schwer): Die Szene zeigt einen modernen oder stilisierten Getränkeverkauf an einem Kiosk, aber es ist keine historische Darstellung von Atlanta im Jahr 1886 oder Pembertons Getränkeverkauf. Korrektur: Eine historische Darstellung oder Zeichnung aus Atlanta des späten 19. Jahrhunderts, die den Verkauf eines Erfrischungsgetränks an einer Bar oder einem Tresen zeigt.",
+              "Offenes Problem (schwer): Die Szene zeigt drei Männer im Büro, was vage zu drei Konkurrenzfirmen passt, aber das spezifische Detail von drei Firmen wird nicht visuell belegt. Korrektur: Eine historische Darstellung von drei verschiedenen Firmengebäuden oder Büros im Jahr 1888, die jeweils eine Version des Getränks verkaufen.",
+              "Offenes Problem (schwer): Die Bildszene zeigt einen historischen Handschlag oder eine Vertragsunterzeichnung im Stil einer Geschichte, bildet jedoch keine konkreten Beweise für den Kauf eines Anteils von einem Drittel durch Candlers Firma ab. Korrektur: Ein historisches Dokument oder eine Akte, die den Kauf von Firmenanteilen durch Candler im Jahr 1888 zeigt.",
+              "Offenes Problem (schwer): Die historische Szene passt zum Thema John Pemberton und dem Jahr 1888, aber das Bild enthält explizit eingeblendete Jahreszahlen und Text unten, was gegen die Vorgabe verstößt, dass historische Illustrationen keine lesbaren Jahreszahlen zeigen dürfen. Korrektur: Eine historische Illustration, die eine Beerdigung oder das Sterbebett im Jahr 1888 darstellt, völlig frei von eingeblendetem Text und Jahreszahlen.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen fiktiven Mann in einem historischen Raum ohne Bezug zu Candlers Geschäftsaktivitäten oder der Übernahme von Coca-Cola. Korrektur: Historische Dokumente oder eine Darstellung von Asa Candler, wie er Geschäftsverhandlungen führt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar eine historische Geschäftsszene, aber das spezifische Ereignis des Eigentumserwerbs oder die Jahresangabe 1889 sind rein visuell nicht belegbar. Korrektur: Ein Dokument oder eine historische Darstellung, die eine Verkaufsvereinbarung oder die Übernahme des Coca-Cola-Eigentums im Jahr 1889 symbolisiert.",
+              "Offenes Problem (schwer): Die Szene zeigt zwar eine historische Zahlung von Munzen, belegt aber nicht direkt die spezifischen Gesamtausgaben von 2300 Dollar für Coca-Cola im Jahr 1889. Korrektur: Eine realistische Darstellung historischer Dokumente oder Geschäftsbücher mit dem entsprechenden Kaufbetrag von 2300 Dollar."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Orus",
+              "stimme": 15.2,
+              "zeitmarken": 6.6,
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 11,
+              "bilder_vereinfacht": 3,
+              "clips_und_stuecke": 639.8,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 11,
+                "motive": 9,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 33.8,
+              "gesamt": 749.4,
+              "videolaenge_s": 41.9,
+              "abschnitte_s": [
+                7.2,
+                5.78,
+                4.68,
+                6.76,
+                6.78,
+                7.1,
+                3.63
+              ],
+              "woerter": 82
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die historische Illustration zeigt einen Mann mit Waffe auf der Straße, aber keine Darstellung des Eigentümers oder der Frage zum Coca-Cola-Namen von 1888, zudem sind Jahreszahlen und Logos im Bild unzulässig. Korrektur: Eine Darstellung von John Pemberton oder einem historischen Dokument aus dem Jahr 1888 bezüglich des Namensrechts."
+              },
+              {
+                "zeit": "00:04",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt zwar eine historische Figur und ein Logo, aber der dargestellte Mann entspricht keinem dokumentierten Beweis für den Sohn von John Pemberton im Jahr 1888, und Markenzeichen in historischen Illustrationen sind unzulässig. Korrektur: Eine historische Illustration einer jüngeren männlichen Person in einer Umgebung des späten 19. Jahrhunderts, die den Sohn von John Pemberton ohne illegitime Logos darstellt."
+              },
+              {
+                "zeit": "00:07",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die Szene zeigt einen modernen oder stilisierten Getränkeverkauf an einem Kiosk, aber es ist keine historische Darstellung von Atlanta im Jahr 1886 oder Pembertons Getränkeverkauf. Korrektur: Eine historische Darstellung oder Zeichnung aus Atlanta des späten 19. Jahrhunderts, die den Verkauf eines Erfrischungsgetränks an einer Bar oder einem Tresen zeigt."
+              },
+              {
+                "zeit": "00:17",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die Szene zeigt drei Männer im Büro, was vage zu drei Konkurrenzfirmen passt, aber das spezifische Detail von drei Firmen wird nicht visuell belegt. Korrektur: Eine historische Darstellung von drei verschiedenen Firmengebäuden oder Büros im Jahr 1888, die jeweils eine Version des Getränks verkaufen."
+              },
+              {
+                "zeit": "00:21",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die Bildszene zeigt einen historischen Handschlag oder eine Vertragsunterzeichnung im Stil einer Geschichte, bildet jedoch keine konkreten Beweise für den Kauf eines Anteils von einem Drittel durch Candlers Firma ab. Korrektur: Ein historisches Dokument oder eine Akte, die den Kauf von Firmenanteilen durch Candler im Jahr 1888 zeigt."
+              },
+              {
+                "zeit": "00:24",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die historische Szene passt zum Thema John Pemberton und dem Jahr 1888, aber das Bild enthält explizit eingeblendete Jahreszahlen und Text unten, was gegen die Vorgabe verstößt, dass historische Illustrationen keine lesbaren Jahreszahlen zeigen dürfen. Korrektur: Eine historische Illustration, die eine Beerdigung oder das Sterbebett im Jahr 1888 darstellt, völlig frei von eingeblendetem Text und Jahreszahlen."
+              },
+              {
+                "zeit": "00:28",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt lediglich einen fiktiven Mann in einem historischen Raum ohne Bezug zu Candlers Geschäftsaktivitäten oder der Übernahme von Coca-Cola. Korrektur: Historische Dokumente oder eine Darstellung von Asa Candler, wie er Geschäftsverhandlungen führt."
+              },
+              {
+                "zeit": "00:31",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt zwar eine historische Geschäftsszene, aber das spezifische Ereignis des Eigentumserwerbs oder die Jahresangabe 1889 sind rein visuell nicht belegbar. Korrektur: Ein Dokument oder eine historische Darstellung, die eine Verkaufsvereinbarung oder die Übernahme des Coca-Cola-Eigentums im Jahr 1889 symbolisiert."
+              },
+              {
+                "zeit": "00:34",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die Szene zeigt zwar eine historische Zahlung von Munzen, belegt aber nicht direkt die spezifischen Gesamtausgaben von 2300 Dollar für Coca-Cola im Jahr 1889. Korrektur: Eine realistische Darstellung historischer Dokumente oder Geschäftsbücher mit dem entsprechenden Kaufbetrag von 2300 Dollar."
+              }
+            ],
+            "sekunden": 801.0,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-13.2"
+            },
+            "skript_s": 3.1,
+            "bau_s": 589.5,
+            "pruefung_s": 68.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar eine historische Szene im passenden Stil für 1888, bildet jedoch die im Text gestellte Frage über den Eigentümer des Namens Coca-Cola oder John Pemberton bzw. dessen Sohn nicht konkret ab.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die historische Geschichte über Pemberton und seinen Sohn kann durch eine gezeichnete Personen-Szene nicht als verifizierbare historische Dokumentation belegt werden.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt eine historische Szene mit Apothekenregalen und einem Getränk, aber es gibt keine sichtbaren Bezüge zu Atlanta 1886 oder dem fünf-Cent-Temperenzgetränk.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar eine historische Szene mit einer Flasche, was zum Kontext einer Medizin passen könnte, aber die spezifische Behauptung der Heilung von Krankheiten wird nicht visuell dargestellt.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die historische Straßenszene zeigt zwar ein passendes Zeitalter und Setting, aber keine drei Firmen oder den Verkauf verschiedener Versionen wie im Text genannt.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Schreibtischszene in einer Stadtstraße, hat aber keinen visuellen Bezug zu einer Firmenübernahme oder dem Kauf von Coca-Cola-Anteilen im April 1888.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (4/10): Die historische Illustration zeigt eine generelle Beerdigungsszene passend zur Ära, jedoch ist das Datum 'August 16, 1888' als Schriftzug und Text eingeblendet, was laut Vorgaben bei Story-Illustrationen nicht gezeigt werden darf.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einem Raum, aber keine konkrete geschichtliche Szene oder Handlung bezüglich Candlers Erwerb der Firmenkontrolle.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (6/10): Die historische Illustration zeigt zwar eine historische Szene mit Geld und passt zum zeitlichen Rahmen des 19. Jahrhunderts, jedoch wird kein spezifischer Beleg für den Kauf oder die beanspruchte Alleinherrschaft von Candler im Mai 1889 gezeigt.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einer historischen Straße, hat aber keinen Bezug zu dem gesprochenen Betrag von 2.300 Dollar.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar eine historische Szene im passenden Stil für 1888, bildet jedoch die im Text gestellte Frage über den Eigentümer des Namens Coca-Cola oder John Pemberton bzw. dessen Sohn nicht konkret ab. Korrektur: Eine Illustration, die John Pemberton oder seinen Sohn in einem zeitgenössischen Büro oder Geschäft in Atlanta mit Aufzeichnungen zum Coca-Cola-Namen zeigt.",
+              "Offenes Problem (schwer): Die historische Geschichte über Pemberton und seinen Sohn kann durch eine gezeichnete Personen-Szene nicht als verifizierbare historische Dokumentation belegt werden. Korrektur: Historische Fotografie oder Dokumente aus dem Jahr 1888 bezüglich John Pemberton und seinem Sohn.",
+              "Offenes Problem (schwer): Das Bild zeigt eine historische Szene mit Apothekenregalen und einem Getränk, aber es gibt keine sichtbaren Bezüge zu Atlanta 1886 oder dem fünf-Cent-Temperenzgetränk. Korrektur: Eine historische Ansicht von Atlanta im Jahr 1886 oder ein Dokument, das die Einführung des Getränks als fünf-Cent-Temperenzgetränk belegt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar eine historische Szene mit einer Flasche, was zum Kontext einer Medizin passen könnte, aber die spezifische Behauptung der Heilung von Krankheiten wird nicht visuell dargestellt. Korrektur: Eine historische Apotheke oder ein Verkaufsstand mit einer Flasche und einem Dokument oder Schild, das Heilversprechen oder ein Patent anzeigt.",
+              "Offenes Problem (schwer): Die historische Straßenszene zeigt zwar ein passendes Zeitalter und Setting, aber keine drei Firmen oder den Verkauf verschiedener Versionen wie im Text genannt. Korrektur: Eine historische Darstellung von drei verschiedenen Firmen oder Geschäftshäusern in Atlanta um das Jahr 1888.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Schreibtischszene in einer Stadtstraße, hat aber keinen visuellen Bezug zu einer Firmenübernahme oder dem Kauf von Coca-Cola-Anteilen im April 1888. Korrektur: Eine historische Dokumentenprüfung, ein Kaufvertrag oder eine geschäftliche Transaktion aus dem Jahr 1888, die den Erwerb von Firmenanteilen veranschaulicht.",
+              "Offenes Problem (schwer): Die historische Illustration zeigt eine generelle Beerdigungsszene passend zur Ära, jedoch ist das Datum 'August 16, 1888' als Schriftzug und Text eingeblendet, was laut Vorgaben bei Story-Illustrationen nicht gezeigt werden darf. Korrektur: Eine historische Illustration einer Beerdigung im Jahr 1888 mit Trauernden am Grab, jedoch völlig ohne eingeblendete Jahreszahlen oder Textbalken.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann in einem Raum, aber keine konkrete geschichtliche Szene oder Handlung bezüglich Candlers Erwerb der Firmenkontrolle. Korrektur: Ein realistisches historisches Bild von Asa Candler oder Dokumenten, die die Übernahme der Coca-Cola-Firma zeigen.",
+              "Offenes Problem (schwer): Die historische Illustration zeigt zwar eine historische Szene mit Geld und passt zum zeitlichen Rahmen des 19. Jahrhunderts, jedoch wird kein spezifischer Beleg für den Kauf oder die beanspruchte Alleinherrschaft von Candler im Mai 1889 gezeigt. Korrektur: Eine historische Darstellung von Asa Griggs Candler in seinem Geschäft in Atlanta, wie er Dokumente zum Erwerb der Rezeptur prüft.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann in einer historischen Straße, hat aber keinen Bezug zu dem gesprochenen Betrag von 2.300 Dollar. Korrektur: Ein historisches Dokument oder eine Darstellung einer Geschäftsüberweisung über 2.300 Dollar."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 11,
+              "bilder_vereinfacht": 4,
+              "clips_und_stuecke": 553.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 11,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 29.7,
+              "gesamt": 589.3,
+              "videolaenge_s": 41.9,
+              "abschnitte_s": [
+                7.2,
+                5.78,
+                4.68,
+                6.76,
+                6.78,
+                7.1,
+                3.63
+              ],
+              "woerter": 82
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt zwar eine historische Szene im passenden Stil für 1888, bildet jedoch die im Text gestellte Frage über den Eigentümer des Namens Coca-Cola oder John Pemberton bzw. dessen Sohn nicht konkret ab. Korrektur: Eine Illustration, die John Pemberton oder seinen Sohn in einem zeitgenössischen Büro oder Geschäft in Atlanta mit Aufzeichnungen zum Coca-Cola-Namen zeigt."
+              },
+              {
+                "zeit": "00:04",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die historische Geschichte über Pemberton und seinen Sohn kann durch eine gezeichnete Personen-Szene nicht als verifizierbare historische Dokumentation belegt werden. Korrektur: Historische Fotografie oder Dokumente aus dem Jahr 1888 bezüglich John Pemberton und seinem Sohn."
+              },
+              {
+                "zeit": "00:07",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt eine historische Szene mit Apothekenregalen und einem Getränk, aber es gibt keine sichtbaren Bezüge zu Atlanta 1886 oder dem fünf-Cent-Temperenzgetränk. Korrektur: Eine historische Ansicht von Atlanta im Jahr 1886 oder ein Dokument, das die Einführung des Getränks als fünf-Cent-Temperenzgetränk belegt."
+              },
+              {
+                "zeit": "00:12",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt zwar eine historische Szene mit einer Flasche, was zum Kontext einer Medizin passen könnte, aber die spezifische Behauptung der Heilung von Krankheiten wird nicht visuell dargestellt. Korrektur: Eine historische Apotheke oder ein Verkaufsstand mit einer Flasche und einem Dokument oder Schild, das Heilversprechen oder ein Patent anzeigt."
+              },
+              {
+                "zeit": "00:17",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die historische Straßenszene zeigt zwar ein passendes Zeitalter und Setting, aber keine drei Firmen oder den Verkauf verschiedener Versionen wie im Text genannt. Korrektur: Eine historische Darstellung von drei verschiedenen Firmen oder Geschäftshäusern in Atlanta um das Jahr 1888."
+              },
+              {
+                "zeit": "00:21",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt eine Schreibtischszene in einer Stadtstraße, hat aber keinen visuellen Bezug zu einer Firmenübernahme oder dem Kauf von Coca-Cola-Anteilen im April 1888. Korrektur: Eine historische Dokumentenprüfung, ein Kaufvertrag oder eine geschäftliche Transaktion aus dem Jahr 1888, die den Erwerb von Firmenanteilen veranschaulicht."
+              },
+              {
+                "zeit": "00:24",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die historische Illustration zeigt eine generelle Beerdigungsszene passend zur Ära, jedoch ist das Datum 'August 16, 1888' als Schriftzug und Text eingeblendet, was laut Vorgaben bei Story-Illustrationen nicht gezeigt werden darf. Korrektur: Eine historische Illustration einer Beerdigung im Jahr 1888 mit Trauernden am Grab, jedoch völlig ohne eingeblendete Jahreszahlen oder Textbalken."
+              },
+              {
+                "zeit": "00:28",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt einen Mann in einem Raum, aber keine konkrete geschichtliche Szene oder Handlung bezüglich Candlers Erwerb der Firmenkontrolle. Korrektur: Ein realistisches historisches Bild von Asa Candler oder Dokumenten, die die Übernahme der Coca-Cola-Firma zeigen."
+              },
+              {
+                "zeit": "00:31",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die historische Illustration zeigt zwar eine historische Szene mit Geld und passt zum zeitlichen Rahmen des 19. Jahrhunderts, jedoch wird kein spezifischer Beleg für den Kauf oder die beanspruchte Alleinherrschaft von Candler im Mai 1889 gezeigt. Korrektur: Eine historische Darstellung von Asa Griggs Candler in seinem Geschäft in Atlanta, wie er Dokumente zum Erwerb der Rezeptur prüft."
+              },
+              {
+                "zeit": "00:34",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt einen Mann in einer historischen Straße, hat aber keinen Bezug zu dem gesprochenen Betrag von 2.300 Dollar. Korrektur: Ein historisches Dokument oder eine Darstellung einer Geschäftsüberweisung über 2.300 Dollar."
+              }
+            ],
+            "sekunden": 660.9,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "38882983998-2",
+              "datum": "2026-10-16",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 660.9,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-13.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-13.2"
+            },
+            "skript_s": 4.8,
+            "bau_s": 550.0,
+            "pruefung_s": 48.4,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine generelle historische Szene mit Dokumentenübergabe, aber da es sich um eine Story-Illustration handelt, ist kein konkreter Beweis für die Eigentümerschaft oder die Jahreszahl 1888 erkennbar.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die historische Illustration zeigt einen Mann, jedoch verbietet die Vorgabe Markenlogos, Schriftzüge sowie die Darstellung realer Personen oder deren Verwandte, und das Logo sowie der Bezug zu Pembertons Sohn sind hier rein illustrativ.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen Arbeitsplatz auf der Straße, aber keinerlei Bezug zu drei Firmen, die 1888 Versionen verkauften.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (4/10): Die Szene zeigt eine Geschäftsübergabe oder Vertragsunterzeichnung, aber es gibt keinen visuellen Bezug zu Candler oder Anteilen von Coca-Cola.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Die historische Situation um Asa Candler und den Firmenkauf von Coca-Cola wird durch ein generelles Bild eines Geschäftsmanns im Büro nicht spezifisch dargestellt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generelle historische Szene mit Dokumentenübergabe, aber da es sich um eine Story-Illustration handelt, ist kein konkreter Beweis für die Eigentümerschaft oder die Jahreszahl 1888 erkennbar. Korrektur: Eine zeitgenössische Szene in Atlanta aus dem Jahr 1888, die das Eigentum oder den Verkauf von Geschäftsanteilen an der Getränkemarke zeigt.",
+              "Offenes Problem (schwer): Die historische Illustration zeigt einen Mann, jedoch verbietet die Vorgabe Markenlogos, Schriftzüge sowie die Darstellung realer Personen oder deren Verwandte, und das Logo sowie der Bezug zu Pembertons Sohn sind hier rein illustrativ. Korrektur: Eine historische Szene aus dem Jahr 1888, die einen jungen Mann (den Sohn Pembertons) zeigt, ohne jegliche Markenlogos.",
+              "Offenes Problem (schwer): Die Szene zeigt einen Arbeitsplatz auf der Straße, aber keinerlei Bezug zu drei Firmen, die 1888 Versionen verkauften. Korrektur: Eine historische Illustration, die drei verschiedene Geschäftshäuser oder Firmen im Jahr 1888 zeigt.",
+              "Offenes Problem (schwer): Die Szene zeigt eine Geschäftsübergabe oder Vertragsunterzeichnung, aber es gibt keinen visuellen Bezug zu Candler oder Anteilen von Coca-Cola. Korrektur: Ein historisches Dokument oder eine Illustration, die den Kauf eines Anteils an Coca-Cola durch Candlers Firma im Jahr 1888 zeigt.",
+              "Offenes Problem (schwer): Die historische Situation um Asa Candler und den Firmenkauf von Coca-Cola wird durch ein generelles Bild eines Geschäftsmanns im Büro nicht spezifisch dargestellt. Korrektur: Eine historische Illustration oder Darstellung des Geschäftsmanns Asa Candler, der Dokumente prüft oder Verträge verhandelt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 11,
+              "clips_und_stuecke": 507.7,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 11,
+                "motive": 11,
+                "motive_min": 7
+              },
+              "effekte": 10,
+              "rendern": 30.6,
+              "gesamt": 549.8,
+              "videolaenge_s": 41.9,
+              "abschnitte_s": [
+                7.2,
+                5.78,
+                4.68,
+                6.76,
+                6.78,
+                7.1,
+                3.63
+              ],
+              "woerter": 82
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Das Bild zeigt eine generelle historische Szene mit Dokumentenübergabe, aber da es sich um eine Story-Illustration handelt, ist kein konkreter Beweis für die Eigentümerschaft oder die Jahreszahl 1888 erkennbar. Korrektur: Eine zeitgenössische Szene in Atlanta aus dem Jahr 1888, die das Eigentum oder den Verkauf von Geschäftsanteilen an der Getränkemarke zeigt."
+              },
+              {
+                "zeit": "00:04",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die historische Illustration zeigt einen Mann, jedoch verbietet die Vorgabe Markenlogos, Schriftzüge sowie die Darstellung realer Personen oder deren Verwandte, und das Logo sowie der Bezug zu Pembertons Sohn sind hier rein illustrativ. Korrektur: Eine historische Szene aus dem Jahr 1888, die einen jungen Mann (den Sohn Pembertons) zeigt, ohne jegliche Markenlogos."
+              },
+              {
+                "zeit": "00:17",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die Szene zeigt einen Arbeitsplatz auf der Straße, aber keinerlei Bezug zu drei Firmen, die 1888 Versionen verkauften. Korrektur: Eine historische Illustration, die drei verschiedene Geschäftshäuser oder Firmen im Jahr 1888 zeigt."
+              },
+              {
+                "zeit": "00:21",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die Szene zeigt eine Geschäftsübergabe oder Vertragsunterzeichnung, aber es gibt keinen visuellen Bezug zu Candler oder Anteilen von Coca-Cola. Korrektur: Ein historisches Dokument oder eine Illustration, die den Kauf eines Anteils an Coca-Cola durch Candlers Firma im Jahr 1888 zeigt."
+              },
+              {
+                "zeit": "00:28",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "text": "Die historische Situation um Asa Candler und den Firmenkauf von Coca-Cola wird durch ein generelles Bild eines Geschäftsmanns im Büro nicht spezifisch dargestellt. Korrektur: Eine historische Illustration oder Darstellung des Geschäftsmanns Asa Candler, der Dokumente prüft oder Verträge verhandelt."
+              }
+            ],
+            "sekunden": 603.2,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "38882983998-3",
+              "datum": "2026-10-16",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 603.2,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-13.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 2082.4,
+        "upload_titel": "Who Owned Coca-Cola? Candler's 1888 Takeover"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Das Bild zeigt eine generelle historische Szene mit Dokumentenübergabe, aber da es sich um eine Story-Illustration handelt, ist kein konkreter Beweis für die Eigentümerschaft oder die Jahreszahl 1888 erkennbar. Korrektur: Eine zeitgenössische Szene in Atlanta aus dem Jahr 1888, die das Eigentum oder den Verkauf von Geschäftsanteilen an der Getränkemarke zeigt."
+          },
+          {
+            "zeit": "00:04",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die historische Illustration zeigt einen Mann, jedoch verbietet die Vorgabe Markenlogos, Schriftzüge sowie die Darstellung realer Personen oder deren Verwandte, und das Logo sowie der Bezug zu Pembertons Sohn sind hier rein illustrativ. Korrektur: Eine historische Szene aus dem Jahr 1888, die einen jungen Mann (den Sohn Pembertons) zeigt, ohne jegliche Markenlogos."
+          },
+          {
+            "zeit": "00:17",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die Szene zeigt einen Arbeitsplatz auf der Straße, aber keinerlei Bezug zu drei Firmen, die 1888 Versionen verkauften. Korrektur: Eine historische Illustration, die drei verschiedene Geschäftshäuser oder Firmen im Jahr 1888 zeigt."
+          },
+          {
+            "zeit": "00:21",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die Szene zeigt eine Geschäftsübergabe oder Vertragsunterzeichnung, aber es gibt keinen visuellen Bezug zu Candler oder Anteilen von Coca-Cola. Korrektur: Ein historisches Dokument oder eine Illustration, die den Kauf eines Anteils an Coca-Cola durch Candlers Firma im Jahr 1888 zeigt."
+          },
+          {
+            "zeit": "00:28",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "text": "Die historische Situation um Asa Candler und den Firmenkauf von Coca-Cola wird durch ein generelles Bild eines Geschäftsmanns im Büro nicht spezifisch dargestellt. Korrektur: Eine historische Illustration oder Darstellung des Geschäftsmanns Asa Candler, der Dokumente prüft oder Verträge verhandelt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 42.0,
+          "fps": 30.0,
+          "lufs": -14.5,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 38.7,
+              "bis_s": 41.4,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.976
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 22.0,
+              "bis_s": 42.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Who",
+                "s": 0.0,
+                "e": 0.4,
+                "p": 0.4679145812988281
+              },
+              {
+                "w": "owned",
+                "s": 0.4,
+                "e": 0.78,
+                "p": 0.9581385850906372
+              },
+              {
+                "w": "the",
+                "s": 0.78,
+                "e": 1.26,
+                "p": 0.9758813977241516
+              },
+              {
+                "w": "Coca",
+                "s": 1.26,
+                "e": 1.46,
+                "p": 0.9770687222480774
+              },
+              {
+                "w": "-Cola",
+                "s": 1.46,
+                "e": 1.84,
+                "p": 0.8889752924442291
+              },
+              {
+                "w": "name",
+                "s": 1.84,
+                "e": 2.22,
+                "p": 0.9768312573432922
+              },
+              {
+                "w": "in",
+                "s": 2.22,
+                "e": 2.6,
+                "p": 0.9860956072807312
+              },
+              {
+                "w": "1888?",
+                "s": 2.6,
+                "e": 2.96,
+                "p": 0.9787157773971558
+              },
+              {
+                "w": "Not",
+                "s": 4.28,
+                "e": 4.46,
+                "p": 0.8653085231781006
+              },
+              {
+                "w": "John",
+                "s": 4.46,
+                "e": 4.76,
+                "p": 0.9511293768882751
+              },
+              {
+                "w": "Pemberton,",
+                "s": 4.76,
+                "e": 5.36,
+                "p": 0.9671529730161031
+              },
+              {
+                "w": "but",
+                "s": 5.64,
+                "e": 5.86,
+                "p": 0.9971165657043457
+              },
+              {
+                "w": "his",
+                "s": 5.86,
+                "e": 6.0,
+                "p": 0.9968241453170776
+              },
+              {
+                "w": "son.",
+                "s": 6.0,
+                "e": 6.3,
+                "p": 0.9969367980957031
+              },
+              {
+                "w": "Pemberton",
+                "s": 7.26,
+                "e": 7.68,
+                "p": 0.990410308043162
+              },
+              {
+                "w": "launched",
+                "s": 7.68,
+                "e": 7.92,
+                "p": 0.9943245053291321
+              },
+              {
+                "w": "it",
+                "s": 7.92,
+                "e": 8.18,
+                "p": 0.9900922179222107
+              },
+              {
+                "w": "in",
+                "s": 8.18,
+                "e": 8.36,
+                "p": 0.9969710111618042
+              },
+              {
+                "w": "Atlanta",
+                "s": 8.36,
+                "e": 8.66,
+                "p": 0.9984657764434814
+              },
+              {
+                "w": "in",
+                "s": 8.66,
+                "e": 9.06,
+                "p": 0.9494479298591614
+              },
+              {
+                "w": "1886",
+                "s": 9.06,
+                "e": 9.76,
+                "p": 0.9806023836135864
+              },
+              {
+                "w": "as",
+                "s": 9.76,
+                "e": 10.58,
+                "p": 0.8664515018463135
+              },
+              {
+                "w": "a",
+                "s": 10.58,
+                "e": 10.64,
+                "p": 0.9952398538589478
+              },
+              {
+                "w": "five",
+                "s": 10.64,
+                "e": 10.96,
+                "p": 0.6958822011947632
+              },
+              {
+                "w": "-cent",
+                "s": 10.96,
+                "e": 11.3,
+                "p": 0.6958574652671814
+              },
+              {
+                "w": "tempering",
+                "s": 11.3,
+                "e": 11.96,
+                "p": 0.7925355434417725
+              },
+              {
+                "w": "drink.",
+                "s": 11.96,
+                "e": 12.2,
+                "p": 0.40982162952423096
+              },
+              {
+                "w": "He",
+                "s": 13.0,
+                "e": 13.12,
+                "p": 0.9943633079528809
+              },
+              {
+                "w": "sold",
+                "s": 13.12,
+                "e": 13.34,
+                "p": 0.9989457726478577
+              },
+              {
+                "w": "it",
+                "s": 13.34,
+                "e": 13.58,
+                "p": 0.9983552098274231
+              },
+              {
+                "w": "as",
+                "s": 13.58,
+                "e": 13.82,
+                "p": 0.9988679885864258
+              },
+              {
+                "w": "a",
+                "s": 13.82,
+                "e": 13.88,
+                "p": 0.9877434968948364
+              },
+              {
+                "w": "patent",
+                "s": 13.88,
+                "e": 14.1,
+                "p": 0.990956723690033
+              },
+              {
+                "w": "medicine,",
+                "s": 14.1,
+                "e": 14.54,
+                "p": 0.9920791983604431
+              },
+              {
+                "w": "claiming",
+                "s": 15.06,
+                "e": 15.28,
+                "p": 0.9992949962615967
+              },
+              {
+                "w": "it",
+                "s": 15.28,
+                "e": 15.56,
+                "p": 0.9970017075538635
+              },
+              {
+                "w": "cured",
+                "s": 15.56,
+                "e": 15.84,
+                "p": 0.9927062392234802
+              },
+              {
+                "w": "many",
+                "s": 15.84,
+                "e": 16.22,
+                "p": 0.9984398484230042
+              },
+              {
+                "w": "diseases.",
+                "s": 16.22,
+                "e": 16.58,
+                "p": 0.9984827637672424
+              },
+              {
+                "w": "By",
+                "s": 17.7,
+                "e": 17.74,
+                "p": 0.9959725737571716
+              },
+              {
+                "w": "1888,",
+                "s": 17.74,
+                "e": 18.4,
+                "p": 0.9917898178100586
+              },
+              {
+                "w": "three",
+                "s": 19.06,
+                "e": 19.26,
+                "p": 0.956585705280304
+              },
+              {
+                "w": "firm",
+                "s": 19.26,
+                "e": 19.6,
+                "p": 0.32730022072792053
+              },
+              {
+                "w": "sold",
+                "s": 19.6,
+                "e": 20.02,
+                "p": 0.9536513090133667
+              },
+              {
+                "w": "versions.",
+                "s": 20.02,
+                "e": 20.24,
+                "p": 0.9121366739273071
+              },
+              {
+                "w": "Candlers",
+                "s": 21.26,
+                "e": 21.6,
+                "p": 0.706217348575592
+              },
+              {
+                "w": "firm",
+                "s": 21.6,
+                "e": 21.84,
+                "p": 0.9191104173660278
+              },
+              {
+                "w": "bought",
+                "s": 21.84,
+                "e": 22.2,
+                "p": 0.9953615069389343
+              },
+              {
+                "w": "one",
+                "s": 22.2,
+                "e": 22.5,
+                "p": 0.9338809251785278
+              },
+              {
+                "w": "-third",
+                "s": 22.5,
+                "e": 22.88,
+                "p": 0.8327282071113586
+              },
+              {
+                "w": "that",
+                "s": 22.88,
+                "e": 23.18,
+                "p": 0.9754589200019836
+              },
+              {
+                "w": "April.",
+                "s": 23.18,
+                "e": 23.52,
+                "p": 0.9765822291374207
+              },
+              {
+                "w": "John",
+                "s": 24.32,
+                "e": 24.7,
+                "p": 0.9940847754478455
+              },
+              {
+                "w": "Pemberton",
+                "s": 24.7,
+                "e": 25.3,
+                "p": 0.9981752435366312
+              },
+              {
+                "w": "died",
+                "s": 25.3,
+                "e": 25.58,
+                "p": 0.9969250559806824
+              },
+              {
+                "w": "August",
+                "s": 25.58,
+                "e": 26.12,
+                "p": 0.8844579458236694
+              },
+              {
+                "w": "16,",
+                "s": 26.12,
+                "e": 26.46,
+                "p": 0.9962629675865173
+              },
+              {
+                "w": "1888.",
+                "s": 27.02,
+                "e": 27.22,
+                "p": 0.9912618398666382
+              },
+              {
+                "w": "In",
+                "s": 27.22,
+                "e": 27.74,
+                "p": 0.02779846079647541
+              },
+              {
+                "w": "1988,",
+                "s": 27.74,
+                "e": 27.74,
+                "p": 0.5713235139846802
+              },
+              {
+                "w": "Candler",
+                "s": 28.3,
+                "e": 28.76,
+                "p": 0.8330168128013611
+              },
+              {
+                "w": "moved",
+                "s": 28.76,
+                "e": 28.94,
+                "p": 0.9836515784263611
+              },
+              {
+                "w": "fast",
+                "s": 28.94,
+                "e": 29.28,
+                "p": 0.9900943636894226
+              },
+              {
+                "w": "for",
+                "s": 29.28,
+                "e": 29.76,
+                "p": 0.9761945009231567
+              },
+              {
+                "w": "full",
+                "s": 29.76,
+                "e": 30.0,
+                "p": 0.9859850406646729
+              },
+              {
+                "w": "control.",
+                "s": 30.0,
+                "e": 30.4,
+                "p": 0.9901341795921326
+              },
+              {
+                "w": "By",
+                "s": 31.2,
+                "e": 31.34,
+                "p": 0.9898934960365295
+              },
+              {
+                "w": "May",
+                "s": 31.34,
+                "e": 31.54,
+                "p": 0.9947829842567444
+              },
+              {
+                "w": "1889,",
+                "s": 31.54,
+                "e": 32.2,
+                "p": 0.8431147933006287
+              },
+              {
+                "w": "Candler",
+                "s": 32.84,
+                "e": 33.24,
+                "p": 0.9944246709346771
+              },
+              {
+                "w": "claimed",
+                "s": 33.24,
+                "e": 33.5,
+                "p": 0.9992502331733704
+              },
+              {
+                "w": "full",
+                "s": 33.5,
+                "e": 33.84,
+                "p": 0.9832126498222351
+              },
+              {
+                "w": "ownership",
+                "s": 33.84,
+                "e": 34.26,
+                "p": 0.9981106519699097
+              },
+              {
+                "w": "after",
+                "s": 34.26,
+                "e": 34.78,
+                "p": 0.9784124493598938
+              },
+              {
+                "w": "spending",
+                "s": 34.78,
+                "e": 35.24,
+                "p": 0.9991341233253479
+              },
+              {
+                "w": "$2",
+                "s": 35.24,
+                "e": 35.58,
+                "p": 0.9085443317890167
+              },
+              {
+                "w": ",300",
+                "s": 35.58,
+                "e": 36.32,
+                "p": 0.9967847168445587
+              },
+              {
+                "w": "in",
+                "s": 36.32,
+                "e": 37.2,
+                "p": 0.9728115797042847
+              },
+              {
+                "w": "total.",
+                "s": 37.2,
+                "e": 37.5,
+                "p": 0.9990767240524292
+              },
+              {
+                "w": "Be",
+                "s": 38.3,
+                "e": 38.34,
+                "p": 0.9923812747001648
+              },
+              {
+                "w": "sure",
+                "s": 38.34,
+                "e": 38.54,
+                "p": 0.9991037249565125
+              },
+              {
+                "w": "to",
+                "s": 38.54,
+                "e": 38.7,
+                "p": 0.9956549406051636
+              },
+              {
+                "w": "like,",
+                "s": 38.7,
+                "e": 38.92,
+                "p": 0.893496572971344
+              },
+              {
+                "w": "share,",
+                "s": 39.26,
+                "e": 39.52,
+                "p": 0.9956527948379517
+              },
+              {
+                "w": "and",
+                "s": 40.1,
+                "e": 40.2,
+                "p": 0.9982649683952332
+              },
+              {
+                "w": "save",
+                "s": 40.2,
+                "e": 40.48,
+                "p": 0.9780713319778442
+              },
+              {
+                "w": "this",
+                "s": 40.48,
+                "e": 41.04,
+                "p": 0.9908101558685303
+              },
+              {
+                "w": "video.",
+                "s": 41.04,
+                "e": 41.4,
+                "p": 0.9989902377128601
+              }
+            ],
+            "dauer_s": 41.8986875,
+            "sprache": "en"
+          },
+          "roh_key": "4bb6a2ccb3b76fc8cb9b195eeeded2f7875041de31740ee151bf5a58f094e0b0",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "e95d435dc43bb34f5148498c36163a899586a81a3eed4846375b55e1632816d4",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 42.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 11,
+          "motive": 11,
+          "motive_min": 7
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "e95d435dc43bb34f5148498c36163a899586a81a3eed4846375b55e1632816d4",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein im Gemäldestil gezeichneter junger Mann in Anzug und Fliege, der einem älteren Herrn ein Dokument überreicht, während im Hintergrund eine Stadtstraße zu sehen ist.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt eine generelle historische Szene mit Dokumentenübergabe, aber da es sich um eine Story-Illustration handelt, ist kein konkreter Beweis für die Eigentümerschaft oder die Jahreszahl 1888 erkennbar.",
+              "erforderliches_bild": "Eine zeitgenössische Szene in Atlanta aus dem Jahr 1888, die das Eigentum oder den Verkauf von Geschäftsanteilen an der Getränkemarke zeigt."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein illustriertes Porträt eines jungen Mannes an einem Schreibtisch in einer historischen Straßenkulisse, überlagert mit einem Coca-Cola-Logo.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die historische Illustration zeigt einen Mann, jedoch verbietet die Vorgabe Markenlogos, Schriftzüge sowie die Darstellung realer Personen oder deren Verwandte, und das Logo sowie der Bezug zu Pembertons Sohn sind hier rein illustrativ.",
+              "erforderliches_bild": "Eine historische Szene aus dem Jahr 1888, die einen jungen Mann (den Sohn Pembertons) zeigt, ohne jegliche Markenlogos."
+            },
+            {
+              "index": 2,
+              "gesehen": "Gezeichnete Straßenszene aus dem 19. Jahrhundert mit historischen Häusern, Pferden und Menschen im Stil der Epoche.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gezeichnete Straßenszene zeigt eine historische Stadtlandschaft im späten 19. Jahrhundert, passend zum Gründungszeitraum von Coca-Cola in Atlanta.",
+              "erforderliches_bild": "Historische Straßenszene aus Atlanta im 19. Jahrhundert"
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Apotheker steht in einem historischen Laden voller Arzneiflaschen und Regale, der an das späte 19. Jahrhundert erinnert, und sortiert Fläschchen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen historischen Apotheker in einer passenden historischen Umgebung mit vielen Medizin- und Arzneiflaschen, was den Verkauf von Patentmedizin im 19. Jahrhundert gut illustriert.",
+              "erforderliches_bild": "Keine Änderung erforderlich."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Schreibtisch mit Papieren und Computern, im Hintergrund eine belebte Straße in einer Stadt.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Szene zeigt einen Arbeitsplatz auf der Straße, aber keinerlei Bezug zu drei Firmen, die 1888 Versionen verkauften.",
+              "erforderliches_bild": "Eine historische Illustration, die drei verschiedene Geschäftshäuser oder Firmen im Jahr 1888 zeigt."
+            },
+            {
+              "index": 5,
+              "gesehen": "Zwei Männer in Anzügen geben sich über einem Schreibtisch mit Dokumenten und einer Feder die Hand in einem Raum mit einem Fenster im Hintergrund.",
+              "note": 4,
+              "passt": false,
+              "grund": "Die Szene zeigt eine Geschäftsübergabe oder Vertragsunterzeichnung, aber es gibt keinen visuellen Bezug zu Candler oder Anteilen von Coca-Cola.",
+              "erforderliches_bild": "Ein historisches Dokument oder eine Illustration, die den Kauf eines Anteils an Coca-Cola durch Candlers Firma im Jahr 1888 zeigt."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Mann liegt im Bett und stirbt, während ein anderer Mann an seinem Bett sitzt und seine Hand hält.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Szene zeigt passend den Tod von John Pemberton im historischen Bett, passend zur Erzählung über den Todestag am 16. August 1888.",
+              "erforderliches_bild": "Keines, das Bild passt gut."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein Mann im geschäftsmäßigen Anzug steht in einem klassisch eingerichteten Arbeitszimmer mit Bücherregalen und Ölgemälden.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die historische Situation um Asa Candler und den Firmenkauf von Coca-Cola wird durch ein generelles Bild eines Geschäftsmanns im Büro nicht spezifisch dargestellt.",
+              "erforderliches_bild": "Eine historische Illustration oder Darstellung des Geschäftsmanns Asa Candler, der Dokumente prüft oder Verträge verhandelt."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Mann im Anzug in einem Büro aus dem 19. Jahrhundert, der mit einem Stempel auf einem Holztisch arbeitet.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt eine historische Büro-Szene mit einem Geschäftsmann, was zur historischen Geschäftssituation von Candler im 19. Jahrhundert passt.",
+              "erforderliches_bild": "Ein historisches Dokument oder ein Büro im 19. Jahrhundert."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein Mann im Hut sitzt an einem Tisch auf einer historischen Straße und zählt Geldmünzen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt historisch passende Geldzählung und Transaktionen passend zu den erwähnten finanziellen Transaktionen.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine generelle historische Szene mit Dokumentenübergabe, aber da es sich um eine Story-Illustration handelt, ist kein konkreter Beweis für die Eigentümerschaft oder die Jahreszahl 1888 erkennbar.",
+            "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die historische Illustration zeigt einen Mann, jedoch verbietet die Vorgabe Markenlogos, Schriftzüge sowie die Darstellung realer Personen oder deren Verwandte, und das Logo sowie der Bezug zu Pembertons Sohn sind hier rein illustrativ.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen Arbeitsplatz auf der Straße, aber keinerlei Bezug zu drei Firmen, die 1888 Versionen verkauften.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (4/10): Die Szene zeigt eine Geschäftsübergabe oder Vertragsunterzeichnung, aber es gibt keinen visuellen Bezug zu Candler oder Anteilen von Coca-Cola.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Die historische Situation um Asa Candler und den Firmenkauf von Coca-Cola wird durch ein generelles Bild eines Geschäftsmanns im Büro nicht spezifisch dargestellt."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 11,
+          "ausgenommen": [
+            10
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "e95d435dc43bb34f5148498c36163a899586a81a3eed4846375b55e1632816d4",
+        "prompt_version": "2026-10-13.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "modell": "groq:openai/gpt-oss-20b",
+        "zweitpruefer_modell": null,
+        "zweitpruefer_anderer_anbieter": false
+      }
     }
   ]
 }

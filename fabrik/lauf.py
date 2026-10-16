@@ -240,6 +240,9 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     entwurf_kandidat = None  # nur KI-Geschmack unter 7/10, Pflichtpruefungen bestanden
     entwurf_rang = None  # (1, Note) fuer KI-Geschmack vor (0, -abgelehnte Bilder) fuer Bildbezug
     arbeit_ende = start + frei - SENDEN_S
+    heute_schwaechen, heute_pfad = [], Path('ausgabe-lernen') / f'heute-{kanal}.json'
+    heute_pfad.parent.mkdir(exist_ok=True)
+    os.environ.pop('CF_HEUTE_SCHWAECHEN', None)
     letzter_grund = 'Kein Versuch abgeschlossen'
     versuch = 0
     korrekturen = 0
@@ -354,6 +357,10 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                                  story_schwaechen=[str(w)[:300] for w in
                                                    ((abgelehnt.get('story') or {}).get('schwaechen') or [])[:5]],
                                  skript_probleme=abgelehnt.get('pruefung', {}).get('probleme', []))
+                    # Naechster Durchgang dieses Laufs kennt die Schwaechen (kein KI-Aufruf noetig).
+                    heute_schwaechen.extend(runde['sperrgruende'][:2] + runde['story_schwaechen'][:3])
+                    heute_pfad.write_text(json.dumps(heute_schwaechen[-8:], ensure_ascii=False), encoding='utf-8')
+                    os.environ['CF_HEUTE_SCHWAECHEN'] = str(heute_pfad.resolve())
                     verlauf_eintragen(kanal, abgelehnt,
                                       'faktenpruefung' if r == 2 else 'skriptqualitaet' if r == 3 else 'skriptfehler', None,
                                       grund='; '.join((runde['sperrgruende'] or [])[:2] + runde['skript_probleme'][:2]))

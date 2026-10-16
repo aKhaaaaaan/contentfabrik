@@ -7,7 +7,7 @@ wichtigsten zuerst. Skript-Schreiben und Bildwahl bekommen sie mit.
 
 Datei: lernen/<kanal>.json (im Projekt, wird nach jedem Lauf gesichert).
 """
-import json, datetime
+import json, datetime, os, re
 from pathlib import Path
 
 ORDNER = Path('lernen')
@@ -107,10 +107,39 @@ def erprobte_einstellungen(kanal):
     return empfehlung
 
 
-def regeln(kanal):
+# GEMESSEN 16.10.2026 (Lauf 38873412464): Aus einem Prueferirrtum wurde die Regel "Label the turning
+# point with the exact tag 'beat wendung' ... in every script" gelernt; dazu standen ueberholte Regeln
+# (feste 18 Motive, Moderator die ganze Zeit sichtbar) gegen Nutzerentscheidungen vom 15.10. im Regelbuch.
+# Was der Code fest vorgibt, darf keine gelernte Regel ueberschreiben.
+GEGEN_CODE = [re.compile(m, re.I) for m in (
+    r'beat\s*wendung',                                # internes Feld, nie Sprechtext
+    r'\b\d+\s+(?:genuinely\s+)?distinct\s+visual\s+motifs',  # Motivzahl regelt bildplan (ein Motiv je Satz)
+    r'presenter\b.*\b(?:throughout|keep\s+him\s+visible)',   # Figur nur Anfang/Aufruf (gemalt_nur_rand)
+)]
+
+
+def gegen_code(regel):
+    return any(m.search(str(regel)) for m in GEGEN_CODE)
+
+
+def heute_schwaechen():
+    """Schwaechen frueherer Durchgaenge DIESES Laufs; lauf.py schreibt sie, skript.py liest sie ueber regeln().
+    Hier statt in skript.py, damit der Entwurfs-Cache (haengt am Code von skript.py) gueltig bleibt."""
+    pfad = os.environ.get('CF_HEUTE_SCHWAECHEN')
+    try:
+        return json.loads(Path(pfad).read_text(encoding='utf-8')) if pfad else []
+    except (OSError, ValueError):
+        return []
+
+
+def regeln(kanal, heute=None):
+    """Regelbuch des Kanals; heute = Schwaechen frueherer Durchgaenge DIESES Laufs (zuerst, ohne KI-Aufruf)."""
+    heute = heute_schwaechen() if heute is None else heute
     p = ORDNER / f'{kanal}.json'
     alt = json.loads(p.read_text(encoding='utf-8')).get('regeln', []) if p.exists() else []
-    return list(dict.fromkeys(redaktionsregeln() + alt))
+    vorn = ['Earlier drafts in this run were rejected for: ' + ' | '.join(str(h)[:200] for h in heute)[:600]
+            + '. Avoid these weaknesses with the same facts.'] if heute else []
+    return [r for r in dict.fromkeys(vorn + redaktionsregeln() + alt) if not gegen_code(r)]
 
 
 def redaktionsregeln():

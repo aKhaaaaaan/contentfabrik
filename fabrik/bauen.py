@@ -780,28 +780,99 @@ def gif_bilder(ziel, anzahl=4):
         return []
 
 
+def _inhalt(kanten, achse):
+    """Anteil der Kantenpixel je Spalte (achse=0) bzw. Zeile (achse=1)."""
+    w, h = kanten.size
+    px = kanten.load()
+    if achse == 0:
+        return [sum(1 for y in range(h) if px[x, y]) / h for x in range(w)]
+    return [sum(1 for x in range(w) if px[x, y]) / w for y in range(h)]
+
+
+def _bloecke(werte, luecke, schwelle=0.01):
+    """Zusammenhaengende Bereiche mit Inhalt; Luecken bis `luecke` werden ueberbrueckt."""
+    aus, start, ende, leer = [], None, 0, 0
+    for i, v in enumerate(list(werte) + [0] * (luecke + 1)):
+        if v > schwelle:
+            start = i if start is None else start
+            ende, leer = i + 1, 0
+        elif start is not None:
+            leer += 1
+            if leer > luecke:
+                aus.append((start, ende))
+                start, leer = None, 0
+    return aus
+
+
+def bildbereiche(im):
+    """Inhaltsbereiche eines breiten Screenshots als (x0, y0, x1, y1), links nach rechts.
+
+    GEMESSEN 17.10.2026 (KI Talorys, Lauf 39017190861): Das starre Drittel zeigte links nur die
+    Menueleiste ("App-Menue ohne Bezug", 2-5/10) und rechts eine leere dunkle Flaeche ("Bild ist
+    leer und dunkel", 1/10), obwohl die Originale genau Erinnerungen/Aufgaben/Zeitplaene zeigen.
+    Jetzt: Spalten mit Kanten finden, schmale Leisten (< 20 % Breite) und leere Flaechen weglassen,
+    breite Inhaltsbloecke weiter in hochformattaugliche Stuecke teilen, Stuecke ohne Inhalt verwerfen.
+    """
+    from PIL import ImageFilter
+    w, h = im.size
+    klein = im.convert('L').resize((480, max(1, round(480 * h / w))))
+    kanten = klein.filter(ImageFilter.FIND_EDGES).point(lambda v: 255 if v > 24 else 0)
+    f = w / 480
+    stuecke = []
+    spalten = _inhalt(kanten, 0)
+    for a, b in _bloecke(spalten, 480 // 25):
+        if (b - a) < 0.2 * 480:
+            continue  # Menueleiste, Rand, einzelnes Symbol
+        zeilen = _bloecke(_inhalt(kanten.crop((a, 0, b, kanten.height)), 1), kanten.height // 10)
+        oben, unten = (zeilen[0][0], zeilen[-1][1]) if zeilen else (0, kanten.height)
+        x0, x1, y0, y1 = round(a * f), round(b * f), round(oben * f), round(unten * f)
+        y0, y1 = max(0, y0 - 8), min(h, y1 + 8)
+        verh = (x1 - x0) / max(1, y1 - y0)
+        n = 3 if verh >= 1.8 else 2 if verh >= 1.3 else 1
+        # Schnitt in die leerste Spalte nahe der Teilungsstelle legen - nicht mitten durch eine Textzeile
+        # (Talorys-Chat: "Added the task 'prep" | "are slides for Monday").
+        rand = max(1, (b - a) * 15 // 100)
+        schnitte = [a]
+        for k in range(1, n):
+            ideal = a + (b - a) * k // n
+            fenster = range(max(schnitte[-1] + 1, ideal - rand), min(b - 1, ideal + rand) + 1)
+            schnitte.append(min(fenster, key=lambda x: (spalten[x], abs(x - ideal)), default=ideal))
+        schnitte.append(b)
+        stuecke += [(round(s * f), y0, round(e * f), y1) for s, e in zip(schnitte, schnitte[1:])]
+    dichte = []
+    for x0, y0, x1, y1 in stuecke:
+        t = kanten.crop((round(x0 / f), round(y0 / f), max(round(x0 / f) + 1, round(x1 / f)),
+                         max(round(y0 / f) + 1, round(y1 / f))))
+        dichte.append(sum(1 for v in t.getdata() if v) / max(1, t.width * t.height))
+    beste = max(dichte, default=0)
+    return [s for s, d in zip(stuecke, dichte) if d >= max(0.004, 0.3 * beste)][:3]
+
+
 def bildteile(ziel):
-    """Breiten Screenshot in drei getrennte, nicht ueberlappende Bereiche teilen.
+    """Breiten Screenshot in getrennte, nicht ueberlappende Inhaltsbereiche teilen (hoechstens drei).
 
     Nutzerentscheidung 15.10.2026: KI-Werkzeuge haben meist nur 2-6 README-Screenshots, das Video
     braucht 18 Motive. Lauf 38703468700 fuellte die Luecke mit gemalten Laptop-Szenen (Pruefer
     2/10). Jeder Bereich zeigt einen anderen Teil der echten Oberflaeche und passt ins Hochformat;
-    nie dieselbe Stelle zweimal. Hochformat/kleine Bilder bleiben ganz.
+    nie dieselbe Stelle zweimal. Hochformat/kleine Bilder bleiben ganz. Bereiche siehe bildbereiche();
+    neue Dateinamen, damit alte Drittel aus dem Clip-Cache nicht weiterverwendet werden.
     """
     try:
         with Image.open(ziel) as im:
             if getattr(im, 'n_frames', 1) > 1:
                 return []
             w, h = im.size
-            breite = w // 3
-            if w < 1.3 * h or breite < 300 or h < 270:
+            if w < 1.3 * h or w // 3 < 300 or h < 270:
+                return []
+            bereiche = bildbereiche(im)
+            if not bereiche:
                 return []
             rgb = bild_rgb(im)
             aus = []
-            for k in range(3):
-                f = Path(ziel).with_name(f'{Path(ziel).name}_teil{k}.jpg')
+            for k, kasten in enumerate(bereiche):
+                f = Path(ziel).with_name(f'{Path(ziel).name}_bereich{k}.jpg')
                 if not f.exists():
-                    rgb.crop((k * breite, 0, (k + 1) * breite, h)).save(f, 'JPEG', quality=92)
+                    rgb.crop(kasten).save(f, 'JPEG', quality=92)
                 aus.append(f)
             return aus
     except Exception:
@@ -856,14 +927,14 @@ def demo_fuer(url, satz='', benutzt=None, gewollt=None):
         teile = [] if frames else bildteile(ziel)
         eintraege += ([(f, f'{l}#bild{k}') for k, f in enumerate(frames)
                        if f'{l}#bild{k}' not in (benutzt or set())] if frames else
-                      [(f, f'{l}#teil{k}') for k, f in enumerate(teile)
-                       if f'{l}#teil{k}' not in (benutzt or set())] if teile else [(ziel, l)])
+                      [(f, f'{l}#bereich{k}') for k, f in enumerate(teile)
+                       if f'{l}#bereich{k}' not in (benutzt or set())] if teile else [(ziel, l)])
     if gewollt:
         eintraege = [e for e in eintraege if e[1] == gewollt]
     for ziel, l in eintraege:
         try:
             with Image.open(ziel) as im:
-                if (im.width < 480 and '#teil' not in l) or im.height < 270:  # Vorschau-Schnipsel, Symbole
+                if (im.width < 480 and '#bereich' not in l) or im.height < 270:  # Vorschau-Schnipsel, Symbole
                     continue
                 vorschau = bild_rgb(im)
                 if ('A' in im.getbands() or 'transparency' in im.info):

@@ -657,9 +657,14 @@ def korrekturen_schreiben(schreiber, kanal, thema, quellen, auftrag, mindest, ho
     modell, mangel = None, None
     textreparatur = kanal.get('format') in ('erklaerung','geschichte') \
         and dramaturgie.videoformat(kanal) == 'short' and bool(os.environ.get('GROQ_API_KEY'))
+    # GEMESSEN 17.10.2026 (Langvideo Coca-Cola): das Aufteilen fuer Groqs 8K-Minutengrenze lief beim
+    # Langvideo immer bis auf 1 Einwand - 6 Einwaende = 6 komplette Neuschriebe a ~1.100 Woerter (je ~2 Min.),
+    # Skriptfrist verbraucht. Ein Langskript passt auch mit EINEM Einwand nicht in Groqs Grenze; Autor ist
+    # dort Claude/Gemini. Darum beim Langvideo alle Einwaende in einem Durchgang.
+    lang = dramaturgie.videoformat(kanal) == 'lang'
     while rest:
         n = len(rest)
-        while n > 1 and groq_skriptreserve(groq_skriptauftrag(kanal, thema, quellen, auftrag,
+        while n > 1 and not lang and groq_skriptreserve(groq_skriptauftrag(kanal, thema, quellen, auftrag,
                 mindest, hoechstens, entwurf=entwurf, korrekturen=rest[:n]),
                 REPARATUR_SCHEMA if textreparatur else SKRIPT_SCHEMA,
                 2048 if textreparatur else 3072) > 7900:

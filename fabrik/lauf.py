@@ -220,7 +220,10 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     illustration.KONTINGENT_LEER.unlink(missing_ok=True)  # Merker gilt nur fuer diesen Lauf
     import kanalstandard
     # Langvideo: ~1.200 Woerter plus Fakten-/Storypruefung brauchen mehr als die 8 Min. eines Shorts.
-    skriptfrist = 20 * 60 if kanalstandard.laden(kanal_pfad).get('videoformat') == 'lang' else 480
+    # GEMESSEN 17.10.2026 (Run 39032531951, Coca-Cola): 20 Min. reichten nicht - Autor, 6 Faktenkorrekturen,
+    # Chronik- und Laengenkorrektur, dann "Skript-Zeitlimit erreicht". Bei 200 Min. Budget bleiben mit 45 Min.
+    # Skript noch 155 Min. fuer Bilder, Bau und Pruefung (Gesamtbudget unveraendert).
+    skriptfrist = 45 * 60 if kanalstandard.laden(kanal_pfad).get('videoformat') == 'lang' else 480
     # GEMELDET 16.10.2026: Airbnb kam zwei Tage hintereinander (Entwurf vom 15.10. per Handversand
     # zugestellt, Thema blieb stehen). Vor jeder Themenwahl schon gelieferte Themen austragen.
     try:  # Aufraeumen darf den Lauf nie kippen

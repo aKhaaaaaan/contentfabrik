@@ -69,6 +69,11 @@ def text(phase, env=None):
         return ('Contentfabrik: Tageslauf angenommen fuer ' + ', '.join(kanaele)[:250] + '.\n'
                 'Die Kanaele werden nacheinander bearbeitet; Einrichtung und Pruefung folgen. '
                 'Ein Video kommt erst nach bestandener Freigabe. Ohne freigegebenes Video folgt eine Statusmeldung.\n' + url)
+    if phase == 'langstart':
+        # GEMELDET 17.10.2026: Langvideo lief, aber auf Telegram kam keine Startmeldung (nur Shorts hatten eine).
+        return (f"Contentfabrik: Wochen-Langvideo gestartet{' - Thema ' + thema if thema else ''}.\n"
+                'Bau und Pruefung dauern bis zu ca. 3,5 Std. Das Video kommt erst nach bestandener Freigabe; '
+                'ohne Video folgt eine Statusmeldung. Fortschritt: "Status" an den Steuerungsbot.\n' + url)
     if phase == 'tagesende':
         bericht = lesen(Path('ausgabe') / 'bericht.json')
         # Nur eine bestaetigte Videozustellung unterdrueckt die Fehlermeldung.
@@ -93,7 +98,7 @@ def senden(nachricht):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('phase', choices=['start', 'fehlgeschlagen', 'nachricht', 'grund', 'tagesstart', 'tagesende'])
+    parser.add_argument('phase', choices=['start', 'fehlgeschlagen', 'nachricht', 'grund', 'tagesstart', 'langstart', 'tagesende'])
     args = parser.parse_args()
     if args.phase == 'grund':
         grund = fehlergrund().replace('\n', ' ').replace('\r', ' ')

@@ -20,7 +20,7 @@
 //   Befehle: Start | Start Business | Start KI | Status (Gesamtfortschritt in %) | Abholen
 
 const REPO = 'aKhaaaaaan/contentfabrik';
-const VERSION = '2026-10-16.1';
+const VERSION = '2026-10-17.1';
 // Zusammengefasste Stunden sparen Trigger: Workers Free hat fuenf pro Konto.
 const VIDEO_CRONS = new Set(['23 8,13 * * *', '41 10,15 * * *',
   '23 8 * * *', '41 10 * * *', '23 13 * * *', '41 15 * * *']);
@@ -145,9 +145,12 @@ export async function fortschritt(env, lauf) {
 
 // GEMELDET 08.10.2026 (Screenshot 21:09): Status zeigte nur Tageslaeufe - der laufende
 // Langvideo-Pilot (pilot.yml) war unsichtbar. Jetzt beide Ablaeufe, mit Art und Datum.
-const PILOT_MIN = { lang: 150, short: 45 };  // geschaetzte Bauzeit, Langvideo noch nicht gemessen
-const art = r => r.path && r.path.includes('pilot.yml')
-  ? (/\/ lang \//.test(r.display_title || '') ? 'Langvideo-Probe' : 'Short-Probe') : 'Tageslauf';
+const PILOT_MIN = { lang: 150, short: 45, woche: 200 };  // geschaetzt; woche = Budget lauf.BUDGET_LANG_S
+// GEMELDET 17.10.2026 (Screenshot 14:39): das woechentliche Langvideo (langvideo.yml) lief, Status sagte
+// "Gerade laeuft nichts". Es zaehlt jetzt mit.
+const art = r => r.path && r.path.includes('langvideo.yml') ? 'Langvideo'
+  : r.path && r.path.includes('pilot.yml')
+    ? (/\/ lang \//.test(r.display_title || '') ? 'Langvideo-Probe' : 'Short-Probe') : 'Tageslauf';
 const tag = (iso) => new Date(iso).toLocaleDateString('de-DE', { timeZone: 'Europe/Berlin', day: '2-digit', month: '2-digit' });
 
 export async function pilotFortschritt(env, lauf) {
@@ -156,11 +159,12 @@ export async function pilotFortschritt(env, lauf) {
   const titel = art(lauf);
   if (!job) return `${titel}: wartet auf einen freien Rechner (seit ${berlin(lauf.created_at)}).\n${lauf.html_url}`;
   const schritt = (job.steps || []).find(x => x.status === 'in_progress');
-  const bau = (job.steps || []).find(x => x.name.startsWith('Video bauen'));
-  const ziel = PILOT_MIN[titel === 'Langvideo-Probe' ? 'lang' : 'short'];
+  const istBau = x => x.name.startsWith('Video bauen') || x.name.startsWith('Erzeugen');
+  const bau = (job.steps || []).find(istBau);
+  const ziel = PILOT_MIN[titel === 'Langvideo' ? 'woche' : titel === 'Langvideo-Probe' ? 'lang' : 'short'];
   let anteil = 0.05, zeile = '';
   if (bau && bau.status === 'completed') anteil = 0.95;
-  else if (schritt && schritt.name.startsWith('Video bauen')) {
+  else if (schritt && istBau(schritt)) {
     const minuten = Math.max(0, (Date.now() - new Date(schritt.started_at)) / 60000);
     anteil = 0.1 + 0.8 * Math.min(1, minuten / ziel);
     zeile = `\nSkript, Stimme, Bilder, Pruefung laufen seit ${Math.round(minuten)} Min (erwartet ca. ${ziel} Min)`;
@@ -172,9 +176,9 @@ export async function pilotFortschritt(env, lauf) {
 export async function befehl(env, text) {
   const t = String(text || '').trim().toLowerCase();
   if (t === 'status') {
-    const [video, pilot] = await Promise.all([laeufe(env, '', 'video.yml', 5),
-      laeufe(env, '', 'pilot.yml', 5).catch(() => [])]);
-    const rs = [...video, ...pilot].sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
+    const [video, pilot, woche] = await Promise.all([laeufe(env, '', 'video.yml', 5),
+      laeufe(env, '', 'pilot.yml', 5).catch(() => []), laeufe(env, '', 'langvideo.yml', 3).catch(() => [])]);
+    const rs = [...video, ...pilot, ...woche].sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
     if (!rs.length) return 'Noch keine Videolaeufe.';
     const aktiv = rs.filter(r => r.status !== 'completed');
     if (aktiv.length) {

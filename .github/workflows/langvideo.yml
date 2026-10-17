@@ -37,6 +37,16 @@ jobs:
         env:
           EINGABE: ${{ inputs.thema }}
         run: python3 fabrik/langvideo.py vorpruefung
+      - name: Start auf Telegram bestaetigen
+        if: steps.pruefen.outputs.faellig == 'ja'
+        # Eine Telegram-Stoerung soll die Produktion nicht verhindern.
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          THEMA: ${{ steps.pruefen.outputs.thema }}
+          CF_ORIGINAL_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python3 fabrik/statusmeldung.py langstart
   video:
     needs: vorpruefung
     if: needs.vorpruefung.outputs.faellig == 'ja'

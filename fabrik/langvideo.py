@@ -38,7 +38,10 @@ def faellig(verlauf, heute):
 
 def thema(verlauf, geliefert, heute):
     """Juengster Business-Short der letzten Tage (nicht von heute), dessen Thema noch kein Langvideo hatte."""
-    schon_lang = {_norm(e.get('thema')) for e in verlauf if ist_lang(e)}
+    # GEMESSEN 17.10.2026: nur GELIEFERTE Langvideos zaehlen - zwei gescheiterte Coca-Cola-Versuche
+    # (Skriptfrist, Bauversuche) liessen den Neustart Airbnb waehlen; der fast fertige Teilbau
+    # (Skript, Stimme, 53/84 Bilder) waere verloren gewesen.
+    schon_lang = {_norm(e.get('thema')) for e in verlauf if ist_lang(e) and e.get('status') == 'gesendet'}
     ab = (heute - datetime.timedelta(days=SUCHFENSTER_TAGE)).isoformat()
     kandidaten = [e for e in verlauf
                   if e.get('status') == 'gesendet' and not ist_lang(e)

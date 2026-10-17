@@ -70,7 +70,24 @@ def vorpruefung(heute=None, eingabe=''):
         return True, eingabe
     if not faellig(verlauf, heute):
         return False, ''
-    return True, thema(verlauf, geliefert, heute)
+    # GEMESSEN 17.10.2026: der Sonntag haette Enron (neuester Short) gewaehlt, obwohl ein gepruefter
+    # Coca-Cola-Entwurf samt Stimme bereitlag. Erst fertig bauen, was schon bezahlt/geprueft ist.
+    offen = offener_entwurf()
+    return True, offen or thema(verlauf, geliefert, heute)
+
+
+def offener_entwurf():
+    """Thema eines noch gueltigen, geprueften Langvideo-Entwurfs ('' wenn keiner)."""
+    import time
+    import entwurf_cache
+    meta, _ = entwurf_cache.pfade(f'{KANAL}-lang')
+    try:
+        d = json.loads(meta.read_text(encoding='utf-8'))
+        if 0 <= time.time() - d['erstellt'] <= entwurf_cache.TTL_LANG and d.get('thema_eingabe'):
+            return str(d['thema_eingabe'])
+    except (OSError, ValueError, KeyError, TypeError):
+        pass
+    return ''
 
 
 if __name__ == '__main__' and sys.argv[1:] == ['vorpruefung']:

@@ -22,9 +22,12 @@ def gefaehrdet(wurzel='.'):
     for meta in sorted((Path(wurzel) / 'verlauf/entwuerfe').glob('*.json')):
         try:
             d = json.loads(meta.read_text(encoding='utf-8'))
-            profil = Path(wurzel) / 'kanaele' / (meta.stem + '.json')
+            # GEMESSEN 17.10.2026: der Langvideo-Entwurf (Coca-Cola) traegt den Schluessel von
+            # formate/<kanal>.json; der Waechter verglich nur mit kanaele/ und schlug falsch an.
+            profile = [p for p in (Path(wurzel) / 'kanaele' / (meta.stem + '.json'),
+                                   Path(wurzel) / 'formate' / (meta.stem + '.json')) if p.exists()]
             frisch = 0 <= time.time() - d['erstellt'] <= entwurf_cache.TTL
-            if frisch and profil.exists() and d.get('profil') != entwurf_cache.profil_key(profil):
+            if frisch and profile and d.get('profil') not in {entwurf_cache.profil_key(p) for p in profile}:
                 treffer.append(meta.stem)
         except (OSError, ValueError, KeyError, TypeError):
             continue

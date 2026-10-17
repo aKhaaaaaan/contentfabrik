@@ -79,6 +79,13 @@ def kontingent(base, remote, lokal):
             if alt is None or (v.get('bis') or 0) > (alt.get('bis') or 0):
                 modelle[k] = v
     aus['modelle'] = modelle
+    # 17.10.2026: Zeitlimit-Zeitpunkte je Modell (ki_speicher.sperren, Steigerung 1/3/9 Min.) beider Seiten.
+    zl = {}
+    for teil in (remote.get('zeitlimits') or {}, lokal.get('zeitlimits') or {}):
+        for k, v in teil.items():
+            zl[k] = sorted(set(zl.get(k, [])) | set(v if isinstance(v, list) else []))
+    if zl:
+        aus['zeitlimits'] = zl
     return aus
 
 

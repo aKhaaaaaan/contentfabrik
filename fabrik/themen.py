@@ -3,7 +3,7 @@
 python fabrik/themen.py abholen; erst NACH erfolgreichem Git-Push: bestaetigen.
 Kanal-Praefixe und Listen brauchen keine KI; YouTube-Links liefern nur das Thema.
 """
-import datetime, json, os, re, sys, urllib.parse, urllib.request
+import datetime, json, os, re, sys, time, urllib.error, urllib.parse, urllib.request
 from pathlib import Path
 
 DATEI = Path('themen/warteschlange.json')
@@ -36,8 +36,16 @@ HILFE = ('So schickst du mir ein Thema:\nBusiness: Wie LEGO entstand\nKI: Ein pr
 
 def _tg(methode, **felder):
     token = os.environ['TELEGRAM_BOT_TOKEN']
-    return json.load(urllib.request.urlopen(f'https://api.telegram.org/bot{token}/{methode}',
-                    data=urllib.parse.urlencode(felder).encode(), timeout=30))
+    # GEMESSEN 15.10.2026 (Lauf 38665159249): ein einzelnes Lese-Zeitlimit beendete den Abholer mit Fehler.
+    # Ein zweiter Versuch nach kurzer Pause; der Offset wird erst nach Git-Sicherung bestaetigt (kein Verlust).
+    for versuch in range(2):
+        try:
+            return json.load(urllib.request.urlopen(f'https://api.telegram.org/bot{token}/{methode}',
+                             data=urllib.parse.urlencode(felder).encode(), timeout=30))
+        except (TimeoutError, urllib.error.URLError) as e:
+            if versuch or isinstance(e, urllib.error.HTTPError):
+                raise
+            time.sleep(5)
 
 
 def laden():

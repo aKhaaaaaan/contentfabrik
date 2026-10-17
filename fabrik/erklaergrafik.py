@@ -186,7 +186,7 @@ def figur_frage(ziel, figur, text, titel=''):
     return Path(ziel)
 
 
-def grafik(ziel, text, motiv='', titel='', phase=''):
+def grafik(ziel, text, motiv='', titel='', phase='', art=None):
     im = Image.new('RGB', (1080, 1920), '#10202d')
     d = ImageDraw.Draw(im)
     def font(n):
@@ -216,7 +216,7 @@ def grafik(ziel, text, motiv='', titel='', phase=''):
     gelb, tuerkis, hell, dunkel, rot = '#ffae35', '#20d2be', '#dce4ec', '#10202d', '#ff5a5f'
     kopf = titelzeile(titel)
     txt(75, 315, kopf, passend(kopf, 930, 40), tuerkis)
-    art = layout(text, phase)
+    art = art or layout(text, phase)
     satz = re.sub(r'\s+', ' ', str(text)).strip()
     cx, cy = 540, 760
     beschriften = art in ('schluessel', 'rechnung', 'download', 'daten')

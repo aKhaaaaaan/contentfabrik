@@ -1717,9 +1717,14 @@ def main(skript_pfad, aus, vorlage=None):
                                     'nennung': nennung})
             key = rendercache.stueck_key(visuell, i, dauer, code_key)
             alt = cache.get('stuecke', {}).get(str(i), {})
+            # GEMESSEN 17.10.2026 (Enron, Lauf 39017190861): Der zweite Bau uebernahm Einstellung 8 samt
+            # einmaliger Ausnahme aus dem Cache, vergass sie aber - Einstellung 9 bekam eine zweite Ausnahme.
+            alt_toleranz = bool(alt.get('toleranz')) and not bildablauf.get('motiv_toleranz')
             if alt.get('key') == key and rendercache.dateien_ok(aus, alt.get('dateien', [])) \
                     and motivbudget.erlaubt(alt.get('material_id'), benutzte_materialien,
-                                           verbleibend, mindest):
+                                           verbleibend, mindest - alt_toleranz):
+                if alt_toleranz:
+                    bildablauf['motiv_toleranz'] = 1
                 liste += [f"file '{n}'" for n in alt['dateien']]
                 quellen += alt.get('quellen', [])
                 ereignisse += [(t0 + sek, art) for sek, art in alt.get('ereignisse', [])]
@@ -1737,6 +1742,7 @@ def main(skript_pfad, aus, vorlage=None):
                 rendercache.speichern(aus, zustand)
                 continue
             zeiten['stuecke_neu'] += 1
+            toleranz0 = bildablauf.get('motiv_toleranz', 0)
             l0, q0, e0 = len(liste), len(quellen), len(ereignisse)
             fotos0 = set(benutzte_fotos)
             def merken():
@@ -1745,7 +1751,8 @@ def main(skript_pfad, aus, vorlage=None):
                     'ereignisse': [(sek - t0, art) for sek, art in ereignisse[e0:]],
                     'fotos': sorted(benutzte_fotos - fotos0),
                     'material_id': material_hash, 'material_art': material_art,
-                    'ersatz': bild_ersatz > ersatz0, 'logo': bool(logo)}
+                    'ersatz': bild_ersatz > ersatz0, 'logo': bool(logo),
+                    'toleranz': bildablauf.get('motiv_toleranz', 0) > toleranz0}
                 # Der Schlusspruefer muss unser eigenes Abschnittslogo vom Bildinhalt unterscheiden koennen.
                 bildablauf['einstellungen'].append(dict(shot, teil=None,
                     material_id=material_hash, material_art=material_art, logo=bool(logo)))
@@ -1961,6 +1968,19 @@ def main(skript_pfad, aus, vorlage=None):
                                                                s.get('thema') or t.get('werkzeug') or '')
                     quellen.append({'quelle': 'Illustration', 'seite': 'Originale Kanalfigur mit gesprochenem Satz'})
                     print(f'Einstellung {i}: Kanalfigur mit Sprechblase statt doppelter Nachbargrafik')
+            if not material and B < H:
+                # GEMESSEN 17.10.2026 (Business Enron, Lauf 39017190861): "$101 billion in 2000 revenue" und
+                # "about 20,600 employees" bestanden nie (gemalte Ziffern sind verboten) und wurden zu Nachbarbildern
+                # - 13 Einstellungen, nur 9 Motive. Nutzer: "nur wenn es Sinn macht, sonst andere Motive".
+                # Gesprochene Zahlen als Zahlenkachel sind ein neues, woertlich passendes Motiv, kostenlos.
+                import erklaergrafik
+                if erklaergrafik.zahlen(t['text']):
+                    kachel = erklaergrafik.grafik(aus / f'ill_{i:02d}.jpg', t['text'], '',
+                                                  kopf_firma or t.get('werkzeug') or s.get('thema') or '', art='zahlen')
+                    if motiv_ok(kachel):
+                        ill = material = kachel
+                        quellen.append({'quelle': 'Erklaergrafik', 'seite': 'Gesprochene Zahlen als Kachel'})
+                        print(f'Einstellung {i}: Zahlenkachel statt doppeltem Nachbarbild')
             if not material and bild_ersatz < ersatz_max:
                 # GEMESSEN 08.10.2026 (Lauf 37753715598): eine einzige Einstellung ohne
                 # bestandenes Bild kippte das ganze Video (3x). Hoechstens zweimal ein schon

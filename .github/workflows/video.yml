@@ -56,13 +56,13 @@ jobs:
           from pathlib import Path
           sys.path.insert(0, 'fabrik')
           import budget, themen
-          from lauf import start_moeglich
+          from lauf import start_moeglich, extra_videos
           def tagesziel(kanal):
               profil = json.loads(Path(f'kanaele/{kanal}.json').read_text(encoding='utf-8'))
               ziel = profil.get('tagesziel', 1)
               if type(ziel) is not int or ziel not in (1, 2):
                   raise ValueError('Tagesziel muss 1 oder 2 sein')
-              return ziel
+              return ziel + extra_videos(kanal, budget.heute())  # datumsgebundene Nutzerausnahme
           alle = sorted(p.stem for p in Path('kanaele').glob('*.json'))
           heute = budget.heute()
           # kanal=alle: Start durch den Cloudflare-Zeitplan (puenktlich) - gleiche Regel wie schedule

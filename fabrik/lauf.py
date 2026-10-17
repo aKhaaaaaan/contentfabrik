@@ -21,6 +21,14 @@ BUDGET_S = 90 * 60
 # nur Business (13/18 Motive + Ton im Cache, 5220/5400 s verbraucht). Gates unveraendert.
 # Zweite Rueckfrage 14.10. ca. 19:30 Berlin: "Ja, 40 Min. extra" (insgesamt 70 Min. extra heute).
 ZUSATZ_S = {('business-origin-stories', '2026-10-14'): 70 * 60}
+# Nutzer 17.10.2026 ca. 18:00 Berlin, nachdem das Langvideo heute scheiterte: "Koennen wir heute noch
+# Shorts fuer jeweils Kanal erstellen?" -> NUR heute je ein Short mehr als das Tagesziel. Zeitbudget und
+# alle Pruefungen unveraendert (video.yml liest das in tagesziel()).
+EXTRA_VIDEOS = {('ai-tools-explained', '2026-10-17'): 1, ('business-origin-stories', '2026-10-17'): 1}
+
+
+def extra_videos(kanal, datum):
+    return EXTRA_VIDEOS.get((kanal, str(datum)), 0)
 # Langvideo (8-10 Min., ~70-80 Bilder statt 25) - erster Pilot 08.10.2026, Bauzeit noch nicht
 # gemessen; hochgerechnet aus ~35-40 Min. je Short. GitHub-Jobs enden spaetestens nach 6 h.
 BUDGET_LANG_S = 200 * 60

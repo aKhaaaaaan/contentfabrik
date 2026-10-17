@@ -173,6 +173,7 @@ def senden(skript_pfad, video_pfad):
         kapitel = texte.kapitelmarken(skript, messung.get('abschnitte_s') or [])
         if kapitel and kapitel not in skript['beschreibung']:
             skript['beschreibung'] = skript['beschreibung'].rstrip() + '\n\n' + kapitel
+    skript['beschreibung'] = texte.mit_kommentar_frage(skript['beschreibung'], skript)
     skript['beschreibung'] = texte.beschreibung_mit_quellen(skript['beschreibung'], quellen)
     chat = os.environ['TELEGRAM_CHAT_ID']
     ersatz = messung.get('stimme_ersatz') if isinstance(messung, dict) else False

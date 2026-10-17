@@ -121,6 +121,35 @@ def kapitelmarken(skript, abschnitte_s):
     return '\n'.join(f'{int(s) // 60}:{int(s) % 60:02d} {n[:60]}' for s, n in gut)
 
 
+# Nutzerentscheidung 17.10.2026: Kommentarfrage am Ende. TikTok gewichtet starke Signale hoeher
+# (newsroom.tiktok.com, "How TikTok recommends videos"); ein festes Punktesystem ist nicht belegt.
+# Die Antworten sind zugleich Themenwuensche. Nur sichtbar/Beschreibung, nicht gesprochen:
+# der gesprochene Aufruf (like, share, save) und seine Endton-Pruefung bleiben unveraendert.
+KOMMENTARFRAGE = {
+    'Business Origin Stories': ('Which company next? Comment below!',
+                                'Which company should we cover next? Tell us in the comments.'),
+    'AI Tools Explained': ('Which AI tool next? Comment below!',
+                           'Which AI tool should we explain next? Tell us in the comments.'),
+}
+
+
+def kommentar_frage(skript, kurz=False):
+    """Kommentarfrage des Kanals ('' fuer Kanaele ohne Frage); kurz=True fuer das Schlussbild."""
+    paar = KOMMENTARFRAGE.get(str(skript.get('kanal') or ''))
+    return (paar[0] if kurz else paar[1]) if paar else ''
+
+
+def mit_kommentar_frage(beschreibung, skript):
+    """Frage hinter den Inhalt, vor Quellen-/Lizenzzeilen; nie doppelt."""
+    frage = kommentar_frage(skript)
+    if not frage or frage in beschreibung:
+        return beschreibung
+    zeilen = beschreibung.splitlines()
+    beginn = next((i for i, z in enumerate(zeilen) if z.strip().lower().startswith(
+        ('source:', 'sources:', 'quelle', 'music:', 'photos', 'clips:', 'illustrations are'))), len(zeilen))
+    return '\n'.join(zeilen[:beginn] + [frage] + zeilen[beginn:])
+
+
 def beschreibung_mit_quellen(beschreibung, quellen):
     """Gemeinsame vollstaendige Musik-/Foto-Nennung fuer alle Upload-Texte."""
     nennungen = []
@@ -153,13 +182,14 @@ def tiktok_text(skript, datum=None, quellen=()):
     zeilen = beschreibung_mit_quellen(str(skript.get('beschreibung', '')), quellen).splitlines()
     beginn = next((i for i, z in enumerate(zeilen) if z.strip().lower().startswith(
         ('source:', 'sources:', 'music:', 'photos', 'clips:', 'illustrations are'))), len(zeilen))
-    beschreibung = ' '.join(' '.join(zeilen[:beginn]).split())
+    frage = kommentar_frage(skript)
+    beschreibung = ' '.join(' '.join(z for z in zeilen[:beginn] if z.strip() != frage).split())
     if len(beschreibung) > 280:
         saetze = re.split(r'(?<=[.!?])\s+(?=[A-Z])', beschreibung)
         beschreibung = saetze[0] if len(saetze[0]) <= 280 else beschreibung[:277].rsplit(' ', 1)[0] + '...'
     tags = ' '.join('#' + tag for tag in tiktok_hashtags(skript))
     nennungen = '\n'.join(zeilen[beginn:]).strip()
-    return '\n\n'.join(t for t in (upload_titel(skript, datum), beschreibung, tags, nennungen) if t)
+    return '\n\n'.join(t for t in (upload_titel(skript, datum), beschreibung, frage, tags, nennungen) if t)
 
 
 def tiktok_laenge(text):

@@ -1897,8 +1897,12 @@ def main(skript_pfad, aus, vorlage=None):
                 import illustration
                 figur = illustration.FIGUREN / f'{kanal_slug}.jpg'
                 if figur.is_file():
+                    # Kopf: Firmenname statt Arbeitstitel - Enron 17.10.2026 zeigte das deutsche Thema
+                    # "ENRON: AUFSTIEG UND ZUSAMMENBRUCH" im englischen Video.
+                    import texte
                     ill = erklaergrafik.figur_frage(aus / f'ill_{i:02d}.jpg', figur, t['text'],
-                                                    s.get('thema') or t.get('werkzeug') or '')
+                                                    kopf_firma or t.get('werkzeug') or s.get('thema') or '',
+                                                    texte.kommentar_frage(s, kurz=True))
                     quellen.append({'quelle': 'Illustration', 'seite': 'Originale Kanalfigur mit gesprochenem Aufruf'})
                     print(f'Einstellung {i}: Aufruf mit Kanalfigur und Sprechblase (ohne Bildmodell)')
             if os.environ.get('CLOUDFLARE_AI_TOKEN') and modus in ('auto', 'illustration', 'foto') \

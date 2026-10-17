@@ -144,7 +144,7 @@ def titelzeile(titel):
     return (teile[-1] if teile else 'HOW IT WORKS').strip().upper()
 
 
-def figur_frage(ziel, figur, text, titel=''):
+def figur_frage(ziel, figur, text, titel='', zusatz=''):
     """Einstieg: gemalte Kanalfigur mit Sprechblase, darin der gesprochene Satz.
 
     GEMESSEN 16.10.2026 (KI-Lauf 38888929052): Das gemalte Einstiegsbild scheiterte fuenfmal (2x Cloudflare
@@ -173,11 +173,18 @@ def figur_frage(ziel, figur, text, titel=''):
     while len(zeilen) * (n + 16) > 250 and n > 30:
         n -= 4
         zeilen = zeilen_fuer(n)
-    unten = 330 + 50 + len(zeilen) * (n + 16)
+    # Zusatz (17.10.2026, Kommentarfrage beim Aufruf): nur sichtbar, kleiner, in Kanalfarbe unter dem Satz.
+    nz = 44
+    while zusatz and d.textlength(zusatz, font=font(nz)) > 860 and nz > 26:
+        nz -= 2
+    extra = (nz + 40) if zusatz else 0
+    unten = 330 + 50 + len(zeilen) * (n + 16) + extra
     d.rounded_rectangle((60, 330, 1020, unten), 40, fill='white')
     d.polygon([(480, unten - 2), (600, unten - 2), (560, unten + 70)], fill='white')
     for k, z in enumerate(zeilen):
         d.text((100, 355 + k * (n + 16)), z, font=font(n), fill='#10202d')
+    if zusatz:
+        d.text((100, 355 + len(zeilen) * (n + 16) + 24), zusatz, font=font(nz), fill='#0f8f82')
     if titel:
         kopf = titelzeile(titel)
         d.text((75, 250), kopf, font=font(36), fill='#20d2be')

@@ -312,11 +312,25 @@ def grafik(ziel, text, motiv='', titel='', phase=''):
         d.rounded_rectangle((75, 400, 1005, 1250), 30, fill='#0b1620', outline='#2b4258', width=4)
         txt(115, 425, 'AI CHAT', 32, '#8dabbf')
         frage = satz if satz.endswith('?') else re.split(r'\b(?:like|ask|asks|asking)\b', satz, flags=re.I)[-1]
-        frage = frage.strip(' ,.') + ('' if frage.strip().endswith('?') else '?')
-        y = blase(300, 500, 975, frage[:1].upper() + frage[1:], 42, tuerkis, dunkel)
-        y = blase(105, y + 50, 760, 'Hmm... probably? I am guessing.', 40, '#22384d', hell)
-        for k in range(3):
-            d.ellipse((140 + k * 50, y + 40, 170 + k * 50, y + 70), fill='#8dabbf')
+        ist_frage = satz.endswith('?') or re.search(r'\b(?:like|ask|asks|asking)\b', satz, re.I)
+        frage = re.sub(r'^(?:whether|if)\s+', '', frage.strip(' ,.'), flags=re.I)
+        frage = frage + ('?' if ist_frage and not frage.endswith('?') else '' if ist_frage else '.')
+        # GEMESSEN 17.10.2026 (Talorys, Lauf 39017190861): "Talorys asks whether the old one is now a past
+        # fact" und der Satz davor zeigten dieselbe Grafik mit der festen Antwort "I am guessing" - erfunden
+        # und hier falsch (das Tool fragt nach, es raet nicht). Fragt das Werkzeug, steht die Frage links als
+        # KI-Nachricht; die Rate-Antwort nur, wenn der Satz vom Raten spricht.
+        fragt = re.search(r'\b(\w+)\s+(?:asks|asked|will ask)\b', satz, re.I)
+        ki_fragt = bool(fragt) and (fragt[1].lower() in ('it', 'ai', 'assistant', 'agent', 'bot', 'model', 'app')
+                                    or fragt[1].lower() in str(titel).lower())
+        if ki_fragt:
+            y = blase(105, 500, 860, frage[:1].upper() + frage[1:], 42, '#22384d', hell)
+            y = blase(560, y + 50, 975, '...', 42, tuerkis, dunkel)
+        else:
+            y = blase(300, 500, 975, frage[:1].upper() + frage[1:], 42, tuerkis, dunkel)
+            if re.search(r'\bguess\w*|\bhallucinat\w*|\bmakes? (?:it|things) up\b|\bunsure\b', phase or satz, re.I):
+                y = blase(105, y + 50, 760, 'Hmm... probably? I am guessing.', 40, '#22384d', hell)
+            for k in range(3):
+                d.ellipse((140 + k * 50, y + 40, 170 + k * 50, y + 70), fill='#8dabbf')
     elif art == 'zitat':
         # Antwort mit sichtbarer Quellenkarte: Vorgang "Antwort zitiert Quelle/Pruefer".
         d.rounded_rectangle((75, 400, 1005, 1250), 30, fill='#0b1620', outline='#2b4258', width=4)

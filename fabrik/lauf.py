@@ -26,6 +26,14 @@ ZUSATZ_S = {('business-origin-stories', '2026-10-14'): 70 * 60}
 BUDGET_LANG_S = 200 * 60
 VERSUCH_S = 25 * 60     # gemessen: ~12 Min. Bau + bis zu 15 Min. Skript mit Story-Pruefung
 VERSUCHE_MAX = 5
+WEITER_MAX = 20  # zusaetzliche Bauversuche, wenn jeder weiter kommt (Zeitbudget begrenzt ohnehin)
+
+
+def einstellung_nr(baufehler):
+    """'Phase 33, Einstellung 53: kein passendes Hauptbild' -> 53; ohne Angabe -1."""
+    import re
+    m = re.search(r'Einstellung (\d+):', baufehler or '')
+    return int(m.group(1)) if m else -1
 KORREKTUREN_MAX = 2
 KORREKTUR_S = 4 * 60   # Mindestreserve fuer Plan, Teilbau und erneute Pruefung
 SENDEN_S = 180  # Zeit fuer Kopie und Telegram innerhalb des Budgets lassen
@@ -266,6 +274,10 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     versuch = 0
     korrekturen = 0
     letzter_baufehler = ''
+    # GEMESSEN 17.10.2026 (Langvideo Coca-Cola, Run 39034546019): 84 Einstellungen; jeder Bauversuch kam
+    # weiter (28 -> 42 -> 49 -> 51 -> 53, das Bild bestand jeweils im naechsten Anlauf), nach Versuch 5
+    # war Schluss - mit ueber 2 Std. Restbudget. Ein Bauversuch, der WEITER kam, zaehlt nicht mit.
+    weiter_gekommen = 0
     basis = None  # bereits gebautes Video, das weiter verbessert/geprueft wird
     bau_basis = None  # noch unvollstaendiger Bau; geprueftes Skript bleibt erhalten
     # GEMELDET 09.10.2026: „hoffentlich faengt nicht immer alles von vorne an". Auch Probelaeufe
@@ -303,7 +315,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         liste = [e for e in liste if e.get('id') != bericht['id']]
         pfad.write_text(json.dumps((liste + [bericht])[-60:], indent=2, ensure_ascii=False), encoding='utf-8')
     # Neuer Versuch nur, wenn er noch sicher ins Zeitbudget passt
-    while versuch < VERSUCHE_MAX and (versuch == 0 or time.monotonic()
+    while versuch < VERSUCHE_MAX + weiter_gekommen and (versuch == 0 or time.monotonic()
             + (KORREKTUR_S if basis or bau_basis else VERSUCH_S) <= arbeit_ende):
         versuch += 1
         ordner = Path(f'versuch{versuch}')
@@ -434,6 +446,9 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                     # Hauptbild" - der zwischengespeicherte Bildplan schickte jedes Mal dieselbe
                     # aussichtslose Szene. Gleicher Fehler zweimal -> Bildplan neu (Stimme bleibt).
                     bildplan_verwerfen(ordner)
+                if einstellung_nr(detail) > einstellung_nr(letzter_baufehler) >= 0 \
+                        and weiter_gekommen < WEITER_MAX:
+                    weiter_gekommen += 1
                 letzter_baufehler = detail
                 bau_basis = ordner
                 continue

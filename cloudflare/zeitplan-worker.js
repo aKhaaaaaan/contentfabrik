@@ -150,7 +150,7 @@ const PILOT_MIN = { lang: 150, short: 45, woche: 200 };  // geschaetzt; woche = 
 // "Gerade laeuft nichts". Es zaehlt jetzt mit.
 const art = r => r.path && r.path.includes('langvideo.yml') ? 'Langvideo'
   : r.path && r.path.includes('pilot.yml')
-    ? (/\/ lang \//.test(r.display_title || '') ? 'Langvideo-Probe' : 'Short-Probe') : 'Tageslauf';
+    ? (/\/ lang \//.test(r.display_title || '') ? 'Langvideo-Probe' : 'Short-Probe') : 'Shorts-Tageslauf';
 const tag = (iso) => new Date(iso).toLocaleDateString('de-DE', { timeZone: 'Europe/Berlin', day: '2-digit', month: '2-digit' });
 
 export async function pilotFortschritt(env, lauf) {
@@ -182,7 +182,7 @@ export async function befehl(env, text) {
     if (!rs.length) return 'Noch keine Videolaeufe.';
     const aktiv = rs.filter(r => r.status !== 'completed');
     if (aktiv.length) {
-      const teile = await Promise.all(aktiv.map(r => art(r) === 'Tageslauf' ? fortschritt(env, r) : pilotFortschritt(env, r)));
+      const teile = await Promise.all(aktiv.map(r => art(r) === 'Shorts-Tageslauf' ? fortschritt(env, r) : pilotFortschritt(env, r)));
       return teile.join('\n\n');
     }
     return 'Gerade laeuft nichts. Letzte Laeufe:\n' + rs.slice(0, 4).map(r => `${tag(r.created_at)} ${berlin(r.created_at)} - ${art(r)} - ${

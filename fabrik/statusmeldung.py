@@ -46,11 +46,22 @@ def fehlergrund(ordner='ausgabe'):
     return ' '.join(dict.fromkeys(gruende))[:600] or 'Cloud-Lauf fehlgeschlagen oder abgebrochen; Details im Laufbericht.'
 
 
+def kanalname(slug):
+    """'business-origin-stories' -> 'Business Origin Stories' (Profilname); Unbekanntes bleibt wie es ist."""
+    try:
+        import kanalstandard
+        ordner = Path(__file__).resolve().parents[1] / 'kanaele'
+        return (kanalstandard.alle(ordner).get(slug) or {}).get('name') or slug
+    except Exception:
+        return slug
+
+
 def text(phase, env=None):
     e = os.environ if env is None else env
-    kanal = e.get('KANAL', 'Contentfabrik')[:100]
+    # Nutzerwunsch 17.10.2026: jede Meldung nennt Kanal, Format (Short/Langvideo) und Thema.
+    kanal = kanalname(e.get('KANAL', ''))[:100] or 'Contentfabrik'
     art = 'Langvideo' if e.get('VIDEOFORMAT') == 'lang' else 'Short'
-    thema = e.get('THEMA', '')[:120]
+    thema = (e.get('THEMA') or lesen(Path('ausgabe') / 'skript.json').get('thema') or '')[:120]
     url = e.get('CF_ORIGINAL_URL', '')
     titel = f'{kanal} · {art}' + (f' · {thema}' if thema else '')
     if phase == 'start':
@@ -66,12 +77,12 @@ def text(phase, env=None):
         kanaele = json.loads(e.get('KANAELE', '[]'))
         if not isinstance(kanaele, list) or not kanaele or not all(isinstance(k, str) for k in kanaele):
             raise ValueError('Keine gueltigen offenen Kanaele')
-        return ('Contentfabrik: Tageslauf angenommen fuer ' + ', '.join(kanaele)[:250] + '.\n'
+        return ('🎬 Tageslauf gestartet: Shorts fuer ' + ', '.join(kanalname(k) for k in kanaele)[:250] + '.\n'
                 'Die Kanaele werden nacheinander bearbeitet; Einrichtung und Pruefung folgen. '
                 'Ein Video kommt erst nach bestandener Freigabe. Ohne freigegebenes Video folgt eine Statusmeldung.\n' + url)
     if phase == 'langstart':
         # GEMELDET 17.10.2026: Langvideo lief, aber auf Telegram kam keine Startmeldung (nur Shorts hatten eine).
-        return (f"Contentfabrik: Wochen-Langvideo gestartet{' - Thema ' + thema if thema else ''}.\n"
+        return (f'🎬 {titel}: Wochen-Langvideo gestartet.\n'
                 'Bau und Pruefung dauern bis zu ca. 3,5 Std. Das Video kommt erst nach bestandener Freigabe; '
                 'ohne Video folgt eine Statusmeldung. Fortschritt: "Status" an den Steuerungsbot.\n' + url)
     if phase == 'tagesende':
@@ -81,8 +92,8 @@ def text(phase, env=None):
             return None
         grund = e.get('GRUND') or fehlergrund()
         if bericht.get('status') == 'gesendet':
-            return (f'{titel}: Video zugestellt, aber Nachbereitung fehlgeschlagen.\n{url}')
-        return f'{titel}: Kein freigegebenes Video zugestellt.\nGrund: {grund[:600]}\n{url}'
+            return (f'⚠️ {titel}: Video zugestellt, aber Nachbereitung fehlgeschlagen.\n{url}')
+        return f'⚠️ {titel}: Kein freigegebenes Video zugestellt.\nGrund: {grund[:600]}\n{url}'
     raise ValueError('Unbekannte Statusmeldung')
 
 

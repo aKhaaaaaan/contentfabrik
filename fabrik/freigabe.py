@@ -196,7 +196,8 @@ def senden(skript_pfad, video_pfad):
                                        f"KI-Kritik: {str((kritik or {}).get('fazit', ''))[:300]}\n\n" if entwurf else '')
                                       + ("⚠️ ERSATZSTIMME Kokoro - Orus war nicht verfuegbar (Kontingent/Limit?). "
                                          "Lieber nicht hochladen.\n\n" if ersatz else '')
-                                      + f"🎬 {skript['kanal'][:100]}\n{titel[:200]}\n\n"
+                                      # Nutzerwunsch 17.10.2026: Format immer nennen (Short/Langvideo)
+                                      + f"🎬 {skript['kanal'][:100]} · {'Langvideo' if lang else 'Short'}\n{titel[:200]}\n\n"
                                       f"✅ Fakten und Technik bestanden · KI-Bewertung "
                                       f"{f'{note}/10' if note is not None else 'nicht durchgefuehrt'}\n"
                                       "Bewerte unten: 📖 Story · 🎬 Video. Antworte auf dieses Video mit Kritik."

@@ -45,6 +45,8 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           THEMA: ${{ steps.pruefen.outputs.thema }}
+          KANAL: business-origin-stories
+          VIDEOFORMAT: lang
           CF_ORIGINAL_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: python3 fabrik/statusmeldung.py langstart
   video:
@@ -167,6 +169,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           KANAL: business-origin-stories
+          VIDEOFORMAT: lang
           PRODUKTION: ${{ steps.produktion.outcome }}
           CF_ORIGINAL_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: python fabrik/statusmeldung.py tagesende

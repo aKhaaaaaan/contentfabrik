@@ -142,12 +142,24 @@ def groq_wartezeit(headers, detail):
     return min(ki_speicher.SPERRE_MAX - 1, math.ceil(max(fristen or [grundwert])) + 1)
 
 
+def ausgabe_kuerzen(ausgabe_tokens, reserve, grenze=7900):
+    """Knapp zu grosse Auftraege: Antwortgrenze um hoechstens 20 Prozent senken statt abbrechen.
+
+    GEMESSEN 14./15.10.2026: zehn Laeufe scheiterten an "Reserve 7914/7939/8009 Tokens, maximal 7900" -
+    ein bis zwei Prozent zu viel bei einer bewusst grosszuegigen Schaetzung (3 Zeichen je Token).
+    Die Antwortgrenze ist ein Sicherheitspolster; der Auftrag selbst bleibt vollstaendig."""
+    zuviel = reserve - grenze
+    if 0 < zuviel <= ausgabe_tokens // 5:
+        return ausgabe_tokens - zuviel, grenze
+    return ausgabe_tokens, reserve
+
+
 def minutenreserve_frei(prompt, schema, ausgabe_tokens, modell, jetzt=None):
     """Nur vorhandenen Verbrauch lesen; weder Tokenkontingent noch Sperren zuruecksetzen."""
     jetzt = time.monotonic() if jetzt is None else jetzt
     fmt = {'type':'json_schema','json_schema':{'name':'contentfabrik_antwort',
             'strict':True,'schema':groq_schema(schema)}}
-    reserve = math.ceil((len(prompt)+len(json.dumps(fmt)))/3)+ausgabe_tokens
+    reserve = ausgabe_kuerzen(ausgabe_tokens, math.ceil((len(prompt)+len(json.dumps(fmt)))/3)+ausgabe_tokens)[1]
     verbrauch = GROQ_VERBRAUCH if modell == GROQ_MODELL else GROQ_MODELL_VERBRAUCH.get(modell, [])
     return reserve <= 7900 and sum(n for t,n in verbrauch if jetzt-t < 61)+reserve <= 8000
 
@@ -166,6 +178,7 @@ def groq(prompt, schema, ausgabe_tokens=3840, deadline=None, modell=None):
         'name': 'contentfabrik_antwort', 'strict': True, 'schema': groq_schema(schema)}}
     # Konservative Schaetzung; tatsaechlicher Tokenverbrauch wird gespeichert.
     reserve = math.ceil((len(auftrag) + len(json.dumps(ausgabeformat))) / 3) + ausgabe_tokens
+    ausgabe_tokens, reserve = ausgabe_kuerzen(ausgabe_tokens, reserve)
     if reserve > 7900:
         raise GroqAuftragsFehler(f'Auftrag zu gross: geschaetzte Reserve {reserve} Tokens, maximal7900')
     ende = min(time.monotonic() + 180, deadline if deadline is not None else float('inf'))

@@ -158,6 +158,16 @@ def _github(url, roh=False):
     return data if roh else json.loads(data)
 
 
+class ArtefaktFehltNoch(RuntimeError):
+    """Lauf gerade beendet, Artefakt bei GitHub noch nicht abrufbar - normaler Wartezustand."""
+
+
+# GEMESSEN 17.10.2026 (Tesla, Klick 18:50, Job-Ende 18:45): erster Versuch "wartet_api" samt
+# Fehlermeldung auf Telegram, der zweite 5 Min. spaeter klappte. Bis 3 Std. nach dem Klick zaehlt
+# ein fehlendes Artefakt nicht als Fehlversuch und loest keine Meldung aus.
+ARTEFAKT_WARTEN_S = 3 * 3600
+
+
 def original_laden(eintrag, ordner):
     run = eintrag['run_id']
     if not str(run).isdigit():
@@ -172,7 +182,7 @@ def original_laden(eintrag, ordner):
     if a is None:
         if any(a['name'] in (f'video-{slug}', f'pilot-{slug}-short') and a['expired'] for a in d['artifacts']):
             raise FileNotFoundError('Originalartefakt abgelaufen')
-        raise RuntimeError('Originalartefakt noch nicht verfuegbar')
+        raise ArtefaktFehltNoch('Originalartefakt noch nicht verfuegbar')
     blob = _github(f'{api}/actions/artifacts/{a["id"]}/zip', roh=True)
     with zipfile.ZipFile(io.BytesIO(blob)) as z:
         for name in ('short.mp4', 'skript.json', 'kritik.json'):
@@ -249,6 +259,15 @@ def abarbeiten():
             e.pop('fehler_typ', None)
         except (ValueError, FileNotFoundError):
             e['status'] = 'gesperrt'
+        except ArtefaktFehltNoch:
+            alter = (datetime.datetime.now(datetime.timezone.utc)
+                     - datetime.datetime.fromisoformat(e['datum_utc'])).total_seconds()
+            if alter < ARTEFAKT_WARTEN_S:
+                print('TikTok-Freigabe:', e['video_sha256'][:16], 'wartet auf das Videoartefakt')
+                continue
+            e['versuche'] = e.get('versuche', 0) + 1
+            e['status'] = 'wartet_api' if e['versuche'] < 3 else 'fehlgeschlagen'
+            e['fehler_typ'] = 'ArtefaktFehltNoch'
         except Exception as err:
             if 'spam_risk_too_many_pending_share' in str(err):
                 e['status'] = 'postfach_voll'

@@ -24,9 +24,10 @@ def gefaehrdet(wurzel='.'):
             d = json.loads(meta.read_text(encoding='utf-8'))
             # GEMESSEN 17.10.2026: der Langvideo-Entwurf (Coca-Cola) traegt den Schluessel von
             # formate/<kanal>.json; der Waechter verglich nur mit kanaele/ und schlug falsch an.
-            profile = [p for p in (Path(wurzel) / 'kanaele' / (meta.stem + '.json'),
-                                   Path(wurzel) / 'formate' / (meta.stem + '.json')) if p.exists()]
-            frisch = 0 <= time.time() - d['erstellt'] <= entwurf_cache.TTL
+            name = meta.stem.removesuffix('-lang')  # Langvideo-Eintrag '<kanal>-lang' (17.10.2026)
+            profile = [p for p in (Path(wurzel) / 'kanaele' / (name + '.json'),
+                                   Path(wurzel) / 'formate' / (name + '.json')) if p.exists()]
+            frisch = 0 <= time.time() - d['erstellt'] <= (entwurf_cache.TTL_LANG if meta.stem.endswith('-lang') else entwurf_cache.TTL)
             if frisch and profile and d.get('profil') not in {entwurf_cache.profil_key(p) for p in profile}:
                 treffer.append(meta.stem)
         except (OSError, ValueError, KeyError, TypeError):

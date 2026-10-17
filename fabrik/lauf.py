@@ -26,6 +26,7 @@ ZUSATZ_S = {('business-origin-stories', '2026-10-14'): 70 * 60}
 BUDGET_LANG_S = 200 * 60
 VERSUCH_S = 25 * 60     # gemessen: ~12 Min. Bau + bis zu 15 Min. Skript mit Story-Pruefung
 VERSUCHE_MAX = 5
+PLAN_NEU_BIS = 5  # nur so frueh haengende Bauten bekommen einen neuen Bildplan
 WEITER_MAX = 20  # zusaetzliche Bauversuche, wenn jeder weiter kommt (Zeitbudget begrenzt ohnehin)
 
 
@@ -232,6 +233,9 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     # Chronik- und Laengenkorrektur, dann "Skript-Zeitlimit erreicht". Bei 200 Min. Budget bleiben mit 45 Min.
     # Skript noch 155 Min. fuer Bilder, Bau und Pruefung (Gesamtbudget unveraendert).
     skriptfrist = 45 * 60 if kanalstandard.laden(kanal_pfad).get('videoformat') == 'lang' else 480
+    # GEMESSEN 17.10.2026: Short und Langvideo teilten verlauf/entwuerfe/<kanal>.json - ein Business-Short
+    # konnte das gepruefte Langvideo-Skript (samt Teilbau) ueberschreiben. Langvideo hat einen eigenen Platz.
+    cache_kanal = entwurf_cache.cache_name(kanal, kanal_pfad)
     # GEMELDET 16.10.2026: Airbnb kam zwei Tage hintereinander (Entwurf vom 15.10. per Handversand
     # zugestellt, Thema blieb stehen). Vor jeder Themenwahl schon gelieferte Themen austragen.
     try:  # Aufraeumen darf den Lauf nie kippen
@@ -283,7 +287,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     # GEMELDET 09.10.2026: „hoffentlich faengt nicht immer alles von vorne an". Auch Probelaeufe
     # setzen ein geprueftes Skript samt Stimme/Bildern fort (eigener Cache in pilot.yml, 6 h).
     if not entwurf:
-        bau_basis = entwurf_cache.laden(kanal, kanal_pfad, festes_thema)
+        bau_basis = entwurf_cache.laden(cache_kanal, kanal_pfad, festes_thema)
         if bau_basis:
             print('Geprueften Entwurf aus vorherigem Lauf fortsetzen; keine neue Skriptanfrage')
         else:
@@ -441,7 +445,10 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                     break  # Bekannte Anbietersperre gilt auch fuer die Bildplanung.
                 if basis or kontingent_leer:
                     break
-                if detail and detail == letzter_baufehler:
+                # GEMESSEN 17.10.2026 (Langvideo Coca-Cola, Run 39040006644): Einstellung 58 scheiterte zweimal
+                # -> ganzer Bildplan verworfen -> 57 fertige Bilder weg, Neubau ab 0, Budget aufgebraucht.
+                # Neu planen nur, wenn es frueh haengt (wie gemessen bei Einstellung 1) - sonst Fortschritt behalten.
+                if detail and detail == letzter_baufehler and einstellung_nr(detail) < PLAN_NEU_BIS:
                     # GEMESSEN 10.10.2026 (Tageslauf 38037738527): 5x „Einstellung 1: kein passendes
                     # Hauptbild" - der zwischengespeicherte Bildplan schickte jedes Mal dieselbe
                     # aussichtslose Szene. Gleicher Fehler zweimal -> Bildplan neu (Stimme bleibt).
@@ -513,7 +520,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             runde.setdefault('sekunden', round(time.monotonic() - rundenstart, 1))
             if (ordner / 'skript.json').exists():
                 try:
-                    entwurf_cache.sichern(kanal, kanal_pfad, festes_thema, ordner)
+                    entwurf_cache.sichern(cache_kanal, kanal_pfad, festes_thema, ordner)
                 except (OSError, ValueError, KeyError, TypeError):
                     print('Entwurf-/Teilbau-Sicherung fehlgeschlagen; keine falsche Freigabe')
             if ausstehende_korrektur and 'lernergebnis' not in runde:
@@ -618,7 +625,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         raise RuntimeError(f'Telegram-Zustellung fehlgeschlagen (Code {code})')
     verlauf_eintragen(kanal, skript, 'gesendet', note, messung.get('abschnitte_s'),
                       dict(messung, entwurf=True) if entwurf else messung)
-    entwurf_cache.erledigen(kanal)
+    entwurf_cache.erledigen(cache_kanal)
     import vorrat
     vorrat.erledigen(kanal, skript)
     if aus_warteschlange and festes_thema:

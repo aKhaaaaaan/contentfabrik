@@ -77,10 +77,51 @@ def sichern(kanal, profil, thema, ordner):
 
 
 def erledigen(kanal):
-    """Nach der Lieferung: Eintrag UND Teilbau-Ordner loeschen.
-
-    Nutzerfrage 17.10.2026: "Wenn alle Bilder erfolgreich erstellt werden, kann es wieder alles loeschen?"
-    Seit die gepruefte Bilder als ok_*.jpg im Teilbau liegen, wuchs der Ordner sonst mit jedem Thema."""
-    meta, ordner = pfade(kanal)
+    meta, _ = pfade(kanal)
     meta.unlink(missing_ok=True)
-    shutil.rmtree(ordner, ignore_errors=True)
+
+
+# Nutzerentscheidung 17.10.2026 (wortgenau): "wenn bereits Bilder generiert werden fuer ein bestimmtes Thema und
+# irgendwann durchfaellt, sollte nicht von vorne angefangen werden ... Wenn alle Bilder erfolgreich erstellt wurden
+# und das Thema durch ist, dann kann es geloescht werden. Auch nur dann, wenn mir Skript und Video gefaellt und ich
+# den Passt-Knopf auf Telegram druecke, dass es als Entwurf auf TikTok landet."
+BILDER_HOECHSTENS_TAGE = 30  # Speicherschutz fuer Themen ohne TikTok-Knopf (Langvideo) oder ohne Klick
+
+
+def bildspeicher_name(thema):
+    """Ordnername je Thema: lesbar plus kurzer Hash (gleiches Thema -> gleicher Ordner)."""
+    thema = str(thema or '').strip()
+    lesbar = re.sub(r'[^a-z0-9]+', '-', thema.lower()).strip('-')[:50] or 'ohne-thema'
+    return f"{lesbar}-{ki_speicher.hashwert(thema)[:8]}"
+
+
+def bildspeicher(kanal):
+    """Basisordner der geprueften Bilder je Thema (liegt im Teilbau, also im GitHub-Cache des Workflows)."""
+    return pfade(kanal)[1] / 'bilder'
+
+
+def freigegebene_themen(kanal_name=None):
+    """Themen, deren Video der Nutzer per Telegram fuer TikTok freigegeben hat."""
+    try:
+        freigaben = {x.get('video_sha256') for x in json.loads(
+            Path('verlauf/tiktok-freigaben.json').read_text(encoding='utf-8')) if isinstance(x, dict)}
+        videos = json.loads(Path('verlauf/telegram-videos.json').read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return set()
+    return {v['thema'] for v in videos if isinstance(v, dict) and v.get('thema')
+            and v.get('video_sha256') in freigaben and (kanal_name is None or v.get('kanal') == kanal_name)}
+
+
+def bilder_aufraeumen(kanal, jetzt=None):
+    """Bilder eines Themas erst nach der TikTok-Freigabe loeschen (sonst nach 30 Tagen). Gibt geloeschte Namen."""
+    basis = bildspeicher(kanal)
+    if not basis.is_dir():
+        return []
+    fertig = {bildspeicher_name(t) for t in freigegebene_themen()}
+    grenze = (jetzt or time.time()) - BILDER_HOECHSTENS_TAGE * 86400
+    weg = []
+    for ordner in basis.iterdir():
+        if ordner.is_dir() and (ordner.name in fertig or ordner.stat().st_mtime < grenze):
+            shutil.rmtree(ordner, ignore_errors=True)
+            weg.append(ordner.name)
+    return weg

@@ -28,6 +28,7 @@ GEZAEHLT = {'bilder': 0, 'abgelehnt': 0}
 # offenbar zaehlt das Limit rollierend. Der Lauf versuchte trotzdem 5x neu zu bauen.
 # Merker im Arbeitsordner: weitere Anfragen sparen, lauf.py bricht ohne Wiederholung ab.
 KONTINGENT_LEER = Path('bildkontingent-leer.flag')
+SPEICHER = None  # Ordner der geprueften Bilder dieses Themas (bauen.py setzt ihn); sonst neben dem Ziel
 KLEIN9B_MAX = 4  # je Bauprozess; Gratiskontingent reicht fuer ~7 Hochformatbilder am Tag
 
 
@@ -200,7 +201,7 @@ def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short', 
     ref = ref if figur and ref and ref.exists() else None
     breite, hoehe = (1360, 768) if videoformat == 'lang' else (768, 1360)
     stil = kanal_stil(kanal)
-    gemerkt = Path(ziel).with_name(f'ok_{Path(ziel).stem}_{freigabe_key(szene, pruef_szene, ref, videoformat, satz, stil)}.jpg')
+    gemerkt = Path(SPEICHER or Path(ziel).parent) / f'ok_{Path(ziel).stem}_{freigabe_key(szene, pruef_szene, ref, videoformat, satz, stil)}.jpg'
     if gemerkt.is_file():
         # Nutzeridee 17.10.2026: "wenn ein Bild durchfaellt, soll es nicht von vorne mit allen Bildern anfangen".
         # GEMESSEN 17.10.2026 (Langvideo Coca-Cola): Jede Codeaenderung an bauen/prompts/illustration entwertete
@@ -273,6 +274,7 @@ def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short', 
                 ensure_ascii=False, indent=2), encoding='utf-8')
         if bewertung['ok']:
             Path(ziel).write_bytes(roh)
+            gemerkt.parent.mkdir(parents=True, exist_ok=True)
             gemerkt.write_bytes(roh)
             GEZAEHLT['bilder'] += 1
             return Path(ziel)

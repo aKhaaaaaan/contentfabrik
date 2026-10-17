@@ -1584,6 +1584,12 @@ def main(skript_pfad, aus, vorlage=None):
     import rendercache
     aus = Path(aus); aus.mkdir(parents=True, exist_ok=True)
     s = json.loads(Path(skript_pfad).read_text(encoding='utf-8'))
+    if os.environ.get('CF_BILDSPEICHER_BASIS'):
+        # Gepruefte Bilder je Thema ausserhalb des Versuchsordners: ein gescheiterter Bau (auch nach einer
+        # Codeaenderung) setzt dort fort, wo er gescheitert ist (Nutzerentscheidung 17.10.2026).
+        import entwurf_cache
+        import illustration
+        illustration.SPEICHER = Path(os.environ['CF_BILDSPEICHER_BASIS']) / entwurf_cache.bildspeicher_name(s.get('thema'))
     format_setzen(dramaturgie.videoformat(s))
     REGELN[:] = s.get('regeln', [])
     beginn = time.time()

@@ -244,6 +244,12 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     # GEMESSEN 17.10.2026: Short und Langvideo teilten verlauf/entwuerfe/<kanal>.json - ein Business-Short
     # konnte das gepruefte Langvideo-Skript (samt Teilbau) ueberschreiben. Langvideo hat einen eigenen Platz.
     cache_kanal = entwurf_cache.cache_name(kanal, kanal_pfad)
+    os.environ['CF_BILDSPEICHER_BASIS'] = str(entwurf_cache.bildspeicher(cache_kanal).resolve())
+    try:  # Aufraeumen darf den Lauf nie kippen
+        for name in entwurf_cache.bilder_aufraeumen(cache_kanal):
+            print('Gepruefte Bilder geloescht (Thema per TikTok-Knopf freigegeben oder aelter als 30 Tage):', name)
+    except OSError as e:
+        print('Bilderspeicher nicht aufgeraeumt:', e)
     # GEMELDET 16.10.2026: Airbnb kam zwei Tage hintereinander (Entwurf vom 15.10. per Handversand
     # zugestellt, Thema blieb stehen). Vor jeder Themenwahl schon gelieferte Themen austragen.
     try:  # Aufraeumen darf den Lauf nie kippen

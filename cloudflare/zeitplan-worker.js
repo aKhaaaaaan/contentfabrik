@@ -20,7 +20,7 @@
 //   Befehle: Start | Start Business | Start KI | Status (Gesamtfortschritt in %) | Abholen
 
 const REPO = 'aKhaaaaaan/contentfabrik';
-const VERSION = '2026-10-17.1';
+const VERSION = '2026-10-17.2';
 // Zusammengefasste Stunden sparen Trigger: Workers Free hat fuenf pro Konto.
 const VIDEO_CRONS = new Set(['23 8,13 * * *', '41 10,15 * * *',
   '23 8 * * *', '41 10 * * *', '23 13 * * *', '41 15 * * *']);

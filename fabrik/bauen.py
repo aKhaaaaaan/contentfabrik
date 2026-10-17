@@ -1379,7 +1379,8 @@ def nachbar_bild(aus, i, vorherige_id, gesperrt=()):
 FIGUR_EINSETZEN = {'moeglich': True}  # gilt fuer einen bauen.py-Prozess (= einen Bauversuch)
 
 
-def illustration_mit_ausweg(szene, ziel, kanal_slug, mit_figur, rand, videoformat, szene_zuerst=False, satz=''):
+def illustration_mit_ausweg(szene, ziel, kanal_slug, mit_figur, rand, videoformat, szene_zuerst=False, satz='',
+                            pruef_szene=None):
     """Illustration; scheitert das Einsetzen der Kanalfigur, nicht das ganze Video verlieren.
 
     GEMESSEN 07.10.2026 (Run 37652008678, WeWork, Story 8/10): Figur in neue Szene
@@ -1390,7 +1391,8 @@ def illustration_mit_ausweg(szene, ziel, kanal_slug, mit_figur, rand, videoforma
     import illustration
     def versuch(figur):
         try:
-            return illustration.bild(szene, ziel, kanal_slug, figur=figur, videoformat=videoformat, satz=satz)
+            return illustration.bild(szene, ziel, kanal_slug, figur=figur, videoformat=videoformat, satz=satz,
+                                     **({'pruef_szene': pruef_szene} if pruef_szene else {}))
         except Exception as e:  # nie den ganzen Videobau kippen
             print('Illustration nicht moeglich:', str(e)[:120])
             return None
@@ -1942,13 +1944,17 @@ def main(skript_pfad, aus, vorlage=None):
                     # wurden gemalt); Schrifttraeger aus den Suchwoertern entfernen.
                     # GEMESSEN 16.10.2026 (Lauf 38888929052): "no close-up faces" im Auftrag erzeugte zweimal genau
                     # eine Nahaufnahme. Nur positiv beschreiben, was zu sehen sein soll.
+                    motiv = (prompts.rueckfall_motiv(t.get('suche') or t.get('motiv') or '',
+                                                     s['teile'][shot['phase']].get('suche', ''))
+                             or 'a person at work in a warm room')
                     einfach = ('One clear subject in a calm, simple painted composition, wide shot from a '
-                               'distance showing the whole figure and the room, plain unmarked surfaces: '
-                               + (prompts.rueckfall_motiv(t.get('suche') or t.get('motiv') or '',
-                                                          s['teile'][shot['phase']].get('suche', ''))
-                                  or 'a person at work in a warm room'))
+                               'distance showing the whole figure and the room, plain unmarked surfaces: ' + motiv)
+                    # GEMESSEN 17.10.2026 (Langvideo Coca-Cola, Lauf 39040006644): 10 Rettungsbilder fielen nur am
+                    # Bildaufbau durch ("medium shot instead of a wide shot", "several people instead of one
+                    # subject", "outdoors instead of the room"). Die Aufbau-Hinweise sind Malhilfe, kein Inhalt:
+                    # geprueft wird das Motiv (plus alle festen Regeln: Schrift, Haende, Epoche).
                     ill = illustration_mit_ausweg(einfach, aus / f'ill_{i:02d}.jpg', kanal_slug, False, False,
-                                                  dramaturgie.videoformat(s))
+                                                  dramaturgie.videoformat(s), pruef_szene=motiv)
                     if ill:
                         zeiten['bilder_vereinfacht'] = zeiten.get('bilder_vereinfacht', 0) + 1
                         print(f'Einstellung {i}: vereinfachte Szene bestanden')

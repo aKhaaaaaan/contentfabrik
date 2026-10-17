@@ -77,5 +77,10 @@ def sichern(kanal, profil, thema, ordner):
 
 
 def erledigen(kanal):
-    meta, _ = pfade(kanal)
+    """Nach der Lieferung: Eintrag UND Teilbau-Ordner loeschen.
+
+    Nutzerfrage 17.10.2026: "Wenn alle Bilder erfolgreich erstellt werden, kann es wieder alles loeschen?"
+    Seit die gepruefte Bilder als ok_*.jpg im Teilbau liegen, wuchs der Ordner sonst mit jedem Thema."""
+    meta, ordner = pfade(kanal)
     meta.unlink(missing_ok=True)
+    shutil.rmtree(ordner, ignore_errors=True)

@@ -13,7 +13,7 @@ jedes Bild prueft Gemini (Schrift, Logos, verformte Haende/Gesichter).
 Eine konkrete Bildkritik geht in den zweiten Auftrag, die Szene bleibt erhalten.
 Nach zwei Versuchen oder bei ausgefallener Pruefung: Foto-/Clip-Rueckfall.
 """
-import base64, io, json, os, time, uuid, urllib.error, urllib.request
+import base64, hashlib, io, json, os, shutil, time, uuid, urllib.error, urllib.request
 from pathlib import Path
 from PIL import Image, ImageOps
 import prompts
@@ -31,7 +31,7 @@ KONTINGENT_LEER = Path('bildkontingent-leer.flag')
 KLEIN9B_MAX = 4  # je Bauprozess; Gratiskontingent reicht fuer ~7 Hochformatbilder am Tag
 
 
-def _anfrage(modell, felder, datei=None, charakter=None):
+def _anfrage(modell, felder, datei=None, charakter=None, nochmal=False):
     token = os.environ.get('CLOUDFLARE_AI_TOKEN')
     if not token or KONTINGENT_LEER.exists():
         return None
@@ -62,6 +62,11 @@ def _anfrage(modell, felder, datei=None, charakter=None):
         return base64.b64decode(d['result']['image'])
     GEZAEHLT['abgelehnt'] += 1
     print('Illustration abgelehnt:', str(d.get('errors'))[:140])
+    if 'flagged' in str(d.get('errors')).lower() and not nochmal:
+        # GEMESSEN 17.10.2026 (Langvideo Coca-Cola, Lauf 39040006644): 7x "output has been flagged" bei
+        # harmlosen Geschaeftsszenen - Zufall des Filters. Bisher verbrauchte das einen der zwei Bildversuche.
+        # Gleicher Auftrag, neues Zufallsbild; nur einmal, damit ein echter Filtertreffer nichts kostet.
+        return _anfrage(modell, felder, datei, charakter, nochmal=True)
     if 'free allocation' in str(d.get('errors')).lower():
         KONTINGENT_LEER.write_text('Cloudflare Workers AI: Gratiskontingent aufgebraucht\n', encoding='utf-8')
         import stoerung
@@ -169,17 +174,42 @@ def kanal_stil(kanal):
         return None
 
 
-def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short', satz=''):
+def freigabe_key(szene, pruef_szene, ref, videoformat, satz, stil):
+    """Schluessel einer bestandenen Illustration: erster Malauftrag, Pruefauftrag und Figurvorbild.
+
+    Aendert sich Stil, Bildregel oder Pruefregel, aendert sich der Text und das Bild wird neu erzeugt -
+    eine reine Codeaenderung (Schnitt, Ton, Ersatzlogik) laesst gepruefte Bilder gueltig."""
+    teile = [prompts.illustration(szene, bool(ref), '', videoformat, stil),
+             prompts.figur_in_szene(szene, '', videoformat) if ref else '',
+             prompts.bildpruefung(pruef_szene, bool(ref), videoformat, satz),
+             hashlib.sha256(Path(ref).read_bytes()).hexdigest() if ref else '']
+    return hashlib.sha256('|'.join(teile).encode('utf-8')).hexdigest()[:16]
+
+
+def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short', satz='', pruef_szene=None):
     """Szene als Illustration (hochkant). figur=True: die feste Figur des Kanals per Referenzbild.
-    Gibt den Pfad oder None zurueck."""
+    pruef_szene: was die Bildpruefung verlangt, wenn der Malauftrag zusaetzlich Bildaufbau-Hinweise
+    enthaelt (vereinfachte Rettungsszene). Gibt den Pfad oder None zurueck."""
     if not os.environ.get('GEMINI_API_KEY'):
         return None
     # Erzeugung UND Bildpruefung sehen dieselbe schriftfreie Szene - sonst
     # verwirft die Pruefung ein Bild, weil das verlangte Wort 'BILLING' fehlt.
     szene = prompts.szene_ohne_schrift(szene)
+    pruef_szene = prompts.szene_ohne_schrift(pruef_szene) if pruef_szene else szene
     ref = referenz(kanal) if kanal else None
     ref = ref if figur and ref and ref.exists() else None
     breite, hoehe = (1360, 768) if videoformat == 'lang' else (768, 1360)
+    stil = kanal_stil(kanal)
+    gemerkt = Path(ziel).with_name(f'ok_{Path(ziel).stem}_{freigabe_key(szene, pruef_szene, ref, videoformat, satz, stil)}.jpg')
+    if gemerkt.is_file():
+        # Nutzeridee 17.10.2026: "wenn ein Bild durchfaellt, soll es nicht von vorne mit allen Bildern anfangen".
+        # GEMESSEN 17.10.2026 (Langvideo Coca-Cola): Jede Codeaenderung an bauen/prompts/illustration entwertete
+        # den Clip-Cache - 57 schon gepruefte Bilder wurden neu gemalt und neu geprueft. Ein Bild ist an seinen
+        # Mal- UND Pruefauftrag gebunden: gleicher Auftrag -> dieselbe bestandene Datei, ohne Anfrage.
+        shutil.copyfile(gemerkt, ziel)
+        GEZAEHLT['wiederverwendet'] = GEZAEHLT.get('wiederverwendet', 0) + 1
+        print(f'Illustration: schon gepruefte Fassung wiederverwendet ({gemerkt.name})')
+        return Path(ziel)
     szene_roh = None
     if ref:
         # Erst eine neue Szene aufbauen. Das Stadtportraet allein als Referenz
@@ -196,7 +226,6 @@ def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short', 
         except (OSError, ValueError):
             return None
     korrektur = ''
-    stil = kanal_stil(kanal)
     for v in range(versuche):
         text = prompts.illustration(szene, bool(ref), korrektur, videoformat, stil)
         if ref:
@@ -234,7 +263,7 @@ def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short', 
             bewertung = {'ok': False, 'grund': 'Painted lettering found: ' + ', '.join(schrift[:4])[:150],
                          'korrektur': schrifterkennung.KORREKTUR}
         else:
-            bewertung = pruefen(roh, szene, ref, videoformat, satz)
+            bewertung = pruefen(roh, pruef_szene, ref, videoformat, satz)
         # Fehlerbilder fuer echte Sichtkontrolle behalten, niemals als Videomaterial verwenden.
         if not bewertung['ok']:
             fehlerbild = Path(ziel).with_name(Path(ziel).stem + f'_abgelehnt_{v}.jpg')
@@ -244,6 +273,7 @@ def bild(szene, ziel, kanal=None, figur=False, versuche=2, videoformat='short', 
                 ensure_ascii=False, indent=2), encoding='utf-8')
         if bewertung['ok']:
             Path(ziel).write_bytes(roh)
+            gemerkt.write_bytes(roh)
             GEZAEHLT['bilder'] += 1
             return Path(ziel)
         korrektur = bewertung.get('korrektur') or bewertung['grund']

@@ -181,7 +181,7 @@ def entwurf(video_pfad, open_id, journal_pfad=None, max_warte_s=90):
         return stand['status']
     if stand.get('status') == 'FAILED':
         raise RuntimeError('Vorheriger TikTok-Upload fehlgeschlagen; vor neuem Upload pruefen')
-    if stand and not stand.get('publish_id') and stand.get('status') != 'INIT_ABGELEHNT':
+    if stand and not stand.get('publish_id') and stand.get('status') not in ('INIT_ABGELEHNT', TRANSFER_LEER):
         raise RuntimeError('Vorherige TikTok-Initialisierung unbestaetigt; vor neuem Upload pruefen')
     token = zugang(open_id)
     if not stand.get('publish_id'):
@@ -197,7 +197,7 @@ def entwurf(video_pfad, open_id, journal_pfad=None, max_warte_s=90):
             stand['status'] = 'INIT_ABGELEHNT'  # API bestaetigt Ablehnung; spaeterer Neuversuch ist sicher.
             sichern()
             raise
-        stand.update(publish_id=d['publish_id'], status='PROCESSING_UPLOAD')
+        stand.update(publish_id=d['publish_id'], status='PROCESSING_UPLOAD', init_zeit=time.time())
         sichern()  # publish_id vor dem ersten Byte sichern; keine Upload-URL/Schluessel ins Journal
         with pfad.open('rb') as f:
             offset = 0
@@ -229,6 +229,27 @@ def entwurf(video_pfad, open_id, journal_pfad=None, max_warte_s=90):
 
 class TikTokAPIError(RuntimeError):
     pass
+
+
+# GEMESSEN 17.10.2026 (Tesla, publish_id ...7294614): /init angenommen, Dateitransfer abgebrochen.
+# Danach meldete TikTok fuer immer PROCESSING_UPLOAD mit uploaded_bytes 0; jeder Durchlauf fragte nur
+# den Status ab, das Video kam nie an. Nach LEER_NACH_S ohne ein einziges Byte gilt der Upload als
+# leer und wird neu angemeldet - ohne angekommene Bytes kein Doppel-Entwurf moeglich.
+TRANSFER_LEER = 'TRANSFER_LEER'
+LEER_NACH_S = 15 * 60
+
+
+def leer_verwerfen(stand, jetzt=None):
+    """True (und Journal fuer Neustart vorbereitet), wenn der Upload seit LEER_NACH_S bei 0 Bytes steht."""
+    jetzt = time.time() if jetzt is None else jetzt
+    if stand.get('status') != 'PROCESSING_UPLOAD' or stand.get('uploaded_bytes') != 0 \
+            or jetzt - float(stand.get('init_zeit') or 0) < LEER_NACH_S:
+        return False
+    stand.setdefault('verworfene_publish_ids', []).append(stand.pop('publish_id'))
+    stand.pop('uploaded_bytes', None)
+    stand.pop('init_zeit', None)
+    stand['status'] = TRANSFER_LEER
+    return True
 
 
 def _daten(reply):

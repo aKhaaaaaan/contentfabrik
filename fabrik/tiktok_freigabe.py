@@ -243,8 +243,16 @@ def abarbeiten():
                     raise ValueError('Uploadjournal passt nicht zur Freigabe')
                 status = tiktok.status_abfragen(stand['publish_id'], open_id=oid)
                 stand.update(status)
-                atomar(journal, json.dumps(stand, indent=2).encode())
-                e['status'] = stand['status']
+                if tiktok.leer_verwerfen(stand):
+                    print('TikTok-Freigabe:', e['video_sha256'][:16], 'leerer Upload verworfen - neue Uebertragung')
+                    atomar(journal, json.dumps(stand, indent=2).encode())
+                    with tempfile.TemporaryDirectory(prefix='contentfabrik-tiktok-') as tmp:
+                        original_laden(e, tmp)
+                        pruefen(e, tmp)
+                        e['status'] = tiktok.entwurf(Path(tmp) / 'short.mp4', oid, journal, max_warte_s=0)
+                else:
+                    atomar(journal, json.dumps(stand, indent=2).encode())
+                    e['status'] = stand['status']
             else:
                 with tempfile.TemporaryDirectory(prefix='contentfabrik-tiktok-') as tmp:
                     original_laden(e, tmp)

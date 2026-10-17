@@ -64,9 +64,24 @@ def sperre(schluessel, modell, jetzt=None):
     return None
 
 
+ZEITLIMIT_FENSTER_S = 2 * 3600
+
+
 def sperren(schluessel, modell, grund, sekunden=None):
     jetzt = time.time()
     alt = lesen_json(KONTINGENT)
+    zeitlimits = alt.get('zeitlimits', {}) if alt.get('version') == VERSION else {}
+    zeitlimits = {k: [t for t in v if isinstance(t, (int, float)) and 0 <= jetzt - t < ZEITLIMIT_FENSTER_S]
+                  for k, v in (zeitlimits.items() if isinstance(zeitlimits, dict) else []) if isinstance(v, list)}
+    if grund == 'Netzwerk-Zeitlimit':
+        # GEMESSEN 17.10.2026 (Tageslauf 39017190861): gemini-3.8-flash lief bei JEDER Anfrage (5 von 5) in
+        # das 30-s-Zeitlimit; die feste 60-s-Sperre war beim naechsten Aufruf abgelaufen - jede Pruefung
+        # wartete erneut 30 s. Wiederholung in 2 Stunden: 1, 3, hoechstens 9 Minuten (es antwortet
+        # manchmal: 3 Erfolge bei 5 Zeitlimits - nicht ganz abschalten).
+        name = konto(schluessel) + ':' + modell
+        zeitlimits[name] = zeitlimits.get(name, []) + [jetzt]
+        sekunden = max(sekunden or 0, min(9 * 60, 60 * 3 ** (len(zeitlimits[name]) - 1)))
+    zeitlimits = {k: v for k, v in zeitlimits.items() if v}
     eintraege = alt.get('modelle', {}) if alt.get('version') == VERSION else {}
     if not isinstance(eintraege, dict):
         eintraege = {}
@@ -74,7 +89,7 @@ def sperren(schluessel, modell, grund, sekunden=None):
                  and isinstance(e.get('bis'), (int, float)) and jetzt < e['bis'] <= jetzt + SPERRE_MAX}
     eintraege[konto(schluessel) + ':' + modell] = {
         'grund': grund, 'bis': tagesreset(jetzt) if sekunden is None else jetzt + sekunden}
-    speichern(KONTINGENT, {'version': VERSION, 'modelle': eintraege})
+    speichern(KONTINGENT, {'version': VERSION, 'modelle': eintraege, 'zeitlimits': zeitlimits})
 
 
 def schema_ok(wert, schema):

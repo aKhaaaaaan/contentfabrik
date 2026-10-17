@@ -606,11 +606,20 @@ def firmen_im_trend(datum=None, n=300):
     technology company"). Gibt [(titel, aufrufe, beschreibung)] absteigend zurueck."""
     import datetime
     tag = datum or (datetime.datetime.utcnow() - datetime.timedelta(days=1))
-    try:
-        top = json.loads(_hole('https://wikimedia.org/api/rest_v1/metrics/pageviews/top/en.wikipedia/all-access/'
-                               f'{tag:%Y/%m/%d}', WIKI_KENNUNG))['items'][0]['articles'][:n]
-    except Exception as e:
-        print('Wikipedia-Bestenliste nicht verfuegbar:', str(e)[:100])
+    top = None
+    # GEMESSEN 16.10.2026 (Vorrat 01:06 UTC): HTTP 404 - Wikimedia veroeffentlicht die Tagesliste erst
+    # einige Stunden nach Mitternacht UTC. Dann die Liste vom Vortag nehmen statt ganz ohne Trend.
+    for tage_zurueck in (0, 1):
+        t = tag - datetime.timedelta(days=tage_zurueck)
+        try:
+            top = json.loads(_hole('https://wikimedia.org/api/rest_v1/metrics/pageviews/top/en.wikipedia/'
+                                   f'all-access/{t:%Y/%m/%d}', WIKI_KENNUNG))['items'][0]['articles'][:n]
+            break
+        except Exception as e:
+            print('Wikipedia-Bestenliste nicht verfuegbar:', f'{t:%Y-%m-%d}', str(e)[:100])
+            if '404' not in str(e):
+                break
+    if top is None:
         return []
     aufrufe = {a['article'].replace('_', ' '): a['views'] for a in top if ':' not in a['article']}
     titel, aus = list(aufrufe), []

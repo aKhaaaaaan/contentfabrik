@@ -20,7 +20,7 @@
 //   Befehle: Start | Start Business | Start KI | Status (Gesamtfortschritt in %) | Abholen
 
 const REPO = 'aKhaaaaaan/contentfabrik';
-const VERSION = '2026-10-17.2';
+const VERSION = '2026-10-17.3';
 // Zusammengefasste Stunden sparen Trigger: Workers Free hat fuenf pro Konto.
 const VIDEO_CRONS = new Set(['23 8,13 * * *', '41 10,15 * * *',
   '23 8 * * *', '41 10 * * *', '23 13 * * *', '41 15 * * *']);
@@ -122,7 +122,9 @@ export async function fortschritt(env, lauf) {
   const kanaljobs = jobs.filter(j => j.name.startsWith('video ('));
   const job = jobs.find(j => j.status === 'in_progress');
   const name = j => j.name.replace(/^video \((.*)\)$/, '$1');
-  if (!job) return `Gesamt: 0 % - Lauf wartet auf einen freien Rechner (seit ${berlin(lauf.created_at)}).\n${lauf.html_url}`;
+  // GEMELDET 17.10.2026 (Screenshot 15:47): "Gesamt: 0 %" ohne Angabe, welcher Lauf das ist.
+  if (!job) return `Shorts-Tageslauf: wartet, bis der laufende Lauf fertig ist (seit ${berlin(lauf.created_at)}). `
+    + `Sind heute schon alle Shorts geliefert, prueft er nur kurz und baut nichts.\n${lauf.html_url}`;
   const schritte = job.steps || [];
   const schritt = schritte.find(s => s.status === 'in_progress');
   const produktion = schritte.find(s => s.name.startsWith('Erzeugen'));
@@ -136,7 +138,7 @@ export async function fortschritt(env, lauf) {
   const fertig = kanaljobs.filter(j => j.status === 'completed');
   const gesamt = kanaljobs.length || 1;
   const prozent = Math.min(99, Math.round((fertig.length + anteil) / gesamt * 100));
-  let text = `Gesamt: ca. ${prozent} % (geschaetzt)\nJetzt: ${name(job)} - ${schritt ? schritt.name : 'Vorbereitung'}` + zeile;
+  let text = `Shorts-Tageslauf - Gesamt: ca. ${prozent} % (geschaetzt)\nJetzt: ${name(job)} - ${schritt ? schritt.name : 'Vorbereitung'}` + zeile;
   // GEMELDET 15.10.2026: "Schon fertig" hiess auch "ohne Video" (Job-success = Lauf beendet).
   // Das echte Ergebnis steht in verlauf/messungen/<kanal>.json (bericht.status 'gesendet').
   for (const j of fertig) text += `\nFertig: ${name(j)} (${await ergebnis(lauf, name(j))})`;

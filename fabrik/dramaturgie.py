@@ -88,7 +88,8 @@ def auftrag(daten):
             'The first spoken sentence establishes a specific reason to watch. Keep essential '
             'context short, then progress through concrete discoveries. A short ranked entry '
             'must teach something distinct; give a practical example, not just a tool name. '
-            'Pay off the opening before the ending; a natural callback is optional. '
+            # 18.10.2026: Rueckgriff auf den Einstieg ist fuer Shorts Pflicht (prompts TENSION ARC, spannungsbogen.py).
+            'Pay off the opening before the ending and refer back to its concrete thing just before the request. '
             # GEMELDET 07.10.2026: „Wichtig ist, dass es die Leute fesselt, damit sie nicht
             # wegwischen." Rund 70 % entscheiden in den ersten 2 s (Shorts-Benchmarks 2026).
             # Der Videobau setzt an der 'wendung' Musikpause, Riser und Impact.

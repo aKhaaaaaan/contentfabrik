@@ -794,6 +794,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
         zusatz_ = ''
         nachgebessert = False
         chronik_gemeldet = False
+        bogen_gemeldet = False
         aktueller_entwurf = entwurf_basis
         for versuch in range(4):
             # GEMESSEN 07.10.2026: Gemini-Gratiskontingent ueberlastet/leer -> AI-Skriptphase
@@ -884,6 +885,18 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 nachgebessert = True
                 print(f'Versuch {versuch + 1}: Loop/Floskel nachbessern ({floskel or schluss[-40:]})')
                 zusatz_ = f'\nYour previous draft used banned phrases {floskel}. Keep everything else.'
+                continue
+            # GEMESSEN 18.10.2026 (TikTok, Codex-Vergleich): Shorts mit offener Frage in der Mitte und
+            # Rueckgriff auf den Einstieg (Nintendo 959, Bigarrow 436) gegen reine Faktenlisten (Louis
+            # Vuitton 260, Fincept 182). Einmal nachbessern, danach hinnehmen - wie bei den Floskeln.
+            import spannungsbogen
+            bogen = [] if lang else spannungsbogen.luecken(e['teile'], (thema or e.get('thema') or ''))
+            if bogen and not bogen_gemeldet and mindest <= zahl <= hoechstens and not zu_wenig and not falsch:
+                bogen_gemeldet = True
+                einstieg = spannungsbogen.saetze(e['teile'][0]['text'])[:1] if e['teile'] else []
+                print(f'Versuch {versuch + 1}: Spannungsbogen nachbessern ({", ".join(bogen)})')
+                zusatz_ = (spannungsbogen.auftrag(bogen, einstieg[0] if einstieg else '')
+                           + '\nPREVIOUS DRAFT:\n' + json.dumps(e, ensure_ascii=False))
                 continue
             chronik = dramaturgie.chronik_saetze(e['teile']) if lang else 0
             if lang and chronik > dramaturgie.CHRONIK_MAX and not chronik_gemeldet \

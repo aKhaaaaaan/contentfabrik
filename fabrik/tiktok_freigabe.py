@@ -105,6 +105,32 @@ def speichern(d):
     atomar(QUEUE, (json.dumps(d, indent=1, ensure_ascii=False) + '\n').encode())
 
 
+def gleiches_thema(video, q):
+    """Telegram-Nummer einer frueheren, nicht abgelehnten TikTok-Freigabe desselben Kanals und Themas.
+
+    GEMESSEN 18.10.2026 (TikTok-Profile): Airbnb (Telegram 501 + 548: 431 + 255 Aufrufe), Fincept (508 + 530:
+    182 + 155) - je zwei Fassungen desselben Themas hochgeladen, weil die Sperre nur die Datei (SHA) kannte.
+    Eine abgelehnte, gesperrte oder gescheiterte erste Fassung blockiert nicht.
+    """
+    thema = str(video.get('thema') or '').strip().lower()
+    if not thema:
+        return None
+    try:
+        videos = json.loads(Path('verlauf/telegram-videos.json').read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        videos = []
+    zu_sha = {v.get('video_sha256'): v for v in videos if isinstance(v, dict)}
+    for e in q:
+        if e.get('kanal') != video.get('kanal') or e.get('video_sha256') == video.get('video_sha256') \
+                or e.get('status') in ('abgelehnt', 'gesperrt', 'fehlgeschlagen', 'FAILED') \
+                or lernen.abgelehnt(e.get('video_sha256') or ''):
+            continue
+        v = zu_sha.get(e.get('video_sha256')) or {}
+        if str(e.get('thema') or v.get('thema') or '').strip().lower() == thema:
+            return v.get('message_id') or '?'
+    return None
+
+
 def entscheiden(video, passt, update_id):
     sha = video.get('video_sha256') or ''
     profil = kanalstandard.nach_name(video.get('kanal')) or {}
@@ -128,8 +154,13 @@ def entscheiden(video, passt, update_id):
         return 'Originaldatei nicht zugeordnet - kein Upload gestartet.'
     if alt:
         return 'Freigabe war schon gespeichert. Es wird kein zweiter Upload gestartet.\n' + status_text(video)
+    frueher = gleiches_thema(video, q)
+    if frueher:
+        return (f'Zu diesem Thema liegt schon ein TikTok-Entwurf (Telegram {frueher}). Kein zweiter Upload: '
+                'zwei Fassungen desselben Themas teilen sich die Aufrufe. Soll die neue Fassung hin, '
+                'die alte in TikTok loeschen und hier beim alten Video "Ablehnen" tippen, dann erneut "Passt".')
     q.append({'id': sha, 'video_sha256': sha, 'kanal': video['kanal'], 'run_id': str(video['upload_run_id']),
-              'status': 'freigegeben', 'update_id': update_id,
+              'thema': video.get('thema'), 'status': 'freigegeben', 'update_id': update_id,
               'datum_utc': datetime.datetime.now(datetime.timezone.utc).isoformat()})
     speichern(q)
     return ('Passt gespeichert. Der automatische Upload ins TikTok-Postfach wird vorbereitet. '

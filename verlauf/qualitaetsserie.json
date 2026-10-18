@@ -50131,6 +50131,1671 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "39111267908.1:ai-tools-explained",
+      "run_id": "39111267908",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-18T08:36:27.215354+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "f3166469fda9eacada28b226a1576b70dffc2eb7",
+      "produktionsversion": "37f696f7c20254a483862a389392cf6d54cf133e199704c91bb3cdecbe38ae1d",
+      "videoformat": "short",
+      "thema": "prabanta-dev/janas",
+      "titel": [
+        "80B AI on a *laptop*",
+        "*Janas-LLM* explained"
+      ],
+      "status": "gesendet",
+      "video_sha256": "d90a54452e920f75cf52fc30dcadea5c02d74ee4fee1d58aac5e494df8ba3580",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-13.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine illustrierte Person an einem Laptop mit Stadtkulisse, aber keinen Bezug zu den technischen Daten oder Parametern der gesprochenen Frage.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die Textgrafik zeigt lediglich Stichpunkte, aber nicht den Betrieb oder das Streaming von Experten von einem NVMe SSD wie gesprochen.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt eine Rechnungsgrafik für LLM-Tokenpreise und ein beschriftetes UI-Element, aber nicht das Streaming von Experten von einer NVMe SSD.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Es ist nur eine Textgrafik der gesprochenen Worte zu sehen, aber keine technische Demonstration oder Visualisierung der im Speicher bleibenden Experten.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine konzeptionelle Grafik zu LLM-Kostenrechnung und den Modulnamen, aber keinerlei messbare Leistungsdaten wie '24 tokens per second' oder Geschwindigkeitsvergleiche.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt nur Textüberschriften und keine reale Ansicht des erwähnten Intel Laptops oder von Benchmarks.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Textüberschriften und Menüpunkte auf dem Bildschirm, aber nicht die versprochenen verschiedenen Maschinen oder Leistungsdaten.",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt nur leere Platzhalterboxen mit Fragezeichen und einen NOT-Button, aber keine sichtbare Windows-Installation oder Ausführung der janas-chat Software.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine illustrierte Person an einem Laptop mit Stadtkulisse, aber keinen Bezug zu den technischen Daten oder Parametern der gesprochenen Frage. Korrektur: Eine realistische Darstellung oder Grafik, die die technischen Hardware-Spezifikationen oder ein Laptop-System mit Bezug zu großen Sprachmodellen veranschaulicht.",
+        "Offenes Problem (schwer): Die Textgrafik zeigt lediglich Stichpunkte, aber nicht den Betrieb oder das Streaming von Experten von einem NVMe SSD wie gesprochen. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die das Speichern und Laden von Modellgewichten von einer NVMe-SSD veranschaulicht.",
+        "Offenes Problem (schwer): Die Abbildung zeigt eine Rechnungsgrafik für LLM-Tokenpreise und ein beschriftetes UI-Element, aber nicht das Streaming von Experten von einer NVMe SSD. Korrektur: Ein visuelles Diagramm oder eine Animation, die zeigt, wie Token-Experten direkt von einer NVMe-SSD gestreamt werden.",
+        "Offenes Problem (schwer): Es ist nur eine Textgrafik der gesprochenen Worte zu sehen, aber keine technische Demonstration oder Visualisierung der im Speicher bleibenden Experten. Korrektur: Eine technische Grafik oder Visualisierung, die zeigt, wie Experten im RAM gehalten werden, während andere von der SSD gestreamt werden.",
+        "Offenes Problem (schwer): Das Bild zeigt eine konzeptionelle Grafik zu LLM-Kostenrechnung und den Modulnamen, aber keinerlei messbare Leistungsdaten wie '24 tokens per second' oder Geschwindigkeitsvergleiche. Korrektur: Ein Benchmark-Diagramm oder Terminal-Ausgabe, das die Geschwindigkeit von 24 Tokens pro Sekunde für Qwen3-Next-80B visuell belegt.",
+        "Offenes Problem (schwer): Das Bild zeigt nur Textüberschriften und keine reale Ansicht des erwähnten Intel Laptops oder von Benchmarks. Korrektur: Ein Foto oder eine Darstellung eines Intel-Laptops, auf dem das beschriebene LLM-Experiment läuft.",
+        "Offenes Problem (schwer): Das Bild zeigt Textüberschriften und Menüpunkte auf dem Bildschirm, aber nicht die versprochenen verschiedenen Maschinen oder Leistungsdaten. Korrektur: Eine Grafik oder ein Vergleich verschiedener Computer-Modelle und deren Leistungsmetriken nebeneinander.",
+        "Offenes Problem (schwer): Das Bild zeigt nur leere Platzhalterboxen mit Fragezeichen und einen NOT-Button, aber keine sichtbare Windows-Installation oder Ausführung der janas-chat Software. Korrektur: Ein Screenshot oder eine Aufnahme, die zeigt, wie das ZIP-Archiv entpackt und die janas-chat Anwendung unter Windows gestartet wird."
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 13,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "39111267908",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-18",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 176.7,
+            "pruefung_s": 44.9,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Mann mit einem Laptop und einer Skyline, stellt jedoch nicht die Frage oder die technischen Details bezueglich des 32-GB-Laptops und des 80-Milliarden-Parameter-Modells visuell dar.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Passage nennt das experimentelle C-Projekt Janas-LLM, aber im Bild ist nur die GitHub-Projektseite zu sehen, jedoch nicht die Funktionsweise oder Implementierung.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die Textgrafik zeigt lediglich Stichpunkte, aber nicht den Betrieb oder das Streaming von Experten von einem NVMe SSD wie gesprochen.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt eine Rechnungsgrafik für LLM-Tokenpreise und ein beschriftetes UI-Element, aber nicht das Streaming von Experten von einer NVMe SSD.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Es ist nur eine Textgrafik der gesprochenen Worte zu sehen, aber keine technische Demonstration oder Visualisierung der im Speicher bleibenden Experten.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine konzeptionelle Grafik zu LLM-Kostenrechnung und den Modulnamen, aber keinerlei messbare Leistungsdaten wie '24 tokens per second' oder Geschwindigkeitsvergleiche.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt nur Textüberschriften und keine reale Ansicht des erwähnten Intel Laptops oder von Benchmarks.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Textüberschriften und Menüpunkte auf dem Bildschirm, aber nicht die versprochenen verschiedenen Maschinen oder Leistungsdaten.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt nur leere Platzhalterboxen mit Fragezeichen und einen NOT-Button, aber keine sichtbare Windows-Installation oder Ausführung der janas-chat Software.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann mit einem Laptop und einer Skyline, stellt jedoch nicht die Frage oder die technischen Details bezueglich des 32-GB-Laptops und des 80-Milliarden-Parameter-Modells visuell dar. Korrektur: Eine Nahaufnahme eines Laptops mit technischen Systemangaben oder einer Grafik, die zeigt, wie ein grosses LLM auf einem Laptop geladen wird.",
+              "Offenes Problem (schwer): Die gesprochene Passage nennt das experimentelle C-Projekt Janas-LLM, aber im Bild ist nur die GitHub-Projektseite zu sehen, jedoch nicht die Funktionsweise oder Implementierung. Korrektur: Ein Diagramm oder Codeausschnitt, der die Funktionsweise von Janas-LLM und das Streaming der Experten von der NVMe-SSD darstellt.",
+              "Offenes Problem (schwer): Die Textgrafik zeigt lediglich Stichpunkte, aber nicht den Betrieb oder das Streaming von Experten von einem NVMe SSD wie gesprochen. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die das Speichern und Laden von Modellgewichten von einer NVMe-SSD veranschaulicht.",
+              "Offenes Problem (schwer): Die Abbildung zeigt eine Rechnungsgrafik für LLM-Tokenpreise und ein beschriftetes UI-Element, aber nicht das Streaming von Experten von einer NVMe SSD. Korrektur: Ein visuelles Diagramm oder eine Animation, die zeigt, wie Token-Experten direkt von einer NVMe-SSD gestreamt werden.",
+              "Offenes Problem (schwer): Es ist nur eine Textgrafik der gesprochenen Worte zu sehen, aber keine technische Demonstration oder Visualisierung der im Speicher bleibenden Experten. Korrektur: Eine technische Grafik oder Visualisierung, die zeigt, wie Experten im RAM gehalten werden, während andere von der SSD gestreamt werden.",
+              "Offenes Problem (schwer): Das Bild zeigt eine konzeptionelle Grafik zu LLM-Kostenrechnung und den Modulnamen, aber keinerlei messbare Leistungsdaten wie '24 tokens per second' oder Geschwindigkeitsvergleiche. Korrektur: Ein Benchmark-Diagramm oder Terminal-Ausgabe, das die Geschwindigkeit von 24 Tokens pro Sekunde für Qwen3-Next-80B visuell belegt.",
+              "Offenes Problem (schwer): Das Bild zeigt nur Textüberschriften und keine reale Ansicht des erwähnten Intel Laptops oder von Benchmarks. Korrektur: Ein Foto oder eine Darstellung eines Intel-Laptops, auf dem das beschriebene LLM-Experiment läuft.",
+              "Offenes Problem (schwer): Das Bild zeigt Textüberschriften und Menüpunkte auf dem Bildschirm, aber nicht die versprochenen verschiedenen Maschinen oder Leistungsdaten. Korrektur: Eine Grafik oder ein Vergleich verschiedener Computer-Modelle und deren Leistungsmetriken nebeneinander.",
+              "Offenes Problem (schwer): Das Bild zeigt nur leere Platzhalterboxen mit Fragezeichen und einen NOT-Button, aber keine sichtbare Windows-Installation oder Ausführung der janas-chat Software. Korrektur: Ein Screenshot oder eine Aufnahme, die zeigt, wie das ZIP-Archiv entpackt und die janas-chat Anwendung unter Windows gestartet wird."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Orus",
+              "stimme": 16.4,
+              "zeitmarken": 4.9,
+              "tempo": 1.163,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "clips_und_stuecke": 86.8,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 11,
+              "rendern": 21.3,
+              "gesamt": 176.4,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                9.28,
+                7.04,
+                7.4,
+                7.52,
+                5.06,
+                6.24,
+                2.46
+              ],
+              "woerter": 98
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Can a 32 GB laptop run an 80-billion-parameter model?",
+                "text": "Das Bild zeigt einen Mann mit einem Laptop und einer Skyline, stellt jedoch nicht die Frage oder die technischen Details bezueglich des 32-GB-Laptops und des 80-Milliarden-Parameter-Modells visuell dar. Korrektur: Eine Nahaufnahme eines Laptops mit technischen Systemangaben oder einer Grafik, die zeigt, wie ein grosses LLM auf einem Laptop geladen wird."
+              },
+              {
+                "zeit": "00:05.08",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Janas-LLM, an experimental C project, says yes.",
+                "text": "Die gesprochene Passage nennt das experimentelle C-Projekt Janas-LLM, aber im Bild ist nur die GitHub-Projektseite zu sehen, jedoch nicht die Funktionsweise oder Implementierung. Korrektur: Ein Diagramm oder Codeausschnitt, der die Funktionsweise von Janas-LLM und das Streaming der Experten von der NVMe-SSD darstellt."
+              },
+              {
+                "zeit": "00:09.28",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Weights stay on disk.",
+                "text": "Die Textgrafik zeigt lediglich Stichpunkte, aber nicht den Betrieb oder das Streaming von Experten von einem NVMe SSD wie gesprochen. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die das Speichern und Laden von Modellgewichten von einer NVMe-SSD veranschaulicht."
+              },
+              {
+                "zeit": "00:11.24",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Each token streams only the experts it needs from an NVMe SSD.",
+                "text": "Die Abbildung zeigt eine Rechnungsgrafik für LLM-Tokenpreise und ein beschriftetes UI-Element, aber nicht das Streaming von Experten von einer NVMe SSD. Korrektur: Ein visuelles Diagramm oder eine Animation, die zeigt, wie Token-Experten direkt von einer NVMe-SSD gestreamt werden."
+              },
+              {
+                "zeit": "00:16.32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Experts that keep coming back stay in memory.",
+                "text": "Es ist nur eine Textgrafik der gesprochenen Worte zu sehen, aber keine technische Demonstration oder Visualisierung der im Speicher bleibenden Experten. Korrektur: Eine technische Grafik oder Visualisierung, die zeigt, wie Experten im RAM gehalten werden, während andere von der SSD gestreamt werden."
+              },
+              {
+                "zeit": "00:23.72",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "Qwen3-Next-80B wrote 24 tokens per second without drafts.",
+                "text": "Das Bild zeigt eine konzeptionelle Grafik zu LLM-Kostenrechnung und den Modulnamen, aber keinerlei messbare Leistungsdaten wie '24 tokens per second' oder Geschwindigkeitsvergleiche. Korrektur: Ein Benchmark-Diagramm oder Terminal-Ausgabe, das die Geschwindigkeit von 24 Tokens pro Sekunde für Qwen3-Next-80B visuell belegt."
+              },
+              {
+                "zeit": "00:31.24",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Those numbers come from just one Intel laptop.",
+                "text": "Das Bild zeigt nur Textüberschriften und keine reale Ansicht des erwähnten Intel Laptops oder von Benchmarks. Korrektur: Ein Foto oder eine Darstellung eines Intel-Laptops, auf dem das beschriebene LLM-Experiment läuft."
+              },
+              {
+                "zeit": "00:34.06",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "Other machines will differ, the author says.",
+                "text": "Das Bild zeigt Textüberschriften und Menüpunkte auf dem Bildschirm, aber nicht die versprochenen verschiedenen Maschinen oder Leistungsdaten. Korrektur: Eine Grafik oder ein Vergleich verschiedener Computer-Modelle und deren Leistungsmetriken nebeneinander."
+              },
+              {
+                "zeit": "00:36.30",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "Windows: unpack the zip, run janas-chat.",
+                "text": "Das Bild zeigt nur leere Platzhalterboxen mit Fragezeichen und einen NOT-Button, aber keine sichtbare Windows-Installation oder Ausführung der janas-chat Software. Korrektur: Ein Screenshot oder eine Aufnahme, die zeigt, wie das ZIP-Archiv entpackt und die janas-chat Anwendung unter Windows gestartet wird."
+              }
+            ],
+            "sekunden": 221.6,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "karte",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-13.2"
+            },
+            "skript_s": 2.5,
+            "bau_s": 142.8,
+            "pruefung_s": 10.9,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine illustrierte Person an einem Laptop mit Stadtkulisse, aber keinen Bezug zu den technischen Daten oder Parametern der gesprochenen Frage.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die Textgrafik zeigt lediglich Stichpunkte, aber nicht den Betrieb oder das Streaming von Experten von einem NVMe SSD wie gesprochen.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt eine Rechnungsgrafik für LLM-Tokenpreise und ein beschriftetes UI-Element, aber nicht das Streaming von Experten von einer NVMe SSD.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Es ist nur eine Textgrafik der gesprochenen Worte zu sehen, aber keine technische Demonstration oder Visualisierung der im Speicher bleibenden Experten.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine konzeptionelle Grafik zu LLM-Kostenrechnung und den Modulnamen, aber keinerlei messbare Leistungsdaten wie '24 tokens per second' oder Geschwindigkeitsvergleiche.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt nur Textüberschriften und keine reale Ansicht des erwähnten Intel Laptops oder von Benchmarks.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Textüberschriften und Menüpunkte auf dem Bildschirm, aber nicht die versprochenen verschiedenen Maschinen oder Leistungsdaten.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt nur leere Platzhalterboxen mit Fragezeichen und einen NOT-Button, aber keine sichtbare Windows-Installation oder Ausführung der janas-chat Software.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine illustrierte Person an einem Laptop mit Stadtkulisse, aber keinen Bezug zu den technischen Daten oder Parametern der gesprochenen Frage. Korrektur: Eine realistische Darstellung oder Grafik, die die technischen Hardware-Spezifikationen oder ein Laptop-System mit Bezug zu großen Sprachmodellen veranschaulicht.",
+              "Offenes Problem (schwer): Die Textgrafik zeigt lediglich Stichpunkte, aber nicht den Betrieb oder das Streaming von Experten von einem NVMe SSD wie gesprochen. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die das Speichern und Laden von Modellgewichten von einer NVMe-SSD veranschaulicht.",
+              "Offenes Problem (schwer): Die Abbildung zeigt eine Rechnungsgrafik für LLM-Tokenpreise und ein beschriftetes UI-Element, aber nicht das Streaming von Experten von einer NVMe SSD. Korrektur: Ein visuelles Diagramm oder eine Animation, die zeigt, wie Token-Experten direkt von einer NVMe-SSD gestreamt werden.",
+              "Offenes Problem (schwer): Es ist nur eine Textgrafik der gesprochenen Worte zu sehen, aber keine technische Demonstration oder Visualisierung der im Speicher bleibenden Experten. Korrektur: Eine technische Grafik oder Visualisierung, die zeigt, wie Experten im RAM gehalten werden, während andere von der SSD gestreamt werden.",
+              "Offenes Problem (schwer): Das Bild zeigt eine konzeptionelle Grafik zu LLM-Kostenrechnung und den Modulnamen, aber keinerlei messbare Leistungsdaten wie '24 tokens per second' oder Geschwindigkeitsvergleiche. Korrektur: Ein Benchmark-Diagramm oder Terminal-Ausgabe, das die Geschwindigkeit von 24 Tokens pro Sekunde für Qwen3-Next-80B visuell belegt.",
+              "Offenes Problem (schwer): Das Bild zeigt nur Textüberschriften und keine reale Ansicht des erwähnten Intel Laptops oder von Benchmarks. Korrektur: Ein Foto oder eine Darstellung eines Intel-Laptops, auf dem das beschriebene LLM-Experiment läuft.",
+              "Offenes Problem (schwer): Das Bild zeigt Textüberschriften und Menüpunkte auf dem Bildschirm, aber nicht die versprochenen verschiedenen Maschinen oder Leistungsdaten. Korrektur: Eine Grafik oder ein Vergleich verschiedener Computer-Modelle und deren Leistungsmetriken nebeneinander.",
+              "Offenes Problem (schwer): Das Bild zeigt nur leere Platzhalterboxen mit Fragezeichen und einen NOT-Button, aber keine sichtbare Windows-Installation oder Ausführung der janas-chat Software. Korrektur: Ein Screenshot oder eine Aufnahme, die zeigt, wie das ZIP-Archiv entpackt und die janas-chat Anwendung unter Windows gestartet wird."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.163,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "clips_und_stuecke": 80.6,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 11,
+              "rendern": 21.0,
+              "gesamt": 142.6,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                9.28,
+                7.04,
+                7.4,
+                7.52,
+                5.06,
+                6.24,
+                2.46
+              ],
+              "woerter": 98
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Can a 32 GB laptop run an 80-billion-parameter model?",
+                "text": "Das Bild zeigt lediglich eine illustrierte Person an einem Laptop mit Stadtkulisse, aber keinen Bezug zu den technischen Daten oder Parametern der gesprochenen Frage. Korrektur: Eine realistische Darstellung oder Grafik, die die technischen Hardware-Spezifikationen oder ein Laptop-System mit Bezug zu großen Sprachmodellen veranschaulicht."
+              },
+              {
+                "zeit": "00:09.28",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Weights stay on disk.",
+                "text": "Die Textgrafik zeigt lediglich Stichpunkte, aber nicht den Betrieb oder das Streaming von Experten von einem NVMe SSD wie gesprochen. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die das Speichern und Laden von Modellgewichten von einer NVMe-SSD veranschaulicht."
+              },
+              {
+                "zeit": "00:11.24",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Each token streams only the experts it needs from an NVMe SSD.",
+                "text": "Die Abbildung zeigt eine Rechnungsgrafik für LLM-Tokenpreise und ein beschriftetes UI-Element, aber nicht das Streaming von Experten von einer NVMe SSD. Korrektur: Ein visuelles Diagramm oder eine Animation, die zeigt, wie Token-Experten direkt von einer NVMe-SSD gestreamt werden."
+              },
+              {
+                "zeit": "00:16.32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Experts that keep coming back stay in memory.",
+                "text": "Es ist nur eine Textgrafik der gesprochenen Worte zu sehen, aber keine technische Demonstration oder Visualisierung der im Speicher bleibenden Experten. Korrektur: Eine technische Grafik oder Visualisierung, die zeigt, wie Experten im RAM gehalten werden, während andere von der SSD gestreamt werden."
+              },
+              {
+                "zeit": "00:23.72",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "Qwen3-Next-80B wrote 24 tokens per second without drafts.",
+                "text": "Das Bild zeigt eine konzeptionelle Grafik zu LLM-Kostenrechnung und den Modulnamen, aber keinerlei messbare Leistungsdaten wie '24 tokens per second' oder Geschwindigkeitsvergleiche. Korrektur: Ein Benchmark-Diagramm oder Terminal-Ausgabe, das die Geschwindigkeit von 24 Tokens pro Sekunde für Qwen3-Next-80B visuell belegt."
+              },
+              {
+                "zeit": "00:31.24",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Those numbers come from just one Intel laptop.",
+                "text": "Das Bild zeigt nur Textüberschriften und keine reale Ansicht des erwähnten Intel Laptops oder von Benchmarks. Korrektur: Ein Foto oder eine Darstellung eines Intel-Laptops, auf dem das beschriebene LLM-Experiment läuft."
+              },
+              {
+                "zeit": "00:34.06",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "Other machines will differ, the author says.",
+                "text": "Das Bild zeigt Textüberschriften und Menüpunkte auf dem Bildschirm, aber nicht die versprochenen verschiedenen Maschinen oder Leistungsdaten. Korrektur: Eine Grafik oder ein Vergleich verschiedener Computer-Modelle und deren Leistungsmetriken nebeneinander."
+              },
+              {
+                "zeit": "00:36.30",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "Windows: unpack the zip, run janas-chat.",
+                "text": "Das Bild zeigt nur leere Platzhalterboxen mit Fragezeichen und einen NOT-Button, aber keine sichtbare Windows-Installation oder Ausführung der janas-chat Software. Korrektur: Ein Screenshot oder eine Aufnahme, die zeigt, wie das ZIP-Archiv entpackt und die janas-chat Anwendung unter Windows gestartet wird."
+              }
+            ],
+            "sekunden": 156.3,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "39111267908-2",
+              "datum": "2026-10-18",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 156.3,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "karte",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-13.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "karte",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-13.2"
+            },
+            "skript_s": 2.1,
+            "bau_s": 237.2,
+            "pruefung_s": 11.3,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage bezieht sich auf ein Laptop und ein 80-Milliarden-Parameter-Modell, aber das Bild zeigt lediglich einen überraschten Mann an einem Computer ohne technischen Bezug zur Fragestellung.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die Textgrafik zeigt lediglich Stichpunkte, aber nicht den Betrieb oder das Streaming von Experten von einem NVMe SSD wie gesprochen.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (6/10): Das Bild zeigt lediglich eine schematische Infografik zum Bezahlmodell nach Tokens mit Erwähnung von NVMe SSD, aber nicht das konkrete Streamen von Experten von der SSD für jedes Token wie im Text beschrieben.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Es ist nur eine Textgrafik der gesprochenen Worte zu sehen, aber keine technische Demonstration oder Visualisierung der im Speicher bleibenden Experten.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine konzeptionelle Grafik zu LLM-Kostenrechnung und den Modulnamen, aber keinerlei messbare Leistungsdaten wie '24 tokens per second' oder Geschwindigkeitsvergleiche.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt nur Textüberschriften und keine reale Ansicht des erwähnten Intel Laptops oder von Benchmarks.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Textüberschriften und Menüpunkte auf dem Bildschirm, aber nicht die versprochenen verschiedenen Maschinen oder Leistungsdaten.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt nur leere Platzhalterboxen mit Fragezeichen und einen NOT-Button, aber keine sichtbare Windows-Installation oder Ausführung der janas-chat Software.",
+              "Offenes Problem (schwer): Die gesprochene Frage bezieht sich auf ein Laptop und ein 80-Milliarden-Parameter-Modell, aber das Bild zeigt lediglich einen überraschten Mann an einem Computer ohne technischen Bezug zur Fragestellung. Korrektur: Ein Laptop mit einer Anzeige, die Systemressourcen oder Modellparameter für ein 80-Milliarden-Parameter-Modell visualisiert.",
+              "Offenes Problem (schwer): Die Textgrafik zeigt lediglich Stichpunkte, aber nicht den Betrieb oder das Streaming von Experten von einem NVMe SSD wie gesprochen. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die das Speichern und Laden von Modellgewichten von einer NVMe-SSD veranschaulicht.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine schematische Infografik zum Bezahlmodell nach Tokens mit Erwähnung von NVMe SSD, aber nicht das konkrete Streamen von Experten von der SSD für jedes Token wie im Text beschrieben. Korrektur: Eine Bildschirmaufnahme oder Diagrammdarstellung, die zeigt, wie Datenströme von Expertenmodellen von der NVMe-Festplatte geladen werden.",
+              "Offenes Problem (schwer): Es ist nur eine Textgrafik der gesprochenen Worte zu sehen, aber keine technische Demonstration oder Visualisierung der im Speicher bleibenden Experten. Korrektur: Eine technische Grafik oder Visualisierung, die zeigt, wie Experten im RAM gehalten werden, während andere von der SSD gestreamt werden.",
+              "Offenes Problem (schwer): Das Bild zeigt eine konzeptionelle Grafik zu LLM-Kostenrechnung und den Modulnamen, aber keinerlei messbare Leistungsdaten wie '24 tokens per second' oder Geschwindigkeitsvergleiche. Korrektur: Ein Benchmark-Diagramm oder Terminal-Ausgabe, das die Geschwindigkeit von 24 Tokens pro Sekunde für Qwen3-Next-80B visuell belegt.",
+              "Offenes Problem (schwer): Das Bild zeigt nur Textüberschriften und keine reale Ansicht des erwähnten Intel Laptops oder von Benchmarks. Korrektur: Ein Foto oder eine Darstellung eines Intel-Laptops, auf dem das beschriebene LLM-Experiment läuft.",
+              "Offenes Problem (schwer): Das Bild zeigt Textüberschriften und Menüpunkte auf dem Bildschirm, aber nicht die versprochenen verschiedenen Maschinen oder Leistungsdaten. Korrektur: Eine Grafik oder ein Vergleich verschiedener Computer-Modelle und deren Leistungsmetriken nebeneinander.",
+              "Offenes Problem (schwer): Das Bild zeigt nur leere Platzhalterboxen mit Fragezeichen und einen NOT-Button, aber keine sichtbare Windows-Installation oder Ausführung der janas-chat Software. Korrektur: Ein Screenshot oder eine Aufnahme, die zeigt, wie das ZIP-Archiv entpackt und die janas-chat Anwendung unter Windows gestartet wird."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.163,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 150.4,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 11,
+              "rendern": 21.1,
+              "gesamt": 237.0,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                9.28,
+                7.04,
+                7.4,
+                7.52,
+                5.06,
+                6.24,
+                2.46
+              ],
+              "woerter": 98
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Can a 32 GB laptop run an 80-billion-parameter model?",
+                "text": "Die gesprochene Frage bezieht sich auf ein Laptop und ein 80-Milliarden-Parameter-Modell, aber das Bild zeigt lediglich einen überraschten Mann an einem Computer ohne technischen Bezug zur Fragestellung. Korrektur: Ein Laptop mit einer Anzeige, die Systemressourcen oder Modellparameter für ein 80-Milliarden-Parameter-Modell visualisiert."
+              },
+              {
+                "zeit": "00:09.28",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Weights stay on disk.",
+                "text": "Die Textgrafik zeigt lediglich Stichpunkte, aber nicht den Betrieb oder das Streaming von Experten von einem NVMe SSD wie gesprochen. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die das Speichern und Laden von Modellgewichten von einer NVMe-SSD veranschaulicht."
+              },
+              {
+                "zeit": "00:11.24",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Each token streams only the experts it needs from an NVMe SSD.",
+                "text": "Das Bild zeigt lediglich eine schematische Infografik zum Bezahlmodell nach Tokens mit Erwähnung von NVMe SSD, aber nicht das konkrete Streamen von Experten von der SSD für jedes Token wie im Text beschrieben. Korrektur: Eine Bildschirmaufnahme oder Diagrammdarstellung, die zeigt, wie Datenströme von Expertenmodellen von der NVMe-Festplatte geladen werden."
+              },
+              {
+                "zeit": "00:16.32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Experts that keep coming back stay in memory.",
+                "text": "Es ist nur eine Textgrafik der gesprochenen Worte zu sehen, aber keine technische Demonstration oder Visualisierung der im Speicher bleibenden Experten. Korrektur: Eine technische Grafik oder Visualisierung, die zeigt, wie Experten im RAM gehalten werden, während andere von der SSD gestreamt werden."
+              },
+              {
+                "zeit": "00:23.72",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "Qwen3-Next-80B wrote 24 tokens per second without drafts.",
+                "text": "Das Bild zeigt eine konzeptionelle Grafik zu LLM-Kostenrechnung und den Modulnamen, aber keinerlei messbare Leistungsdaten wie '24 tokens per second' oder Geschwindigkeitsvergleiche. Korrektur: Ein Benchmark-Diagramm oder Terminal-Ausgabe, das die Geschwindigkeit von 24 Tokens pro Sekunde für Qwen3-Next-80B visuell belegt."
+              },
+              {
+                "zeit": "00:31.24",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Those numbers come from just one Intel laptop.",
+                "text": "Das Bild zeigt nur Textüberschriften und keine reale Ansicht des erwähnten Intel Laptops oder von Benchmarks. Korrektur: Ein Foto oder eine Darstellung eines Intel-Laptops, auf dem das beschriebene LLM-Experiment läuft."
+              },
+              {
+                "zeit": "00:34.06",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "Other machines will differ, the author says.",
+                "text": "Das Bild zeigt Textüberschriften und Menüpunkte auf dem Bildschirm, aber nicht die versprochenen verschiedenen Maschinen oder Leistungsdaten. Korrektur: Eine Grafik oder ein Vergleich verschiedener Computer-Modelle und deren Leistungsmetriken nebeneinander."
+              },
+              {
+                "zeit": "00:36.30",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "Windows: unpack the zip, run janas-chat.",
+                "text": "Das Bild zeigt nur leere Platzhalterboxen mit Fragezeichen und einen NOT-Button, aber keine sichtbare Windows-Installation oder Ausführung der janas-chat Software. Korrektur: Ein Screenshot oder eine Aufnahme, die zeigt, wie das ZIP-Archiv entpackt und die janas-chat Anwendung unter Windows gestartet wird."
+              }
+            ],
+            "sekunden": 250.6,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "39111267908-3",
+              "datum": "2026-10-18",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 250.6,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "karte",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-13.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 675.7,
+        "upload_titel": "80B AI on a laptop: Janas-LLM explained | AI Tool #8"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Can a 32 GB laptop run an 80-billion-parameter model?",
+            "text": "Das Bild zeigt lediglich eine illustrierte Person an einem Laptop mit Stadtkulisse, aber keinen Bezug zu den technischen Daten oder Parametern der gesprochenen Frage. Korrektur: Eine realistische Darstellung oder Grafik, die die technischen Hardware-Spezifikationen oder ein Laptop-System mit Bezug zu großen Sprachmodellen veranschaulicht."
+          },
+          {
+            "zeit": "00:09.28",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "Weights stay on disk.",
+            "text": "Die Textgrafik zeigt lediglich Stichpunkte, aber nicht den Betrieb oder das Streaming von Experten von einem NVMe SSD wie gesprochen. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die das Speichern und Laden von Modellgewichten von einer NVMe-SSD veranschaulicht."
+          },
+          {
+            "zeit": "00:11.24",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "Each token streams only the experts it needs from an NVMe SSD.",
+            "text": "Die Abbildung zeigt eine Rechnungsgrafik für LLM-Tokenpreise und ein beschriftetes UI-Element, aber nicht das Streaming von Experten von einer NVMe SSD. Korrektur: Ein visuelles Diagramm oder eine Animation, die zeigt, wie Token-Experten direkt von einer NVMe-SSD gestreamt werden."
+          },
+          {
+            "zeit": "00:16.32",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Experts that keep coming back stay in memory.",
+            "text": "Es ist nur eine Textgrafik der gesprochenen Worte zu sehen, aber keine technische Demonstration oder Visualisierung der im Speicher bleibenden Experten. Korrektur: Eine technische Grafik oder Visualisierung, die zeigt, wie Experten im RAM gehalten werden, während andere von der SSD gestreamt werden."
+          },
+          {
+            "zeit": "00:23.72",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 6,
+            "gesprochen": "Qwen3-Next-80B wrote 24 tokens per second without drafts.",
+            "text": "Das Bild zeigt eine konzeptionelle Grafik zu LLM-Kostenrechnung und den Modulnamen, aber keinerlei messbare Leistungsdaten wie '24 tokens per second' oder Geschwindigkeitsvergleiche. Korrektur: Ein Benchmark-Diagramm oder Terminal-Ausgabe, das die Geschwindigkeit von 24 Tokens pro Sekunde für Qwen3-Next-80B visuell belegt."
+          },
+          {
+            "zeit": "00:31.24",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "Those numbers come from just one Intel laptop.",
+            "text": "Das Bild zeigt nur Textüberschriften und keine reale Ansicht des erwähnten Intel Laptops oder von Benchmarks. Korrektur: Ein Foto oder eine Darstellung eines Intel-Laptops, auf dem das beschriebene LLM-Experiment läuft."
+          },
+          {
+            "zeit": "00:34.06",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "Other machines will differ, the author says.",
+            "text": "Das Bild zeigt Textüberschriften und Menüpunkte auf dem Bildschirm, aber nicht die versprochenen verschiedenen Maschinen oder Leistungsdaten. Korrektur: Eine Grafik oder ein Vergleich verschiedener Computer-Modelle und deren Leistungsmetriken nebeneinander."
+          },
+          {
+            "zeit": "00:36.30",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "Windows: unpack the zip, run janas-chat.",
+            "text": "Das Bild zeigt nur leere Platzhalterboxen mit Fragezeichen und einen NOT-Button, aber keine sichtbare Windows-Installation oder Ausführung der janas-chat Software. Korrektur: Ein Screenshot oder eine Aufnahme, die zeigt, wie das ZIP-Archiv entpackt und die janas-chat Anwendung unter Windows gestartet wird."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -14.5,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 42.82,
+              "bis_s": 44.52,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.988
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Can",
+                "s": 0.0,
+                "e": 0.3,
+                "p": 0.938645601272583
+              },
+              {
+                "w": "a",
+                "s": 0.3,
+                "e": 0.4,
+                "p": 0.9876828789710999
+              },
+              {
+                "w": "32",
+                "s": 0.4,
+                "e": 0.84,
+                "p": 0.9873773455619812
+              },
+              {
+                "w": "GB",
+                "s": 0.84,
+                "e": 1.22,
+                "p": 0.4787670075893402
+              },
+              {
+                "w": "laptop",
+                "s": 1.22,
+                "e": 1.92,
+                "p": 0.9714557528495789
+              },
+              {
+                "w": "run",
+                "s": 1.92,
+                "e": 2.28,
+                "p": 0.995326042175293
+              },
+              {
+                "w": "an",
+                "s": 2.28,
+                "e": 2.42,
+                "p": 0.9847393035888672
+              },
+              {
+                "w": "80",
+                "s": 2.42,
+                "e": 2.72,
+                "p": 0.9605662822723389
+              },
+              {
+                "w": "billion",
+                "s": 2.72,
+                "e": 3.24,
+                "p": 0.7404637932777405
+              },
+              {
+                "w": "parameter",
+                "s": 3.24,
+                "e": 3.7,
+                "p": 0.7361506819725037
+              },
+              {
+                "w": "model?",
+                "s": 3.7,
+                "e": 4.32,
+                "p": 0.9971502423286438
+              },
+              {
+                "w": "Janice",
+                "s": 5.08,
+                "e": 5.54,
+                "p": 0.655350536108017
+              },
+              {
+                "w": "LLM,",
+                "s": 5.54,
+                "e": 6.24,
+                "p": 0.9043196439743042
+              },
+              {
+                "w": "an",
+                "s": 6.5,
+                "e": 6.58,
+                "p": 0.9698593020439148
+              },
+              {
+                "w": "experimental",
+                "s": 6.58,
+                "e": 7.0,
+                "p": 0.9512140154838562
+              },
+              {
+                "w": "C",
+                "s": 7.0,
+                "e": 7.48,
+                "p": 0.7977898716926575
+              },
+              {
+                "w": "project,",
+                "s": 7.48,
+                "e": 7.78,
+                "p": 0.8936070203781128
+              },
+              {
+                "w": "says",
+                "s": 8.22,
+                "e": 8.36,
+                "p": 0.9848029613494873
+              },
+              {
+                "w": "yes.",
+                "s": 8.36,
+                "e": 8.76,
+                "p": 0.5907554626464844
+              },
+              {
+                "w": "Wait,",
+                "s": 9.34,
+                "e": 9.6,
+                "p": 0.18144631385803223
+              },
+              {
+                "w": "stay",
+                "s": 9.82,
+                "e": 10.08,
+                "p": 0.9818156957626343
+              },
+              {
+                "w": "on",
+                "s": 10.08,
+                "e": 10.34,
+                "p": 0.9990043044090271
+              },
+              {
+                "w": "disk.",
+                "s": 10.34,
+                "e": 10.62,
+                "p": 0.6204369068145752
+              },
+              {
+                "w": "Each",
+                "s": 11.28,
+                "e": 11.32,
+                "p": 0.9941275119781494
+              },
+              {
+                "w": "token",
+                "s": 11.32,
+                "e": 11.7,
+                "p": 0.9947408437728882
+              },
+              {
+                "w": "streams",
+                "s": 11.7,
+                "e": 12.04,
+                "p": 0.9830999374389648
+              },
+              {
+                "w": "only",
+                "s": 12.04,
+                "e": 12.68,
+                "p": 0.9983829259872437
+              },
+              {
+                "w": "the",
+                "s": 12.68,
+                "e": 12.84,
+                "p": 0.9989462494850159
+              },
+              {
+                "w": "experts",
+                "s": 12.84,
+                "e": 13.22,
+                "p": 0.9895500540733337
+              },
+              {
+                "w": "it",
+                "s": 13.22,
+                "e": 13.46,
+                "p": 0.9828996062278748
+              },
+              {
+                "w": "needs",
+                "s": 13.46,
+                "e": 13.72,
+                "p": 0.9969287514686584
+              },
+              {
+                "w": "from",
+                "s": 13.72,
+                "e": 14.2,
+                "p": 0.9038763642311096
+              },
+              {
+                "w": "an",
+                "s": 14.2,
+                "e": 14.32,
+                "p": 0.9642984867095947
+              },
+              {
+                "w": "NVMe",
+                "s": 14.32,
+                "e": 15.02,
+                "p": 0.8759393095970154
+              },
+              {
+                "w": "SSD.",
+                "s": 15.02,
+                "e": 15.48,
+                "p": 0.994208574295044
+              },
+              {
+                "w": "Experts",
+                "s": 16.72,
+                "e": 16.72,
+                "p": 0.9783644080162048
+              },
+              {
+                "w": "that",
+                "s": 16.72,
+                "e": 16.96,
+                "p": 0.994181215763092
+              },
+              {
+                "w": "keep",
+                "s": 16.96,
+                "e": 17.08,
+                "p": 0.9988038539886475
+              },
+              {
+                "w": "coming",
+                "s": 17.08,
+                "e": 17.36,
+                "p": 0.998572587966919
+              },
+              {
+                "w": "back",
+                "s": 17.36,
+                "e": 17.6,
+                "p": 0.9992109537124634
+              },
+              {
+                "w": "stay",
+                "s": 17.6,
+                "e": 18.04,
+                "p": 0.834327220916748
+              },
+              {
+                "w": "in",
+                "s": 18.04,
+                "e": 18.28,
+                "p": 0.996769905090332
+              },
+              {
+                "w": "memory.",
+                "s": 18.28,
+                "e": 18.5,
+                "p": 0.9979967474937439
+              },
+              {
+                "w": "A",
+                "s": 19.32,
+                "e": 19.32,
+                "p": 0.984818160533905
+              },
+              {
+                "w": "48",
+                "s": 19.32,
+                "e": 19.66,
+                "p": 0.9974373579025269
+              },
+              {
+                "w": "GB",
+                "s": 19.66,
+                "e": 19.98,
+                "p": 0.9654003381729126
+              },
+              {
+                "w": "model",
+                "s": 19.98,
+                "e": 20.64,
+                "p": 0.980255126953125
+              },
+              {
+                "w": "answers",
+                "s": 20.64,
+                "e": 21.08,
+                "p": 0.9647834897041321
+              },
+              {
+                "w": "on",
+                "s": 21.08,
+                "e": 21.44,
+                "p": 0.9962145686149597
+              },
+              {
+                "w": "32",
+                "s": 21.44,
+                "e": 21.76,
+                "p": 0.9987040758132935
+              },
+              {
+                "w": "GB.",
+                "s": 21.76,
+                "e": 22.24,
+                "p": 0.6430413126945496
+              },
+              {
+                "w": "Quen3next",
+                "s": 23.54,
+                "e": 24.28,
+                "p": 0.4920797343365848
+              },
+              {
+                "w": "ADB",
+                "s": 24.28,
+                "e": 24.86,
+                "p": 0.7477216124534607
+              },
+              {
+                "w": "wrote",
+                "s": 24.86,
+                "e": 25.22,
+                "p": 0.9869372248649597
+              },
+              {
+                "w": "24",
+                "s": 25.22,
+                "e": 25.72,
+                "p": 0.9924255609512329
+              },
+              {
+                "w": "tokens",
+                "s": 25.72,
+                "e": 26.18,
+                "p": 0.9484573006629944
+              },
+              {
+                "w": "per",
+                "s": 26.18,
+                "e": 26.46,
+                "p": 0.9796278476715088
+              },
+              {
+                "w": "second",
+                "s": 26.46,
+                "e": 26.82,
+                "p": 0.9982847571372986
+              },
+              {
+                "w": "without",
+                "s": 26.82,
+                "e": 27.2,
+                "p": 0.9503163695335388
+              },
+              {
+                "w": "drafts.",
+                "s": 27.2,
+                "e": 27.6,
+                "p": 0.9405109286308289
+              },
+              {
+                "w": "Graphs,",
+                "s": 27.6,
+                "e": 27.92,
+                "p": 0.5316777862608433
+              },
+              {
+                "w": "llama",
+                "s": 28.36,
+                "e": 28.62,
+                "p": 0.8420552909374237
+              },
+              {
+                "w": ".cpp,",
+                "s": 28.62,
+                "e": 29.04,
+                "p": 0.9575312435626984
+              },
+              {
+                "w": "manage",
+                "s": 29.66,
+                "e": 29.84,
+                "p": 0.779883861541748
+              },
+              {
+                "w": "2",
+                "s": 29.84,
+                "e": 30.16,
+                "p": 0.9766165614128113
+              },
+              {
+                "w": ".8.",
+                "s": 30.16,
+                "e": 30.62,
+                "p": 0.9974369704723358
+              },
+              {
+                "w": "Those",
+                "s": 31.3,
+                "e": 31.32,
+                "p": 0.987038254737854
+              },
+              {
+                "w": "numbers",
+                "s": 31.32,
+                "e": 31.56,
+                "p": 0.9978082776069641
+              },
+              {
+                "w": "come",
+                "s": 31.56,
+                "e": 31.88,
+                "p": 0.9935469031333923
+              },
+              {
+                "w": "from",
+                "s": 31.88,
+                "e": 32.08,
+                "p": 0.9904623627662659
+              },
+              {
+                "w": "just",
+                "s": 32.08,
+                "e": 32.26,
+                "p": 0.9687697291374207
+              },
+              {
+                "w": "one",
+                "s": 32.26,
+                "e": 32.54,
+                "p": 0.94793301820755
+              },
+              {
+                "w": "Intel",
+                "s": 32.54,
+                "e": 32.98,
+                "p": 0.9515861868858337
+              },
+              {
+                "w": "laptop.",
+                "s": 32.98,
+                "e": 33.32,
+                "p": 0.9826783537864685
+              },
+              {
+                "w": "Other",
+                "s": 34.06,
+                "e": 34.26,
+                "p": 0.9840146899223328
+              },
+              {
+                "w": "machines",
+                "s": 34.26,
+                "e": 34.46,
+                "p": 0.9816950559616089
+              },
+              {
+                "w": "will",
+                "s": 34.46,
+                "e": 34.76,
+                "p": 0.996751070022583
+              },
+              {
+                "w": "differ,",
+                "s": 34.76,
+                "e": 34.98,
+                "p": 0.9977757334709167
+              },
+              {
+                "w": "the",
+                "s": 35.22,
+                "e": 35.26,
+                "p": 0.9932244420051575
+              },
+              {
+                "w": "author",
+                "s": 35.26,
+                "e": 35.4,
+                "p": 0.9824486374855042
+              },
+              {
+                "w": "says.",
+                "s": 35.4,
+                "e": 35.76,
+                "p": 0.9966490864753723
+              },
+              {
+                "w": "Windows,",
+                "s": 36.26,
+                "e": 36.6,
+                "p": 0.9508864283561707
+              },
+              {
+                "w": "unpack",
+                "s": 37.06,
+                "e": 37.42,
+                "p": 0.8110882937908173
+              },
+              {
+                "w": "the",
+                "s": 37.42,
+                "e": 37.6,
+                "p": 0.9903428554534912
+              },
+              {
+                "w": "zip,",
+                "s": 37.6,
+                "e": 37.74,
+                "p": 0.865085244178772
+              },
+              {
+                "w": "run",
+                "s": 38.1,
+                "e": 38.16,
+                "p": 0.8658877611160278
+              },
+              {
+                "w": "Janis",
+                "s": 38.16,
+                "e": 38.68,
+                "p": 0.5806862115859985
+              },
+              {
+                "w": "-chat.",
+                "s": 38.68,
+                "e": 39.16,
+                "p": 0.7551150023937225
+              },
+              {
+                "w": "The",
+                "s": 39.48,
+                "e": 39.88,
+                "p": 0.9914467334747314
+              },
+              {
+                "w": "author",
+                "s": 39.88,
+                "e": 40.0,
+                "p": 0.9978067278862
+              },
+              {
+                "w": "calls",
+                "s": 40.0,
+                "e": 40.28,
+                "p": 0.9990129470825195
+              },
+              {
+                "w": "it",
+                "s": 40.28,
+                "e": 40.46,
+                "p": 0.997668445110321
+              },
+              {
+                "w": "an",
+                "s": 40.46,
+                "e": 40.56,
+                "p": 0.9893844723701477
+              },
+              {
+                "w": "experiment,",
+                "s": 40.56,
+                "e": 40.88,
+                "p": 0.9826341271400452
+              },
+              {
+                "w": "not",
+                "s": 41.34,
+                "e": 41.62,
+                "p": 0.997133731842041
+              },
+              {
+                "w": "a",
+                "s": 41.62,
+                "e": 41.7,
+                "p": 0.9965581297874451
+              },
+              {
+                "w": "product.",
+                "s": 41.7,
+                "e": 41.94,
+                "p": 0.9992677569389343
+              },
+              {
+                "w": "Be",
+                "s": 42.56,
+                "e": 42.6,
+                "p": 0.9964644908905029
+              },
+              {
+                "w": "sure",
+                "s": 42.6,
+                "e": 42.74,
+                "p": 0.998406708240509
+              },
+              {
+                "w": "to",
+                "s": 42.74,
+                "e": 42.82,
+                "p": 0.9930028319358826
+              },
+              {
+                "w": "like,",
+                "s": 42.82,
+                "e": 43.02,
+                "p": 0.9450098872184753
+              },
+              {
+                "w": "share,",
+                "s": 43.2,
+                "e": 43.42,
+                "p": 0.9980822801589966
+              },
+              {
+                "w": "and",
+                "s": 43.62,
+                "e": 43.72,
+                "p": 0.9980571866035461
+              },
+              {
+                "w": "save",
+                "s": 43.72,
+                "e": 43.98,
+                "p": 0.995800793170929
+              },
+              {
+                "w": "this",
+                "s": 43.98,
+                "e": 44.26,
+                "p": 0.9926663041114807
+              },
+              {
+                "w": "video.",
+                "s": 44.26,
+                "e": 44.52,
+                "p": 0.9992806315422058
+              }
+            ],
+            "dauer_s": 44.864,
+            "sprache": "en"
+          },
+          "roh_key": "b54e1c39353e29bafbee82e63a7a244696932a1f9d415aa1f1f1c7f020532d67",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "d90a54452e920f75cf52fc30dcadea5c02d74ee4fee1d58aac5e494df8ba3580",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 13,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "d90a54452e920f75cf52fc30dcadea5c02d74ee4fee1d58aac5e494df8ba3580",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein digital gezeichneter Mann in einer Lederjacke und mit leuchtend cyanfarbenen Brillengläsern sitzt an einem Laptop vor einer nächtlichen Stadtkulisse.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine illustrierte Person an einem Laptop mit Stadtkulisse, aber keinen Bezug zu den technischen Daten oder Parametern der gesprochenen Frage.",
+              "erforderliches_bild": "Eine realistische Darstellung oder Grafik, die die technischen Hardware-Spezifikationen oder ein Laptop-System mit Bezug zu großen Sprachmodellen veranschaulicht."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Repository-Vorschaufenster zeigt den Namen prabanta-dev/janas, Leistungsdaten und ein Logo.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbare Repository-Vorschau passt direkt zu dem im Audioteil genannten Projekt Janas-LLM.",
+              "erforderliches_bild": "Keines"
+            },
+            {
+              "index": 2,
+              "gesehen": "Der Bildschirm zeigt Text mit den Worten WEIGHTS STAY und DISK.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die Textgrafik zeigt lediglich Stichpunkte, aber nicht den Betrieb oder das Streaming von Experten von einem NVMe SSD wie gesprochen.",
+              "erforderliches_bild": "Ein Diagramm oder eine Benutzeroberfläche, die das Speichern und Laden von Modellgewichten von einer NVMe-SSD veranschaulicht."
+            },
+            {
+              "index": 3,
+              "gesehen": "In der Abbildung ist Text zu sehen, der 'LLM BILL', 'INPUT TOKENS x PRICE', 'OUTPUT TOKENS x PRICE' und '= PAY PER TOKEN' anzeigt, zusammen mit einem Button 'NVMe SSD'.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Abbildung zeigt eine Rechnungsgrafik für LLM-Tokenpreise und ein beschriftetes UI-Element, aber nicht das Streaming von Experten von einer NVMe SSD.",
+              "erforderliches_bild": "Ein visuelles Diagramm oder eine Animation, die zeigt, wie Token-Experten direkt von einer NVMe-SSD gestreamt werden."
+            },
+            {
+              "index": 4,
+              "gesehen": "Der Bildschirm zeigt den Text JANAS und in einem Kasten den Satz BACK STAY IN MEMORY in türkis auf dunklem Hintergrund.",
+              "note": 3,
+              "passt": false,
+              "grund": "Es ist nur eine Textgrafik der gesprochenen Worte zu sehen, aber keine technische Demonstration oder Visualisierung der im Speicher bleibenden Experten.",
+              "erforderliches_bild": "Eine technische Grafik oder Visualisierung, die zeigt, wie Experten im RAM gehalten werden, während andere von der SSD gestreamt werden."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein dunkler Bildschirm mit zwei markierten Kästen, in denen oben '48 GB MODEL' und unten '32 GB' steht.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell die Behauptung, dass ein 48 GB Modell auf 32 GB läuft, und passt damit genau zur gesprochenen Information.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein schwarzer Bildschirm zeigt den Text JANAS, QWEN3-NEXT-80B, eine schematische Darstellung mit LLM BILL, Input Tokens x Price, Output Tokens x Price = Pay Per Token, und unten nochmals QWEN3-NEXT-80B.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine konzeptionelle Grafik zu LLM-Kostenrechnung und den Modulnamen, aber keinerlei messbare Leistungsdaten wie '24 tokens per second' oder Geschwindigkeitsvergleiche.",
+              "erforderliches_bild": "Ein Benchmark-Diagramm oder Terminal-Ausgabe, das die Geschwindigkeit von 24 Tokens pro Sekunde für Qwen3-Next-80B visuell belegt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Der Bildschirm zeigt ein dunkles UI mit dem Text 'JANAS' und einem hervorgehobenen Textfeld mit der Aufschrift 'LLAMA CPP MANAGED 2.8'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die visuelle Darstellung zeigt exakt den im Text erwähnten Begriff 'llama.cpp managed 2.8' als Benutzeroberflächenelement.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Bild mit Texttafeln auf dunklem Hintergrund, oben steht JANAS, darunter NUMBERS COME und ONE INTEL LAPTOP.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt nur Textüberschriften und keine reale Ansicht des erwähnten Intel Laptops oder von Benchmarks.",
+              "erforderliches_bild": "Ein Foto oder eine Darstellung eines Intel-Laptops, auf dem das beschriebene LLM-Experiment läuft."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein schwarzer Bildschirm zeigt den Text JANAS gefolgt von Optionen wie OTHER MACHINES, DIFFER und AUTHOR SAYS in farbigen Kastenrahmen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt Textüberschriften und Menüpunkte auf dem Bildschirm, aber nicht die versprochenen verschiedenen Maschinen oder Leistungsdaten.",
+              "erforderliches_bild": "Eine Grafik oder ein Vergleich verschiedener Computer-Modelle und deren Leistungsmetriken nebeneinander."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein dunkler Bildschirm mit zwei leeren umrandeten Feldern und einem roten NOT-Button in der Mitte.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt nur leere Platzhalterboxen mit Fragezeichen und einen NOT-Button, aber keine sichtbare Windows-Installation oder Ausführung der janas-chat Software.",
+              "erforderliches_bild": "Ein Screenshot oder eine Aufnahme, die zeigt, wie das ZIP-Archiv entpackt und die janas-chat Anwendung unter Windows gestartet wird."
+            },
+            {
+              "index": 11,
+              "gesehen": "Der Text auf dem Bildschirm lautet 'JANAS - CALLS IT AN EXPERIMENT - NOT - PRODUCT'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der Text im Bild greift direkt den gesprochenen Satz 'The author calls it an experiment, not a product' auf und stellt ihn bildlich dar.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da der Text direkt passt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine illustrierte Person an einem Laptop mit Stadtkulisse, aber keinen Bezug zu den technischen Daten oder Parametern der gesprochenen Frage.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die Textgrafik zeigt lediglich Stichpunkte, aber nicht den Betrieb oder das Streaming von Experten von einem NVMe SSD wie gesprochen.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt eine Rechnungsgrafik für LLM-Tokenpreise und ein beschriftetes UI-Element, aber nicht das Streaming von Experten von einer NVMe SSD.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Es ist nur eine Textgrafik der gesprochenen Worte zu sehen, aber keine technische Demonstration oder Visualisierung der im Speicher bleibenden Experten.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine konzeptionelle Grafik zu LLM-Kostenrechnung und den Modulnamen, aber keinerlei messbare Leistungsdaten wie '24 tokens per second' oder Geschwindigkeitsvergleiche.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt nur Textüberschriften und keine reale Ansicht des erwähnten Intel Laptops oder von Benchmarks.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Textüberschriften und Menüpunkte auf dem Bildschirm, aber nicht die versprochenen verschiedenen Maschinen oder Leistungsdaten.",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt nur leere Platzhalterboxen mit Fragezeichen und einen NOT-Button, aber keine sichtbare Windows-Installation oder Ausführung der janas-chat Software."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 13,
+          "ausgenommen": [
+            12
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "d90a54452e920f75cf52fc30dcadea5c02d74ee4fee1d58aac5e494df8ba3580",
+        "prompt_version": "2026-10-13.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "modell": "groq:openai/gpt-oss-120b",
+        "zweitpruefer_modell": null,
+        "zweitpruefer_anderer_anbieter": false
+      }
     }
   ]
 }

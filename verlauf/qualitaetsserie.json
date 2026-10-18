@@ -53240,6 +53240,104 @@
         "zweitpruefer_modell": null,
         "zweitpruefer_anderer_anbieter": false
       }
+    },
+    {
+      "id": "39141604726.1:ai-tools-explained",
+      "run_id": "39141604726",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-18T15:52:32.839193+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "f0d1fdffe34232514cb1241dd8e0e51a749062ef",
+      "produktionsversion": "65a6e5f28f9ffcf50abf19dbd9997865c14c9fe5528544fdb6f61bc480a9cfd2",
+      "videoformat": "short",
+      "thema": "mixelpixx/konnect",
+      "titel": [
+        "*Konnect* Explained",
+        "AI Designs Your PCB"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 12,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "39141604726",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-18",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 123.6,
+            "bau_s": 124.0,
+            "baufehler": "ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten",
+            "status": "baufehler",
+            "sekunden": 247.7
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 0.3,
+            "baufehler": "ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten",
+            "status": "baufehler",
+            "sekunden": 0.3
+          },
+          {
+            "runde": 3,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 102.7,
+            "baufehler": "ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten",
+            "status": "baufehler",
+            "sekunden": 102.7
+          },
+          {
+            "runde": 4,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 134.6,
+            "baufehler": "ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten",
+            "status": "baufehler",
+            "sekunden": 134.6
+          },
+          {
+            "runde": 5,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 106.7,
+            "baufehler": "ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten",
+            "status": "baufehler",
+            "sekunden": 106.7
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Videobau fehlgeschlagen (ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten)",
+        "sekunden": 592.5,
+        "upload_titel": "Konnect Explained: AI Designs Your PCB | AI Tool #8"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

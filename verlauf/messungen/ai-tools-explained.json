@@ -1,23 +1,5 @@
 [
   {
-    "id": "37659694533",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-07",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 1,
-        "grund": "Skript fehlgeschlagen (Code 1)",
-        "sekunden": 21.4
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Skript fehlgeschlagen (Code 1)",
-    "sekunden": 21.5
-  },
-  {
     "id": "37674279247",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-07",
@@ -8911,5 +8893,61 @@
     "grund": "",
     "sekunden": 675.7,
     "upload_titel": "80B AI on a laptop: Janas-LLM explained | AI Tool #8"
+  },
+  {
+    "id": "39141604726",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-10-18",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "skript_s": 123.6,
+        "bau_s": 124.0,
+        "baufehler": "ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten",
+        "status": "baufehler",
+        "sekunden": 247.7
+      },
+      {
+        "runde": 2,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 0.3,
+        "baufehler": "ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten",
+        "status": "baufehler",
+        "sekunden": 0.3
+      },
+      {
+        "runde": 3,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 102.7,
+        "baufehler": "ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten",
+        "status": "baufehler",
+        "sekunden": 102.7
+      },
+      {
+        "runde": 4,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 134.6,
+        "baufehler": "ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten",
+        "status": "baufehler",
+        "sekunden": 134.6
+      },
+      {
+        "runde": 5,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 106.7,
+        "baufehler": "ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten",
+        "status": "baufehler",
+        "sekunden": 106.7
+      }
+    ],
+    "status": "gesperrt",
+    "grund": "Videobau fehlgeschlagen (ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten)",
+    "sekunden": 592.5,
+    "upload_titel": "Konnect Explained: AI Designs Your PCB | AI Tool #8"
   }
 ]

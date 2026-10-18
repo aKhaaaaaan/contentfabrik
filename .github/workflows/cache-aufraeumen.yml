@@ -1,0 +1,29 @@
+# Veraltete Actions-Caches loeschen (fabrik/cache_aufraeumen.py). GEMESSEN 18.10.2026: 10,73 GB von 10 GB,
+# fast alles alte Clip-Caches; GitHubs LRU-Verdraengung haette sonst die Langvideo-Zwischenstaende geloescht.
+# Laeuft nach jedem Videolauf (auch gescheiterten) und einmal, wenn diese Dateien geaendert werden.
+name: cache-aufraeumen
+on:
+  workflow_run:
+    workflows: [video, langvideo, pilot, bildkorrektur]
+    types: [completed]
+  push:
+    branches: [main]
+    paths: ['.github/workflows/cache-aufraeumen.yml', 'fabrik/cache_aufraeumen.py']
+  workflow_dispatch:
+permissions:
+  actions: write
+concurrency:
+  group: cache-aufraeumen
+  cancel-in-progress: false
+jobs:
+  aufraeumen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: fabrik/cache_aufraeumen.py
+          sparse-checkout-cone-mode: false
+      - run: python3 fabrik/cache_aufraeumen.py
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

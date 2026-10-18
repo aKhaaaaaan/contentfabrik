@@ -54599,6 +54599,1550 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "39144843241.1:ai-tools-explained",
+      "run_id": "39144843241",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-18T16:33:00.001944+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "811e48737b2bd925a3015138f9904b41cbe5d277",
+      "produktionsversion": "32494f9f8d0c62c145bf75c8890c0b612f784a74b6ca849e6a51b94d8250ee38",
+      "videoformat": "short",
+      "thema": "mixelpixx/konnect",
+      "titel": [
+        "*Konnect* Explained",
+        "AI Designs Your PCB"
+      ],
+      "status": "gesendet",
+      "video_sha256": "c0ed2aca8fb8c041c920c1b1c07ce84c7d262f541601d2e7d3d581a1ba658d92",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-18.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 1/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einer städtischen Straßenszene, der manuell an etwas arbeitet, was jedoch in keinem Zusammenhang mit dem Erklären des KiCAD-Plugins oder dem Platzieren von elektronischen Bauteilen steht.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik zeigt zwar die Begriffe \"Other Assistants\" und \"Work your project directly\", aber es wird keine tatsächliche Interaktion oder Softwareoberfläche gezeigt.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Grafik zeigt lediglich die Frage als Text in einer Chat-Oberfläche, aber keine visuelle Demonstration oder Erklärung von ERC, DRC oder Audits.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die visuelle Darstellung zeigt nur den Projekttitel und Text ohne jeglichen Bezug zur Suche in einem lokalen Teilekatalog oder JLCPCB.",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (1/10): Es zeigt lediglich Texttitel auf einem Bildschirm und demonstriert keine spezifische Softwarefunktion oder einen Überprüfungsvorgang bezüglich des Beta-Status.",
+        "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine textuelle Gegenüberstellung von 'Review' und 'Part by hand' statt des tatsächlichen Arbeitsablaufs oder der manuellen Bauteileplatzierung.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Mann in einer städtischen Straßenszene, der manuell an etwas arbeitet, was jedoch in keinem Zusammenhang mit dem Erklären des KiCAD-Plugins oder dem Platzieren von elektronischen Bauteilen steht. Korrektur: Ein Screenshot der KiCAD-Benutzeroberfläche mit dem installierten Konnect-Plugin, das Bauteile automatisch platziert.",
+        "Offenes Problem (schwer): Die Textgrafik zeigt zwar die Begriffe \"Other Assistants\" und \"Work your project directly\", aber es wird keine tatsächliche Interaktion oder Softwareoberfläche gezeigt. Korrektur: Ein Screenshot einer KI-Assistenten-Oberfläche oder eines Chat-Fensters, das die direkte Bearbeitung eines Projekts durch einen Assistenten demonstriert.",
+        "Offenes Problem (schwer): Die gezeigte Grafik zeigt lediglich die Frage als Text in einer Chat-Oberfläche, aber keine visuelle Demonstration oder Erklärung von ERC, DRC oder Audits. Korrektur: Ein Screenshot der Software, der die Durchführung von ERC- oder DRC-Prüfungen mit sichtbaren Fehlermeldungen oder Auditergebnissen zeigt.",
+        "Offenes Problem (schwer): Die visuelle Darstellung zeigt nur den Projekttitel und Text ohne jeglichen Bezug zur Suche in einem lokalen Teilekatalog oder JLCPCB. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, die den lokalen JLCPCB-Teilekatalog mit Suchergebnissen und Bauteilvorschlägen anzeigt.",
+        "Offenes Problem (schwer): Es zeigt lediglich Texttitel auf einem Bildschirm und demonstriert keine spezifische Softwarefunktion oder einen Überprüfungsvorgang bezüglich des Beta-Status. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, der zeigt, wie der Benutzer eine Überprüfung (Review) von Platinen oder Schaltplänen im Konnect-Plugin durchführt.",
+        "Offenes Problem (schwer): Das Bild zeigt eine textuelle Gegenüberstellung von 'Review' und 'Part by hand' statt des tatsächlichen Arbeitsablaufs oder der manuellen Bauteileplatzierung. Korrektur: Ein Screenshot der KiCAD-Oberfläche, der zeigt, wie Bauteile manuell per Hand platziert werden."
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 13,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "39144843241",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-18",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 144.1,
+            "pruefung_s": 34.6,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 1/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einer städtischen Straßenszene, der manuell an etwas arbeitet, was jedoch in keinem Zusammenhang mit dem Erklären des KiCAD-Plugins oder dem Platzieren von elektronischen Bauteilen steht.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik zeigt zwar die Begriffe \"Other Assistants\" und \"Work your project directly\", aber es wird keine tatsächliche Interaktion oder Softwareoberfläche gezeigt.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Grafik zeigt lediglich die Frage als Text in einer Chat-Oberfläche, aber keine visuelle Demonstration oder Erklärung von ERC, DRC oder Audits.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die visuelle Darstellung zeigt nur den Projekttitel und Text ohne jeglichen Bezug zur Suche in einem lokalen Teilekatalog oder JLCPCB.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (1/10): Es zeigt lediglich Texttitel auf einem Bildschirm und demonstriert keine spezifische Softwarefunktion oder einen Überprüfungsvorgang bezüglich des Beta-Status.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine textuelle Gegenüberstellung von 'Review' und 'Part by hand' statt des tatsächlichen Arbeitsablaufs oder der manuellen Bauteileplatzierung.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann in einer städtischen Straßenszene, der manuell an etwas arbeitet, was jedoch in keinem Zusammenhang mit dem Erklären des KiCAD-Plugins oder dem Platzieren von elektronischen Bauteilen steht. Korrektur: Ein Screenshot der KiCAD-Benutzeroberfläche mit dem installierten Konnect-Plugin, das Bauteile automatisch platziert.",
+              "Offenes Problem (schwer): Die Textgrafik zeigt zwar die Begriffe \"Other Assistants\" und \"Work your project directly\", aber es wird keine tatsächliche Interaktion oder Softwareoberfläche gezeigt. Korrektur: Ein Screenshot einer KI-Assistenten-Oberfläche oder eines Chat-Fensters, das die direkte Bearbeitung eines Projekts durch einen Assistenten demonstriert.",
+              "Offenes Problem (schwer): Die gezeigte Grafik zeigt lediglich die Frage als Text in einer Chat-Oberfläche, aber keine visuelle Demonstration oder Erklärung von ERC, DRC oder Audits. Korrektur: Ein Screenshot der Software, der die Durchführung von ERC- oder DRC-Prüfungen mit sichtbaren Fehlermeldungen oder Auditergebnissen zeigt.",
+              "Offenes Problem (schwer): Die visuelle Darstellung zeigt nur den Projekttitel und Text ohne jeglichen Bezug zur Suche in einem lokalen Teilekatalog oder JLCPCB. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, die den lokalen JLCPCB-Teilekatalog mit Suchergebnissen und Bauteilvorschlägen anzeigt.",
+              "Offenes Problem (schwer): Es zeigt lediglich Texttitel auf einem Bildschirm und demonstriert keine spezifische Softwarefunktion oder einen Überprüfungsvorgang bezüglich des Beta-Status. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, der zeigt, wie der Benutzer eine Überprüfung (Review) von Platinen oder Schaltplänen im Konnect-Plugin durchführt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine textuelle Gegenüberstellung von 'Review' und 'Part by hand' statt des tatsächlichen Arbeitsablaufs oder der manuellen Bauteileplatzierung. Korrektur: Ein Screenshot der KiCAD-Oberfläche, der zeigt, wie Bauteile manuell per Hand platziert werden."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.083,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "clips_und_stuecke": 83.4,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 11,
+              "rendern": 25.3,
+              "gesamt": 143.9,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                8.02,
+                6.48,
+                5.98,
+                5.94,
+                8.74,
+                6.98,
+                2.85
+              ],
+              "woerter": 103
+            },
+            "kategorien": {
+              "bild_passt": 1
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Placing every part by hand?",
+                "text": "Das Bild zeigt einen Mann in einer städtischen Straßenszene, der manuell an etwas arbeitet, was jedoch in keinem Zusammenhang mit dem Erklären des KiCAD-Plugins oder dem Platzieren von elektronischen Bauteilen steht. Korrektur: Ein Screenshot der KiCAD-Benutzeroberfläche mit dem installierten Konnect-Plugin, das Bauteile automatisch platziert."
+              },
+              {
+                "zeit": "00:11.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "other assistants can work your project directly.",
+                "text": "Die Textgrafik zeigt zwar die Begriffe \"Other Assistants\" und \"Work your project directly\", aber es wird keine tatsächliche Interaktion oder Softwareoberfläche gezeigt. Korrektur: Ein Screenshot einer KI-Assistenten-Oberfläche oder eines Chat-Fensters, das die direkte Bearbeitung eines Projekts durch einen Assistenten demonstriert."
+              },
+              {
+                "zeit": "00:20.48",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "Can it check its work?",
+                "text": "Die gezeigte Grafik zeigt lediglich die Frage als Text in einer Chat-Oberfläche, aber keine visuelle Demonstration oder Erklärung von ERC, DRC oder Audits. Korrektur: Ein Screenshot der Software, der die Durchführung von ERC- oder DRC-Prüfungen mit sichtbaren Fehlermeldungen oder Auditergebnissen zeigt."
+              },
+              {
+                "zeit": "00:26.42",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "It also searches in-stock JLCPCB parts in a local",
+                "text": "Die visuelle Darstellung zeigt nur den Projekttitel und Text ohne jeglichen Bezug zur Suche in einem lokalen Teilekatalog oder JLCPCB. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, die den lokalen JLCPCB-Teilekatalog mit Suchergebnissen und Bauteilvorschlägen anzeigt."
+              },
+              {
+                "zeit": "00:35.16",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "It's still beta, so review matters.",
+                "text": "Es zeigt lediglich Texttitel auf einem Bildschirm und demonstriert keine spezifische Softwarefunktion oder einen Überprüfungsvorgang bezüglich des Beta-Status. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, der zeigt, wie der Benutzer eine Überprüfung (Review) von Platinen oder Schaltplänen im Konnect-Plugin durchführt."
+              },
+              {
+                "zeit": "00:37.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "Instead of placing every part by hand, you direct and review.",
+                "text": "Das Bild zeigt eine textuelle Gegenüberstellung von 'Review' und 'Part by hand' statt des tatsächlichen Arbeitsablaufs oder der manuellen Bauteileplatzierung. Korrektur: Ein Screenshot der KiCAD-Oberfläche, der zeigt, wie Bauteile manuell per Hand platziert werden."
+              }
+            ],
+            "sekunden": 178.8,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 2.5,
+            "bau_s": 97.9,
+            "pruefung_s": 14.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 1/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Die Abbildung zeigt lediglich eine illustrierte Person, die an einem Tisch sitzt, aber keinen Bezug zu manueller Bauteilplatzierung oder KiCAD Plugins.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (6/10): Das Bild zeigt lediglich eine Benutzeroberfläche mit entsprechenden Menütexten, stellt jedoch nicht die aktive Arbeit von Assistenten am Projekt dar.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Grafik zeigt lediglich die Frage als Text in einer Chat-Oberfläche, aber keine visuelle Demonstration oder Erklärung von ERC, DRC oder Audits.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die visuelle Darstellung zeigt nur den Projekttitel und Text ohne jeglichen Bezug zur Suche in einem lokalen Teilekatalog oder JLCPCB.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (1/10): Es zeigt lediglich Texttitel auf einem Bildschirm und demonstriert keine spezifische Softwarefunktion oder einen Überprüfungsvorgang bezüglich des Beta-Status.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine textuelle Gegenüberstellung von 'Review' und 'Part by hand' statt des tatsächlichen Arbeitsablaufs oder der manuellen Bauteileplatzierung.",
+              "Offenes Problem (schwer): Die Abbildung zeigt lediglich eine illustrierte Person, die an einem Tisch sitzt, aber keinen Bezug zu manueller Bauteilplatzierung oder KiCAD Plugins. Korrektur: Eine Bildschirmaufnahme von KiCAD, die zeigt, wie Bauteile manuell auf einer Leiterplatte platziert werden.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine Benutzeroberfläche mit entsprechenden Menütexten, stellt jedoch nicht die aktive Arbeit von Assistenten am Projekt dar. Korrektur: Ein Screenshot oder eine Animation, in der ein Assistent (wie Claude) direkt innerhalb der Software-Oberfläche an dem Projekt arbeitet.",
+              "Offenes Problem (schwer): Die gezeigte Grafik zeigt lediglich die Frage als Text in einer Chat-Oberfläche, aber keine visuelle Demonstration oder Erklärung von ERC, DRC oder Audits. Korrektur: Ein Screenshot der Software, der die Durchführung von ERC- oder DRC-Prüfungen mit sichtbaren Fehlermeldungen oder Auditergebnissen zeigt.",
+              "Offenes Problem (schwer): Die visuelle Darstellung zeigt nur den Projekttitel und Text ohne jeglichen Bezug zur Suche in einem lokalen Teilekatalog oder JLCPCB. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, die den lokalen JLCPCB-Teilekatalog mit Suchergebnissen und Bauteilvorschlägen anzeigt.",
+              "Offenes Problem (schwer): Es zeigt lediglich Texttitel auf einem Bildschirm und demonstriert keine spezifische Softwarefunktion oder einen Überprüfungsvorgang bezüglich des Beta-Status. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, der zeigt, wie der Benutzer eine Überprüfung (Review) von Platinen oder Schaltplänen im Konnect-Plugin durchführt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine textuelle Gegenüberstellung von 'Review' und 'Part by hand' statt des tatsächlichen Arbeitsablaufs oder der manuellen Bauteileplatzierung. Korrektur: Ein Screenshot der KiCAD-Oberfläche, der zeigt, wie Bauteile manuell per Hand platziert werden."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.083,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 7,
+              "stuecke_neu": 6,
+              "clips_und_stuecke": 64.4,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 11,
+              "rendern": 24.8,
+              "gesamt": 97.8,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                8.02,
+                6.48,
+                5.98,
+                5.94,
+                8.74,
+                6.98,
+                2.85
+              ],
+              "woerter": 103
+            },
+            "kategorien": {
+              "bild_passt": 1
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Placing every part by hand?",
+                "text": "Die Abbildung zeigt lediglich eine illustrierte Person, die an einem Tisch sitzt, aber keinen Bezug zu manueller Bauteilplatzierung oder KiCAD Plugins. Korrektur: Eine Bildschirmaufnahme von KiCAD, die zeigt, wie Bauteile manuell auf einer Leiterplatte platziert werden."
+              },
+              {
+                "zeit": "00:11.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "other assistants can work your project directly.",
+                "text": "Das Bild zeigt lediglich eine Benutzeroberfläche mit entsprechenden Menütexten, stellt jedoch nicht die aktive Arbeit von Assistenten am Projekt dar. Korrektur: Ein Screenshot oder eine Animation, in der ein Assistent (wie Claude) direkt innerhalb der Software-Oberfläche an dem Projekt arbeitet."
+              },
+              {
+                "zeit": "00:20.48",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "Can it check its work?",
+                "text": "Die gezeigte Grafik zeigt lediglich die Frage als Text in einer Chat-Oberfläche, aber keine visuelle Demonstration oder Erklärung von ERC, DRC oder Audits. Korrektur: Ein Screenshot der Software, der die Durchführung von ERC- oder DRC-Prüfungen mit sichtbaren Fehlermeldungen oder Auditergebnissen zeigt."
+              },
+              {
+                "zeit": "00:26.42",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "It also searches in-stock JLCPCB parts in a local",
+                "text": "Die visuelle Darstellung zeigt nur den Projekttitel und Text ohne jeglichen Bezug zur Suche in einem lokalen Teilekatalog oder JLCPCB. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, die den lokalen JLCPCB-Teilekatalog mit Suchergebnissen und Bauteilvorschlägen anzeigt."
+              },
+              {
+                "zeit": "00:35.16",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "It's still beta, so review matters.",
+                "text": "Es zeigt lediglich Texttitel auf einem Bildschirm und demonstriert keine spezifische Softwarefunktion oder einen Überprüfungsvorgang bezüglich des Beta-Status. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, der zeigt, wie der Benutzer eine Überprüfung (Review) von Platinen oder Schaltplänen im Konnect-Plugin durchführt."
+              },
+              {
+                "zeit": "00:37.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "Instead of placing every part by hand, you direct and review.",
+                "text": "Das Bild zeigt eine textuelle Gegenüberstellung von 'Review' und 'Part by hand' statt des tatsächlichen Arbeitsablaufs oder der manuellen Bauteileplatzierung. Korrektur: Ein Screenshot der KiCAD-Oberfläche, der zeigt, wie Bauteile manuell per Hand platziert werden."
+              }
+            ],
+            "sekunden": 114.6,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "39144843241-2",
+              "datum": "2026-10-18",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 114.6,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 1
+              },
+              "kategorien_nachher": {
+                "bild_passt": 1
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                3,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 2.5,
+            "bau_s": 91.7,
+            "pruefung_s": 15.1,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 1/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (1/10): Das Bild zeigt einen bewaffneten Mann in einer Straße, während der Text von manueller Bauteileplatzierung und KI-Schaltplan-Entwurf spricht. Es gibt keinen Bezug zu Elektronik, CAD oder PCB-Design.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich ein Logo und UI-Schaltflächen mit dem Text der Assistant-Optionen, jedoch wird keine echte Softwareoberfläche, kein MCP-Protokoll oder eine praktische Umsetzung von Assistenten bei der Projektbearbeitung gezeigt.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Grafik zeigt lediglich die Frage als Text in einer Chat-Oberfläche, aber keine visuelle Demonstration oder Erklärung von ERC, DRC oder Audits.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die visuelle Darstellung zeigt nur den Projekttitel und Text ohne jeglichen Bezug zur Suche in einem lokalen Teilekatalog oder JLCPCB.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (1/10): Es zeigt lediglich Texttitel auf einem Bildschirm und demonstriert keine spezifische Softwarefunktion oder einen Überprüfungsvorgang bezüglich des Beta-Status.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine textuelle Gegenüberstellung von 'Review' und 'Part by hand' statt des tatsächlichen Arbeitsablaufs oder der manuellen Bauteileplatzierung.",
+              "Offenes Problem (schwer): Das Bild zeigt einen bewaffneten Mann in einer Straße, während der Text von manueller Bauteileplatzierung und KI-Schaltplan-Entwurf spricht. Es gibt keinen Bezug zu Elektronik, CAD oder PCB-Design. Korrektur: Ein Screenshot oder eine Animation, die zeigt, wie elektronische Bauteile mühsam von Hand auf einer Platine platziert werden.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich ein Logo und UI-Schaltflächen mit dem Text der Assistant-Optionen, jedoch wird keine echte Softwareoberfläche, kein MCP-Protokoll oder eine praktische Umsetzung von Assistenten bei der Projektbearbeitung gezeigt. Korrektur: Ein Screenshot der KiCAD-Oberfläche oder des MCP-Assistenten, der aktiv mit dem PCB-Projekt arbeitet.",
+              "Offenes Problem (schwer): Die gezeigte Grafik zeigt lediglich die Frage als Text in einer Chat-Oberfläche, aber keine visuelle Demonstration oder Erklärung von ERC, DRC oder Audits. Korrektur: Ein Screenshot der Software, der die Durchführung von ERC- oder DRC-Prüfungen mit sichtbaren Fehlermeldungen oder Auditergebnissen zeigt.",
+              "Offenes Problem (schwer): Die visuelle Darstellung zeigt nur den Projekttitel und Text ohne jeglichen Bezug zur Suche in einem lokalen Teilekatalog oder JLCPCB. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, die den lokalen JLCPCB-Teilekatalog mit Suchergebnissen und Bauteilvorschlägen anzeigt.",
+              "Offenes Problem (schwer): Es zeigt lediglich Texttitel auf einem Bildschirm und demonstriert keine spezifische Softwarefunktion oder einen Überprüfungsvorgang bezüglich des Beta-Status. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, der zeigt, wie der Benutzer eine Überprüfung (Review) von Platinen oder Schaltplänen im Konnect-Plugin durchführt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine textuelle Gegenüberstellung von 'Review' und 'Part by hand' statt des tatsächlichen Arbeitsablaufs oder der manuellen Bauteileplatzierung. Korrektur: Ein Screenshot der KiCAD-Oberfläche, der zeigt, wie Bauteile manuell per Hand platziert werden."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.083,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 7,
+              "stuecke_neu": 6,
+              "clips_und_stuecke": 59.0,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 11,
+              "rendern": 24.8,
+              "gesamt": 91.5,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                8.02,
+                6.48,
+                5.98,
+                5.94,
+                8.74,
+                6.98,
+                2.85
+              ],
+              "woerter": 103
+            },
+            "kategorien": {
+              "bild_passt": 1
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Placing every part by hand?",
+                "text": "Das Bild zeigt einen bewaffneten Mann in einer Straße, während der Text von manueller Bauteileplatzierung und KI-Schaltplan-Entwurf spricht. Es gibt keinen Bezug zu Elektronik, CAD oder PCB-Design. Korrektur: Ein Screenshot oder eine Animation, die zeigt, wie elektronische Bauteile mühsam von Hand auf einer Platine platziert werden."
+              },
+              {
+                "zeit": "00:11.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "other assistants can work your project directly.",
+                "text": "Das Bild zeigt lediglich ein Logo und UI-Schaltflächen mit dem Text der Assistant-Optionen, jedoch wird keine echte Softwareoberfläche, kein MCP-Protokoll oder eine praktische Umsetzung von Assistenten bei der Projektbearbeitung gezeigt. Korrektur: Ein Screenshot der KiCAD-Oberfläche oder des MCP-Assistenten, der aktiv mit dem PCB-Projekt arbeitet."
+              },
+              {
+                "zeit": "00:20.48",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "Can it check its work?",
+                "text": "Die gezeigte Grafik zeigt lediglich die Frage als Text in einer Chat-Oberfläche, aber keine visuelle Demonstration oder Erklärung von ERC, DRC oder Audits. Korrektur: Ein Screenshot der Software, der die Durchführung von ERC- oder DRC-Prüfungen mit sichtbaren Fehlermeldungen oder Auditergebnissen zeigt."
+              },
+              {
+                "zeit": "00:26.42",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "It also searches in-stock JLCPCB parts in a local",
+                "text": "Die visuelle Darstellung zeigt nur den Projekttitel und Text ohne jeglichen Bezug zur Suche in einem lokalen Teilekatalog oder JLCPCB. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, die den lokalen JLCPCB-Teilekatalog mit Suchergebnissen und Bauteilvorschlägen anzeigt."
+              },
+              {
+                "zeit": "00:35.16",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "It's still beta, so review matters.",
+                "text": "Es zeigt lediglich Texttitel auf einem Bildschirm und demonstriert keine spezifische Softwarefunktion oder einen Überprüfungsvorgang bezüglich des Beta-Status. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, der zeigt, wie der Benutzer eine Überprüfung (Review) von Platinen oder Schaltplänen im Konnect-Plugin durchführt."
+              },
+              {
+                "zeit": "00:37.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "Instead of placing every part by hand, you direct and review.",
+                "text": "Das Bild zeigt eine textuelle Gegenüberstellung von 'Review' und 'Part by hand' statt des tatsächlichen Arbeitsablaufs oder der manuellen Bauteileplatzierung. Korrektur: Ein Screenshot der KiCAD-Oberfläche, der zeigt, wie Bauteile manuell per Hand platziert werden."
+              }
+            ],
+            "sekunden": 109.2,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "39144843241-3",
+              "datum": "2026-10-18",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 109.2,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 1
+              },
+              "kategorien_nachher": {
+                "bild_passt": 1
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 446.5,
+        "upload_titel": "Konnect Explained: AI Designs Your PCB | AI Tool #8"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 1
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Placing every part by hand?",
+            "text": "Das Bild zeigt einen Mann in einer städtischen Straßenszene, der manuell an etwas arbeitet, was jedoch in keinem Zusammenhang mit dem Erklären des KiCAD-Plugins oder dem Platzieren von elektronischen Bauteilen steht. Korrektur: Ein Screenshot der KiCAD-Benutzeroberfläche mit dem installierten Konnect-Plugin, das Bauteile automatisch platziert."
+          },
+          {
+            "zeit": "00:11.26",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "other assistants can work your project directly.",
+            "text": "Die Textgrafik zeigt zwar die Begriffe \"Other Assistants\" und \"Work your project directly\", aber es wird keine tatsächliche Interaktion oder Softwareoberfläche gezeigt. Korrektur: Ein Screenshot einer KI-Assistenten-Oberfläche oder eines Chat-Fensters, das die direkte Bearbeitung eines Projekts durch einen Assistenten demonstriert."
+          },
+          {
+            "zeit": "00:20.48",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 6,
+            "gesprochen": "Can it check its work?",
+            "text": "Die gezeigte Grafik zeigt lediglich die Frage als Text in einer Chat-Oberfläche, aber keine visuelle Demonstration oder Erklärung von ERC, DRC oder Audits. Korrektur: Ein Screenshot der Software, der die Durchführung von ERC- oder DRC-Prüfungen mit sichtbaren Fehlermeldungen oder Auditergebnissen zeigt."
+          },
+          {
+            "zeit": "00:26.42",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "It also searches in-stock JLCPCB parts in a local",
+            "text": "Die visuelle Darstellung zeigt nur den Projekttitel und Text ohne jeglichen Bezug zur Suche in einem lokalen Teilekatalog oder JLCPCB. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, die den lokalen JLCPCB-Teilekatalog mit Suchergebnissen und Bauteilvorschlägen anzeigt."
+          },
+          {
+            "zeit": "00:35.16",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "It's still beta, so review matters.",
+            "text": "Es zeigt lediglich Texttitel auf einem Bildschirm und demonstriert keine spezifische Softwarefunktion oder einen Überprüfungsvorgang bezüglich des Beta-Status. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, der zeigt, wie der Benutzer eine Überprüfung (Review) von Platinen oder Schaltplänen im Konnect-Plugin durchführt."
+          },
+          {
+            "zeit": "00:37.68",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "Instead of placing every part by hand, you direct and review.",
+            "text": "Das Bild zeigt eine textuelle Gegenüberstellung von 'Review' und 'Part by hand' statt des tatsächlichen Arbeitsablaufs oder der manuellen Bauteileplatzierung. Korrektur: Ein Screenshot der KiCAD-Oberfläche, der zeigt, wie Bauteile manuell per Hand platziert werden."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -14.3,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 42.48,
+              "bis_s": 44.54,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.985
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Placing",
+                "s": 0.0,
+                "e": 0.62,
+                "p": 0.7919623553752899
+              },
+              {
+                "w": "every",
+                "s": 0.62,
+                "e": 0.92,
+                "p": 0.947717547416687
+              },
+              {
+                "w": "part",
+                "s": 0.92,
+                "e": 1.46,
+                "p": 0.9988056421279907
+              },
+              {
+                "w": "by",
+                "s": 1.46,
+                "e": 1.7,
+                "p": 0.9685426354408264
+              },
+              {
+                "w": "hand?",
+                "s": 1.7,
+                "e": 2.04,
+                "p": 0.9997851252555847
+              },
+              {
+                "w": "Connect",
+                "s": 2.82,
+                "e": 3.06,
+                "p": 0.8290069103240967
+              },
+              {
+                "w": "is",
+                "s": 3.06,
+                "e": 3.44,
+                "p": 0.9955787062644958
+              },
+              {
+                "w": "a",
+                "s": 3.44,
+                "e": 3.56,
+                "p": 0.9969340562820435
+              },
+              {
+                "w": "KiCAD",
+                "s": 3.56,
+                "e": 4.14,
+                "p": 0.6114100217819214
+              },
+              {
+                "w": "plugin",
+                "s": 4.14,
+                "e": 4.38,
+                "p": 0.8631818890571594
+              },
+              {
+                "w": "letting",
+                "s": 4.38,
+                "e": 4.96,
+                "p": 0.6928501725196838
+              },
+              {
+                "w": "AI",
+                "s": 4.96,
+                "e": 5.34,
+                "p": 0.9829050302505493
+              },
+              {
+                "w": "design",
+                "s": 5.34,
+                "e": 5.9,
+                "p": 0.7742605209350586
+              },
+              {
+                "w": "schematics",
+                "s": 5.9,
+                "e": 6.66,
+                "p": 0.9915172259012858
+              },
+              {
+                "w": "and",
+                "s": 6.66,
+                "e": 6.8,
+                "p": 0.9865747094154358
+              },
+              {
+                "w": "PCBs.",
+                "s": 6.8,
+                "e": 7.64,
+                "p": 0.9866469502449036
+              },
+              {
+                "w": "It",
+                "s": 8.06,
+                "e": 8.24,
+                "p": 0.9956680536270142
+              },
+              {
+                "w": "uses",
+                "s": 8.24,
+                "e": 8.5,
+                "p": 0.9990860223770142
+              },
+              {
+                "w": "the",
+                "s": 8.5,
+                "e": 8.72,
+                "p": 0.9962055683135986
+              },
+              {
+                "w": "model",
+                "s": 8.72,
+                "e": 9.0,
+                "p": 0.8146690130233765
+              },
+              {
+                "w": "context",
+                "s": 9.0,
+                "e": 9.46,
+                "p": 0.9324615597724915
+              },
+              {
+                "w": "protocol",
+                "s": 9.46,
+                "e": 9.86,
+                "p": 0.9981911778450012
+              },
+              {
+                "w": "so",
+                "s": 9.86,
+                "e": 10.56,
+                "p": 0.7129462361335754
+              },
+              {
+                "w": "Claude",
+                "s": 10.56,
+                "e": 10.8,
+                "p": 0.16270074248313904
+              },
+              {
+                "w": "and",
+                "s": 10.8,
+                "e": 11.2,
+                "p": 0.9912130236625671
+              },
+              {
+                "w": "other",
+                "s": 11.2,
+                "e": 11.44,
+                "p": 0.9929614663124084
+              },
+              {
+                "w": "assistants",
+                "s": 11.44,
+                "e": 11.78,
+                "p": 0.7707167267799377
+              },
+              {
+                "w": "can",
+                "s": 11.78,
+                "e": 12.26,
+                "p": 0.9974791407585144
+              },
+              {
+                "w": "work",
+                "s": 12.26,
+                "e": 12.46,
+                "p": 0.9996052384376526
+              },
+              {
+                "w": "your",
+                "s": 12.46,
+                "e": 12.66,
+                "p": 0.9970057606697083
+              },
+              {
+                "w": "project",
+                "s": 12.66,
+                "e": 13.14,
+                "p": 0.9987881779670715
+              },
+              {
+                "w": "directly.",
+                "s": 13.14,
+                "e": 13.64,
+                "p": 0.9964219331741333
+              },
+              {
+                "w": "It",
+                "s": 14.52,
+                "e": 14.56,
+                "p": 0.9952464699745178
+              },
+              {
+                "w": "can",
+                "s": 14.56,
+                "e": 14.7,
+                "p": 0.9967522621154785
+              },
+              {
+                "w": "add",
+                "s": 14.7,
+                "e": 14.94,
+                "p": 0.989776611328125
+              },
+              {
+                "w": "resistors",
+                "s": 14.94,
+                "e": 15.52,
+                "p": 0.9961824119091034
+              },
+              {
+                "w": "and",
+                "s": 15.52,
+                "e": 15.68,
+                "p": 0.9983804225921631
+              },
+              {
+                "w": "connectors,",
+                "s": 15.68,
+                "e": 15.92,
+                "p": 0.997660756111145
+              },
+              {
+                "w": "then",
+                "s": 16.54,
+                "e": 16.54,
+                "p": 0.9866051077842712
+              },
+              {
+                "w": "wire",
+                "s": 16.54,
+                "e": 16.78,
+                "p": 0.9956128597259521
+              },
+              {
+                "w": "them",
+                "s": 16.78,
+                "e": 17.04,
+                "p": 0.9974926710128784
+              },
+              {
+                "w": "by",
+                "s": 17.04,
+                "e": 17.24,
+                "p": 0.9985225796699524
+              },
+              {
+                "w": "pin",
+                "s": 17.24,
+                "e": 17.44,
+                "p": 0.892286479473114
+              },
+              {
+                "w": "name.",
+                "s": 17.44,
+                "e": 17.66,
+                "p": 0.9390724301338196
+              },
+              {
+                "w": "A",
+                "s": 18.32,
+                "e": 18.34,
+                "p": 0.8043307065963745
+              },
+              {
+                "w": "live",
+                "s": 18.34,
+                "e": 18.58,
+                "p": 0.8979076743125916
+              },
+              {
+                "w": "viewer",
+                "s": 18.58,
+                "e": 19.08,
+                "p": 0.9692738652229309
+              },
+              {
+                "w": "refreshes.",
+                "s": 19.08,
+                "e": 19.7,
+                "p": 0.9975051581859589
+              },
+              {
+                "w": "Can",
+                "s": 20.5,
+                "e": 20.8,
+                "p": 0.9650193452835083
+              },
+              {
+                "w": "it",
+                "s": 20.8,
+                "e": 20.9,
+                "p": 0.8554538488388062
+              },
+              {
+                "w": "check",
+                "s": 20.9,
+                "e": 21.04,
+                "p": 0.9983556866645813
+              },
+              {
+                "w": "its",
+                "s": 21.04,
+                "e": 21.22,
+                "p": 0.9532719254493713
+              },
+              {
+                "w": "work?",
+                "s": 21.22,
+                "e": 21.42,
+                "p": 0.9964300990104675
+              },
+              {
+                "w": "It",
+                "s": 22.06,
+                "e": 22.12,
+                "p": 0.9929141998291016
+              },
+              {
+                "w": "runs",
+                "s": 22.12,
+                "e": 22.3,
+                "p": 0.9985370635986328
+              },
+              {
+                "w": "ERC,",
+                "s": 22.3,
+                "e": 22.82,
+                "p": 0.9339459538459778
+              },
+              {
+                "w": "DRC",
+                "s": 23.52,
+                "e": 23.8,
+                "p": 0.9805053472518921
+              },
+              {
+                "w": "and",
+                "s": 23.8,
+                "e": 24.3,
+                "p": 0.6373071670532227
+              },
+              {
+                "w": "decoupling",
+                "s": 24.3,
+                "e": 24.66,
+                "p": 0.937693456808726
+              },
+              {
+                "w": "audits,",
+                "s": 24.66,
+                "e": 24.88,
+                "p": 0.9512799382209778
+              },
+              {
+                "w": "then",
+                "s": 25.36,
+                "e": 25.5,
+                "p": 0.997442364692688
+              },
+              {
+                "w": "exports",
+                "s": 25.5,
+                "e": 25.84,
+                "p": 0.7652530074119568
+              },
+              {
+                "w": "Gerbers.",
+                "s": 25.84,
+                "e": 26.42,
+                "p": 0.6246355921030045
+              },
+              {
+                "w": "It",
+                "s": 26.42,
+                "e": 27.08,
+                "p": 0.486745148897171
+              },
+              {
+                "w": "also",
+                "s": 27.08,
+                "e": 27.42,
+                "p": 0.984264612197876
+              },
+              {
+                "w": "searches",
+                "s": 27.42,
+                "e": 27.82,
+                "p": 0.9952656030654907
+              },
+              {
+                "w": "in",
+                "s": 27.82,
+                "e": 28.22,
+                "p": 0.49606892466545105
+              },
+              {
+                "w": "-stock",
+                "s": 28.22,
+                "e": 28.6,
+                "p": 0.7440333366394043
+              },
+              {
+                "w": "JLCPCB",
+                "s": 28.6,
+                "e": 29.76,
+                "p": 0.9566599577665329
+              },
+              {
+                "w": "parts",
+                "s": 29.76,
+                "e": 30.0,
+                "p": 0.9043409824371338
+              },
+              {
+                "w": "in",
+                "s": 30.0,
+                "e": 30.44,
+                "p": 0.93282151222229
+              },
+              {
+                "w": "a",
+                "s": 30.44,
+                "e": 30.5,
+                "p": 0.9899959564208984
+              },
+              {
+                "w": "local",
+                "s": 30.5,
+                "e": 30.68,
+                "p": 0.9871857762336731
+              },
+              {
+                "w": "2",
+                "s": 30.68,
+                "e": 31.04,
+                "p": 0.9746946096420288
+              },
+              {
+                "w": ".5",
+                "s": 31.04,
+                "e": 31.72,
+                "p": 0.9977832138538361
+              },
+              {
+                "w": "million",
+                "s": 31.72,
+                "e": 32.02,
+                "p": 0.9164784550666809
+              },
+              {
+                "w": "part",
+                "s": 32.02,
+                "e": 32.38,
+                "p": 0.7703907489776611
+              },
+              {
+                "w": "catalog",
+                "s": 32.38,
+                "e": 32.8,
+                "p": 0.8572295308113098
+              },
+              {
+                "w": "and",
+                "s": 32.8,
+                "e": 33.32,
+                "p": 0.7451066970825195
+              },
+              {
+                "w": "suggests",
+                "s": 33.32,
+                "e": 33.56,
+                "p": 0.9611464142799377
+              },
+              {
+                "w": "alternatives.",
+                "s": 33.56,
+                "e": 34.02,
+                "p": 0.9946697354316711
+              },
+              {
+                "w": "It's",
+                "s": 35.18,
+                "e": 35.28,
+                "p": 0.9808733761310577
+              },
+              {
+                "w": "still",
+                "s": 35.28,
+                "e": 35.48,
+                "p": 0.9976060390472412
+              },
+              {
+                "w": "beta,",
+                "s": 35.48,
+                "e": 35.7,
+                "p": 0.9482337832450867
+              },
+              {
+                "w": "so",
+                "s": 36.14,
+                "e": 36.22,
+                "p": 0.9985515475273132
+              },
+              {
+                "w": "review",
+                "s": 36.22,
+                "e": 36.42,
+                "p": 0.937993586063385
+              },
+              {
+                "w": "matters.",
+                "s": 36.42,
+                "e": 36.82,
+                "p": 0.9989301562309265
+              },
+              {
+                "w": "Instead",
+                "s": 37.66,
+                "e": 37.82,
+                "p": 0.9976811408996582
+              },
+              {
+                "w": "of",
+                "s": 37.82,
+                "e": 38.1,
+                "p": 0.9993269443511963
+              },
+              {
+                "w": "placing",
+                "s": 38.1,
+                "e": 38.3,
+                "p": 0.9974199533462524
+              },
+              {
+                "w": "every",
+                "s": 38.3,
+                "e": 38.76,
+                "p": 0.9914325475692749
+              },
+              {
+                "w": "part",
+                "s": 38.76,
+                "e": 39.16,
+                "p": 0.9987092018127441
+              },
+              {
+                "w": "by",
+                "s": 39.16,
+                "e": 39.38,
+                "p": 0.9499518871307373
+              },
+              {
+                "w": "hand,",
+                "s": 39.38,
+                "e": 39.76,
+                "p": 0.9997037053108215
+              },
+              {
+                "w": "you",
+                "s": 40.18,
+                "e": 40.24,
+                "p": 0.9969096779823303
+              },
+              {
+                "w": "direct",
+                "s": 40.24,
+                "e": 40.52,
+                "p": 0.9794409275054932
+              },
+              {
+                "w": "and",
+                "s": 40.52,
+                "e": 41.0,
+                "p": 0.9860922694206238
+              },
+              {
+                "w": "review.",
+                "s": 41.0,
+                "e": 41.24,
+                "p": 0.9968440532684326
+              },
+              {
+                "w": "Be",
+                "s": 42.14,
+                "e": 42.18,
+                "p": 0.993362307548523
+              },
+              {
+                "w": "sure",
+                "s": 42.18,
+                "e": 42.36,
+                "p": 0.9993060827255249
+              },
+              {
+                "w": "to",
+                "s": 42.36,
+                "e": 42.48,
+                "p": 0.9956093430519104
+              },
+              {
+                "w": "like,",
+                "s": 42.48,
+                "e": 42.7,
+                "p": 0.9327395558357239
+              },
+              {
+                "w": "share,",
+                "s": 42.98,
+                "e": 43.3,
+                "p": 0.9985598921775818
+              },
+              {
+                "w": "and",
+                "s": 43.64,
+                "e": 43.74,
+                "p": 0.998120129108429
+              },
+              {
+                "w": "save",
+                "s": 43.74,
+                "e": 43.98,
+                "p": 0.9881066083908081
+              },
+              {
+                "w": "this",
+                "s": 43.98,
+                "e": 44.24,
+                "p": 0.99272620677948
+              },
+              {
+                "w": "video.",
+                "s": 44.24,
+                "e": 44.54,
+                "p": 0.9991945624351501
+              }
+            ],
+            "dauer_s": 44.992,
+            "sprache": "en"
+          },
+          "roh_key": "3369e9a8dd9593fd83f3dabbcf7f17610cc678c740cddc59a2c4e77c973460d9",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "c0ed2aca8fb8c041c920c1b1c07ce84c7d262f541601d2e7d3d581a1ba658d92",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 13,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "c0ed2aca8fb8c041c920c1b1c07ce84c7d262f541601d2e7d3d581a1ba658d92",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Mann mit schwarzer Lederjacke und Sonnenbrille sitzt an einem Tisch vor einer Stadtkulisse und zeichnet etwas auf einer kleinen grünen Karte.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Mann in einer städtischen Straßenszene, der manuell an etwas arbeitet, was jedoch in keinem Zusammenhang mit dem Erklären des KiCAD-Plugins oder dem Platzieren von elektronischen Bauteilen steht.",
+              "erforderliches_bild": "Ein Screenshot der KiCAD-Benutzeroberfläche mit dem installierten Konnect-Plugin, das Bauteile automatisch platziert."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Screenshot zeigt die GitHub-Projektseite von 'mixelpixx/Konnect' mit Textbeschreibung und einem Avatar-Bild.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gesprochenen Worte 'Konnect is a KiCAD plugin' stimmen direkt mit dem sichtbaren Projekttitel 'mixelpixx/Konnect' auf der Repository-Seite überein.",
+              "erforderliches_bild": "Ein Screenshot des GitHub-Reporitories oder des KiCAD-Plugins."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein dunkler Bildschirm mit dem Text 'KONNECT', gefolgt von zwei Schaltflächen mit den Inschriften 'MODEL CONTEXT PROTOCOL' und 'CLAUDE'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell direkt die im gesprochenen Satz erwähnten Begriffe 'Model Context Protocol' und 'Claude' als Benutzeroberfläche.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein dunkelblauer Bildschirm mit der Überschrift KONNECK und zwei Schaltflächen, die \"OTHER ASSISTANTS\" und \"WORK YOUR PROJECT DIRECTLY\" anzeigen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Textgrafik zeigt zwar die Begriffe \"Other Assistants\" und \"Work your project directly\", aber es wird keine tatsächliche Interaktion oder Softwareoberfläche gezeigt.",
+              "erforderliches_bild": "Ein Screenshot einer KI-Assistenten-Oberfläche oder eines Chat-Fensters, das die direkte Bearbeitung eines Projekts durch einen Assistenten demonstriert."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein stilisiertes Diagramm mit drei Zylindern, die über gelbe Linien mit einem APP-Kasten verbunden sind. Darunter steht in einem orangefarbenen Kasten 'RESISTORS AND CONNECTORS'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell ein passendes Erklärdiagramm für das Hinzufügen von Resistors und Connectors.",
+              "erforderliches_bild": "Ein passendes Diagramm für die Verbindung."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein dunkler Bildschirm mit dem Schriftzug KONNECT und einer Schaltflaeche mit der Aufschrift LIVE VIEWER REFRESHES.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der Text auf dem Bildschirm zeigt genau die erwaehnte Funktion Live Viewer Refreshes.",
+              "erforderliches_bild": "Ein Screenshot der Software-Oberflaeche, der einen Live-Viewer bei der Aktualisierung zeigt."
+            },
+            {
+              "index": 6,
+              "gesehen": "In einem dunklen Chatfenster mit der Überschrift 'AI CHAT' steht die Frage 'Can it check its work?' in einer türkisen Sprechblase, darunter sind drei ladende Punkte zu sehen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gezeigte Grafik zeigt lediglich die Frage als Text in einer Chat-Oberfläche, aber keine visuelle Demonstration oder Erklärung von ERC, DRC oder Audits.",
+              "erforderliches_bild": "Ein Screenshot der Software, der die Durchführung von ERC- oder DRC-Prüfungen mit sichtbaren Fehlermeldungen oder Auditergebnissen zeigt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Die Abbildung zeigt eine Liste mit Befehlen und Optionen: RUNS ERC, DRC, DECOUPLING AUDITS und EXPORTS GERBERS.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die visuellen Elemente zeigen genau die im Text genannten Prüf- und Exportbefehle RUNS ERC, DRC, DECOUPLING AUDITS und EXPORTS GERBERS.",
+              "erforderliches_bild": "Keines, da die Befehle direkt und gut lesbar gezeigt werden."
+            },
+            {
+              "index": 8,
+              "gesehen": "Der Bildschirm zeigt lediglich das Logo-Wort \"KONNECT\" und den Text \"PARTS IN A LOCAL\" in einem umrandeten Kasten auf dunkelblauem Hintergrund. Es ist kein Katalog, keine Suchfunktion oder JLCPCB-Integration zu sehen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die visuelle Darstellung zeigt nur den Projekttitel und Text ohne jeglichen Bezug zur Suche in einem lokalen Teilekatalog oder JLCPCB.",
+              "erforderliches_bild": "Ein Screenshot der Software-Benutzeroberfläche, die den lokalen JLCPCB-Teilekatalog mit Suchergebnissen und Bauteilvorschlägen anzeigt."
+            },
+            {
+              "index": 9,
+              "gesehen": "Das Bild zeigt eine Softwareoberfläche mit den türkisfarbenen beziehungsweise orangen Menüschaltflächen \"2.5 M-PART CATALOG\" und \"SUGGESTS ALTERNATIVES\" vor einem dunklen Hintergrund.",
+              "note": 10,
+              "passt": true,
+              "grund": "Die sichtbaren Schaltflächen für den 2,5-Millionen-Teile-Katalog und Vorschläge von Alternativen stimmen direkt mit den gesprochenen Wörtern überein.",
+              "erforderliches_bild": "kein Ersatz erforderlich"
+            },
+            {
+              "index": 10,
+              "gesehen": "In der Bildmitte ist ein dunkelblauer Bildschirm zu sehen mit dem obigen Text \"IT'S STILL BETA\" in einem türkisfarbenen Kasten und dem darunter liegenden Text \"REVIEW MATTERS\" in einem orangenen Kasten.",
+              "note": 1,
+              "passt": false,
+              "grund": "Es zeigt lediglich Texttitel auf einem Bildschirm und demonstriert keine spezifische Softwarefunktion oder einen Überprüfungsvorgang bezüglich des Beta-Status.",
+              "erforderliches_bild": "Ein Screenshot der Software-Benutzeroberfläche, der zeigt, wie der Benutzer eine Überprüfung (Review) von Platinen oder Schaltplänen im Konnect-Plugin durchführt."
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein Screenshot zeigt Text mit den Wörtern KONNECT, REVIEW und PART BY HAND sowie ein rotes NOT-Symbol.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt eine textuelle Gegenüberstellung von 'Review' und 'Part by hand' statt des tatsächlichen Arbeitsablaufs oder der manuellen Bauteileplatzierung.",
+              "erforderliches_bild": "Ein Screenshot der KiCAD-Oberfläche, der zeigt, wie Bauteile manuell per Hand platziert werden."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einer städtischen Straßenszene, der manuell an etwas arbeitet, was jedoch in keinem Zusammenhang mit dem Erklären des KiCAD-Plugins oder dem Platzieren von elektronischen Bauteilen steht.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik zeigt zwar die Begriffe \"Other Assistants\" und \"Work your project directly\", aber es wird keine tatsächliche Interaktion oder Softwareoberfläche gezeigt.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Grafik zeigt lediglich die Frage als Text in einer Chat-Oberfläche, aber keine visuelle Demonstration oder Erklärung von ERC, DRC oder Audits.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die visuelle Darstellung zeigt nur den Projekttitel und Text ohne jeglichen Bezug zur Suche in einem lokalen Teilekatalog oder JLCPCB.",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (1/10): Es zeigt lediglich Texttitel auf einem Bildschirm und demonstriert keine spezifische Softwarefunktion oder einen Überprüfungsvorgang bezüglich des Beta-Status.",
+            "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine textuelle Gegenüberstellung von 'Review' und 'Part by hand' statt des tatsächlichen Arbeitsablaufs oder der manuellen Bauteileplatzierung."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 13,
+          "ausgenommen": [
+            12
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "c0ed2aca8fb8c041c920c1b1c07ce84c7d262f541601d2e7d3d581a1ba658d92",
+        "prompt_version": "2026-10-18.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

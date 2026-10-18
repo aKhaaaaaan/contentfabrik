@@ -37,6 +37,8 @@ SFX = Path(__file__).resolve().parent.parent / 'sfx'
 # Ruhige Bewegung auf Illustrationen; Bildwechsel folgen inhaltlichen Beats.
 GEMINI_FAKTOR = 1.0  # zuletzt angewandtes Gemini-Tempo (gemini_ton), fuer messung.json
 ZOOM = '1+0.035*min(on/{n},1)'
+ZOOM_KARTE_MAX = 1.06
+ZOOM_KARTE = f'min(1+0.0004*on,{ZOOM_KARTE_MAX})'  # je Bild bei 30 fps: +1,2 %/s, nach 5 s am Ende
 LAYOUT = {}
 
 
@@ -471,10 +473,15 @@ def tipp_eingabe(ein, ebene, zeichne, titel, ordner):
                           str(Path(ordner) / 'tipp_%03d.png')] + ein[pos + 1:]
 
 
-def karten_filter(hg, ebene, kpfad):
+def karten_filter(hg, ebene, kpfad, zoom=False):
     """ffmpeg-Eingaben und Filter fuer einen Karten-Abschnitt: Hintergrund
     abgedunkelt und weich, Karte gleitet in 0,35 s von unten herein und blendet
-    auf (sichtbarer Wechsel je Platz), Schrift obenauf."""
+    auf (sichtbarer Wechsel je Platz), Schrift obenauf.
+
+    GEMELDET 18.10.2026 (Nutzer): „bei den aktuellen Videos gibt's kein Zoom-in mehr beim Motiv".
+    Seit 90c35fa (10.10.) zeigte der Short jedes Motiv als Karte; der Zoom-Zweig war unerreichbar,
+    das Motiv stand bis auf den 0,35-s-Einflug still. zoom=True: langsamer Zoom auf Motiv und
+    Hintergrund (Schrift bleibt ruhig), ~1,2 %/s, hoechstens ZOOM_KARTE_MAX."""
     ist_bild = Path(hg).suffix.lower() in ('.png', '.jpg', '.jpeg', '.webp')
     if not Path(hg).suffix:  # heruntergeladene Demo-Bilder haben teils keinen Dateisuffix
         try:
@@ -489,7 +496,9 @@ def karten_filter(hg, ebene, kpfad):
             f'eq=brightness=-0.12:saturation=0.95,gblur=sigma=18[bg];'
             f'[2:v]format=rgba,fade=in:st=0:d=0.35:alpha=1[k];'
             f"[bg][k]overlay=x=0:y='32*max(0,1-t/0.35)':eval=frame[b1];"
-            f'[b1][1:v]overlay=0:0,format=yuv420p')
+            + (f"[b1]zoompan=z='{ZOOM_KARTE}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
+               f':d=1:s={B}x{H}:fps={FPS}[b2];[b2][1:v]overlay=0:0,format=yuv420p' if zoom else
+               f'[b1][1:v]overlay=0:0,format=yuv420p'))
     if kpfad is None:  # Abschnitt ohne Karte: nur Hintergrund + Schrift
         return [*hg_ein, '-loop', '1', '-framerate', str(FPS), '-i', str(ebene)], filt.split('[2:v]')[0] +             '[bg][1:v]overlay=0:0,format=yuv420p'
     return [*hg_ein, '-loop', '1', '-framerate', str(FPS), '-i', str(ebene),
@@ -2081,7 +2090,7 @@ def main(skript_pfad, aus, vorlage=None):
             if ill:  # GEMELDET 10.10.2026: auch im Short Motiv gross, dahinter dasselbe Bild verschwommen
                 kpfad = aus / f'karte_{i:02d}.png'
                 karten_ebene(ill, kasten='gross').save(kpfad)
-                ein, filt = karten_filter(ill, ebene, kpfad)
+                ein, filt = karten_filter(ill, ebene, kpfad, zoom=True)
             elif ill:
                 n = max(1, int(dauer * FPS))
                 filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,'
@@ -2092,7 +2101,7 @@ def main(skript_pfad, aus, vorlage=None):
                 quellen.append(fq)
                 kpfad = aus / f'karte_{i:02d}.png'
                 karten_ebene(foto, kasten='gross' if B > H else True).save(kpfad)
-                ein, filt = karten_filter(foto, ebene, kpfad)
+                ein, filt = karten_filter(foto, ebene, kpfad, zoom=True)
             elif karte:
                 kpfad = None
                 if karte:

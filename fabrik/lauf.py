@@ -24,7 +24,10 @@ ZUSATZ_S = {('business-origin-stories', '2026-10-14'): 70 * 60}
 # Nutzer 17.10.2026 ca. 18:00 Berlin, nachdem das Langvideo heute scheiterte: "Koennen wir heute noch
 # Shorts fuer jeweils Kanal erstellen?" -> NUR heute je ein Short mehr als das Tagesziel. Zeitbudget und
 # alle Pruefungen unveraendert (video.yml liest das in tagesziel()).
-EXTRA_VIDEOS = {('ai-tools-explained', '2026-10-17'): 1, ('business-origin-stories', '2026-10-17'): 1}
+# Nutzer 18.10.2026 ca. 17:40 Berlin: "wie sieht's aus eine Video Shorts jeweils Kanal?" - Tagesshorts
+# (Janas, Ford) waren schon geliefert; heute noch je einer, erster Test von Spannungsbogen/Zoom (49588a0).
+EXTRA_VIDEOS = {('ai-tools-explained', '2026-10-17'): 1, ('business-origin-stories', '2026-10-17'): 1,
+                ('ai-tools-explained', '2026-10-18'): 1, ('business-origin-stories', '2026-10-18'): 1}
 
 
 def extra_videos(kanal, datum):

@@ -451,6 +451,9 @@ def vorbereiten(s, laengen, woerter, cache=None):
                           [x['index'] for x in teil], fallback_prompt=fallback)
             neu, _ = bezug_pruefen(gemini, teil, neu)
             daten += neu
+        for i, d in behaltene_einstellungen(s, alt, zeitplan).items():
+            if i < len(daten):
+                daten[i] = d
     if len(daten) != len(zeitplan) or [d.get('index') for d in daten] != list(range(len(zeitplan))):
         raise ValueError('Bildplan deckt nicht alle Sprechphasen lueckenlos ab')
     aus = []
@@ -496,7 +499,28 @@ def vorbereiten(s, laengen, woerter, cache=None):
         t['text'] = slot['text']
         t['_phase'] = slot['phase']
         aus.append(dict(slot, teil=t))
-    return demo_vorrang(aus, demo_material(s)), {'key': key, 'einstellungen': daten}
+    return demo_vorrang(aus, demo_material(s)), {'key': key, 'einstellungen': daten,
+                                                 'texte': [x['text'] for x in zeitplan]}
+
+
+def behaltene_einstellungen(s, alt, zeitplan):
+    """Bestandene Einstellungen einer Korrekturrunde unveraendert aus dem alten Bildplan uebernehmen.
+
+    GEMESSEN 18.10.2026 (Lauf 39111267908): Ford Runde 1 beanstandete 6 von 13 Einstellungen; der
+    Neuplan ersetzte alle 13, Runde 2 hatte 10 beanstandete. Gleiche Planzeile -> gleicher Clip-Schluessel
+    -> bauen.py nimmt den geprueften Clip aus dem Cache. Nur bei gleichem Satz je Einstellung (die
+    Stimme kann sich bei einer Textkorrektur verschieben) und nur mit Fehlerliste von nachbessern.py.
+    """
+    neu = s.get('bild_neu_einstellungen')
+    alte, texte = (alt or {}).get('einstellungen') or [], (alt or {}).get('texte') or []
+    if not isinstance(neu, list) or len(alte) != len(zeitplan) or len(texte) != len(zeitplan):
+        return {}
+    behalten = {x['index']: dict(alte[x['index']]) for x in zeitplan
+                if x['index'] not in neu and texte[x['index']] == x['text']
+                and isinstance(alte[x['index']], dict) and alte[x['index']].get('index') == x['index']}
+    if behalten:
+        print(f'Bildplan: {len(behalten)} bestandene Einstellungen behalten, neu geplant: {sorted(neu)}')
+    return behalten
 
 
 def demo_vorrang(aus, material):

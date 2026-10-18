@@ -214,6 +214,16 @@ def planen(skript, kritik, messung, config, kanal):
         neu['tempo'] = round(max(0.9, min(1.3, aktuell * faktor)), 3)
         if neu['tempo'] != skript.get('tempo', 1.05):
             plan['aktionen'].append({'art': 'tempo', 'variante': str(neu['tempo'])})
+    # GEMESSEN 18.10.2026 (Lauf 39111267908, Ford): Die Korrektur aenderte ganze Abschnitte, der Bildplan
+    # entstand dadurch komplett neu - auch bestandene Einstellungen wurden ersetzt (6 -> 10 -> 5 beanstandet,
+    # je Runde ~10 Min. Bau). Nur die beanstandeten Einstellungen neu planen; der Rest bleibt (bildplan.py).
+    if bildziele:
+        bild_probleme = [p for p in probleme if p.get('art') in VISUELL]
+        nummern = [p.get('einstellung') for p in bild_probleme]
+        if nummern and all(type(n) is int and n >= 0 for n in nummern):
+            neu['bild_neu_einstellungen'] = sorted(set(nummern))
+        else:
+            neu.pop('bild_neu_einstellungen', None)
     plan['teile'] = [i for i, (a, b) in enumerate(zip(skript['teile'], neu['teile'])) if a != b]
     plan['einstellungen'] = {k: neu.get(k) for k in ('stimme', 'tempo', 'untertitel_profil', 'musik_pegel', 'effekt_pegel')}
     neu['prompt_version'] = prompts.VERSION

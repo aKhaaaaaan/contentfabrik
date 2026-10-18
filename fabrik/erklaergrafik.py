@@ -107,9 +107,28 @@ def layout(text, phase=''):
     art = _layout(text)
     if art == 'kernsatz' and phase and phase.strip() != text.strip():
         geerbt = _layout(phase)
-        if geerbt in ('frage', 'zitat', 'vergleich', 'warnung'):
+        if geerbt in ('frage', 'zitat', 'warnung'):  # 'vergleich' braucht beide Seiten im Teilsatz selbst
             return geerbt
     return art
+
+
+def vergleich_seiten(text):
+    """(gewaehlte Seite, verworfene Seite) eines gesprochenen Vergleichs, sonst None.
+
+    GEMESSEN 18.10.2026 (Konnect, Lauf 39141604726): "It's still beta, so review matters." erbte den Vergleich
+    seines Abschnitts, "Instead of placing every part by hand, you direct and review." passte nicht ins Muster
+    "A instead of B" -> beide Grafiken "? NOT ?", identisch -> "Gleiches Motiv zu lange gehalten", alle Bauversuche."""
+    satz = re.sub(r'\s+', ' ', str(text)).strip()
+    m = re.match(r'(?:instead of|rather than)\s+(.+?),\s*(.+)', satz, re.I)
+    if m:
+        gewaehlt, verworfen = m[2], m[1]
+    else:
+        m = re.search(r'(.+?),?\s*(?:\bnot\b|\binstead of\b|\brather than\b|\bvs\.?)\s+(.+)', satz, re.I)
+        if not m:
+            return None
+        gewaehlt, verworfen = m[1], m[2]
+    links, rechts = phrasen(gewaehlt, 4)[-1:], phrasen(verworfen, 4)[-1:]
+    return (links[0], rechts[0]) if links and rechts and links != rechts else None
 
 
 def _layout(text):
@@ -128,8 +147,11 @@ def _layout(text):
     if text.strip().endswith('?') or re.search(r'\b(ask|asks|asking|question)\b', t):
         return 'frage'
     if re.search(r'\b(cite|cites|citing|citation|reviewer|answer|answers|replies|quote)\b', t):
-        return 'zitat' if not re.search(r'\bnot from\b|\binstead of\b|\brather than\b', t) else 'vergleich'
-    if re.search(r'\bnot from\b|\binstead of\b|\brather than\b|\bvs\.?\s|, not\b', t):
+        if not re.search(r'\bnot from\b|\binstead of\b|\brather than\b', t):
+            return 'zitat'
+        if vergleich_seiten(text):
+            return 'vergleich'
+    if re.search(r'\bnot from\b|\binstead of\b|\brather than\b|\bvs\.?\s|, not\b', t) and vergleich_seiten(text):
         return 'vergleich'
     if re.search(r'\b(connect|connector|connects|plug|plugin|integrat\w*|mcp)\b|\badd\b.*\bto\b', t):
         return 'verbinden'
@@ -354,10 +376,8 @@ def grafik(ziel, text, motiv='', titel='', phase='', art=None):
             d.line((152, y + 32, 162, y + 44, 180, y + 18), fill='white', width=7)
             txt(215, y + 8, p, passend(p, 730, 40), dunkel)
     elif art == 'vergleich':
-        m = re.search(r'(.+?),?\s*(?:\bnot\b|\binstead of\b|\brather than\b|\bvs\.?)\s+(.+)', satz, re.I)
-        links = (phrasen(m[1], 4) if m else [])[-1:] or ['?']
-        rechts = (phrasen(m[2], 4) if m else [])[-1:] or ['?']
-        for k, (wort, farbe) in enumerate(((links[0], gelb), (rechts[0], tuerkis))):
+        seiten = vergleich_seiten(satz) or ('?', '?')  # nur bei ausdruecklich uebergebenem art='vergleich'
+        for k, (wort, farbe) in enumerate(((seiten[0], gelb), (seiten[1], tuerkis))):
             y = 420 + k * 470
             d.rounded_rectangle((75, y, 1005, y + 340), 28, fill='#13283d', outline=farbe, width=6)
             n = 64

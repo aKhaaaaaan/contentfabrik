@@ -33,7 +33,7 @@ def _englisch(titel):
     return bool(buchst) and sum(z.isascii() for z in buchst) / len(buchst) > 0.9
 
 
-def youtube_ausreisser(suchbegriffe, tage=30, je_begriff=15, top=10):
+def youtube_ausreisser(suchbegriffe, tage=30, je_begriff=15, top=10, dauer='short'):
     """Ausreisser = Aufrufe des Videos / Durchschnitt je Video seines Kanals.
     Ein Video mit 2 Mio. Aufrufen auf einem Kanal mit 20.000 im Schnitt ist ein
     Treffer der IDEE; 2 Mio. auf einem Kanal mit 3 Mio. im Schnitt nicht."""
@@ -46,7 +46,8 @@ def youtube_ausreisser(suchbegriffe, tage=30, je_begriff=15, top=10):
     try:
         for q in suchbegriffe:
             d = json.loads(_hole(basis + 'search?' + urllib.parse.urlencode({
-                'part': 'snippet', 'q': q, 'type': 'video', 'order': 'viewCount', 'videoDuration': 'short',
+                'part': 'snippet', 'q': q, 'type': 'video', 'order': 'viewCount',
+                **({'videoDuration': dauer} if dauer else {}),
                 'publishedAfter': seit, 'relevanceLanguage': 'en', 'regionCode': 'US', 'maxResults': je_begriff, 'key': schluessel})))
             for it in d.get('items', []):
                 titel = html.unescape(it['snippet']['title'])
@@ -55,20 +56,26 @@ def youtube_ausreisser(suchbegriffe, tage=30, je_begriff=15, top=10):
                 videos[it['id']['videoId']] = {'titel': titel, 'kanal': it['snippet']['channelId']}
         if not videos:
             return []
-        stat = json.loads(_hole(basis + 'videos?' + urllib.parse.urlencode({
-            'part': 'statistics', 'id': ','.join(list(videos)[:50]), 'key': schluessel})))
-        for it in stat.get('items', []):
-            videos[it['id']]['aufrufe'] = int(it['statistics'].get('viewCount', 0))
-        kanaele = {v['kanal'] for v in videos.values()}
-        kst = json.loads(_hole(basis + 'channels?' + urllib.parse.urlencode({
-            'part': 'statistics', 'id': ','.join(list(kanaele)[:50]), 'key': schluessel})))
+        # GEMESSEN 19.10.2026 (6 Suchbegriffe x 15): Die API nimmt hoechstens 50 IDs je Abruf. Vorher fehlte
+        # Kanaelen jenseits der 50 der Schnitt -> Faktor = rohe Aufrufe (4,4 Mio. „x Kanalschnitt").
+        def bloecke(ids):
+            ids = list(ids)
+            return [ids[i:i + 50] for i in range(0, len(ids), 50)]
+        for teil in bloecke(videos):
+            stat = json.loads(_hole(basis + 'videos?' + urllib.parse.urlencode({
+                'part': 'statistics', 'id': ','.join(teil), 'key': schluessel})))
+            for it in stat.get('items', []):
+                videos[it['id']]['aufrufe'] = int(it['statistics'].get('viewCount', 0))
         schnitt = {}
-        for it in kst.get('items', []):
-            s = it['statistics']
-            schnitt[it['id']] = int(s.get('viewCount', 0)) / max(1, int(s.get('videoCount', 1)))
+        for teil in bloecke({v['kanal'] for v in videos.values()}):
+            kst = json.loads(_hole(basis + 'channels?' + urllib.parse.urlencode({
+                'part': 'statistics', 'id': ','.join(teil), 'key': schluessel})))
+            for it in kst.get('items', []):
+                s = it['statistics']
+                schnitt[it['id']] = int(s.get('viewCount', 0)) / max(1, int(s.get('videoCount', 1)))
         aus = []
         for vid, v in videos.items():
-            if 'aufrufe' not in v:
+            if 'aufrufe' not in v or v['kanal'] not in schnitt:
                 continue
             v['faktor'] = round(v['aufrufe'] / max(1, schnitt.get(v['kanal'], 1)), 1)
             aus.append({'titel': v['titel'], 'aufrufe': v['aufrufe'], 'faktor': v['faktor'], 'id': vid})

@@ -87,7 +87,11 @@ def bereit(kanal_pfad):
                  and x.get('status', 'bereit') == 'bereit'}
     except Exception:
         return None
-    for _, e in eintraege(kanal):
+    import trendcheck
+    trend = trendcheck.zuschauer_themen_der_tage(kanal, MAX_TAGE_STANDARD)
+    offen |= trend
+    # Ein Zuschauer-Trendskript vor einem frei gewaehlten (GitHub-Neuheit) bauen, auch wenn es juenger ist.
+    for _, e in sorted(eintraege(kanal), key=lambda x: (x[1].get('thema_eingabe') or '') not in trend):
         thema = e.get('thema_eingabe') or ''
         if not gueltig(e, daten) or (thema and thema not in offen):
             continue
@@ -176,6 +180,10 @@ def offene_themen(kanal):
         _, bericht = trendcheck.waehlen(kanal, themen=themen)
         punkte = {k['thema']: k.get('punkte') or 0 for k in (bericht or {}).get('kandidaten', [])}
         offen.sort(key=lambda t: -punkte.get(t, 0))
+        # 19.10.2026: Ein Zuschauer-Trendthema (KI: YouTube/Google) steht in keiner Warteschlange - ohne
+        # diese Zeile schrieb der Nachtlauf frei gewaehlt (GitHub-Neuheit) und der Tageslauf nahm dieses Skript.
+        if bericht and bericht.get('zuschauer') and bericht.get('thema') not in offen + list(vorhanden):
+            offen.insert(0, bericht['thema'])
     except Exception as e:
         print('Trend-Reihenfolge nicht verfuegbar, Warteschlangen-Reihenfolge:', str(e)[:100])
     return offen

@@ -120,7 +120,7 @@ def yt_faktor(begriff, zusatz=''):
     return max((v['faktor'] for v in treffer), default=None), treffer[:2]
 
 
-def kandidaten(kanal, themen, mit_trendfirmen=True):
+def kandidaten(kanal, themen, mit_trendfirmen=True, google_liste=()):
     aus = [{'thema': x['thema'], 'begriff': x.get('trend_suche') or x.get('wikipedia') or x['thema'],
             'wikipedia': x.get('wikipedia'), 'eigen': True}
            for x in themen.laden() if x['kanal'] == kanal and x.get('status', 'bereit') == 'bereit'
@@ -131,14 +131,101 @@ def kandidaten(kanal, themen, mit_trendfirmen=True):
         for titel, aufrufe, _ in trends.firmen_im_trend()[:FREIE_KANDIDATEN * 2]:
             if titel not in bekannt and len([a for a in aus if not a['eigen']]) < FREIE_KANDIDATEN:
                 aus.append({'thema': '', 'begriff': titel, 'wikipedia': titel, 'eigen': False})
+    if mit_trendfirmen and kanal == 'ai-tools-explained':
+        import trends
+        aus += zuschauer_themen(trends.gezeigte_themen(kanal), google_liste)
     return aus
 
 
 ZUSATZ = {'business-origin-stories': 'story'}  # Suchwinkel des Kanals, nicht Pflichtwort im Titel
 
+# GEMELDET 19.10.2026 (Nutzer): „Bei KI muessen wir immer aktuell bleiben ... Die Pipeline muss immer solche
+# Themen vom YouTube Trends oder Google Trends entnehmen." Vorher bewertete der Trend-Check beim KI-Kanal nur
+# Telegram-Themen; bei leerer Liste kamen GitHub-/Hugging-Face-Neuheiten (19.10.: datalab-to/indra, 18.10.:
+# mixelpixx/konnect) - Entwickler-Trends, nach denen auf YouTube kaum jemand sucht. GEMESSEN 19.10. (YouTube-
+# Suche, 30 Tage): Claude-/ChatGPT-Videos mit 0,4-7 Mio. Aufrufen („Claude Code for free", „make money with AI").
+# Jetzt: Zuschauer-Themen aus YouTube-Ausreissern der letzten 7 Tage und Google-Tagestrends, nur zu bekannten
+# KI-Produkten (dazu gibt es Quellen und Suchinteresse) und nur mit belegbarer Recherche.
+KI_SUCHE = ['Claude AI', 'Claude Code', 'ChatGPT', 'Gemini AI', 'make money with AI', 'AI tools']
+KI_PRODUKTE = ['Claude Code', 'Claude', 'ChatGPT', 'GPT', 'OpenAI', 'Codex', 'Gemini', 'NotebookLM', 'Copilot',
+               'Cursor', 'Perplexity', 'Grok', 'Sora', 'Veo', 'Midjourney', 'DeepSeek', 'ElevenLabs', 'Suno', 'n8n',
+               'Anthropic']  # laengere Namen zuerst: „Claude Code" vor „Claude"
+KI_TAGE = 7
+# GEMESSEN 19.10.2026: Bei allen Laengen fuehrten Meme-Shorts („Badtameez Chatgpt Pt-7 #couplegoals"). 4-20-Min.-
+# Videos tragen die Themen, nach denen Zuschauer suchen („Claude Just Dropped MOTION", neue Modelle).
+KI_DAUER = 'medium'
+# GEMESSEN 19.10.2026: „OpenAI alerta PF apos identificar ameacas contra Lula no ChatGPT" bestand trends._englisch
+# (fast nur ASCII-Buchstaben). Ein englischer Titel enthaelt fast immer eines dieser Woerter.
+ENGLISCH = re.compile(r"\b(?:the|a|an|to|is|in|of|for|and|with|my|your|you|how|this|it|i|just|vs|what|why|can|new|"
+                      r"made|using|tested|master)\b", re.I)
+KI_PRUEFEN = 3  # hoechstens so viele Zuschauer-Themen recherchieren (je bis zu 8 Seitenabrufe)
+
+
+def ki_produkt(text):
+    """Erstes bekanntes KI-Produkt im Text (Schreibweise wie in KI_PRODUKTE) oder None."""
+    for p in KI_PRODUKTE:
+        if re.search(r'(?<![\w-])' + re.escape(p) + r'(?![\w])', text or '', re.I):
+            return p
+    return None
+
+
+def _ki_thema(produkt, titel):
+    """Produkt vorn: die Recherche (trends.themen_begriffe) nimmt die ersten Namen des Themas."""
+    titel = re.sub(r'\s+', ' ', re.sub(r'#\S+', ' ', titel)).split(' | ')[0].strip(' -|:')
+    return f'{produkt}: {titel}'
+
+
+def zuschauer_themen_der_tage(kanal, tage, heute=None):
+    """Gewaehlte Zuschauer-Trendthemen der letzten Tage (nur gespeicherte Berichte, kein Netzabruf).
+    Der Vorrat schreibt nachts; ein solches Thema steht in keiner Warteschlange und waere sonst ungueltig."""
+    heute = heute or datetime.date.today()
+    aus = set()
+    for n in range(tage):
+        try:
+            b = json.loads((ORDNER / f'{kanal}-{heute - datetime.timedelta(days=n)}.json').read_text(encoding='utf-8'))
+        except (OSError, ValueError):
+            continue
+        if b.get('zuschauer') and b.get('thema'):
+            aus.add(b['thema'])
+    return aus
+
+
+def zuschauer_themen(gezeigt=(), google_liste=()):
+    """KI-Kandidaten aus dem, was Zuschauer gerade schauen/suchen - je Produkt das staerkste Signal."""
+    import trends
+    roh = []
+    for titel, news in google_liste:
+        p = ki_produkt(' '.join([titel] + news[:1]))
+        if p:
+            roh.append({'thema': _ki_thema(p, news[0] if news else titel), 'produkt': p, 'google': titel,
+                        'youtube': None, 'beispiele': []})
+    for v in trends.youtube_ausreisser(KI_SUCHE, tage=KI_TAGE, je_begriff=15, top=40, dauer=KI_DAUER):
+        p = ki_produkt(v['titel'])
+        if p and ENGLISCH.search(v['titel']):
+            roh.append({'thema': _ki_thema(p, v['titel']), 'produkt': p, 'google': None,
+                        'youtube': v['faktor'], 'beispiele': [v]})
+    roh.sort(key=lambda k: -punkte(k['youtube'], google=bool(k['google'])))
+    aus, produkte, geprueft = [], set(), 0
+    for k in roh:
+        if k['produkt'] in produkte or k['thema'].lower() in gezeigt or geprueft >= KI_PRUEFEN:
+            continue
+        geprueft += 1
+        # Ohne lesbare Quelle schreibt skript.py nichts (nur_quellen) - so ein Thema wuerde den Tag kosten.
+        if not trends.thema_recherche(k['thema'], tage=30, maximal=1):
+            print('Zuschauer-Thema ohne Quelle verworfen:', k['thema'][:80])
+            continue
+        produkte.add(k['produkt'])
+        aus.append({'thema': k['thema'], 'begriff': k['thema'], 'wikipedia': None, 'eigen': False,
+                    'zuschauer': True, 'youtube': k['youtube'], 'beispiele': k['beispiele'],
+                    'google': k['google']})
+    return aus
+
 
 def bewerten(liste, google_liste, heute=None, kanal='', hn_liste=()):
     for k in liste:
+        if k.get('zuschauer'):  # Signale stammen schon aus der Suche - kein zweiter YouTube-Abruf
+            k['punkte'] = punkte(k['youtube'], google=bool(k['google']))
+            continue
         k['youtube'], k['beispiele'] = yt_faktor(k['begriff'], ZUSATZ.get(kanal, ''))
         k['wiki'] = wiki_aufwind(k['wikipedia'], heute) if k.get('wikipedia') else None
         k['google'] = google_treffer(k['begriff'], google_liste)
@@ -181,13 +268,16 @@ def waehlen(kanal, heute=None, themen=None):
     try:
         alt = json.loads(pfad.read_text(encoding='utf-8'))
         offen = {x['thema'] for x in themen.laden() if x['kanal'] == kanal}
-        if not themen.gespraech_grund(alt['thema']) and (not alt['thema'] or alt['thema'] in offen):
+        if not themen.gespraech_grund(alt['thema']) and (not alt['thema'] or alt['thema'] in offen
+                                                         or alt.get('zuschauer')):
             # Bereits erledigte Ideen und alte Fehlklassifikationen neu waehlen.
             return alt['thema'], alt
     except (OSError, ValueError, KeyError):
         pass
+    google_liste = None
     try:
-        liste = kandidaten(kanal, themen)
+        google_liste = google_heute()
+        liste = kandidaten(kanal, themen, google_liste=google_liste)
     except Exception as e:  # nie den Tageslauf am Trend-Check scheitern lassen
         print('Trend-Check fehlgeschlagen:', type(e).__name__, str(e)[:120])
         liste = []
@@ -195,7 +285,8 @@ def waehlen(kanal, heute=None, themen=None):
         return themen.nehmen(kanal), None
     try:
         import trends
-        bewertet = bewerten(liste, google_heute(), heute, kanal, trends.hn_geschichten())
+        bewertet = bewerten(liste, google_heute() if google_liste is None else google_liste, heute, kanal,
+                            trends.hn_geschichten())
         thema, grund = entscheiden(bewertet)
     except Exception as e:  # nie den Tageslauf am Trend-Check scheitern lassen
         print('Trend-Check fehlgeschlagen:', type(e).__name__, str(e)[:120])
@@ -204,6 +295,7 @@ def waehlen(kanal, heute=None, themen=None):
         thema = themen.nehmen(kanal)
         grund += ' - alte Reihenfolge der Warteschlange'
     bericht = {'datum': heute.isoformat(), 'thema': thema, 'grund': grund,
+               'zuschauer': any(x.get('zuschauer') and x['thema'] == thema for x in bewertet),
                'kandidaten': [{k: x.get(k) for k in ('thema', 'begriff', 'eigen', 'punkte', 'youtube', 'wiki',
                                                      'google', 'hn', 'beispiele')} for x in bewertet]}
     ORDNER.mkdir(parents=True, exist_ok=True)

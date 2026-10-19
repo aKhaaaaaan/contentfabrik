@@ -211,15 +211,26 @@ FUELLWOERTER = {'the', 'and', 'for', 'with', 'what', 'how', 'why', 'from', 'that
                 'der', 'die', 'das', 'und', 'oder', 'mit', 'als', 'wie', 'was', 'warum', 'mehr', 'besser', 'spart',
                 'sparen', 'laut', 'benchmark', 'benchmarks', 'vergleich', 'test', 'tokens', 'token', 'tool', 'tools',
                 'free', 'kostenlos', 'gratis', 'neue', 'new', 'best', 'beste', 'ai', 'ki'}
+# GEMESSEN 19.10.2026 (Run 39227752733): YouTube-Titel schreiben Jedes Wort Gross. „ChatGPT: I Made My Own VST
+# Plugins" ergab die Namen I/Made/My/Own -> HN-Treffer „I made a userscript" (Backchannel) galt als Quelle,
+# das Video handelte vom falschen Thema. Alltagswoerter zaehlen darum nie als Name.
+ALLTAGSWOERTER = {'i', 'my', 'me', 'we', 'our', 'you', 'your', 'it', 'its', 'is', 'are', 'was', 'be', 'a', 'an', 'to',
+                  'in', 'of', 'on', 'at', 'by', 'or', 'so', 'do', 'made', 'make', 'makes', 'making', 'own', 'here',
+                  'using', 'use', 'used', 'just', 'can', 'will', 'now', 'get', 'got', 'every', 'all', 'one', 'way',
+                  'ways', 'tried', 'try', 'built', 'build', 'master', 'minutes', 'minute', 'guide', 'tutorial', 'full',
+                  'step', 'steps', 'explained', 'need', 'know', 'should', 'actually', 'really', 'better', 'faster',
+                  'easy', 'crazy', 'insane', 'unreal', 'video', 'videos', 'money', 'everything', 'nobody', 'stop',
+                  'start', 'this', 'these', 'that', 'into', 'about', 'like', 'pro', 'tips', 'tricks', 'secret', 'only'}
 
 
 def themen_begriffe(thema):
     """Markante Suchbegriffe: Namen (Grossbuchstabe) und Versionsnummern zuerst, Fuellwoerter raus.
     Nutzerthemen kommen oft deutsch („Opus 5.5 spart mehr Token als Fable 5") - die Namen tragen."""
     woerter = re.findall(r'[A-Za-z0-9][\w.+-]*', thema or '')
+    raus = FUELLWOERTER | ALLTAGSWOERTER
     markant = [w.strip('.') for w in woerter if (w[0].isupper() or re.search(r'\d', w))
-               and w.lower().strip('.') not in FUELLWOERTER]
-    rest = [w for w in woerter if len(w) >= 4 and w.lower() not in FUELLWOERTER and w not in markant]
+               and w.lower().strip('.') not in raus]
+    rest = [w for w in woerter if len(w) >= 4 and w.lower() not in raus and w not in markant]
     return list(dict.fromkeys(markant or rest))[:6]
 
 
@@ -280,6 +291,10 @@ def thema_recherche(thema, tage=120, maximal=4):
     begriffe = themen_begriffe(thema)
     if not begriffe:
         return []
+    # Zuschauerthemen haben die Form „Produkt: Videotitel" (trendcheck._zuschauer_thema) - eine Quelle
+    # ohne dieses Produkt gehoert zu einem anderen Thema.
+    produkt = re.match(r'([^:]{2,40}):', thema or '')
+    produkt = [produkt.group(1).strip()] if produkt else None
     ab = int(time.time()) - tage * 86400
     treffer = []
     for suche in (' '.join(begriffe), *begriffe[:3]):
@@ -292,7 +307,7 @@ def thema_recherche(thema, tage=120, maximal=4):
             continue
         for h in d.get('hits', []):
             titel = h.get('title') or ''
-            if h.get('url') and passt_zum_thema(titel, begriffe):
+            if h.get('url') and passt_zum_thema(titel, begriffe) and (not produkt or passt_zum_thema(titel, produkt)):
                 treffer.append({'titel': titel, 'url': h['url'], 'punkte': h.get('points') or 0,
                                 'datum': (h.get('created_at') or '')[:10]})
     aus, gesehen = [], set()
@@ -313,7 +328,8 @@ def thema_recherche(thema, tage=120, maximal=4):
             WIKI_KENNUNG, zeit=15))
         seite = (d.get('query', {}).get('search') or [{}])[0].get('title')
         w = wikipedia(seite) if seite else None
-        if w and passt_zum_thema(w['name'] + ' ' + w['text'][:3000], begriffe):
+        wtext = w['name'] + ' ' + w['text'][:3000] if w else ''
+        if w and passt_zum_thema(wtext, begriffe) and (not produkt or passt_zum_thema(wtext, produkt)):
             aus.append(dict(w, belegt=True))
     except Exception as e:
         print('Wikipedia-Suche nicht verfuegbar:', type(e).__name__)

@@ -125,16 +125,39 @@ def kandidaten(kanal, themen, mit_trendfirmen=True, google_liste=()):
             'wikipedia': x.get('wikipedia'), 'eigen': True}
            for x in themen.laden() if x['kanal'] == kanal and x.get('status', 'bereit') == 'bereit'
            and not themen.gespraech_grund(x['thema'])]
-    if mit_trendfirmen and kanal == 'business-origin-stories':
+    if mit_trendfirmen and _profil(kanal).get('quelle') == 'wikipedia':
         import trends
         bekannt = {a.get('wikipedia') for a in aus}
         for titel, aufrufe, _ in trends.firmen_im_trend()[:FREIE_KANDIDATEN * 2]:
             if titel not in bekannt and len([a for a in aus if not a['eigen']]) < FREIE_KANDIDATEN:
                 aus.append({'thema': '', 'begriff': titel, 'wikipedia': titel, 'eigen': False})
-    if mit_trendfirmen and kanal == 'ai-tools-explained':
+    einstellung = trendquellen(kanal)
+    if mit_trendfirmen and einstellung:
         import trends
-        aus += zuschauer_themen(trends.gezeigte_themen(kanal), google_liste)
+        aus += zuschauer_themen(einstellung, trends.gezeigte_themen(kanal), google_liste)
     return aus
+
+
+def _profil(kanal):
+    """Kanalprofil kanaele/<kanal>.json ({} ohne Datei) - Trendquellen haengen am Profil, nicht am Namen."""
+    try:
+        import kanalstandard
+        return kanalstandard.laden(Path('kanaele') / f'{kanal}.json')
+    except (OSError, ValueError):
+        return {}
+
+
+TRENDQUELLEN = Path('trendquellen')
+
+
+def trendquellen(kanal):
+    """Zuschauer-Trendquellen aus trendquellen/<kanal>.json ({} ohne Datei = keine Zuschauer-Themen).
+    Eigene Datei statt Kanalprofil: kanaele/<kanal>.json steckt im Cache-Schluessel (entwurf_cache.profil_key) -
+    jede Aenderung an Suchbegriffen haette gepruefte Entwuerfe entwertet."""
+    try:
+        return json.loads((TRENDQUELLEN / f'{kanal}.json').read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return {}
 
 
 ZUSATZ = {'business-origin-stories': 'story'}  # Suchwinkel des Kanals, nicht Pflichtwort im Titel
@@ -146,30 +169,28 @@ ZUSATZ = {'business-origin-stories': 'story'}  # Suchwinkel des Kanals, nicht Pf
 # Suche, 30 Tage): Claude-/ChatGPT-Videos mit 0,4-7 Mio. Aufrufen („Claude Code for free", „make money with AI").
 # Jetzt: Zuschauer-Themen aus YouTube-Ausreissern der letzten 7 Tage und Google-Tagestrends, nur zu bekannten
 # KI-Produkten (dazu gibt es Quellen und Suchinteresse) und nur mit belegbarer Recherche.
-KI_SUCHE = ['Claude AI', 'Claude Code', 'ChatGPT', 'Gemini AI', 'make money with AI', 'AI tools']
-KI_PRODUKTE = ['Claude Code', 'Claude', 'ChatGPT', 'GPT', 'OpenAI', 'Codex', 'Gemini', 'NotebookLM', 'Copilot',
-               'Cursor', 'Perplexity', 'Grok', 'Sora', 'Veo', 'Midjourney', 'DeepSeek', 'ElevenLabs', 'Suno', 'n8n',
-               'Anthropic']  # laengere Namen zuerst: „Claude Code" vor „Claude"
-KI_TAGE = 7
+# Nutzer 19.10.2026: „hochskalierbar - ein neuer Account mit anderem Thema soll sich direkt anpassen". Darum stehen
+# Suchbegriffe und Namen je Kanal in trendquellen/<kanal>.json, nicht im Code:
+#   {"suche": [YouTube-Suchbegriffe], "namen": [Produkte/Firmen/Personen der Nische], "tage": 7, "dauer": "medium"}
 # GEMESSEN 19.10.2026: Bei allen Laengen fuehrten Meme-Shorts („Badtameez Chatgpt Pt-7 #couplegoals"). 4-20-Min.-
 # Videos tragen die Themen, nach denen Zuschauer suchen („Claude Just Dropped MOTION", neue Modelle).
-KI_DAUER = 'medium'
+TREND_STANDARD = {'tage': 7, 'dauer': 'medium', 'pruefen': 3}
 # GEMESSEN 19.10.2026: „OpenAI alerta PF apos identificar ameacas contra Lula no ChatGPT" bestand trends._englisch
 # (fast nur ASCII-Buchstaben). Ein englischer Titel enthaelt fast immer eines dieser Woerter.
 ENGLISCH = re.compile(r"\b(?:the|a|an|to|is|in|of|for|and|with|my|your|you|how|this|it|i|just|vs|what|why|can|new|"
                       r"made|using|tested|master)\b", re.I)
-KI_PRUEFEN = 3  # hoechstens so viele Zuschauer-Themen recherchieren (je bis zu 8 Seitenabrufe)
 
 
-def ki_produkt(text):
-    """Erstes bekanntes KI-Produkt im Text (Schreibweise wie in KI_PRODUKTE) oder None."""
-    for p in KI_PRODUKTE:
+def name_im_text(text, namen):
+    """Erster Nischen-Name im Text (Schreibweise wie in trendquellen) oder None; laengere Namen zuerst
+    („Claude Code" vor „Claude")."""
+    for p in sorted(namen, key=len, reverse=True):
         if re.search(r'(?<![\w-])' + re.escape(p) + r'(?![\w])', text or '', re.I):
             return p
     return None
 
 
-def _ki_thema(produkt, titel):
+def _zuschauer_thema(produkt, titel):
     """Produkt vorn: die Recherche (trends.themen_begriffe) nimmt die ersten Namen des Themas."""
     titel = re.sub(r'\s+', ' ', re.sub(r'#\S+', ' ', titel)).split(' | ')[0].strip(' -|:')
     return f'{produkt}: {titel}'
@@ -190,24 +211,28 @@ def zuschauer_themen_der_tage(kanal, tage, heute=None):
     return aus
 
 
-def zuschauer_themen(gezeigt=(), google_liste=()):
-    """KI-Kandidaten aus dem, was Zuschauer gerade schauen/suchen - je Produkt das staerkste Signal."""
+def zuschauer_themen(einstellung, gezeigt=(), google_liste=()):
+    """Kandidaten aus dem, was Zuschauer gerade schauen/suchen - je Name das staerkste Signal.
+    einstellung = trendquellen/<kanal>.json; pruefen = hoechstens so viele recherchieren (je bis 8 Seitenabrufe)."""
     import trends
+    e = {**TREND_STANDARD, **einstellung}
+    namen = e.get('namen') or []
     roh = []
     for titel, news in google_liste:
-        p = ki_produkt(' '.join([titel] + news[:1]))
+        p = name_im_text(' '.join([titel] + news[:1]), namen)
         if p:
-            roh.append({'thema': _ki_thema(p, news[0] if news else titel), 'produkt': p, 'google': titel,
+            roh.append({'thema': _zuschauer_thema(p, news[0] if news else titel), 'produkt': p, 'google': titel,
                         'youtube': None, 'beispiele': []})
-    for v in trends.youtube_ausreisser(KI_SUCHE, tage=KI_TAGE, je_begriff=15, top=40, dauer=KI_DAUER):
-        p = ki_produkt(v['titel'])
+    for v in trends.youtube_ausreisser(e.get('suche') or [], tage=e['tage'], je_begriff=15, top=40,
+                                       dauer=e['dauer']):
+        p = name_im_text(v['titel'], namen)
         if p and ENGLISCH.search(v['titel']):
-            roh.append({'thema': _ki_thema(p, v['titel']), 'produkt': p, 'google': None,
+            roh.append({'thema': _zuschauer_thema(p, v['titel']), 'produkt': p, 'google': None,
                         'youtube': v['faktor'], 'beispiele': [v]})
     roh.sort(key=lambda k: -punkte(k['youtube'], google=bool(k['google'])))
     aus, produkte, geprueft = [], set(), 0
     for k in roh:
-        if k['produkt'] in produkte or k['thema'].lower() in gezeigt or geprueft >= KI_PRUEFEN:
+        if k['produkt'] in produkte or k['thema'].lower() in gezeigt or geprueft >= e['pruefen']:
             continue
         geprueft += 1
         # Ohne lesbare Quelle schreibt skript.py nichts (nur_quellen) - so ein Thema wuerde den Tag kosten.

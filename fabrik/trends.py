@@ -616,7 +616,9 @@ def firmen_im_trend(datum=None, n=300):
     top = None
     # GEMESSEN 16.10.2026 (Vorrat 01:06 UTC): HTTP 404 - Wikimedia veroeffentlicht die Tagesliste erst
     # einige Stunden nach Mitternacht UTC. Dann die Liste vom Vortag nehmen statt ganz ohne Trend.
-    for tage_zurueck in (0, 1):
+    # GEMESSEN 19.10.2026: Wikimedia hat Luecken (16. und 18.10. 404, 14.10. da) - seit 15.10. kam keine
+    # einzige Trendfirma mehr in den Trend-Check, Business nahm nur noch die Telegram-Liste (Enron bei -8 %).
+    for tage_zurueck in range(7):
         t = tag - datetime.timedelta(days=tage_zurueck)
         try:
             top = json.loads(_hole('https://wikimedia.org/api/rest_v1/metrics/pageviews/top/en.wikipedia/'
@@ -626,10 +628,22 @@ def firmen_im_trend(datum=None, n=300):
             print('Wikipedia-Bestenliste nicht verfuegbar:', f'{t:%Y-%m-%d}', str(e)[:100])
             if '404' not in str(e):
                 break
-    if top is None:
+    aufrufe = {a['article'].replace('_', ' '): a['views'] for a in top or [] if ':' not in a['article']}
+    # Nutzer 19.10.2026: „welche Unternehmen aktuell im Fokus stehen". Die Wikipedia-Liste ist einen bis mehrere
+    # Tage alt; HEUTE zeigen Google-News-Wirtschaftsschlagzeilen (GEMESSEN 19.10.: Anthropic, Oracle, Tesla,
+    # Nvidia, Disney, CoreWeave ...) und Google-Tagestrends, welche Firmen im Fokus stehen. Die kommen zuerst,
+    # nach Zahl der Schlagzeilen.
+    nennungen, schreibweise = {}, {}  # kleingeschriebener Name -> Zahl der Schlagzeilen / Originalschreibweise
+    google = [re.sub(r'\s*\([^)]*\)$', '', g) for g in google_trends()]
+    for namen in [set(namen_in_schlagzeile(z)) for z in wirtschafts_schlagzeilen()] + [{g} for g in google]:
+        for name in namen:
+            nennungen[name.lower()] = nennungen.get(name.lower(), 0) + 1
+            schreibweise.setdefault(name.lower(), name)
+    # Wikipedia-Titel sind gross-/kleinschreibungsgenau („bank of america" findet nichts)
+    titel, aus = list(dict.fromkeys(list(schreibweise.values()) + list(aufrufe))), []
+    alias = {}  # Wikipedia-Weiterleitungen: „nvidia" -> „Nvidia", „coca cola" -> „Coca-Cola"
+    if not titel:
         return []
-    aufrufe = {a['article'].replace('_', ' '): a['views'] for a in top if ':' not in a['article']}
-    titel, aus = list(aufrufe), []
     import time as _t
     # GEMESSEN 04.10.2026 (GitHub-Lauf): 20 schnelle Anfragen -> Wikipedia antwortete danach
     # auch beim eigentlichen Artikel mit 429 Too Many Requests. Jetzt 300 statt 1.000 Titel
@@ -642,9 +656,85 @@ def firmen_im_trend(datum=None, n=300):
                 'redirects': 1}), WIKI_KENNUNG))
         except Exception:
             continue
+        # „coca cola" -> „Coca cola" (normalized) -> „Coca-Cola" (redirects)
+        for m in d.get('query', {}).get('normalized', []) + d.get('query', {}).get('redirects', []):
+            alias[m.get('from', '').lower()] = m.get('to', '').lower()
         for s in (d.get('query', {}).get('pages') or {}).values():
             b = s.get('description', '')
-            if (FIRMA.search(b) and not re.search(r'\b(film|album|song|series|episode|band)\b', b, re.I)
-                    and not re.match(r'(List of|Proposed|Timeline of|History of)', s['title'])):
+            # GEMESSEN 13./14.10.2026: „Milwaukee Brewers" / „Cleveland Guardians" (Baseball-„franchise")
+            # waren Trendfirmen - Sportvereine sind keine Unternehmensgeschichte. 19.10.: „Dale Vince"
+            # („English business magnate (born 1961)") - eine Person, keine Firma.
+            if (FIRMA.search(b) and not re.search(r'\b(film|album|song|series|episode|band|team|club|league|'
+                                                 r'baseball|football|basketball|hockey|soccer|born|magnate)\b', b, re.I)
+                    and not re.match(r'(List of|Proposed|Timeline of|History of)', s['title'])
+                    # 19.10.: Schlagzeilenwort „Airline" -> Oberbegriff („Company that provides air transport")
+                    and not re.match(r'(company|business|organization|type|form) (that|which|of)\b', b, re.I)):
                 aus.append((s['title'], aufrufe.get(s['title'], 0), b))
-    return sorted(aus, key=lambda x: -x[1])
+
+    def im_fokus(artikel):
+        ziel = artikel.lower()
+        return sum(n for name, n in nennungen.items()
+                   if name == ziel or alias.get(name) == ziel or alias.get(alias.get(name)) == ziel)
+    aus = sorted(aus, key=lambda x: (-im_fokus(x[0]), -x[1]))
+    aus = [x for i, x in enumerate(aus) if x[0] not in {y[0] for y in aus[:i]}]
+    # Aufrufzahl nur fuer die ersten 5 (skript.py zeigt 5): GEMESSEN 19.10.2026 - 13 Einzelabrufe am Stueck
+    # beantwortete Wikimedia mit „too many requests".
+    for i, (t, v, b) in enumerate(aus[:5]):
+        if not v:
+            _t.sleep(1)
+            aus[i] = (t, aufrufe_gestern(t), b)
+    return aus
+
+
+def wirtschafts_schlagzeilen():
+    """Heutige US-Wirtschaftsschlagzeilen (offizieller Google-News-RSS, ohne Schluessel); [] bei Ausfall."""
+    try:
+        wurzel = ElementTree.fromstring(_hole('https://news.google.com/rss/headlines/section/topic/BUSINESS?'
+                                              'hl=en-US&gl=US&ceid=US:en'))
+    except Exception as e:
+        print('Google News nicht verfuegbar:', str(e)[:80])
+        return []
+    # „Disney agrees to hire ... - TechCrunch": die Quelle hinter dem letzten Gedankenstrich gehoert nicht dazu
+    return [re.sub(r'\s+-\s+[^-]+$', '', item.findtext('title') or '') for item in wurzel.iter('item')]
+
+
+NICHT_NAME = {'the', 'a', 'an', 'ai', 'us', 'u.s.', 'uk', 'why', 'how', 'what', 'live', 'updates', 'ceo', 'ipo',
+              'wall', 'st', 'street', 'market', 'stocks', 'stock', 'bank', 'by', 'as', 'is', 'and', 'of', 'on',
+              'in', 'to', 'for', 'with', 'at', 'after', 'new', 'big', 'says', 'could', 'may', 'will'}
+
+
+def namen_in_schlagzeile(zeile):
+    """Ketten grossgeschriebener Woerter (1-3) als moegliche Firmennamen: „Bank of America" -> auch Teilketten.
+    Ob es wirklich eine Firma ist, entscheidet danach die Wikipedia-Kurzbeschreibung (FIRMA)."""
+    laeufe, lauf = [], []
+    for wort in re.findall(r"[\w&.'’-]+", zeile):
+        wort = re.sub(r"['’]s$", '', wort).strip('.')
+        if wort[:1].isupper() or (lauf and wort == 'of'):
+            lauf.append(wort)
+        elif lauf:
+            laeufe.append(lauf); lauf = []
+    laeufe.append(lauf)
+    aus = []
+    for lauf in laeufe:
+        while lauf and lauf[-1] == 'of':
+            lauf.pop()
+        for i in range(len(lauf)):
+            for n in (1, 2, 3):
+                kette = lauf[i:i + n]
+                if len(kette) == n and kette[0] != 'of' and kette[-1] != 'of' \
+                        and not (n == 1 and kette[0].lower() in NICHT_NAME):
+                    aus.append(' '.join(kette))
+    return aus
+
+
+def aufrufe_gestern(titel):
+    """Wikipedia-Aufrufe des juengsten verfuegbaren Tages (fuer die Anzeige „N views"), 0 bei Ausfall."""
+    import datetime
+    ende = datetime.date.today() - datetime.timedelta(days=1)
+    try:
+        d = json.loads(_hole('https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/'
+                             f'all-access/user/{urllib.parse.quote(titel.replace(" ", "_"), safe="")}/daily/'
+                             f'{ende - datetime.timedelta(days=6):%Y%m%d}/{ende:%Y%m%d}', WIKI_KENNUNG))
+        return int(d['items'][-1]['views'])
+    except Exception:
+        return 0

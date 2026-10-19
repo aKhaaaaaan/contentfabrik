@@ -105,6 +105,10 @@ def layout(text, phase=''):
     GEMESSEN 16.10.2026 (Groq, Schlusspruefer-Auftrag): "Florida's combined sales tax rate for 2026." setzt die
     Frage "Then ask something it would guess, like Manatee County," fort - als Schlagzeilenkarte 5/10."""
     art = _layout(text)
+    # „Did it work? ... runs 2.7x" - der Vergleichspartner steht im naechsten Satz desselben Abschnitts
+    if art not in ('balken', 'rechnung', 'schluessel', 'download') and phase and phase.strip() != text.strip() \
+            and re.search(r'\d+(?:\.\d+)?\s?x\b|\bup from\b', text) and balken(phase):
+        return 'balken'
     if art == 'kernsatz' and phase and phase.strip() != text.strip():
         geerbt = _layout(phase)
         if geerbt in ('frage', 'zitat', 'warnung'):  # 'vergleich' braucht beide Seiten im Teilsatz selbst
@@ -131,6 +135,51 @@ def vergleich_seiten(text):
     return (links[0], rechts[0]) if links and rechts and links != rechts else None
 
 
+# GEMESSEN 19.10.2026 (Gemini 4 Argon, Lauf 39235396942): 8 von 14 Einstellungen 2-3/10, alle Ablehnungen
+# „zeigt nur Text"/„nur Textueberschriften": Saetze ohne eigenes Bildmuster fielen auf 'kernsatz' (gesprochene
+# Woerter in Kaesten) oder 'zahlen' (Zahlenkacheln). Bestanden haben nur Grafiken mit einem GEGENSTAND (Rechnung
+# 8-10, Warnzeichen 8). Darum zeigt jetzt jede Satzart ihren Gegenstand oder Vorgang: Code -> Editorfenster,
+# Vergleich -> Balken mit den gesprochenen Werten, Zugang -> Schranke mit Wartenden, Agenten -> Arbeitsschleife.
+# „source" allein nicht: „source-cited drafts" (OpenAccountants) ist kein Code
+CODE = re.compile(r"\b(?:code|coding|codebase|lines? of code|compil\w*|rust|python|javascript|typescript|decoder|"
+                  r"encoder|source code|repo|repository|refactor\w*|rewrites?|rewrote|rewritten|vectori[sz]\w*|bugs?|"
+                  r"debug\w*|programm\w*)\b|\d+[kK]?-line", re.I)
+ZUGANG = re.compile(r"\b(?:rolling out|rolls? out|access|available|availability|wait ?list|trusted|invite\w*|"
+                    r"early access|limited to|only for|defenders|testers|beta users)\b", re.I)
+AGENTEN = re.compile(r"\b(?:agents?|experiments?|rounds?|iterat\w+|trajector\w+|loops?)\b", re.I)
+_ZAHL = r"\$?\d[\d,.]*\s?[kKmMbB]?\b"
+
+
+def _wert(s):
+    """'1M' -> 1e6, '64K' -> 64000, '$2' -> 2, '2.7x' -> 2.7, '32,000' -> 32000; sonst None."""
+    m = re.match(r'\$?(\d[\d,]*(?:\.\d+)?)\s?([kKmMbB])?', str(s).strip())
+    if not m:
+        return None
+    return float(m[1].replace(',', '')) * {'k': 1e3, 'm': 1e6, 'b': 1e9}.get((m[2] or '').lower(), 1)
+
+
+def balken(text):
+    """Gesprochener Vergleich zweier Werte als [(Beschriftung, Wert-Text, Wert)] - nur gesprochene Zahlen.
+    'reaches 1M tokens, up from 64K' / 'runs 2.7x faster than the earlier Rust port' / '$2 input, $10 output'."""
+    satz = re.sub(r'\s+', ' ', str(text))
+    m = re.search(rf"({_ZAHL})\s*([A-Za-z]+)?[^.]*?\bup from\s+({_ZAHL})", satz)
+    if m:
+        einheit = (m[2] or '').upper()
+        return [('BEFORE', f'{m[3].strip()} {einheit}'.strip(), _wert(m[3])),
+                ('NOW', f'{m[1].strip()} {einheit}'.strip(), _wert(m[1]))]
+    m = re.search(r"(\d+(?:\.\d+)?)\s?x\b(?:\s+faster)?[^.]*?\bthan (?:the |its |an? )?([A-Za-z0-9' -]{3,30}?)(?=[,.;]|$| with\b)",
+                  satz, re.I)
+    if m:
+        return [(m[2].strip().upper()[:22], '1x', 1.0), ('NEW', f'{m[1]}x', float(m[1]))]
+    m = re.search(rf"\bfrom ({_ZAHL})\s*([A-Za-z]+)? to ({_ZAHL})", satz)
+    if m:
+        return [('BEFORE', m[1].strip(), _wert(m[1])), ('AFTER', m[3].strip(), _wert(m[3]))]
+    geld = re.findall(r"(\$\d[\d,.]*)(?:\s+per\s+[a-z]+)?\s+([a-z]+)(?:\s+tokens)?", satz, re.I)
+    if len(geld) >= 2:
+        return [(w.upper(), z, _wert(z)) for z, w in geld[:3]]
+    return None
+
+
 def _layout(text):
     """Bildaufbau aus dem Inhalt des Satzes. GEMESSEN 16.10.2026 (OpenAccountants, Lauf 38888929052): Es gab
     nur Datenbank-Symbol oder Balken mit erfundenen Werten; 5 von 9 Grafiken sahen gleich aus, der Pruefer
@@ -138,10 +187,31 @@ def _layout(text):
     Vorgang des Satzes: Frage -> Chat, Zitat -> Antwort mit Quellenkarte, Zahlen -> Zahlenkacheln usw."""
     t = text.lower()
     art = symbol(text)
-    if art in ('schluessel', 'rechnung', 'download'):
+    if art in ('schluessel', 'download'):
         return art
+    # Preis-Rechnung bestand mit 10/10 - die bleibt; jeder andere gesprochene Vergleich wird Balken
+    if balken(text) and not (art == 'rechnung' and '$' in text):
+        return 'balken'
+    # GEMESSEN 19.10. (Argon): „write hundreds of thousands of tokens in one trajectory" als LLM-Rechnung = 2/10.
+    # Tokens ohne Kosten sind Textmenge, keine Rechnung.
+    if art == 'rechnung' and not re.search(r'\b(?:bills?|billing|costs?|price|pricing|paid|charged?|per token)\b|\$\d',
+                                           t):
+        return 'ausgabe'
+    if art == 'rechnung':
+        return art
+    # „Now the catch: access is limited": Warnzeichen 8/10, Schranke 3/10 - ein angekuendigter Haken bleibt Warnung
+    if re.search(r'\b(?:catch|limitation|downside|caveat)\b', t):
+        return 'warnung'
     if re.search(r"financial advice|outdated|\bwrong\b|\brisks?\b|warning|careful|\bverify\b|double-check", t):
         return 'warnung'
+    if re.search(r'\bagents?\b', t) and re.search(r'\b(?:ran|run|runs|experiments?|rounds?|tried|tested)\b', t):
+        return 'agenten'
+    if CODE.search(text):
+        return 'code'
+    if ZUGANG.search(text):
+        return 'zugang'
+    if AGENTEN.search(text):
+        return 'agenten'
     if zahlen(text):
         return 'zahlen'
     if text.strip().endswith('?') or re.search(r'\b(ask|asks|asking|question)\b', t):
@@ -419,6 +489,210 @@ def grafik(ziel, text, motiv='', titel='', phase='', art=None):
                 d.rounded_rectangle((x, 1110, x + breite, 1180), 16, fill='#13283d', outline=gelb, width=4)
                 txt(x + 30, 1122, name, 40, gelb)
                 x += breite + 24
+    elif art == 'balken':
+        # Gesprochene Werte als Balken (Hoehe = Wert, bei sehr grossem Abstand Wurzel-Skala, damit der kleine
+        # Balken sichtbar bleibt). Der Balken, den DIESER Satz nennt, ist hervorgehoben.
+        werte = [w for w in (balken(satz) or balken(phase) or []) if w[2]]
+        groesster = max(w[2] for w in werte)
+        skala = (lambda v: (v / groesster) ** 0.5) if groesster / max(min(w[2] for w in werte), 1e-9) > 20 \
+            else (lambda v: v / groesster)
+        breite = 860 // len(werte)
+        boden = 1120
+        d.line((75, boden, 1005, boden), fill='#8dabbf', width=6)
+        for k, (wort, zahl, wert) in enumerate(werte):
+            x0 = 75 + k * breite + 40
+            x1 = x0 + breite - 80
+            hoch = max(40, int(560 * skala(wert)))
+            genannt = zahl.split()[0].lower() in satz.lower() or any(
+                w.lower() in satz.lower() for w in wort.split() if len(w) > 3)
+            farbe = gelb if genannt else '#4b6a86'
+            d.rounded_rectangle((x0, boden - hoch, x1, boden), 18, fill=farbe)
+            n = passend(zahl, x1 - x0, 64)
+            txt(x0 + (x1 - x0 - d.textlength(zahl, font=font(n))) / 2, boden - hoch - n - 24, zahl, n,
+                gelb if genannt else hell)
+            for j, z in enumerate(umbruch(wort, x1 - x0 + 40, 34)[:2]):
+                txt(x0 - 20, boden + 24 + j * 44, z, 34, hell)
+    elif art == 'code':
+        # Code-Saetze haben je Vorgang ein eigenes Bild (GEMESSEN an Argon: sechs gleiche Editorfenster waeren
+        # „gleiches Motiv zu lange"): Compiler -> parallele Spuren, Decoder -> Videobilder rein/raus,
+        # Umbau/Port -> alt neben neu, sonst Editor mit gesprochener Zeilenzahl. Codezeilen sind Platzhalter.
+        import hashlib
+        zufall = hashlib.sha256(satz.encode()).digest()
+        farben = ('#20d2be', '#ffae35', '#c792ea', '#8dabbf', '#dce4ec')
+
+        def editor(x0, y0, x1, y1, titel, zeilen, versatz=0):
+            d.rounded_rectangle((x0, y0, x1, y1), 22, fill='#0b1620', outline='#2b4258', width=4)
+            d.rectangle((x0 + 2, y0 + 2, x1 - 2, y0 + 58), fill='#1b2d3e')
+            for k, f in enumerate(('#ff5a5f', '#ffae35', '#16a34a')):
+                d.ellipse((x0 + 22 + k * 36, y0 + 20, x0 + 44 + k * 36, y0 + 42), fill=f)
+            if titel:
+                txt(x0 + 140, y0 + 14, titel, passend(titel, x1 - x0 - 160, 30), hell)
+            for z in range(zeilen):
+                y = y0 + 80 + z * 40
+                txt(x0 + 20, y, f'{z + 1:>2}', 22, '#4b6a86')
+                x = x0 + 75 + (zufall[(z + versatz) % 32] % 3) * 30
+                for j in range(1 + zufall[(z + 11 + versatz) % 32] % 3):
+                    b = 50 + zufall[(z * 3 + j + versatz) % 32] % 150
+                    if x + b > x1 - 25:
+                        break
+                    d.rounded_rectangle((x, y + 4, x + b, y + 24), 8, fill=farben[(zufall[(z + versatz) % 32] + j) % 5])
+                    x += b + 20
+
+        def leiste(y, s, farbe, haken=False):
+            d.rounded_rectangle((75, y, 1005, y + 100), 22, fill='#13283d', outline=farbe, width=5)
+            if haken:
+                d.rounded_rectangle((100, y + 15, 170, y + 85), 12, fill=farbe)
+                d.line((115, y + 50, 132, y + 68, 158, y + 30), fill=dunkel, width=10)
+            txt(195 if haken else 110, y + 24, s, passend(s, 780 if haken else 860, 50), farbe)
+
+        def pfeil(x, y0, y1):
+            d.rectangle((x - 12, y0, x + 12, y1 - 30), fill=hell)
+            d.polygon([(x - 40, y1 - 40), (x + 40, y1 - 40), (x, y1)], fill=hell)
+
+        namen = [n for n in begriffe(text) if n.upper() != kopf and not re.match(r'[\d$]', n)]
+        fenster = (namen[0] if namen else (phrasen(satz, 1) or ['SOURCE CODE'])[0]).upper()
+        erledigt = bool(re.search(r'\b(worked|works|passed|succeed\w*|identical)\b', satz, re.I))
+        wichtig = [p for p in phrasen(satz, 5) if re.search(
+            r'COMPIL|VECTORI|REWR|SAFE|RUST|DECODER|WORKED|BUG|REFACTOR|OUTPUT|PORT|IDENTICAL', p)]
+        menge = next((f'{zahl} {wort}' for zahl, wort in zahlen(satz) if re.search(r'LINE', wort)), None)
+        if not menge:
+            m = re.search(r'(\d[\d,.]*[kK]?)-line', satz)
+            menge = f'{m[1]} LINES' if m else None
+        if re.search(r'compil\w*|vectori[sz]\w*', satz, re.I):
+            editor(75, 400, 1005, 640, fenster if namen else 'CODE', 4)
+            pfeil(540, 650, 740)
+            d.rounded_rectangle((300, 750, 780, 850), 24, fill=gelb)
+            txt(540 - d.textlength('COMPILER', font=font(52)) / 2, 770, 'COMPILER', 52, dunkel)
+            parallel = re.search(r'vectori[sz]\w*', satz, re.I)
+            for k in range(4 if parallel else 1):
+                x = 160 + k * 200 if parallel else 440
+                pfeil(x + 70 if parallel else 540, 860, 950)
+                d.rounded_rectangle((x, 955, x + 140 if parallel else 640, 1035), 18, fill=tuerkis)
+            if wichtig:
+                leiste(1070, wichtig[-1], tuerkis)
+        elif re.search(r'\b(?:decoder|encoder|video|frames?)\b', satz, re.I) and not re.search(
+                r'\b(?:port|rewr\w*|earlier|older|previous)\b', satz, re.I):
+            for k in range(4):  # Videobilder hinein
+                d.rounded_rectangle((95 + k * 70, 470 + k * 30, 335 + k * 70, 630 + k * 30), 14,
+                                    fill='#22384d', outline=hell, width=4)
+            d.polygon([(250, 560), (250, 640), (315, 600)], fill=hell)
+            d.rectangle((470, 560, 560, 600), fill=hell)
+            d.polygon([(560, 540), (560, 620), (610, 580)], fill=hell)
+            editor(620, 430, 1005, 760, 'DECODER', 6)
+            if re.search(r'\bagents?\b', satz, re.I):
+                # GEMESSEN 19.10. (Argon, 6/10): „Argon agents did ... decoder" - Pruefer vermisste die Agenten
+                for k in range(2):
+                    x, y = 700 + k * 170, 690
+                    d.rounded_rectangle((x - 55, y - 45, x + 55, y + 35), 20, fill=(tuerkis, gelb)[k],
+                                        outline=dunkel, width=6)
+                    d.ellipse((x - 30, y - 22, x - 10, y - 2), fill=dunkel)
+                    d.ellipse((x + 10, y - 22, x + 30, y - 2), fill=dunkel)
+                txt(660, 745, 'AGENTS', 34, hell)
+            leiste(820, fenster if namen else 'DECODER', gelb)
+            if wichtig and wichtig[-1] != fenster:
+                leiste(950, wichtig[-1], tuerkis, erledigt)
+        elif re.search(r'\b(?:port|rewr\w*|earlier|older|previous|migrat\w*)\b', satz, re.I):
+            editor(75, 420, 505, 860, 'BEFORE', 9)
+            editor(575, 420, 1005, 860, 'AFTER', 9, versatz=7)
+            d.polygon([(500, 610), (500, 670), (580, 640)], fill=gelb)
+            leisten = ([menge.upper()] if menge else []) + [p for p in (wichtig or phrasen(satz, 2))
+                                                            if not menge or menge.split()[0] not in p]
+            for k, p in enumerate(leisten[:2]):
+                leiste(900 + k * 120, p, (gelb, tuerkis)[k] if menge else (tuerkis, gelb)[k],
+                       erledigt and k == len(leisten[:2]) - 1)
+        else:
+            editor(75, 400, 1005, 1010, fenster, 12)
+            y = 1040
+            if menge:
+                d.rounded_rectangle((75, y, 1005, y + 100), 22, fill='#13283d', outline=gelb, width=5)
+                txt(110, y + 22, menge.upper(), passend(menge.upper(), 860, 54), gelb)
+                y += 120
+            if wichtig and y < 1180:
+                leiste(y, wichtig[-1], tuerkis, erledigt)
+    elif art == 'zugang':
+        # Schranke mit Wartenden. Je nach Satz geschlossen (begrenzt), wenige durch (Rollout an eine Gruppe)
+        # oder offen (spaeter breiter Zugang) - sonst drei gleiche Bilder hintereinander.
+        def person(x, y, farbe, s=1.0):
+            d.ellipse((x - 26 * s, y - 120 * s, x + 26 * s, y - 68 * s), fill=farbe)
+            d.rounded_rectangle((x - 40 * s, y - 60 * s, x + 40 * s, y + 40 * s), int(22 * s), fill=farbe)
+        offen = re.search(r'\b(?:wider|broader|everyone|all users|general availability|later|after)\b', satz, re.I)
+        durch = re.search(r'\b(?:rolling out|rolls? out|to a set|trusted|selected|early access|testers)\b', satz, re.I)
+        if offen:
+            d.rectangle((520, 470, 560, 1080), fill='#2b4258')
+            d.rounded_rectangle((560, 470, 600, 520), 10, fill=tuerkis)  # Schranke hochgeklappt
+            d.rectangle((560, 470, 600, 700), fill=tuerkis)
+            for k in range(9):
+                person(640 + (k % 3) * 120, 700 + (k // 3) * 150, tuerkis, 0.8)
+            d.rounded_rectangle((90, 560, 470, 900), 22, fill=hell)  # Pruefliste vor dem Oeffnen
+            for k in range(4):
+                d.rounded_rectangle((120, 600 + k * 70, 170, 650 + k * 70), 10, fill='#16a34a')
+                d.line((130, 625 + k * 70, 142, 640 + k * 70, 162, 610 + k * 70), fill='white', width=6)
+                d.rounded_rectangle((195, 615 + k * 70, 195 + (230, 190, 250, 170)[k], 635 + k * 70), 8, fill='#9fb0bf')
+        else:
+            d.rectangle((520, 470, 560, 1080), fill='#2b4258')
+            d.rectangle((560, 820, 1000, 860), fill=gelb)  # geschlossene Schranke vor dem leeren Bereich
+            d.rounded_rectangle((470, 640, 610, 760), 20, fill=gelb)
+            d.arc((495, 570, 585, 680), 180, 360, fill=gelb, width=18)
+            for k in range(8):
+                person(130 + (k % 4) * 90, 760 + (k // 4) * 170, '#4b6a86', 0.8)
+            if durch:
+                for k, (x, y) in enumerate(((680, 760), (800, 820), (900, 740))):
+                    person(x, y, tuerkis)
+        gruppe = next((p for p in phrasen(satz, 5) if re.search(
+            r'DEFENDER|TESTER|USER|DEVELOPER|CUSTOMER|PARTNER|TEAM|TRUSTED|SUBSCRIBER|TESTING', p)), None)
+        rest = [p for p in phrasen(satz, 4) if p != gruppe]
+        if gruppe:
+            d.rounded_rectangle((620, 880, 1005, 1010) if not offen else (90, 920, 470, 1050), 22, fill='#13283d',
+                                outline=tuerkis, width=5)
+            for j, z in enumerate(umbruch(gruppe, 340, 38)[:2]):
+                txt((645 if not offen else 115), (900 if not offen else 940) + j * 48, z, 38, tuerkis)
+        if rest:
+            d.rounded_rectangle((75, 1080, 1005, 1180), 22, fill='#2a1d12', outline=gelb, width=5)
+            txt(110, 1102, rest[0], passend(rest[0], 860, 50), gelb)
+    elif art == 'agenten':
+        # Arbeitsschleife: drei Agenten-Karten im Kreis mit Pfeilen (Versuch -> Auswertung -> Verbesserung);
+        # die gesprochenen Schritte stehen an den Karten.
+        schritte = [p for p in phrasen(satz, 4) if not re.fullmatch(r'AGENTS?', p)][:3]
+        orte = ((540, 500), (820, 870), (260, 870))
+        for k, (x, y) in enumerate(orte):
+            d.rounded_rectangle((x - 120, y - 85, x + 120, y + 30), 26, fill='#13283d',
+                                outline=(tuerkis, gelb, '#c792ea')[k], width=6)
+            d.rounded_rectangle((x - 50, y - 60, x + 50, y + 10), 18, fill=(tuerkis, gelb, '#c792ea')[k])
+            d.ellipse((x - 30, y - 38, x - 10, y - 18), fill=dunkel)
+            d.ellipse((x + 10, y - 38, x + 30, y - 18), fill=dunkel)
+            ax, ay = orte[(k + 1) % 3]
+            mx, my = (x + ax) / 2, (y + ay) / 2
+            d.line((x + (ax - x) * 0.3, y + (ay - y) * 0.3, mx + (ax - mx) * 0.4, my + (ay - my) * 0.4),
+                   fill=hell, width=10)
+            d.ellipse((mx + (ax - mx) * 0.4 - 14, my + (ay - my) * 0.4 - 14,
+                       mx + (ax - mx) * 0.4 + 14, my + (ay - my) * 0.4 + 14), fill=hell)
+        for k, s in enumerate(schritte):
+            x, y = orte[k]
+            # Beschriftung UNTER der Karte (vorher in der Karte: lief ueber den Rand)
+            zeilen = umbruch(s, 400, 34)[:2]
+            for j, z in enumerate(zeilen):
+                txt(x - d.textlength(z, font=font(34)) / 2, y + 50 + j * 42, z, 34, (tuerkis, gelb, '#c792ea')[k])
+    elif art == 'ausgabe':
+        # Lange KI-Ausgabe: ein Antwortfenster, dessen Text ueber den Rand hinauslaeuft (Bildlaufleiste fast leer),
+        # daneben die gesprochene Menge. Zeigt "so viel Text in einem Durchgang" statt eines Rechnungszettels.
+        d.rounded_rectangle((75, 400, 760, 1200), 26, fill='#0b1620', outline='#2b4258', width=4)
+        txt(105, 420, 'AI OUTPUT', 30, '#8dabbf')
+        for z in range(17):
+            b = (600, 560, 620, 480, 590, 610, 540, 600, 570, 620, 500, 590, 610, 560, 600, 580, 620)[z]
+            d.rounded_rectangle((105, 480 + z * 42, 105 + b, 500 + z * 42), 8, fill=('#dce4ec', '#8dabbf')[z % 4 == 3])
+        d.rounded_rectangle((735, 430, 750, 1170), 7, fill='#1b2d3e')
+        d.rounded_rectangle((735, 430, 750, 470), 7, fill=tuerkis)
+        d.polygon([(380, 1215), (460, 1215), (420, 1265)], fill=gelb)  # laeuft weiter
+        menge = next((p for p in phrasen(satz, 5) if re.search(r'TOKEN|WORD|PAGE|LINE', p)), None)
+        rest = [p for p in phrasen(satz, 5) if p != menge and not re.match(r'GOOGLE SAYS|THAT LETS', p)]
+        y = 470
+        for k, p in enumerate(([menge] if menge else []) + rest[-1:]):
+            zeilen = umbruch(p, 200, 34)[:4]
+            hoehe = 40 + len(zeilen) * 44
+            d.rounded_rectangle((790, y, 1005, y + hoehe), 20, fill='#13283d', outline=(gelb, tuerkis)[k], width=5)
+            for j, z in enumerate(zeilen):
+                txt(808, y + 20 + j * 44, z, 34, (gelb, tuerkis)[k])
+            y += hoehe + 30
     elif art == 'kernsatz':
         # Kernaussage als grosse Schlagzeilen - frueher Balken mit erfundenen Werten (Pruefer: "generisch").
         y = 420

@@ -58767,6 +58767,1841 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "39227752733.1:ai-tools-explained",
+      "run_id": "39227752733",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-19T09:37:23.763125+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "61b9d1703100907c9525fb1cb1ef7c5dfe66b774",
+      "produktionsversion": "716df6feb7c4eb7356a6a352113c9c89452acc3c5a66d641e1df62833915cab4",
+      "videoformat": "short",
+      "thema": "Backchannel: one thread for every page's comments",
+      "titel": [
+        "Stop Opening Two Tabs",
+        "*Backchannel* Explained"
+      ],
+      "status": "gesendet",
+      "video_sha256": "d2af371feef50f58c00278d91f56dd448ab2e321036dce4095215cdd3bd0937a",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-18.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen stilisierten Mann vor einer Skyline und erklärt nicht die Erwähnung des Öffnens von zwei Tabs für Links.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Erwähnung des BC-Buttons bei vorhandener Diskussion wird nicht gezeigt, stattdessen ist lediglich die Repository-Ansicht zu sehen.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar drei verbundene Symbole und den Text 'PICK SOURCES', aber es ist keine Checkbox oder eine spezifische Auswahlfunktion zu sehen, wie sie in der Narration gefordert wird.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage lautet 'So is it read-only? No.' und bezieht sich auf die bidirektionale Interaktionsfähigkeit (Voten, Antworten) einer Software. Das Bild zeigt jedoch lediglich den Textfragment 'READ-' in einer Benutzeroberfläche und erklärt weder die Funktion noch zeigt es das beschriebene F",
+        "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Es ist nur ein Hinweistext mit einem Warnsymbol zu sehen, aber kein Bild von Constellation oder einem Index von Bluesky-Links.",
+        "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Textüberschriften und Marketing-Schaltflächen anstelle einer konkreten visuellen Erklärung oder Darstellung der zusammengeführten Tabs oder Threads.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich einen stilisierten Mann vor einer Skyline und erklärt nicht die Erwähnung des Öffnens von zwei Tabs für Links. Korrektur: Ein Screenshot eines Browsers, der zwei Tabs offen hat, um das Problem von zwei Tabs zu veranschaulichen.",
+        "Offenes Problem (schwer): Die gesprochene Erwähnung des BC-Buttons bei vorhandener Diskussion wird nicht gezeigt, stattdessen ist lediglich die Repository-Ansicht zu sehen. Korrektur: Ein UI-Ausschnitt, der den aufleuchtenden BC-Button bei vorhandenen Diskussionen zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt zwar drei verbundene Symbole und den Text 'PICK SOURCES', aber es ist keine Checkbox oder eine spezifische Auswahlfunktion zu sehen, wie sie in der Narration gefordert wird. Korrektur: Eine Benutzeroberfläche, auf der Quellen konkret mit Kontrollkästchen (Checkboxes) ausgewählt werden.",
+        "Offenes Problem (schwer): Die gesprochene Frage lautet 'So is it read-only? No.' und bezieht sich auf die bidirektionale Interaktionsfähigkeit (Voten, Antworten) einer Software. Das Bild zeigt jedoch lediglich den Textfragment 'READ-' in einer Benutzeroberfläche und erklärt weder die Funktion noch zeigt es das beschriebene Feature. Korrektur: Ein Screenshot oder eine Animation, die zeigt, wie man in der Benutzeroberfläche abstimmt oder auf Kommentare antwortet.",
+        "Offenes Problem (schwer): Es ist nur ein Hinweistext mit einem Warnsymbol zu sehen, aber kein Bild von Constellation oder einem Index von Bluesky-Links. Korrektur: Ein Screenshot oder eine Grafik der Constellation-Webseite oder des unabhängigen Indexes von Bluesky-Links.",
+        "Offenes Problem (schwer): Das Bild zeigt Textüberschriften und Marketing-Schaltflächen anstelle einer konkreten visuellen Erklärung oder Darstellung der zusammengeführten Tabs oder Threads. Korrektur: Eine Bildschirmaufnahme, die zwei geöffnete Browser-Tabs neben einer einzelnen zusammengeführten Thread-Ansicht von Backchannel gegenüberstellt."
+      ],
+      "einstellungen": 14,
+      "unterschiedliche_motive": 14,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "39227752733",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-19",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "\"Turn on annotations, and quotes in comments get matched back to the article. Click a highlight to filter the thread.\" The source states: \"Quotes in the comments get matched back to the article and lit as annotations in articles. Click a highlight to filter the thread to the people discussing that passage.\" Correction: Clarify that clicking a highlight filters the thread to the people discussing that specific passage."
+            ],
+            "sekunden": 339.0
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "skript_zwischenfassung": true,
+            "skript_s": 480.0,
+            "bau_s": 209.8,
+            "pruefung_s": 35.4,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage bezieht sich auf das Öffnen von zwei Tabs, während das Bild lediglich eine allgemeine Illustrationsszene auf einer Straße zeigt, ohne Bezug zum eigentlichen Thema.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (5/10): Die Benutzeroberflaeche eines Repositories ist zu sehen, aber das spezifische Zusammenf\"uhren von Hacker News, Bluesky und Reddit zu einem Diskussions-Thread wird visuell nicht gezeigt.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die im Sprachanteil erwähnte Funktion des aufleuchtenden BC-Buttons ist im Bild nicht sichtbar.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Grafik zeigt lediglich den unvollständigen Begriff 'READ-' als textliche Illustration zur Frage nach 'read-only', es wird jedoch keine konkrete Funktion oder Interaktion im Software-Interface demonstriert.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (4/10): Das Diagramm zeigt vereinfacht Datenquellen und eine App, veranschaulicht aber nicht das konkrete Abstimmen, Antworten oder Einreichen von Inhalten.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Es ist nur ein Hinweistext mit einem Warnsymbol zu sehen, aber kein Bild von Constellation oder einem Index von Bluesky-Links.",
+              "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Textüberschriften und Marketing-Schaltflächen anstelle einer konkreten visuellen Erklärung oder Darstellung der zusammengeführten Tabs oder Threads.",
+              "Offenes Problem (schwer): Die gesprochene Frage bezieht sich auf das Öffnen von zwei Tabs, während das Bild lediglich eine allgemeine Illustrationsszene auf einer Straße zeigt, ohne Bezug zum eigentlichen Thema. Korrektur: Ein Screenshot oder eine Animation, die zwei offene Tabs im Browser zeigt, welche verglichen werden.",
+              "Offenes Problem (schwer): Die Benutzeroberflaeche eines Repositories ist zu sehen, aber das spezifische Zusammenf\"uhren von Hacker News, Bluesky und Reddit zu einem Diskussions-Thread wird visuell nicht gezeigt. Korrektur: Ein Screenshot der Browser-Extension oder Sidebar, die Kommentare von Hacker News, Bluesky und Reddit neben einer Webseiten-Inhaltsseite vereint anzeigt.",
+              "Offenes Problem (schwer): Die im Sprachanteil erwähnte Funktion des aufleuchtenden BC-Buttons ist im Bild nicht sichtbar. Korrektur: Ein Screenshot der Benutzeroberfläche, der einen aktiven, aufleuchtenden BC-Button anzeigt.",
+              "Offenes Problem (schwer): Die gezeigte Grafik zeigt lediglich den unvollständigen Begriff 'READ-' als textliche Illustration zur Frage nach 'read-only', es wird jedoch keine konkrete Funktion oder Interaktion im Software-Interface demonstriert. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, der zeigt, wie man in Backchannel abstimmt oder Kommentare verfasst.",
+              "Offenes Problem (schwer): Das Diagramm zeigt vereinfacht Datenquellen und eine App, veranschaulicht aber nicht das konkrete Abstimmen, Antworten oder Einreichen von Inhalten. Korrektur: Eine Benutzeroberfläche, in der ein Nutzer auf unterstützten Plattformen abstimmt oder antwortet.",
+              "Offenes Problem (schwer): Es ist nur ein Hinweistext mit einem Warnsymbol zu sehen, aber kein Bild von Constellation oder einem Index von Bluesky-Links. Korrektur: Ein Screenshot oder eine Grafik der Constellation-Webseite oder des unabhängigen Indexes von Bluesky-Links.",
+              "Offenes Problem (schwer): Das Bild zeigt Textüberschriften und Marketing-Schaltflächen anstelle einer konkreten visuellen Erklärung oder Darstellung der zusammengeführten Tabs oder Threads. Korrektur: Eine Bildschirmaufnahme, die zwei geöffnete Browser-Tabs neben einer einzelnen zusammengeführten Thread-Ansicht von Backchannel gegenüberstellt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 14.6,
+              "zeitmarken": 5.2,
+              "tempo": 1.041,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 14,
+              "clips_und_stuecke": 101.2,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 14,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 13,
+              "rendern": 25.5,
+              "gesamt": 209.5,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                6.84,
+                7.38,
+                6.12,
+                6.3,
+                7.52,
+                6.62,
+                4.23
+              ],
+              "woerter": 134
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Tired of opening two tabs for every link?",
+                "text": "Die gesprochene Frage bezieht sich auf das Öffnen von zwei Tabs, während das Bild lediglich eine allgemeine Illustrationsszene auf einer Straße zeigt, ohne Bezug zum eigentlichen Thema. Korrektur: Ein Screenshot oder eine Animation, die zwei offene Tabs im Browser zeigt, welche verglichen werden."
+              },
+              {
+                "zeit": "00:06.84",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "It blends Hacker News, Bluesky, Reddit and more into one discussion thread beside any page.",
+                "text": "Die Benutzeroberflaeche eines Repositories ist zu sehen, aber das spezifische Zusammenf\"uhren von Hacker News, Bluesky und Reddit zu einem Diskussions-Thread wird visuell nicht gezeigt. Korrektur: Ein Screenshot der Browser-Extension oder Sidebar, die Kommentare von Hacker News, Bluesky und Reddit neben einer Webseiten-Inhaltsseite vereint anzeigt."
+              },
+              {
+                "zeit": "00:14.22",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Browse as usual. If a discussion exists for that page, the BC button lights up.",
+                "text": "Die im Sprachanteil erwähnte Funktion des aufleuchtenden BC-Buttons ist im Bild nicht sichtbar. Korrektur: Ein Screenshot der Benutzeroberfläche, der einen aktiven, aufleuchtenden BC-Button anzeigt."
+              },
+              {
+                "zeit": "00:20.34",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "So is it read-only? No.",
+                "text": "Die gezeigte Grafik zeigt lediglich den unvollständigen Begriff 'READ-' als textliche Illustration zur Frage nach 'read-only', es wird jedoch keine konkrete Funktion oder Interaktion im Software-Interface demonstriert. Korrektur: Ein Screenshot der Software-Benutzeroberfläche, der zeigt, wie man in Backchannel abstimmt oder Kommentare verfasst."
+              },
+              {
+                "zeit": "00:22.56",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "Vote, reply and even submit on supported sources, using the session you already have there.",
+                "text": "Das Diagramm zeigt vereinfacht Datenquellen und eine App, veranschaulicht aber nicht das konkrete Abstimmen, Antworten oder Einreichen von Inhalten. Korrektur: Eine Benutzeroberfläche, in der ein Nutzer auf unterstützten Plattformen abstimmt oder antwortet."
+              },
+              {
+                "zeit": "00:36.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "Bluesky pages go to Constellation, an independent index of Bluesky links.",
+                "text": "Es ist nur ein Hinweistext mit einem Warnsymbol zu sehen, aber kein Bild von Constellation oder einem Index von Bluesky-Links. Korrektur: Ein Screenshot oder eine Grafik der Constellation-Webseite oder des unabhängigen Indexes von Bluesky-Links."
+              },
+              {
+                "zeit": "00:40.78",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 12,
+                "gesprochen": "Those two tabs? One thread now.",
+                "text": "Das Bild zeigt Textüberschriften und Marketing-Schaltflächen anstelle einer konkreten visuellen Erklärung oder Darstellung der zusammengeführten Tabs oder Threads. Korrektur: Eine Bildschirmaufnahme, die zwei geöffnete Browser-Tabs neben einer einzelnen zusammengeführten Thread-Ansicht von Backchannel gegenüberstellt."
+              }
+            ],
+            "sekunden": 725.1,
+            "status": "geprueft"
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                5,
+                6
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 2.6,
+            "bau_s": 243.9,
+            "pruefung_s": 22.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Textpassage fragt nach dem Öffnen von zwei Tabs für jeden Link, während das Bild lediglich einen allgemeinen Nutzer vor einem Computer in einem Zimmer zeigt, ohne den Bezug zu Tabs oder Link-Verwaltung.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (5/10): Die Benutzeroberflaeche eines Repositories ist zu sehen, aber das spezifische Zusammenf\"uhren von Hacker News, Bluesky und Reddit zu einem Diskussions-Thread wird visuell nicht gezeigt.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich Textboxen mit zusammenhangslosen Textfragmenten aus dem Skript anstelle des beschriebenen Ablaufs oder eines leuchtenden Buttons beim Surfen.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine grafische Darstellung von Quellen und einer App, aber keine tatsächlichen Checkboxen zur Auswahl von Quellen, wie im Text \"Pick sources with a checkbox\" beschrieben.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt nur den Text 'READ-' in einem Interface-Element, aber keine visuelle Erklärung oder Demonstration, dass man nicht read-only ist (wie das Antworten oder Abstimmen).",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (4/10): Das Diagramm zeigt abstrakte Symbole für Datenbanken und App, belegt aber nicht die tatsächlichen Interaktionen wie voten, antworten oder einreichen.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Es ist nur ein Hinweistext mit einem Warnsymbol zu sehen, aber kein Bild von Constellation oder einem Index von Bluesky-Links.",
+              "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Textüberschriften und Marketing-Schaltflächen anstelle einer konkreten visuellen Erklärung oder Darstellung der zusammengeführten Tabs oder Threads.",
+              "Offenes Problem (schwer): Die gesprochene Textpassage fragt nach dem Öffnen von zwei Tabs für jeden Link, während das Bild lediglich einen allgemeinen Nutzer vor einem Computer in einem Zimmer zeigt, ohne den Bezug zu Tabs oder Link-Verwaltung. Korrektur: Eine Bildschirmansicht oder eine Illustration, die zwei geöffnete Browser-Tabs für denselben Link zeigt.",
+              "Offenes Problem (schwer): Die Benutzeroberflaeche eines Repositories ist zu sehen, aber das spezifische Zusammenf\"uhren von Hacker News, Bluesky und Reddit zu einem Diskussions-Thread wird visuell nicht gezeigt. Korrektur: Ein Screenshot der Browser-Extension oder Sidebar, die Kommentare von Hacker News, Bluesky und Reddit neben einer Webseiten-Inhaltsseite vereint anzeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich Textboxen mit zusammenhangslosen Textfragmenten aus dem Skript anstelle des beschriebenen Ablaufs oder eines leuchtenden Buttons beim Surfen. Korrektur: Ein Browserfenster, in dem eine normale Webseite angezeigt wird und ein BC-Button zu sehen ist, der aufleuchtet, weil es eine Diskussion dazu gibt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine grafische Darstellung von Quellen und einer App, aber keine tatsächlichen Checkboxen zur Auswahl von Quellen, wie im Text \"Pick sources with a checkbox\" beschrieben. Korrektur: Ein Screenshot oder eine Benutzeroberfläche, die eine Liste von Quellen mit tatsächlichen Checkboxen zur Auswahl zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt nur den Text 'READ-' in einem Interface-Element, aber keine visuelle Erklärung oder Demonstration, dass man nicht read-only ist (wie das Antworten oder Abstimmen). Korrektur: Eine Bildschirmaufnahme, die das Interface von Backchannel zeigt, auf dem Kommentar- und Abstimmungsoptionen aktiv bedient werden.",
+              "Offenes Problem (schwer): Das Diagramm zeigt abstrakte Symbole für Datenbanken und App, belegt aber nicht die tatsächlichen Interaktionen wie voten, antworten oder einreichen. Korrektur: Eine Bildschirmaufnahme, die das tatsächliche Voten oder Antworten in der Benutzeroberfläche zeigt.",
+              "Offenes Problem (schwer): Es ist nur ein Hinweistext mit einem Warnsymbol zu sehen, aber kein Bild von Constellation oder einem Index von Bluesky-Links. Korrektur: Ein Screenshot oder eine Grafik der Constellation-Webseite oder des unabhängigen Indexes von Bluesky-Links.",
+              "Offenes Problem (schwer): Das Bild zeigt Textüberschriften und Marketing-Schaltflächen anstelle einer konkreten visuellen Erklärung oder Darstellung der zusammengeführten Tabs oder Threads. Korrektur: Eine Bildschirmaufnahme, die zwei geöffnete Browser-Tabs neben einer einzelnen zusammengeführten Thread-Ansicht von Backchannel gegenüberstellt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Puck",
+              "tempo": 1.041,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 7,
+              "stuecke_neu": 7,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 181.4,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 14,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 12,
+              "rendern": 24.7,
+              "gesamt": 243.7,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                6.84,
+                7.38,
+                6.12,
+                6.3,
+                7.52,
+                6.62,
+                4.23
+              ],
+              "woerter": 134
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Tired of opening two tabs for every link?",
+                "text": "Die gesprochene Textpassage fragt nach dem Öffnen von zwei Tabs für jeden Link, während das Bild lediglich einen allgemeinen Nutzer vor einem Computer in einem Zimmer zeigt, ohne den Bezug zu Tabs oder Link-Verwaltung. Korrektur: Eine Bildschirmansicht oder eine Illustration, die zwei geöffnete Browser-Tabs für denselben Link zeigt."
+              },
+              {
+                "zeit": "00:06.84",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "It blends Hacker News, Bluesky, Reddit and more into one discussion thread beside any page.",
+                "text": "Die Benutzeroberflaeche eines Repositories ist zu sehen, aber das spezifische Zusammenf\"uhren von Hacker News, Bluesky und Reddit zu einem Diskussions-Thread wird visuell nicht gezeigt. Korrektur: Ein Screenshot der Browser-Extension oder Sidebar, die Kommentare von Hacker News, Bluesky und Reddit neben einer Webseiten-Inhaltsseite vereint anzeigt."
+              },
+              {
+                "zeit": "00:14.22",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Browse as usual. If a discussion exists for that page, the BC button lights up.",
+                "text": "Das Bild zeigt lediglich Textboxen mit zusammenhangslosen Textfragmenten aus dem Skript anstelle des beschriebenen Ablaufs oder eines leuchtenden Buttons beim Surfen. Korrektur: Ein Browserfenster, in dem eine normale Webseite angezeigt wird und ein BC-Button zu sehen ist, der aufleuchtet, weil es eine Diskussion dazu gibt."
+              },
+              {
+                "zeit": "00:18.72",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "Pick sources with a checkbox.",
+                "text": "Das Bild zeigt eine grafische Darstellung von Quellen und einer App, aber keine tatsächlichen Checkboxen zur Auswahl von Quellen, wie im Text \"Pick sources with a checkbox\" beschrieben. Korrektur: Ein Screenshot oder eine Benutzeroberfläche, die eine Liste von Quellen mit tatsächlichen Checkboxen zur Auswahl zeigt."
+              },
+              {
+                "zeit": "00:20.34",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "So is it read-only? No.",
+                "text": "Das Bild zeigt nur den Text 'READ-' in einem Interface-Element, aber keine visuelle Erklärung oder Demonstration, dass man nicht read-only ist (wie das Antworten oder Abstimmen). Korrektur: Eine Bildschirmaufnahme, die das Interface von Backchannel zeigt, auf dem Kommentar- und Abstimmungsoptionen aktiv bedient werden."
+              },
+              {
+                "zeit": "00:22.56",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "Vote, reply and even submit on supported sources, using the session you already have there.",
+                "text": "Das Diagramm zeigt abstrakte Symbole für Datenbanken und App, belegt aber nicht die tatsächlichen Interaktionen wie voten, antworten oder einreichen. Korrektur: Eine Bildschirmaufnahme, die das tatsächliche Voten oder Antworten in der Benutzeroberfläche zeigt."
+              },
+              {
+                "zeit": "00:36.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "Bluesky pages go to Constellation, an independent index of Bluesky links.",
+                "text": "Es ist nur ein Hinweistext mit einem Warnsymbol zu sehen, aber kein Bild von Constellation oder einem Index von Bluesky-Links. Korrektur: Ein Screenshot oder eine Grafik der Constellation-Webseite oder des unabhängigen Indexes von Bluesky-Links."
+              },
+              {
+                "zeit": "00:40.78",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 12,
+                "gesprochen": "Those two tabs? One thread now.",
+                "text": "Das Bild zeigt Textüberschriften und Marketing-Schaltflächen anstelle einer konkreten visuellen Erklärung oder Darstellung der zusammengeführten Tabs oder Threads. Korrektur: Eine Bildschirmaufnahme, die zwei geöffnete Browser-Tabs neben einer einzelnen zusammengeführten Thread-Ansicht von Backchannel gegenüberstellt."
+              }
+            ],
+            "sekunden": 268.7,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "39227752733-3",
+              "datum": "2026-10-19",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 268.7,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                2,
+                3
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 2.6,
+            "bau_s": 218.9,
+            "pruefung_s": 22.5,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen stilisierten Mann vor einer Skyline und erklärt nicht die Erwähnung des Öffnens von zwei Tabs für Links.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Erwähnung des BC-Buttons bei vorhandener Diskussion wird nicht gezeigt, stattdessen ist lediglich die Repository-Ansicht zu sehen.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar drei verbundene Symbole und den Text 'PICK SOURCES', aber es ist keine Checkbox oder eine spezifische Auswahlfunktion zu sehen, wie sie in der Narration gefordert wird.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage lautet 'So is it read-only? No.' und bezieht sich auf die bidirektionale Interaktionsfähigkeit (Voten, Antworten) einer Software. Das Bild zeigt jedoch lediglich den Textfragment 'READ-' in einer Benutzeroberfläche und erklärt weder die Funktion noch zeigt es das beschriebene F",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Es ist nur ein Hinweistext mit einem Warnsymbol zu sehen, aber kein Bild von Constellation oder einem Index von Bluesky-Links.",
+              "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Textüberschriften und Marketing-Schaltflächen anstelle einer konkreten visuellen Erklärung oder Darstellung der zusammengeführten Tabs oder Threads.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen stilisierten Mann vor einer Skyline und erklärt nicht die Erwähnung des Öffnens von zwei Tabs für Links. Korrektur: Ein Screenshot eines Browsers, der zwei Tabs offen hat, um das Problem von zwei Tabs zu veranschaulichen.",
+              "Offenes Problem (schwer): Die gesprochene Erwähnung des BC-Buttons bei vorhandener Diskussion wird nicht gezeigt, stattdessen ist lediglich die Repository-Ansicht zu sehen. Korrektur: Ein UI-Ausschnitt, der den aufleuchtenden BC-Button bei vorhandenen Diskussionen zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar drei verbundene Symbole und den Text 'PICK SOURCES', aber es ist keine Checkbox oder eine spezifische Auswahlfunktion zu sehen, wie sie in der Narration gefordert wird. Korrektur: Eine Benutzeroberfläche, auf der Quellen konkret mit Kontrollkästchen (Checkboxes) ausgewählt werden.",
+              "Offenes Problem (schwer): Die gesprochene Frage lautet 'So is it read-only? No.' und bezieht sich auf die bidirektionale Interaktionsfähigkeit (Voten, Antworten) einer Software. Das Bild zeigt jedoch lediglich den Textfragment 'READ-' in einer Benutzeroberfläche und erklärt weder die Funktion noch zeigt es das beschriebene Feature. Korrektur: Ein Screenshot oder eine Animation, die zeigt, wie man in der Benutzeroberfläche abstimmt oder auf Kommentare antwortet.",
+              "Offenes Problem (schwer): Es ist nur ein Hinweistext mit einem Warnsymbol zu sehen, aber kein Bild von Constellation oder einem Index von Bluesky-Links. Korrektur: Ein Screenshot oder eine Grafik der Constellation-Webseite oder des unabhängigen Indexes von Bluesky-Links.",
+              "Offenes Problem (schwer): Das Bild zeigt Textüberschriften und Marketing-Schaltflächen anstelle einer konkreten visuellen Erklärung oder Darstellung der zusammengeführten Tabs oder Threads. Korrektur: Eine Bildschirmaufnahme, die zwei geöffnete Browser-Tabs neben einer einzelnen zusammengeführten Thread-Ansicht von Backchannel gegenüberstellt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Puck",
+              "tempo": 1.041,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 6,
+              "stuecke_neu": 8,
+              "clips_und_stuecke": 124.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 14,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 13,
+              "rendern": 25.1,
+              "gesamt": 218.8,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                6.84,
+                7.38,
+                6.12,
+                6.3,
+                7.52,
+                6.62,
+                4.23
+              ],
+              "woerter": 134
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Tired of opening two tabs for every link?",
+                "text": "Das Bild zeigt lediglich einen stilisierten Mann vor einer Skyline und erklärt nicht die Erwähnung des Öffnens von zwei Tabs für Links. Korrektur: Ein Screenshot eines Browsers, der zwei Tabs offen hat, um das Problem von zwei Tabs zu veranschaulichen."
+              },
+              {
+                "zeit": "00:14.22",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Browse as usual. If a discussion exists for that page, the BC button lights up.",
+                "text": "Die gesprochene Erwähnung des BC-Buttons bei vorhandener Diskussion wird nicht gezeigt, stattdessen ist lediglich die Repository-Ansicht zu sehen. Korrektur: Ein UI-Ausschnitt, der den aufleuchtenden BC-Button bei vorhandenen Diskussionen zeigt."
+              },
+              {
+                "zeit": "00:18.72",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "Pick sources with a checkbox.",
+                "text": "Das Bild zeigt zwar drei verbundene Symbole und den Text 'PICK SOURCES', aber es ist keine Checkbox oder eine spezifische Auswahlfunktion zu sehen, wie sie in der Narration gefordert wird. Korrektur: Eine Benutzeroberfläche, auf der Quellen konkret mit Kontrollkästchen (Checkboxes) ausgewählt werden."
+              },
+              {
+                "zeit": "00:20.34",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "So is it read-only? No.",
+                "text": "Die gesprochene Frage lautet 'So is it read-only? No.' und bezieht sich auf die bidirektionale Interaktionsfähigkeit (Voten, Antworten) einer Software. Das Bild zeigt jedoch lediglich den Textfragment 'READ-' in einer Benutzeroberfläche und erklärt weder die Funktion noch zeigt es das beschriebene Feature. Korrektur: Ein Screenshot oder eine Animation, die zeigt, wie man in der Benutzeroberfläche abstimmt oder auf Kommentare antwortet."
+              },
+              {
+                "zeit": "00:36.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "Bluesky pages go to Constellation, an independent index of Bluesky links.",
+                "text": "Es ist nur ein Hinweistext mit einem Warnsymbol zu sehen, aber kein Bild von Constellation oder einem Index von Bluesky-Links. Korrektur: Ein Screenshot oder eine Grafik der Constellation-Webseite oder des unabhängigen Indexes von Bluesky-Links."
+              },
+              {
+                "zeit": "00:40.78",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 12,
+                "gesprochen": "Those two tabs? One thread now.",
+                "text": "Das Bild zeigt Textüberschriften und Marketing-Schaltflächen anstelle einer konkreten visuellen Erklärung oder Darstellung der zusammengeführten Tabs oder Threads. Korrektur: Eine Bildschirmaufnahme, die zwei geöffnete Browser-Tabs neben einer einzelnen zusammengeführten Thread-Ansicht von Backchannel gegenüberstellt."
+              }
+            ],
+            "sekunden": 244.0,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "39227752733-4",
+              "datum": "2026-10-19",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 244.0,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 5,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "trendcheck": "ChatGPT: I Made My Own VST Plugins Using ChatGPT (Here's How): 5.0 Punkte - YouTube-Ausreisser 60.1x Kanalschnitt",
+        "grund": "",
+        "sekunden": 1670.8,
+        "upload_titel": "Stop Opening Two Tabs: Backchannel Explained | AI Tool #9"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Tired of opening two tabs for every link?",
+            "text": "Das Bild zeigt lediglich einen stilisierten Mann vor einer Skyline und erklärt nicht die Erwähnung des Öffnens von zwei Tabs für Links. Korrektur: Ein Screenshot eines Browsers, der zwei Tabs offen hat, um das Problem von zwei Tabs zu veranschaulichen."
+          },
+          {
+            "zeit": "00:14.22",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Browse as usual. If a discussion exists for that page, the BC button lights up.",
+            "text": "Die gesprochene Erwähnung des BC-Buttons bei vorhandener Diskussion wird nicht gezeigt, stattdessen ist lediglich die Repository-Ansicht zu sehen. Korrektur: Ein UI-Ausschnitt, der den aufleuchtenden BC-Button bei vorhandenen Diskussionen zeigt."
+          },
+          {
+            "zeit": "00:18.72",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "Pick sources with a checkbox.",
+            "text": "Das Bild zeigt zwar drei verbundene Symbole und den Text 'PICK SOURCES', aber es ist keine Checkbox oder eine spezifische Auswahlfunktion zu sehen, wie sie in der Narration gefordert wird. Korrektur: Eine Benutzeroberfläche, auf der Quellen konkret mit Kontrollkästchen (Checkboxes) ausgewählt werden."
+          },
+          {
+            "zeit": "00:20.34",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 6,
+            "gesprochen": "So is it read-only? No.",
+            "text": "Die gesprochene Frage lautet 'So is it read-only? No.' und bezieht sich auf die bidirektionale Interaktionsfähigkeit (Voten, Antworten) einer Software. Das Bild zeigt jedoch lediglich den Textfragment 'READ-' in einer Benutzeroberfläche und erklärt weder die Funktion noch zeigt es das beschriebene Feature. Korrektur: Ein Screenshot oder eine Animation, die zeigt, wie man in der Benutzeroberfläche abstimmt oder auf Kommentare antwortet."
+          },
+          {
+            "zeit": "00:36.68",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "Bluesky pages go to Constellation, an independent index of Bluesky links.",
+            "text": "Es ist nur ein Hinweistext mit einem Warnsymbol zu sehen, aber kein Bild von Constellation oder einem Index von Bluesky-Links. Korrektur: Ein Screenshot oder eine Grafik der Constellation-Webseite oder des unabhängigen Indexes von Bluesky-Links."
+          },
+          {
+            "zeit": "00:40.78",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 12,
+            "gesprochen": "Those two tabs? One thread now.",
+            "text": "Das Bild zeigt Textüberschriften und Marketing-Schaltflächen anstelle einer konkreten visuellen Erklärung oder Darstellung der zusammengeführten Tabs oder Threads. Korrektur: Eine Bildschirmaufnahme, die zwei geöffnete Browser-Tabs neben einer einzelnen zusammengeführten Thread-Ansicht von Backchannel gegenüberstellt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.1,
+          "fps": 30.0,
+          "lufs": -14.8,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 43.16,
+              "bis_s": 44.54,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.99
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.1,
+              "bis_s": 45.6,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Tired",
+                "s": 0.02,
+                "e": 0.5,
+                "p": 0.8645835816860199
+              },
+              {
+                "w": "of",
+                "s": 0.5,
+                "e": 0.6,
+                "p": 0.996847927570343
+              },
+              {
+                "w": "opening",
+                "s": 0.6,
+                "e": 0.84,
+                "p": 0.9957029223442078
+              },
+              {
+                "w": "two",
+                "s": 0.84,
+                "e": 1.2,
+                "p": 0.874321699142456
+              },
+              {
+                "w": "tabs",
+                "s": 1.2,
+                "e": 1.66,
+                "p": 0.9900034070014954
+              },
+              {
+                "w": "for",
+                "s": 1.66,
+                "e": 1.94,
+                "p": 0.9876071810722351
+              },
+              {
+                "w": "every",
+                "s": 1.94,
+                "e": 2.18,
+                "p": 0.9817479252815247
+              },
+              {
+                "w": "link?",
+                "s": 2.18,
+                "e": 2.58,
+                "p": 0.9962835907936096
+              },
+              {
+                "w": "Back",
+                "s": 3.06,
+                "e": 3.3,
+                "p": 0.8984792828559875
+              },
+              {
+                "w": "Channel",
+                "s": 3.3,
+                "e": 3.58,
+                "p": 0.34211835265159607
+              },
+              {
+                "w": "brings",
+                "s": 3.58,
+                "e": 3.9,
+                "p": 0.9819382429122925
+              },
+              {
+                "w": "the",
+                "s": 3.9,
+                "e": 4.06,
+                "p": 0.9886566400527954
+              },
+              {
+                "w": "internet's",
+                "s": 4.06,
+                "e": 4.44,
+                "p": 0.7540695369243622
+              },
+              {
+                "w": "conversations",
+                "s": 4.44,
+                "e": 4.82,
+                "p": 0.9191136956214905
+              },
+              {
+                "w": "into",
+                "s": 4.82,
+                "e": 5.22,
+                "p": 0.9707373976707458
+              },
+              {
+                "w": "whatever",
+                "s": 5.22,
+                "e": 5.4,
+                "p": 0.9790260791778564
+              },
+              {
+                "w": "page",
+                "s": 5.4,
+                "e": 5.94,
+                "p": 0.9963464140892029
+              },
+              {
+                "w": "you're",
+                "s": 5.94,
+                "e": 6.14,
+                "p": 0.9649069309234619
+              },
+              {
+                "w": "reading.",
+                "s": 6.14,
+                "e": 6.4,
+                "p": 0.9934711456298828
+              },
+              {
+                "w": "It",
+                "s": 6.86,
+                "e": 6.86,
+                "p": 0.8789992332458496
+              },
+              {
+                "w": "blends",
+                "s": 6.86,
+                "e": 7.04,
+                "p": 0.9952194094657898
+              },
+              {
+                "w": "Hacker",
+                "s": 7.04,
+                "e": 7.34,
+                "p": 0.4670465290546417
+              },
+              {
+                "w": "News,",
+                "s": 7.34,
+                "e": 7.66,
+                "p": 0.9310975670814514
+              },
+              {
+                "w": "Blue",
+                "s": 8.24,
+                "e": 8.24,
+                "p": 0.5008921027183533
+              },
+              {
+                "w": "Sky,",
+                "s": 8.24,
+                "e": 8.58,
+                "p": 0.5571833252906799
+              },
+              {
+                "w": "Reddit,",
+                "s": 9.0,
+                "e": 9.1,
+                "p": 0.9777522683143616
+              },
+              {
+                "w": "and",
+                "s": 9.46,
+                "e": 9.48,
+                "p": 0.9919793605804443
+              },
+              {
+                "w": "more",
+                "s": 9.48,
+                "e": 9.74,
+                "p": 0.9964698553085327
+              },
+              {
+                "w": "into",
+                "s": 9.74,
+                "e": 9.94,
+                "p": 0.9859078526496887
+              },
+              {
+                "w": "one",
+                "s": 9.94,
+                "e": 10.28,
+                "p": 0.9742466807365417
+              },
+              {
+                "w": "discussion",
+                "s": 10.28,
+                "e": 10.62,
+                "p": 0.9753325581550598
+              },
+              {
+                "w": "thread",
+                "s": 10.62,
+                "e": 10.9,
+                "p": 0.9966617822647095
+              },
+              {
+                "w": "beside",
+                "s": 10.9,
+                "e": 11.2,
+                "p": 0.9436920881271362
+              },
+              {
+                "w": "any",
+                "s": 11.2,
+                "e": 11.5,
+                "p": 0.9694193005561829
+              },
+              {
+                "w": "page.",
+                "s": 11.5,
+                "e": 11.82,
+                "p": 0.9977293610572815
+              },
+              {
+                "w": "Each",
+                "s": 12.42,
+                "e": 12.48,
+                "p": 0.9880703687667847
+              },
+              {
+                "w": "comment",
+                "s": 12.48,
+                "e": 12.78,
+                "p": 0.9874911308288574
+              },
+              {
+                "w": "notes",
+                "s": 12.78,
+                "e": 13.2,
+                "p": 0.984343409538269
+              },
+              {
+                "w": "its",
+                "s": 13.2,
+                "e": 13.34,
+                "p": 0.8744178414344788
+              },
+              {
+                "w": "source.",
+                "s": 13.34,
+                "e": 13.6,
+                "p": 0.9964338541030884
+              },
+              {
+                "w": "Browse",
+                "s": 14.22,
+                "e": 14.36,
+                "p": 0.21574261784553528
+              },
+              {
+                "w": "as",
+                "s": 14.36,
+                "e": 14.58,
+                "p": 0.9851380586624146
+              },
+              {
+                "w": "usual,",
+                "s": 14.58,
+                "e": 14.78,
+                "p": 0.9989330172538757
+              },
+              {
+                "w": "if",
+                "s": 15.22,
+                "e": 15.3,
+                "p": 0.9570088982582092
+              },
+              {
+                "w": "a",
+                "s": 15.3,
+                "e": 15.4,
+                "p": 0.9399431347846985
+              },
+              {
+                "w": "discussion",
+                "s": 15.4,
+                "e": 15.66,
+                "p": 0.9919238686561584
+              },
+              {
+                "w": "exists",
+                "s": 15.66,
+                "e": 16.0,
+                "p": 0.9887378215789795
+              },
+              {
+                "w": "for",
+                "s": 16.0,
+                "e": 16.24,
+                "p": 0.9936535358428955
+              },
+              {
+                "w": "that",
+                "s": 16.24,
+                "e": 16.4,
+                "p": 0.9855952262878418
+              },
+              {
+                "w": "page,",
+                "s": 16.4,
+                "e": 16.72,
+                "p": 0.9952627420425415
+              },
+              {
+                "w": "the",
+                "s": 17.14,
+                "e": 17.14,
+                "p": 0.9870181679725647
+              },
+              {
+                "w": "BC",
+                "s": 17.14,
+                "e": 17.4,
+                "p": 0.7820919752120972
+              },
+              {
+                "w": "button",
+                "s": 17.4,
+                "e": 17.86,
+                "p": 0.960139811038971
+              },
+              {
+                "w": "lights",
+                "s": 17.86,
+                "e": 18.12,
+                "p": 0.9868485927581787
+              },
+              {
+                "w": "up.",
+                "s": 18.12,
+                "e": 18.38,
+                "p": 0.9969475865364075
+              },
+              {
+                "w": "Pick",
+                "s": 18.76,
+                "e": 18.8,
+                "p": 0.8846564292907715
+              },
+              {
+                "w": "sources",
+                "s": 18.8,
+                "e": 19.0,
+                "p": 0.9311891198158264
+              },
+              {
+                "w": "with",
+                "s": 19.0,
+                "e": 19.34,
+                "p": 0.9962863922119141
+              },
+              {
+                "w": "a",
+                "s": 19.34,
+                "e": 19.46,
+                "p": 0.5246520042419434
+              },
+              {
+                "w": "check",
+                "s": 19.46,
+                "e": 19.54,
+                "p": 0.9972633123397827
+              },
+              {
+                "w": "box.",
+                "s": 19.54,
+                "e": 19.74,
+                "p": 0.5429230332374573
+              },
+              {
+                "w": "So,",
+                "s": 20.52,
+                "e": 20.62,
+                "p": 0.9229879379272461
+              },
+              {
+                "w": "is",
+                "s": 20.8,
+                "e": 20.88,
+                "p": 0.990929901599884
+              },
+              {
+                "w": "it",
+                "s": 20.88,
+                "e": 20.98,
+                "p": 0.9968542456626892
+              },
+              {
+                "w": "read",
+                "s": 20.98,
+                "e": 21.08,
+                "p": 0.8646409511566162
+              },
+              {
+                "w": "only?",
+                "s": 21.08,
+                "e": 21.24,
+                "p": 0.6190893650054932
+              },
+              {
+                "w": "No.",
+                "s": 21.8,
+                "e": 21.94,
+                "p": 0.9891385436058044
+              },
+              {
+                "w": "Vote,",
+                "s": 22.52,
+                "e": 22.56,
+                "p": 0.9858682751655579
+              },
+              {
+                "w": "reply,",
+                "s": 22.82,
+                "e": 23.02,
+                "p": 0.9856463074684143
+              },
+              {
+                "w": "and",
+                "s": 23.44,
+                "e": 23.46,
+                "p": 0.9972764849662781
+              },
+              {
+                "w": "even",
+                "s": 23.46,
+                "e": 23.66,
+                "p": 0.9975925087928772
+              },
+              {
+                "w": "submit",
+                "s": 23.66,
+                "e": 24.1,
+                "p": 0.9986127614974976
+              },
+              {
+                "w": "on",
+                "s": 24.1,
+                "e": 24.3,
+                "p": 0.23445290327072144
+              },
+              {
+                "w": "supported",
+                "s": 24.3,
+                "e": 24.56,
+                "p": 0.9847842454910278
+              },
+              {
+                "w": "sources,",
+                "s": 24.56,
+                "e": 24.92,
+                "p": 0.996912956237793
+              },
+              {
+                "w": "using",
+                "s": 25.22,
+                "e": 25.42,
+                "p": 0.9986516833305359
+              },
+              {
+                "w": "the",
+                "s": 25.42,
+                "e": 25.56,
+                "p": 0.9790205955505371
+              },
+              {
+                "w": "session",
+                "s": 25.56,
+                "e": 25.78,
+                "p": 0.9846012592315674
+              },
+              {
+                "w": "you",
+                "s": 25.78,
+                "e": 25.98,
+                "p": 0.9942542910575867
+              },
+              {
+                "w": "already",
+                "s": 25.98,
+                "e": 26.16,
+                "p": 0.9839209318161011
+              },
+              {
+                "w": "have",
+                "s": 26.16,
+                "e": 26.44,
+                "p": 0.9975191354751587
+              },
+              {
+                "w": "there.",
+                "s": 26.44,
+                "e": 26.64,
+                "p": 0.9961016178131104
+              },
+              {
+                "w": "Turn",
+                "s": 27.3,
+                "e": 27.46,
+                "p": 0.9932926893234253
+              },
+              {
+                "w": "on",
+                "s": 27.46,
+                "e": 27.62,
+                "p": 0.9970332384109497
+              },
+              {
+                "w": "annotations",
+                "s": 27.62,
+                "e": 27.86,
+                "p": 0.9902997016906738
+              },
+              {
+                "w": "and",
+                "s": 27.86,
+                "e": 28.5,
+                "p": 0.8606071472167969
+              },
+              {
+                "w": "quotes",
+                "s": 28.5,
+                "e": 28.8,
+                "p": 0.9026861190795898
+              },
+              {
+                "w": "in",
+                "s": 28.8,
+                "e": 29.1,
+                "p": 0.2076055109500885
+              },
+              {
+                "w": "comments",
+                "s": 29.1,
+                "e": 29.44,
+                "p": 0.9200697541236877
+              },
+              {
+                "w": "get",
+                "s": 29.44,
+                "e": 29.6,
+                "p": 0.9413669109344482
+              },
+              {
+                "w": "matched",
+                "s": 29.6,
+                "e": 29.8,
+                "p": 0.9922735095024109
+              },
+              {
+                "w": "back",
+                "s": 29.8,
+                "e": 30.22,
+                "p": 0.9915189146995544
+              },
+              {
+                "w": "to",
+                "s": 30.22,
+                "e": 30.42,
+                "p": 0.9950307607650757
+              },
+              {
+                "w": "the",
+                "s": 30.42,
+                "e": 30.46,
+                "p": 0.9940029978752136
+              },
+              {
+                "w": "article.",
+                "s": 30.46,
+                "e": 30.8,
+                "p": 0.9989594221115112
+              },
+              {
+                "w": "Click",
+                "s": 31.4,
+                "e": 31.42,
+                "p": 0.9916273355484009
+              },
+              {
+                "w": "a",
+                "s": 31.42,
+                "e": 31.5,
+                "p": 0.9922290444374084
+              },
+              {
+                "w": "highlight",
+                "s": 31.5,
+                "e": 31.7,
+                "p": 0.9953677654266357
+              },
+              {
+                "w": "to",
+                "s": 31.7,
+                "e": 32.0,
+                "p": 0.9939329028129578
+              },
+              {
+                "w": "see",
+                "s": 32.0,
+                "e": 32.18,
+                "p": 0.9980984330177307
+              },
+              {
+                "w": "people",
+                "s": 32.18,
+                "e": 32.46,
+                "p": 0.9969436526298523
+              },
+              {
+                "w": "discussing",
+                "s": 32.46,
+                "e": 32.78,
+                "p": 0.9971505999565125
+              },
+              {
+                "w": "that",
+                "s": 32.78,
+                "e": 33.12,
+                "p": 0.9933632612228394
+              },
+              {
+                "w": "passage.",
+                "s": 33.12,
+                "e": 33.46,
+                "p": 0.9973706007003784
+              },
+              {
+                "w": "The",
+                "s": 34.1,
+                "e": 34.28,
+                "p": 0.9678446650505066
+              },
+              {
+                "w": "catch?",
+                "s": 34.28,
+                "e": 34.46,
+                "p": 0.9709032773971558
+              },
+              {
+                "w": "Reddit",
+                "s": 34.94,
+                "e": 35.24,
+                "p": 0.8610065579414368
+              },
+              {
+                "w": "gets",
+                "s": 35.24,
+                "e": 35.5,
+                "p": 0.9849698543548584
+              },
+              {
+                "w": "the",
+                "s": 35.5,
+                "e": 35.68,
+                "p": 0.9940856695175171
+              },
+              {
+                "w": "pages",
+                "s": 35.68,
+                "e": 35.86,
+                "p": 0.9461588859558105
+              },
+              {
+                "w": "you",
+                "s": 35.86,
+                "e": 36.06,
+                "p": 0.96864914894104
+              },
+              {
+                "w": "visit.",
+                "s": 36.06,
+                "e": 36.3,
+                "p": 0.9961344003677368
+              },
+              {
+                "w": "Blue",
+                "s": 36.64,
+                "e": 36.78,
+                "p": 0.8685839176177979
+              },
+              {
+                "w": "Sky",
+                "s": 36.78,
+                "e": 37.0,
+                "p": 0.7799903750419617
+              },
+              {
+                "w": "pages",
+                "s": 37.0,
+                "e": 37.3,
+                "p": 0.829892098903656
+              },
+              {
+                "w": "go",
+                "s": 37.3,
+                "e": 37.56,
+                "p": 0.9675939679145813
+              },
+              {
+                "w": "to",
+                "s": 37.56,
+                "e": 37.64,
+                "p": 0.9984219074249268
+              },
+              {
+                "w": "Constellation,",
+                "s": 37.64,
+                "e": 38.08,
+                "p": 0.7461567223072052
+              },
+              {
+                "w": "an",
+                "s": 38.58,
+                "e": 38.64,
+                "p": 0.976434588432312
+              },
+              {
+                "w": "independent",
+                "s": 38.64,
+                "e": 38.9,
+                "p": 0.9864208698272705
+              },
+              {
+                "w": "index",
+                "s": 38.9,
+                "e": 39.38,
+                "p": 0.9945552349090576
+              },
+              {
+                "w": "of",
+                "s": 39.38,
+                "e": 39.6,
+                "p": 0.9649966955184937
+              },
+              {
+                "w": "Blue",
+                "s": 39.6,
+                "e": 39.74,
+                "p": 0.5726101994514465
+              },
+              {
+                "w": "Sky",
+                "s": 39.74,
+                "e": 39.92,
+                "p": 0.9900280833244324
+              },
+              {
+                "w": "links.",
+                "s": 39.92,
+                "e": 40.12,
+                "p": 0.9512864947319031
+              },
+              {
+                "w": "Those",
+                "s": 40.66,
+                "e": 40.9,
+                "p": 0.9925310015678406
+              },
+              {
+                "w": "two",
+                "s": 40.9,
+                "e": 41.06,
+                "p": 0.9919227361679077
+              },
+              {
+                "w": "tabs?",
+                "s": 41.06,
+                "e": 41.24,
+                "p": 0.99281245470047
+              },
+              {
+                "w": "One",
+                "s": 41.98,
+                "e": 42.02,
+                "p": 0.9827960133552551
+              },
+              {
+                "w": "thread",
+                "s": 42.02,
+                "e": 42.24,
+                "p": 0.982509970664978
+              },
+              {
+                "w": "now.",
+                "s": 42.24,
+                "e": 42.46,
+                "p": 0.987337052822113
+              },
+              {
+                "w": "Be",
+                "s": 42.86,
+                "e": 42.94,
+                "p": 0.9974867105484009
+              },
+              {
+                "w": "sure",
+                "s": 42.94,
+                "e": 43.06,
+                "p": 0.9995567202568054
+              },
+              {
+                "w": "to",
+                "s": 43.06,
+                "e": 43.16,
+                "p": 0.9960559606552124
+              },
+              {
+                "w": "like,",
+                "s": 43.16,
+                "e": 43.34,
+                "p": 0.9514092803001404
+              },
+              {
+                "w": "share,",
+                "s": 43.46,
+                "e": 43.66,
+                "p": 0.9967367053031921
+              },
+              {
+                "w": "and",
+                "s": 43.84,
+                "e": 43.94,
+                "p": 0.9991344809532166
+              },
+              {
+                "w": "save",
+                "s": 43.94,
+                "e": 44.16,
+                "p": 0.9979926347732544
+              },
+              {
+                "w": "this",
+                "s": 44.16,
+                "e": 44.32,
+                "p": 0.9965692758560181
+              },
+              {
+                "w": "video.",
+                "s": 44.32,
+                "e": 44.54,
+                "p": 0.9994437098503113
+              }
+            ],
+            "dauer_s": 44.9706875,
+            "sprache": "en"
+          },
+          "roh_key": "0f8c74c6e9559ac38c2509586e8de47ad4bbd4fabbc436fa5a5de6c89932ece4",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "d2af371feef50f58c00278d91f56dd448ab2e321036dce4095215cdd3bd0937a",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.1,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 14,
+          "motive": 14,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "d2af371feef50f58c00278d91f56dd448ab2e321036dce4095215cdd3bd0937a",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein digital gemaltes Porträt eines Mannes mit Sonnenbrille vor einer Skyline bei Sonnenuntergang.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich einen stilisierten Mann vor einer Skyline und erklärt nicht die Erwähnung des Öffnens von zwei Tabs für Links.",
+              "erforderliches_bild": "Ein Screenshot eines Browsers, der zwei Tabs offen hat, um das Problem von zwei Tabs zu veranschaulichen."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein grünes Anwendungsfenster (Backchannel) zeigt einen Webbrowser mit einer Artikelseite 'C for Rust Practitioners' auf der rechten Seite und einer integrierten Diskussionsspalte (Reddit, Hacker News etc.) auf der linken Seite.",
+              "note": 9,
+              "passt": true,
+              "grund": "Die sichtbare Benutzeroberfläche zeigt exakt die beschriebene Funktion, dass Internet-Konversationen aus verschiedenen Quellen direkt neben die gelesene Seite gebracht werden.",
+              "erforderliches_bild": "Keines, da die aktuelle Abbildung perfekt passt."
+            },
+            {
+              "index": 2,
+              "gesehen": "Gezeigt wird ein Webseiten-Ausschnitt mit mehreren Kommentar-Spalten und Diskussions-Threads im Interface.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt diskussions-threads neben Webseiten-Inhalten, was genau dem Blenden verschiedener Plattformen in eine Seitenleiste entspricht.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da direkt passend."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein diagrammartiges Bild mit der Überschrift 'EACH COMMENT NOTES' zeigt eine zentrale App, die mit drei datenbankähnlichen zylindrischen Symbolen verbunden ist. Darunter befindet sich ein Kasten mit dem Text 'EACH COMMENT NOTES'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Diagramm zeigt visuell die Zuordnung verschiedener Quellen oder Kommentarnoten zur App, was dem gesprochenen Satz 'Each comment notes its source' entspricht.",
+              "erforderliches_bild": "Keines, das Bild passt."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Karten-Interface mit dem Titel twalichiewicz/Backchannel und Angaben zu Contributoren, Issues, Stars und Forks sowie ein GitHub-Symbol.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gesprochene Erwähnung des BC-Buttons bei vorhandener Diskussion wird nicht gezeigt, stattdessen ist lediglich die Repository-Ansicht zu sehen.",
+              "erforderliches_bild": "Ein UI-Ausschnitt, der den aufleuchtenden BC-Button bei vorhandenen Diskussionen zeigt."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein diagrammartiges Bild mit drei Zylindern, die mit einer App verbunden sind, sowie der Beschriftung PICK SOURCES unten links.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt zwar drei verbundene Symbole und den Text 'PICK SOURCES', aber es ist keine Checkbox oder eine spezifische Auswahlfunktion zu sehen, wie sie in der Narration gefordert wird.",
+              "erforderliches_bild": "Eine Benutzeroberfläche, auf der Quellen konkret mit Kontrollkästchen (Checkboxes) ausgewählt werden."
+            },
+            {
+              "index": 6,
+              "gesehen": "In der Bildmitte ist ein abgedunkeltes Anzeigefenster oder eine Textbox mit der Aufschrift 'READ-' und einem grünen Rahmen zu sehen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gesprochene Frage lautet 'So is it read-only? No.' und bezieht sich auf die bidirektionale Interaktionsfähigkeit (Voten, Antworten) einer Software. Das Bild zeigt jedoch lediglich den Textfragment 'READ-' in einer Benutzeroberfläche und erklärt weder die Funktion noch zeigt es das beschriebene Feature.",
+              "erforderliches_bild": "Ein Screenshot oder eine Animation, die zeigt, wie man in der Benutzeroberfläche abstimmt oder auf Kommentare antwortet."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein schematisches Diagramm mit einer App in der Mitte und drei Datenbankzylindern oben, verbunden durch orange Linien. Darunter ein Textfeld mit der Aufschrift VOTE, REPLY AND EVEN SUB.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Diagramm illustriert die Anbindung verschiedener unterstützter Plattformen (Quellen) an die App, passend zur Interaktion und Datenübertragung bei Voting und Antworten.",
+              "erforderliches_bild": "nicht erforderlich"
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Bildschirm zeigt Textkästen mit den Begriffen TURN, ANNOTATIONS, COMMENTS GET MATCHED BACK und ARTICLE in einer dunklen UI.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbaren Elemente TURN, ANNOTATIONS und ARTICLE zeigen direkt die im Text erwähnte Funktion zum Einschalten von Annotationen passend zum Artikel.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 9,
+              "gesehen": "In einem dunklen Design wird ein Textfeld mit dem Titel BACKCHANNEL: ONE THREAD FOR EVERY PAGE'S COMMENTS gezeigt, darunter zwei Buttons mit den Aufschriften 'CLICK A HIGHLIGHT' und 'PEOPLE DISCUSSING THAT PASSAGE'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Benutzeroberfläche zeigt direkt die im Text erwähnten Elemente 'Click a highlight' und 'People discussing that passage' als funktionale Interface-Elemente.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein Warnsymbol und ein Textkasten mit dem Text 'THE CATCH: REDDIT GETS THE PAGES YOU VISIT.'",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt den exakten Wortlaut zur Warnung bezüglich Reddit und der besuchten Seiten, was perfekt zur gesprochenen Zeile passt.",
+              "erforderliches_bild": "Ein passendes Warnschild oder Textfeld zum Thema Datenschutz und Reddit."
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein Warnsymbol und ein Textkasten mit dem Text: Bluesky pages go to Constellation, an independent index of Bluesky links.",
+              "note": 3,
+              "passt": false,
+              "grund": "Es ist nur ein Hinweistext mit einem Warnsymbol zu sehen, aber kein Bild von Constellation oder einem Index von Bluesky-Links.",
+              "erforderliches_bild": "Ein Screenshot oder eine Grafik der Constellation-Webseite oder des unabhängigen Indexes von Bluesky-Links."
+            },
+            {
+              "index": 12,
+              "gesehen": "Ein dunkler Bildschirm mit dem Text 'BACKCHANNEL: ONE THREAD FOR EVERY PAGE'S COMMENTS', gefolgt von zwei Schaltflächen mit den Aufschriften 'TWO TABS' und 'ONE THREAD NOW'.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt Textüberschriften und Marketing-Schaltflächen anstelle einer konkreten visuellen Erklärung oder Darstellung der zusammengeführten Tabs oder Threads.",
+              "erforderliches_bild": "Eine Bildschirmaufnahme, die zwei geöffnete Browser-Tabs neben einer einzelnen zusammengeführten Thread-Ansicht von Backchannel gegenüberstellt."
+            },
+            {
+              "index": 13,
+              "gesehen": "Ein digital gezeichneter Mann mit Brille vor einer Stadt- und Kran-Kulisse sowie eine Sprechblase mit der Aufforderung zum Liken und Teilen.",
+              "note": 10,
+              "passt": true,
+              "grund": "Die sichtbare Aufforderung zum Liken und Teilen passt direkt zu den gesprochenen Worten.",
+              "erforderliches_bild": "Keine Änderung erforderlich."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen stilisierten Mann vor einer Skyline und erklärt nicht die Erwähnung des Öffnens von zwei Tabs für Links.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Erwähnung des BC-Buttons bei vorhandener Diskussion wird nicht gezeigt, stattdessen ist lediglich die Repository-Ansicht zu sehen.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar drei verbundene Symbole und den Text 'PICK SOURCES', aber es ist keine Checkbox oder eine spezifische Auswahlfunktion zu sehen, wie sie in der Narration gefordert wird.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage lautet 'So is it read-only? No.' und bezieht sich auf die bidirektionale Interaktionsfähigkeit (Voten, Antworten) einer Software. Das Bild zeigt jedoch lediglich den Textfragment 'READ-' in einer Benutzeroberfläche und erklärt weder die Funktion noch zeigt es das beschriebene F",
+            "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Es ist nur ein Hinweistext mit einem Warnsymbol zu sehen, aber kein Bild von Constellation oder einem Index von Bluesky-Links.",
+            "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Textüberschriften und Marketing-Schaltflächen anstelle einer konkreten visuellen Erklärung oder Darstellung der zusammengeführten Tabs oder Threads."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 14,
+          "ausgenommen": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "d2af371feef50f58c00278d91f56dd448ab2e321036dce4095215cdd3bd0937a",
+        "prompt_version": "2026-10-18.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

@@ -30,7 +30,9 @@ ZUSATZ_S = {('business-origin-stories', '2026-10-14'): 70 * 60}
 # Zuschauer-Trendthema und neuer Stimme Puck.
 EXTRA_VIDEOS = {('ai-tools-explained', '2026-10-17'): 1, ('business-origin-stories', '2026-10-17'): 1,
                 ('ai-tools-explained', '2026-10-18'): 1, ('business-origin-stories', '2026-10-18'): 1,
-                ('ai-tools-explained', '2026-10-19'): 1}
+                ('ai-tools-explained', '2026-10-19'): 2}
+# 19.10.: zweites Extra auf Nutzerwunsch - der erste Extra-Short traf wegen eines Recherchefehlers
+# (89b13d5) nicht das Trendthema; dieser Lauf soll alle Aenderungen des Tages belegen.
 
 
 def extra_videos(kanal, datum):

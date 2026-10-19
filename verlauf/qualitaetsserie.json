@@ -57609,6 +57609,1164 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "39222444652.1:business-origin-stories",
+      "run_id": "39222444652",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-19T09:02:53.946928+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "1a610276facc0388ae621be572d99c69ecc5084a",
+      "produktionsversion": "90081187dc8c7475465e350d692fd682f9c8d855c217bc5946833fe4a66fdd4c",
+      "videoformat": "short",
+      "thema": "Rolex",
+      "titel": [
+        "Rolex's Prisoner Deal",
+        "Pay After The *War*"
+      ],
+      "status": "gesendet",
+      "video_sha256": "bdf8b34033e1f516ec623d1646660a33bd6301ae0758ff5a7ab468f978479101",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-18.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Die Soldaten sind abgebildet, aber es ist keine Uhrenausgabe oder Kreditvereinbarung zu erkennen.",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die Abbildung zeigt einen stilisierten Mann, jedoch weder den Gründer von Rolex noch eine historische Untersuchungsszene, wie sie im Text erwähnt wird.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die sichtbaren Uniformen passen nicht zur Untersuchung von Wilsdorf durch die Genfer Polizei.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt einen erschrockenen Mann am Fenster, aber keinerlei Bezug zu britischen Bedenken bezüglich Nazi-Sympathien oder polizeilichen Ermittlungen.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen Mann zwischen Holzkisten, aber es wird weder Rolex noch ein Zertifikat oder ein Exportvorgang dargestellt.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte erwähnen den Mexport von Uhren und Zertifikate, aber das Bild zeigt lediglich eine allgemeine Straßenszene und keine Exportdokumente oder Zertifikate.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage 'So who paid?' wird durch ein generisches Bild einer Person auf einer Stra#e nicht visuell sinnvoll erklärt.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Die historische Illustration zeigt Soldaten vor einem Zelt, aber weder Anzeigen, Uhren noch den Bezug zum Jahr 1947 wie gesprochen.",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Szene mit Personen, die Bücher lesen, was keinen Bezug zu Rolex, Uhren oder Zahlungen hat.",
+        "Offenes Problem (schwer): Die Soldaten sind abgebildet, aber es ist keine Uhrenausgabe oder Kreditvereinbarung zu erkennen. Korrektur: Eine historische Szene, in der Offiziere Uhren erhalten oder Dokumente unterschreiben.",
+        "Offenes Problem (schwer): Die Abbildung zeigt einen stilisierten Mann, jedoch weder den Gründer von Rolex noch eine historische Untersuchungsszene, wie sie im Text erwähnt wird. Korrektur: Eine historische Illustration oder Darstellung des Rolex-Gründers Hans Wilsdorf in Genf während der Ermittlungen im Jahr 1941.",
+        "Offenes Problem (schwer): Die sichtbaren Uniformen passen nicht zur Untersuchung von Wilsdorf durch die Genfer Polizei. Korrektur: Eine historische Darstellung einer offiziellen Befragung oder Polizeiuntersuchung in einem Büro im Jahr 1941.",
+        "Offenes Problem (schwer): Die Abbildung zeigt einen erschrockenen Mann am Fenster, aber keinerlei Bezug zu britischen Bedenken bezüglich Nazi-Sympathien oder polizeilichen Ermittlungen. Korrektur: Eine historische Illustration, die Ermittler oder Behörden bei der Prüfung von Akten bezüglich britischer Bedenken oder Verdächtigungen zeigt.",
+        "Offenes Problem (schwer): Die Szene zeigt einen Mann zwischen Holzkisten, aber es wird weder Rolex noch ein Zertifikat oder ein Exportvorgang dargestellt. Korrektur: Historische Dokumente oder offizielle Zolldokumente und Zertifikate aus den 1940er Jahren.",
+        "Offenes Problem (schwer): Die gesprochenen Worte erwähnen den Mexport von Uhren und Zertifikate, aber das Bild zeigt lediglich eine allgemeine Straßenszene und keine Exportdokumente oder Zertifikate. Korrektur: Eine Darstellung von offiziellen Exportdokumenten oder Herkunftszertifikaten in einem historischen Büro.",
+        "Offenes Problem (schwer): Die gesprochene Frage 'So who paid?' wird durch ein generisches Bild einer Person auf einer Stra#e nicht visuell sinnvoll erklärt. Korrektur: Ein passendes Bild müsste historische Dokumente oder Rechnungen bezüglich der Uhrenzahlungen zeigen.",
+        "Offenes Problem (schwer): Die historische Illustration zeigt Soldaten vor einem Zelt, aber weder Anzeigen, Uhren noch den Bezug zum Jahr 1947 wie gesprochen. Korrektur: Eine Darstellung von historischen Printanzeigen aus dem Jahr 1947 mit Zahlen zu bezahlten Uhren.",
+        "Offenes Problem (schwer): Das Bild zeigt eine Szene mit Personen, die Bücher lesen, was keinen Bezug zu Rolex, Uhren oder Zahlungen hat. Korrektur: Eine Darstellung von historischen Rechnungen oder historischen Uhrenverkäufen."
+      ],
+      "einstellungen": 12,
+      "unterschiedliche_motive": 11,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "39222444652",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-19",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 662.4,
+            "pruefung_s": 34.3,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Die Soldaten sind abgebildet, aber es ist keine Uhrenausgabe oder Kreditvereinbarung zu erkennen.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die Abbildung zeigt einen stilisierten Mann, jedoch weder den Gründer von Rolex noch eine historische Untersuchungsszene, wie sie im Text erwähnt wird.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die sichtbaren Uniformen passen nicht zur Untersuchung von Wilsdorf durch die Genfer Polizei.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt einen erschrockenen Mann am Fenster, aber keinerlei Bezug zu britischen Bedenken bezüglich Nazi-Sympathien oder polizeilichen Ermittlungen.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen Mann zwischen Holzkisten, aber es wird weder Rolex noch ein Zertifikat oder ein Exportvorgang dargestellt.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte erwähnen den Mexport von Uhren und Zertifikate, aber das Bild zeigt lediglich eine allgemeine Straßenszene und keine Exportdokumente oder Zertifikate.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage 'So who paid?' wird durch ein generisches Bild einer Person auf einer Stra#e nicht visuell sinnvoll erklärt.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Die historische Illustration zeigt Soldaten vor einem Zelt, aber weder Anzeigen, Uhren noch den Bezug zum Jahr 1947 wie gesprochen.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Szene mit Personen, die Bücher lesen, was keinen Bezug zu Rolex, Uhren oder Zahlungen hat.",
+              "Offenes Problem (schwer): Die Soldaten sind abgebildet, aber es ist keine Uhrenausgabe oder Kreditvereinbarung zu erkennen. Korrektur: Eine historische Szene, in der Offiziere Uhren erhalten oder Dokumente unterschreiben.",
+              "Offenes Problem (schwer): Die Abbildung zeigt einen stilisierten Mann, jedoch weder den Gründer von Rolex noch eine historische Untersuchungsszene, wie sie im Text erwähnt wird. Korrektur: Eine historische Illustration oder Darstellung des Rolex-Gründers Hans Wilsdorf in Genf während der Ermittlungen im Jahr 1941.",
+              "Offenes Problem (schwer): Die sichtbaren Uniformen passen nicht zur Untersuchung von Wilsdorf durch die Genfer Polizei. Korrektur: Eine historische Darstellung einer offiziellen Befragung oder Polizeiuntersuchung in einem Büro im Jahr 1941.",
+              "Offenes Problem (schwer): Die Abbildung zeigt einen erschrockenen Mann am Fenster, aber keinerlei Bezug zu britischen Bedenken bezüglich Nazi-Sympathien oder polizeilichen Ermittlungen. Korrektur: Eine historische Illustration, die Ermittler oder Behörden bei der Prüfung von Akten bezüglich britischer Bedenken oder Verdächtigungen zeigt.",
+              "Offenes Problem (schwer): Die Szene zeigt einen Mann zwischen Holzkisten, aber es wird weder Rolex noch ein Zertifikat oder ein Exportvorgang dargestellt. Korrektur: Historische Dokumente oder offizielle Zolldokumente und Zertifikate aus den 1940er Jahren.",
+              "Offenes Problem (schwer): Die gesprochenen Worte erwähnen den Mexport von Uhren und Zertifikate, aber das Bild zeigt lediglich eine allgemeine Straßenszene und keine Exportdokumente oder Zertifikate. Korrektur: Eine Darstellung von offiziellen Exportdokumenten oder Herkunftszertifikaten in einem historischen Büro.",
+              "Offenes Problem (schwer): Die gesprochene Frage 'So who paid?' wird durch ein generisches Bild einer Person auf einer Stra#e nicht visuell sinnvoll erklärt. Korrektur: Ein passendes Bild müsste historische Dokumente oder Rechnungen bezüglich der Uhrenzahlungen zeigen.",
+              "Offenes Problem (schwer): Die historische Illustration zeigt Soldaten vor einem Zelt, aber weder Anzeigen, Uhren noch den Bezug zum Jahr 1947 wie gesprochen. Korrektur: Eine Darstellung von historischen Printanzeigen aus dem Jahr 1947 mit Zahlen zu bezahlten Uhren.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Szene mit Personen, die Bücher lesen, was keinen Bezug zu Rolex, Uhren oder Zahlungen hat. Korrektur: Eine Darstellung von historischen Rechnungen oder historischen Uhrenverkäufen."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Orus",
+              "stimme": 16.2,
+              "zeitmarken": 4.8,
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 12,
+              "bilder_vereinfacht": 3,
+              "clips_und_stuecke": 570.2,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 12,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 54.1,
+              "gesamt": 662.0,
+              "videolaenge_s": 44.8,
+              "abschnitte_s": [
+                9.94,
+                7.36,
+                6.3,
+                4.94,
+                5.58,
+                7.7,
+                2.98
+              ],
+              "woerter": 86
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Over 3,000 British officers got Rolex watches on credit.",
+                "text": "Die Soldaten sind abgebildet, aber es ist keine Uhrenausgabe oder Kreditvereinbarung zu erkennen. Korrektur: Eine historische Szene, in der Offiziere Uhren erhalten oder Dokumente unterschreiben."
+              },
+              {
+                "zeit": "00:05.42",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Rolex's founder offered them while under investigation.",
+                "text": "Die Abbildung zeigt einen stilisierten Mann, jedoch weder den Gründer von Rolex noch eine historische Untersuchungsszene, wie sie im Text erwähnt wird. Korrektur: Eine historische Illustration oder Darstellung des Rolex-Gründers Hans Wilsdorf in Genf während der Ermittlungen im Jahr 1941."
+              },
+              {
+                "zeit": "00:09.94",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "In mid-1941, Geneva police probed Wilsdorf",
+                "text": "Die sichtbaren Uniformen passen nicht zur Untersuchung von Wilsdorf durch die Genfer Polizei. Korrektur: Eine historische Darstellung einer offiziellen Befragung oder Polizeiuntersuchung in einem Büro im Jahr 1941."
+              },
+              {
+                "zeit": "00:13.62",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "after British concerns about Nazi sympathies.",
+                "text": "Die Abbildung zeigt einen erschrockenen Mann am Fenster, aber keinerlei Bezug zu britischen Bedenken bezüglich Nazi-Sympathien oder polizeilichen Ermittlungen. Korrektur: Eine historische Illustration, die Ermittler oder Behörden bei der Prüfung von Akten bezüglich britischer Bedenken oder Verdächtigungen zeigt."
+              },
+              {
+                "zeit": "00:17.30",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Meanwhile, Rolex lacked the certificates of origin",
+                "text": "Die Szene zeigt einen Mann zwischen Holzkisten, aber es wird weder Rolex noch ein Zertifikat oder ein Exportvorgang dargestellt. Korrektur: Historische Dokumente oder offizielle Zolldokumente und Zertifikate aus den 1940er Jahren."
+              },
+              {
+                "zeit": "00:20.45",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "needed to export watches to Britain.",
+                "text": "Die gesprochenen Worte erwähnen den Mexport von Uhren und Zertifikate, aber das Bild zeigt lediglich eine allgemeine Straßenszene und keine Exportdokumente oder Zertifikate. Korrektur: Eine Darstellung von offiziellen Exportdokumenten oder Herkunftszertifikaten in einem historischen Büro."
+              },
+              {
+                "zeit": "00:34.12",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 8,
+                "gesprochen": "So who paid?",
+                "text": "Die gesprochene Frage 'So who paid?' wird durch ein generisches Bild einer Person auf einer Stra#e nicht visuell sinnvoll erklärt. Korrektur: Ein passendes Bild müsste historische Dokumente oder Rechnungen bezüglich der Uhrenzahlungen zeigen."
+              },
+              {
+                "zeit": "00:35.62",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "Until Rolex's 1947 ads, only 400",
+                "text": "Die historische Illustration zeigt Soldaten vor einem Zelt, aber weder Anzeigen, Uhren noch den Bezug zum Jahr 1947 wie gesprochen. Korrektur: Eine Darstellung von historischen Printanzeigen aus dem Jahr 1947 mit Zahlen zu bezahlten Uhren."
+              },
+              {
+                "zeit": "00:38.72",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "watches had been paid.",
+                "text": "Das Bild zeigt eine Szene mit Personen, die Bücher lesen, was keinen Bezug zu Rolex, Uhren oder Zahlungen hat. Korrektur: Eine Darstellung von historischen Rechnungen oder historischen Uhrenverkäufen."
+              }
+            ],
+            "sekunden": 696.8,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 2.0,
+            "bau_s": 663.2,
+            "baufehler": "ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten",
+            "status": "baufehler",
+            "sekunden": 665.3,
+            "lernergebnis": {
+              "id": "39222444652-2",
+              "datum": "2026-10-19",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 665.3,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {},
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 1391.1,
+        "upload_titel": "Rolex's Prisoner Deal: Pay After The War"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Over 3,000 British officers got Rolex watches on credit.",
+            "text": "Die Soldaten sind abgebildet, aber es ist keine Uhrenausgabe oder Kreditvereinbarung zu erkennen. Korrektur: Eine historische Szene, in der Offiziere Uhren erhalten oder Dokumente unterschreiben."
+          },
+          {
+            "zeit": "00:05.42",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Rolex's founder offered them while under investigation.",
+            "text": "Die Abbildung zeigt einen stilisierten Mann, jedoch weder den Gründer von Rolex noch eine historische Untersuchungsszene, wie sie im Text erwähnt wird. Korrektur: Eine historische Illustration oder Darstellung des Rolex-Gründers Hans Wilsdorf in Genf während der Ermittlungen im Jahr 1941."
+          },
+          {
+            "zeit": "00:09.94",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "In mid-1941, Geneva police probed Wilsdorf",
+            "text": "Die sichtbaren Uniformen passen nicht zur Untersuchung von Wilsdorf durch die Genfer Polizei. Korrektur: Eine historische Darstellung einer offiziellen Befragung oder Polizeiuntersuchung in einem Büro im Jahr 1941."
+          },
+          {
+            "zeit": "00:13.62",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "after British concerns about Nazi sympathies.",
+            "text": "Die Abbildung zeigt einen erschrockenen Mann am Fenster, aber keinerlei Bezug zu britischen Bedenken bezüglich Nazi-Sympathien oder polizeilichen Ermittlungen. Korrektur: Eine historische Illustration, die Ermittler oder Behörden bei der Prüfung von Akten bezüglich britischer Bedenken oder Verdächtigungen zeigt."
+          },
+          {
+            "zeit": "00:17.30",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Meanwhile, Rolex lacked the certificates of origin",
+            "text": "Die Szene zeigt einen Mann zwischen Holzkisten, aber es wird weder Rolex noch ein Zertifikat oder ein Exportvorgang dargestellt. Korrektur: Historische Dokumente oder offizielle Zolldokumente und Zertifikate aus den 1940er Jahren."
+          },
+          {
+            "zeit": "00:20.45",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "needed to export watches to Britain.",
+            "text": "Die gesprochenen Worte erwähnen den Mexport von Uhren und Zertifikate, aber das Bild zeigt lediglich eine allgemeine Straßenszene und keine Exportdokumente oder Zertifikate. Korrektur: Eine Darstellung von offiziellen Exportdokumenten oder Herkunftszertifikaten in einem historischen Büro."
+          },
+          {
+            "zeit": "00:34.12",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 8,
+            "gesprochen": "So who paid?",
+            "text": "Die gesprochene Frage 'So who paid?' wird durch ein generisches Bild einer Person auf einer Stra#e nicht visuell sinnvoll erklärt. Korrektur: Ein passendes Bild müsste historische Dokumente oder Rechnungen bezüglich der Uhrenzahlungen zeigen."
+          },
+          {
+            "zeit": "00:35.62",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 9,
+            "gesprochen": "Until Rolex's 1947 ads, only 400",
+            "text": "Die historische Illustration zeigt Soldaten vor einem Zelt, aber weder Anzeigen, Uhren noch den Bezug zum Jahr 1947 wie gesprochen. Korrektur: Eine Darstellung von historischen Printanzeigen aus dem Jahr 1947 mit Zahlen zu bezahlten Uhren."
+          },
+          {
+            "zeit": "00:38.72",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "watches had been paid.",
+            "text": "Das Bild zeigt eine Szene mit Personen, die Bücher lesen, was keinen Bezug zu Rolex, Uhren oder Zahlungen hat. Korrektur: Eine Darstellung von historischen Rechnungen oder historischen Uhrenverkäufen."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 44.8,
+          "fps": 30.0,
+          "lufs": -15.2,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 42.18,
+              "bis_s": 44.28,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.98
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 24.799999999999997,
+              "bis_s": 45.3,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Over",
+                "s": 0.0,
+                "e": 0.44,
+                "p": 0.8734334707260132
+              },
+              {
+                "w": "3",
+                "s": 0.44,
+                "e": 0.84,
+                "p": 0.7585609555244446
+              },
+              {
+                "w": ",000",
+                "s": 0.84,
+                "e": 1.46,
+                "p": 0.9933541715145111
+              },
+              {
+                "w": "British",
+                "s": 1.46,
+                "e": 1.8,
+                "p": 0.9947324991226196
+              },
+              {
+                "w": "officers",
+                "s": 1.8,
+                "e": 2.3,
+                "p": 0.9850723147392273
+              },
+              {
+                "w": "got",
+                "s": 2.3,
+                "e": 2.84,
+                "p": 0.9919096827507019
+              },
+              {
+                "w": "Rolex",
+                "s": 2.84,
+                "e": 3.38,
+                "p": 0.9325239360332489
+              },
+              {
+                "w": "watches",
+                "s": 3.38,
+                "e": 3.9,
+                "p": 0.8404713273048401
+              },
+              {
+                "w": "on",
+                "s": 3.9,
+                "e": 4.3,
+                "p": 0.9973234534263611
+              },
+              {
+                "w": "credit.",
+                "s": 4.3,
+                "e": 4.72,
+                "p": 0.9866697788238525
+              },
+              {
+                "w": "Rolex's",
+                "s": 5.42,
+                "e": 6.02,
+                "p": 0.954143742720286
+              },
+              {
+                "w": "founder",
+                "s": 6.02,
+                "e": 6.3,
+                "p": 0.9666750431060791
+              },
+              {
+                "w": "offered",
+                "s": 6.3,
+                "e": 6.9,
+                "p": 0.9985179305076599
+              },
+              {
+                "w": "them",
+                "s": 6.9,
+                "e": 7.18,
+                "p": 0.998635470867157
+              },
+              {
+                "w": "while",
+                "s": 7.18,
+                "e": 7.58,
+                "p": 0.8708778619766235
+              },
+              {
+                "w": "under",
+                "s": 7.58,
+                "e": 7.98,
+                "p": 0.9966349005699158
+              },
+              {
+                "w": "investigation.",
+                "s": 7.98,
+                "e": 8.58,
+                "p": 0.9908155202865601
+              },
+              {
+                "w": "In",
+                "s": 9.94,
+                "e": 10.06,
+                "p": 0.9943211078643799
+              },
+              {
+                "w": "mid",
+                "s": 10.06,
+                "e": 10.24,
+                "p": 0.99839848279953
+              },
+              {
+                "w": "-1941,",
+                "s": 10.24,
+                "e": 11.3,
+                "p": 0.9370495875676473
+              },
+              {
+                "w": "Geneva",
+                "s": 11.72,
+                "e": 12.04,
+                "p": 0.9476094841957092
+              },
+              {
+                "w": "police",
+                "s": 12.04,
+                "e": 12.44,
+                "p": 0.5372118353843689
+              },
+              {
+                "w": "probed",
+                "s": 12.44,
+                "e": 13.18,
+                "p": 0.9497714340686798
+              },
+              {
+                "w": "Willstorf",
+                "s": 13.18,
+                "e": 13.7,
+                "p": 0.5885715434948603
+              },
+              {
+                "w": "after",
+                "s": 13.7,
+                "e": 14.14,
+                "p": 0.9564487934112549
+              },
+              {
+                "w": "British",
+                "s": 14.14,
+                "e": 14.5,
+                "p": 0.9986039996147156
+              },
+              {
+                "w": "concerns",
+                "s": 14.5,
+                "e": 14.98,
+                "p": 0.9793603420257568
+              },
+              {
+                "w": "about",
+                "s": 14.98,
+                "e": 15.54,
+                "p": 0.9973165392875671
+              },
+              {
+                "w": "Nazi",
+                "s": 15.54,
+                "e": 15.84,
+                "p": 0.9690765738487244
+              },
+              {
+                "w": "sympathies.",
+                "s": 15.84,
+                "e": 16.88,
+                "p": 0.996700793504715
+              },
+              {
+                "w": "Meanwhile,",
+                "s": 17.22,
+                "e": 17.62,
+                "p": 0.9903719425201416
+              },
+              {
+                "w": "Rolex",
+                "s": 18.22,
+                "e": 18.74,
+                "p": 0.9980064630508423
+              },
+              {
+                "w": "lacked",
+                "s": 18.74,
+                "e": 18.96,
+                "p": 0.9917892217636108
+              },
+              {
+                "w": "the",
+                "s": 18.96,
+                "e": 19.24,
+                "p": 0.9918285012245178
+              },
+              {
+                "w": "certificates",
+                "s": 19.24,
+                "e": 19.66,
+                "p": 0.9899839162826538
+              },
+              {
+                "w": "of",
+                "s": 19.66,
+                "e": 19.92,
+                "p": 0.9993441700935364
+              },
+              {
+                "w": "origin",
+                "s": 19.92,
+                "e": 20.22,
+                "p": 0.9835668802261353
+              },
+              {
+                "w": "needed",
+                "s": 20.22,
+                "e": 20.9,
+                "p": 0.9752733707427979
+              },
+              {
+                "w": "to",
+                "s": 20.9,
+                "e": 21.26,
+                "p": 0.9992260932922363
+              },
+              {
+                "w": "export",
+                "s": 21.26,
+                "e": 21.52,
+                "p": 0.9927517175674438
+              },
+              {
+                "w": "watches",
+                "s": 21.52,
+                "e": 22.06,
+                "p": 0.9869972467422485
+              },
+              {
+                "w": "to",
+                "s": 22.06,
+                "e": 22.42,
+                "p": 0.9987823367118835
+              },
+              {
+                "w": "Britain.",
+                "s": 22.42,
+                "e": 22.62,
+                "p": 0.9974215030670166
+              },
+              {
+                "w": "His",
+                "s": 23.58,
+                "e": 23.82,
+                "p": 0.9929868578910828
+              },
+              {
+                "w": "work",
+                "s": 23.82,
+                "e": 24.02,
+                "p": 0.5293494462966919
+              },
+              {
+                "w": "around?",
+                "s": 24.02,
+                "e": 24.32,
+                "p": 0.9078204035758972
+              },
+              {
+                "w": "Watches",
+                "s": 25.12,
+                "e": 25.38,
+                "p": 0.965686172246933
+              },
+              {
+                "w": "for",
+                "s": 25.38,
+                "e": 25.64,
+                "p": 0.9971238970756531
+              },
+              {
+                "w": "Allied",
+                "s": 25.64,
+                "e": 25.9,
+                "p": 0.7735486030578613
+              },
+              {
+                "w": "prisoners,",
+                "s": 25.9,
+                "e": 26.4,
+                "p": 0.9699330925941467
+              },
+              {
+                "w": "payment",
+                "s": 27.02,
+                "e": 27.18,
+                "p": 0.9705806374549866
+              },
+              {
+                "w": "due",
+                "s": 27.18,
+                "e": 27.52,
+                "p": 0.9928243160247803
+              },
+              {
+                "w": "after",
+                "s": 27.52,
+                "e": 28.02,
+                "p": 0.9949206709861755
+              },
+              {
+                "w": "the",
+                "s": 28.02,
+                "e": 28.3,
+                "p": 0.9981564879417419
+              },
+              {
+                "w": "war.",
+                "s": 28.3,
+                "e": 28.56,
+                "p": 0.9937024116516113
+              },
+              {
+                "w": "4.",
+                "s": 28.56,
+                "e": 28.66,
+                "p": 0.08470399677753448
+              },
+              {
+                "w": "Through",
+                "s": 29.14,
+                "e": 29.5,
+                "p": 0.7532858848571777
+              },
+              {
+                "w": "the",
+                "s": 29.5,
+                "e": 29.58,
+                "p": 0.9327226281166077
+              },
+              {
+                "w": "Red",
+                "s": 29.58,
+                "e": 29.76,
+                "p": 0.9867441654205322
+              },
+              {
+                "w": "Cross,",
+                "s": 29.76,
+                "e": 30.06,
+                "p": 0.9962926506996155
+              },
+              {
+                "w": "more",
+                "s": 30.56,
+                "e": 30.72,
+                "p": 0.9874870777130127
+              },
+              {
+                "w": "than",
+                "s": 30.72,
+                "e": 30.86,
+                "p": 0.9953606724739075
+              },
+              {
+                "w": "3",
+                "s": 30.86,
+                "e": 31.16,
+                "p": 0.7389376163482666
+              },
+              {
+                "w": ",000",
+                "s": 31.16,
+                "e": 31.62,
+                "p": 0.9940093159675598
+              },
+              {
+                "w": "British",
+                "s": 31.62,
+                "e": 31.92,
+                "p": 0.9867501854896545
+              },
+              {
+                "w": "officers",
+                "s": 31.92,
+                "e": 32.22,
+                "p": 0.9635475277900696
+              },
+              {
+                "w": "were",
+                "s": 32.22,
+                "e": 32.66,
+                "p": 0.9960892200469971
+              },
+              {
+                "w": "sent",
+                "s": 32.66,
+                "e": 32.86,
+                "p": 0.8335384726524353
+              },
+              {
+                "w": "watches.",
+                "s": 32.86,
+                "e": 33.14,
+                "p": 0.9756408929824829
+              },
+              {
+                "w": "So",
+                "s": 33.96,
+                "e": 34.34,
+                "p": 0.9809939861297607
+              },
+              {
+                "w": "who",
+                "s": 34.34,
+                "e": 34.52,
+                "p": 0.7336360812187195
+              },
+              {
+                "w": "paid?",
+                "s": 34.52,
+                "e": 34.78,
+                "p": 0.9949856996536255
+              },
+              {
+                "w": "Until",
+                "s": 35.6,
+                "e": 35.82,
+                "p": 0.9921700358390808
+              },
+              {
+                "w": "Rolex's",
+                "s": 35.82,
+                "e": 36.46,
+                "p": 0.9543165564537048
+              },
+              {
+                "w": "1947",
+                "s": 36.46,
+                "e": 37.22,
+                "p": 0.9885038733482361
+              },
+              {
+                "w": "ads,",
+                "s": 37.22,
+                "e": 37.74,
+                "p": 0.8286071419715881
+              },
+              {
+                "w": "only",
+                "s": 38.14,
+                "e": 38.44,
+                "p": 0.9951629638671875
+              },
+              {
+                "w": "400",
+                "s": 38.44,
+                "e": 38.94,
+                "p": 0.9923787117004395
+              },
+              {
+                "w": "watches",
+                "s": 38.94,
+                "e": 39.9,
+                "p": 0.975774347782135
+              },
+              {
+                "w": "had",
+                "s": 39.9,
+                "e": 40.28,
+                "p": 0.8837680816650391
+              },
+              {
+                "w": "been",
+                "s": 40.28,
+                "e": 40.44,
+                "p": 0.9980872273445129
+              },
+              {
+                "w": "paid.",
+                "s": 40.44,
+                "e": 40.74,
+                "p": 0.9871188402175903
+              },
+              {
+                "w": "Be",
+                "s": 41.84,
+                "e": 41.9,
+                "p": 0.9885976314544678
+              },
+              {
+                "w": "sure",
+                "s": 41.9,
+                "e": 42.06,
+                "p": 0.9977049231529236
+              },
+              {
+                "w": "to",
+                "s": 42.06,
+                "e": 42.18,
+                "p": 0.994375467300415
+              },
+              {
+                "w": "like,",
+                "s": 42.18,
+                "e": 42.38,
+                "p": 0.9167930483818054
+              },
+              {
+                "w": "share,",
+                "s": 42.62,
+                "e": 42.86,
+                "p": 0.9968289732933044
+              },
+              {
+                "w": "and",
+                "s": 43.34,
+                "e": 43.44,
+                "p": 0.9978671073913574
+              },
+              {
+                "w": "save",
+                "s": 43.44,
+                "e": 43.72,
+                "p": 0.9793419241905212
+              },
+              {
+                "w": "this",
+                "s": 43.72,
+                "e": 44.0,
+                "p": 0.9910240173339844
+              },
+              {
+                "w": "video.",
+                "s": 44.0,
+                "e": 44.28,
+                "p": 0.9990315437316895
+              }
+            ],
+            "dauer_s": 44.6933125,
+            "sprache": "en"
+          },
+          "roh_key": "3d43ca26c78e3058e860e1693442eee692250893f921039bb8181e380e53b018",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "bdf8b34033e1f516ec623d1646660a33bd6301ae0758ff5a7ab468f978479101",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 44.8,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 12,
+          "motive": 11,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "bdf8b34033e1f516ec623d1646660a33bd6301ae0758ff5a7ab468f978479101",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Drei offiziersähnliche Männer in Uniform vor einer historischen Stadtkulisse",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Soldaten sind abgebildet, aber es ist keine Uhrenausgabe oder Kreditvereinbarung zu erkennen.",
+              "erforderliches_bild": "Eine historische Szene, in der Offiziere Uhren erhalten oder Dokumente unterschreiben."
+            },
+            {
+              "index": 1,
+              "gesehen": "Eine illustrierte Darstellung eines Mannes in einem Anzug mit Hut vor einer Stadtkulisse, überlagert mit einem Rolex-Logo.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die Abbildung zeigt einen stilisierten Mann, jedoch weder den Gründer von Rolex noch eine historische Untersuchungsszene, wie sie im Text erwähnt wird.",
+              "erforderliches_bild": "Eine historische Illustration oder Darstellung des Rolex-Gründers Hans Wilsdorf in Genf während der Ermittlungen im Jahr 1941."
+            },
+            {
+              "index": 2,
+              "gesehen": "Mehrere Männer in Uniform (Offiziere oder Polizisten) schütteln sich an einem Tisch in einem Büro mit großem Fenster die Hände.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die sichtbaren Uniformen passen nicht zur Untersuchung von Wilsdorf durch die Genfer Polizei.",
+              "erforderliches_bild": "Eine historische Darstellung einer offiziellen Befragung oder Polizeiuntersuchung in einem Büro im Jahr 1941."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein geschockt dreinblickender Mann im historischen Anzug blickt aus einem großen Holzfenster auf eine Straßenszene im historischen Stil mit Passanten und Gebäuden.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Abbildung zeigt einen erschrockenen Mann am Fenster, aber keinerlei Bezug zu britischen Bedenken bezüglich Nazi-Sympathien oder polizeilichen Ermittlungen.",
+              "erforderliches_bild": "Eine historische Illustration, die Ermittler oder Behörden bei der Prüfung von Akten bezüglich britischer Bedenken oder Verdächtigungen zeigt."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein verärgert wirkender Mann steht in einem Lagerhaus oder Hafenbereich zwischen großen Holzkisten und gestikuliert mit den Händen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Szene zeigt einen Mann zwischen Holzkisten, aber es wird weder Rolex noch ein Zertifikat oder ein Exportvorgang dargestellt.",
+              "erforderliches_bild": "Historische Dokumente oder offizielle Zolldokumente und Zertifikate aus den 1940er Jahren."
+            },
+            {
+              "index": 5,
+              "gesehen": "Eine gemalte Straßenszene in einer europäischen Stadt mit Männern in historischen Anzügen und Uniformen sowie im Vordergrund eine große Armbanduhr in Händen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochenen Worte erwähnen den Mexport von Uhren und Zertifikate, aber das Bild zeigt lediglich eine allgemeine Straßenszene und keine Exportdokumente oder Zertifikate.",
+              "erforderliches_bild": "Eine Darstellung von offiziellen Exportdokumenten oder Herkunftszertifikaten in einem historischen Büro."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein illustrierter Offizier in einer historischen Uniform sitzt an einem Tisch und übergibt ein Paket an einen anderen Offizier, während im Hintergrund Baracken und Wachtürme zu sehen sind.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell die Übergabe von Uhren beziehungsweise Paketen an alliierte Gefangene, passend zum gesprochenen Workaround für Kriegsgefangene.",
+              "erforderliches_bild": "Keines, da das aktuelle Bild die Situation gut darstellt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Eine bemalte Szene mit Soldaten in historischen Uniformen und einem großen roten Zelt mit einem weißen Kreuz im Vordergrund, das an das Rote Kreuz erinnert.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Abbildung zeigt Soldaten und ein Zelt mit dem Symbol des Roten Kreuzes, was zur Erzählung über Uhrenlieferungen an alliierte Offiziere über das Rote Kreuz im Weltkrieg passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein illustrierter Mann steht auf einer Stra#e zwischen Häusern und schaut besorgt drein.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gesprochene Frage 'So who paid?' wird durch ein generisches Bild einer Person auf einer Stra#e nicht visuell sinnvoll erklärt.",
+              "erforderliches_bild": "Ein passendes Bild müsste historische Dokumente oder Rechnungen bezüglich der Uhrenzahlungen zeigen."
+            },
+            {
+              "index": 9,
+              "gesehen": "Eine gezeichnete historische Straßenszene mit Soldaten in Uniformen vor einem roten Zelt mit einem weißen Kreuz im Vordergrund, aber kein Bezug zu Anzeigen von 1947 oder Zahlungen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die historische Illustration zeigt Soldaten vor einem Zelt, aber weder Anzeigen, Uhren noch den Bezug zum Jahr 1947 wie gesprochen.",
+              "erforderliches_bild": "Eine Darstellung von historischen Printanzeigen aus dem Jahr 1947 mit Zahlen zu bezahlten Uhren."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein Mann und eine Frau lesen Bücher auf einer Straße.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine Szene mit Personen, die Bücher lesen, was keinen Bezug zu Rolex, Uhren oder Zahlungen hat.",
+              "erforderliches_bild": "Eine Darstellung von historischen Rechnungen oder historischen Uhrenverkäufen."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Die Soldaten sind abgebildet, aber es ist keine Uhrenausgabe oder Kreditvereinbarung zu erkennen.",
+            "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die Abbildung zeigt einen stilisierten Mann, jedoch weder den Gründer von Rolex noch eine historische Untersuchungsszene, wie sie im Text erwähnt wird.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die sichtbaren Uniformen passen nicht zur Untersuchung von Wilsdorf durch die Genfer Polizei.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt einen erschrockenen Mann am Fenster, aber keinerlei Bezug zu britischen Bedenken bezüglich Nazi-Sympathien oder polizeilichen Ermittlungen.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen Mann zwischen Holzkisten, aber es wird weder Rolex noch ein Zertifikat oder ein Exportvorgang dargestellt.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte erwähnen den Mexport von Uhren und Zertifikate, aber das Bild zeigt lediglich eine allgemeine Straßenszene und keine Exportdokumente oder Zertifikate.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage 'So who paid?' wird durch ein generisches Bild einer Person auf einer Stra#e nicht visuell sinnvoll erklärt.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Die historische Illustration zeigt Soldaten vor einem Zelt, aber weder Anzeigen, Uhren noch den Bezug zum Jahr 1947 wie gesprochen.",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Szene mit Personen, die Bücher lesen, was keinen Bezug zu Rolex, Uhren oder Zahlungen hat."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 12,
+          "ausgenommen": [
+            11
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "bdf8b34033e1f516ec623d1646660a33bd6301ae0758ff5a7ab468f978479101",
+        "prompt_version": "2026-10-18.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

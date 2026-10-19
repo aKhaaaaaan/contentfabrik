@@ -284,14 +284,30 @@ def zuschauer_themen(einstellung, gezeigt=(), google_liste=(), heute=None):
                     'zuschauer': True, 'youtube': k['youtube'], 'beispiele': k['beispiele'],
                     'google': k['google'], 'format': k.get('format') or '', 'vorrang': k.get('vorrang', False),
                     'vorlage': k.get('vorlage', False)})
+    # GEMESSEN 19.10. (Live-Probe fuer 20.10.): kein Neuheiten-Trend mit Quelle (Argon schon gesendet, VST/Motion
+    # ohne Beleg) -> der Lauf haette wieder eine zufaellige GitHub-Neuheit genommen. Dann lieber die Titelvorlage.
+    if not aus and not any(k.get('vorlage') for k in roh):
+        ohne_quelle = set(gezeigt)
+        for _ in range(3):  # Anleitungsseite gerade nicht lesbar -> naechste Vorlage
+            ersatz = format_vorlage(e, tag, ohne_quelle)
+            if not ersatz:
+                break
+            if trends.thema_recherche(ersatz['thema'], tage=30, maximal=1):
+                aus.append({'thema': ersatz['thema'], 'begriff': ersatz['thema'], 'wikipedia': None, 'eigen': False,
+                            'zuschauer': True, 'youtube': None, 'beispiele': [], 'google': None,
+                            'format': ersatz['format'], 'vorrang': True, 'vorlage': True})
+                break
+            ohne_quelle.add(ersatz['thema'].lower())
     return aus
 
 
 def bewerten(liste, google_liste, heute=None, kanal='', hn_liste=()):
+    # Eigene Telegram-Themen des Nutzers schlaegt kein Format-Vorrang (nur dessen Trendsignal)
+    eigene = any(k.get('eigen') for k in liste)
     for k in liste:
         if k.get('zuschauer'):  # Signale stammen schon aus der Suche - kein zweiter YouTube-Abruf
             k['punkte'] = round(punkte(k['youtube'], google=bool(k['google']))
-                                + (BONUS_FORMAT if k.get('vorrang') else 0), 2)
+                                + (BONUS_FORMAT if k.get('vorrang') and not eigene else 0), 2)
             continue
         k['youtube'], k['beispiele'] = yt_faktor(k['begriff'], ZUSATZ.get(kanal, ''))
         k['wiki'] = wiki_aufwind(k['wikipedia'], heute) if k.get('wikipedia') else None

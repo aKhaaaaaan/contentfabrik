@@ -172,9 +172,13 @@ def balken(text):
     if m:
         return [(m[2].strip().upper()[:22], '1x', 1.0), ('NEW', f'{m[1]}x', float(m[1]))]
     m = re.search(rf"\bfrom ({_ZAHL})\s*([A-Za-z]+)? to ({_ZAHL})", satz)
-    if m:
+    # Jahreszahlen sind keine Mengen („fixed price from 1886 to 1959" - Regressionsabgleich 19.10.)
+    if m and not (re.fullmatch(JAHR, m[1].strip()) or re.fullmatch(JAHR, m[3].strip())):
         return [('BEFORE', m[1].strip(), _wert(m[1])), ('AFTER', m[3].strip(), _wert(m[3]))]
-    geld = re.findall(r"(\$\d[\d,.]*)(?:\s+per\s+[a-z]+)?\s+([a-z]+)(?:\s+tokens)?", satz, re.I)
+    # Nur Betraege mit echtem Bezugswort ($2 input, $10 output); „$40 a share", „$25 million", „$50 down" nicht
+    geld = [(z, w) for z, w in re.findall(r"(\$\d[\d,.]*)(?:\s+per\s+[a-z]+)?\s+([a-z]+)(?:\s+tokens)?", satz, re.I)
+            if w.lower() not in FUELL | {'a', 'an', 'in', 'of', 'down', 'up', 'million', 'billion', 'thousand',
+                                         'and', 'or', 'to', 'for', 'per', 'each', 'off'}]
     if len(geld) >= 2:
         return [(w.upper(), z, _wert(z)) for z, w in geld[:3]]
     return None
@@ -194,26 +198,18 @@ def _layout(text):
         return 'balken'
     # GEMESSEN 19.10. (Argon): „write hundreds of thousands of tokens in one trajectory" als LLM-Rechnung = 2/10.
     # Tokens ohne Kosten sind Textmenge, keine Rechnung.
-    if art == 'rechnung' and not re.search(r'\b(?:bills?|billing|costs?|price|pricing|paid|charged?|per token)\b|\$\d',
-                                           t):
+    if art == 'rechnung' and re.search(r'\btokens?\b', t) and not re.search(
+            r'\b(?:bills?|billing|costs?|prices?|pricing|paid|charged?|per token)\b|\$\d', t):
         return 'ausgabe'
     if art == 'rechnung':
         return art
     # „Now the catch: access is limited": Warnzeichen 8/10, Schranke 3/10 - ein angekuendigter Haken bleibt Warnung
-    if re.search(r'\b(?:catch|limitation|downside|caveat)\b', t):
-        return 'warnung'
+    if re.search(r'\b(?:catch|limitation|downside|caveat)\b', t) and not t.strip().endswith('?'):
+        return 'warnung'  # „What's the catch?" bleibt Chat-Frage wie bisher
     if re.search(r"financial advice|outdated|\bwrong\b|\brisks?\b|warning|careful|\bverify\b|double-check", t):
         return 'warnung'
-    if re.search(r'\bagents?\b', t) and re.search(r'\b(?:ran|run|runs|experiments?|rounds?|tried|tested)\b', t):
-        return 'agenten'
-    if CODE.search(text):
-        return 'code'
-    if ZUGANG.search(text):
-        return 'zugang'
-    if AGENTEN.search(text):
-        return 'agenten'
     if zahlen(text):
-        return 'zahlen'
+        return gegenstand(text) or 'zahlen'
     if text.strip().endswith('?') or re.search(r'\b(ask|asks|asking|question)\b', t):
         return 'frage'
     if re.search(r'\b(cite|cites|citing|citation|reviewer|answer|answers|replies|quote)\b', t):
@@ -225,9 +221,24 @@ def _layout(text):
         return 'vergleich'
     if re.search(r'\b(connect|connector|connects|plug|plugin|integrat\w*|mcp)\b|\badd\b.*\bto\b', t):
         return 'verbinden'
-    if art in ('daten', 'warnung'):
-        return art
-    return 'kernsatz'
+    # Die neuen Gegenstands-Bilder ersetzen NUR die reinen Text-Faelle (kernsatz/zahlen); Frage, Zitat,
+    # Vergleich und Verbinden bestanden schon und bleiben (Regressionsabgleich 392 echte Saetze, 19.10.).
+    return gegenstand(text) or (art if art in ('daten', 'warnung') else 'kernsatz')
+
+
+def gegenstand(text):
+    """'agenten' / 'code' / 'zugang' oder None. Produktnamen wie „Claude Code" sind kein Code-Satz."""
+    t = re.sub(r'\b(?:claude|vs|visual studio) code\b', ' ', str(text), flags=re.I)
+    if re.search(r'\bagents?\b', t, re.I) and re.search(r'\b(?:ran|run|runs|experiments?|rounds?|tried|tested)\b',
+                                                     t, re.I):
+        return 'agenten'
+    if CODE.search(t):
+        return 'code'
+    if ZUGANG.search(t):
+        return 'zugang'
+    if AGENTEN.search(t):
+        return 'agenten'
+    return None
 
 
 def titelzeile(titel):

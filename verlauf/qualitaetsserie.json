@@ -56143,6 +56143,1472 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "39222444652.1:ai-tools-explained",
+      "run_id": "39222444652",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-19T08:38:17.485486+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "1a610276facc0388ae621be572d99c69ecc5084a",
+      "produktionsversion": "32494f9f8d0c62c145bf75c8890c0b612f784a74b6ca849e6a51b94d8250ee38",
+      "videoformat": "short",
+      "thema": "datalab-to/indra",
+      "titel": [
+        "*Indra* *OCR*",
+        "Fast PDF Text On *CPU*"
+      ],
+      "status": "gesendet",
+      "video_sha256": "c50bcf5753e166537fe7d51a8752dd2d684c413009e3757db104b80a4edbcd50",
+      "video_gebaut": true,
+      "ki_story_note": 9,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-18.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine illustrierte Szene mit einem Mann und einem Smartphone in einem Straßendurchgang, jedoch weder gescannte PDFs noch die Verarbeitung ohne GPU, wie sie im Text genannt werden.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich das GitHub-Repository der Software, während die gesprochene Phase die Funktionalität (Konvertierung von PDFs in Markdown, Text oder JSON) beschreibt, die visuell nicht demonstriert wird.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt lediglich den Text der gesprochenen Passage als Zitatkarte mit einem Warnsymbol, aber keine visuelle Demonstration oder Erklärung der Plattform oder der Einschränkungen.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar gescannte Tabellen, aber es demonstriert keine OCR-Verarbeitung oder Leistung ohne GPU.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine illustrierte Szene mit einem Mann und einem Smartphone in einem Straßendurchgang, jedoch weder gescannte PDFs noch die Verarbeitung ohne GPU, wie sie im Text genannt werden. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die den Prozess des Extrahierens von Text aus gescannten PDFs auf einer CPU veranschaulicht.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich das GitHub-Repository der Software, während die gesprochene Phase die Funktionalität (Konvertierung von PDFs in Markdown, Text oder JSON) beschreibt, die visuell nicht demonstriert wird. Korrektur: Ein Beispielbild oder Code-Snippet, das die Konvertierung von PDFs in Markdown, Text oder JSON mit erkannten Boxen zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich den Text der gesprochenen Passage als Zitatkarte mit einem Warnsymbol, aber keine visuelle Demonstration oder Erklärung der Plattform oder der Einschränkungen. Korrektur: Ein Screenshot oder Diagramm, das die verwaltete Plattform (Managed Platform) oder ein Beispiel für schlechte Scans und Handschriften im Vergleich zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt zwar gescannte Tabellen, aber es demonstriert keine OCR-Verarbeitung oder Leistung ohne GPU. Korrektur: Ein Screenshot eines Terminals mit dem pip-Installationsbefehl oder ein Code-Beispiel für den OCR-Aufruf."
+      ],
+      "einstellungen": 11,
+      "unterschiedliche_motive": 11,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "39222444652",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-19",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 266.5,
+            "pruefung_s": 43.4,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine illustrierte Szene mit einem Mann und einem Smartphone in einem Straßendurchgang, jedoch weder gescannte PDFs noch die Verarbeitung ohne GPU, wie sie im Text genannt werden.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich das GitHub-Repository der Software, während die gesprochene Phase die Funktionalität (Konvertierung von PDFs in Markdown, Text oder JSON) beschreibt, die visuell nicht demonstriert wird.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt lediglich den Text der gesprochenen Passage als Zitatkarte mit einem Warnsymbol, aber keine visuelle Demonstration oder Erklärung der Plattform oder der Einschränkungen.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar gescannte Tabellen, aber es demonstriert keine OCR-Verarbeitung oder Leistung ohne GPU.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine illustrierte Szene mit einem Mann und einem Smartphone in einem Straßendurchgang, jedoch weder gescannte PDFs noch die Verarbeitung ohne GPU, wie sie im Text genannt werden. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die den Prozess des Extrahierens von Text aus gescannten PDFs auf einer CPU veranschaulicht.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich das GitHub-Repository der Software, während die gesprochene Phase die Funktionalität (Konvertierung von PDFs in Markdown, Text oder JSON) beschreibt, die visuell nicht demonstriert wird. Korrektur: Ein Beispielbild oder Code-Snippet, das die Konvertierung von PDFs in Markdown, Text oder JSON mit erkannten Boxen zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich den Text der gesprochenen Passage als Zitatkarte mit einem Warnsymbol, aber keine visuelle Demonstration oder Erklärung der Plattform oder der Einschränkungen. Korrektur: Ein Screenshot oder Diagramm, das die verwaltete Plattform (Managed Platform) oder ein Beispiel für schlechte Scans und Handschriften im Vergleich zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar gescannte Tabellen, aber es demonstriert keine OCR-Verarbeitung oder Leistung ohne GPU. Korrektur: Ein Screenshot eines Terminals mit dem pip-Installationsbefehl oder ein Code-Beispiel für den OCR-Aufruf."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Orus",
+              "stimme": 16.0,
+              "zeitmarken": 4.9,
+              "tempo": 1.197,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 11,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 151.6,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 11,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 14,
+              "rendern": 24.7,
+              "gesamt": 266.2,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                8.22,
+                7.02,
+                4.46,
+                5.88,
+                5.76,
+                6.14,
+                7.54
+              ],
+              "woerter": 108
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Need text from scanned PDFs without a GPU?",
+                "text": "Das Bild zeigt lediglich eine illustrierte Szene mit einem Mann und einem Smartphone in einem Straßendurchgang, jedoch weder gescannte PDFs noch die Verarbeitung ohne GPU, wie sie im Text genannt werden. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die den Prozess des Extrahierens von Text aus gescannten PDFs auf einer CPU veranschaulicht."
+              },
+              {
+                "zeit": "00:08.22",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "It turns PDFs and images into markdown, text, or JSON with boxes.",
+                "text": "Das Bild zeigt lediglich das GitHub-Repository der Software, während die gesprochene Phase die Funktionalität (Konvertierung von PDFs in Markdown, Text oder JSON) beschreibt, die visuell nicht demonstriert wird. Korrektur: Ein Beispielbild oder Code-Snippet, das die Konvertierung von PDFs in Markdown, Text oder JSON mit erkannten Boxen zeigt."
+              },
+              {
+                "zeit": "00:25.58",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 6,
+                "gesprochen": "The catch: for handwriting, math and degraded scans, the makers point to their managed platform.",
+                "text": "Das Bild zeigt lediglich den Text der gesprochenen Passage als Zitatkarte mit einem Warnsymbol, aber keine visuelle Demonstration oder Erklärung der Plattform oder der Einschränkungen. Korrektur: Ein Screenshot oder Diagramm, das die verwaltete Plattform (Managed Platform) oder ein Beispiel für schlechte Scans und Handschriften im Vergleich zeigt."
+              },
+              {
+                "zeit": "00:37.48",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 9,
+                "gesprochen": "Scanned PDFs, no GPU: doable, unless the scans are degraded.",
+                "text": "Das Bild zeigt zwar gescannte Tabellen, aber es demonstriert keine OCR-Verarbeitung oder Leistung ohne GPU. Korrektur: Ein Screenshot eines Terminals mit dem pip-Installationsbefehl oder ein Code-Beispiel für den OCR-Aufruf."
+              }
+            ],
+            "sekunden": 309.9,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                4,
+                6
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 2.0,
+            "bau_s": 148.3,
+            "pruefung_s": 68.6,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine gezeichnete Straßenszene mit Büroarbeitern, aber keinen Bezug zu gescannten PDFs oder dem Fehlen einer GPU.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich den Text 'NO PYTORCH NEEDED' als Titel oder Grafik, jedoch keine technischen Details, Codebeispiele oder visuelle Erklärungen zur Abwesenheit von PyTorch.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt lediglich den Text der gesprochenen Passage als Zitatkarte mit einem Warnsymbol, aber keine visuelle Demonstration oder Erklärung der Plattform oder der Einschränkungen.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die GitHub-Vorschau zeigt kein gescanntes PDF und behandelt nicht die Eignung bei beeinträchtigten Scans, weshalb die visuelle Evidenz für die Aussage fehlt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine gezeichnete Straßenszene mit Büroarbeitern, aber keinen Bezug zu gescannten PDFs oder dem Fehlen einer GPU. Korrektur: Ein Dokument oder ein Bildschirm mit gescannten PDFs in einer Arbeitsumgebung.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich den Text 'NO PYTORCH NEEDED' als Titel oder Grafik, jedoch keine technischen Details, Codebeispiele oder visuelle Erklärungen zur Abwesenheit von PyTorch. Korrektur: Ein Code-Schnipsel oder eine Systemarchitekturübersicht, die zeigt, dass keine PyTorch-Bibliothek importiert oder installiert wird.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich den Text der gesprochenen Passage als Zitatkarte mit einem Warnsymbol, aber keine visuelle Demonstration oder Erklärung der Plattform oder der Einschränkungen. Korrektur: Ein Screenshot oder Diagramm, das die verwaltete Plattform (Managed Platform) oder ein Beispiel für schlechte Scans und Handschriften im Vergleich zeigt.",
+              "Offenes Problem (schwer): Die GitHub-Vorschau zeigt kein gescanntes PDF und behandelt nicht die Eignung bei beeinträchtigten Scans, weshalb die visuelle Evidenz für die Aussage fehlt. Korrektur: Ein gescanntes PDF mit klar lesbarem Text im Vergleich zu einem beschädigten, unleserlichen Scan."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.197,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 7,
+              "stuecke_neu": 4,
+              "clips_und_stuecke": 71.4,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 11,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 14,
+              "rendern": 24.7,
+              "gesamt": 148.1,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                8.22,
+                7.02,
+                4.46,
+                5.88,
+                5.76,
+                6.14,
+                7.54
+              ],
+              "woerter": 108
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Need text from scanned PDFs without a GPU?",
+                "text": "Das Bild zeigt eine gezeichnete Straßenszene mit Büroarbeitern, aber keinen Bezug zu gescannten PDFs oder dem Fehlen einer GPU. Korrektur: Ein Dokument oder ein Bildschirm mit gescannten PDFs in einer Arbeitsumgebung."
+              },
+              {
+                "zeit": "00:13.56",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "No PyTorch needed.",
+                "text": "Das Bild zeigt lediglich den Text 'NO PYTORCH NEEDED' als Titel oder Grafik, jedoch keine technischen Details, Codebeispiele oder visuelle Erklärungen zur Abwesenheit von PyTorch. Korrektur: Ein Code-Schnipsel oder eine Systemarchitekturübersicht, die zeigt, dass keine PyTorch-Bibliothek importiert oder installiert wird."
+              },
+              {
+                "zeit": "00:25.58",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 6,
+                "gesprochen": "The catch: for handwriting, math and degraded scans, the makers point to their managed platform.",
+                "text": "Das Bild zeigt lediglich den Text der gesprochenen Passage als Zitatkarte mit einem Warnsymbol, aber keine visuelle Demonstration oder Erklärung der Plattform oder der Einschränkungen. Korrektur: Ein Screenshot oder Diagramm, das die verwaltete Plattform (Managed Platform) oder ein Beispiel für schlechte Scans und Handschriften im Vergleich zeigt."
+              },
+              {
+                "zeit": "00:37.48",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 9,
+                "gesprochen": "Scanned PDFs, no GPU: doable, unless the scans are degraded.",
+                "text": "Die GitHub-Vorschau zeigt kein gescanntes PDF und behandelt nicht die Eignung bei beeinträchtigten Scans, weshalb die visuelle Evidenz für die Aussage fehlt. Korrektur: Ein gescanntes PDF mit klar lesbarem Text im Vergleich zu einem beschädigten, unleserlichen Scan."
+              }
+            ],
+            "sekunden": 218.8,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "39222444652-2",
+              "datum": "2026-10-19",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 218.8,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                4,
+                6
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 3.2,
+            "bau_s": 148.4,
+            "pruefung_s": 24.8,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine generische illustrierte Szene mit einem Mann am Schreibtisch, aber keinen Bezug zu PDF-Textextraktion, gescannten Dokumenten oder CPU-Verarbeitung.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Beschreibung besagt, dass Dokumente in Text, Markdown oder JSON mit Boxen umgewandelt werden, aber das Bild zeigt lediglich ein unkenntliches, verpixeltes Logo und keine tatsächliche Konvertierungsausgabe mit strukturierten Textboxen.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Grafik zeigt zwar Leistungswerte, aber das gesprochene 'No PyTorch needed' erfordert einen sichtbaren Hinweis auf fehlende PyTorch-Abhängigkeiten oder die Installation ohne PyTorch.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt lediglich den Text der gesprochenen Passage als Zitatkarte mit einem Warnsymbol, aber keine visuelle Demonstration oder Erklärung der Plattform oder der Einschränkungen.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar gescannte Tabellen, aber es demonstriert keine OCR-Verarbeitung oder Leistung ohne GPU.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine generische illustrierte Szene mit einem Mann am Schreibtisch, aber keinen Bezug zu PDF-Textextraktion, gescannten Dokumenten oder CPU-Verarbeitung. Korrektur: Ein Bildschirmfoto oder eine Illustration, die das Extrahieren von Text aus gescannten PDFs auf einer CPU zeigt.",
+              "Offenes Problem (schwer): Die gesprochene Beschreibung besagt, dass Dokumente in Text, Markdown oder JSON mit Boxen umgewandelt werden, aber das Bild zeigt lediglich ein unkenntliches, verpixeltes Logo und keine tatsächliche Konvertierungsausgabe mit strukturierten Textboxen. Korrektur: Ein Screenshot oder eine Grafik, die ein gescanntes Dokument mit tatsächlichen erkannten Textboxen und dem daraus generierten Markdown-, Text- oder JSON-Format zeigt.",
+              "Offenes Problem (schwer): Die gezeigte Grafik zeigt zwar Leistungswerte, aber das gesprochene 'No PyTorch needed' erfordert einen sichtbaren Hinweis auf fehlende PyTorch-Abhängigkeiten oder die Installation ohne PyTorch. Korrektur: Ein Screenshot einer Installationsanleitung oder Code-Datei, die zeigt, dass PyTorch nicht im Installationsbefehl oder den Abhängigkeiten enthalten ist.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich den Text der gesprochenen Passage als Zitatkarte mit einem Warnsymbol, aber keine visuelle Demonstration oder Erklärung der Plattform oder der Einschränkungen. Korrektur: Ein Screenshot oder Diagramm, das die verwaltete Plattform (Managed Platform) oder ein Beispiel für schlechte Scans und Handschriften im Vergleich zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar gescannte Tabellen, aber es demonstriert keine OCR-Verarbeitung oder Leistung ohne GPU. Korrektur: Ein Screenshot eines Terminals mit dem pip-Installationsbefehl oder ein Code-Beispiel für den OCR-Aufruf."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.197,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 7,
+              "stuecke_neu": 4,
+              "clips_und_stuecke": 70.5,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 11,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 15,
+              "rendern": 26.6,
+              "gesamt": 148.3,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                8.22,
+                7.02,
+                4.46,
+                5.88,
+                5.76,
+                6.14,
+                7.54
+              ],
+              "woerter": 108
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Need text from scanned PDFs without a GPU?",
+                "text": "Das Bild zeigt lediglich eine generische illustrierte Szene mit einem Mann am Schreibtisch, aber keinen Bezug zu PDF-Textextraktion, gescannten Dokumenten oder CPU-Verarbeitung. Korrektur: Ein Bildschirmfoto oder eine Illustration, die das Extrahieren von Text aus gescannten PDFs auf einer CPU zeigt."
+              },
+              {
+                "zeit": "00:08.22",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "It turns PDFs and images into markdown, text, or JSON with boxes.",
+                "text": "Die gesprochene Beschreibung besagt, dass Dokumente in Text, Markdown oder JSON mit Boxen umgewandelt werden, aber das Bild zeigt lediglich ein unkenntliches, verpixeltes Logo und keine tatsächliche Konvertierungsausgabe mit strukturierten Textboxen. Korrektur: Ein Screenshot oder eine Grafik, die ein gescanntes Dokument mit tatsächlichen erkannten Textboxen und dem daraus generierten Markdown-, Text- oder JSON-Format zeigt."
+              },
+              {
+                "zeit": "00:13.56",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "No PyTorch needed.",
+                "text": "Die gezeigte Grafik zeigt zwar Leistungswerte, aber das gesprochene 'No PyTorch needed' erfordert einen sichtbaren Hinweis auf fehlende PyTorch-Abhängigkeiten oder die Installation ohne PyTorch. Korrektur: Ein Screenshot einer Installationsanleitung oder Code-Datei, die zeigt, dass PyTorch nicht im Installationsbefehl oder den Abhängigkeiten enthalten ist."
+              },
+              {
+                "zeit": "00:25.58",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 6,
+                "gesprochen": "The catch: for handwriting, math and degraded scans, the makers point to their managed platform.",
+                "text": "Das Bild zeigt lediglich den Text der gesprochenen Passage als Zitatkarte mit einem Warnsymbol, aber keine visuelle Demonstration oder Erklärung der Plattform oder der Einschränkungen. Korrektur: Ein Screenshot oder Diagramm, das die verwaltete Plattform (Managed Platform) oder ein Beispiel für schlechte Scans und Handschriften im Vergleich zeigt."
+              },
+              {
+                "zeit": "00:37.48",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 9,
+                "gesprochen": "Scanned PDFs, no GPU: doable, unless the scans are degraded.",
+                "text": "Das Bild zeigt zwar gescannte Tabellen, aber es demonstriert keine OCR-Verarbeitung oder Leistung ohne GPU. Korrektur: Ein Screenshot eines Terminals mit dem pip-Installationsbefehl oder ein Code-Beispiel für den OCR-Aufruf."
+              }
+            ],
+            "sekunden": 176.5,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "39222444652-3",
+              "datum": "2026-10-19",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 176.5,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 790.4,
+        "upload_titel": "Indra OCR: Fast PDF Text On CPU | AI Tool #9"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Need text from scanned PDFs without a GPU?",
+            "text": "Das Bild zeigt lediglich eine illustrierte Szene mit einem Mann und einem Smartphone in einem Straßendurchgang, jedoch weder gescannte PDFs noch die Verarbeitung ohne GPU, wie sie im Text genannt werden. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die den Prozess des Extrahierens von Text aus gescannten PDFs auf einer CPU veranschaulicht."
+          },
+          {
+            "zeit": "00:08.22",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "It turns PDFs and images into markdown, text, or JSON with boxes.",
+            "text": "Das Bild zeigt lediglich das GitHub-Repository der Software, während die gesprochene Phase die Funktionalität (Konvertierung von PDFs in Markdown, Text oder JSON) beschreibt, die visuell nicht demonstriert wird. Korrektur: Ein Beispielbild oder Code-Snippet, das die Konvertierung von PDFs in Markdown, Text oder JSON mit erkannten Boxen zeigt."
+          },
+          {
+            "zeit": "00:25.58",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 6,
+            "gesprochen": "The catch: for handwriting, math and degraded scans, the makers point to their managed platform.",
+            "text": "Das Bild zeigt lediglich den Text der gesprochenen Passage als Zitatkarte mit einem Warnsymbol, aber keine visuelle Demonstration oder Erklärung der Plattform oder der Einschränkungen. Korrektur: Ein Screenshot oder Diagramm, das die verwaltete Plattform (Managed Platform) oder ein Beispiel für schlechte Scans und Handschriften im Vergleich zeigt."
+          },
+          {
+            "zeit": "00:37.48",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 9,
+            "gesprochen": "Scanned PDFs, no GPU: doable, unless the scans are degraded.",
+            "text": "Das Bild zeigt zwar gescannte Tabellen, aber es demonstriert keine OCR-Verarbeitung oder Leistung ohne GPU. Korrektur: Ein Screenshot eines Terminals mit dem pip-Installationsbefehl oder ein Code-Beispiel für den OCR-Aufruf."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -14.2,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 42.7,
+              "bis_s": 44.58,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.978
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Need",
+                "s": 0.02,
+                "e": 0.52,
+                "p": 0.6748921871185303
+              },
+              {
+                "w": "text",
+                "s": 0.52,
+                "e": 0.86,
+                "p": 0.9772369861602783
+              },
+              {
+                "w": "from",
+                "s": 0.86,
+                "e": 1.2,
+                "p": 0.9935715198516846
+              },
+              {
+                "w": "scanned",
+                "s": 1.2,
+                "e": 1.46,
+                "p": 0.9337905049324036
+              },
+              {
+                "w": "PDFs",
+                "s": 1.46,
+                "e": 2.38,
+                "p": 0.9698364734649658
+              },
+              {
+                "w": "without",
+                "s": 2.38,
+                "e": 2.54,
+                "p": 0.9682663083076477
+              },
+              {
+                "w": "a",
+                "s": 2.54,
+                "e": 3.0,
+                "p": 0.9971440434455872
+              },
+              {
+                "w": "GPU?",
+                "s": 3.0,
+                "e": 3.22,
+                "p": 0.9889777302742004
+              },
+              {
+                "w": "Indra",
+                "s": 4.18,
+                "e": 4.5,
+                "p": 0.7277370691299438
+              },
+              {
+                "w": "OCR",
+                "s": 4.5,
+                "e": 5.1,
+                "p": 0.8392754793167114
+              },
+              {
+                "w": "reads",
+                "s": 5.1,
+                "e": 5.6,
+                "p": 0.9951778650283813
+              },
+              {
+                "w": "pages",
+                "s": 5.6,
+                "e": 6.16,
+                "p": 0.9859645366668701
+              },
+              {
+                "w": "on",
+                "s": 6.16,
+                "e": 6.52,
+                "p": 0.9974263310432434
+              },
+              {
+                "w": "a",
+                "s": 6.52,
+                "e": 6.6,
+                "p": 0.9933754801750183
+              },
+              {
+                "w": "plain",
+                "s": 6.6,
+                "e": 6.86,
+                "p": 0.94101482629776
+              },
+              {
+                "w": "CPU.",
+                "s": 6.86,
+                "e": 7.32,
+                "p": 0.9957234859466553
+              },
+              {
+                "w": "It",
+                "s": 8.28,
+                "e": 8.34,
+                "p": 0.9908009171485901
+              },
+              {
+                "w": "turns",
+                "s": 8.34,
+                "e": 8.58,
+                "p": 0.9936186075210571
+              },
+              {
+                "w": "PDFs",
+                "s": 8.58,
+                "e": 9.26,
+                "p": 0.9805300533771515
+              },
+              {
+                "w": "and",
+                "s": 9.26,
+                "e": 9.34,
+                "p": 0.9920123219490051
+              },
+              {
+                "w": "images",
+                "s": 9.34,
+                "e": 9.6,
+                "p": 0.9937414526939392
+              },
+              {
+                "w": "into",
+                "s": 9.6,
+                "e": 10.08,
+                "p": 0.9964542388916016
+              },
+              {
+                "w": "markdown,",
+                "s": 10.08,
+                "e": 10.68,
+                "p": 0.6564225554466248
+              },
+              {
+                "w": "text,",
+                "s": 10.94,
+                "e": 11.16,
+                "p": 0.9833031296730042
+              },
+              {
+                "w": "or",
+                "s": 11.62,
+                "e": 11.7,
+                "p": 0.9983528852462769
+              },
+              {
+                "w": "JSON",
+                "s": 11.7,
+                "e": 11.96,
+                "p": 0.9716917276382446
+              },
+              {
+                "w": "with",
+                "s": 11.96,
+                "e": 12.44,
+                "p": 0.9086962938308716
+              },
+              {
+                "w": "boxes.",
+                "s": 12.44,
+                "e": 12.72,
+                "p": 0.9936889410018921
+              },
+              {
+                "w": "No",
+                "s": 13.56,
+                "e": 13.6,
+                "p": 0.882725179195404
+              },
+              {
+                "w": "pie",
+                "s": 13.6,
+                "e": 13.84,
+                "p": 0.41658586263656616
+              },
+              {
+                "w": "torch",
+                "s": 13.84,
+                "e": 14.04,
+                "p": 0.9683780670166016
+              },
+              {
+                "w": "needed.",
+                "s": 14.04,
+                "e": 14.32,
+                "p": 0.9926918148994446
+              },
+              {
+                "w": "Install",
+                "s": 15.26,
+                "e": 15.26,
+                "p": 0.988125205039978
+              },
+              {
+                "w": "it",
+                "s": 15.26,
+                "e": 15.48,
+                "p": 0.997963547706604
+              },
+              {
+                "w": "with",
+                "s": 15.48,
+                "e": 15.66,
+                "p": 0.997752845287323
+              },
+              {
+                "w": "pip.",
+                "s": 15.66,
+                "e": 15.82,
+                "p": 0.32001253962516785
+              },
+              {
+                "w": "The",
+                "s": 16.4,
+                "e": 16.44,
+                "p": 0.9949038028717041
+              },
+              {
+                "w": "first",
+                "s": 16.44,
+                "e": 16.64,
+                "p": 0.9980851411819458
+              },
+              {
+                "w": "run",
+                "s": 16.64,
+                "e": 16.88,
+                "p": 0.9099908471107483
+              },
+              {
+                "w": "downloads",
+                "s": 16.88,
+                "e": 17.22,
+                "p": 0.9958505630493164
+              },
+              {
+                "w": "about",
+                "s": 17.22,
+                "e": 17.56,
+                "p": 0.9949197173118591
+              },
+              {
+                "w": "18",
+                "s": 17.56,
+                "e": 18.0,
+                "p": 0.9863881468772888
+              },
+              {
+                "w": "megabytes",
+                "s": 18.0,
+                "e": 18.54,
+                "p": 0.8537372350692749
+              },
+              {
+                "w": "of",
+                "s": 18.54,
+                "e": 18.7,
+                "p": 0.9986502528190613
+              },
+              {
+                "w": "models.",
+                "s": 18.7,
+                "e": 18.84,
+                "p": 0.9857307076454163
+              },
+              {
+                "w": "How",
+                "s": 19.74,
+                "e": 19.78,
+                "p": 0.9943616390228271
+              },
+              {
+                "w": "fast",
+                "s": 19.78,
+                "e": 19.92,
+                "p": 0.9989180564880371
+              },
+              {
+                "w": "is",
+                "s": 19.92,
+                "e": 20.16,
+                "p": 0.9951173067092896
+              },
+              {
+                "w": "it?",
+                "s": 20.16,
+                "e": 20.24,
+                "p": 0.9985218644142151
+              },
+              {
+                "w": "The",
+                "s": 20.72,
+                "e": 20.74,
+                "p": 0.9943329095840454
+              },
+              {
+                "w": "project",
+                "s": 20.74,
+                "e": 21.08,
+                "p": 0.9692527055740356
+              },
+              {
+                "w": "reports",
+                "s": 21.08,
+                "e": 21.4,
+                "p": 0.9966294169425964
+              },
+              {
+                "w": "up",
+                "s": 21.4,
+                "e": 21.74,
+                "p": 0.9967772364616394
+              },
+              {
+                "w": "to",
+                "s": 21.74,
+                "e": 21.88,
+                "p": 0.9989131689071655
+              },
+              {
+                "w": "49",
+                "s": 21.88,
+                "e": 22.32,
+                "p": 0.979074239730835
+              },
+              {
+                "w": "pages",
+                "s": 22.32,
+                "e": 22.98,
+                "p": 0.995422899723053
+              },
+              {
+                "w": "per",
+                "s": 22.98,
+                "e": 23.28,
+                "p": 0.9903950095176697
+              },
+              {
+                "w": "second",
+                "s": 23.28,
+                "e": 23.68,
+                "p": 0.9986067414283752
+              },
+              {
+                "w": "on",
+                "s": 23.68,
+                "e": 24.1,
+                "p": 0.987190842628479
+              },
+              {
+                "w": "CPU.",
+                "s": 24.1,
+                "e": 24.36,
+                "p": 0.9952700734138489
+              },
+              {
+                "w": "The",
+                "s": 25.06,
+                "e": 25.58,
+                "p": 0.4127008318901062
+              },
+              {
+                "w": "catch?",
+                "s": 25.58,
+                "e": 25.76,
+                "p": 0.7909771203994751
+              },
+              {
+                "w": "For",
+                "s": 26.34,
+                "e": 26.4,
+                "p": 0.9583969712257385
+              },
+              {
+                "w": "handwriting,",
+                "s": 26.4,
+                "e": 26.68,
+                "p": 0.9803829193115234
+              },
+              {
+                "w": "math,",
+                "s": 27.12,
+                "e": 27.36,
+                "p": 0.9816478490829468
+              },
+              {
+                "w": "and",
+                "s": 27.62,
+                "e": 27.66,
+                "p": 0.9959620833396912
+              },
+              {
+                "w": "degraded",
+                "s": 27.66,
+                "e": 27.94,
+                "p": 0.993800938129425
+              },
+              {
+                "w": "scans,",
+                "s": 27.94,
+                "e": 28.26,
+                "p": 0.9955054521560669
+              },
+              {
+                "w": "the",
+                "s": 28.86,
+                "e": 28.92,
+                "p": 0.9847075939178467
+              },
+              {
+                "w": "makers",
+                "s": 28.92,
+                "e": 29.16,
+                "p": 0.3896077871322632
+              },
+              {
+                "w": "point",
+                "s": 29.16,
+                "e": 29.42,
+                "p": 0.9877278804779053
+              },
+              {
+                "w": "to",
+                "s": 29.42,
+                "e": 29.66,
+                "p": 0.9964010715484619
+              },
+              {
+                "w": "their",
+                "s": 29.66,
+                "e": 29.78,
+                "p": 0.9977839589118958
+              },
+              {
+                "w": "managed",
+                "s": 29.78,
+                "e": 30.04,
+                "p": 0.982402503490448
+              },
+              {
+                "w": "platform.",
+                "s": 30.04,
+                "e": 30.36,
+                "p": 0.9956405162811279
+              },
+              {
+                "w": "The",
+                "s": 31.36,
+                "e": 31.48,
+                "p": 0.9891561269760132
+              },
+              {
+                "w": "code",
+                "s": 31.48,
+                "e": 31.66,
+                "p": 0.9767256379127502
+              },
+              {
+                "w": "is",
+                "s": 31.66,
+                "e": 31.98,
+                "p": 0.9973804354667664
+              },
+              {
+                "w": "Apache",
+                "s": 31.98,
+                "e": 32.1,
+                "p": 0.9879863858222961
+              },
+              {
+                "w": "2",
+                "s": 32.1,
+                "e": 32.48,
+                "p": 0.9983747005462646
+              },
+              {
+                "w": ".0.",
+                "s": 32.48,
+                "e": 32.86,
+                "p": 0.999463677406311
+              },
+              {
+                "w": "The",
+                "s": 33.26,
+                "e": 33.34,
+                "p": 0.9959834814071655
+              },
+              {
+                "w": "weights",
+                "s": 33.34,
+                "e": 33.52,
+                "p": 0.9783594012260437
+              },
+              {
+                "w": "use",
+                "s": 33.52,
+                "e": 33.9,
+                "p": 0.9867089986801147
+              },
+              {
+                "w": "a",
+                "s": 33.9,
+                "e": 34.04,
+                "p": 0.9967288970947266
+              },
+              {
+                "w": "modified",
+                "s": 34.04,
+                "e": 34.36,
+                "p": 0.994531512260437
+              },
+              {
+                "w": "Open",
+                "s": 34.36,
+                "e": 34.8,
+                "p": 0.5156195163726807
+              },
+              {
+                "w": "Rail",
+                "s": 34.8,
+                "e": 35.06,
+                "p": 0.5999780893325806
+              },
+              {
+                "w": "M",
+                "s": 35.06,
+                "e": 35.38,
+                "p": 0.9154737591743469
+              },
+              {
+                "w": "license,",
+                "s": 35.38,
+                "e": 35.66,
+                "p": 0.9705005884170532
+              },
+              {
+                "w": "so",
+                "s": 36.12,
+                "e": 36.24,
+                "p": 0.9970595240592957
+              },
+              {
+                "w": "check",
+                "s": 36.24,
+                "e": 36.4,
+                "p": 0.9967443943023682
+              },
+              {
+                "w": "terms.",
+                "s": 36.4,
+                "e": 36.66,
+                "p": 0.9789692163467407
+              },
+              {
+                "w": "Scanned",
+                "s": 37.62,
+                "e": 37.84,
+                "p": 0.6409866511821747
+              },
+              {
+                "w": "PDFs?",
+                "s": 37.84,
+                "e": 38.52,
+                "p": 0.9850209355354309
+              },
+              {
+                "w": "No",
+                "s": 38.8,
+                "e": 38.84,
+                "p": 0.9947068095207214
+              },
+              {
+                "w": "GPU?",
+                "s": 38.84,
+                "e": 39.08,
+                "p": 0.9916041493415833
+              },
+              {
+                "w": "Doable.",
+                "s": 39.96,
+                "e": 40.12,
+                "p": 0.8751453757286072
+              },
+              {
+                "w": "Unless",
+                "s": 40.84,
+                "e": 40.84,
+                "p": 0.9889439344406128
+              },
+              {
+                "w": "the",
+                "s": 40.84,
+                "e": 41.06,
+                "p": 0.9926949739456177
+              },
+              {
+                "w": "scans",
+                "s": 41.06,
+                "e": 41.28,
+                "p": 0.9970974922180176
+              },
+              {
+                "w": "are",
+                "s": 41.28,
+                "e": 41.48,
+                "p": 0.9988899827003479
+              },
+              {
+                "w": "degraded.",
+                "s": 41.48,
+                "e": 41.6,
+                "p": 0.9971087574958801
+              },
+              {
+                "w": "Be",
+                "s": 42.38,
+                "e": 42.4,
+                "p": 0.9965134263038635
+              },
+              {
+                "w": "sure",
+                "s": 42.4,
+                "e": 42.58,
+                "p": 0.9994469285011292
+              },
+              {
+                "w": "to",
+                "s": 42.58,
+                "e": 42.7,
+                "p": 0.996550440788269
+              },
+              {
+                "w": "like,",
+                "s": 42.7,
+                "e": 42.9,
+                "p": 0.8887213468551636
+              },
+              {
+                "w": "share,",
+                "s": 43.16,
+                "e": 43.4,
+                "p": 0.995524525642395
+              },
+              {
+                "w": "and",
+                "s": 43.7,
+                "e": 43.8,
+                "p": 0.9971650242805481
+              },
+              {
+                "w": "save",
+                "s": 43.8,
+                "e": 44.06,
+                "p": 0.9930661916732788
+              },
+              {
+                "w": "this",
+                "s": 44.06,
+                "e": 44.32,
+                "p": 0.9925859570503235
+              },
+              {
+                "w": "video.",
+                "s": 44.32,
+                "e": 44.58,
+                "p": 0.9995823502540588
+              }
+            ],
+            "dauer_s": 44.8853125,
+            "sprache": "en"
+          },
+          "roh_key": "ab9552c0e3a106da7aa94beb44256c6f0e0e11a9bc58ba817362cbd4ae34069c",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "c50bcf5753e166537fe7d51a8752dd2d684c413009e3757db104b80a4edbcd50",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 11,
+          "motive": 11,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "c50bcf5753e166537fe7d51a8752dd2d684c413009e3757db104b80a4edbcd50",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Eine im illustrierten Comic-Stil gehaltene Darstellung eines Mannes in Arbeitskleidung, der in einer straßenartigen Umgebung auf ein Smartphone blickt; im Vordergrund stehen Kisten und technische Geräte.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine illustrierte Szene mit einem Mann und einem Smartphone in einem Straßendurchgang, jedoch weder gescannte PDFs noch die Verarbeitung ohne GPU, wie sie im Text genannt werden.",
+              "erforderliches_bild": "Ein Dokument oder eine Benutzeroberfläche, die den Prozess des Extrahierens von Text aus gescannten PDFs auf einer CPU veranschaulicht."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Overlay-Bildschirm zeigt Benchmarks für Seiten pro Sekunde auf CPU mit verschiedenen OCR-Softwarelösungen einschließlich Indra OCR.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt den Leistungsvergleich von Indra OCR auf CPU und passt somit zur gesprochenen Erwähnung der Leistung und Funktionsweise.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Screenshot einer GitHub-Repository-Vorschau mit dem Titel datalab-to/indra und der Beschreibung zu Fast CPU OCR sowie Sternen- und Fork-Statistiken.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich das GitHub-Repository der Software, während die gesprochene Phase die Funktionalität (Konvertierung von PDFs in Markdown, Text oder JSON) beschreibt, die visuell nicht demonstriert wird.",
+              "erforderliches_bild": "Ein Beispielbild oder Code-Snippet, das die Konvertierung von PDFs in Markdown, Text oder JSON mit erkannten Boxen zeigt."
+            },
+            {
+              "index": 3,
+              "gesehen": "Der Bildschirm zeigt einen dunklen Hintergrund mit dem Schriftzug 'INDRA' oben links und einem hervorgehobenen Kasten mit dem Text 'NO PYTORCH NEEDED' in türkiser Farbe.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der Text im sichtbaren Bild stimmt direkt mit der gesprochenen Aussage 'No PyTorch needed.' überein.",
+              "erforderliches_bild": "Ein passender Textkasten mit der entsprechenden Kernaussage."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Bildschirm zeigt den Projektnamen INDRA, den Text PIP INSTALL, einen großen gelben Abwärtspfeil über einem Balken und die Schaltflächen MB sowie PIP INSTALL.",
+              "note": 10,
+              "passt": true,
+              "grund": "Die visuelle Darstellung zeigt die Installation via pip und den Download von etwa 18 MB wie im Kommentar angesprochen.",
+              "erforderliches_bild": "Nicht erforderlich."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein Leistungsdiagramm mit Balken und Zahlenwerten wie 4.3, 2.9 und kleiner gleich 0.18 sowie der Achsenbeschriftung pages per second.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Diagramm zeigt visuell Messwerte und Geschwindigkeitsvergleiche, die exakt zur gesprochenen Erwähnung der Leistung von bis zu 49 Seiten pro Sekunde passen.",
+              "erforderliches_bild": "Ein geeignetes Benchmark-Diagramm mit messbaren Leistungsdaten."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Warnsymbol (Ausrufezeichen in einem gelben Dreieck) sowie ein Textkasten mit der Aufschrift 'THE CATCH: FOR HANDWRITING, MATH AND DEGRADED SCANS, THE MAKERS POINT TO THEIR MANAGED PLATFORM.' und dem Markenname 'INDRA' im oberen Bereich.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich den Text der gesprochenen Passage als Zitatkarte mit einem Warnsymbol, aber keine visuelle Demonstration oder Erklärung der Plattform oder der Einschränkungen.",
+              "erforderliches_bild": "Ein Screenshot oder Diagramm, das die verwaltete Plattform (Managed Platform) oder ein Beispiel für schlechte Scans und Handschriften im Vergleich zeigt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein dunkler Hintergrund mit dem Text 'INDRA' oben links und einem Kasten mit der Aufschrift 'CODE IS APACHE 2.0'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der Text im Bild zeigt exakt die genannte Lizenzinformation 'CODE IS APACHE 2.0' passend zur gesprochenen Erwähnung der Open-Source-Lizenz.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein dunkelblauer Bildschirm zeigt in der oberen Hälfte die grün umrandete Textzeile MODIFIED OPENRAIL-M LICENSE und darunter eine orange umrandete Schaltfläche mit der Aufschrift CHECK TERMS.",
+              "note": 10,
+              "passt": true,
+              "grund": "Der Text und die Schaltfläche stimmen exakt mit den gesprochenen Begriffen zu den Lizenzbedingungen überein.",
+              "erforderliches_bild": "n.v."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein Dokument mit zwei Tabellen über klinische Studiendaten und statistische Werte.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt zwar gescannte Tabellen, aber es demonstriert keine OCR-Verarbeitung oder Leistung ohne GPU.",
+              "erforderliches_bild": "Ein Screenshot eines Terminals mit dem pip-Installationsbefehl oder ein Code-Beispiel für den OCR-Aufruf."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein illustrierter Mann mit Sonnenbrille vor einer Stadtkulisse mit Baukränen, der eine Sprechblase mit einem Call-to-Action zur Interaktion zeigt.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen ansprechenden Präsenter, der zu Engagement aufruft, was exakt der gesprochenen Aufforderung zum Liken und Teilen entspricht.",
+              "erforderliches_bild": "Kein Ersatz nötig, da das Bild zur Aufforderung passt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine illustrierte Szene mit einem Mann und einem Smartphone in einem Straßendurchgang, jedoch weder gescannte PDFs noch die Verarbeitung ohne GPU, wie sie im Text genannt werden.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich das GitHub-Repository der Software, während die gesprochene Phase die Funktionalität (Konvertierung von PDFs in Markdown, Text oder JSON) beschreibt, die visuell nicht demonstriert wird.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt lediglich den Text der gesprochenen Passage als Zitatkarte mit einem Warnsymbol, aber keine visuelle Demonstration oder Erklärung der Plattform oder der Einschränkungen.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar gescannte Tabellen, aber es demonstriert keine OCR-Verarbeitung oder Leistung ohne GPU."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 11,
+          "ausgenommen": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "c50bcf5753e166537fe7d51a8752dd2d684c413009e3757db104b80a4edbcd50",
+        "prompt_version": "2026-10-18.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

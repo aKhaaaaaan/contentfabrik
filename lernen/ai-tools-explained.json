@@ -1,17 +1,17 @@
 {
   "regeln": [
-    "Prioritize real software screen recordings and active workflows over text-only graphics, summary titles, and textual chat comparisons.",
-    "Match visual motifs strictly to the spoken technical step; avoid unrelated generic action scenes or decorative backgrounds during tool explanations.",
-    "Replace static menus, logos, or empty dashboards with screenshots of the tool in action, including search results, catalogs, and error logs.",
-    "Show genuine evidence of tool results and source-supported examples; never use stock or illustrations to represent real software outcomes.",
-    "Visualize the exact technical processes mentioned, such as ERC/DRC audits or manual part placement, rather than showing labels or titles of the process.",
-    "Maintain strict visual-narrative subject parity; do not show unrelated graphics (like pricing) when discussing technical architecture or performance.",
-    "Open scripts with an actionable, user-focused problem-solving hook centered on a practical task rather than generic tool announcements.",
-    "Incorporate the designated channel presenter (black leather jacket, cyan glasses) and painted-world style for illustrative scenes to ensure identity consistency.",
-    "Use verified benchmark charts or side-by-side comparisons when narrating performance, hardware speeds, or system capabilities.",
-    "Explain technical trade-offs and limits using plain, workflow-oriented language instead of isolated jargon or specification lists.",
-    "Treat quality feedback as provisional diagnostic data to fix visual-to-script alignment gaps without overgeneralizing from single defects.",
-    "Ensure all technical components referenced (hardware, data pathways, specific UI buttons) are visibly represented as they are mentioned."
+    "Visual Evidence: Show genuine source-supported visuals for every tool action; replace generic desk/office scenes with specific UI, terminal outputs, or code showing the task (e.g., text extraction).",
+    "Technical Proof: Provide visible evidence for all technical claims; if 'No GPU' or 'No PyTorch' is mentioned, show the installation command, dependencies, or terminal logs as proof.",
+    "Output Clarity: Display authentic tool results such as structured JSON, Markdown, or text boxes instead of pixelated logos, generic warnings, or abstract graphics.",
+    "Narration Parity: Maintain strict parity between narration and imagery; every technical step, UI element, or data point mentioned must be visibly represented at that exact moment.",
+    "Realistic Workflows: Prioritize real software screen recordings and active workflows over text-only graphics, titles, or abstract charts.",
+    "Distinct Motifs: Ensure every visual change introduces a materially different subject or action; zooms, crops, label changes, or backgrounds do not count as new motifs.",
+    "Functional Hook: Open scripts with a clear, user-focused hook that states the practical task the viewer will accomplish rather than generic trending-tools questions.",
+    "Practical Explanation: Explain technical trade-offs and limits in plain language; do not use architecture names or benchmarks as a substitute for explaining the human task.",
+    "Format Integrity: Preserve the channel's painted-world style for fictional scenes and maintain the recurring presenter's identity (black hair, leather jacket, cyan glasses).",
+    "Factual Accuracy: Never override source-supported facts or approved voice-overs; show UI buttons and data pathways exactly as they appear in the source.",
+    "Mandatory CTA: Include the spoken CTA (like, share, save) at the format-specific position; do not substitute alternative calls-to-action.",
+    "Data-Driven Fixes: Treat review feedback as provisional data; apply concrete, observable fixes to specific segments without overgeneralizing a single defect into a ban on a style."
   ],
   "produktionsdiagnosen": [
     {
@@ -1422,7 +1422,103 @@
       "auswertbar": false,
       "prompt_version": "2026-10-18.1",
       "verbessert": false
+    },
+    {
+      "id": "39222444652-2",
+      "datum": "2026-10-19",
+      "vorher": null,
+      "nachher": null,
+      "vorher_gesperrt": true,
+      "nachher_gesperrt": true,
+      "sekunden": 218.8,
+      "aktionen": [
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 0
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 1
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 4
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 6
+        }
+      ],
+      "einstellungen": {
+        "stimme": "am_michael",
+        "tempo": 1.05,
+        "untertitel_profil": "ruhig",
+        "musik_pegel": null,
+        "effekt_pegel": null
+      },
+      "schwerpunkt": "bild",
+      "kategorien_vorher": {
+        "bild_passt": 2
+      },
+      "kategorien_nachher": {
+        "bild_passt": 2
+      },
+      "auswertbar": false,
+      "prompt_version": "2026-10-18.1",
+      "verbessert": false
+    },
+    {
+      "id": "39222444652-3",
+      "datum": "2026-10-19",
+      "vorher": null,
+      "nachher": null,
+      "vorher_gesperrt": true,
+      "nachher_gesperrt": true,
+      "sekunden": 176.5,
+      "aktionen": [
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 0
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 1
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 4
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 6
+        }
+      ],
+      "einstellungen": {
+        "stimme": "am_michael",
+        "tempo": 1.05,
+        "untertitel_profil": "ruhig",
+        "musik_pegel": null,
+        "effekt_pegel": null
+      },
+      "schwerpunkt": "bild",
+      "kategorien_vorher": {
+        "bild_passt": 2
+      },
+      "kategorien_nachher": {
+        "bild_passt": 2
+      },
+      "auswertbar": false,
+      "prompt_version": "2026-10-18.1",
+      "verbessert": false
     }
   ],
-  "stand": "2026-10-18"
+  "stand": "2026-10-19"
 }

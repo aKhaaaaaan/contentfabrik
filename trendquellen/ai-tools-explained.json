@@ -6,7 +6,11 @@
     "ChatGPT",
     "Gemini AI",
     "make money with AI",
-    "AI tools"
+    "AI tools",
+    "using ChatGPT wrong",
+    "Claude tips",
+    "ChatGPT tips",
+    "make money with Claude"
   ],
   "namen": [
     "Claude Code",
@@ -31,5 +35,29 @@
     "Anthropic"
   ],
   "tage": 7,
-  "dauer": "medium"
+  "dauer": "medium",
+  "_formate": "Nutzer 19.10.2026: auch \"richtig nutzen\"/\"Geld verdienen\"-Themen (Titelmuster wie \"You are using Claude wrong\"). Belege = offizielle Anleitungen unter anleitungen (Produktname wie in namen). format_jeden 2 = jeden 2. Tag Vorrang fuer ein echtes Format-Ausreisser-Thema. format_vorlagen: bewaehrte Titelmuster, falls am Formattag kein echter Format-Ausreisser eine Quelle hat ({produkt} = Name aus anleitungen). Keine Prozentzahlen/Einkommen im Titel - Faktenpruefung sperrt Unbelegtes.",
+  "format_jeden": 2,
+  "min_aufrufe": 5000,
+  "anleitungen": {
+    "Claude": [
+      "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview"
+    ],
+    "Claude Code": [
+      "https://www.anthropic.com/engineering/claude-code-best-practices"
+    ],
+    "ChatGPT": [
+      "https://platform.openai.com/docs/guides/prompt-engineering"
+    ],
+    "Gemini": [
+      "https://support.google.com/gemini/answer/14286560",
+      "https://ai.google.dev/gemini-api/docs/prompting-strategies"
+    ]
+  },
+  "format_vorlagen": [
+    "You're Using {produkt} Wrong: Do This Instead",
+    "{produkt} Tips Most Users Miss",
+    "How to Make Money with {produkt}: Honest Ways to Start"
+  ]
 }

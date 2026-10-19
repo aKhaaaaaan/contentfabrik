@@ -12,6 +12,7 @@ dann entscheidet die KI ohne diese Hinweise, das Video entsteht trotzdem.
 """
 import html, json, os, re, time, datetime, urllib.error, urllib.request, urllib.parse
 from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
 from xml.etree import ElementTree
 
 UNGEEIGNET = re.compile(r'uncensored|abliterated|nsfw|porn|nude|lewd|hentai|jailbreak', re.I)
@@ -264,6 +265,70 @@ def seitentext(url, grenze=6000):
     return text[:grenze]
 
 
+# Nutzer 19.10.2026: KI nicht nur Neuheiten, sondern auch „wie man damit Geld verdient", „wie man es richtig
+# nutzt", „95 % nutzen Claude falsch" - die Titelmuster, die auf YouTube gerade laufen. Belege dafuer sind die
+# offiziellen Anleitungen des Produkts (trendquellen/<kanal>.json, Feld anleitungen), keine Fremdvideos.
+# Nur Nutzungs-Muster: „Master Claude Motion" ist eine Funktionsneuheit, keine Anleitung (gemessen 19.10.)
+ANLEITUNG = re.compile(r"\b(?:wrong|mistakes?|correctly|properly|right way|how to use|tips|tricks|hidden features?|"
+                       r"settings you|beginners?|like a pro|better prompts?|prompting)\b", re.I)
+GELD = re.compile(r"\b(?:make money|making money|earn(?:ing)?|income|side hustle|paise|sell(?:ing)?|business|"
+                  r"clients?|freelanc\w*)\b|[$₹€£]\s?\d|/(?:day|month)\b|\bper (?:day|month)\b", re.I)
+# Nur Umgehung von Bezahlschranken (Freischalten, Cracks, Mod-APKs) ist tabu. Nutzer 19.10.2026: „Hoffnung machende"
+# Titel (Geld verdienen, gratis nutzen) schauen die Leute gern - die bleiben Kandidaten; ob sie stimmen, entscheidet
+# die Recherche (offizielle Quelle) und danach die Faktenpruefung.
+SPAM_VIDEO = re.compile(r"\b(?:unlock\w*|crack\w*|mod apk|hack(?:ed)?)\b", re.I)
+GELDBETRAG = re.compile(r"(?:₹\s?)?\d+\s?lakh\b|[$₹€£]\s?[\d.,]+\s?[kKmM]?\+?(?:\s?/\s?(?:day|month|year|week)|"
+                        r"\s?(?:a|per) (?:day|month|year|week))?", re.I)
+
+
+def format_art(titel):
+    """'geld', 'anleitung' oder '' - welches bewaehrte Titelmuster ein Zuschauerthema hat."""
+    if SPAM_VIDEO.search(titel or ''):
+        return ''
+    if GELD.search(titel or ''):
+        return 'geld'
+    return 'anleitung' if ANLEITUNG.search(titel or '') else ''
+
+
+def ohne_betraege(titel):
+    """„how i made $1,204/day selling pdfs" -> „how i made selling pdfs": unbelegte Einkommenszahl raus."""
+    return re.sub(r'\s{2,}', ' ', GELDBETRAG.sub('', titel or '')).strip(' -|:,?!')
+
+
+TRENDQUELLEN = Path('trendquellen')
+
+
+def anleitungen():
+    """{Produkt: [offizielle Anleitungs-URLs]} aus allen trendquellen/*.json (je Kanal pflegbar)."""
+    aus = {}
+    for p in sorted(TRENDQUELLEN.glob('*.json')):
+        try:
+            for name, urls in (json.loads(p.read_text(encoding='utf-8')).get('anleitungen') or {}).items():
+                aus.setdefault(name, [])
+                aus[name] += [u for u in urls if u not in aus[name]]
+        except (OSError, ValueError, AttributeError):
+            continue
+    return aus
+
+
+def anleitung_quellen(thema, maximal=4):
+    """Offizielle Anleitungen zum Produkt eines Format-Themas („Produkt: Titel"), sonst []."""
+    m = re.match(r'([^:]{2,40}):\s*(.+)', thema or '')
+    if not m or not format_art(m.group(2)):
+        return []
+    urls = anleitungen().get(m.group(1).strip()) or []
+    aus = []
+    for url in urls:
+        text = seitentext(url)
+        if len(text.split()) >= 150 and _englisch(text[:2000]):
+            aus.append({'quelle': 'Webseite', 'name': f'{m.group(1).strip()} official guide', 'url': url,
+                        'belegt': True, 'text': f'Official {m.group(1).strip()} documentation/help page.\n'
+                                                f'PAGE TEXT (fetched today):\n{text}'})
+        if len(aus) >= maximal:
+            break
+    return aus
+
+
 def thema_recherche(thema, tage=120, maximal=4):
     """Quellen GENAU zu einem Nutzerthema des AI-Kanals (Nutzerauftrag 10.10.2026: auch bezahlte
     Modelle/Tools vergleichen, z. B. Tokenverbrauch). Vorher bekam ein solches Thema die allgemeinen
@@ -288,6 +353,9 @@ def thema_recherche(thema, tage=120, maximal=4):
             direkt.append(q)
     if direkt:
         return direkt[:maximal]
+    anleitung = anleitung_quellen(thema, maximal)
+    if anleitung:
+        return anleitung
     begriffe = themen_begriffe(thema)
     if not begriffe:
         return []

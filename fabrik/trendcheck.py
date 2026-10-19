@@ -120,7 +120,7 @@ def yt_faktor(begriff, zusatz=''):
     return max((v['faktor'] for v in treffer), default=None), treffer[:2]
 
 
-def kandidaten(kanal, themen, mit_trendfirmen=True, google_liste=()):
+def kandidaten(kanal, themen, mit_trendfirmen=True, google_liste=(), heute=None):
     aus = [{'thema': x['thema'], 'begriff': x.get('trend_suche') or x.get('wikipedia') or x['thema'],
             'wikipedia': x.get('wikipedia'), 'eigen': True}
            for x in themen.laden() if x['kanal'] == kanal and x.get('status', 'bereit') == 'bereit'
@@ -134,7 +134,7 @@ def kandidaten(kanal, themen, mit_trendfirmen=True, google_liste=()):
     einstellung = trendquellen(kanal)
     if mit_trendfirmen and einstellung:
         import trends
-        aus += zuschauer_themen(einstellung, trends.gezeigte_themen(kanal), google_liste)
+        aus += zuschauer_themen(einstellung, trends.gezeigte_themen(kanal), google_liste, heute)
     return aus
 
 
@@ -174,11 +174,38 @@ ZUSATZ = {'business-origin-stories': 'story'}  # Suchwinkel des Kanals, nicht Pf
 #   {"suche": [YouTube-Suchbegriffe], "namen": [Produkte/Firmen/Personen der Nische], "tage": 7, "dauer": "medium"}
 # GEMESSEN 19.10.2026: Bei allen Laengen fuehrten Meme-Shorts („Badtameez Chatgpt Pt-7 #couplegoals"). 4-20-Min.-
 # Videos tragen die Themen, nach denen Zuschauer suchen („Claude Just Dropped MOTION", neue Modelle).
-TREND_STANDARD = {'tage': 7, 'dauer': 'medium', 'pruefen': 3}
+TREND_STANDARD = {'tage': 7, 'dauer': 'medium', 'pruefen': 3, 'min_aufrufe': 5000, 'format_jeden': 2}
+# Nutzer 19.10.2026: neben Neuheiten auch „richtig nutzen"/„Geld verdienen"-Themen. Jeden format_jeden-ten Tag
+# bekommt ein echtes Format-Ausreisser-Thema (ab FORMAT_FAKTOR x Kanalschnitt) Vorrang vor Neuheiten.
+FORMAT_FAKTOR = 2.0
+BONUS_FORMAT = 10.0  # Formattag: Vorrang sicher, auch vor einer 60x-Neuheit
 # GEMESSEN 19.10.2026: „OpenAI alerta PF apos identificar ameacas contra Lula no ChatGPT" bestand trends._englisch
 # (fast nur ASCII-Buchstaben). Ein englischer Titel enthaelt fast immer eines dieser Woerter.
 ENGLISCH = re.compile(r"\b(?:the|a|an|to|is|in|of|for|and|with|my|your|you|how|this|it|i|just|vs|what|why|can|new|"
                       r"made|using|tested|master)\b", re.I)
+# GEMESSEN 19.10.: „ChatGPT baut Dir Wasserzeichen in Deine Texte" (nur „in") und „... (In Telugu)" kamen durch
+FREMDSPRACHE = re.compile(r"\b(?:hindi|telugu|tamil|urdu|bangla|bengali|marathi|kannada|malayalam|espa[nñ]ol|"
+                          r"portugu[eê]s|deutsch|arabic)\b", re.I)
+
+
+def englisch(titel):
+    return len(set(w.lower() for w in ENGLISCH.findall(titel or ''))) >= 2 and not FREMDSPRACHE.search(titel or '')
+
+
+def format_vorlage(e, tag, gezeigt=()):
+    """Formattag ohne echten Format-Ausreisser: bewaehrtes Titelmuster (format_vorlagen) fuer ein Produkt mit
+    offizieller Anleitung (anleitungen). Reihum nach Datum, schon gezeigte Themen ueberspringen."""
+    vorlagen, produkte = e.get('format_vorlagen') or [], sorted(e.get('anleitungen') or {})
+    # Muster UND Produkt wechseln jedes Mal (nicht dreimal hintereinander „Geld verdienen")
+    paare = list(dict.fromkeys((vorlagen[i % len(vorlagen)], produkte[i % len(produkte)])
+                               for i in range(len(vorlagen) * len(produkte)))) if vorlagen and produkte else []
+    for n in range(len(paare)):
+        v, p = paare[(tag.toordinal() // max(1, int(e['format_jeden'])) + n) % len(paare)]
+        thema = f'{p}: ' + v.format(produkt=p)
+        if thema.lower() not in gezeigt:
+            return {'thema': thema, 'produkt': p, 'google': None, 'youtube': None, 'beispiele': [],
+                    'format': 'geld' if re.search(r'money|earn', v, re.I) else 'anleitung', 'vorlage': True}
+    return None
 
 
 def name_im_text(text, namen):
@@ -211,7 +238,7 @@ def zuschauer_themen_der_tage(kanal, tage, heute=None):
     return aus
 
 
-def zuschauer_themen(einstellung, gezeigt=(), google_liste=()):
+def zuschauer_themen(einstellung, gezeigt=(), google_liste=(), heute=None):
     """Kandidaten aus dem, was Zuschauer gerade schauen/suchen - je Name das staerkste Signal.
     einstellung = trendquellen/<kanal>.json; pruefen = hoechstens so viele recherchieren (je bis 8 Seitenabrufe)."""
     import trends
@@ -226,30 +253,45 @@ def zuschauer_themen(einstellung, gezeigt=(), google_liste=()):
     for v in trends.youtube_ausreisser(e.get('suche') or [], tage=e['tage'], je_begriff=15, top=40,
                                        dauer=e['dauer']):
         p = name_im_text(v['titel'], namen)
-        if p and ENGLISCH.search(v['titel']):
-            roh.append({'thema': _zuschauer_thema(p, v['titel']), 'produkt': p, 'google': None,
-                        'youtube': v['faktor'], 'beispiele': [v]})
-    roh.sort(key=lambda k: -punkte(k['youtube'], google=bool(k['google'])))
+        # GEMESSEN 19.10.: Spam („ChatGPT Premium gratis freischalten", 1.794 Aufrufe = 15.6x) lag vorn
+        if p and englisch(v['titel']) and not trends.SPAM_VIDEO.search(v['titel']) \
+                and (v.get('aufrufe') or 0) >= e['min_aufrufe']:
+            art = trends.format_art(v['titel'])
+            titel = trends.ohne_betraege(v['titel']) if art == 'geld' else v['titel']
+            roh.append({'thema': _zuschauer_thema(p, titel), 'produkt': p, 'google': None,
+                        'youtube': v['faktor'], 'beispiele': [v], 'format': art})
+    tag = heute or datetime.date.today()
+    formattag = tag.toordinal() % max(1, int(e['format_jeden'])) == 0
+    for k in roh:
+        k['vorrang'] = bool(formattag and k.get('format') and (k['youtube'] or 0) >= FORMAT_FAKTOR)
+    if formattag and not any(k['vorrang'] for k in roh):
+        ersatz = format_vorlage(e, tag, gezeigt)
+        if ersatz:
+            roh.append(dict(ersatz, vorrang=True))
+    roh.sort(key=lambda k: (not k['vorrang'], -punkte(k['youtube'], google=bool(k['google']))))
     aus, produkte, geprueft = [], set(), 0
     for k in roh:
-        if k['produkt'] in produkte or k['thema'].lower() in gezeigt or geprueft >= e['pruefen']:
+        schluessel = (k['produkt'], bool(k.get('format')))
+        if schluessel in produkte or k['thema'].lower() in gezeigt or geprueft >= e['pruefen']:
             continue
         geprueft += 1
         # Ohne lesbare Quelle schreibt skript.py nichts (nur_quellen) - so ein Thema wuerde den Tag kosten.
         if not trends.thema_recherche(k['thema'], tage=30, maximal=1):
             print('Zuschauer-Thema ohne Quelle verworfen:', k['thema'][:80])
             continue
-        produkte.add(k['produkt'])
+        produkte.add(schluessel)
         aus.append({'thema': k['thema'], 'begriff': k['thema'], 'wikipedia': None, 'eigen': False,
                     'zuschauer': True, 'youtube': k['youtube'], 'beispiele': k['beispiele'],
-                    'google': k['google']})
+                    'google': k['google'], 'format': k.get('format') or '', 'vorrang': k.get('vorrang', False),
+                    'vorlage': k.get('vorlage', False)})
     return aus
 
 
 def bewerten(liste, google_liste, heute=None, kanal='', hn_liste=()):
     for k in liste:
         if k.get('zuschauer'):  # Signale stammen schon aus der Suche - kein zweiter YouTube-Abruf
-            k['punkte'] = punkte(k['youtube'], google=bool(k['google']))
+            k['punkte'] = round(punkte(k['youtube'], google=bool(k['google']))
+                                + (BONUS_FORMAT if k.get('vorrang') else 0), 2)
             continue
         k['youtube'], k['beispiele'] = yt_faktor(k['begriff'], ZUSATZ.get(kanal, ''))
         k['wiki'] = wiki_aufwind(k['wikipedia'], heute) if k.get('wikipedia') else None
@@ -262,7 +304,8 @@ def bewerten(liste, google_liste, heute=None, kanal='', hn_liste=()):
 def entscheiden(bewertet):
     """(thema, grund). '' = freie Wahl (Business: Trendfirmen, AI: Trend-Repos).
     None = keine einzige Quelle hat geantwortet -> Aufrufer nimmt die alte Reihenfolge."""
-    if not any(k.get('youtube') or k.get('wiki') or k.get('google') or k.get('hn') for k in bewertet):
+    if not any(k.get('youtube') or k.get('wiki') or k.get('google') or k.get('hn') or k.get('vorlage')
+               for k in bewertet):
         return None, 'kein Trendsignal abrufbar'
     beste = bewertet[0]
     if beste['punkte'] - (BONUS_EIGEN if beste['eigen'] else 0) < SCHWELLE:
@@ -280,6 +323,10 @@ def beschreibung(k):
         teile.append(f"heute in Google Trends ({k['google']})")
     if k.get('hn'):
         teile.append(f"Hacker News {k['hn']} Punkte")
+    if k.get('format'):  # Telegram zeigt, warum heute ein Anleitungs-/Geld-Thema statt einer Neuheit
+        teile.append({'geld': 'Format Geld verdienen', 'anleitung': 'Format richtig nutzen'}[k['format']]
+                     + (' (Formattag)' if k.get('vorrang') else '')
+                     + (', bewaehrte Titelvorlage + offizielle Anleitung' if k.get('vorlage') else ''))
     return f"{k['thema'] or k['begriff']}: {k['punkte']} Punkte - " + ', '.join(teile or ['ohne Signal'])
 
 
@@ -302,7 +349,7 @@ def waehlen(kanal, heute=None, themen=None):
     google_liste = None
     try:
         google_liste = google_heute()
-        liste = kandidaten(kanal, themen, google_liste=google_liste)
+        liste = kandidaten(kanal, themen, google_liste=google_liste, heute=heute)
     except Exception as e:  # nie den Tageslauf am Trend-Check scheitern lassen
         print('Trend-Check fehlgeschlagen:', type(e).__name__, str(e)[:120])
         liste = []

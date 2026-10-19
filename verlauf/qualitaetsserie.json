@@ -60602,6 +60602,1864 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "39235396942.1:ai-tools-explained",
+      "run_id": "39235396942",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-19T10:29:46.417643+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "121a623d2fd50028e93175b429639856b194dfc0",
+      "produktionsversion": "73dd368bdfc40b3beab85a056eced8f34a376b5e137bcb6f6742544407e82590",
+      "videoformat": "short",
+      "thema": "Gemini 4 Argon: 1M token output and where you can use it",
+      "titel": [
+        "*Gemini* *4* *Argon*",
+        "*1M* *Tokens,* Real Limits"
+      ],
+      "status": "gesendet",
+      "video_sha256": "96a2333953b29166b58af2adf32904412d0eb4be5bcd0da2856fe68bdc0b740c",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-18.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt lediglich einen generischen Programmierer in einer Stadt, bietet aber keinen spezifischen Beleg für das Umschreiben von 32.000 Zeilen Video-Code durch eine KI.",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Logos und Text-Overlays, aber keinerlei Darstellung des libgav1-Decoders oder Code-Schreibvorgangs durch Argon-Agenten.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Auflistung von Sätzen aus dem gesprochenen Text als Bildschirmgrafik, jedoch keine tatsächliche Demonstration von Experimenten, Compiler-Ausgaben oder geschriebenem Rust-Code.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich den geschriebenen Text als Folie, aber nicht den Compiler, der diesen Vorgang tatsächlich ausführt oder demonstriert.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt nur Textüberschriften, jedoch nicht den tatsächlichen Leistungstest, den Code oder die Testergebnisse des Decoders.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik fasst zwar den gesprochenen Punkt zusammen, zeigt aber keine tatsächlichen Leistungsmessungen, Benchmarks oder die Code-Ausgabe des beschriebenen Decoders.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen Textkasten mit einer Ankündigung zum Rollout, aber keine visuelle Demonstration oder konkrete Darstellung der beteiligten Akteure, Plattformen oder Systeme.",
+        "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik wiederholt lediglich die gesprochene Frage und den Schluss, zeigt jedoch keine technische Erklärung, Messung oder einen Beleg für den Code-Rewrite.",
+        "Offenes Problem (schwer): Die Abbildung zeigt lediglich einen generischen Programmierer in einer Stadt, bietet aber keinen spezifischen Beleg für das Umschreiben von 32.000 Zeilen Video-Code durch eine KI. Korrektur: Eine Bildschirmansicht mit Code-Zeilen und einer Visualisierung des KI-Prozesses, der den Code umschreibt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich Logos und Text-Overlays, aber keinerlei Darstellung des libgav1-Decoders oder Code-Schreibvorgangs durch Argon-Agenten. Korrektur: Ein Screenshot oder eine Grafik, die den libgav1-Decoder-Code oder den Quellcode zeigt, an dem die Argon-Agenten gearbeitet haben.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine Auflistung von Sätzen aus dem gesprochenen Text als Bildschirmgrafik, jedoch keine tatsächliche Demonstration von Experimenten, Compiler-Ausgaben oder geschriebenem Rust-Code. Korrektur: Ein Code-Editor, der den geschriebenen Rust-Code oder die Compiler-Ausgabe zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich den geschriebenen Text als Folie, aber nicht den Compiler, der diesen Vorgang tatsächlich ausführt oder demonstriert. Korrektur: Ein technisches Diagramm oder eine Code-Schnittstelle, die zeigt, wie ein Compiler Code automatisch vectorisiert.",
+        "Offenes Problem (schwer): Das Bild zeigt nur Textüberschriften, jedoch nicht den tatsächlichen Leistungstest, den Code oder die Testergebnisse des Decoders. Korrektur: Ein Diagramm oder Testergebnis, das die 2,7-fache Geschwindigkeitssteigerung des Decoders visuell belegt.",
+        "Offenes Problem (schwer): Die Textgrafik fasst zwar den gesprochenen Punkt zusammen, zeigt aber keine tatsächlichen Leistungsmessungen, Benchmarks oder die Code-Ausgabe des beschriebenen Decoders. Korrektur: Ein Diagramm oder Benchmark-Ergebnis, das die Leistungssteigerung und die identische Videoausgabe des Rust-Ports visuell darstellt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich einen Textkasten mit einer Ankündigung zum Rollout, aber keine visuelle Demonstration oder konkrete Darstellung der beteiligten Akteure, Plattformen oder Systeme. Korrektur: Ein realistisches oder dokumentarisches Bild, das den Start des Rollouts bei vertrauenswürdigen Cyber-Verteidigern oder die Benutzeroberfläche der Plattform Fairwind zeigt.",
+        "Offenes Problem (schwer): Die Textgrafik wiederholt lediglich die gesprochene Frage und den Schluss, zeigt jedoch keine technische Erklärung, Messung oder einen Beleg für den Code-Rewrite. Korrektur: Ein Code-Vergleich, Benchmark-Diagramm oder Schnittstellenbeispiel, das den Erfolg des Rewrites visuell untermauert."
+      ],
+      "einstellungen": 14,
+      "unterschiedliche_motive": 14,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "39235396942",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-19",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 360.6,
+            "bau_s": 317.4,
+            "pruefung_s": 48.7,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt zwei Männer beim Schreiben und Arbeiten an einem Tisch, was nicht direkt den Programmierprozess oder Code von 32.000 Zeilen Video-Code zeigt.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Logos und Text-Overlays, aber keinerlei Darstellung des libgav1-Decoders oder Code-Schreibvorgangs durch Argon-Agenten.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Schaubild zeigt eine allgemeine Kostenabrechnung für Tokens und stellt keinen direkten visuellen Beweis für das Schreiben von Hunderttausenden von Tokens in einer Trajektorie dar.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Auflistung von Textpunkten als Infografik oder Folientext, aber keinerlei tatsächliche Durchführung von Experimenten, Compiler-Ausgaben oder das Schreiben von Rust-Code.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich den geschriebenen Text als Folie, aber nicht den Compiler, der diesen Vorgang tatsächlich ausführt oder demonstriert.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt nur Textüberschriften, jedoch nicht den tatsächlichen Leistungstest, den Code oder die Testergebnisse des Decoders.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik fasst zwar den gesprochenen Punkt zusammen, zeigt aber keine tatsächlichen Leistungsmessungen, Benchmarks oder die Code-Ausgabe des beschriebenen Decoders.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen Textkasten mit einer Ankündigung zum Rollout, aber keine visuelle Demonstration oder konkrete Darstellung der beteiligten Akteure, Plattformen oder Systeme.",
+              "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik wiederholt lediglich die gesprochene Frage und den Schluss, zeigt jedoch keine technische Erklärung, Messung oder einen Beleg für den Code-Rewrite.",
+              "Offenes Problem (schwer): Die Abbildung zeigt zwei Männer beim Schreiben und Arbeiten an einem Tisch, was nicht direkt den Programmierprozess oder Code von 32.000 Zeilen Video-Code zeigt. Korrektur: Ein Screenshot von Code-Zeilen oder einer Entwicklungsumgebung, die das Umschreiben von Code symbolisiert.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich Logos und Text-Overlays, aber keinerlei Darstellung des libgav1-Decoders oder Code-Schreibvorgangs durch Argon-Agenten. Korrektur: Ein Screenshot oder eine Grafik, die den libgav1-Decoder-Code oder den Quellcode zeigt, an dem die Argon-Agenten gearbeitet haben.",
+              "Offenes Problem (schwer): Das Schaubild zeigt eine allgemeine Kostenabrechnung für Tokens und stellt keinen direkten visuellen Beweis für das Schreiben von Hunderttausenden von Tokens in einer Trajektorie dar. Korrektur: Ein Code-Editor oder eine Datenvisualisierung, die eine extrem lange Text- oder Code-Ausgabe von Hunderttausenden Tokens in einem einzigen Durchlauf anzeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine Auflistung von Textpunkten als Infografik oder Folientext, aber keinerlei tatsächliche Durchführung von Experimenten, Compiler-Ausgaben oder das Schreiben von Rust-Code. Korrektur: Ein Screenshot einer Entwicklungsumgebung, in der Code für das libgav1-Decoder-Projekt analysiert oder Rust-Code geschrieben wird.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich den geschriebenen Text als Folie, aber nicht den Compiler, der diesen Vorgang tatsächlich ausführt oder demonstriert. Korrektur: Ein technisches Diagramm oder eine Code-Schnittstelle, die zeigt, wie ein Compiler Code automatisch vectorisiert.",
+              "Offenes Problem (schwer): Das Bild zeigt nur Textüberschriften, jedoch nicht den tatsächlichen Leistungstest, den Code oder die Testergebnisse des Decoders. Korrektur: Ein Diagramm oder Testergebnis, das die 2,7-fache Geschwindigkeitssteigerung des Decoders visuell belegt.",
+              "Offenes Problem (schwer): Die Textgrafik fasst zwar den gesprochenen Punkt zusammen, zeigt aber keine tatsächlichen Leistungsmessungen, Benchmarks oder die Code-Ausgabe des beschriebenen Decoders. Korrektur: Ein Diagramm oder Benchmark-Ergebnis, das die Leistungssteigerung und die identische Videoausgabe des Rust-Ports visuell darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen Textkasten mit einer Ankündigung zum Rollout, aber keine visuelle Demonstration oder konkrete Darstellung der beteiligten Akteure, Plattformen oder Systeme. Korrektur: Ein realistisches oder dokumentarisches Bild, das den Start des Rollouts bei vertrauenswürdigen Cyber-Verteidigern oder die Benutzeroberfläche der Plattform Fairwind zeigt.",
+              "Offenes Problem (schwer): Die Textgrafik wiederholt lediglich die gesprochene Frage und den Schluss, zeigt jedoch keine technische Erklärung, Messung oder einen Beleg für den Code-Rewrite. Korrektur: Ein Code-Vergleich, Benchmark-Diagramm oder Schnittstellenbeispiel, das den Erfolg des Rewrites visuell untermauert."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 16.1,
+              "zeitmarken": 8.5,
+              "tempo": 1.178,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 14,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 195.0,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 14,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 48.6,
+              "gesamt": 317.0,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.98,
+                7.88,
+                6.46,
+                6.9,
+                5.56,
+                8.58,
+                1.63
+              ],
+              "woerter": 131
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Can AI rewrite 32,000 lines of video code?",
+                "text": "Die Abbildung zeigt zwei Männer beim Schreiben und Arbeiten an einem Tisch, was nicht direkt den Programmierprozess oder Code von 32.000 Zeilen Video-Code zeigt. Korrektur: Ein Screenshot von Code-Zeilen oder einer Entwicklungsumgebung, die das Umschreiben von Code symbolisiert."
+              },
+              {
+                "zeit": "00:03.60",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Google says Argon agents did, in its open source libgav1 decoder.",
+                "text": "Das Bild zeigt lediglich Logos und Text-Overlays, aber keinerlei Darstellung des libgav1-Decoders oder Code-Schreibvorgangs durch Argon-Agenten. Korrektur: Ein Screenshot oder eine Grafik, die den libgav1-Decoder-Code oder den Quellcode zeigt, an dem die Argon-Agenten gearbeitet haben."
+              },
+              {
+                "zeit": "00:11.88",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Google says that lets it write hundreds of thousands of tokens in one trajectory.",
+                "text": "Das Schaubild zeigt eine allgemeine Kostenabrechnung für Tokens und stellt keinen direkten visuellen Beweis für das Schreiben von Hunderttausenden von Tokens in einer Trajektorie dar. Korrektur: Ein Code-Editor oder eine Datenvisualisierung, die eine extrem lange Text- oder Code-Ausgabe von Hunderttausenden Tokens in einem einzigen Durchlauf anzeigt."
+              },
+              {
+                "zeit": "00:15.86",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Agents ran many rounds of experiments, studied the compiler's output, and wrote safe Rust.",
+                "text": "Das Bild zeigt lediglich eine Auflistung von Textpunkten als Infografik oder Folientext, aber keinerlei tatsächliche Durchführung von Experimenten, Compiler-Ausgaben oder das Schreiben von Rust-Code. Korrektur: Ein Screenshot einer Entwicklungsumgebung, in der Code für das libgav1-Decoder-Projekt analysiert oder Rust-Code geschrieben wird."
+              },
+              {
+                "zeit": "00:19.82",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "The compiler then vectorizes it automatically.",
+                "text": "Das Bild zeigt lediglich den geschriebenen Text als Folie, aber nicht den Compiler, der diesen Vorgang tatsächlich ausführt oder demonstriert. Korrektur: Ein technisches Diagramm oder eine Code-Schnittstelle, die zeigt, wie ein Compiler Code automatisch vectorisiert."
+              },
+              {
+                "zeit": "00:22.32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "Did it work? Google says the memory-safe decoder runs 2.7x",
+                "text": "Das Bild zeigt nur Textüberschriften, jedoch nicht den tatsächlichen Leistungstest, den Code oder die Testergebnisse des Decoders. Korrektur: Ein Diagramm oder Testergebnis, das die 2,7-fache Geschwindigkeitssteigerung des Decoders visuell belegt."
+              },
+              {
+                "zeit": "00:25.77",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "faster than the earlier Rust port, with identical video output.",
+                "text": "Die Textgrafik fasst zwar den gesprochenen Punkt zusammen, zeigt aber keine tatsächlichen Leistungsmessungen, Benchmarks oder die Code-Ausgabe des beschriebenen Decoders. Korrektur: Ein Diagramm oder Benchmark-Ergebnis, das die Leistungssteigerung und die identische Videoausgabe des Rust-Ports visuell darstellt."
+              },
+              {
+                "zeit": "00:31.92",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "Argon is rolling out to a set of trusted cyber defenders through Fairwind.",
+                "text": "Das Bild zeigt lediglich einen Textkasten mit einer Ankündigung zum Rollout, aber keine visuelle Demonstration oder konkrete Darstellung der beteiligten Akteure, Plattformen oder Systeme. Korrektur: Ein realistisches oder dokumentarisches Bild, das den Start des Rollouts bei vertrauenswürdigen Cyber-Verteidigern oder die Benutzeroberfläche der Plattform Fairwind zeigt."
+              },
+              {
+                "zeit": "00:40.56",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 12,
+                "gesprochen": "So yes, Google's 32K-line rewrite worked.",
+                "text": "Die Textgrafik wiederholt lediglich die gesprochene Frage und den Schluss, zeigt jedoch keine technische Erklärung, Messung oder einen Beleg für den Code-Rewrite. Korrektur: Ein Code-Vergleich, Benchmark-Diagramm oder Schnittstellenbeispiel, das den Erfolg des Rewrites visuell untermauert."
+              }
+            ],
+            "sekunden": 726.7,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 2.7,
+            "bau_s": 269.9,
+            "pruefung_s": 20.0,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt lediglich einen generischen Programmierer in einer Stadt, bietet aber keinen spezifischen Beleg für das Umschreiben von 32.000 Zeilen Video-Code durch eine KI.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Logos und Text-Overlays, aber keinerlei Darstellung des libgav1-Decoders oder Code-Schreibvorgangs durch Argon-Agenten.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Auflistung von Sätzen aus dem gesprochenen Text als Bildschirmgrafik, jedoch keine tatsächliche Demonstration von Experimenten, Compiler-Ausgaben oder geschriebenem Rust-Code.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich den geschriebenen Text als Folie, aber nicht den Compiler, der diesen Vorgang tatsächlich ausführt oder demonstriert.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt nur Textüberschriften, jedoch nicht den tatsächlichen Leistungstest, den Code oder die Testergebnisse des Decoders.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik fasst zwar den gesprochenen Punkt zusammen, zeigt aber keine tatsächlichen Leistungsmessungen, Benchmarks oder die Code-Ausgabe des beschriebenen Decoders.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen Textkasten mit einer Ankündigung zum Rollout, aber keine visuelle Demonstration oder konkrete Darstellung der beteiligten Akteure, Plattformen oder Systeme.",
+              "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik wiederholt lediglich die gesprochene Frage und den Schluss, zeigt jedoch keine technische Erklärung, Messung oder einen Beleg für den Code-Rewrite.",
+              "Offenes Problem (schwer): Die Abbildung zeigt lediglich einen generischen Programmierer in einer Stadt, bietet aber keinen spezifischen Beleg für das Umschreiben von 32.000 Zeilen Video-Code durch eine KI. Korrektur: Eine Bildschirmansicht mit Code-Zeilen und einer Visualisierung des KI-Prozesses, der den Code umschreibt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich Logos und Text-Overlays, aber keinerlei Darstellung des libgav1-Decoders oder Code-Schreibvorgangs durch Argon-Agenten. Korrektur: Ein Screenshot oder eine Grafik, die den libgav1-Decoder-Code oder den Quellcode zeigt, an dem die Argon-Agenten gearbeitet haben.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine Auflistung von Sätzen aus dem gesprochenen Text als Bildschirmgrafik, jedoch keine tatsächliche Demonstration von Experimenten, Compiler-Ausgaben oder geschriebenem Rust-Code. Korrektur: Ein Code-Editor, der den geschriebenen Rust-Code oder die Compiler-Ausgabe zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich den geschriebenen Text als Folie, aber nicht den Compiler, der diesen Vorgang tatsächlich ausführt oder demonstriert. Korrektur: Ein technisches Diagramm oder eine Code-Schnittstelle, die zeigt, wie ein Compiler Code automatisch vectorisiert.",
+              "Offenes Problem (schwer): Das Bild zeigt nur Textüberschriften, jedoch nicht den tatsächlichen Leistungstest, den Code oder die Testergebnisse des Decoders. Korrektur: Ein Diagramm oder Testergebnis, das die 2,7-fache Geschwindigkeitssteigerung des Decoders visuell belegt.",
+              "Offenes Problem (schwer): Die Textgrafik fasst zwar den gesprochenen Punkt zusammen, zeigt aber keine tatsächlichen Leistungsmessungen, Benchmarks oder die Code-Ausgabe des beschriebenen Decoders. Korrektur: Ein Diagramm oder Benchmark-Ergebnis, das die Leistungssteigerung und die identische Videoausgabe des Rust-Ports visuell darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen Textkasten mit einer Ankündigung zum Rollout, aber keine visuelle Demonstration oder konkrete Darstellung der beteiligten Akteure, Plattformen oder Systeme. Korrektur: Ein realistisches oder dokumentarisches Bild, das den Start des Rollouts bei vertrauenswürdigen Cyber-Verteidigern oder die Benutzeroberfläche der Plattform Fairwind zeigt.",
+              "Offenes Problem (schwer): Die Textgrafik wiederholt lediglich die gesprochene Frage und den Schluss, zeigt jedoch keine technische Erklärung, Messung oder einen Beleg für den Code-Rewrite. Korrektur: Ein Code-Vergleich, Benchmark-Diagramm oder Schnittstellenbeispiel, das den Erfolg des Rewrites visuell untermauert."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Puck",
+              "tempo": 1.178,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 5,
+              "stuecke_neu": 9,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 204.6,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 14,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 47.2,
+              "gesamt": 269.7,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.98,
+                7.88,
+                6.46,
+                6.9,
+                5.56,
+                8.58,
+                1.63
+              ],
+              "woerter": 131
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Can AI rewrite 32,000 lines of video code?",
+                "text": "Die Abbildung zeigt lediglich einen generischen Programmierer in einer Stadt, bietet aber keinen spezifischen Beleg für das Umschreiben von 32.000 Zeilen Video-Code durch eine KI. Korrektur: Eine Bildschirmansicht mit Code-Zeilen und einer Visualisierung des KI-Prozesses, der den Code umschreibt."
+              },
+              {
+                "zeit": "00:03.60",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Google says Argon agents did, in its open source libgav1 decoder.",
+                "text": "Das Bild zeigt lediglich Logos und Text-Overlays, aber keinerlei Darstellung des libgav1-Decoders oder Code-Schreibvorgangs durch Argon-Agenten. Korrektur: Ein Screenshot oder eine Grafik, die den libgav1-Decoder-Code oder den Quellcode zeigt, an dem die Argon-Agenten gearbeitet haben."
+              },
+              {
+                "zeit": "00:15.86",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Agents ran many rounds of experiments, studied the compiler's output, and wrote safe Rust.",
+                "text": "Das Bild zeigt lediglich eine Auflistung von Sätzen aus dem gesprochenen Text als Bildschirmgrafik, jedoch keine tatsächliche Demonstration von Experimenten, Compiler-Ausgaben oder geschriebenem Rust-Code. Korrektur: Ein Code-Editor, der den geschriebenen Rust-Code oder die Compiler-Ausgabe zeigt."
+              },
+              {
+                "zeit": "00:19.82",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "The compiler then vectorizes it automatically.",
+                "text": "Das Bild zeigt lediglich den geschriebenen Text als Folie, aber nicht den Compiler, der diesen Vorgang tatsächlich ausführt oder demonstriert. Korrektur: Ein technisches Diagramm oder eine Code-Schnittstelle, die zeigt, wie ein Compiler Code automatisch vectorisiert."
+              },
+              {
+                "zeit": "00:22.32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "Did it work? Google says the memory-safe decoder runs 2.7x",
+                "text": "Das Bild zeigt nur Textüberschriften, jedoch nicht den tatsächlichen Leistungstest, den Code oder die Testergebnisse des Decoders. Korrektur: Ein Diagramm oder Testergebnis, das die 2,7-fache Geschwindigkeitssteigerung des Decoders visuell belegt."
+              },
+              {
+                "zeit": "00:25.77",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "faster than the earlier Rust port, with identical video output.",
+                "text": "Die Textgrafik fasst zwar den gesprochenen Punkt zusammen, zeigt aber keine tatsächlichen Leistungsmessungen, Benchmarks oder die Code-Ausgabe des beschriebenen Decoders. Korrektur: Ein Diagramm oder Benchmark-Ergebnis, das die Leistungssteigerung und die identische Videoausgabe des Rust-Ports visuell darstellt."
+              },
+              {
+                "zeit": "00:31.92",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "Argon is rolling out to a set of trusted cyber defenders through Fairwind.",
+                "text": "Das Bild zeigt lediglich einen Textkasten mit einer Ankündigung zum Rollout, aber keine visuelle Demonstration oder konkrete Darstellung der beteiligten Akteure, Plattformen oder Systeme. Korrektur: Ein realistisches oder dokumentarisches Bild, das den Start des Rollouts bei vertrauenswürdigen Cyber-Verteidigern oder die Benutzeroberfläche der Plattform Fairwind zeigt."
+              },
+              {
+                "zeit": "00:40.56",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 12,
+                "gesprochen": "So yes, Google's 32K-line rewrite worked.",
+                "text": "Die Textgrafik wiederholt lediglich die gesprochene Frage und den Schluss, zeigt jedoch keine technische Erklärung, Messung oder einen Beleg für den Code-Rewrite. Korrektur: Ein Code-Vergleich, Benchmark-Diagramm oder Schnittstellenbeispiel, das den Erfolg des Rewrites visuell untermauert."
+              }
+            ],
+            "sekunden": 292.6,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "39235396942-2",
+              "datum": "2026-10-19",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 292.6,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 2.6,
+            "bau_s": 48.6,
+            "pruefung_s": 8.8,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt lediglich einen generischen Programmierer in einer Stadt, bietet aber keinen spezifischen Beleg für das Umschreiben von 32.000 Zeilen Video-Code durch eine KI.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Logos und Text-Overlays, aber keinerlei Darstellung des libgav1-Decoders oder Code-Schreibvorgangs durch Argon-Agenten.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Auflistung von Sätzen aus dem gesprochenen Text als Bildschirmgrafik, jedoch keine tatsächliche Demonstration von Experimenten, Compiler-Ausgaben oder geschriebenem Rust-Code.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich den geschriebenen Text als Folie, aber nicht den Compiler, der diesen Vorgang tatsächlich ausführt oder demonstriert.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt nur Textüberschriften, jedoch nicht den tatsächlichen Leistungstest, den Code oder die Testergebnisse des Decoders.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik fasst zwar den gesprochenen Punkt zusammen, zeigt aber keine tatsächlichen Leistungsmessungen, Benchmarks oder die Code-Ausgabe des beschriebenen Decoders.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen Textkasten mit einer Ankündigung zum Rollout, aber keine visuelle Demonstration oder konkrete Darstellung der beteiligten Akteure, Plattformen oder Systeme.",
+              "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik wiederholt lediglich die gesprochene Frage und den Schluss, zeigt jedoch keine technische Erklärung, Messung oder einen Beleg für den Code-Rewrite.",
+              "Offenes Problem (schwer): Die Abbildung zeigt lediglich einen generischen Programmierer in einer Stadt, bietet aber keinen spezifischen Beleg für das Umschreiben von 32.000 Zeilen Video-Code durch eine KI. Korrektur: Eine Bildschirmansicht mit Code-Zeilen und einer Visualisierung des KI-Prozesses, der den Code umschreibt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich Logos und Text-Overlays, aber keinerlei Darstellung des libgav1-Decoders oder Code-Schreibvorgangs durch Argon-Agenten. Korrektur: Ein Screenshot oder eine Grafik, die den libgav1-Decoder-Code oder den Quellcode zeigt, an dem die Argon-Agenten gearbeitet haben.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine Auflistung von Sätzen aus dem gesprochenen Text als Bildschirmgrafik, jedoch keine tatsächliche Demonstration von Experimenten, Compiler-Ausgaben oder geschriebenem Rust-Code. Korrektur: Ein Code-Editor, der den geschriebenen Rust-Code oder die Compiler-Ausgabe zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich den geschriebenen Text als Folie, aber nicht den Compiler, der diesen Vorgang tatsächlich ausführt oder demonstriert. Korrektur: Ein technisches Diagramm oder eine Code-Schnittstelle, die zeigt, wie ein Compiler Code automatisch vectorisiert.",
+              "Offenes Problem (schwer): Das Bild zeigt nur Textüberschriften, jedoch nicht den tatsächlichen Leistungstest, den Code oder die Testergebnisse des Decoders. Korrektur: Ein Diagramm oder Testergebnis, das die 2,7-fache Geschwindigkeitssteigerung des Decoders visuell belegt.",
+              "Offenes Problem (schwer): Die Textgrafik fasst zwar den gesprochenen Punkt zusammen, zeigt aber keine tatsächlichen Leistungsmessungen, Benchmarks oder die Code-Ausgabe des beschriebenen Decoders. Korrektur: Ein Diagramm oder Benchmark-Ergebnis, das die Leistungssteigerung und die identische Videoausgabe des Rust-Ports visuell darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen Textkasten mit einer Ankündigung zum Rollout, aber keine visuelle Demonstration oder konkrete Darstellung der beteiligten Akteure, Plattformen oder Systeme. Korrektur: Ein realistisches oder dokumentarisches Bild, das den Start des Rollouts bei vertrauenswürdigen Cyber-Verteidigern oder die Benutzeroberfläche der Plattform Fairwind zeigt.",
+              "Offenes Problem (schwer): Die Textgrafik wiederholt lediglich die gesprochene Frage und den Schluss, zeigt jedoch keine technische Erklärung, Messung oder einen Beleg für den Code-Rewrite. Korrektur: Ein Code-Vergleich, Benchmark-Diagramm oder Schnittstellenbeispiel, das den Erfolg des Rewrites visuell untermauert."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Puck",
+              "tempo": 1.178,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 14,
+              "stuecke_neu": 0,
+              "clips_und_stuecke": 0.0,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 14,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 47.9,
+              "gesamt": 48.3,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.98,
+                7.88,
+                6.46,
+                6.9,
+                5.56,
+                8.58,
+                1.63
+              ],
+              "woerter": 131
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Can AI rewrite 32,000 lines of video code?",
+                "text": "Die Abbildung zeigt lediglich einen generischen Programmierer in einer Stadt, bietet aber keinen spezifischen Beleg für das Umschreiben von 32.000 Zeilen Video-Code durch eine KI. Korrektur: Eine Bildschirmansicht mit Code-Zeilen und einer Visualisierung des KI-Prozesses, der den Code umschreibt."
+              },
+              {
+                "zeit": "00:03.60",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Google says Argon agents did, in its open source libgav1 decoder.",
+                "text": "Das Bild zeigt lediglich Logos und Text-Overlays, aber keinerlei Darstellung des libgav1-Decoders oder Code-Schreibvorgangs durch Argon-Agenten. Korrektur: Ein Screenshot oder eine Grafik, die den libgav1-Decoder-Code oder den Quellcode zeigt, an dem die Argon-Agenten gearbeitet haben."
+              },
+              {
+                "zeit": "00:15.86",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Agents ran many rounds of experiments, studied the compiler's output, and wrote safe Rust.",
+                "text": "Das Bild zeigt lediglich eine Auflistung von Sätzen aus dem gesprochenen Text als Bildschirmgrafik, jedoch keine tatsächliche Demonstration von Experimenten, Compiler-Ausgaben oder geschriebenem Rust-Code. Korrektur: Ein Code-Editor, der den geschriebenen Rust-Code oder die Compiler-Ausgabe zeigt."
+              },
+              {
+                "zeit": "00:19.82",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "The compiler then vectorizes it automatically.",
+                "text": "Das Bild zeigt lediglich den geschriebenen Text als Folie, aber nicht den Compiler, der diesen Vorgang tatsächlich ausführt oder demonstriert. Korrektur: Ein technisches Diagramm oder eine Code-Schnittstelle, die zeigt, wie ein Compiler Code automatisch vectorisiert."
+              },
+              {
+                "zeit": "00:22.32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "Did it work? Google says the memory-safe decoder runs 2.7x",
+                "text": "Das Bild zeigt nur Textüberschriften, jedoch nicht den tatsächlichen Leistungstest, den Code oder die Testergebnisse des Decoders. Korrektur: Ein Diagramm oder Testergebnis, das die 2,7-fache Geschwindigkeitssteigerung des Decoders visuell belegt."
+              },
+              {
+                "zeit": "00:25.77",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "faster than the earlier Rust port, with identical video output.",
+                "text": "Die Textgrafik fasst zwar den gesprochenen Punkt zusammen, zeigt aber keine tatsächlichen Leistungsmessungen, Benchmarks oder die Code-Ausgabe des beschriebenen Decoders. Korrektur: Ein Diagramm oder Benchmark-Ergebnis, das die Leistungssteigerung und die identische Videoausgabe des Rust-Ports visuell darstellt."
+              },
+              {
+                "zeit": "00:31.92",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "Argon is rolling out to a set of trusted cyber defenders through Fairwind.",
+                "text": "Das Bild zeigt lediglich einen Textkasten mit einer Ankündigung zum Rollout, aber keine visuelle Demonstration oder konkrete Darstellung der beteiligten Akteure, Plattformen oder Systeme. Korrektur: Ein realistisches oder dokumentarisches Bild, das den Start des Rollouts bei vertrauenswürdigen Cyber-Verteidigern oder die Benutzeroberfläche der Plattform Fairwind zeigt."
+              },
+              {
+                "zeit": "00:40.56",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 12,
+                "gesprochen": "So yes, Google's 32K-line rewrite worked.",
+                "text": "Die Textgrafik wiederholt lediglich die gesprochene Frage und den Schluss, zeigt jedoch keine technische Erklärung, Messung oder einen Beleg für den Code-Rewrite. Korrektur: Ein Code-Vergleich, Benchmark-Diagramm oder Schnittstellenbeispiel, das den Erfolg des Rewrites visuell untermauert."
+              }
+            ],
+            "sekunden": 60.0,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "39235396942-3",
+              "datum": "2026-10-19",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 60.0,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "trendcheck": "Gemini: Gemini 4 Argon: 10 incredible AI demos (1M token output in action): 3.49 Punkte - YouTube-Ausreisser 11.2x Kanalschnitt",
+        "grund": "",
+        "sekunden": 1122.7,
+        "upload_titel": "Gemini 4 Argon: 1M Tokens, Real Limits | AI Tool #9"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Can AI rewrite 32,000 lines of video code?",
+            "text": "Die Abbildung zeigt lediglich einen generischen Programmierer in einer Stadt, bietet aber keinen spezifischen Beleg für das Umschreiben von 32.000 Zeilen Video-Code durch eine KI. Korrektur: Eine Bildschirmansicht mit Code-Zeilen und einer Visualisierung des KI-Prozesses, der den Code umschreibt."
+          },
+          {
+            "zeit": "00:03.60",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Google says Argon agents did, in its open source libgav1 decoder.",
+            "text": "Das Bild zeigt lediglich Logos und Text-Overlays, aber keinerlei Darstellung des libgav1-Decoders oder Code-Schreibvorgangs durch Argon-Agenten. Korrektur: Ein Screenshot oder eine Grafik, die den libgav1-Decoder-Code oder den Quellcode zeigt, an dem die Argon-Agenten gearbeitet haben."
+          },
+          {
+            "zeit": "00:15.86",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Agents ran many rounds of experiments, studied the compiler's output, and wrote safe Rust.",
+            "text": "Das Bild zeigt lediglich eine Auflistung von Sätzen aus dem gesprochenen Text als Bildschirmgrafik, jedoch keine tatsächliche Demonstration von Experimenten, Compiler-Ausgaben oder geschriebenem Rust-Code. Korrektur: Ein Code-Editor, der den geschriebenen Rust-Code oder die Compiler-Ausgabe zeigt."
+          },
+          {
+            "zeit": "00:19.82",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "The compiler then vectorizes it automatically.",
+            "text": "Das Bild zeigt lediglich den geschriebenen Text als Folie, aber nicht den Compiler, der diesen Vorgang tatsächlich ausführt oder demonstriert. Korrektur: Ein technisches Diagramm oder eine Code-Schnittstelle, die zeigt, wie ein Compiler Code automatisch vectorisiert."
+          },
+          {
+            "zeit": "00:22.32",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 6,
+            "gesprochen": "Did it work? Google says the memory-safe decoder runs 2.7x",
+            "text": "Das Bild zeigt nur Textüberschriften, jedoch nicht den tatsächlichen Leistungstest, den Code oder die Testergebnisse des Decoders. Korrektur: Ein Diagramm oder Testergebnis, das die 2,7-fache Geschwindigkeitssteigerung des Decoders visuell belegt."
+          },
+          {
+            "zeit": "00:25.77",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "faster than the earlier Rust port, with identical video output.",
+            "text": "Die Textgrafik fasst zwar den gesprochenen Punkt zusammen, zeigt aber keine tatsächlichen Leistungsmessungen, Benchmarks oder die Code-Ausgabe des beschriebenen Decoders. Korrektur: Ein Diagramm oder Benchmark-Ergebnis, das die Leistungssteigerung und die identische Videoausgabe des Rust-Ports visuell darstellt."
+          },
+          {
+            "zeit": "00:31.92",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "Argon is rolling out to a set of trusted cyber defenders through Fairwind.",
+            "text": "Das Bild zeigt lediglich einen Textkasten mit einer Ankündigung zum Rollout, aber keine visuelle Demonstration oder konkrete Darstellung der beteiligten Akteure, Plattformen oder Systeme. Korrektur: Ein realistisches oder dokumentarisches Bild, das den Start des Rollouts bei vertrauenswürdigen Cyber-Verteidigern oder die Benutzeroberfläche der Plattform Fairwind zeigt."
+          },
+          {
+            "zeit": "00:40.56",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 12,
+            "gesprochen": "So yes, Google's 32K-line rewrite worked.",
+            "text": "Die Textgrafik wiederholt lediglich die gesprochene Frage und den Schluss, zeigt jedoch keine technische Erklärung, Messung oder einen Beleg für den Code-Rewrite. Korrektur: Ein Code-Vergleich, Benchmark-Diagramm oder Schnittstellenbeispiel, das den Erfolg des Rewrites visuell untermauert."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -14.4,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 43.58,
+              "bis_s": 44.62,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.995
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Can",
+                "s": 0.0,
+                "e": 0.26,
+                "p": 0.9526402354240417
+              },
+              {
+                "w": "AI",
+                "s": 0.26,
+                "e": 0.52,
+                "p": 0.9684883952140808
+              },
+              {
+                "w": "rewrite",
+                "s": 0.52,
+                "e": 0.88,
+                "p": 0.9434700012207031
+              },
+              {
+                "w": "32",
+                "s": 0.88,
+                "e": 1.56,
+                "p": 0.975835382938385
+              },
+              {
+                "w": ",000",
+                "s": 1.56,
+                "e": 2.26,
+                "p": 0.9604568779468536
+              },
+              {
+                "w": "lines",
+                "s": 2.26,
+                "e": 2.48,
+                "p": 0.991561233997345
+              },
+              {
+                "w": "of",
+                "s": 2.48,
+                "e": 2.6,
+                "p": 0.9880155920982361
+              },
+              {
+                "w": "video",
+                "s": 2.6,
+                "e": 2.8,
+                "p": 0.9896594882011414
+              },
+              {
+                "w": "code?",
+                "s": 2.8,
+                "e": 3.0,
+                "p": 0.9933302998542786
+              },
+              {
+                "w": "Google",
+                "s": 3.54,
+                "e": 3.66,
+                "p": 0.9815444946289062
+              },
+              {
+                "w": "says",
+                "s": 3.66,
+                "e": 3.92,
+                "p": 0.9832030534744263
+              },
+              {
+                "w": "Argonne",
+                "s": 3.92,
+                "e": 4.38,
+                "p": 0.6499911248683929
+              },
+              {
+                "w": "Agents",
+                "s": 4.38,
+                "e": 4.54,
+                "p": 0.5072095990180969
+              },
+              {
+                "w": "did,",
+                "s": 4.54,
+                "e": 4.84,
+                "p": 0.9840666055679321
+              },
+              {
+                "w": "in",
+                "s": 5.14,
+                "e": 5.16,
+                "p": 0.7914948463439941
+              },
+              {
+                "w": "its",
+                "s": 5.16,
+                "e": 5.3,
+                "p": 0.9275124669075012
+              },
+              {
+                "w": "open",
+                "s": 5.3,
+                "e": 5.46,
+                "p": 0.8919268846511841
+              },
+              {
+                "w": "source",
+                "s": 5.46,
+                "e": 5.76,
+                "p": 0.6235376596450806
+              },
+              {
+                "w": "LibGavAV1",
+                "s": 5.76,
+                "e": 7.08,
+                "p": 0.6476439356803894
+              },
+              {
+                "w": "decoder.",
+                "s": 7.08,
+                "e": 7.38,
+                "p": 0.8612940907478333
+              },
+              {
+                "w": "Argonne's",
+                "s": 7.96,
+                "e": 8.28,
+                "p": 0.982316792011261
+              },
+              {
+                "w": "output",
+                "s": 8.28,
+                "e": 8.42,
+                "p": 0.988784909248352
+              },
+              {
+                "w": "limit",
+                "s": 8.42,
+                "e": 8.7,
+                "p": 0.9982012510299683
+              },
+              {
+                "w": "reaches",
+                "s": 8.7,
+                "e": 8.96,
+                "p": 0.9932160973548889
+              },
+              {
+                "w": "1",
+                "s": 8.96,
+                "e": 9.34,
+                "p": 0.7999842166900635
+              },
+              {
+                "w": "million",
+                "s": 9.34,
+                "e": 9.64,
+                "p": 0.7457404136657715
+              },
+              {
+                "w": "tokens,",
+                "s": 9.64,
+                "e": 10.08,
+                "p": 0.9851736426353455
+              },
+              {
+                "w": "up",
+                "s": 10.42,
+                "e": 10.5,
+                "p": 0.992694616317749
+              },
+              {
+                "w": "from",
+                "s": 10.5,
+                "e": 10.64,
+                "p": 0.9978766441345215
+              },
+              {
+                "w": "64k.",
+                "s": 10.64,
+                "e": 11.38,
+                "p": 0.689411386847496
+              },
+              {
+                "w": "Google",
+                "s": 11.9,
+                "e": 12.0,
+                "p": 0.9925999641418457
+              },
+              {
+                "w": "says",
+                "s": 12.0,
+                "e": 12.24,
+                "p": 0.9811567664146423
+              },
+              {
+                "w": "that",
+                "s": 12.24,
+                "e": 12.36,
+                "p": 0.9637616276741028
+              },
+              {
+                "w": "lets",
+                "s": 12.36,
+                "e": 12.5,
+                "p": 0.814868152141571
+              },
+              {
+                "w": "it",
+                "s": 12.5,
+                "e": 12.64,
+                "p": 0.9877371788024902
+              },
+              {
+                "w": "write",
+                "s": 12.64,
+                "e": 12.72,
+                "p": 0.9563972353935242
+              },
+              {
+                "w": "hundreds",
+                "s": 12.72,
+                "e": 13.12,
+                "p": 0.9557527899742126
+              },
+              {
+                "w": "of",
+                "s": 13.12,
+                "e": 13.3,
+                "p": 0.9936800003051758
+              },
+              {
+                "w": "thousands",
+                "s": 13.3,
+                "e": 13.62,
+                "p": 0.9830582141876221
+              },
+              {
+                "w": "of",
+                "s": 13.62,
+                "e": 13.88,
+                "p": 0.9943139553070068
+              },
+              {
+                "w": "tokens",
+                "s": 13.88,
+                "e": 14.12,
+                "p": 0.9977200627326965
+              },
+              {
+                "w": "in",
+                "s": 14.12,
+                "e": 14.34,
+                "p": 0.9953606724739075
+              },
+              {
+                "w": "one",
+                "s": 14.34,
+                "e": 14.54,
+                "p": 0.9310787320137024
+              },
+              {
+                "w": "trajectory.",
+                "s": 14.54,
+                "e": 14.78,
+                "p": 0.986944317817688
+              },
+              {
+                "w": "Agents",
+                "s": 15.88,
+                "e": 15.88,
+                "p": 0.9844732284545898
+              },
+              {
+                "w": "ran",
+                "s": 15.88,
+                "e": 16.08,
+                "p": 0.9967635869979858
+              },
+              {
+                "w": "many",
+                "s": 16.08,
+                "e": 16.34,
+                "p": 0.9974727034568787
+              },
+              {
+                "w": "rounds",
+                "s": 16.34,
+                "e": 16.54,
+                "p": 0.9941897392272949
+              },
+              {
+                "w": "of",
+                "s": 16.54,
+                "e": 16.66,
+                "p": 0.9988836646080017
+              },
+              {
+                "w": "experiments,",
+                "s": 16.66,
+                "e": 16.96,
+                "p": 0.9880048632621765
+              },
+              {
+                "w": "studied",
+                "s": 17.3,
+                "e": 17.58,
+                "p": 0.9953166246414185
+              },
+              {
+                "w": "the",
+                "s": 17.58,
+                "e": 17.7,
+                "p": 0.9926804900169373
+              },
+              {
+                "w": "compiler's",
+                "s": 17.7,
+                "e": 18.06,
+                "p": 0.9383387267589569
+              },
+              {
+                "w": "output,",
+                "s": 18.06,
+                "e": 18.22,
+                "p": 0.9962104558944702
+              },
+              {
+                "w": "and",
+                "s": 18.54,
+                "e": 18.58,
+                "p": 0.9849875569343567
+              },
+              {
+                "w": "wrote",
+                "s": 18.58,
+                "e": 18.76,
+                "p": 0.9920042157173157
+              },
+              {
+                "w": "Safe",
+                "s": 18.76,
+                "e": 19.04,
+                "p": 0.7699711918830872
+              },
+              {
+                "w": "Rust.",
+                "s": 19.04,
+                "e": 19.24,
+                "p": 0.4071405231952667
+              },
+              {
+                "w": "The",
+                "s": 19.86,
+                "e": 19.88,
+                "p": 0.9861088395118713
+              },
+              {
+                "w": "compiler",
+                "s": 19.88,
+                "e": 20.08,
+                "p": 0.9944527745246887
+              },
+              {
+                "w": "then",
+                "s": 20.08,
+                "e": 20.4,
+                "p": 0.9905619025230408
+              },
+              {
+                "w": "vectorizes",
+                "s": 20.4,
+                "e": 20.9,
+                "p": 0.9024642407894135
+              },
+              {
+                "w": "it",
+                "s": 20.9,
+                "e": 21.06,
+                "p": 0.9919540286064148
+              },
+              {
+                "w": "automatically.",
+                "s": 21.06,
+                "e": 21.36,
+                "p": 0.994906485080719
+              },
+              {
+                "w": "Did",
+                "s": 22.22,
+                "e": 22.54,
+                "p": 0.9648523926734924
+              },
+              {
+                "w": "it",
+                "s": 22.54,
+                "e": 22.64,
+                "p": 0.9984242916107178
+              },
+              {
+                "w": "work?",
+                "s": 22.64,
+                "e": 22.76,
+                "p": 0.9987649917602539
+              },
+              {
+                "w": "Google",
+                "s": 23.38,
+                "e": 23.56,
+                "p": 0.989052951335907
+              },
+              {
+                "w": "says",
+                "s": 23.56,
+                "e": 23.78,
+                "p": 0.9893711805343628
+              },
+              {
+                "w": "the",
+                "s": 23.78,
+                "e": 23.88,
+                "p": 0.9321072101593018
+              },
+              {
+                "w": "memory",
+                "s": 23.88,
+                "e": 24.1,
+                "p": 0.8875179290771484
+              },
+              {
+                "w": "safety",
+                "s": 24.1,
+                "e": 24.34,
+                "p": 0.3373057246208191
+              },
+              {
+                "w": "coder",
+                "s": 24.34,
+                "e": 24.64,
+                "p": 0.9206483364105225
+              },
+              {
+                "w": "runs",
+                "s": 24.64,
+                "e": 24.86,
+                "p": 0.9977545142173767
+              },
+              {
+                "w": "2",
+                "s": 24.86,
+                "e": 25.14,
+                "p": 0.9531078338623047
+              },
+              {
+                "w": ".7",
+                "s": 25.14,
+                "e": 25.64,
+                "p": 0.9959821105003357
+              },
+              {
+                "w": "times",
+                "s": 25.64,
+                "e": 25.96,
+                "p": 0.6649245023727417
+              },
+              {
+                "w": "faster",
+                "s": 25.96,
+                "e": 26.24,
+                "p": 0.9935894012451172
+              },
+              {
+                "w": "than",
+                "s": 26.24,
+                "e": 26.52,
+                "p": 0.9960881471633911
+              },
+              {
+                "w": "the",
+                "s": 26.52,
+                "e": 26.6,
+                "p": 0.9817399978637695
+              },
+              {
+                "w": "earlier",
+                "s": 26.6,
+                "e": 26.92,
+                "p": 0.9945381283760071
+              },
+              {
+                "w": "Rust",
+                "s": 26.92,
+                "e": 27.16,
+                "p": 0.8567730188369751
+              },
+              {
+                "w": "port,",
+                "s": 27.16,
+                "e": 27.42,
+                "p": 0.9583935737609863
+              },
+              {
+                "w": "with",
+                "s": 27.52,
+                "e": 27.6,
+                "p": 0.9973694086074829
+              },
+              {
+                "w": "identical",
+                "s": 27.6,
+                "e": 28.0,
+                "p": 0.99093097448349
+              },
+              {
+                "w": "video",
+                "s": 28.0,
+                "e": 28.34,
+                "p": 0.9905576705932617
+              },
+              {
+                "w": "output.",
+                "s": 28.34,
+                "e": 28.64,
+                "p": 0.9946165680885315
+              },
+              {
+                "w": "But",
+                "s": 28.64,
+                "e": 28.74,
+                "p": 0.25382891297340393
+              },
+              {
+                "w": "now",
+                "s": 28.74,
+                "e": 29.74,
+                "p": 0.8543248772621155
+              },
+              {
+                "w": "the",
+                "s": 29.74,
+                "e": 29.88,
+                "p": 0.895091712474823
+              },
+              {
+                "w": "catch.",
+                "s": 29.88,
+                "e": 30.0,
+                "p": 0.9807689189910889
+              },
+              {
+                "w": "Access",
+                "s": 30.84,
+                "e": 30.84,
+                "p": 0.946600615978241
+              },
+              {
+                "w": "is",
+                "s": 30.84,
+                "e": 31.08,
+                "p": 0.9987164735794067
+              },
+              {
+                "w": "limited.",
+                "s": 31.08,
+                "e": 31.32,
+                "p": 0.9911070466041565
+              },
+              {
+                "w": "Argon",
+                "s": 31.92,
+                "e": 31.94,
+                "p": 0.8524641394615173
+              },
+              {
+                "w": "is",
+                "s": 31.94,
+                "e": 32.12,
+                "p": 0.8153056502342224
+              },
+              {
+                "w": "rolling",
+                "s": 32.12,
+                "e": 32.26,
+                "p": 0.9965303540229797
+              },
+              {
+                "w": "out",
+                "s": 32.26,
+                "e": 32.44,
+                "p": 0.9976746439933777
+              },
+              {
+                "w": "to",
+                "s": 32.44,
+                "e": 32.58,
+                "p": 0.9919929504394531
+              },
+              {
+                "w": "a",
+                "s": 32.58,
+                "e": 32.64,
+                "p": 0.9954953193664551
+              },
+              {
+                "w": "set",
+                "s": 32.64,
+                "e": 32.76,
+                "p": 0.9990687966346741
+              },
+              {
+                "w": "of",
+                "s": 32.76,
+                "e": 32.9,
+                "p": 0.9983362555503845
+              },
+              {
+                "w": "trusted",
+                "s": 32.9,
+                "e": 33.2,
+                "p": 0.9974321722984314
+              },
+              {
+                "w": "cyber",
+                "s": 33.2,
+                "e": 33.52,
+                "p": 0.9415051937103271
+              },
+              {
+                "w": "defenders",
+                "s": 33.52,
+                "e": 33.8,
+                "p": 0.8305962085723877
+              },
+              {
+                "w": "through",
+                "s": 33.8,
+                "e": 34.14,
+                "p": 0.9861791133880615
+              },
+              {
+                "w": "Fairwind.",
+                "s": 34.14,
+                "e": 34.5,
+                "p": 0.7957242727279663
+              },
+              {
+                "w": "Why",
+                "s": 34.76,
+                "e": 34.94,
+                "p": 0.3587990999221802
+              },
+              {
+                "w": "do",
+                "s": 34.94,
+                "e": 35.02,
+                "p": 0.643239438533783
+              },
+              {
+                "w": "access",
+                "s": 35.02,
+                "e": 35.26,
+                "p": 0.9176728129386902
+              },
+              {
+                "w": "comes",
+                "s": 35.26,
+                "e": 35.54,
+                "p": 0.9767695069313049
+              },
+              {
+                "w": "after",
+                "s": 35.54,
+                "e": 35.76,
+                "p": 0.9985800981521606
+              },
+              {
+                "w": "safety",
+                "s": 35.76,
+                "e": 35.98,
+                "p": 0.9933295249938965
+              },
+              {
+                "w": "testing?",
+                "s": 35.98,
+                "e": 36.32,
+                "p": 0.9973282814025879
+              },
+              {
+                "w": "Launch",
+                "s": 36.92,
+                "e": 36.98,
+                "p": 0.9733607769012451
+              },
+              {
+                "w": "pricing",
+                "s": 36.98,
+                "e": 37.18,
+                "p": 0.9436312317848206
+              },
+              {
+                "w": "$2",
+                "s": 37.18,
+                "e": 37.68,
+                "p": 0.8350003957748413
+              },
+              {
+                "w": "per",
+                "s": 37.68,
+                "e": 38.04,
+                "p": 0.8495615124702454
+              },
+              {
+                "w": "million",
+                "s": 38.04,
+                "e": 38.18,
+                "p": 0.9914105534553528
+              },
+              {
+                "w": "input",
+                "s": 38.18,
+                "e": 38.44,
+                "p": 0.8850082159042358
+              },
+              {
+                "w": "tokens",
+                "s": 38.44,
+                "e": 38.7,
+                "p": 0.989141583442688
+              },
+              {
+                "w": "$10",
+                "s": 38.7,
+                "e": 39.28,
+                "p": 0.8132789731025696
+              },
+              {
+                "w": "output.",
+                "s": 39.28,
+                "e": 39.54,
+                "p": 0.8991090059280396
+              },
+              {
+                "w": "So",
+                "s": 40.52,
+                "e": 40.62,
+                "p": 0.9924134612083435
+              },
+              {
+                "w": "yes,",
+                "s": 40.62,
+                "e": 40.9,
+                "p": 0.8527283072471619
+              },
+              {
+                "w": "Google's",
+                "s": 41.2,
+                "e": 41.38,
+                "p": 0.9935855865478516
+              },
+              {
+                "w": "32K",
+                "s": 41.38,
+                "e": 41.98,
+                "p": 0.7411334216594696
+              },
+              {
+                "w": "line",
+                "s": 41.98,
+                "e": 42.16,
+                "p": 0.9623553156852722
+              },
+              {
+                "w": "rewrite",
+                "s": 42.16,
+                "e": 42.34,
+                "p": 0.9417924284934998
+              },
+              {
+                "w": "worked.",
+                "s": 42.34,
+                "e": 42.86,
+                "p": 0.9874309301376343
+              },
+              {
+                "w": "Be",
+                "s": 43.36,
+                "e": 43.38,
+                "p": 0.9973080158233643
+              },
+              {
+                "w": "sure",
+                "s": 43.38,
+                "e": 43.48,
+                "p": 0.9997460246086121
+              },
+              {
+                "w": "to",
+                "s": 43.48,
+                "e": 43.58,
+                "p": 0.9964279532432556
+              },
+              {
+                "w": "like,",
+                "s": 43.58,
+                "e": 43.7,
+                "p": 0.9813023209571838
+              },
+              {
+                "w": "share,",
+                "s": 43.74,
+                "e": 43.92,
+                "p": 0.9964319467544556
+              },
+              {
+                "w": "and",
+                "s": 44.04,
+                "e": 44.06,
+                "p": 0.9986213445663452
+              },
+              {
+                "w": "save",
+                "s": 44.06,
+                "e": 44.26,
+                "p": 0.9980707764625549
+              },
+              {
+                "w": "this",
+                "s": 44.26,
+                "e": 44.4,
+                "p": 0.9974684715270996
+              },
+              {
+                "w": "video.",
+                "s": 44.4,
+                "e": 44.62,
+                "p": 0.9994533658027649
+              }
+            ],
+            "dauer_s": 45.0133125,
+            "sprache": "en"
+          },
+          "roh_key": "48b90b31647bdab30f503f44f3e9d6d0fd12a86ced11acd8447ea1c2962b9d7d",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "96a2333953b29166b58af2adf32904412d0eb4be5bcd0da2856fe68bdc0b740c",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 14,
+          "motive": 14,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "96a2333953b29166b58af2adf32904412d0eb4be5bcd0da2856fe68bdc0b740c",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Mann sitzt an einem Computer und schreibt Code in einer belebten Straßenszene.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Abbildung zeigt lediglich einen generischen Programmierer in einer Stadt, bietet aber keinen spezifischen Beleg für das Umschreiben von 32.000 Zeilen Video-Code durch eine KI.",
+              "erforderliches_bild": "Eine Bildschirmansicht mit Code-Zeilen und einer Visualisierung des KI-Prozesses, der den Code umschreibt."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Google-App-Symbol und Text, der von '1 Decoder' und 'Says Argon Agents did' spricht",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich Logos und Text-Overlays, aber keinerlei Darstellung des libgav1-Decoders oder Code-Schreibvorgangs durch Argon-Agenten.",
+              "erforderliches_bild": "Ein Screenshot oder eine Grafik, die den libgav1-Decoder-Code oder den Quellcode zeigt, an dem die Argon-Agenten gearbeitet haben."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Informationsbildschirm mit der Überschrift 'LLM BILL' zeigt eine Aufschlüsselung von Input- und Output-Token-Preisen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell die Token-bezogene Erläuterung und 'OUTPUT LIMIT REACHES 1M TOKENS', was direkt zur Erwähnung des 1M Token Output-Limits der Narration passt.",
+              "erforderliches_bild": "Keine Änderung erforderlich, das Bild passt."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein diagrammartiges Schaubild mit den Texten 'LLM BILL', 'INPUT TOKENS x PRICE', 'OUTPUT TOKENS x PRICE', '= PAY PER TOKEN' und 'ONE TRAJECTORY'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Schaubild illustriert anschaulich das Token-Preis-Modell und den Bezug zu 'one trajectory', was zu den gesprochenen Worten über Token-Mengen und Berechnungen passt.",
+              "erforderliches_bild": "n/a"
+            },
+            {
+              "index": 4,
+              "gesehen": "In dem Bild ist ein Text zu sehen mit den Optionen MANY ROUNDS OF EXPERIMENTS, STUDIED THE COMPILER'S OUTPUT und WROTE SAFE RUST.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine Auflistung von Sätzen aus dem gesprochenen Text als Bildschirmgrafik, jedoch keine tatsächliche Demonstration von Experimenten, Compiler-Ausgaben oder geschriebenem Rust-Code.",
+              "erforderliches_bild": "Ein Code-Editor, der den geschriebenen Rust-Code oder die Compiler-Ausgabe zeigt."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein dunkler Bildschirm mit dem Text 'VECTORIZES IT AUTOMATICALLY' in einer Umrandung.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich den geschriebenen Text als Folie, aber nicht den Compiler, der diesen Vorgang tatsächlich ausführt oder demonstriert.",
+              "erforderliches_bild": "Ein technisches Diagramm oder eine Code-Schnittstelle, die zeigt, wie ein Compiler Code automatisch vectorisiert."
+            },
+            {
+              "index": 6,
+              "gesehen": "Der Bildschirm zeigt zwei farbige Textfelder mit den Aufschriften DID IT WORK und DECODER RUNS 2.7 X auf dunklem Hintergrund.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt nur Textüberschriften, jedoch nicht den tatsächlichen Leistungstest, den Code oder die Testergebnisse des Decoders.",
+              "erforderliches_bild": "Ein Diagramm oder Testergebnis, das die 2,7-fache Geschwindigkeitssteigerung des Decoders visuell belegt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Der Bildschirm zeigt Text auf dunklem Hintergrund mit den Zeilen 'EARLIER RUST PORT' und 'IDENTICAL VIDEO OUTPUT'.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Textgrafik fasst zwar den gesprochenen Punkt zusammen, zeigt aber keine tatsächlichen Leistungsmessungen, Benchmarks oder die Code-Ausgabe des beschriebenen Decoders.",
+              "erforderliches_bild": "Ein Diagramm oder Benchmark-Ergebnis, das die Leistungssteigerung und die identische Videoausgabe des Rust-Ports visuell darstellt."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein gelbes Warnsymbol mit Ausrufezeichen oben und ein Kasten mit dem Text NOW THE CATCH: ACCESS IS LIMITED darunter vor dunklem Hintergrund.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der Text und das Warnsymbol zeigen exakt die eingeschränkte Verfügbarkeit und den Haken, der im gesprochenen Satz 'Now the catch: access is limited' thematisiert wird.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da die Texttafel mit Warnsymbol inhaltlich direkt passt."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein Warnsymbol mit einem Ausrufezeichen und ein Textkasten mit der Aufschrift 'ARGON IS ROLLING OUT TO A SET OF TRUSTED CYBER DEFENDERS THROUGH FAIRWIND.'",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich einen Textkasten mit einer Ankündigung zum Rollout, aber keine visuelle Demonstration oder konkrete Darstellung der beteiligten Akteure, Plattformen oder Systeme.",
+              "erforderliches_bild": "Ein realistisches oder dokumentarisches Bild, das den Start des Rollouts bei vertrauenswürdigen Cyber-Verteidigern oder die Benutzeroberfläche der Plattform Fairwind zeigt."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein dunkelblauer Bildschirm mit dem Titel 'Gemini 4 Argon: 1M token output and where you can use it' und einem Textkasten mit der Aufschrift 'Comes after safety testing'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt den Text und Titel, der den gesprochenen Satz 'Wider access comes after safety testing' thematisch und inhaltlich genau abbildet.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da das Bild den Textinhalt korrekt darstellt."
+            },
+            {
+              "index": 11,
+              "gesehen": "Eine Grafik zur Startpreise-Struktur mit der Aufschrift LLM BILL, Input Tokens mal Preis, Output Tokens mal Preis und Pay Per Token, sowie zwei Betragsk@@@rper unten links mit 2 Dollar und 10 Dollar.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt exakt die gesprochenen Startpreise von 2 Dollar f@@r Input und 10 Dollar f@@r Output in einer Preis@@bersicht.",
+              "erforderliches_bild": "keines"
+            },
+            {
+              "index": 12,
+              "gesehen": "Die Abbildung zeigt einen Bildschirm mit der Überschrift 'GEMINI 4 ARGON: 1M TOKEN OUTPUT AND WHERE YOU CAN USE IT' und zwei Schaltflächen, auf denen 'YES' und 'GOOGLE'S 32K-LINE REWRITE WORKED' steht.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Textgrafik wiederholt lediglich die gesprochene Frage und den Schluss, zeigt jedoch keine technische Erklärung, Messung oder einen Beleg für den Code-Rewrite.",
+              "erforderliches_bild": "Ein Code-Vergleich, Benchmark-Diagramm oder Schnittstellenbeispiel, das den Erfolg des Rewrites visuell untermauert."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt lediglich einen generischen Programmierer in einer Stadt, bietet aber keinen spezifischen Beleg für das Umschreiben von 32.000 Zeilen Video-Code durch eine KI.",
+            "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Logos und Text-Overlays, aber keinerlei Darstellung des libgav1-Decoders oder Code-Schreibvorgangs durch Argon-Agenten.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Auflistung von Sätzen aus dem gesprochenen Text als Bildschirmgrafik, jedoch keine tatsächliche Demonstration von Experimenten, Compiler-Ausgaben oder geschriebenem Rust-Code.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich den geschriebenen Text als Folie, aber nicht den Compiler, der diesen Vorgang tatsächlich ausführt oder demonstriert.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt nur Textüberschriften, jedoch nicht den tatsächlichen Leistungstest, den Code oder die Testergebnisse des Decoders.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik fasst zwar den gesprochenen Punkt zusammen, zeigt aber keine tatsächlichen Leistungsmessungen, Benchmarks oder die Code-Ausgabe des beschriebenen Decoders.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen Textkasten mit einer Ankündigung zum Rollout, aber keine visuelle Demonstration oder konkrete Darstellung der beteiligten Akteure, Plattformen oder Systeme.",
+            "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik wiederholt lediglich die gesprochene Frage und den Schluss, zeigt jedoch keine technische Erklärung, Messung oder einen Beleg für den Code-Rewrite."
+          ],
+          "modelle": [
+            "gemini-3.5-flash-lite",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 14,
+          "ausgenommen": [
+            13
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "96a2333953b29166b58af2adf32904412d0eb4be5bcd0da2856fe68bdc0b740c",
+        "prompt_version": "2026-10-18.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

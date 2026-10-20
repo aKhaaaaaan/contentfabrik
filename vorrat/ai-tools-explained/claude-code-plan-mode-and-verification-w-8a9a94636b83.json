@@ -1,87 +1,99 @@
 {
  "thema_eingabe": "Claude Code: You're Using Claude Code Wrong: Do This Instead",
- "erstellt_utc": "2026-10-20T01:10:59.067079+00:00",
+ "erstellt_utc": "2026-10-20T05:08:45.979562+00:00",
  "modell": "claude:sonnet",
- "story_note": 7,
+ "story_note": 9,
  "skript": {
   "kanal": "AI Tools Explained",
-  "thema": "Claude Code: Plan Mode First",
+  "thema": "Claude Code plan mode and verification workflow",
   "titel": [
-   "*Plan* Before You *Code*",
-   "*Claude* *Code* Workflow"
+   "*Claude* *Code* *Plan* *Mode*",
+   "Stop Solving Wrong Problems"
   ],
-  "stimme": "bf_emma",
+  "stimme": "am_michael",
   "tempo": 1.05,
   "teile": [
    {
     "name": "Wrong problem",
     "werkzeug": "Claude Code",
-    "suche": "frustrated programmer late night",
-    "text": "Is Claude Code solving the wrong problem? It reads files and runs commands. Jumping straight to code can miss the point.",
+    "suche": "frustrated programmer laptop",
+    "text": "Does Claude Code keep solving the wrong problem? The official docs say jumping straight to coding can cause exactly that.",
     "quelle_url": "https://www.anthropic.com/engineering/claude-code-best-practices",
-    "szene": "Painted open-world-game poster style: black-haired man in black leather jacket and glowing cyan glasses rubs his forehead at a cluttered night desk, city lights behind him, medium shot, moody blue lighting.",
+    "szene": "Black-haired presenter in black leather jacket and glowing cyan glasses frowns at a laptop in a neon-lit city loft at night, medium shot, painted open-world-game poster style, bold ink contours.",
+    "bildtext": "",
+    "geraeusch": "",
     "beat": "hook",
     "bildmodus": "illustration"
    },
    {
-    "name": "Plan mode",
+    "name": "Enter plan mode",
     "werkzeug": "Claude Code",
-    "suche": "hands pressing keyboard keys",
-    "text": "Anthropic's guide says start in plan mode. Press Shift+Tab until the status bar shows plan mode on. Claude reads without changes.",
+    "suche": "keyboard shortcut typing",
+    "text": "Press Shift+Tab until the status bar shows plan mode. Claude then reads files and answers questions, without making any changes.",
     "quelle_url": "https://www.anthropic.com/engineering/claude-code-best-practices",
-    "szene": "Painted urban game-poster style close shot of the cyan-glasses presenter's hands pressing two keys on a keyboard, neon reflections on his glasses, dim studio loft, calm space above and below.",
-    "beat": "beleg",
-    "bildmodus": "illustration",
-    "bildtext": "Shift+Tab"
+    "szene": "Close shot of the presenter's hands pressing keys on a laptop keyboard, cyan glasses reflecting soft light, painted urban game-poster style, calm dark background above and below.",
+    "bildtext": "plan mode",
+    "geraeusch": "",
+    "beat": "frage",
+    "bildmodus": "karte"
    },
    {
-    "name": "Ask for a plan",
+    "name": "Edit the plan",
     "werkzeug": "Claude Code",
-    "suche": "person thinking planning notes",
-    "text": "Ask for a plan. The guide's example: add Google OAuth, which files change? Ctrl+G opens the plan in your editor.",
+    "suche": "developer reviewing code",
+    "text": "Ask what files need to change for Google OAuth, then request a plan. Ctrl+G opens it in your text editor.",
     "quelle_url": "https://www.anthropic.com/engineering/claude-code-best-practices",
-    "szene": "Painted open-world-game style: the cyan-glasses presenter leans back in a rooftop workspace, thoughtful expression, hand on chin, city skyline at dusk, medium shot, warm orange rim light.",
+    "szene": "Presenter leans toward a workstation in a rooftop studio at dusk, reading and nodding thoughtfully, medium shot, painted open-world-game poster style with warm city lights behind.",
+    "bildtext": "",
+    "geraeusch": "",
     "beat": "erklaerung",
     "bildmodus": "illustration"
    },
    {
-    "name": "Code and test",
+    "name": "Approve and build",
     "werkzeug": "Claude Code",
-    "suche": "man nodding approval laptop",
-    "text": "Then approve the plan and let Claude code. The guide suggests asking for tests, running the suite, and fixing failures.",
+    "suche": "person choosing route",
+    "text": "So is planning enough? Not alone. Once you approve the plan, Claude codes against it, writes tests and fixes failures.",
     "quelle_url": "https://www.anthropic.com/engineering/claude-code-best-practices",
-    "szene": "Painted game-poster style: the presenter in black leather jacket and cyan glasses gives a confident nod while sitting at a street-level cafe table, rainy evening, medium shot, glowing reflections.",
-    "beat": "erklaerung",
-    "bildmodus": "illustration"
-   },
-   {
-    "name": "Context limit",
-    "werkzeug": "Claude Code",
-    "suche": "overflowing desk papers",
-    "text": "So why does this matter? Context fills fast, and performance degrades as it fills. Claude may forget earlier instructions.",
-    "quelle_url": "https://www.anthropic.com/engineering/claude-code-best-practices",
-    "szene": "Painted game-poster style: the cyan-glasses presenter watches a crowded room with stacked boxes piling to the ceiling around him, puzzled look, wide shot, dramatic side lighting.",
+    "szene": "Presenter stops mid-stride at an alley crossroads, turns toward a different lit street with a decisive look, wide shot, painted game-poster style, dramatic side lighting.",
+    "bildtext": "",
+    "geraeusch": "",
     "beat": "wendung",
-    "bildmodus": "illustration",
-    "bildtext": "performance degrades"
+    "bildmodus": "illustration"
    },
    {
-    "name": "Small fixes and checks",
+    "name": "Give it a check",
     "werkzeug": "Claude Code",
-    "suche": "relieved man smiling workspace",
-    "text": "Plan mode adds overhead for small fixes. For bigger work, plan first, so Claude solves the right problem. Then give it a test.",
+    "suche": "checking test results",
+    "text": "Give Claude a check it can run, like tests or a build. Then it iterates until the check passes.",
     "quelle_url": "https://www.anthropic.com/engineering/claude-code-best-practices",
-    "szene": "Painted open-world-game poster style: the presenter in cyan glasses smiles with relief, arms crossed, standing on a sunlit balcony above a lively city street, medium shot, warm light.",
+    "szene": "Presenter smiles with relief as he walks away from his desk with a coffee, laptop glowing behind him, medium shot, painted urban game-poster style, evening light.",
+    "bildtext": "tests or a build",
+    "geraeusch": "",
+    "beat": "beleg",
+    "bildmodus": "karte"
+   },
+   {
+    "name": "The catch",
+    "werkzeug": "Claude Code",
+    "suche": "quick small fix",
+    "text": "The catch: plan mode adds overhead, so skip it for typos. Otherwise, plan first and catch wrong problems early.",
+    "quelle_url": "https://www.anthropic.com/engineering/claude-code-best-practices",
+    "szene": "Presenter casually types a short line at a street-side cafe table, relaxed and satisfied expression, medium shot, painted open-world-game poster style, bright morning light.",
+    "bildtext": "",
+    "geraeusch": "",
     "beat": "aufloesung",
     "bildmodus": "illustration"
    },
    {
-    "name": "Abschluss",
+    "name": "Call to action",
     "werkzeug": "",
-    "suche": "person smiling thumbs up",
+    "suche": "person giving thumbs up",
     "text": "Be sure to like, share and save this video.",
     "quelle_url": "https://www.anthropic.com/engineering/claude-code-best-practices",
-    "szene": "Painted game-poster style: the cyan-glasses presenter gives a friendly thumbs up at a neon-lit city corner at night, medium close shot, calm space above and below.",
+    "szene": "Presenter with cyan glasses gives a confident nod and smile toward the camera on a neon-lit city rooftop, medium shot, painted game-poster style, calm sky above.",
+    "bildtext": "",
+    "geraeusch": "",
     "beat": "aufloesung",
     "bildmodus": "illustration"
    }
@@ -133,47 +145,43 @@
   "winkel": "brand-new AI releases this week - what just became possible",
   "format": "erklaerung",
   "story": {
-   "note": 7,
+   "note": 9,
    "kategorien": {
-    "hook": 7,
-    "spannung": 7,
-    "ueberraschung": 7,
-    "tempo": 7,
-    "aufloesung": 8,
-    "teilbarkeit": 7
+    "hook": 9,
+    "spannung": 8,
+    "ueberraschung": 9,
+    "tempo": 10,
+    "aufloesung": 9,
+    "teilbarkeit": 9
    },
-   "schwaechen": [
-    "Sentence: 'It reads files and runs commands.' Why it matters: This generic descriptive statement immediately stalls the hook's momentum instead of clarifying why jumping straight into code causes Claude Code to fail. Feasible fix: Cut the description and merge the opening into a direct causal risk: 'When you let Claude Code jump straight to code, it often solves the wrong problem.'",
-    "Sentence: 'So why does this matter? Context fills fast, and performance degrades as it fills.' Why it matters: Delaying the technical reason—context degradation—until after the step-by-step UI instructions leaves the viewer following arbitrary menu steps without understanding the underlying stakes. Feasible fix: Move the context degradation rationale right behind the introduction of plan mode so the viewer understands why Claude must read without making changes before they learn the shortcuts."
-   ],
-   "besserer_hook": "When you let Claude Code jump straight to code, it can easily miss the point and solve the wrong problem."
+   "schwaechen": [],
+   "besserer_hook": "Claude Code keeps solving the wrong problem because you're likely skipping the official Plan Mode."
   },
   "hooklabor": {
-   "alt": "Is Claude Code solving the wrong problem?",
+   "alt": "Does Claude Code keep solving the wrong problem?",
    "kandidaten": [
-    "Claude Code can read your files and run commands.",
-    "Most people let Claude Code write code before it understands anything.",
-    "You press Shift+Tab, and Claude Code stops changing your files.",
-    "What if Claude Code could read everything but change nothing?",
-    "Claude Code just solved the right problem, and here's how."
+    "One keypress stops Claude Code from changing a single file.",
+    "Watch me press Shift+Tab, and Claude stops touching my code.",
+    "Planning first is the cheapest way to stop Claude's wrong turns.",
+    "What does Claude do before it writes a single line?",
+    "Claude now plans, codes, tests, and fixes failures on its own."
    ],
-   "begruendung": "Dieser Satz greift sofort das zentrale Feature des Videos auf – das Umschalten in den Plan‑Modus per Shift+Tab, wodurch Claude Code nur liest und nicht verändert. Er verspricht genau das, was im Rest des Skripts erklärt wird, ohne vage Teasen. Dadurch bleiben Zuschauer motiviert, weiterzuschauen, um",
-   "gewaehlt": "You press Shift+Tab, and Claude Code stops changing your files.",
-   "ergebnis": "verworfen: Faktenpruefung"
+   "begruendung": "Candidate 0 identifies a specific pain point mentioned in the very first sentence of the script's body and offers a clear payoff. It creates immediate relevance for users frustrated by AI logic errors without relying on vague teasing, directly connecting to the 'plan mode' solution provided.",
+   "gewaehlt": "Does Claude Code keep solving the wrong problem?",
+   "ergebnis": "bisheriger Hook bleibt"
   },
   "hintergrund_suche": "",
   "musik_suche": [
-   "curious minimal electronic pulse instrumental",
-   "sparse ambient tech underscore",
-   "light restrained synth texture"
+   "curious restrained pulse instrumental",
+   "sparse minimal tech underscore",
+   "warm light electronic instrumental"
   ],
   "bilder": [],
-  "beschreibung": "Claude Code's official best-practices guide recommends exploring and planning before coding. This short covers plan mode, the Google OAuth example, context limits and when to skip planning.",
+  "beschreibung": "Claude Code's documentation recommends exploring and planning in plan mode before coding, and giving Claude a check such as tests to run. It also notes plan mode adds overhead for small fixes.",
   "hashtags": [
    "ClaudeCode",
    "PlanMode",
-   "AIToolsExplained",
-   "Anthropic"
+   "AIToolsExplained"
   ],
   "pruefung": {
    "ok": true,
@@ -195,7 +203,7 @@
    }
   ],
   "modell": "claude:sonnet",
-  "sekunden_ki": 321.3,
+  "sekunden_ki": 194.6,
   "prompt_version": "2026-10-18.1"
  }
 }

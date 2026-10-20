@@ -62460,6 +62460,1752 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "39393076668.1:ai-tools-explained",
+      "run_id": "39393076668",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-20T08:43:10.432586+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "6e594169b0b6bb0816ad42d86f8dd06c6be69fa4",
+      "produktionsversion": "52c8a72602ea7c19678a58ba1d6c930cb273e43a627e754ebe115ba5361f5a5c",
+      "videoformat": "short",
+      "thema": "Claude Code: give it a check it can run",
+      "titel": [
+        "*Claude* *Code* Tip",
+        "Give It A Check"
+      ],
+      "status": "gesendet",
+      "video_sha256": "f72b0edf2076bb174ac2dde721a8228916e4a125b98eaaf06b09749c69ed25ce",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-18.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 3/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Programmierer vor dem Monitor, aber keinen spezifischen Bezug zum Fehlerbehebungsprozess oder dem 'Claude Code' Tool.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt lediglich eine Chat-Schnittstelle mit der Frage aus dem gesprochenen Text, jedoch keinen technischen Beleg oder eine visuelle Erklärung für den Build-Prozess, Fehlerbehebung oder Tests.",
+        "Einstellung 11: Bild passt nicht zum Sprechtext (6/10): Die Textgrafik zeigt zwar die gesprochenen Begriffe 'ONE LIMIT' und 'SET UP THE CHECK', aber es wird kein funktionaler Workflow oder eine Einrichtung gezeigt.",
+        "Einstellung 13: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt lediglich eine Chat-Frage zum Thema, aber keine visuelle Demonstration der Prüfung, des Checks oder des Lösungsworkflows aus der Narration.",
+        "Einstellung 14: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik zeigt zwar einen Slogan zum Thema, bildet aber keine konkrete Verifizierung oder technische Demonstration ab, die zum gesprochenen Satz passt.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Programmierer vor dem Monitor, aber keinen spezifischen Bezug zum Fehlerbehebungsprozess oder dem 'Claude Code' Tool. Korrektur: Ein Screenshot oder eine Grafik, die zeigt, wie Claude Code einen Fehler analysiert oder ein Tool zur Fehlerbehebung anzeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine Chat-Schnittstelle mit der Frage aus dem gesprochenen Text, jedoch keinen technischen Beleg oder eine visuelle Erklärung für den Build-Prozess, Fehlerbehebung oder Tests. Korrektur: Ein Code-Editor oder ein Terminal, das einen erfolgreichen Build-Durchlauf, Tests oder eine Screenshot-Vergleichsfunktion im Zusammenhang mit Claude Code zeigt.",
+        "Offenes Problem (schwer): Die Textgrafik zeigt zwar die gesprochenen Begriffe 'ONE LIMIT' und 'SET UP THE CHECK', aber es wird kein funktionaler Workflow oder eine Einrichtung gezeigt. Korrektur: Ein Screenshot oder eine Animation, die zeigt, wie man einen Check oder Test für Claude Code einrichtet.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine Chat-Frage zum Thema, aber keine visuelle Demonstration der Prüfung, des Checks oder des Lösungsworkflows aus der Narration. Korrektur: Ein Screenshot, der ein ausgeführtes Build-Skript, Test-Ergebnisse oder eine Fehlerausgabe zeigt, die von Claude überprüft wird.",
+        "Offenes Problem (schwer): Die Textgrafik zeigt zwar einen Slogan zum Thema, bildet aber keine konkrete Verifizierung oder technische Demonstration ab, die zum gesprochenen Satz passt. Korrektur: Ein Screenshot eines erfolgreichen Testlaufs oder einer Build-Ausgabe, die zeigt, wie ein Fehler abgefangen wurde."
+      ],
+      "einstellungen": 16,
+      "unterschiedliche_motive": 16,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "39393076668",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-20",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 100.6,
+            "baufehler": "ValueError: Bildplan deckt nicht alle Sprechphasen lueckenlos ab",
+            "status": "baufehler",
+            "sekunden": 100.6
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 301.0,
+            "pruefung_s": 150.3,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Narration befasst sich mit Claude Code, Fehlern und Verifizierungstests. Das Bild zeigt jedoch nur einen Mann mit Flaggen in einem Kontrollraum, was keinen Bezug zur Softwareentwicklung oder zu Claude Code darstellt.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Textfolie mit dem Zitat statt einer visuellen Darstellung des Leitfadens von Anthropic oder des besprochenen Kontexts.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Es zeigt lediglich Titeltexte und Design-Elemente zur Software, aber keine erklärende Darstellung oder Dokumentation des spezifischen Prüfvorgangs (wie Tests oder Build).",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Chat-Frage, jedoch keinen konkreten Test, Build oder eine Fehlerbehebung, wie sie im gesprochenen Text ('So what does that look like? Don't say the build is failing. Paste the error...') erläutert werden.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (6/10): Die Textgrafik zeigt zwar die gesprochenen Begriffe 'ONE LIMIT' und 'SET UP THE CHECK', aber es wird kein funktionaler Workflow oder eine Einrichtung gezeigt.",
+              "Einstellung 13: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt lediglich eine Chat-Frage zum Thema, aber keine visuelle Demonstration der Prüfung, des Checks oder des Lösungsworkflows aus der Narration.",
+              "Einstellung 14: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik zeigt zwar einen Slogan zum Thema, bildet aber keine konkrete Verifizierung oder technische Demonstration ab, die zum gesprochenen Satz passt.",
+              "Offenes Problem (schwer): Die gesprochene Narration befasst sich mit Claude Code, Fehlern und Verifizierungstests. Das Bild zeigt jedoch nur einen Mann mit Flaggen in einem Kontrollraum, was keinen Bezug zur Softwareentwicklung oder zu Claude Code darstellt. Korrektur: Ein Programmierer, der Claude Code in einer Entwicklungsumgebung bedient und Fehlermeldungen oder Tests überprüft.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine Textfolie mit dem Zitat statt einer visuellen Darstellung des Leitfadens von Anthropic oder des besprochenen Kontexts. Korrektur: Ein Dokument oder eine grafische Darstellung, die den Leitfaden von Anthropic mit dem erwähnten Zitat zeigt.",
+              "Offenes Problem (schwer): Es zeigt lediglich Titeltexte und Design-Elemente zur Software, aber keine erklärende Darstellung oder Dokumentation des spezifischen Prüfvorgangs (wie Tests oder Build). Korrektur: Ein Screenshot einer Befehlszeile oder Dokumentation, die einen konkreten Prüfschritt wie Tests oder Build für Claude Code zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine Chat-Frage, jedoch keinen konkreten Test, Build oder eine Fehlerbehebung, wie sie im gesprochenen Text ('So what does that look like? Don't say the build is failing. Paste the error...') erläutert werden. Korrektur: Ein Screenshot, der ein Terminal mit einem erfolgreichen Build oder einem eingefügten Fehler und der entsprechenden Korrektur durch Claude Code zeigt.",
+              "Offenes Problem (schwer): Die Textgrafik zeigt zwar die gesprochenen Begriffe 'ONE LIMIT' und 'SET UP THE CHECK', aber es wird kein funktionaler Workflow oder eine Einrichtung gezeigt. Korrektur: Ein Screenshot oder eine Animation, die zeigt, wie man einen Check oder Test für Claude Code einrichtet.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine Chat-Frage zum Thema, aber keine visuelle Demonstration der Prüfung, des Checks oder des Lösungsworkflows aus der Narration. Korrektur: Ein Screenshot, der ein ausgeführtes Build-Skript, Test-Ergebnisse oder eine Fehlerausgabe zeigt, die von Claude überprüft wird.",
+              "Offenes Problem (schwer): Die Textgrafik zeigt zwar einen Slogan zum Thema, bildet aber keine konkrete Verifizierung oder technische Demonstration ab, die zum gesprochenen Satz passt. Korrektur: Ein Screenshot eines erfolgreichen Testlaufs oder einer Build-Ausgabe, die zeigt, wie ein Fehler abgefangen wurde."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 0.0,
+              "zeitmarken": 5.0,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 16,
+              "clips_und_stuecke": 154.3,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 16,
+                "motive": 16,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 44.8,
+              "gesamt": 300.7,
+              "videolaenge_s": 43.1,
+              "abschnitte_s": [
+                6.08,
+                7.18,
+                6.36,
+                6.72,
+                5.8,
+                5.46,
+                5.52
+              ],
+              "woerter": 131
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Why do you keep fixing Claude Code's mistakes?",
+                "text": "Die gesprochene Narration befasst sich mit Claude Code, Fehlern und Verifizierungstests. Das Bild zeigt jedoch nur einen Mann mit Flaggen in einem Kontrollraum, was keinen Bezug zur Softwareentwicklung oder zu Claude Code darstellt. Korrektur: Ein Programmierer, der Claude Code in einer Entwicklungsumgebung bedient und Fehlermeldungen oder Tests überprüft."
+              },
+              {
+                "zeit": "00:06.08",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Anthropic's guide says Claude stops when the work looks done.",
+                "text": "Das Bild zeigt lediglich eine Textfolie mit dem Zitat statt einer visuellen Darstellung des Leitfadens von Anthropic oder des besprochenen Kontexts. Korrektur: Ein Dokument oder eine grafische Darstellung, die den Leitfaden von Anthropic mit dem erwähnten Zitat zeigt."
+              },
+              {
+                "zeit": "00:13.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "The fix: give Claude a check.",
+                "text": "Es zeigt lediglich Titeltexte und Design-Elemente zur Software, aber keine erklärende Darstellung oder Dokumentation des spezifischen Prüfvorgangs (wie Tests oder Build). Korrektur: Ein Screenshot einer Befehlszeile oder Dokumentation, die einen konkreten Prüfschritt wie Tests oder Build für Claude Code zeigt."
+              },
+              {
+                "zeit": "00:19.62",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "So what does that look like?",
+                "text": "Das Bild zeigt lediglich eine Chat-Frage, jedoch keinen konkreten Test, Build oder eine Fehlerbehebung, wie sie im gesprochenen Text ('So what does that look like? Don't say the build is failing. Paste the error...') erläutert werden. Korrektur: Ein Screenshot, der ein Terminal mit einem erfolgreichen Build oder einem eingefügten Fehler und der entsprechenden Korrektur durch Claude Code zeigt."
+              },
+              {
+                "zeit": "00:32.14",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "One limit: you set up the check.",
+                "text": "Die Textgrafik zeigt zwar die gesprochenen Begriffe 'ONE LIMIT' und 'SET UP THE CHECK', aber es wird kein funktionaler Workflow oder eine Einrichtung gezeigt. Korrektur: Ein Screenshot oder eine Animation, die zeigt, wie man einen Check oder Test für Claude Code einrichtet."
+              },
+              {
+                "zeit": "00:37.60",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 13,
+                "gesprochen": "Those mistakes you kept fixing?",
+                "text": "Das Bild zeigt lediglich eine Chat-Frage zum Thema, aber keine visuelle Demonstration der Prüfung, des Checks oder des Lösungsworkflows aus der Narration. Korrektur: Ein Screenshot, der ein ausgeführtes Build-Skript, Test-Ergebnisse oder eine Fehlerausgabe zeigt, die von Claude überprüft wird."
+              },
+              {
+                "zeit": "00:39.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 14,
+                "gesprochen": "Now the check catches them first.",
+                "text": "Die Textgrafik zeigt zwar einen Slogan zum Thema, bildet aber keine konkrete Verifizierung oder technische Demonstration ab, die zum gesprochenen Satz passt. Korrektur: Ein Screenshot eines erfolgreichen Testlaufs oder einer Build-Ausgabe, die zeigt, wie ein Fehler abgefangen wurde."
+              }
+            ],
+            "sekunden": 451.3,
+            "status": "geprueft"
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                5,
+                6
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 3.9,
+            "bau_s": 213.4,
+            "pruefung_s": 65.4,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Phase thematisiert Programmierfehler bei Claude Code, gezeigt wird jedoch nur eine generische Person an einem Computer im Freien ohne Bezug zu Fehlern.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Es zeigt lediglich Titeltexte und Design-Elemente zur Software, aber keine erklärende Darstellung oder Dokumentation des spezifischen Prüfvorgangs (wie Tests oder Build).",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Chat-Frage, jedoch keinen konkreten Test, Build oder eine Fehlerbehebung, wie sie im gesprochenen Text ('So what does that look like? Don't say the build is failing. Paste the error...') erläutert werden.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (6/10): Die Textgrafik zeigt zwar die gesprochenen Begriffe 'ONE LIMIT' und 'SET UP THE CHECK', aber es wird kein funktionaler Workflow oder eine Einrichtung gezeigt.",
+              "Einstellung 13: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt lediglich eine Chat-Frage zum Thema, aber keine visuelle Demonstration der Prüfung, des Checks oder des Lösungsworkflows aus der Narration.",
+              "Einstellung 14: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik zeigt zwar einen Slogan zum Thema, bildet aber keine konkrete Verifizierung oder technische Demonstration ab, die zum gesprochenen Satz passt.",
+              "Offenes Problem (schwer): Die gesprochene Phase thematisiert Programmierfehler bei Claude Code, gezeigt wird jedoch nur eine generische Person an einem Computer im Freien ohne Bezug zu Fehlern. Korrektur: Ein Programmierbildschirm, der eine Fehlermeldung oder Code-Korrektur zeigt.",
+              "Offenes Problem (schwer): Es zeigt lediglich Titeltexte und Design-Elemente zur Software, aber keine erklärende Darstellung oder Dokumentation des spezifischen Prüfvorgangs (wie Tests oder Build). Korrektur: Ein Screenshot einer Befehlszeile oder Dokumentation, die einen konkreten Prüfschritt wie Tests oder Build für Claude Code zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine Chat-Frage, jedoch keinen konkreten Test, Build oder eine Fehlerbehebung, wie sie im gesprochenen Text ('So what does that look like? Don't say the build is failing. Paste the error...') erläutert werden. Korrektur: Ein Screenshot, der ein Terminal mit einem erfolgreichen Build oder einem eingefügten Fehler und der entsprechenden Korrektur durch Claude Code zeigt.",
+              "Offenes Problem (schwer): Die Textgrafik zeigt zwar die gesprochenen Begriffe 'ONE LIMIT' und 'SET UP THE CHECK', aber es wird kein funktionaler Workflow oder eine Einrichtung gezeigt. Korrektur: Ein Screenshot oder eine Animation, die zeigt, wie man einen Check oder Test für Claude Code einrichtet.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine Chat-Frage zum Thema, aber keine visuelle Demonstration der Prüfung, des Checks oder des Lösungsworkflows aus der Narration. Korrektur: Ein Screenshot, der ein ausgeführtes Build-Skript, Test-Ergebnisse oder eine Fehlerausgabe zeigt, die von Claude überprüft wird.",
+              "Offenes Problem (schwer): Die Textgrafik zeigt zwar einen Slogan zum Thema, bildet aber keine konkrete Verifizierung oder technische Demonstration ab, die zum gesprochenen Satz passt. Korrektur: Ein Screenshot eines erfolgreichen Testlaufs oder einer Build-Ausgabe, die zeigt, wie ein Fehler abgefangen wurde."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Puck",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 9,
+              "stuecke_neu": 7,
+              "clips_und_stuecke": 119.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 16,
+                "motive": 16,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 44.5,
+              "gesamt": 213.1,
+              "videolaenge_s": 43.1,
+              "abschnitte_s": [
+                6.08,
+                7.18,
+                6.36,
+                6.72,
+                5.8,
+                5.46,
+                5.52
+              ],
+              "woerter": 131
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Why do you keep fixing Claude Code's mistakes?",
+                "text": "Die gesprochene Phase thematisiert Programmierfehler bei Claude Code, gezeigt wird jedoch nur eine generische Person an einem Computer im Freien ohne Bezug zu Fehlern. Korrektur: Ein Programmierbildschirm, der eine Fehlermeldung oder Code-Korrektur zeigt."
+              },
+              {
+                "zeit": "00:13.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "The fix: give Claude a check.",
+                "text": "Es zeigt lediglich Titeltexte und Design-Elemente zur Software, aber keine erklärende Darstellung oder Dokumentation des spezifischen Prüfvorgangs (wie Tests oder Build). Korrektur: Ein Screenshot einer Befehlszeile oder Dokumentation, die einen konkreten Prüfschritt wie Tests oder Build für Claude Code zeigt."
+              },
+              {
+                "zeit": "00:19.62",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "So what does that look like?",
+                "text": "Das Bild zeigt lediglich eine Chat-Frage, jedoch keinen konkreten Test, Build oder eine Fehlerbehebung, wie sie im gesprochenen Text ('So what does that look like? Don't say the build is failing. Paste the error...') erläutert werden. Korrektur: Ein Screenshot, der ein Terminal mit einem erfolgreichen Build oder einem eingefügten Fehler und der entsprechenden Korrektur durch Claude Code zeigt."
+              },
+              {
+                "zeit": "00:32.14",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "One limit: you set up the check.",
+                "text": "Die Textgrafik zeigt zwar die gesprochenen Begriffe 'ONE LIMIT' und 'SET UP THE CHECK', aber es wird kein funktionaler Workflow oder eine Einrichtung gezeigt. Korrektur: Ein Screenshot oder eine Animation, die zeigt, wie man einen Check oder Test für Claude Code einrichtet."
+              },
+              {
+                "zeit": "00:37.60",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 13,
+                "gesprochen": "Those mistakes you kept fixing?",
+                "text": "Das Bild zeigt lediglich eine Chat-Frage zum Thema, aber keine visuelle Demonstration der Prüfung, des Checks oder des Lösungsworkflows aus der Narration. Korrektur: Ein Screenshot, der ein ausgeführtes Build-Skript, Test-Ergebnisse oder eine Fehlerausgabe zeigt, die von Claude überprüft wird."
+              },
+              {
+                "zeit": "00:39.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 14,
+                "gesprochen": "Now the check catches them first.",
+                "text": "Die Textgrafik zeigt zwar einen Slogan zum Thema, bildet aber keine konkrete Verifizierung oder technische Demonstration ab, die zum gesprochenen Satz passt. Korrektur: Ein Screenshot eines erfolgreichen Testlaufs oder einer Build-Ausgabe, die zeigt, wie ein Fehler abgefangen wurde."
+              }
+            ],
+            "sekunden": 282.7,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "39393076668-3",
+              "datum": "2026-10-20",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 282.7,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                2,
+                3,
+                5,
+                6
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 2.6,
+            "bau_s": 140.3,
+            "pruefung_s": 31.5,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 3/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Programmierer vor dem Monitor, aber keinen spezifischen Bezug zum Fehlerbehebungsprozess oder dem 'Claude Code' Tool.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt lediglich eine Chat-Schnittstelle mit der Frage aus dem gesprochenen Text, jedoch keinen technischen Beleg oder eine visuelle Erklärung für den Build-Prozess, Fehlerbehebung oder Tests.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (6/10): Die Textgrafik zeigt zwar die gesprochenen Begriffe 'ONE LIMIT' und 'SET UP THE CHECK', aber es wird kein funktionaler Workflow oder eine Einrichtung gezeigt.",
+              "Einstellung 13: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt lediglich eine Chat-Frage zum Thema, aber keine visuelle Demonstration der Prüfung, des Checks oder des Lösungsworkflows aus der Narration.",
+              "Einstellung 14: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik zeigt zwar einen Slogan zum Thema, bildet aber keine konkrete Verifizierung oder technische Demonstration ab, die zum gesprochenen Satz passt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Programmierer vor dem Monitor, aber keinen spezifischen Bezug zum Fehlerbehebungsprozess oder dem 'Claude Code' Tool. Korrektur: Ein Screenshot oder eine Grafik, die zeigt, wie Claude Code einen Fehler analysiert oder ein Tool zur Fehlerbehebung anzeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine Chat-Schnittstelle mit der Frage aus dem gesprochenen Text, jedoch keinen technischen Beleg oder eine visuelle Erklärung für den Build-Prozess, Fehlerbehebung oder Tests. Korrektur: Ein Code-Editor oder ein Terminal, das einen erfolgreichen Build-Durchlauf, Tests oder eine Screenshot-Vergleichsfunktion im Zusammenhang mit Claude Code zeigt.",
+              "Offenes Problem (schwer): Die Textgrafik zeigt zwar die gesprochenen Begriffe 'ONE LIMIT' und 'SET UP THE CHECK', aber es wird kein funktionaler Workflow oder eine Einrichtung gezeigt. Korrektur: Ein Screenshot oder eine Animation, die zeigt, wie man einen Check oder Test für Claude Code einrichtet.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine Chat-Frage zum Thema, aber keine visuelle Demonstration der Prüfung, des Checks oder des Lösungsworkflows aus der Narration. Korrektur: Ein Screenshot, der ein ausgeführtes Build-Skript, Test-Ergebnisse oder eine Fehlerausgabe zeigt, die von Claude überprüft wird.",
+              "Offenes Problem (schwer): Die Textgrafik zeigt zwar einen Slogan zum Thema, bildet aber keine konkrete Verifizierung oder technische Demonstration ab, die zum gesprochenen Satz passt. Korrektur: Ein Screenshot eines erfolgreichen Testlaufs oder einer Build-Ausgabe, die zeigt, wie ein Fehler abgefangen wurde."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Puck",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 10,
+              "stuecke_neu": 6,
+              "clips_und_stuecke": 82.2,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 16,
+                "motive": 16,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 44.3,
+              "gesamt": 140.0,
+              "videolaenge_s": 43.1,
+              "abschnitte_s": [
+                6.08,
+                7.18,
+                6.36,
+                6.72,
+                5.8,
+                5.46,
+                5.52
+              ],
+              "woerter": 131
+            },
+            "kategorien": {
+              "bild_passt": 3
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Why do you keep fixing Claude Code's mistakes?",
+                "text": "Das Bild zeigt einen Programmierer vor dem Monitor, aber keinen spezifischen Bezug zum Fehlerbehebungsprozess oder dem 'Claude Code' Tool. Korrektur: Ein Screenshot oder eine Grafik, die zeigt, wie Claude Code einen Fehler analysiert oder ein Tool zur Fehlerbehebung anzeigt."
+              },
+              {
+                "zeit": "00:19.62",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "So what does that look like?",
+                "text": "Das Bild zeigt lediglich eine Chat-Schnittstelle mit der Frage aus dem gesprochenen Text, jedoch keinen technischen Beleg oder eine visuelle Erklärung für den Build-Prozess, Fehlerbehebung oder Tests. Korrektur: Ein Code-Editor oder ein Terminal, das einen erfolgreichen Build-Durchlauf, Tests oder eine Screenshot-Vergleichsfunktion im Zusammenhang mit Claude Code zeigt."
+              },
+              {
+                "zeit": "00:32.14",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "One limit: you set up the check.",
+                "text": "Die Textgrafik zeigt zwar die gesprochenen Begriffe 'ONE LIMIT' und 'SET UP THE CHECK', aber es wird kein funktionaler Workflow oder eine Einrichtung gezeigt. Korrektur: Ein Screenshot oder eine Animation, die zeigt, wie man einen Check oder Test für Claude Code einrichtet."
+              },
+              {
+                "zeit": "00:37.60",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 13,
+                "gesprochen": "Those mistakes you kept fixing?",
+                "text": "Das Bild zeigt lediglich eine Chat-Frage zum Thema, aber keine visuelle Demonstration der Prüfung, des Checks oder des Lösungsworkflows aus der Narration. Korrektur: Ein Screenshot, der ein ausgeführtes Build-Skript, Test-Ergebnisse oder eine Fehlerausgabe zeigt, die von Claude überprüft wird."
+              },
+              {
+                "zeit": "00:39.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 14,
+                "gesprochen": "Now the check catches them first.",
+                "text": "Die Textgrafik zeigt zwar einen Slogan zum Thema, bildet aber keine konkrete Verifizierung oder technische Demonstration ab, die zum gesprochenen Satz passt. Korrektur: Ein Screenshot eines erfolgreichen Testlaufs oder einer Build-Ausgabe, die zeigt, wie ein Fehler abgefangen wurde."
+              }
+            ],
+            "sekunden": 174.3,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "39393076668-4",
+              "datum": "2026-10-20",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 174.3,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 3
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 5,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 1060.0,
+        "upload_titel": "Claude Code Tip: Give It A Check | AI Tool #10"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 3
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Why do you keep fixing Claude Code's mistakes?",
+            "text": "Das Bild zeigt einen Programmierer vor dem Monitor, aber keinen spezifischen Bezug zum Fehlerbehebungsprozess oder dem 'Claude Code' Tool. Korrektur: Ein Screenshot oder eine Grafik, die zeigt, wie Claude Code einen Fehler analysiert oder ein Tool zur Fehlerbehebung anzeigt."
+          },
+          {
+            "zeit": "00:19.62",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 6,
+            "gesprochen": "So what does that look like?",
+            "text": "Das Bild zeigt lediglich eine Chat-Schnittstelle mit der Frage aus dem gesprochenen Text, jedoch keinen technischen Beleg oder eine visuelle Erklärung für den Build-Prozess, Fehlerbehebung oder Tests. Korrektur: Ein Code-Editor oder ein Terminal, das einen erfolgreichen Build-Durchlauf, Tests oder eine Screenshot-Vergleichsfunktion im Zusammenhang mit Claude Code zeigt."
+          },
+          {
+            "zeit": "00:32.14",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "One limit: you set up the check.",
+            "text": "Die Textgrafik zeigt zwar die gesprochenen Begriffe 'ONE LIMIT' und 'SET UP THE CHECK', aber es wird kein funktionaler Workflow oder eine Einrichtung gezeigt. Korrektur: Ein Screenshot oder eine Animation, die zeigt, wie man einen Check oder Test für Claude Code einrichtet."
+          },
+          {
+            "zeit": "00:37.60",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 13,
+            "gesprochen": "Those mistakes you kept fixing?",
+            "text": "Das Bild zeigt lediglich eine Chat-Frage zum Thema, aber keine visuelle Demonstration der Prüfung, des Checks oder des Lösungsworkflows aus der Narration. Korrektur: Ein Screenshot, der ein ausgeführtes Build-Skript, Test-Ergebnisse oder eine Fehlerausgabe zeigt, die von Claude überprüft wird."
+          },
+          {
+            "zeit": "00:39.26",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 14,
+            "gesprochen": "Now the check catches them first.",
+            "text": "Die Textgrafik zeigt zwar einen Slogan zum Thema, bildet aber keine konkrete Verifizierung oder technische Demonstration ab, die zum gesprochenen Satz passt. Korrektur: Ein Screenshot eines erfolgreichen Testlaufs oder einer Build-Ausgabe, die zeigt, wie ein Fehler abgefangen wurde."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 43.1,
+          "fps": 30.0,
+          "lufs": -14.2,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 41.4,
+              "bis_s": 42.74,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.983
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 23.1,
+              "bis_s": 43.6,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Why",
+                "s": 0.0,
+                "e": 0.34,
+                "p": 0.8495197892189026
+              },
+              {
+                "w": "do",
+                "s": 0.34,
+                "e": 0.44,
+                "p": 0.9878688454627991
+              },
+              {
+                "w": "you",
+                "s": 0.44,
+                "e": 0.52,
+                "p": 0.9960502982139587
+              },
+              {
+                "w": "keep",
+                "s": 0.52,
+                "e": 0.68,
+                "p": 0.9953269958496094
+              },
+              {
+                "w": "fixing",
+                "s": 0.68,
+                "e": 1.06,
+                "p": 0.9974205493927002
+              },
+              {
+                "w": "Claude",
+                "s": 1.06,
+                "e": 1.36,
+                "p": 0.5008554458618164
+              },
+              {
+                "w": "Code's",
+                "s": 1.36,
+                "e": 1.76,
+                "p": 0.6487483978271484
+              },
+              {
+                "w": "mistakes?",
+                "s": 1.76,
+                "e": 1.9,
+                "p": 0.987798273563385
+              },
+              {
+                "w": "Without",
+                "s": 2.78,
+                "e": 3.04,
+                "p": 0.9904888868331909
+              },
+              {
+                "w": "a",
+                "s": 3.04,
+                "e": 3.18,
+                "p": 0.9960289001464844
+              },
+              {
+                "w": "check,",
+                "s": 3.18,
+                "e": 3.42,
+                "p": 0.9327839612960815
+              },
+              {
+                "w": "Looks",
+                "s": 3.8,
+                "e": 3.86,
+                "p": 0.44355612993240356
+              },
+              {
+                "w": "Done",
+                "s": 3.86,
+                "e": 4.28,
+                "p": 0.4195524752140045
+              },
+              {
+                "w": "is",
+                "s": 4.28,
+                "e": 4.6,
+                "p": 0.9742836952209473
+              },
+              {
+                "w": "the",
+                "s": 4.6,
+                "e": 4.74,
+                "p": 0.9893781542778015
+              },
+              {
+                "w": "only",
+                "s": 4.74,
+                "e": 4.98,
+                "p": 0.9498905539512634
+              },
+              {
+                "w": "signal.",
+                "s": 4.98,
+                "e": 5.42,
+                "p": 0.9887944459915161
+              },
+              {
+                "w": "Anthropic's",
+                "s": 6.04,
+                "e": 6.52,
+                "p": 0.6640441616376241
+              },
+              {
+                "w": "Guide",
+                "s": 6.52,
+                "e": 6.7,
+                "p": 0.6440163850784302
+              },
+              {
+                "w": "says",
+                "s": 6.7,
+                "e": 7.02,
+                "p": 0.9788193106651306
+              },
+              {
+                "w": "Claude",
+                "s": 7.02,
+                "e": 7.22,
+                "p": 0.9472324252128601
+              },
+              {
+                "w": "stops",
+                "s": 7.22,
+                "e": 7.64,
+                "p": 0.9901940226554871
+              },
+              {
+                "w": "when",
+                "s": 7.64,
+                "e": 7.9,
+                "p": 0.9889351725578308
+              },
+              {
+                "w": "the",
+                "s": 7.9,
+                "e": 8.0,
+                "p": 0.9866195917129517
+              },
+              {
+                "w": "work",
+                "s": 8.0,
+                "e": 8.16,
+                "p": 0.9885784387588501
+              },
+              {
+                "w": "looks",
+                "s": 8.16,
+                "e": 8.4,
+                "p": 0.9923914074897766
+              },
+              {
+                "w": "done.",
+                "s": 8.4,
+                "e": 8.7,
+                "p": 0.9847760796546936
+              },
+              {
+                "w": "Without",
+                "s": 9.26,
+                "e": 9.38,
+                "p": 0.9960595369338989
+              },
+              {
+                "w": "a",
+                "s": 9.38,
+                "e": 9.6,
+                "p": 0.9986454844474792
+              },
+              {
+                "w": "check,",
+                "s": 9.6,
+                "e": 9.76,
+                "p": 0.9947475790977478
+              },
+              {
+                "w": "it",
+                "s": 10.04,
+                "e": 10.12,
+                "p": 0.9605056643486023
+              },
+              {
+                "w": "can",
+                "s": 10.12,
+                "e": 10.26,
+                "p": 0.9924998879432678
+              },
+              {
+                "w": "run.",
+                "s": 10.26,
+                "e": 10.52,
+                "p": 0.9962372779846191
+              },
+              {
+                "w": "You",
+                "s": 11.12,
+                "e": 11.28,
+                "p": 0.9336324334144592
+              },
+              {
+                "w": "become",
+                "s": 11.28,
+                "e": 11.6,
+                "p": 0.9879348278045654
+              },
+              {
+                "w": "the",
+                "s": 11.6,
+                "e": 11.8,
+                "p": 0.985261857509613
+              },
+              {
+                "w": "verification",
+                "s": 11.8,
+                "e": 12.08,
+                "p": 0.5475119948387146
+              },
+              {
+                "w": "loop.",
+                "s": 12.08,
+                "e": 12.58,
+                "p": 0.9672009348869324
+              },
+              {
+                "w": "The",
+                "s": 13.26,
+                "e": 13.26,
+                "p": 0.8875484466552734
+              },
+              {
+                "w": "Fix",
+                "s": 13.26,
+                "e": 13.44,
+                "p": 0.6023828983306885
+              },
+              {
+                "w": "gives",
+                "s": 13.44,
+                "e": 14.2,
+                "p": 0.49857297539711
+              },
+              {
+                "w": "Claude",
+                "s": 14.2,
+                "e": 14.44,
+                "p": 0.9824588298797607
+              },
+              {
+                "w": "a",
+                "s": 14.44,
+                "e": 14.86,
+                "p": 0.9872144460678101
+              },
+              {
+                "w": "check.",
+                "s": 14.86,
+                "e": 15.08,
+                "p": 0.9850934743881226
+              },
+              {
+                "w": "That",
+                "s": 15.6,
+                "e": 15.76,
+                "p": 0.9603373408317566
+              },
+              {
+                "w": "can",
+                "s": 15.76,
+                "e": 15.92,
+                "p": 0.9913744330406189
+              },
+              {
+                "w": "be",
+                "s": 15.92,
+                "e": 16.02,
+                "p": 0.9947473406791687
+              },
+              {
+                "w": "tests,",
+                "s": 16.02,
+                "e": 16.26,
+                "p": 0.8605523109436035
+              },
+              {
+                "w": "a",
+                "s": 16.76,
+                "e": 16.76,
+                "p": 0.985792338848114
+              },
+              {
+                "w": "build,",
+                "s": 16.76,
+                "e": 16.98,
+                "p": 0.9331887364387512
+              },
+              {
+                "w": "a",
+                "s": 17.38,
+                "e": 17.4,
+                "p": 0.9908073544502258
+              },
+              {
+                "w": "linter,",
+                "s": 17.4,
+                "e": 17.72,
+                "p": 0.7085691690444946
+              },
+              {
+                "w": "or",
+                "s": 18.0,
+                "e": 18.06,
+                "p": 0.9894214868545532
+              },
+              {
+                "w": "a",
+                "s": 18.06,
+                "e": 18.18,
+                "p": 0.9750678539276123
+              },
+              {
+                "w": "screenshot",
+                "s": 18.18,
+                "e": 18.42,
+                "p": 0.8725129961967468
+              },
+              {
+                "w": "comparison.",
+                "s": 18.42,
+                "e": 18.74,
+                "p": 0.9987314343452454
+              },
+              {
+                "w": "So",
+                "s": 19.64,
+                "e": 19.68,
+                "p": 0.9399714469909668
+              },
+              {
+                "w": "what",
+                "s": 19.68,
+                "e": 20.06,
+                "p": 0.5327949523925781
+              },
+              {
+                "w": "does",
+                "s": 20.06,
+                "e": 20.12,
+                "p": 0.9913638830184937
+              },
+              {
+                "w": "that",
+                "s": 20.12,
+                "e": 20.24,
+                "p": 0.9356471300125122
+              },
+              {
+                "w": "look",
+                "s": 20.24,
+                "e": 20.38,
+                "p": 0.9969218373298645
+              },
+              {
+                "w": "like?",
+                "s": 20.38,
+                "e": 20.58,
+                "p": 0.9979839324951172
+              },
+              {
+                "w": "Don't",
+                "s": 21.24,
+                "e": 21.4,
+                "p": 0.990805983543396
+              },
+              {
+                "w": "say",
+                "s": 21.4,
+                "e": 21.58,
+                "p": 0.9986269474029541
+              },
+              {
+                "w": "the",
+                "s": 21.58,
+                "e": 21.84,
+                "p": 0.8166411519050598
+              },
+              {
+                "w": "build",
+                "s": 21.84,
+                "e": 22.06,
+                "p": 0.9727497696876526
+              },
+              {
+                "w": "is",
+                "s": 22.06,
+                "e": 22.2,
+                "p": 0.9949870109558105
+              },
+              {
+                "w": "failing.",
+                "s": 22.2,
+                "e": 22.36,
+                "p": 0.999194324016571
+              },
+              {
+                "w": "Paste",
+                "s": 23.1,
+                "e": 23.2,
+                "p": 0.944444477558136
+              },
+              {
+                "w": "the",
+                "s": 23.2,
+                "e": 23.48,
+                "p": 0.9968200922012329
+              },
+              {
+                "w": "error.",
+                "s": 23.48,
+                "e": 23.66,
+                "p": 0.8856912851333618
+              },
+              {
+                "w": "Fix",
+                "s": 24.32,
+                "e": 24.42,
+                "p": 0.9815706610679626
+              },
+              {
+                "w": "it,",
+                "s": 24.42,
+                "e": 24.58,
+                "p": 0.9783308506011963
+              },
+              {
+                "w": "verify",
+                "s": 24.96,
+                "e": 25.1,
+                "p": 0.9793310761451721
+              },
+              {
+                "w": "the",
+                "s": 25.1,
+                "e": 25.46,
+                "p": 0.9945077300071716
+              },
+              {
+                "w": "build",
+                "s": 25.46,
+                "e": 25.58,
+                "p": 0.9798138737678528
+              },
+              {
+                "w": "succeeds.",
+                "s": 25.58,
+                "e": 25.82,
+                "p": 0.988252580165863
+              },
+              {
+                "w": "Claude",
+                "s": 26.78,
+                "e": 26.78,
+                "p": 0.9810935854911804
+              },
+              {
+                "w": "runs",
+                "s": 26.78,
+                "e": 27.1,
+                "p": 0.9921718835830688
+              },
+              {
+                "w": "the",
+                "s": 27.1,
+                "e": 27.3,
+                "p": 0.9958677291870117
+              },
+              {
+                "w": "check,",
+                "s": 27.3,
+                "e": 27.48,
+                "p": 0.9824386239051819
+              },
+              {
+                "w": "reads",
+                "s": 27.8,
+                "e": 27.92,
+                "p": 0.9970782995223999
+              },
+              {
+                "w": "the",
+                "s": 27.92,
+                "e": 28.18,
+                "p": 0.9978492259979248
+              },
+              {
+                "w": "result,",
+                "s": 28.18,
+                "e": 28.42,
+                "p": 0.9943617582321167
+              },
+              {
+                "w": "bolt,",
+                "s": 28.42,
+                "e": 28.54,
+                "p": 0.03116164728999138
+              },
+              {
+                "w": "and",
+                "s": 28.7,
+                "e": 28.74,
+                "p": 0.9644736647605896
+              },
+              {
+                "w": "iterates",
+                "s": 28.74,
+                "e": 29.14,
+                "p": 0.8656939268112183
+              },
+              {
+                "w": "until",
+                "s": 29.14,
+                "e": 29.4,
+                "p": 0.9782226085662842
+              },
+              {
+                "w": "it",
+                "s": 29.4,
+                "e": 29.4,
+                "p": 0.9939104318618774
+              },
+              {
+                "w": "passes.",
+                "s": 29.4,
+                "e": 29.82,
+                "p": 0.9929251670837402
+              },
+              {
+                "w": "You",
+                "s": 30.58,
+                "e": 30.66,
+                "p": 0.926884114742279
+              },
+              {
+                "w": "stop",
+                "s": 30.66,
+                "e": 31.0,
+                "p": 0.9462122917175293
+              },
+              {
+                "w": "being",
+                "s": 31.0,
+                "e": 31.24,
+                "p": 0.9874821901321411
+              },
+              {
+                "w": "the",
+                "s": 31.24,
+                "e": 31.36,
+                "p": 0.9689318537712097
+              },
+              {
+                "w": "loop.",
+                "s": 31.36,
+                "e": 31.54,
+                "p": 0.9426090717315674
+              },
+              {
+                "w": "One",
+                "s": 32.08,
+                "e": 32.3,
+                "p": 0.8867647051811218
+              },
+              {
+                "w": "limit,",
+                "s": 32.3,
+                "e": 32.5,
+                "p": 0.978108286857605
+              },
+              {
+                "w": "you",
+                "s": 32.86,
+                "e": 33.02,
+                "p": 0.9870548248291016
+              },
+              {
+                "w": "set",
+                "s": 33.02,
+                "e": 33.22,
+                "p": 0.9566469192504883
+              },
+              {
+                "w": "up",
+                "s": 33.22,
+                "e": 33.34,
+                "p": 0.9839509725570679
+              },
+              {
+                "w": "the",
+                "s": 33.34,
+                "e": 33.46,
+                "p": 0.9837611317634583
+              },
+              {
+                "w": "check.",
+                "s": 33.46,
+                "e": 33.58,
+                "p": 0.9816570281982422
+              },
+              {
+                "w": "Unattended",
+                "s": 34.06,
+                "e": 34.46,
+                "p": 0.9492138028144836
+              },
+              {
+                "w": "runs",
+                "s": 34.46,
+                "e": 34.7,
+                "p": 0.9880495667457581
+              },
+              {
+                "w": "need",
+                "s": 34.7,
+                "e": 35.0,
+                "p": 0.9928911924362183
+              },
+              {
+                "w": "a",
+                "s": 35.0,
+                "e": 35.16,
+                "p": 0.992042601108551
+              },
+              {
+                "w": "slash",
+                "s": 35.16,
+                "e": 35.38,
+                "p": 0.7156289219856262
+              },
+              {
+                "w": "goal",
+                "s": 35.38,
+                "e": 35.66,
+                "p": 0.9858330488204956
+              },
+              {
+                "w": "condition",
+                "s": 35.66,
+                "e": 35.92,
+                "p": 0.9818993806838989
+              },
+              {
+                "w": "or",
+                "s": 35.92,
+                "e": 36.4,
+                "p": 0.8338343501091003
+              },
+              {
+                "w": "a",
+                "s": 36.4,
+                "e": 36.54,
+                "p": 0.9721450805664062
+              },
+              {
+                "w": "stop",
+                "s": 36.54,
+                "e": 36.74,
+                "p": 0.9881659746170044
+              },
+              {
+                "w": "hook.",
+                "s": 36.74,
+                "e": 37.0,
+                "p": 0.9673859477043152
+              },
+              {
+                "w": "Those",
+                "s": 37.54,
+                "e": 37.78,
+                "p": 0.9789944291114807
+              },
+              {
+                "w": "mistakes",
+                "s": 37.78,
+                "e": 38.08,
+                "p": 0.9980600476264954
+              },
+              {
+                "w": "you",
+                "s": 38.08,
+                "e": 38.32,
+                "p": 0.985325813293457
+              },
+              {
+                "w": "kept",
+                "s": 38.32,
+                "e": 38.42,
+                "p": 0.9703763723373413
+              },
+              {
+                "w": "fixing?",
+                "s": 38.42,
+                "e": 38.74,
+                "p": 0.997153639793396
+              },
+              {
+                "w": "Now",
+                "s": 39.24,
+                "e": 39.32,
+                "p": 0.9878209233283997
+              },
+              {
+                "w": "the",
+                "s": 39.32,
+                "e": 39.48,
+                "p": 0.9202243685722351
+              },
+              {
+                "w": "check",
+                "s": 39.48,
+                "e": 39.66,
+                "p": 0.994489312171936
+              },
+              {
+                "w": "catches",
+                "s": 39.66,
+                "e": 40.02,
+                "p": 0.9968017339706421
+              },
+              {
+                "w": "them",
+                "s": 40.02,
+                "e": 40.18,
+                "p": 0.9947075843811035
+              },
+              {
+                "w": "first.",
+                "s": 40.18,
+                "e": 40.4,
+                "p": 0.9958445429801941
+              },
+              {
+                "w": "Be",
+                "s": 41.12,
+                "e": 41.16,
+                "p": 0.9928460717201233
+              },
+              {
+                "w": "sure",
+                "s": 41.16,
+                "e": 41.3,
+                "p": 0.9996034502983093
+              },
+              {
+                "w": "to",
+                "s": 41.3,
+                "e": 41.4,
+                "p": 0.9949518442153931
+              },
+              {
+                "w": "like,",
+                "s": 41.4,
+                "e": 41.6,
+                "p": 0.9210641384124756
+              },
+              {
+                "w": "share,",
+                "s": 41.78,
+                "e": 41.96,
+                "p": 0.9957316517829895
+              },
+              {
+                "w": "and",
+                "s": 42.18,
+                "e": 42.22,
+                "p": 0.9959557056427002
+              },
+              {
+                "w": "save",
+                "s": 42.22,
+                "e": 42.4,
+                "p": 0.9969049096107483
+              },
+              {
+                "w": "this",
+                "s": 42.4,
+                "e": 42.52,
+                "p": 0.9868431687355042
+              },
+              {
+                "w": "video.",
+                "s": 42.52,
+                "e": 42.74,
+                "p": 0.9991987347602844
+              }
+            ],
+            "dauer_s": 43.008,
+            "sprache": "en"
+          },
+          "roh_key": "daa6a7e8dddaf95584965e21b0c36197a2af842d37e4353baee68c90274c092e",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "f72b0edf2076bb174ac2dde721a8228916e4a125b98eaaf06b09749c69ed25ce",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 43.1,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 16,
+          "motive": 16,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "f72b0edf2076bb174ac2dde721a8228916e4a125b98eaaf06b09749c69ed25ce",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Mann sitzt an einem Computer in einem Raum mit Blick aus dem Fenster auf Gebäude und tippt auf einer Tastatur, auf dem Monitor läuft Code.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Programmierer vor dem Monitor, aber keinen spezifischen Bezug zum Fehlerbehebungsprozess oder dem 'Claude Code' Tool.",
+              "erforderliches_bild": "Ein Screenshot oder eine Grafik, die zeigt, wie Claude Code einen Fehler analysiert oder ein Tool zur Fehlerbehebung anzeigt."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Screenshot zeigt die Aufschrift Claude Code, darunter drei Optionen namens CHECK, LOOKS DONE und SIGNAL, wobei LOOKS DONE hervorgehoben ist.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbaren Menüpunkte 'CHECK', 'LOOKS DONE' und 'SIGNAL' entsprechen direkt dem gesprochenen Satz über das Fehlen eines Checks und das Signal 'looks done'.",
+              "erforderliches_bild": "Nicht erforderlich."
+            },
+            {
+              "index": 2,
+              "gesehen": "Das Bild zeigt den Text 'CLAUDE CODE: GIVE IT A CHECK IT CAN RUN' sowie einen Button mit der Aufschrift 'WORK LOOKS DONE' und das Claude-Logo oben.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gezeigte Oberfläche und der Text 'WORK LOOKS DONE' passen direkt zur gesprochenen Erwähnung, dass Claude stoppt, wenn die Arbeit fertig aussieht ('work looks done').",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein diagrammartiges Schaubild mit drei Elementen namens CHECK, RUN und BECOME THE VERIFICATION LOOP, verbunden durch Linien und Punkte.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Diagramm zeigt visuell den exakten Zustand 'you become the verification loop' im Dreiklang mit Check und Run entsprechend dem Text.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein dunkelblauer Bildschirm zeigt oben das Claude-Logo und den Text \"CLAUDE CODE: GIVE IT A CHECK IT CAN RUN\", darunter eine Box mit dem Wort \"FIX\" und einen orangefarbenen Button mit der Aufschrift \"GIVE CLAUDE A CHECK\".",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt den im gesprochenen Text angekündigten Lösungsansatz mit dem Wort FIX und der Aufforderung, Claude einen Check zu geben, passend zur erklärten Methode.",
+              "erforderliches_bild": "Nicht erforderlich, da die visuelle Entsprechung direkt gegeben ist."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein dunkler Bildschirm mit dem Text 'CLAUDE CODE: GIVE IT A CHECK IT CAN RUN' gefolgt von vier gelisteten Optionen in Kastenform: 'TESTS', 'BUILD', 'LINTER' und 'SCREENSHOT COMPARISON'.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt genau die vier im gesprochenen Text genannten Prüfungsarten ('tests', 'build', 'linter', 'screenshot comparison') als klare Liste.",
+              "erforderliches_bild": "kein Ersatz erforderlich"
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Chat-Fenster mit der Beschriftung 'AI CHAT' und einer Nachricht: 'So what does that look like?', gefolgt von Lade-Punkten.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine Chat-Schnittstelle mit der Frage aus dem gesprochenen Text, jedoch keinen technischen Beleg oder eine visuelle Erklärung für den Build-Prozess, Fehlerbehebung oder Tests.",
+              "erforderliches_bild": "Ein Code-Editor oder ein Terminal, das einen erfolgreichen Build-Durchlauf, Tests oder eine Screenshot-Vergleichsfunktion im Zusammenhang mit Claude Code zeigt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein gelbes Warndreieck und ein Textkasten mit der Aufschrift DON'T SAY THE BUILD IS FAILING.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt den exakt in der Narration erwähnten Text zur Warnung bzgl. des Builds.",
+              "erforderliches_bild": "keines"
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Interface mit dem Text 'PASTE THE ERROR' und einem Eingabebereich sowie einem Button mit Häkchen und der Aufschrift 'VERIFY THE BUILD SUCCEEDS'. Ein Fragezeichen ist rot markiert.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt genau das im Kommentar genannte Interface mit Fehlerfeld und Build-Verifizierung.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein erklärendes Diagramm in Dreiecksform mit drei Schritten: 'Claude runs the check', 'Reads the result' und 'Iterates until it passes' in den entsprechenden Farben Türkis, Orange und Lila.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Diagramm visualisiert exakt die drei genannten Abläufe: Claude runs the check, reads the result, and iterates until it passes.",
+              "erforderliches_bild": "keines"
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein Diagramm mit drei verbundenen Boxen in den Farben Türkis, Lila und Orange, das einen Kreislauf darstellt, mit dem Text \"STOP BEING THE LOOP\".",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Diagramm zeigt visuell das Konzept des 'Loop' und korreliert direkt mit der gesprochenen Aussage 'You stop being the loop' durch eine klare Darstellung der Kreislaufstruktur.",
+              "erforderliches_bild": "Ein detaillierteres Diagramm mit konkreten Prüfungs- und Validierungsschritten."
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein Bildschirm zeigt Text mit den Überschriften 'ONE LIMIT' und 'SET UP THE CHECK' im Stil einer UI-Oberfläche.",
+              "note": 6,
+              "passt": false,
+              "grund": "Die Textgrafik zeigt zwar die gesprochenen Begriffe 'ONE LIMIT' und 'SET UP THE CHECK', aber es wird kein funktionaler Workflow oder eine Einrichtung gezeigt.",
+              "erforderliches_bild": "Ein Screenshot oder eine Animation, die zeigt, wie man einen Check oder Test für Claude Code einrichtet."
+            },
+            {
+              "index": 12,
+              "gesehen": "Ein dunkler Bildschirm mit dem Text 'CLAUDE CODE: GIVE IT A CHECK IT CAN RUN' oben, gefolgt von zwei Menuepunkten: 'NEED A GOAL CONDITION' in einem hellblauen Kasten und 'STOP HOOK' in einem braun-orangefarbenen Kasten darunter.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt genau die genannten Begriffe '/goal condition' und 'Stop hook' (als 'NEED A GOAL CONDITION' und 'STOP HOOK'), die direkt zur gesprochenen Passage passen.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 13,
+              "gesehen": "Ein dunkles Chat-Fenster mit der Aufschrift 'AI CHAT' und einer Sprechblase, die die Frage 'Those mistakes you kept fixing?' anzeigt.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine Chat-Frage zum Thema, aber keine visuelle Demonstration der Prüfung, des Checks oder des Lösungsworkflows aus der Narration.",
+              "erforderliches_bild": "Ein Screenshot, der ein ausgeführtes Build-Skript, Test-Ergebnisse oder eine Fehlerausgabe zeigt, die von Claude überprüft wird."
+            },
+            {
+              "index": 14,
+              "gesehen": "Ein dunkler Bildschirm mit dem Text 'CLAUDE CODE: GIVE IT A CHECK IT CAN RUN' und einem Button mit der Aufschrift 'CHECK CATCHES THEM'.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Textgrafik zeigt zwar einen Slogan zum Thema, bildet aber keine konkrete Verifizierung oder technische Demonstration ab, die zum gesprochenen Satz passt.",
+              "erforderliches_bild": "Ein Screenshot eines erfolgreichen Testlaufs oder einer Build-Ausgabe, die zeigt, wie ein Fehler abgefangen wurde."
+            },
+            {
+              "index": 15,
+              "gesehen": "Ein illustrierter Mann mit Sonnenbrille vor einer Skyline, darüber eine Sprechblase mit Aufruf zum Liken, Teilen und Speichern.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Sprechblase mit dem Aufruf zum Liken, Teilen und Speichern passt genau zu den gesprochenen Worten zum Ende des Videos.",
+              "erforderliches_bild": ""
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Programmierer vor dem Monitor, aber keinen spezifischen Bezug zum Fehlerbehebungsprozess oder dem 'Claude Code' Tool.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt lediglich eine Chat-Schnittstelle mit der Frage aus dem gesprochenen Text, jedoch keinen technischen Beleg oder eine visuelle Erklärung für den Build-Prozess, Fehlerbehebung oder Tests.",
+            "Einstellung 11: Bild passt nicht zum Sprechtext (6/10): Die Textgrafik zeigt zwar die gesprochenen Begriffe 'ONE LIMIT' und 'SET UP THE CHECK', aber es wird kein funktionaler Workflow oder eine Einrichtung gezeigt.",
+            "Einstellung 13: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt lediglich eine Chat-Frage zum Thema, aber keine visuelle Demonstration der Prüfung, des Checks oder des Lösungsworkflows aus der Narration.",
+            "Einstellung 14: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik zeigt zwar einen Slogan zum Thema, bildet aber keine konkrete Verifizierung oder technische Demonstration ab, die zum gesprochenen Satz passt."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 16,
+          "ausgenommen": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "f72b0edf2076bb174ac2dde721a8228916e4a125b98eaaf06b09749c69ed25ce",
+        "prompt_version": "2026-10-18.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

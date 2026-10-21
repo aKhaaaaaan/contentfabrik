@@ -78,7 +78,8 @@ def wiederholung(kanal, eintrag):
     if eintrag.get('thema_eingabe'):
         return False  # ausdrueckliches Nutzer-/Trendthema entscheidet selbst
     import themen
-    return themen.schon_geliefert(kanal, (eintrag.get('skript') or {}).get('thema')) is True
+    s = eintrag.get('skript') or {}
+    return bool(themen.wiederholung_gesperrt(kanal, s.get('thema'), s.get('titel')))
 
 
 def bereit(kanal_pfad):

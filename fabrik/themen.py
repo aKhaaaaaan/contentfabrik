@@ -399,6 +399,46 @@ def schon_geliefert(kanal, thema):
         return False
 
 
+# Nutzerentscheidung 21.10.2026: dasselbe Unternehmen/Werkzeug erst nach 60 Tagen wieder und nur mit neuem
+# Blickwinkel (anderer Titel). Ford kam am 18.10. und 21.10. - zu nah, beide Fassungen teilen die Zuschauer;
+# nach 60 Tagen erreicht der Kanal viele neue Zuschauer.
+WIEDERHOLUNG_TAGE = 60
+
+
+def _titel_norm(titel):
+    if isinstance(titel, (list, tuple)):
+        titel = ' '.join(str(t) for t in titel)
+    return re.sub(r'\W+', ' ', str(titel or '')).strip().lower()
+
+
+def wiederholung_gesperrt(kanal, thema, titel=None, jetzt=None):
+    """Grund (str), wenn ein frei gewaehltes Thema jetzt nicht wieder gebaut/hochgeladen werden darf, sonst None.
+
+    Gesperrt: dasselbe Thema in den letzten WIEDERHOLUNG_TAGE Tagen geliefert, oder (jederzeit) derselbe Titel.
+    Gilt fuer frei gewaehlte Themen und TikTok-Uploads; ausdrueckliche Nutzerthemen regelt schon_geliefert."""
+    jetzt = jetzt or datetime.datetime.now(datetime.timezone.utc)
+    try:
+        import kanalstandard
+        name = (kanalstandard.alle().get(kanal) or {}).get('name') or kanal
+        norm = lambda t: re.sub(r'\W+', ' ', str(t)).strip().lower()
+        geliefert = json.loads(GELIEFERT.read_text(encoding='utf-8'))
+    except (OSError, ValueError, AttributeError, TypeError):
+        return None
+    for e in geliefert:
+        if not isinstance(e, dict) or e.get('kanal') != name or norm(e.get('thema')) != norm(thema):
+            continue
+        if titel and _titel_norm(e.get('titel')) == _titel_norm(titel):
+            return f'gleicher Titel wie Telegram {e.get("message_id")}'
+        try:
+            tage = (jetzt - datetime.datetime.fromisoformat(e['datum_utc'])).days
+        except (KeyError, TypeError, ValueError):
+            tage = 0  # ohne Datum vorsichtig: als frisch werten
+        if tage < WIEDERHOLUNG_TAGE:
+            return (f'Thema vor {tage} Tagen geliefert (Telegram {e.get("message_id")}); '
+                    f'wieder erst nach {WIEDERHOLUNG_TAGE} Tagen mit neuem Blickwinkel')
+    return None
+
+
 def zaehlt_als_tagesvideo(kanal, eintrag, heute):
     """Gesendetes Video von heute, das kein schon frueher geliefertes Thema wiederholt.
 

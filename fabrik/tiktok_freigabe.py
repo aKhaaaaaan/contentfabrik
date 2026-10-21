@@ -127,6 +127,16 @@ def gleiches_thema(video, q):
             continue
         v = zu_sha.get(e.get('video_sha256')) or {}
         if str(e.get('thema') or v.get('thema') or '').strip().lower() == thema:
+            # Nutzerentscheidung 21.10.2026: nach 60 Tagen mit neuem Titel wieder hochladen (neue Zuschauer).
+            import themen
+            try:
+                alter = (datetime.datetime.now(datetime.timezone.utc)
+                         - datetime.datetime.fromisoformat(e.get('datum_utc') or v.get('datum_utc'))).days
+            except (TypeError, ValueError):
+                alter = 0
+            if alter >= themen.WIEDERHOLUNG_TAGE and themen._titel_norm(v.get('titel')) \
+                    != themen._titel_norm(video.get('titel')):
+                continue
             return v.get('message_id') or '?'
     return None
 
@@ -156,7 +166,7 @@ def entscheiden(video, passt, update_id):
         return 'Freigabe war schon gespeichert. Es wird kein zweiter Upload gestartet.\n' + status_text(video)
     frueher = gleiches_thema(video, q)
     if frueher:
-        return (f'Zu diesem Thema liegt schon ein TikTok-Entwurf (Telegram {frueher}). Kein zweiter Upload: '
+        return (f'Zu diesem Thema liegt schon ein TikTok-Entwurf (Telegram {frueher}, juenger als 60 Tage). Kein zweiter Upload: '
                 'zwei Fassungen desselben Themas teilen sich die Aufrufe. Soll die neue Fassung hin, '
                 'die alte in TikTok loeschen und hier beim alten Video "Ablehnen" tippen, dann erneut "Passt".')
     q.append({'id': sha, 'video_sha256': sha, 'kanal': video['kanal'], 'run_id': str(video['upload_run_id']),

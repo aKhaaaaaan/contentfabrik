@@ -56,6 +56,40 @@ def kanalname(slug):
         return slug
 
 
+def zeitplan_start(jetzt, worker='cloudflare/zeitplan-worker.js', toleranz_min=10):
+    """True, wenn ein workflow_dispatch zu einem Video-Cron des Cloudflare-Zeitplans passt.
+
+    Der Worker startet mit denselben Eingaben (kanal=alle) wie ein Handstart; nur die Uhrzeit unterscheidet
+    sie. Die Zeiten kommen aus dem Worker selbst (eine Quelle), damit beide Listen nicht auseinanderlaufen."""
+    import re
+    try:
+        quelle = Path(worker).read_text(encoding='utf-8')
+    except OSError:
+        return True  # im Zweifel schweigen wie bisher
+    block = re.search(r'VIDEO_CRONS\s*=\s*new Set\(\[(.*?)\]\)', quelle, re.S)
+    for minute, stunden in re.findall(r"'(\d+) ([\d,]+) \* \* \*'", block[1] if block else ''):
+        for h in stunden.split(','):
+            ab = int(h) * 60 + int(minute)
+            if 0 <= jetzt.hour * 60 + jetzt.minute - ab <= toleranz_min:
+                return True
+    return False
+
+
+def kein_start_text(stand):
+    """GEMELDET 20.10.2026: Abends von Hand gestartet, es kam nichts - die Vorpruefung uebersprang still,
+    weil beide Kanaele ihr Tagesvideo schon hatten. Jetzt sagt eine Meldung je Kanal, warum."""
+    zeilen = []
+    for s in stand:
+        name = kanalname(s['kanal'])
+        if s['gesendet'] >= s['ziel']:
+            zeilen.append(f"• {name}: Tagesziel erreicht - heute schon {s['gesendet']} von {s['ziel']} Video(s) "
+                          'gesendet. Ein weiteres nur als Extra-Video mit deiner Zustimmung.')
+        else:
+            zeilen.append(f"• {name}: Tages-Zeitbudget aufgebraucht ({s['verbraucht_min']} von "
+                          f"{s['grenze_min']} Min. verbraucht). Morgen ab 10:23 Uhr wieder.")
+    return ('ℹ️ Kein neues Video gestartet - kein Fehler, kein fehlendes Kontingent.\n' + '\n'.join(zeilen))[:3000]
+
+
 def text(phase, env=None):
     e = os.environ if env is None else env
     # Nutzerwunsch 17.10.2026: jede Meldung nennt Kanal, Format (Short/Langvideo) und Thema.
@@ -80,6 +114,8 @@ def text(phase, env=None):
         return ('🎬 Tageslauf gestartet: Shorts fuer ' + ', '.join(kanalname(k) for k in kanaele)[:250] + '.\n'
                 'Die Kanaele werden nacheinander bearbeitet; Einrichtung und Pruefung folgen. '
                 'Ein Video kommt erst nach bestandener Freigabe. Ohne freigegebenes Video folgt eine Statusmeldung.\n' + url)
+    if phase == 'kein_start':
+        return kein_start_text(json.loads(e.get('STAND', '[]')))
     if phase == 'langstart':
         # GEMELDET 17.10.2026: Langvideo lief, aber auf Telegram kam keine Startmeldung (nur Shorts hatten eine).
         return (f'🎬 {titel}: Wochen-Langvideo gestartet.\n'
@@ -109,7 +145,8 @@ def senden(nachricht):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('phase', choices=['start', 'fehlgeschlagen', 'nachricht', 'grund', 'tagesstart', 'langstart', 'tagesende'])
+    parser.add_argument('phase', choices=['start', 'fehlgeschlagen', 'nachricht', 'grund', 'tagesstart', 'langstart', 'tagesende',
+                                          'kein_start'])
     args = parser.parse_args()
     if args.phase == 'grund':
         grund = fehlergrund().replace('\n', ' ').replace('\r', ' ')

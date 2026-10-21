@@ -85,9 +85,32 @@ jobs:
               gesendet = sum(themen.zaehlt_als_tagesvideo(kanal, e, heute) for e in v)
               offen = [kanal] if gesendet < tagesziel(kanal) and start_moeglich(kanal, os.environ.get('THEMA', '')) else []
           print('Offen:', offen)
+          # Stand je Kanal fuer die Meldung "kein neues Video gestartet" (Handstart, 20.10.2026)
+          import datetime, statusmeldung
+          from lauf import tagesgrenze, BUDGET_S
+          stand = []
+          for k in (alle if os.environ['EINGABE'] == 'alle' or os.environ['EREIGNIS'] == 'schedule'
+                    else [os.environ['EINGABE'] or 'business-origin-stories']):
+              p = Path(f'verlauf/{k}.json')
+              v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
+              stand.append({'kanal': k, 'gesendet': sum(themen.zaehlt_als_tagesvideo(k, e, heute) for e in v),
+                            'ziel': tagesziel(k), 'verbraucht_min': round(budget.laden(k)['sekunden'] / 60),
+                            'grenze_min': round(tagesgrenze(k, BUDGET_S) / 60)})
+          hand = os.environ['EREIGNIS'] != 'schedule' and not statusmeldung.zeitplan_start(
+              datetime.datetime.now(datetime.timezone.utc))
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write(f'stand={json.dumps(stand)}\n')
+              f.write(f'hand={json.dumps(hand)}\n')
               f.write(f'kanaele={json.dumps(offen)}\n')
           EOF
+      - name: Handstart ohne neues Video erklaeren
+        if: steps.offen.outputs.kanaele == '[]' && steps.offen.outputs.hand == 'true'
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          STAND: ${{ steps.offen.outputs.stand }}
+        run: python3 fabrik/statusmeldung.py kein_start
       - name: Tagesstart auf Telegram bestaetigen
         if: steps.offen.outputs.kanaele != '[]'
         # Eine Telegram-Stoerung soll die Videoproduktion nicht verhindern.

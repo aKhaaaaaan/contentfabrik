@@ -69368,6 +69368,1549 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "39630357478.1:ai-tools-explained",
+      "run_id": "39630357478",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-21T16:17:57.958565+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "a3bbe01c88de20a490dec15740ce04f6750f162a",
+      "produktionsversion": "0b1c03a85b13a05d4db469319fa79f4f6e954a483984eb1892d387f336b145df",
+      "videoformat": "short",
+      "thema": "isurumaduranga/harness-engineering-101",
+      "titel": [
+        "Why *AI* APIs Restart",
+        "*Harness* Engineering 101"
+      ],
+      "status": "gesendet",
+      "video_sha256": "3bb1ab9a97b3e770e8896ad391417113bbca21113840406291f506f72b8f8585",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-18.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Programmierer an einem Laptop in einer städtischen Umgebung, aber weder die in der Narration erwähnte zustandslose API noch ein erklärendes Beispiel dazu sind erkennbar.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (5/10): Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Programmierer an einem Laptop in einer städtischen Umgebung, aber weder die in der Narration erwähnte zustandslose API noch ein erklärendes Beispiel dazu sind erkennbar. Korrektur: Ein Diagramm oder eine Code-Visualisierung, die zeigt, wie eine AI-API bei jedem Aufruf einen neuen Zustand startet oder den Gesprächsverlauf als JSON-Array überträgt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen. Korrektur: Eine Bildschirmaufnahme, die das tatsächliche JSON-Array zeigt, welches bei jedem Zug gesendet wird.",
+        "Offenes Problem (schwer): Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch. Korrektur: Ein Bild, das ein konkretes gebrochenes System oder einen visualisierten Softwarefehler im Rahmen des Agenten-Harness zeigt."
+      ],
+      "einstellungen": 15,
+      "unterschiedliche_motive": 15,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "39630357478",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-21",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 262.0,
+            "pruefung_s": 486.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Programmierer an einem Laptop in einer städtischen Umgebung, aber weder die in der Narration erwähnte zustandslose API noch ein erklärendes Beispiel dazu sind erkennbar.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (5/10): Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Programmierer an einem Laptop in einer städtischen Umgebung, aber weder die in der Narration erwähnte zustandslose API noch ein erklärendes Beispiel dazu sind erkennbar. Korrektur: Ein Diagramm oder eine Code-Visualisierung, die zeigt, wie eine AI-API bei jedem Aufruf einen neuen Zustand startet oder den Gesprächsverlauf als JSON-Array überträgt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen. Korrektur: Eine Bildschirmaufnahme, die das tatsächliche JSON-Array zeigt, welches bei jedem Zug gesendet wird.",
+              "Offenes Problem (schwer): Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch. Korrektur: Ein Bild, das ein konkretes gebrochenes System oder einen visualisierten Softwarefehler im Rahmen des Agenten-Harness zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 14.3,
+              "zeitmarken": 5.1,
+              "tempo": 1.045,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 15,
+              "clips_und_stuecke": 102.2,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 15,
+                "motive": 15,
+                "motive_min": 8
+              },
+              "effekte": 11,
+              "rendern": 26.6,
+              "gesamt": 261.6,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                6.04,
+                5.12,
+                6.48,
+                7.88,
+                7.02,
+                7.06,
+                5.43
+              ],
+              "woerter": 128
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Why does an AI API start fresh every turn?",
+                "text": "Das Bild zeigt einen Programmierer an einem Laptop in einer städtischen Umgebung, aber weder die in der Narration erwähnte zustandslose API noch ein erklärendes Beispiel dazu sind erkennbar. Korrektur: Ein Diagramm oder eine Code-Visualisierung, die zeigt, wie eine AI-API bei jedem Aufruf einen neuen Zustand startet oder den Gesprächsverlauf als JSON-Array überträgt."
+              },
+              {
+                "zeit": "00:07.90",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Each turn, you send the whole conversation as a JSON array.",
+                "text": "Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen. Korrektur: Eine Bildschirmaufnahme, die das tatsächliche JSON-Array zeigt, welches bei jedem Zug gesendet wird."
+              },
+              {
+                "zeit": "00:19.76",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "Each patch exists because something concrete broke.",
+                "text": "Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch. Korrektur: Ein Bild, das ein konkretes gebrochenes System oder einen visualisierten Softwarefehler im Rahmen des Agenten-Harness zeigt."
+              }
+            ],
+            "sekunden": 748.1,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                3
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 15.3,
+            "bau_s": 114.8,
+            "pruefung_s": 12.5,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Sci-Fi-Charakter mit magischer Kugel in einer Gasse, was nicht zur Frage nach stateless AI APIs und Python-Agenten passt.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (5/10): Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Sci-Fi-Charakter mit magischer Kugel in einer Gasse, was nicht zur Frage nach stateless AI APIs und Python-Agenten passt. Korrektur: Eine anschauliche Grafik oder Code-Darstellung, die das Konzept eines stateless API-Aufrufs mit JSON-Arrays demonstriert.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen. Korrektur: Eine Bildschirmaufnahme, die das tatsächliche JSON-Array zeigt, welches bei jedem Zug gesendet wird.",
+              "Offenes Problem (schwer): Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch. Korrektur: Ein Bild, das ein konkretes gebrochenes System oder einen visualisierten Softwarefehler im Rahmen des Agenten-Harness zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Puck",
+              "tempo": 1.045,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 12,
+              "stuecke_neu": 3,
+              "clips_und_stuecke": 74.3,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 15,
+                "motive": 15,
+                "motive_min": 8
+              },
+              "effekte": 11,
+              "rendern": 26.2,
+              "gesamt": 114.6,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                6.04,
+                5.12,
+                6.48,
+                7.88,
+                7.02,
+                7.06,
+                5.43
+              ],
+              "woerter": 128
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Why does an AI API start fresh every turn?",
+                "text": "Das Bild zeigt einen Sci-Fi-Charakter mit magischer Kugel in einer Gasse, was nicht zur Frage nach stateless AI APIs und Python-Agenten passt. Korrektur: Eine anschauliche Grafik oder Code-Darstellung, die das Konzept eines stateless API-Aufrufs mit JSON-Arrays demonstriert."
+              },
+              {
+                "zeit": "00:07.90",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Each turn, you send the whole conversation as a JSON array.",
+                "text": "Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen. Korrektur: Eine Bildschirmaufnahme, die das tatsächliche JSON-Array zeigt, welches bei jedem Zug gesendet wird."
+              },
+              {
+                "zeit": "00:19.76",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "Each patch exists because something concrete broke.",
+                "text": "Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch. Korrektur: Ein Bild, das ein konkretes gebrochenes System oder einen visualisierten Softwarefehler im Rahmen des Agenten-Harness zeigt."
+              }
+            ],
+            "sekunden": 142.6,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "39630357478-2",
+              "datum": "2026-10-21",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 142.6,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                3
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 17.3,
+            "bau_s": 199.4,
+            "pruefung_s": 16.6,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine stilisierte Illustration mit einer Frage als Text in einer Sprechblase, demonstriert jedoch keine technische Erklärung oder das Buch beziehungsweise den Code zur API.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt allgemeine Quellenangaben und Benutzeroberflächenelemente, aber nicht das erwähnte Buch oder einen Toy Python Agent.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (5/10): Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine stilisierte Illustration mit einer Frage als Text in einer Sprechblase, demonstriert jedoch keine technische Erklärung oder das Buch beziehungsweise den Code zur API. Korrektur: Ein Bild, das den Python-Code, die API-Struktur oder das erwähnte Buch zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt allgemeine Quellenangaben und Benutzeroberflächenelemente, aber nicht das erwähnte Buch oder einen Toy Python Agent. Korrektur: Ein tatsächliches Buch oder Code-Beispiel eines Toy Python Agents.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen. Korrektur: Eine Bildschirmaufnahme, die das tatsächliche JSON-Array zeigt, welches bei jedem Zug gesendet wird.",
+              "Offenes Problem (schwer): Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch. Korrektur: Ein Bild, das ein konkretes gebrochenes System oder einen visualisierten Softwarefehler im Rahmen des Agenten-Harness zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Puck",
+              "tempo": 1.045,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 12,
+              "stuecke_neu": 3,
+              "clips_und_stuecke": 160.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 15,
+                "motive": 15,
+                "motive_min": 8
+              },
+              "effekte": 11,
+              "rendern": 25.8,
+              "gesamt": 199.2,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                6.04,
+                5.12,
+                6.48,
+                7.88,
+                7.02,
+                7.06,
+                5.43
+              ],
+              "woerter": 128
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Why does an AI API start fresh every turn?",
+                "text": "Das Bild zeigt lediglich eine stilisierte Illustration mit einer Frage als Text in einer Sprechblase, demonstriert jedoch keine technische Erklärung oder das Buch beziehungsweise den Code zur API. Korrektur: Ein Bild, das den Python-Code, die API-Struktur oder das erwähnte Buch zeigt."
+              },
+              {
+                "zeit": "00:03.44",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "This book answers it with a toy Python agent.",
+                "text": "Das Bild zeigt allgemeine Quellenangaben und Benutzeroberflächenelemente, aber nicht das erwähnte Buch oder einen Toy Python Agent. Korrektur: Ein tatsächliches Buch oder Code-Beispiel eines Toy Python Agents."
+              },
+              {
+                "zeit": "00:07.90",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Each turn, you send the whole conversation as a JSON array.",
+                "text": "Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen. Korrektur: Eine Bildschirmaufnahme, die das tatsächliche JSON-Array zeigt, welches bei jedem Zug gesendet wird."
+              },
+              {
+                "zeit": "00:19.76",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "Each patch exists because something concrete broke.",
+                "text": "Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch. Korrektur: Ein Bild, das ein konkretes gebrochenes System oder einen visualisierten Softwarefehler im Rahmen des Agenten-Harness zeigt."
+              }
+            ],
+            "sekunden": 233.3,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "39630357478-3",
+              "datum": "2026-10-21",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 233.3,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 1144.5,
+        "upload_titel": "Why AI APIs Restart: Harness Engineering 101 | AI Tool #11"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Why does an AI API start fresh every turn?",
+            "text": "Das Bild zeigt einen Programmierer an einem Laptop in einer städtischen Umgebung, aber weder die in der Narration erwähnte zustandslose API noch ein erklärendes Beispiel dazu sind erkennbar. Korrektur: Ein Diagramm oder eine Code-Visualisierung, die zeigt, wie eine AI-API bei jedem Aufruf einen neuen Zustand startet oder den Gesprächsverlauf als JSON-Array überträgt."
+          },
+          {
+            "zeit": "00:07.90",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "Each turn, you send the whole conversation as a JSON array.",
+            "text": "Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen. Korrektur: Eine Bildschirmaufnahme, die das tatsächliche JSON-Array zeigt, welches bei jedem Zug gesendet wird."
+          },
+          {
+            "zeit": "00:19.76",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "Each patch exists because something concrete broke.",
+            "text": "Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch. Korrektur: Ein Bild, das ein konkretes gebrochenes System oder einen visualisierten Softwarefehler im Rahmen des Agenten-Harness zeigt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -14.7,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 43.44,
+              "bis_s": 44.62,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.978
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Why",
+                "s": 0.0,
+                "e": 0.38,
+                "p": 0.7993851900100708
+              },
+              {
+                "w": "does",
+                "s": 0.38,
+                "e": 0.52,
+                "p": 0.9066599011421204
+              },
+              {
+                "w": "an",
+                "s": 0.52,
+                "e": 0.64,
+                "p": 0.9461578726768494
+              },
+              {
+                "w": "AI",
+                "s": 0.64,
+                "e": 0.92,
+                "p": 0.953027606010437
+              },
+              {
+                "w": "API",
+                "s": 0.92,
+                "e": 1.34,
+                "p": 0.9580225348472595
+              },
+              {
+                "w": "start",
+                "s": 1.34,
+                "e": 1.84,
+                "p": 0.9905698299407959
+              },
+              {
+                "w": "fresh",
+                "s": 1.84,
+                "e": 2.04,
+                "p": 0.9692133069038391
+              },
+              {
+                "w": "every",
+                "s": 2.04,
+                "e": 2.46,
+                "p": 0.9533193707466125
+              },
+              {
+                "w": "turn?",
+                "s": 2.46,
+                "e": 2.8,
+                "p": 0.9935838580131531
+              },
+              {
+                "w": "This",
+                "s": 3.46,
+                "e": 3.5,
+                "p": 0.9817148447036743
+              },
+              {
+                "w": "book",
+                "s": 3.5,
+                "e": 3.68,
+                "p": 0.9979464411735535
+              },
+              {
+                "w": "answers",
+                "s": 3.68,
+                "e": 3.98,
+                "p": 0.9887931942939758
+              },
+              {
+                "w": "it",
+                "s": 3.98,
+                "e": 4.26,
+                "p": 0.9825857877731323
+              },
+              {
+                "w": "with",
+                "s": 4.26,
+                "e": 4.38,
+                "p": 0.9939437508583069
+              },
+              {
+                "w": "a",
+                "s": 4.38,
+                "e": 4.46,
+                "p": 0.692872941493988
+              },
+              {
+                "w": "toy",
+                "s": 4.46,
+                "e": 4.7,
+                "p": 0.8592802882194519
+              },
+              {
+                "w": "Python",
+                "s": 4.7,
+                "e": 5.04,
+                "p": 0.8337329030036926
+              },
+              {
+                "w": "agent.",
+                "s": 5.04,
+                "e": 5.48,
+                "p": 0.9749580025672913
+              },
+              {
+                "w": "The",
+                "s": 6.06,
+                "e": 6.14,
+                "p": 0.9725345969200134
+              },
+              {
+                "w": "model",
+                "s": 6.14,
+                "e": 6.3,
+                "p": 0.9173858165740967
+              },
+              {
+                "w": "API",
+                "s": 6.3,
+                "e": 6.62,
+                "p": 0.9917098879814148
+              },
+              {
+                "w": "is",
+                "s": 6.62,
+                "e": 7.08,
+                "p": 0.9968373775482178
+              },
+              {
+                "w": "stateless.",
+                "s": 7.08,
+                "e": 7.52,
+                "p": 0.9626595973968506
+              },
+              {
+                "w": "Each",
+                "s": 7.92,
+                "e": 8.0,
+                "p": 0.9871676564216614
+              },
+              {
+                "w": "turn,",
+                "s": 8.0,
+                "e": 8.32,
+                "p": 0.9981871247291565
+              },
+              {
+                "w": "you",
+                "s": 8.34,
+                "e": 8.5,
+                "p": 0.9976018071174622
+              },
+              {
+                "w": "send",
+                "s": 8.5,
+                "e": 8.66,
+                "p": 0.9871325492858887
+              },
+              {
+                "w": "the",
+                "s": 8.66,
+                "e": 8.78,
+                "p": 0.857473611831665
+              },
+              {
+                "w": "whole",
+                "s": 8.78,
+                "e": 8.98,
+                "p": 0.9983673691749573
+              },
+              {
+                "w": "conversation",
+                "s": 8.98,
+                "e": 9.34,
+                "p": 0.9979707598686218
+              },
+              {
+                "w": "as",
+                "s": 9.34,
+                "e": 9.84,
+                "p": 0.9897730946540833
+              },
+              {
+                "w": "a",
+                "s": 9.84,
+                "e": 10.0,
+                "p": 0.9095696806907654
+              },
+              {
+                "w": "JSON",
+                "s": 10.0,
+                "e": 10.16,
+                "p": 0.9662522673606873
+              },
+              {
+                "w": "array.",
+                "s": 10.16,
+                "e": 10.54,
+                "p": 0.9752303957939148
+              },
+              {
+                "w": "A",
+                "s": 11.18,
+                "e": 11.2,
+                "p": 0.8206871151924133
+              },
+              {
+                "w": "harness",
+                "s": 11.2,
+                "e": 11.44,
+                "p": 0.9913713932037354
+              },
+              {
+                "w": "builds,",
+                "s": 11.44,
+                "e": 11.8,
+                "p": 0.9880369901657104
+              },
+              {
+                "w": "maintains,",
+                "s": 11.8,
+                "e": 12.32,
+                "p": 0.9988848567008972
+              },
+              {
+                "w": "and",
+                "s": 12.76,
+                "e": 12.8,
+                "p": 0.9975436329841614
+              },
+              {
+                "w": "protects",
+                "s": 12.8,
+                "e": 13.06,
+                "p": 0.9981726408004761
+              },
+              {
+                "w": "that",
+                "s": 13.06,
+                "e": 13.38,
+                "p": 0.9741168022155762
+              },
+              {
+                "w": "array.",
+                "s": 13.38,
+                "e": 13.54,
+                "p": 0.9977578520774841
+              },
+              {
+                "w": "The",
+                "s": 14.2,
+                "e": 14.22,
+                "p": 0.9904974102973938
+              },
+              {
+                "w": "LLM",
+                "s": 14.22,
+                "e": 14.62,
+                "p": 0.9385910332202911
+              },
+              {
+                "w": "is",
+                "s": 14.62,
+                "e": 14.72,
+                "p": 0.9958685636520386
+              },
+              {
+                "w": "the",
+                "s": 14.72,
+                "e": 14.8,
+                "p": 0.9936192631721497
+              },
+              {
+                "w": "brain,",
+                "s": 14.8,
+                "e": 15.0,
+                "p": 0.9983904361724854
+              },
+              {
+                "w": "the",
+                "s": 15.44,
+                "e": 15.52,
+                "p": 0.9868214726448059
+              },
+              {
+                "w": "harness",
+                "s": 15.52,
+                "e": 15.7,
+                "p": 0.9971939325332642
+              },
+              {
+                "w": "is",
+                "s": 15.7,
+                "e": 16.08,
+                "p": 0.9935411214828491
+              },
+              {
+                "w": "the",
+                "s": 16.08,
+                "e": 16.22,
+                "p": 0.9982163310050964
+              },
+              {
+                "w": "body.",
+                "s": 16.22,
+                "e": 16.4,
+                "p": 0.9991413354873657
+              },
+              {
+                "w": "So",
+                "s": 17.68,
+                "e": 17.74,
+                "p": 0.9665743708610535
+              },
+              {
+                "w": "why",
+                "s": 17.74,
+                "e": 17.96,
+                "p": 0.7725884914398193
+              },
+              {
+                "w": "do",
+                "s": 17.96,
+                "e": 18.1,
+                "p": 0.9980883002281189
+              },
+              {
+                "w": "agents",
+                "s": 18.1,
+                "e": 18.32,
+                "p": 0.9891141653060913
+              },
+              {
+                "w": "need",
+                "s": 18.32,
+                "e": 18.68,
+                "p": 0.998524010181427
+              },
+              {
+                "w": "extras?",
+                "s": 18.68,
+                "e": 18.96,
+                "p": 0.9895448088645935
+              },
+              {
+                "w": "Each",
+                "s": 19.76,
+                "e": 19.88,
+                "p": 0.9945202469825745
+              },
+              {
+                "w": "patch",
+                "s": 19.88,
+                "e": 20.1,
+                "p": 0.9927912950515747
+              },
+              {
+                "w": "exists",
+                "s": 20.1,
+                "e": 20.36,
+                "p": 0.9947092533111572
+              },
+              {
+                "w": "because",
+                "s": 20.36,
+                "e": 20.78,
+                "p": 0.9811588525772095
+              },
+              {
+                "w": "something",
+                "s": 20.78,
+                "e": 21.1,
+                "p": 0.9945758581161499
+              },
+              {
+                "w": "concrete",
+                "s": 21.1,
+                "e": 21.38,
+                "p": 0.996816098690033
+              },
+              {
+                "w": "broke.",
+                "s": 21.38,
+                "e": 21.84,
+                "p": 0.998006284236908
+              },
+              {
+                "w": "Every",
+                "s": 22.48,
+                "e": 22.62,
+                "p": 0.9933604598045349
+              },
+              {
+                "w": "chapter",
+                "s": 22.62,
+                "e": 22.86,
+                "p": 0.9864382743835449
+              },
+              {
+                "w": "covers",
+                "s": 22.86,
+                "e": 23.28,
+                "p": 0.9930219054222107
+              },
+              {
+                "w": "failure,",
+                "s": 23.28,
+                "e": 23.5,
+                "p": 0.993043839931488
+              },
+              {
+                "w": "patch,",
+                "s": 24.06,
+                "e": 24.14,
+                "p": 0.9848329424858093
+              },
+              {
+                "w": "cost.",
+                "s": 24.62,
+                "e": 24.74,
+                "p": 0.9689957499504089
+              },
+              {
+                "w": "16",
+                "s": 25.56,
+                "e": 25.84,
+                "p": 0.8570298552513123
+              },
+              {
+                "w": "chapters",
+                "s": 25.84,
+                "e": 26.14,
+                "p": 0.9925261735916138
+              },
+              {
+                "w": "grow",
+                "s": 26.14,
+                "e": 26.48,
+                "p": 0.9964463114738464
+              },
+              {
+                "w": "a",
+                "s": 26.48,
+                "e": 26.64,
+                "p": 0.5691947340965271
+              },
+              {
+                "w": "roughly",
+                "s": 26.64,
+                "e": 26.86,
+                "p": 0.9968396425247192
+              },
+              {
+                "w": "300",
+                "s": 26.86,
+                "e": 27.18,
+                "p": 0.9897753000259399
+              },
+              {
+                "w": "-line",
+                "s": 27.18,
+                "e": 27.66,
+                "p": 0.7447009086608887
+              },
+              {
+                "w": "toy",
+                "s": 27.66,
+                "e": 27.86,
+                "p": 0.9925496578216553
+              },
+              {
+                "w": "agent",
+                "s": 27.86,
+                "e": 28.22,
+                "p": 0.9978880286216736
+              },
+              {
+                "w": "in",
+                "s": 28.22,
+                "e": 28.48,
+                "p": 0.9927258491516113
+              },
+              {
+                "w": "plain",
+                "s": 28.48,
+                "e": 28.68,
+                "p": 0.9008573293685913
+              },
+              {
+                "w": "Python.",
+                "s": 28.68,
+                "e": 28.98,
+                "p": 0.9938801527023315
+              },
+              {
+                "w": "on,",
+                "s": 28.98,
+                "e": 29.14,
+                "p": 0.19577938318252563
+              },
+              {
+                "w": "the",
+                "s": 29.58,
+                "e": 29.72,
+                "p": 0.9656936526298523
+              },
+              {
+                "w": "epilogue",
+                "s": 29.72,
+                "e": 30.06,
+                "p": 0.7686616778373718
+              },
+              {
+                "w": "shares",
+                "s": 30.06,
+                "e": 30.34,
+                "p": 0.9907894730567932
+              },
+              {
+                "w": "the",
+                "s": 30.34,
+                "e": 30.5,
+                "p": 0.989201545715332
+              },
+              {
+                "w": "complete",
+                "s": 30.5,
+                "e": 30.78,
+                "p": 0.9922886490821838
+              },
+              {
+                "w": "toy",
+                "s": 30.78,
+                "e": 31.06,
+                "p": 0.9817538857460022
+              },
+              {
+                "w": "harness",
+                "s": 31.06,
+                "e": 31.34,
+                "p": 0.9909590482711792
+              },
+              {
+                "w": "annotated.",
+                "s": 31.34,
+                "e": 32.06,
+                "p": 0.9745710492134094
+              },
+              {
+                "w": "Catch?",
+                "s": 32.46,
+                "e": 32.88,
+                "p": 0.7946954369544983
+              },
+              {
+                "w": "The",
+                "s": 33.56,
+                "e": 33.56,
+                "p": 0.9733508229255676
+              },
+              {
+                "w": "licenses",
+                "s": 33.56,
+                "e": 33.88,
+                "p": 0.9137067198753357
+              },
+              {
+                "w": "differ.",
+                "s": 33.88,
+                "e": 34.2,
+                "p": 0.9988279938697815
+              },
+              {
+                "w": "The",
+                "s": 34.84,
+                "e": 34.84,
+                "p": 0.985496461391449
+              },
+              {
+                "w": "Pro's",
+                "s": 34.84,
+                "e": 35.2,
+                "p": 0.6617141962051392
+              },
+              {
+                "w": "bars",
+                "s": 35.2,
+                "e": 35.32,
+                "p": 0.7223405838012695
+              },
+              {
+                "w": "commercial",
+                "s": 35.32,
+                "e": 35.64,
+                "p": 0.7906663417816162
+              },
+              {
+                "w": "use",
+                "s": 35.64,
+                "e": 36.04,
+                "p": 0.9186214804649353
+              },
+              {
+                "w": "and",
+                "s": 36.04,
+                "e": 36.3,
+                "p": 0.9369140863418579
+              },
+              {
+                "w": "modified",
+                "s": 36.3,
+                "e": 36.6,
+                "p": 0.9951488375663757
+              },
+              {
+                "w": "versions,",
+                "s": 36.6,
+                "e": 37.06,
+                "p": 0.9736726880073547
+              },
+              {
+                "w": "while",
+                "s": 37.46,
+                "e": 37.58,
+                "p": 0.9913553595542908
+              },
+              {
+                "w": "the",
+                "s": 37.58,
+                "e": 37.7,
+                "p": 0.989065408706665
+              },
+              {
+                "w": "code",
+                "s": 37.7,
+                "e": 37.9,
+                "p": 0.989512026309967
+              },
+              {
+                "w": "is",
+                "s": 37.9,
+                "e": 38.14,
+                "p": 0.9896795749664307
+              },
+              {
+                "w": "MIT",
+                "s": 38.14,
+                "e": 38.34,
+                "p": 0.9315652251243591
+              },
+              {
+                "w": "licensed.",
+                "s": 38.34,
+                "e": 38.84,
+                "p": 0.5429746508598328
+              },
+              {
+                "w": "That",
+                "s": 39.68,
+                "e": 39.76,
+                "p": 0.9328402876853943
+              },
+              {
+                "w": "first",
+                "s": 39.76,
+                "e": 39.96,
+                "p": 0.8129721283912659
+              },
+              {
+                "w": "start",
+                "s": 39.96,
+                "e": 40.22,
+                "p": 0.9517513513565063
+              },
+              {
+                "w": "isn't",
+                "s": 40.22,
+                "e": 40.52,
+                "p": 0.9734631478786469
+              },
+              {
+                "w": "a",
+                "s": 40.52,
+                "e": 40.58,
+                "p": 0.995195209980011
+              },
+              {
+                "w": "flaw.",
+                "s": 40.58,
+                "e": 40.82,
+                "p": 0.9990102052688599
+              },
+              {
+                "w": "The",
+                "s": 41.38,
+                "e": 41.46,
+                "p": 0.9867333769798279
+              },
+              {
+                "w": "harness",
+                "s": 41.46,
+                "e": 41.7,
+                "p": 0.9969007968902588
+              },
+              {
+                "w": "builds",
+                "s": 41.7,
+                "e": 42.04,
+                "p": 0.9956791996955872
+              },
+              {
+                "w": "the",
+                "s": 42.04,
+                "e": 42.26,
+                "p": 0.9965674877166748
+              },
+              {
+                "w": "array.",
+                "s": 42.26,
+                "e": 42.42,
+                "p": 0.9972487092018127
+              },
+              {
+                "w": "Be",
+                "s": 43.1,
+                "e": 43.14,
+                "p": 0.9963248372077942
+              },
+              {
+                "w": "sure",
+                "s": 43.14,
+                "e": 43.3,
+                "p": 0.9983465671539307
+              },
+              {
+                "w": "to",
+                "s": 43.3,
+                "e": 43.44,
+                "p": 0.9932008385658264
+              },
+              {
+                "w": "like,",
+                "s": 43.44,
+                "e": 43.6,
+                "p": 0.8883090615272522
+              },
+              {
+                "w": "share,",
+                "s": 43.64,
+                "e": 43.88,
+                "p": 0.9982288479804993
+              },
+              {
+                "w": "and",
+                "s": 43.98,
+                "e": 44.02,
+                "p": 0.9949628114700317
+              },
+              {
+                "w": "save",
+                "s": 44.02,
+                "e": 44.2,
+                "p": 0.9976429343223572
+              },
+              {
+                "w": "this",
+                "s": 44.2,
+                "e": 44.38,
+                "p": 0.9916430711746216
+              },
+              {
+                "w": "video.",
+                "s": 44.38,
+                "e": 44.62,
+                "p": 0.9987694621086121
+              }
+            ],
+            "dauer_s": 44.9493125,
+            "sprache": "en"
+          },
+          "roh_key": "4d7e7e741af9423348d0f7cf4f026bd55c5348a6dd52d06319f9101049b3aad9",
+          "wiederverwendet": true,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "3bb1ab9a97b3e770e8896ad391417113bbca21113840406291f506f72b8f8585",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 15,
+          "motive": 15,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "3bb1ab9a97b3e770e8896ad391417113bbca21113840406291f506f72b8f8585",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Eine bemalte Illustration zeigt einen Mann mit Brille und schwarzer Jacke vor einem Laptop in einer belebten Straßenkulisse bei Dämmerung.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Programmierer an einem Laptop in einer städtischen Umgebung, aber weder die in der Narration erwähnte zustandslose API noch ein erklärendes Beispiel dazu sind erkennbar.",
+              "erforderliches_bild": "Ein Diagramm oder eine Code-Visualisierung, die zeigt, wie eine AI-API bei jedem Aufruf einen neuen Zustand startet oder den Gesprächsverlauf als JSON-Array überträgt."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Interface mit der Überschrift 'HARNESS-ENGINEERING-101' und dem Bereich 'CITED SOURCE', der 'BOOK ANSWERS' und 'TOY PYTHON AGENT' mit grünen Haken auflistet.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbaren zitierten Quellen 'Book Answers' und 'Toy Python Agent' passen direkt zur gesprochenen Erwähnung des Buches und des Toy Python Agents.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein grafisches Diagramm zeigt eine Anwendung (APP) verbunden mit drei Datenbank-Symbolen, dazu Beschriftungen 'API' und 'MODEL API IS STATELESS'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Diagramm zeigt anschaulich das Konzept der zustandslosen Modell-API ('Model API is stateless'), was direkt zur gesprochenen Aussage passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Vorschaubild eines GitHub-Repositories mit dem Titel IsuruMaduranga/harness-engineering-101",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen.",
+              "erforderliches_bild": "Eine Bildschirmaufnahme, die das tatsächliche JSON-Array zeigt, welches bei jedem Zug gesendet wird."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Screenshot mit dem Text 'HARNESS-ENGINEERING-101' und drei Kasten-Elementen mit den Beschriftungen 'HARNESS BUILDS', 'MASTAINS' (hervorgehoben) und 'PROTECTS THAT ARRAY'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Textgrafik zeigt exakt die im gesprochenen Satz genannten Funktionen ('builds', 'maintains', 'protects that array') als Überschriften.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein textlicher Titelbildschirm mit den Überschriften 'HARNESS-ENGINEERING-101', 'LLM IS THE BRAIN' und 'HARNESS IS THE BODY'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt den genauen Wortlaut der Metapher 'LLM IS THE BRAIN' und 'HARNESS IS THE BODY', welche im gesprochenen Text vorkommt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Chat-Interface mit der Überschrift HARNESS-ENGINEERING-101, in dem eine Nachricht mit der Frage 'So why do agents need extras?' angezeigt wird und drei Punkte das Laden oder Warten signalisieren.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbare Chat-Oberfläche zeigt genau die im gesprochenen Text gestellte Frage 'So why do agents need extras?' als Nachricht an und passt somit direkt zum Einstieg in dieses Kapitel.",
+              "erforderliches_bild": "keines"
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein Bildschirm zeigt die Inschrift HARNESS-ENGINEERING-101 und den Satz BECAUE SOMETHING CONCRETE BROKE in einem grafischen Rahmen vor dunklem Hintergrund.",
+              "note": 5,
+              "passt": false,
+              "grund": "Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch.",
+              "erforderliches_bild": "Ein Bild, das ein konkretes gebrochenes System oder einen visualisierten Softwarefehler im Rahmen des Agenten-Harness zeigt."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein dunkelblauer Bildschirm zeigt den Text 'HARNESS-ENGINEERING-101' gefolgt von 'EVERY CHAPTER COVERS FAILURE' und einer Box mit der Aufschrift 'LLM BILL', 'INPUT TOKENS x PRICE', 'OUTPUT TOKENS x PRICE', '= PAY PER TOKEN', sowie einem orangenen Button mit abgeschnittenem Text unten.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell den Titel und thematischen Inhalt des Buches bzw. Kapitels zu Fehlern und Kosten (LLM Bill), was zum gesprochenen Inhalt 'Every chapter covers failure, patch, cost' passt.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein Terminal- oder Code-Fenster mit der Aufschrift PYTHON und der Angabe '300 LINES' darunter, zusammen mit bunten Code-Zeilen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen Code-Editor mit farbigen Zeilen und der passenden Angabe von 300 Zeilen, was direkt zum Text über den '300-line toy agent in plain Python' passt.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da der Code und die Linienanzahl visuell dargestellt werden."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein Bildschirm zeigt den Titel \"HARNESS-ENGINEERING-101\" gefolgt von den hervorgehobenen Texten \"COMPLETE TOY HARNESS\" und \"ANNOTATED\".",
+              "note": 8,
+              "passt": true,
+              "grund": "Der Text auf dem Bildschirm zeigt genau den im gesprochenen Text erwähnten \"complete toy harness, annotated\".",
+              "erforderliches_bild": "Nicht erforderlich."
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein Warnschild mit einem Ausrufezeichen und dem Text CATCH: THE LICENSES DIFFER.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das eingeblendete Bild zeigt exakt den Text zur Warnung bzgl. der unterschiedlichen Lizenzen aus der Tonspur.",
+              "erforderliches_bild": "Nicht erforderlich"
+            },
+            {
+              "index": 12,
+              "gesehen": "Ein Terminalfenster oder Editor mit der Aufschrift MIT und Code-Zeilen",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Video zeigt die MIT-Lizenzbezeichnung im Code-Fenster passend zur Erwähnung der MIT-Lizenz des Codes im gesprochenen Text.",
+              "erforderliches_bild": "Nicht erforderlich"
+            },
+            {
+              "index": 13,
+              "gesehen": "Ein Bildschirm zeigt Texttitel 'HARNESS-ENGINEERING-101' und darüber in Textboxen 'START ISN'T A FLAW' sowie 'HARNESS BUILDS THE ARRAY'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der sichtbare Text zeigt genau den gesprochenen Satz über den Start und das Erstellen des Arrays durch den Harness.",
+              "erforderliches_bild": "notwendig"
+            },
+            {
+              "index": 14,
+              "gesehen": "Ein digital gemalter Mann mit Sonnenbrille vor einer Skyline bei Sonnenuntergang und eine Sprechblase mit Text über das Liken und Teilen eines Videos.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Sprechblase fordert zum Liken, Teilen und Speichern auf, was genau der gesprochenen Aufforderung entspricht.",
+              "erforderliches_bild": "Sprechblase oder Bild von Social-Media-Interaktionen"
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Programmierer an einem Laptop in einer städtischen Umgebung, aber weder die in der Narration erwähnte zustandslose API noch ein erklärendes Beispiel dazu sind erkennbar.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (5/10): Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 15,
+          "ausgenommen": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "3bb1ab9a97b3e770e8896ad391417113bbca21113840406291f506f72b8f8585",
+        "prompt_version": "2026-10-18.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

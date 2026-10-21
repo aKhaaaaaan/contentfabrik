@@ -69244,6 +69244,60 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "39612435386.1:business-origin-stories",
+      "run_id": "39612435386",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-21T14:05:47.078438+00:00",
+      "ereignis": "schedule",
+      "commit": "fcf321a167a67ff77f221eb7ed1bf67e27ac0baa",
+      "produktionsversion": "e9295a8615197851df5a03fefca58b09618c6d3284fe433b51a768710d358bf9",
+      "videoformat": "short",
+      "thema": null,
+      "titel": null,
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "39612435386",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-21",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "anbieterpause",
+            "exitcode": 4,
+            "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq-Minutenreserve passt nicht in die verbleibende Frist",
+            "sekunden": 459.6
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "Anthropic: 7.59 Punkte - YouTube-Ausreisser 28.1x Kanalschnitt, Hacker News 172 Punkte",
+        "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq-Minutenreserve passt nicht in die verbleibende Frist",
+        "sekunden": 459.7
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": null
     }
   ]
 }

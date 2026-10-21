@@ -420,6 +420,8 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                     # Nutzerwunsch 21.10.2026: „Wenn kostenloses Kontingent fehlt, soll es das auch sagen."
                     # Der Rohgrund (z. B. HTTP 429 / Sperrfrist) allein war fuer ihn nicht als Kontingent lesbar.
                     letzter_grund = 'Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): ' + letzter_grund
+                    if os.environ.get('CF_RESERVE_AUS') == '1':
+                        letzter_grund += ' - kostenpflichtig weiter mit „start ki bezahlt" bzw. „start business bezahlt"'
                 print(f'Versuch {versuch}: {letzter_grund}')
                 runde['status'] = 'skriptfehler'
                 runde.update(exitcode=r, grund=letzter_grund)

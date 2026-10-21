@@ -163,6 +163,11 @@ def reserve_schluessel():
     15.10.2026 in AI Studio nachgesehen: Das Rechnungskonto hat bereits ein kostenpflichtiges Projekt
     "contentfabrik-stimme" (GEMINI_TTS_API_KEY, Abrechnung am Monatsende, 0,44 EUR im Oktober).
     """
+    # Nutzerentscheidung 21.10.2026: Zusatzvideos per Handstart nur mit „start ki bezahlt" kostenpflichtig -
+    # video.yml setzt CF_RESERVE_AUS=1 fuer Handstarts ohne „bezahlt". Das taegliche Zeitplanvideo behaelt
+    # die Reserve. Die Stimme (stimme_gemini, eigener Schluessel) ist davon nicht betroffen.
+    if os.environ.get('CF_RESERVE_AUS') == '1':
+        return None
     frei = os.environ.get('GEMINI_API_KEY', '')
     for name in ('GEMINI_API_KEY_RESERVE', 'GEMINI_TTS_API_KEY'):
         wert = os.environ.get(name, '').strip()

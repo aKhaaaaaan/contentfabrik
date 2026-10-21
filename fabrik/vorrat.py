@@ -72,6 +72,15 @@ def gueltig(eintrag, daten, jetzt=None):
         return False
 
 
+def wiederholung(kanal, eintrag):
+    """Frei gewaehltes Skript zu einem schon gelieferten Thema (GEMESSEN 21.10.2026: Ford zum zweiten Mal,
+    zuerst 18.10. - Claude bekommt die frueheren Themen nur als Bitte)."""
+    if eintrag.get('thema_eingabe'):
+        return False  # ausdrueckliches Nutzer-/Trendthema entscheidet selbst
+    import themen
+    return themen.schon_geliefert(kanal, (eintrag.get('skript') or {}).get('thema')) is True
+
+
 def bereit(kanal_pfad):
     """thema_eingabe des aeltesten nutzbaren Vorratsskripts ('' = frei gewaehlt) oder None.
 
@@ -93,7 +102,7 @@ def bereit(kanal_pfad):
     # Ein Zuschauer-Trendskript vor einem frei gewaehlten (GitHub-Neuheit) bauen, auch wenn es juenger ist.
     for _, e in sorted(eintraege(kanal), key=lambda x: (x[1].get('thema_eingabe') or '') not in trend):
         thema = e.get('thema_eingabe') or ''
-        if not gueltig(e, daten) or (thema and thema not in offen):
+        if not gueltig(e, daten) or (thema and thema not in offen) or wiederholung(kanal, e):
             continue
         if not thema and daten.get('nur_quellen'):
             import trends
@@ -113,7 +122,7 @@ def nehmen(kanal_pfad, thema=''):
     kanal = Path(kanal_pfad).stem
     daten = _kanal_daten(kanal_pfad)
     for pfad, e in eintraege(kanal):
-        if (e.get('thema_eingabe') or '') == (thema or '') and gueltig(e, daten):
+        if (e.get('thema_eingabe') or '') == (thema or '') and gueltig(e, daten) and not wiederholung(kanal, e):
             import trends
             if not thema and daten.get('nur_quellen') and trends.bereits_gezeigte_quellen(kanal, e['skript']):
                 print('Vorrat uebersprungen: Quelle bereits gesendet:', e['skript'].get('thema'))
@@ -142,6 +151,9 @@ def aufraeumen(kanal_pfad):
     for pfad, e in eintraege(kanal):
         if not gueltig(e, daten):
             print('Vorrat: abgelaufen/ungueltig entfernt:', pfad.name)
+            pfad.unlink(missing_ok=True)
+        elif wiederholung(kanal, e):
+            print('Vorrat: Thema schon geliefert, entfernt:', pfad.name)
             pfad.unlink(missing_ok=True)
     # GEMESSEN 14.10.2026: Verbrauchte Eintraege blockierten das Nachfuellen. Yahoo stand nicht
     # mehr in der Warteschlange (nie nutzbar, Enron bekam kein Skript); das gesendete Floe Guard
@@ -228,6 +240,9 @@ def fuellen(kanal_pfad, frist_s=1500):
         if not gueltig(e, _kanal_daten(kanal_pfad)):
             print('Vorrat: Pruefungen nicht bestanden - nicht aufgenommen')
             continue
+        if wiederholung(kanal, e):
+            print('Vorrat: Thema schon geliefert - nicht aufgenommen:', s.get('thema'))
+            break  # frei gewaehlt: naechster Lauf waehlt neu
         kennung = hashlib.sha256((thema or s.get('thema', '')).encode()).hexdigest()[:12]
         name = re.sub(r'[^a-z0-9]+', '-', (s.get('thema') or 'skript').lower())[:40].strip('-')
         (ORDNER / kanal).mkdir(parents=True, exist_ok=True)

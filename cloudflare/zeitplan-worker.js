@@ -20,7 +20,7 @@
 //   Befehle: Start | Start Business | Start KI | Status (Gesamtfortschritt in %) | Abholen
 
 const REPO = 'aKhaaaaaan/contentfabrik';
-const VERSION = '2026-10-21.1';
+const VERSION = '2026-10-21.2';
 // Zusammengefasste Stunden sparen Trigger: Workers Free hat fuenf pro Konto.
 const VIDEO_CRONS = new Set(['23 8,13 * * *', '41 10,15 * * *',
   '23 8 * * *', '41 10 * * *', '23 13 * * *', '41 15 * * *']);
@@ -41,7 +41,12 @@ async function starte(env, workflow, inputs) {
   if (!status.ok) throw new Error(`${workflow}: Statuspruefung fehlgeschlagen (HTTP ${status.status})`);
   const daten = await status.json();
   if (!Array.isArray(daten.workflow_runs)) throw new Error(`${workflow}: Statusantwort ungueltig`);
-  if (daten.workflow_runs.some(r => ['queued', 'pending', 'in_progress', 'waiting', 'requested'].includes(r.status))) {
+  // GEMESSEN 21.10.2026: themen.yml-Lauf 39462950781 (20.10. 17:05 UTC) hing 16 h in "queued" ohne Runner -
+  // jeder 5-Min.-Start meldete "bereits aktiv", Telegram-Klicks (TikTok-Knopf) wurden nicht mehr abgeholt.
+  // Ein Lauf, der laenger als 60 Min. wartet, gilt als haengend und blockiert nicht mehr.
+  const wartet = (r) => ['queued', 'pending', 'waiting', 'requested'].includes(r.status);
+  const haengt = (r) => wartet(r) && Date.now() - Date.parse(r.created_at) > 60 * 60 * 1000;
+  if (daten.workflow_runs.some(r => (r.status === 'in_progress' || wartet(r)) && !haengt(r))) {
     return `${workflow}: bereits aktiv oder wartet; kein Doppelstart`;
   }
   const r = await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/${workflow}/dispatches`, {

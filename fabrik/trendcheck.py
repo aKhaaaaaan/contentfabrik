@@ -314,7 +314,18 @@ def bewerten(liste, google_liste, heute=None, kanal='', hn_liste=()):
         k['google'] = google_treffer(k['begriff'], google_liste)
         k['hn'] = hn_treffer(k['begriff'], hn_liste)
         k['punkte'] = punkte(k['youtube'], k['wiki'], bool(k['google']), k['eigen'], k['hn'])
-    return sorted(liste, key=lambda k: -k['punkte'])
+    # Nutzerentscheidung 21.10.2026: „Bei Trend erst YouTube-Trends, wenn da nichts ist, dann Google Trends."
+    # Vorher zaehlte die Punktsumme - ein Google-Treffer (4 Punkte) schlug einen 10x-YouTube-Ausreisser (3,3).
+    for k in liste:
+        k['stufe'] = stufe(k)
+    return sorted(liste, key=lambda k: (k['stufe'], -k['punkte']))
+
+
+def stufe(k):
+    """0 = echter YouTube-Trend, 1 = nur Google Trends, 2 = Rest (Wikipedia, Hacker News, Titelvorlage)."""
+    if punkte(k.get('youtube')) >= SCHWELLE:
+        return 0
+    return 1 if k.get('google') else 2
 
 
 def entscheiden(bewertet):

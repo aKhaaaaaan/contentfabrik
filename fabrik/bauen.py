@@ -1691,6 +1691,7 @@ def main(skript_pfad, aus, vorlage=None):
     quellen, schon, liste, hg_clip = [], set(), [], None
     benutzte_fotos = set()
     benutzte_demos = set()
+    benutzte_abschnitte = set()  # seitenbild: jeder Absatz der Quellseite hoechstens einmal
     # Beanstandetes Material beim erneuten Auswaehlen ausschliessen.
     if cache:
         for e in cache.get('stuecke', {}).values():
@@ -1805,8 +1806,18 @@ def main(skript_pfad, aus, vorlage=None):
                 if re.match(r'https?://(github\.com|huggingface\.co)/', t.get('quelle_url') or ''):
                     modus = 'demo'
                 else:
-                    t, modus = dict(t, grafik_typ='erklaerung'), 'grafik'
-            foto, fq = ((None, None) if karte or modus in ('stock', 'illustration', 'demo', 'figur', 'grafik', 'asset')
+                    # Nutzer 21.10.2026: gemalt/Grafik nur, wenn es keinen echten Screenshot gibt. Der passende
+                    # Absatz der offiziellen Quellseite, gelb markiert (seitenbild.py) - sonst die Erklaergrafik.
+                    import seitenbild
+                    seite_bild, seite_q = seitenbild.aufnehmen(t.get('quelle_url'), t['text'],
+                                                               aus / f'seite_{i:02d}.jpg', benutzte_abschnitte)
+                    if seite_bild and motiv_ok(seite_bild):
+                        modus = 'seite'
+                        print(f'Einstellung {i}: Screenshot der Quellseite ({seite_q["abschnitt"][:60]})')
+                    else:
+                        t, modus = dict(t, grafik_typ='erklaerung'), 'grafik'
+            foto, fq = ((seite_bild, seite_q) if modus == 'seite' else
+                        (None, None) if karte or modus in ('stock', 'illustration', 'demo', 'figur', 'grafik', 'asset')
                         else foto_fuer(s.get('bilder') or [], t['text'] + ' Visual: ' + t.get('szene', ''), benutzte_fotos))
             if modus == 'demo' and re.match(r'https?://(github\.com|huggingface\.co)/', t.get('quelle_url') or ''):
                 import erklaergrafik

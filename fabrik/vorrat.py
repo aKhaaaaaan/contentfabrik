@@ -150,6 +150,11 @@ def aufraeumen(kanal_pfad):
         import themen
         offen = {x['thema'] for x in themen.laden() if x.get('kanal') == kanal
                  and x.get('status', 'bereit') in ('bereit', 'recherche')}
+        # GEMESSEN 21.10.2026 (Lauf 39547556512): Das Zuschauer-Trendthema steht in keiner Warteschlange -
+        # der 05:05-Lauf loeschte das gepruefte Gemini-Skript (Story 8) von 01:05 und schrieb neu: Story 5,
+        # gesperrt. bereit() kennt diese Themen schon, aufraeumen() muss dieselben behalten.
+        import trendcheck
+        offen |= trendcheck.zuschauer_themen_der_tage(kanal, MAX_TAGE_STANDARD)
     except Exception as fehler:
         print('Vorrat: Warteschlange nicht lesbar, nichts entfernt:', type(fehler).__name__)
         return

@@ -69173,6 +69173,77 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "39607605083.1:business-origin-stories",
+      "run_id": "39607605083",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-21T13:36:18.699199+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "522b21aebf9ba686463b0a4e2709e43e5c2d8649",
+      "produktionsversion": "e9295a8615197851df5a03fefca58b09618c6d3284fe433b51a768710d358bf9",
+      "videoformat": "short",
+      "thema": "The founding of the Lego Group and Ole Kirk Christiansen's shift from wooden toys to plastic bricks",
+      "titel": [
+        "The Carpenter's Toy",
+        "How *Lego* Conquered Plastic"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Skript-hook 6/10 unter 7/10",
+        "Skript-spannung 6/10 unter 7/10",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "39607605083",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-21",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sekunden": 182.0
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "zeitbudget",
+            "phase": "Skript",
+            "sekunden": 480.0
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "Anthropic: 7.59 Punkte - YouTube-Ausreisser 28.1x Kanalschnitt, Hacker News 172 Punkte",
+        "grund": "Skript-Zeitlimit erreicht (Arbeiter beendet)",
+        "sekunden": 662.1,
+        "upload_titel": "The Carpenter's Toy: How Lego Conquered Plastic"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

@@ -192,6 +192,25 @@ def ist_feedback(text):
     return bool(machart and (anweisung or wertung))
 
 
+WORKER = 'https://contentfabrik-zeitplan.taktgeber.workers.dev'
+
+
+def _geheimnis(zweck):
+    """Wie vbGeheimnis im Worker: aus dem Videobot-Token abgeleitet, kein zusaetzliches Secret."""
+    import hashlib
+    token = re.sub(r'\s+', '', os.environ['TELEGRAM_BOT_TOKEN'].strip())
+    return hashlib.sha256(f'cf-{zweck}:{re.sub(r"^bot", "", token, flags=re.I)}'.encode()).hexdigest()[:48]
+
+
+def webhook_abholen():
+    req = urllib.request.Request(WORKER + '/videobot/abholen', headers={
+        'X-Abholer': _geheimnis('abholen'), 'User-Agent': 'contentfabrik-themen'})
+    d = json.load(urllib.request.urlopen(req, timeout=30))
+    if d.get('ok') is not True or not isinstance(d.get('result'), list):
+        raise RuntimeError('Videobot-Eingang im Worker nicht lesbar')
+    return [u for u in d['result'] if isinstance(u, dict) and isinstance(u.get('update_id'), int)]
+
+
 def telegram_laden():
     return json.loads(TELEGRAM.read_text(encoding='utf-8')) if TELEGRAM.exists() else {
         'offset': 0, 'bestaetigungen': []}
@@ -242,12 +261,21 @@ def abholen():
     # Dieser Offset stammt aus dem gesicherten Repository. Neue Nachrichten
     # erst nach Git-Push bestaetigen, damit ein Pushfehler keine Ideen verliert.
     # callback_query ausdruecklich anfordern: ein frueher gesetzter Filter bliebe sonst bestehen.
-    antwort = _tg('getUpdates', offset=zustand['offset'], limit=100,
-                  allowed_updates=json.dumps(['message', 'callback_query']))
-    if antwort.get('ok') is False:
-        raise RuntimeError('Telegram-Eingang abgelehnt')
-    updates = antwort.get('result', [])
+    webhook = bool(zustand.get('webhook'))
+    if webhook:
+        # 21.10.2026: Telegram liefert per Webhook an den Cloudflare-Worker (kein Klick geht mehr an einen
+        # fremden getUpdates-Abholer verloren); hier nur die noch nicht verarbeiteten abholen.
+        erledigt = set(zustand.get('erledigt', []))
+        updates = [u for u in webhook_abholen() if u['update_id'] not in erledigt
+                   and u['update_id'] >= zustand.get('webhook_ab', 0)]
+    else:
+        antwort = _tg('getUpdates', offset=zustand['offset'], limit=100,
+                      allowed_updates=json.dumps(['message', 'callback_query']))
+        if antwort.get('ok') is False:
+            raise RuntimeError('Telegram-Eingang abgelehnt')
+        updates = antwort.get('result', [])
     eingang_protokollieren(zustand, updates)
+    zustand['erledigt'] = (zustand.get('erledigt', []) + [u['update_id'] for u in updates])[-1000:]
     liste = laden()
     def merken(update, text):
         zustand['bestaetigungen'].append({'update_id': update, 'text': text})
@@ -268,9 +296,9 @@ def abholen():
             merken(e['update_id'], bewertung.knopf(e['update_id'], cb))
     zustand['wartende_tiktok_klicks'] = wartende
     for u in updates:
-        if u['update_id'] < zustand['offset']:
+        if u['update_id'] < zustand['offset'] and not webhook:
             continue
-        zustand['offset'] = u['update_id'] + 1
+        zustand['offset'] = max(zustand['offset'], u['update_id'] + 1)
         import bewertung
         cb = u.get('callback_query')
         if cb:
@@ -400,7 +428,9 @@ def bestaetigen():
             if _tg('sendMessage', chat_id=chat, text=nachricht['text']).get('ok') is not True:
                 raise RuntimeError('Telegram-Bestaetigung abgelehnt')
             zustand['bestaetigungen'].pop(0)
-        if _tg('getUpdates', offset=zustand['offset'], limit=1).get('ok') is not True:
+        # Im Webhook-Betrieb gibt es nichts zu bestaetigen (getUpdates waere dort 409); der Worker-Speicher
+        # laeuft nach 7 Tagen ab, verarbeitete Nummern stehen in zustand['erledigt'].
+        if not zustand.get('webhook') and _tg('getUpdates', offset=zustand['offset'], limit=1).get('ok') is not True:
             raise RuntimeError('Telegram-Lesebestaetigung abgelehnt')
     finally:
         telegram_speichern(zustand)

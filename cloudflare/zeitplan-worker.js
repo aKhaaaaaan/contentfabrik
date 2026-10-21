@@ -20,7 +20,7 @@
 //   Befehle: Start | Start Business | Start KI | Status (Gesamtfortschritt in %) | Abholen
 
 const REPO = 'aKhaaaaaan/contentfabrik';
-const VERSION = '2026-10-21.2';
+const VERSION = '2026-10-21.3';
 // Zusammengefasste Stunden sparen Trigger: Workers Free hat fuenf pro Konto.
 const VIDEO_CRONS = new Set(['23 8,13 * * *', '41 10,15 * * *',
   '23 8 * * *', '41 10 * * *', '23 13 * * *', '41 15 * * *']);
@@ -232,6 +232,54 @@ export async function befehl(env, text) {
     'Weitere Videos laufen, solange das kostenlose Kontingent reicht; sonst kommt eine Meldung mit dem Grund.';
 }
 
+// ---- Videobot-Eingang (Webhook) -------------------------------------------------
+// GEMESSEN 21.10.2026: TikTok-Klicks gingen dreimal verloren - sie lagen bei Telegram (getUpdates zeigte
+// tu:d4c7f17bcc706f1b:ok) und waren Minuten spaeter weg, ohne dass themen.py sie bekam; ein zweiter,
+// unbekannter getUpdates-Abholer ist die einzige Erklaerung. Mit Webhook liefert Telegram jede Aktualisierung
+// genau hierher (ein anderer getUpdates-Aufruf bekommt 409); themen.py holt sie aus dem KV-Speicher ab.
+// Ausserdem startet ein Knopfdruck die Abholung sofort statt nach bis zu 5 Minuten.
+const vbToken = (env) => String(env.TG_VIDEO_TOKEN || '').trim().replace(/^bot/i, '').replace(/\s+/g, '');
+const VB_TTL_S = 7 * 86400;
+
+async function vbGeheimnis(env, zweck) {
+  const h = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(`cf-${zweck}:` + vbToken(env)));
+  return [...new Uint8Array(h)].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 48);
+}
+
+async function videobotEingang(request, env) {
+  if (!env.ZUSTAND || !vbToken(env)
+      || request.headers.get('X-Telegram-Bot-Api-Secret-Token') !== await vbGeheimnis(env, 'video')) {
+    return new Response('verboten', { status: 403 });
+  }
+  const update = await request.json().catch(() => null);
+  if (!update || !Number.isInteger(update.update_id)) return new Response('ok');
+  await env.ZUSTAND.put('vb:' + String(update.update_id).padStart(12, '0'), JSON.stringify(update),
+    { expirationTtl: VB_TTL_S });
+  // Knopf oder Nachricht: Abholer gleich starten (laeuft er schon, holt er es beim naechsten Takt).
+  if (env.GH_TOKEN) {
+    try { await starte(env, 'themen.yml', { automatisch: 'true' }); } catch (e) { console.log('Abholer-Start:', e.message); }
+  }
+  return new Response('ok');
+}
+
+async function videobotAbholen(request, env) {
+  if (!env.ZUSTAND || !vbToken(env) || request.headers.get('X-Abholer') !== await vbGeheimnis(env, 'abholen')) {
+    return new Response('verboten', { status: 403 });
+  }
+  const updates = [];
+  let cursor;
+  do {
+    const seite = await env.ZUSTAND.list({ prefix: 'vb:', cursor });
+    for (const k of seite.keys) {
+      const wert = await env.ZUSTAND.get(k.name);
+      if (wert) updates.push(JSON.parse(wert));
+    }
+    cursor = seite.list_complete ? undefined : seite.cursor;
+  } while (cursor);
+  updates.sort((a, b) => a.update_id - b.update_id);
+  return Response.json({ ok: true, result: updates });
+}
+
 async function telegram(request, env) {
   if (!env.TG_BEFEHL_TOKEN || request.headers.get('X-Telegram-Bot-Api-Secret-Token') !== await geheimnis(env)) {
     return new Response('verboten', { status: 403 });
@@ -340,6 +388,8 @@ export default {
   async fetch(request, env = {}) {
     const pfad = request ? new URL(request.url).pathname : '/';
     if (pfad === '/telegram' && request.method === 'POST') return telegram(request, env);
+    if (pfad === '/videobot' && request.method === 'POST') return videobotEingang(request, env);
+    if (pfad === '/videobot/abholen') return videobotAbholen(request, env);
     if (pfad === '/kosten' && request.method === 'POST') return kosten(request, env);
     if (pfad === '/einrichten') return einrichten(request, env);
     return Response.json({ worker: 'contentfabrik-zeitplan', version: VERSION, repository: REPO,

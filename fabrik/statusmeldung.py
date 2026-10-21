@@ -81,13 +81,29 @@ def kein_start_text(stand):
     zeilen = []
     for s in stand:
         name = kanalname(s['kanal'])
-        if s['gesendet'] >= s['ziel']:
-            zeilen.append(f"• {name}: Tagesziel erreicht - heute schon {s['gesendet']} von {s['ziel']} Video(s) "
-                          'gesendet. Ein weiteres nur als Extra-Video mit deiner Zustimmung.')
+        # 21.10.2026: Handstarts sind nicht mehr ans Tagesziel gebunden - es bleiben Gratis-Kontingent und
+        # Zeitfenster (jedes gelieferte Video gibt ein neues frei, Fehlversuche nicht).
+        if s.get('gratis'):
+            zeilen.append(f"• {name}: nein - {s['gratis']}.")
         else:
-            zeilen.append(f"• {name}: Tages-Zeitbudget aufgebraucht ({s['verbraucht_min']} von "
-                          f"{s['grenze_min']} Min. verbraucht). Morgen ab 10:23 Uhr wieder.")
-    return ('ℹ️ Kein neues Video gestartet - kein Fehler, kein fehlendes Kontingent.\n' + '\n'.join(zeilen))[:3000]
+            zeilen.append(f"• {name}: Zeitfenster ohne neues Video aufgebraucht ({s['verbraucht_min']} von "
+                          f"{s['grenze_min']} Min. verbraucht, heute {s['gesendet']} Video(s) geliefert). "
+                          'Morgen ab 10:23 Uhr wieder.')
+    kopf = ('ℹ️ Kein neues Video gestartet - kostenloses Kontingent aufgebraucht. Kostenpflichtig trotzdem: '
+            '„start ki bezahlt" bzw. „start business bezahlt".' if any(s.get('gratis') for s in stand)
+            else 'ℹ️ Kein neues Video gestartet - kein Fehler.')
+    return (kopf + '\n' + '\n'.join(zeilen))[:3000]
+
+
+def gratis_stand():
+    """Nach einer Zustellung: „Heute noch ein Video kostenlos?" je Kanal (Nutzerwunsch 21.10.2026).
+    Darf die Zustellung nie stoeren - bei einem Fehler keine Zusatzmeldung."""
+    try:
+        import kontingent
+        return kontingent.nachricht(sorted(p.stem for p in Path('kanaele').glob('*.json')))
+    except Exception as fehler:
+        print('Kontingent-Stand nicht ermittelbar:', type(fehler).__name__)
+        return None
 
 
 def text(phase, env=None):
@@ -125,7 +141,7 @@ def text(phase, env=None):
         bericht = lesen(Path('ausgabe') / 'bericht.json')
         # Nur eine bestaetigte Videozustellung unterdrueckt die Fehlermeldung.
         if bericht.get('status') == 'gesendet' and e.get('PRODUKTION') == 'success':
-            return None
+            return gratis_stand()
         grund = e.get('GRUND') or fehlergrund()
         if bericht.get('status') == 'gesendet':
             return (f'⚠️ {titel}: Video zugestellt, aber Nachbereitung fehlgeschlagen.\n{url}')

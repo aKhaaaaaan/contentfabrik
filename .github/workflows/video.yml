@@ -29,6 +29,9 @@ on:
       thema:
         description: 'optional: festes Thema'
         default: ''
+      bezahlt:
+        description: 'ja = auch nach aufgebrauchtem Gratis-Kontingent starten (bezahltes Google-Projekt)'
+        default: ''
 # Video- und Themen-Laeufe teilen dieselben Dateien: alle Schreiblaeufe seriell.
 concurrency:
   group: contentfabrik-zustand
@@ -48,6 +51,9 @@ jobs:
       - id: offen
         env:
           EREIGNIS: ${{ github.event_name }}
+          # nur fuer die Kontohash-Zuordnung der gespeicherten Gemini-Sperren (kontingent.py), keine Anfrage
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          BEZAHLT: ${{ inputs.bezahlt }}
           EINGABE: ${{ inputs.kanal }}
           THEMA: ${{ inputs.thema }}
         run: |
@@ -65,6 +71,16 @@ jobs:
               return ziel + extra_videos(kanal, budget.heute())  # datumsgebundene Nutzerausnahme
           alle = sorted(p.stem for p in Path('kanaele').glob('*.json'))
           heute = budget.heute()
+          import datetime, kontingent, statusmeldung
+          # Handstart (Telegram „start" / GitHub) statt Zeitplan: Nutzerwunsch 21.10.2026 - weitere Videos,
+          # solange das kostenlose Kontingent reicht. Der Zeitplan bleibt beim Tagesziel.
+          hand = os.environ['EREIGNIS'] != 'schedule' and not statusmeldung.zeitplan_start(
+              datetime.datetime.now(datetime.timezone.utc))
+          # „start ki bezahlt": Nutzer hat nach der Gratis-Meldung ausdruecklich einen kostenpflichtigen Lauf
+          # gewaehlt - die Reserve (bezahltes Projekt, skript.reserve_schluessel) traegt dann die Anfragen.
+          gratis_weg = kontingent.gemini_frei() if hand and os.environ.get('BEZAHLT') != 'ja' else None
+          if gratis_weg:
+              print('Kostenloses Kontingent:', gratis_weg)
           # kanal=alle: Start durch den Cloudflare-Zeitplan (puenktlich) - gleiche Regel wie schedule
           if os.environ['EREIGNIS'] == 'schedule' or os.environ['EINGABE'] == 'alle':
               offen = []
@@ -72,8 +88,8 @@ jobs:
                   p = Path(f'verlauf/{k}.json')
                   v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
                   # nur GESENDETE Videos zaehlen - verworfene Versuche nicht
-                  if sum(themen.zaehlt_als_tagesvideo(k, e, heute) for e in v) < tagesziel(k) \
-                          and start_moeglich(k):
+                  if (sum(themen.zaehlt_als_tagesvideo(k, e, heute) for e in v) < tagesziel(k) or hand) \
+                          and not gratis_weg and start_moeglich(k):
                       offen.append(k)
           else:
               kanal = os.environ['EINGABE'] or 'business-origin-stories'
@@ -83,10 +99,10 @@ jobs:
               v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
               # Wiederholung eines schon gelieferten Themas zaehlt nicht als Tagesvideo (16.10.2026, Airbnb).
               gesendet = sum(themen.zaehlt_als_tagesvideo(kanal, e, heute) for e in v)
-              offen = [kanal] if gesendet < tagesziel(kanal) and start_moeglich(kanal, os.environ.get('THEMA', '')) else []
+              offen = [kanal] if (gesendet < tagesziel(kanal) or hand) and not gratis_weg \
+                  and start_moeglich(kanal, os.environ.get('THEMA', '')) else []
           print('Offen:', offen)
           # Stand je Kanal fuer die Meldung "kein neues Video gestartet" (Handstart, 20.10.2026)
-          import datetime, statusmeldung
           from lauf import tagesgrenze, BUDGET_S
           stand = []
           for k in (alle if os.environ['EINGABE'] == 'alle' or os.environ['EREIGNIS'] == 'schedule'
@@ -95,9 +111,7 @@ jobs:
               v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
               stand.append({'kanal': k, 'gesendet': sum(themen.zaehlt_als_tagesvideo(k, e, heute) for e in v),
                             'ziel': tagesziel(k), 'verbraucht_min': round(budget.laden(k)['sekunden'] / 60),
-                            'grenze_min': round(tagesgrenze(k, BUDGET_S) / 60)})
-          hand = os.environ['EREIGNIS'] != 'schedule' and not statusmeldung.zeitplan_start(
-              datetime.datetime.now(datetime.timezone.utc))
+                            'grenze_min': round(tagesgrenze(k, BUDGET_S) / 60), 'gratis': gratis_weg})
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
               f.write(f'stand={json.dumps(stand)}\n')
               f.write(f'hand={json.dumps(hand)}\n')
@@ -280,6 +294,7 @@ jobs:
           KANAL: ${{ matrix.kanal }}
           PRODUKTION: ${{ steps.produktion.outcome }}
           CF_ORIGINAL_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}  # Kontohash fuer „noch ein Gratis-Video?" (kontingent.py)
         run: python fabrik/statusmeldung.py tagesende
       - uses: actions/upload-artifact@v4
         if: always()

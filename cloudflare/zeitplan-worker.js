@@ -20,7 +20,7 @@
 //   Befehle: Start | Start Business | Start KI | Status (Gesamtfortschritt in %) | Abholen
 
 const REPO = 'aKhaaaaaan/contentfabrik';
-const VERSION = '2026-10-17.3';
+const VERSION = '2026-10-21.1';
 // Zusammengefasste Stunden sparen Trigger: Workers Free hat fuenf pro Konto.
 const VIDEO_CRONS = new Set(['23 8,13 * * *', '41 10,15 * * *',
   '23 8 * * *', '41 10 * * *', '23 13 * * *', '41 15 * * *']);
@@ -58,10 +58,23 @@ async function starte(env, workflow, inputs) {
 // Der Videobot holt Nachrichten nur alle 4 h ab (getUpdates); ein Webhook schliesst
 // getUpdates aus. Darum ein ZWEITER Bot nur fuer Befehle (Secret TG_BEFEHL_TOKEN).
 // Nur der eigene Chat (TG_CHAT_ID) darf starten; hoechstens START_MAX manuelle Laeufe/Tag.
-const START_MAX = 6;
+// 21.10.2026: Nutzer will weitere Videos, solange das Gratis-Kontingent reicht (Vorpruefung prueft es).
+// Vorher zaehlten die vier Zeitplanstarts (ebenfalls workflow_dispatch) mit - am 20.10. war 6 schon nach
+// zwei Handstarts erreicht. Jetzt nur Handstarts, Grenze 12 nur gegen versehentliches Dauerstarten.
+const START_MAX = 12;
+const zeitplanStart = (iso) => {
+  const d = new Date(iso);
+  const min = d.getUTCHours() * 60 + d.getUTCMinutes();
+  return [...VIDEO_CRONS].some((c) => {
+    const [m, hs] = c.split(' ');
+    return hs.split(',').some((h) => min - (Number(h) * 60 + Number(m)) >= 0 && min - (Number(h) * 60 + Number(m)) <= 10);
+  });
+};
 const KANAELE = { business: 'business-origin-stories', ki: 'ai-tools-explained', ai: 'ai-tools-explained' };
 const HILFE = 'Befehle:\nStart - beide Kanaele\nStart Business - nur Business Origin Stories\n' +
-  'Start KI - nur AI Tools Explained\nStatus - Fortschritt in Prozent\n' +
+  'Start KI - nur AI Tools Explained\n' +
+  'Start KI bezahlt / Start Business bezahlt - auch wenn das Gratis-Kontingent leer ist\n' +
+  'Status - Fortschritt in Prozent\n' +
   'Abholen - Feedback/Themen aus dem Videobot sofort verarbeiten\n\n' +
   'Feedback gibst du im Videobot: auf ein Video antworten oder „Feedback: ..." schreiben.';
 
@@ -198,18 +211,20 @@ export async function befehl(env, text) {
       : 'Abholung gestartet: Feedback, Themen, Skripte, Links und Bewertungen aus dem Videobot ' +
         'werden jetzt verarbeitet. Der Videobot bestaetigt in ca. 2-3 Minuten.';
   }
-  const m = t.match(/^start(?:\s+(business|ki|ai))?$/);
+  const m = t.match(/^start(?:\s+(business|ki|ai))?(\s+bezahlt)?$/);
   if (!m) return HILFE;
   const heute = new Date().toISOString().slice(0, 10);
-  const manuell = (await laeufe(env, `&event=workflow_dispatch&created=%3E%3D${heute}`)).length;
+  const manuell = (await laeufe(env, `&event=workflow_dispatch&created=%3E%3D${heute}`, 'video.yml', 50))
+    .filter((r) => !zeitplanStart(r.created_at)).length;
   if (manuell >= START_MAX) {
     return `Heute schon ${manuell} manuelle Laeufe - Grenze ${START_MAX} (spart Rechenzeit). Morgen geht es weiter.`;
   }
   const kanal = m[1] ? KANAELE[m[1]] : 'alle';
-  const ergebnis = await starte(env, 'video.yml', { kanal, thema: '' });
+  // 21.10.2026: „bezahlt" nur ausdruecklich nach der Gratis-Meldung - startet trotz leerem Gratis-Kontingent.
+  const ergebnis = await starte(env, 'video.yml', m[2] ? { kanal, thema: '', bezahlt: 'ja' } : { kanal, thema: '' });
   if (ergebnis.includes('bereits aktiv')) return 'Es laeuft gerade schon ein Videolauf - kein Doppelstart. Schreib „Status".';
-  return `Gestartet (${kanal}). Ergebnis in ca. 30-45 Minuten ueber den Videobot.\n` +
-    'Hat ein Kanal heute schon ein Video oder kein Tagesbudget mehr, ueberspringt ihn die Vorpruefung.';
+  return `Gestartet (${kanal}${m[2] ? ', kostenpflichtig erlaubt' : ''}). Ergebnis in ca. 30-45 Minuten ueber den Videobot.\n` +
+    'Weitere Videos laufen, solange das kostenlose Kontingent reicht; sonst kommt eine Meldung mit dem Grund.';
 }
 
 async function telegram(request, env) {

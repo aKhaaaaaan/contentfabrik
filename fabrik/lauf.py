@@ -58,8 +58,22 @@ NEUBAU_MIN_S = 600  # Kleine Restfenster nicht mit einem neuen Skript verbrauche
 PY = sys.executable
 
 
+def gesendet_heute(kanal):
+    """Heute zugestellte Shorts dieses Kanals (auch Wiederholungen - auch sie haben Zeit verbraucht)."""
+    try:
+        v = json.loads(Path(f'verlauf/{kanal}.json').read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return 0
+    return sum(1 for e in v if isinstance(e, dict) and e.get('datum') == str(budget.heute())
+               and e.get('status') == 'gesendet'
+               and (e.get('einstellungen') or {}).get('videoformat') != 'lang')
+
+
 def tagesgrenze(kanal, grenze):
-    return grenze + ZUSATZ_S.get((kanal, budget.heute()), 0)
+    # Nutzerwunsch 21.10.2026: weitere Videos per Handstart, solange das kostenlose Kontingent reicht.
+    # Jedes zugestellte Video gibt ein neues Zeitfenster frei; Fehlversuche nicht - ein haengender Fehler
+    # verbraucht so hoechstens ein Fenster. Automatische Starts begrenzt weiter das Tagesziel (video.yml).
+    return grenze * (1 + gesendet_heute(kanal)) + ZUSATZ_S.get((kanal, budget.heute()), 0)
 
 
 def start_moeglich(kanal, thema=''):

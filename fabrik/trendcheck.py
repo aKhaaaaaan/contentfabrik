@@ -130,7 +130,9 @@ def kandidaten(kanal, themen, mit_trendfirmen=True, google_liste=(), heute=None)
         bekannt = {a.get('wikipedia') for a in aus}
         for titel, aufrufe, _ in trends.firmen_im_trend()[:FREIE_KANDIDATEN * 2]:
             if titel not in bekannt and len([a for a in aus if not a['eigen']]) < FREIE_KANDIDATEN:
-                aus.append({'thema': '', 'begriff': titel, 'wikipedia': titel, 'eigen': False})
+                # 21.10.2026 Nutzer: Trend im Fokus, fuer jeden Kanal. Vorher thema '' (nur Vorschlag an den Autor;
+                # Claude nahm meist eine "klassische Marke" wie Boeing/Ford statt der Trendfirma).
+                aus.append({'thema': titel, 'begriff': titel, 'wikipedia': titel, 'eigen': False, 'trendfirma': True})
     einstellung = trendquellen(kanal)
     if mit_trendfirmen and einstellung:
         import trends
@@ -179,6 +181,8 @@ TREND_STANDARD = {'tage': 7, 'dauer': 'medium', 'pruefen': 3, 'min_aufrufe': 500
 # bekommt ein echtes Format-Ausreisser-Thema (ab FORMAT_FAKTOR x Kanalschnitt) Vorrang vor Neuheiten.
 FORMAT_FAKTOR = 2.0
 BONUS_FORMAT = 10.0  # Formattag: Vorrang sicher, auch vor einer 60x-Neuheit
+# GEMESSEN 21.10.2026: „ChatGPT | The Notice : A short film by Reema Kagti" (248x) wurde Thema "ChatGPT: ChatGPT".
+KEIN_WERKZEUG = re.compile(r'\b(?:short film|trailer|music video|official video|lyrics|full movie)\b', re.I)
 # GEMESSEN 19.10.2026: „OpenAI alerta PF apos identificar ameacas contra Lula no ChatGPT" bestand trends._englisch
 # (fast nur ASCII-Buchstaben). Ein englischer Titel enthaelt fast immer eines dieser Woerter.
 ENGLISCH = re.compile(r"\b(?:the|a|an|to|is|in|of|for|and|with|my|your|you|how|this|it|i|just|vs|what|why|can|new|"
@@ -233,8 +237,10 @@ def zuschauer_themen_der_tage(kanal, tage, heute=None):
             b = json.loads((ORDNER / f'{kanal}-{heute - datetime.timedelta(days=n)}.json').read_text(encoding='utf-8'))
         except (OSError, ValueError):
             continue
-        if b.get('zuschauer') and b.get('thema'):
+        if (b.get('zuschauer') or b.get('trend')) and b.get('thema'):
             aus.add(b['thema'])
+        # Nachtvorrat schreibt auch die naechsten Trendthemen (Zusatzvideos) - die bleiben ebenso gueltig.
+        aus |= {k['thema'] for k in b.get('kandidaten') or [] if k.get('thema') and stufe(k) <= 1}
     return aus
 
 
@@ -255,6 +261,7 @@ def zuschauer_themen(einstellung, gezeigt=(), google_liste=(), heute=None):
         p = name_im_text(v['titel'], namen)
         # GEMESSEN 19.10.: Spam („ChatGPT Premium gratis freischalten", 1.794 Aufrufe = 15.6x) lag vorn
         if p and englisch(v['titel']) and not trends.SPAM_VIDEO.search(v['titel']) \
+                and not KEIN_WERKZEUG.search(v['titel']) \
                 and (v.get('aufrufe') or 0) >= e['min_aufrufe']:
             art = trends.format_art(v['titel'])
             titel = trends.ohne_betraege(v['titel']) if art == 'geld' else v['titel']
@@ -334,10 +341,49 @@ def entscheiden(bewertet):
     if not any(k.get('youtube') or k.get('wiki') or k.get('google') or k.get('hn') or k.get('vorlage')
                for k in bewertet):
         return None, 'kein Trendsignal abrufbar'
-    beste = bewertet[0]
-    if beste['punkte'] - (BONUS_EIGEN if beste['eigen'] else 0) < SCHWELLE:
-        return '', 'kein Kandidat mit echtem Trendsignal - freie Trendwahl'
-    return beste['thema'], beschreibung(beste)
+    # 21.10.2026 Nutzer: „immer der Trend aus YouTube oder Google im Fokus" (alle Kanaele) - ohne solches
+    # Signal nur eigene Telegram-Themen oder die bewaehrte Titelvorlage; sonst freie Wahl.
+    for beste in bewertet:
+        if not beste.get('thema') or beste['punkte'] - (BONUS_EIGEN if beste['eigen'] else 0) < SCHWELLE:
+            continue
+        if not (beste['eigen'] or beste.get('vorlage') or stufe(beste) <= 1):
+            continue
+        if not beste['eigen'] and _wiederholung(beste.get('_kanal', ''), beste['thema']):
+            continue
+        return beste['thema'], beschreibung(beste)
+    return '', 'kein Kandidat mit echtem Trendsignal - freie Trendwahl'
+
+
+def _wiederholung(kanal, thema):
+    try:
+        import themen
+        return bool(kanal and themen.wiederholung_gesperrt(kanal, thema))
+    except Exception:
+        return False
+
+
+def trend_themen(kanal, heute=None):
+    """Noch nicht (60 Tage) gelieferte YouTube-/Google-Trendthemen des Tages, YouTube zuerst - fuer
+    Zusatzvideos und den Nachtvorrat (Nutzer 21.10.2026: „Harness Engineering 101 interessiert niemanden")."""
+    heute = heute or datetime.date.today()
+    try:
+        b = json.loads((ORDNER / f'{kanal}-{heute.isoformat()}.json').read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return []
+    aus = []
+    for k in sorted(b.get('kandidaten') or [], key=lambda k: (stufe(k), -(k.get('punkte') or 0))):
+        t = k.get('thema') or ''
+        if t and stufe(k) <= 1 and t not in aus and _taugt(k) and not _wiederholung(kanal, t):
+            aus.append(t)
+    return aus
+
+
+def _taugt(k):
+    """Kein leeres Thema ("ChatGPT: ChatGPT" aus einem Kurzfilm-Titel) - gilt auch fuer schon gespeicherte Berichte."""
+    produkt, _, rest = (k.get('thema') or '').partition(': ')
+    if rest and rest.strip().lower() == produkt.strip().lower():
+        return False
+    return not any(KEIN_WERKZEUG.search(b.get('titel') or '') for b in k.get('beispiele') or [])
 
 
 def beschreibung(k):
@@ -368,7 +414,7 @@ def waehlen(kanal, heute=None, themen=None):
         alt = json.loads(pfad.read_text(encoding='utf-8'))
         offen = {x['thema'] for x in themen.laden() if x['kanal'] == kanal}
         if not themen.gespraech_grund(alt['thema']) and (not alt['thema'] or alt['thema'] in offen
-                                                         or alt.get('zuschauer')):
+                                                         or alt.get('zuschauer') or alt.get('trend')):
             # Bereits erledigte Ideen und alte Fehlklassifikationen neu waehlen.
             return alt['thema'], alt
     except (OSError, ValueError, KeyError):
@@ -386,6 +432,8 @@ def waehlen(kanal, heute=None, themen=None):
         import trends
         bewertet = bewerten(liste, google_heute() if google_liste is None else google_liste, heute, kanal,
                             trends.hn_geschichten())
+        for x in bewertet:
+            x['_kanal'] = kanal
         thema, grund = entscheiden(bewertet)
     except Exception as e:  # nie den Tageslauf am Trend-Check scheitern lassen
         print('Trend-Check fehlgeschlagen:', type(e).__name__, str(e)[:120])
@@ -395,8 +443,9 @@ def waehlen(kanal, heute=None, themen=None):
         grund += ' - alte Reihenfolge der Warteschlange'
     bericht = {'datum': heute.isoformat(), 'thema': thema, 'grund': grund,
                'zuschauer': any(x.get('zuschauer') and x['thema'] == thema for x in bewertet),
+               'trend': any(x.get('thema') == thema and thema and x.get('stufe', 2) <= 1 for x in bewertet),
                'kandidaten': [{k: x.get(k) for k in ('thema', 'begriff', 'eigen', 'punkte', 'youtube', 'wiki',
-                                                     'google', 'hn', 'beispiele')} for x in bewertet]}
+                                                     'google', 'hn', 'beispiele', 'stufe')} for x in bewertet]}
     ORDNER.mkdir(parents=True, exist_ok=True)
     pfad.write_text(json.dumps(bericht, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
     print('Trend-Check:', grund)

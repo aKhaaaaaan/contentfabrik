@@ -202,6 +202,13 @@ def offene_themen(kanal):
         # diese Zeile schrieb der Nachtlauf frei gewaehlt (GitHub-Neuheit) und der Tageslauf nahm dieses Skript.
         if bericht and bericht.get('zuschauer') and bericht.get('thema') not in offen + list(vorhanden):
             offen.insert(0, bericht['thema'])
+        # Nutzer 21.10.2026: Trend im Fokus, auch fuer Zusatzvideos und alle Kanaele. Bester Trend zuerst,
+        # dann deine Telegram-Themen, dann die weiteren Trends - frei gewaehlt (GitHub/klassische Marke) nur,
+        # wenn nichts davon offen ist (fuellen() schreibt '' erst bei leerer Liste).
+        trends_offen = [t for t in trendcheck.trend_themen(kanal) if t not in offen and t not in vorhanden]
+        if trends_offen:
+            offen = ([trends_offen[0]] + offen + trends_offen[1:]) if not (bericht or {}).get('zuschauer') \
+                else (offen[:1] + trends_offen[:1] + offen[1:] + trends_offen[1:])
     except Exception as e:
         print('Trend-Reihenfolge nicht verfuegbar, Warteschlangen-Reihenfolge:', str(e)[:100])
     return offen

@@ -291,15 +291,36 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     if not thema and not entwurf:
         import vorrat
         vorrat_thema = vorrat.bereit(kanal_pfad)
-        if vorrat_thema is not None:
+        if vorrat_thema:
             # Ein fertig geprueftes Skript schlaegt einen neuen, ungeprueften Versuch (15.10.2026).
-            print(f'Geprueftes Vorrat-Skript bereit ({vorrat_thema or "frei gewaehlt"}) - Trend-Check uebersprungen')
+            print(f'Geprueftes Vorrat-Skript bereit ({vorrat_thema}) - Trend-Check uebersprungen')
             thema = vorrat_thema
-    if not thema and vorrat_thema is None:
+        elif vorrat_thema == '':
+            # Nutzer 21.10.2026: „Harness Engineering 101 interessiert niemanden" - ein frei gewaehltes
+            # Vorratsskript (GitHub-Neuheit/klassische Marke) nur, wenn es keinen offenen YouTube-/Google-Trend
+            # gibt; sonst das naechste noch nicht gelieferte Trendthema des Tages (alle Kanaele).
+            import trendcheck
+            gewaehlt, trend = trendcheck.waehlen(kanal, themen=themen)
+            offen_trend = trendcheck.trend_themen(kanal)
+            if offen_trend:
+                thema = offen_trend[0]
+                print(f'Trendthema statt frei gewaehltem Vorrat-Skript: {thema}')
+                if trend:
+                    os.environ['CF_TRENDGRUND'] = trend['grund'][:300]
+            else:
+                print('Kein offener YouTube-/Google-Trend - geprueftes frei gewaehltes Vorrat-Skript')
+            vorrat_thema = None if offen_trend else ''
+    if not thema and vorrat_thema is None and not trend:
         # GEMELDET 09.10.2026: Themen muessen aus Google Trends/YouTube-Viralem kommen.
         # Der Trend-Check waehlt unter Warteschlange + Trendfirmen; '' = freie Trendwahl.
         import trendcheck
         thema, trend = trendcheck.waehlen(kanal, themen=themen)
+        if thema and themen.schon_geliefert(kanal, thema) is True:
+            # Zusatzvideo am selben Tag: der Bericht des Tages nennt das schon gesendete Thema - naechster Trend.
+            offen_trend = trendcheck.trend_themen(kanal)
+            print(f'Trendthema {thema} heute schon geliefert - '
+                  + (f'naechstes: {offen_trend[0]}' if offen_trend else 'kein weiterer Trend, freie Wahl'))
+            thema = offen_trend[0] if offen_trend else ''
         if thema:
             print(f'Thema nach Trend-Check: {thema}')
         if trend and thema:

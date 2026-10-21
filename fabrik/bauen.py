@@ -635,8 +635,11 @@ def regel_text():
     return ('\nRules learned from earlier quality reviews: ' + ' | '.join(REGELN)) if REGELN else ''
 # Eigene, ehrliche Kennung. GEMESSEN: Pixabays Schutzdienst blockt die
 # Standard-Kennung „Python-urllib" (HTTP 403, Fehler 1010); mit Kennung: 200.
-KENNUNG = {'User-Agent': 'Contentfabrik/1.0 (privates Video-Tool)'}
-WIKI_KENNUNG = {'User-Agent': 'Contentfabrik/1.0 (private video tool; github.com/aKhaaaaaan)'}
+KENNUNG = {'User-Agent': 'Contentfabrik/1.0 (https://github.com/aKhaaaaaan/contentfabrik; privates Video-Tool)'}
+# GEMESSEN 21.10.2026: Wikimedia (Wikipedia-API, Commons) beantwortet jede Anfrage mit HTTP 429, wenn die
+# Kennung keine vollstaendige Kontaktadresse (https://...) enthaelt - Business-Skripte hatten "0 Quellen",
+# Story/Fakten fielen durch (Boeing, United, Lego). Richtlinie: meta.wikimedia.org/wiki/User-Agent_policy
+WIKI_KENNUNG = {'User-Agent': 'Contentfabrik/1.0 (https://github.com/aKhaaaaaan/contentfabrik; private video tool)'}
 
 
 # GEMESSEN 02.10.2026: Ein reiner Greenscreen-Clip landete als Hintergrund

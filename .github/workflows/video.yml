@@ -80,6 +80,8 @@ jobs:
           # „start ki bezahlt": Nutzer hat nach der Gratis-Meldung ausdruecklich einen kostenpflichtigen Lauf
           # gewaehlt - die Reserve (bezahltes Projekt, skript.reserve_schluessel) traegt dann die Anfragen.
           gratis_weg = kontingent.gemini_frei() if hand and os.environ.get('BEZAHLT') != 'ja' else None
+          if hand:
+              os.environ['CF_HANDSTART'] = '1'  # neues Zeitfenster je geliefertem Video nur fuer Handstarts (lauf.tagesgrenze)
           if gratis_weg:
               print('Kostenloses Kontingent:', gratis_weg)
           # kanal=alle: Start durch den Cloudflare-Zeitplan (puenktlich) - gleiche Regel wie schedule
@@ -216,6 +218,7 @@ jobs:
           # Nutzerentscheidung 21.10.2026: Handstart-Zusatzvideo ohne „bezahlt" -> keine bezahlte Gemini-Reserve
           # (skript.reserve_schluessel). Zeitplanvideo und „start ki bezahlt" behalten sie.
           CF_RESERVE_AUS: ${{ needs.vorpruefung.outputs.hand == 'true' && inputs.bezahlt != 'ja' && '1' || '' }}
+          CF_HANDSTART: ${{ needs.vorpruefung.outputs.hand == 'true' && '1' || '' }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}  # Zweitpruefer (fabrik/zweit.py)
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}  # Skript-Autor (fabrik/claude_ki.py)
           CLOUDFLARE_AI_TOKEN: ${{ secrets.CLOUDFLARE_AI_TOKEN }}  # Bilder (FLUX, Workers AI)

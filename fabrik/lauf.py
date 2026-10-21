@@ -73,7 +73,10 @@ def tagesgrenze(kanal, grenze):
     # Nutzerwunsch 21.10.2026: weitere Videos per Handstart, solange das kostenlose Kontingent reicht.
     # Jedes zugestellte Video gibt ein neues Zeitfenster frei; Fehlversuche nicht - ein haengender Fehler
     # verbraucht so hoechstens ein Fenster. Automatische Starts begrenzt weiter das Tagesziel (video.yml).
-    return grenze * (1 + gesendet_heute(kanal)) + ZUSATZ_S.get((kanal, budget.heute()), 0)
+    # GEMESSEN 21.10.2026: ohne diese Bedingung bekamen auch die Zeitplan-Ersatztermine ein neues Fenster -
+    # Business lief nach dem (wiederholten) Ford-Video viermal (4134 s), jedes Mal ohne Video.
+    fenster = 1 + gesendet_heute(kanal) if os.environ.get('CF_HANDSTART') == '1' else 1
+    return grenze * fenster + ZUSATZ_S.get((kanal, budget.heute()), 0)
 
 
 def start_moeglich(kanal, thema=''):

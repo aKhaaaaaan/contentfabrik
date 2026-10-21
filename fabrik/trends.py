@@ -17,8 +17,11 @@ from xml.etree import ElementTree
 
 UNGEEIGNET = re.compile(r'uncensored|abliterated|nsfw|porn|nude|lewd|hentai|jailbreak', re.I)
 # Wikimedia verlangt eine Kennung mit Kontaktweg
-WIKI_KENNUNG = {'User-Agent': 'Contentfabrik/1.0 (private video tool; github.com/aKhaaaaaan)'}
-KENNUNG = {'User-Agent': 'Contentfabrik/1.0 (privates Video-Tool)'}
+# GEMESSEN 21.10.2026: Wikimedia (Wikipedia-API, Commons) beantwortet jede Anfrage mit HTTP 429, wenn die
+# Kennung keine vollstaendige Kontaktadresse (https://...) enthaelt - Business-Skripte hatten "0 Quellen",
+# Story/Fakten fielen durch (Boeing, United, Lego). Richtlinie: meta.wikimedia.org/wiki/User-Agent_policy
+WIKI_KENNUNG = {'User-Agent': 'Contentfabrik/1.0 (https://github.com/aKhaaaaaan/contentfabrik; private video tool)'}
+KENNUNG = {'User-Agent': 'Contentfabrik/1.0 (https://github.com/aKhaaaaaan/contentfabrik; privates Video-Tool)'}
 
 
 def _hole(url, kopf=None, zeit=30):
@@ -619,6 +622,12 @@ def wikipedia(titel, grenze=7000):
             if nimm:
                 auswahl.append(teile[i].strip('= ') + ': ' + teile[i + 1])
         text = '\n'.join(auswahl)[:grenze]
+        # GEMESSEN 21.10.2026: Bei grossen Firmen steht die Geschichte in einem eigenen Artikel ("History of
+        # United Airlines") - der Hauptartikel lieferte nur 891 Zeichen, das Thema wurde verworfen.
+        if len(text) < 2000 and not seite['title'].startswith('History of '):
+            geschichte = wikipedia('History of ' + seite['title'], grenze)
+            if geschichte and len(geschichte['text']) > len(text):
+                return geschichte
         return {'quelle': 'Wikipedia', 'name': seite['title'], 'url': seite.get('fullurl', ''), 'text': text}
     except Exception as e:
         print('Wikipedia nicht verfuegbar:', titel, str(e)[:120])

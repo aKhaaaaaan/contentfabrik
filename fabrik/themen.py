@@ -211,6 +211,31 @@ def tiktok_zuordnung_fehlt(callback):
     return bewertung.video_zu((callback.get('message') or {}).get('message_id'), m[1]) is None
 
 
+PROTOKOLL_MAX = 150
+
+
+def eingang_protokollieren(zustand, updates, jetzt=None):
+    """Jede abgeholte Telegram-Aktualisierung und jede Nummernluecke festhalten (themen/telegram.json).
+
+    GEMESSEN 21.10.2026: TikTok-Klicks gingen dreimal verloren (Updates 950-953 lagen um 11:07 Uhr bei Telegram,
+    um 11:18 Uhr waren sie weg; spaeter fehlten 962-966 und 970-971) - ohne Protokoll war nicht zu sehen, ob
+    Telegram sie nie lieferte, ob sie ein anderer Abholer bekam oder ob der Code sie still verwarf."""
+    jetzt = (jetzt or datetime.datetime.now(datetime.timezone.utc)).isoformat(timespec='seconds')
+    log = zustand.setdefault('protokoll', [])
+    erwartet = zustand['offset']
+    for u in updates:
+        if u['update_id'] > erwartet:
+            log.append({'luecke': [erwartet, u['update_id'] - 1], 'zeit': jetzt})
+        cb = u.get('callback_query') or {}
+        m = u.get('message') or {}
+        art = ('knopf:' + str(cb.get('data', ''))[:40]) if cb else \
+            ('text' if m.get('text') else 'nachricht-ohne-text:' + ','.join(sorted(k for k in m if k not in (
+                'message_id', 'from', 'chat', 'date')))[:60]) if m else 'typ:' + ','.join(k for k in u if k != 'update_id')
+        log.append({'id': u['update_id'], 'art': art, 'zeit': jetzt})
+        erwartet = max(erwartet, u['update_id'] + 1)
+    del log[:-PROTOKOLL_MAX]
+
+
 def abholen():
     chat = str(os.environ['TELEGRAM_CHAT_ID'])
     zustand = telegram_laden()
@@ -222,6 +247,7 @@ def abholen():
     if antwort.get('ok') is False:
         raise RuntimeError('Telegram-Eingang abgelehnt')
     updates = antwort.get('result', [])
+    eingang_protokollieren(zustand, updates)
     liste = laden()
     def merken(update, text):
         zustand['bestaetigungen'].append({'update_id': update, 'text': text})

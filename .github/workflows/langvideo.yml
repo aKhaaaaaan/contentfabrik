@@ -8,10 +8,11 @@ env:
   PYTHONUNBUFFERED: '1'
 on:
   schedule:
-    # Samstag nach den Tages-Shorts (die starten 08:23 UTC und brauchen bis ~11 Uhr). Sonntag ist der
-    # Ersatztermin; die Vorpruefung startet nichts, wenn diese Woche schon ein Langvideo gesendet wurde.
+    # Nutzer 22.10.2026: zwei Tage vor dem Hochladen am Sonntagabend bauen - Freitag nach den Tages-Shorts
+    # (die starten 08:23 UTC und brauchen bis ~11 Uhr). Samstag ist der Ersatztermin; die Vorpruefung startet
+    # nichts, wenn schon ein Langvideo gesendet wurde (ABSTAND_TAGE).
+    - cron: '7 12 * * 5'
     - cron: '7 12 * * 6'
-    - cron: '7 12 * * 0'
   workflow_dispatch:
     inputs:
       thema:

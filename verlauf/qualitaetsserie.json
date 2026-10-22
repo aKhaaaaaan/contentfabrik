@@ -75632,6 +75632,1594 @@
       "bericht": {},
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "39836518647.1:business-origin-stories",
+      "run_id": "39836518647",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-22T20:00:00.727474+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "227cafa9b2f5383c2aee4fb5962215b653f9338e",
+      "produktionsversion": "63fd39d145f835b572185add81c90810e76f8005b1052c9a9aa131331a791773",
+      "videoformat": "short",
+      "thema": "Google",
+      "titel": [
+        "Google's *CEO* Ultimatum",
+        "Money Back Or New Boss"
+      ],
+      "status": "gesendet",
+      "video_sha256": "bfd7076af3eb13d1ff568cfbefa215a41518b7bc959848c6bea6fab1ecb8e487",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-18.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte erwähnen eine Bedrohung durch Investoren, und das Bild zeigt zwar eine Auseinandersetzung zwischen zwei Männern in einem Büro mit einem Google-Logo, es wird jedoch keine spezifische Finanz- oder Investorenverhandlung dargestellt.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Illustration zeigt einen Mann im Büro, jedoch wird keine Investition oder Finanzsumme visuell dargestellt.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die gezeigte Büroszene zeigt einen einzelnen Arbeiter am Computer, aber nicht die im Sprechtext genannten Personen Page und Brin oder den Vorgang des Ablehnens von Kandidaten.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Arbeiter mit einer Axt, während der Text von Vision und technischem Können spricht, ohne dass ein passender Zusammenhang erkennbar ist.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen sprechenden Mann in einem Büro, aber nicht die konkrete finanzielle Drohung von Michael Moritz gegenüber Google.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen sprechenden Mann in einem Büro, jedoch gibt es keinen visuellen Bezug zu John Doerr oder Eric Schmidt.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die Abbildung zeigt einen Handschlag zweier Personen, jedoch fehlt jeglicher konkreter Bezug zu Google, Eric Schmidt oder dem Jahr 2001.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen eine Drohung, einen CEO und einen Börsengang (IPO) im Jahr 2004, aber die Illustration zeigt lediglich zwei Männer und eine Glocke auf der Straße, was nicht zum Thema IPO oder einer Geldrückgabedrohung passt.",
+        "Offenes Problem (schwer): Die gesprochenen Worte erwähnen eine Bedrohung durch Investoren, und das Bild zeigt zwar eine Auseinandersetzung zwischen zwei Männern in einem Büro mit einem Google-Logo, es wird jedoch keine spezifische Finanz- oder Investorenverhandlung dargestellt. Korrektur: Eine Illustration, die einen Investor zeigt, der mit Dokumenten oder Geld drohend vor Firmengründern steht.",
+        "Offenes Problem (schwer): Die gezeigte Illustration zeigt einen Mann im Büro, jedoch wird keine Investition oder Finanzsumme visuell dargestellt. Korrektur: Eine Illustration, die eine Geldinvestition oder das Treffen von Investoren darstellt.",
+        "Offenes Problem (schwer): Die gezeigte Büroszene zeigt einen einzelnen Arbeiter am Computer, aber nicht die im Sprechtext genannten Personen Page und Brin oder den Vorgang des Ablehnens von Kandidaten. Korrektur: Eine Darstellung zweier Personen im Gespräch, die Dokumente oder Lebensläufe abweisen.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Arbeiter mit einer Axt, während der Text von Vision und technischem Können spricht, ohne dass ein passender Zusammenhang erkennbar ist. Korrektur: Eine Darstellung von Gründern bei der Auswahl oder Beurteilung von Kandidaten.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich einen sprechenden Mann in einem Büro, aber nicht die konkrete finanzielle Drohung von Michael Moritz gegenüber Google. Korrektur: Eine historische Darstellung eines Investors in einem Büro, der mit ernster Miene Geldmittel zurückfordert oder Verträge prüft.",
+        "Offenes Problem (schwer): Das Bild zeigt einen sprechenden Mann in einem Büro, jedoch gibt es keinen visuellen Bezug zu John Doerr oder Eric Schmidt. Korrektur: Ein Bild von John Doerr oder Eric Schmidt in einem geschäftlichen Kontext.",
+        "Offenes Problem (schwer): Die Abbildung zeigt einen Handschlag zweier Personen, jedoch fehlt jeglicher konkreter Bezug zu Google, Eric Schmidt oder dem Jahr 2001. Korrektur: Eine historische Illustration oder Darstellung, die Eric Schmidt oder eine entsprechende geschäftliche Verpflichtung im Jahr 2001 zeigt.",
+        "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen eine Drohung, einen CEO und einen Börsengang (IPO) im Jahr 2004, aber die Illustration zeigt lediglich zwei Männer und eine Glocke auf der Straße, was nicht zum Thema IPO oder einer Geldrückgabedrohung passt. Korrektur: Eine historische Illustration oder Darstellung, die auf symbolische Weise den Börsengang (IPO) oder das Einsetzen eines CEO bei Google im Jahr 2004 zeigt."
+      ],
+      "einstellungen": 12,
+      "unterschiedliche_motive": 12,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "39836518647",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-22",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 451.9,
+            "pruefung_s": 96.6,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 1/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt generische Geschäftsleute in einer Meetingszene, illustriert jedoch nicht die spezifische Frage nach der Rückforderung von Investorengeldern von Google.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (1/10): Das Bild zeigt einen stilisierten Mann vor einer Stadt und stellt weder die Investoren noch die Drohung oder Google dar.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eingeblendeten Text und Zahlen im Overlay-Stil, aber nicht das Investment von Sequoia oder einen konkreten Kontext zur gesprochenen Handlung.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Die Szene zeigt eine allgemeine Besprechung, aber nicht spezifisch das verhandelte Versprechen, einen CEO einzustellen.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Text zur Finanzierung und kein visuelles Material über das Ablehnen von Kandidaten durch Page und Brin.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine generische, künstlich erzeugte Diskussion vor einer leeren Tafel und ein Google-Logo, aber keinerlei Bezug zu 'ähnlicher Vision und Ingenieurskunst' oder den Gründern Page und Brin.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen generellen Geschäftsmann mit wütendem Gesichtsausdruck in einem Büro, stellt aber weder Michael Moritz noch die spezifische Drohung einer Geldrückforderung dar.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Die Abbildung zeigt eine Gruppe überraschter Personen im Büro, aber nicht John Doerr, der Eric Schmidt vorschlägt.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die Bildszene zeigt einen generellen Geschäftsmann in einem Büro, stellt jedoch weder Eric Schmidt noch eine Einstellung im Jahr 2001 dar.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt eine Feier- oder Toastszene in einer belebten Straße, die jedoch weder die Erwähnung des IPOs im Jahr 2004 noch den finanziellen Hintergrund oder einen CEO klar darstellt.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Mann in einem Anzug mit ausgebreiteten Armen auf einer Straße, was keinen direkten visuellen Bezug zur Bewertung eines IPOs über 23 Milliarden US-Dollar darstellt.",
+              "Offenes Problem (schwer): Die Abbildung zeigt generische Geschäftsleute in einer Meetingszene, illustriert jedoch nicht die spezifische Frage nach der Rückforderung von Investorengeldern von Google. Korrektur: Eine historische Illustration oder Darstellung von Investoren, die mit Gründern in einem Büro über Geldverhandlungen sprechen.",
+              "Offenes Problem (schwer): Das Bild zeigt einen stilisierten Mann vor einer Stadt und stellt weder die Investoren noch die Drohung oder Google dar. Korrektur: Eine historische Illustration, die einen Investor in einem Büro bei einer Geld- oder Vertragsforderung zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eingeblendeten Text und Zahlen im Overlay-Stil, aber nicht das Investment von Sequoia oder einen konkreten Kontext zur gesprochenen Handlung. Korrektur: Ein historisches Foto oder eine Dokumentation, die das Investment von Sequoia in Höhe von 12,5 Millionen Dollar visuell darstellt.",
+              "Offenes Problem (schwer): Die Szene zeigt eine allgemeine Besprechung, aber nicht spezifisch das verhandelte Versprechen, einen CEO einzustellen. Korrektur: Ein Dokument oder eine dramatisierte Szene, die die Verhandlung über die Einstellung eines CEOs zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt Text zur Finanzierung und kein visuelles Material über das Ablehnen von Kandidaten durch Page und Brin. Korrektur: Eine historische Darstellung oder Symbolfoto von zwei Personen, die eine Bewerbungsmappe oder Kandidatenliste ablehnen.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generische, künstlich erzeugte Diskussion vor einer leeren Tafel und ein Google-Logo, aber keinerlei Bezug zu 'ähnlicher Vision und Ingenieurskunst' oder den Gründern Page und Brin. Korrektur: Eine Illustration, die zwei Personen darstellt, die über technische Pläne, Code oder eine Produktvision diskutieren.",
+              "Offenes Problem (schwer): Das Bild zeigt einen generellen Geschäftsmann mit wütendem Gesichtsausdruck in einem Büro, stellt aber weder Michael Moritz noch die spezifische Drohung einer Geldrückforderung dar. Korrektur: Eine historische Illustration oder Darstellung des Investors Michael Moritz, wie er im Gespräch mit Google-Vertretern seine Forderungen stellt.",
+              "Offenes Problem (schwer): Die Abbildung zeigt eine Gruppe überraschter Personen im Büro, aber nicht John Doerr, der Eric Schmidt vorschlägt. Korrektur: Eine Darstellung von John Doerr, der Eric Schmidt als CEO vorschlägt.",
+              "Offenes Problem (schwer): Die Bildszene zeigt einen generellen Geschäftsmann in einem Büro, stellt jedoch weder Eric Schmidt noch eine Einstellung im Jahr 2001 dar. Korrektur: Eine Darstellung von Eric Schmidt im Jahr 2001 in einem professionellen oder geschäftlichen Kontext bei Google.",
+              "Offenes Problem (schwer): Die Abbildung zeigt eine Feier- oder Toastszene in einer belebten Straße, die jedoch weder die Erwähnung des IPOs im Jahr 2004 noch den finanziellen Hintergrund oder einen CEO klar darstellt. Korrektur: Eine Darstellung einer Börsenankündigung oder eines Dokumentes mit Bezug auf das IPO von 2004.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann in einem Anzug mit ausgebreiteten Armen auf einer Straße, was keinen direkten visuellen Bezug zur Bewertung eines IPOs über 23 Milliarden US-Dollar darstellt. Korrektur: Eine Illustration, die symbolisch eine Börsenbewertung von über 23 Milliarden US-Dollar oder einen erfolgreichen Börsengang (IPO) darstellt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 5,
+              "stuecke_neu": 7,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 376.5,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 12,
+                "motive": 10,
+                "motive_min": 7
+              },
+              "effekte": 10,
+              "rendern": 39.6,
+              "gesamt": 451.6,
+              "videolaenge_s": 43.2,
+              "abschnitte_s": [
+                6.32,
+                6.84,
+                6.22,
+                4.88,
+                7.62,
+                7.6,
+                3.7
+              ],
+              "woerter": 86
+            },
+            "kategorien": {
+              "bild_passt": 1
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Could investors demand their money back from Google?",
+                "text": "Die Abbildung zeigt generische Geschäftsleute in einer Meetingszene, illustriert jedoch nicht die spezifische Frage nach der Rückforderung von Investorengeldern von Google. Korrektur: Eine historische Illustration oder Darstellung von Investoren, die mit Gründern in einem Büro über Geldverhandlungen sprechen."
+              },
+              {
+                "zeit": "00:03.74",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "One threatened exactly that.",
+                "text": "Das Bild zeigt einen stilisierten Mann vor einer Stadt und stellt weder die Investoren noch die Drohung oder Google dar. Korrektur: Eine historische Illustration, die einen Investor in einem Büro bei einer Geld- oder Vertragsforderung zeigt."
+              },
+              {
+                "zeit": "00:06.32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Sequoia invested $12.5 million with",
+                "text": "Das Bild zeigt lediglich eingeblendeten Text und Zahlen im Overlay-Stil, aber nicht das Investment von Sequoia oder einen konkreten Kontext zur gesprochenen Handlung. Korrektur: Ein historisches Foto oder eine Dokumentation, die das Investment von Sequoia in Höhe von 12,5 Millionen Dollar visuell darstellt."
+              },
+              {
+                "zeit": "00:09.74",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "a verbal promise to hire a CEO.",
+                "text": "Die Szene zeigt eine allgemeine Besprechung, aber nicht spezifisch das verhandelte Versprechen, einen CEO einzustellen. Korrektur: Ein Dokument oder eine dramatisierte Szene, die die Verhandlung über die Einstellung eines CEOs zeigt."
+              },
+              {
+                "zeit": "00:13.16",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Page and Brin rejected several candidates, wanting",
+                "text": "Das Bild zeigt Text zur Finanzierung und kein visuelles Material über das Ablehnen von Kandidaten durch Page und Brin. Korrektur: Eine historische Darstellung oder Symbolfoto von zwei Personen, die eine Bewerbungsmappe oder Kandidatenliste ablehnen."
+              },
+              {
+                "zeit": "00:16.27",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "similar vision and engineering skill.",
+                "text": "Das Bild zeigt eine generische, künstlich erzeugte Diskussion vor einer leeren Tafel und ein Google-Logo, aber keinerlei Bezug zu 'ähnlicher Vision und Ingenieurskunst' oder den Gründern Page und Brin. Korrektur: Eine Illustration, die zwei Personen darstellt, die über technische Pläne, Code oder eine Produktvision diskutieren."
+              },
+              {
+                "zeit": "00:19.38",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "Michael Moritz threatened to demand Sequoia's money back. Would Google give in?",
+                "text": "Das Bild zeigt einen generellen Geschäftsmann mit wütendem Gesichtsausdruck in einem Büro, stellt aber weder Michael Moritz noch die spezifische Drohung einer Geldrückforderung dar. Korrektur: Eine historische Illustration oder Darstellung des Investors Michael Moritz, wie er im Gespräch mit Google-Vertretern seine Forderungen stellt."
+              },
+              {
+                "zeit": "00:24.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 7,
+                "gesprochen": "The turning point: John Doerr proposed Eric",
+                "text": "Die Abbildung zeigt eine Gruppe überraschter Personen im Büro, aber nicht John Doerr, der Eric Schmidt vorschlägt. Korrektur: Eine Darstellung von John Doerr, der Eric Schmidt als CEO vorschlägt."
+              },
+              {
+                "zeit": "00:28.07",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Schmidt, and Google hired him in 2001.",
+                "text": "Die Bildszene zeigt einen generellen Geschäftsmann in einem Büro, stellt jedoch weder Eric Schmidt noch eine Einstellung im Jahr 2001 dar. Korrektur: Eine Darstellung von Eric Schmidt im Jahr 2001 in einem professionellen oder geschäftlichen Kontext bei Google."
+              },
+              {
+                "zeit": "00:31.88",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "The money-back threat ended with a CEO and a 2004 IPO",
+                "text": "Die Abbildung zeigt eine Feier- oder Toastszene in einer belebten Straße, die jedoch weder die Erwähnung des IPOs im Jahr 2004 noch den finanziellen Hintergrund oder einen CEO klar darstellt. Korrektur: Eine Darstellung einer Börsenankündigung oder eines Dokumentes mit Bezug auf das IPO von 2004."
+              },
+              {
+                "zeit": "00:35.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "valued above $23 billion.",
+                "text": "Das Bild zeigt einen Mann in einem Anzug mit ausgebreiteten Armen auf einer Straße, was keinen direkten visuellen Bezug zur Bewertung eines IPOs über 23 Milliarden US-Dollar darstellt. Korrektur: Eine Illustration, die symbolisch eine Börsenbewertung von über 23 Milliarden US-Dollar oder einen erfolgreichen Börsengang (IPO) darstellt."
+              }
+            ],
+            "sekunden": 548.5,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 2.0,
+            "bau_s": 1007.0,
+            "pruefung_s": 59.1,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Die Illustration zeigt einen wütenden Mann in einer Gasse, was die verbale Drohung der Investoren zwar metaphorisch darstellt, aber keinen konkreten Investor wie Michael Moritz oder einen Geschäftskontext belegt.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen Büroarbeiter oder eine fiktive Person, aber keinen konkreten Beleg für die Investition von 12,5 Millionen Dollar durch Sequoia.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Die Illustration zeigt zwar eine Business-Situation, belegt aber nicht spezifisch das gesprochene 'verbale Versprechen zur Einstellung eines CEO'.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt eine Straßenszene mit Menschengruppen, aber keine visuelle Darstellung von Page und Brin, die Kandidaten ablehnen.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Person an einer Whiteboard-Tafel, während der Text von Larry Page, Sergey Brin und der Suche nach einem CEO handelt.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen sprechenden Mann in einem Büro, aber nicht die konkrete finanzielle Drohung von Michael Moritz gegenüber Google.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt zwar eine Büroszene und Geschäftsleute, aber weder die spezifische Erwähnung noch das Vorschlagen von Eric Schmidt durch John Doerr ist erkennbar dargestellt.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Geschäftsmann in einem Büro, aber weder John Doerr noch Eric Schmidt oder die Einstellung im Jahr 2001 sind erkennbar.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt einen stilisierten Mann in einer Straße, aber keine Darstellung einer Börsenankündigung, eines IPO oder einer Firma",
+              "Offenes Problem (schwer): Die Illustration zeigt einen wütenden Mann in einer Gasse, was die verbale Drohung der Investoren zwar metaphorisch darstellt, aber keinen konkreten Investor wie Michael Moritz oder einen Geschäftskontext belegt. Korrektur: Eine Darstellung eines Geschäftsmannes im Anzug oder eine symbolische Szene in einem Büro, die eine Investorenforderung visualisiert.",
+              "Offenes Problem (schwer): Die Szene zeigt einen Büroarbeiter oder eine fiktive Person, aber keinen konkreten Beleg für die Investition von 12,5 Millionen Dollar durch Sequoia. Korrektur: Eine historische Darstellung oder ein Dokument, das die Investition von Sequoia oder das genannte Kapital symbolisiert.",
+              "Offenes Problem (schwer): Die Illustration zeigt zwar eine Business-Situation, belegt aber nicht spezifisch das gesprochene 'verbale Versprechen zur Einstellung eines CEO'. Korrektur: Eine Darstellung von Investoren und Gründern in einem Gespräch, bei dem ein Dokument oder Händedruck die Einstellung eines CEOs symbolisiert.",
+              "Offenes Problem (schwer): Die Abbildung zeigt eine Straßenszene mit Menschengruppen, aber keine visuelle Darstellung von Page und Brin, die Kandidaten ablehnen. Korrektur: Eine Darstellung von Gründern in einem Raum, die unzufrieden auf Lebensläufe oder Kandidaten blicken.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Person an einer Whiteboard-Tafel, während der Text von Larry Page, Sergey Brin und der Suche nach einem CEO handelt. Korrektur: Eine historische Illustration, die zwei junge Gründer bei der Diskussion oder Auswahl von Bewerbern zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen sprechenden Mann in einem Büro, aber nicht die konkrete finanzielle Drohung von Michael Moritz gegenüber Google. Korrektur: Eine historische Darstellung eines Investors in einem Büro, der mit ernster Miene Geldmittel zurückfordert oder Verträge prüft.",
+              "Offenes Problem (schwer): Die Abbildung zeigt zwar eine Büroszene und Geschäftsleute, aber weder die spezifische Erwähnung noch das Vorschlagen von Eric Schmidt durch John Doerr ist erkennbar dargestellt. Korrektur: Eine Illustration, die John Doerr zeigt, wie er Eric Schmidt vorschlägt oder vorstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Geschäftsmann in einem Büro, aber weder John Doerr noch Eric Schmidt oder die Einstellung im Jahr 2001 sind erkennbar. Korrektur: Eine historische Illustration oder Darstellung, die John Doerr oder die Einstellung von Eric Schmidt im Jahr 2001 zeigt.",
+              "Offenes Problem (schwer): Die Abbildung zeigt einen stilisierten Mann in einer Straße, aber keine Darstellung einer Börsenankündigung, eines IPO oder einer Firma Korrektur: Eine historische Illustration, die eine Börse oder das Firmengebäude von Google zur Zeit des IPO zeigt"
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 1,
+              "stuecke_neu": 11,
+              "bilder_vereinfacht": 6,
+              "clips_und_stuecke": 958.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 12,
+                "motive": 12,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 40.2,
+              "gesamt": 1006.8,
+              "videolaenge_s": 43.2,
+              "abschnitte_s": [
+                6.32,
+                6.84,
+                6.22,
+                4.88,
+                7.62,
+                7.6,
+                3.7
+              ],
+              "woerter": 86
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:03.74",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "One threatened exactly that.",
+                "text": "Die Illustration zeigt einen wütenden Mann in einer Gasse, was die verbale Drohung der Investoren zwar metaphorisch darstellt, aber keinen konkreten Investor wie Michael Moritz oder einen Geschäftskontext belegt. Korrektur: Eine Darstellung eines Geschäftsmannes im Anzug oder eine symbolische Szene in einem Büro, die eine Investorenforderung visualisiert."
+              },
+              {
+                "zeit": "00:06.32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Sequoia invested $12.5 million with",
+                "text": "Die Szene zeigt einen Büroarbeiter oder eine fiktive Person, aber keinen konkreten Beleg für die Investition von 12,5 Millionen Dollar durch Sequoia. Korrektur: Eine historische Darstellung oder ein Dokument, das die Investition von Sequoia oder das genannte Kapital symbolisiert."
+              },
+              {
+                "zeit": "00:09.74",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "a verbal promise to hire a CEO.",
+                "text": "Die Illustration zeigt zwar eine Business-Situation, belegt aber nicht spezifisch das gesprochene 'verbale Versprechen zur Einstellung eines CEO'. Korrektur: Eine Darstellung von Investoren und Gründern in einem Gespräch, bei dem ein Dokument oder Händedruck die Einstellung eines CEOs symbolisiert."
+              },
+              {
+                "zeit": "00:13.16",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Page and Brin rejected several candidates, wanting",
+                "text": "Die Abbildung zeigt eine Straßenszene mit Menschengruppen, aber keine visuelle Darstellung von Page und Brin, die Kandidaten ablehnen. Korrektur: Eine Darstellung von Gründern in einem Raum, die unzufrieden auf Lebensläufe oder Kandidaten blicken."
+              },
+              {
+                "zeit": "00:16.27",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "similar vision and engineering skill.",
+                "text": "Das Bild zeigt eine Person an einer Whiteboard-Tafel, während der Text von Larry Page, Sergey Brin und der Suche nach einem CEO handelt. Korrektur: Eine historische Illustration, die zwei junge Gründer bei der Diskussion oder Auswahl von Bewerbern zeigt."
+              },
+              {
+                "zeit": "00:19.38",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "Michael Moritz threatened to demand Sequoia's money back. Would Google give in?",
+                "text": "Das Bild zeigt lediglich einen sprechenden Mann in einem Büro, aber nicht die konkrete finanzielle Drohung von Michael Moritz gegenüber Google. Korrektur: Eine historische Darstellung eines Investors in einem Büro, der mit ernster Miene Geldmittel zurückfordert oder Verträge prüft."
+              },
+              {
+                "zeit": "00:24.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 7,
+                "gesprochen": "The turning point: John Doerr proposed Eric",
+                "text": "Die Abbildung zeigt zwar eine Büroszene und Geschäftsleute, aber weder die spezifische Erwähnung noch das Vorschlagen von Eric Schmidt durch John Doerr ist erkennbar dargestellt. Korrektur: Eine Illustration, die John Doerr zeigt, wie er Eric Schmidt vorschlägt oder vorstellt."
+              },
+              {
+                "zeit": "00:28.07",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Schmidt, and Google hired him in 2001.",
+                "text": "Das Bild zeigt einen Geschäftsmann in einem Büro, aber weder John Doerr noch Eric Schmidt oder die Einstellung im Jahr 2001 sind erkennbar. Korrektur: Eine historische Illustration oder Darstellung, die John Doerr oder die Einstellung von Eric Schmidt im Jahr 2001 zeigt."
+              },
+              {
+                "zeit": "00:31.88",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "The money-back threat ended with a CEO and a 2004 IPO",
+                "text": "Die Abbildung zeigt einen stilisierten Mann in einer Straße, aber keine Darstellung einer Börsenankündigung, eines IPO oder einer Firma Korrektur: Eine historische Illustration, die eine Börse oder das Firmengebäude von Google zur Zeit des IPO zeigt"
+              }
+            ],
+            "sekunden": 1068.1,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "39836518647-2",
+              "datum": "2026-10-22",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 1068.1,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 1
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 2.0,
+            "bau_s": 751.6,
+            "pruefung_s": 178.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte erwähnen eine Bedrohung durch Investoren, und das Bild zeigt zwar eine Auseinandersetzung zwischen zwei Männern in einem Büro mit einem Google-Logo, es wird jedoch keine spezifische Finanz- oder Investorenverhandlung dargestellt.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Illustration zeigt einen Mann im Büro, jedoch wird keine Investition oder Finanzsumme visuell dargestellt.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die gezeigte Büroszene zeigt einen einzelnen Arbeiter am Computer, aber nicht die im Sprechtext genannten Personen Page und Brin oder den Vorgang des Ablehnens von Kandidaten.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Arbeiter mit einer Axt, während der Text von Vision und technischem Können spricht, ohne dass ein passender Zusammenhang erkennbar ist.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen sprechenden Mann in einem Büro, aber nicht die konkrete finanzielle Drohung von Michael Moritz gegenüber Google.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen sprechenden Mann in einem Büro, jedoch gibt es keinen visuellen Bezug zu John Doerr oder Eric Schmidt.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die Abbildung zeigt einen Handschlag zweier Personen, jedoch fehlt jeglicher konkreter Bezug zu Google, Eric Schmidt oder dem Jahr 2001.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen eine Drohung, einen CEO und einen Börsengang (IPO) im Jahr 2004, aber die Illustration zeigt lediglich zwei Männer und eine Glocke auf der Straße, was nicht zum Thema IPO oder einer Geldrückgabedrohung passt.",
+              "Offenes Problem (schwer): Die gesprochenen Worte erwähnen eine Bedrohung durch Investoren, und das Bild zeigt zwar eine Auseinandersetzung zwischen zwei Männern in einem Büro mit einem Google-Logo, es wird jedoch keine spezifische Finanz- oder Investorenverhandlung dargestellt. Korrektur: Eine Illustration, die einen Investor zeigt, der mit Dokumenten oder Geld drohend vor Firmengründern steht.",
+              "Offenes Problem (schwer): Die gezeigte Illustration zeigt einen Mann im Büro, jedoch wird keine Investition oder Finanzsumme visuell dargestellt. Korrektur: Eine Illustration, die eine Geldinvestition oder das Treffen von Investoren darstellt.",
+              "Offenes Problem (schwer): Die gezeigte Büroszene zeigt einen einzelnen Arbeiter am Computer, aber nicht die im Sprechtext genannten Personen Page und Brin oder den Vorgang des Ablehnens von Kandidaten. Korrektur: Eine Darstellung zweier Personen im Gespräch, die Dokumente oder Lebensläufe abweisen.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Arbeiter mit einer Axt, während der Text von Vision und technischem Können spricht, ohne dass ein passender Zusammenhang erkennbar ist. Korrektur: Eine Darstellung von Gründern bei der Auswahl oder Beurteilung von Kandidaten.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen sprechenden Mann in einem Büro, aber nicht die konkrete finanzielle Drohung von Michael Moritz gegenüber Google. Korrektur: Eine historische Darstellung eines Investors in einem Büro, der mit ernster Miene Geldmittel zurückfordert oder Verträge prüft.",
+              "Offenes Problem (schwer): Das Bild zeigt einen sprechenden Mann in einem Büro, jedoch gibt es keinen visuellen Bezug zu John Doerr oder Eric Schmidt. Korrektur: Ein Bild von John Doerr oder Eric Schmidt in einem geschäftlichen Kontext.",
+              "Offenes Problem (schwer): Die Abbildung zeigt einen Handschlag zweier Personen, jedoch fehlt jeglicher konkreter Bezug zu Google, Eric Schmidt oder dem Jahr 2001. Korrektur: Eine historische Illustration oder Darstellung, die Eric Schmidt oder eine entsprechende geschäftliche Verpflichtung im Jahr 2001 zeigt.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen eine Drohung, einen CEO und einen Börsengang (IPO) im Jahr 2004, aber die Illustration zeigt lediglich zwei Männer und eine Glocke auf der Straße, was nicht zum Thema IPO oder einer Geldrückgabedrohung passt. Korrektur: Eine historische Illustration oder Darstellung, die auf symbolische Weise den Börsengang (IPO) oder das Einsetzen eines CEO bei Google im Jahr 2004 zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 3,
+              "stuecke_neu": 9,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 593.5,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 12,
+                "motive": 12,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 40.2,
+              "gesamt": 751.4,
+              "videolaenge_s": 43.2,
+              "abschnitte_s": [
+                6.32,
+                6.84,
+                6.22,
+                4.88,
+                7.62,
+                7.6,
+                3.7
+              ],
+              "woerter": 86
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:03.74",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "One threatened exactly that.",
+                "text": "Die gesprochenen Worte erwähnen eine Bedrohung durch Investoren, und das Bild zeigt zwar eine Auseinandersetzung zwischen zwei Männern in einem Büro mit einem Google-Logo, es wird jedoch keine spezifische Finanz- oder Investorenverhandlung dargestellt. Korrektur: Eine Illustration, die einen Investor zeigt, der mit Dokumenten oder Geld drohend vor Firmengründern steht."
+              },
+              {
+                "zeit": "00:06.32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Sequoia invested $12.5 million with",
+                "text": "Die gezeigte Illustration zeigt einen Mann im Büro, jedoch wird keine Investition oder Finanzsumme visuell dargestellt. Korrektur: Eine Illustration, die eine Geldinvestition oder das Treffen von Investoren darstellt."
+              },
+              {
+                "zeit": "00:13.16",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Page and Brin rejected several candidates, wanting",
+                "text": "Die gezeigte Büroszene zeigt einen einzelnen Arbeiter am Computer, aber nicht die im Sprechtext genannten Personen Page und Brin oder den Vorgang des Ablehnens von Kandidaten. Korrektur: Eine Darstellung zweier Personen im Gespräch, die Dokumente oder Lebensläufe abweisen."
+              },
+              {
+                "zeit": "00:16.27",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "similar vision and engineering skill.",
+                "text": "Das Bild zeigt einen Arbeiter mit einer Axt, während der Text von Vision und technischem Können spricht, ohne dass ein passender Zusammenhang erkennbar ist. Korrektur: Eine Darstellung von Gründern bei der Auswahl oder Beurteilung von Kandidaten."
+              },
+              {
+                "zeit": "00:19.38",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "Michael Moritz threatened to demand Sequoia's money back. Would Google give in?",
+                "text": "Das Bild zeigt lediglich einen sprechenden Mann in einem Büro, aber nicht die konkrete finanzielle Drohung von Michael Moritz gegenüber Google. Korrektur: Eine historische Darstellung eines Investors in einem Büro, der mit ernster Miene Geldmittel zurückfordert oder Verträge prüft."
+              },
+              {
+                "zeit": "00:24.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 7,
+                "gesprochen": "The turning point: John Doerr proposed Eric",
+                "text": "Das Bild zeigt einen sprechenden Mann in einem Büro, jedoch gibt es keinen visuellen Bezug zu John Doerr oder Eric Schmidt. Korrektur: Ein Bild von John Doerr oder Eric Schmidt in einem geschäftlichen Kontext."
+              },
+              {
+                "zeit": "00:28.07",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Schmidt, and Google hired him in 2001.",
+                "text": "Die Abbildung zeigt einen Handschlag zweier Personen, jedoch fehlt jeglicher konkreter Bezug zu Google, Eric Schmidt oder dem Jahr 2001. Korrektur: Eine historische Illustration oder Darstellung, die Eric Schmidt oder eine entsprechende geschäftliche Verpflichtung im Jahr 2001 zeigt."
+              },
+              {
+                "zeit": "00:31.88",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "The money-back threat ended with a CEO and a 2004 IPO",
+                "text": "Die gesprochenen Wörter erwähnen eine Drohung, einen CEO und einen Börsengang (IPO) im Jahr 2004, aber die Illustration zeigt lediglich zwei Männer und eine Glocke auf der Straße, was nicht zum Thema IPO oder einer Geldrückgabedrohung passt. Korrektur: Eine historische Illustration oder Darstellung, die auf symbolische Weise den Börsengang (IPO) oder das Einsetzen eines CEO bei Google im Jahr 2004 zeigt."
+              }
+            ],
+            "sekunden": 931.8,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "39836518647-3",
+              "datum": "2026-10-22",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 931.8,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "trendcheck": "Google: 11.43 Punkte - YouTube-Ausreisser 21.1x Kanalschnitt, Wikipedia +29 % gegenueber Vormonat, heute in Google News (Google Eyes Large ‘Virtual Power Plant’ for Data Centers), Hacker News 124 Punkte",
+        "grund": "",
+        "sekunden": 2611.2,
+        "upload_titel": "Google's CEO Ultimatum: Money Back Or New Boss"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:03.74",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "One threatened exactly that.",
+            "text": "Die gesprochenen Worte erwähnen eine Bedrohung durch Investoren, und das Bild zeigt zwar eine Auseinandersetzung zwischen zwei Männern in einem Büro mit einem Google-Logo, es wird jedoch keine spezifische Finanz- oder Investorenverhandlung dargestellt. Korrektur: Eine Illustration, die einen Investor zeigt, der mit Dokumenten oder Geld drohend vor Firmengründern steht."
+          },
+          {
+            "zeit": "00:06.32",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "Sequoia invested $12.5 million with",
+            "text": "Die gezeigte Illustration zeigt einen Mann im Büro, jedoch wird keine Investition oder Finanzsumme visuell dargestellt. Korrektur: Eine Illustration, die eine Geldinvestition oder das Treffen von Investoren darstellt."
+          },
+          {
+            "zeit": "00:13.16",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Page and Brin rejected several candidates, wanting",
+            "text": "Die gezeigte Büroszene zeigt einen einzelnen Arbeiter am Computer, aber nicht die im Sprechtext genannten Personen Page und Brin oder den Vorgang des Ablehnens von Kandidaten. Korrektur: Eine Darstellung zweier Personen im Gespräch, die Dokumente oder Lebensläufe abweisen."
+          },
+          {
+            "zeit": "00:16.27",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "similar vision and engineering skill.",
+            "text": "Das Bild zeigt einen Arbeiter mit einer Axt, während der Text von Vision und technischem Können spricht, ohne dass ein passender Zusammenhang erkennbar ist. Korrektur: Eine Darstellung von Gründern bei der Auswahl oder Beurteilung von Kandidaten."
+          },
+          {
+            "zeit": "00:19.38",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 6,
+            "gesprochen": "Michael Moritz threatened to demand Sequoia's money back. Would Google give in?",
+            "text": "Das Bild zeigt lediglich einen sprechenden Mann in einem Büro, aber nicht die konkrete finanzielle Drohung von Michael Moritz gegenüber Google. Korrektur: Eine historische Darstellung eines Investors in einem Büro, der mit ernster Miene Geldmittel zurückfordert oder Verträge prüft."
+          },
+          {
+            "zeit": "00:24.26",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 7,
+            "gesprochen": "The turning point: John Doerr proposed Eric",
+            "text": "Das Bild zeigt einen sprechenden Mann in einem Büro, jedoch gibt es keinen visuellen Bezug zu John Doerr oder Eric Schmidt. Korrektur: Ein Bild von John Doerr oder Eric Schmidt in einem geschäftlichen Kontext."
+          },
+          {
+            "zeit": "00:28.07",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "Schmidt, and Google hired him in 2001.",
+            "text": "Die Abbildung zeigt einen Handschlag zweier Personen, jedoch fehlt jeglicher konkreter Bezug zu Google, Eric Schmidt oder dem Jahr 2001. Korrektur: Eine historische Illustration oder Darstellung, die Eric Schmidt oder eine entsprechende geschäftliche Verpflichtung im Jahr 2001 zeigt."
+          },
+          {
+            "zeit": "00:31.88",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 9,
+            "gesprochen": "The money-back threat ended with a CEO and a 2004 IPO",
+            "text": "Die gesprochenen Wörter erwähnen eine Drohung, einen CEO und einen Börsengang (IPO) im Jahr 2004, aber die Illustration zeigt lediglich zwei Männer und eine Glocke auf der Straße, was nicht zum Thema IPO oder einer Geldrückgabedrohung passt. Korrektur: Eine historische Illustration oder Darstellung, die auf symbolische Weise den Börsengang (IPO) oder das Einsetzen eines CEO bei Google im Jahr 2004 zeigt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 43.1,
+          "fps": 30.0,
+          "lufs": -15.2,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 40.16,
+              "bis_s": 42.6,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.978
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 23.1,
+              "bis_s": 43.6,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Could",
+                "s": 0.0,
+                "e": 0.32,
+                "p": 0.8890098333358765
+              },
+              {
+                "w": "investors",
+                "s": 0.32,
+                "e": 0.64,
+                "p": 0.9931511878967285
+              },
+              {
+                "w": "demand",
+                "s": 0.64,
+                "e": 1.3,
+                "p": 0.9979335069656372
+              },
+              {
+                "w": "their",
+                "s": 1.3,
+                "e": 1.8,
+                "p": 0.996752917766571
+              },
+              {
+                "w": "money",
+                "s": 1.8,
+                "e": 2.08,
+                "p": 0.998066246509552
+              },
+              {
+                "w": "back",
+                "s": 2.08,
+                "e": 2.44,
+                "p": 0.998369038105011
+              },
+              {
+                "w": "from",
+                "s": 2.44,
+                "e": 2.8,
+                "p": 0.9941995143890381
+              },
+              {
+                "w": "Google?",
+                "s": 2.8,
+                "e": 3.08,
+                "p": 0.9837241172790527
+              },
+              {
+                "w": "One",
+                "s": 3.86,
+                "e": 4.02,
+                "p": 0.9023318886756897
+              },
+              {
+                "w": "threatened",
+                "s": 4.02,
+                "e": 4.48,
+                "p": 0.9942469596862793
+              },
+              {
+                "w": "exactly",
+                "s": 4.48,
+                "e": 4.84,
+                "p": 0.9967459440231323
+              },
+              {
+                "w": "that.",
+                "s": 4.84,
+                "e": 5.68,
+                "p": 0.9993676543235779
+              },
+              {
+                "w": "Sequoia",
+                "s": 6.32,
+                "e": 6.82,
+                "p": 0.9595139821370443
+              },
+              {
+                "w": "invested",
+                "s": 6.82,
+                "e": 7.2,
+                "p": 0.9940062761306763
+              },
+              {
+                "w": "$12",
+                "s": 7.2,
+                "e": 7.76,
+                "p": 0.9645713865756989
+              },
+              {
+                "w": ".5",
+                "s": 7.76,
+                "e": 8.54,
+                "p": 0.9951117932796478
+              },
+              {
+                "w": "million",
+                "s": 8.54,
+                "e": 8.86,
+                "p": 0.9883691072463989
+              },
+              {
+                "w": "with",
+                "s": 9.36,
+                "e": 9.74,
+                "p": 0.7207289338111877
+              },
+              {
+                "w": "a",
+                "s": 9.74,
+                "e": 9.88,
+                "p": 0.8055446743965149
+              },
+              {
+                "w": "verbal",
+                "s": 9.88,
+                "e": 10.12,
+                "p": 0.9935542345046997
+              },
+              {
+                "w": "promise",
+                "s": 10.12,
+                "e": 10.72,
+                "p": 0.9981562495231628
+              },
+              {
+                "w": "to",
+                "s": 10.72,
+                "e": 11.06,
+                "p": 0.9961673617362976
+              },
+              {
+                "w": "hire",
+                "s": 11.06,
+                "e": 11.38,
+                "p": 0.9986321330070496
+              },
+              {
+                "w": "a",
+                "s": 11.38,
+                "e": 11.72,
+                "p": 0.998798131942749
+              },
+              {
+                "w": "CEO.",
+                "s": 11.72,
+                "e": 12.04,
+                "p": 0.9738577604293823
+              },
+              {
+                "w": "Page",
+                "s": 13.12,
+                "e": 13.42,
+                "p": 0.5591965317726135
+              },
+              {
+                "w": "and",
+                "s": 13.42,
+                "e": 13.68,
+                "p": 0.9880678653717041
+              },
+              {
+                "w": "brand",
+                "s": 13.68,
+                "e": 13.86,
+                "p": 0.09905070811510086
+              },
+              {
+                "w": "rejected",
+                "s": 13.86,
+                "e": 14.44,
+                "p": 0.9931375980377197
+              },
+              {
+                "w": "several",
+                "s": 14.44,
+                "e": 14.92,
+                "p": 0.9985364675521851
+              },
+              {
+                "w": "candidates",
+                "s": 14.92,
+                "e": 15.42,
+                "p": 0.9982632994651794
+              },
+              {
+                "w": "wanting",
+                "s": 15.42,
+                "e": 16.06,
+                "p": 0.3697531521320343
+              },
+              {
+                "w": "similar",
+                "s": 16.06,
+                "e": 16.54,
+                "p": 0.9927983283996582
+              },
+              {
+                "w": "vision",
+                "s": 16.54,
+                "e": 16.96,
+                "p": 0.9989593029022217
+              },
+              {
+                "w": "and",
+                "s": 16.96,
+                "e": 17.38,
+                "p": 0.9854936003684998
+              },
+              {
+                "w": "engineering",
+                "s": 17.38,
+                "e": 17.74,
+                "p": 0.9977880716323853
+              },
+              {
+                "w": "skill.",
+                "s": 17.74,
+                "e": 18.36,
+                "p": 0.9724474549293518
+              },
+              {
+                "w": "Michael",
+                "s": 19.38,
+                "e": 19.78,
+                "p": 0.8850412964820862
+              },
+              {
+                "w": "Moritz",
+                "s": 19.78,
+                "e": 20.22,
+                "p": 0.8067732751369476
+              },
+              {
+                "w": "threatened",
+                "s": 20.22,
+                "e": 20.62,
+                "p": 0.985077440738678
+              },
+              {
+                "w": "to",
+                "s": 20.62,
+                "e": 20.94,
+                "p": 0.9989030361175537
+              },
+              {
+                "w": "demand",
+                "s": 20.94,
+                "e": 21.18,
+                "p": 0.9988136291503906
+              },
+              {
+                "w": "Sequoia's",
+                "s": 21.18,
+                "e": 22.04,
+                "p": 0.9842881411314011
+              },
+              {
+                "w": "money",
+                "s": 22.04,
+                "e": 22.28,
+                "p": 0.9911903142929077
+              },
+              {
+                "w": "back.",
+                "s": 22.28,
+                "e": 22.76,
+                "p": 0.999142050743103
+              },
+              {
+                "w": "Would",
+                "s": 23.44,
+                "e": 23.5,
+                "p": 0.842302680015564
+              },
+              {
+                "w": "Google",
+                "s": 23.5,
+                "e": 23.66,
+                "p": 0.993030846118927
+              },
+              {
+                "w": "give",
+                "s": 23.66,
+                "e": 24.04,
+                "p": 0.9616295695304871
+              },
+              {
+                "w": "in?",
+                "s": 24.04,
+                "e": 24.22,
+                "p": 0.9611435532569885
+              },
+              {
+                "w": "The",
+                "s": 25.3,
+                "e": 25.56,
+                "p": 0.9544753432273865
+              },
+              {
+                "w": "turning",
+                "s": 25.56,
+                "e": 25.78,
+                "p": 0.4910254180431366
+              },
+              {
+                "w": "point.",
+                "s": 25.78,
+                "e": 26.12,
+                "p": 0.9801053404808044
+              },
+              {
+                "w": "John",
+                "s": 26.88,
+                "e": 26.98,
+                "p": 0.9633235335350037
+              },
+              {
+                "w": "Doar",
+                "s": 26.98,
+                "e": 27.42,
+                "p": 0.7137565016746521
+              },
+              {
+                "w": "proposed",
+                "s": 27.42,
+                "e": 27.92,
+                "p": 0.9635283350944519
+              },
+              {
+                "w": "Eric",
+                "s": 27.92,
+                "e": 28.26,
+                "p": 0.9250348210334778
+              },
+              {
+                "w": "Schmidt",
+                "s": 28.26,
+                "e": 28.54,
+                "p": 0.7482849359512329
+              },
+              {
+                "w": "it,",
+                "s": 28.54,
+                "e": 28.7,
+                "p": 0.07642756402492523
+              },
+              {
+                "w": "and",
+                "s": 28.92,
+                "e": 29.24,
+                "p": 0.9801106452941895
+              },
+              {
+                "w": "Google",
+                "s": 29.24,
+                "e": 29.4,
+                "p": 0.9503092765808105
+              },
+              {
+                "w": "hired",
+                "s": 29.4,
+                "e": 29.78,
+                "p": 0.9966488480567932
+              },
+              {
+                "w": "him",
+                "s": 29.78,
+                "e": 30.02,
+                "p": 0.9969592094421387
+              },
+              {
+                "w": "in",
+                "s": 30.02,
+                "e": 30.34,
+                "p": 0.963257372379303
+              },
+              {
+                "w": "2001.",
+                "s": 30.34,
+                "e": 31.08,
+                "p": 0.989691436290741
+              },
+              {
+                "w": "The",
+                "s": 31.96,
+                "e": 31.98,
+                "p": 0.9716629385948181
+              },
+              {
+                "w": "money",
+                "s": 31.98,
+                "e": 32.14,
+                "p": 0.9529486894607544
+              },
+              {
+                "w": "back",
+                "s": 32.14,
+                "e": 32.38,
+                "p": 0.47805359959602356
+              },
+              {
+                "w": "threat",
+                "s": 32.38,
+                "e": 32.66,
+                "p": 0.9674901366233826
+              },
+              {
+                "w": "ended",
+                "s": 32.66,
+                "e": 33.1,
+                "p": 0.9941330552101135
+              },
+              {
+                "w": "with",
+                "s": 33.1,
+                "e": 33.4,
+                "p": 0.9935146570205688
+              },
+              {
+                "w": "a",
+                "s": 33.4,
+                "e": 33.46,
+                "p": 0.97487872838974
+              },
+              {
+                "w": "CEO",
+                "s": 33.46,
+                "e": 33.88,
+                "p": 0.9677735567092896
+              },
+              {
+                "w": "and",
+                "s": 33.88,
+                "e": 34.56,
+                "p": 0.9153783917427063
+              },
+              {
+                "w": "a",
+                "s": 34.56,
+                "e": 34.62,
+                "p": 0.9839338660240173
+              },
+              {
+                "w": "2004",
+                "s": 34.62,
+                "e": 35.34,
+                "p": 0.9910494089126587
+              },
+              {
+                "w": "IPO",
+                "s": 35.34,
+                "e": 35.96,
+                "p": 0.9692589640617371
+              },
+              {
+                "w": "valued",
+                "s": 35.96,
+                "e": 36.5,
+                "p": 0.96210116147995
+              },
+              {
+                "w": "above",
+                "s": 36.5,
+                "e": 37.04,
+                "p": 0.9852045774459839
+              },
+              {
+                "w": "$23",
+                "s": 37.04,
+                "e": 37.68,
+                "p": 0.8918856084346771
+              },
+              {
+                "w": "billion.",
+                "s": 37.68,
+                "e": 38.54,
+                "p": 0.9201384782791138
+              },
+              {
+                "w": "Be",
+                "s": 39.46,
+                "e": 39.9,
+                "p": 0.989294171333313
+              },
+              {
+                "w": "sure",
+                "s": 39.9,
+                "e": 40.06,
+                "p": 0.9978941082954407
+              },
+              {
+                "w": "to",
+                "s": 40.06,
+                "e": 40.16,
+                "p": 0.995627760887146
+              },
+              {
+                "w": "like,",
+                "s": 40.16,
+                "e": 40.36,
+                "p": 0.8979089856147766
+              },
+              {
+                "w": "share,",
+                "s": 40.7,
+                "e": 41.04,
+                "p": 0.9941719174385071
+              },
+              {
+                "w": "and",
+                "s": 41.68,
+                "e": 41.72,
+                "p": 0.9972557425498962
+              },
+              {
+                "w": "save",
+                "s": 41.72,
+                "e": 42.0,
+                "p": 0.9884198904037476
+              },
+              {
+                "w": "this",
+                "s": 42.0,
+                "e": 42.28,
+                "p": 0.9896667003631592
+              },
+              {
+                "w": "video.",
+                "s": 42.28,
+                "e": 42.6,
+                "p": 0.9989928603172302
+              }
+            ],
+            "dauer_s": 43.0933125,
+            "sprache": "en"
+          },
+          "roh_key": "bfbba4eac9bef9e69912f852a500cfe0e03c6a29dfb616b1782ab9a1029f12ad",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "bfd7076af3eb13d1ff568cfbefa215a41518b7bc959848c6bea6fab1ecb8e487",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 43.1,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 12,
+          "motive": 12,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "bfd7076af3eb13d1ff568cfbefa215a41518b7bc959848c6bea6fab1ecb8e487",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Eine Gruppe von im Retro-Stil gezeichneten Männern in Anzügen sitzt in einem Büro und diskutiert, wobei eine zentrale Figur mit Hut und Krawatte im Vordergrund steht.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gezeichnete Szene zeigt eine Gruppe von Investoren oder Managern in einem geschäftlichen Treffen, was die thematisierte Diskussion über Investorenforderungen und Firmenentscheidungen bei Google passend illustriert.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 1,
+              "gesehen": "Eine gemalte Illustration zeigt einen Anzugträger, der mit dem Finger auf einen anderen Mann in einem Büro zeigt, während auf einem Schild das Google-Logo zu sehen ist.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochenen Worte erwähnen eine Bedrohung durch Investoren, und das Bild zeigt zwar eine Auseinandersetzung zwischen zwei Männern in einem Büro mit einem Google-Logo, es wird jedoch keine spezifische Finanz- oder Investorenverhandlung dargestellt.",
+              "erforderliches_bild": "Eine Illustration, die einen Investor zeigt, der mit Dokumenten oder Geld drohend vor Firmengründern steht."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Mann sitzt an einem Schreibtisch mit zwei Computermonitoren in einer Straßenszene mit Autos und einem sehr großen Baum im Hintergrund.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gezeigte Illustration zeigt einen Mann im Büro, jedoch wird keine Investition oder Finanzsumme visuell dargestellt.",
+              "erforderliches_bild": "Eine Illustration, die eine Geldinvestition oder das Treffen von Investoren darstellt."
+            },
+            {
+              "index": 3,
+              "gesehen": "Drei Personen sitzen an einem Tisch in einem Raum mit einem Fenster im Hintergrund, die in einer Besprechung zu sein scheinen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Personen repräsentieren die Gründer und Investoren bei Verhandlungen über die Besetzung der CEO-Stelle.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Mann sitzt an einem Holztisch vor einem klobigen Röhrenmonitor in einem Büro mit großem Fenster, davor Bücherstapel und Stifte, im Hintergrund Regale mit Ordnern.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gezeigte Büroszene zeigt einen einzelnen Arbeiter am Computer, aber nicht die im Sprechtext genannten Personen Page und Brin oder den Vorgang des Ablehnens von Kandidaten.",
+              "erforderliches_bild": "Eine Darstellung zweier Personen im Gespräch, die Dokumente oder Lebensläufe abweisen."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein Arbeiter mit Schutzhelm und Axt steht in einer Straße mit Werkstätten",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Arbeiter mit einer Axt, während der Text von Vision und technischem Können spricht, ohne dass ein passender Zusammenhang erkennbar ist.",
+              "erforderliches_bild": "Eine Darstellung von Gründern bei der Auswahl oder Beurteilung von Kandidaten."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Mann im braunen Sakko und grauen Hemd steht in einem Gang mit Schreibtischen und blickt besorgt in die Kamera.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich einen sprechenden Mann in einem Büro, aber nicht die konkrete finanzielle Drohung von Michael Moritz gegenüber Google.",
+              "erforderliches_bild": "Eine historische Darstellung eines Investors in einem Büro, der mit ernster Miene Geldmittel zurückfordert oder Verträge prüft."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein Mann im Hemd und Krawatte steht in einem Büro und spricht.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt einen sprechenden Mann in einem Büro, jedoch gibt es keinen visuellen Bezug zu John Doerr oder Eric Schmidt.",
+              "erforderliches_bild": "Ein Bild von John Doerr oder Eric Schmidt in einem geschäftlichen Kontext."
+            },
+            {
+              "index": 8,
+              "gesehen": "Zwei Geschäftsleute geben sich im Freien vor einer Straßendatschenkulisse bei Sonnenuntergang die Hand.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die Abbildung zeigt einen Handschlag zweier Personen, jedoch fehlt jeglicher konkreter Bezug zu Google, Eric Schmidt oder dem Jahr 2001.",
+              "erforderliches_bild": "Eine historische Illustration oder Darstellung, die Eric Schmidt oder eine entsprechende geschäftliche Verpflichtung im Jahr 2001 zeigt."
+            },
+            {
+              "index": 9,
+              "gesehen": "Eine bemalte Illustration zeigt zwei Männer in einer Stadtstraße vor hohen Gebäuden, von denen einer eine große Glocke berührt.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochenen Wörter erwähnen eine Drohung, einen CEO und einen Börsengang (IPO) im Jahr 2004, aber die Illustration zeigt lediglich zwei Männer und eine Glocke auf der Straße, was nicht zum Thema IPO oder einer Geldrückgabedrohung passt.",
+              "erforderliches_bild": "Eine historische Illustration oder Darstellung, die auf symbolische Weise den Börsengang (IPO) oder das Einsetzen eines CEO bei Google im Jahr 2004 zeigt."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein gelber Kasten auf dunklem Hintergrund zeigt den Text '$23 BILLION' mit dem Hinweis 'GOOGLE' darüber.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell den genannten Wert von $23 Milliarden im Zusammenhang mit Google und passt direkt zum gesprochenen Teil 'valued above $23 billion'.",
+              "erforderliches_bild": ""
+            }
+          ],
+          "befunde": [
+            "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte erwähnen eine Bedrohung durch Investoren, und das Bild zeigt zwar eine Auseinandersetzung zwischen zwei Männern in einem Büro mit einem Google-Logo, es wird jedoch keine spezifische Finanz- oder Investorenverhandlung dargestellt.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Illustration zeigt einen Mann im Büro, jedoch wird keine Investition oder Finanzsumme visuell dargestellt.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die gezeigte Büroszene zeigt einen einzelnen Arbeiter am Computer, aber nicht die im Sprechtext genannten Personen Page und Brin oder den Vorgang des Ablehnens von Kandidaten.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Arbeiter mit einer Axt, während der Text von Vision und technischem Können spricht, ohne dass ein passender Zusammenhang erkennbar ist.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen sprechenden Mann in einem Büro, aber nicht die konkrete finanzielle Drohung von Michael Moritz gegenüber Google.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen sprechenden Mann in einem Büro, jedoch gibt es keinen visuellen Bezug zu John Doerr oder Eric Schmidt.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die Abbildung zeigt einen Handschlag zweier Personen, jedoch fehlt jeglicher konkreter Bezug zu Google, Eric Schmidt oder dem Jahr 2001.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen eine Drohung, einen CEO und einen Börsengang (IPO) im Jahr 2004, aber die Illustration zeigt lediglich zwei Männer und eine Glocke auf der Straße, was nicht zum Thema IPO oder einer Geldrückgabedrohung passt."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 12,
+          "ausgenommen": [
+            11
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "bfd7076af3eb13d1ff568cfbefa215a41518b7bc959848c6bea6fab1ecb8e487",
+        "prompt_version": "2026-10-18.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "modell": "groq:openai/gpt-oss-120b",
+        "zweitpruefer_modell": null,
+        "zweitpruefer_anderer_anbieter": false
+      }
     }
   ]
 }

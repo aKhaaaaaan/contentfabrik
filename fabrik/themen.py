@@ -467,6 +467,24 @@ def _titel_norm(titel):
     return re.sub(r'\W+', ' ', str(titel or '')).strip().lower()
 
 
+FIRMENZUSATZ = {'inc', 'corp', 'corporation', 'company', 'co', 'ltd', 'plc', 'llc', 'group', 'holdings', 'platforms',
+                'the', 'ag', 'se', 'sa', 'nv'}
+
+
+def _firma(thema):
+    """Kernname einer Firma: Teil vor ':' ohne Klammern und Rechtsform-Zusaetze."""
+    kopf = re.sub(r'\([^)]*\)', ' ', str(thema or '').split(':')[0])
+    return [w for w in re.findall(r'[a-z0-9]+', kopf.lower().replace("'s ", ' ')) if w not in FIRMENZUSATZ]
+
+
+def _gleiche_firma(a, b):
+    x, y = _firma(a), _firma(b)
+    if not x or not y:
+        return False
+    kurz, lang = sorted((x, y), key=len)
+    return lang[:len(kurz)] == kurz
+
+
 def wiederholung_gesperrt(kanal, thema, titel=None, jetzt=None):
     """Grund (str), wenn ein frei gewaehltes Thema jetzt nicht wieder gebaut/hochgeladen werden darf, sonst None.
 
@@ -475,13 +493,18 @@ def wiederholung_gesperrt(kanal, thema, titel=None, jetzt=None):
     jetzt = jetzt or datetime.datetime.now(datetime.timezone.utc)
     try:
         import kanalstandard
-        name = (kanalstandard.alle().get(kanal) or {}).get('name') or kanal
+        profil = kanalstandard.alle().get(kanal) or {}
+        name = profil.get('name') or kanal
         norm = lambda t: re.sub(r'\W+', ' ', str(t)).strip().lower()
         geliefert = json.loads(GELIEFERT.read_text(encoding='utf-8'))
     except (OSError, ValueError, AttributeError, TypeError):
         return None
+    # GEMESSEN 22.10.2026: Tesla am 17.10. geliefert („Tesla: How Funding Decisions Shaped Its Growth"), „Tesla"
+    # war trotzdem frei - nur exakter Text zaehlte. Firmenkanaele vergleichen die Firma („Ford Motor Company" =
+    # „Ford", „Meta Platforms" = „Meta"). KI-Themen nicht: dort ist „Claude Code: <Winkel>" je Winkel ein Thema.
+    gleich = _gleiche_firma if profil.get('quelle') == 'wikipedia' else (lambda a, b: norm(a) == norm(b))
     for e in geliefert:
-        if not isinstance(e, dict) or e.get('kanal') != name or norm(e.get('thema')) != norm(thema):
+        if not isinstance(e, dict) or e.get('kanal') != name or not gleich(e.get('thema'), thema):
             continue
         if titel and _titel_norm(e.get('titel')) == _titel_norm(titel):
             return f'gleicher Titel wie Telegram {e.get("message_id")}'

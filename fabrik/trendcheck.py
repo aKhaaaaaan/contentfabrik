@@ -423,6 +423,10 @@ def waehlen(kanal, heute=None, themen=None):
     try:
         alt = json.loads(pfad.read_text(encoding='utf-8'))
         offen = {x['thema'] for x in themen.laden() if x['kanal'] == kanal}
+        # 22.10.2026: Berichte von Firmenkanaelen ohne Google-News-Abgleich (vor 3e2a714) neu berechnen -
+        # sonst bliebe es den ganzen Tag bei der freien Wahl (Walmart), obwohl Meta in den Schlagzeilen steht.
+        if _profil(kanal).get('quelle') == 'wikipedia' and not alt.get('google_news'):
+            raise KeyError('ohne Google News berechnet')
         if not themen.gespraech_grund(alt['thema']) and (not alt['thema'] or alt['thema'] in offen
                                                          or alt.get('zuschauer') or alt.get('trend')):
             # Bereits erledigte Ideen und alte Fehlklassifikationen neu waehlen.
@@ -452,7 +456,7 @@ def waehlen(kanal, heute=None, themen=None):
     if thema is None:
         thema = themen.nehmen(kanal)
         grund += ' - alte Reihenfolge der Warteschlange'
-    bericht = {'datum': heute.isoformat(), 'thema': thema, 'grund': grund,
+    bericht = {'datum': heute.isoformat(), 'thema': thema, 'grund': grund, 'google_news': firmen,
                'zuschauer': any(x.get('zuschauer') and x['thema'] == thema for x in bewertet),
                'trend': any(x.get('thema') == thema and thema and x.get('stufe', 2) <= 1 for x in bewertet),
                'kandidaten': [{k: x.get(k) for k in ('thema', 'begriff', 'eigen', 'punkte', 'youtube', 'wiki',

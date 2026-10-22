@@ -3,6 +3,7 @@ import copy
 import hashlib
 import json
 import math
+import os
 import re
 from pathlib import Path
 import dramaturgie
@@ -265,8 +266,16 @@ def _planen(gemini, modelle, auftrag, indizes, fallback_prompt=None):
         try:
             d, modell = gemini(auftrag, SCHEMA, modelle=modelle,
                               **({'fallback_prompt': fallback_prompt} if fallback_prompt is not None else {}))
-        except AnbieterNichtVerfuegbar:
-            raise  # Eine bekannte Sperre ist keine voruebergehende Netzstoerung.
+        except AnbieterNichtVerfuegbar as e:
+            # GEMESSEN 22.10.2026 (Lauf 39747394681): Gemini 503 + Zeitlimit (Sperren 5 bzw. 1 Min.), Groq lieferte
+            # ungueltiges JSON -> Bau nach 58 s weg. Das ist keine Kontingentsperre: einmal warten, bis die kurze
+            # Gemini-Sperre ablaeuft, dann neu. Echte Kontingentsperren brechen weiter sofort ab.
+            if runde or re.search(r'429|kontingent|gesperrt|keine reserve|frist', str(e), re.I) \
+                    or float(os.environ.get('CF_SCHRITT_ENDE', 'inf')) - time.monotonic() < 240:
+                raise
+            print('Bildplan: Anbieter kurz gestoert, neuer Versuch in 75 s -', str(e)[:120], flush=True)
+            time.sleep(75)
+            continue
         except RuntimeError as e:
             # GEMESSEN 08.10.2026 (Lauf 37784030675): Gemini kurz ueberlastet, der Groq-Ausweg
             # war fuer den Bildplan zu gross -> Bau weg. Nach kurzer Pause Gemini erneut.

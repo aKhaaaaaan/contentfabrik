@@ -75296,6 +75296,60 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "39810452976.1:ai-tools-explained",
+      "run_id": "39810452976",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-22T16:05:33.207457+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "9117867add758c3d9b375d5b8e20f76b7166c6ab",
+      "produktionsversion": "6233ad7a129ea7ba468419cc2bc628f8de70fa98e309508c7413495d00f6aa9a",
+      "videoformat": "short",
+      "thema": null,
+      "titel": null,
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "39810452976",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-22",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "auftragsfehler",
+            "exitcode": 5,
+            "grund": "Auftrag zu gross: geschaetzte Reserve 10537 Tokens, maximal7900",
+            "sekunden": 88.1
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "Claude Code: How to Make a Game With Claude Code and Publish It on Steam (Full Workflow): 5.0 Punkte - YouTube-Ausreisser 33.1x Kanalschnitt",
+        "grund": "Auftrag zu gross: geschaetzte Reserve 10537 Tokens, maximal7900",
+        "sekunden": 88.2
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": null
     }
   ]
 }

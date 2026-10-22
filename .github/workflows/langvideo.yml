@@ -1,22 +1,27 @@
-# Woechentliches Business-Langvideo (8-10 Min.): die ganze Geschichte einer Firma, deren Short in den
-# letzten Tagen lief (fabrik/langvideo.py). Gleiche Pruefungen wie die Shorts (Fakten, Story, Bild-Text,
+# Woechentliche Langvideos (8-10 Min.) je Kanal: die ganze Geschichte / das ganze Thema eines Shorts, der in
+# den letzten Tagen lief (fabrik/langvideo.py). Gleiche Pruefungen wie die Shorts (Fakten, Story, Bild-Text,
 # Technik, Endton), Zustellung als Video auf Telegram; Upload zu YouTube macht der Nutzer.
 # Nutzerauftrag 16.10.2026: Langvideos zahlen je Aufruf ein Vielfaches und nur sie zaehlen fuer die
 # Wiedergabestunden des Partnerprogramms.
+# Nutzer 22.10.2026: Langvideos fuer jeden Kanal an verschiedenen Tagen (Kontingent fuer Shorts bleibt), beide
+# spaetestens Sonntag fertig. Welcher Kanal wann: formate/<kanal>.json, Feld lang_tage (Business fr/sa, KI sa/so).
 name: langvideo
 env:
   PYTHONUNBUFFERED: '1'
 on:
   schedule:
-    # Nutzer 22.10.2026: zwei Tage vor dem Hochladen am Sonntagabend bauen - Freitag nach den Tages-Shorts
-    # (die starten 08:23 UTC und brauchen bis ~11 Uhr). Samstag ist der Ersatztermin; die Vorpruefung startet
-    # nichts, wenn schon ein Langvideo gesendet wurde (ABSTAND_TAGE).
+    # Freitag bis Sonntag nach den Tages-Shorts (die starten 08:23 UTC und brauchen bis ~11 Uhr); die
+    # Vorpruefung waehlt je Tag die faelligen Kanaele (erster Tag Bau, weitere Ersatz, ABSTAND_TAGE sperrt).
     - cron: '7 12 * * 5'
     - cron: '7 12 * * 6'
+    - cron: '7 12 * * 0'
   workflow_dispatch:
     inputs:
+      kanal:
+        description: 'Kanal (Handstart ohne Wochentagspruefung)'
+        default: 'business-origin-stories'
       thema:
-        description: 'optional: festes Thema (leer = juengster Business-Short ohne Langvideo)'
+        description: 'optional: festes Thema (leer = juengster Short des Kanals ohne Langvideo)'
         default: ''
 concurrency:
   group: contentfabrik-zustand
@@ -29,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       faellig: ${{ steps.pruefen.outputs.faellig }}
-      thema: ${{ steps.pruefen.outputs.thema }}
+      liste: ${{ steps.pruefen.outputs.liste }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -37,28 +42,35 @@ jobs:
       - id: pruefen
         env:
           EINGABE: ${{ inputs.thema }}
+          LANG_KANAL: ${{ inputs.kanal }}
         run: python3 fabrik/langvideo.py vorpruefung
-      - name: Start auf Telegram bestaetigen
-        if: steps.pruefen.outputs.faellig == 'ja'
-        # Eine Telegram-Stoerung soll die Produktion nicht verhindern.
-        continue-on-error: true
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          THEMA: ${{ steps.pruefen.outputs.thema }}
-          KANAL: business-origin-stories
-          VIDEOFORMAT: lang
-          CF_ORIGINAL_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: python3 fabrik/statusmeldung.py langstart
   video:
     needs: vorpruefung
     if: needs.vorpruefung.outputs.faellig == 'ja'
     runs-on: ubuntu-latest
     timeout-minutes: 230  # lauf.BUDGET_LANG_S 200 Min. plus Einrichtung/Sicherung
+    strategy:
+      # nacheinander: beide teilen Verlauf/Budget-Commits und das kostenlose Kontingent
+      max-parallel: 1
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.vorpruefung.outputs.liste) }}
+    name: langvideo (${{ matrix.kanal }})
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
+      - name: Start auf Telegram bestaetigen
+        # Eine Telegram-Stoerung soll die Produktion nicht verhindern.
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          THEMA: ${{ matrix.thema }}
+          KANAL: ${{ matrix.kanal }}
+          VIDEOFORMAT: lang
+          CF_ORIGINAL_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python3 fabrik/statusmeldung.py langstart
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -90,15 +102,15 @@ jobs:
         id: ki-cache
         with:
           path: ki-cache
-          key: ki-pruefungen-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}-lang
+          key: ki-pruefungen-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}-lang-${{ matrix.kanal }}
           restore-keys: ki-pruefungen-v1-${{ runner.os }}-
       - uses: actions/cache/restore@v4
         with:
           path: |
-            produktions-cache/business-origin-stories
+            produktions-cache/${{ matrix.kanal }}
             stimm-cache
-          key: teilbau-lang-v1-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: teilbau-lang-v1-
+          key: teilbau-lang-v1-${{ matrix.kanal }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: teilbau-lang-v1-${{ matrix.kanal }}-
       - name: Erzeugen, pruefen, senden
         id: produktion
         env:
@@ -114,34 +126,34 @@ jobs:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          KANAL: business-origin-stories
-          THEMA: ${{ needs.vorpruefung.outputs.thema }}
+          KANAL: ${{ matrix.kanal }}
+          THEMA: ${{ matrix.thema }}
           CF_WORKFLOW_STATUS: '1'
           CF_TEXT_FALLBACK: 'groq'
-        run: python fabrik/lauf.py formate/business-origin-stories.json "$THEMA"
+        run: python fabrik/lauf.py "formate/$KANAL.json" "$THEMA"
       - name: Abgebrochene Budgetreservierung abrechnen
         if: always() && steps.produktion.outcome == 'cancelled'
         env:
           CF_PRODUKTION_OUTCOME: ${{ steps.produktion.outcome }}
-        run: python fabrik/budget.py abbruch lang-business-origin-stories
+        run: python fabrik/budget.py abbruch "lang-${{ matrix.kanal }}"
       - uses: actions/cache/save@v4
         if: always()
         with:
           path: |
-            produktions-cache/business-origin-stories
+            produktions-cache/${{ matrix.kanal }}
             stimm-cache
-          key: teilbau-lang-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          key: teilbau-lang-v1-${{ matrix.kanal }}-${{ github.run_id }}-${{ github.run_attempt }}
       - uses: actions/cache/save@v4
         if: always() && steps.ki-cache.outputs.cache-hit != 'true'
         with:
           path: ki-cache
-          key: ki-pruefungen-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}-lang
+          key: ki-pruefungen-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}-lang-${{ matrix.kanal }}
       - name: Verlauf und Gelerntes sichern
         if: always()
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          KANAL: business-origin-stories
+          KANAL: ${{ matrix.kanal }}
         run: |
           git config user.name 'contentfabrik-bot'
           git config user.email 'contentfabrik-bot@users.noreply.github.com'
@@ -150,7 +162,7 @@ jobs:
             [ ! -d "$pfad" ] || git add -- "$pfad"
           done
           git diff --cached --quiet && exit 0
-          git commit -qm "Verlauf/Lernen Langvideo business-origin-stories"
+          git commit -qm "Verlauf/Lernen Langvideo ${{ matrix.kanal }}"
           for i in 1 2 3 4 5; do
             git pull -q --rebase || { git rebase --abort 2>/dev/null; break; }
             git push -q && exit 0
@@ -169,7 +181,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          KANAL: business-origin-stories
+          KANAL: ${{ matrix.kanal }}
           VIDEOFORMAT: lang
           PRODUKTION: ${{ steps.produktion.outcome }}
           CF_ORIGINAL_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -177,7 +189,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: langvideo-business-origin-stories
+          name: langvideo-${{ matrix.kanal }}
           retention-days: 3
           path: |
             ausgabe/short.mp4

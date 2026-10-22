@@ -20,7 +20,7 @@
 //   Befehle: Start | Start Business | Start KI | Status (Gesamtfortschritt in %) | Abholen
 
 const REPO = 'aKhaaaaaan/contentfabrik';
-const VERSION = '2026-10-22.1';
+const VERSION = '2026-10-22.2';
 // Zusammengefasste Stunden sparen Trigger: Workers Free hat fuenf pro Konto.
 const VIDEO_CRONS = new Set(['23 8,13 * * *', '41 10,15 * * *',
   '23 8 * * *', '41 10 * * *', '23 13 * * *', '41 15 * * *']);
@@ -369,10 +369,10 @@ export default {
         job = Promise.all([job, vorrat]).then((t) => t.join(' | '));
       }
       // 16.10.2026: Der Vorrat-Cron 01:07 erschien nie in der Run-Liste - GitHub verschluckt Zeitplaene.
-      // Langvideo (Fr/Sa 12:07 UTC) deshalb 33 Min spaeter nachholen, wenn heute noch kein Lauf existiert.
+      // Langvideo (Fr-So 12:07 UTC) deshalb 33 Min spaeter nachholen, wenn heute noch kein Lauf existiert.
       // Doppelstart verhindern starte() (aktiver Lauf), die Warteschlange und die Wochensperre der Vorpruefung.
       // Nutzer 22.10.2026: zwei Tage vor dem Hochladen bauen (Sonntagabend), Kontingent entspannt nutzen.
-      if (zeit && [5, 6].includes(zeit.getUTCDay()) && zeit.getUTCHours() === 12
+      if (zeit && [5, 6, 0].includes(zeit.getUTCDay()) && zeit.getUTCHours() === 12
           && zeit.getUTCMinutes() >= 40 && zeit.getUTCMinutes() < 45) {
         const heute = zeit.toISOString().slice(0, 10);
         const lang = laeufe(env, '', 'langvideo.yml', 10).then((l) => l.some(r => (r.created_at || '').startsWith(heute))

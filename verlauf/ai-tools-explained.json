@@ -2035,5 +2035,47 @@
    7.06,
    5.43
   ]
+ },
+ {
+  "datum": "2026-10-22",
+  "thema": "Claude Code token overhead before building a game",
+  "titel": [
+   "*Claude* *Code* Token Cost",
+   "Before You Build a Game"
+  ],
+  "status": "baufehler",
+  "note": null,
+  "hook": "You open Claude Code, type nothing, and 33,000 tokens vanish",
+  "quellen": [
+   "https://thereallo.dev/blog/claude-code-prompt-steganography",
+   "https://code.claude.com/docs/en/changelog",
+   "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
+   "https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/"
+  ],
+  "einstellungen": {
+   "stimme": "bf_emma",
+   "winkel": "AI you can explore today - a concrete use case and an honest limitation for each tool",
+   "format": "erklaerung",
+   "hook_art": "zahl",
+   "teile": 7,
+   "videoformat": "short",
+   "laenge": "kurz",
+   "story_note": 8,
+   "tempo": 1.05,
+   "untertitel_profil": "ruhig",
+   "musik_pegel": 0.1,
+   "effekt_pegel": 1.0
+  },
+  "gliederung": [
+   "You open Claude Code, type nothing, and",
+   "That's system prompt, tool schemas and scaffolding.",
+   "A 72KB instruction file adds roughly 20,000",
+   "A working setup can sit 75,000 to",
+   "Not always. On the first model, one",
+   "A newer model reversed it: roughly 298,000",
+   "Planning your game? Like, share and save"
+  ],
+  "abschnitte_s": null,
+  "grund": "AnbieterNichtVerfuegbar: Textanbieter lieferte keine nutzbare Antwort: Groq HTTP400: Modell lieferte keine gueltige Schema-Antwort"
  }
 ]

@@ -72415,6 +72415,68 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "39747394681.1:ai-tools-explained",
+      "run_id": "39747394681",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-22T08:26:07.717942+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "8062cafca8de626916f3a4dd7b8a4f0d43e37b7a",
+      "produktionsversion": "4dbe4c1dd849f1bf0047e540cc44dd1ce951014f327ef43ce8f69b672787f125",
+      "videoformat": "short",
+      "thema": "Claude Code token overhead before building a game",
+      "titel": [
+        "*Claude* *Code* Token Cost",
+        "Before You Build a Game"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "39747394681",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-22",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 58.1,
+            "baufehler": "AnbieterNichtVerfuegbar: Textanbieter lieferte keine nutzbare Antwort: Groq HTTP400: Modell lieferte keine gueltige Schema-Antwort",
+            "status": "anbieterpause",
+            "sekunden": 58.1
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Videobau fehlgeschlagen (AnbieterNichtVerfuegbar: Textanbieter lieferte keine nutzbare Antwort: Groq HTTP400: Modell lieferte keine gueltige Schema-Antwort)",
+        "sekunden": 58.5,
+        "upload_titel": "Claude Code Token Cost: Before You Build a Game | AI Tool #12"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-3.5-flash-lite",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

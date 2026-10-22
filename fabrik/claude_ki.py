@@ -65,7 +65,50 @@ def schreiben(prompt, schema, zeit=300):
     daten, grund = _schreiben(prompt, schema, zeit)
     if daten is None:
         sperren(grund)
+        limit_merken(grund)
     return daten, grund
+
+
+LIMIT_TEXT = re.compile(r'usage limit|limit reached|rate limit|weekly limit|5-hour limit|out of (?:extra )?usage', re.I)
+
+
+def limit_ende(grund, jetzt=None):
+    """Ruecksetzzeit aus der Claude-Limitmeldung (UTC) oder eine vorsichtige Schaetzung; None ohne Limit.
+    Formate: „Claude AI usage limit reached|1760457600" (Unix-Zeit) oder „... resets Oct 14, 5pm (UTC)"."""
+    if not LIMIT_TEXT.search(grund or ''):
+        return None
+    jetzt = jetzt or datetime.datetime.now(datetime.timezone.utc)
+    m = re.search(r'\|(\d{10})\b', grund)
+    if m:
+        ende = datetime.datetime.fromtimestamp(int(m.group(1)), datetime.timezone.utc)
+        if jetzt < ende <= jetzt + datetime.timedelta(days=8):
+            return ende
+    # Ohne lesbare Zeit: Wochenlimit eine Stunde, 5-Stunden-Limit 30 Min. pausieren, dann neu versuchen -
+    # lieber ein kurzer Fehlversuch mehr als einen Tag lang auf Claude verzichten.
+    return jetzt + datetime.timedelta(minutes=60 if re.search(r'week', grund, re.I) else 30)
+
+
+def limit_merken(grund, jetzt=None):
+    """GEMESSEN 11.-14.10.2026: Wochenlimit erreicht, aber nichts merkte es - jeder Lauf versuchte Claude erneut,
+    und der Nutzer erfuhr nicht, dass auch seine eigenen Claude-Sitzungen betroffen sind. Jetzt: Pause in
+    verlauf/claude-limit.json (wird mit dem Verlauf gesichert) und eine Telegram-Warnung."""
+    ende = limit_ende(grund, jetzt)
+    if ende is None:
+        return None
+    LIMIT.parent.mkdir(parents=True, exist_ok=True)
+    LIMIT.write_text(json.dumps({'gesperrt_bis_utc': ende.strftime('%Y-%m-%dT%H:%M:%SZ'),
+                                 'grund': 'Claude-Abo-Limit gemeldet: ' + (grund or '')[:160]},
+                                ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+    try:
+        import stoerung
+        berlin = ende.astimezone(datetime.timezone(datetime.timedelta(hours=1 if ende.month in (11, 12, 1, 2, 3)
+                                                                       else 2)))
+        stoerung.melden('claude-limit', f'Claude-Abo-Limit erreicht (frei ab ca. {berlin:%d.%m. %H:%M} Uhr).',
+                        'Gemini/Groq schreiben die Skripte, alle Pruefungen bleiben. Auch deine eigenen '
+                        'Claude-Sitzungen teilen dieses Limit.')
+    except Exception:
+        pass
+    return ende
 
 
 def sperren(grund):

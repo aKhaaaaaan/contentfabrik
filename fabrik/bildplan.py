@@ -353,6 +353,15 @@ def groq_ausweich(auftrag, kompakt, slots, grenze=7900):
     return bauen()
 
 
+# Verbesserungsplan 18.10.2026 Punkt 3 (Nutzer: „Ja"): roter Faden im Bild. Codex-Videos mit hoher Bindung zeigten
+# einen wiederkehrenden Gegenstand; unsere Geschichten waren Bildfolgen ohne Verbindung. Nur fuer Geschichten
+# (Business) - der KI-Kanal bekommt am 22.10. schon die Screenshot-Aenderung (eine Bildaenderung je Lauf).
+LEITGEGENSTAND = ('Pick ONE signature object named or clearly implied in the spoken story (e.g. the first store '
+                  'sign, a pocket watch, the first product) and show that same object, with the same look, in the '
+                  'opening slot, at the turning point and in the resolution - each time in a new situation that '
+                  'illustrates the words of that slot. Name it the same way in motiv each time. ')
+
+
 def vorbereiten(s, laengen, woerter, cache=None):
     from skript import gemini, SEHEN
     import lernen
@@ -401,6 +410,7 @@ def vorbereiten(s, laengen, woerter, cache=None):
             'strong contours and cinematic light; no copied game characters, logos or scenes. '
             # 16.10.2026: themenbezogene Sonderregeln (Nintendo-Karten, Qwen-Image) entfernt - jede half
             # einem Video und verwirrte den Planer bei allen anderen; die Kanalvorlage traegt jetzt die Praezision.
+            + (LEITGEGENSTAND if s.get('format') == 'geschichte' else '') +
             'Keep generated props unlettered. Prefer clear object compositions; avoid crowded hands and small shelf '
             'packaging. Vary gaze and pose naturally when a fictional presenter is useful. '
             'Use the fictional presenter only when the slot actually benefits from a presenter. '

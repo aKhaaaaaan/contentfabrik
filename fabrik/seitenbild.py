@@ -29,42 +29,96 @@ def woerter(text):
     return {w.strip(".'-") for w in roh if (len(w) >= 4 or re.search(r'\d', w)) and w not in FUELL}
 
 
-def bester_abschnitt(satz, bloecke, benutzt=()):
+def bester_abschnitt(satz, bloecke, benutzt=(), visuell=()):
     """Index des Absatzes, der am besten zum Satz passt, oder None.
 
     bloecke: Liste von Texten (sichtbare Absaetze der Seite). Sicherer Treffer: mindestens 2 gemeinsame Woerter
-    und mindestens ein Drittel der Satzwoerter. Bei Gleichstand gewinnt der kuerzere (genauere) Absatz."""
+    und mindestens 40 % der Satzwoerter (oder 4 gemeinsame). Gemeinsame Zahlen zaehlen doppelt; Tabellen,
+    Grafiken und Code (Indizes in visuell) gewinnen bei gleichem Treffer. Bei Gleichstand der kuerzere Absatz.
+    GEMESSEN 22.10.2026 (KI-Lauf 39757744191): 4 von 10 Screenshots „zeigen lediglich einen Text"; Einstellung 11
+    traf mit einem Drittel der Woerter einen Absatz zu einem anderen Punkt."""
     ziel = woerter(satz)
     if len(ziel) < 2:
         return None
+    zahlen = {w for w in ziel if re.search(r'\d', w)}
     beste, wert = None, None
     for i, text in enumerate(bloecke):
-        if i in benutzt or not 20 <= len(text) <= 700:
+        if i in benutzt or not 20 <= len(text) <= (2000 if i in visuell else 700):
             continue
-        gemeinsam = len(ziel & woerter(text))
-        if gemeinsam < 2 or gemeinsam / len(ziel) < 1 / 3:
+        da = woerter(text)
+        gemeinsam = len(ziel & da)
+        if gemeinsam < 2 or (gemeinsam / len(ziel) < 0.4 and gemeinsam < 4):
             continue
-        w = (gemeinsam, -len(text))
+        w = (gemeinsam + len(zahlen & da) + (1 if i in visuell else 0), -len(text))
         if wert is None or w > wert:
             beste, wert = i, w
     return beste
 
 
+def ausschnitt_oben(block, visuelle, seitenhoehe, hoehe=HOEHE):
+    """Oberkante des Bildausschnitts. Eine Tabelle/Grafik direkt unter dem markierten Absatz kommt mit ins Bild
+    (Absatz oben, Tabelle darunter), sonst der Absatz im oberen Drittel."""
+    oben = block['y'] - hoehe * MARKE_OBEN
+    if block.get('visuell'):
+        oben = block['y'] - 24
+    else:
+        ende = block['y'] + block['h']
+        for v in sorted(visuelle, key=lambda v: v['y']):
+            if 0 <= v['y'] - ende <= 260 and v['y'] + min(v['h'], hoehe * 0.6) - (block['y'] - 24) <= hoehe:
+                oben = block['y'] - 24
+                break
+    return max(0, min(oben, seitenhoehe - hoehe))
+
+
 SAMMELN = """() => {
-  const ZIELE = 'p, li, h1, h2, h3, h4, td, dd, blockquote, figcaption, div';
+  const ZIELE = 'p, li, h1, h2, h3, h4, td, dd, blockquote, figcaption, div, table, figure, pre';
   const aus = [];
   for (const el of document.querySelectorAll(ZIELE)) {
+    const tag = el.tagName;
+    const visuell = tag === 'TABLE' || tag === 'FIGURE' || tag === 'PRE';
     // div nur als unterste Textebene (GEMESSEN 21.10.: Googles "Important: If you reach your daily quota..." ist ein div)
-    if (el.tagName === 'DIV' && el.querySelector('p, li, div, h1, h2, h3, h4, table, ul, ol, section')) continue;
+    if (tag === 'DIV' && el.querySelector('p, li, div, h1, h2, h3, h4, table, ul, ol, section')) continue;
+    // Zellen einer Tabelle: die Tabelle als Ganzes ist der bessere Kandidat
+    if (tag === 'TD' && el.closest('table')) continue;
     const r = el.getBoundingClientRect();
-    const t = (el.innerText || '').trim();
+    const img = tag === 'FIGURE' ? el.querySelector('img') : null;
+    const t = ((el.innerText || '') + (img && img.alt ? ' ' + img.alt : '')).trim();
     if (!t || r.width < 120 || r.height < 12) continue;
+    if (visuell && r.height < 60) continue;
     const s = getComputedStyle(el);
     if (s.visibility === 'hidden' || s.display === 'none') continue;
     if (el.closest('nav, header, footer, aside, [role=navigation], [aria-hidden=true]')) continue;
-    aus.push({t: t.slice(0, 800), y: r.top + window.scrollY, h: r.height});
+    aus.push({t: t.slice(0, visuell ? 2000 : 800), y: r.top + window.scrollY, h: r.height, visuell});
   }
   return aus;
+}"""
+
+MARKIEREN = """([y, t, woerter]) => {
+  const ZIELE = 'p, li, h1, h2, h3, h4, td, dd, blockquote, figcaption, div, table, figure, pre';
+  const gelb = (el) => { el.style.background = '#fff3a8'; el.style.outline = '4px solid #f5b400';
+                         el.style.outlineOffset = '4px'; el.style.borderRadius = '6px'; };
+  for (const el of document.querySelectorAll(ZIELE)) {
+    const r = el.getBoundingClientRect();
+    const lim = el.tagName === 'TABLE' || el.tagName === 'FIGURE' || el.tagName === 'PRE' ? 2000 : 800;
+    if (Math.abs(r.top + window.scrollY - y) >= 2) continue;
+    const img = el.tagName === 'FIGURE' ? el.querySelector('img') : null;
+    if (((el.innerText || '') + (img && img.alt ? ' ' + img.alt : '')).trim().slice(0, lim) !== t) continue;
+    const tab = el.tagName === 'TABLE' ? el : el.querySelector('table');
+    if (tab) {
+      // Rahmen um die Tabelle, gelb nur die Zeile mit den meisten Woertern des Satzes
+      el.style.outline = '4px solid #f5b400'; el.style.outlineOffset = '4px'; el.style.borderRadius = '6px';
+      let beste = null, wert = 0;
+      for (const tr of tab.querySelectorAll('tr')) {
+        const x = (tr.innerText || '').toLowerCase();
+        const n = woerter.filter(w => x.includes(w)).length;
+        if (n > wert) { beste = tr; wert = n; }
+      }
+      if (beste) for (const c of beste.querySelectorAll('td, th')) c.style.background = '#fff3a8';
+    } else {
+      gelb(el);
+    }
+    break;
+  }
 }"""
 
 
@@ -98,22 +152,14 @@ def aufnehmen(url, satz, ziel, benutzt=None):
                         break
                 bloecke = seite.evaluate(SAMMELN)
                 schon = {int(k.split('#')[-1]) for k in benutzt if k.startswith(url + '#')}
-                i = bester_abschnitt(satz, [b['t'] for b in bloecke], schon)
+                visuell = {n for n, x in enumerate(bloecke) if x.get('visuell')}
+                i = bester_abschnitt(satz, [b['t'] for b in bloecke], schon, visuell)
                 if i is None:
                     return None, None
                 b = bloecke[i]
-                seite.evaluate("""([y, t]) => {
-                  const ZIELE = 'p, li, h1, h2, h3, h4, td, dd, blockquote, figcaption, div';
-                  for (const el of document.querySelectorAll(ZIELE)) {
-                    const r = el.getBoundingClientRect();
-                    if (Math.abs(r.top + window.scrollY - y) < 2 && (el.innerText || '').trim().slice(0, 800) === t) {
-                      el.style.background = '#fff3a8'; el.style.outline = '4px solid #f5b400';
-                      el.style.outlineOffset = '4px'; el.style.borderRadius = '6px'; break;
-                    }
-                  }
-                }""", [b['y'], b['t']])
+                seite.evaluate(MARKIEREN, [b['y'], b['t'], sorted(woerter(satz))])
                 hoehe = seite.evaluate('() => document.documentElement.scrollHeight')
-                oben = max(0, min(b['y'] - HOEHE * MARKE_OBEN, hoehe - HOEHE))
+                oben = ausschnitt_oben(b, [x for x in bloecke if x.get('visuell')], hoehe)
                 Path(ziel).parent.mkdir(parents=True, exist_ok=True)
                 seite.screenshot(path=str(ziel), clip={'x': 0, 'y': oben, 'width': BREITE, 'height': HOEHE},
                                  full_page=True, type='jpeg', quality=90)
@@ -124,7 +170,7 @@ def aufnehmen(url, satz, ziel, benutzt=None):
         kennung = f'{url}#{i}'
         benutzt.add(kennung)
         return Path(ziel), {'quelle': 'Screenshot der Quellseite', 'seite': url, 'datei': kennung,
-                            'abschnitt': b['t'][:200],
+                            'abschnitt': b['t'][:200], 'visuell': bool(b.get('visuell')),
                             'sha256': hashlib.sha256(Path(ziel).read_bytes()).hexdigest()}
     except Exception as e:
         print('Quellseiten-Screenshot nicht moeglich:', url, str(e)[:150])

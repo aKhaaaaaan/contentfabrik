@@ -103,7 +103,8 @@ def google_treffer(begriff, heute_liste):
     if not kern:
         return None
     for titel, news in heute_liste:
-        text = ' '.join([titel] + news).lower()
+        # GEMESSEN 22.10.2026 (Lauf 39810452976): das Praefix selbst traf 'Google' -> Thema ohne Anlass
+        text = ' '.join([titel.removeprefix(GOOGLE_NEWS)] + news).lower()
         if all(re.search(r'\b' + re.escape(w) + r'\b', text) for w in kern):
             return titel
     return None

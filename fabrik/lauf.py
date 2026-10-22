@@ -484,6 +484,14 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                                       grund='; '.join((runde['sperrgruende'] or [])[:2] + runde['skript_probleme'][:2]))
                 if r in (4, 5):
                     runde['status'] = 'anbieterpause' if r == 4 else 'auftragsfehler'
+                    # GEMESSEN 22.10.2026 (Lauf 39810452976): Gemini 503 + Zeitlimit, der Groq-Ersatz war zu klein
+                    # (Code 5) -> KI ohne Video nach 30 s. Eine kurze Gemini-Sperre einmal abwarten, wie im Bau.
+                    warte = kurze_anbieterpause() if not anbieter_gewartet else None
+                    if warte and arbeit_ende - time.monotonic() > warte + ANBIETER_REST_S:
+                        anbieter_gewartet = True
+                        print(f'Gemini kurz ueberlastet - Skript in {round(warte)} s erneut', flush=True)
+                        time.sleep(warte)
+                        continue
                     break  # Eine bekannte Kontingentsperre nicht durch neue Entwuerfe wiederholen.
                 if entwurf:
                     break  # Eine gesperrte feste Vorlage nicht unveraendert erneut pruefen.

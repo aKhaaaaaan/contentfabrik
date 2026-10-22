@@ -174,8 +174,17 @@ def planen(skript, kritik, messung, config, kanal):
         # (Code 1) - gueltige Vorschlaege gingen mit verloren. Jetzt: ungueltige einzeln verwerfen.
         for b in vorschlag.get('bilder', []):
             i, modus = b.get('index'), b.get('bildmodus')
-            if isinstance(i, bool) or not isinstance(i, int) or i not in bildziele                     or modus not in ('auto', 'foto', 'stock', 'illustration', 'karte')                     or not all(isinstance(b.get(k), str) and b[k].strip() for k in ('suche', 'szene')):
-                print('Ungueltige Bildkorrektur verworfen:', json.dumps(b, ensure_ascii=False)[:160])
+            # GEMESSEN 22.10.2026 (Business Walmart): beide Bildkorrekturen „ungueltig" verworfen, Grund unbekannt.
+            # Fehlender Bildmodus ist kein Grund zum Verwerfen (bisheriger Modus bleibt); Grund wird geloggt.
+            if not isinstance(i, bool) and isinstance(i, int) and 0 <= i < len(neu['teile']) and modus in (None, ''):
+                modus = neu['teile'][i].get('bildmodus') or 'auto'
+            grund = ('Index kein Ziel ' + str(sorted(bildziele)) if isinstance(i, bool) or not isinstance(i, int)
+                     or i not in bildziele else 'Bildmodus ' + repr(modus)
+                     if modus not in ('auto', 'foto', 'stock', 'illustration', 'karte')
+                     else 'suche/szene leer' if not all(isinstance(b.get(k), str) and b[k].strip()
+                                                       for k in ('suche', 'szene')) else '')
+            if grund:
+                print(f'Ungueltige Bildkorrektur verworfen ({grund}):', json.dumps(b, ensure_ascii=False)[:160])
                 continue
             for key in ('suche', 'szene'):
                 neu['teile'][i][key] = b[key].strip()[:600]
@@ -184,6 +193,9 @@ def planen(skript, kritik, messung, config, kanal):
         geaendert = False
         for t in vorschlag.get('texte', []):
             i = t.get('index')
+            if isinstance(i, int) and not isinstance(i, bool) and 0 <= i < len(skript['teile']) \
+                    and str(t.get('text', '')).strip() == skript['teile'][i]['text']:
+                continue  # unveraendert zurueckgegeben - keine Korrektur, kein Fehler
             if isinstance(i, bool) or not isinstance(i, int) or i not in textziele \
                     or not isinstance(t.get('text'), str) or not t['text'].strip():
                 print('Ungueltige Sprechtextkorrektur verworfen:', json.dumps(t, ensure_ascii=False)[:160])

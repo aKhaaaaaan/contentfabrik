@@ -381,8 +381,13 @@ def thema_recherche(thema, tage=120, maximal=4):
             if h.get('url') and passt_zum_thema(titel, begriffe) and (not produkt or passt_zum_thema(titel, produkt)):
                 treffer.append({'titel': titel, 'url': h['url'], 'punkte': h.get('points') or 0,
                                 'datum': (h.get('created_at') or '')[:10]})
+    # GEMESSEN 22.10.2026: Trend „Claude Code: How to Make a Game ... Publish It on Steam" bekam nur Quellen zum
+    # Produkt (Token-Verbrauch, meiste HN-Punkte) - Claude schrieb dann ueber Token-Kosten statt ueber den Trend.
+    # Quellen, die auch den Blickwinkel (Game, Steam) enthalten, zuerst.
+    produkt_woerter = set(re.findall(r'\w+', (produkt or [''])[0].lower()))
+    winkel = [b for b in begriffe if b.lower() not in produkt_woerter and not re.fullmatch(r'[\d.]+', b)]
     aus, gesehen = [], set()
-    for h in sorted(treffer, key=lambda h: -h['punkte']):
+    for h in sorted(treffer, key=lambda h: (-_deckt(h['titel'], winkel), -h['punkte'])):
         if h['url'] in gesehen or len(gesehen) >= 8:  # hoechstens 8 Seitenabrufe je Thema
             continue
         gesehen.add(h['url'])
@@ -404,6 +409,51 @@ def thema_recherche(thema, tage=120, maximal=4):
             aus.append(dict(w, belegt=True))
     except Exception as e:
         print('Wikipedia-Suche nicht verfuegbar:', type(e).__name__)
+    if produkt and winkel and aus and not any(_deckt(q['name'] + ' ' + q['text'], winkel) >= 2 for q in aus):
+        extra = winkel_quellen(produkt[0], winkel, {q['url'] for q in aus})
+        if extra:
+            # Belege zum Blickwinkel vorn; reine Produktmeldungen (Token-Verbrauch, Code-Review) nur eine als
+            # Hintergrund - sonst zieht die Mehrheit der Quellen den Autor wieder vom Trend weg.
+            passend = [q for q in aus if _deckt(q['name'] + ' ' + q['text'], winkel)]
+            aus = extra + passend + [q for q in aus if q not in passend][:1]
+    return aus
+
+
+def _deckt(text, woerter):
+    """Wie viele der Woerter im Text vorkommen (ganze Woerter, ohne Gross-/Kleinschreibung)."""
+    klein = (text or '').lower()
+    return sum(1 for w in woerter if re.search(r'(?<![\w])' + re.escape(w.lower()) + r'(?![\w])', klein))
+
+
+def winkel_quellen(produkt, winkel, schon=()):
+    """Belege fuer den Blickwinkel eines Trendthemas: offizielle Produktanleitung (trendquellen) und der
+    Wikipedia-Artikel zum Blickwinkel („Steam (service)"). Ohne sie schreibt der Autor am Trend vorbei."""
+    aus = []
+    for url in (anleitungen().get(produkt) or [])[:1]:
+        text = seitentext(url)
+        if url not in schon and len(text.split()) >= 150:
+            aus.append({'quelle': 'Webseite', 'name': f'{produkt} official guide', 'url': url, 'belegt': True,
+                        'text': f'Official {produkt} documentation/help page.\nPAGE TEXT (fetched today):\n{text}'})
+    try:
+        # GEMESSEN 22.10.: „Game Publish Steam Workflow" fand „No Rest for the Wicked", „Game Publish Steam" fand
+        # „Steam (service)". Darum kurze Suchen zuerst, und der Artikeltitel muss ein Blickwinkel-Wort tragen.
+        for suche in dict.fromkeys(' '.join(winkel[:n]) for n in (3, 2, 4)):
+            d = json.loads(_hole('https://en.wikipedia.org/w/api.php?' + urllib.parse.urlencode({
+                'action': 'query', 'list': 'search', 'srsearch': suche, 'srlimit': 3, 'format': 'json'}),
+                WIKI_KENNUNG, zeit=15))
+            for s in d.get('query', {}).get('search') or []:
+                if 'disambiguation' in s['title'].lower() or not _deckt(s['title'], winkel):
+                    continue
+                w = wikipedia(s['title'])
+                if w and w.get('url') not in schon and _deckt(w['name'] + ' ' + w['text'], winkel) >= min(2, len(winkel)):
+                    aus.append(dict(w, belegt=True))
+                    break
+            if len(aus) and aus[-1].get('quelle') != 'Webseite':
+                break
+    except Exception as e:
+        print('Wikipedia-Suche (Blickwinkel) nicht verfuegbar:', type(e).__name__)
+    if aus:
+        print('Trend-Blickwinkel belegt:', ', '.join(q['name'] for q in aus)[:160])
     return aus
 
 

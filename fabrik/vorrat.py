@@ -176,6 +176,11 @@ def aufraeumen(kanal_pfad):
         if thema and thema not in offen:
             print('Vorrat: Thema nicht mehr in der Warteschlange, entfernt:', pfad.name)
             pfad.unlink(missing_ok=True)
+        elif not thema and _zuschauer_trends(kanal):
+            # 22.10.2026: frei gewaehltes GitHub-Skript („HaozheH3/awesome-rea-games") lag neben dem Trendskript.
+            # Kanaele mit Zuschauer-Trends nehmen nur Trendthemen; ohne Trend waehlt der Tageslauf selbst neu.
+            print('Vorrat: frei gewaehltes Thema bei Trend-Kanal entfernt:', pfad.name)
+            pfad.unlink(missing_ok=True)
         elif not thema and daten.get('nur_quellen'):
             import trends
             if trends.bereits_gezeigte_quellen(kanal, e.get('skript', {})):

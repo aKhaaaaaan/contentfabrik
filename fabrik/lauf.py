@@ -152,6 +152,22 @@ PRUEF_WIEDERHOLUNG_S = (120, 300)  # Wartezeiten vor erneuter Pruefung nach Dien
 PRUEF_RESERVE_S = 420              # danach muss noch Zeit fuer Pruefung und Versand bleiben
 
 
+ANBIETER_WARTEN_MAX_S = 360  # laengere Sperren (Tageskontingent) nicht abwarten
+ANBIETER_REST_S = 900        # danach muss noch Zeit fuer Bau, Pruefung und Versand bleiben
+
+
+def kurze_anbieterpause(jetzt=None):
+    """Sekunden, bis die erste kurze Gemini-Sperre (Ueberlast/Zeitlimit) ablaeuft; None ohne kurze Sperre."""
+    import ki_speicher
+    jetzt = time.time() if jetzt is None else jetzt
+    konto = ki_speicher.konto(os.environ.get('GEMINI_API_KEY', '')) + ':'
+    bis = [e['bis'] for k, e in (ki_speicher.lesen_json(ki_speicher.KONTINGENT).get('modelle') or {}).items()
+           if k.startswith(konto) and isinstance(e, dict) and isinstance(e.get('bis'), (int, float))
+           and jetzt < e['bis'] <= jetzt + ANBIETER_WARTEN_MAX_S
+           and not re.search(r'kontingent|nicht verfuegbar', str(e.get('grund')), re.I)]
+    return min(bis) - jetzt + 15 if bis else None
+
+
 def pruefung_ausgefallen(code, pfad):
     """Pruefung brach ab, ohne zu urteilen (Absturz/503/Zeitlimit des Dienstes) - kein Qualitaetsurteil."""
     if code != 0 or not Path(pfad).exists():
@@ -342,6 +358,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     # weiter (28 -> 42 -> 49 -> 51 -> 53, das Bild bestand jeweils im naechsten Anlauf), nach Versuch 5
     # war Schluss - mit ueber 2 Std. Restbudget. Ein Bauversuch, der WEITER kam, zaehlt nicht mit.
     weiter_gekommen = 0
+    anbieter_gewartet = False
     basis = None  # bereits gebautes Video, das weiter verbessert/geprueft wird
     bau_basis = None  # noch unvollstaendiger Bau; geprueftes Skript bleibt erhalten
     # GEMELDET 09.10.2026: „hoffentlich faengt nicht immer alles von vorne an". Auch Probelaeufe
@@ -515,6 +532,15 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                 runde['status'] = 'baufehler'
                 if b in (4, 5):
                     runde['status'] = 'anbieterpause' if b == 4 else 'auftragsfehler'
+                    warte = kurze_anbieterpause() if b == 4 and not anbieter_gewartet else None
+                    if warte and arbeit_ende - time.monotonic() > warte + ANBIETER_REST_S:
+                        # GEMESSEN 22.10.2026: Gemini 503/Zeitlimit (Sperren 1-5 Min.) beendete beide Kanaele
+                        # fuer Stunden. Eine kurze Ueberlast abwarten, dann mit demselben Teilbau weiter.
+                        anbieter_gewartet = True
+                        print(f'Gemini kurz ueberlastet - Bau in {round(warte)} s fortsetzen', flush=True)
+                        time.sleep(warte)
+                        bau_basis = ordner
+                        continue
                     break  # Bekannte Anbietersperre gilt auch fuer die Bildplanung.
                 if basis or kontingent_leer:
                     break

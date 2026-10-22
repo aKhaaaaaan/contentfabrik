@@ -262,6 +262,7 @@ def _planen(gemini, modelle, auftrag, indizes, fallback_prompt=None):
     """Ein Bildplan-Auftrag; bei Ueberlast oder unvollstaendiger Antwort genau ein neuer Versuch."""
     import time
     from skript import AnbieterNichtVerfuegbar
+    teile = {}
     for runde in range(2):
         try:
             d, modell = gemini(auftrag, SCHEMA, modelle=modelle,
@@ -288,6 +289,14 @@ def _planen(gemini, modelle, auftrag, indizes, fallback_prompt=None):
         print('Gemini-Bildplan:', modell, '| Einstellungen:', len(daten), f'(erwartet {len(indizes)})')
         if [x.get('index') for x in daten] == indizes:
             return daten
+        # GEMESSEN 22.10.2026 (Business Walmart): Groq lieferte 9 und dann 4 von 12 Einstellungen, der Bau brach ab.
+        # Teilplaene beider Versuche zusammenlegen (je Index der erste Vorschlag); ergibt das alle, weiter.
+        for x in daten:
+            if x.get('index') in indizes and x.get('index') not in teile:
+                teile[x['index']] = x
+        if set(teile) == set(indizes):
+            print('Bildplan aus Teilplaenen vollstaendig zusammengesetzt')
+            return [teile[i] for i in indizes]
         print('Bildplan unvollstaendig - neuer Versuch')
     return daten  # die Pruefung unten meldet die Luecke
 

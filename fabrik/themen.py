@@ -295,7 +295,11 @@ def abholen():
         else:
             merken(e['update_id'], bewertung.knopf(e['update_id'], cb))
     zustand['wartende_tiktok_klicks'] = wartende
-    for u in updates:
+    # GEMESSEN 22.10.2026: Story 8, Video 8, „TikTok-Status" und „Hochladen" kamen in einem Abruf; der Status
+    # wurde vor dem Upload-Klick beantwortet („noch keine Uploadfreigabe"). Statusabfragen darum zuletzt.
+    status = lambda u: str((u.get('callback_query') or {}).get('data', '')).startswith('ts:')
+    # Nur im Webhook-Betrieb: dort zaehlt die erledigt-Liste, nicht der Offset (sonst fiele der Status aus).
+    for u in (sorted(updates, key=lambda u: (status(u), u['update_id'])) if webhook else updates):
         if u['update_id'] < zustand['offset'] and not webhook:
             continue
         zustand['offset'] = max(zustand['offset'], u['update_id'] + 1)

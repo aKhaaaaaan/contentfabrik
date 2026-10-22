@@ -69,18 +69,27 @@ def wiki_aufwind(titel, heute=None):
     return round(sum(werte[-2:]) / 2 / basis, 2)
 
 
-def google_heute(land='US'):
-    """[(Trendbegriff, [Schlagzeilen])] aus dem offiziellen RSS-Feed; [] bei Ausfall."""
+GOOGLE_NEWS = 'Google News: '
+
+
+def google_heute(land='US', news=False):
+    """[(Trendbegriff, [Schlagzeilen])] aus dem offiziellen RSS-Feed; [] bei Ausfall.
+    news=True haengt die heutigen Google-News-Wirtschaftsschlagzeilen an (Firmenkanaele).
+    GEMESSEN 22.10.2026: Die Google-Tagestrends enthielten an keinem Tag eine Firma (Sportler, Serien,
+    „playstation plus") - die Business-Stufe „Google" griff nie, obwohl Meta/Tesla in jeder Schlagzeile standen."""
     import trends
     try:
         wurzel = ElementTree.fromstring(trends._hole(f'https://trends.google.com/trending/rss?geo={land}'))
+        ns = {'ht': 'https://trends.google.com/trending/rss'}
+        aus = [(item.findtext('title') or '', [n.findtext('ht:news_item_title', namespaces=ns) or ''
+                                               for n in item.findall('ht:news_item', ns)])
+               for item in wurzel.iter('item')]
     except Exception as e:
         print('Google Trends nicht verfuegbar:', str(e)[:80])
-        return []
-    ns = {'ht': 'https://trends.google.com/trending/rss'}
-    return [(item.findtext('title') or '', [n.findtext('ht:news_item_title', namespaces=ns) or ''
-                                            for n in item.findall('ht:news_item', ns)])
-            for item in wurzel.iter('item')]
+        aus = []
+    if news:
+        aus += [(GOOGLE_NEWS + z, []) for z in trends.wirtschafts_schlagzeilen() if z]
+    return aus
 
 
 def _kern(begriff):
@@ -329,7 +338,7 @@ def bewerten(liste, google_liste, heute=None, kanal='', hn_liste=()):
 
 
 def stufe(k):
-    """0 = echter YouTube-Trend, 1 = nur Google Trends, 2 = Rest (Wikipedia, Hacker News, Titelvorlage)."""
+    """0 = echter YouTube-Trend, 1 = nur Google (Tagestrends, bei Firmenkanaelen auch Google News), 2 = Rest (Wikipedia, Hacker News, Titelvorlage)."""
     if punkte(k.get('youtube')) >= SCHWELLE:
         return 0
     return 1 if k.get('google') else 2
@@ -393,7 +402,8 @@ def beschreibung(k):
     if k.get('wiki'):
         teile.append(f"Wikipedia {round((k['wiki'] - 1) * 100):+d} % gegenueber Vormonat")
     if k.get('google'):
-        teile.append(f"heute in Google Trends ({k['google']})")
+        teile.append(f"heute in Google News ({k['google'][len(GOOGLE_NEWS):]})"
+                     if k['google'].startswith(GOOGLE_NEWS) else f"heute in Google Trends ({k['google']})")
     if k.get('hn'):
         teile.append(f"Hacker News {k['hn']} Punkte")
     if k.get('format'):  # Telegram zeigt, warum heute ein Anleitungs-/Geld-Thema statt einer Neuheit
@@ -420,8 +430,9 @@ def waehlen(kanal, heute=None, themen=None):
     except (OSError, ValueError, KeyError):
         pass
     google_liste = None
+    firmen = _profil(kanal).get('quelle') == 'wikipedia'
     try:
-        google_liste = google_heute()
+        google_liste = google_heute(news=firmen)
         liste = kandidaten(kanal, themen, google_liste=google_liste, heute=heute)
     except Exception as e:  # nie den Tageslauf am Trend-Check scheitern lassen
         print('Trend-Check fehlgeschlagen:', type(e).__name__, str(e)[:120])
@@ -430,7 +441,7 @@ def waehlen(kanal, heute=None, themen=None):
         return themen.nehmen(kanal), None
     try:
         import trends
-        bewertet = bewerten(liste, google_heute() if google_liste is None else google_liste, heute, kanal,
+        bewertet = bewerten(liste, google_heute(news=firmen) if google_liste is None else google_liste, heute, kanal,
                             trends.hn_geschichten())
         for x in bewertet:
             x['_kanal'] = kanal

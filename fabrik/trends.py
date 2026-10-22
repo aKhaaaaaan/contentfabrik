@@ -761,7 +761,9 @@ def firmen_im_trend(datum=None, n=300):
                                                  r'baseball|football|basketball|hockey|soccer|born|magnate)\b', b, re.I)
                     and not re.match(r'(List of|Proposed|Timeline of|History of)', s['title'])
                     # 19.10.: Schlagzeilenwort „Airline" -> Oberbegriff („Company that provides air transport")
-                    and not re.match(r'(company|business|organization|type|form) (that|which|of)\b', b, re.I)):
+                    and not re.match(r'(company|business|organization|type|form) (that|which|of)\b', b, re.I)
+                    # GEMESSEN 22.10.2026: „Share (finance)" - „Unit of equity ownership in ... a corporation"
+                    and not re.match(r'(unit|kind|class|method|measure|part) of\b', b, re.I)):
                 aus.append((s['title'], aufrufe.get(s['title'], 0), b))
 
     def im_fokus(artikel):

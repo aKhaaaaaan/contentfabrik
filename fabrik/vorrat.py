@@ -214,6 +214,14 @@ def offene_themen(kanal):
     return offen
 
 
+def _zuschauer_trends(kanal):
+    try:
+        import trendcheck
+        return bool(trendcheck.trendquellen(kanal))
+    except Exception:
+        return False
+
+
 def fuellen(kanal_pfad, frist_s=1500):
     """Bis ZIEL Skripte schreiben und pruefen. Gibt die Zahl neuer Eintraege zurueck."""
     import time
@@ -225,6 +233,13 @@ def fuellen(kanal_pfad, frist_s=1500):
     while len(eintraege(kanal)) < ZIEL and time.monotonic() + 300 < ende:
         # Ohne Warteschlangen-Thema waehlt skript.py selbst (AI-Kanal: aktuelle Werkzeuge).
         thema = themenliste.pop(0) if themenliste else ''
+        # GEMESSEN 22.10.2026 (01:05 UTC): Das KI-Trendthema fiel durch die Faktenpruefung, danach schrieb der
+        # Nachtlauf frei gewaehlt „HaozheH3/awesome-rea-games". Nutzer 21.10.: „Nachtvorrat muss das Thema immer vom
+        # YouTube Trends oder ... Google Trends holen". Kanaele mit Zuschauer-Trendquellen schreiben nachts nichts
+        # frei Gewaehltes; der Tageslauf waehlt bei Bedarf selbst (Titelvorlage/Trend-Check).
+        if not thema and _zuschauer_trends(kanal):
+            print(f'Vorrat {kanal}: kein offenes Trendthema - nichts frei gewaehlt', flush=True)
+            break
         if not thema and any(not e.get('thema_eingabe') for _, e in eintraege(kanal)):
             break  # ein frei gewaehltes Skript genuegt; Warteschlange hat Vorrang
         ziel = Path('vorrat-arbeit') / kanal / 'skript.json'

@@ -667,8 +667,11 @@ def wikipedia(titel, grenze=7000):
         auswahl, nimm = [teile[0][:1500]], False
         for i in range(1, len(teile) - 1, 2):
             kopf = teile[i].strip('= ').lower()
-            if teile[i].startswith('== '):
-                nimm = any(w in kopf for w in ('history', 'origin', 'founding', 'early', 'background'))
+            passt = any(w in kopf for w in ('history', 'origin', 'founding', 'early', 'background'))
+            # GEMESSEN 22.10.2026 (Lauf 39810452976): bei Google steht "Founding" als Unterabschnitt von
+            # "Corporate affairs" - nur die Einleitung (1500 Zeichen) kam an, fuenf Versuche ohne Video.
+            # Ab so einem Unterabschnitt folgt die Chronik (Schmidt, Boersengang, Alphabet) bis zum naechsten '== '.
+            nimm = passt if teile[i].startswith('== ') else nimm or passt
             if nimm:
                 auswahl.append(teile[i].strip('= ') + ': ' + teile[i + 1])
         text = '\n'.join(auswahl)[:grenze]

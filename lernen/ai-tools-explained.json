@@ -1,15 +1,16 @@
 {
   "regeln": [
-    "Match every technical step, data structure, or system error with a specific visual motif like a diagram, code snippet, or screen capture; avoid generic scenes or covers for specific concepts.",
-    "Show genuine tool interfaces and real output evidence for all features; never use stock imagery or illustrations as stand-ins for technical results.",
-    "Start with a practical human task or workflow; do not use architecture names, parameter counts, or benchmarks as substitutes for useful explanations.",
-    "Maintain narrative momentum by linking technical causes directly to their solutions; avoid rhetorical questions that stall the explanation or reset curiosity gaps.",
-    "Keep spoken CTAs in their mandatory, format-specific positions and preserve format-specific pacing for Shorts and long videos.",
-    "Never override source-supported facts or technical limits; prioritize factual accuracy and approved voices over creative choices.",
-    "Treat feedback as provisional data for concrete, segment-specific fixes; do not overgeneralize one image defect into a ban on an entire style.",
-    "When fixing errors, replace only the inaccurate element with source-supported terms while preserving the surrounding narrative structure.",
-    "Preserve accurate subtitle timing and continuous narration, ensuring the main image remains prominent and relevant to the spoken words.",
-    "Avoid filling missing images with unrelated stock, text-only speech bubbles, or background-only frames; if a visual is narrated, insert a genuine demonstration or evidence."
+    "Show a genuine, source-supported visual (interface, diagram, or code) for every technical step; never substitute text slides, blog headers, or general statistics for a specific demonstration.",
+    "Align every spoken phrase with a visual motif illustrating the exact action mentioned, such as batching, monitoring, or comparing metrics.",
+    "Begin each video by stating the concrete human task or workflow; avoid leading with model architecture, parameter counts, or benchmark claims.",
+    "Prioritize source-supported facts and technical limits; never override accurate data or approved voices for style or pacing.",
+    "Keep subtitles accurately timed and ensure the main image or tool interface remains prominent and detailed.",
+    "Place mandatory spoken CTAs (like, share, save) at the designated format-specific positions without substitution.",
+    "Preserve format-specific pacing; do not impose long-video chapter pacing on Shorts or Shorts speed on long videos.",
+    "Treat review feedback as provisional data; apply specific fixes without overgeneralizing or assuming unobserved audience behavior.",
+    "Phrase writing improvements conditionally based on specific review data; do not overgeneralize a single defect into a total ban on a visual style.",
+    "When correcting an error, replace only the inaccurate visual or term to preserve the surrounding narrative.",
+    "Replace missing or vague imagery with concrete observable fixes like diagrams or code snippets that directly illustrate the discussed point."
   ],
   "produktionsdiagnosen": [
     {
@@ -2056,7 +2057,108 @@
       "auswertbar": false,
       "prompt_version": "2026-10-18.1",
       "verbessert": false
+    },
+    {
+      "id": "39757744191-2",
+      "datum": "2026-10-22",
+      "vorher": null,
+      "nachher": null,
+      "vorher_gesperrt": true,
+      "nachher_gesperrt": true,
+      "sekunden": 84.9,
+      "aktionen": [
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 0
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 1
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 3
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 4
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 5
+        }
+      ],
+      "einstellungen": {
+        "stimme": "bf_emma",
+        "tempo": 1.05,
+        "untertitel_profil": "ruhig",
+        "musik_pegel": null,
+        "effekt_pegel": null
+      },
+      "schwerpunkt": "bild",
+      "kategorien_vorher": {
+        "bild_passt": 2
+      },
+      "kategorien_nachher": {
+        "bild_passt": 2
+      },
+      "auswertbar": false,
+      "prompt_version": "2026-10-18.1",
+      "verbessert": false
+    },
+    {
+      "id": "39757744191-3",
+      "datum": "2026-10-22",
+      "vorher": null,
+      "nachher": null,
+      "vorher_gesperrt": true,
+      "nachher_gesperrt": true,
+      "sekunden": 98.0,
+      "aktionen": [
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 0
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 3
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 4
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 5
+        }
+      ],
+      "einstellungen": {
+        "stimme": "bf_emma",
+        "tempo": 1.05,
+        "untertitel_profil": "ruhig",
+        "musik_pegel": null,
+        "effekt_pegel": null
+      },
+      "schwerpunkt": "bild",
+      "kategorien_vorher": {
+        "bild_passt": 2
+      },
+      "kategorien_nachher": {
+        "bild_passt": 2
+      },
+      "auswertbar": false,
+      "prompt_version": "2026-10-18.1",
+      "verbessert": false
     }
   ],
-  "stand": "2026-10-21"
+  "stand": "2026-10-22"
 }

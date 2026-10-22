@@ -1,39 +1,5 @@
 [
   {
-    "id": "37784030675",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-08",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "skript_s": 139.6,
-        "bau_s": 529.7,
-        "status": "baufehler",
-        "sekunden": 669.2
-      },
-      {
-        "runde": 2,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 51.9,
-        "status": "baufehler",
-        "sekunden": 51.9
-      },
-      {
-        "runde": 3,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "status": "zeitbudget",
-        "phase": "Videobau",
-        "sekunden": 607.1
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Videobau-Zeitlimit erreicht (Arbeiter beendet)",
-    "sekunden": 1328.4
-  },
-  {
     "id": "37797900296",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-08",
@@ -12740,6 +12706,526 @@
     "status": "gesperrt",
     "grund": "Videobau fehlgeschlagen (AnbieterNichtVerfuegbar: Textanbieter lieferte keine nutzbare Antwort: Groq HTTP400: Modell lieferte keine gueltige Schema-Antwort)",
     "sekunden": 58.5,
+    "upload_titel": "Claude Code Token Cost: Before You Build a Game | AI Tool #12"
+  },
+  {
+    "id": "39757744191",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-10-22",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 228.6,
+        "pruefung_s": 35.1,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (6/10): Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Passage erwähnt den Token-Verbrauch von OpenCode, es ist jedoch nur ein Textdokument mit Absätzen zu sehen, keine visuelle Erklärung oder Benutzeroberfläche der erwähnten Software.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet.",
+          "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls).",
+          "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben.",
+          "Offenes Problem (schwer): Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs. Korrektur: Ein Diagramm oder eine Benutzeroberflaeche, die den genauen Token-Verbrauch oder die Baseline visuell darstellt.",
+          "Offenes Problem (schwer): Die gesprochene Passage erwähnt den Token-Verbrauch von OpenCode, es ist jedoch nur ein Textdokument mit Absätzen zu sehen, keine visuelle Erklärung oder Benutzeroberfläche der erwähnten Software. Korrektur: Ein Screenshot oder eine Grafik, die die Benutzeroberfläche oder eine konkrete Messung von OpenCode zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die einen Kostenvergleich zwischen Claude Code und anderen Tools zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls). Korrektur: Ein Diagramm oder ein Code-Ausschnitt, das bzw. der das Zusammenfassen von Tool-Aufrufen bei Claude Code veranschaulicht.",
+          "Offenes Problem (schwer): Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben. Korrektur: Eine Bildschirmansicht, die ein Token-Budget oder Messwerte der Baseline visuell darstellt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 0.1,
+          "zeitmarken": 5.2,
+          "tempo": 1.189,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 13,
+          "clips_und_stuecke": 134.7,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 13,
+            "motive": 13,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 31.6,
+          "gesamt": 228.2,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            9.8,
+            6.54,
+            7.36,
+            6.84,
+            5.72,
+            6.58,
+            2.19
+          ],
+          "woerter": 132
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:03.23",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "tokens vanish. Check your token baseline first.",
+            "text": "Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs. Korrektur: Ein Diagramm oder eine Benutzeroberflaeche, die den genauen Token-Verbrauch oder die Baseline visuell darstellt."
+          },
+          {
+            "zeit": "00:12.16",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 4,
+            "gesprochen": "OpenCode used about 7,000 for the same reply. Real projects add more, though.",
+            "text": "Die gesprochene Passage erwähnt den Token-Verbrauch von OpenCode, es ist jedoch nur ein Textdokument mit Absätzen zu sehen, keine visuelle Erklärung oder Benutzeroberfläche der erwähnten Software. Korrektur: Ein Screenshot oder eine Grafik, die die Benutzeroberfläche oder eine konkrete Messung von OpenCode zeigt."
+          },
+          {
+            "zeit": "00:28.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 8,
+            "gesprochen": "Does Claude Code always cost more?",
+            "text": "Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die einen Kostenvergleich zwischen Claude Code und anderen Tools zeigt."
+          },
+          {
+            "zeit": "00:30.54",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "Not always. On the first model, one multi-step task totaled less, because Claude Code batches tool calls into fewer requests.",
+            "text": "Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls). Korrektur: Ein Diagramm oder ein Code-Ausschnitt, das bzw. der das Zusammenfassen von Tool-Aufrufen bei Claude Code veranschaulicht."
+          },
+          {
+            "zeit": "00:41.18",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "Budget the baseline, then watch the session.",
+            "text": "Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben. Korrektur: Eine Bildschirmansicht, die ein Token-Budget oder Messwerte der Baseline visuell darstellt."
+          }
+        ],
+        "sekunden": 263.8,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bf_emma",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            0,
+            1,
+            3,
+            4,
+            5
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-10-18.1"
+        },
+        "skript_s": 1.8,
+        "bau_s": 72.8,
+        "pruefung_s": 10.3,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (6/10): Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet.",
+          "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls).",
+          "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben.",
+          "Offenes Problem (schwer): Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs. Korrektur: Ein Diagramm oder eine Benutzeroberflaeche, die den genauen Token-Verbrauch oder die Baseline visuell darstellt.",
+          "Offenes Problem (schwer): Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die einen Kostenvergleich zwischen Claude Code und anderen Tools zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls). Korrektur: Ein Diagramm oder ein Code-Ausschnitt, das bzw. der das Zusammenfassen von Tool-Aufrufen bei Claude Code veranschaulicht.",
+          "Offenes Problem (schwer): Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben. Korrektur: Eine Bildschirmansicht, die ein Token-Budget oder Messwerte der Baseline visuell darstellt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Puck",
+          "tempo": 1.189,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 8,
+          "stuecke_neu": 5,
+          "clips_und_stuecke": 33.7,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 13,
+            "motive": 12,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 31.5,
+          "gesamt": 72.6,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            9.8,
+            6.54,
+            7.36,
+            6.84,
+            5.72,
+            6.58,
+            2.19
+          ],
+          "woerter": 132
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:03.23",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "tokens vanish. Check your token baseline first.",
+            "text": "Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs. Korrektur: Ein Diagramm oder eine Benutzeroberflaeche, die den genauen Token-Verbrauch oder die Baseline visuell darstellt."
+          },
+          {
+            "zeit": "00:28.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 8,
+            "gesprochen": "Does Claude Code always cost more?",
+            "text": "Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die einen Kostenvergleich zwischen Claude Code und anderen Tools zeigt."
+          },
+          {
+            "zeit": "00:30.54",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "Not always. On the first model, one multi-step task totaled less, because Claude Code batches tool calls into fewer requests.",
+            "text": "Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls). Korrektur: Ein Diagramm oder ein Code-Ausschnitt, das bzw. der das Zusammenfassen von Tool-Aufrufen bei Claude Code veranschaulicht."
+          },
+          {
+            "zeit": "00:41.18",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "Budget the baseline, then watch the session.",
+            "text": "Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben. Korrektur: Eine Bildschirmansicht, die ein Token-Budget oder Messwerte der Baseline visuell darstellt."
+          }
+        ],
+        "sekunden": 84.9,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "39757744191-2",
+          "datum": "2026-10-22",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 84.9,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bf_emma",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 2
+          },
+          "kategorien_nachher": {
+            "bild_passt": 2
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-10-18.1",
+          "verbessert": false
+        }
+      },
+      {
+        "runde": 3,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bf_emma",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            0,
+            3,
+            4,
+            5
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-10-18.1"
+        },
+        "skript_s": 2.8,
+        "bau_s": 89.4,
+        "pruefung_s": 5.9,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (6/10): Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet.",
+          "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls).",
+          "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben.",
+          "Offenes Problem (schwer): Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs. Korrektur: Ein Diagramm oder eine Benutzeroberflaeche, die den genauen Token-Verbrauch oder die Baseline visuell darstellt.",
+          "Offenes Problem (schwer): Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die einen Kostenvergleich zwischen Claude Code und anderen Tools zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls). Korrektur: Ein Diagramm oder ein Code-Ausschnitt, das bzw. der das Zusammenfassen von Tool-Aufrufen bei Claude Code veranschaulicht.",
+          "Offenes Problem (schwer): Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben. Korrektur: Eine Bildschirmansicht, die ein Token-Budget oder Messwerte der Baseline visuell darstellt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Puck",
+          "tempo": 1.189,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 9,
+          "stuecke_neu": 4,
+          "clips_und_stuecke": 26.0,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 13,
+            "motive": 12,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 31.2,
+          "gesamt": 89.1,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            9.8,
+            6.54,
+            7.36,
+            6.84,
+            5.72,
+            6.58,
+            2.19
+          ],
+          "woerter": 132
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:03.23",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "tokens vanish. Check your token baseline first.",
+            "text": "Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs. Korrektur: Ein Diagramm oder eine Benutzeroberflaeche, die den genauen Token-Verbrauch oder die Baseline visuell darstellt."
+          },
+          {
+            "zeit": "00:28.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 8,
+            "gesprochen": "Does Claude Code always cost more?",
+            "text": "Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die einen Kostenvergleich zwischen Claude Code und anderen Tools zeigt."
+          },
+          {
+            "zeit": "00:30.54",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "Not always. On the first model, one multi-step task totaled less, because Claude Code batches tool calls into fewer requests.",
+            "text": "Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls). Korrektur: Ein Diagramm oder ein Code-Ausschnitt, das bzw. der das Zusammenfassen von Tool-Aufrufen bei Claude Code veranschaulicht."
+          },
+          {
+            "zeit": "00:41.18",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "Budget the baseline, then watch the session.",
+            "text": "Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben. Korrektur: Eine Bildschirmansicht, die ein Token-Budget oder Messwerte der Baseline visuell darstellt."
+          }
+        ],
+        "sekunden": 98.0,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "39757744191-3",
+          "datum": "2026-10-22",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 98.0,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bf_emma",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 2
+          },
+          "kategorien_nachher": {
+            "bild_passt": 2
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-10-18.1",
+          "verbessert": false
+        }
+      },
+      {
+        "runde": 4,
+        "art": "korrektur",
+        "status": "korrekturgrenze",
+        "sekunden": 0.0
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 521.9,
     "upload_titel": "Claude Code Token Cost: Before You Build a Game | AI Tool #12"
   }
 ]

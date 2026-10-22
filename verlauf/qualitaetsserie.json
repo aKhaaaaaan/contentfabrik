@@ -73598,6 +73598,1704 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "39757744191.1:ai-tools-explained",
+      "run_id": "39757744191",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-22T09:54:36.982018+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "76b242fee5c4c5e2d56676d0defc268299be7df3",
+      "produktionsversion": "6f24f6ddce90630f5926f67bf0ee3fa538919a8400d7960d94b8d8be1b54e744",
+      "videoformat": "short",
+      "thema": "Claude Code token overhead before building a game",
+      "titel": [
+        "*Claude* *Code* Token Cost",
+        "Before You Build a Game"
+      ],
+      "status": "gesendet",
+      "video_sha256": "192fa575f0cf2b1b494c919d09425989d3123cc55d726c4c4f862070485c94cb",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-18.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (6/10): Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls).",
+        "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben.",
+        "Offenes Problem (schwer): Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs. Korrektur: Ein Diagramm oder eine Benutzeroberflaeche, die den genauen Token-Verbrauch oder die Baseline visuell darstellt.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die einen Kostenvergleich zwischen Claude Code und anderen Tools zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls). Korrektur: Ein Diagramm oder ein Code-Ausschnitt, das bzw. der das Zusammenfassen von Tool-Aufrufen bei Claude Code veranschaulicht.",
+        "Offenes Problem (schwer): Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben. Korrektur: Eine Bildschirmansicht, die ein Token-Budget oder Messwerte der Baseline visuell darstellt."
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 12,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "39757744191",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-22",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 228.6,
+            "pruefung_s": 35.1,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (6/10): Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Passage erwähnt den Token-Verbrauch von OpenCode, es ist jedoch nur ein Textdokument mit Absätzen zu sehen, keine visuelle Erklärung oder Benutzeroberfläche der erwähnten Software.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls).",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben.",
+              "Offenes Problem (schwer): Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs. Korrektur: Ein Diagramm oder eine Benutzeroberflaeche, die den genauen Token-Verbrauch oder die Baseline visuell darstellt.",
+              "Offenes Problem (schwer): Die gesprochene Passage erwähnt den Token-Verbrauch von OpenCode, es ist jedoch nur ein Textdokument mit Absätzen zu sehen, keine visuelle Erklärung oder Benutzeroberfläche der erwähnten Software. Korrektur: Ein Screenshot oder eine Grafik, die die Benutzeroberfläche oder eine konkrete Messung von OpenCode zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die einen Kostenvergleich zwischen Claude Code und anderen Tools zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls). Korrektur: Ein Diagramm oder ein Code-Ausschnitt, das bzw. der das Zusammenfassen von Tool-Aufrufen bei Claude Code veranschaulicht.",
+              "Offenes Problem (schwer): Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben. Korrektur: Eine Bildschirmansicht, die ein Token-Budget oder Messwerte der Baseline visuell darstellt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 0.1,
+              "zeitmarken": 5.2,
+              "tempo": 1.189,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "clips_und_stuecke": 134.7,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 31.6,
+              "gesamt": 228.2,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                9.8,
+                6.54,
+                7.36,
+                6.84,
+                5.72,
+                6.58,
+                2.19
+              ],
+              "woerter": 132
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:03.23",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "tokens vanish. Check your token baseline first.",
+                "text": "Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs. Korrektur: Ein Diagramm oder eine Benutzeroberflaeche, die den genauen Token-Verbrauch oder die Baseline visuell darstellt."
+              },
+              {
+                "zeit": "00:12.16",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 4,
+                "gesprochen": "OpenCode used about 7,000 for the same reply. Real projects add more, though.",
+                "text": "Die gesprochene Passage erwähnt den Token-Verbrauch von OpenCode, es ist jedoch nur ein Textdokument mit Absätzen zu sehen, keine visuelle Erklärung oder Benutzeroberfläche der erwähnten Software. Korrektur: Ein Screenshot oder eine Grafik, die die Benutzeroberfläche oder eine konkrete Messung von OpenCode zeigt."
+              },
+              {
+                "zeit": "00:28.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 8,
+                "gesprochen": "Does Claude Code always cost more?",
+                "text": "Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die einen Kostenvergleich zwischen Claude Code und anderen Tools zeigt."
+              },
+              {
+                "zeit": "00:30.54",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "Not always. On the first model, one multi-step task totaled less, because Claude Code batches tool calls into fewer requests.",
+                "text": "Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls). Korrektur: Ein Diagramm oder ein Code-Ausschnitt, das bzw. der das Zusammenfassen von Tool-Aufrufen bei Claude Code veranschaulicht."
+              },
+              {
+                "zeit": "00:41.18",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "Budget the baseline, then watch the session.",
+                "text": "Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben. Korrektur: Eine Bildschirmansicht, die ein Token-Budget oder Messwerte der Baseline visuell darstellt."
+              }
+            ],
+            "sekunden": 263.8,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bf_emma",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 1.8,
+            "bau_s": 72.8,
+            "pruefung_s": 10.3,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (6/10): Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls).",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben.",
+              "Offenes Problem (schwer): Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs. Korrektur: Ein Diagramm oder eine Benutzeroberflaeche, die den genauen Token-Verbrauch oder die Baseline visuell darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die einen Kostenvergleich zwischen Claude Code und anderen Tools zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls). Korrektur: Ein Diagramm oder ein Code-Ausschnitt, das bzw. der das Zusammenfassen von Tool-Aufrufen bei Claude Code veranschaulicht.",
+              "Offenes Problem (schwer): Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben. Korrektur: Eine Bildschirmansicht, die ein Token-Budget oder Messwerte der Baseline visuell darstellt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Puck",
+              "tempo": 1.189,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 8,
+              "stuecke_neu": 5,
+              "clips_und_stuecke": 33.7,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 12,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 31.5,
+              "gesamt": 72.6,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                9.8,
+                6.54,
+                7.36,
+                6.84,
+                5.72,
+                6.58,
+                2.19
+              ],
+              "woerter": 132
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:03.23",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "tokens vanish. Check your token baseline first.",
+                "text": "Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs. Korrektur: Ein Diagramm oder eine Benutzeroberflaeche, die den genauen Token-Verbrauch oder die Baseline visuell darstellt."
+              },
+              {
+                "zeit": "00:28.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 8,
+                "gesprochen": "Does Claude Code always cost more?",
+                "text": "Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die einen Kostenvergleich zwischen Claude Code und anderen Tools zeigt."
+              },
+              {
+                "zeit": "00:30.54",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "Not always. On the first model, one multi-step task totaled less, because Claude Code batches tool calls into fewer requests.",
+                "text": "Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls). Korrektur: Ein Diagramm oder ein Code-Ausschnitt, das bzw. der das Zusammenfassen von Tool-Aufrufen bei Claude Code veranschaulicht."
+              },
+              {
+                "zeit": "00:41.18",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "Budget the baseline, then watch the session.",
+                "text": "Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben. Korrektur: Eine Bildschirmansicht, die ein Token-Budget oder Messwerte der Baseline visuell darstellt."
+              }
+            ],
+            "sekunden": 84.9,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "39757744191-2",
+              "datum": "2026-10-22",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 84.9,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bf_emma",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bf_emma",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 2.8,
+            "bau_s": 89.4,
+            "pruefung_s": 5.9,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (6/10): Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls).",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben.",
+              "Offenes Problem (schwer): Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs. Korrektur: Ein Diagramm oder eine Benutzeroberflaeche, die den genauen Token-Verbrauch oder die Baseline visuell darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die einen Kostenvergleich zwischen Claude Code und anderen Tools zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls). Korrektur: Ein Diagramm oder ein Code-Ausschnitt, das bzw. der das Zusammenfassen von Tool-Aufrufen bei Claude Code veranschaulicht.",
+              "Offenes Problem (schwer): Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben. Korrektur: Eine Bildschirmansicht, die ein Token-Budget oder Messwerte der Baseline visuell darstellt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Puck",
+              "tempo": 1.189,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 9,
+              "stuecke_neu": 4,
+              "clips_und_stuecke": 26.0,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 12,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 31.2,
+              "gesamt": 89.1,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                9.8,
+                6.54,
+                7.36,
+                6.84,
+                5.72,
+                6.58,
+                2.19
+              ],
+              "woerter": 132
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:03.23",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "tokens vanish. Check your token baseline first.",
+                "text": "Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs. Korrektur: Ein Diagramm oder eine Benutzeroberflaeche, die den genauen Token-Verbrauch oder die Baseline visuell darstellt."
+              },
+              {
+                "zeit": "00:28.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 8,
+                "gesprochen": "Does Claude Code always cost more?",
+                "text": "Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die einen Kostenvergleich zwischen Claude Code und anderen Tools zeigt."
+              },
+              {
+                "zeit": "00:30.54",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "Not always. On the first model, one multi-step task totaled less, because Claude Code batches tool calls into fewer requests.",
+                "text": "Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls). Korrektur: Ein Diagramm oder ein Code-Ausschnitt, das bzw. der das Zusammenfassen von Tool-Aufrufen bei Claude Code veranschaulicht."
+              },
+              {
+                "zeit": "00:41.18",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "Budget the baseline, then watch the session.",
+                "text": "Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben. Korrektur: Eine Bildschirmansicht, die ein Token-Budget oder Messwerte der Baseline visuell darstellt."
+              }
+            ],
+            "sekunden": 98.0,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "39757744191-3",
+              "datum": "2026-10-22",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 98.0,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bf_emma",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 521.9,
+        "upload_titel": "Claude Code Token Cost: Before You Build a Game | AI Tool #12"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:03.23",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "tokens vanish. Check your token baseline first.",
+            "text": "Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs. Korrektur: Ein Diagramm oder eine Benutzeroberflaeche, die den genauen Token-Verbrauch oder die Baseline visuell darstellt."
+          },
+          {
+            "zeit": "00:28.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 8,
+            "gesprochen": "Does Claude Code always cost more?",
+            "text": "Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet. Korrektur: Ein Diagramm oder eine Benutzeroberfläche, die einen Kostenvergleich zwischen Claude Code und anderen Tools zeigt."
+          },
+          {
+            "zeit": "00:30.54",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "Not always. On the first model, one multi-step task totaled less, because Claude Code batches tool calls into fewer requests.",
+            "text": "Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls). Korrektur: Ein Diagramm oder ein Code-Ausschnitt, das bzw. der das Zusammenfassen von Tool-Aufrufen bei Claude Code veranschaulicht."
+          },
+          {
+            "zeit": "00:41.18",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "Budget the baseline, then watch the session.",
+            "text": "Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben. Korrektur: Eine Bildschirmansicht, die ein Token-Budget oder Messwerte der Baseline visuell darstellt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.1,
+          "fps": 30.0,
+          "lufs": -14.5,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 43.7,
+              "bis_s": 44.7,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.982
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.1,
+              "bis_s": 45.6,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "You",
+                "s": 0.0,
+                "e": 0.26,
+                "p": 0.8707666397094727
+              },
+              {
+                "w": "open",
+                "s": 0.26,
+                "e": 0.44,
+                "p": 0.9881751537322998
+              },
+              {
+                "w": "cloud",
+                "s": 0.44,
+                "e": 0.68,
+                "p": 0.2180459201335907
+              },
+              {
+                "w": "code,",
+                "s": 0.68,
+                "e": 0.98,
+                "p": 0.9136031270027161
+              },
+              {
+                "w": "type",
+                "s": 1.28,
+                "e": 1.42,
+                "p": 0.9910655617713928
+              },
+              {
+                "w": "nothing,",
+                "s": 1.42,
+                "e": 1.82,
+                "p": 0.5268732905387878
+              },
+              {
+                "w": "and",
+                "s": 2.22,
+                "e": 2.3,
+                "p": 0.9940674304962158
+              },
+              {
+                "w": "33",
+                "s": 2.3,
+                "e": 2.76,
+                "p": 0.9618436694145203
+              },
+              {
+                "w": ",000",
+                "s": 2.76,
+                "e": 3.5,
+                "p": 0.9421502947807312
+              },
+              {
+                "w": "tokens",
+                "s": 3.5,
+                "e": 3.84,
+                "p": 0.9872159361839294
+              },
+              {
+                "w": "vanish.",
+                "s": 3.84,
+                "e": 4.16,
+                "p": 0.9831486940383911
+              },
+              {
+                "w": "Check",
+                "s": 4.98,
+                "e": 4.98,
+                "p": 0.9932618737220764
+              },
+              {
+                "w": "your",
+                "s": 4.98,
+                "e": 5.12,
+                "p": 0.990514874458313
+              },
+              {
+                "w": "token",
+                "s": 5.12,
+                "e": 5.26,
+                "p": 0.9945230484008789
+              },
+              {
+                "w": "baseline",
+                "s": 5.26,
+                "e": 5.5,
+                "p": 0.9288475513458252
+              },
+              {
+                "w": "first.",
+                "s": 5.5,
+                "e": 5.92,
+                "p": 0.9910439252853394
+              },
+              {
+                "w": "One",
+                "s": 6.42,
+                "e": 6.5,
+                "p": 0.9899113774299622
+              },
+              {
+                "w": "test",
+                "s": 6.5,
+                "e": 6.7,
+                "p": 0.9761928915977478
+              },
+              {
+                "w": "measured",
+                "s": 6.7,
+                "e": 6.9,
+                "p": 0.9724254608154297
+              },
+              {
+                "w": "roughly",
+                "s": 6.9,
+                "e": 7.24,
+                "p": 0.9941933751106262
+              },
+              {
+                "w": "33",
+                "s": 7.24,
+                "e": 7.58,
+                "p": 0.9979098439216614
+              },
+              {
+                "w": ",000",
+                "s": 7.58,
+                "e": 8.32,
+                "p": 0.9970199763774872
+              },
+              {
+                "w": "tokens",
+                "s": 8.32,
+                "e": 8.58,
+                "p": 0.9934106469154358
+              },
+              {
+                "w": "before",
+                "s": 8.58,
+                "e": 8.86,
+                "p": 0.9944568872451782
+              },
+              {
+                "w": "the",
+                "s": 8.86,
+                "e": 8.98,
+                "p": 0.991519033908844
+              },
+              {
+                "w": "prompt",
+                "s": 8.98,
+                "e": 9.12,
+                "p": 0.9936135411262512
+              },
+              {
+                "w": "arrived.",
+                "s": 9.12,
+                "e": 9.4,
+                "p": 0.9902951717376709
+              },
+              {
+                "w": "That",
+                "s": 9.8,
+                "e": 9.8,
+                "p": 0.970385730266571
+              },
+              {
+                "w": "system",
+                "s": 9.8,
+                "e": 10.08,
+                "p": 0.8482409119606018
+              },
+              {
+                "w": "prompt,",
+                "s": 10.08,
+                "e": 10.42,
+                "p": 0.6031741499900818
+              },
+              {
+                "w": "tool",
+                "s": 10.46,
+                "e": 10.76,
+                "p": 0.7641085982322693
+              },
+              {
+                "w": "schemas,",
+                "s": 10.76,
+                "e": 11.2,
+                "p": 0.9764582812786102
+              },
+              {
+                "w": "and",
+                "s": 11.2,
+                "e": 11.4,
+                "p": 0.9964452385902405
+              },
+              {
+                "w": "scaffolding.",
+                "s": 11.4,
+                "e": 11.8,
+                "p": 0.9947054088115692
+              },
+              {
+                "w": "Open",
+                "s": 12.22,
+                "e": 12.34,
+                "p": 0.9813405275344849
+              },
+              {
+                "w": "code",
+                "s": 12.34,
+                "e": 12.66,
+                "p": 0.9644356369972229
+              },
+              {
+                "w": "used",
+                "s": 12.66,
+                "e": 12.9,
+                "p": 0.9563201665878296
+              },
+              {
+                "w": "about",
+                "s": 12.9,
+                "e": 13.18,
+                "p": 0.9863957166671753
+              },
+              {
+                "w": "7",
+                "s": 13.18,
+                "e": 13.5,
+                "p": 0.7188287377357483
+              },
+              {
+                "w": ",000",
+                "s": 13.5,
+                "e": 13.82,
+                "p": 0.9900261163711548
+              },
+              {
+                "w": "for",
+                "s": 13.82,
+                "e": 13.96,
+                "p": 0.9910070300102234
+              },
+              {
+                "w": "the",
+                "s": 13.96,
+                "e": 14.02,
+                "p": 0.9936546087265015
+              },
+              {
+                "w": "same",
+                "s": 14.02,
+                "e": 14.16,
+                "p": 0.9917168021202087
+              },
+              {
+                "w": "reply.",
+                "s": 14.16,
+                "e": 14.26,
+                "p": 0.8858594298362732
+              },
+              {
+                "w": "Real",
+                "s": 15.04,
+                "e": 15.04,
+                "p": 0.9764417409896851
+              },
+              {
+                "w": "projects",
+                "s": 15.04,
+                "e": 15.3,
+                "p": 0.9013903141021729
+              },
+              {
+                "w": "add",
+                "s": 15.3,
+                "e": 15.58,
+                "p": 0.989648163318634
+              },
+              {
+                "w": "more",
+                "s": 15.58,
+                "e": 15.8,
+                "p": 0.9996869564056396
+              },
+              {
+                "w": "though.",
+                "s": 15.8,
+                "e": 15.96,
+                "p": 0.5942636728286743
+              },
+              {
+                "w": "A",
+                "s": 16.34,
+                "e": 16.36,
+                "p": 0.9622771739959717
+              },
+              {
+                "w": "72",
+                "s": 16.36,
+                "e": 16.66,
+                "p": 0.9749226570129395
+              },
+              {
+                "w": "KB",
+                "s": 16.66,
+                "e": 17.02,
+                "p": 0.36533164978027344
+              },
+              {
+                "w": "instruction",
+                "s": 17.02,
+                "e": 17.46,
+                "p": 0.9817626476287842
+              },
+              {
+                "w": "file",
+                "s": 17.46,
+                "e": 17.8,
+                "p": 0.9985964894294739
+              },
+              {
+                "w": "adds",
+                "s": 17.8,
+                "e": 18.12,
+                "p": 0.9819064140319824
+              },
+              {
+                "w": "roughly",
+                "s": 18.12,
+                "e": 18.3,
+                "p": 0.9972182512283325
+              },
+              {
+                "w": "20",
+                "s": 18.3,
+                "e": 18.66,
+                "p": 0.9939828515052795
+              },
+              {
+                "w": ",000",
+                "s": 18.66,
+                "e": 19.04,
+                "p": 0.9980560541152954
+              },
+              {
+                "w": "tokens",
+                "s": 19.04,
+                "e": 19.32,
+                "p": 0.9974135756492615
+              },
+              {
+                "w": "per",
+                "s": 19.32,
+                "e": 19.56,
+                "p": 0.997498095035553
+              },
+              {
+                "w": "request.",
+                "s": 19.56,
+                "e": 19.78,
+                "p": 0.9992830157279968
+              },
+              {
+                "w": "Five",
+                "s": 20.6,
+                "e": 20.6,
+                "p": 0.8278684616088867
+              },
+              {
+                "w": "modest",
+                "s": 20.6,
+                "e": 20.82,
+                "p": 0.9597182273864746
+              },
+              {
+                "w": "MCP",
+                "s": 20.82,
+                "e": 21.18,
+                "p": 0.9089813232421875
+              },
+              {
+                "w": "servers",
+                "s": 21.18,
+                "e": 21.5,
+                "p": 0.9854838252067566
+              },
+              {
+                "w": "add",
+                "s": 21.5,
+                "e": 21.76,
+                "p": 0.9852361679077148
+              },
+              {
+                "w": "5",
+                "s": 21.76,
+                "e": 22.16,
+                "p": 0.9332055449485779
+              },
+              {
+                "w": ",000",
+                "s": 22.16,
+                "e": 22.44,
+                "p": 0.9979532659053802
+              },
+              {
+                "w": "to",
+                "s": 22.44,
+                "e": 22.54,
+                "p": 0.9755599498748779
+              },
+              {
+                "w": "7",
+                "s": 22.54,
+                "e": 22.7,
+                "p": 0.995333731174469
+              },
+              {
+                "w": ",000",
+                "s": 22.7,
+                "e": 23.0,
+                "p": 0.998698502779007
+              },
+              {
+                "w": "more.",
+                "s": 23.0,
+                "e": 23.16,
+                "p": 0.9987096786499023
+              },
+              {
+                "w": "A",
+                "s": 23.7,
+                "e": 23.72,
+                "p": 0.992836058139801
+              },
+              {
+                "w": "working",
+                "s": 23.72,
+                "e": 23.86,
+                "p": 0.9926261305809021
+              },
+              {
+                "w": "setup",
+                "s": 23.86,
+                "e": 24.2,
+                "p": 0.8484801054000854
+              },
+              {
+                "w": "can",
+                "s": 24.2,
+                "e": 24.4,
+                "p": 0.9920790791511536
+              },
+              {
+                "w": "sit",
+                "s": 24.4,
+                "e": 24.62,
+                "p": 0.9213736653327942
+              },
+              {
+                "w": "75",
+                "s": 24.62,
+                "e": 25.04,
+                "p": 0.9744887948036194
+              },
+              {
+                "w": ",000",
+                "s": 25.04,
+                "e": 25.46,
+                "p": 0.998408704996109
+              },
+              {
+                "w": "to",
+                "s": 25.46,
+                "e": 25.54,
+                "p": 0.9672811031341553
+              },
+              {
+                "w": "85",
+                "s": 25.54,
+                "e": 25.8,
+                "p": 0.975830614566803
+              },
+              {
+                "w": ",000",
+                "s": 25.8,
+                "e": 26.28,
+                "p": 0.9985835254192352
+              },
+              {
+                "w": "in",
+                "s": 26.28,
+                "e": 26.28,
+                "p": 0.24203866720199585
+              },
+              {
+                "w": "tokens",
+                "s": 26.28,
+                "e": 26.46,
+                "p": 0.7444377541542053
+              },
+              {
+                "w": "deep",
+                "s": 26.46,
+                "e": 26.82,
+                "p": 0.9941167831420898
+              },
+              {
+                "w": "before",
+                "s": 26.82,
+                "e": 27.3,
+                "p": 0.9097176194190979
+              },
+              {
+                "w": "you",
+                "s": 27.3,
+                "e": 27.5,
+                "p": 0.9971213936805725
+              },
+              {
+                "w": "type",
+                "s": 27.5,
+                "e": 27.68,
+                "p": 0.9982960820198059
+              },
+              {
+                "w": "a",
+                "s": 27.68,
+                "e": 27.8,
+                "p": 0.9945294260978699
+              },
+              {
+                "w": "word.",
+                "s": 27.8,
+                "e": 28.0,
+                "p": 0.9984458088874817
+              },
+              {
+                "w": "Does",
+                "s": 28.62,
+                "e": 28.62,
+                "p": 0.8872805833816528
+              },
+              {
+                "w": "cloud",
+                "s": 28.62,
+                "e": 28.76,
+                "p": 0.5380511283874512
+              },
+              {
+                "w": "code",
+                "s": 28.76,
+                "e": 28.96,
+                "p": 0.7548480033874512
+              },
+              {
+                "w": "always",
+                "s": 28.96,
+                "e": 29.3,
+                "p": 0.9930862188339233
+              },
+              {
+                "w": "cost",
+                "s": 29.3,
+                "e": 29.56,
+                "p": 0.9855624437332153
+              },
+              {
+                "w": "more?",
+                "s": 29.56,
+                "e": 29.76,
+                "p": 0.9992561936378479
+              },
+              {
+                "w": "Not",
+                "s": 30.44,
+                "e": 30.6,
+                "p": 0.8766754269599915
+              },
+              {
+                "w": "always.",
+                "s": 30.6,
+                "e": 30.78,
+                "p": 0.9981279969215393
+              },
+              {
+                "w": "On",
+                "s": 31.2,
+                "e": 31.26,
+                "p": 0.988454282283783
+              },
+              {
+                "w": "the",
+                "s": 31.26,
+                "e": 31.36,
+                "p": 0.9980144500732422
+              },
+              {
+                "w": "first",
+                "s": 31.36,
+                "e": 31.54,
+                "p": 0.996448278427124
+              },
+              {
+                "w": "model,",
+                "s": 31.54,
+                "e": 31.74,
+                "p": 0.9722745418548584
+              },
+              {
+                "w": "one",
+                "s": 31.74,
+                "e": 32.08,
+                "p": 0.9892899394035339
+              },
+              {
+                "w": "multi",
+                "s": 32.08,
+                "e": 32.32,
+                "p": 0.9393208026885986
+              },
+              {
+                "w": "-step",
+                "s": 32.32,
+                "e": 32.5,
+                "p": 0.9018764495849609
+              },
+              {
+                "w": "task",
+                "s": 32.5,
+                "e": 32.82,
+                "p": 0.990802526473999
+              },
+              {
+                "w": "totaled",
+                "s": 32.82,
+                "e": 33.02,
+                "p": 0.9040549397468567
+              },
+              {
+                "w": "less",
+                "s": 33.02,
+                "e": 33.3,
+                "p": 0.9994940757751465
+              },
+              {
+                "w": "because",
+                "s": 33.3,
+                "e": 33.68,
+                "p": 0.7296428680419922
+              },
+              {
+                "w": "cloud",
+                "s": 33.68,
+                "e": 33.94,
+                "p": 0.8970906138420105
+              },
+              {
+                "w": "code",
+                "s": 33.94,
+                "e": 34.2,
+                "p": 0.9925083518028259
+              },
+              {
+                "w": "batches",
+                "s": 34.2,
+                "e": 34.48,
+                "p": 0.7442191243171692
+              },
+              {
+                "w": "tool",
+                "s": 34.48,
+                "e": 34.8,
+                "p": 0.9534569978713989
+              },
+              {
+                "w": "calls",
+                "s": 34.8,
+                "e": 35.0,
+                "p": 0.906931459903717
+              },
+              {
+                "w": "into",
+                "s": 35.0,
+                "e": 35.16,
+                "p": 0.905903160572052
+              },
+              {
+                "w": "fewer",
+                "s": 35.16,
+                "e": 35.32,
+                "p": 0.9986664056777954
+              },
+              {
+                "w": "requests.",
+                "s": 35.32,
+                "e": 35.64,
+                "p": 0.9985652565956116
+              },
+              {
+                "w": "A",
+                "s": 36.26,
+                "e": 36.28,
+                "p": 0.9903578162193298
+              },
+              {
+                "w": "newer",
+                "s": 36.28,
+                "e": 36.38,
+                "p": 0.9989557266235352
+              },
+              {
+                "w": "model",
+                "s": 36.38,
+                "e": 36.6,
+                "p": 0.9988183379173279
+              },
+              {
+                "w": "reversed",
+                "s": 36.6,
+                "e": 36.82,
+                "p": 0.9955698847770691
+              },
+              {
+                "w": "it,",
+                "s": 36.82,
+                "e": 37.1,
+                "p": 0.9968879818916321
+              },
+              {
+                "w": "roughly",
+                "s": 37.22,
+                "e": 37.42,
+                "p": 0.9993361830711365
+              },
+              {
+                "w": "298",
+                "s": 37.42,
+                "e": 37.74,
+                "p": 0.9571924805641174
+              },
+              {
+                "w": ",000",
+                "s": 37.74,
+                "e": 38.62,
+                "p": 0.983319878578186
+              },
+              {
+                "w": "tokens",
+                "s": 38.62,
+                "e": 38.9,
+                "p": 0.9990811347961426
+              },
+              {
+                "w": "against",
+                "s": 38.9,
+                "e": 39.14,
+                "p": 0.9862613081932068
+              },
+              {
+                "w": "open",
+                "s": 39.14,
+                "e": 39.36,
+                "p": 0.6591190695762634
+              },
+              {
+                "w": "codes",
+                "s": 39.36,
+                "e": 39.54,
+                "p": 0.7750750184059143
+              },
+              {
+                "w": "133",
+                "s": 39.54,
+                "e": 39.84,
+                "p": 0.9348078966140747
+              },
+              {
+                "w": ",000.",
+                "s": 39.84,
+                "e": 40.64,
+                "p": 0.9933731853961945
+              },
+              {
+                "w": "Budget",
+                "s": 41.2,
+                "e": 41.2,
+                "p": 0.42373380064964294
+              },
+              {
+                "w": "the",
+                "s": 41.2,
+                "e": 41.36,
+                "p": 0.9030369520187378
+              },
+              {
+                "w": "baseline,",
+                "s": 41.36,
+                "e": 41.52,
+                "p": 0.9799297451972961
+              },
+              {
+                "w": "then",
+                "s": 41.62,
+                "e": 41.88,
+                "p": 0.9987724423408508
+              },
+              {
+                "w": "watched",
+                "s": 41.88,
+                "e": 42.12,
+                "p": 0.3696860671043396
+              },
+              {
+                "w": "the",
+                "s": 42.12,
+                "e": 42.3,
+                "p": 0.9889103174209595
+              },
+              {
+                "w": "session.",
+                "s": 42.3,
+                "e": 42.44,
+                "p": 0.9990719556808472
+              },
+              {
+                "w": "Planning",
+                "s": 42.94,
+                "e": 42.96,
+                "p": 0.9610140323638916
+              },
+              {
+                "w": "your",
+                "s": 42.96,
+                "e": 43.12,
+                "p": 0.6995407938957214
+              },
+              {
+                "w": "game?",
+                "s": 43.12,
+                "e": 43.26,
+                "p": 0.9995311498641968
+              },
+              {
+                "w": "Like,",
+                "s": 43.7,
+                "e": 43.74,
+                "p": 0.9906660914421082
+              },
+              {
+                "w": "share,",
+                "s": 43.88,
+                "e": 44.02,
+                "p": 0.9094753861427307
+              },
+              {
+                "w": "and",
+                "s": 44.14,
+                "e": 44.2,
+                "p": 0.9989256262779236
+              },
+              {
+                "w": "save",
+                "s": 44.2,
+                "e": 44.36,
+                "p": 0.9975495934486389
+              },
+              {
+                "w": "this",
+                "s": 44.36,
+                "e": 44.5,
+                "p": 0.9977908134460449
+              },
+              {
+                "w": "video.",
+                "s": 44.5,
+                "e": 44.7,
+                "p": 0.9997732043266296
+              }
+            ],
+            "dauer_s": 44.992,
+            "sprache": "en"
+          },
+          "roh_key": "14af6fbb3a202a0a1630873d76d360b077e52a41f240298ae4e70b6c094c62db",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "192fa575f0cf2b1b494c919d09425989d3123cc55d726c4c4f862070485c94cb",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.1,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 12,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "192fa575f0cf2b1b494c919d09425989d3123cc55d726c4c4f862070485c94cb",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Mann sitzt an einem Laptop vor einem Fenster, auf dem Bildschirm ist die Benutzeroberfläche von Claude Code zu sehen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt den im Text erwähnten Start von Claude Code auf einem Laptop.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Ausschnitt aus einem Textdokument mit dem Namen Claude, welcher Vergleiche und Token-Mengen erwaehnt.",
+              "note": 6,
+              "passt": false,
+              "grund": "Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs.",
+              "erforderliches_bild": "Ein Diagramm oder eine Benutzeroberflaeche, die den genauen Token-Verbrauch oder die Baseline visuell darstellt."
+            },
+            {
+              "index": 2,
+              "gesehen": "Der Ausschnitt zeigt einen Text in einem gelben Markierungsrahmen auf hellem Hintergrund, der besagt, dass Claude Code etwa 33.000 Token verbraucht hat und OpenCode etwa 7.000.",
+              "note": 9,
+              "passt": true,
+              "grund": "Der Text im Bild belegt genau die im gesprochenen Satz erwähnten Testergebnisse bezüglich der Token-Anzahlen.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da der Text direkt zum gesprochenen Satz passt."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein hervorgehobener Textausschnitt, der Details zu Claude Codes System-Prompt und Token-Zahlen darstellt.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt lesbaren Text, der direkt System-Prompts und Tool-Schemas behandelt, was zum gesprochenen Text passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein hervorgehobener Textblock zeigt statistische Vergleiche zwischen Claude Code und OpenCode bzgl. des Token-Verbrauchs.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt lesbar den genauen Textabschnitt, der besagt, dass OpenCode etwa 7.000 Token verwendet hat, was exakt dem gesprochenen Inhalt entspricht.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da der Text perfekt passt."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein Ausschnitt aus einem Textdokument mit einer gelben Markierung, die besagt, dass eine 72KB große Instruktionsdatei (AGENTS.md oder CLAUDE.md) etwa 20.000 Token zu jeder Anfrage hinzufügt.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt exakt den im Text erwähnten Sachverhalt zu den Instruktionsdateien und Token-Kosten, passend zum gesprochenen Satz.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da der Text perfekt passt."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein gelb umrandeter Textkasten mit Statistiken zu MCP-Servern und Token-Verbrauch.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der sichtbare Text im Kasten zeigt exakt die gesprochenen Zahlen zu MCP-Servern und Tokens.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 7,
+              "gesehen": "Der Text auf dem Bildschirm zeigt den Titel CLAUDE CODE TOKEN OVERHEAD BEFORE BUILDING A GAME und die Angabe 75,000 TO 85,000 TOKENS mit einem großen orangen Pfeil nach unten.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbare Infografik zeigt genau die im gesprochenen Satz genannte Token-Anzahl (75.000 bis 85.000 Tokens) als Messwert oder Zusammenfassung.",
+              "erforderliches_bild": "Ein Diagramm oder Textdisplay, das die token-Anzahl visuell darstellt."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Artikel mit der Überschrift 'The Subagent Tax. Claude Code Fan-Outs Cost Up to 5.9x the Tokens, and Were Never Faster' ist zu sehen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet.",
+              "erforderliches_bild": "Ein Diagramm oder eine Benutzeroberfläche, die einen Kostenvergleich zwischen Claude Code und anderen Tools zeigt."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein gelb umrandeter Textblock mit detaillierten Statistiken zu Claude Code (Modellanfragen, Token-Verbrauch, Baselines und Subagenten).",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls).",
+              "erforderliches_bild": "Ein Diagramm oder ein Code-Ausschnitt, das bzw. der das Zusammenfassen von Tool-Aufrufen bei Claude Code veranschaulicht."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein gelb hervorgehobener Textabschnitt mit Zahlen zu Token-Vergleichen zwischen Claude Code und OpenCode, darunter der konkrete Wert 298.000 tokens.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt den Text mit den exakten Token-Werten und dem Vergleich, der in der gesprochenen Phase thematisiert wird.",
+              "erforderliches_bild": "keines"
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein gelb hervorgehobener Textblock auf einem Dokument, der praktische Konsequenzen und Instruktionsdateien beschreibt.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben.",
+              "erforderliches_bild": "Eine Bildschirmansicht, die ein Token-Budget oder Messwerte der Baseline visuell darstellt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 1: Bild passt nicht zum Sprechtext (6/10): Es zeigt lediglich einen Text, aber keine visuelle Demonstration oder Erklaerung des Token-Baselines oder des Pruefungsvorgangs.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Blogartikel mit einem Titel über Claude Code und Token-Kosten, aber keine Darstellung der konkreten Frage ob Claude Code immer mehr kostet.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Textstatistik über Token und Anfragen, bebildert aber nicht direkt den besprochenen Punkt über das Zusammenfassen von Tool-Aufrufen (batching tool calls).",
+            "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Die Textfolie zeigt allgemeine Anweisungen zu Instruktionsdateien, während der gesprochene Text das Budgetieren der Baseline und das Beobachten der Session erwähnt. Es ist kein direkter visueller Bezug zum Budgetieren oder Baseline-Monitoring gegeben."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 13,
+          "ausgenommen": [
+            12
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "192fa575f0cf2b1b494c919d09425989d3123cc55d726c4c4f862070485c94cb",
+        "prompt_version": "2026-10-18.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-3.5-flash-lite",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

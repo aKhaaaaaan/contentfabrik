@@ -75498,6 +75498,104 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "39813314961.1:business-origin-stories",
+      "run_id": "39813314961",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-22T17:05:27.211754+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "8150fbe6cb1462f31ba763f1fac9fb7c30b95587",
+      "produktionsversion": "63fd39d145f835b572185add81c90810e76f8005b1052c9a9aa131331a791773",
+      "videoformat": "short",
+      "thema": "Google",
+      "titel": [
+        "Google's *CEO* Ultimatum",
+        "Money Back Or New Boss"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "39813314961",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-22",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 266.0,
+            "bau_s": 26.4,
+            "baufehler": "ValueError: Bildplan deckt nicht alle Sprechphasen lueckenlos ab",
+            "status": "baufehler",
+            "sekunden": 292.4
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 692.5,
+            "baufehler": "ValueError: Phase 2, Einstellung 5: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 692.5
+          },
+          {
+            "runde": 3,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 256.5,
+            "baufehler": "ValueError: Phase 2, Einstellung 5: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 256.5
+          },
+          {
+            "runde": 4,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 198.1,
+            "baufehler": "ValueError: Phase 2, Einstellung 5: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 198.2
+          },
+          {
+            "runde": 5,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 194.3,
+            "baufehler": "ValueError: Phase 2, Einstellung 5: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 194.3
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "Google: 11.43 Punkte - YouTube-Ausreisser 21.1x Kanalschnitt, Wikipedia +29 % gegenueber Vormonat, heute in Google News (Google Eyes Large ‘Virtual Power Plant’ for Data Centers), Hacker News 124 Punkte",
+        "grund": "Videobau fehlgeschlagen (ValueError: Phase 2, Einstellung 5: kein passendes Hauptbild; kein Hintergrundersatz)",
+        "sekunden": 1656.1,
+        "upload_titel": "Google's CEO Ultimatum: Money Back Or New Boss"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "modell": "groq:openai/gpt-oss-120b",
+        "zweitpruefer_modell": null,
+        "zweitpruefer_anderer_anbieter": false
+      }
     }
   ]
 }

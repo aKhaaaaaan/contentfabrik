@@ -77220,6 +77220,104 @@
         "zweitpruefer_modell": null,
         "zweitpruefer_anderer_anbieter": false
       }
+    },
+    {
+      "id": "39924320241.1:ai-tools-explained",
+      "run_id": "39924320241",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-23T08:40:02.107689+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "ba46d6e1570eb67ebb5392f68d5d9e8f74b555ef",
+      "produktionsversion": "209a943e70800b2e6e55415d612adf5e339fc8daa0a2e3497c96f92995d20e41",
+      "videoformat": "short",
+      "thema": "ChatGPT: How to Make Money with ChatGPT: Honest Ways to Start",
+      "titel": [
+        "*ChatGPT* And Money",
+        "What Docs Really Say"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 14,
+      "unterschiedliche_motive": 9,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "39924320241",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-23",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 249.8,
+            "baufehler": "ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten",
+            "status": "baufehler",
+            "sekunden": 249.8
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 0.3,
+            "baufehler": "ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten",
+            "status": "baufehler",
+            "sekunden": 0.3
+          },
+          {
+            "runde": 3,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 181.0,
+            "baufehler": "ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten",
+            "status": "baufehler",
+            "sekunden": 181.0
+          },
+          {
+            "runde": 4,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 207.9,
+            "baufehler": "ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten",
+            "status": "baufehler",
+            "sekunden": 207.9
+          },
+          {
+            "runde": 5,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 254.6,
+            "baufehler": "ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten",
+            "status": "baufehler",
+            "sekunden": 254.6
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Videobau fehlgeschlagen (ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten)",
+        "sekunden": 894.4,
+        "upload_titel": "ChatGPT And Money: What Docs Really Say | AI Tool #13"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

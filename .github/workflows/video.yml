@@ -32,6 +32,9 @@ on:
       bezahlt:
         description: 'ja = auch nach aufgebrauchtem Gratis-Kontingent starten (bezahltes Google-Projekt)'
         default: ''
+      quelle:
+        description: 'zeitplan = Cloudflare-Zeitplan, hand = Telegram-Start; leer = an der Uhrzeit erkennen'
+        default: ''
 # Video- und Themen-Laeufe teilen dieselben Dateien: alle Schreiblaeufe seriell.
 concurrency:
   group: contentfabrik-zustand
@@ -55,6 +58,7 @@ jobs:
           # nur fuer die Kontohash-Zuordnung der gespeicherten Gemini-Sperren (kontingent.py), keine Anfrage
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           BEZAHLT: ${{ inputs.bezahlt }}
+          QUELLE: ${{ inputs.quelle }}
           EINGABE: ${{ inputs.kanal }}
           THEMA: ${{ inputs.thema }}
         run: |
@@ -75,8 +79,12 @@ jobs:
           import datetime, kontingent, statusmeldung
           # Handstart (Telegram „start" / GitHub) statt Zeitplan: Nutzerwunsch 21.10.2026 - weitere Videos,
           # solange das kostenlose Kontingent reicht. Der Zeitplan bleibt beim Tagesziel.
-          hand = os.environ['EREIGNIS'] != 'schedule' and not statusmeldung.zeitplan_start(
-              datetime.datetime.now(datetime.timezone.utc))
+          # GEMESSEN 23.10.2026: Telegram-Start 15:45 UTC fiel ins 10-Min.-Fenster nach dem 15:41-Zeitplan und galt
+          # als Zeitplan-Start -> Tagesziel erreicht, kein Video. Der Worker sagt jetzt, woher der Start kommt;
+          # nur Starts ohne Angabe (GitHub-Oberflaeche, alter Worker) werden noch an der Uhrzeit erkannt.
+          quelle = os.environ.get('QUELLE', '')
+          hand = os.environ['EREIGNIS'] != 'schedule' and quelle != 'zeitplan' and (
+              quelle == 'hand' or not statusmeldung.zeitplan_start(datetime.datetime.now(datetime.timezone.utc)))
           # „start ki bezahlt": Nutzer hat nach der Gratis-Meldung ausdruecklich einen kostenpflichtigen Lauf
           # gewaehlt - die Reserve (bezahltes Projekt, skript.reserve_schluessel) traegt dann die Anfragen.
           gratis_weg = kontingent.gemini_frei() if hand and os.environ.get('BEZAHLT') != 'ja' else None

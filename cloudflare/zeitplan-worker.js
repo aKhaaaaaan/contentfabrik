@@ -20,7 +20,7 @@
 //   Befehle: Start | Start Business | Start KI | Status (Gesamtfortschritt in %) | Abholen
 
 const REPO = 'aKhaaaaaan/contentfabrik';
-const VERSION = '2026-10-22.2';
+const VERSION = '2026-10-23.1';
 // Zusammengefasste Stunden sparen Trigger: Workers Free hat fuenf pro Konto.
 const VIDEO_CRONS = new Set(['23 8,13 * * *', '41 10,15 * * *',
   '23 8 * * *', '41 10 * * *', '23 13 * * *', '41 15 * * *']);
@@ -226,7 +226,9 @@ export async function befehl(env, text) {
   }
   const kanal = m[1] ? KANAELE[m[1]] : 'alle';
   // 21.10.2026: „bezahlt" nur ausdruecklich nach der Gratis-Meldung - startet trotz leerem Gratis-Kontingent.
-  const ergebnis = await starte(env, 'video.yml', m[2] ? { kanal, thema: '', bezahlt: 'ja' } : { kanal, thema: '' });
+  // 23.10.2026: quelle 'hand' - sonst hielt video.yml einen Start kurz nach einem Zeitplan-Cron fuer den Zeitplan.
+  const ergebnis = await starte(env, 'video.yml', m[2] ? { kanal, thema: '', bezahlt: 'ja', quelle: 'hand' }
+    : { kanal, thema: '', quelle: 'hand' });
   if (ergebnis.includes('bereits aktiv')) return 'Es laeuft gerade schon ein Videolauf - kein Doppelstart. Schreib „Status".';
   return `Gestartet (${kanal}${m[2] ? ', kostenpflichtig erlaubt' : ''}). Ergebnis in ca. 30-45 Minuten ueber den Videobot.\n` +
     'Weitere Videos laufen, solange das kostenlose Kontingent reicht; sonst kommt eine Meldung mit dem Grund.';
@@ -380,7 +382,7 @@ export default {
         job = Promise.all([job, lang]).then((t) => t.join(' | '));
       }
     }
-    else if (VIDEO_CRONS.has(event.cron)) job = starte(env, 'video.yml', { kanal: 'alle', thema: '' });
+    else if (VIDEO_CRONS.has(event.cron)) job = starte(env, 'video.yml', { kanal: 'alle', thema: '', quelle: 'zeitplan' });
     else throw new Error('Unbekannter Contentfabrik-Zeitplan');
     ctx.waitUntil(job.then((t) => console.log(t)));
   },

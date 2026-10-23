@@ -72,6 +72,15 @@ jobs:
         run: |
           python3 fabrik/trendcheck.py business-origin-stories
           python3 fabrik/trendcheck.py ai-tools-explained
+      - name: Gemini wieder erreichbar melden
+        # Nur nach einem an Gemini gescheiterten Videolauf (verlauf/gemini-wartet/), hoechstens alle 15 Min.
+        if: hashFiles('verlauf/gemini-wartet/*.json') != ''
+        continue-on-error: true
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 fabrik/gemini_wieder.py pruefen
       - name: Warteschlange sichern
         id: sichern
         run: |

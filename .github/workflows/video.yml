@@ -272,6 +272,8 @@ jobs:
           git config user.name 'contentfabrik-bot'
           git config user.email 'contentfabrik-bot@users.noreply.github.com'
           git config merge.contentfabrik-themen.driver 'python fabrik/zustand_merge.py %O %A %B'
+          # Ohne Video wegen Gemini: Merker fuer die Meldung „Gemini wieder erreichbar" (themen.yml)
+          python fabrik/gemini_wieder.py merken || true
           for pfad in verlauf lernen themen vorrat; do
             [ ! -d "$pfad" ] || git add -- "$pfad"
           done

@@ -334,6 +334,14 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         if thema and themen.schon_geliefert(kanal, thema) is True:
             # Zusatzvideo am selben Tag: der Bericht des Tages nennt das schon gesendete Thema - naechster Trend.
             offen_trend = trendcheck.trend_themen(kanal)
+            if not offen_trend and trendcheck.bericht_veraltet(kanal):
+                # GEMESSEN 23.10.2026: Der Morgenbericht kannte nur ein Thema -> Zusatzvideo bekam eine freie
+                # GitHub-Neuheit. Erst neu nach YouTube-/Google-Trends suchen, dann frei waehlen.
+                neu_thema, neu_trend = trendcheck.waehlen(kanal, themen=themen, neu=True)
+                if neu_thema and themen.schon_geliefert(kanal, neu_thema) is not True:
+                    offen_trend, trend = [neu_thema], neu_trend
+                else:
+                    offen_trend = trendcheck.trend_themen(kanal)
             print(f'Trendthema {thema} heute schon geliefert - '
                   + (f'naechstes: {offen_trend[0]}' if offen_trend else 'kein weiterer Trend, freie Wahl'))
             thema = offen_trend[0] if offen_trend else ''

@@ -33,6 +33,11 @@ SCHWELLE = 1.5  # darunter kein echtes Trendsignal
 FREIE_KANDIDATEN = 5
 
 
+# GEMESSEN 23.10.2026: Der Bericht von 10:36 UTC kannte nur die Geld-Titelvorlage; nach deren Lieferung nahm das
+# Zusatzvideo um 15:53 eine zufaellige GitHub-Neuheit (nvidia/openshell), ohne neu nach Trends zu suchen.
+NEU_NACH_S = 3 * 3600
+
+
 def punkte(yt_faktor=None, wiki_aufwind=None, google=False, eigen=False, hn=None):
     """Reine Rechenregel (testbar). Jedes Signal hoechstens 5 Punkte, damit keins allein alles kippt.
     YouTube logarithmisch: 3x Kanalschnitt ~1,6, 10x ~3,3, 30x ~4,9 Punkte."""
@@ -426,14 +431,28 @@ def beschreibung(k):
     return f"{k['thema'] or k['begriff']}: {k['punkte']} Punkte - " + ', '.join(teile or ['ohne Signal'])
 
 
-def waehlen(kanal, heute=None, themen=None):
+def bericht_veraltet(kanal, heute=None, jetzt=None):
+    """True, wenn der Tagesbericht fehlt oder aelter als NEU_NACH_S ist (Zusatzvideo am Nachmittag)."""
+    heute = heute or datetime.date.today()
+    jetzt = jetzt or datetime.datetime.now(datetime.timezone.utc)
+    try:
+        b = json.loads((ORDNER / f'{kanal}-{heute.isoformat()}.json').read_text(encoding='utf-8'))
+        return (jetzt - datetime.datetime.fromisoformat(b['berechnet'])).total_seconds() > NEU_NACH_S
+    except (OSError, ValueError, KeyError, TypeError):
+        return True
+
+
+def waehlen(kanal, heute=None, themen=None, neu=False):
     """Thema fuer den heutigen Lauf: (thema, bericht). Ein Ergebnis je Kanal und Tag.
-    bericht ist None, wenn es nichts abzuwaegen gab (alte Reihenfolge, kein Netzabruf)."""
+    bericht ist None, wenn es nichts abzuwaegen gab (alte Reihenfolge, kein Netzabruf).
+    neu=True rechnet den Tagesbericht trotzdem neu (Zusatzvideo, Trend des Morgens schon geliefert)."""
     if themen is None:
         import themen
     heute = heute or datetime.date.today()
     pfad = ORDNER / f'{kanal}-{heute.isoformat()}.json'
     try:
+        if neu:
+            raise KeyError('Neuberechnung angefordert')
         alt = json.loads(pfad.read_text(encoding='utf-8'))
         offen = {x['thema'] for x in themen.laden() if x['kanal'] == kanal}
         # 22.10.2026: Berichte von Firmenkanaelen ohne Google-News-Abgleich (vor 3e2a714) neu berechnen -
@@ -470,6 +489,7 @@ def waehlen(kanal, heute=None, themen=None):
         thema = themen.nehmen(kanal)
         grund += ' - alte Reihenfolge der Warteschlange'
     bericht = {'datum': heute.isoformat(), 'thema': thema, 'grund': grund, 'google_news': firmen,
+               'berechnet': datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds'),
                'zuschauer': any(x.get('zuschauer') and x['thema'] == thema for x in bewertet),
                'trend': any(x.get('thema') == thema and thema and x.get('stufe', 2) <= 1 for x in bewertet),
                'kandidaten': [{k: x.get(k) for k in ('thema', 'begriff', 'eigen', 'punkte', 'youtube', 'wiki',

@@ -145,7 +145,7 @@ def bildbezug_probleme(ablauf, bezug):
     nach_index = {s.get('index'): s for s in ablauf.get('einstellungen', [])}
     return [{'zeit': f"{int(s['s']) // 60:02d}:{s['s'] % 60:05.2f}", 'art': 'bild_passt_nicht',
              'schwere': 'schwer', 'phase': s.get('phase'), 'einstellung': e.get('index'),
-             'gesprochen': s.get('text', ''),
+             'gesprochen': s.get('text', ''), 'fest': bool(s.get('fest')),
              'text': e['grund'] + ' Korrektur: ' + e.get('erforderliches_bild', '')}
             for e in bezug['pruefung'] for s in [nach_index.get(e.get('index'))]
             if s and (not e.get('passt') or e.get('note', 0) < bildbezug.MINIMUM)]

@@ -1756,7 +1756,7 @@ def main(skript_pfad, aus, vorlage=None):
                 zustand['stuecke'][str(i)] = alt
                 bildablauf['einstellungen'].append(dict(shot, teil=None,
                     material_id=alt.get('material_id'), material_art=alt.get('material_art'),
-                    logo=bool(alt.get('logo'))))
+                    logo=bool(alt.get('logo')), fest=bool(alt.get('fest'))))
                 zeiten['stuecke_wiederverwendet'] += 1
                 # GEMESSEN 09.10.2026 (Aurelio, Nutzer 6/10): Jeder Neuversuch des Baus begann wieder
                 # bei 0 Ersatzbildern; aus dem Cache uebernommene Ersatzbilder zaehlten nicht. Ergebnis:
@@ -1777,15 +1777,19 @@ def main(skript_pfad, aus, vorlage=None):
                     'fotos': sorted(benutzte_fotos - fotos0),
                     'material_id': material_hash, 'material_art': material_art,
                     'ersatz': bild_ersatz > ersatz0, 'logo': bool(logo),
-                    'toleranz': bildablauf.get('motiv_toleranz', 0) > toleranz0}
+                    'toleranz': bildablauf.get('motiv_toleranz', 0) > toleranz0, 'fest': fest}
                 # Der Schlusspruefer muss unser eigenes Abschnittslogo vom Bildinhalt unterscheiden koennen.
                 bildablauf['einstellungen'].append(dict(shot, teil=None,
-                    material_id=material_hash, material_art=material_art, logo=bool(logo)))
+                    material_id=material_hash, material_art=material_art, logo=bool(logo), fest=fest))
                 (aus / 'bildablauf.json').write_text(json.dumps(bildablauf, indent=2), encoding='utf-8')
                 rendercache.speichern(aus, zustand)
             stueck = aus / f'stueck_{i:02d}.mp4'
             ebene = aus / f'ebene_{i:02d}.png'
             modus = t.get('bildmodus', 'auto')
+            # GEMESSEN 23.10.2026 (Lauf 39982100730, OpenShell): Quellseiten-Screenshot und Erklaergrafik entstehen
+            # nur aus Satz und Quellseite. Zwei Bildkorrekturen planten sie neu - gleiche Bilder, gleiche Ablehnung,
+            # ~9 Min. Budget. fest=True sagt nachbessern.py, dass eine Bildkorrektur hier nichts aendert.
+            fest = False
             if modus == 'stock' and not stock_erlaubt:
                 modus = 'illustration'  # gemalte Szene statt Stockclip (Kanalvorgabe)
             logo = None
@@ -1811,6 +1815,7 @@ def main(skript_pfad, aus, vorlage=None):
                     import seitenbild
                     seite_bild, seite_q = seitenbild.aufnehmen(t.get('quelle_url'), t['text'],
                                                                aus / f'seite_{i:02d}.jpg', benutzte_abschnitte)
+                    fest = True
                     if seite_bild and motiv_ok(seite_bild):
                         modus = 'seite'
                         print(f'Einstellung {i}: Screenshot der Quellseite ({seite_q["abschnitt"][:60]})')
@@ -1826,7 +1831,7 @@ def main(skript_pfad, aus, vorlage=None):
                     # Datenquellen nahm die Bildauswahl lieber irgendeinen Screenshot (News, Node-Editor) -
                     # 6 Ablehnungen. Dieselben Saetze bestanden als Erklaergrafik mit 8-10/10. Feste Weiche.
                     print(f'Einstellung {i}: Satz ueber Schluessel/Kosten/Daten/Download - Erklaergrafik')
-                    t, modus = dict(t, grafik_typ='erklaerung'), 'grafik'
+                    t, modus, fest = dict(t, grafik_typ='erklaerung'), 'grafik', True
             if modus == 'demo':
                 demo, fq = demo_fuer(t.get('quelle_url'), t['text'] + ' Visual: ' + t.get('szene', ''),
                                     benutzte_demos, t.get('demo_url'))

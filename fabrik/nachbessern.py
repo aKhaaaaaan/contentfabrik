@@ -122,6 +122,7 @@ def planen(skript, kritik, messung, config, kanal):
         probleme = [p for p in probleme if FAMILIEN.get(p.get('art'), (None,))[0] == familie]
     import bildplan
     feste_regie = bildplan.feste_regie(skript)
+    fest_abgelehnt = []
     for p in probleme:
         art = p.get('art')
         ids = ziel_abschnitte(p, laengen, len(skript['teile']))
@@ -130,6 +131,12 @@ def planen(skript, kritik, messung, config, kanal):
                 # GEMESSEN 14.10.2026 (Lauf 38591953175): Die feste bildfolge ueberschreibt im
                 # Bildplan suche/szene der Phase. Zwei Korrekturen bauten und prueften dasselbe Video.
                 plan['offen'].append('Feste redaktionelle Bildfolge - Motiv nur redaktionell ersetzbar: '
+                                     + str(p.get('text', '')))
+            elif p.get('fest'):
+                # GEMESSEN 23.10.2026 (Lauf 39982100730): Quellseiten-Screenshot/Erklaergrafik entstehen nur aus
+                # Satz und Quelle (bauen.py) - Runde 2 und 3 bauten dieselben 6 Bilder, gleiche Ablehnung.
+                fest_abgelehnt.append(p)
+                plan['offen'].append('Bild entsteht fest aus Satz und Quellseite - Bildkorrektur aendert es nicht: '
                                      + str(p.get('text', '')))
             elif ids:
                 bildziele.update(ids)
@@ -145,6 +152,10 @@ def planen(skript, kritik, messung, config, kanal):
     if textziele and not skript.get('belege'):
         plan['offen'].append('Sprechtext bleibt erhalten: gespeicherte Quelltexte fehlen')
         textziele.clear()
+    if fest_abgelehnt and not textziele:
+        # Die festen Ablehnungen bleiben in jeder weiteren Runde - die Bildpruefung kann nicht mehr bestehen.
+        # Andere Bilder nachzubessern kostet nur Budget; der markierte Entwurf geht sofort an den Nutzer.
+        bildziele.clear()
     if bildziele or textziele:
         from skript import gemini, SEHEN
         # GEMESSEN 16.10.2026: Ohne Indexangabe korrigierte das Modell Abschnitte 1/2/4/6 statt der erlaubten

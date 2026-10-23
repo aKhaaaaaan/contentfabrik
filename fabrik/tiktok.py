@@ -19,7 +19,8 @@ from pathlib import Path
 GEHEIM = Path(os.environ.get('CF_GEHEIM', Path.home() / 'Downloads' / 'contentfabrik-geheim'))
 RUECKSPRUNG = 'https://contentfabrik.pages.dev/tiktok-callback'
 API = 'https://open.tiktokapis.com/v2/'
-RECHTE = 'user.info.basic,video.upload,video.publish'
+# 22.10.2026: user.info.stats + video.list (Sandbox-App, ohne Review) - Aufrufe/Likes je Video fuers Lernen.
+RECHTE = 'user.info.basic,video.upload,video.publish,user.info.stats,video.list'
 
 
 def _schluessel():

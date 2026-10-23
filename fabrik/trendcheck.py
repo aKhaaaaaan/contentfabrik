@@ -262,11 +262,18 @@ def zuschauer_themen(einstellung, gezeigt=(), google_liste=(), heute=None):
     e = {**TREND_STANDARD, **einstellung}
     namen = e.get('namen') or []
     roh = []
+    # Nutzer 23.10.2026: „KI-Kanal kann solche Themen [Geld sparen/verdienen] von YouTube-Trends nehmen oder Google".
+    # Die Google-Tagestrends nennen fast nie ein KI-Produkt - darum zusaetzlich die Google-News-Rubrik des Kanals.
+    if e.get('google_news'):
+        google_liste = list(google_liste) + [(GOOGLE_NEWS + z, []) for z in trends.news_schlagzeilen(e['google_news'])
+                                             if z]
     for titel, news in google_liste:
-        p = name_im_text(' '.join([titel] + news[:1]), namen)
+        kopf = news[0] if news else titel.removeprefix(GOOGLE_NEWS)
+        p = name_im_text(' '.join([titel.removeprefix(GOOGLE_NEWS)] + news[:1]), namen)
         if p:
-            roh.append({'thema': _zuschauer_thema(p, news[0] if news else titel), 'produkt': p, 'google': titel,
-                        'youtube': None, 'beispiele': []})
+            art = trends.format_art(kopf)
+            roh.append({'thema': _zuschauer_thema(p, trends.ohne_betraege(kopf) if art in ('geld', 'sparen') else kopf),
+                        'produkt': p, 'google': titel, 'youtube': None, 'beispiele': [], 'format': art})
     for v in trends.youtube_ausreisser(e.get('suche') or [], tage=e['tage'], je_begriff=15, top=40,
                                        dauer=e['dauer']):
         p = name_im_text(v['titel'], namen)
@@ -282,7 +289,9 @@ def zuschauer_themen(einstellung, gezeigt=(), google_liste=(), heute=None):
     tag = heute or datetime.date.today()
     formattag = tag.toordinal() % max(1, int(e['format_jeden'])) == 0
     for k in roh:
-        k['vorrang'] = bool(formattag and k.get('format') and (k['youtube'] or 0) >= FORMAT_FAKTOR)
+        # Google-Schlagzeile = heutiges Suchinteresse, zaehlt wie ein YouTube-Ausreisser
+        k['vorrang'] = bool(formattag and k.get('format')
+                            and ((k['youtube'] or 0) >= FORMAT_FAKTOR or k.get('google')))
     if formattag and not any(k['vorrang'] for k in roh):
         ersatz = format_vorlage(e, tag, gezeigt)
         if ersatz:

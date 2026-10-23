@@ -297,10 +297,13 @@ def format_art(titel):
     """'geld', 'sparen', 'anleitung' oder '' - welches bewaehrte Titelmuster ein Zuschauerthema hat."""
     if SPAM_VIDEO.search(titel or ''):
         return ''
-    if GELD.search(titel or ''):
+    # Ein Betrag allein ist kein Verdienst-Thema: „ChatGPT Plus price rises to $25 a month" ist Sparen (Test 23.10.)
+    if GELD.search(GELDBETRAG.sub('', titel or '')):
         return 'geld'
     if SPAREN.search(titel or ''):
         return 'sparen'
+    if GELD.search(titel or ''):
+        return 'geld'
     return 'anleitung' if ANLEITUNG.search(titel or '') else ''
 
 
@@ -847,8 +850,14 @@ def firmen_im_trend(datum=None, n=300):
 
 def wirtschafts_schlagzeilen():
     """Heutige US-Wirtschaftsschlagzeilen (offizieller Google-News-RSS, ohne Schluessel); [] bei Ausfall."""
+    return news_schlagzeilen('BUSINESS')
+
+
+def news_schlagzeilen(rubrik):
+    """Heutige US-Schlagzeilen einer Google-News-Rubrik (BUSINESS, TECHNOLOGY, ...); [] bei Ausfall.
+    Rubrik je Kanal in trendquellen/<kanal>.json 'google_news' (23.10.2026: KI-Kanal TECHNOLOGY)."""
     try:
-        wurzel = ElementTree.fromstring(_hole('https://news.google.com/rss/headlines/section/topic/BUSINESS?'
+        wurzel = ElementTree.fromstring(_hole(f'https://news.google.com/rss/headlines/section/topic/{rubrik}?'
                                               'hl=en-US&gl=US&ceid=US:en'))
     except Exception as e:
         print('Google News nicht verfuegbar:', str(e)[:80])

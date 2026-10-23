@@ -70,6 +70,27 @@ def ausschnitt_oben(block, visuelle, seitenhoehe, hoehe=HOEHE):
     return max(0, min(oben, seitenhoehe - hoehe))
 
 
+# GEMESSEN 23.10.2026 (KI-Lauf 39924320241): platform.openai.com scrollt in <body>, nicht im Dokument -
+# documentElement.scrollHeight blieb 900 px, jeder Ausschnitt wurde auf dieselbe Stelle begrenzt und sechs
+# Screenshots waren bytegleich -> "Gleiches Motiv zu lange gehalten", vier Bauversuche ohne Video.
+# Den groessten inneren Scrollbereich samt Vorfahren ausklappen, dann ist die Seite wieder so hoch wie ihr Inhalt.
+ENTROLLEN = """() => {
+  const doc = document.documentElement;
+  let el = null, h = doc.scrollHeight;
+  for (const e of document.querySelectorAll('*')) {
+    const s = getComputedStyle(e);
+    if ((s.overflowY === 'auto' || s.overflowY === 'scroll') && e.scrollHeight > e.clientHeight + 50
+        && e.scrollHeight > h) { el = e; h = e.scrollHeight; }
+  }
+  if (!el) return 0;
+  for (let x = el; x; x = x.parentElement) {
+    x.style.setProperty('height', 'auto', 'important');
+    x.style.setProperty('max-height', 'none', 'important');
+    x.style.setProperty('overflow', 'visible', 'important');
+  }
+  return doc.scrollHeight;
+}"""
+
 SAMMELN = """() => {
   const ZIELE = 'p, li, h1, h2, h3, h4, td, dd, blockquote, figcaption, div, table, figure, pre';
   const aus = [];
@@ -150,6 +171,8 @@ def aufnehmen(url, satz, ziel, benutzt=None):
                         except Exception:
                             pass
                         break
+                if seite.evaluate(ENTROLLEN):
+                    seite.wait_for_timeout(300)
                 bloecke = seite.evaluate(SAMMELN)
                 schon = {int(k.split('#')[-1]) for k in benutzt if k.startswith(url + '#')}
                 visuell = {n for n, x in enumerate(bloecke) if x.get('visuell')}

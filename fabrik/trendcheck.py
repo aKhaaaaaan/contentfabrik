@@ -209,6 +209,7 @@ def englisch(titel):
 def format_vorlage(e, tag, gezeigt=()):
     """Formattag ohne echten Format-Ausreisser: bewaehrtes Titelmuster (format_vorlagen) fuer ein Produkt mit
     offizieller Anleitung (anleitungen). Reihum nach Datum, schon gezeigte Themen ueberspringen."""
+    import trends
     vorlagen, produkte = e.get('format_vorlagen') or [], sorted(e.get('anleitungen') or {})
     # Muster UND Produkt wechseln jedes Mal (nicht dreimal hintereinander „Geld verdienen")
     paare = list(dict.fromkeys((vorlagen[i % len(vorlagen)], produkte[i % len(produkte)])
@@ -218,7 +219,7 @@ def format_vorlage(e, tag, gezeigt=()):
         thema = f'{p}: ' + v.format(produkt=p)
         if thema.lower() not in gezeigt:
             return {'thema': thema, 'produkt': p, 'google': None, 'youtube': None, 'beispiele': [],
-                    'format': 'geld' if re.search(r'money|earn', v, re.I) else 'anleitung', 'vorlage': True}
+                    'format': trends.format_art(v.format(produkt=p)) or 'anleitung', 'vorlage': True}
     return None
 
 
@@ -274,7 +275,8 @@ def zuschauer_themen(einstellung, gezeigt=(), google_liste=(), heute=None):
                 and not KEIN_WERKZEUG.search(v['titel']) \
                 and (v.get('aufrufe') or 0) >= e['min_aufrufe']:
             art = trends.format_art(v['titel'])
-            titel = trends.ohne_betraege(v['titel']) if art == 'geld' else v['titel']
+            # Betraege im Titel sind fremde Behauptungen (Einkommen, Preise) - der Beleg kommt aus der Quelle
+            titel = trends.ohne_betraege(v['titel']) if art in ('geld', 'sparen') else v['titel']
             roh.append({'thema': _zuschauer_thema(p, titel), 'produkt': p, 'google': None,
                         'youtube': v['faktor'], 'beispiele': [v], 'format': art})
     tag = heute or datetime.date.today()
@@ -408,7 +410,8 @@ def beschreibung(k):
     if k.get('hn'):
         teile.append(f"Hacker News {k['hn']} Punkte")
     if k.get('format'):  # Telegram zeigt, warum heute ein Anleitungs-/Geld-Thema statt einer Neuheit
-        teile.append({'geld': 'Format Geld verdienen', 'anleitung': 'Format richtig nutzen'}[k['format']]
+        teile.append({'geld': 'Format Geld verdienen', 'sparen': 'Format Geld sparen',
+                      'anleitung': 'Format richtig nutzen'}[k['format']]
                      + (' (Formattag)' if k.get('vorrang') else '')
                      + (', bewaehrte Titelvorlage + offizielle Anleitung' if k.get('vorlage') else ''))
     return f"{k['thema'] or k['begriff']}: {k['punkte']} Punkte - " + ', '.join(teile or ['ohne Signal'])

@@ -284,12 +284,23 @@ GELDBETRAG = re.compile(r"(?:₹\s?)?\d+\s?lakh\b|[$₹€£]\s?[\d.,]+\s?[kKmM]
                         r"\s?(?:a|per) (?:day|month|year|week))?", re.I)
 
 
+# Nutzer 23.10.2026 (Punkt 11): KI-Kanal „KI, die Geld spart oder bringt". Spar-Titel (Kosten, Abo lohnt sich,
+# gratis gegen bezahlt) waren bisher kein Format - ohne Format-Art gibt es keine offiziellen Belege (Preisseiten).
+# Bloss „subscription" zaehlt nicht: „Free Claude Subscription? 1M FREE Tokens for 1 Year" (Testfall) ist ein
+# Lockangebot, das keine offizielle Preisseite belegt - es schlug am Formattag die echte Anleitung.
+SPAREN = re.compile(r"\b(?:save (?:money|\$)|saving money|cheaper|costs?|price[sd]?|pricing|worth it|"
+                    r"worth paying|free vs|vs\.? paid|paid vs|subscriptions? (?:costs?|prices?|worth)|which plan|plans compared|"
+                    r"tokens? cost|stop paying|don't pay)\b", re.I)
+
+
 def format_art(titel):
-    """'geld', 'anleitung' oder '' - welches bewaehrte Titelmuster ein Zuschauerthema hat."""
+    """'geld', 'sparen', 'anleitung' oder '' - welches bewaehrte Titelmuster ein Zuschauerthema hat."""
     if SPAM_VIDEO.search(titel or ''):
         return ''
     if GELD.search(titel or ''):
         return 'geld'
+    if SPAREN.search(titel or ''):
+        return 'sparen'
     return 'anleitung' if ANLEITUNG.search(titel or '') else ''
 
 

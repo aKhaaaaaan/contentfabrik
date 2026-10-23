@@ -1,110 +1,5 @@
 [
   {
-    "id": "38124657997",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-11",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 1,
-        "grund": "Skript fehlgeschlagen (Code 1)",
-        "sekunden": 30.1
-      },
-      {
-        "runde": 2,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 1,
-        "grund": "Skript fehlgeschlagen (Code 1)",
-        "sekunden": 28.5
-      },
-      {
-        "runde": 3,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 3,
-        "grund": "Skriptqualitaet unter Freigabe",
-        "sperrgruende": [
-          "Skript-Note 6/10 unter 7/10",
-          "Skript-hook 5/10 unter 7/10",
-          "Skript-spannung 5/10 unter 7/10",
-          "Skript-ueberraschung 6/10 unter 7/10",
-          "Skript-tempo 6/10 unter 7/10"
-        ],
-        "story_note": 6,
-        "story_schwaechen": [
-          "Exact sentence: \"Ever waste hours typing receipt details into spreadsheets?\" Why it matters: A cliché rhetorical question slows viewer entry and invites a passive drop-off instead of front-loading a concrete stakes-driven premise. Feasible fix: Replace with a direct factual claim: \"Typing receipt de",
-          "Exact sentence: \"Snap a receipt with your phone, then drag it into the app.\" Why it matters: Beat 3 already explains uploading photos, making this sentence redundant and stalling the narrative pace. Feasible fix: Cut the duplicate upload instruction and transition straight to the extraction options:"
-        ],
-        "skript_probleme": [],
-        "sekunden": 303.7
-      },
-      {
-        "runde": 4,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 1,
-        "grund": "Skript fehlgeschlagen (Code 1)",
-        "sekunden": 170.4
-      },
-      {
-        "runde": 5,
-        "art": "produktion",
-        "skript_s": 133.7,
-        "bau_s": 408.4,
-        "pruefung_s": 6.0,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Einzelbewertungen fehlen",
-          "Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt",
-          "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden"
-        ],
-        "messung": {
-          "stimme_wiederverwendet": false,
-          "erzaehlstimme": "gemini:Orus",
-          "stimme": 16.2,
-          "zeitmarken": 4.6,
-          "tempo": 1.05,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 0,
-          "stuecke_neu": 15,
-          "bilder_vereinfacht": 1,
-          "clips_und_stuecke": 362.8,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 15,
-            "motive": 14,
-            "motive_min": 7
-          },
-          "effekte": 18,
-          "rendern": 18.2,
-          "gesamt": 408.2,
-          "videolaenge_s": 44.4,
-          "abschnitte_s": [
-            6.66,
-            5.76,
-            5.98,
-            4.98,
-            5.22,
-            6.38,
-            9.37
-          ],
-          "woerter": 105
-        },
-        "kategorien": {},
-        "probleme": [],
-        "sekunden": 548.1,
-        "status": "geprueft"
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Video-Note fehlt oder ist ungueltig; Video-Einzelbewertungen fehlen; Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt; Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
-    "sekunden": 1096.4
-  },
-  {
     "id": "38131687462",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-11",
@@ -13426,5 +13321,627 @@
     "grund": "",
     "sekunden": 766.3,
     "upload_titel": "ChatGPT And Money: What Docs Really Say | AI Tool #13"
+  },
+  {
+    "id": "39982100730",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-10-23",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "skript_s": 314.1,
+        "bau_s": 323.9,
+        "pruefung_s": 126.7,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen besorgten Mann in einer Straßenschlucht, was nicht die Frage nach KI und privaten Dateien illustriert.",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (6/10): Die gesprochene Aktion erwähnt das Lesen von Dateien, Installieren von Paketen und Aufrufen von APIs, aber das Bild zeigt lediglich einen generischen Dateilesen-Bildschirm ohne die Erfüllung der konkreten Funktionserklärung.",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Es ist lediglich eine Textgrafik mit einigen Worten aus dem Skript zu sehen, aber keine konkrete Oberfläche, auf der eine Richtlinie geschrieben oder konfiguriert wird.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Phase 'Each agent runs in an isolated sandbox' wird nur als Text im Dokument dargestellt, nicht aber visuell erkennbar als isolierte Sandbox oder Agentenstruktur.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Übersichtstabelle über Architekturkomponenten, aber nicht die spezifisch im Satz erwähnten Kernel-Kontrollen zur Dateibegrenzung oder Netzwerk-Policy-Prüfungen.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich das Logo und den Text zu approved endpoints, aber nicht den konkreten Vorgang, wie OpenShell Credentials fuer freigegebene Endpunkte hinzufuegt.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die Textnachfrage im Chat zeigt lediglich die Frage aus dem gesprochenen Text, demonstriert jedoch nicht die formale Verifikation oder den Prozess der menschlichen Genehmigung.",
+          "Offenes Problem (schwer): Das Bild zeigt einen besorgten Mann in einer Straßenschlucht, was nicht die Frage nach KI und privaten Dateien illustriert. Korrektur: Eine anschauliche Illustration oder ein Screenshot, der das Thema Künstliche Intelligenz und den Zugriff auf private Dateien thematisiert.",
+          "Offenes Problem (schwer): Die gesprochene Aktion erwähnt das Lesen von Dateien, Installieren von Paketen und Aufrufen von APIs, aber das Bild zeigt lediglich einen generischen Dateilesen-Bildschirm ohne die Erfüllung der konkreten Funktionserklärung. Korrektur: Ein Software-Diagramm oder eine Benutzeroberfläche, die das tatsächliche Lesen von Dateien und Aufrufen von APIs durch Agenten zeigt.",
+          "Offenes Problem (schwer): Es ist lediglich eine Textgrafik mit einigen Worten aus dem Skript zu sehen, aber keine konkrete Oberfläche, auf der eine Richtlinie geschrieben oder konfiguriert wird. Korrektur: Ein Screenshot einer Software-Konfigurationsoberfläche, in der eine konkrete Richtlinie (Policy) für Agenten geschrieben oder bearbeitet wird.",
+          "Offenes Problem (schwer): Die gesprochene Phase 'Each agent runs in an isolated sandbox' wird nur als Text im Dokument dargestellt, nicht aber visuell erkennbar als isolierte Sandbox oder Agentenstruktur. Korrektur: Ein Diagramm oder eine technische Visualisierung, die eine isolierte Sandbox mit abgegrenzten Dateizugriffen fuer einen Agenten zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt eine Übersichtstabelle über Architekturkomponenten, aber nicht die spezifisch im Satz erwähnten Kernel-Kontrollen zur Dateibegrenzung oder Netzwerk-Policy-Prüfungen. Korrektur: Ein Diagramm oder eine Schnittstelle, die Kernel-Kontrollen für Dateizugriffe oder die Netzwerk-Policy-Prüfung visuell darstellt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich das Logo und den Text zu approved endpoints, aber nicht den konkreten Vorgang, wie OpenShell Credentials fuer freigegebene Endpunkte hinzufuegt. Korrektur: Ein Software-Diagramm oder eine Benutzeroberfläche, die zeigt, wie OpenShell Zugangsdaten (Credentials) dynamisch an genehmigte Endpunkte anbindet.",
+          "Offenes Problem (schwer): Die Textnachfrage im Chat zeigt lediglich die Frage aus dem gesprochenen Text, demonstriert jedoch nicht die formale Verifikation oder den Prozess der menschlichen Genehmigung. Korrektur: Ein Screenshot, der den formalen Verifikationsprozess oder die Benutzeroberfläche zur Genehmigung neuer Zugriffe durch Menschen zeigt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 16.2,
+          "zeitmarken": 6.0,
+          "tempo": 1.185,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 14,
+          "bilder_vereinfacht": 1,
+          "clips_und_stuecke": 219.8,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 14,
+            "motive": 14,
+            "motive_min": 8
+          },
+          "effekte": 11,
+          "rendern": 45.1,
+          "gesamt": 323.5,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            6.44,
+            6.36,
+            6.28,
+            8.32,
+            6.84,
+            9.08,
+            1.68
+          ],
+          "woerter": 130
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Would you let an AI touch your private files?",
+            "text": "Das Bild zeigt einen besorgten Mann in einer Straßenschlucht, was nicht die Frage nach KI und privaten Dateien illustriert. Korrektur: Eine anschauliche Illustration oder ein Screenshot, der das Thema Künstliche Intelligenz und den Zugriff auf private Dateien thematisiert."
+          },
+          {
+            "zeit": "00:06.44",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "Agents help when they read files, install packages and call APIs.",
+            "text": "Die gesprochene Aktion erwähnt das Lesen von Dateien, Installieren von Paketen und Aufrufen von APIs, aber das Bild zeigt lediglich einen generischen Dateilesen-Bildschirm ohne die Erfüllung der konkreten Funktionserklärung. Korrektur: Ein Software-Diagramm oder eine Benutzeroberfläche, die das tatsächliche Lesen von Dateien und Aufrufen von APIs durch Agenten zeigt."
+          },
+          {
+            "zeit": "00:10.16",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "You write a policy declaring what each can touch.",
+            "text": "Es ist lediglich eine Textgrafik mit einigen Worten aus dem Skript zu sehen, aber keine konkrete Oberfläche, auf der eine Richtlinie geschrieben oder konfiguriert wird. Korrektur: Ein Screenshot einer Software-Konfigurationsoberfläche, in der eine konkrete Richtlinie (Policy) für Agenten geschrieben oder bearbeitet wird."
+          },
+          {
+            "zeit": "00:12.80",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Each agent runs in an isolated sandbox.",
+            "text": "Die gesprochene Phase 'Each agent runs in an isolated sandbox' wird nur als Text im Dokument dargestellt, nicht aber visuell erkennbar als isolierte Sandbox oder Agentenstruktur. Korrektur: Ein Diagramm oder eine technische Visualisierung, die eine isolierte Sandbox mit abgegrenzten Dateizugriffen fuer einen Agenten zeigt."
+          },
+          {
+            "zeit": "00:15.22",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "Kernel controls limit its files, and every network connection gets a policy check.",
+            "text": "Das Bild zeigt eine Übersichtstabelle über Architekturkomponenten, aber nicht die spezifisch im Satz erwähnten Kernel-Kontrollen zur Dateibegrenzung oder Netzwerk-Policy-Prüfungen. Korrektur: Ein Diagramm oder eine Schnittstelle, die Kernel-Kontrollen für Dateizugriffe oder die Netzwerk-Policy-Prüfung visuell darstellt."
+          },
+          {
+            "zeit": "00:24.30",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "OpenShell adds credentials only for approved endpoints.",
+            "text": "Das Bild zeigt lediglich das Logo und den Text zu approved endpoints, aber nicht den konkreten Vorgang, wie OpenShell Credentials fuer freigegebene Endpunkte hinzufuegt. Korrektur: Ein Software-Diagramm oder eine Benutzeroberfläche, die zeigt, wie OpenShell Zugangsdaten (Credentials) dynamisch an genehmigte Endpunkte anbindet."
+          },
+          {
+            "zeit": "00:27.40",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "So who approves new access?",
+            "text": "Die Textnachfrage im Chat zeigt lediglich die Frage aus dem gesprochenen Text, demonstriert jedoch nicht die formale Verifikation oder den Prozess der menschlichen Genehmigung. Korrektur: Ein Screenshot, der den formalen Verifikationsprozess oder die Benutzeroberfläche zur Genehmigung neuer Zugriffe durch Menschen zeigt."
+          }
+        ],
+        "sekunden": 764.7,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-10-18.1"
+        },
+        "skript_s": 3.8,
+        "bau_s": 182.6,
+        "pruefung_s": 44.4,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 3/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Die gezeichnete Szene von Agenten oder Personen mit Unterlagen passt nicht konkret zur Frage nach KI und privaten Dateien.",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (6/10): Die gesprochene Aktion erwähnt das Lesen von Dateien, Installieren von Paketen und Aufrufen von APIs, aber das Bild zeigt lediglich einen generischen Dateilesen-Bildschirm ohne die Erfüllung der konkreten Funktionserklärung.",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Es ist lediglich eine Textgrafik mit einigen Worten aus dem Skript zu sehen, aber keine konkrete Oberfläche, auf der eine Richtlinie geschrieben oder konfiguriert wird.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Phase 'Each agent runs in an isolated sandbox' wird nur als Text im Dokument dargestellt, nicht aber visuell erkennbar als isolierte Sandbox oder Agentenstruktur.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Übersichtstabelle über Architekturkomponenten, aber nicht die spezifisch im Satz erwähnten Kernel-Kontrollen zur Dateibegrenzung oder Netzwerk-Policy-Prüfungen.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich das Logo und den Text zu Credentials, aber nicht den konkreten Vorgang des Hinzufügens von Credentials für freigegebene Endpunkte.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Chat-Frage zur Zugriffsfreigabe, aber nicht den formellen Verifizierungsprozess oder die menschliche Überprüfung, die im gesprochenen Text beschrieben werden.",
+          "Offenes Problem (schwer): Die gezeichnete Szene von Agenten oder Personen mit Unterlagen passt nicht konkret zur Frage nach KI und privaten Dateien. Korrektur: Ein anschauliches Diagramm oder ein visualisiertes Szenario, das eine KI darstellt, die auf private Dateien zugreift oder geschützt wird.",
+          "Offenes Problem (schwer): Die gesprochene Aktion erwähnt das Lesen von Dateien, Installieren von Paketen und Aufrufen von APIs, aber das Bild zeigt lediglich einen generischen Dateilesen-Bildschirm ohne die Erfüllung der konkreten Funktionserklärung. Korrektur: Ein Software-Diagramm oder eine Benutzeroberfläche, die das tatsächliche Lesen von Dateien und Aufrufen von APIs durch Agenten zeigt.",
+          "Offenes Problem (schwer): Es ist lediglich eine Textgrafik mit einigen Worten aus dem Skript zu sehen, aber keine konkrete Oberfläche, auf der eine Richtlinie geschrieben oder konfiguriert wird. Korrektur: Ein Screenshot einer Software-Konfigurationsoberfläche, in der eine konkrete Richtlinie (Policy) für Agenten geschrieben oder bearbeitet wird.",
+          "Offenes Problem (schwer): Die gesprochene Phase 'Each agent runs in an isolated sandbox' wird nur als Text im Dokument dargestellt, nicht aber visuell erkennbar als isolierte Sandbox oder Agentenstruktur. Korrektur: Ein Diagramm oder eine technische Visualisierung, die eine isolierte Sandbox mit abgegrenzten Dateizugriffen fuer einen Agenten zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt eine Übersichtstabelle über Architekturkomponenten, aber nicht die spezifisch im Satz erwähnten Kernel-Kontrollen zur Dateibegrenzung oder Netzwerk-Policy-Prüfungen. Korrektur: Ein Diagramm oder eine Schnittstelle, die Kernel-Kontrollen für Dateizugriffe oder die Netzwerk-Policy-Prüfung visuell darstellt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich das Logo und den Text zu Credentials, aber nicht den konkreten Vorgang des Hinzufügens von Credentials für freigegebene Endpunkte. Korrektur: Eine Darstellung oder Benutzeroberfläche, bei der OpenShell Credentials für einen genehmigten Endpunkt hinzufügt",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine Chat-Frage zur Zugriffsfreigabe, aber nicht den formellen Verifizierungsprozess oder die menschliche Überprüfung, die im gesprochenen Text beschrieben werden. Korrektur: Ein visuelles Diagramm oder eine Benutzeroberfläche, die den Prozess der formellen Verifizierung von Änderungen und die Schnittstelle zur menschlichen Genehmigung zeigt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Puck",
+          "tempo": 1.185,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 7,
+          "stuecke_neu": 7,
+          "clips_und_stuecke": 95.2,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 14,
+            "motive": 14,
+            "motive_min": 8
+          },
+          "effekte": 11,
+          "rendern": 44.9,
+          "gesamt": 182.3,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            6.44,
+            6.36,
+            6.28,
+            8.32,
+            6.84,
+            9.08,
+            1.68
+          ],
+          "woerter": 130
+        },
+        "kategorien": {
+          "bild_passt": 3
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Would you let an AI touch your private files?",
+            "text": "Die gezeichnete Szene von Agenten oder Personen mit Unterlagen passt nicht konkret zur Frage nach KI und privaten Dateien. Korrektur: Ein anschauliches Diagramm oder ein visualisiertes Szenario, das eine KI darstellt, die auf private Dateien zugreift oder geschützt wird."
+          },
+          {
+            "zeit": "00:06.44",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "Agents help when they read files, install packages and call APIs.",
+            "text": "Die gesprochene Aktion erwähnt das Lesen von Dateien, Installieren von Paketen und Aufrufen von APIs, aber das Bild zeigt lediglich einen generischen Dateilesen-Bildschirm ohne die Erfüllung der konkreten Funktionserklärung. Korrektur: Ein Software-Diagramm oder eine Benutzeroberfläche, die das tatsächliche Lesen von Dateien und Aufrufen von APIs durch Agenten zeigt."
+          },
+          {
+            "zeit": "00:10.16",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "You write a policy declaring what each can touch.",
+            "text": "Es ist lediglich eine Textgrafik mit einigen Worten aus dem Skript zu sehen, aber keine konkrete Oberfläche, auf der eine Richtlinie geschrieben oder konfiguriert wird. Korrektur: Ein Screenshot einer Software-Konfigurationsoberfläche, in der eine konkrete Richtlinie (Policy) für Agenten geschrieben oder bearbeitet wird."
+          },
+          {
+            "zeit": "00:12.80",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Each agent runs in an isolated sandbox.",
+            "text": "Die gesprochene Phase 'Each agent runs in an isolated sandbox' wird nur als Text im Dokument dargestellt, nicht aber visuell erkennbar als isolierte Sandbox oder Agentenstruktur. Korrektur: Ein Diagramm oder eine technische Visualisierung, die eine isolierte Sandbox mit abgegrenzten Dateizugriffen fuer einen Agenten zeigt."
+          },
+          {
+            "zeit": "00:15.22",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "Kernel controls limit its files, and every network connection gets a policy check.",
+            "text": "Das Bild zeigt eine Übersichtstabelle über Architekturkomponenten, aber nicht die spezifisch im Satz erwähnten Kernel-Kontrollen zur Dateibegrenzung oder Netzwerk-Policy-Prüfungen. Korrektur: Ein Diagramm oder eine Schnittstelle, die Kernel-Kontrollen für Dateizugriffe oder die Netzwerk-Policy-Prüfung visuell darstellt."
+          },
+          {
+            "zeit": "00:24.30",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "OpenShell adds credentials only for approved endpoints.",
+            "text": "Das Bild zeigt lediglich das Logo und den Text zu Credentials, aber nicht den konkreten Vorgang des Hinzufügens von Credentials für freigegebene Endpunkte. Korrektur: Eine Darstellung oder Benutzeroberfläche, bei der OpenShell Credentials für einen genehmigten Endpunkt hinzufügt"
+          },
+          {
+            "zeit": "00:27.40",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "So who approves new access?",
+            "text": "Das Bild zeigt lediglich eine Chat-Frage zur Zugriffsfreigabe, aber nicht den formellen Verifizierungsprozess oder die menschliche Überprüfung, die im gesprochenen Text beschrieben werden. Korrektur: Ein visuelles Diagramm oder eine Benutzeroberfläche, die den Prozess der formellen Verifizierung von Änderungen und die Schnittstelle zur menschlichen Genehmigung zeigt."
+          }
+        ],
+        "sekunden": 230.8,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "39982100730-2",
+          "datum": "2026-10-23",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 230.8,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 2
+          },
+          "kategorien_nachher": {
+            "bild_passt": 3
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-10-18.1",
+          "verbessert": false
+        }
+      },
+      {
+        "runde": 3,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-10-18.1"
+        },
+        "skript_s": 4.9,
+        "bau_s": 231.8,
+        "pruefung_s": 15.0,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 3/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen Menschen an einem Laptop auf der Stra#efe, aber keinen Bezug zu AI, Dateizugriff oder Passw#erdern.",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (6/10): Die gesprochene Aktion erwähnt das Lesen von Dateien, Installieren von Paketen und Aufrufen von APIs, aber das Bild zeigt lediglich einen generischen Dateilesen-Bildschirm ohne die Erfüllung der konkreten Funktionserklärung.",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Es ist lediglich eine Textgrafik mit einigen Worten aus dem Skript zu sehen, aber keine konkrete Oberfläche, auf der eine Richtlinie geschrieben oder konfiguriert wird.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Phase 'Each agent runs in an isolated sandbox' wird nur als Text im Dokument dargestellt, nicht aber visuell erkennbar als isolierte Sandbox oder Agentenstruktur.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Übersichtstabelle über Architekturkomponenten, aber nicht die spezifisch im Satz erwähnten Kernel-Kontrollen zur Dateibegrenzung oder Netzwerk-Policy-Prüfungen.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich das Logo und den Text zu Credentials, aber nicht den konkreten Vorgang des Hinzufügens von Credentials für freigegebene Endpunkte.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Chat-Frage zur Zugriffsfreigabe, aber nicht den formellen Verifizierungsprozess oder die menschliche Überprüfung, die im gesprochenen Text beschrieben werden.",
+          "Offenes Problem (schwer): Die Szene zeigt einen Menschen an einem Laptop auf der Stra#efe, aber keinen Bezug zu AI, Dateizugriff oder Passw#erdern. Korrektur: Eine Illustration, die einen Agenten oder Nutzer zeigt, der mit privaten Dateien auf einem Computer umgeht, ohne Passw#erder preiszugeben.",
+          "Offenes Problem (schwer): Die gesprochene Aktion erwähnt das Lesen von Dateien, Installieren von Paketen und Aufrufen von APIs, aber das Bild zeigt lediglich einen generischen Dateilesen-Bildschirm ohne die Erfüllung der konkreten Funktionserklärung. Korrektur: Ein Software-Diagramm oder eine Benutzeroberfläche, die das tatsächliche Lesen von Dateien und Aufrufen von APIs durch Agenten zeigt.",
+          "Offenes Problem (schwer): Es ist lediglich eine Textgrafik mit einigen Worten aus dem Skript zu sehen, aber keine konkrete Oberfläche, auf der eine Richtlinie geschrieben oder konfiguriert wird. Korrektur: Ein Screenshot einer Software-Konfigurationsoberfläche, in der eine konkrete Richtlinie (Policy) für Agenten geschrieben oder bearbeitet wird.",
+          "Offenes Problem (schwer): Die gesprochene Phase 'Each agent runs in an isolated sandbox' wird nur als Text im Dokument dargestellt, nicht aber visuell erkennbar als isolierte Sandbox oder Agentenstruktur. Korrektur: Ein Diagramm oder eine technische Visualisierung, die eine isolierte Sandbox mit abgegrenzten Dateizugriffen fuer einen Agenten zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt eine Übersichtstabelle über Architekturkomponenten, aber nicht die spezifisch im Satz erwähnten Kernel-Kontrollen zur Dateibegrenzung oder Netzwerk-Policy-Prüfungen. Korrektur: Ein Diagramm oder eine Schnittstelle, die Kernel-Kontrollen für Dateizugriffe oder die Netzwerk-Policy-Prüfung visuell darstellt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich das Logo und den Text zu Credentials, aber nicht den konkreten Vorgang des Hinzufügens von Credentials für freigegebene Endpunkte. Korrektur: Eine Darstellung oder Benutzeroberfläche, bei der OpenShell Credentials für einen genehmigten Endpunkt hinzufügt",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine Chat-Frage zur Zugriffsfreigabe, aber nicht den formellen Verifizierungsprozess oder die menschliche Überprüfung, die im gesprochenen Text beschrieben werden. Korrektur: Ein visuelles Diagramm oder eine Benutzeroberfläche, die den Prozess der formellen Verifizierung von Änderungen und die Schnittstelle zur menschlichen Genehmigung zeigt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Puck",
+          "tempo": 1.185,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 7,
+          "stuecke_neu": 7,
+          "bilder_vereinfacht": 1,
+          "clips_und_stuecke": 174.6,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 14,
+            "motive": 14,
+            "motive_min": 8
+          },
+          "effekte": 11,
+          "rendern": 44.9,
+          "gesamt": 231.5,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            6.44,
+            6.36,
+            6.28,
+            8.32,
+            6.84,
+            9.08,
+            1.68
+          ],
+          "woerter": 130
+        },
+        "kategorien": {
+          "bild_passt": 3
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Would you let an AI touch your private files?",
+            "text": "Die Szene zeigt einen Menschen an einem Laptop auf der Stra#efe, aber keinen Bezug zu AI, Dateizugriff oder Passw#erdern. Korrektur: Eine Illustration, die einen Agenten oder Nutzer zeigt, der mit privaten Dateien auf einem Computer umgeht, ohne Passw#erder preiszugeben."
+          },
+          {
+            "zeit": "00:06.44",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "Agents help when they read files, install packages and call APIs.",
+            "text": "Die gesprochene Aktion erwähnt das Lesen von Dateien, Installieren von Paketen und Aufrufen von APIs, aber das Bild zeigt lediglich einen generischen Dateilesen-Bildschirm ohne die Erfüllung der konkreten Funktionserklärung. Korrektur: Ein Software-Diagramm oder eine Benutzeroberfläche, die das tatsächliche Lesen von Dateien und Aufrufen von APIs durch Agenten zeigt."
+          },
+          {
+            "zeit": "00:10.16",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "You write a policy declaring what each can touch.",
+            "text": "Es ist lediglich eine Textgrafik mit einigen Worten aus dem Skript zu sehen, aber keine konkrete Oberfläche, auf der eine Richtlinie geschrieben oder konfiguriert wird. Korrektur: Ein Screenshot einer Software-Konfigurationsoberfläche, in der eine konkrete Richtlinie (Policy) für Agenten geschrieben oder bearbeitet wird."
+          },
+          {
+            "zeit": "00:12.80",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Each agent runs in an isolated sandbox.",
+            "text": "Die gesprochene Phase 'Each agent runs in an isolated sandbox' wird nur als Text im Dokument dargestellt, nicht aber visuell erkennbar als isolierte Sandbox oder Agentenstruktur. Korrektur: Ein Diagramm oder eine technische Visualisierung, die eine isolierte Sandbox mit abgegrenzten Dateizugriffen fuer einen Agenten zeigt."
+          },
+          {
+            "zeit": "00:15.22",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "Kernel controls limit its files, and every network connection gets a policy check.",
+            "text": "Das Bild zeigt eine Übersichtstabelle über Architekturkomponenten, aber nicht die spezifisch im Satz erwähnten Kernel-Kontrollen zur Dateibegrenzung oder Netzwerk-Policy-Prüfungen. Korrektur: Ein Diagramm oder eine Schnittstelle, die Kernel-Kontrollen für Dateizugriffe oder die Netzwerk-Policy-Prüfung visuell darstellt."
+          },
+          {
+            "zeit": "00:24.30",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "OpenShell adds credentials only for approved endpoints.",
+            "text": "Das Bild zeigt lediglich das Logo und den Text zu Credentials, aber nicht den konkreten Vorgang des Hinzufügens von Credentials für freigegebene Endpunkte. Korrektur: Eine Darstellung oder Benutzeroberfläche, bei der OpenShell Credentials für einen genehmigten Endpunkt hinzufügt"
+          },
+          {
+            "zeit": "00:27.40",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "So who approves new access?",
+            "text": "Das Bild zeigt lediglich eine Chat-Frage zur Zugriffsfreigabe, aber nicht den formellen Verifizierungsprozess oder die menschliche Überprüfung, die im gesprochenen Text beschrieben werden. Korrektur: Ein visuelles Diagramm oder eine Benutzeroberfläche, die den Prozess der formellen Verifizierung von Änderungen und die Schnittstelle zur menschlichen Genehmigung zeigt."
+          }
+        ],
+        "sekunden": 251.7,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "39982100730-3",
+          "datum": "2026-10-23",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 251.7,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 3
+          },
+          "kategorien_nachher": {
+            "bild_passt": 3
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-10-18.1",
+          "verbessert": false
+        }
+      },
+      {
+        "runde": 4,
+        "art": "korrektur",
+        "status": "korrekturgrenze",
+        "sekunden": 0.0
+      }
+    ],
+    "status": "gesendet",
+    "trendcheck": "ChatGPT: How to Make Money with ChatGPT: Honest Ways to Start: 10.0 Punkte - Format Geld verdienen (Formattag), bewaehrte Titelvorlage + offizielle Anleitung",
+    "grund": "",
+    "sekunden": 1304.9,
+    "upload_titel": "OpenShell Sandbox: Agents Without Passwords | AI Tool #13"
   }
 ]

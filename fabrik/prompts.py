@@ -345,9 +345,14 @@ def rueckfall_motiv(einstellung, phase=''):
 
 # Stil-Block der gemalten Bilder; je Kanal ueberschreibbar (kanaele/<slug>.json 'bildstil_prompt',
 # Nutzerentscheidung 15.10.2026: Template je Kanal). Text unveraendert aus illustration() uebernommen.
-STIL_STANDARD = ('editorial illustration in textured semi-realistic painted urban open-world-game '
-            'poster style, strong ink contours, warm sunset amber highlights and cool shadows, '
-            'realistic proportions; painted, never photographic. '
+STIL_STANDARD = (
+            # Nutzer 23.10.2026: "realistisch, aber bisschen gemalt wie bei GTA, wie die ersten Codex-Videos".
+            # Die Codex-Bilder (assets/illustrationen) leben von Materialdetails, Gegenlicht und Tiefenunschaerfe;
+            # "strong ink contours" machte daraus Comic. Probe 23.10. (4 Szenen, flux-2-klein-4b) direkt verglichen.
+            # Laenge wie der alte Satz: Gesamtauftrag muss unter Cloudflares 2048 Zeichen bleiben.
+            'realistic digital painting, open-world-game key art look: lifelike faces, thin linework only around figures, '
+            'rich material textures, golden-hour rim light, deep warm contrast, soft depth of field; hand-painted, '
+            'never a photograph. '
             # Nutzer 08.10.: „gemalt wie bei einer GTA-Welt" und „lebendig, warm, ausgefuellt,
             # damit die Leute Lust haben zu schauen".
             'Vivid, warm, inviting and richly filled, with visible emotion in faces and gestures; '

@@ -11,7 +11,7 @@ unseren Videos ueber den Titel (der Nutzer uebernimmt ihn aus Telegram).
 Stufe 2 (waehlen): Einstellungen, die bei UNSEREN Videos besser liefen, werden
 haeufiger gewaehlt - 2 von 10 Mal wird bewusst Neues probiert, damit das Tool
 nicht an einem Zufallstreffer haengen bleibt. Gezaehlt wird erst ab 48 h.
-TikTok liefert Zahlen nur an gepruefte Apps - bis dahin lernt das Tool aus YouTube.
+TikTok (seit 23.10.2026, Recht video.list): Aufrufe/Likes/Teilungen je Video, s. tiktok_abrufen.
 
 Daten: erfolg/<kanal>.json (im Projekt, nach jedem Lauf gesichert).
 """
@@ -82,7 +82,10 @@ def abrufen(kanal):
         # „alle 30 Tage, ob die Erlaubnis noch besteht".
         p = ORDNER / f'{kanal}.json'
         if p.exists():
+            rest = {'videos': {}, 'tiktok': laden(kanal)['tiktok']} if 'tiktok' in laden(kanal) else None
             p.unlink()
+            if rest:  # TikTok-Zahlen stammen nicht von YouTube und bleiben
+                p.write_text(json.dumps(rest, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
         print(f'{kanal}: YouTube-Zugang widerrufen - gespeicherte Zahlen geloescht')
         return
     API ='https://www.googleapis.com/youtube/v3/'
@@ -170,6 +173,86 @@ def abrufen(kanal):
     print(f"{kanal}: {len(daten['videos'])} eigene Videos mit Zahlen")
 
 
+TIKTOK_SEITEN = 3   # je 20 Videos: deckt rund zwei Monate taeglicher Shorts ab
+
+
+def _tiktok_videos(kanal):
+    """Rohliste von video.list (Recht seit 23.10.2026 erteilt) fuer das Konto des Kanals."""
+    import tiktok, tiktok_entwurf
+    name = json.loads(Path(f'kanaele/{kanal}.json').read_text(encoding='utf-8')).get('tiktok_name')
+    if not name:
+        return None
+    token = tiktok.zugang(tiktok_entwurf.konto_finden(name))
+    felder = 'id,title,video_description,create_time,duration,view_count,like_count,comment_count,share_count'
+    videos, cursor = [], None
+    for _ in range(TIKTOK_SEITEN):
+        r = tiktok._post(tiktok.API + 'video/list/?fields=' + felder, token=token,
+                         json_daten={'max_count': 20, **({'cursor': cursor} if cursor else {})})
+        if (r.get('error') or {}).get('code', 'ok') != 'ok':
+            raise RuntimeError(f"TikTok video.list: {r['error'].get('code')}")
+        d = r.get('data') or {}
+        videos += d.get('videos') or []
+        if not d.get('has_more'):
+            break
+        cursor = d.get('cursor')
+    return videos
+
+
+def tiktok_zuordnen(videos, verlauf):
+    """TikTok-Videos unseren gesendeten Videos zuordnen. Der Nutzer uebernimmt den Telegram-Text,
+    die TikTok-Caption beginnt daher mit dem Uploadtitel (GEMESSEN 23.10.2026: 40 von 40 so).
+    Mehrfach gepostete Videos zaehlen nur einmal (das mit den meisten Aufrufen)."""
+    unsere = {}
+    for e in verlauf:
+        if e.get('status') == 'gesendet':
+            schluessel = _norm(' '.join(e.get('titel') or []).replace('*', ''))
+            if len(schluessel) >= 10:
+                unsere[schluessel] = e
+    treffer = {}
+    for v in videos:
+        kopf = re.split(r'\s+\|\s+AI Tool\b', v.get('title') or v.get('video_description') or '')[0]
+        n = _norm(kopf)
+        passend = [k for k in unsere if n.startswith(k)]
+        if not passend:
+            continue
+        k = max(passend, key=len)
+        if k in treffer and treffer[k]['aufrufe'] >= (v.get('view_count') or 0):
+            continue
+        e = unsere[k]
+        treffer[k] = {
+            'id': str(v['id']), 'titel': ' '.join(e['titel']).replace('*', ''),
+            'veroeffentlicht': datetime.datetime.fromtimestamp(
+                v.get('create_time') or 0, datetime.timezone.utc).date().isoformat(),
+            'oeffentlich': True, 'aufrufe': v.get('view_count') or 0, 'likes': v.get('like_count') or 0,
+            'kommentare': v.get('comment_count') or 0, 'teilungen': v.get('share_count') or 0,
+            'video_s': v.get('duration'), 'einstellungen': e.get('einstellungen', {}),
+            'hook': e.get('hook', ''), 'gliederung': e.get('gliederung', [])}
+    return {t.pop('id'): t for t in treffer.values()}
+
+
+def tiktok_abrufen(kanal):
+    """Aufrufe/Likes/Teilungen je TikTok-Video in erfolg/<kanal>.json['tiktok'] (ersetzt den alten Stand)."""
+    videos = _tiktok_videos(kanal)
+    if videos is None:
+        print(f'{kanal}: kein TikTok-Konto im Profil - uebersprungen')
+        return
+    pfad = Path(f'verlauf/{kanal}.json')
+    verlauf = json.loads(pfad.read_text(encoding='utf-8')) if pfad.exists() else []
+    daten = laden(kanal)
+    # Aeltere Videos fallen aus den letzten 60 heraus - ihre letzten Zahlen bleiben stehen.
+    neu = tiktok_zuordnen(videos, verlauf)
+    alle = {**daten.get('tiktok', {}), **neu}
+    beste = {}
+    for tid, t in alle.items():
+        if t['titel'] not in beste or alle[beste[t['titel']]]['aufrufe'] < t['aufrufe']:
+            beste[t['titel']] = tid
+    daten['tiktok'] = {tid: alle[tid] for tid in beste.values()}
+    daten['tiktok_stand'] = datetime.date.today().isoformat()
+    ORDNER.mkdir(exist_ok=True)
+    (ORDNER / f'{kanal}.json').write_text(json.dumps(daten, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
+    print(f"{kanal}: {len(neu)} von {len(videos)} TikTok-Videos zugeordnet, {len(daten['tiktok'])} gespeichert")
+
+
 def kurve_faellig(v, heute):
     if not v.get('oeffentlich') or v.get('aufrufe', 0) < 100 \
             or v['veroeffentlicht'] > (heute - datetime.timedelta(days=2)).isoformat():
@@ -223,10 +306,14 @@ def _bewertet(kanal, videoformat='short'):
     """Nur oeffentliche Videos, die mindestens 48 h alt sind - mit Erfolgswert.
     Wert = Aufrufe relativ zum Kanal-Median x gesehener Anteil."""
     grenze = (datetime.date.today() - datetime.timedelta(days=2)).isoformat()
-    vs = [v for v in laden(kanal)['videos'].values() if v.get('oeffentlich') and v['veroeffentlicht'] <= grenze
-          and (videoformat is None or v.get('einstellungen', {}).get('videoformat', 'short') == videoformat)]
+    daten = laden(kanal)
+    def passend(v):
+        return v.get('oeffentlich') and v['veroeffentlicht'] <= grenze and (
+            videoformat is None or v.get('einstellungen', {}).get('videoformat', 'short') == videoformat)
+    vs = [v for v in daten['videos'].values() if passend(v)]
+    tt = [dict(v, plattform='tiktok') for v in daten.get('tiktok', {}).values() if passend(v)]
     if not vs:
-        return []
+        return _tiktok_bewertet(tt, .5)
     def basis(v):
         return v['engaged'] if v.get('engaged') is not None else v['aufrufe']
     median = statistics.median(basis(v) for v in vs) or 1
@@ -238,7 +325,21 @@ def _bewertet(kanal, videoformat='short'):
         v['wert'] = (gesehen / median * (anteil / 100)
                      * (1 + 8 * (v.get('teilungen') or 0) / max(gesehen, 1)
                         + 5 * (v.get('abos') or 0) / max(gesehen, 1)))
-    return vs
+    return vs + _tiktok_bewertet(tt, statistics.median(v['wert'] for v in vs) or .5)
+
+
+def _tiktok_bewertet(tt, mitte):
+    """TikTok liefert keinen gesehenen Anteil. Wert = Aufrufe relativ zum TikTok-Median x Teilungs-Bonus,
+    dann so skaliert, dass der TikTok-Median dem YouTube-Median entspricht: Plattformen mit
+    unterschiedlichem Zahlenniveau verzerren waehlen() sonst zugunsten der groesseren."""
+    if not tt:
+        return []
+    median = statistics.median(v['aufrufe'] for v in tt) or 1
+    roh = [v['aufrufe'] / median * (1 + 8 * (v.get('teilungen') or 0) / max(v['aufrufe'], 1)) for v in tt]
+    faktor = mitte / (statistics.median(roh) or 1)
+    for v, r in zip(tt, roh):
+        v['wert'] = r * faktor
+    return tt
 
 
 def waehlen(kanal, schluessel, optionen, videoformat='short'):
@@ -261,7 +362,8 @@ def vorbilder(kanal, n=3, videoformat='short'):
     """Hooks unserer erfolgreichsten Videos - eigene Texte, frei verwendbar."""
     vs = sorted(_bewertet(kanal, videoformat), key=lambda v: -v['wert'])
     return [f"HOOK: {v['hook']} | STRUCTURE: {' -> '.join(v.get('gliederung', []))} "
-            f"({v['aufrufe']} views, {v.get('anteil_prozent', '?')}% watched)" for v in vs[:n] if v['hook']]
+            + (f"({v['aufrufe']} TikTok views, {v.get('teilungen', 0)} shares)" if v.get('plattform') == 'tiktok'
+               else f"({v['aufrufe']} views, {v.get('anteil_prozent', '?')}% watched)") for v in vs[:n] if v['hook']]
 
 
 def bericht(kanal):
@@ -280,6 +382,14 @@ def bericht(kanal):
 
 if __name__ == '__main__':
     import sys
+    if sys.argv[1:2] == ['tiktok']:  # eigener Schritt: braucht TikTok-Zugang + Token-Cache (themen.yml)
+        sys.path.insert(0, str(Path(__file__).parent))
+        for k in sys.argv[2:] or [p.stem for p in Path('kanaele').glob('*.json')]:
+            try:
+                tiktok_abrufen(k)
+            except Exception as e:
+                print(f'{k}: TikTok-Abruf fehlgeschlagen:', str(e)[:200])
+        sys.exit(0)
     for k in sys.argv[1:] or [p.stem for p in Path('kanaele').glob('*.json')]:
         try:
             abrufen(k)

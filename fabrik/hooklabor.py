@@ -47,21 +47,33 @@ def zuschauer_daten(kanal=None):
     kanal = kanal or os.environ.get('CF_KANAL') or (Path(sys.argv[1]).stem if len(sys.argv) > 1
                                                    and sys.argv[1].endswith('.json') else '')
     try:
-        videos = json.loads((Path('erfolg') / f'{kanal}.json').read_text(encoding='utf-8'))['videos'].values()
+        daten = json.loads((Path('erfolg') / f'{kanal}.json').read_text(encoding='utf-8'))
+        videos, tiktok = daten['videos'].values(), list((daten.get('tiktok') or {}).values())
     except (OSError, ValueError, KeyError, AttributeError):
         return ''
-    gruppen = {}
-    for v in videos:
-        e = v.get('einstellungen') or {}
-        if e.get('hook_art') in ARTEN and v.get('oeffentlich') and isinstance(v.get('anteil_prozent'), (int, float)) \
-                and (e.get('videoformat') or 'short') == 'short':
-            gruppen.setdefault(e['hook_art'], []).append(v['anteil_prozent'])
-    werte = sorted(((statistics.mean(w), art, len(w)) for art, w in gruppen.items() if len(w) >= MIN_VIDEOS),
-                   reverse=True)
-    if len(werte) < 2:
+
+    def gruppiert(liste, wert):
+        gruppen = {}
+        for v in liste:
+            e = v.get('einstellungen') or {}
+            if e.get('hook_art') in ARTEN and v.get('oeffentlich') and isinstance(wert(v), (int, float)) \
+                    and (e.get('videoformat') or 'short') == 'short':
+                gruppen.setdefault(e['hook_art'], []).append(wert(v))
+        werte = sorted(((statistics.mean(w), art, len(w)) for art, w in gruppen.items() if len(w) >= MIN_VIDEOS),
+                       reverse=True)
+        return werte if len(werte) >= 2 else []
+    teile = []
+    if werte := gruppiert(videos, lambda v: v.get('anteil_prozent')):
+        teile.append('YouTube, average share of the Short watched: '
+                     + '; '.join(f'{ARTEN[a]}: {m:.0f}% ({n} videos)' for m, a, n in werte))
+    # 23.10.2026: TikTok-Aufrufe je Video (video.list). Kein gesehener Anteil -> Aufrufe relativ zum Kanal-Median.
+    median = statistics.median([v.get('aufrufe') or 0 for v in tiktok] or [0]) or 1
+    if werte := gruppiert(tiktok, lambda v: (v.get('aufrufe') or 0) / median):
+        teile.append('TikTok, views relative to the channel median (1.0 = typical): '
+                     + '; '.join(f'{ARTEN[a]}: {m:.1f}x ({n} videos)' for m, a, n in werte))
+    if not teile:
         return ''
-    return ('REAL AUDIENCE DATA for this channel (YouTube, average share of the Short watched, by opening type): '
-            + '; '.join(f'{ARTEN[a]}: {m:.0f}% ({n} videos)' for m, a, n in werte)
+    return ('REAL AUDIENCE DATA for this channel by opening type - ' + ' | '.join(teile)
             + '. Prefer the stronger opening types when they fit the facts honestly.\n')
 
 

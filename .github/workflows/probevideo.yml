@@ -47,7 +47,9 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           CLOUDFLARE_AI_TOKEN: ${{ secrets.CLOUDFLARE_AI_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: python fabrik/bauen.py "${{ inputs.skript || 'skripte/probe.json' }}" ausgabe
+          # Eingabe ueber env statt direkt im Befehl (sonst Shell-Einschleusung ueber den Dateinamen)
+          SKRIPT: ${{ inputs.skript || 'skripte/probe.json' }}
+        run: python fabrik/bauen.py "$SKRIPT" ausgabe
       - name: Ton pruefen (Lautstaerke der Stimme und des fertigen Videos)
         run: |
           echo "--- stimme.wav"; ffmpeg -hide_banner -i ausgabe/stimme.wav -af volumedetect -f null - 2>&1 | grep -E "mean_volume|max_volume"

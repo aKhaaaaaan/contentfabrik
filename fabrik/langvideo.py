@@ -194,6 +194,11 @@ def plan(heute=None, eingabe='', kanal=''):
     Handstart (kanal gesetzt): genau dieser Kanal, ohne Wochentagspruefung."""
     heute = heute or datetime.date.today()
     if kanal:
+        # Der Kanal landet ueber die Matrix in Shell-Befehlen und Dateipfaden des Workflows - nur bekannte
+        # Langvideo-Formate zulassen (Tippfehler oder eingeschleuste Zeichen beim Handstart).
+        if kanal not in formate():
+            print('Unbekannter Langvideo-Kanal - nichts gestartet')
+            return []
         ja, t = vorpruefung(heute, eingabe, kanal)
         return [{'kanal': kanal, 'thema': t}] if ja else []
     aus = []

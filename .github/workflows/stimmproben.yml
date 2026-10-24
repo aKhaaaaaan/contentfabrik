@@ -41,12 +41,13 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          NUR_NEUE: ${{ inputs.nur_neue }}
         run: |
           curl -s -o /dev/null "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
             --data-urlencode "text=🎙️ Stimmproben – derselbe Satz in jeder Stimme. Schreib mir hier im Chat bis zu 3 Nummern, z. B. Stimmen: 2, 7, 9"
           for f in proben/*.wav; do
-            [ "${{ inputs.nur_neue }}" = "ja" ] && case "$(basename $f)" in 0[1-5]_*) continue;; esac
+            [ "$NUR_NEUE" = "ja" ] && case "$(basename $f)" in 0[1-5]_*) continue;; esac
             n=$(basename "$f" .wav); ffmpeg -loglevel error -y -i "$f" -b:a 128k "proben/$n.mp3"
             curl -s -o /dev/null -F chat_id="${TELEGRAM_CHAT_ID}" -F title="$n" -F performer="Probe" \
               -F audio=@"proben/$n.mp3" "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendAudio"

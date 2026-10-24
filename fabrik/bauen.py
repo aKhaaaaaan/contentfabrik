@@ -1716,6 +1716,12 @@ def main(skript_pfad, aus, vorlage=None):
         vorherige_id = None  # Bild-Fingerabdruck der direkt vorherigen Einstellung
         benutzte_materialien = set()
         kanal_slug = re.sub(r'[^a-z0-9]+', '-', s.get('kanal', '').lower()).strip('-')
+        # Nutzer 23.10.2026 (Bildsprache): hoechstens 3 gesprochene Betraege gross UEBER der gemalten Szene (Hook,
+        # Wendepunkt, Aufloesung). Probe 24.10. am Moderna-Short: "$2 billion" 3->8/10, "27 million shares" 1->8/10.
+        # Nur Story-Shorts; der KI-Kanal malt die Mitte ohnehin nicht (gemalt_nur_rand).
+        import erklaergrafik
+        zahl_slots = (erklaergrafik.zahl_momente([(x['teil']['text'], x.get('phase_text', '')) for x in shots])
+                      if B < H and not kanalprofil(s).get('gemalt_nur_rand') else {})
         FORTSCHRITT['plaetze'] = sorted((t['platz'] for t in s['teile'] if t.get('platz')), reverse=True)
         FORTSCHRITT['aktuell'] = None
         for i, shot in enumerate(shots):
@@ -1872,6 +1878,7 @@ def main(skript_pfad, aus, vorlage=None):
             # Szene nur dort, wo kein echtes Foto passt - echte Fotos bleiben fuer Fakten.
             # Spart nebenbei die Pixabay-Suche samt KI-Clipwahl.
             ill = None
+            gemalt = False  # frisch gemalte Szene (nur darauf kommt eine Zahlenebene)
             letzt = i == len(shots) - 1 and not t.get('platz')
             if modus == 'asset':
                 import bibliothek
@@ -1995,7 +2002,7 @@ def main(skript_pfad, aus, vorlage=None):
                     else:
                         print(f'Einstellung {i}: auch vereinfachte Szene nicht bestanden')
                 if ill:
-                    karte, foto = None, None
+                    karte, foto, gemalt = None, None, True
                     quellen.append({'quelle': 'Illustration', 'seite': 'KI-generiert (Cloudflare Workers AI, FLUX)'})
             # GEMESSEN: Im Kartenvideo holte der Schluss einen fremden Clip
             # (halber „Subscribe"-Knopf) - dort gilt jetzt derselbe Hintergrund.
@@ -2079,6 +2086,10 @@ def main(skript_pfad, aus, vorlage=None):
                           f'Nachbar-Illustration {ersatz.name} (ein Motiv weniger als verlangt)')
             if not material:
                 raise ValueError(f'Phase {shot["phase"]}, Einstellung {i}: kein passendes Hauptbild; kein Hintergrundersatz')
+            if gemalt and material is ill and i in zahl_slots:
+                zahl, wort = zahl_slots[i]
+                ill = material = erklaergrafik.zahl_auf_szene(ill, aus / f'ill_{i:02d}_zahl.jpg', zahl, wort)
+                print(f'Einstellung {i}: Zahlenmoment {zahl} {wort} ueber der gemalten Szene')
             material_hash = bildplan.material_id(material)
             benutzte_materialien.add(material_hash)
             vorher_id_merk, vorherige_id = vorherige_id, material_hash

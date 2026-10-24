@@ -99,6 +99,62 @@ def zahlen(text):
     return aus[:3]
 
 
+def zahl_momente(slots, hoechstens=3):
+    """{Slot-Index: (Zahl, Bezugswort)} fuer hoechstens 3 Zahlenmomente: erster (Hook), mittlerer (Wendepunkt),
+    letzter (Aufloesung). slots = [(gesprochener Teilsatz, ganze Sprechphase)].
+
+    Nutzer 23.10.2026 (Bildsprache): Zahl als Ereignis UEBER der gemalten Szene statt getrennter Zahlenkarten-
+    Reihe. Teilsaetze sind oft geschnitten ("How did Moderna raise $621" | "million in 2018?") - die Zahl kommt
+    darum aus der Sprechphase und gilt fuer den Slot, der ihren Betrag spricht. Jede Zahl nur einmal."""
+    kandidaten, gesehen = [], set()
+    for i, (text, phase) in enumerate(slots):
+        for zahl, wort in zahlen(phase or text):
+            # Betrag mit Waehrungs-/Mengenwort muss im Teilsatz selbst gesprochen werden
+            if zahl not in gesehen and re.search(rf'(?<![\d.,]){re.escape(zahl)}(?![\d])', text or ''):
+                gesehen.add(zahl)
+                kandidaten.append((i, (zahl, wort)))
+                break
+    if len(kandidaten) > hoechstens:
+        mitte = len(kandidaten) // 2
+        kandidaten = [kandidaten[0], kandidaten[mitte], kandidaten[-1]][:hoechstens]
+    return dict(kandidaten)
+
+
+def zahl_auf_szene(bild, ziel, zahl, wort):
+    """Gemalte Szene + grosse echte Zahl (keine gemalten Ziffern). Oben im Bild (Decke/Himmel): Probe 24.10.2026
+    am Moderna-Frame - bei 20 % Hoehe verdeckte der Kasten das Gesicht der Hauptfigur. Das Bild sitzt im Short als
+    Karte ab Frame-y ~290, also liegt die Zahl im Pruefausschnitt (y ~300-1250); die gesprochene Schlagwort-
+    Einblendung "$621 million" darunter (y ~1250) sah der Pruefer nie."""
+    with Image.open(bild) as im:
+        im = im.convert('RGB')
+    w, h = im.size
+    schicht = Image.new('RGBA', im.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(schicht)
+    def font(n):
+        return ImageFont.truetype(str(SCHRIFT), n)
+    rand = int(w * .05)
+    n = int(w * .17)
+    while n > 40 and d.textlength(zahl, font=font(n)) > w - 2 * rand - 60:
+        n -= 4
+    nw = int(w * .065)
+    while nw > 20 and d.textlength(wort, font=font(nw)) > w - 2 * rand - 60:
+        nw -= 2
+    # Kasten nur so breit wie der Text, mittig - verdeckt weniger Szene
+    innen = max(d.textlength(zahl, font=font(n)), d.textlength(wort, font=font(nw))) + int(w * .08)
+    links = int((w - innen) / 2)
+    oben = int(h * .05)
+    unten = oben + n + nw + int(w * .09)
+    d.rounded_rectangle((links, oben, w - links, unten), int(w * .04), fill=(16, 32, 45, 200),
+                        outline=(255, 174, 53, 255), width=max(4, w // 200))
+    for s, y, gr, farbe in ((zahl, oben + int(w * .015), n, (255, 174, 53, 255)),
+                            (wort, oben + int(w * .035) + n, nw, (237, 246, 255, 255))):
+        d.text(((w - d.textlength(s, font=font(gr))) / 2, y), s, font=font(gr), fill=farbe)
+    im = Image.alpha_composite(im.convert('RGBA'), schicht).convert('RGB')
+    Path(ziel).parent.mkdir(parents=True, exist_ok=True)
+    im.save(ziel, 'JPEG', quality=93)
+    return Path(ziel)
+
+
 def layout(text, phase=''):
     """Teilsatz ohne eigenen Vorgang erbt den Aufbau seines gesprochenen Abschnitts.
 

@@ -177,7 +177,7 @@ def fremde_figur(szene, kanal):
                if kanal in FIGUR_MERKMALE and name != kanal)
 
 
-def szene_aus_vorlage(d, vorlage, text=''):
+def szene_aus_vorlage(d, vorlage, text='', kontext='', namen=frozenset()):
     """Bild-Prompt aus der Kanalvorlage; fehlt ein Feld oder ist es unbrauchbar, bleibt die freie Szene.
 
     Kostenlos geprueft: alle Felder gefuellt, Einstellungsgroesse aus der festen Liste und das Motiv
@@ -186,7 +186,7 @@ def szene_aus_vorlage(d, vorlage, text=''):
         return d.get('szene')
     werte = {k: re.sub(r'\s+', ' ', str(d.get(k) or '')).strip(' .,;:') for k in VORLAGE_FELDER}
     if not all(werte.values()) or werte['einstellung'] not in EINSTELLUNGEN \
-            or (text and not woertlich(werte['motiv'], text)):
+            or (text and not woertlich(werte['motiv'], text, kontext, namen)):
         return d.get('szene')
     return vorlage.format(**werte)
 
@@ -195,7 +195,84 @@ FUELLWOERTER = {'with', 'from', 'that', 'this', 'their', 'there', 'they', 'into'
                 'close', 'view', 'person', 'people', 'about', 'while', 'very', 'some'}
 
 
-def woertlich(motiv, text):
+# GEMESSEN 23.10.2026 (Moderna, Lauf 39982100730): Saetze wie "million in 2018?", "Vertex in 2016" oder "it raised
+# $2 billion" enthalten keinen malbaren Gegenstand. Das woertliche Motiv wurde "million in 2018", die Vorlage
+# "close-up of million in 2018 as the clear focal subject" - das Bildmodell malte Bueros, Pruefer 9/13 mit 2/10.
+# Fuer solche Begriffe ein fester, malbarer Stellvertreter (Satz UND ganze Sprechphase loesen ihn aus).
+# Keine Stellvertreter mit Papier/Schrift (Scheck, Vertrag, Kursanzeige, Akten): Probe 23.10. - das Bildmodell malt
+# Kauderwelsch-Schrift, jeder Versuch scheitert. Betraege kommen als echte Zahlenebene (bauen.zahl_momente).
+STELLVERTRETER = [
+    (r'\$|\b(?:million|billion|raised?|raising|funding|funded|invest\w*|capital|valu\w*|money|loans?)\b',
+     ['investors leaning in around a boardroom table', 'bank vault door swinging open',
+      'founder shaking hands with an investor']),
+    # nur Mehrzahl: "share" steht in jedem Like/Teilen-Aufruf
+    (r'\b(?:shares|stocks?|ipo|nasdaq|exchange|listing|listed)\b',
+     ['stock exchange trading bell', 'cheering crowd on a trading floor', 'traders raising hands on a trading floor']),
+    (r'\b(?:partners?|partnership|deals?|agreements?|contracts?|merg\w*|acquir\w*|bought|licens\w*)\b',
+     ['two executives shaking hands across a table', 'two executives toasting a deal',
+      'two teams meeting around one lab bench']),
+    # Gruender/Start nicht: "Five founders" sind selbst malbar (Probe 23.10.: wurde sonst zum leeren Schreibtisch)
+    (r'\b(?:ceo|appointed|hired|promoted)\b',
+     ['executive desk with leather chair', 'new chief executive walking into a boardroom']),
+    (r'\b(?:trials?|safety|drugs?|vaccines?|patients?|stud(?:y|ies)|clinical)\b',
+     ['rack of sealed sample vials', 'microscope and test tubes', 'scientist holding a vial up to the light']),
+    (r'\b(?:quit|failed|blocked|halted|stopped|collapsed?|bankrupt\w*|cancel\w*)\b',
+     ['empty chair at a cleared desk', 'packed cardboard boxes by a closed door', 'red stop light over a lab door']),
+]
+
+
+def eigennamen(s):
+    """Woerter, die im Skript oder seinen Quellen nur als Eigenname vorkommen (gross, mitten im Satz).
+
+    GEMESSEN 23.10.2026 (Probe Moderna): Mit Stellvertretern waehlte der Planer "Moderna", "Bancel", "Alexion"
+    als Motiv - woertlich, aber unmalbar (keine Logos, keine echten Gesichter)."""
+    texte = [t.get('text', '') for t in s.get('teile') or []] + [b.get('text', '') for b in s.get('belege') or []
+                                                                   if isinstance(b, dict)] + [s.get('thema') or '']
+    gross, klein = set(), set()
+    for t in texte:
+        for m in re.finditer(r'(?<![.!?:]\s)(?<!^)\b([A-Za-z][a-z]{2,})\b', str(t)):
+            (gross if m.group(1)[0].isupper() else klein).add(m.group(1).lower()[:5])
+    return frozenset(gross - klein) | {w.lower()[:5] for w in re.findall(r'[A-Za-z]{3,}', s.get('thema') or '')}
+
+
+# Probe 23.10.2026: auch "Partners", "safety issues", "shares", "IPO" standen woertlich als Motiv - Begriffe ohne
+# Gestalt. Wie Eigennamen: kein malbares Motiv (5-Buchstaben-Staemme wie in woertlich).
+ABSTRAKT = frozenset(w[:5] for w in (
+    'partners', 'partnership', 'safety', 'issues', 'shares', 'ipo', 'deal', 'deals', 'revenue', 'profit', 'profits',
+    'valuation', 'funding', 'growth', 'success', 'strategy', 'sales', 'results', 'billion', 'million', 'percent'))
+
+
+def malbar_machen(daten, zeitplan, namen=frozenset()):
+    """Unmalbare oder doppelte Motive durch einen noch freien Stellvertreter des Slots ersetzen (fest, ohne KI).
+
+    Probe 23.10.2026 (Moderna, drei Planerlaeufe): der Planer liess "Partners"/"IPO" stehen oder nahm denselben
+    Scheck zweimal - jedes Mal anders. Die Szene wird dann aus dem Stellvertreter gebaut (aktion entfaellt, die
+    Kanalvorlage nimmt sonst die alte Handlung)."""
+    texte = {x['index']: (x['text'], x.get('phase_text', '')) for x in zeitplan}
+    benutzt, ersetzt = set(), 0
+    for d in daten:
+        if d.get('bildmodus') not in ('illustration', 'stock', 'foto') or d.get('index') not in texte:
+            continue
+        text, phase = texte[d['index']]
+        motiv = str(d.get('motiv') or '').strip().lower()
+        frei = [m for m in stellvertreter(f'{text} {phase}') if m not in benutzt]
+        doppelt = motiv in benutzt
+        if (doppelt or not woertlich(motiv, text, phase, namen)) and frei:
+            d.update(motiv=frei[0], szene=', '.join(x for x in (frei[0], d.get('ort') and 'in ' + str(d['ort']),
+                                                                 str(d.get('epoche') or '')) if x))
+            d.pop('aktion', None)
+            motiv, ersetzt = frei[0], ersetzt + 1
+        if motiv in stellvertreter(f'{text} {phase}'):
+            benutzt.add(motiv)
+    return ersetzt
+
+
+def stellvertreter(text):
+    """Malbare Ersatzmotive fuer Betraege, Jahre, Firmen und abstrakte Geschaeftsschritte im Text."""
+    return [m for muster, motive in STELLVERTRETER if re.search(muster, text or '', re.I) for m in motive]
+
+
+def woertlich(motiv, text, kontext='', namen=frozenset()):
     """Steht mindestens ein tragendes Wort des Motivs im gesprochenen Satz? Kostenlos, ohne KI.
 
     GEMESSEN 15.10.2026 (Airbnb, Lauf 11962532089): "They put an air mattress in their living room"
@@ -204,20 +281,28 @@ def woertlich(motiv, text):
     zaehlt nicht: verlangt wird das konkreteste Wort, darum muss JEDES tragende Motivwort im Satz stehen."""
     stamm = lambda w: w.lower()[:5]
     gesagt = {stamm(w) for w in re.findall(r'[A-Za-z]{3,}', text or '')}
+    # Ein Stellvertreter zaehlt nur als ganzes Motiv aus der Liste, kein loses Einzelwort daraus
+    if (motiv or '').strip().lower() in stellvertreter(f'{text} {kontext}'):
+        return True
     tragend = [w for w in re.findall(r'[A-Za-z]{3,}', motiv or '') if w.lower() not in FUELLWOERTER]
+    if tragend and all(stamm(w) in namen or stamm(w) in ABSTRAKT for w in tragend):
+        return False  # nur ein Firmen-/Personenname: woertlich, aber nicht malbar
     return bool(tragend) and all(stamm(w) in gesagt for w in tragend)
 
 
-def bezug_pruefen(gemini, teil, daten):
+def bezug_pruefen(gemini, teil, daten, namen=frozenset()):
     """Vor dem Malen: zeigt jedes geplante Motiv, was in seinem Slot GESAGT wird? Schwache
     Illustrations-Motive (Note < BEZUG_MIN) werden durch einen woertlicheren Vorschlag ersetzt.
     Faellt die Pruefung aus, bleibt der Plan unveraendert (kein Abbruch)."""
     plan = {d['index']: d for d in daten}
     eintraege = [{'index': x['index'], 'spoken_words': x['text'], 'planned_motif': plan[x['index']].get('motiv'),
                   'planned_scene': plan[x['index']].get('szene'),
-                  'motif_not_in_spoken_words': not woertlich(plan[x['index']].get('motiv'), x['text'])}
+                  'motif_not_in_spoken_words': not woertlich(plan[x['index']].get('motiv'), x['text'],
+                                                             x.get('phase_text', ''), namen),
+                  'stand_ins': stellvertreter(f"{x['text']} {x.get('phase_text', '')}")}
                  for x in teil if plan.get(x['index'], {}).get('bildmodus') in ('illustration', 'stock', 'foto')]
     gesagt = {x['index']: x['text'] for x in teil}
+    phase = {x['index']: x.get('phase_text', '') for x in teil}
     if not eintraege:
         return daten, 0
     try:
@@ -229,6 +314,10 @@ def bezug_pruefen(gemini, teil, daten):
                         'a 20-45 word painted scene that literally shows the spoken words, aktion (3-8 words: what that '
                         'motif visibly does) and 2-4 search words. For a '
                         'number, price or statistic, show the people or place it affects doing the concrete action. '
+                        'When the spoken words name only an amount, date, company, person or abstract business step '
+                        '(raised money, became CEO, partners, shares), nothing literal can be painted: use one of the '
+                        "slot's stand_ins exactly as motif instead, shown in the story period and place; each stand-in at most "
+                        'once, and paintable spoken subjects (founders, a lab, a product) beat any stand-in. '
                         'motif_not_in_spoken_words=true means the planned motif is not quoted from the spoken '
                         'words: always replace it, scoring at most ' + str(BEZUG_MIN - 1) + '. '
                         'Keep good slots unchanged (repeat their motif/scene). Return every slot.\n'
@@ -241,10 +330,12 @@ def bezug_pruefen(gemini, teil, daten):
         alt = plan.get(p_.get('index'))
         # Ein nicht woertliches Motiv wird ersetzt, auch wenn die KI es gut benotet - aber nur durch
         # ein woertliches (sonst bliebe ein ebenso freies Motiv, nur anders formuliert).
-        frei = alt and not woertlich(alt.get('motiv'), gesagt.get(p_.get('index')))
+        frei = alt and not woertlich(alt.get('motiv'), gesagt.get(p_.get('index')), phase.get(p_.get('index'), ''),
+                                     namen)
         if alt and alt.get('bildmodus') in ('illustration', 'stock', 'foto') \
                 and (p_.get('note', 10) < BEZUG_MIN
-                     or (frei and woertlich(p_.get('motiv'), gesagt.get(p_.get('index'))))) \
+                     or (frei and woertlich(p_.get('motiv'), gesagt.get(p_.get('index')),
+                                            phase.get(p_.get('index'), ''), namen))) \
                 and p_.get('szene') and p_.get('motiv'):
             alt.update(motiv=p_['motiv'][:80], szene=p_['szene'][:400], suche=p_.get('suche') or alt.get('suche'),
                        bildmodus='illustration')
@@ -437,6 +528,15 @@ def vorbereiten(s, laengen, woerter, cache=None):
             # Modellvergleich 15.10.2026: "air mattress" wurde als normale Matratze gemalt.
             'For an object that is easily confused, describe its distinguishing look in szene (material, '
             'shape, state), e.g. "an inflated vinyl air mattress", not just "a mattress". '
+            # 23.10.2026 (Moderna): "million in 2018" als Motiv ergab Bueroszenen, Pruefer 2/10.
+            'When the slot words name only an amount, date, company, person or abstract business step, there is '
+            "nothing literal to paint: set motiv to one of that slot's stand_ins exactly (e.g. \"it raised $2 "
+            'billion" -> "bank vault door swinging open", "Partners followed" -> "two executives shaking hands across '
+            'a table", "sold 27 '
+            'million shares" -> "stock exchange trading bell") and show it in the story period and place. '
+            'Never use an amount, year or name as motiv. Use each stand-in at most once per video, and prefer '
+            'something the words themselves name and can be painted (e.g. "Five founders" -> five founders at a lab '
+            'bench) over any stand-in. '
             'For illustration, foto and stock slots also fill the short fields the video code assembles '
             'into the image prompt: aktion = what the focal subject visibly does, 3-8 words from the '
             'spoken words; ort = the concrete place, 2-6 words; epoche = the period of the story '
@@ -473,17 +573,23 @@ def vorbereiten(s, laengen, woerter, cache=None):
             editorial_feedback=aktuelles_feedback(kontext['editorial_feedback']))
         daten = []
         for teil in etappen(zeitplan):
+            # Stellvertreter je Slot (23.10.2026) - ohne sie bleibt dem Planer nur "million in 2018" als Motiv.
+            teil = [dict(x, stand_ins=stellvertreter(f"{x['text']} {x.get('phase_text', '')}")) for x in teil]
             fallback = groq_ausweich(auftrag, kompakt, [{
-                k: x[k] for k in ('index', 'phase', 'text', 'dauer_s') if k in x} for x in teil])
+                k: x[k] for k in ('index', 'phase', 'text', 'dauer_s', 'stand_ins') if k in x} for x in teil])
             neu = _planen(gemini, PLANEN, auftrag + json.dumps(dict(kontext, slots=teil), ensure_ascii=False),
                           [x['index'] for x in teil], fallback_prompt=fallback)
-            neu, _ = bezug_pruefen(gemini, teil, neu)
+            neu, _ = bezug_pruefen(gemini, teil, neu, eigennamen(s))
             daten += neu
         for i, d in behaltene_einstellungen(s, alt, zeitplan).items():
             if i < len(daten):
                 daten[i] = d
     if len(daten) != len(zeitplan) or [d.get('index') for d in daten] != list(range(len(zeitplan))):
         raise ValueError('Bildplan deckt nicht alle Sprechphasen lueckenlos ab')
+    if not feste_regie(s):
+        n = malbar_machen(daten, zeitplan, eigennamen(s))
+        if n:
+            print(f'Bildplan: {n} unmalbare/doppelte Motive durch Stellvertreter ersetzt')
     aus = []
     pro_phase = {}
     import kanalstandard
@@ -517,7 +623,7 @@ def vorbereiten(s, laengen, woerter, cache=None):
         if 'figur' in d:
             t['figur'] = d['figur']
         t.update({k: d[k] for k in ('bildmodus', 'suche', 'szene', 'motiv')})
-        szene = szene_aus_vorlage(d, vorlage, slot['text'])
+        szene = szene_aus_vorlage(d, vorlage, slot['text'], slot.get('phase_text', ''), eigennamen(s))
         if szene != d['szene']:
             t['szene'], t['vorlage'] = szene, True
         if fremde_figur(t['szene'], s.get('kanal')):

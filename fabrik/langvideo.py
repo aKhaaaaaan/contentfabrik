@@ -53,9 +53,10 @@ def quelle_reicht(t, kanal=KANAL):
     return q is None or len(q['text']) >= LANG_MIN_ZEICHEN
 
 
-def thema(verlauf, geliefert, heute, name=NAME, reicht=None):
-    """Juengster Short der letzten Tage (nicht von heute), dessen Thema noch kein Langvideo hatte.
-    reicht(thema): optionale Quellenpruefung; ungeeignete Themen werden uebersprungen."""
+def thema(verlauf, geliefert, heute, name=NAME, reicht=None, rangfolge=None):
+    """Short der letzten Tage (nicht von heute), dessen Thema noch kein Langvideo hatte.
+    reicht(thema): optionale Quellenpruefung; ungeeignete Themen werden uebersprungen.
+    rangfolge(themen): optionale Trendbewertung; ohne sie oder ohne Trend gewinnt der juengste."""
     # GEMESSEN 17.10.2026: nur GELIEFERTE Langvideos zaehlen - zwei gescheiterte Coca-Cola-Versuche
     # (Skriptfrist, Bauversuche) liessen den Neustart Airbnb waehlen; der fast fertige Teilbau
     # (Skript, Stimme, 53/84 Bilder) waere verloren gewesen.
@@ -76,11 +77,54 @@ def thema(verlauf, geliefert, heute, name=NAME, reicht=None):
     # GEMESSEN 24.10.2026 (Lauf 40094873316): Moderna hat nur 7.650 Zeichen Geschichte, skript.py verlangt
     # fuer lang 12.000 - das feste Thema scheiterte fuenfmal identisch in 2 Minuten, kein Langvideo.
     # Dann den naechstjuengeren Short nehmen, notfalls freie Wahl.
+    geeignet, gesehen = [], set()
     for _, e in sorted(enumerate(kandidaten), key=lambda x: (x[1]['datum'], x[0]), reverse=True):
+        if _norm(e['thema']) in gesehen or len(geeignet) >= TREND_KANDIDATEN:
+            continue
+        gesehen.add(_norm(e['thema']))
         if reicht is None or reicht(e['thema']):
-            return e['thema']
-        print('Langvideo: Quelle zu kurz fuer', e['thema'], '- naechster Short')
-    return ''
+            geeignet.append(e['thema'])
+        else:
+            print('Langvideo: Quelle zu kurz fuer', e['thema'], '- naechster Short')
+    if not geeignet:
+        return ''
+    # Nutzer 24.10.2026: "die Themen muessen auch fuer Langvideos heiss sein" - Moderna war am Tag seines
+    # Shorts ein Trend, am Langvideo-Tag fuehrte Tesla (YouTube 622x, Google News). Unter den geeigneten
+    # Shorts gewinnt der heute staerkste YouTube-/Google-Trend (gleiche Regel wie trendcheck.entscheiden);
+    # ohne Trendsignal bleibt der juengste.
+    if rangfolge and len(geeignet) > 1:
+        try:
+            bewertet = rangfolge(geeignet)
+        except Exception as e:  # Trendquellen weg darf das Langvideo nicht verhindern
+            print('Langvideo: Trend-Check nicht verfuegbar -', str(e)[:120])
+            bewertet = []
+        heiss = [k for k in bewertet if k['punkte'] >= SCHWELLE and k['stufe'] <= 1]
+        if heiss:
+            print(f"Langvideo nach Trend: {heiss[0]['thema']} ({heiss[0]['punkte']} Punkte)")
+            return heiss[0]['thema']
+        print('Langvideo: kein Short mit heutigem Trend - juengster')
+    return geeignet[0]
+
+
+TREND_KANDIDATEN = 5  # je YouTube-Suche 100 Einheiten Kontingent
+SCHWELLE = 1.5        # = trendcheck.SCHWELLE (Test haelt beide gleich)
+
+
+def _begriff(t):
+    """Suchbegriff eines Short-Themas: "Tesla: How Funding Decisions..." -> "Tesla"."""
+    return re.split(r':| - | – ', str(t))[0].strip() or str(t)
+
+
+def trend_rangfolge(themen_liste, kanal=KANAL):
+    """[{thema, punkte, stufe}] nach heutigem Trend, staerkster zuerst (trendcheck.bewerten)."""
+    import themen
+    import trendcheck
+    wiki = _profil(kanal).get('quelle') == 'wikipedia'
+    liste = [{'thema': t, 'begriff': _begriff(t), 'eigen': False,
+              'wikipedia': themen.details(kanal, t).get('wikipedia') or (_begriff(t) if wiki else None)}
+             for t in themen_liste]
+    google = trendcheck.google_heute('US', news=wiki)
+    return trendcheck.bewerten(liste, google, kanal=kanal)
 
 
 def vorpruefung(heute=None, eingabe='', kanal=KANAL):
@@ -100,7 +144,7 @@ def vorpruefung(heute=None, eingabe='', kanal=KANAL):
     if offen:
         return True, offen
     reicht = (lambda t: quelle_reicht(t, kanal)) if _profil(kanal).get('quelle') == 'wikipedia' else None
-    return True, thema(verlauf, geliefert, heute, _name(kanal), reicht)
+    return True, thema(verlauf, geliefert, heute, _name(kanal), reicht, lambda l: trend_rangfolge(l, kanal))
 
 
 def offener_entwurf(kanal=KANAL):

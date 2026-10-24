@@ -64,6 +64,29 @@ def frame(video, sekunde, art, ziel):
         return b.getvalue()
 
 
+KONTEXT_MAX = 2400  # Zeichen Erzaehltext je Bildurteil; ein Short (~800) bleibt vollstaendig
+
+
+def erzaehlkontext(erzaehlung, phase_text, n=KONTEXT_MAX):
+    """Erzaehltext rund um die gepruefte Phase.
+
+    GEMESSEN 24.10.2026 (KI-Langvideo 40104699545): jedes der ~70 Einzelurteile trug den ganzen Langvideo-Text
+    (~6.900 Zeichen) - Groq-Vision lehnte JEDEN Auftrag als zu gross ab (ValueError), bei Gemini-503 gab es
+    darum gar kein Urteil, das fertige Video blieb gesperrt. Kontext dient nur Begriffen und Plattform."""
+    if len(erzaehlung) <= n:
+        return erzaehlung
+    i = erzaehlung.find(phase_text[:120].strip())
+    mitte = (i if i >= 0 else 0) + len(phase_text) // 2
+    a = max(0, min(mitte - n // 2, len(erzaehlung) - n))
+    b = a + n
+    teil = erzaehlung[a:b]
+    if a:
+        teil = teil.split(' ', 1)[-1]
+    if b < len(erzaehlung):
+        teil = teil.rsplit(' ', 1)[0]
+    return ('... ' if a else '') + teil + (' ...' if b < len(erzaehlung) else '')
+
+
 def pruefen(video, skript, ablauf, ziel):
     import bildplan
     import dramaturgie
@@ -149,7 +172,8 @@ def pruefen(video, skript, ablauf, ziel):
                         'erforderliches_bild describes a feasible relevant replacement. Return every index '
                         'exactly once in given order. German findings; only the schema JSON.\n'
                         + json.dumps({'video_context':{'subject':skript.get('thema',''),
-                            'narration':' '.join(t['text'] for t in skript.get('teile',[]))},
+                            'narration':erzaehlkontext(' '.join(t['text'] for t in skript.get('teile',[])),
+                                                       teil[0]['phase_text'])},
                             'shots':daten}, ensure_ascii=False))
                     einzelkey = ki_speicher.cache_key(VERSION+code+auftrag,SCHEMA,SEHEN,.1,
                         'bildbezug-einzeln',[hashlib.sha256(b).hexdigest() for b in bilder])

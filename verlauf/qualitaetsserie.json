@@ -83674,6 +83674,1271 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "40077860913.1:ai-tools-explained",
+      "run_id": "40077860913",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-24T08:31:27.827436+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "e3175a2e9a08f0effe10d48a7ad0e3b5924ea69a",
+      "produktionsversion": "1ee145e5dd3599911fe16be28c843b16eb49d6c87aca15a240db4f79fa1fd10c",
+      "videoformat": "short",
+      "thema": "Claude Projects: workspaces, instructions and the new beta",
+      "titel": [
+        "*Claude* *Projects*",
+        "Stop Re-Explaining"
+      ],
+      "status": "gesendet",
+      "video_sha256": "7ba9a81351ba88c65e684ace312beb2e04732b82e9056187ab4a9030e3f53196",
+      "video_gebaut": true,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-18.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen sprechenden Moderator, während im gesprochenen Text Claude, Projekte und das Erinnern von Arbeit erklärt werden. Es fehlt jeglicher Bezug zur Software oder Funktionalität.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (6/10): Der Text beschreibt zwar das Hochladen von Dokumenten, zeigt aber nicht die konkrete Aktion des Hochladens oder die entsprechenden Bedienelemente in einer Benutzeroberfläche.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Es ist lediglich eine typografische Textgrafik zu sehen, die die Worte aus dem Satz wiederholt, aber weder die hochgeladenen Dokumente noch die individuellen Chats innerhalb des Projekts visuell demonstriert.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Zugriffsrechte (Can view), aber nicht das Hinzufügen von Projektanweisungen ('Then add project instructions').",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Textboxen mit Stichpunkten als Ueberschrift, aber keine grafische Darstellung oder Benutzeroberflaeche, die zeigt, wie Claude die Arbeit in parallele Cloud-Threads aufteilt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich einen sprechenden Moderator, während im gesprochenen Text Claude, Projekte und das Erinnern von Arbeit erklärt werden. Es fehlt jeglicher Bezug zur Software oder Funktionalität. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der eine Projektübersicht oder eine Benutzeroberfläche zur Wissensbasis zeigt.",
+        "Offenes Problem (schwer): Der Text beschreibt zwar das Hochladen von Dokumenten, zeigt aber nicht die konkrete Aktion des Hochladens oder die entsprechenden Bedienelemente in einer Benutzeroberfläche. Korrektur: Ein Screenshot der Software-Oberfläche mit einem sichtbaren Button zum Hochladen von Dateien wie Dokumenten oder Code.",
+        "Offenes Problem (schwer): Es ist lediglich eine typografische Textgrafik zu sehen, die die Worte aus dem Satz wiederholt, aber weder die hochgeladenen Dokumente noch die individuellen Chats innerhalb des Projekts visuell demonstriert. Korrektur: Ein Screenshot der Software-Oberfläche, der zeigt, wie Dateien als Hintergrundkontext in einem Projekt hochgeladen und mit Chat-Fenstern verknüpft sind.",
+        "Offenes Problem (schwer): Das Bild zeigt Zugriffsrechte (Can view), aber nicht das Hinzufügen von Projektanweisungen ('Then add project instructions'). Korrektur: Ein Interface oder Textabschnitt, in dem spezifische Projektanweisungen für Claude hinzugefügt werden.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich Textboxen mit Stichpunkten als Ueberschrift, aber keine grafische Darstellung oder Benutzeroberflaeche, die zeigt, wie Claude die Arbeit in parallele Cloud-Threads aufteilt. Korrektur: Eine Darstellung der Claude-Benutzeroberflaeche, in der mehrere parallele Threads oder Unterhaltungen innerhalb eines Projekts visuell aufgeteilt angezeigt werden."
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 13,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "40077860913",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-24",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 245.0,
+            "pruefung_s": 61.5,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen sprechenden Moderator, während im gesprochenen Text Claude, Projekte und das Erinnern von Arbeit erklärt werden. Es fehlt jeglicher Bezug zur Software oder Funktionalität.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (6/10): Der Text beschreibt zwar das Hochladen von Dokumenten, zeigt aber nicht die konkrete Aktion des Hochladens oder die entsprechenden Bedienelemente in einer Benutzeroberfläche.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Es ist lediglich eine typografische Textgrafik zu sehen, die die Worte aus dem Satz wiederholt, aber weder die hochgeladenen Dokumente noch die individuellen Chats innerhalb des Projekts visuell demonstriert.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Zugriffsrechte (Can view), aber nicht das Hinzufügen von Projektanweisungen ('Then add project instructions').",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Textboxen mit Stichpunkten als Ueberschrift, aber keine grafische Darstellung oder Benutzeroberflaeche, die zeigt, wie Claude die Arbeit in parallele Cloud-Threads aufteilt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen sprechenden Moderator, während im gesprochenen Text Claude, Projekte und das Erinnern von Arbeit erklärt werden. Es fehlt jeglicher Bezug zur Software oder Funktionalität. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der eine Projektübersicht oder eine Benutzeroberfläche zur Wissensbasis zeigt.",
+              "Offenes Problem (schwer): Der Text beschreibt zwar das Hochladen von Dokumenten, zeigt aber nicht die konkrete Aktion des Hochladens oder die entsprechenden Bedienelemente in einer Benutzeroberfläche. Korrektur: Ein Screenshot der Software-Oberfläche mit einem sichtbaren Button zum Hochladen von Dateien wie Dokumenten oder Code.",
+              "Offenes Problem (schwer): Es ist lediglich eine typografische Textgrafik zu sehen, die die Worte aus dem Satz wiederholt, aber weder die hochgeladenen Dokumente noch die individuellen Chats innerhalb des Projekts visuell demonstriert. Korrektur: Ein Screenshot der Software-Oberfläche, der zeigt, wie Dateien als Hintergrundkontext in einem Projekt hochgeladen und mit Chat-Fenstern verknüpft sind.",
+              "Offenes Problem (schwer): Das Bild zeigt Zugriffsrechte (Can view), aber nicht das Hinzufügen von Projektanweisungen ('Then add project instructions'). Korrektur: Ein Interface oder Textabschnitt, in dem spezifische Projektanweisungen für Claude hinzugefügt werden.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich Textboxen mit Stichpunkten als Ueberschrift, aber keine grafische Darstellung oder Benutzeroberflaeche, die zeigt, wie Claude die Arbeit in parallele Cloud-Threads aufteilt. Korrektur: Eine Darstellung der Claude-Benutzeroberflaeche, in der mehrere parallele Threads oder Unterhaltungen innerhalb eines Projekts visuell aufgeteilt angezeigt werden."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 14.9,
+              "zeitmarken": 5.1,
+              "tempo": 1.063,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "clips_und_stuecke": 126.5,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 30.1,
+              "gesamt": 244.6,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                8.62,
+                7.46,
+                6.64,
+                7.32,
+                6.52,
+                6.4,
+                2.06
+              ],
+              "woerter": 133
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Stop re-explaining your work, because Claude can remember it for you.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich einen sprechenden Moderator, während im gesprochenen Text Claude, Projekte und das Erinnern von Arbeit erklärt werden. Es fehlt jeglicher Bezug zur Software oder Funktionalität. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der eine Projektübersicht oder eine Benutzeroberfläche zur Wissensbasis zeigt."
+              },
+              {
+                "zeit": "00:08.62",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Upload documents, text, code or other files.",
+                "fest": true,
+                "text": "Der Text beschreibt zwar das Hochladen von Dokumenten, zeigt aber nicht die konkrete Aktion des Hochladens oder die entsprechenden Bedienelemente in einer Benutzeroberfläche. Korrektur: Ein Screenshot der Software-Oberfläche mit einem sichtbaren Button zum Hochladen von Dateien wie Dokumenten oder Code."
+              },
+              {
+                "zeit": "00:11.42",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Claude uses them as background context for your individual chats inside that project.",
+                "fest": true,
+                "text": "Es ist lediglich eine typografische Textgrafik zu sehen, die die Worte aus dem Satz wiederholt, aber weder die hochgeladenen Dokumente noch die individuellen Chats innerhalb des Projekts visuell demonstriert. Korrektur: Ein Screenshot der Software-Oberfläche, der zeigt, wie Dateien als Hintergrundkontext in einem Projekt hochgeladen und mit Chat-Fenstern verknüpft sind."
+              },
+              {
+                "zeit": "00:16.08",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Then add project instructions.",
+                "fest": true,
+                "text": "Das Bild zeigt Zugriffsrechte (Can view), aber nicht das Hinzufügen von Projektanweisungen ('Then add project instructions'). Korrektur: Ein Interface oder Textabschnitt, in dem spezifische Projektanweisungen für Claude hinzugefügt werden."
+              },
+              {
+                "zeit": "00:33.30",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "and Claude splits work into parallel cloud threads.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich Textboxen mit Stichpunkten als Ueberschrift, aber keine grafische Darstellung oder Benutzeroberflaeche, die zeigt, wie Claude die Arbeit in parallele Cloud-Threads aufteilt. Korrektur: Eine Darstellung der Claude-Benutzeroberflaeche, in der mehrere parallele Threads oder Unterhaltungen innerhalb eines Projekts visuell aufgeteilt angezeigt werden."
+              }
+            ],
+            "sekunden": 306.5,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 351.8,
+        "upload_titel": "Claude Projects: Stop Re-Explaining | AI Tool #14"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Stop re-explaining your work, because Claude can remember it for you.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich einen sprechenden Moderator, während im gesprochenen Text Claude, Projekte und das Erinnern von Arbeit erklärt werden. Es fehlt jeglicher Bezug zur Software oder Funktionalität. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der eine Projektübersicht oder eine Benutzeroberfläche zur Wissensbasis zeigt."
+          },
+          {
+            "zeit": "00:08.62",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "Upload documents, text, code or other files.",
+            "fest": true,
+            "text": "Der Text beschreibt zwar das Hochladen von Dokumenten, zeigt aber nicht die konkrete Aktion des Hochladens oder die entsprechenden Bedienelemente in einer Benutzeroberfläche. Korrektur: Ein Screenshot der Software-Oberfläche mit einem sichtbaren Button zum Hochladen von Dateien wie Dokumenten oder Code."
+          },
+          {
+            "zeit": "00:11.42",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "Claude uses them as background context for your individual chats inside that project.",
+            "fest": true,
+            "text": "Es ist lediglich eine typografische Textgrafik zu sehen, die die Worte aus dem Satz wiederholt, aber weder die hochgeladenen Dokumente noch die individuellen Chats innerhalb des Projekts visuell demonstriert. Korrektur: Ein Screenshot der Software-Oberfläche, der zeigt, wie Dateien als Hintergrundkontext in einem Projekt hochgeladen und mit Chat-Fenstern verknüpft sind."
+          },
+          {
+            "zeit": "00:16.08",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Then add project instructions.",
+            "fest": true,
+            "text": "Das Bild zeigt Zugriffsrechte (Can view), aber nicht das Hinzufügen von Projektanweisungen ('Then add project instructions'). Korrektur: Ein Interface oder Textabschnitt, in dem spezifische Projektanweisungen für Claude hinzugefügt werden."
+          },
+          {
+            "zeit": "00:33.30",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "and Claude splits work into parallel cloud threads.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich Textboxen mit Stichpunkten als Ueberschrift, aber keine grafische Darstellung oder Benutzeroberflaeche, die zeigt, wie Claude die Arbeit in parallele Cloud-Threads aufteilt. Korrektur: Eine Darstellung der Claude-Benutzeroberflaeche, in der mehrere parallele Threads oder Unterhaltungen innerhalb eines Projekts visuell aufgeteilt angezeigt werden."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -15.2,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 43.34,
+              "bis_s": 44.56,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.991
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Stop",
+                "s": 0.0,
+                "e": 0.58,
+                "p": 0.9020494818687439
+              },
+              {
+                "w": "re",
+                "s": 0.58,
+                "e": 0.9,
+                "p": 0.9905253648757935
+              },
+              {
+                "w": "-explaining",
+                "s": 0.9,
+                "e": 1.38,
+                "p": 0.9644410610198975
+              },
+              {
+                "w": "your",
+                "s": 1.38,
+                "e": 1.58,
+                "p": 0.9967711567878723
+              },
+              {
+                "w": "work,",
+                "s": 1.58,
+                "e": 1.84,
+                "p": 0.9988460540771484
+              },
+              {
+                "w": "because",
+                "s": 2.12,
+                "e": 2.3,
+                "p": 0.9939832091331482
+              },
+              {
+                "w": "Claude",
+                "s": 2.3,
+                "e": 2.52,
+                "p": 0.44675329327583313
+              },
+              {
+                "w": "can",
+                "s": 2.52,
+                "e": 2.82,
+                "p": 0.9985721111297607
+              },
+              {
+                "w": "remember",
+                "s": 2.82,
+                "e": 3.02,
+                "p": 0.9974094033241272
+              },
+              {
+                "w": "it",
+                "s": 3.02,
+                "e": 3.28,
+                "p": 0.9976167678833008
+              },
+              {
+                "w": "for",
+                "s": 3.28,
+                "e": 3.46,
+                "p": 0.9980321526527405
+              },
+              {
+                "w": "you.",
+                "s": 3.46,
+                "e": 3.8,
+                "p": 0.9993922710418701
+              },
+              {
+                "w": "Projects",
+                "s": 4.04,
+                "e": 4.32,
+                "p": 0.8784660696983337
+              },
+              {
+                "w": "are",
+                "s": 4.32,
+                "e": 4.58,
+                "p": 0.9988014698028564
+              },
+              {
+                "w": "self",
+                "s": 4.58,
+                "e": 4.82,
+                "p": 0.9980124235153198
+              },
+              {
+                "w": "-contained",
+                "s": 4.82,
+                "e": 5.14,
+                "p": 0.9828099012374878
+              },
+              {
+                "w": "workspaces,",
+                "s": 5.14,
+                "e": 5.76,
+                "p": 0.8552634716033936
+              },
+              {
+                "w": "each",
+                "s": 6.16,
+                "e": 6.22,
+                "p": 0.9977810978889465
+              },
+              {
+                "w": "with",
+                "s": 6.22,
+                "e": 6.38,
+                "p": 0.9979398846626282
+              },
+              {
+                "w": "its",
+                "s": 6.38,
+                "e": 6.54,
+                "p": 0.9614717364311218
+              },
+              {
+                "w": "own",
+                "s": 6.54,
+                "e": 6.64,
+                "p": 0.9993707537651062
+              },
+              {
+                "w": "chat",
+                "s": 6.64,
+                "e": 6.88,
+                "p": 0.8436474800109863
+              },
+              {
+                "w": "history",
+                "s": 6.88,
+                "e": 7.22,
+                "p": 0.9861034154891968
+              },
+              {
+                "w": "and",
+                "s": 7.22,
+                "e": 7.58,
+                "p": 0.9821572303771973
+              },
+              {
+                "w": "knowledge",
+                "s": 7.58,
+                "e": 7.8,
+                "p": 0.9920862317085266
+              },
+              {
+                "w": "base.",
+                "s": 7.8,
+                "e": 8.04,
+                "p": 0.9580234885215759
+              },
+              {
+                "w": "Upload",
+                "s": 8.62,
+                "e": 8.7,
+                "p": 0.9861854910850525
+              },
+              {
+                "w": "documents,",
+                "s": 8.7,
+                "e": 9.14,
+                "p": 0.9776389002799988
+              },
+              {
+                "w": "text,",
+                "s": 9.56,
+                "e": 9.7,
+                "p": 0.9702950119972229
+              },
+              {
+                "w": "code,",
+                "s": 10.12,
+                "e": 10.14,
+                "p": 0.996159553527832
+              },
+              {
+                "w": "or",
+                "s": 10.34,
+                "e": 10.4,
+                "p": 0.9939190149307251
+              },
+              {
+                "w": "other",
+                "s": 10.4,
+                "e": 10.56,
+                "p": 0.9985270500183105
+              },
+              {
+                "w": "files.",
+                "s": 10.56,
+                "e": 10.8,
+                "p": 0.9992414712905884
+              },
+              {
+                "w": "Claude",
+                "s": 11.32,
+                "e": 11.42,
+                "p": 0.9902370572090149
+              },
+              {
+                "w": "uses",
+                "s": 11.42,
+                "e": 11.7,
+                "p": 0.9972324967384338
+              },
+              {
+                "w": "them",
+                "s": 11.7,
+                "e": 11.94,
+                "p": 0.9979860782623291
+              },
+              {
+                "w": "as",
+                "s": 11.94,
+                "e": 12.04,
+                "p": 0.9947915077209473
+              },
+              {
+                "w": "background",
+                "s": 12.04,
+                "e": 12.3,
+                "p": 0.9935085773468018
+              },
+              {
+                "w": "context",
+                "s": 12.3,
+                "e": 12.74,
+                "p": 0.8409099578857422
+              },
+              {
+                "w": "for",
+                "s": 12.74,
+                "e": 13.22,
+                "p": 0.9965364933013916
+              },
+              {
+                "w": "your",
+                "s": 13.22,
+                "e": 13.3,
+                "p": 0.9956413507461548
+              },
+              {
+                "w": "individual",
+                "s": 13.3,
+                "e": 13.7,
+                "p": 0.9993278980255127
+              },
+              {
+                "w": "chats",
+                "s": 13.7,
+                "e": 14.1,
+                "p": 0.9800177812576294
+              },
+              {
+                "w": "inside",
+                "s": 14.1,
+                "e": 14.46,
+                "p": 0.9968585968017578
+              },
+              {
+                "w": "that",
+                "s": 14.46,
+                "e": 14.84,
+                "p": 0.9889302849769592
+              },
+              {
+                "w": "project.",
+                "s": 14.84,
+                "e": 15.08,
+                "p": 0.999258816242218
+              },
+              {
+                "w": "Then",
+                "s": 16.08,
+                "e": 16.08,
+                "p": 0.997670590877533
+              },
+              {
+                "w": "add",
+                "s": 16.08,
+                "e": 16.36,
+                "p": 0.5311185121536255
+              },
+              {
+                "w": "project",
+                "s": 16.36,
+                "e": 16.78,
+                "p": 0.9435486793518066
+              },
+              {
+                "w": "instructions.",
+                "s": 16.78,
+                "e": 17.02,
+                "p": 0.9927707314491272
+              },
+              {
+                "w": "Ask",
+                "s": 18.08,
+                "e": 18.14,
+                "p": 0.9902582168579102
+              },
+              {
+                "w": "for",
+                "s": 18.14,
+                "e": 18.36,
+                "p": 0.9992809891700745
+              },
+              {
+                "w": "a",
+                "s": 18.36,
+                "e": 18.48,
+                "p": 0.9953985810279846
+              },
+              {
+                "w": "formal",
+                "s": 18.48,
+                "e": 18.72,
+                "p": 0.9930931329727173
+              },
+              {
+                "w": "tone",
+                "s": 18.72,
+                "e": 19.0,
+                "p": 0.9965555667877197
+              },
+              {
+                "w": "or",
+                "s": 19.0,
+                "e": 19.32,
+                "p": 0.5715886950492859
+              },
+              {
+                "w": "answers",
+                "s": 19.32,
+                "e": 19.78,
+                "p": 0.9945937991142273
+              },
+              {
+                "w": "from",
+                "s": 19.78,
+                "e": 20.02,
+                "p": 0.9955750703811646
+              },
+              {
+                "w": "the",
+                "s": 20.02,
+                "e": 20.12,
+                "p": 0.99334716796875
+              },
+              {
+                "w": "perspective",
+                "s": 20.12,
+                "e": 20.4,
+                "p": 0.9973716735839844
+              },
+              {
+                "w": "of",
+                "s": 20.4,
+                "e": 20.7,
+                "p": 0.9987278580665588
+              },
+              {
+                "w": "a",
+                "s": 20.7,
+                "e": 20.78,
+                "p": 0.9961405396461487
+              },
+              {
+                "w": "specific",
+                "s": 20.78,
+                "e": 21.06,
+                "p": 0.9962943196296692
+              },
+              {
+                "w": "role",
+                "s": 21.06,
+                "e": 21.38,
+                "p": 0.9427964687347412
+              },
+              {
+                "w": "or",
+                "s": 21.38,
+                "e": 21.52,
+                "p": 0.9944425225257874
+              },
+              {
+                "w": "industry.",
+                "s": 21.52,
+                "e": 21.84,
+                "p": 0.9992347955703735
+              },
+              {
+                "w": "Free",
+                "s": 22.7,
+                "e": 22.72,
+                "p": 0.9715402722358704
+              },
+              {
+                "w": "accounts",
+                "s": 22.72,
+                "e": 22.96,
+                "p": 0.9761150479316711
+              },
+              {
+                "w": "can",
+                "s": 22.96,
+                "e": 23.2,
+                "p": 0.9976794123649597
+              },
+              {
+                "w": "create",
+                "s": 23.2,
+                "e": 23.44,
+                "p": 0.9889206290245056
+              },
+              {
+                "w": "up",
+                "s": 23.44,
+                "e": 23.54,
+                "p": 0.9975793957710266
+              },
+              {
+                "w": "to",
+                "s": 23.54,
+                "e": 23.64,
+                "p": 0.9991297125816345
+              },
+              {
+                "w": "five",
+                "s": 23.64,
+                "e": 23.92,
+                "p": 0.9547382593154907
+              },
+              {
+                "w": "projects,",
+                "s": 23.92,
+                "e": 24.34,
+                "p": 0.9984996318817139
+              },
+              {
+                "w": "paid",
+                "s": 24.82,
+                "e": 24.9,
+                "p": 0.73403400182724
+              },
+              {
+                "w": "plans",
+                "s": 24.9,
+                "e": 25.18,
+                "p": 0.9759654998779297
+              },
+              {
+                "w": "at",
+                "s": 25.18,
+                "e": 25.46,
+                "p": 0.7111829519271851
+              },
+              {
+                "w": "RAG,",
+                "s": 25.46,
+                "e": 25.76,
+                "p": 0.7432222068309784
+              },
+              {
+                "w": "which",
+                "s": 25.92,
+                "e": 26.0,
+                "p": 0.9990918636322021
+              },
+              {
+                "w": "expands",
+                "s": 26.0,
+                "e": 26.32,
+                "p": 0.9972370862960815
+              },
+              {
+                "w": "project",
+                "s": 26.32,
+                "e": 26.68,
+                "p": 0.9835471510887146
+              },
+              {
+                "w": "capacity",
+                "s": 26.68,
+                "e": 27.16,
+                "p": 0.9733399748802185
+              },
+              {
+                "w": "when",
+                "s": 27.16,
+                "e": 27.58,
+                "p": 0.7404394149780273
+              },
+              {
+                "w": "knowledge",
+                "s": 27.58,
+                "e": 27.8,
+                "p": 0.5829137563705444
+              },
+              {
+                "w": "nears",
+                "s": 27.8,
+                "e": 28.14,
+                "p": 0.6414371728897095
+              },
+              {
+                "w": "context",
+                "s": 28.14,
+                "e": 28.36,
+                "p": 0.9724017977714539
+              },
+              {
+                "w": "limits.",
+                "s": 28.36,
+                "e": 28.76,
+                "p": 0.9761583209037781
+              },
+              {
+                "w": "So",
+                "s": 29.98,
+                "e": 30.24,
+                "p": 0.9639316201210022
+              },
+              {
+                "w": "what's",
+                "s": 30.24,
+                "e": 30.48,
+                "p": 0.898006945848465
+              },
+              {
+                "w": "changing?",
+                "s": 30.48,
+                "e": 30.66,
+                "p": 0.9979109168052673
+              },
+              {
+                "w": "A",
+                "s": 31.28,
+                "e": 31.3,
+                "p": 0.9781646728515625
+              },
+              {
+                "w": "beta",
+                "s": 31.3,
+                "e": 31.48,
+                "p": 0.9103521108627319
+              },
+              {
+                "w": "version",
+                "s": 31.48,
+                "e": 31.78,
+                "p": 0.9965985417366028
+              },
+              {
+                "w": "makes",
+                "s": 31.78,
+                "e": 32.06,
+                "p": 0.9967656135559082
+              },
+              {
+                "w": "a",
+                "s": 32.06,
+                "e": 32.22,
+                "p": 0.9973837733268738
+              },
+              {
+                "w": "project",
+                "s": 32.22,
+                "e": 32.48,
+                "p": 0.9858304858207703
+              },
+              {
+                "w": "one",
+                "s": 32.48,
+                "e": 32.84,
+                "p": 0.982320249080658
+              },
+              {
+                "w": "conversation",
+                "s": 32.84,
+                "e": 33.36,
+                "p": 0.9966773986816406
+              },
+              {
+                "w": "and",
+                "s": 33.36,
+                "e": 33.94,
+                "p": 0.5366038680076599
+              },
+              {
+                "w": "cloud",
+                "s": 33.94,
+                "e": 34.08,
+                "p": 0.6089288592338562
+              },
+              {
+                "w": "splits",
+                "s": 34.08,
+                "e": 34.36,
+                "p": 0.9807391166687012
+              },
+              {
+                "w": "work",
+                "s": 34.36,
+                "e": 34.66,
+                "p": 0.9939903020858765
+              },
+              {
+                "w": "into",
+                "s": 34.66,
+                "e": 34.88,
+                "p": 0.9912576675415039
+              },
+              {
+                "w": "parallel",
+                "s": 34.88,
+                "e": 35.2,
+                "p": 0.9532428979873657
+              },
+              {
+                "w": "cloud",
+                "s": 35.2,
+                "e": 35.54,
+                "p": 0.8314131498336792
+              },
+              {
+                "w": "threads.",
+                "s": 35.54,
+                "e": 35.84,
+                "p": 0.9802448749542236
+              },
+              {
+                "w": "The",
+                "s": 36.62,
+                "e": 36.64,
+                "p": 0.9914895296096802
+              },
+              {
+                "w": "catch,",
+                "s": 36.64,
+                "e": 36.78,
+                "p": 0.9795748591423035
+              },
+              {
+                "w": "it's",
+                "s": 37.2,
+                "e": 37.4,
+                "p": 0.9653922617435455
+              },
+              {
+                "w": "beta,",
+                "s": 37.4,
+                "e": 37.54,
+                "p": 0.9678234457969666
+              },
+              {
+                "w": "rolling",
+                "s": 37.98,
+                "e": 38.2,
+                "p": 0.998745322227478
+              },
+              {
+                "w": "out",
+                "s": 38.2,
+                "e": 38.4,
+                "p": 0.9960285425186157
+              },
+              {
+                "w": "in",
+                "s": 38.4,
+                "e": 38.52,
+                "p": 0.985841691493988
+              },
+              {
+                "w": "stages.",
+                "s": 38.52,
+                "e": 38.7,
+                "p": 0.9959573149681091
+              },
+              {
+                "w": "Still,",
+                "s": 39.38,
+                "e": 39.4,
+                "p": 0.9920724034309387
+              },
+              {
+                "w": "files",
+                "s": 39.56,
+                "e": 39.78,
+                "p": 0.9935610294342041
+              },
+              {
+                "w": "and",
+                "s": 39.78,
+                "e": 39.96,
+                "p": 0.9826368689537048
+              },
+              {
+                "w": "instructions",
+                "s": 39.96,
+                "e": 40.22,
+                "p": 0.9837966561317444
+              },
+              {
+                "w": "stay",
+                "s": 40.22,
+                "e": 40.68,
+                "p": 0.9843568205833435
+              },
+              {
+                "w": "in",
+                "s": 40.68,
+                "e": 40.9,
+                "p": 0.9969968795776367
+              },
+              {
+                "w": "the",
+                "s": 40.9,
+                "e": 40.96,
+                "p": 0.9981849789619446
+              },
+              {
+                "w": "project",
+                "s": 40.96,
+                "e": 41.2,
+                "p": 0.9612616300582886
+              },
+              {
+                "w": "so",
+                "s": 41.2,
+                "e": 41.54,
+                "p": 0.5594308972358704
+              },
+              {
+                "w": "you",
+                "s": 41.54,
+                "e": 41.64,
+                "p": 0.9955034852027893
+              },
+              {
+                "w": "stop",
+                "s": 41.64,
+                "e": 41.88,
+                "p": 0.9933035969734192
+              },
+              {
+                "w": "re",
+                "s": 41.88,
+                "e": 42.08,
+                "p": 0.9804331064224243
+              },
+              {
+                "w": "-explaining.",
+                "s": 42.08,
+                "e": 42.48,
+                "p": 0.9450921614964803
+              },
+              {
+                "w": "Be",
+                "s": 43.0,
+                "e": 43.04,
+                "p": 0.9927612543106079
+              },
+              {
+                "w": "sure",
+                "s": 43.04,
+                "e": 43.22,
+                "p": 0.9977895021438599
+              },
+              {
+                "w": "to",
+                "s": 43.22,
+                "e": 43.34,
+                "p": 0.9957887530326843
+              },
+              {
+                "w": "like,",
+                "s": 43.34,
+                "e": 43.52,
+                "p": 0.9558924436569214
+              },
+              {
+                "w": "share,",
+                "s": 43.54,
+                "e": 43.82,
+                "p": 0.9966573715209961
+              },
+              {
+                "w": "and",
+                "s": 43.94,
+                "e": 44.0,
+                "p": 0.9981526732444763
+              },
+              {
+                "w": "save",
+                "s": 44.0,
+                "e": 44.16,
+                "p": 0.9974393844604492
+              },
+              {
+                "w": "this",
+                "s": 44.16,
+                "e": 44.32,
+                "p": 0.9968711733818054
+              },
+              {
+                "w": "video.",
+                "s": 44.32,
+                "e": 44.56,
+                "p": 0.9996730089187622
+              }
+            ],
+            "dauer_s": 44.9493125,
+            "sprache": "en"
+          },
+          "roh_key": "f4ab0a689d7662359846b9c8aabff3e5222745c1438efef64ec64ad89633da2e",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "7ba9a81351ba88c65e684ace312beb2e04732b82e9056187ab4a9030e3f53196",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 13,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "7ba9a81351ba88c65e684ace312beb2e04732b82e9056187ab4a9030e3f53196",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein digital gezeichneter Mann mit Sonnenbrille und Lederjacke hält ein Mikrofon und deutet mit der Hand auf seine Brust.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich einen sprechenden Moderator, während im gesprochenen Text Claude, Projekte und das Erinnern von Arbeit erklärt werden. Es fehlt jeglicher Bezug zur Software oder Funktionalität.",
+              "erforderliches_bild": "Ein Screenshot der Claude-Benutzeroberfläche, der eine Projektübersicht oder eine Benutzeroberfläche zur Wissensbasis zeigt."
+            },
+            {
+              "index": 1,
+              "gesehen": "Der Ausschnitt zeigt einen Textkasten mit einer Beschreibung von Claude-Projekten als Arbeitsbereiche mit Chatverlauf und Wissensdatenbank, hervorgehoben durch einen gelben Rand.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt den Text, der die im gesprochenen Text erklärten 'self-contained workspaces with their own chat histories and knowledge bases' erläutert.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da der Text direkt relevant ist."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein UI-Ausschnitt zeigt Text mit der Überschrift 'Project knowledge', in dem beschrieben wird, dass man Dokumente, Text, Code oder andere Dateien hochladen kann.",
+              "note": 6,
+              "passt": false,
+              "grund": "Der Text beschreibt zwar das Hochladen von Dokumenten, zeigt aber nicht die konkrete Aktion des Hochladens oder die entsprechenden Bedienelemente in einer Benutzeroberfläche.",
+              "erforderliches_bild": "Ein Screenshot der Software-Oberfläche mit einem sichtbaren Button zum Hochladen von Dateien wie Dokumenten oder Code."
+            },
+            {
+              "index": 3,
+              "gesehen": "Der Bildschirm zeigt zweizeiligen Text mit den Aussagen 'THEM AS BACKGROUND CONTEXT' in einem türkisen Kasten und darunter 'CHATS INSIDE THAT PROJECT' in einem orangenen Kasten vor dunklem Hintergrund.",
+              "note": 3,
+              "passt": false,
+              "grund": "Es ist lediglich eine typografische Textgrafik zu sehen, die die Worte aus dem Satz wiederholt, aber weder die hochgeladenen Dokumente noch die individuellen Chats innerhalb des Projekts visuell demonstriert.",
+              "erforderliches_bild": "Ein Screenshot der Software-Oberfläche, der zeigt, wie Dateien als Hintergrundkontext in einem Projekt hochgeladen und mit Chat-Fenstern verknüpft sind."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Dokumenten-Screenshot mit einer Texthervorhebung zum Berechtigungslevel 'Can view' und Erklärungen zu Projektmitgliedern.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt Zugriffsrechte (Can view), aber nicht das Hinzufügen von Projektanweisungen ('Then add project instructions').",
+              "erforderliches_bild": "Ein Interface oder Textabschnitt, in dem spezifische Projektanweisungen für Claude hinzugefügt werden."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein hervorgehobener Textblock in einer Benutzeroberfläche erklärt das Definieren von Projektanweisungen, um Claudes Antworten anzupassen, und nennt Beispiele wie einen formalen Tonfall.",
+              "note": 9,
+              "passt": true,
+              "grund": "Der sichtbare Text im gelben Kasten zeigt exakt die im gesprochenen Satz erwähnten Projektanweisungen zur Anpassung des Tonfalls und der Perspektive.",
+              "erforderliches_bild": "Keine Änderung erforderlich."
+            },
+            {
+              "index": 6,
+              "gesehen": "Der Screenshot zeigt einen Textabschnitt, in dem gelb markiert steht, dass Projekte für alle Nutzer verfügbar sind, einschließlich kostenloser Claude-Konten, und diese maximal fünf Projekte erstellen können.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbare Textstelle im Bild belegt genau die im Satz genannte Information über das Erstellen von bis zu fünf Projekten in kostenlosen Konten.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein Screenshot zeigt Textinformationen über erweiterte Projektwissenskapazitäten und RAG (Retrieval Augmented Generation) bei bezahlten Claude-Plänen, hervorgehoben durch einen gelben Rahmen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell und textlich passend die Funktionsweise und Erklärung von RAG bei kostenpflichtigen Tarifen, was exakt der gesprochenen Information über RAG und Kapazitätserweiterung entspricht.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Screenshot zeigt Text mit der Überschrift The new version of projects (beta) und einem hervorgehobenen Absatz über die neue Version von Projekten.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der Text im Bild beschreibt direkt die neue Beta-Version, in der ein Projekt aus einer Konversation und parallelen Threads im Cloud-Modus besteht, was exakt zur gesprochenen Aussage passt.",
+              "erforderliches_bild": "Nicht erforderlich."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein dunkler Bildschirm mit zwei farbigen Schaltflaechen, oben 'CLAUDE SPLITS WORK' in Tuerkis und unten 'PARALLEL CLOUD THREADS' in Orange.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich Textboxen mit Stichpunkten als Ueberschrift, aber keine grafische Darstellung oder Benutzeroberflaeche, die zeigt, wie Claude die Arbeit in parallele Cloud-Threads aufteilt.",
+              "erforderliches_bild": "Eine Darstellung der Claude-Benutzeroberflaeche, in der mehrere parallele Threads oder Unterhaltungen innerhalb eines Projekts visuell aufgeteilt angezeigt werden."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein Screenshot einer Benutzeroberfläche mit einem gelb markierten Hinweis zur neuen Beta-Version von Claude-Projekten ('Note: A new version of projects is now available in beta...').",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt die Benutzeroberfläche mit dem Hinweis auf die Beta-Version, womit die gesprochene Information zur Beta-Einführung visuell unterstützt wird.",
+              "erforderliches_bild": "Nicht erforderlich, da das Bild passt."
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein Informationsfenster mit gelbem Hintergrund und dem Titel 'Your existing projects' zeigt Text über das Verschieben von Projekten in die neue Version.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der Text befasst sich direkt mit dem Verbleib bestehender Projekte und deren Dateien sowie Anweisungen in der neuen Version, was zur gesprochenen Aussage passt.",
+              "erforderliches_bild": "Ein passender Screenshot der Benutzeroberfläche."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen sprechenden Moderator, während im gesprochenen Text Claude, Projekte und das Erinnern von Arbeit erklärt werden. Es fehlt jeglicher Bezug zur Software oder Funktionalität.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (6/10): Der Text beschreibt zwar das Hochladen von Dokumenten, zeigt aber nicht die konkrete Aktion des Hochladens oder die entsprechenden Bedienelemente in einer Benutzeroberfläche.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Es ist lediglich eine typografische Textgrafik zu sehen, die die Worte aus dem Satz wiederholt, aber weder die hochgeladenen Dokumente noch die individuellen Chats innerhalb des Projekts visuell demonstriert.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Zugriffsrechte (Can view), aber nicht das Hinzufügen von Projektanweisungen ('Then add project instructions').",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Textboxen mit Stichpunkten als Ueberschrift, aber keine grafische Darstellung oder Benutzeroberflaeche, die zeigt, wie Claude die Arbeit in parallele Cloud-Threads aufteilt."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 13,
+          "ausgenommen": [
+            12
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "7ba9a81351ba88c65e684ace312beb2e04732b82e9056187ab4a9030e3f53196",
+        "prompt_version": "2026-10-18.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

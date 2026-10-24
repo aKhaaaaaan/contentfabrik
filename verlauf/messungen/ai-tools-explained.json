@@ -1,61 +1,5 @@
 [
   {
-    "id": "38131687462",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-11",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "skript_s": 450.4,
-        "bau_s": 540.3,
-        "baufehler": "ValueError: Bildablauf gesperrt: Zu wenig unterschiedliche Motive: 11 statt mindestens 18",
-        "status": "baufehler",
-        "sekunden": 990.7
-      },
-      {
-        "runde": 2,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 0.6,
-        "baufehler": "ValueError: Bildablauf gesperrt: Zu wenig unterschiedliche Motive: 11 statt mindestens 18",
-        "status": "baufehler",
-        "sekunden": 0.6
-      },
-      {
-        "runde": 3,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 369.5,
-        "baufehler": "ValueError: Bildablauf gesperrt: Zu wenig unterschiedliche Motive: 10 statt mindestens 18",
-        "status": "baufehler",
-        "sekunden": 369.5
-      },
-      {
-        "runde": 4,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 0.6,
-        "baufehler": "ValueError: Bildablauf gesperrt: Zu wenig unterschiedliche Motive: 10 statt mindestens 18",
-        "status": "baufehler",
-        "sekunden": 0.6
-      },
-      {
-        "runde": 5,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 499.1,
-        "baufehler": "ValueError: Bildablauf gesperrt: Zu wenig unterschiedliche Motive: 17 statt mindestens 18",
-        "status": "baufehler",
-        "sekunden": 499.1
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Videobau fehlgeschlagen (ValueError: Bildablauf gesperrt: Zu wenig unterschiedliche Motive: 17 statt mindestens 18)",
-    "sekunden": 1861.1,
-    "upload_titel": "Stop Costly AI Loops: Floe Guard Saves Budgets | AI Tool #1"
-  },
-  {
     "id": "38134312923",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-11",
@@ -13943,5 +13887,141 @@
     "grund": "",
     "sekunden": 1304.9,
     "upload_titel": "OpenShell Sandbox: Agents Without Passwords | AI Tool #13"
+  },
+  {
+    "id": "40077860913",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-10-24",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 245.0,
+        "pruefung_s": 61.5,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen sprechenden Moderator, während im gesprochenen Text Claude, Projekte und das Erinnern von Arbeit erklärt werden. Es fehlt jeglicher Bezug zur Software oder Funktionalität.",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (6/10): Der Text beschreibt zwar das Hochladen von Dokumenten, zeigt aber nicht die konkrete Aktion des Hochladens oder die entsprechenden Bedienelemente in einer Benutzeroberfläche.",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Es ist lediglich eine typografische Textgrafik zu sehen, die die Worte aus dem Satz wiederholt, aber weder die hochgeladenen Dokumente noch die individuellen Chats innerhalb des Projekts visuell demonstriert.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Zugriffsrechte (Can view), aber nicht das Hinzufügen von Projektanweisungen ('Then add project instructions').",
+          "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Textboxen mit Stichpunkten als Ueberschrift, aber keine grafische Darstellung oder Benutzeroberflaeche, die zeigt, wie Claude die Arbeit in parallele Cloud-Threads aufteilt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich einen sprechenden Moderator, während im gesprochenen Text Claude, Projekte und das Erinnern von Arbeit erklärt werden. Es fehlt jeglicher Bezug zur Software oder Funktionalität. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der eine Projektübersicht oder eine Benutzeroberfläche zur Wissensbasis zeigt.",
+          "Offenes Problem (schwer): Der Text beschreibt zwar das Hochladen von Dokumenten, zeigt aber nicht die konkrete Aktion des Hochladens oder die entsprechenden Bedienelemente in einer Benutzeroberfläche. Korrektur: Ein Screenshot der Software-Oberfläche mit einem sichtbaren Button zum Hochladen von Dateien wie Dokumenten oder Code.",
+          "Offenes Problem (schwer): Es ist lediglich eine typografische Textgrafik zu sehen, die die Worte aus dem Satz wiederholt, aber weder die hochgeladenen Dokumente noch die individuellen Chats innerhalb des Projekts visuell demonstriert. Korrektur: Ein Screenshot der Software-Oberfläche, der zeigt, wie Dateien als Hintergrundkontext in einem Projekt hochgeladen und mit Chat-Fenstern verknüpft sind.",
+          "Offenes Problem (schwer): Das Bild zeigt Zugriffsrechte (Can view), aber nicht das Hinzufügen von Projektanweisungen ('Then add project instructions'). Korrektur: Ein Interface oder Textabschnitt, in dem spezifische Projektanweisungen für Claude hinzugefügt werden.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich Textboxen mit Stichpunkten als Ueberschrift, aber keine grafische Darstellung oder Benutzeroberflaeche, die zeigt, wie Claude die Arbeit in parallele Cloud-Threads aufteilt. Korrektur: Eine Darstellung der Claude-Benutzeroberflaeche, in der mehrere parallele Threads oder Unterhaltungen innerhalb eines Projekts visuell aufgeteilt angezeigt werden."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 14.9,
+          "zeitmarken": 5.1,
+          "tempo": 1.063,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 13,
+          "clips_und_stuecke": 126.5,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 13,
+            "motive": 13,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 30.1,
+          "gesamt": 244.6,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            8.62,
+            7.46,
+            6.64,
+            7.32,
+            6.52,
+            6.4,
+            2.06
+          ],
+          "woerter": 133
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Stop re-explaining your work, because Claude can remember it for you.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich einen sprechenden Moderator, während im gesprochenen Text Claude, Projekte und das Erinnern von Arbeit erklärt werden. Es fehlt jeglicher Bezug zur Software oder Funktionalität. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der eine Projektübersicht oder eine Benutzeroberfläche zur Wissensbasis zeigt."
+          },
+          {
+            "zeit": "00:08.62",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "Upload documents, text, code or other files.",
+            "fest": true,
+            "text": "Der Text beschreibt zwar das Hochladen von Dokumenten, zeigt aber nicht die konkrete Aktion des Hochladens oder die entsprechenden Bedienelemente in einer Benutzeroberfläche. Korrektur: Ein Screenshot der Software-Oberfläche mit einem sichtbaren Button zum Hochladen von Dateien wie Dokumenten oder Code."
+          },
+          {
+            "zeit": "00:11.42",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "Claude uses them as background context for your individual chats inside that project.",
+            "fest": true,
+            "text": "Es ist lediglich eine typografische Textgrafik zu sehen, die die Worte aus dem Satz wiederholt, aber weder die hochgeladenen Dokumente noch die individuellen Chats innerhalb des Projekts visuell demonstriert. Korrektur: Ein Screenshot der Software-Oberfläche, der zeigt, wie Dateien als Hintergrundkontext in einem Projekt hochgeladen und mit Chat-Fenstern verknüpft sind."
+          },
+          {
+            "zeit": "00:16.08",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Then add project instructions.",
+            "fest": true,
+            "text": "Das Bild zeigt Zugriffsrechte (Can view), aber nicht das Hinzufügen von Projektanweisungen ('Then add project instructions'). Korrektur: Ein Interface oder Textabschnitt, in dem spezifische Projektanweisungen für Claude hinzugefügt werden."
+          },
+          {
+            "zeit": "00:33.30",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "and Claude splits work into parallel cloud threads.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich Textboxen mit Stichpunkten als Ueberschrift, aber keine grafische Darstellung oder Benutzeroberflaeche, die zeigt, wie Claude die Arbeit in parallele Cloud-Threads aufteilt. Korrektur: Eine Darstellung der Claude-Benutzeroberflaeche, in der mehrere parallele Threads oder Unterhaltungen innerhalb eines Projekts visuell aufgeteilt angezeigt werden."
+          }
+        ],
+        "sekunden": 306.5,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "status": "keine_korrektur",
+        "sekunden": 0.1
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 351.8,
+    "upload_titel": "Claude Projects: Stop Re-Explaining | AI Tool #14"
   }
 ]

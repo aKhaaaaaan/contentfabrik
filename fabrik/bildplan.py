@@ -441,7 +441,26 @@ def groq_ausweich(auftrag, kompakt, slots, grenze=7900):
         k['editorial_feedback'] = list(k['editorial_feedback'])[:-1]
     if groq_reserve(bauen()) > grenze and k.get('illustration_library'):
         k['illustration_library'] = []
+    # GEMESSEN 24.10.2026 (Langvideos Tesla 40098336155 / openshell 40098338519): Gemini-Zeitlimit, der Groq-Auftrag
+    # trug alle 50 Phasen des Langvideos in jede 30er-Etappe (13.505 bzw. 15.787 > 7.900) -> beide Bauten weg.
+    # Die Etappe braucht nur ihre eigenen Phasen; die Positionen bleiben, damit slot.phase weiter passt.
+    if groq_reserve(bauen()) > grenze and k.get('phases'):
+        eigene = {x.get('phase') for x in slots}
+        k['phases'] = [p if i in eigene else {} for i, p in enumerate(k['phases'])]
     return bauen()
+
+
+def groq_teile(auftrag, kompakt, teil, grenze=7900):
+    """[(slots, groq_auftrag)]: die Etappe halbieren, bis jeder Groq-Ausweichauftrag in die Reserve passt.
+    GEMESSEN 24.10.2026: allein die Regeln sind ~7.500 Zeichen; 30 Langvideo-Slots samt Phasen ergaben
+    ~10.500 Tokens auch ohne fremde Phasen. Ein Short (eine Etappe, passt) bleibt EIN Auftrag."""
+    def knapp(xs):
+        return [{k: x[k] for k in ('index', 'phase', 'text', 'dauer_s', 'stand_ins') if k in x} for x in xs]
+    prompt = groq_ausweich(auftrag, kompakt, knapp(teil), grenze)
+    if len(teil) <= 1 or groq_reserve(prompt) <= grenze:
+        return [(teil, prompt)]
+    mitte = len(teil) // 2
+    return groq_teile(auftrag, kompakt, teil[:mitte], grenze) + groq_teile(auftrag, kompakt, teil[mitte:], grenze)
 
 
 # Verbesserungsplan 18.10.2026 Punkt 3 (Nutzer: „Ja"): roter Faden im Bild. Codex-Videos mit hoher Bindung zeigten
@@ -572,15 +591,14 @@ def vorbereiten(s, laengen, woerter, cache=None):
                                   for b in kontext['illustration_library']],
             editorial_feedback=aktuelles_feedback(kontext['editorial_feedback']))
         daten = []
-        for teil in etappen(zeitplan):
+        for etappe in etappen(zeitplan):
             # Stellvertreter je Slot (23.10.2026) - ohne sie bleibt dem Planer nur "million in 2018" als Motiv.
-            teil = [dict(x, stand_ins=stellvertreter(f"{x['text']} {x.get('phase_text', '')}")) for x in teil]
-            fallback = groq_ausweich(auftrag, kompakt, [{
-                k: x[k] for k in ('index', 'phase', 'text', 'dauer_s', 'stand_ins') if k in x} for x in teil])
-            neu = _planen(gemini, PLANEN, auftrag + json.dumps(dict(kontext, slots=teil), ensure_ascii=False),
-                          [x['index'] for x in teil], fallback_prompt=fallback)
-            neu, _ = bezug_pruefen(gemini, teil, neu, eigennamen(s))
-            daten += neu
+            etappe = [dict(x, stand_ins=stellvertreter(f"{x['text']} {x.get('phase_text', '')}")) for x in etappe]
+            for teil, fallback in groq_teile(auftrag, kompakt, etappe):
+                neu = _planen(gemini, PLANEN, auftrag + json.dumps(dict(kontext, slots=teil), ensure_ascii=False),
+                              [x['index'] for x in teil], fallback_prompt=fallback)
+                neu, _ = bezug_pruefen(gemini, teil, neu, eigennamen(s))
+                daten += neu
         for i, d in behaltene_einstellungen(s, alt, zeitplan).items():
             if i < len(daten):
                 daten[i] = d

@@ -17,9 +17,11 @@ on:
     - cron: '7 12 * * 0'
   workflow_dispatch:
     inputs:
+      # GEMESSEN 24.10.2026: der Cloudflare-Ersatzstart (12:40 UTC, ohne Eingaben) bekam hier Business als
+      # Vorgabe - nur Business lief, das KI-Langvideo (Sa) wurde nie eingeplant. Leer = Plan nach lang_tage.
       kanal:
-        description: 'Kanal (Handstart ohne Wochentagspruefung)'
-        default: 'business-origin-stories'
+        description: 'Kanal (leer = alle heute faelligen; gesetzt = Handstart ohne Wochentagspruefung)'
+        default: ''
       thema:
         description: 'optional: festes Thema (leer = juengster Short des Kanals ohne Langvideo)'
         default: ''

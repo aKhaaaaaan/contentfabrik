@@ -41,8 +41,21 @@ def faellig(verlauf, heute):
                    for e in verlauf)
 
 
-def thema(verlauf, geliefert, heute, name=NAME):
-    """Juengster Short der letzten Tage (nicht von heute), dessen Thema noch kein Langvideo hatte."""
+LANG_MIN_ZEICHEN = 12000  # dieselbe Grenze wie skript.py ("12000 if lang"), Test haelt beide gleich
+
+
+def quelle_reicht(t, kanal=KANAL):
+    """Traegt die Wikipedia-Geschichte ein Langvideo? None vom Abruf (429/Netz) zaehlt als ja - der Lauf
+    versucht es dann selbst; verworfen wird nur ein nachweislich zu kurzer Artikel."""
+    import themen
+    import trends
+    q = trends.wikipedia(themen.details(kanal, t).get('wikipedia') or t, grenze=30000)
+    return q is None or len(q['text']) >= LANG_MIN_ZEICHEN
+
+
+def thema(verlauf, geliefert, heute, name=NAME, reicht=None):
+    """Juengster Short der letzten Tage (nicht von heute), dessen Thema noch kein Langvideo hatte.
+    reicht(thema): optionale Quellenpruefung; ungeeignete Themen werden uebersprungen."""
     # GEMESSEN 17.10.2026: nur GELIEFERTE Langvideos zaehlen - zwei gescheiterte Coca-Cola-Versuche
     # (Skriptfrist, Bauversuche) liessen den Neustart Airbnb waehlen; der fast fertige Teilbau
     # (Skript, Stimme, 53/84 Bilder) waere verloren gewesen.
@@ -60,9 +73,14 @@ def thema(verlauf, geliefert, heute, name=NAME):
         if g.get('kanal') == name and g.get('video_sha256'):
             zustellungen.setdefault(_norm(g.get('thema')), []).append(lernen.abgelehnt(g['video_sha256']))
     kandidaten = [e for e in kandidaten if not all(zustellungen.get(_norm(e.get('thema')), [False]))]
-    if not kandidaten:
-        return ''
-    return max(enumerate(kandidaten), key=lambda x: (x[1]['datum'], x[0]))[1]['thema']
+    # GEMESSEN 24.10.2026 (Lauf 40094873316): Moderna hat nur 7.650 Zeichen Geschichte, skript.py verlangt
+    # fuer lang 12.000 - das feste Thema scheiterte fuenfmal identisch in 2 Minuten, kein Langvideo.
+    # Dann den naechstjuengeren Short nehmen, notfalls freie Wahl.
+    for _, e in sorted(enumerate(kandidaten), key=lambda x: (x[1]['datum'], x[0]), reverse=True):
+        if reicht is None or reicht(e['thema']):
+            return e['thema']
+        print('Langvideo: Quelle zu kurz fuer', e['thema'], '- naechster Short')
+    return ''
 
 
 def vorpruefung(heute=None, eingabe='', kanal=KANAL):
@@ -79,7 +97,10 @@ def vorpruefung(heute=None, eingabe='', kanal=KANAL):
     # GEMESSEN 17.10.2026: der Sonntag haette Enron (neuester Short) gewaehlt, obwohl ein gepruefter
     # Coca-Cola-Entwurf samt Stimme bereitlag. Erst fertig bauen, was schon bezahlt/geprueft ist.
     offen = offener_entwurf(kanal)
-    return True, offen or thema(verlauf, geliefert, heute, _name(kanal))
+    if offen:
+        return True, offen
+    reicht = (lambda t: quelle_reicht(t, kanal)) if _profil(kanal).get('quelle') == 'wikipedia' else None
+    return True, thema(verlauf, geliefert, heute, _name(kanal), reicht)
 
 
 def offener_entwurf(kanal=KANAL):
@@ -99,11 +120,15 @@ def offener_entwurf(kanal=KANAL):
 TAGE = {'mo': 0, 'di': 1, 'mi': 2, 'do': 3, 'fr': 4, 'sa': 5, 'so': 6}
 
 
-def _name(kanal):
+def _profil(kanal):
     try:
-        return json.loads((Path('kanaele') / f'{kanal}.json').read_text(encoding='utf-8')).get('name') or kanal
+        return json.loads((Path('kanaele') / f'{kanal}.json').read_text(encoding='utf-8'))
     except (OSError, ValueError):
-        return kanal
+        return {}
+
+
+def _name(kanal):
+    return _profil(kanal).get('name') or kanal
 
 
 def formate(ordner=Path('formate')):

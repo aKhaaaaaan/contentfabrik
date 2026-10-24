@@ -472,7 +472,8 @@ LEITGEGENSTAND = ('Pick ONE signature object named or clearly implied in the spo
                   'illustrates the words of that slot. Name it the same way in motiv each time. ')
 
 
-def vorbereiten(s, laengen, woerter, cache=None):
+def vorbereiten(s, laengen, woerter, cache=None, fortschritt=None):
+    """fortschritt(teilplan): sichert jede fertig geplante Etappe sofort (bauzustand.json)."""
     from skript import gemini, SEHEN
     import lernen
     import bibliothek
@@ -482,6 +483,9 @@ def vorbereiten(s, laengen, woerter, cache=None):
                     lernen.redaktionsregeln(), bibliothek.signatur().decode('utf-8'), Path(__file__).read_text(encoding='utf-8')])
     alt = (cache or {}).get('bildplan') or {}
     daten = alt.get('einstellungen') if alt.get('key') == key else None
+    # Nutzer 24.10.2026: "genau da weitermachen, wo es durchgefallen ist". GEMESSEN Tesla-Langvideo 40104697671:
+    # nach einem spaeteren Fehler plante Versuch 2 alle 11 Etappen neu (~20 KI-Anfragen, 15 Min. Groq-Wartezeit).
+    fertig = dict(alt.get('teile') or {}) if alt.get('key') == key else {}
     # Die menschlich kontrollierte Regie ist verbindlich und braucht keinen
     # zweiten KI-Auftrag, der dieselbe Bildfolge lediglich wieder ueberschreibt.
     if daten is None and feste_regie(s):
@@ -595,10 +599,17 @@ def vorbereiten(s, laengen, woerter, cache=None):
             # Stellvertreter je Slot (23.10.2026) - ohne sie bleibt dem Planer nur "million in 2018" als Motiv.
             etappe = [dict(x, stand_ins=stellvertreter(f"{x['text']} {x.get('phase_text', '')}")) for x in etappe]
             for teil, fallback in groq_teile(auftrag, kompakt, etappe):
+                if all(str(x['index']) in fertig for x in teil):
+                    print(f"Bildplan: Einstellungen {teil[0]['index']}-{teil[-1]['index']} aus vorherigem Versuch")
+                    daten += [fertig[str(x['index'])] for x in teil]
+                    continue
                 neu = _planen(gemini, PLANEN, auftrag + json.dumps(dict(kontext, slots=teil), ensure_ascii=False),
                               [x['index'] for x in teil], fallback_prompt=fallback)
                 neu, _ = bezug_pruefen(gemini, teil, neu, eigennamen(s))
                 daten += neu
+                if fortschritt and [d.get('index') for d in neu] == [x['index'] for x in teil]:
+                    fertig.update({str(d['index']): d for d in neu})
+                    fortschritt({'key': key, 'teile': fertig})
         for i, d in behaltene_einstellungen(s, alt, zeitplan).items():
             if i < len(daten):
                 daten[i] = d

@@ -1678,7 +1678,17 @@ def main(skript_pfad, aus, vorlage=None):
         if laengen is None:  # Gemini: ein durchgehender Ton, Abschnitte aus den Wortzeiten
             laengen = laengen_aus_woertern(woerter, s['teile'], len(ton) / rate)
     zeiten['tempo'] = tempo
-    shots, plan_cache = bildplan.vorbereiten(s, laengen, woerter, cache)
+    audio_zustand = {'key': akey, 'rate': rate, 'laengen': laengen, 'tempo': tempo,
+                     'erzaehlstimme': zeiten.get('erzaehlstimme', '?')}
+
+    def zwischenstand(plan):
+        # Nutzer 24.10.2026: ein neuer Versuch setzt genau dort fort, wo der alte scheiterte - Stimme und jede
+        # fertige Bildplan-Etappe sofort sichern (vorher erst nach den Untertiteln: Tesla-Langvideo plante neu).
+        # Fertige Clips des Vorversuchs mitnehmen; ihre Schluessel werden beim Wiederverwenden geprueft.
+        rendercache.speichern(aus, {'audio': audio_zustand, 'bildplan': plan, 'stuecke': dict(cache.get('stuecke') or {})})
+    zwischenstand((cache.get('bildplan') or {}))
+    shots, plan_cache = bildplan.vorbereiten(s, laengen, woerter, cache, fortschritt=zwischenstand)
+    zwischenstand(plan_cache)
     visuell = dict(s, teile=[shot['teil'] for shot in shots])
     (aus / 'bildplan.json').write_text(json.dumps(shots, indent=2), encoding='utf-8')
     akzente = dramaturgie.akzente(s['teile'], woerter, laengen)
@@ -1692,9 +1702,7 @@ def main(skript_pfad, aus, vorlage=None):
     # - und niemand erfuhr es. Jetzt steht die echte Stimme in messung.json; freigabe.py warnt.
     zeiten['stimme_ersatz'] = bool(wahl and wahl.get('anbieter') == 'gemini'
                                    and not str(zeiten.get('erzaehlstimme', '')).startswith('gemini:'))
-    zustand = {'audio': {'key': akey, 'rate': rate, 'laengen': laengen, 'tempo': tempo,
-                         'erzaehlstimme': zeiten.get('erzaehlstimme', '?')},
-               'bildplan': plan_cache, 'stuecke': {}}
+    zustand = {'audio': audio_zustand, 'bildplan': plan_cache, 'stuecke': {}}
     # Auch bei einem spaeteren Bildfehler Stimme und Regie wiederverwenden.
     rendercache.speichern(aus, zustand)
     bildablauf = {'videoformat': dramaturgie.videoformat(s), 'einstellungen': [],

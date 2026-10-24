@@ -1157,6 +1157,21 @@ def angleichen(woerter, skripttext):
     return aus
 
 
+def zeiten_ordnen(woerter):
+    """Startzeiten nie rueckwaerts. GEMESSEN 24.10.2026 (Langvideo Tesla 40104697671): Whisper-Woerter
+    ueberlappen (Ende 1,0 s, naechster Start 0,9 s); ein ueberhoertes Skriptwort dazwischen bekam Start 1,0 s,
+    das naechste Wort lag davor -> 'Unbrauchbare Wortzeiten', 8-Minuten-Video nach fertigem Bildplan weg.
+    Ein zu frueher Start wird auf den vorigen gehoben; untertitel() zeigt gleich startende Woerter gemeinsam.
+    Bewusst NICHT in angleichen(): dessen Quelltext steckt im Stimm-Schluessel (stimm_code_key) - jede Aenderung
+    dort machte die fertige, bezahlte Stimme ungueltig."""
+    aus, letzter = [], 0.0
+    for w in woerter:
+        s = max(float(w['s']), letzter)
+        aus.append({**w, 's': s, 'e': max(float(w['e']), s)})
+        letzter = s
+    return aus
+
+
 def kokoro_ton(s, tempo, laengenziel):
     """Bisherige Kokoro-Stimme je Teil; gemessene Dauer einmal ans Ziel anpassen."""
     from kokoro_onnx import Kokoro
@@ -1628,7 +1643,8 @@ def main(skript_pfad, aus, vorlage=None):
     if audio_ok:
         rate, laengen, tempo = audio_cache['rate'], audio_cache['laengen'], audio_cache['tempo']
         zeiten['erzaehlstimme'] = audio_cache.get('erzaehlstimme', '?')
-        woerter = json.loads((aus / 'woerter.json').read_text(encoding='utf-8'))
+        # auch gespeicherte Zeiten aus Laeufen vor dem Fix (Stimme bleibt, nur die Reihenfolge wird repariert)
+        woerter = zeiten_ordnen(json.loads((aus / 'woerter.json').read_text(encoding='utf-8')))
     else:
         tempo = s.get('tempo', 1.05)
         laengenziel = dramaturgie.laengen(s)
@@ -1657,7 +1673,7 @@ def main(skript_pfad, aus, vorlage=None):
             ton16 = np.interp(np.linspace(0, len(ton) - 1, n16), np.arange(len(ton)), ton).astype(np.float32)
             segs, _ = modell.transcribe(ton16, word_timestamps=True)
             woerter = [{'w': x.word.strip(), 's': x.start, 'e': x.end} for seg in segs for x in seg.words]
-        woerter = angleichen(woerter, ' '.join(t['text'] for t in s['teile']))
+        woerter = zeiten_ordnen(angleichen(woerter, ' '.join(t['text'] for t in s['teile'])))
         (aus / 'woerter.json').write_text(json.dumps(woerter), encoding='utf-8')
         if laengen is None:  # Gemini: ein durchgehender Ton, Abschnitte aus den Wortzeiten
             laengen = laengen_aus_woertern(woerter, s['teile'], len(ton) / rate)

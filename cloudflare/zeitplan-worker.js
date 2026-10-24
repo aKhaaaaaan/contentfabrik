@@ -194,7 +194,9 @@ export async function pilotFortschritt(env, lauf) {
 }
 
 export async function befehl(env, text) {
-  const t = String(text || '').trim().toLowerCase();
+  // GEMELDET 24.10.2026: "Status?" bekam die Befehlsliste - Satzzeichen am Ende zaehlen nicht.
+  // "/" bleibt: "/start" sendet Telegram beim ersten Oeffnen, das darf nichts starten.
+  const t = String(text || '').toLowerCase().replace(/[\s?!.,;:]+$/, '').replace(/\s+/g, ' ').trim();
   if (t === 'status') {
     const [video, pilot, woche] = await Promise.all([laeufe(env, '', 'video.yml', 5),
       laeufe(env, '', 'pilot.yml', 5).catch(() => []), laeufe(env, '', 'langvideo.yml', 3).catch(() => [])]);

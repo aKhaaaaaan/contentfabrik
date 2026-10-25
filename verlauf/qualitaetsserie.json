@@ -86629,6 +86629,1344 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "40176437468.1:ai-tools-explained",
+      "run_id": "40176437468",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-25T08:30:18.142980+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "f434167c32f53ee7bf65268d0e622f000f2f6ea9",
+      "produktionsversion": "2c6ab789a161ea784e5411e5c9b0635cf8abb7adf42d14521d3417ce882434e5",
+      "videoformat": "short",
+      "thema": "Claude Code and TV control: what the docs say",
+      "titel": [
+        "*Claude* *Code* + Your *TV?*",
+        "What Docs Actually Say"
+      ],
+      "status": "gesendet",
+      "video_sha256": "04de01bcc2601b01ac2dcdd58c1eae7e66d0a5fb744346e027390571bf3d4f1d",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-18.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen generischen Programmierer in einem Büro, aber keine Erwähnung oder Steuerung eines Fernsehers wie in der Narration (\"control your TV\") gefragt.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die sichtbare Tabelle zeigt Richtlinien für Claude-Anweisungen, während im gesprochenen Text behauptet wird, die Dokumentation sage, dass Claude Dateien liest, Befehle ausführt und Änderungen vornimmt.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich Textüberschriften und Menü-Buttons zu 'Problems while you watch' oder 'Step away', aber keine visuelle Erklärung oder Dokumentation darüber, wie das Programm eigenständig Probleme bearbeitet oder abläuft.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine spielerische Textgrafik mit Multiple-Choice-Optionen zum Thema TV, aber keinerlei Dokumentation, Code oder technische Erläuterung, die zu der Aussage im Text passt.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt ein generisches Schema für Datenquellen und eine App namens SOURCES, stellt jedoch weder das Fehlen von Fernsehern in den Quellen dar noch zeigt sie Claude Code, der einen Fernseher steuert.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik zeigt nur Titel und Aufzählungspunkte, aber keine visuelle Demonstration oder Erklärung der im Kommentar erwähnten Befehlsausführung oder des hypothetischen TV-Zusammenhangs.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (4/10): Der Text auf dem Bildschirm zeigt zwar Zitate an, aber es ist keine grafische Erklärung oder Darstellung eines Befehlszeilentools oder einer TV-Steuerung zu sehen.",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine allgemeine Warnung und Text zum TV, aber keinen Beleg aus der Dokumentation oder eine technische Erklärung zur Steuerung.",
+        "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Text und ein Warnsymbol als grafische Zusammenfassung, aber keine Dokumentation oder Befehle zur TV-Steuerung wie im Text erwähnt.",
+        "Offenes Problem (schwer): Das Bild zeigt einen generischen Programmierer in einem Büro, aber keine Erwähnung oder Steuerung eines Fernsehers wie in der Narration (\"control your TV\") gefragt. Korrektur: Ein Dokument oder eine Schnittstelle, die zeigt, ob Claude Code Befehle ausführen kann, oder ein humorvoller Bezug zu einem Fernseher.",
+        "Offenes Problem (schwer): Die sichtbare Tabelle zeigt Richtlinien für Claude-Anweisungen, während im gesprochenen Text behauptet wird, die Dokumentation sage, dass Claude Dateien liest, Befehle ausführt und Änderungen vornimmt. Korrektur: Ein Ausschnitt aus der offiziellen Dokumentation oder Code-Schnittstelle, die zeigt, wie Claude Dateien liest und Befehle ausführt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich Textüberschriften und Menü-Buttons zu 'Problems while you watch' oder 'Step away', aber keine visuelle Erklärung oder Dokumentation darüber, wie das Programm eigenständig Probleme bearbeitet oder abläuft. Korrektur: Ein Dokumentationsausschnitt oder eine grafische Darstellung, die zeigt, wie Claude Code aktiv Code-Probleme durcharbeitet und überwacht.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine spielerische Textgrafik mit Multiple-Choice-Optionen zum Thema TV, aber keinerlei Dokumentation, Code oder technische Erläuterung, die zu der Aussage im Text passt. Korrektur: Ein Screenshot der Dokumentation oder des Interfaces, welches die Befehle zeigt.",
+        "Offenes Problem (schwer): Die Abbildung zeigt ein generisches Schema für Datenquellen und eine App namens SOURCES, stellt jedoch weder das Fehlen von Fernsehern in den Quellen dar noch zeigt sie Claude Code, der einen Fernseher steuert. Korrektur: Ein Dokumenten-Screenshot oder Textauszug aus den Claude Code-Dokumenten, der die unterstützten Befehle und Funktionen ohne Erwähnung von Fernsehern zeigt.",
+        "Offenes Problem (schwer): Die Textgrafik zeigt nur Titel und Aufzählungspunkte, aber keine visuelle Demonstration oder Erklärung der im Kommentar erwähnten Befehlsausführung oder des hypothetischen TV-Zusammenhangs. Korrektur: Ein Dokument oder eine Schnittstelle, die den Befehl und den hypothetischen Bezug zu einem steuerbaren Gerät oder einer Befehlszeile zeigt.",
+        "Offenes Problem (schwer): Der Text auf dem Bildschirm zeigt zwar Zitate an, aber es ist keine grafische Erklärung oder Darstellung eines Befehlszeilentools oder einer TV-Steuerung zu sehen. Korrektur: Ein Screenshot einer Dokumentation oder eines Befehlszeilentools, das eine mögliche Anbindung oder Steuerung verdeutlicht.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Warnung und Text zum TV, aber keinen Beleg aus der Dokumentation oder eine technische Erklärung zur Steuerung. Korrektur: Ein Dokumentenauszug oder Code-Beispiel, das die tatsächlichen Möglichkeiten oder das Fehlen von TV-Befehlen zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich Text und ein Warnsymbol als grafische Zusammenfassung, aber keine Dokumentation oder Befehle zur TV-Steuerung wie im Text erwähnt. Korrektur: Ein Dokumentationsausschnitt oder Diagramm, das den Befehl zur Interaktion zeigt."
+      ],
+      "einstellungen": 14,
+      "unterschiedliche_motive": 14,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "40176437468",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-25",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 262.9,
+            "pruefung_s": 38.1,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen generischen Programmierer in einem Büro, aber keine Erwähnung oder Steuerung eines Fernsehers wie in der Narration (\"control your TV\") gefragt.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die sichtbare Tabelle zeigt Richtlinien für Claude-Anweisungen, während im gesprochenen Text behauptet wird, die Dokumentation sage, dass Claude Dateien liest, Befehle ausführt und Änderungen vornimmt.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich Textüberschriften und Menü-Buttons zu 'Problems while you watch' oder 'Step away', aber keine visuelle Erklärung oder Dokumentation darüber, wie das Programm eigenständig Probleme bearbeitet oder abläuft.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine spielerische Textgrafik mit Multiple-Choice-Optionen zum Thema TV, aber keinerlei Dokumentation, Code oder technische Erläuterung, die zu der Aussage im Text passt.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt ein generisches Schema für Datenquellen und eine App namens SOURCES, stellt jedoch weder das Fehlen von Fernsehern in den Quellen dar noch zeigt sie Claude Code, der einen Fernseher steuert.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik zeigt nur Titel und Aufzählungspunkte, aber keine visuelle Demonstration oder Erklärung der im Kommentar erwähnten Befehlsausführung oder des hypothetischen TV-Zusammenhangs.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (4/10): Der Text auf dem Bildschirm zeigt zwar Zitate an, aber es ist keine grafische Erklärung oder Darstellung eines Befehlszeilentools oder einer TV-Steuerung zu sehen.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine allgemeine Warnung und Text zum TV, aber keinen Beleg aus der Dokumentation oder eine technische Erklärung zur Steuerung.",
+              "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Text und ein Warnsymbol als grafische Zusammenfassung, aber keine Dokumentation oder Befehle zur TV-Steuerung wie im Text erwähnt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen generischen Programmierer in einem Büro, aber keine Erwähnung oder Steuerung eines Fernsehers wie in der Narration (\"control your TV\") gefragt. Korrektur: Ein Dokument oder eine Schnittstelle, die zeigt, ob Claude Code Befehle ausführen kann, oder ein humorvoller Bezug zu einem Fernseher.",
+              "Offenes Problem (schwer): Die sichtbare Tabelle zeigt Richtlinien für Claude-Anweisungen, während im gesprochenen Text behauptet wird, die Dokumentation sage, dass Claude Dateien liest, Befehle ausführt und Änderungen vornimmt. Korrektur: Ein Ausschnitt aus der offiziellen Dokumentation oder Code-Schnittstelle, die zeigt, wie Claude Dateien liest und Befehle ausführt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich Textüberschriften und Menü-Buttons zu 'Problems while you watch' oder 'Step away', aber keine visuelle Erklärung oder Dokumentation darüber, wie das Programm eigenständig Probleme bearbeitet oder abläuft. Korrektur: Ein Dokumentationsausschnitt oder eine grafische Darstellung, die zeigt, wie Claude Code aktiv Code-Probleme durcharbeitet und überwacht.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine spielerische Textgrafik mit Multiple-Choice-Optionen zum Thema TV, aber keinerlei Dokumentation, Code oder technische Erläuterung, die zu der Aussage im Text passt. Korrektur: Ein Screenshot der Dokumentation oder des Interfaces, welches die Befehle zeigt.",
+              "Offenes Problem (schwer): Die Abbildung zeigt ein generisches Schema für Datenquellen und eine App namens SOURCES, stellt jedoch weder das Fehlen von Fernsehern in den Quellen dar noch zeigt sie Claude Code, der einen Fernseher steuert. Korrektur: Ein Dokumenten-Screenshot oder Textauszug aus den Claude Code-Dokumenten, der die unterstützten Befehle und Funktionen ohne Erwähnung von Fernsehern zeigt.",
+              "Offenes Problem (schwer): Die Textgrafik zeigt nur Titel und Aufzählungspunkte, aber keine visuelle Demonstration oder Erklärung der im Kommentar erwähnten Befehlsausführung oder des hypothetischen TV-Zusammenhangs. Korrektur: Ein Dokument oder eine Schnittstelle, die den Befehl und den hypothetischen Bezug zu einem steuerbaren Gerät oder einer Befehlszeile zeigt.",
+              "Offenes Problem (schwer): Der Text auf dem Bildschirm zeigt zwar Zitate an, aber es ist keine grafische Erklärung oder Darstellung eines Befehlszeilentools oder einer TV-Steuerung zu sehen. Korrektur: Ein Screenshot einer Dokumentation oder eines Befehlszeilentools, das eine mögliche Anbindung oder Steuerung verdeutlicht.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Warnung und Text zum TV, aber keinen Beleg aus der Dokumentation oder eine technische Erklärung zur Steuerung. Korrektur: Ein Dokumentenauszug oder Code-Beispiel, das die tatsächlichen Möglichkeiten oder das Fehlen von TV-Befehlen zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich Text und ein Warnsymbol als grafische Zusammenfassung, aber keine Dokumentation oder Befehle zur TV-Steuerung wie im Text erwähnt. Korrektur: Ein Dokumentationsausschnitt oder Diagramm, das den Befehl zur Interaktion zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 13.4,
+              "zeitmarken": 5.9,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 14,
+              "clips_und_stuecke": 151.7,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 14,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 46.5,
+              "gesamt": 262.5,
+              "videolaenge_s": 44.8,
+              "abschnitte_s": [
+                6.7,
+                6.22,
+                8.26,
+                6.82,
+                7.04,
+                8.04,
+                1.68
+              ],
+              "woerter": 128
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Can Claude Code actually control your TV?",
+                "fest": false,
+                "text": "Das Bild zeigt einen generischen Programmierer in einem Büro, aber keine Erwähnung oder Steuerung eines Fernsehers wie in der Narration (\"control your TV\") gefragt. Korrektur: Ein Dokument oder eine Schnittstelle, die zeigt, ob Claude Code Befehle ausführen kann, oder ein humorvoller Bezug zu einem Fernseher."
+              },
+              {
+                "zeit": "00:06.70",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "The docs say it reads files, runs commands, makes changes, and",
+                "fest": true,
+                "text": "Die sichtbare Tabelle zeigt Richtlinien für Claude-Anweisungen, während im gesprochenen Text behauptet wird, die Dokumentation sage, dass Claude Dateien liest, Befehle ausführt und Änderungen vornimmt. Korrektur: Ein Ausschnitt aus der offiziellen Dokumentation oder Code-Schnittstelle, die zeigt, wie Claude Dateien liest und Befehle ausführt."
+              },
+              {
+                "zeit": "00:09.81",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "works through problems while you watch or step away.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich Textüberschriften und Menü-Buttons zu 'Problems while you watch' oder 'Step away', aber keine visuelle Erklärung oder Dokumentation darüber, wie das Programm eigenständig Probleme bearbeitet oder abläuft. Korrektur: Ein Dokumentationsausschnitt oder eine grafische Darstellung, die zeigt, wie Claude Code aktiv Code-Probleme durcharbeitet und überwacht."
+              },
+              {
+                "zeit": "00:12.92",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "So where's the TV? Honestly, nowhere.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich eine spielerische Textgrafik mit Multiple-Choice-Optionen zum Thema TV, aber keinerlei Dokumentation, Code oder technische Erläuterung, die zu der Aussage im Text passt. Korrektur: Ein Screenshot der Dokumentation oder des Interfaces, welches die Befehle zeigt."
+              },
+              {
+                "zeit": "00:16.10",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "These sources never mention televisions, or show Claude Code pressing a single remote button.",
+                "fest": true,
+                "text": "Die Abbildung zeigt ein generisches Schema für Datenquellen und eine App namens SOURCES, stellt jedoch weder das Fehlen von Fernsehern in den Quellen dar noch zeigt sie Claude Code, der einen Fernseher steuert. Korrektur: Ein Dokumenten-Screenshot oder Textauszug aus den Claude Code-Dokumenten, der die unterstützten Befehle und Funktionen ohne Erwähnung von Fernsehern zeigt."
+              },
+              {
+                "zeit": "00:21.18",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "Here's the twist. Claude Code runs commands, so a TV offering",
+                "fest": true,
+                "text": "Die Textgrafik zeigt nur Titel und Aufzählungspunkte, aber keine visuelle Demonstration oder Erklärung der im Kommentar erwähnten Befehlsausführung oder des hypothetischen TV-Zusammenhangs. Korrektur: Ein Dokument oder eine Schnittstelle, die den Befehl und den hypothetischen Bezug zu einem steuerbaren Gerät oder einer Befehlszeile zeigt."
+              },
+              {
+                "zeit": "00:24.59",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "a command-line tool could hypothetically fit. That's our guess.",
+                "fest": true,
+                "text": "Der Text auf dem Bildschirm zeigt zwar Zitate an, aber es ist keine grafische Erklärung oder Darstellung eines Befehlszeilentools oder einer TV-Steuerung zu sehen. Korrektur: Ein Screenshot einer Dokumentation oder eines Befehlszeilentools, das eine mögliche Anbindung oder Steuerung verdeutlicht."
+              },
+              {
+                "zeit": "00:35.04",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "So, your TV? Undocumented.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich eine allgemeine Warnung und Text zum TV, aber keinen Beleg aus der Dokumentation oder eine technische Erklärung zur Steuerung. Korrektur: Ein Dokumentenauszug oder Code-Beispiel, das die tatsächlichen Möglichkeiten oder das Fehlen von TV-Befehlen zeigt."
+              },
+              {
+                "zeit": "00:41.16",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 12,
+                "gesprochen": "Anything TV is hypothetical.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich Text und ein Warnsymbol als grafische Zusammenfassung, aber keine Dokumentation oder Befehle zur TV-Steuerung wie im Text erwähnt. Korrektur: Ein Dokumentationsausschnitt oder Diagramm, das den Befehl zur Interaktion zeigt."
+              }
+            ],
+            "sekunden": 301.1,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 316.1,
+        "upload_titel": "Claude Code + Your TV? What Docs Actually Say | AI Tool #15"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Can Claude Code actually control your TV?",
+            "fest": false,
+            "text": "Das Bild zeigt einen generischen Programmierer in einem Büro, aber keine Erwähnung oder Steuerung eines Fernsehers wie in der Narration (\"control your TV\") gefragt. Korrektur: Ein Dokument oder eine Schnittstelle, die zeigt, ob Claude Code Befehle ausführen kann, oder ein humorvoller Bezug zu einem Fernseher."
+          },
+          {
+            "zeit": "00:06.70",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "The docs say it reads files, runs commands, makes changes, and",
+            "fest": true,
+            "text": "Die sichtbare Tabelle zeigt Richtlinien für Claude-Anweisungen, während im gesprochenen Text behauptet wird, die Dokumentation sage, dass Claude Dateien liest, Befehle ausführt und Änderungen vornimmt. Korrektur: Ein Ausschnitt aus der offiziellen Dokumentation oder Code-Schnittstelle, die zeigt, wie Claude Dateien liest und Befehle ausführt."
+          },
+          {
+            "zeit": "00:09.81",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "works through problems while you watch or step away.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich Textüberschriften und Menü-Buttons zu 'Problems while you watch' oder 'Step away', aber keine visuelle Erklärung oder Dokumentation darüber, wie das Programm eigenständig Probleme bearbeitet oder abläuft. Korrektur: Ein Dokumentationsausschnitt oder eine grafische Darstellung, die zeigt, wie Claude Code aktiv Code-Probleme durcharbeitet und überwacht."
+          },
+          {
+            "zeit": "00:12.92",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "So where's the TV? Honestly, nowhere.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich eine spielerische Textgrafik mit Multiple-Choice-Optionen zum Thema TV, aber keinerlei Dokumentation, Code oder technische Erläuterung, die zu der Aussage im Text passt. Korrektur: Ein Screenshot der Dokumentation oder des Interfaces, welches die Befehle zeigt."
+          },
+          {
+            "zeit": "00:16.10",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "These sources never mention televisions, or show Claude Code pressing a single remote button.",
+            "fest": true,
+            "text": "Die Abbildung zeigt ein generisches Schema für Datenquellen und eine App namens SOURCES, stellt jedoch weder das Fehlen von Fernsehern in den Quellen dar noch zeigt sie Claude Code, der einen Fernseher steuert. Korrektur: Ein Dokumenten-Screenshot oder Textauszug aus den Claude Code-Dokumenten, der die unterstützten Befehle und Funktionen ohne Erwähnung von Fernsehern zeigt."
+          },
+          {
+            "zeit": "00:21.18",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 6,
+            "gesprochen": "Here's the twist. Claude Code runs commands, so a TV offering",
+            "fest": true,
+            "text": "Die Textgrafik zeigt nur Titel und Aufzählungspunkte, aber keine visuelle Demonstration oder Erklärung der im Kommentar erwähnten Befehlsausführung oder des hypothetischen TV-Zusammenhangs. Korrektur: Ein Dokument oder eine Schnittstelle, die den Befehl und den hypothetischen Bezug zu einem steuerbaren Gerät oder einer Befehlszeile zeigt."
+          },
+          {
+            "zeit": "00:24.59",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "a command-line tool could hypothetically fit. That's our guess.",
+            "fest": true,
+            "text": "Der Text auf dem Bildschirm zeigt zwar Zitate an, aber es ist keine grafische Erklärung oder Darstellung eines Befehlszeilentools oder einer TV-Steuerung zu sehen. Korrektur: Ein Screenshot einer Dokumentation oder eines Befehlszeilentools, das eine mögliche Anbindung oder Steuerung verdeutlicht."
+          },
+          {
+            "zeit": "00:35.04",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "So, your TV? Undocumented.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich eine allgemeine Warnung und Text zum TV, aber keinen Beleg aus der Dokumentation oder eine technische Erklärung zur Steuerung. Korrektur: Ein Dokumentenauszug oder Code-Beispiel, das die tatsächlichen Möglichkeiten oder das Fehlen von TV-Befehlen zeigt."
+          },
+          {
+            "zeit": "00:41.16",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 12,
+            "gesprochen": "Anything TV is hypothetical.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich Text und ein Warnsymbol als grafische Zusammenfassung, aber keine Dokumentation oder Befehle zur TV-Steuerung wie im Text erwähnt. Korrektur: Ein Dokumentationsausschnitt oder Diagramm, das den Befehl zur Interaktion zeigt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 44.7,
+          "fps": 30.0,
+          "lufs": -14.6,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 43.34,
+              "bis_s": 44.46,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.988
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 24.700000000000003,
+              "bis_s": 45.2,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Can",
+                "s": 0.0,
+                "e": 0.32,
+                "p": 0.8821151256561279
+              },
+              {
+                "w": "Cloud",
+                "s": 0.32,
+                "e": 0.58,
+                "p": 0.40932726860046387
+              },
+              {
+                "w": "Code",
+                "s": 0.58,
+                "e": 0.86,
+                "p": 0.595635712146759
+              },
+              {
+                "w": "actually",
+                "s": 0.86,
+                "e": 1.32,
+                "p": 0.9695661664009094
+              },
+              {
+                "w": "control",
+                "s": 1.32,
+                "e": 1.64,
+                "p": 0.9788378477096558
+              },
+              {
+                "w": "your",
+                "s": 1.64,
+                "e": 2.02,
+                "p": 0.9905343055725098
+              },
+              {
+                "w": "TV?",
+                "s": 2.02,
+                "e": 2.24,
+                "p": 0.9492785930633545
+              },
+              {
+                "w": "It's",
+                "s": 3.02,
+                "e": 3.1,
+                "p": 0.9720085561275482
+              },
+              {
+                "w": "an",
+                "s": 3.1,
+                "e": 3.16,
+                "p": 0.9895442724227905
+              },
+              {
+                "w": "agent",
+                "s": 3.16,
+                "e": 3.4,
+                "p": 0.9802411794662476
+              },
+              {
+                "w": "that",
+                "s": 3.4,
+                "e": 3.64,
+                "p": 0.9936408400535583
+              },
+              {
+                "w": "runs",
+                "s": 3.64,
+                "e": 3.86,
+                "p": 0.994460940361023
+              },
+              {
+                "w": "real",
+                "s": 3.86,
+                "e": 4.04,
+                "p": 0.886660099029541
+              },
+              {
+                "w": "commands,",
+                "s": 4.04,
+                "e": 4.3,
+                "p": 0.9734283089637756
+              },
+              {
+                "w": "not",
+                "s": 4.7,
+                "e": 4.84,
+                "p": 0.9901469349861145
+              },
+              {
+                "w": "a",
+                "s": 4.84,
+                "e": 5.0,
+                "p": 0.9895550012588501
+              },
+              {
+                "w": "chatbot",
+                "s": 5.0,
+                "e": 5.42,
+                "p": 0.7520769238471985
+              },
+              {
+                "w": "that",
+                "s": 5.42,
+                "e": 5.6,
+                "p": 0.9841719269752502
+              },
+              {
+                "w": "only",
+                "s": 5.6,
+                "e": 5.68,
+                "p": 0.9664049744606018
+              },
+              {
+                "w": "answers.",
+                "s": 5.68,
+                "e": 6.02,
+                "p": 0.9967842102050781
+              },
+              {
+                "w": "The",
+                "s": 6.72,
+                "e": 6.8,
+                "p": 0.9617733359336853
+              },
+              {
+                "w": "docs",
+                "s": 6.8,
+                "e": 7.0,
+                "p": 0.45446330308914185
+              },
+              {
+                "w": "say",
+                "s": 7.0,
+                "e": 7.3,
+                "p": 0.9804257750511169
+              },
+              {
+                "w": "it",
+                "s": 7.3,
+                "e": 7.5,
+                "p": 0.9419136047363281
+              },
+              {
+                "w": "reads",
+                "s": 7.5,
+                "e": 7.7,
+                "p": 0.9951750040054321
+              },
+              {
+                "w": "files,",
+                "s": 7.7,
+                "e": 8.04,
+                "p": 0.9618952870368958
+              },
+              {
+                "w": "runs",
+                "s": 8.28,
+                "e": 8.42,
+                "p": 0.9877691864967346
+              },
+              {
+                "w": "commands,",
+                "s": 8.42,
+                "e": 8.68,
+                "p": 0.9957883954048157
+              },
+              {
+                "w": "makes",
+                "s": 9.16,
+                "e": 9.26,
+                "p": 0.9901686906814575
+              },
+              {
+                "w": "changes,",
+                "s": 9.26,
+                "e": 9.56,
+                "p": 0.997366726398468
+              },
+              {
+                "w": "and",
+                "s": 9.86,
+                "e": 9.88,
+                "p": 0.9862787127494812
+              },
+              {
+                "w": "works",
+                "s": 9.88,
+                "e": 10.08,
+                "p": 0.9932776093482971
+              },
+              {
+                "w": "their",
+                "s": 10.08,
+                "e": 10.3,
+                "p": 0.5171260833740234
+              },
+              {
+                "w": "problems",
+                "s": 10.3,
+                "e": 10.54,
+                "p": 0.9964686632156372
+              },
+              {
+                "w": "while",
+                "s": 10.54,
+                "e": 10.92,
+                "p": 0.9874025583267212
+              },
+              {
+                "w": "you",
+                "s": 10.92,
+                "e": 11.06,
+                "p": 0.998153030872345
+              },
+              {
+                "w": "watch",
+                "s": 11.06,
+                "e": 11.36,
+                "p": 0.996084451675415
+              },
+              {
+                "w": "or",
+                "s": 11.36,
+                "e": 11.68,
+                "p": 0.9610648155212402
+              },
+              {
+                "w": "step",
+                "s": 11.68,
+                "e": 11.92,
+                "p": 0.9963441491127014
+              },
+              {
+                "w": "away.",
+                "s": 11.92,
+                "e": 12.14,
+                "p": 0.998792290687561
+              },
+              {
+                "w": "So",
+                "s": 12.96,
+                "e": 13.0,
+                "p": 0.9768264889717102
+              },
+              {
+                "w": "where's",
+                "s": 13.0,
+                "e": 13.36,
+                "p": 0.8410535454750061
+              },
+              {
+                "w": "the",
+                "s": 13.36,
+                "e": 13.46,
+                "p": 0.9957208037376404
+              },
+              {
+                "w": "TV?",
+                "s": 13.46,
+                "e": 13.62,
+                "p": 0.9886686205863953
+              },
+              {
+                "w": "Honestly,",
+                "s": 14.3,
+                "e": 14.62,
+                "p": 0.9636402726173401
+              },
+              {
+                "w": "nowhere.",
+                "s": 15.0,
+                "e": 15.28,
+                "p": 0.8369492888450623
+              },
+              {
+                "w": "These",
+                "s": 16.1,
+                "e": 16.1,
+                "p": 0.9378155469894409
+              },
+              {
+                "w": "sources",
+                "s": 16.1,
+                "e": 16.36,
+                "p": 0.9829970598220825
+              },
+              {
+                "w": "never",
+                "s": 16.36,
+                "e": 16.74,
+                "p": 0.9986825585365295
+              },
+              {
+                "w": "mention",
+                "s": 16.74,
+                "e": 17.26,
+                "p": 0.9792377948760986
+              },
+              {
+                "w": "televisions,",
+                "s": 17.26,
+                "e": 17.78,
+                "p": 0.9893660843372345
+              },
+              {
+                "w": "or",
+                "s": 17.96,
+                "e": 18.04,
+                "p": 0.9987466335296631
+              },
+              {
+                "w": "show",
+                "s": 18.04,
+                "e": 18.3,
+                "p": 0.9959295392036438
+              },
+              {
+                "w": "Cloud",
+                "s": 18.3,
+                "e": 18.6,
+                "p": 0.9498975276947021
+              },
+              {
+                "w": "Code",
+                "s": 18.6,
+                "e": 18.92,
+                "p": 0.9610188007354736
+              },
+              {
+                "w": "pressing",
+                "s": 18.92,
+                "e": 19.12,
+                "p": 0.9963521957397461
+              },
+              {
+                "w": "a",
+                "s": 19.12,
+                "e": 19.38,
+                "p": 0.9974390268325806
+              },
+              {
+                "w": "single",
+                "s": 19.38,
+                "e": 19.66,
+                "p": 0.9939154982566833
+              },
+              {
+                "w": "remote",
+                "s": 19.66,
+                "e": 19.9,
+                "p": 0.9862611889839172
+              },
+              {
+                "w": "button.",
+                "s": 19.9,
+                "e": 20.3,
+                "p": 0.9986429810523987
+              },
+              {
+                "w": "Here's",
+                "s": 21.22,
+                "e": 21.5,
+                "p": 0.9827904105186462
+              },
+              {
+                "w": "the",
+                "s": 21.5,
+                "e": 21.6,
+                "p": 0.9941867589950562
+              },
+              {
+                "w": "twist.",
+                "s": 21.6,
+                "e": 21.7,
+                "p": 0.997495174407959
+              },
+              {
+                "w": "Cloud",
+                "s": 22.4,
+                "e": 22.4,
+                "p": 0.9100205898284912
+              },
+              {
+                "w": "Code",
+                "s": 22.4,
+                "e": 22.66,
+                "p": 0.9440632462501526
+              },
+              {
+                "w": "runs",
+                "s": 22.66,
+                "e": 22.92,
+                "p": 0.9957122802734375
+              },
+              {
+                "w": "commands,",
+                "s": 22.92,
+                "e": 23.18,
+                "p": 0.993135929107666
+              },
+              {
+                "w": "so",
+                "s": 23.7,
+                "e": 23.98,
+                "p": 0.9974715709686279
+              },
+              {
+                "w": "a",
+                "s": 23.98,
+                "e": 24.12,
+                "p": 0.9955169558525085
+              },
+              {
+                "w": "TV",
+                "s": 24.12,
+                "e": 24.34,
+                "p": 0.9922764897346497
+              },
+              {
+                "w": "offering",
+                "s": 24.34,
+                "e": 24.76,
+                "p": 0.9934978485107422
+              },
+              {
+                "w": "a",
+                "s": 24.76,
+                "e": 24.94,
+                "p": 0.997914731502533
+              },
+              {
+                "w": "command",
+                "s": 24.94,
+                "e": 25.12,
+                "p": 0.8716139793395996
+              },
+              {
+                "w": "line",
+                "s": 25.12,
+                "e": 25.38,
+                "p": 0.6500657200813293
+              },
+              {
+                "w": "tool",
+                "s": 25.38,
+                "e": 25.64,
+                "p": 0.9949276447296143
+              },
+              {
+                "w": "could",
+                "s": 25.64,
+                "e": 25.94,
+                "p": 0.9816184639930725
+              },
+              {
+                "w": "hypothetically",
+                "s": 25.94,
+                "e": 26.7,
+                "p": 0.9882344305515289
+              },
+              {
+                "w": "fit.",
+                "s": 26.7,
+                "e": 27.04,
+                "p": 0.993226945400238
+              },
+              {
+                "w": "That's",
+                "s": 27.48,
+                "e": 27.78,
+                "p": 0.9970170259475708
+              },
+              {
+                "w": "our",
+                "s": 27.78,
+                "e": 27.84,
+                "p": 0.9955766201019287
+              },
+              {
+                "w": "guess.",
+                "s": 27.84,
+                "e": 27.98,
+                "p": 0.9784530997276306
+              },
+              {
+                "w": "Yes,",
+                "s": 27.98,
+                "e": 28.12,
+                "p": 0.7279393672943115
+              },
+              {
+                "w": "Doc's",
+                "s": 28.62,
+                "e": 28.92,
+                "p": 0.7450256943702698
+              },
+              {
+                "w": "advise",
+                "s": 28.92,
+                "e": 29.04,
+                "p": 0.3214040696620941
+              },
+              {
+                "w": "giving",
+                "s": 29.04,
+                "e": 29.38,
+                "p": 0.9871620535850525
+              },
+              {
+                "w": "Claude",
+                "s": 29.38,
+                "e": 29.62,
+                "p": 0.527783989906311
+              },
+              {
+                "w": "a",
+                "s": 29.62,
+                "e": 29.88,
+                "p": 0.9946430921554565
+              },
+              {
+                "w": "runnable",
+                "s": 29.88,
+                "e": 30.24,
+                "p": 0.8523992300033569
+              },
+              {
+                "w": "check.",
+                "s": 30.24,
+                "e": 30.44,
+                "p": 0.9846711158752441
+              },
+              {
+                "w": "Tests",
+                "s": 30.84,
+                "e": 30.98,
+                "p": 0.7424924969673157
+              },
+              {
+                "w": "a",
+                "s": 30.98,
+                "e": 31.38,
+                "p": 0.6253902912139893
+              },
+              {
+                "w": "build",
+                "s": 31.38,
+                "e": 31.6,
+                "p": 0.9345425367355347
+              },
+              {
+                "w": "or",
+                "s": 31.6,
+                "e": 31.86,
+                "p": 0.9486437439918518
+              },
+              {
+                "w": "a",
+                "s": 31.86,
+                "e": 31.92,
+                "p": 0.773770809173584
+              },
+              {
+                "w": "screenshot.",
+                "s": 31.92,
+                "e": 32.2,
+                "p": 0.9160656929016113
+              },
+              {
+                "w": "It",
+                "s": 32.8,
+                "e": 32.84,
+                "p": 0.991330623626709
+              },
+              {
+                "w": "iterates",
+                "s": 32.84,
+                "e": 33.24,
+                "p": 0.9952315390110016
+              },
+              {
+                "w": "until",
+                "s": 33.24,
+                "e": 33.54,
+                "p": 0.9896318912506104
+              },
+              {
+                "w": "the",
+                "s": 33.54,
+                "e": 33.74,
+                "p": 0.982543408870697
+              },
+              {
+                "w": "check",
+                "s": 33.74,
+                "e": 33.88,
+                "p": 0.9878873825073242
+              },
+              {
+                "w": "passes.",
+                "s": 33.88,
+                "e": 34.18,
+                "p": 0.9986577033996582
+              },
+              {
+                "w": "So",
+                "s": 35.06,
+                "e": 35.06,
+                "p": 0.968248188495636
+              },
+              {
+                "w": "your",
+                "s": 35.06,
+                "e": 35.28,
+                "p": 0.6341643333435059
+              },
+              {
+                "w": "TV,",
+                "s": 35.28,
+                "e": 35.62,
+                "p": 0.9408208727836609
+              },
+              {
+                "w": "undocumented.",
+                "s": 36.16,
+                "e": 36.48,
+                "p": 0.9246623516082764
+              },
+              {
+                "w": "What's",
+                "s": 37.28,
+                "e": 37.4,
+                "p": 0.9898370206356049
+              },
+              {
+                "w": "documented",
+                "s": 37.4,
+                "e": 37.6,
+                "p": 0.9962007403373718
+              },
+              {
+                "w": "is",
+                "s": 37.6,
+                "e": 38.06,
+                "p": 0.9831978678703308
+              },
+              {
+                "w": "the",
+                "s": 38.06,
+                "e": 38.18,
+                "p": 0.9924512505531311
+              },
+              {
+                "w": "pattern.",
+                "s": 38.18,
+                "e": 38.44,
+                "p": 0.9940518736839294
+              },
+              {
+                "w": "Command's",
+                "s": 38.94,
+                "e": 39.24,
+                "p": 0.3682595044374466
+              },
+              {
+                "w": "to",
+                "s": 39.24,
+                "e": 39.32,
+                "p": 0.9918780326843262
+              },
+              {
+                "w": "act,",
+                "s": 39.32,
+                "e": 39.5,
+                "p": 0.9187533855438232
+              },
+              {
+                "w": "a",
+                "s": 39.8,
+                "e": 39.88,
+                "p": 0.9854112863540649
+              },
+              {
+                "w": "check",
+                "s": 39.88,
+                "e": 40.04,
+                "p": 0.994306743144989
+              },
+              {
+                "w": "to",
+                "s": 40.04,
+                "e": 40.22,
+                "p": 0.9924570322036743
+              },
+              {
+                "w": "verify.",
+                "s": 40.22,
+                "e": 40.36,
+                "p": 0.9958152174949646
+              },
+              {
+                "w": "Anything",
+                "s": 41.12,
+                "e": 41.24,
+                "p": 0.9926140308380127
+              },
+              {
+                "w": "TV",
+                "s": 41.24,
+                "e": 41.56,
+                "p": 0.978569507598877
+              },
+              {
+                "w": "is",
+                "s": 41.56,
+                "e": 41.94,
+                "p": 0.9899711012840271
+              },
+              {
+                "w": "hypothetical.",
+                "s": 41.94,
+                "e": 42.14,
+                "p": 0.9889569878578186
+              },
+              {
+                "w": "Be",
+                "s": 43.08,
+                "e": 43.1,
+                "p": 0.9913432598114014
+              },
+              {
+                "w": "sure",
+                "s": 43.1,
+                "e": 43.22,
+                "p": 0.9988678693771362
+              },
+              {
+                "w": "to",
+                "s": 43.22,
+                "e": 43.34,
+                "p": 0.9939175248146057
+              },
+              {
+                "w": "like,",
+                "s": 43.34,
+                "e": 43.5,
+                "p": 0.9555584788322449
+              },
+              {
+                "w": "share,",
+                "s": 43.52,
+                "e": 43.76,
+                "p": 0.9981499910354614
+              },
+              {
+                "w": "and",
+                "s": 43.86,
+                "e": 43.92,
+                "p": 0.9928985834121704
+              },
+              {
+                "w": "save",
+                "s": 43.92,
+                "e": 44.1,
+                "p": 0.9958427548408508
+              },
+              {
+                "w": "this",
+                "s": 44.1,
+                "e": 44.24,
+                "p": 0.9881835579872131
+              },
+              {
+                "w": "video.",
+                "s": 44.24,
+                "e": 44.46,
+                "p": 0.999061644077301
+              }
+            ],
+            "dauer_s": 44.6933125,
+            "sprache": "en"
+          },
+          "roh_key": "75291838e3d9942b1d793d28f5c19a9390063f5f6f81162be710b43f6b3f8e22",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "04de01bcc2601b01ac2dcdd58c1eae7e66d0a5fb744346e027390571bf3d4f1d",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 44.7,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 14,
+          "motive": 14,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "04de01bcc2601b01ac2dcdd58c1eae7e66d0a5fb744346e027390571bf3d4f1d",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Eine illustrierte Darstellung eines Mannes in einer Lederjacke, der an einem Laptop in einem Büro sitzt.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt einen generischen Programmierer in einem Büro, aber keine Erwähnung oder Steuerung eines Fernsehers wie in der Narration (\"control your TV\") gefragt.",
+              "erforderliches_bild": "Ein Dokument oder eine Schnittstelle, die zeigt, ob Claude Code Befehle ausführen kann, oder ein humorvoller Bezug zu einem Fernseher."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Screenshot zeigt die Aufschriften RUNS REAL COMMANDS und CHATBOT jeweils mit einem grünen Häkchen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbaren Begriffe entsprechen direkt den im gesprochenen Text genannten Eigenschaften runs real commands und chatbot.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da die visuelle Evidenz passt."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Pop-up-Menü mit einer Vergleichstabelle für Include und Exclude von Claude-Anweisungen, wobei der erste Punkt 'Bash commands Claude can't guess' und 'Anything Claude can figure out by reading code' markiert ist.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die sichtbare Tabelle zeigt Richtlinien für Claude-Anweisungen, während im gesprochenen Text behauptet wird, die Dokumentation sage, dass Claude Dateien liest, Befehle ausführt und Änderungen vornimmt.",
+              "erforderliches_bild": "Ein Ausschnitt aus der offiziellen Dokumentation oder Code-Schnittstelle, die zeigt, wie Claude Dateien liest und Befehle ausführt."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Bildschirm mit der Überschrift 'CLAUDE CODE AND TV CONTROL: WHAT THE DOCS SAY' und zwei Schaltflächen mit den Texten 'PROBLEMS WHILE YOU WATCH' und 'STEP AWAY'.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich Textüberschriften und Menü-Buttons zu 'Problems while you watch' oder 'Step away', aber keine visuelle Erklärung oder Dokumentation darüber, wie das Programm eigenständig Probleme bearbeitet oder abläuft.",
+              "erforderliches_bild": "Ein Dokumentationsausschnitt oder eine grafische Darstellung, die zeigt, wie Claude Code aktiv Code-Probleme durcharbeitet und überwacht."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Bildschirm mit Text im Quiz-Stil, der die Fragen \"WHERE'S THE TV\", \"HONESTLY\" und \"NOWHERE\" anzeigt, wobei die mittlere Option hervorgehoben ist.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine spielerische Textgrafik mit Multiple-Choice-Optionen zum Thema TV, aber keinerlei Dokumentation, Code oder technische Erläuterung, die zu der Aussage im Text passt.",
+              "erforderliches_bild": "Ein Screenshot der Dokumentation oder des Interfaces, welches die Befehle zeigt."
+            },
+            {
+              "index": 5,
+              "gesehen": "Eine Grafik mit drei zylindrischen Datenquellen-Symbolen, die über orangefarbene Linien mit einer Box mit der Aufschrift APP verbunden sind, darunter die Beschriftungen Claude Code und SOURCES.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Abbildung zeigt ein generisches Schema für Datenquellen und eine App namens SOURCES, stellt jedoch weder das Fehlen von Fernsehern in den Quellen dar noch zeigt sie Claude Code, der einen Fernseher steuert.",
+              "erforderliches_bild": "Ein Dokumenten-Screenshot oder Textauszug aus den Claude Code-Dokumenten, der die unterstützten Befehle und Funktionen ohne Erwähnung von Fernsehern zeigt."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Bildschirm mit Textüberschriften: 'CLAUDE CODE AND TV CONTROL: WHAT THE DOCS SAY', 'HERE'S THE TWIST', 'CLAUDE CODE RUNS COMMANDS' und 'TV OFFERING'.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Textgrafik zeigt nur Titel und Aufzählungspunkte, aber keine visuelle Demonstration oder Erklärung der im Kommentar erwähnten Befehlsausführung oder des hypothetischen TV-Zusammenhangs.",
+              "erforderliches_bild": "Ein Dokument oder eine Schnittstelle, die den Befehl und den hypothetischen Bezug zu einem steuerbaren Gerät oder einer Befehlszeile zeigt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein dunkler Bildschirm mit zwei Textfeldern, die besagen: TOOL COULD HYPOTHETICALLY FIT und THAT'S OUR GUESS.",
+              "note": 4,
+              "passt": false,
+              "grund": "Der Text auf dem Bildschirm zeigt zwar Zitate an, aber es ist keine grafische Erklärung oder Darstellung eines Befehlszeilentools oder einer TV-Steuerung zu sehen.",
+              "erforderliches_bild": "Ein Screenshot einer Dokumentation oder eines Befehlszeilentools, das eine mögliche Anbindung oder Steuerung verdeutlicht."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Bildschirmfoto zeigt einen Text mit dem Ratschlag, Claude eine überprüfbare Aufgabe wie Tests, einen Build oder einen Screenshot zum Vergleichen zu geben.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das sichtbare Dokument zeigt exakt die im gesprochenen Text erwähnten Ratschläge bezüglich Tests, Build und Screenshot.",
+              "erforderliches_bild": "keines"
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein hervorgehobener Textausschnitt, der eine Erläuterung zu 'Stop hook' und 'Stop input' zeigt.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gezeigte Dokumentation erklärt den Mechanismus des automatischen Prüfens ('runs your check as a script and blocks the turn from ending until it passes'), was direkt zum gesprochenen Satz über die iterativen Prüfungen passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein gelbes Warndreieck und ein Textkasten mit der Aufschrift SO, YOUR TV? UNDOCUMENTED.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine allgemeine Warnung und Text zum TV, aber keinen Beleg aus der Dokumentation oder eine technische Erklärung zur Steuerung.",
+              "erforderliches_bild": "Ein Dokumentenauszug oder Code-Beispiel, das die tatsächlichen Möglichkeiten oder das Fehlen von TV-Befehlen zeigt."
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein UI-Fenster mit dem Titel 'DOCUMENTED IS THE PATT', mehreren grauen Textlinien und einer roten Box um ein Fragezeichen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbare Dokumentationsgrafik mit Textlinien und Prüfungsbezug passt direkt zur gesprochenen Erwähnung des dokumentierten Musters und der Überprüfung.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 12,
+              "gesehen": "Ein gelbes Warnsymbol mit Ausrufezeichen und ein Kasten mit dem Text 'ANYTHING TV IS HYPOTHETICAL.'",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich Text und ein Warnsymbol als grafische Zusammenfassung, aber keine Dokumentation oder Befehle zur TV-Steuerung wie im Text erwähnt.",
+              "erforderliches_bild": "Ein Dokumentationsausschnitt oder Diagramm, das den Befehl zur Interaktion zeigt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen generischen Programmierer in einem Büro, aber keine Erwähnung oder Steuerung eines Fernsehers wie in der Narration (\"control your TV\") gefragt.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die sichtbare Tabelle zeigt Richtlinien für Claude-Anweisungen, während im gesprochenen Text behauptet wird, die Dokumentation sage, dass Claude Dateien liest, Befehle ausführt und Änderungen vornimmt.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich Textüberschriften und Menü-Buttons zu 'Problems while you watch' oder 'Step away', aber keine visuelle Erklärung oder Dokumentation darüber, wie das Programm eigenständig Probleme bearbeitet oder abläuft.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine spielerische Textgrafik mit Multiple-Choice-Optionen zum Thema TV, aber keinerlei Dokumentation, Code oder technische Erläuterung, die zu der Aussage im Text passt.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt ein generisches Schema für Datenquellen und eine App namens SOURCES, stellt jedoch weder das Fehlen von Fernsehern in den Quellen dar noch zeigt sie Claude Code, der einen Fernseher steuert.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Die Textgrafik zeigt nur Titel und Aufzählungspunkte, aber keine visuelle Demonstration oder Erklärung der im Kommentar erwähnten Befehlsausführung oder des hypothetischen TV-Zusammenhangs.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (4/10): Der Text auf dem Bildschirm zeigt zwar Zitate an, aber es ist keine grafische Erklärung oder Darstellung eines Befehlszeilentools oder einer TV-Steuerung zu sehen.",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine allgemeine Warnung und Text zum TV, aber keinen Beleg aus der Dokumentation oder eine technische Erklärung zur Steuerung.",
+            "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Text und ein Warnsymbol als grafische Zusammenfassung, aber keine Dokumentation oder Befehle zur TV-Steuerung wie im Text erwähnt."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 14,
+          "ausgenommen": [
+            13
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "04de01bcc2601b01ac2dcdd58c1eae7e66d0a5fb744346e027390571bf3d4f1d",
+        "prompt_version": "2026-10-18.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

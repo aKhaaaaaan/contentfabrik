@@ -115,8 +115,9 @@ def zahl_momente(slots, hoechstens=3):
                 kandidaten.append((i, (zahl, wort)))
                 break
     if len(kandidaten) > hoechstens:
-        mitte = len(kandidaten) // 2
-        kandidaten = [kandidaten[0], kandidaten[mitte], kandidaten[-1]][:hoechstens]
+        # gleichmaessig verteilt, erster und letzter immer dabei (Short: Hook, Wendepunkt, Aufloesung)
+        n = len(kandidaten) - 1
+        kandidaten = [kandidaten[int(k * n / max(1, hoechstens - 1) + .5)] for k in range(hoechstens)]             if hoechstens > 1 else kandidaten[:1]
     return dict(kandidaten)
 
 
@@ -133,22 +134,27 @@ def zahl_auf_szene(bild, ziel, zahl, wort):
     def font(n):
         return ImageFont.truetype(str(SCHRIFT), n)
     rand = int(w * .05)
-    n = int(w * .17)
+    # Querformat (Langvideo 25.10.2026): Groesse an der Hoehe messen, sonst fuellt der Kasten ~60 % des Bildes.
+    # Hochformat bleibt unveraendert (basis = Breite).
+    basis = min(w, int(h * .6))
+    n = int(basis * .17)
     while n > 40 and d.textlength(zahl, font=font(n)) > w - 2 * rand - 60:
         n -= 4
-    nw = int(w * .065)
+    nw = int(basis * .065)
     while nw > 20 and d.textlength(wort, font=font(nw)) > w - 2 * rand - 60:
         nw -= 2
     # Kasten nur so breit wie der Text, mittig - verdeckt weniger Szene
-    innen = max(d.textlength(zahl, font=font(n)), d.textlength(wort, font=font(nw))) + int(w * .08)
-    links = int((w - innen) / 2)
+    innen = max(d.textlength(zahl, font=font(n)), d.textlength(wort, font=font(nw))) + int(basis * .08)
+    # Querformat: oben links wie eine Nachrichten-Einblendung - Probe 25.10.2026 am Langvideo-Bild: mittig
+    # verdeckte der Kasten den Kopf der Kanalfigur, die im Querformat in der Bildmitte steht.
+    links = rand if w > h else int((w - innen) / 2)
     oben = int(h * .05)
-    unten = oben + n + nw + int(w * .09)
-    d.rounded_rectangle((links, oben, w - links, unten), int(w * .04), fill=(16, 32, 45, 200),
+    unten = oben + n + nw + int(basis * .09)
+    d.rounded_rectangle((links, oben, links + innen, unten), int(basis * .04), fill=(16, 32, 45, 200),
                         outline=(255, 174, 53, 255), width=max(4, w // 200))
-    for s, y, gr, farbe in ((zahl, oben + int(w * .015), n, (255, 174, 53, 255)),
-                            (wort, oben + int(w * .035) + n, nw, (237, 246, 255, 255))):
-        d.text(((w - d.textlength(s, font=font(gr))) / 2, y), s, font=font(gr), fill=farbe)
+    for s, y, gr, farbe in ((zahl, oben + int(basis * .015), n, (255, 174, 53, 255)),
+                            (wort, oben + int(basis * .035) + n, nw, (237, 246, 255, 255))):
+        d.text((links + (innen - d.textlength(s, font=font(gr))) / 2, y), s, font=font(gr), fill=farbe)
     im = Image.alpha_composite(im.convert('RGBA'), schicht).convert('RGB')
     Path(ziel).parent.mkdir(parents=True, exist_ok=True)
     im.save(ziel, 'JPEG', quality=93)

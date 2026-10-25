@@ -1346,6 +1346,14 @@ def musik_kette(pegel, laenge, pausen=(), stille=0.55):
     return kette
 
 
+def zahl_hoechstens(shots, lang):
+    """Zahlenmomente je Video: Short 3 (Hook, Wendepunkt, Aufloesung), Langvideo etwa einer je Minute."""
+    if not lang:
+        return 3
+    dauer = sum(x.get('dauer_s', 0) for x in shots)
+    return max(3, round(dauer / 60))
+
+
 def ersatz_grenze(einstellungen, lang=False):
     """Hoechstens so viele Einstellungen mit Ersatzbild: Short 2, Langvideo 20 Prozent.
 
@@ -1744,10 +1752,13 @@ def main(skript_pfad, aus, vorlage=None):
         kanal_slug = re.sub(r'[^a-z0-9]+', '-', s.get('kanal', '').lower()).strip('-')
         # Nutzer 23.10.2026 (Bildsprache): hoechstens 3 gesprochene Betraege gross UEBER der gemalten Szene (Hook,
         # Wendepunkt, Aufloesung). Probe 24.10. am Moderna-Short: "$2 billion" 3->8/10, "27 million shares" 1->8/10.
-        # Nur Story-Shorts; der KI-Kanal malt die Mitte ohnehin nicht (gemalt_nur_rand).
+        # Nur Story-Kanaele; der KI-Kanal malt die Mitte ohnehin nicht (gemalt_nur_rand).
+        # 25.10.2026 auch Langvideo (Tesla-Entwurf: "7,5 Millionen" als Meeting -> 2/10; Nutzer: "die sind gut aber
+        # koennen trotzdem noch besser werden"): etwa ein Zahlenmoment je Minute statt drei.
         import erklaergrafik
-        zahl_slots = (erklaergrafik.zahl_momente([(x['teil']['text'], x.get('phase_text', '')) for x in shots])
-                      if B < H and not kanalprofil(s).get('gemalt_nur_rand') else {})
+        zahl_slots = (erklaergrafik.zahl_momente([(x['teil']['text'], x.get('phase_text', '')) for x in shots],
+                                                 zahl_hoechstens(shots, lang=B > H))
+                      if not kanalprofil(s).get('gemalt_nur_rand') else {})
         FORTSCHRITT['plaetze'] = sorted((t['platz'] for t in s['teile'] if t.get('platz')), reverse=True)
         FORTSCHRITT['aktuell'] = None
         for i, shot in enumerate(shots):

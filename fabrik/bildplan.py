@@ -392,6 +392,27 @@ def _planen(gemini, modelle, auftrag, indizes, fallback_prompt=None):
     return daten  # die Pruefung unten meldet die Luecke
 
 
+def teil_planen(gemini, auftrag, kontext, kompakt, teil, fallback):
+    """Eine Etappe planen; bleibt sie nach zwei Versuchen lueckenhaft, die fehlenden Slots halbiert neu planen.
+    GEMESSEN 25.10.2026 (Tesla-Korrektur 40181407459): Groq 0, Gemini 1 von 7 Einstellungen -> ValueError
+    "nicht lueckenlos", die ganze Korrektur weg, obwohl die anderen 76 Einstellungen geplant waren."""
+    indizes = [x['index'] for x in teil]
+    neu = _planen(gemini, PLANEN, auftrag + json.dumps(dict(kontext, slots=teil), ensure_ascii=False),
+                  indizes, fallback_prompt=fallback)
+    da = {x.get('index'): x for x in neu if x.get('index') in indizes}
+    fehlen = [x for x in teil if x['index'] not in da]
+    if not fehlen or len(teil) <= 1:
+        return [da[i] for i in indizes] if not fehlen else neu
+    print(f'Bildplan: {len(fehlen)} fehlende Einstellungen in kleineren Teilen neu')
+    mitte = max(1, len(fehlen) // 2)
+    for haelfte in (fehlen[:mitte], fehlen[mitte:]):
+        for stueck, ausweich in (groq_teile(auftrag, kompakt, haelfte) if haelfte else []):
+            for x in teil_planen(gemini, auftrag, kontext, kompakt, stueck, ausweich):
+                if x.get('index') in indizes:
+                    da.setdefault(x['index'], x)
+    return [da[i] for i in indizes] if set(da) == set(indizes) else list(da.values())
+
+
 def demo_material(s):
     """Echte README-Bilder je Quellseite fuer den Bildplaner (nur Werkzeug-Seiten auf GitHub/HF)."""
     urls = []
@@ -603,8 +624,7 @@ def vorbereiten(s, laengen, woerter, cache=None, fortschritt=None):
                     print(f"Bildplan: Einstellungen {teil[0]['index']}-{teil[-1]['index']} aus vorherigem Versuch")
                     daten += [fertig[str(x['index'])] for x in teil]
                     continue
-                neu = _planen(gemini, PLANEN, auftrag + json.dumps(dict(kontext, slots=teil), ensure_ascii=False),
-                              [x['index'] for x in teil], fallback_prompt=fallback)
+                neu = teil_planen(gemini, auftrag, kontext, kompakt, teil, fallback)
                 neu, _ = bezug_pruefen(gemini, teil, neu, eigennamen(s))
                 daten += neu
                 if fortschritt and [d.get('index') for d in neu] == [x['index'] for x in teil]:

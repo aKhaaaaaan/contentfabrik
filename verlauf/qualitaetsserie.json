@@ -87967,6 +87967,1417 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "40176437468.1:business-origin-stories",
+      "run_id": "40176437468",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-25T09:02:24.675911+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "f434167c32f53ee7bf65268d0e622f000f2f6ea9",
+      "produktionsversion": "99c482e81fe94638df9950d4483fa80739191fce46a9a8514e12e9cf1402f454",
+      "videoformat": "short",
+      "thema": "American Express",
+      "titel": [
+        "Amex's Cash Problem",
+        "The *Travelers* *Cheque*"
+      ],
+      "status": "gesendet",
+      "video_sha256": "1445fc140c67dd98bcdd44bba0f2f368f3229704e8b4ea843d524c549838da97",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-18.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit einem American Express Firmenlogo als Kopf und passt nicht zur historischen Erzählung über Fargo und Reiseschecks.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Mann in einer historischen Umgebung, aber es illustriert nicht konkret die Frage nach Marcellus Berry oder der Entwicklung des Reiseschecks.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (4/10): Die historische Illustration zeigt zwar die Übergabe eines Dokuments, allerdings sind das Jahr 1891 und der genaue Text unzulässig für den Nachweis; es fehlt eine erkennbare Darstellung von Reiseschecks oder Stückelungen wie 10, 20, 50 oder 100.",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (4/10): Die Personen halten Bargeld auf der Straße, aber das Bild zeigt keine spezifische historische Szene von gestrandeten Amerikanern im Jahr 1914 im Ausland.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Mann mit einem American Express Firmenlogo als Kopf und passt nicht zur historischen Erzählung über Fargo und Reiseschecks. Korrektur: Eine historische Illustration, die einen Mann in der europäischen Kulisse des 19. Jahrhunderts mit traditionellen Kreditbriefen zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Mann in einer historischen Umgebung, aber es illustriert nicht konkret die Frage nach Marcellus Berry oder der Entwicklung des Reiseschecks. Korrektur: Eine Illustration, die einen unzufriedenen Reisenden oder den Präsidenten im Gespräch mit Marcellus Berry zeigt.",
+        "Offenes Problem (schwer): Die historische Illustration zeigt zwar die Übergabe eines Dokuments, allerdings sind das Jahr 1891 und der genaue Text unzulässig für den Nachweis; es fehlt eine erkennbare Darstellung von Reiseschecks oder Stückelungen wie 10, 20, 50 oder 100. Korrektur: Eine historische Illustration, die konkret die Ausgabe von Reiseschecks mit entsprechenden Werten (z. B. im 19. Jahrhundert) zeigt.",
+        "Offenes Problem (schwer): Die Personen halten Bargeld auf der Straße, aber das Bild zeigt keine spezifische historische Szene von gestrandeten Amerikanern im Jahr 1914 im Ausland. Korrektur: Eine historische Illustration oder Darstellung von Amerikanern im Jahr 1914 im Ausland, die versuchen, an Geld zu kommen."
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 13,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "40176437468",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-25",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 904.7,
+            "pruefung_s": 40.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit einem American-Express-Logo als Kopf, aber keine Darstellung von Fargo oder der Situation, dass Bargeld im Ausland nicht beschafft werden konnte.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar eine historische europäische Hafenszene, aber weder die Jahreszahlen 1888-1890 noch einen Briefkredit (letters of credit) oder den spezifischen Handlungsstrang der Reise.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen Detektiv oder Reisenden, aber keine spezifische Darstellung des verärgerten Zurückkehrens oder des Erlebnisses mit Krediten in Europa.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Die Szene zeigt einen Mann im Büro an einem Computer, was nicht zur Erwähnung der historischen Figur Marcellus Berry oder der Entwicklung des Reiseschecks passt.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar drei Personen in historischer Kleidung, jedoch gibt es keinen visuellen Hinweis auf Marcellus Berry oder die Entwicklung einer besseren Finanzlösung, wie es im Text beschrieben wird.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Werte von Reiseschecks ($10, $20, $50, $100) werden im Bild nur bruchstückhaft als '$50' in einem Overlay gezeigt, während der Rest eine Gruppe von Männern bei einem historischen Dokument zeigt und keinen klaren visuellen Bezug zur vollständigen Serie der Check-Stückelungen herstell",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Menschengruppe in historischem Ambiente, aber es wird weder das Jahr 1914 noch gestrandete Amerikaner oder Bargeld im Ausland dargestellt.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Die Szene zeigt Männer in Anzügen in einem Raum, aber kein Einlösen von Schecks im Jahr 1914 oder stranded Americans.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann mit einem American-Express-Logo als Kopf, aber keine Darstellung von Fargo oder der Situation, dass Bargeld im Ausland nicht beschafft werden konnte. Korrektur: Eine historische Illustration, die einen Reisenden in Europa zeigt, der im späten 19. Jahrhundert versucht, mit einem Brief von Kredit Geld bei einer Bank zu bekommen und abgewiesen wird.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar eine historische europäische Hafenszene, aber weder die Jahreszahlen 1888-1890 noch einen Briefkredit (letters of credit) oder den spezifischen Handlungsstrang der Reise. Korrektur: Eine historische Illustration, die einen Reisenden zeigt, der in einer europäischen Bank vergebens versucht, einen traditionellen Briefkredit einzulösen.",
+              "Offenes Problem (schwer): Die Szene zeigt einen Detektiv oder Reisenden, aber keine spezifische Darstellung des verärgerten Zurückkehrens oder des Erlebnisses mit Krediten in Europa. Korrektur: Ein historisch gekleideter Reisender, der frustriert mit Koffern oder Dokumenten vor einer Wechselstube oder Bank steht.",
+              "Offenes Problem (schwer): Die Szene zeigt einen Mann im Büro an einem Computer, was nicht zur Erwähnung der historischen Figur Marcellus Berry oder der Entwicklung des Reiseschecks passt. Korrektur: Eine historische Darstellung eines Mannes (wie Marcellus Berry), der an einem Schreibtisch Dokumente oder Entwürfe für den ersten Reisescheck zeichnet.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar drei Personen in historischer Kleidung, jedoch gibt es keinen visuellen Hinweis auf Marcellus Berry oder die Entwicklung einer besseren Finanzlösung, wie es im Text beschrieben wird. Korrektur: Eine historische Darstellung, in der ein Mann einem anderen Dokumente oder Entwürfe übergibt, um Reiseschecks zu entwickeln.",
+              "Offenes Problem (schwer): Die gesprochenen Werte von Reiseschecks ($10, $20, $50, $100) werden im Bild nur bruchstückhaft als '$50' in einem Overlay gezeigt, während der Rest eine Gruppe von Männern bei einem historischen Dokument zeigt und keinen klaren visuellen Bezug zur vollständigen Serie der Check-Stückelungen herstellt. Korrektur: Eine historische Darstellung der verschiedenen Stückelungen von American Express Travelers Cheques im Wert von 10, 20, 50 und 100 Dollar.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Menschengruppe in historischem Ambiente, aber es wird weder das Jahr 1914 noch gestrandete Amerikaner oder Bargeld im Ausland dargestellt. Korrektur: Eine historische Darstellung von gestrandeten Reisenden oder Bankkunden in einer europäischen Stadt im Jahr 1914, die versuchen, Bargeld zu bekommen.",
+              "Offenes Problem (schwer): Die Szene zeigt Männer in Anzügen in einem Raum, aber kein Einlösen von Schecks im Jahr 1914 oder stranded Americans. Korrektur: Eine historische Darstellung von gestrandeten Reisenden im Ausland, die Reiseschecks bei einer Amex-Stelle einlösen."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Orus",
+              "stimme": 15.9,
+              "zeitmarken": 5.2,
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 728.6,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 51.3,
+              "gesamt": 904.3,
+              "videolaenge_s": 44.7,
+              "abschnitte_s": [
+                6.92,
+                6.22,
+                6.98,
+                5.14,
+                8.46,
+                7.6,
+                3.39
+              ],
+              "woerter": 83
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:04.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Amex's own Fargo couldn't.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann mit einem American-Express-Logo als Kopf, aber keine Darstellung von Fargo oder der Situation, dass Bargeld im Ausland nicht beschafft werden konnte. Korrektur: Eine historische Illustration, die einen Reisenden in Europa zeigt, der im späten 19. Jahrhundert versucht, mit einem Brief von Kredit Geld bei einer Bank zu bekommen und abgewiesen wird."
+              },
+              {
+                "zeit": "00:06.92",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Sometime in 1888–1890, he",
+                "fest": false,
+                "text": "Das Bild zeigt zwar eine historische europäische Hafenszene, aber weder die Jahreszahlen 1888-1890 noch einen Briefkredit (letters of credit) oder den spezifischen Handlungsstrang der Reise. Korrektur: Eine historische Illustration, die einen Reisenden zeigt, der in einer europäischen Bank vergebens versucht, einen traditionellen Briefkredit einzulösen."
+              },
+              {
+                "zeit": "00:16.63",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "and returned infuriated.",
+                "fest": false,
+                "text": "Die Szene zeigt einen Detektiv oder Reisenden, aber keine spezifische Darstellung des verärgerten Zurückkehrens oder des Erlebnisses mit Krediten in Europa. Korrektur: Ein historisch gekleideter Reisender, der frustriert mit Koffern oder Dokumenten vor einer Wechselstube oder Bank steht."
+              },
+              {
+                "zeit": "00:20.12",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "So what did he do?",
+                "fest": false,
+                "text": "Die Szene zeigt einen Mann im Büro an einem Computer, was nicht zur Erwähnung der historischen Figur Marcellus Berry oder der Entwicklung des Reiseschecks passt. Korrektur: Eine historische Darstellung eines Mannes (wie Marcellus Berry), der an einem Schreibtisch Dokumente oder Entwürfe für den ersten Reisescheck zeichnet."
+              },
+              {
+                "zeit": "00:22.46",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "He asked Marcellus Berry for something better.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar drei Personen in historischer Kleidung, jedoch gibt es keinen visuellen Hinweis auf Marcellus Berry oder die Entwicklung einer besseren Finanzlösung, wie es im Text beschrieben wird. Korrektur: Eine historische Darstellung, in der ein Mann einem anderen Dokumente oder Entwürfe übergibt, um Reiseschecks zu entwickeln."
+              },
+              {
+                "zeit": "00:29.49",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "in $10, $20, $50 and $100.",
+                "fest": false,
+                "text": "Die gesprochenen Werte von Reiseschecks ($10, $20, $50, $100) werden im Bild nur bruchstückhaft als '$50' in einem Overlay gezeigt, während der Rest eine Gruppe von Männern bei einem historischen Dokument zeigt und keinen klaren visuellen Bezug zur vollständigen Serie der Check-Stückelungen herstellt. Korrektur: Eine historische Darstellung der verschiedenen Stückelungen von American Express Travelers Cheques im Wert von 10, 20, 50 und 100 Dollar."
+              },
+              {
+                "zeit": "00:33.72",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "In 1914, stranded Americans needed cash abroad.",
+                "fest": false,
+                "text": "Das Bild zeigt eine Menschengruppe in historischem Ambiente, aber es wird weder das Jahr 1914 noch gestrandete Amerikaner oder Bargeld im Ausland dargestellt. Korrektur: Eine historische Darstellung von gestrandeten Reisenden oder Bankkunden in einer europäischen Stadt im Jahr 1914, die versuchen, Bargeld zu bekommen."
+              },
+              {
+                "zeit": "00:38.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "Amex was among few honoring cheques.",
+                "fest": false,
+                "text": "Die Szene zeigt Männer in Anzügen in einem Raum, aber kein Einlösen von Schecks im Jahr 1914 oder stranded Americans. Korrektur: Eine historische Darstellung von gestrandeten Reisenden im Ausland, die Reiseschecks bei einer Amex-Stelle einlösen."
+              }
+            ],
+            "sekunden": 944.9,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 2.7,
+            "bau_s": 422.0,
+            "pruefung_s": 35.6,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar historische Männer in einer Büroszene, jedoch verletzt das prominent eingeblendete American-Express-Logo die Vorgabe, dass Story-Illustrationen keine Logos oder Markennamen zeigen dürfen.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen historischen Gentleman auf einer Straße, was zum Kontext des Firmengründers passt, aber die konkrete Handlung 'Frage nach etwas Besserem' ist nicht darstellbar.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (6/10): Die Abbildung zeigt zwar Geld, jedoch keine konkreten Darstellungen der verschiedenen Stückelungen wie $10, $20, $50 und $100 im historischen Kontext.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Die historische Büroszene zeigt Geschäftsleute mit Papierkram, aber es gibt keinen visuellen Bezug zu gestrandeten Amerikanern im Jahr 1914 oder dem Bedarf an Bargeld im Ausland.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Die Abbildung zeigt lediglich eine illustrierte Gruppe von Personen in einem Flur und keinerlei Bezug zu Reiseschecks, Bargeld oder dem Jahr 1914 aus dem gesprochenen Text.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar historische Männer in einer Büroszene, jedoch verletzt das prominent eingeblendete American-Express-Logo die Vorgabe, dass Story-Illustrationen keine Logos oder Markennamen zeigen dürfen. Korrektur: Eine historische Illustration von zwei Männern in einem Büro aus dem späten 19. Jahrhundert ohne jegliche Logos oder Markennamen, die die Unterhaltung über Kreditprobleme darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen historischen Gentleman auf einer Straße, was zum Kontext des Firmengründers passt, aber die konkrete Handlung 'Frage nach etwas Besserem' ist nicht darstellbar. Korrektur: Ein Historienbild, das den Firmenpräsidenten zeigt, wie er im Gespräch mit Marcellus Berry sitzt und Dokumente oder Entwürfe bespricht.",
+              "Offenes Problem (schwer): Die Abbildung zeigt zwar Geld, jedoch keine konkreten Darstellungen der verschiedenen Stückelungen wie $10, $20, $50 und $100 im historischen Kontext. Korrektur: Eine historische Illustration, die Beispielexemplare von Reiseschecks in den Werten 10, 20, 50 und 100 Dollar zeigt.",
+              "Offenes Problem (schwer): Die historische Büroszene zeigt Geschäftsleute mit Papierkram, aber es gibt keinen visuellen Bezug zu gestrandeten Amerikanern im Jahr 1914 oder dem Bedarf an Bargeld im Ausland. Korrektur: Eine historische Darstellung von Reisenden im Jahr 1914, die im Ausland nach Bargeld oder Unterstützung suchen.",
+              "Offenes Problem (schwer): Die Abbildung zeigt lediglich eine illustrierte Gruppe von Personen in einem Flur und keinerlei Bezug zu Reiseschecks, Bargeld oder dem Jahr 1914 aus dem gesprochenen Text. Korrektur: Eine historische Illustration, die die Einlösung von Reiseschecks im Jahr 1914 zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 5,
+              "stuecke_neu": 8,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 318.2,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 51.7,
+              "gesamt": 421.7,
+              "videolaenge_s": 44.7,
+              "abschnitte_s": [
+                6.92,
+                6.22,
+                6.98,
+                5.14,
+                8.46,
+                7.6,
+                3.39
+              ],
+              "woerter": 83
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:04.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Amex's own Fargo couldn't.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar historische Männer in einer Büroszene, jedoch verletzt das prominent eingeblendete American-Express-Logo die Vorgabe, dass Story-Illustrationen keine Logos oder Markennamen zeigen dürfen. Korrektur: Eine historische Illustration von zwei Männern in einem Büro aus dem späten 19. Jahrhundert ohne jegliche Logos oder Markennamen, die die Unterhaltung über Kreditprobleme darstellt."
+              },
+              {
+                "zeit": "00:20.12",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "So what did he do?",
+                "fest": false,
+                "text": "Das Bild zeigt einen historischen Gentleman auf einer Straße, was zum Kontext des Firmengründers passt, aber die konkrete Handlung 'Frage nach etwas Besserem' ist nicht darstellbar. Korrektur: Ein Historienbild, das den Firmenpräsidenten zeigt, wie er im Gespräch mit Marcellus Berry sitzt und Dokumente oder Entwürfe bespricht."
+              },
+              {
+                "zeit": "00:29.49",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "in $10, $20, $50 and $100.",
+                "fest": false,
+                "text": "Die Abbildung zeigt zwar Geld, jedoch keine konkreten Darstellungen der verschiedenen Stückelungen wie $10, $20, $50 und $100 im historischen Kontext. Korrektur: Eine historische Illustration, die Beispielexemplare von Reiseschecks in den Werten 10, 20, 50 und 100 Dollar zeigt."
+              },
+              {
+                "zeit": "00:33.72",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "In 1914, stranded Americans needed cash abroad.",
+                "fest": false,
+                "text": "Die historische Büroszene zeigt Geschäftsleute mit Papierkram, aber es gibt keinen visuellen Bezug zu gestrandeten Amerikanern im Jahr 1914 oder dem Bedarf an Bargeld im Ausland. Korrektur: Eine historische Darstellung von Reisenden im Jahr 1914, die im Ausland nach Bargeld oder Unterstützung suchen."
+              },
+              {
+                "zeit": "00:38.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "Amex was among few honoring cheques.",
+                "fest": false,
+                "text": "Die Abbildung zeigt lediglich eine illustrierte Gruppe von Personen in einem Flur und keinerlei Bezug zu Reiseschecks, Bargeld oder dem Jahr 1914 aus dem gesprochenen Text. Korrektur: Eine historische Illustration, die die Einlösung von Reiseschecks im Jahr 1914 zeigt."
+              }
+            ],
+            "sekunden": 460.3,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "40176437468-2",
+              "datum": "2026-10-25",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 460.3,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-18.1"
+            },
+            "skript_s": 2.8,
+            "bau_s": 287.0,
+            "pruefung_s": 36.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit einem American Express Firmenlogo als Kopf und passt nicht zur historischen Erzählung über Fargo und Reiseschecks.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Mann in einer historischen Umgebung, aber es illustriert nicht konkret die Frage nach Marcellus Berry oder der Entwicklung des Reiseschecks.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (4/10): Die historische Illustration zeigt zwar die Übergabe eines Dokuments, allerdings sind das Jahr 1891 und der genaue Text unzulässig für den Nachweis; es fehlt eine erkennbare Darstellung von Reiseschecks oder Stückelungen wie 10, 20, 50 oder 100.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (4/10): Die Personen halten Bargeld auf der Straße, aber das Bild zeigt keine spezifische historische Szene von gestrandeten Amerikanern im Jahr 1914 im Ausland.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann mit einem American Express Firmenlogo als Kopf und passt nicht zur historischen Erzählung über Fargo und Reiseschecks. Korrektur: Eine historische Illustration, die einen Mann in der europäischen Kulisse des 19. Jahrhunderts mit traditionellen Kreditbriefen zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann in einer historischen Umgebung, aber es illustriert nicht konkret die Frage nach Marcellus Berry oder der Entwicklung des Reiseschecks. Korrektur: Eine Illustration, die einen unzufriedenen Reisenden oder den Präsidenten im Gespräch mit Marcellus Berry zeigt.",
+              "Offenes Problem (schwer): Die historische Illustration zeigt zwar die Übergabe eines Dokuments, allerdings sind das Jahr 1891 und der genaue Text unzulässig für den Nachweis; es fehlt eine erkennbare Darstellung von Reiseschecks oder Stückelungen wie 10, 20, 50 oder 100. Korrektur: Eine historische Illustration, die konkret die Ausgabe von Reiseschecks mit entsprechenden Werten (z. B. im 19. Jahrhundert) zeigt.",
+              "Offenes Problem (schwer): Die Personen halten Bargeld auf der Straße, aber das Bild zeigt keine spezifische historische Szene von gestrandeten Amerikanern im Jahr 1914 im Ausland. Korrektur: Eine historische Illustration oder Darstellung von Amerikanern im Jahr 1914 im Ausland, die versuchen, an Geld zu kommen."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 8,
+              "stuecke_neu": 5,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 198.8,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 50.4,
+              "gesamt": 286.8,
+              "videolaenge_s": 44.7,
+              "abschnitte_s": [
+                6.92,
+                6.22,
+                6.98,
+                5.14,
+                8.46,
+                7.6,
+                3.39
+              ],
+              "woerter": 83
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:04.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Amex's own Fargo couldn't.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann mit einem American Express Firmenlogo als Kopf und passt nicht zur historischen Erzählung über Fargo und Reiseschecks. Korrektur: Eine historische Illustration, die einen Mann in der europäischen Kulisse des 19. Jahrhunderts mit traditionellen Kreditbriefen zeigt."
+              },
+              {
+                "zeit": "00:20.12",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "So what did he do?",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann in einer historischen Umgebung, aber es illustriert nicht konkret die Frage nach Marcellus Berry oder der Entwicklung des Reiseschecks. Korrektur: Eine Illustration, die einen unzufriedenen Reisenden oder den Präsidenten im Gespräch mit Marcellus Berry zeigt."
+              },
+              {
+                "zeit": "00:25.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Berry introduced the Travelers Cheque in 1891,",
+                "fest": false,
+                "text": "Die historische Illustration zeigt zwar die Übergabe eines Dokuments, allerdings sind das Jahr 1891 und der genaue Text unzulässig für den Nachweis; es fehlt eine erkennbare Darstellung von Reiseschecks oder Stückelungen wie 10, 20, 50 oder 100. Korrektur: Eine historische Illustration, die konkret die Ausgabe von Reiseschecks mit entsprechenden Werten (z. B. im 19. Jahrhundert) zeigt."
+              },
+              {
+                "zeit": "00:33.72",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "In 1914, stranded Americans needed cash abroad.",
+                "fest": false,
+                "text": "Die Personen halten Bargeld auf der Straße, aber das Bild zeigt keine spezifische historische Szene von gestrandeten Amerikanern im Jahr 1914 im Ausland. Korrektur: Eine historische Illustration oder Darstellung von Amerikanern im Jahr 1914 im Ausland, die versuchen, an Geld zu kommen."
+              }
+            ],
+            "sekunden": 326.0,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "40176437468-3",
+              "datum": "2026-10-25",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 326.0,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-18.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 1841.4,
+        "upload_titel": "Amex's Cash Problem: The Travelers Cheque"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:04.68",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Amex's own Fargo couldn't.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann mit einem American Express Firmenlogo als Kopf und passt nicht zur historischen Erzählung über Fargo und Reiseschecks. Korrektur: Eine historische Illustration, die einen Mann in der europäischen Kulisse des 19. Jahrhunderts mit traditionellen Kreditbriefen zeigt."
+          },
+          {
+            "zeit": "00:20.12",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 6,
+            "gesprochen": "So what did he do?",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann in einer historischen Umgebung, aber es illustriert nicht konkret die Frage nach Marcellus Berry oder der Entwicklung des Reiseschecks. Korrektur: Eine Illustration, die einen unzufriedenen Reisenden oder den Präsidenten im Gespräch mit Marcellus Berry zeigt."
+          },
+          {
+            "zeit": "00:25.26",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "Berry introduced the Travelers Cheque in 1891,",
+            "fest": false,
+            "text": "Die historische Illustration zeigt zwar die Übergabe eines Dokuments, allerdings sind das Jahr 1891 und der genaue Text unzulässig für den Nachweis; es fehlt eine erkennbare Darstellung von Reiseschecks oder Stückelungen wie 10, 20, 50 oder 100. Korrektur: Eine historische Illustration, die konkret die Ausgabe von Reiseschecks mit entsprechenden Werten (z. B. im 19. Jahrhundert) zeigt."
+          },
+          {
+            "zeit": "00:33.72",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "In 1914, stranded Americans needed cash abroad.",
+            "fest": false,
+            "text": "Die Personen halten Bargeld auf der Straße, aber das Bild zeigt keine spezifische historische Szene von gestrandeten Amerikanern im Jahr 1914 im Ausland. Korrektur: Eine historische Illustration oder Darstellung von Amerikanern im Jahr 1914 im Ausland, die versuchen, an Geld zu kommen."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 44.7,
+          "fps": 30.0,
+          "lufs": -14.6,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 41.76,
+              "bis_s": 44.14,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.963
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 24.700000000000003,
+              "bis_s": 45.2,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Why",
+                "s": 0.0,
+                "e": 0.46,
+                "p": 0.8316117525100708
+              },
+              {
+                "w": "couldn't",
+                "s": 0.46,
+                "e": 0.96,
+                "p": 0.9971968829631805
+              },
+              {
+                "w": "a",
+                "s": 0.96,
+                "e": 1.04,
+                "p": 0.9431513547897339
+              },
+              {
+                "w": "company",
+                "s": 1.04,
+                "e": 1.38,
+                "p": 0.9827170968055725
+              },
+              {
+                "w": "president",
+                "s": 1.38,
+                "e": 1.94,
+                "p": 0.9470309615135193
+              },
+              {
+                "w": "get",
+                "s": 1.94,
+                "e": 2.42,
+                "p": 0.9900105595588684
+              },
+              {
+                "w": "cash",
+                "s": 2.42,
+                "e": 2.7,
+                "p": 0.9710256457328796
+              },
+              {
+                "w": "abroad?",
+                "s": 2.7,
+                "e": 3.4,
+                "p": 0.9971381425857544
+              },
+              {
+                "w": "Amex's",
+                "s": 4.74,
+                "e": 5.2,
+                "p": 0.7498655517896017
+              },
+              {
+                "w": "own",
+                "s": 5.2,
+                "e": 5.4,
+                "p": 0.9946264624595642
+              },
+              {
+                "w": "Fargo",
+                "s": 5.4,
+                "e": 5.8,
+                "p": 0.9716380834579468
+              },
+              {
+                "w": "couldn't.",
+                "s": 5.8,
+                "e": 6.54,
+                "p": 0.986844003200531
+              },
+              {
+                "w": "Sometime",
+                "s": 7.0,
+                "e": 7.16,
+                "p": 0.9087474644184113
+              },
+              {
+                "w": "in",
+                "s": 7.16,
+                "e": 7.58,
+                "p": 0.9797533750534058
+              },
+              {
+                "w": "1888",
+                "s": 7.58,
+                "e": 7.96,
+                "p": 0.9555474519729614
+              },
+              {
+                "w": "to",
+                "s": 7.96,
+                "e": 8.82,
+                "p": 0.539431631565094
+              },
+              {
+                "w": "1890,",
+                "s": 8.82,
+                "e": 9.48,
+                "p": 0.9956562519073486
+              },
+              {
+                "w": "he",
+                "s": 9.9,
+                "e": 10.06,
+                "p": 0.9962026476860046
+              },
+              {
+                "w": "visited",
+                "s": 10.06,
+                "e": 10.36,
+                "p": 0.984653890132904
+              },
+              {
+                "w": "Europe",
+                "s": 10.36,
+                "e": 10.78,
+                "p": 0.9936336278915405
+              },
+              {
+                "w": "with",
+                "s": 10.78,
+                "e": 11.18,
+                "p": 0.9894266128540039
+              },
+              {
+                "w": "traditional",
+                "s": 11.18,
+                "e": 11.48,
+                "p": 0.9914838671684265
+              },
+              {
+                "w": "letters",
+                "s": 11.48,
+                "e": 12.14,
+                "p": 0.9905277490615845
+              },
+              {
+                "w": "of",
+                "s": 12.14,
+                "e": 12.32,
+                "p": 0.9982569813728333
+              },
+              {
+                "w": "credit.",
+                "s": 12.32,
+                "e": 12.54,
+                "p": 0.9961906671524048
+              },
+              {
+                "w": "He",
+                "s": 13.1,
+                "e": 13.32,
+                "p": 0.9938163757324219
+              },
+              {
+                "w": "found",
+                "s": 13.32,
+                "e": 13.54,
+                "p": 0.9977738261222839
+              },
+              {
+                "w": "cash",
+                "s": 13.54,
+                "e": 13.94,
+                "p": 0.987545907497406
+              },
+              {
+                "w": "hard",
+                "s": 13.94,
+                "e": 14.54,
+                "p": 0.9952042102813721
+              },
+              {
+                "w": "to",
+                "s": 14.54,
+                "e": 14.72,
+                "p": 0.9978637099266052
+              },
+              {
+                "w": "get",
+                "s": 14.72,
+                "e": 14.88,
+                "p": 0.997692346572876
+              },
+              {
+                "w": "anywhere",
+                "s": 14.88,
+                "e": 15.28,
+                "p": 0.9987881779670715
+              },
+              {
+                "w": "except",
+                "s": 15.28,
+                "e": 15.76,
+                "p": 0.8098511099815369
+              },
+              {
+                "w": "major",
+                "s": 15.76,
+                "e": 16.14,
+                "p": 0.9872061014175415
+              },
+              {
+                "w": "cities,",
+                "s": 16.14,
+                "e": 16.7,
+                "p": 0.9989136457443237
+              },
+              {
+                "w": "and",
+                "s": 17.06,
+                "e": 17.28,
+                "p": 0.9969151020050049
+              },
+              {
+                "w": "returned",
+                "s": 17.28,
+                "e": 17.62,
+                "p": 0.9921795129776001
+              },
+              {
+                "w": "infuriated.",
+                "s": 17.62,
+                "e": 19.1,
+                "p": 0.9622434675693512
+              },
+              {
+                "w": "So,",
+                "s": 19.76,
+                "e": 20.26,
+                "p": 0.9728136658668518
+              },
+              {
+                "w": "what",
+                "s": 20.72,
+                "e": 21.08,
+                "p": 0.9961961507797241
+              },
+              {
+                "w": "did",
+                "s": 21.08,
+                "e": 21.26,
+                "p": 0.9982181191444397
+              },
+              {
+                "w": "he",
+                "s": 21.26,
+                "e": 21.42,
+                "p": 0.9991976618766785
+              },
+              {
+                "w": "do?",
+                "s": 21.42,
+                "e": 21.64,
+                "p": 0.99928879737854
+              },
+              {
+                "w": "He",
+                "s": 22.48,
+                "e": 22.7,
+                "p": 0.9889180064201355
+              },
+              {
+                "w": "asked",
+                "s": 22.7,
+                "e": 23.04,
+                "p": 0.9978724718093872
+              },
+              {
+                "w": "Marcellus",
+                "s": 23.04,
+                "e": 23.8,
+                "p": 0.833952784538269
+              },
+              {
+                "w": "Berry",
+                "s": 23.8,
+                "e": 24.0,
+                "p": 0.6342554688453674
+              },
+              {
+                "w": "for",
+                "s": 24.0,
+                "e": 24.58,
+                "p": 0.9802937507629395
+              },
+              {
+                "w": "something",
+                "s": 24.58,
+                "e": 24.86,
+                "p": 0.9950824975967407
+              },
+              {
+                "w": "better.",
+                "s": 24.86,
+                "e": 25.26,
+                "p": 0.9986569881439209
+              },
+              {
+                "w": "Better.",
+                "s": 25.26,
+                "e": 25.4,
+                "p": 0.046111419796943665
+              },
+              {
+                "w": "Barry",
+                "s": 26.42,
+                "e": 26.42,
+                "p": 0.6709479689598083
+              },
+              {
+                "w": "introduced",
+                "s": 26.42,
+                "e": 26.8,
+                "p": 0.9908919930458069
+              },
+              {
+                "w": "the",
+                "s": 26.8,
+                "e": 27.22,
+                "p": 0.717562735080719
+              },
+              {
+                "w": "Traveler's",
+                "s": 27.22,
+                "e": 27.74,
+                "p": 0.8224133253097534
+              },
+              {
+                "w": "Check",
+                "s": 27.74,
+                "e": 27.92,
+                "p": 0.6706185936927795
+              },
+              {
+                "w": "in",
+                "s": 27.92,
+                "e": 28.24,
+                "p": 0.9812677502632141
+              },
+              {
+                "w": "1891",
+                "s": 28.24,
+                "e": 29.04,
+                "p": 0.9881157875061035
+              },
+              {
+                "w": "in",
+                "s": 29.04,
+                "e": 29.88,
+                "p": 0.5244444608688354
+              },
+              {
+                "w": "$10,",
+                "s": 29.88,
+                "e": 30.18,
+                "p": 0.7055932879447937
+              },
+              {
+                "w": "$20,",
+                "s": 30.7,
+                "e": 30.84,
+                "p": 0.9644200801849365
+              },
+              {
+                "w": "$50,",
+                "s": 31.44,
+                "e": 31.66,
+                "p": 0.992188036441803
+              },
+              {
+                "w": "and",
+                "s": 31.84,
+                "e": 31.84,
+                "p": 0.6882128715515137
+              },
+              {
+                "w": "$100.",
+                "s": 31.84,
+                "e": 32.56,
+                "p": 0.9981109201908112
+              },
+              {
+                "w": "In",
+                "s": 33.38,
+                "e": 33.78,
+                "p": 0.9799032807350159
+              },
+              {
+                "w": "1914,",
+                "s": 33.78,
+                "e": 34.4,
+                "p": 0.9961446523666382
+              },
+              {
+                "w": "stranded",
+                "s": 35.06,
+                "e": 35.44,
+                "p": 0.5000766515731812
+              },
+              {
+                "w": "Americans",
+                "s": 35.44,
+                "e": 35.94,
+                "p": 0.9904915690422058
+              },
+              {
+                "w": "needed",
+                "s": 35.94,
+                "e": 36.46,
+                "p": 0.9872657060623169
+              },
+              {
+                "w": "cash",
+                "s": 36.46,
+                "e": 36.84,
+                "p": 0.9988686442375183
+              },
+              {
+                "w": "abroad.",
+                "s": 36.84,
+                "e": 37.34,
+                "p": 0.9994051456451416
+              },
+              {
+                "w": "Amex",
+                "s": 38.26,
+                "e": 38.36,
+                "p": 0.7879820466041565
+              },
+              {
+                "w": "was",
+                "s": 38.36,
+                "e": 38.62,
+                "p": 0.9919666647911072
+              },
+              {
+                "w": "among",
+                "s": 38.62,
+                "e": 38.88,
+                "p": 0.9983344674110413
+              },
+              {
+                "w": "few",
+                "s": 38.88,
+                "e": 39.26,
+                "p": 0.9830416440963745
+              },
+              {
+                "w": "honoring",
+                "s": 39.26,
+                "e": 39.84,
+                "p": 0.6810927987098694
+              },
+              {
+                "w": "checks.",
+                "s": 39.84,
+                "e": 40.24,
+                "p": 0.7582812905311584
+              },
+              {
+                "w": "Be",
+                "s": 41.3,
+                "e": 41.34,
+                "p": 0.9953805208206177
+              },
+              {
+                "w": "sure",
+                "s": 41.34,
+                "e": 41.58,
+                "p": 0.9991126656532288
+              },
+              {
+                "w": "to",
+                "s": 41.58,
+                "e": 41.76,
+                "p": 0.9964806437492371
+              },
+              {
+                "w": "like,",
+                "s": 41.76,
+                "e": 42.02,
+                "p": 0.7984195947647095
+              },
+              {
+                "w": "share,",
+                "s": 42.36,
+                "e": 42.66,
+                "p": 0.997548520565033
+              },
+              {
+                "w": "and",
+                "s": 43.12,
+                "e": 43.22,
+                "p": 0.9982790946960449
+              },
+              {
+                "w": "save",
+                "s": 43.22,
+                "e": 43.5,
+                "p": 0.9912254214286804
+              },
+              {
+                "w": "this",
+                "s": 43.5,
+                "e": 43.84,
+                "p": 0.9926337599754333
+              },
+              {
+                "w": "video.",
+                "s": 43.84,
+                "e": 44.14,
+                "p": 0.9988440275192261
+              }
+            ],
+            "dauer_s": 44.608,
+            "sprache": "en"
+          },
+          "roh_key": "c5a099a5f0527c2668bd22ae4d266b801f36d6feb6cc46f8ca12120951d31a09",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "1445fc140c67dd98bcdd44bba0f2f368f3229704e8b4ea843d524c549838da97",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 44.7,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 13,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "1445fc140c67dd98bcdd44bba0f2f368f3229704e8b4ea843d524c549838da97",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein eleganter Mann in einem Anzug und Hut steht in einer historischen Straßenszene und öffnet einen kleinen Beutel.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen Mann in historischer Kleidung, der Geld oder Papiere aus einem Beutel holt, was passend zur Erzählung über einen Firmenpräsidenten und Bargeldprobleme im 19. Jahrhundert ist.",
+              "erforderliches_bild": "Ein historisches Bild eines Geschäftsmannes in Europa"
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Mann im Anruf steht in einem Raum, hält einen kleinen Koffer oder ein Buch und hat ein American Express Logo als Kopf aufgesetzt.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Mann mit einem American Express Firmenlogo als Kopf und passt nicht zur historischen Erzählung über Fargo und Reiseschecks.",
+              "erforderliches_bild": "Eine historische Illustration, die einen Mann in der europäischen Kulisse des 19. Jahrhunderts mit traditionellen Kreditbriefen zeigt."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein eleganter Herr mit Mantel und Gepaeck geht durch eine europaeische Passage oder Bahnhofshalle um 1890.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt passend zum Text einen Reisenden in Europa um 1880-1890 mit Koffern im entsprechenden historischen Stil.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein elegant gekleideter Mann mit Hut und Anzug steht auf einer alten europäischen Straße im historischen Stil und hält ein Dokument oder Schriftstück in den Händen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Straßenszene und das vom Mann gehaltene Dokument passen gut zum besuchten Europa und den traditionellen Kreditbriefen aus dem gesprochenen Text.",
+              "erforderliches_bild": "Keine Änderung erforderlich."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Mann im Anzug mit Zylinder steht vor einem Fenster mit geöffneten Fensterläden und blickt bekümmert nach draußen auf eine Gasse.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Darstellung eines frustrierten Reisenden in Europa passt gut zur Erwähnung der Reisebeschwerden.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein Mann steht auf einem Bahnsteig in einer historischen Stadt, hält eine Reisetasche und blickt mit wütendem Gesichtsausdruck und gefletschten Zähnen in Richtung der Kamera.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt den beschriebenen Zustand des wütenden beziehungsweise infurierten Rückkehrers auf einer Reise vor historischer Kulisse passend zur Erzählung.",
+              "erforderliches_bild": "Keine Änderung erforderlich, das Bild passt."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein stilisiertes Porträt eines Mannes im Anzug in einer historischen europäischen Straße, der nachdenklich wirkt.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Mann in einer historischen Umgebung, aber es illustriert nicht konkret die Frage nach Marcellus Berry oder der Entwicklung des Reiseschecks.",
+              "erforderliches_bild": "Eine Illustration, die einen unzufriedenen Reisenden oder den Präsidenten im Gespräch mit Marcellus Berry zeigt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Drei Männer in Anzügen sitzen an einem Holztisch in einem Raum mit großen Fenstern und diskutieren über Dokumente. Ein Mann in der Mitte trägt einen Hut und einen Schnurrbart.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Szene zeigt eine historische Beratung von Geschäftsleuten, die passend zu der Besprechung über eine Erfindung oder Verbesserung interpretiert werden kann.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Mann im Anzug übergibt einem anderen Mann im historischen Reiseanzug ein Dokument in einer altmodischen Straßenszene.",
+              "note": 4,
+              "passt": false,
+              "grund": "Die historische Illustration zeigt zwar die Übergabe eines Dokuments, allerdings sind das Jahr 1891 und der genaue Text unzulässig für den Nachweis; es fehlt eine erkennbare Darstellung von Reiseschecks oder Stückelungen wie 10, 20, 50 oder 100.",
+              "erforderliches_bild": "Eine historische Illustration, die konkret die Ausgabe von Reiseschecks mit entsprechenden Werten (z. B. im 19. Jahrhundert) zeigt."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein dunkelblauer Bildschirm zeigt den Text American Express oben und in zwei Feldern die Beträge 50 Dollar und 100 Dollar.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gesprochenen Werte werden visuell direkt als Beträge dargestellt.",
+              "erforderliches_bild": "keines"
+            },
+            {
+              "index": 10,
+              "gesehen": "Fünf Personen, darunter vier Männer und eine Frau, stehen auf einer Straße vor Gebäuden. Einige der Personen halten Geldscheine in den Händen.",
+              "note": 4,
+              "passt": false,
+              "grund": "Die Personen halten Bargeld auf der Straße, aber das Bild zeigt keine spezifische historische Szene von gestrandeten Amerikanern im Jahr 1914 im Ausland.",
+              "erforderliches_bild": "Eine historische Illustration oder Darstellung von Amerikanern im Jahr 1914 im Ausland, die versuchen, an Geld zu kommen."
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein Mann im Anzug gibt einer Frau an einem Schalter in einem Büro Geld (Scheine) über einen Tisch.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Szene zeigt einen Angestellten, der Geldscheine ausgibt oder einlöst, passend zum Kontext der Schecks bzw. Bargeldauszahlung.",
+              "erforderliches_bild": "Keine Änderung erforderlich."
+            }
+          ],
+          "befunde": [
+            "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit einem American Express Firmenlogo als Kopf und passt nicht zur historischen Erzählung über Fargo und Reiseschecks.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Mann in einer historischen Umgebung, aber es illustriert nicht konkret die Frage nach Marcellus Berry oder der Entwicklung des Reiseschecks.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (4/10): Die historische Illustration zeigt zwar die Übergabe eines Dokuments, allerdings sind das Jahr 1891 und der genaue Text unzulässig für den Nachweis; es fehlt eine erkennbare Darstellung von Reiseschecks oder Stückelungen wie 10, 20, 50 oder 100.",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (4/10): Die Personen halten Bargeld auf der Straße, aber das Bild zeigt keine spezifische historische Szene von gestrandeten Amerikanern im Jahr 1914 im Ausland."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 13,
+          "ausgenommen": [
+            12
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "1445fc140c67dd98bcdd44bba0f2f368f3229704e8b4ea843d524c549838da97",
+        "prompt_version": "2026-10-18.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

@@ -91,54 +91,59 @@ ENTROLLEN = """() => {
   return doc.scrollHeight;
 }"""
 
+# 25.10.2026 (KI-Short "Claude Code + Your TV", Nutzer: "ja mach das" zu echten Tool-Ansichten): 6 von 8
+# beanstandeten Bildern waren Textgrafiken, weil die Quellseite keinen passenden ABSATZ hatte - ihre Bilder
+# (Produkt-Screenshots, Diagramme) wurden nie betrachtet. Jetzt ist jedes grosse <img> ein Kandidat; sein Text
+# ist Alt-Text + die Ueberschrift darueber. Jeder Kandidat bekommt eine Nummer (data-cf), MARKIEREN findet ihn darueber.
 SAMMELN = """() => {
-  const ZIELE = 'p, li, h1, h2, h3, h4, td, dd, blockquote, figcaption, div, table, figure, pre';
+  const ZIELE = 'p, li, h1, h2, h3, h4, td, dd, blockquote, figcaption, div, table, figure, pre, img';
   const aus = [];
+  let ueberschrift = '';
   for (const el of document.querySelectorAll(ZIELE)) {
     const tag = el.tagName;
-    const visuell = tag === 'TABLE' || tag === 'FIGURE' || tag === 'PRE';
+    if (/^H[1-4]$/.test(tag)) ueberschrift = (el.innerText || '').trim().slice(0, 160);
+    const bild = tag === 'IMG';
+    const visuell = bild || tag === 'TABLE' || tag === 'FIGURE' || tag === 'PRE';
     // div nur als unterste Textebene (GEMESSEN 21.10.: Googles "Important: If you reach your daily quota..." ist ein div)
     if (tag === 'DIV' && el.querySelector('p, li, div, h1, h2, h3, h4, table, ul, ol, section')) continue;
     // Zellen einer Tabelle: die Tabelle als Ganzes ist der bessere Kandidat
     if (tag === 'TD' && el.closest('table')) continue;
+    if (bild && el.closest('figure')) continue;  // die Figur samt Bildunterschrift ist der Kandidat
     const r = el.getBoundingClientRect();
     const img = tag === 'FIGURE' ? el.querySelector('img') : null;
-    const t = ((el.innerText || '') + (img && img.alt ? ' ' + img.alt : '')).trim();
-    if (!t || r.width < 120 || r.height < 12) continue;
+    const t = (bild ? ((el.alt || '') + ' ' + ueberschrift)
+               : (el.innerText || '') + (img && img.alt ? ' ' + img.alt : '')).trim();
+    if (!t || r.width < (bild ? 200 : 120) || r.height < (bild ? 120 : 12)) continue;
     if (visuell && r.height < 60) continue;
     const s = getComputedStyle(el);
     if (s.visibility === 'hidden' || s.display === 'none') continue;
     if (el.closest('nav, header, footer, aside, [role=navigation], [aria-hidden=true]')) continue;
-    aus.push({t: t.slice(0, visuell ? 2000 : 800), y: r.top + window.scrollY, h: r.height, visuell});
+    el.setAttribute('data-cf', String(aus.length));
+    aus.push({t: t.slice(0, visuell ? 2000 : 800), y: r.top + window.scrollY, h: r.height, visuell, bild});
   }
   return aus;
 }"""
 
-MARKIEREN = """([y, t, woerter]) => {
-  const ZIELE = 'p, li, h1, h2, h3, h4, td, dd, blockquote, figcaption, div, table, figure, pre';
-  const gelb = (el) => { el.style.background = '#fff3a8'; el.style.outline = '4px solid #f5b400';
-                         el.style.outlineOffset = '4px'; el.style.borderRadius = '6px'; };
-  for (const el of document.querySelectorAll(ZIELE)) {
-    const r = el.getBoundingClientRect();
-    const lim = el.tagName === 'TABLE' || el.tagName === 'FIGURE' || el.tagName === 'PRE' ? 2000 : 800;
-    if (Math.abs(r.top + window.scrollY - y) >= 2) continue;
-    const img = el.tagName === 'FIGURE' ? el.querySelector('img') : null;
-    if (((el.innerText || '') + (img && img.alt ? ' ' + img.alt : '')).trim().slice(0, lim) !== t) continue;
-    const tab = el.tagName === 'TABLE' ? el : el.querySelector('table');
-    if (tab) {
-      // Rahmen um die Tabelle, gelb nur die Zeile mit den meisten Woertern des Satzes
-      el.style.outline = '4px solid #f5b400'; el.style.outlineOffset = '4px'; el.style.borderRadius = '6px';
-      let beste = null, wert = 0;
-      for (const tr of tab.querySelectorAll('tr')) {
-        const x = (tr.innerText || '').toLowerCase();
-        const n = woerter.filter(w => x.includes(w)).length;
-        if (n > wert) { beste = tr; wert = n; }
-      }
-      if (beste) for (const c of beste.querySelectorAll('td, th')) c.style.background = '#fff3a8';
-    } else {
-      gelb(el);
+MARKIEREN = """([n, woerter]) => {
+  const el = document.querySelector('[data-cf="' + n + '"]');
+  if (!el) return;
+  const rahmen = (x) => { x.style.outline = '4px solid #f5b400'; x.style.outlineOffset = '4px';
+                          x.style.borderRadius = '6px'; };
+  if (el.tagName === 'IMG') { rahmen(el); return; }  // Bild nur umrahmen, nicht gelb einfaerben
+  const tab = el.tagName === 'TABLE' ? el : el.querySelector('table');
+  if (tab) {
+    // Rahmen um die Tabelle, gelb nur die Zeile mit den meisten Woertern des Satzes
+    rahmen(el);
+    let beste = null, wert = 0;
+    for (const tr of tab.querySelectorAll('tr')) {
+      const x = (tr.innerText || '').toLowerCase();
+      const k = woerter.filter(w => x.includes(w)).length;
+      if (k > wert) { beste = tr; wert = k; }
     }
-    break;
+    if (beste) for (const c of beste.querySelectorAll('td, th')) c.style.background = '#fff3a8';
+  } else {
+    el.style.background = '#fff3a8';
+    rahmen(el);
   }
 }"""
 
@@ -180,7 +185,7 @@ def aufnehmen(url, satz, ziel, benutzt=None):
                 if i is None:
                     return None, None
                 b = bloecke[i]
-                seite.evaluate(MARKIEREN, [b['y'], b['t'], sorted(woerter(satz))])
+                seite.evaluate(MARKIEREN, [i, sorted(woerter(satz))])
                 hoehe = seite.evaluate('() => document.documentElement.scrollHeight')
                 oben = ausschnitt_oben(b, [x for x in bloecke if x.get('visuell')], hoehe)
                 Path(ziel).parent.mkdir(parents=True, exist_ok=True)
@@ -193,7 +198,7 @@ def aufnehmen(url, satz, ziel, benutzt=None):
         kennung = f'{url}#{i}'
         benutzt.add(kennung)
         return Path(ziel), {'quelle': 'Screenshot der Quellseite', 'seite': url, 'datei': kennung,
-                            'abschnitt': b['t'][:200], 'visuell': bool(b.get('visuell')),
+                            'abschnitt': b['t'][:200], 'visuell': bool(b.get('visuell')), 'bild': bool(b.get('bild')),
                             'sha256': hashlib.sha256(Path(ziel).read_bytes()).hexdigest()}
     except Exception as e:
         print('Quellseiten-Screenshot nicht moeglich:', url, str(e)[:150])

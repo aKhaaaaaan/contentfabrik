@@ -1347,12 +1347,14 @@ def musik_kette(pegel, laenge, pausen=(), stille=0.55):
 
 
 def ersatz_grenze(einstellungen, lang=False):
-    """Hoechstens so viele Einstellungen mit Ersatzbild: Short 2, Langvideo 12 Prozent.
+    """Hoechstens so viele Einstellungen mit Ersatzbild: Short 2, Langvideo 20 Prozent.
 
     GEMESSEN 17.10.2026 (Langvideo Coca-Cola, 84 Einstellungen): 6 Prozent = 6 Ersatzbilder; nach 53
     Einstellungen waren 7 noetig, danach brach jeder Bau ab. In 9 Minuten mit 84 Schnitten faellt ein
-    wiederholtes Bild weniger auf als im Short; die Haltezeit-Pruefung (hoechstens 10 s) bleibt."""
-    return max(2, math.ceil(einstellungen * (.12 if lang else .06)))
+    wiederholtes Bild weniger auf als im Short; die Haltezeit-Pruefung (hoechstens 10 s) bleibt.
+    GEMESSEN 24.10.2026 (Langvideo Tesla, Lauf 40108211333, 90 Einstellungen): 12 Prozent = 11; bis
+    Einstellung 71 waren 13 noetig (Haende, "flagged", echte Gesichter) -> 5 Bauversuche scheiterten dort."""
+    return max(2, math.ceil(einstellungen * (.2 if lang else .06)))
 
 
 def toleranz_ersatz(aus, i, vorherige_id, bildablauf, erlaubt=lambda pfad: True):

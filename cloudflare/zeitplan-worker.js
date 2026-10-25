@@ -292,6 +292,12 @@ async function videobotEingang(request, env) {
   }
   const update = await request.json().catch(() => null);
   if (!update || !Number.isInteger(update.update_id)) return new Response('ok');
+  // Sicherheitsbefund 24.10.2026: Fremde, die dem oeffentlichen Videobot schreiben, kosteten je Nachricht einen
+  // KV-Schreibvorgang (Gratis ~1000/Tag) und einen themen.yml-Start. themen.py prueft dasselbe Feld gegen
+  // TELEGRAM_CHAT_ID. Ohne TG_VIDEO_CHAT_ID bleibt alles wie bisher (kein Klick darf verloren gehen).
+  const nachricht = update.message || (update.callback_query || {}).message || {};
+  const chat = String((nachricht.chat || {}).id ?? '');
+  if (env.TG_VIDEO_CHAT_ID && chat !== String(env.TG_VIDEO_CHAT_ID).trim()) return new Response('ok');
   await env.ZUSTAND.put('vb:' + String(update.update_id).padStart(12, '0'), JSON.stringify(update),
     { expirationTtl: VB_TTL_S });
   // Knopf oder Nachricht: Abholer gleich starten (laeuft er schon, holt er es beim naechsten Takt).

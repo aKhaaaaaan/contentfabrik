@@ -173,6 +173,22 @@ def abgelehnt(video_hash):
                for e in d.get('nutzerfeedback', []))
 
 
+def probleme_kurz(probleme, je_art=4, hoechstens=12, zeichen=220):
+    """Fuer das Regelbuch reichen wenige Beispiele je Fehlerart.
+    GEMESSEN 25.10.2026 (Tesla-Langvideo 40181407459): 62 beanstandete Bilder -> Auftrag 12.566 Tokens, Groq-Reserve
+    7.900 -> AuftragZuGross, nichts gelernt. Je Art hoechstens 4 Beispiele, insgesamt 12, je Text gekuerzt."""
+    zaehler, aus = {}, []
+    for p in probleme:
+        art = p.get('art', '')
+        zaehler[art] = zaehler.get(art, 0) + 1
+        if zaehler[art] <= je_art and len(aus) < hoechstens:
+            aus.append(f"[{art}] {str(p.get('text', ''))[:zeichen]}")
+    rest = {a: n - je_art for a, n in zaehler.items() if n > je_art}
+    if rest:
+        aus.append('(same kinds also found: ' + ', '.join(f'{n} more [{a}]' for a, n in rest.items()) + ')')
+    return aus
+
+
 def aktualisieren(kanal, kritik):
     """kritik: Ergebnis von kritik.py. Gibt die neuen Regeln zurueck."""
     from skript import gemini
@@ -181,7 +197,7 @@ def aktualisieren(kanal, kritik):
     # gemeinsame Regeln doppelt, die 12er-Grenze voll. Jetzt: nur eigene Regeln fortschreiben.
     alt = laden(kanal).get('regeln', [])
     gemeinsam = redaktionsregeln()
-    probleme = [f"[{p['art']}] {p['text']}" for p in kritik.get('probleme', [])]
+    probleme = probleme_kurz(kritik.get('probleme', []))
     schwach = [k for k, v in (kritik.get('kategorien') or {}).items() if v < 8]
     if not probleme and not schwach:
         return alt

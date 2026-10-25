@@ -146,17 +146,19 @@ export async function fortschritt(env, lauf) {
   const schritte = job.steps || [];
   const schritt = schritte.find(s => s.status === 'in_progress');
   const produktion = schritte.find(s => s.name.startsWith('Erzeugen'));
-  let anteil = 0.05, zeile = '';
+  let anteil = 0.05, zeile = '', echt = false;
   if (produktion && produktion.status === 'completed') anteil = 0.95;
   else if (schritt && schritt.name.startsWith('Erzeugen')) {
+    const g = await gemeldet(env, lauf);
+    echt = Boolean(g && g.kanal === name(job));
     const minuten = Math.max(0, (Date.now() - new Date(schritt.started_at)) / 60000);
-    anteil = 0.1 + 0.8 * Math.min(1, minuten / PRODUKTION_MIN);
-    zeile = `\nSkript, Stimme, Bilder, Pruefung laufen seit ${Math.round(minuten)} Min`;
+    anteil = echt ? g.prozent / 100 : 0.1 + 0.8 * Math.min(1, minuten / PRODUKTION_MIN);
+    zeile = echt ? `\n${g.text}` : `\nSkript, Stimme, Bilder, Pruefung laufen seit ${Math.round(minuten)} Min`;
   }
   const fertig = kanaljobs.filter(j => j.status === 'completed');
   const gesamt = kanaljobs.length || 1;
   const prozent = Math.min(99, Math.round((fertig.length + anteil) / gesamt * 100));
-  let text = `Shorts-Tageslauf - Gesamt: ca. ${prozent} % (geschaetzt)\nJetzt: ${name(job)} - ${schritt ? schritt.name : 'Vorbereitung'}` + zeile;
+  let text = `Shorts-Tageslauf - Gesamt: ${echt ? '' : 'ca. '}${prozent} %${echt ? '' : ' (geschaetzt)'}\nJetzt: ${name(job)} - ${schritt ? schritt.name : 'Vorbereitung'}` + zeile;
   // GEMELDET 15.10.2026: "Schon fertig" hiess auch "ohne Video" (Job-success = Lauf beendet).
   // Das echte Ergebnis steht in verlauf/messungen/<kanal>.json (bericht.status 'gesendet').
   for (const j of fertig) text += `\nFertig: ${name(j)} (${await ergebnis(lauf, name(j))})`;
@@ -173,6 +175,37 @@ const art = r => r.path && r.path.includes('langvideo.yml') ? 'Langvideo'
     ? (/\/ lang \//.test(r.display_title || '') ? 'Langvideo-Probe' : 'Short-Probe') : 'Shorts-Tageslauf';
 const tag = (iso) => new Date(iso).toLocaleDateString('de-DE', { timeZone: 'Europe/Berlin', day: '2-digit', month: '2-digit' });
 
+// Nutzer 25.10.2026 ("hat es von vorne wieder anfangen", "Prozentual find ich schon besser"): die Uhr-Schaetzung
+// liess einen fortgesetzten Bau wie einen Neustart aussehen. lauf.py meldet den echten Stand (fabrik/fortschritt.py);
+// ohne frische Meldung bleibt die Schaetzung. Schluessel aus dem Videobot-Token, den beide Seiten schon haben.
+const FORTSCHRITT_FRISCH_MS = 20 * 60000;
+async function fortschrittSchluessel(env) {
+  const h = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('cf-fortschritt:' + vbToken(env)));
+  return [...new Uint8Array(h)].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 48);
+}
+async function fortschrittEingang(request, env) {
+  if (!env.ZUSTAND || !vbToken(env) || request.headers.get('X-CF-Schluessel') !== await fortschrittSchluessel(env)) {
+    return new Response('verboten', { status: 403 });
+  }
+  const d = await request.json().catch(() => null) || {};
+  const lauf = String(d.lauf || ''), kanal = String(d.kanal || ''), prozent = d.prozent;
+  if (!/^\d{1,20}$/.test(lauf) || !/^[a-z0-9-]{1,60}$/.test(kanal) || !Number.isInteger(prozent)
+      || prozent < 0 || prozent > 99) return new Response('ungueltig', { status: 400 });
+  const text = String(d.text || '').replace(/[\u0000-\u001f<>]/g, ' ').slice(0, 160);
+  await env.ZUSTAND.put(`fortschritt:${lauf}`, JSON.stringify({ kanal, prozent, text, zeit: Date.now() }),
+    { expirationTtl: 8 * 3600 });
+  return new Response('ok');
+}
+async function gemeldet(env, lauf) {
+  if (!env.ZUSTAND) return null;
+  try {
+    const d = JSON.parse(await env.ZUSTAND.get(`fortschritt:${lauf.id}`) || 'null');
+    return d && Date.now() - d.zeit < FORTSCHRITT_FRISCH_MS ? d : null;
+  } catch (e) {
+    return null;
+  }
+}
+
 export async function pilotFortschritt(env, lauf) {
   const r = await fetch(`https://api.github.com/repos/${REPO}/actions/runs/${lauf.id}/jobs`, { headers: ghKopf(env) });
   const job = (r.ok ? ((await r.json()).jobs || []) : []).find(j => j.status === 'in_progress');
@@ -185,6 +218,8 @@ export async function pilotFortschritt(env, lauf) {
   let anteil = 0.05, zeile = '';
   if (bau && bau.status === 'completed') anteil = 0.95;
   else if (schritt && istBau(schritt)) {
+    const g = await gemeldet(env, lauf);
+    if (g) return `${titel}: ${g.prozent} %\nJetzt: ${g.text}\n${lauf.html_url}`;
     const minuten = Math.max(0, (Date.now() - new Date(schritt.started_at)) / 60000);
     anteil = 0.1 + 0.8 * Math.min(1, minuten / ziel);
     zeile = `\nSkript, Stimme, Bilder, Pruefung laufen seit ${Math.round(minuten)} Min (erwartet ca. ${ziel} Min)`;
@@ -396,6 +431,7 @@ export default {
     if (pfad === '/videobot' && request.method === 'POST') return videobotEingang(request, env);
     if (pfad === '/videobot/abholen') return videobotAbholen(request, env);
     if (pfad === '/kosten' && request.method === 'POST') return kosten(request, env);
+    if (pfad === '/fortschritt' && request.method === 'POST') return fortschrittEingang(request, env);
     if (pfad === '/einrichten') return einrichten(request, env);
     return Response.json({ worker: 'contentfabrik-zeitplan', version: VERSION, repository: REPO,
       github_schluessel_vorhanden: Boolean(env.GH_TOKEN),

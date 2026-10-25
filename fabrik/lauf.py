@@ -276,6 +276,8 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     import entwurf_cache
     import illustration
     illustration.KONTINGENT_LEER.unlink(missing_ok=True)  # Merker gilt nur fuer diesen Lauf
+    import fortschritt
+    fortschritt.starten(kanal)  # Steuerungsbot "Status": echte Prozentzahl statt Uhr-Schaetzung (25.10.2026)
     import kanalstandard
     # Langvideo: ~1.200 Woerter plus Fakten-/Storypruefung brauchen mehr als die 8 Min. eines Shorts.
     # GEMESSEN 17.10.2026 (Run 39032531951, Coca-Cola): 20 Min. reichten nicht - Autor, 6 Faktenkorrekturen,
@@ -414,6 +416,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         runde = {'runde': versuch, 'art': 'korrektur' if basis else 'produktion'}
         bericht['runden'].append(runde)
         phase = 'Skript'
+        fortschritt.setzen(ordner=ordner, phase=phase, versuch=versuch, basis=bau_basis)
         try:
             if bau_basis:
                 ordner.mkdir(parents=True, exist_ok=True)
@@ -522,6 +525,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                 continue
             runde['skript_s'] = round(time.monotonic() - rundenstart, 1)
             phase = 'Videobau'
+            fortschritt.setzen(phase=phase, basis=bau_basis)
             bau_start = time.monotonic()
             b = (0 if basis and basis[1] is None else schritt(
                 ['fabrik/bauen.py', str(ordner / 'skript.json'), str(ordner)]
@@ -577,6 +581,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             bau_basis = None
             (ordner / 'kritik.json').unlink(missing_ok=True)
             phase = 'Video-Pruefung'
+            fortschritt.setzen(phase=phase)
             pruef_start = time.monotonic()
             def kritik_lauf():
                 (ordner / 'kritik.json').unlink(missing_ok=True)

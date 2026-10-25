@@ -22,6 +22,7 @@ SCHEMA = {'type': 'OBJECT', 'properties': {'einstellungen': {'type': 'ARRAY', 'i
         'figur': {'type': 'BOOLEAN'},
         'suche': {'type': 'STRING'}, 'szene': {'type': 'STRING'}, 'motiv': {'type': 'STRING'},
         'aktion': {'type': 'STRING'}, 'ort': {'type': 'STRING'}, 'epoche': {'type': 'STRING'},
+        'details': {'type': 'STRING'},
         'einstellung': {'type': 'STRING', 'enum': EINSTELLUNGEN}},
     'required': ['index', 'bildmodus', 'suche', 'szene', 'motiv']}}}, 'required': ['einstellungen']}
 
@@ -158,7 +159,8 @@ BEZUG_MIN = 7
 BEZUG_SCHEMA = {'type': 'OBJECT', 'properties': {'pruefung': {'type': 'ARRAY', 'items': {
     'type': 'OBJECT', 'properties': {'index': {'type': 'INTEGER'}, 'note': {'type': 'INTEGER'},
                                      'motiv': {'type': 'STRING'}, 'szene': {'type': 'STRING'},
-                                     'suche': {'type': 'STRING'}, 'aktion': {'type': 'STRING'}},
+                                     'suche': {'type': 'STRING'}, 'aktion': {'type': 'STRING'},
+                                     'details': {'type': 'STRING'}},
     'required': ['index', 'note', 'motiv', 'szene', 'suche']}}}, 'required': ['pruefung']}
 
 
@@ -188,7 +190,19 @@ def szene_aus_vorlage(d, vorlage, text='', kontext='', namen=frozenset()):
     if not all(werte.values()) or werte['einstellung'] not in EINSTELLUNGEN \
             or (text and not woertlich(werte['motiv'], text, kontext, namen)):
         return d.get('szene')
-    return vorlage.format(**werte)
+    szene = vorlage.format(**werte)
+    # 25.10.2026: Die ersten Codex-Motive beschrieben Material, Form und Zustand praezise.
+    # Die Fuenf-Feld-Vorlage verwarf diese Details aus szene (z.B. Vinyl-Luftkammern -> normale
+    # Matratze). Eigenes optionales Feld, innerhalb der 500 Zeichen fuer prompts.illustration.
+    details = d.get('details')
+    if isinstance(details, str) and details.strip():
+        details = re.sub(r'\s+', ' ', details).strip(' .,;:')
+        budget = min(180, 500 - len(szene) - len('. Visible detail: '))
+        if budget > 0:
+            if len(details) > budget:
+                details = details[:budget].rsplit(' ', 1)[0]
+            szene += '. Visible detail: ' + details
+    return szene
 
 
 FUELLWOERTER = {'with', 'from', 'that', 'this', 'their', 'there', 'they', 'into', 'over', 'scene', 'shot',
@@ -261,6 +275,7 @@ def malbar_machen(daten, zeitplan, namen=frozenset()):
             d.update(motiv=frei[0], szene=', '.join(x for x in (frei[0], d.get('ort') and 'in ' + str(d['ort']),
                                                                  str(d.get('epoche') or '')) if x))
             d.pop('aktion', None)
+            d.pop('details', None)  # Materialmerkmale gehoeren zum ersetzten Gegenstand
             motiv, ersetzt = frei[0], ersetzt + 1
         if motiv in stellvertreter(f'{text} {phase}'):
             benutzt.add(motiv)
@@ -297,6 +312,7 @@ def bezug_pruefen(gemini, teil, daten, namen=frozenset()):
     plan = {d['index']: d for d in daten}
     eintraege = [{'index': x['index'], 'spoken_words': x['text'], 'planned_motif': plan[x['index']].get('motiv'),
                   'planned_scene': plan[x['index']].get('szene'),
+                  'planned_details': plan[x['index']].get('details', ''),
                   'motif_not_in_spoken_words': not woertlich(plan[x['index']].get('motiv'), x['text'],
                                                              x.get('phase_text', ''), namen),
                   'stand_ins': stellvertreter(f"{x['text']} {x.get('phase_text', '')}")}
@@ -306,7 +322,7 @@ def bezug_pruefen(gemini, teil, daten, namen=frozenset()):
     if not eintraege:
         return daten, 0
     try:
-        d, _ = gemini(prompts.DATEN + prompts.SZENEN
+        d, _ = gemini(prompts.DATEN + prompts.SZENEN + BILDREGIE
                       + '\nTASK: For each slot, rate 1-10 how directly the planned image shows what its spoken words '
                         'say: the named subject, action, place or consequence a viewer hears at that moment. A loosely '
                         'related or opposite image (e.g. opening a DVD envelope while hearing that streaming overtook '
@@ -344,6 +360,9 @@ def bezug_pruefen(gemini, teil, daten, namen=frozenset()):
                 alt['aktion'] = p_['aktion'][:80]
             else:
                 alt.pop('aktion', None)
+            alt.pop('details', None)
+            if isinstance(p_.get('details'), str) and p_['details'].strip():
+                alt['details'] = p_['details']
             ersetzt += 1
     print(f'Bezugspruefung: {ersetzt} von {len(eintraege)} Motiven woertlicher gemacht')
     return daten, ersetzt
@@ -493,6 +512,35 @@ LEITGEGENSTAND = ('Pick ONE signature object named or clearly implied in the spo
                   'illustrates the words of that slot. Name it the same way in motiv each time. ')
 
 
+# Bildregie nach den gesichteten ersten Codex-Motiven (Karten-Handwerk, transparente Kreativschichten).
+# Nur Bildplanung: Skriptprofil, gepruefte Stimme und Rendercode bleiben davon unabhaengig.
+BILDREGIE = (
+    '\nVISUAL DIRECTION: Each shot must communicate one story beat at phone size before captions. '
+    'Build it around the spoken subject performing one visible action, or a visible state/consequence. '
+    'Make the exact product or process dominate; choose a close object detail, useful human interaction '
+    'or location reveal according to what this sentence says. A room is context, not the whole story. '
+    'For generated physical products explicitly named in narration, show the product itself with plain '
+    'unlettered surfaces; this overrides the generic advice to hide writing-bearing objects, but never '
+    'permits invented interfaces, writing, brand packaging or tool outputs. '
+    'Fill details with 12-24 English words: the distinguishing material, shape, scale or visible state '
+    'of the focal subject, then a lighting/depth cue. Describe the properties that make THIS object '
+    'recognizable at its real scale: surface texture, distinct edges, layer separation or material '
+    'transparency where relevant. Include only properties appropriate to the spoken subject. '
+    'Describe visual texture rather than adding new historical facts, quantities, people or events. '
+    'Use warm directional window or practical light, readable cool shadows and soft background depth '
+    'appropriate to the setting; keep the focal subject sharp. Use one restrained color accent on it. '
+    'When people are needed, prefer one active person with separated relaxed hands; add others only '
+    'when the spoken action requires them. Preserve any explicitly spoken count. Let gaze and posture '
+    'convey attention or effort without inventing historical emotions or drama. '
+    'Vary neighbouring shots by their actual subject, process stage or visible consequence, not just '
+    'camera angle. Show wear, thickness, transparency or before/after state only when supported; '
+    'no split panels. For an abstract amount or date use an allowed stand-in only as a last resort, '
+    'keeping the story setting and linking its details to a concrete subject in the phase. Never '
+    'invent a factory, product or transaction to explain an abstract number. Exact amounts and dates '
+    'are added by the video code, never painted. Keep the composition simple and the environment '
+    'lived-in through a few relevant details, with calm caption areas.\n')
+
+
 def vorbereiten(s, laengen, woerter, cache=None, fortschritt=None):
     """fortschritt(teilplan): sichert jede fertig geplante Etappe sofort (bauzustand.json)."""
     from skript import gemini, SEHEN
@@ -521,7 +569,7 @@ def vorbereiten(s, laengen, woerter, cache=None, fortschritt=None):
             daten.append(dict(vorgaben[j], index=slot['index']))
         print('Redaktioneller Bildplan | Einstellungen:', len(daten))
     if daten is None:
-        auftrag = (prompts.DATEN + prompts.SZENEN + '\nTASK: Plan the actual visual edit, NOT new narration. '
+        auftrag = (prompts.DATEN + prompts.SZENEN + BILDREGIE + '\nTASK: Plan the actual visual edit, NOT new narration. '
             'Each timed slot below needs a distinct relevant shot, within its original spoken phase. '
             f'This video requires at least {motivziel(s)} genuinely distinct visible motifs. '
             'Use each library asset and each source image at most once. Do not repeat the same '

@@ -1,0 +1,80 @@
+# Vorschaubild-Probe 26.10.2026: neue "extreme" Gestaltung (Held+Zahl, Vorher/Nachher, Logo+Text) fuer ein
+# bereits gebautes Langvideo, nach Telegram neben das bisherige Vorschaubild. Kein Video, kein Upload.
+name: vorschauprobe
+on:
+  workflow_dispatch:
+    inputs:
+      lauf:
+        description: 'Run-ID des Langvideo-Laufs (Tesla: 40181407459)'
+        default: '40181407459'
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      actions: read
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Werkzeuge (wie langvideo.yml, damit die Bildpruefung gleich arbeitet)
+        run: |
+          pip install -q -r requirements.txt
+          pip install -q --no-deps rapidocr_onnxruntime==1.2.3 && pip install -q opencv-python-headless==5.0.0.93 pyclipper==1.4.0 shapely==2.2.0 PyYAML==6.0.3 six==1.17.0 || echo "Schrifterkennung fehlt - nur Gemini-Pruefung"
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ inputs.lauf }}
+          github-token: ${{ github.token }}
+          path: vorlage
+      - name: Vorschaubilder bauen
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CLOUDFLARE_AI_TOKEN: ${{ secrets.CLOUDFLARE_AI_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          mkdir -p probe
+          skript=$(find vorlage -name skript.json | head -1)
+          alt=$(find vorlage -name thumbnail.jpg | head -1)
+          cp "$skript" probe/skript.json
+          [ -n "$alt" ] && cp "$alt" probe/alt.jpg
+          python fabrik/vorschaubild.py probe/skript.json probe/thumbnail.jpg
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: vorschauprobe
+          path: probe
+      - name: In Telegram schicken
+        if: always()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python3 - <<'EOF'
+          import json, os, urllib.request, uuid
+          from pathlib import Path
+          token, chat = os.environ['TELEGRAM_BOT_TOKEN'], os.environ['TELEGRAM_CHAT_ID']
+          def tg(methode, felder, dateien=()):
+              grenze = uuid.uuid4().hex
+              teile = [f'--{grenze}\r\nContent-Disposition: form-data; name="{k}"\r\n\r\n{v}\r\n'.encode() for k, v in felder.items()]
+              for name, inhalt in dateien:
+                  teile.append(f'--{grenze}\r\nContent-Disposition: form-data; name="{name}"; filename="{name}.jpg"\r\n'
+                               'Content-Type: image/jpeg\r\n\r\n'.encode() + inhalt + b'\r\n')
+              teile.append(f'--{grenze}--\r\n'.encode())
+              req = urllib.request.Request(f'https://api.telegram.org/bot{token}/{methode}', data=b''.join(teile),
+                                           headers={'Content-Type': f'multipart/form-data; boundary={grenze}'})
+              return json.load(urllib.request.urlopen(req, timeout=60))
+          namen = [('alt.jpg', 'BISHER'), ('thumbnail.jpg', 'NEU A: Held + Zahl'),
+                   ('thumbnail_b.jpg', 'NEU B: Vorher/Nachher'), ('thumbnail_c.jpg', 'NEU C: Logo + Text')]
+          da = [(f, t) for f, t in namen if Path('probe', f).exists()]
+          tg('sendMessage', {'chat_id': chat, 'text': '🖼️ Vorschaubild-Probe (Tesla-Langvideo): bisher gegen drei neue '
+                             'Gestaltungen. Welche wuerdest du anklicken? Die drei neuen kannst du in YouTube Studio '
+                             'unter "Test & Compare" gegeneinander testen lassen.'})
+          if da:
+              media = [{'type': 'photo', 'media': f'attach://b{i}', 'caption': t} for i, (f, t) in enumerate(da)]
+              tg('sendMediaGroup', {'chat_id': chat, 'media': json.dumps(media, ensure_ascii=False)},
+                 [(f'b{i}', Path('probe', f).read_bytes()) for i, (f, _) in enumerate(da)])
+          else:
+              tg('sendMessage', {'chat_id': chat, 'text': 'Vorschaubild-Probe: keine Bilder erzeugt (Log ansehen).'})
+          EOF

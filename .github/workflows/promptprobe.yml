@@ -1,0 +1,63 @@
+# Bildprobe 26.10.2026: bisheriger Malauftrag gegen FLUX-gerechten Auftrag (fabrik/promptprobe.py).
+# Je Szene ein Bilderpaar nach Telegram: links alt, rechts neu. Kein Einfluss auf die Produktion.
+name: promptprobe
+on:
+  workflow_dispatch:
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -q pillow
+      - name: Bilder erzeugen
+        env:
+          CLOUDFLARE_AI_TOKEN: ${{ secrets.CLOUDFLARE_AI_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: python fabrik/promptprobe.py proben
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: promptprobe
+          path: proben
+      - name: In Telegram schicken
+        if: always()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python3 - <<'EOF'
+          import json, os, urllib.request, uuid
+          token, chat = os.environ['TELEGRAM_BOT_TOKEN'], os.environ['TELEGRAM_CHAT_ID']
+          def tg(methode, felder, dateien=()):
+              grenze = uuid.uuid4().hex
+              teile = [f'--{grenze}\r\nContent-Disposition: form-data; name="{k}"\r\n\r\n{v}\r\n'.encode() for k, v in felder.items()]
+              for name, inhalt in dateien:
+                  teile.append(f'--{grenze}\r\nContent-Disposition: form-data; name="{name}"; filename="{name}.jpg"\r\n'
+                               'Content-Type: image/jpeg\r\n\r\n'.encode() + inhalt + b'\r\n')
+              teile.append(f'--{grenze}--\r\n'.encode())
+              req = urllib.request.Request(f'https://api.telegram.org/bot{token}/{methode}', data=b''.join(teile),
+                                           headers={'Content-Type': f'multipart/form-data; boundary={grenze}'})
+              return json.load(urllib.request.urlopen(req, timeout=60))
+          tg('sendMessage', {'chat_id': chat, 'text': '🖼️ Promptprobe: dieselbe Szene von heute, dasselbe Modell (FLUX klein 4B). '
+                             'Je Paar: 1. Bild = bisheriger Auftrag, 2. Bild = neuer FLUX-gerechter Auftrag. '
+                             'Antworte z. B. „neu besser", „alt besser" oder je Szene.'})
+          try:
+              ergebnis = json.load(open('proben/promptprobe.json', encoding='utf-8'))
+          except OSError:
+              ergebnis = []
+          for n in sorted({e['szene'] for e in ergebnis}):
+              paar = [e for e in ergebnis if e['szene'] == n and e.get('datei')]
+              satz = next(e['satz'] for e in ergebnis if e['szene'] == n)
+              if len(paar) < 2:
+                  tg('sendMessage', {'chat_id': chat, 'text': f'Szene {n} ({satz}): nicht beide Bilder erzeugt.'})
+                  continue
+              media = [{'type': 'photo', 'media': f"attach://{e['variante']}",
+                        'caption': f"Szene {n} – {'ALT' if e['variante'] == 'alt' else 'NEU'} ({e['woerter']} Wörter)\n„{satz}“"}
+                       for e in paar]
+              tg('sendMediaGroup', {'chat_id': chat, 'media': json.dumps(media, ensure_ascii=False)},
+                 [(e['variante'], open('proben/' + e['datei'], 'rb').read()) for e in paar])
+          EOF

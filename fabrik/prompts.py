@@ -290,6 +290,10 @@ SCHRIFTTRAEGER = re.compile(r'\b(dials?|gauges?|meters?|clocks?|watch|calendars?
                             r'magazines?|receipts?|invoices?|cards?|tickets?|labels?|papers?|paperwork|'
                             r'spreadsheets?|forms?|letters?|envelopes?|banknotes?|bills?|cheques?|checks?|'
                             r'pricing tables?|price lists?|posters?|billboards?|boards?|menus?|stamps?|certificates?|contracts?|notes?|folders?|files?)\b', re.I)
+ECHTER_BILDSCHIRM = re.compile(r'\b(screens?|monitors?|displays?|dashboards?|interfaces?|apps?|tablets?|laptops?|'
+                               r'terminals?|browsers?|UI|TVs?|televisions?|smartphones?|phones?)\b', re.I)
+BILDSCHIRM_ZUSATZ = '. Screens show only soft blurred abstract color shapes'
+FLAECHEN_ZUSATZ = '. All surfaces in the scene are plain and unmarked'
 # Nur doppelte/typografische Anfuehrungszeichen - Apostrophe ("user's") sind kein Zitat.
 ZITAT = re.compile('["“”„][^"“”„]{1,60}["“”]')
 
@@ -313,16 +317,19 @@ def szene_ohne_schrift(szene):
     s = SCHRIFTWUNSCH.sub('blank shapes', s)
     s = re.sub(r'blank shapes(?:\s*(?:,|and|or)\s*blank shapes)+', 'blank shapes', s)
     s = re.sub(r'\b(?:[A-Z]{3,}|[A-Za-z]+\.(?:com|ai|io|dev))\b', 'unlabeled', s)
-    if BILDSCHIRM.search(s):
-        s += ('. Every screen, display, panel or page is seen at an angle or softly out of focus and '
-              'shows only abstract glowing shapes, color blocks and blurred lines - no letters, '
-              'words, numbers or icons')
-    if SCHRIFTTRAEGER.search(s):
+    if ECHTER_BILDSCHIRM.search(s):
+        # GEMESSEN 26.10.2026 (Promptprobe 40305943889): FLUX kennt keine Verneinung - der fruehere Zusatz
+        # "... no letters, words, numbers or icons" nannte genau das Ungewollte. Und "documents" loeste
+        # "Every screen, display, panel" aus -> Flachbildschirme im Buero von 1989. Nur echte Bildschirme.
+        s += BILDSCHIRM_ZUSATZ
+    elif BILDSCHIRM.search(s):
+        s += FLAECHEN_ZUSATZ
+    if SCHRIFTTRAEGER.search(s) and FLAECHEN_ZUSATZ not in s:
         # GEMESSEN 10.10.2026 (Tageslauf 38037738527, Business 31 Ablehnungen): Der Vorgaenger-Zusatz
         # ZAEHLTE Gegenstaende auf ("dial, card, paper, banknote, sign, book") - die Bild-KI malte genau
         # diese Dinge hinein (Uhren, Geldscheine, Buecher, Karten) samt Schriftsalat. Nie Gegenstaende
         # nennen, die nicht im Bild sein sollen.
-        s += '. All surfaces in the scene are plain and unmarked'
+        s += FLAECHEN_ZUSATZ
     return s
 
 
@@ -350,43 +357,94 @@ def rueckfall_motiv(einstellung, phase=''):
 
 
 # Stil-Block der gemalten Bilder; je Kanal ueberschreibbar (kanaele/<slug>.json 'bildstil_prompt',
-# Nutzerentscheidung 15.10.2026: Template je Kanal). Text unveraendert aus illustration() uebernommen.
+# Nutzerentscheidung 15.10.2026: Template je Kanal).
+#
+# Nutzerentscheidung 26.10.2026 ("die Mischung machts"): Der fruehere Auftrag stammte aus Codex' image_gen-
+# Vorlagen (GPT-Image versteht Verneinungen). FLUX.2 kennt laut BFL keine Negativ-Prompts, gewichtet fruehe
+# Woerter staerker und baut kurze Auftraege nicht aus (docs.bfl.ai/guides/prompting_guide_flux2).
+# GEMESSEN Promptprobe 40305943889 + 40307810971 (je 6 echte Szenen vom 26.10.): der alte Auftrag (211 Woerter,
+# Szene ab Wort 41, zehn Verbote) malte 2/12 Bilder mit Schriftsalat, der neue Aufbau 0/12. Der kurze Stil
+# allein verlor Waerme und Gesichter - darum Szene zuerst, danach der volle warme Stil, Verbote positiv.
 STIL_STANDARD = (
             # Nutzer 23.10.2026: "realistisch, aber bisschen gemalt wie bei GTA, wie die ersten Codex-Videos".
             # Die Codex-Bilder (assets/illustrationen) leben von Materialdetails, Gegenlicht und Tiefenunschaerfe;
             # "strong ink contours" machte daraus Comic. Probe 23.10. (4 Szenen, flux-2-klein-4b) direkt verglichen.
-            # Laenge wie der alte Satz: Gesamtauftrag muss unter Cloudflares 2048 Zeichen bleiben.
-            'realistic digital painting, open-world-game key art look: lifelike faces, thin linework only around figures, '
-            'rich material textures, golden-hour rim light, deep warm contrast, soft depth of field; hand-painted, '
-            'never a photograph. '
+            'Realistic hand-painted digital painting, open-world-game key art look: lifelike faces, thin linework '
+            'only around figures, rich material textures, deep warm contrast, soft depth of field, visible '
+            'brushwork. '
             # Nutzer 08.10.: „gemalt wie bei einer GTA-Welt" und „lebendig, warm, ausgefuellt,
             # damit die Leute Lust haben zu schauen".
-            'Vivid, warm, inviting and richly filled, with visible emotion in faces and gestures; '
+            'Vivid, warm, inviting and richly filled; '
             # GEMESSEN 14.10.2026 (Panasonic, Lauf 38599959038): der feste Zusatz „glowing skyline"
             # setzte Hochhaus-Skylines in das Osaka von 1918; der Bildpruefer lehnte 15/18 ab.
             'where fitting lived-in streets, warm haze, buildings true to the scene period and place. '
-            'Original fictional character '
-            'designs only; do not reproduce recognizable characters, distinctive outfits, logos or '
-            'specific scenes from existing games. '
-            'One clear focal action in the central 60 percent, medium or close shot, coherent '
-            'perspective and plausible period-appropriate props. Keep the important subject inside '
-            'the center crop; quiet uncluttered top and lower areas for later captions. '
-            'Natural anatomy, simple readable hand poses, distinct objects. Unlettered '
-            'surfaces, without typography, numbers, signatures, watermarks, logos or collage panels. ')
+            'Original fictional characters. One clear focal action in the central 60 percent, coherent '
+            'perspective and plausible period-appropriate props. Natural anatomy, simple readable hand poses, '
+            'distinct objects. Plain unmarked surfaces.')
+
+# Vorlage aus kanaele/<slug>.json 'bildvorlage': "{einstellung} of {motiv} as the clear focal subject, ...".
+# GEMESSEN Promptprobe 26.10.: das woertliche Satzmotiv vorne ("purity standards", "One fire nearly ended")
+# wurde als Schrift gemalt bzw. als Mann im Feuer. Fuer FLUX steht die Handlung vorn; das Motiv bleibt im
+# Bildplan und in der Bildpruefung (bildpruefung() bekommt den Satz) unveraendert verbindlich.
+# Ein KONKRETER Gegenstand bleibt aber vorn ("Air mattress: being inflated ..."): ohne ihn malte FLUX am
+# 15.10. eine normale Matratze (test_bildregie_2510). Abstrakt = Satzbruchstueck, Zahl, Eigenname, Abstraktum.
+ABSTRAKTES_MOTIV = re.compile(r'\d|\s[A-Z][a-z]|\b\w+(?:ed|ity|ities|ness|ment|ments|tion|tions|sion|ance|ence|ism|'
+                              r'ship)\b|\b(?:standards?|launch|sends?|sent|answers?|carefully|like|share|save)\b')
+
+
+def _konkretes_motiv(m):
+    motiv = m['motiv'].strip()
+    rest = f"{m['aktion']} {m['details'] or ''}".lower()
+    if len(motiv.split()) > 3 or ABSTRAKTES_MOTIV.search(motiv) or motiv.lower() in rest:
+        return ''
+    return motiv + ': '
+VORLAGE_SZENE = re.compile(r'^(?P<einstellung>[\w-]+(?: [\w-]+)?) of (?P<motiv>.+?) as the clear focal subject, '
+                           r'(?P<aktion>.+?), in (?P<ort>.+?), (?P<epoche>[^.]+?)'
+                           r'(?:\. Visible detail: (?P<details>.+))?$', re.S)
+# Licht: festes "golden-hour" machte einen naechtlichen Brand warm-einladend (Squibb 26.10.).
+LICHT = re.compile(r'\b(light|lighting|lit|sun\w*|night|dusk|dawn|evening|glow\w*|lamps?|flames?|fire|'
+                   r'candle\w*|shadows?|spotlight|daylight|moon\w*)\b', re.I)
+# Gesichter: "visible emotion in faces" malte Menschen auf ein Blatt Papier und Gesichter auf ein
+# Geraetedisplay (Promptprobe 40307810971, Szenen 4 und 6) - nur, wenn die Szene Menschen zeigt.
+MENSCH = re.compile(r'\b(man|men|woman|women|person|people|crowd|family|child(?:ren)?|boy|girl|founders?|'
+                    r'workers?|craftsm[ae]n|chemists?|doctors?|surgeons?|engineers?|developers?|programmers?|'
+                    r'executives?|scientists?|graduates?|presenter|host|customers?|employees?|team|rivals?|'
+                    r'roommates?|clerks?|merchants?|farmers?|artisans?|pharmacists?|investors?|owners?|'
+                    r'staff|guests?|users?|students?|he|she)\b', re.I)
+
+
+def szene_fuer_flux(szene):
+    """Vorlagenszene umstellen (Handlung, Ort, Epoche, Details, Einstellung); freie Szenen bleiben."""
+    s = szene.strip()
+    zusatz = ''
+    for z in (BILDSCHIRM_ZUSATZ, FLAECHEN_ZUSATZ):
+        if z in s:
+            s, zusatz = s.replace(z, ''), zusatz + z
+    s = s.strip().rstrip('.')
+    m = VORLAGE_SZENE.match(s)
+    if m:
+        motiv = _konkretes_motiv(m)
+        aktion = m['aktion'] if motiv else m['aktion'][:1].upper() + m['aktion'][1:]
+        teile = [f"{motiv}{aktion}, in {m['ort']}, {m['epoche']}"]
+        if m['details']:
+            teile.append(m['details'][:1].upper() + m['details'][1:].rstrip('.'))
+        teile.append(m['einstellung'][:1].upper() + m['einstellung'][1:])
+        s = '. '.join(teile)
+    return s + zusatz
 
 
 def illustration(szene, referenz=False, korrektur='', videoformat='short', stil=None):
-    figur = ('Use the person in reference image 0 as the same fictional character: preserve face, '
-             'hair, proportions and outfit. Change pose, framing, lighting and background to fit '
-             'the scene; do not copy the reference composition. ' if referenz else '')
-    return ('Full-bleed artwork, unmarked objects and no signature. '
-            + figur + f'Scene: {szene.strip()[:500]}. '
-            'A single coherent ' + ('landscape' if videoformat == 'lang' else 'vertical')
-            # GEMELDET 08.10.2026: „Alles gemalt, Inspiration GTA, keine echten Charaktere - so wie
-            # die letzten zwei Videos von Codex." Deren dokumentierte Auftraege (assets/
-            # illustrationen/*PROMPTS.json) als Stilvorlage; Spielname bewusst nicht genannt.
-            + ' ' + (stil or STIL_STANDARD)
-            + (f'Fix this observed defect while preserving the scene: {korrektur[:220]}.' if korrektur else ''))
+    # GEMELDET 08.10.2026: „Alles gemalt, Inspiration GTA, keine echten Charaktere - so wie
+    # die letzten zwei Videos von Codex." Spielname bewusst nicht genannt.
+    s = szene_fuer_flux(szene)[:560]
+    figur = ('The person from reference image 0 is our fictional host: same face, hair, proportions and '
+             'outfit, in a new pose, framing and setting that fit this scene. ' if referenz else '')
+    licht = '' if LICHT.search(s) else 'Golden-hour rim light. '
+    gefuehl = 'Visible emotion in faces and gestures. ' if referenz or MENSCH.search(s) else ''
+    return (f'{s}. ' + figur + licht + gefuehl + (stil or STIL_STANDARD).strip() + ' '
+            + ('Landscape' if videoformat == 'lang' else 'Vertical')
+            + ' frame with uncluttered top and bottom areas for captions.'
+            + (f' Fix this observed defect while preserving the scene: {korrektur[:220]}.' if korrektur else ''))
 
 
 def figur_in_szene(szene, korrektur='', videoformat='short'):
@@ -395,10 +453,11 @@ def figur_in_szene(szene, korrektur='', videoformat='short'):
             'Place that presenter naturally into image 0, replacing its main anonymous presenter. '
             'Pose the presenter to perform the requested action. Do not import the city backdrop, '
             'portrait pose, framing or other objects from image 1. This is an illustrative host, '
-            'never a real historical founder. No writing, numbers, logos, watermarks or signatures. '
-            'Original painted urban open-world-game style, no copied game characters. '
+            # 26.10.2026: Verbotsliste ("No writing, numbers, logos ...") positiv - FLUX kennt keine Verneinung.
+            'never a real historical founder. Plain unmarked surfaces. '
+            'Original painted urban open-world-game style with original characters. '
             + ('landscape' if videoformat == 'lang' else 'vertical')
-            + f' scene: {szene.strip()[:500]}. '
+            + f' scene: {szene_fuer_flux(szene)[:560]}. '
             + (f'Repair this visible defect while keeping the scene: {korrektur[:220]}.' if korrektur else ''))
 
 

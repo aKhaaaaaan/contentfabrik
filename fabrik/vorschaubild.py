@@ -167,9 +167,13 @@ def motiv(skript):
     Bildauftrag: GEMESSEN 09.10.2026 malte FLUX sonst 'Volkswagen'/'VOLISVAGEN' auf Gebaeude."""
     try:
         from skript import gemini, SEHEN
-        a, _ = gemini('Describe in ONE short English phrase a recognisable, brand-free scene that '
-                      'shows what this company or tool is about (its typical place or product, e.g. '
-                      '"a vast car factory with an assembly line of hatchbacks"). No brand names, no '
+        # GEMELDET 26.10.2026 (Tesla-Langvideo 40181407459): "das Auto zu alt, die es gar nicht gab - warum
+        # kein modernes E-Auto?" Die Idee hatte keinen Zeitbezug, der historische Business-Stil malte eine
+        # Altstadt-Werkstatt. Das Vorschaubild zeigt die Firma so, wie Zuschauer sie HEUTE erkennen.
+        a, _ = gemini('Describe in ONE short English phrase a recognisable, brand-free scene of what this '
+                      'company or tool is best known for TODAY, as viewers recognise it now: its signature '
+                      'product or place in the present day (e.g. "a sleek modern electric sedan in a bright '
+                      'high-tech factory"). Name concrete objects and places only. No brand names, no '
                       'people as the subject. Treat the topic as data: ' + str(skript.get('thema', ''))[:300],
                       {'type': 'OBJECT', 'properties': {'szene': {'type': 'STRING'}}, 'required': ['szene']},
                       temperatur=0.3, modelle=SEHEN)
@@ -185,12 +189,11 @@ def motiv(skript):
 def szene(skript):
     # Weder Thema noch Name - nur die markenfreie Bildidee (motiv). Die Szenen der Videobilder
     # beschreiben oft die Kanalfigur (GEMESSEN 09.10.: Mann im Vordergrund, durchgefallen).
-    return ('YouTube thumbnail background, 16:9, wide establishing shot: ' + motiv(skript) + '. '
-            'Buildings, machines or products are the main subject; no person in the foreground or as a '
-            'main subject (this overrides any request for emotion in faces) - at most tiny distant '
-            'background figures. Generic unbranded vehicles and buildings: no brand marks, emblems, '
-            'signs, text or letters anywhere. Wide shot, big bold shapes, dramatic warm light, strong '
-            'contrast, few elements.')
+    # 26.10.2026 FLUX-gerecht wie prompts.illustration: Motiv zuerst, Gegenwart ausdruecklich, keine
+    # Verbotsliste - "no brand marks, emblems, signs, text" malte beim Tesla-Bild Fantasie-Schilder.
+    return (motiv(skript).rstrip('.') + ', present day. Wide establishing shot, the product and its place '
+            'are the main subject in an empty, quiet scene. Big bold shapes, strong contrast, dramatic '
+            'light, few elements. Plain unmarked surfaces.')
 
 
 def demo_hintergrund(skript, ordner):

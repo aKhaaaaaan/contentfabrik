@@ -123,14 +123,48 @@ def kapitelmarken(skript, abschnitte_s):
 
 # Nutzerentscheidung 17.10.2026: Kommentarfrage am Ende. TikTok gewichtet starke Signale hoeher
 # (newsroom.tiktok.com, "How TikTok recommends videos"); ein festes Punktesystem ist nicht belegt.
-# Die Antworten sind zugleich Themenwuensche. Nur sichtbar/Beschreibung, nicht gesprochen:
-# der gesprochene Aufruf (like, share, save) und seine Endton-Pruefung bleiben unveraendert.
+# Die Antworten sind zugleich Themenwuensche. Sichtbar im Schlussbild und in der Beschreibung;
+# seit 26.10.2026 zusaetzlich GESPROCHEN (SCHLUSS_GESPROCHEN).
 KOMMENTARFRAGE = {
     'Business Origin Stories': ('Which company next? Comment below!',
                                 'Which company should we cover next? Tell us in the comments.'),
     'AI Tools Explained': ('Which AI tool next? Comment below!',
                            'Which AI tool should we explain next? Tell us in the comments.'),
 }
+
+
+# Nutzerentscheidung 26.10.2026 (nach YouTube-Studio-Analyse: 3 Abos in 3 Wochen, Zuschauer liken/folgen
+# nicht von selbst): Kommentarfrage und ein Grund zum Folgen werden direkt nach dem Pflichtaufruf
+# gesprochen. Fest im Code statt von der Schreib-KI: immer gleich, nie vom Faktenpruefer als Behauptung
+# gewertet (wird erst beim Bau angehaengt). Kein "daily" - ein taegliches Video ist nicht garantiert.
+# Der Aufruf "like, share and save this video" bleibt davor und damit im Endton-Fenster der letzten 20 s.
+# Kurz gehalten: Shorts bleiben 35-45 s, jedes Wort geht von der Geschichte ab (Business 1,95 W/s -> ~4 s).
+SCHLUSS_GESPROCHEN = {
+    'Business Origin Stories': 'Which company next? Comment, and follow for more.',
+    'AI Tools Explained': 'Which tool next? Comment, and follow for more.',
+}
+AUFRUF = re.compile(r'like,?\s*(?:and\s*)?share,?\s*(?:and\s*)?save', re.I)
+
+
+def schluss_gesprochen(skript):
+    return SCHLUSS_GESPROCHEN.get(str(skript.get('kanal') or skript.get('name') or ''), '')
+
+
+def mit_schluss(skript):
+    """Gesprochenen Zusatz an den letzten Teil mit dem Pflichtaufruf haengen; nie doppelt, sonst unveraendert."""
+    zusatz = schluss_gesprochen(skript)
+    teile = skript.get('teile') or []
+    if not zusatz or not teile or not AUFRUF.search(str(teile[-1].get('text', ''))) \
+            or zusatz in str(teile[-1].get('text', '')):
+        return skript
+    letzter = dict(teile[-1], text=str(teile[-1]['text']).rstrip() + ' ' + zusatz)
+    return dict(skript, teile=[*teile[:-1], letzter])
+
+
+def ohne_schluss(text, skript):
+    """Sprechblase im Schlussbild: nur der Aufruf - die Frage steht dort schon kurz darunter."""
+    zusatz = schluss_gesprochen(skript)
+    return str(text).replace(' ' + zusatz, '').replace(zusatz, '').rstrip() if zusatz else text
 
 
 def kommentar_frage(skript, kurz=False):

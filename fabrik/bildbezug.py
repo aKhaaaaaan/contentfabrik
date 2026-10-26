@@ -24,8 +24,14 @@ SCHEMA = {'type': 'OBJECT', 'properties': {'pruefung': {'type': 'ARRAY', 'items'
 
 
 def aufruf(text):
-    """Sprechphase ist der reine Like/Teilen/Speichern-Aufruf (Shorts-Ende)."""
+    """Sprechphase ist der reine Like/Teilen/Speichern-Aufruf (Shorts-Ende).
+
+    26.10.2026: der feste gesprochene Zusatz (texte.SCHLUSS_GESPROCHEN: Kommentarfrage + Folgen) gehoert
+    zum Aufruf - mit ihm laege die Phase ueber 14 Woerter und das Schlussbild fiele aus der Ausnahme."""
+    import texte
     t = text.lower()
+    for zusatz in texte.SCHLUSS_GESPROCHEN.values():
+        t = t.replace(zusatz.lower(), ' ')
     return all(w in t for w in ('like', 'share', 'save')) and len(t.split()) <= 14
 
 

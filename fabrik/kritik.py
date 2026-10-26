@@ -37,7 +37,9 @@ KATEGORIEN = {
     'tempo': 'pacing, no dead moments, no rushed parts',
     'inhalt': 'concrete value, clear limitations, no unsupported promises; source verification is separate',
     'schluss_loop': 'complete promised payoff, concise ending; spoken like, share AND save this video is mandatory '
-                    'after the payoff in Shorts, early after the hook and again at the end in long videos',
+                    'after the payoff in Shorts, early after the hook and again at the end in long videos; '
+                    'the short fixed comment question and follow line right after the final request is '
+                    'also mandated by the channel and is not a weak or padded ending',
     'regeln': 'observed misleading depictions, intrusive watermarks or inappropriate content; do not infer rights or ad approval',
     'story': 'clear question, progressive discoveries, mini-payoffs, coherent final answer; no empty teasing',
 }

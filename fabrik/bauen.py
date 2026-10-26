@@ -1621,6 +1621,10 @@ def main(skript_pfad, aus, vorlage=None):
     import rendercache
     aus = Path(aus); aus.mkdir(parents=True, exist_ok=True)
     s = json.loads(Path(skript_pfad).read_text(encoding='utf-8'))
+    import texte
+    # Nutzer 26.10.2026: Kommentarfrage + Folgen-Grund gesprochen. Erst hier, damit Fakten-/Storypruefung
+    # ihn nie als Behauptung werten; gilt gleich fuer neue Skripte, Vorrat und Korrekturlaeufe.
+    s = texte.mit_schluss(s)
     if os.environ.get('CF_BILDSPEICHER_BASIS'):
         # Gepruefte Bilder je Thema ausserhalb des Versuchsordners: ein gescheiterter Bau (auch nach einer
         # Codeaenderung) setzt dort fort, wo er gescheitert ist (Nutzerentscheidung 17.10.2026).
@@ -1984,7 +1988,7 @@ def main(skript_pfad, aus, vorlage=None):
                     # Kopf: Firmenname statt Arbeitstitel - Enron 17.10.2026 zeigte das deutsche Thema
                     # "ENRON: AUFSTIEG UND ZUSAMMENBRUCH" im englischen Video.
                     import texte
-                    ill = erklaergrafik.figur_frage(aus / f'ill_{i:02d}.jpg', figur, t['text'],
+                    ill = erklaergrafik.figur_frage(aus / f'ill_{i:02d}.jpg', figur, texte.ohne_schluss(t['text'], s),
                                                     kopf_firma or t.get('werkzeug') or s.get('thema') or '',
                                                     texte.kommentar_frage(s, kurz=True))
                     quellen.append({'quelle': 'Illustration', 'seite': 'Originale Kanalfigur mit gesprochenem Aufruf'})

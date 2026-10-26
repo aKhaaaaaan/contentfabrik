@@ -547,7 +547,11 @@ def wortgrenzen(kanal):
     """Gleiche harten Wortgrenzen fuer Autor, Reparaturen und Pruefung."""
     lmin, lmax = dramaturgie.laengen(kanal)
     rate = wortrate(kanal)
-    return int(lmin * 2.75 * rate / 2.4), int(lmax * rate)
+    # 26.10.2026: der gesprochene Schlusszusatz (texte.SCHLUSS_GESPROCHEN) kommt erst beim Bau dazu -
+    # sein Platz geht vom Erzaehlbudget ab, sonst werden Shorts zu lang bzw. die Stimme gestrafft.
+    import texte
+    zusatz = len(texte.schluss_gesprochen(kanal).split())
+    return int(lmin * 2.75 * rate / 2.4) - zusatz, int(lmax * rate) - zusatz
 
 
 def laengenkorrektur(entwurf, mindest, hoechstens):

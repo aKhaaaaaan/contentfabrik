@@ -157,11 +157,17 @@ def pruefen(video, skript, ablauf, ziel):
                         'from pixels: the independent source check covers their factual truth. For those lines '
                         'require a relevant view of the exact helper or human-control workflow without a '
                         'contradictory visual; do not demand visual proof of an absent internal component. '
-                        'Story illustrations are forbidden to show logos, lettering, written years or the '
-                        'likeness of real people, so never require a brand name, logo, date or recognizable '
-                        'founder. Instead require the narrated action or object (e.g. a socket, lamp, radio, '
-                        'shop or factory product) in a setting plausible for the stated period and place; '
-                        'a generic scene that fits neither the object nor the era/place still fails. '
+                        # 26.10.2026: Squibb erhielt 2/10 u.a. wegen unserer 1859-Zahlenkarte und
+                        # Untertiteln; unbekannte gemalte Gesichter galten als echte Gruender.
+                        'Historical illustrations show the narrated action or object in a plausible era '
+                        'and setting, never proof of exact historical identity, address or event from pixels. '
+                        'Ordinary fictional people are allowed; do not infer a real-person likeness from '
+                        'an anonymous painted face. A generic scene missing the narrated action still fails. '
+                        'Generated artwork must be unlettered. Actual frames can contain editorial titles, '
+                        'subtitles, logo badges and number/date cards added after generation. Clearly separate '
+                        'overlays are not lettering painted into the scene: ignore them as both evidence of '
+                        'relevance and reasons for rejection. Scene-embedded garbled text remains a defect. '
+                        'For story illustrations, never require a brand name, logo, date or recognizable founder. '
                         # 16.10.2026 (Coca-Cola, 2/10): unser eigenes Abschnittslogo galt als verbotenes Logo.
                         'A shot marked editor_logo_badge carries the company logo badge added by our editor '
                         'at the section start: ignore that badge and judge only the illustration under it. '

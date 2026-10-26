@@ -1,99 +1,5 @@
 [
   {
-    "id": "38246377656",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-12",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sperrgruende": [
-          "Faktenpruefung fehlt oder ist nicht bestanden",
-          "Skript-Note fehlt oder ist ungueltig",
-          "Skript-Einzelbewertungen fehlen"
-        ],
-        "story_note": null,
-        "story_schwaechen": [],
-        "skript_probleme": [
-          "\"He began training in Muay Thai at age 8\" -> The source states in the biography section: \"Jaa began training in Muay Thai at his local temple at 10 years old.\" However, the earlier paragraph says: \"Jaa began training in Muay Thai at age 8\". Since the source contains conflicting information (8 vs 10), citing 8 is technically supported by the first paragraph, but let's check other problems or consider this part acceptable. Wait, let's look at the age 8 vs 10."
-        ],
-        "sekunden": 86.4
-      },
-      {
-        "runde": 2,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sperrgruende": [
-          "Faktenpruefung fehlt oder ist nicht bestanden",
-          "Skript-Note fehlt oder ist ungueltig",
-          "Skript-Einzelbewertungen fehlen"
-        ],
-        "story_note": null,
-        "story_schwaechen": [],
-        "skript_probleme": [
-          "Tony Jaa began training in Muay Thai at age 8. -> The source states 'Jaa began training in Muay Thai at age 8' in the first paragraph, but the 'Early life' section states 'Jaa began training in Muay Thai at his local temple at 10 years old.' Correction: state he began training at age 10 or reconcile the discrepancy from the source."
-        ],
-        "sekunden": 20.7
-      },
-      {
-        "runde": 3,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sperrgruende": [
-          "Faktenpruefung fehlt oder ist nicht bestanden",
-          "Skript-Note fehlt oder ist ungueltig",
-          "Skript-Einzelbewertungen fehlen"
-        ],
-        "story_note": null,
-        "story_schwaechen": [],
-        "skript_probleme": [
-          "The claim 'Tony Jaa began training in Muay Thai at his local temple at 10 years old' contradicts the source which states 'Jaa began training in Muay Thai at age 8'.",
-          "The claim 'Filmmaker Panna Rittikrai discovered him fighting at local temple fairs' is inaccurate based on the source, which indicates Panna Rittikrai 'saw him' after he 'fought professionally as a Muay Thai fighter' following his training, not specifically during the temple fair fighting period mentioned in his early youth.",
-          "[second checker] Filmmaker Panna Rittikrai discovered him fighting at local temple fairs. - The source states that Jaa fought at temple fairs during his time in Surin when he was discovered by Panna Rittikrai, but the 'Early life' section clarifies that he fought *professionally* as a Muay Thai fighter when Rittikrai saw him. The text implies the discovery happened specifically *at* the temple fairs where he fought, which is a slight conflation of the location of his early fights (temple fairs in Surin) and the specific instance of discovery (professional fight). More critically, the source says he was discovered *when* he was fighting, not necessarily *at* the temple fairs in the context of the discovery event described in the 'Early life' section, though the first paragraph links the two. However, the most significant issue is the phrasing 'fighting at local temple fairs' as the discovery context. The source says: 'fought at temple fairs... when he was discovered'. This is actually supported. Let's re-evaluate. \n\nRe-evaluating: Source: 'fought at temple fairs as a Muay Thai fighter during his time in surin when he was discovered by filmmaker Panna Rittikrai.' Text: 'Filmmaker Panna Rittikrai discovered him fighting at local temple fairs.' This is a supported paraphrase.\n\nLet's look at: 'This performance expanded his career into major Hollywood productions and global audiences.'\nSource: 'Furious 7 (2015) marked his first English-speaking role'. It does not explicitly state that this *performance* expanded his career into *major Hollywood productions* (plural) or *global audiences* as a direct causal result of that specific performance, although it is a reasonable inference. However, the prompt asks to check if a claim is a problem if the source does not support it. The source lists other films like XXX: Return of Xander Cage (2017) which are also Hollywood. The claim attributes the expansion to the Furious 7 performance. This is an interpretive claim not explicitly in the source text provided. \n\nLet's look at: 'Tony Jaa helped establish Thai action styles like Muay Thai on the global stage.'\nSource: 'Jaa is credited with helping establish the Thai action genre worldwide and popularising the Thai combat systems of Muay Thai...'. This is supported.\n\nLet's look at: 'He practiced until he could perform the moves exactly like the masters.'\nSource: 'I practiced until I could do the move exactly as I had seen the masters do it.' Supported.\n\nLet's look at: 'Before acting, he worked as a stuntman for Muay Thai Stunt for 14 years.'\nSource: 'He worked as a stuntman for Muay Thai Stunt for 14 years, before making the transition to acting.' Supported.\n\nLet's look at: 'His breakthrough lead role came in 2003 starring as Ting in Ong-Bak.'\nSource: 'Jaa had his breakthrough in 2003 with Ong-Bak... His first lead role was as Ting in Ong-Bak (2003)'. Supported.\n\nLet's look at: 'This film earned him international recognition and a Star Entertainment Award.'\nSource: 'Ong-Bak, which earned him international recognition... His first lead role was as Ting in Ong-Bak (2003), which earned him a Star Entertainment Award.' Supported.\n\nLet's look at: 'He later directed the sequels Ong Bak 2 in 2008 and Ong Bak 3 in 2010.'\nSource: 'He went on to star in the prequels Ong Bak 2 (2008) and Ong Bak 3 (2010), both of which he directed.' \nWait. The source calls them 'prequels'. The text calls them 'sequels'. \nOng Bak 2 and 3 are chronologically sequels to Ong Bak 1 in terms of release, but the source explicitly labels them 'prequels' (likely referring to the timeline of the character's life or a specific narrative structure, or perhaps a source error, but I must follow the source). The text says 'sequels'. The source says 'prequels'. This is a factual discrepancy regarding the nature of the films as defined by the source. \n\nLet's check the date of Ong Bak 2 and 3. Source: 2008 and 2010. Text: 2008 and 2010. Correct.\n\nIs 'prequels' vs 'sequels' a 'schwer' error? It is a name/description mismatch. The source explicitly says 'prequels'. The text says 'sequels'. This is a contradiction in the description of the films' relationship to the first film. \n\nAlso, 'This performance expanded his career into major Hollywood productions and global audiences.' The source does not support the causal link or the specific claim that *this* performance expanded his career into *major Hollywood productions* (plural). It just says it was his first English-speaking role. The expansion is an inference. This is an unsupported detail/exaggeration. \n\nLet's refine the 'prequels' vs 'sequels' issue. In film terminology, Ong Bak 2 and 3 are often considered sequels in release order, but if the source says 'prequels', the text contradicting that is a factual error relative to the provided evidence. \n\nAnother potential issue: 'Tony Jaa helped establish Thai action styles like Muay Thai on the global stage.' Source: 'helping establish the Thai action genre worldwide and popularising the Thai combat systems of Muay Thai'. This is fine.\n\nLet's look at the 'prequels' claim again. \nSource: 'He went on to star in the prequels Ong Bak 2 (2008) and Ong Bak 3 (2010)'.\nText: 'He later directed the sequels Ong Bak 2 in 2008 and Ong Bak 3 in 2010.'\nThe source defines them as prequels. The text defines them as sequels. This is a factual mismatch based on the source. \n\nIs there any other error?\n'Tony Jaa began training in Muay Thai at his local temple at 10 years old.' Source: 'Jaa began training in Muay Thai at his local temple at 10 years old.' (Note: The first paragraph says 'at age 8', but the 'Early life' section says 'at 10 years old'. The text uses 10. Since the source contains both, using 10 is supported by the 'Early life' section. No error.)\n\nSo the main errors are:\n1. Calling Ong Bak 2 and 3 'sequels' when the source calls them 'prequels'.\n2. The claim that the Furious 7 performance 'expanded his career into major Hollywood productions and global audiences' is an unsupported causal/explanatory claim not in the source.\n\nLet's format the output.\n\nProblem 1: 'He later directed the sequels Ong Bak 2 in 2008 and Ong Bak 3 in 2010.'\nError: The source identifies Ong Bak 2 and 3 as 'prequels', not 'sequels'.\nSchwer: True (Name/Description mismatch).\n\nProblem 2: 'This performance expanded his career into major Hollywood productions and global audiences.'\nError: The source states Furious 7 was his first English-speaking role but does not state that this specific performance expanded his career into major Hollywood productions or global audiences. This is an unsupported inference.\nSchwer: False (Unsupported detail/exaggeration).",
-          "Skript ausserhalb der Laenge oder Rangfolge falsch (183 Woerter, 0 Plaetze)"
-        ],
-        "sekunden": 44.1
-      },
-      {
-        "runde": 4,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 1,
-        "grund": "Skript fehlgeschlagen (Code 1)",
-        "sekunden": 110.8
-      },
-      {
-        "runde": 5,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 3,
-        "grund": "Skriptqualitaet unter Freigabe",
-        "sperrgruende": [
-          "Skript-ueberraschung 6/10 unter 7/10"
-        ],
-        "story_note": 7,
-        "story_schwaechen": [
-          "The sentence 'Inspired by those masters, he began training in Muay Thai at age eight or ten.' contains vague phrasing ('eight or ten') which weakens the factual precision of the biographical details.",
-          "The narration lacks a genuine surprising revelation or unknown fact about his journey, reading more like a standard Wikipedia summary."
-        ],
-        "skript_probleme": [],
-        "sekunden": 111.9
-      }
-    ],
-    "status": "gesperrt",
-    "trendcheck": "kein Trendsignal abrufbar - alte Reihenfolge der Warteschlange",
-    "grund": "Skriptqualitaet unter Freigabe",
-    "sekunden": 375.9,
-    "upload_titel": "How Tony Jaa: Became a Star | AI Tool #2"
-  },
-  {
     "id": "38248313906",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-12",
@@ -14514,5 +14420,141 @@
     "grund": "",
     "sekunden": 430.0,
     "upload_titel": "Claude Code TV OS? What Sources Support | AI Tool #16"
+  },
+  {
+    "id": "40373685455",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-10-26",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 411.9,
+        "pruefung_s": 205.8,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 3/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen allgemeinen Arbeiter an einem Computer, nicht jedoch die Erklärungen zu Claude Projects oder das wiederholte Erklären von Hintergründen.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt lediglich zusammenfassenden Text auf bunten Flächen, aber weder die hochgeladenen Dateien noch eine konkrete Interaktion oder Funktion, die zeigt, wie Claude die Dateien für den Hintergrund nutzt.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Der sichtbare Text behandelt Team- und Enterprise-Pläne sowie Sharing-Funktionen, während der gesprochene Text sich auf das Limit von fünf Projekten für Free-Nutzer bezieht. Es fehlt jeglicher konkreter visueller Bezug zum Limit.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich grafische Symbole und die Aufschrift Free Setup, aber nicht die im Satz erwähnten fünf Workspaces mit eigenen Dateien.",
+          "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Textfolien als Aufzählung, jedoch keine visuelle Erklärung oder Demonstration des Ablaufs.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich einen allgemeinen Arbeiter an einem Computer, nicht jedoch die Erklärungen zu Claude Projects oder das wiederholte Erklären von Hintergründen. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der die Projekte und Chat-Historie zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich zusammenfassenden Text auf bunten Flächen, aber weder die hochgeladenen Dateien noch eine konkrete Interaktion oder Funktion, die zeigt, wie Claude die Dateien für den Hintergrund nutzt. Korrektur: Ein Screenshot oder eine Grafik, die beispielhaft zeigt, wie Dokumente in ein Claude-Projekt hochgeladen sind und wie diese in den Chats referenziert werden.",
+          "Offenes Problem (schwer): Der sichtbare Text behandelt Team- und Enterprise-Pläne sowie Sharing-Funktionen, während der gesprochene Text sich auf das Limit von fünf Projekten für Free-Nutzer bezieht. Es fehlt jeglicher konkreter visueller Bezug zum Limit. Korrektur: Ein Screenshot oder eine Dokumentation, die das Limit von fünf Projekten für Free-Nutzer visuell darstellt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich grafische Symbole und die Aufschrift Free Setup, aber nicht die im Satz erwähnten fünf Workspaces mit eigenen Dateien. Korrektur: Eine Benutzeroberfläche, die fünf erstellte Projekte oder Workspaces mit hochgeladenen Dateien zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich Textfolien als Aufzählung, jedoch keine visuelle Erklärung oder Demonstration des Ablaufs. Korrektur: Eine Bildschirmaufnahme des Claude-Interfaces, die die Projektübersicht oder das Erstellen von Projekten zeigt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 14.8,
+          "zeitmarken": 8.2,
+          "tempo": 1.0,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 13,
+          "clips_und_stuecke": 186.4,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 13,
+            "motive": 13,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 47.5,
+          "gesamt": 411.5,
+          "videolaenge_s": 44.1,
+          "abschnitte_s": [
+            6.74,
+            7.32,
+            6.0,
+            6.62,
+            6.84,
+            6.56,
+            4.0
+          ],
+          "woerter": 137
+        },
+        "kategorien": {
+          "bild_passt": 3
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "You keep re-explaining the same background to Claude.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich einen allgemeinen Arbeiter an einem Computer, nicht jedoch die Erklärungen zu Claude Projects oder das wiederholte Erklären von Hintergründen. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der die Projekte und Chat-Historie zeigt."
+          },
+          {
+            "zeit": "00:14.06",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Claude uses those files to understand the background of your chats in that project.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich zusammenfassenden Text auf bunten Flächen, aber weder die hochgeladenen Dateien noch eine konkrete Interaktion oder Funktion, die zeigt, wie Claude die Dateien für den Hintergrund nutzt. Korrektur: Ein Screenshot oder eine Grafik, die beispielhaft zeigt, wie Dokumente in ein Claude-Projekt hochgeladen sind und wie diese in den Chats referenziert werden."
+          },
+          {
+            "zeit": "00:17.86",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "Free users get up to five projects.",
+            "fest": true,
+            "text": "Der sichtbare Text behandelt Team- und Enterprise-Pläne sowie Sharing-Funktionen, während der gesprochene Text sich auf das Limit von fünf Projekten für Free-Nutzer bezieht. Es fehlt jeglicher konkreter visueller Bezug zum Limit. Korrektur: Ein Screenshot oder eine Dokumentation, die das Limit von fünf Projekten für Free-Nutzer visuell darstellt."
+          },
+          {
+            "zeit": "00:20.06",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 6,
+            "gesprochen": "That's the free setup: five workspaces with your own files.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich grafische Symbole und die Aufschrift Free Setup, aber nicht die im Satz erwähnten fünf Workspaces mit eigenen Dateien. Korrektur: Eine Benutzeroberfläche, die fünf erstellte Projekte oder Workspaces mit hochgeladenen Dateien zeigt."
+          },
+          {
+            "zeit": "00:33.52",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "No more re-explaining: free keeps five projects ready, and paying",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich Textfolien als Aufzählung, jedoch keine visuelle Erklärung oder Demonstration des Ablaufs. Korrektur: Eine Bildschirmaufnahme des Claude-Interfaces, die die Projektübersicht oder das Erstellen von Projekten zeigt."
+          }
+        ],
+        "sekunden": 617.7,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "status": "keine_korrektur",
+        "sekunden": 0.1
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 635.1,
+    "upload_titel": "Claude Projects: Free: What Paying Adds | AI Tool #16"
   }
 ]

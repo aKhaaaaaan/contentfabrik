@@ -89378,6 +89378,1352 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "40291456997.1:ai-tools-explained",
+      "run_id": "40291456997",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-26T08:27:48.201631+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "5d9e116fde1e79b00d6b236e732cbcf3b2499e68",
+      "produktionsversion": "f137c86add63001a464c633a888dace158bde3f96a787f520d3c08570ed9e464",
+      "videoformat": "short",
+      "thema": "Claude Code and building a TV operating system: what sources support, and token cost limits",
+      "titel": [
+        "*Claude* *Code* *TV* *OS?*",
+        "What Sources Support"
+      ],
+      "status": "gesendet",
+      "video_sha256": "709c21c380086d565cf127e3065aede09aec3c29188f334d521dd9b74a5e2694",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-25.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter 'Your smart TV feels stuck in the past' behandeln das Thema eines veralteten Smart TVs, jedoch zeigt das Bild lediglich eine allgemeine Animationsszene mit einer Person und einem Bildschirm ohne Bezug zu einem veralteten Fernseher.",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Die sichtbare Tabelle zeigt allgemeine Programmierregeln und Anweisungen für Claude, aber nicht das Erstellen eines TV-Betriebssystems.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Tabelle illustriert Programmierstrategien für Claude Code, aber nicht die im Satz 'The sources answer carefully.' erwähnten spezifischen Quellen oder Aussagen.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Aussage behandelt die Behauptung, dass keine Quelle den Bau eines TV-Betriebssystems mit Claude Code zeigt; das Bild zeigt lediglich ein Wikipedia-Logo und einen Textausschnitt über Software, was den Bau eines TV-Betriebssystems nicht belegt.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine grafische Darstellung von Zeilen in einem Repository, bildet aber nicht den konkreten Zeitraum von funf Jahren oder das Erscheinen des Nest Hub ab.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt Text mit Token-Kosten und Testergebnissen, jedoch nicht die spezifisch im gesprochenen Text erwähnten Werte von 33,000 vor dem Prompt, sondern andere Zahlen.",
+        "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Liste von verwandten Ressourcen und Dokumentationen zu Claude Code, was nicht zum gesprochenen Satz über das unbewiesene Betriebssystem und die Token-Kosten passt.",
+        "Einstellung 13: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Programmierhinweise und Befehle für Claude Code, während der Text von einer 'stuck TV' spricht, was inhaltlich nicht übereinstimmt.",
+        "Offenes Problem (schwer): Die gesprochenen Wörter 'Your smart TV feels stuck in the past' behandeln das Thema eines veralteten Smart TVs, jedoch zeigt das Bild lediglich eine allgemeine Animationsszene mit einer Person und einem Bildschirm ohne Bezug zu einem veralteten Fernseher. Korrektur: Ein Foto oder eine Animation eines veralteten Smart-TV-Modells mit einer unzeitgemäßen Benutzeroberfläche.",
+        "Offenes Problem (schwer): Die sichtbare Tabelle zeigt allgemeine Programmierregeln und Anweisungen für Claude, aber nicht das Erstellen eines TV-Betriebssystems. Korrektur: Eine Darstellung von Claude Code im Einsatz beim Schreiben von Code oder eine Codebasis für ein Betriebssystem.",
+        "Offenes Problem (schwer): Die gezeigte Tabelle illustriert Programmierstrategien für Claude Code, aber nicht die im Satz 'The sources answer carefully.' erwähnten spezifischen Quellen oder Aussagen. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die konkrete Quellenangaben oder Dokumentationszitate zu Claude Code zeigt.",
+        "Offenes Problem (schwer): Die gesprochene Aussage behandelt die Behauptung, dass keine Quelle den Bau eines TV-Betriebssystems mit Claude Code zeigt; das Bild zeigt lediglich ein Wikipedia-Logo und einen Textausschnitt über Software, was den Bau eines TV-Betriebssystems nicht belegt. Korrektur: Ein Screenshot einer Dokumentation oder eines Artikels, der explizit diskutiert, welche Software oder Betriebssysteme mit Claude Code erstellt wurden.",
+        "Offenes Problem (schwer): Das Bild zeigt eine grafische Darstellung von Zeilen in einem Repository, bildet aber nicht den konkreten Zeitraum von funf Jahren oder das Erscheinen des Nest Hub ab. Korrektur: Eine Darstellung oder Grafik, die den zeitlichen Abstand von funf Jahren zwischen dem Repository und dem Nest Hub Launch visualisiert.",
+        "Offenes Problem (schwer): Das Bild zeigt Text mit Token-Kosten und Testergebnissen, jedoch nicht die spezifisch im gesprochenen Text erwähnten Werte von 33,000 vor dem Prompt, sondern andere Zahlen. Korrektur: Ein Dokument oder Diagramm, das die genauen Token-Zahlen von 33,000 für Claude Code und 7,000 für OpenCode abbildet.",
+        "Offenes Problem (schwer): Das Bild zeigt eine Liste von verwandten Ressourcen und Dokumentationen zu Claude Code, was nicht zum gesprochenen Satz über das unbewiesene Betriebssystem und die Token-Kosten passt. Korrektur: Ein statistischer Vergleich der Token-Kosten oder ein Diagramm zur Bewertung eines Claude Code TV-Betriebssystems.",
+        "Offenes Problem (schwer): Das Bild zeigt Programmierhinweise und Befehle für Claude Code, während der Text von einer 'stuck TV' spricht, was inhaltlich nicht übereinstimmt. Korrektur: Ein Bild eines alten Fernsehers oder eines zu reparierenden Fernsehgeräts."
+      ],
+      "einstellungen": 15,
+      "unterschiedliche_motive": 15,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "40291456997",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-26",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 343.0,
+            "pruefung_s": 44.1,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter 'Your smart TV feels stuck in the past' behandeln das Thema eines veralteten Smart TVs, jedoch zeigt das Bild lediglich eine allgemeine Animationsszene mit einer Person und einem Bildschirm ohne Bezug zu einem veralteten Fernseher.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Die sichtbare Tabelle zeigt allgemeine Programmierregeln und Anweisungen für Claude, aber nicht das Erstellen eines TV-Betriebssystems.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Tabelle illustriert Programmierstrategien für Claude Code, aber nicht die im Satz 'The sources answer carefully.' erwähnten spezifischen Quellen oder Aussagen.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Aussage behandelt die Behauptung, dass keine Quelle den Bau eines TV-Betriebssystems mit Claude Code zeigt; das Bild zeigt lediglich ein Wikipedia-Logo und einen Textausschnitt über Software, was den Bau eines TV-Betriebssystems nicht belegt.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine grafische Darstellung von Zeilen in einem Repository, bildet aber nicht den konkreten Zeitraum von funf Jahren oder das Erscheinen des Nest Hub ab.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt Text mit Token-Kosten und Testergebnissen, jedoch nicht die spezifisch im gesprochenen Text erwähnten Werte von 33,000 vor dem Prompt, sondern andere Zahlen.",
+              "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Liste von verwandten Ressourcen und Dokumentationen zu Claude Code, was nicht zum gesprochenen Satz über das unbewiesene Betriebssystem und die Token-Kosten passt.",
+              "Einstellung 13: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Programmierhinweise und Befehle für Claude Code, während der Text von einer 'stuck TV' spricht, was inhaltlich nicht übereinstimmt.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter 'Your smart TV feels stuck in the past' behandeln das Thema eines veralteten Smart TVs, jedoch zeigt das Bild lediglich eine allgemeine Animationsszene mit einer Person und einem Bildschirm ohne Bezug zu einem veralteten Fernseher. Korrektur: Ein Foto oder eine Animation eines veralteten Smart-TV-Modells mit einer unzeitgemäßen Benutzeroberfläche.",
+              "Offenes Problem (schwer): Die sichtbare Tabelle zeigt allgemeine Programmierregeln und Anweisungen für Claude, aber nicht das Erstellen eines TV-Betriebssystems. Korrektur: Eine Darstellung von Claude Code im Einsatz beim Schreiben von Code oder eine Codebasis für ein Betriebssystem.",
+              "Offenes Problem (schwer): Die gezeigte Tabelle illustriert Programmierstrategien für Claude Code, aber nicht die im Satz 'The sources answer carefully.' erwähnten spezifischen Quellen oder Aussagen. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die konkrete Quellenangaben oder Dokumentationszitate zu Claude Code zeigt.",
+              "Offenes Problem (schwer): Die gesprochene Aussage behandelt die Behauptung, dass keine Quelle den Bau eines TV-Betriebssystems mit Claude Code zeigt; das Bild zeigt lediglich ein Wikipedia-Logo und einen Textausschnitt über Software, was den Bau eines TV-Betriebssystems nicht belegt. Korrektur: Ein Screenshot einer Dokumentation oder eines Artikels, der explizit diskutiert, welche Software oder Betriebssysteme mit Claude Code erstellt wurden.",
+              "Offenes Problem (schwer): Das Bild zeigt eine grafische Darstellung von Zeilen in einem Repository, bildet aber nicht den konkreten Zeitraum von funf Jahren oder das Erscheinen des Nest Hub ab. Korrektur: Eine Darstellung oder Grafik, die den zeitlichen Abstand von funf Jahren zwischen dem Repository und dem Nest Hub Launch visualisiert.",
+              "Offenes Problem (schwer): Das Bild zeigt Text mit Token-Kosten und Testergebnissen, jedoch nicht die spezifisch im gesprochenen Text erwähnten Werte von 33,000 vor dem Prompt, sondern andere Zahlen. Korrektur: Ein Dokument oder Diagramm, das die genauen Token-Zahlen von 33,000 für Claude Code und 7,000 für OpenCode abbildet.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Liste von verwandten Ressourcen und Dokumentationen zu Claude Code, was nicht zum gesprochenen Satz über das unbewiesene Betriebssystem und die Token-Kosten passt. Korrektur: Ein statistischer Vergleich der Token-Kosten oder ein Diagramm zur Bewertung eines Claude Code TV-Betriebssystems.",
+              "Offenes Problem (schwer): Das Bild zeigt Programmierhinweise und Befehle für Claude Code, während der Text von einer 'stuck TV' spricht, was inhaltlich nicht übereinstimmt. Korrektur: Ein Bild eines alten Fernsehers oder eines zu reparierenden Fernsehgeräts."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 15.2,
+              "zeitmarken": 5.5,
+              "tempo": 1.114,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 15,
+              "clips_und_stuecke": 159.0,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 15,
+                "motive": 15,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 49.5,
+              "gesamt": 342.6,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.62,
+                7.22,
+                6.5,
+                7.39,
+                7.76,
+                6.68,
+                1.82
+              ],
+              "woerter": 129
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Your smart TV feels stuck in the past.",
+                "fest": false,
+                "text": "Die gesprochenen Wörter 'Your smart TV feels stuck in the past' behandeln das Thema eines veralteten Smart TVs, jedoch zeigt das Bild lediglich eine allgemeine Animationsszene mit einer Person und einem Bildschirm ohne Bezug zu einem veralteten Fernseher. Korrektur: Ein Foto oder eine Animation eines veralteten Smart-TV-Modells mit einer unzeitgemäßen Benutzeroberfläche."
+              },
+              {
+                "zeit": "00:02.90",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Could Claude Code write its replacement operating system?",
+                "fest": true,
+                "text": "Die sichtbare Tabelle zeigt allgemeine Programmierregeln und Anweisungen für Claude, aber nicht das Erstellen eines TV-Betriebssystems. Korrektur: Eine Darstellung von Claude Code im Einsatz beim Schreiben von Code oder eine Codebasis für ein Betriebssystem."
+              },
+              {
+                "zeit": "00:05.84",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 2,
+                "gesprochen": "The sources answer carefully.",
+                "fest": true,
+                "text": "Die gezeigte Tabelle illustriert Programmierstrategien für Claude Code, aber nicht die im Satz 'The sources answer carefully.' erwähnten spezifischen Quellen oder Aussagen. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die konkrete Quellenangaben oder Dokumentationszitate zu Claude Code zeigt."
+              },
+              {
+                "zeit": "00:14.84",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "No source shows anyone building a TV operating system with it.",
+                "fest": true,
+                "text": "Die gesprochene Aussage behandelt die Behauptung, dass keine Quelle den Bau eines TV-Betriebssystems mit Claude Code zeigt; das Bild zeigt lediglich ein Wikipedia-Logo und einen Textausschnitt über Software, was den Bau eines TV-Betriebssystems nicht belegt. Korrektur: Ein Screenshot einer Dokumentation oder eines Artikels, der explizit diskutiert, welche Software oder Betriebssysteme mit Claude Code erstellt wurden."
+              },
+              {
+                "zeit": "00:25.64",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 8,
+                "gesprochen": "That's about five years after the repository appeared.",
+                "fest": true,
+                "text": "Das Bild zeigt eine grafische Darstellung von Zeilen in einem Repository, bildet aber nicht den konkreten Zeitraum von funf Jahren oder das Erscheinen des Nest Hub ab. Korrektur: Eine Darstellung oder Grafik, die den zeitlichen Abstand von funf Jahren zwischen dem Repository und dem Nest Hub Launch visualisiert."
+              },
+              {
+                "zeit": "00:28.73",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "What about cost? A third-party test found Claude Code sends roughly",
+                "fest": true,
+                "text": "Das Bild zeigt Text mit Token-Kosten und Testergebnissen, jedoch nicht die spezifisch im gesprochenen Text erwähnten Werte von 33,000 vor dem Prompt, sondern andere Zahlen. Korrektur: Ein Dokument oder Diagramm, das die genauen Token-Zahlen von 33,000 für Claude Code und 7,000 für OpenCode abbildet."
+              },
+              {
+                "zeit": "00:36.49",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 12,
+                "gesprochen": "Verdict: a Claude Code TV OS is unproven. Context fills fast.",
+                "fest": true,
+                "text": "Das Bild zeigt eine Liste von verwandten Ressourcen und Dokumentationen zu Claude Code, was nicht zum gesprochenen Satz über das unbewiesene Betriebssystem und die Token-Kosten passt. Korrektur: Ein statistischer Vergleich der Token-Kosten oder ein Diagramm zur Bewertung eines Claude Code TV-Betriebssystems."
+              },
+              {
+                "zeit": "00:41.15",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 13,
+                "gesprochen": "Your stuck TV needs more than one prompt.",
+                "fest": true,
+                "text": "Das Bild zeigt Programmierhinweise und Befehle für Claude Code, während der Text von einer 'stuck TV' spricht, was inhaltlich nicht übereinstimmt. Korrektur: Ein Bild eines alten Fernsehers oder eines zu reparierenden Fernsehgeräts."
+              }
+            ],
+            "sekunden": 387.2,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 430.0,
+        "upload_titel": "Claude Code TV OS? What Sources Support | AI Tool #16"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Your smart TV feels stuck in the past.",
+            "fest": false,
+            "text": "Die gesprochenen Wörter 'Your smart TV feels stuck in the past' behandeln das Thema eines veralteten Smart TVs, jedoch zeigt das Bild lediglich eine allgemeine Animationsszene mit einer Person und einem Bildschirm ohne Bezug zu einem veralteten Fernseher. Korrektur: Ein Foto oder eine Animation eines veralteten Smart-TV-Modells mit einer unzeitgemäßen Benutzeroberfläche."
+          },
+          {
+            "zeit": "00:02.90",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Could Claude Code write its replacement operating system?",
+            "fest": true,
+            "text": "Die sichtbare Tabelle zeigt allgemeine Programmierregeln und Anweisungen für Claude, aber nicht das Erstellen eines TV-Betriebssystems. Korrektur: Eine Darstellung von Claude Code im Einsatz beim Schreiben von Code oder eine Codebasis für ein Betriebssystem."
+          },
+          {
+            "zeit": "00:05.84",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 2,
+            "gesprochen": "The sources answer carefully.",
+            "fest": true,
+            "text": "Die gezeigte Tabelle illustriert Programmierstrategien für Claude Code, aber nicht die im Satz 'The sources answer carefully.' erwähnten spezifischen Quellen oder Aussagen. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die konkrete Quellenangaben oder Dokumentationszitate zu Claude Code zeigt."
+          },
+          {
+            "zeit": "00:14.84",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "No source shows anyone building a TV operating system with it.",
+            "fest": true,
+            "text": "Die gesprochene Aussage behandelt die Behauptung, dass keine Quelle den Bau eines TV-Betriebssystems mit Claude Code zeigt; das Bild zeigt lediglich ein Wikipedia-Logo und einen Textausschnitt über Software, was den Bau eines TV-Betriebssystems nicht belegt. Korrektur: Ein Screenshot einer Dokumentation oder eines Artikels, der explizit diskutiert, welche Software oder Betriebssysteme mit Claude Code erstellt wurden."
+          },
+          {
+            "zeit": "00:25.64",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 8,
+            "gesprochen": "That's about five years after the repository appeared.",
+            "fest": true,
+            "text": "Das Bild zeigt eine grafische Darstellung von Zeilen in einem Repository, bildet aber nicht den konkreten Zeitraum von funf Jahren oder das Erscheinen des Nest Hub ab. Korrektur: Eine Darstellung oder Grafik, die den zeitlichen Abstand von funf Jahren zwischen dem Repository und dem Nest Hub Launch visualisiert."
+          },
+          {
+            "zeit": "00:28.73",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "What about cost? A third-party test found Claude Code sends roughly",
+            "fest": true,
+            "text": "Das Bild zeigt Text mit Token-Kosten und Testergebnissen, jedoch nicht die spezifisch im gesprochenen Text erwähnten Werte von 33,000 vor dem Prompt, sondern andere Zahlen. Korrektur: Ein Dokument oder Diagramm, das die genauen Token-Zahlen von 33,000 für Claude Code und 7,000 für OpenCode abbildet."
+          },
+          {
+            "zeit": "00:36.49",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 12,
+            "gesprochen": "Verdict: a Claude Code TV OS is unproven. Context fills fast.",
+            "fest": true,
+            "text": "Das Bild zeigt eine Liste von verwandten Ressourcen und Dokumentationen zu Claude Code, was nicht zum gesprochenen Satz über das unbewiesene Betriebssystem und die Token-Kosten passt. Korrektur: Ein statistischer Vergleich der Token-Kosten oder ein Diagramm zur Bewertung eines Claude Code TV-Betriebssystems."
+          },
+          {
+            "zeit": "00:41.15",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 13,
+            "gesprochen": "Your stuck TV needs more than one prompt.",
+            "fest": true,
+            "text": "Das Bild zeigt Programmierhinweise und Befehle für Claude Code, während der Text von einer 'stuck TV' spricht, was inhaltlich nicht übereinstimmt. Korrektur: Ein Bild eines alten Fernsehers oder eines zu reparierenden Fernsehgeräts."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -15.3,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 43.44,
+              "bis_s": 44.64,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.985
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Your",
+                "s": 0.0,
+                "e": 0.32,
+                "p": 0.5205253958702087
+              },
+              {
+                "w": "smart",
+                "s": 0.32,
+                "e": 0.54,
+                "p": 0.8772603273391724
+              },
+              {
+                "w": "TV",
+                "s": 0.54,
+                "e": 0.86,
+                "p": 0.8515505194664001
+              },
+              {
+                "w": "feels",
+                "s": 0.86,
+                "e": 1.18,
+                "p": 0.8917921185493469
+              },
+              {
+                "w": "stuck",
+                "s": 1.18,
+                "e": 1.54,
+                "p": 0.9769558310508728
+              },
+              {
+                "w": "in",
+                "s": 1.54,
+                "e": 1.86,
+                "p": 0.9852595329284668
+              },
+              {
+                "w": "the",
+                "s": 1.86,
+                "e": 1.94,
+                "p": 0.9917213320732117
+              },
+              {
+                "w": "past?",
+                "s": 1.94,
+                "e": 2.32,
+                "p": 0.9993051290512085
+              },
+              {
+                "w": "Could",
+                "s": 2.94,
+                "e": 2.96,
+                "p": 0.9655359387397766
+              },
+              {
+                "w": "cloud",
+                "s": 2.96,
+                "e": 3.3,
+                "p": 0.2508978545665741
+              },
+              {
+                "w": "code",
+                "s": 3.3,
+                "e": 3.56,
+                "p": 0.5978149771690369
+              },
+              {
+                "w": "write",
+                "s": 3.56,
+                "e": 3.78,
+                "p": 0.9387296438217163
+              },
+              {
+                "w": "its",
+                "s": 3.78,
+                "e": 3.94,
+                "p": 0.907042384147644
+              },
+              {
+                "w": "replacement",
+                "s": 3.94,
+                "e": 4.14,
+                "p": 0.9953356385231018
+              },
+              {
+                "w": "operating",
+                "s": 4.14,
+                "e": 4.54,
+                "p": 0.9947603344917297
+              },
+              {
+                "w": "system?",
+                "s": 4.54,
+                "e": 5.08,
+                "p": 0.9943430423736572
+              },
+              {
+                "w": "The",
+                "s": 5.9,
+                "e": 6.0,
+                "p": 0.9748237729072571
+              },
+              {
+                "w": "sources",
+                "s": 6.0,
+                "e": 6.18,
+                "p": 0.3425041437149048
+              },
+              {
+                "w": "answer",
+                "s": 6.18,
+                "e": 6.5,
+                "p": 0.994934618473053
+              },
+              {
+                "w": "carefully.",
+                "s": 6.5,
+                "e": 6.98,
+                "p": 0.988596498966217
+              },
+              {
+                "w": "Antropics",
+                "s": 7.64,
+                "e": 7.98,
+                "p": 0.5861834237972895
+              },
+              {
+                "w": "docs",
+                "s": 7.98,
+                "e": 8.12,
+                "p": 0.5351132750511169
+              },
+              {
+                "w": "call",
+                "s": 8.12,
+                "e": 8.46,
+                "p": 0.9308956861495972
+              },
+              {
+                "w": "cloud",
+                "s": 8.46,
+                "e": 8.78,
+                "p": 0.4936371445655823
+              },
+              {
+                "w": "code",
+                "s": 8.78,
+                "e": 9.06,
+                "p": 0.9634488821029663
+              },
+              {
+                "w": "an",
+                "s": 9.06,
+                "e": 9.28,
+                "p": 0.4628765881061554
+              },
+              {
+                "w": "agentic",
+                "s": 9.28,
+                "e": 9.96,
+                "p": 0.5206222981214523
+              },
+              {
+                "w": "coding",
+                "s": 9.96,
+                "e": 10.14,
+                "p": 0.9851078391075134
+              },
+              {
+                "w": "environment.",
+                "s": 10.14,
+                "e": 10.56,
+                "p": 0.9978891015052795
+              },
+              {
+                "w": "It",
+                "s": 10.94,
+                "e": 10.96,
+                "p": 0.9265101552009583
+              },
+              {
+                "w": "reads",
+                "s": 10.96,
+                "e": 11.1,
+                "p": 0.9991151690483093
+              },
+              {
+                "w": "your",
+                "s": 11.1,
+                "e": 11.26,
+                "p": 0.9109629988670349
+              },
+              {
+                "w": "files,",
+                "s": 11.26,
+                "e": 11.44,
+                "p": 0.966579020023346
+              },
+              {
+                "w": "runs",
+                "s": 11.72,
+                "e": 11.84,
+                "p": 0.9921254515647888
+              },
+              {
+                "w": "commands,",
+                "s": 11.84,
+                "e": 12.08,
+                "p": 0.9720367193222046
+              },
+              {
+                "w": "and",
+                "s": 12.54,
+                "e": 12.62,
+                "p": 0.9825057983398438
+              },
+              {
+                "w": "makes",
+                "s": 12.62,
+                "e": 12.74,
+                "p": 0.9910719990730286
+              },
+              {
+                "w": "changes",
+                "s": 12.74,
+                "e": 13.1,
+                "p": 0.9981194138526917
+              },
+              {
+                "w": "while",
+                "s": 13.1,
+                "e": 13.46,
+                "p": 0.9791219830513
+              },
+              {
+                "w": "you",
+                "s": 13.46,
+                "e": 13.74,
+                "p": 0.9984052777290344
+              },
+              {
+                "w": "watch.",
+                "s": 13.74,
+                "e": 14.0,
+                "p": 0.9645743370056152
+              },
+              {
+                "w": "No",
+                "s": 14.84,
+                "e": 14.84,
+                "p": 0.99533611536026
+              },
+              {
+                "w": "source",
+                "s": 14.84,
+                "e": 15.14,
+                "p": 0.9931375980377197
+              },
+              {
+                "w": "shows",
+                "s": 15.14,
+                "e": 15.42,
+                "p": 0.9740291833877563
+              },
+              {
+                "w": "anyone",
+                "s": 15.42,
+                "e": 15.66,
+                "p": 0.9846101999282837
+              },
+              {
+                "w": "building",
+                "s": 15.66,
+                "e": 16.02,
+                "p": 0.992384672164917
+              },
+              {
+                "w": "a",
+                "s": 16.02,
+                "e": 16.14,
+                "p": 0.9871894717216492
+              },
+              {
+                "w": "TV",
+                "s": 16.14,
+                "e": 16.32,
+                "p": 0.9866535067558289
+              },
+              {
+                "w": "operating",
+                "s": 16.32,
+                "e": 16.76,
+                "p": 0.9936193823814392
+              },
+              {
+                "w": "system",
+                "s": 16.76,
+                "e": 17.14,
+                "p": 0.9965125918388367
+              },
+              {
+                "w": "with",
+                "s": 17.14,
+                "e": 17.32,
+                "p": 0.9753425121307373
+              },
+              {
+                "w": "it.",
+                "s": 17.32,
+                "e": 17.42,
+                "p": 0.997386634349823
+              },
+              {
+                "w": "Google's",
+                "s": 18.02,
+                "e": 18.32,
+                "p": 0.9926371276378632
+              },
+              {
+                "w": "Fuchsia",
+                "s": 18.32,
+                "e": 18.72,
+                "p": 0.7738455633322397
+              },
+              {
+                "w": "appeared",
+                "s": 18.72,
+                "e": 18.96,
+                "p": 0.9720962047576904
+              },
+              {
+                "w": "as",
+                "s": 18.96,
+                "e": 19.16,
+                "p": 0.982689380645752
+              },
+              {
+                "w": "a",
+                "s": 19.16,
+                "e": 19.22,
+                "p": 0.972679078578949
+              },
+              {
+                "w": "repository",
+                "s": 19.22,
+                "e": 19.4,
+                "p": 0.9896466135978699
+              },
+              {
+                "w": "in",
+                "s": 19.4,
+                "e": 19.84,
+                "p": 0.9927787184715271
+              },
+              {
+                "w": "August",
+                "s": 19.84,
+                "e": 20.12,
+                "p": 0.9969107508659363
+              },
+              {
+                "w": "2016.",
+                "s": 20.12,
+                "e": 20.58,
+                "p": 0.9179593324661255
+              },
+              {
+                "w": "Its",
+                "s": 21.34,
+                "e": 21.42,
+                "p": 0.754037618637085
+              },
+              {
+                "w": "first",
+                "s": 21.42,
+                "e": 21.54,
+                "p": 0.9970828890800476
+              },
+              {
+                "w": "consumer",
+                "s": 21.54,
+                "e": 21.9,
+                "p": 0.947302520275116
+              },
+              {
+                "w": "launch",
+                "s": 21.9,
+                "e": 22.14,
+                "p": 0.998372495174408
+              },
+              {
+                "w": "came",
+                "s": 22.14,
+                "e": 22.36,
+                "p": 0.9703655242919922
+              },
+              {
+                "w": "in",
+                "s": 22.36,
+                "e": 22.46,
+                "p": 0.9964140057563782
+              },
+              {
+                "w": "May",
+                "s": 22.46,
+                "e": 22.64,
+                "p": 0.9862388968467712
+              },
+              {
+                "w": "2021",
+                "s": 22.64,
+                "e": 23.1,
+                "p": 0.7039250135421753
+              },
+              {
+                "w": "on",
+                "s": 23.1,
+                "e": 23.86,
+                "p": 0.6915960907936096
+              },
+              {
+                "w": "the",
+                "s": 23.86,
+                "e": 24.04,
+                "p": 0.8729069828987122
+              },
+              {
+                "w": "first",
+                "s": 24.04,
+                "e": 24.2,
+                "p": 0.9384763240814209
+              },
+              {
+                "w": "-generation",
+                "s": 24.2,
+                "e": 24.46,
+                "p": 0.7237119674682617
+              },
+              {
+                "w": "Nest",
+                "s": 24.46,
+                "e": 24.84,
+                "p": 0.698857307434082
+              },
+              {
+                "w": "Hub.",
+                "s": 24.84,
+                "e": 25.08,
+                "p": 0.7453247308731079
+              },
+              {
+                "w": "That's",
+                "s": 25.6,
+                "e": 25.7,
+                "p": 0.9941848814487457
+              },
+              {
+                "w": "about",
+                "s": 25.7,
+                "e": 25.84,
+                "p": 0.9953550100326538
+              },
+              {
+                "w": "five",
+                "s": 25.84,
+                "e": 26.22,
+                "p": 0.9371712803840637
+              },
+              {
+                "w": "years",
+                "s": 26.22,
+                "e": 26.52,
+                "p": 0.9976218342781067
+              },
+              {
+                "w": "after",
+                "s": 26.52,
+                "e": 26.92,
+                "p": 0.9978911280632019
+              },
+              {
+                "w": "the",
+                "s": 26.92,
+                "e": 27.02,
+                "p": 0.9945825934410095
+              },
+              {
+                "w": "repository",
+                "s": 27.02,
+                "e": 27.32,
+                "p": 0.991788923740387
+              },
+              {
+                "w": "appeared.",
+                "s": 27.32,
+                "e": 27.76,
+                "p": 0.992070734500885
+              },
+              {
+                "w": "What",
+                "s": 28.4,
+                "e": 28.9,
+                "p": 0.9751068353652954
+              },
+              {
+                "w": "about",
+                "s": 28.9,
+                "e": 29.08,
+                "p": 0.9975045323371887
+              },
+              {
+                "w": "cost?",
+                "s": 29.08,
+                "e": 29.3,
+                "p": 0.9516353011131287
+              },
+              {
+                "w": "A",
+                "s": 29.3,
+                "e": 29.8,
+                "p": 0.4947853684425354
+              },
+              {
+                "w": "third",
+                "s": 29.8,
+                "e": 30.12,
+                "p": 0.9745377898216248
+              },
+              {
+                "w": "-party",
+                "s": 30.12,
+                "e": 30.36,
+                "p": 0.8027746081352234
+              },
+              {
+                "w": "test",
+                "s": 30.36,
+                "e": 30.6,
+                "p": 0.9790457487106323
+              },
+              {
+                "w": "found",
+                "s": 30.6,
+                "e": 30.84,
+                "p": 0.9466391801834106
+              },
+              {
+                "w": "cloud",
+                "s": 30.84,
+                "e": 31.04,
+                "p": 0.23883403837680817
+              },
+              {
+                "w": "code",
+                "s": 31.04,
+                "e": 31.3,
+                "p": 0.7309733629226685
+              },
+              {
+                "w": "sends",
+                "s": 31.3,
+                "e": 31.56,
+                "p": 0.9796013832092285
+              },
+              {
+                "w": "roughly",
+                "s": 31.56,
+                "e": 31.82,
+                "p": 0.9949291944503784
+              },
+              {
+                "w": "33",
+                "s": 31.82,
+                "e": 32.28,
+                "p": 0.9804625511169434
+              },
+              {
+                "w": ",000",
+                "s": 32.28,
+                "e": 33.0,
+                "p": 0.9778244197368622
+              },
+              {
+                "w": "tokens",
+                "s": 33.0,
+                "e": 33.38,
+                "p": 0.9836244583129883
+              },
+              {
+                "w": "before",
+                "s": 33.38,
+                "e": 33.66,
+                "p": 0.9881334900856018
+              },
+              {
+                "w": "your",
+                "s": 33.66,
+                "e": 33.86,
+                "p": 0.41312843561172485
+              },
+              {
+                "w": "prompt.",
+                "s": 33.86,
+                "e": 34.08,
+                "p": 0.9936155080795288
+              },
+              {
+                "w": "Open",
+                "s": 34.74,
+                "e": 34.76,
+                "p": 0.9795193076133728
+              },
+              {
+                "w": "code",
+                "s": 34.76,
+                "e": 34.94,
+                "p": 0.9226556420326233
+              },
+              {
+                "w": "has",
+                "s": 34.94,
+                "e": 35.02,
+                "p": 0.43820998072624207
+              },
+              {
+                "w": "sent",
+                "s": 35.02,
+                "e": 35.2,
+                "p": 0.9802872538566589
+              },
+              {
+                "w": "7",
+                "s": 35.2,
+                "e": 35.54,
+                "p": 0.8522343039512634
+              },
+              {
+                "w": ",000.",
+                "s": 35.54,
+                "e": 35.86,
+                "p": 0.990901917219162
+              },
+              {
+                "w": "Verdict,",
+                "s": 36.48,
+                "e": 36.64,
+                "p": 0.8954712152481079
+              },
+              {
+                "w": "a",
+                "s": 37.04,
+                "e": 37.1,
+                "p": 0.9703068137168884
+              },
+              {
+                "w": "cloud",
+                "s": 37.1,
+                "e": 37.36,
+                "p": 0.6519045233726501
+              },
+              {
+                "w": "code",
+                "s": 37.36,
+                "e": 37.66,
+                "p": 0.9314337372779846
+              },
+              {
+                "w": "TVOS",
+                "s": 37.66,
+                "e": 38.18,
+                "p": 0.8750406801700592
+              },
+              {
+                "w": "is",
+                "s": 38.18,
+                "e": 38.44,
+                "p": 0.9578052759170532
+              },
+              {
+                "w": "unproven.",
+                "s": 38.44,
+                "e": 38.94,
+                "p": 0.9665043354034424
+              },
+              {
+                "w": "Context",
+                "s": 39.74,
+                "e": 39.74,
+                "p": 0.8818075656890869
+              },
+              {
+                "w": "fills",
+                "s": 39.74,
+                "e": 40.06,
+                "p": 0.9861664772033691
+              },
+              {
+                "w": "fast.",
+                "s": 40.06,
+                "e": 40.54,
+                "p": 0.9811897277832031
+              },
+              {
+                "w": "Your",
+                "s": 41.16,
+                "e": 41.22,
+                "p": 0.8605374097824097
+              },
+              {
+                "w": "stuck",
+                "s": 41.22,
+                "e": 41.46,
+                "p": 0.6428515315055847
+              },
+              {
+                "w": "TV",
+                "s": 41.46,
+                "e": 41.76,
+                "p": 0.962815523147583
+              },
+              {
+                "w": "needs",
+                "s": 41.76,
+                "e": 41.96,
+                "p": 0.9963659048080444
+              },
+              {
+                "w": "more",
+                "s": 41.96,
+                "e": 42.14,
+                "p": 0.9963462948799133
+              },
+              {
+                "w": "than",
+                "s": 42.14,
+                "e": 42.3,
+                "p": 0.9876168370246887
+              },
+              {
+                "w": "one",
+                "s": 42.3,
+                "e": 42.4,
+                "p": 0.9748547077178955
+              },
+              {
+                "w": "prompt.",
+                "s": 42.4,
+                "e": 42.58,
+                "p": 0.9960682392120361
+              },
+              {
+                "w": "Be",
+                "s": 43.16,
+                "e": 43.2,
+                "p": 0.9898721575737
+              },
+              {
+                "w": "sure",
+                "s": 43.2,
+                "e": 43.34,
+                "p": 0.9990741014480591
+              },
+              {
+                "w": "to",
+                "s": 43.34,
+                "e": 43.44,
+                "p": 0.9936710596084595
+              },
+              {
+                "w": "like,",
+                "s": 43.44,
+                "e": 43.6,
+                "p": 0.9368749856948853
+              },
+              {
+                "w": "share,",
+                "s": 43.78,
+                "e": 43.92,
+                "p": 0.9979250431060791
+              },
+              {
+                "w": "and",
+                "s": 44.06,
+                "e": 44.16,
+                "p": 0.9959844350814819
+              },
+              {
+                "w": "save",
+                "s": 44.16,
+                "e": 44.32,
+                "p": 0.9896033406257629
+              },
+              {
+                "w": "this",
+                "s": 44.32,
+                "e": 44.46,
+                "p": 0.9910701513290405
+              },
+              {
+                "w": "video.",
+                "s": 44.46,
+                "e": 44.64,
+                "p": 0.9983333945274353
+              }
+            ],
+            "dauer_s": 44.992,
+            "sprache": "en"
+          },
+          "roh_key": "16a871651b4bc5667346b8f013d6b54f7dfe4c37d2d50dec8ec1199eb7d0b7be",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "709c21c380086d565cf127e3065aede09aec3c29188f334d521dd9b74a5e2694",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 15,
+          "motive": 15,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "709c21c380086d565cf127e3065aede09aec3c29188f334d521dd9b74a5e2694",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein gezeichneter Mann mit Sonnenbrille sitzt vor einem großen Bildschirm in einem Zimmer mit Fenster.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochenen Wörter 'Your smart TV feels stuck in the past' behandeln das Thema eines veralteten Smart TVs, jedoch zeigt das Bild lediglich eine allgemeine Animationsszene mit einer Person und einem Bildschirm ohne Bezug zu einem veralteten Fernseher.",
+              "erforderliches_bild": "Ein Foto oder eine Animation eines veralteten Smart-TV-Modells mit einer unzeitgemäßen Benutzeroberfläche."
+            },
+            {
+              "index": 1,
+              "gesehen": "Eine Tabelle mit Anweisungen und Richtlinien für Claude, die darstellt, was eingeschlossen werden soll.",
+              "note": 4,
+              "passt": false,
+              "grund": "Die sichtbare Tabelle zeigt allgemeine Programmierregeln und Anweisungen für Claude, aber nicht das Erstellen eines TV-Betriebssystems.",
+              "erforderliches_bild": "Eine Darstellung von Claude Code im Einsatz beim Schreiben von Code oder eine Codebasis für ein Betriebssystem."
+            },
+            {
+              "index": 2,
+              "gesehen": "Eine Tabelle mit Spalten 'Strategy', 'Before' und 'After' zeigt Programmiertipps wie 'Scope the task', 'Point to sources' und 'Reference existing patterns'.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gezeigte Tabelle illustriert Programmierstrategien für Claude Code, aber nicht die im Satz 'The sources answer carefully.' erwähnten spezifischen Quellen oder Aussagen.",
+              "erforderliches_bild": "Ein Dokument oder eine Benutzeroberfläche, die konkrete Quellenangaben oder Dokumentationszitate zu Claude Code zeigt."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Terminalfenster mit der Ueberschrift CLAUDE CODE und mehreren bunten Code-Zeilen",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt eine grafische Darstellung einer Code-Umgebung mit dem Namen Claude Code, passend zur Erwähnung der Dokumentation und der agentischen Programmierumgebung im Text.",
+              "erforderliches_bild": "keines"
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Bildschirm mit drei dunkelblauen Textboxen mit türkiser beziehungsweise oranger Randung und Beschriftung: 'READS YOUR FILES', 'RUNS COMMANDS', 'CHANGES WHILE YOU WATCH'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt die exakt im Text benannten drei Fähigkeiten von Claude Code ('reads your files', 'runs commands', 'changes while you watch') übersichtlich als Stichpunkte auf dem Bildschirm, was die gesprochene Funktionsweise direkt illustriert.",
+              "erforderliches_bild": "keines"
+            },
+            {
+              "index": 5,
+              "gesehen": "Zu sehen ist ein Textausschnitt einer Wikipedia-Seite mit einem abgerundeten Vorschaubereich oben, der ein großes Wikipedia-W-Logo zeigt.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochene Aussage behandelt die Behauptung, dass keine Quelle den Bau eines TV-Betriebssystems mit Claude Code zeigt; das Bild zeigt lediglich ein Wikipedia-Logo und einen Textausschnitt über Software, was den Bau eines TV-Betriebssystems nicht belegt.",
+              "erforderliches_bild": "Ein Screenshot einer Dokumentation oder eines Artikels, der explizit diskutiert, welche Software oder Betriebssysteme mit Claude Code erstellt wurden."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Screenshot einer Wikipedia-Seite über Fuchsia (Betriebssystem) mit Inhaltsverzeichnis und Textabschnitt.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen Wikipedia-Artikel über das erwähnte Betriebssystem Fuchsia und illustriert damit den historischen Kontext des gesprochenen Satzes.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 7,
+              "gesehen": "In der Bildmitte ist ein gelb markierter Textabschnitt zu sehen, der von einem Mai 2021 erfolgten Start eines Google-Produkts auf dem Google Nest Hub berichtet.",
+              "note": 9,
+              "passt": true,
+              "grund": "Der Text zeigt exakt den im Satz genannten Start im Mai 2021 und das Google Nest Hub.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Terminal-Fenster mit der Aufschrift AFTER THE REPOSITORY APPEARED und mehreren farbigen Code-Zeilen und Blocken numeriert von 1 bis 12.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine grafische Darstellung von Zeilen in einem Repository, bildet aber nicht den konkreten Zeitraum von funf Jahren oder das Erscheinen des Nest Hub ab.",
+              "erforderliches_bild": "Eine Darstellung oder Grafik, die den zeitlichen Abstand von funf Jahren zwischen dem Repository und dem Nest Hub Launch visualisiert."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein textlicher Ausschnitt mit einem gelben Hintergrund zeigt Messdaten und Vergleiche zu Tokens (Claude Code und OpenCode).",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt Text mit Token-Kosten und Testergebnissen, jedoch nicht die spezifisch im gesprochenen Text erwähnten Werte von 33,000 vor dem Prompt, sondern andere Zahlen.",
+              "erforderliches_bild": "Ein Dokument oder Diagramm, das die genauen Token-Zahlen von 33,000 für Claude Code und 7,000 für OpenCode abbildet."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein hervorgehobener Textausschnitt, der besagt, dass Claude Code vor dem eigentlichen Prompt rund 33.000 Token verbraucht.",
+              "note": 10,
+              "passt": true,
+              "grund": "Der sichtbare Text zeigt exakt die im gesprochenen Satz erwähnten Token-Werte eines Drittanbietertests für Claude Code und OpenCode.",
+              "erforderliches_bild": "nicht erforderlich da passend"
+            },
+            {
+              "index": 11,
+              "gesehen": "Eine Tabelle und Textvergleich zu Model requests, Tool-calling style und Cumulative metered input für Claude Code und OpenCode, darunter erklärender Text zur Token-Zählung.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbare Tabelle und der Text zeigen direkt die Testergebnisse zu Token-Mengen und Aufrufen aus dem unabhängigen Test, was exakt zu den erwähnten Token-Werten im gesprochenen Satz passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 12,
+              "gesehen": "In einem Dialogfeld unter der Überschrift Related resources ist das erste Listenelement How Claude Code works gelb markiert und eingerahmt, gefolgt von weiteren Menüpunkten wie Extend Claude Code und Common workflows.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt eine Liste von verwandten Ressourcen und Dokumentationen zu Claude Code, was nicht zum gesprochenen Satz über das unbewiesene Betriebssystem und die Token-Kosten passt.",
+              "erforderliches_bild": "Ein statistischer Vergleich der Token-Kosten oder ein Diagramm zur Bewertung eines Claude Code TV-Betriebssystems."
+            },
+            {
+              "index": 13,
+              "gesehen": "Ein gelb markierter Textblock mit Instruktionen zu Code-Migrationen und Befehlen wie --allowedTools.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt Programmierhinweise und Befehle für Claude Code, während der Text von einer 'stuck TV' spricht, was inhaltlich nicht übereinstimmt.",
+              "erforderliches_bild": "Ein Bild eines alten Fernsehers oder eines zu reparierenden Fernsehgeräts."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter 'Your smart TV feels stuck in the past' behandeln das Thema eines veralteten Smart TVs, jedoch zeigt das Bild lediglich eine allgemeine Animationsszene mit einer Person und einem Bildschirm ohne Bezug zu einem veralteten Fernseher.",
+            "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Die sichtbare Tabelle zeigt allgemeine Programmierregeln und Anweisungen für Claude, aber nicht das Erstellen eines TV-Betriebssystems.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Tabelle illustriert Programmierstrategien für Claude Code, aber nicht die im Satz 'The sources answer carefully.' erwähnten spezifischen Quellen oder Aussagen.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Aussage behandelt die Behauptung, dass keine Quelle den Bau eines TV-Betriebssystems mit Claude Code zeigt; das Bild zeigt lediglich ein Wikipedia-Logo und einen Textausschnitt über Software, was den Bau eines TV-Betriebssystems nicht belegt.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine grafische Darstellung von Zeilen in einem Repository, bildet aber nicht den konkreten Zeitraum von funf Jahren oder das Erscheinen des Nest Hub ab.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt Text mit Token-Kosten und Testergebnissen, jedoch nicht die spezifisch im gesprochenen Text erwähnten Werte von 33,000 vor dem Prompt, sondern andere Zahlen.",
+            "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Liste von verwandten Ressourcen und Dokumentationen zu Claude Code, was nicht zum gesprochenen Satz über das unbewiesene Betriebssystem und die Token-Kosten passt.",
+            "Einstellung 13: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Programmierhinweise und Befehle für Claude Code, während der Text von einer 'stuck TV' spricht, was inhaltlich nicht übereinstimmt."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 15,
+          "ausgenommen": [
+            14
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "709c21c380086d565cf127e3065aede09aec3c29188f334d521dd9b74a5e2694",
+        "prompt_version": "2026-10-25.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

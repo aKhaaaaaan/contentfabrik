@@ -61,17 +61,40 @@ VORLAGE = re.compile(r'^(?P<einstellung>' + '|'.join(map(re.escape, bildplan.EIN
                      r'(?:\. Visible detail: (?P<details>.+))?$', re.S)
 
 
+# Runde 2 (26.10.2026): Nutzer und Sichtung fanden ALT bei Wärme, Gesichtern und Fülle besser (Szene 4),
+# NEU bei Bildtreue (kein Schriftsalat, kein Mann im Feuer). Mischung: Aufbau aus NEU, Stilworte aus ALT,
+# alle Verbote positiv umformuliert. Warmes Abendlicht nur, wenn die Szene kein eigenes Licht nennt.
+STIL_MISCH = ('Realistic hand-painted digital painting, open-world-game key art look: lifelike faces, thin '
+              'linework only around figures, rich material textures, deep warm contrast, soft depth of field, '
+              'visible brushwork. Vivid, warm, inviting and richly filled, with visible emotion in faces and '
+              'gestures; where fitting lived-in streets, warm haze, buildings true to the scene period and place. '
+              'Original fictional characters. One clear focal action in the central 60 percent, coherent '
+              'perspective and plausible period-appropriate props. Natural anatomy, simple readable hand poses, '
+              'distinct objects. Plain unmarked surfaces. Vertical frame with uncluttered top and bottom areas.')
+LICHT = re.compile(r'\b(light|lighting|lit|sun\w*|night|dusk|dawn|evening|glow\w*|lamp\w*|flames?|fire|'
+                   r'candle\w*|shadows?|spotlight|daylight|moon\w*)\b', re.I)
+# Nur echte Bildschirme; "documents" loeste in Runde 1 Monitore im Buero von 1989 aus.
+ECHTER_BILDSCHIRM = re.compile(r'\b(screens?|monitors?|displays?|dashboards?|tablets?|laptops?|terminals?|'
+                               r'TVs?|televisions?)\b', re.I)
+
+
+def auftrag_misch(szene):
+    s = szene_flux(szene, ECHTER_BILDSCHIRM)
+    licht = '' if LICHT.search(s) else ' Golden-hour rim light.'
+    return f'{s}.{licht} {STIL_MISCH}'
+
+
 def _gross(s):
     return s[:1].upper() + s[1:]
 
 
-def szene_flux(szene):
+def szene_flux(szene, bildschirm_muster=None):
     """Vorlagenszene umstellen: Handlung zuerst, abstraktes Satzmotiv ("One fire nearly ended") raus.
     Freie Szenen sind schon Fliesstext und bleiben.
 
     prompts.szene_ohne_schrift() haengt bei Bildschirmen den Satz "... no letters, words, numbers or icons"
     an - genau die Woerter, die FLUX dann malt. Hier positiv: weiches abstraktes Leuchten."""
-    bildschirm = bool(prompts.BILDSCHIRM.search(szene))
+    bildschirm = bool((bildschirm_muster or prompts.BILDSCHIRM).search(szene))
     szene = prompts.szene_ohne_schrift(szene).split('. Every screen, display')[0]
     szene = szene.split('. All surfaces in the scene are plain and unmarked')[0].strip().rstrip('.')
     m = VORLAGE.match(szene)
@@ -99,6 +122,9 @@ def main(aus):
         alt = prompts.szene_ohne_schrift(szene)  # wie in illustration.bild()
         varianten = {'alt': prompts.illustration(alt, False, '', 'short', illustration.kanal_stil(kanal)),
                      'neu': auftrag_flux(szene)}
+        if RUNDE == 2:
+            # ALT noch einmal: FLUX zieht je Bild einen neuen Zufall, ein Bild je Variante ist eine duenne Probe.
+            varianten = {'alt': varianten['alt'], 'misch': auftrag_misch(szene)}
         for name, text in varianten.items():
             roh = illustration._anfrage('flux-2-klein-4b', {'prompt': text, 'width': 768, 'height': 1360})
             eintrag = {'szene': n, 'kanal': kanal, 'satz': satz, 'variante': name, 'woerter': len(text.split()),
@@ -112,9 +138,11 @@ def main(aus):
     return 0 if any(e['ok'] for e in ergebnis) else 1
 
 
+RUNDE = 2
+
 if __name__ == '__main__':
     if sys.argv[1:] == ['--zeigen']:
         for kanal, satz, szene in SZENEN:
-            print(len(auftrag_flux(szene).split()), auftrag_flux(szene), '\n')
+            print(len(auftrag_misch(szene).split()), auftrag_misch(szene), '\n')
         sys.exit(0)
     sys.exit(main(sys.argv[1]))

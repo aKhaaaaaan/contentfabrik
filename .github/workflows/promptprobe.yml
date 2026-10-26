@@ -43,7 +43,7 @@ jobs:
                                            headers={'Content-Type': f'multipart/form-data; boundary={grenze}'})
               return json.load(urllib.request.urlopen(req, timeout=60))
           tg('sendMessage', {'chat_id': chat, 'text': '🖼️ Promptprobe: dieselbe Szene von heute, dasselbe Modell (FLUX klein 4B). '
-                             'Je Paar: 1. Bild = bisheriger Auftrag, 2. Bild = neuer FLUX-gerechter Auftrag. '
+                             'Je Paar: 1. Bild = bisheriger Auftrag (ALT), 2. Bild = neuer Auftrag (Beschriftung am Bild). '
                              'Antworte z. B. „neu besser", „alt besser" oder je Szene.'})
           try:
               ergebnis = json.load(open('proben/promptprobe.json', encoding='utf-8'))
@@ -56,7 +56,7 @@ jobs:
                   tg('sendMessage', {'chat_id': chat, 'text': f'Szene {n} ({satz}): nicht beide Bilder erzeugt.'})
                   continue
               media = [{'type': 'photo', 'media': f"attach://{e['variante']}",
-                        'caption': f"Szene {n} – {'ALT' if e['variante'] == 'alt' else 'NEU'} ({e['woerter']} Wörter)\n„{satz}“"}
+                        'caption': f"Szene {n} – {e['variante'].upper()} ({e['woerter']} Wörter)\n„{satz}“"}
                        for e in paar]
               tg('sendMediaGroup', {'chat_id': chat, 'media': json.dumps(media, ensure_ascii=False)},
                  [(e['variante'], open('proben/' + e['datei'], 'rb').read()) for e in paar])

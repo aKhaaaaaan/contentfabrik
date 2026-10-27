@@ -1,23 +1,5 @@
 [
   {
-    "id": "38258659015",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-12",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "anbieterpause",
-        "exitcode": 4,
-        "grund": "Textanbieter voruebergehend nicht verfuegbar: Groq-Kontingent nicht verfuegbar: HTTP429; Serverfrist 1015s",
-        "sekunden": 143.0
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Textanbieter voruebergehend nicht verfuegbar: Groq-Kontingent nicht verfuegbar: HTTP429; Serverfrist 1015s",
-    "sekunden": 143.1
-  },
-  {
     "id": "38264079499",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-12",
@@ -14670,5 +14652,170 @@
     "grund": "",
     "sekunden": 1050.2,
     "upload_titel": "Claude Code Setup: And What Pro Costs | AI Tool #17"
+  },
+  {
+    "id": "40558107967",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-10-27",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-Note 6/10 unter 7/10",
+          "Skript-spannung 6/10 unter 7/10",
+          "Skript-tempo 6/10 unter 7/10"
+        ],
+        "story_note": 6,
+        "story_schwaechen": [
+          "Sentence: \"What does paying add? Pro includes Claude Code, $20 monthly or $200 billed up front annually. Prices exclude tax.\" Why: Shifting to subscription pricing plans dilutes the focus on practical command line spending controls and creates off-topic filler. Fix: Replace the tier pricing details "
+        ],
+        "skript_probleme": [],
+        "sekunden": 346.8
+      },
+      {
+        "runde": 2,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-Note 5/10 unter 7/10",
+          "Skript-hook 6/10 unter 7/10",
+          "Skript-spannung 5/10 unter 7/10",
+          "Skript-ueberraschung 5/10 unter 7/10",
+          "Skript-tempo 5/10 unter 7/10",
+          "Skript-aufloesung 6/10 unter 7/10",
+          "Skript-teilbarkeit 4/10 unter 6/10"
+        ],
+        "story_note": 5,
+        "story_schwaechen": [
+          "Sentence: Honestly, our sources never mention REA on GitHub, so we can't vouch for it. Why it matters: Breaks immersion by awkwardly referencing behind-the-scenes meta commentary about sources. Feasible fix: Remove the meta-commentary and focus directly on what Claude Code needs from the user."
+        ],
+        "skript_probleme": [],
+        "sekunden": 418.6
+      },
+      {
+        "runde": 3,
+        "art": "produktion",
+        "skript_s": 242.1,
+        "bau_s": 349.1,
+        "pruefung_s": 246.5,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einer Straßenszene, aber keine Hinweise zu Claude Code, Einstellungen oder unzureichenden Standardwerten.",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Textanweisungen zur Claude-Nutzung, aber nicht die im Sprechtext erwähnte Startphase oder einfache Prompts.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eingeblendeten Text bzw. Überschriften zum Thema, jedoch keine konkrete Darstellung von Notizen oder dem Prozess des Aufschreibens von Wissen außerhalb des Codes, wie im gesprochenen Satz 'Those notes end the rediscovering.' beschrieben.",
+          "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine grafische Folie mit der Aufschrift 'Small Setup' und einem Pfeil, aber nicht die im Text erwähnten Notizen oder Inhalte darüber, was der Code nicht zeigen kann.",
+          "Offenes Problem (schwer): Das Bild zeigt einen Mann in einer Straßenszene, aber keine Hinweise zu Claude Code, Einstellungen oder unzureichenden Standardwerten. Korrektur: Ein Bildschirmfoto oder Dokumentenauszug der Claude Code Dokumentation zu Standardeinstellungen.",
+          "Offenes Problem (schwer): Das Bild zeigt Textanweisungen zur Claude-Nutzung, aber nicht die im Sprechtext erwähnte Startphase oder einfache Prompts. Korrektur: Ein Screenshot eines Terminals, das einen einfachen, ersten Prompt in einer frischen Claude-Sitzung zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eingeblendeten Text bzw. Überschriften zum Thema, jedoch keine konkrete Darstellung von Notizen oder dem Prozess des Aufschreibens von Wissen außerhalb des Codes, wie im gesprochenen Satz 'Those notes end the rediscovering.' beschrieben. Korrektur: Ein Screenshot oder eine Animation, die Notizen oder Dokumentationen zeigt, welche das außerhalb des Codes liegende Wissen festhalten.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine grafische Folie mit der Aufschrift 'Small Setup' und einem Pfeil, aber nicht die im Text erwähnten Notizen oder Inhalte darüber, was der Code nicht zeigen kann. Korrektur: Ein Screenshot oder eine Grafik, die konkrete Notizen oder Dokumentationen zeigt, die außerhalb des Codes existieren und den Einrichtungsprozess erklären."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 13.2,
+          "zeitmarken": 6.3,
+          "tempo": 1.008,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 13,
+          "clips_und_stuecke": 152.7,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 13,
+            "motive": 13,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 48.6,
+          "gesamt": 348.7,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            5.02,
+            5.84,
+            6.7,
+            7.02,
+            4.84,
+            7.46,
+            8.12
+          ],
+          "woerter": 129
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Defaults sometimes aren't enough.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann in einer Straßenszene, aber keine Hinweise zu Claude Code, Einstellungen oder unzureichenden Standardwerten. Korrektur: Ein Bildschirmfoto oder Dokumentenauszug der Claude Code Dokumentation zu Standardeinstellungen."
+          },
+          {
+            "zeit": "00:05.02",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "Start simple. The docs say your first plain prompt in a fresh session usually already does the right thing.",
+            "fest": true,
+            "text": "Das Bild zeigt Textanweisungen zur Claude-Nutzung, aber nicht die im Sprechtext erwähnte Startphase oder einfache Prompts. Korrektur: Ein Screenshot eines Terminals, das einen einfachen, ersten Prompt in einer frischen Claude-Sitzung zeigt."
+          },
+          {
+            "zeit": "00:27.16",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "Those notes end the rediscovering.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich eingeblendeten Text bzw. Überschriften zum Thema, jedoch keine konkrete Darstellung von Notizen oder dem Prozess des Aufschreibens von Wissen außerhalb des Codes, wie im gesprochenen Satz 'Those notes end the rediscovering.' beschrieben. Korrektur: Ein Screenshot oder eine Animation, die Notizen oder Dokumentationen zeigt, welche das außerhalb des Codes liegende Wissen festhalten."
+          },
+          {
+            "zeit": "00:36.88",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 11,
+            "gesprochen": "That small setup? Just notes on what the code can't show.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich eine grafische Folie mit der Aufschrift 'Small Setup' und einem Pfeil, aber nicht die im Text erwähnten Notizen oder Inhalte darüber, was der Code nicht zeigen kann. Korrektur: Ein Screenshot oder eine Grafik, die konkrete Notizen oder Dokumentationen zeigt, die außerhalb des Codes existieren und den Einrichtungsprozess erklären."
+          }
+        ],
+        "sekunden": 837.7,
+        "status": "geprueft"
+      },
+      {
+        "runde": 4,
+        "art": "korrektur",
+        "status": "keine_korrektur",
+        "sekunden": 0.1
+      }
+    ],
+    "status": "gesendet",
+    "trendcheck": "Claude Code: How to Use REA GitHub to Reverse Engineer Anything in Claude Code: 2.04 Punkte - YouTube-Ausreisser 4.1x Kanalschnitt, Format richtig nutzen (Formattag)",
+    "grund": "",
+    "sekunden": 1618.4,
+    "upload_titel": "Claude Code Setup: What Pro Costs | AI Tool #17"
   }
 ]

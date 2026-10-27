@@ -97277,6 +97277,1282 @@
       "bericht": {},
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "40511640502.1:ai-tools-explained",
+      "run_id": "40511640502",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-27T13:42:33.877178+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "e9c2421f5f5b7a4c525159ef60b77a6be0a50898",
+      "produktionsversion": "39c864f71491f1aeab39c578b201b65e88b4518a3943b3a4b7267b0d68349740",
+      "videoformat": "short",
+      "thema": "Claude Code: what to set up and what it costs",
+      "titel": [
+        "*Claude* *Code* Setup",
+        "And What *Pro* Costs"
+      ],
+      "status": "gesendet",
+      "video_sha256": "a1d944b756e87ccd9cbe31cc4cf4d5d5da33f532c43c259cd4b766db45be32a0",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-25.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen gestressten Menschen vor Computern, aber nicht das im gesprochenen Text genannte Thema, dass eine KI Deploy-Schritte verpasst oder den Dateicode liest.",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen Textausschnitt und ein Logo-Overlay, während im gesprochenen Text die Frage gestellt wird, was Claude Code alles nicht sehen kann. Es ist keine visuelle Erklärung oder Darstellung der versteckten Dinge oder des Codes zu sehen.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt allgemeine Ratschläge und Erklärungen zu KI-Kontextfenstern, passt aber inhaltlich nicht zu der gesprochenen Aussage über die Dokumentation und einen einfachen ersten Prompt.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (6/10): Die gesprochenen Wörter erwähnen den Preis von 20 Dollar pro Monat, im gezeigten Bild steht jedoch ein abweichender Betrag von 17 Dollar.",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich grafische Textboxen und entspricht keiner fachlichen Erklärung oder dem tatsächlichen Interface zur Überprüfung der Preissituation.",
+        "Offenes Problem (schwer): Das Bild zeigt einen gestressten Menschen vor Computern, aber nicht das im gesprochenen Text genannte Thema, dass eine KI Deploy-Schritte verpasst oder den Dateicode liest. Korrektur: Ein Screenshot oder eine Grafik, die einen Code-Editor und fehlende Deploy-Schritte zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich einen Textausschnitt und ein Logo-Overlay, während im gesprochenen Text die Frage gestellt wird, was Claude Code alles nicht sehen kann. Es ist keine visuelle Erklärung oder Darstellung der versteckten Dinge oder des Codes zu sehen. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die konkrete Code-Dateien und daneben unsichtbare Umgebungsvariablen oder Team-Entscheidungen illustrativ darstellt.",
+        "Offenes Problem (schwer): Das Bild zeigt allgemeine Ratschläge und Erklärungen zu KI-Kontextfenstern, passt aber inhaltlich nicht zu der gesprochenen Aussage über die Dokumentation und einen einfachen ersten Prompt. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die offizielle Dokumentationshinweise oder einen einfachen ersten Prompt in einer frischen Sitzung zeigt.",
+        "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen den Preis von 20 Dollar pro Monat, im gezeigten Bild steht jedoch ein abweichender Betrag von 17 Dollar. Korrektur: Ein Screenshot der Preisseite, der exakt 20 Dollar pro Monat anzeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich grafische Textboxen und entspricht keiner fachlichen Erklärung oder dem tatsächlichen Interface zur Überprüfung der Preissituation. Korrektur: Ein Screenshot der offiziellen Preisseite von Claude Code mit sichtbaren Details zu Free-Tarifen oder Limits."
+      ],
+      "einstellungen": 14,
+      "unterschiedliche_motive": 14,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "40511640502",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-27",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "[unsupported tool claim] A listed plan price, and the docs name a budget worth a little setup. - The source does not provide a specific budget or price for Claude Code beyond the plan prices; it only mentions a budget as a generic constraint, not a named budget amount."
+            ],
+            "sekunden": 149.1
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "skript_s": 383.8,
+            "bau_s": 374.9,
+            "pruefung_s": 81.8,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen gestressten Menschen vor Computern, aber nicht das im gesprochenen Text genannte Thema, dass eine KI Deploy-Schritte verpasst oder den Dateicode liest.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen Textausschnitt und ein Logo-Overlay, während im gesprochenen Text die Frage gestellt wird, was Claude Code alles nicht sehen kann. Es ist keine visuelle Erklärung oder Darstellung der versteckten Dinge oder des Codes zu sehen.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt allgemeine Ratschläge und Erklärungen zu KI-Kontextfenstern, passt aber inhaltlich nicht zu der gesprochenen Aussage über die Dokumentation und einen einfachen ersten Prompt.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (6/10): Die gesprochenen Wörter erwähnen den Preis von 20 Dollar pro Monat, im gezeigten Bild steht jedoch ein abweichender Betrag von 17 Dollar.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich grafische Textboxen und entspricht keiner fachlichen Erklärung oder dem tatsächlichen Interface zur Überprüfung der Preissituation.",
+              "Offenes Problem (schwer): Das Bild zeigt einen gestressten Menschen vor Computern, aber nicht das im gesprochenen Text genannte Thema, dass eine KI Deploy-Schritte verpasst oder den Dateicode liest. Korrektur: Ein Screenshot oder eine Grafik, die einen Code-Editor und fehlende Deploy-Schritte zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen Textausschnitt und ein Logo-Overlay, während im gesprochenen Text die Frage gestellt wird, was Claude Code alles nicht sehen kann. Es ist keine visuelle Erklärung oder Darstellung der versteckten Dinge oder des Codes zu sehen. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die konkrete Code-Dateien und daneben unsichtbare Umgebungsvariablen oder Team-Entscheidungen illustrativ darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt allgemeine Ratschläge und Erklärungen zu KI-Kontextfenstern, passt aber inhaltlich nicht zu der gesprochenen Aussage über die Dokumentation und einen einfachen ersten Prompt. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die offizielle Dokumentationshinweise oder einen einfachen ersten Prompt in einer frischen Sitzung zeigt.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen den Preis von 20 Dollar pro Monat, im gezeigten Bild steht jedoch ein abweichender Betrag von 17 Dollar. Korrektur: Ein Screenshot der Preisseite, der exakt 20 Dollar pro Monat anzeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich grafische Textboxen und entspricht keiner fachlichen Erklärung oder dem tatsächlichen Interface zur Überprüfung der Preissituation. Korrektur: Ein Screenshot der offiziellen Preisseite von Claude Code mit sichtbaren Details zu Free-Tarifen oder Limits."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 13.7,
+              "zeitmarken": 5.2,
+              "tempo": 1.01,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 14,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 188.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 14,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 28.4,
+              "gesamt": 374.5,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.06,
+                6.06,
+                6.98,
+                6.68,
+                7.6,
+                5.94,
+                4.67
+              ],
+              "woerter": 133
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Your AI keeps missing the deploy steps.",
+                "fest": false,
+                "text": "Das Bild zeigt einen gestressten Menschen vor Computern, aber nicht das im gesprochenen Text genannte Thema, dass eine KI Deploy-Schritte verpasst oder den Dateicode liest. Korrektur: Ein Screenshot oder eine Grafik, die einen Code-Editor und fehlende Deploy-Schritte zeigt."
+              },
+              {
+                "zeit": "00:02.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Claude Code reads your code, so what hidden things can't it see?",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich einen Textausschnitt und ein Logo-Overlay, während im gesprochenen Text die Frage gestellt wird, was Claude Code alles nicht sehen kann. Es ist keine visuelle Erklärung oder Darstellung der versteckten Dinge oder des Codes zu sehen. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die konkrete Code-Dateien und daneben unsichtbare Umgebungsvariablen oder Team-Entscheidungen illustrativ darstellt."
+              },
+              {
+                "zeit": "00:23.06",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "Docs say a plain first prompt in a fresh session usually works.",
+                "fest": true,
+                "text": "Das Bild zeigt allgemeine Ratschläge und Erklärungen zu KI-Kontextfenstern, passt aber inhaltlich nicht zu der gesprochenen Aussage über die Dokumentation und einen einfachen ersten Prompt. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die offizielle Dokumentationshinweise oder einen einfachen ersten Prompt in einer frischen Sitzung zeigt."
+              },
+              {
+                "zeit": "00:26.78",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Now cost. Pro includes Claude Code: $20 if billed monthly, or",
+                "fest": true,
+                "text": "Die gesprochenen Wörter erwähnen den Preis von 20 Dollar pro Monat, im gezeigten Bild steht jedoch ein abweichender Betrag von 17 Dollar. Korrektur: Ein Screenshot der Preisseite, der exakt 20 Dollar pro Monat anzeigt."
+              },
+              {
+                "zeit": "00:34.38",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "Free isn't confirmed on that page, so check.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich grafische Textboxen und entspricht keiner fachlichen Erklärung oder dem tatsächlichen Interface zur Überprüfung der Preissituation. Korrektur: Ein Screenshot der offiziellen Preisseite von Claude Code mit sichtbaren Details zu Free-Tarifen oder Limits."
+              }
+            ],
+            "sekunden": 840.5,
+            "status": "geprueft"
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "trendcheck": "Claude Code: How to Use REA GitHub to Reverse Engineer Anything in Claude Code: 2.04 Punkte - YouTube-Ausreisser 4.1x Kanalschnitt, Format richtig nutzen (Formattag)",
+        "grund": "",
+        "sekunden": 1050.2,
+        "upload_titel": "Claude Code Setup: And What Pro Costs | AI Tool #17"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Your AI keeps missing the deploy steps.",
+            "fest": false,
+            "text": "Das Bild zeigt einen gestressten Menschen vor Computern, aber nicht das im gesprochenen Text genannte Thema, dass eine KI Deploy-Schritte verpasst oder den Dateicode liest. Korrektur: Ein Screenshot oder eine Grafik, die einen Code-Editor und fehlende Deploy-Schritte zeigt."
+          },
+          {
+            "zeit": "00:02.68",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Claude Code reads your code, so what hidden things can't it see?",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich einen Textausschnitt und ein Logo-Overlay, während im gesprochenen Text die Frage gestellt wird, was Claude Code alles nicht sehen kann. Es ist keine visuelle Erklärung oder Darstellung der versteckten Dinge oder des Codes zu sehen. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die konkrete Code-Dateien und daneben unsichtbare Umgebungsvariablen oder Team-Entscheidungen illustrativ darstellt."
+          },
+          {
+            "zeit": "00:23.06",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "Docs say a plain first prompt in a fresh session usually works.",
+            "fest": true,
+            "text": "Das Bild zeigt allgemeine Ratschläge und Erklärungen zu KI-Kontextfenstern, passt aber inhaltlich nicht zu der gesprochenen Aussage über die Dokumentation und einen einfachen ersten Prompt. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die offizielle Dokumentationshinweise oder einen einfachen ersten Prompt in einer frischen Sitzung zeigt."
+          },
+          {
+            "zeit": "00:26.78",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "Now cost. Pro includes Claude Code: $20 if billed monthly, or",
+            "fest": true,
+            "text": "Die gesprochenen Wörter erwähnen den Preis von 20 Dollar pro Monat, im gezeigten Bild steht jedoch ein abweichender Betrag von 17 Dollar. Korrektur: Ein Screenshot der Preisseite, der exakt 20 Dollar pro Monat anzeigt."
+          },
+          {
+            "zeit": "00:34.38",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "Free isn't confirmed on that page, so check.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich grafische Textboxen und entspricht keiner fachlichen Erklärung oder dem tatsächlichen Interface zur Überprüfung der Preissituation. Korrektur: Ein Screenshot der offiziellen Preisseite von Claude Code mit sichtbaren Details zu Free-Tarifen oder Limits."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -14.0,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 40.62,
+              "bis_s": 42.14,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.911
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Your",
+                "s": 0.0,
+                "e": 0.38,
+                "p": 0.784080982208252
+              },
+              {
+                "w": "AI",
+                "s": 0.38,
+                "e": 0.62,
+                "p": 0.9616631865501404
+              },
+              {
+                "w": "keeps",
+                "s": 0.62,
+                "e": 1.06,
+                "p": 0.9959319233894348
+              },
+              {
+                "w": "missing",
+                "s": 1.06,
+                "e": 1.38,
+                "p": 0.9976294636726379
+              },
+              {
+                "w": "the",
+                "s": 1.38,
+                "e": 1.58,
+                "p": 0.9936310648918152
+              },
+              {
+                "w": "deploy",
+                "s": 1.58,
+                "e": 1.78,
+                "p": 0.9757304191589355
+              },
+              {
+                "w": "steps.",
+                "s": 1.78,
+                "e": 2.16,
+                "p": 0.9921093583106995
+              },
+              {
+                "w": "Cloud",
+                "s": 2.7,
+                "e": 2.9,
+                "p": 0.3497386574745178
+              },
+              {
+                "w": "code",
+                "s": 2.9,
+                "e": 3.16,
+                "p": 0.5785419940948486
+              },
+              {
+                "w": "reads",
+                "s": 3.16,
+                "e": 3.5,
+                "p": 0.9942837357521057
+              },
+              {
+                "w": "your",
+                "s": 3.5,
+                "e": 3.72,
+                "p": 0.9895668625831604
+              },
+              {
+                "w": "code,",
+                "s": 3.72,
+                "e": 4.0,
+                "p": 0.9985880255699158
+              },
+              {
+                "w": "so",
+                "s": 4.32,
+                "e": 4.54,
+                "p": 0.9903836846351624
+              },
+              {
+                "w": "what",
+                "s": 4.54,
+                "e": 4.9,
+                "p": 0.9856747984886169
+              },
+              {
+                "w": "hidden",
+                "s": 4.9,
+                "e": 5.2,
+                "p": 0.9941962957382202
+              },
+              {
+                "w": "things",
+                "s": 5.2,
+                "e": 5.54,
+                "p": 0.9928709864616394
+              },
+              {
+                "w": "can't",
+                "s": 5.54,
+                "e": 6.04,
+                "p": 0.9934419989585876
+              },
+              {
+                "w": "it",
+                "s": 6.04,
+                "e": 6.12,
+                "p": 0.35235556960105896
+              },
+              {
+                "w": "see?",
+                "s": 6.12,
+                "e": 6.32,
+                "p": 0.9920334219932556
+              },
+              {
+                "w": "It",
+                "s": 7.08,
+                "e": 7.22,
+                "p": 0.9889022707939148
+              },
+              {
+                "w": "starts",
+                "s": 7.22,
+                "e": 7.44,
+                "p": 0.9933585524559021
+              },
+              {
+                "w": "every",
+                "s": 7.44,
+                "e": 7.8,
+                "p": 0.9904649257659912
+              },
+              {
+                "w": "task",
+                "s": 7.8,
+                "e": 8.18,
+                "p": 0.9992945194244385
+              },
+              {
+                "w": "by",
+                "s": 8.18,
+                "e": 8.38,
+                "p": 0.9959405660629272
+              },
+              {
+                "w": "reading",
+                "s": 8.38,
+                "e": 8.6,
+                "p": 0.9978210926055908
+              },
+              {
+                "w": "your",
+                "s": 8.6,
+                "e": 8.76,
+                "p": 0.9902729392051697
+              },
+              {
+                "w": "code,",
+                "s": 8.76,
+                "e": 8.98,
+                "p": 0.9992167949676514
+              },
+              {
+                "w": "so",
+                "s": 9.18,
+                "e": 9.32,
+                "p": 0.9949316382408142
+              },
+              {
+                "w": "it",
+                "s": 9.32,
+                "e": 9.42,
+                "p": 0.9911414384841919
+              },
+              {
+                "w": "finds",
+                "s": 9.42,
+                "e": 9.6,
+                "p": 0.993990957736969
+              },
+              {
+                "w": "your",
+                "s": 9.6,
+                "e": 9.84,
+                "p": 0.9864572882652283
+              },
+              {
+                "w": "file",
+                "s": 9.84,
+                "e": 10.04,
+                "p": 0.9801129102706909
+              },
+              {
+                "w": "layout,",
+                "s": 10.04,
+                "e": 10.34,
+                "p": 0.9826850295066833
+              },
+              {
+                "w": "conventions,",
+                "s": 10.62,
+                "e": 10.92,
+                "p": 0.9983211159706116
+              },
+              {
+                "w": "and",
+                "s": 11.4,
+                "e": 11.46,
+                "p": 0.996866762638092
+              },
+              {
+                "w": "test",
+                "s": 11.46,
+                "e": 11.68,
+                "p": 0.993021547794342
+              },
+              {
+                "w": "framework",
+                "s": 11.68,
+                "e": 11.98,
+                "p": 0.9867417216300964
+              },
+              {
+                "w": "itself.",
+                "s": 11.98,
+                "e": 12.42,
+                "p": 0.9945060610771179
+              },
+              {
+                "w": "It",
+                "s": 13.12,
+                "e": 13.32,
+                "p": 0.9969028830528259
+              },
+              {
+                "w": "can't",
+                "s": 13.32,
+                "e": 13.78,
+                "p": 0.9973418116569519
+              },
+              {
+                "w": "see",
+                "s": 13.78,
+                "e": 13.98,
+                "p": 0.9951499104499817
+              },
+              {
+                "w": "a",
+                "s": 13.98,
+                "e": 14.3,
+                "p": 0.9835041761398315
+              },
+              {
+                "w": "team",
+                "s": 14.3,
+                "e": 14.56,
+                "p": 0.9371387362480164
+              },
+              {
+                "w": "decision,",
+                "s": 14.56,
+                "e": 14.82,
+                "p": 0.9971635937690735
+              },
+              {
+                "w": "a",
+                "s": 15.36,
+                "e": 15.44,
+                "p": 0.9972048401832581
+              },
+              {
+                "w": "deploy",
+                "s": 15.44,
+                "e": 15.72,
+                "p": 0.9861007332801819
+              },
+              {
+                "w": "process",
+                "s": 15.72,
+                "e": 16.08,
+                "p": 0.9937593936920166
+              },
+              {
+                "w": "in",
+                "s": 16.08,
+                "e": 16.26,
+                "p": 0.9960606694221497
+              },
+              {
+                "w": "someone's",
+                "s": 16.26,
+                "e": 16.54,
+                "p": 0.9936714470386505
+              },
+              {
+                "w": "head,",
+                "s": 16.54,
+                "e": 16.78,
+                "p": 0.9990936517715454
+              },
+              {
+                "w": "or",
+                "s": 17.2,
+                "e": 17.44,
+                "p": 0.9962312579154968
+              },
+              {
+                "w": "an",
+                "s": 17.44,
+                "e": 17.58,
+                "p": 0.9897326827049255
+              },
+              {
+                "w": "environment",
+                "s": 17.58,
+                "e": 18.02,
+                "p": 0.9978633522987366
+              },
+              {
+                "w": "variable",
+                "s": 18.02,
+                "e": 18.28,
+                "p": 0.9951220154762268
+              },
+              {
+                "w": "your",
+                "s": 18.28,
+                "e": 18.62,
+                "p": 0.9910590052604675
+              },
+              {
+                "w": "tests",
+                "s": 18.62,
+                "e": 18.82,
+                "p": 0.960780680179596
+              },
+              {
+                "w": "need.",
+                "s": 18.82,
+                "e": 19.22,
+                "p": 0.9935945868492126
+              },
+              {
+                "w": "So",
+                "s": 20.12,
+                "e": 20.4,
+                "p": 0.9570199251174927
+              },
+              {
+                "w": "is",
+                "s": 20.4,
+                "e": 20.58,
+                "p": 0.8589615225791931
+              },
+              {
+                "w": "heavy",
+                "s": 20.58,
+                "e": 20.76,
+                "p": 0.6705186367034912
+              },
+              {
+                "w": "setup",
+                "s": 20.76,
+                "e": 21.06,
+                "p": 0.7714765071868896
+              },
+              {
+                "w": "required?",
+                "s": 21.06,
+                "e": 21.34,
+                "p": 0.9969522953033447
+              },
+              {
+                "w": "Not",
+                "s": 21.88,
+                "e": 22.02,
+                "p": 0.9895592927932739
+              },
+              {
+                "w": "at",
+                "s": 22.02,
+                "e": 22.14,
+                "p": 0.6344596147537231
+              },
+              {
+                "w": "first.",
+                "s": 22.14,
+                "e": 22.28,
+                "p": 0.9985824823379517
+              },
+              {
+                "w": "Docs",
+                "s": 23.06,
+                "e": 23.28,
+                "p": 0.8579919934272766
+              },
+              {
+                "w": "say",
+                "s": 23.28,
+                "e": 23.36,
+                "p": 0.8620153069496155
+              },
+              {
+                "w": "a",
+                "s": 23.36,
+                "e": 23.44,
+                "p": 0.9938183426856995
+              },
+              {
+                "w": "plain",
+                "s": 23.44,
+                "e": 23.7,
+                "p": 0.5582315325737
+              },
+              {
+                "w": "first",
+                "s": 23.7,
+                "e": 24.02,
+                "p": 0.944549560546875
+              },
+              {
+                "w": "prompt",
+                "s": 24.02,
+                "e": 24.28,
+                "p": 0.9895251989364624
+              },
+              {
+                "w": "in",
+                "s": 24.28,
+                "e": 24.6,
+                "p": 0.9871675372123718
+              },
+              {
+                "w": "a",
+                "s": 24.6,
+                "e": 24.68,
+                "p": 0.9955042004585266
+              },
+              {
+                "w": "fresh",
+                "s": 24.68,
+                "e": 24.84,
+                "p": 0.9716705679893494
+              },
+              {
+                "w": "session",
+                "s": 24.84,
+                "e": 25.2,
+                "p": 0.9980595707893372
+              },
+              {
+                "w": "usually",
+                "s": 25.2,
+                "e": 25.5,
+                "p": 0.9970775842666626
+              },
+              {
+                "w": "works.",
+                "s": 25.5,
+                "e": 26.0,
+                "p": 0.9986899495124817
+              },
+              {
+                "w": "Now,",
+                "s": 26.78,
+                "e": 26.96,
+                "p": 0.994300365447998
+              },
+              {
+                "w": "cost.",
+                "s": 27.04,
+                "e": 27.2,
+                "p": 0.9008074402809143
+              },
+              {
+                "w": "Pro",
+                "s": 27.9,
+                "e": 27.94,
+                "p": 0.9670873880386353
+              },
+              {
+                "w": "includes",
+                "s": 27.94,
+                "e": 28.28,
+                "p": 0.9901313781738281
+              },
+              {
+                "w": "Cloud",
+                "s": 28.28,
+                "e": 28.6,
+                "p": 0.6407315731048584
+              },
+              {
+                "w": "code.",
+                "s": 28.6,
+                "e": 28.82,
+                "p": 0.6991857886314392
+              },
+              {
+                "w": "$20",
+                "s": 28.82,
+                "e": 29.54,
+                "p": 0.875109851360321
+              },
+              {
+                "w": "if",
+                "s": 29.54,
+                "e": 29.96,
+                "p": 0.8327287435531616
+              },
+              {
+                "w": "billed",
+                "s": 29.96,
+                "e": 30.1,
+                "p": 0.8224920630455017
+              },
+              {
+                "w": "monthly",
+                "s": 30.1,
+                "e": 30.34,
+                "p": 0.9986138343811035
+              },
+              {
+                "w": "or",
+                "s": 30.34,
+                "e": 30.76,
+                "p": 0.6953317523002625
+              },
+              {
+                "w": "$200",
+                "s": 30.76,
+                "e": 31.26,
+                "p": 0.990705817937851
+              },
+              {
+                "w": "billed",
+                "s": 31.26,
+                "e": 31.7,
+                "p": 0.9564245939254761
+              },
+              {
+                "w": "upfront",
+                "s": 31.7,
+                "e": 31.94,
+                "p": 0.7688084244728088
+              },
+              {
+                "w": "annually,",
+                "s": 31.94,
+                "e": 32.4,
+                "p": 0.9853914380073547
+              },
+              {
+                "w": "usage",
+                "s": 33.02,
+                "e": 33.1,
+                "p": 0.9870915412902832
+              },
+              {
+                "w": "limits",
+                "s": 33.1,
+                "e": 33.42,
+                "p": 0.9972476363182068
+              },
+              {
+                "w": "apply.",
+                "s": 33.42,
+                "e": 33.74,
+                "p": 0.9937047362327576
+              },
+              {
+                "w": "Free",
+                "s": 34.24,
+                "e": 34.52,
+                "p": 0.9229526519775391
+              },
+              {
+                "w": "isn't",
+                "s": 34.52,
+                "e": 34.8,
+                "p": 0.9958178400993347
+              },
+              {
+                "w": "confirmed",
+                "s": 34.8,
+                "e": 35.06,
+                "p": 0.9974544644355774
+              },
+              {
+                "w": "on",
+                "s": 35.06,
+                "e": 35.22,
+                "p": 0.9891697764396667
+              },
+              {
+                "w": "that",
+                "s": 35.22,
+                "e": 35.3,
+                "p": 0.9029132723808289
+              },
+              {
+                "w": "page",
+                "s": 35.3,
+                "e": 35.52,
+                "p": 0.997295081615448
+              },
+              {
+                "w": "so",
+                "s": 35.52,
+                "e": 35.74,
+                "p": 0.4862263798713684
+              },
+              {
+                "w": "check.",
+                "s": 35.74,
+                "e": 35.96,
+                "p": 0.9896865487098694
+              },
+              {
+                "w": "Those",
+                "s": 36.52,
+                "e": 36.96,
+                "p": 0.9023177623748779
+              },
+              {
+                "w": "missing",
+                "s": 36.96,
+                "e": 37.22,
+                "p": 0.9952111840248108
+              },
+              {
+                "w": "deploy",
+                "s": 37.22,
+                "e": 37.44,
+                "p": 0.7585731744766235
+              },
+              {
+                "w": "steps?",
+                "s": 37.44,
+                "e": 37.76,
+                "p": 0.6755592823028564
+              },
+              {
+                "w": "Write",
+                "s": 38.3,
+                "e": 38.36,
+                "p": 0.9953296184539795
+              },
+              {
+                "w": "them",
+                "s": 38.36,
+                "e": 38.56,
+                "p": 0.9954565763473511
+              },
+              {
+                "w": "down",
+                "s": 38.56,
+                "e": 38.72,
+                "p": 0.9993364214897156
+              },
+              {
+                "w": "and",
+                "s": 38.72,
+                "e": 39.2,
+                "p": 0.8162036538124084
+              },
+              {
+                "w": "Claude",
+                "s": 39.2,
+                "e": 39.38,
+                "p": 0.6098893880844116
+              },
+              {
+                "w": "can",
+                "s": 39.38,
+                "e": 39.58,
+                "p": 0.9924058318138123
+              },
+              {
+                "w": "see",
+                "s": 39.58,
+                "e": 39.72,
+                "p": 0.9944483041763306
+              },
+              {
+                "w": "them.",
+                "s": 39.72,
+                "e": 39.88,
+                "p": 0.9973464012145996
+              },
+              {
+                "w": "Be",
+                "s": 40.32,
+                "e": 40.36,
+                "p": 0.985057532787323
+              },
+              {
+                "w": "sure",
+                "s": 40.36,
+                "e": 40.52,
+                "p": 0.9996674060821533
+              },
+              {
+                "w": "to",
+                "s": 40.52,
+                "e": 40.62,
+                "p": 0.995799720287323
+              },
+              {
+                "w": "like,",
+                "s": 40.62,
+                "e": 40.84,
+                "p": 0.9040015339851379
+              },
+              {
+                "w": "share",
+                "s": 41.06,
+                "e": 41.24,
+                "p": 0.9963411688804626
+              },
+              {
+                "w": "and",
+                "s": 41.24,
+                "e": 41.5,
+                "p": 0.5948196649551392
+              },
+              {
+                "w": "save",
+                "s": 41.5,
+                "e": 41.74,
+                "p": 0.992291271686554
+              },
+              {
+                "w": "this",
+                "s": 41.74,
+                "e": 41.9,
+                "p": 0.9789162874221802
+              },
+              {
+                "w": "video.",
+                "s": 41.9,
+                "e": 42.14,
+                "p": 0.9987173080444336
+              },
+              {
+                "w": "Which",
+                "s": 42.7,
+                "e": 42.84,
+                "p": 0.9360209107398987
+              },
+              {
+                "w": "tool",
+                "s": 42.84,
+                "e": 43.02,
+                "p": 0.9446921348571777
+              },
+              {
+                "w": "next?",
+                "s": 43.02,
+                "e": 43.24,
+                "p": 0.993519127368927
+              },
+              {
+                "w": "Comment",
+                "s": 43.64,
+                "e": 43.84,
+                "p": 0.9899117350578308
+              },
+              {
+                "w": "and",
+                "s": 43.84,
+                "e": 44.18,
+                "p": 0.9820902347564697
+              },
+              {
+                "w": "follow",
+                "s": 44.18,
+                "e": 44.38,
+                "p": 0.9957044720649719
+              },
+              {
+                "w": "it",
+                "s": 44.38,
+                "e": 44.46,
+                "p": 0.7578622698783875
+              },
+              {
+                "w": "for",
+                "s": 44.46,
+                "e": 44.52,
+                "p": 0.9958180785179138
+              },
+              {
+                "w": "more!",
+                "s": 44.52,
+                "e": 44.64,
+                "p": 0.9988569021224976
+              }
+            ],
+            "dauer_s": 44.992,
+            "sprache": "en"
+          },
+          "roh_key": "aae74c743c19fb4119e7f93b7a843af994a4cfc2f56d4fe578c6013a0cda6e26",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "a1d944b756e87ccd9cbe31cc4cf4d5d5da33f532c43c259cd4b766db45be32a0",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 14,
+          "motive": 14,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "a1d944b756e87ccd9cbe31cc4cf4d5d5da33f532c43c259cd4b766db45be32a0",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Eine illustrierte Person greift sich gestresst an den Kopf, während sie vor mehreren Computerbildschirmen in einem Raum sitzt.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt einen gestressten Menschen vor Computern, aber nicht das im gesprochenen Text genannte Thema, dass eine KI Deploy-Schritte verpasst oder den Dateicode liest.",
+              "erforderliches_bild": "Ein Screenshot oder eine Grafik, die einen Code-Editor und fehlende Deploy-Schritte zeigt."
+            },
+            {
+              "index": 1,
+              "gesehen": "In der Bildmitte ist ein gelb markierter Textausschnitt über Claude Code zu sehen, darüber befindet sich ein Overlay mit dem Schriftzug Claude.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich einen Textausschnitt und ein Logo-Overlay, während im gesprochenen Text die Frage gestellt wird, was Claude Code alles nicht sehen kann. Es ist keine visuelle Erklärung oder Darstellung der versteckten Dinge oder des Codes zu sehen.",
+              "erforderliches_bild": "Ein Dokument oder eine Benutzeroberfläche, die konkrete Code-Dateien und daneben unsichtbare Umgebungsvariablen oder Team-Entscheidungen illustrativ darstellt."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Screenshot eines Software-Fensters mit dem Titel 'BY READING YOUR CODE' und einer Liste von nummerierten Zeilen mit bunten Balken, die Code-Strukturen oder Dateidateien repräsentieren.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell das Lesen von Code und das Auffinden von Dateistrukturen passend zum gesprochenen Text über das Einlesen des Codes.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da das aktuelle Bild den Inhalt direkt darstellt."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Dokument oder Interface mit Code-Befehlen und Konventionen wie Commands, Conventions und Gotchas (pnpm install, pnpm vitest, etc.).",
+              "note": 9,
+              "passt": true,
+              "grund": "Die sichtbaren Befehle und Konventionen passen perfekt zu den erwaehnten Konventionen und Frameworks aus dem gesprochenen Text.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein dunkler Bildschirm mit zwei Schaltfächen, die Titeltexte wie 'SEE A TEAM DECISION' und 'DEPLOY PROCESS IN SOMEONE'S' zeigen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die im Bild gezeigten Textzeilen greifen direkt die gesprochenen Begriffe 'team decision' und 'deploy process' auf.",
+              "erforderliches_bild": "Ein passender Screenshot, der die entsprechenden Prozesse oder eine Dokumentation veranschaulicht."
+            },
+            {
+              "index": 5,
+              "gesehen": "In der Bildmitte ist ein Dialogfenster zu sehen, in dem Text über Repo-Informationen aufgelistet ist. Ein gelber Rahmen markiert den Punkt über die Umgebungsvariable für Integrationstests.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt den genau im Satz genannten Punkt zu den benötigten Umgebungsvariablen für Tests mit einem gelben Fokusrahmen.",
+              "erforderliches_bild": "Nicht erforderlich."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein dunkelblauer Bildschirm zeigt den Text 'CLAUDE CODE: WHAT TO SET UP AND WHAT IT COSTS' sowie 'HEAVY SETUP REQUIRED', einen großen orangefarbenen Abwärtspfeil, ein weißes Rechteck und Buttons mit den Texten 'Not' und 'HEAVY SETUP REQUIRED'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt den Text 'HEAVY SETUP REQUIRED' und greift damit direkt die Frage aus der Narration 'So is heavy setup required?' auf.",
+              "erforderliches_bild": "Ein passenderes Bild ist nicht erforderlich, da die visuelle Einblendung der Frage im Bild direkt zur gesprochenen Passage passt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Eine Tabelle zeigt im linken Bereich Tipps wie 'The context window is your main constraint', 'Add IMPORTANT or ALL CAPS' und im rechten Bereich Erklärungen dazu.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt allgemeine Ratschläge und Erklärungen zu KI-Kontextfenstern, passt aber inhaltlich nicht zu der gesprochenen Aussage über die Dokumentation und einen einfachen ersten Prompt.",
+              "erforderliches_bild": "Ein Dokument oder eine Benutzeroberfläche, die offizielle Dokumentationshinweise oder einen einfachen ersten Prompt in einer frischen Sitzung zeigt."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Screenshot zeigt die Preiskonditionen für das Pro-Abo von Claude inklusive Claude Code mit 17 Dollar bei jährlicher Zahlweise und 20 Dollar bei monatlicher Abrechnung.",
+              "note": 6,
+              "passt": false,
+              "grund": "Die gesprochenen Wörter erwähnen den Preis von 20 Dollar pro Monat, im gezeigten Bild steht jedoch ein abweichender Betrag von 17 Dollar.",
+              "erforderliches_bild": "Ein Screenshot der Preisseite, der exakt 20 Dollar pro Monat anzeigt."
+            },
+            {
+              "index": 9,
+              "gesehen": "Die Abbildung zeigt eine Tabelle oder Vergleichsübersicht mit Modellnamen wie Fable, Opus, Sonnet, Haiku und Spalten für Limits sowie Nutzungsguthaben.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbare Tabelle zeigt Tarifdetails und Nutzungslimits, passend zur gesprochenen Erwähnung von Kosten und Usage limits apply.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein textbasiertes Overlay mit den Zeilen 'FREE ISN'T CONFIRMED', 'PAGE' und 'CHECK', wobei 'PAGE' orange hervorgehoben ist.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich grafische Textboxen und entspricht keiner fachlichen Erklärung oder dem tatsächlichen Interface zur Überprüfung der Preissituation.",
+              "erforderliches_bild": "Ein Screenshot der offiziellen Preisseite von Claude Code mit sichtbaren Details zu Free-Tarifen oder Limits."
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein Chat-Fenster mit der Aufschrift AI CHAT und einer Sprechblase, die den Satz 'Those missing deploy steps?' zeigt, sowie Lade-Punkten darunter.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell genau den gesprochenen Satz als Fragetext in einem KI-Chatinterface, wodurch die direkte Frage aus dem Kommentar aufgegriffen wird.",
+              "erforderliches_bild": "Ein passendes Interface mit Chat-Nachricht zur Frage."
+            },
+            {
+              "index": 12,
+              "gesehen": "Ein Dokumenten-Screenshot mit hervorgehobenem Text bezüglich CLAUDE.md und Regeln für Skills.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell die dokumentierte Regel und den entsprechenden Textabschnitt, was zu der Erläuterung passt, wie Regeln für Claude festgehalten werden.",
+              "erforderliches_bild": "entfällt"
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen gestressten Menschen vor Computern, aber nicht das im gesprochenen Text genannte Thema, dass eine KI Deploy-Schritte verpasst oder den Dateicode liest.",
+            "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen Textausschnitt und ein Logo-Overlay, während im gesprochenen Text die Frage gestellt wird, was Claude Code alles nicht sehen kann. Es ist keine visuelle Erklärung oder Darstellung der versteckten Dinge oder des Codes zu sehen.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt allgemeine Ratschläge und Erklärungen zu KI-Kontextfenstern, passt aber inhaltlich nicht zu der gesprochenen Aussage über die Dokumentation und einen einfachen ersten Prompt.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (6/10): Die gesprochenen Wörter erwähnen den Preis von 20 Dollar pro Monat, im gezeigten Bild steht jedoch ein abweichender Betrag von 17 Dollar.",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich grafische Textboxen und entspricht keiner fachlichen Erklärung oder dem tatsächlichen Interface zur Überprüfung der Preissituation."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 14,
+          "ausgenommen": [
+            13
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "a1d944b756e87ccd9cbe31cc4cf4d5d5da33f532c43c259cd4b766db45be32a0",
+        "prompt_version": "2026-10-25.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

@@ -2498,12 +2498,55 @@
   "datum": "2026-10-27",
   "thema": "Claude Code costs: what the sources show about tokens and budget caps",
   "titel": [
-   "*Claude* *Code* Bill Check",
-   "*Tokens* Before Your Prompt"
+   "*Claude* *Code* Token Bill",
+   "Can You Cap the Cost?"
+  ],
+  "status": "skriptqualitaet",
+  "note": null,
+  "hook": "Your tiny prompt arrives last",
+  "quellen": [
+   "https://www.anthropic.com/engineering/claude-code-best-practices",
+   "https://en.wikipedia.org/wiki/Fuchsia_(operating_system)",
+   "https://thereallo.dev/blog/claude-code-prompt-steganography",
+   "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
+   "https://code.claude.com/docs/en/changelog"
+  ],
+  "einstellungen": {
+   "stimme": "bf_emma",
+   "winkel": "AI that saves you money - what it costs, what the free option already does, and when paying is worth it; prices only from official pricing pages",
+   "format": "erklaerung",
+   "hook_art": "aussage",
+   "teile": 7,
+   "videoformat": "short",
+   "laenge": "kurz",
+   "story_note": 7,
+   "tempo": 1.05,
+   "untertitel_profil": "ruhig",
+   "musik_pegel": 0.1,
+   "effekt_pegel": 1.0
+  },
+  "gliederung": [
+   "Your tiny prompt arrives last. In one",
+   "That was a one-line reply, measured by",
+   "Subagents multiply it. One small task cost",
+   "So can you cap it? Yes: the",
+   "Instruction files count too. In that test,",
+   "Your tiny prompt still rides last, but",
+   "Be sure to like, share and save"
+  ],
+  "abschnitte_s": null,
+  "grund": "Skript-tempo 6/10 unter 7/10"
+ },
+ {
+  "datum": "2026-10-27",
+  "thema": "Claude Code: I Built My Own TV Operating System With Claude Code",
+  "titel": [
+   "*Claude* *Code* *Costs*",
+   "What The Sources Show"
   ],
   "status": "faktenpruefung",
   "note": null,
-  "hook": "Your prompt isn't the first thing sent",
+  "hook": "Your prompt arrives after thousands of tokens",
   "quellen": [
    "https://www.anthropic.com/engineering/claude-code-best-practices",
    "https://en.wikipedia.org/wiki/Fuchsia_(operating_system)",
@@ -2526,15 +2569,15 @@
    "effekt_pegel": 1.0
   },
   "gliederung": [
-   "Your prompt isn't the first thing sent.",
-   "A third-party test measured Claude Code sending",
-   "Subagents multiply it. One small task cost",
-   "So can you cap it? The docs",
-   "Instruction files count too. In that test,",
-   "Free or paid? No prices in these",
+   "Your prompt arrives after thousands of tokens.",
+   "Systima's test saw Claude Code send about",
+   "Those are token counts. No supplied source",
+   "Can you cap it? The docs list",
+   "A 72KB production instruction file added about",
+   "Systima counted system prompts, tool schemas and",
    "Be sure to like, share and save"
   ],
   "abschnitte_s": null,
-  "grund": "Faktenpruefung fehlt oder ist nicht bestanden; Skript-Note fehlt oder ist ungueltig; [second checker] A third-party test measured Claude Code sending about 33,000 tokens before a one-line prompt arrived. - The source describes the measurement as performed by the author (\"When we asked both harnesses"
+  "grund": "Faktenpruefung fehlt oder ist nicht bestanden; Skript-Note fehlt oder ist ungueltig; [unsupported tool claim] The docs list max turns and max budget flags for print mode, plus a spend limit. - Source mentions max‑turns and max‑budget‑usd flags and a spend limit, but does not reference a \"print mode\""
  }
 ]

@@ -1,115 +1,115 @@
 {
   "version": 1,
   "status": "ungeprueft",
-  "zeit": 1793089976.9611843,
+  "zeit": 1793095975.3255482,
   "kontext": "07129f93214df3985cfbfbd9dcaa22b2e18b5d4c68ce765dd0303278bc03fafd",
   "entwurf": {
-    "thema": "Claude Code costs: what the sources show about tokens and budget caps",
-    "titel_zeile1": "Claude Code Bill Check",
-    "titel_zeile2": "Tokens Before Your Prompt",
+    "thema": "Claude Code: I Built My Own TV Operating System With Claude Code",
+    "titel_zeile1": "Claude Code Costs",
+    "titel_zeile2": "What The Sources Show",
     "schluesselwoerter": [
       "Claude Code",
-      "tokens"
+      "token costs"
     ],
     "teile": [
       {
-        "name": "Hook",
+        "name": "Overhead",
         "werkzeug": "Claude Code",
-        "suche": "worried man apartment",
-        "text": "Your prompt isn't the first thing sent. Using Claude Code for a coding task? Here's the real cost picture.",
+        "suche": "worried programmer night",
+        "text": "Your prompt arrives after thousands of tokens. Systima's test measured that overhead in Claude Code.",
         "quelle_url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
-        "szene": "Original painted open-world-game poster style: a black-haired man in a black leather jacket and glowing cyan glasses stands in a dim apartment, arms crossed, wary expression, wide shot, soft lamp light.",
+        "szene": "Black-haired presenter in black leather jacket and glowing cyan glasses sits in a dim apartment at night, eyebrows raised in worry, city lights behind him. Medium shot, painted open-world-game poster style, bold ink contours.",
         "bildtext": "",
         "geraeusch": "",
         "beat": "hook",
         "bildmodus": "illustration"
       },
       {
-        "name": "Overhead",
+        "name": "Token overhead",
         "werkzeug": "Claude Code",
-        "suche": "token count comparison",
-        "text": "A third-party test measured Claude Code sending about 33,000 tokens before a one-line prompt arrived. OpenCode sent about 7,000.",
+        "suche": "token usage comparison",
+        "text": "Systima's test saw Claude Code send about 33,000 tokens for a one-line reply. OpenCode sent about 7,000.",
         "quelle_url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
-        "szene": "Sourced blog excerpt of the Systima token overhead comparison, showing the Claude Code and OpenCode figures side by side.",
+        "szene": "Systima blog post section comparing Claude Code and OpenCode token overhead on a one-line reply.",
         "bildtext": "33,000 tokens",
         "geraeusch": "",
         "beat": "beleg",
         "bildmodus": "karte"
       },
       {
-        "name": "Subagents",
+        "name": "Tokens not prices",
         "werkzeug": "Claude Code",
-        "suche": "token usage multiplied",
-        "text": "Subagents multiply it. One small task cost 121,000 tokens directly, but 513,000 fanned out to two subagents.",
-        "quelle_url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
-        "szene": "Sourced blog excerpt of the Systima subagent finding, comparing the direct run of 121,000 tokens with the two-subagent run of 513,000.",
+        "suche": "person checking prices",
+        "text": "Those are token counts. No supplied source gives an official price, so we can't turn them into a cost.",
+        "quelle_url": "https://www.anthropic.com/engineering/claude-code-best-practices",
+        "szene": "Presenter with cyan glasses and leather jacket shrugs honestly, palms open, in a bright modern workspace. Medium shot, soft daylight, painted open-world-game poster style, calm space above and below.",
         "bildtext": "",
         "geraeusch": "",
         "beat": "erklaerung",
+        "bildmodus": "illustration"
+      },
+      {
+        "name": "Spending caps",
+        "werkzeug": "Claude Code",
+        "suche": "budget limit settings",
+        "text": "Can you cap it? The docs list max turns and max budget flags for print mode, plus a spend limit.",
+        "quelle_url": "https://www.anthropic.com/engineering/claude-code-best-practices",
+        "szene": "Official Claude Code best practices documentation table row showing how much it spends: max turns, max budget and a spend limit.",
+        "bildtext": "",
+        "geraeusch": "",
+        "beat": "frage",
         "bildmodus": "karte"
       },
       {
-        "name": "Caps",
+        "name": "Instruction files",
         "werkzeug": "Claude Code",
-        "suche": "spend limit settings",
-        "text": "So can you cap it? The docs list a spend limit you set yourself, which Claude Code enforces every time.",
-        "quelle_url": "https://www.anthropic.com/engineering/claude-code-best-practices",
-        "szene": "Official Claude Code best practices page, showing the table row on how much it spends, with the spend limit you've set listed in the column for controls Claude Code enforces.",
-        "bildtext": "",
+        "suche": "organizing project notes",
+        "text": "A 72KB production instruction file added about 20,000 tokens on average, and it lands on every single request.",
+        "quelle_url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
+        "szene": "Systima blog passage on instruction files adding about 20,000 tokens to every request.",
+        "bildtext": "20,000 tokens",
         "geraeusch": "",
         "beat": "wendung",
         "bildmodus": "karte"
       },
       {
-        "name": "Instruction file",
+        "name": "What loads first",
         "werkzeug": "Claude Code",
-        "suche": "developer reading notes",
-        "text": "Instruction files count too. In that test, a 72KB instruction file added about 20,000 tokens to every request.",
-        "quelle_url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
-        "szene": "Sourced blog excerpt about the 72KB instruction file adding roughly 20,000 tokens to every request.",
-        "bildtext": "",
-        "geraeusch": "",
-        "beat": "beleg",
-        "bildmodus": "karte"
-      },
-      {
-        "name": "Pricing",
-        "werkzeug": "Claude Code",
-        "suche": "man checking budget",
-        "text": "Free or paid? No prices in these sources, so check Anthropic's page. Your prompt rode second, behind that test's 33,000-token baseline.",
-        "quelle_url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
-        "szene": "Original painted open-world-game poster style: the black-haired man in a black leather jacket and glowing cyan glasses sits at a workshop desk, one hand raised in a stop gesture, thoughtful look, medium shot, warm lamp light.",
+        "suche": "relieved man laptop night",
+        "text": "Systima counted system prompts, tool schemas and instruction files first. The docs say: write down only what Claude can't find.",
+        "quelle_url": "https://www.anthropic.com/engineering/claude-code-best-practices",
+        "szene": "Presenter with cyan glasses and black leather jacket leans back in a dim apartment at night, relieved smile, hands behind his head, city lights behind him. Medium shot, warm lamp light, painted open-world-game poster style.",
         "bildtext": "",
         "geraeusch": "",
         "beat": "aufloesung",
         "bildmodus": "illustration"
       },
       {
-        "name": "Abschluss",
+        "name": "Engagement",
         "werkzeug": "",
-        "suche": "man thumbs up rooftop",
+        "suche": "smiling man thumbs up",
         "text": "Be sure to like, share and save this video.",
         "quelle_url": "",
-        "szene": "Original painted open-world-game poster style: the black-haired man in a black leather jacket and glowing cyan glasses smiles on a city rooftop at dusk, giving a thumbs up, medium shot, warm light.",
+        "szene": "Presenter with glowing cyan glasses and black leather jacket smiles and gives a thumbs up, in front of a calm city rooftop at dusk. Medium shot, warm light, painted open-world-game poster style.",
         "bildtext": "",
         "geraeusch": "",
         "beat": "aufloesung",
         "bildmodus": "illustration"
       }
     ],
-    "beschreibung": "A third-party test found Claude Code sends about 33,000 tokens before a one-line prompt. We show what the docs say about spend limits, and note that these sources list no prices.",
+    "beschreibung": "One Systima test counted about 33,000 tokens in Claude Code before a one-line prompt arrived. Anthropic's docs list ways to cap spending and keep instructions lean.",
     "hashtags": [
       "#ClaudeCode",
-      "#Anthropic",
+      "#AITools",
       "#Tokens",
-      "#AITools"
+      "#AIToolsExplained"
     ],
     "musik_suche": [
-      "curious restrained pulse instrumental",
-      "sparse minimal tech underscore",
-      "warm subtle electronic texture"
+      "curious sparse electronic pulse",
+      "restrained minimal instrumental underscore",
+      "soft ambient tech instrumental"
     ]
   },
   "modell": "claude:sonnet",
-  "sha": "b39363db709eab1fbb068a23159e6bd9791fbdceebdf823337ce6771bd7444da"
+  "sha": "c6e1e429d1e9c104d63bd92670749b6ed097ef4bfc8d711ac19f759d9e73fae1"
 }

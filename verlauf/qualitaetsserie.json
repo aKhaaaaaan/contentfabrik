@@ -97019,6 +97019,160 @@
       "bericht": {},
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "40484828032.1:ai-tools-explained",
+      "run_id": "40484828032",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-27T10:13:32.611034+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "c4c64e0e16910e1af7efa425e80e7c8998a2e2c1",
+      "produktionsversion": "b4bc33e865ca6491d328e4ff57a5c427411511c0aa4b84c0281d7038ef0d7191",
+      "videoformat": "short",
+      "thema": "Claude Code: I Built My Own TV Operating System With Claude Code",
+      "titel": [
+        "*Claude* *Code* *Costs*",
+        "What The Sources Show"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "40484828032",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-27",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "[second checker] A third-party test measured Claude Code sending about 33,000 tokens before a one-line prompt arrived. - Source describes the measurement as an internal test ('When we asked both harnesses...'), not a third‑party test; the attribution is incorrect.",
+              "[unsupported tool claim] The docs list a max-budget-usd flag, used with the p flag, among what Claude Code enforces. - Source contains no mention of a 'max-budget-usd' flag or a 'p' flag; the claim is unsupported by the provided evidence."
+            ],
+            "sekunden": 40.0
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "[unsupported tool claim] The docs list max-budget-usd, used with dash p, among the spend controls Claude Code enforces. - The source does not mention a \"max-budget-usd\" setting, its use with \"-p\", or any spend controls enforced by Claude Code; this claim is unsupported by the provided evidence."
+            ],
+            "sekunden": 49.2
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "[second checker] A third-party test measured Claude Code sending about 33,000 tokens before a one-line prompt arrived. - The source describes the measurement as done by the author (\"When we asked both harnesses…\"), not as a third‑party test.",
+              "[unsupported tool claim] The docs pair max-turns or max-budget-usd with the p flag to limit spending. - The source does not mention any documentation about max‑turns, max‑budget‑usd, or a \"p\" flag; this claim is unsupported."
+            ],
+            "sekunden": 57.0
+          },
+          {
+            "runde": 4,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-tempo 6/10 unter 7/10"
+            ],
+            "story_note": 7,
+            "story_schwaechen": [
+              "Sentence 'Your tiny prompt still rides last, but the docs list ways to cap spending: turns, budget and spend limits.' repeats earlier claims almost verbatim without adding new information. Fix: Replace it with a crisp callback to the opening before the call to action, such as 'Keep those prompt over"
+            ],
+            "skript_probleme": [],
+            "sekunden": 382.5
+          },
+          {
+            "runde": 5,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "[unsupported tool claim] The docs list max turns and max budget flags for print mode, plus a spend limit. - Source mentions max‑turns and max‑budget‑usd flags and a spend limit, but does not reference a \"print mode\"; the claim adds an unsupported detail.",
+              "[unsupported tool claim] The docs say: write down only what Claude can't find. - No source provides this quotation; the statement is unsupported by the supplied material."
+            ],
+            "sekunden": 293.1
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "Claude Code: I Built My Own TV Operating System With Claude Code: 5.0 Punkte - YouTube-Ausreisser 53.0x Kanalschnitt",
+        "grund": "Faktenpruefung nicht bestanden",
+        "sekunden": 853.4,
+        "upload_titel": "Claude Code Costs: What The Sources Show | AI Tool #17"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": false,
+        "probleme": [
+          "[unsupported tool claim] The docs list max turns and max budget flags for print mode, plus a spend limit. - Source mentions max‑turns and max‑budget‑usd flags and a spend limit, but does not reference a \"print mode\"; the claim adds an unsupported detail.",
+          "[unsupported tool claim] The docs say: write down only what Claude can't find. - No source provides this quotation; the statement is unsupported by the supplied material."
+        ],
+        "leicht": [
+          "The docs list max turns and max budget flags for print mode, plus a spend limit. - Source mentions max‑turns and max‑budget‑usd flags and a spend limit, but does not reference a \"print mode\"; the claim adds an unsupported detail.",
+          "The docs say: write down only what Claude can't find. - No source provides this quotation; the statement is unsupported by the supplied material."
+        ],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

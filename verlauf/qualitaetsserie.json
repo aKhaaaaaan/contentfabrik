@@ -99799,6 +99799,1534 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "40558107967.1:business-origin-stories",
+      "run_id": "40558107967",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-27T19:26:06.311632+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "4c50ceece3f51490252ece7c67d21eb342b1da48",
+      "produktionsversion": "0c972e8e15c1d2030fb3dd253e07db9d6be9460b20b0d5aaf78d3dfa4657e218",
+      "videoformat": "short",
+      "thema": "GE Vernova",
+      "titel": [
+        "*GE* Vernova's Roots",
+        "A Blocked Turbine, Job Cuts"
+      ],
+      "status": "gesendet",
+      "video_sha256": "de27b57c932f8822c8ff572e79bd98438d7c1ef42dc4e78fe076eb2b418b7eed",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-25.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Geschäftsszene, aber keine Übernahme oder ein Angebot von Alstom oder GE im Jahr 2014.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich generische Geschäftsleute in einem Büro und eine Overlay-Zahl, jedoch keinerlei historische Darstellung der Übernahme oder des €12.35 Milliarden Angebots von Alstom durch GE im Jahr 2014.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen Arbeiter in einer Fabrikhalle und bebildert nicht die spezifischen Ereignisse von 2018 bezüglich Stellenstreichungen.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (4/10): Die Zahl 1,330 Hydro job wird im Textfeld genannt, aber es ist nur eine generische Illustration eines Arbeiters ohne direkten Bezug zu Entlassungen oder der Ank%fcndigung im Jahr 2018.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine ländliche Windkraftanlage mit Arbeitern, aber keinen Bezug zum Firmenübergang zu GE Vernova im April 2024.",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen den Namen GE Aerospace, aber das Bild zeigt eine genergische historische Illustration eines Arbeiters an einer Turbine und keinen Bezug zum spezifischen Luftfahrtunternehmen.",
+        "Offenes Problem (schwer): Das Bild zeigt eine Geschäftsszene, aber keine Übernahme oder ein Angebot von Alstom oder GE im Jahr 2014. Korrektur: Historisches Foto oder Dokument der Übernahmeverhandlungen von Alstom im Jahr 2014.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich generische Geschäftsleute in einem Büro und eine Overlay-Zahl, jedoch keinerlei historische Darstellung der Übernahme oder des €12.35 Milliarden Angebots von Alstom durch GE im Jahr 2014. Korrektur: Ein historisches Foto oder Archivbild der Vertragsunterzeichnung zwischen Alstom und GE aus dem Jahr 2014.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich einen Arbeiter in einer Fabrikhalle und bebildert nicht die spezifischen Ereignisse von 2018 bezüglich Stellenstreichungen. Korrektur: Grafik oder historische Archivaufnahme, die Stellenstreichungen oder die Ankündigung aus dem Jahr 2018 zeigt.",
+        "Offenes Problem (schwer): Die Zahl 1,330 Hydro job wird im Textfeld genannt, aber es ist nur eine generische Illustration eines Arbeiters ohne direkten Bezug zu Entlassungen oder der Ank%fcndigung im Jahr 2018. Korrektur: Ein zeitgen%fssisches Dokument oder eine Nachrichtengrafik, die die Ank%fcndigung der Stellenk%frzungen im Jahr 2018 zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt eine ländliche Windkraftanlage mit Arbeitern, aber keinen Bezug zum Firmenübergang zu GE Vernova im April 2024. Korrektur: Ein realistisches oder dokumentarisches Bild, das die Umbenennung oder das Logo von GE Vernova im April 2024 zeigt.",
+        "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen den Namen GE Aerospace, aber das Bild zeigt eine genergische historische Illustration eines Arbeiters an einer Turbine und keinen Bezug zum spezifischen Luftfahrtunternehmen. Korrektur: Ein realistisches Foto oder grafische Darstellung von GE Aerospace mit Bezug zur Luftfahrtsparte."
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 13,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "40558107967",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-27",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 1024.1,
+            "pruefung_s": 66.7,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen fiktiven Mann im Anzug, was überhaupt nicht zu der Erwähnung der GE Vernova Vorgeschichte oder den Arbeiterstreiks passt.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Geschäftsmänner in einer Besprechung, während im gesprochenen Text auf ein konkretes historisches Ereignis im Jahr 2014 eingegangen wird (Alstom und GE). Es fehlt jeglicher Bezug zur Übernahme oder zu den genannten Unternehmen.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar sinnbildlich einen geschäftlichen Deal im Zusammenhang mit Energie und Zahlen, jedoch handelt es sich um eine generische KI-Illustration ohne direkte Darstellung des Unternehmens Alstom, GE oder der spezifischen Vertragsübernahme.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt eine illustrierte Straßenszene und Text zum Thema, aber keine Darstellung der Firmenübernahme oder der Zusagen bezüglich der Arbeitsplätze.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar Arbeiter in einer Fabrik, aber keinen Bezug zu den konkreten Entlassungen im Jahr 2018.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine stilisierte Illustration mit einem Helm und den Text über Stellenstreichungen, bildet aber nicht den eigentlichen Inhalt oder die historische Entlassungssituation von 2018 anschaulich ab.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die gezeichnete Szene zeigt einen Bauhelm in den Händen, aber nicht die Blockade eines Dampfkraftwerks oder einen Turbinentransport.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine generelle Windpark-Landschaft, aber keinen Bezug zu GE Vernova oder der Umbenennung im April 2024.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Werkstattszene mit einem Flugzeug und Windkraftanlagen, aber es stellt nicht spezifisch den Bereich 'aviation became GE Aerospace' dar.",
+              "Offenes Problem (schwer): Das Bild zeigt einen fiktiven Mann im Anzug, was überhaupt nicht zu der Erwähnung der GE Vernova Vorgeschichte oder den Arbeiterstreiks passt. Korrektur: Historisches Archivfoto oder eine grafische Illustration der Fabrik in Belfort mit Arbeitern, die eine Turbine blockieren.",
+              "Offenes Problem (schwer): Das Bild zeigt Geschäftsmänner in einer Besprechung, während im gesprochenen Text auf ein konkretes historisches Ereignis im Jahr 2014 eingegangen wird (Alstom und GE). Es fehlt jeglicher Bezug zur Übernahme oder zu den genannten Unternehmen. Korrektur: Eine historische Illustration oder dokumentarische Aufnahme, die die Bekanntgabe oder den Vertragsschluss der Übernahme zwischen Alstom und GE im Jahr 2014 darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar sinnbildlich einen geschäftlichen Deal im Zusammenhang mit Energie und Zahlen, jedoch handelt es sich um eine generische KI-Illustration ohne direkte Darstellung des Unternehmens Alstom, GE oder der spezifischen Vertragsübernahme. Korrektur: Eine historische Aufnahme oder ein dokumentarisches Bild der Unterzeichnung des Vertrages zwischen GE und Alstom im Jahr 2014.",
+              "Offenes Problem (schwer): Das Bild zeigt eine illustrierte Straßenszene und Text zum Thema, aber keine Darstellung der Firmenübernahme oder der Zusagen bezüglich der Arbeitsplätze. Korrektur: Ein historisches Foto oder Dokument, welches die Übernahme der Alstom-Sparte oder die Vereinbarung über die Arbeitsplätze in Frankreich zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar Arbeiter in einer Fabrik, aber keinen Bezug zu den konkreten Entlassungen im Jahr 2018. Korrektur: Ein Bild, das Fabrikarbeiter bei der Bekanntgabe von Stellenstreichungen oder eine entsprechende historische Szene aus dem Jahr 2018 zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine stilisierte Illustration mit einem Helm und den Text über Stellenstreichungen, bildet aber nicht den eigentlichen Inhalt oder die historische Entlassungssituation von 2018 anschaulich ab. Korrektur: Ein historisches Foto oder eine Dokumentation der GE/Alstom-Proteste oder Büroräumlichkeiten im Jahr 2018.",
+              "Offenes Problem (schwer): Die gezeichnete Szene zeigt einen Bauhelm in den Händen, aber nicht die Blockade eines Dampfkraftwerks oder einen Turbinentransport. Korrektur: Eine historische oder gezeichnete Illustration, die eine Fabrikanlage oder Blockade mit Arbeitern zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generelle Windpark-Landschaft, aber keinen Bezug zu GE Vernova oder der Umbenennung im April 2024. Korrektur: Ein Logo oder Firmengebäude mit dem GE Vernova Branding passend zur Umbenennung im Jahr 2024.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Werkstattszene mit einem Flugzeug und Windkraftanlagen, aber es stellt nicht spezifisch den Bereich 'aviation became GE Aerospace' dar. Korrektur: Ein Bild, das die Aufspaltung oder das Logo von GE Aerospace im April 2024 zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Orus",
+              "stimme": 15.8,
+              "zeitmarken": 7.9,
+              "tempo": 1.25,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "bilder_vereinfacht": 4,
+              "clips_und_stuecke": 870.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 41.0,
+              "gesamt": 1023.8,
+              "videolaenge_s": 46.4,
+              "abschnitte_s": [
+                7.1,
+                6.68,
+                5.42,
+                6.52,
+                7.18,
+                6.68,
+                6.77
+              ],
+              "woerter": 85
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:03.66",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Here's GE Vernova's backstory.",
+                "fest": false,
+                "text": "Das Bild zeigt einen fiktiven Mann im Anzug, was überhaupt nicht zu der Erwähnung der GE Vernova Vorgeschichte oder den Arbeiterstreiks passt. Korrektur: Historisches Archivfoto oder eine grafische Illustration der Fabrik in Belfort mit Arbeitern, die eine Turbine blockieren."
+              },
+              {
+                "zeit": "00:07.10",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "In 2014, Alstom accepted GE's",
+                "fest": false,
+                "text": "Das Bild zeigt Geschäftsmänner in einer Besprechung, während im gesprochenen Text auf ein konkretes historisches Ereignis im Jahr 2014 eingegangen wird (Alstom und GE). Es fehlt jeglicher Bezug zur Übernahme oder zu den genannten Unternehmen. Korrektur: Eine historische Illustration oder dokumentarische Aufnahme, die die Bekanntgabe oder den Vertragsschluss der Übernahme zwischen Alstom und GE im Jahr 2014 darstellt."
+              },
+              {
+                "zeit": "00:10.44",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "€12.35 billion energy offer.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar sinnbildlich einen geschäftlichen Deal im Zusammenhang mit Energie und Zahlen, jedoch handelt es sich um eine generische KI-Illustration ohne direkte Darstellung des Unternehmens Alstom, GE oder der spezifischen Vertragsübernahme. Korrektur: Eine historische Aufnahme oder ein dokumentarisches Bild der Unterzeichnung des Vertrages zwischen GE und Alstom im Jahr 2014."
+              },
+              {
+                "zeit": "00:13.78",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "GE had committed to 1,000 French jobs when buying Alstom's energy division.",
+                "fest": false,
+                "text": "Das Bild zeigt eine illustrierte Straßenszene und Text zum Thema, aber keine Darstellung der Firmenübernahme oder der Zusagen bezüglich der Arbeitsplätze. Korrektur: Ein historisches Foto oder Dokument, welches die Übernahme der Alstom-Sparte oder die Vereinbarung über die Arbeitsplätze in Frankreich zeigt."
+              },
+              {
+                "zeit": "00:19.20",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 5,
+                "gesprochen": "So what happened?",
+                "fest": false,
+                "text": "Das Bild zeigt zwar Arbeiter in einer Fabrik, aber keinen Bezug zu den konkreten Entlassungen im Jahr 2018. Korrektur: Ein Bild, das Fabrikarbeiter bei der Bekanntgabe von Stellenstreichungen oder eine entsprechende historische Szene aus dem Jahr 2018 zeigt."
+              },
+              {
+                "zeit": "00:20.82",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "In 2018, GE announced 1,330 Hydro job cuts.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich eine stilisierte Illustration mit einem Helm und den Text über Stellenstreichungen, bildet aber nicht den eigentlichen Inhalt oder die historische Entlassungssituation von 2018 anschaulich ab. Korrektur: Ein historisches Foto oder eine Dokumentation der GE/Alstom-Proteste oder Büroräumlichkeiten im Jahr 2018."
+              },
+              {
+                "zeit": "00:29.31",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "steam site, stopping a turbine convoy.",
+                "fest": false,
+                "text": "Die gezeichnete Szene zeigt einen Bauhelm in den Händen, aber nicht die Blockade eines Dampfkraftwerks oder einen Turbinentransport. Korrektur: Eine historische oder gezeichnete Illustration, die eine Fabrikanlage oder Blockade mit Arbeitern zeigt."
+              },
+              {
+                "zeit": "00:32.90",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "In April 2024, energy became GE Vernova;",
+                "fest": false,
+                "text": "Das Bild zeigt eine generelle Windpark-Landschaft, aber keinen Bezug zu GE Vernova oder der Umbenennung im April 2024. Korrektur: Ein Logo oder Firmengebäude mit dem GE Vernova Branding passend zur Umbenennung im Jahr 2024."
+              },
+              {
+                "zeit": "00:36.24",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "aviation became GE Aerospace.",
+                "fest": false,
+                "text": "Das Bild zeigt eine Werkstattszene mit einem Flugzeug und Windkraftanlagen, aber es stellt nicht spezifisch den Bereich 'aviation became GE Aerospace' dar. Korrektur: Ein Bild, das die Aufspaltung oder das Logo von GE Aerospace im April 2024 zeigt."
+              }
+            ],
+            "sekunden": 1090.9,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-25.1"
+            },
+            "skript_s": 4.1,
+            "bau_s": 622.8,
+            "pruefung_s": 28.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine fiktive historische Szene mit einem Mann und Soldaten in einer Fabrikhalle, was die Geschichte der GE Vernova nicht visuell erklärt.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Angabe bezieht sich auf eine Unternehmensübernahme von Alstom durch GE im Jahr 2014 für 12,35 Milliarden Euro, während das Bild lediglich eine allgemeine Handschlag-Szene im Büro zeigt, die keinerlei konkreten Bezug zu den genannten Unternehmen oder Verträgen aufweist.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine generische Büroszene mit einer Einblendung, aber nicht das historische Ereignis der Übernahme oder ein Dokument dazu wie die €12.35 Milliarden Energie-Offerte von Alstom an GE im Jahr 2014.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar eine Gruppe von Menschen und den passenden Text im Overlay, allerdings handelt es sich hierbei um eine KI-generierte Illustration mit unscharfem Text im Hintergrund und nicht um eine reale historische Dokumentation des Kaufs oder der Verpflichtung.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Es ist lediglich eine Gruppe von Arbeitern zu sehen, aber kein konkreter Hinweis auf die Entlassungen von 2018.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen fiktiven, nachdenklichen Arbeiter und ein Text-Overlay mit den im Satz genannten Zahlen, aber keine visuelle Darstellung der angekündigten Stellenstreichungen oder Ereignisse von 2018.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt zwar Arbeiter im industriellen Kontext, jedoch keinen Bezug zu GE Vernova im April 2024.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Handwerker bei der Arbeit, jedoch gibt es keinen visuellen Bezug zu Luftfahrt, der Umfirmierung zu GE Aerospace oder dem Jahr 2024.",
+              "Offenes Problem (schwer): Das Bild zeigt eine fiktive historische Szene mit einem Mann und Soldaten in einer Fabrikhalle, was die Geschichte der GE Vernova nicht visuell erklärt. Korrektur: Historische Dokumente, Aufnahmen der Fabrik in Belfort oder Archivmaterial von Alstom.",
+              "Offenes Problem (schwer): Die gesprochene Angabe bezieht sich auf eine Unternehmensübernahme von Alstom durch GE im Jahr 2014 für 12,35 Milliarden Euro, während das Bild lediglich eine allgemeine Handschlag-Szene im Büro zeigt, die keinerlei konkreten Bezug zu den genannten Unternehmen oder Verträgen aufweist. Korrektur: Historisches Dokument oder Archivfoto der Vertragsunterzeichnung zwischen Alstom und GE aus dem Jahr 2014.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generische Büroszene mit einer Einblendung, aber nicht das historische Ereignis der Übernahme oder ein Dokument dazu wie die €12.35 Milliarden Energie-Offerte von Alstom an GE im Jahr 2014. Korrektur: Ein historisches Foto oder Dokument der Bekanntgabe des €12.35 Milliarden Angebots von GE für Alstoms Energiesparte im Jahr 2014.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar eine Gruppe von Menschen und den passenden Text im Overlay, allerdings handelt es sich hierbei um eine KI-generierte Illustration mit unscharfem Text im Hintergrund und nicht um eine reale historische Dokumentation des Kaufs oder der Verpflichtung. Korrektur: Ein historisches Foto oder Dokument, das die Übernahme von Alstoms Energiesparte durch GE oder die entsprechende Vereinbarung zeigt.",
+              "Offenes Problem (schwer): Es ist lediglich eine Gruppe von Arbeitern zu sehen, aber kein konkreter Hinweis auf die Entlassungen von 2018. Korrektur: Ein historisches Dokument oder eine Nachrichtengrafik über die angekündigten Stellenstreichungen im Jahr 2018.",
+              "Offenes Problem (schwer): Das Bild zeigt einen fiktiven, nachdenklichen Arbeiter und ein Text-Overlay mit den im Satz genannten Zahlen, aber keine visuelle Darstellung der angekündigten Stellenstreichungen oder Ereignisse von 2018. Korrektur: Ein historisches Dokument oder eine Nachrichtengrafik über die Ankündigung der Stellenstreichungen bei GE im Jahr 2018.",
+              "Offenes Problem (schwer): Die Abbildung zeigt zwar Arbeiter im industriellen Kontext, jedoch keinen Bezug zu GE Vernova im April 2024. Korrektur: Ein Bild, das die Umbenennung oder das Logo von GE Vernova im April 2024 zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt Handwerker bei der Arbeit, jedoch gibt es keinen visuellen Bezug zu Luftfahrt, der Umfirmierung zu GE Aerospace oder dem Jahr 2024. Korrektur: Eine Darstellung von GE Aerospace, ein Logo der Luftfahrtsparte oder ein historisches Dokument zur Trennung von GE Vernova und GE Aerospace."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.25,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 4,
+              "stuecke_neu": 9,
+              "bilder_vereinfacht": 4,
+              "clips_und_stuecke": 564.6,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 40.7,
+              "gesamt": 622.6,
+              "videolaenge_s": 46.4,
+              "abschnitte_s": [
+                7.1,
+                6.68,
+                5.42,
+                6.52,
+                7.18,
+                6.68,
+                6.77
+              ],
+              "woerter": 85
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:03.66",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Here's GE Vernova's backstory.",
+                "fest": false,
+                "text": "Das Bild zeigt eine fiktive historische Szene mit einem Mann und Soldaten in einer Fabrikhalle, was die Geschichte der GE Vernova nicht visuell erklärt. Korrektur: Historische Dokumente, Aufnahmen der Fabrik in Belfort oder Archivmaterial von Alstom."
+              },
+              {
+                "zeit": "00:07.10",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "In 2014, Alstom accepted GE's",
+                "fest": false,
+                "text": "Die gesprochene Angabe bezieht sich auf eine Unternehmensübernahme von Alstom durch GE im Jahr 2014 für 12,35 Milliarden Euro, während das Bild lediglich eine allgemeine Handschlag-Szene im Büro zeigt, die keinerlei konkreten Bezug zu den genannten Unternehmen oder Verträgen aufweist. Korrektur: Historisches Dokument oder Archivfoto der Vertragsunterzeichnung zwischen Alstom und GE aus dem Jahr 2014."
+              },
+              {
+                "zeit": "00:10.44",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "€12.35 billion energy offer.",
+                "fest": false,
+                "text": "Das Bild zeigt eine generische Büroszene mit einer Einblendung, aber nicht das historische Ereignis der Übernahme oder ein Dokument dazu wie die €12.35 Milliarden Energie-Offerte von Alstom an GE im Jahr 2014. Korrektur: Ein historisches Foto oder Dokument der Bekanntgabe des €12.35 Milliarden Angebots von GE für Alstoms Energiesparte im Jahr 2014."
+              },
+              {
+                "zeit": "00:13.78",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "GE had committed to 1,000 French jobs when buying Alstom's energy division.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar eine Gruppe von Menschen und den passenden Text im Overlay, allerdings handelt es sich hierbei um eine KI-generierte Illustration mit unscharfem Text im Hintergrund und nicht um eine reale historische Dokumentation des Kaufs oder der Verpflichtung. Korrektur: Ein historisches Foto oder Dokument, das die Übernahme von Alstoms Energiesparte durch GE oder die entsprechende Vereinbarung zeigt."
+              },
+              {
+                "zeit": "00:19.20",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 5,
+                "gesprochen": "So what happened?",
+                "fest": false,
+                "text": "Es ist lediglich eine Gruppe von Arbeitern zu sehen, aber kein konkreter Hinweis auf die Entlassungen von 2018. Korrektur: Ein historisches Dokument oder eine Nachrichtengrafik über die angekündigten Stellenstreichungen im Jahr 2018."
+              },
+              {
+                "zeit": "00:20.82",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "In 2018, GE announced 1,330 Hydro job cuts.",
+                "fest": false,
+                "text": "Das Bild zeigt einen fiktiven, nachdenklichen Arbeiter und ein Text-Overlay mit den im Satz genannten Zahlen, aber keine visuelle Darstellung der angekündigten Stellenstreichungen oder Ereignisse von 2018. Korrektur: Ein historisches Dokument oder eine Nachrichtengrafik über die Ankündigung der Stellenstreichungen bei GE im Jahr 2018."
+              },
+              {
+                "zeit": "00:32.90",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "In April 2024, energy became GE Vernova;",
+                "fest": false,
+                "text": "Die Abbildung zeigt zwar Arbeiter im industriellen Kontext, jedoch keinen Bezug zu GE Vernova im April 2024. Korrektur: Ein Bild, das die Umbenennung oder das Logo von GE Vernova im April 2024 zeigt."
+              },
+              {
+                "zeit": "00:36.24",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "aviation became GE Aerospace.",
+                "fest": false,
+                "text": "Das Bild zeigt Handwerker bei der Arbeit, jedoch gibt es keinen visuellen Bezug zu Luftfahrt, der Umfirmierung zu GE Aerospace oder dem Jahr 2024. Korrektur: Eine Darstellung von GE Aerospace, ein Logo der Luftfahrtsparte oder ein historisches Dokument zur Trennung von GE Vernova und GE Aerospace."
+              }
+            ],
+            "sekunden": 655.0,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "40558107967-2",
+              "datum": "2026-10-27",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 655.0,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-25.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                3
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-25.1"
+            },
+            "skript_s": 2.5,
+            "bau_s": 589.1,
+            "pruefung_s": 27.4,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Geschäftsszene, aber keine Übernahme oder ein Angebot von Alstom oder GE im Jahr 2014.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich generische Geschäftsleute in einem Büro und eine Overlay-Zahl, jedoch keinerlei historische Darstellung der Übernahme oder des €12.35 Milliarden Angebots von Alstom durch GE im Jahr 2014.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen Arbeiter in einer Fabrikhalle und bebildert nicht die spezifischen Ereignisse von 2018 bezüglich Stellenstreichungen.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (4/10): Die Zahl 1,330 Hydro job wird im Textfeld genannt, aber es ist nur eine generische Illustration eines Arbeiters ohne direkten Bezug zu Entlassungen oder der Ank%fcndigung im Jahr 2018.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine ländliche Windkraftanlage mit Arbeitern, aber keinen Bezug zum Firmenübergang zu GE Vernova im April 2024.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen den Namen GE Aerospace, aber das Bild zeigt eine genergische historische Illustration eines Arbeiters an einer Turbine und keinen Bezug zum spezifischen Luftfahrtunternehmen.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Geschäftsszene, aber keine Übernahme oder ein Angebot von Alstom oder GE im Jahr 2014. Korrektur: Historisches Foto oder Dokument der Übernahmeverhandlungen von Alstom im Jahr 2014.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich generische Geschäftsleute in einem Büro und eine Overlay-Zahl, jedoch keinerlei historische Darstellung der Übernahme oder des €12.35 Milliarden Angebots von Alstom durch GE im Jahr 2014. Korrektur: Ein historisches Foto oder Archivbild der Vertragsunterzeichnung zwischen Alstom und GE aus dem Jahr 2014.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen Arbeiter in einer Fabrikhalle und bebildert nicht die spezifischen Ereignisse von 2018 bezüglich Stellenstreichungen. Korrektur: Grafik oder historische Archivaufnahme, die Stellenstreichungen oder die Ankündigung aus dem Jahr 2018 zeigt.",
+              "Offenes Problem (schwer): Die Zahl 1,330 Hydro job wird im Textfeld genannt, aber es ist nur eine generische Illustration eines Arbeiters ohne direkten Bezug zu Entlassungen oder der Ank%fcndigung im Jahr 2018. Korrektur: Ein zeitgen%fssisches Dokument oder eine Nachrichtengrafik, die die Ank%fcndigung der Stellenk%frzungen im Jahr 2018 zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine ländliche Windkraftanlage mit Arbeitern, aber keinen Bezug zum Firmenübergang zu GE Vernova im April 2024. Korrektur: Ein realistisches oder dokumentarisches Bild, das die Umbenennung oder das Logo von GE Vernova im April 2024 zeigt.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen den Namen GE Aerospace, aber das Bild zeigt eine genergische historische Illustration eines Arbeiters an einer Turbine und keinen Bezug zum spezifischen Luftfahrtunternehmen. Korrektur: Ein realistisches Foto oder grafische Darstellung von GE Aerospace mit Bezug zur Luftfahrtsparte."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.25,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 5,
+              "stuecke_neu": 8,
+              "bilder_vereinfacht": 6,
+              "clips_und_stuecke": 537.1,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 40.4,
+              "gesamt": 588.9,
+              "videolaenge_s": 46.4,
+              "abschnitte_s": [
+                7.1,
+                6.68,
+                5.42,
+                6.52,
+                7.18,
+                6.68,
+                6.77
+              ],
+              "woerter": 85
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:07.10",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "In 2014, Alstom accepted GE's",
+                "fest": false,
+                "text": "Das Bild zeigt eine Geschäftsszene, aber keine Übernahme oder ein Angebot von Alstom oder GE im Jahr 2014. Korrektur: Historisches Foto oder Dokument der Übernahmeverhandlungen von Alstom im Jahr 2014."
+              },
+              {
+                "zeit": "00:10.44",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "€12.35 billion energy offer.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich generische Geschäftsleute in einem Büro und eine Overlay-Zahl, jedoch keinerlei historische Darstellung der Übernahme oder des €12.35 Milliarden Angebots von Alstom durch GE im Jahr 2014. Korrektur: Ein historisches Foto oder Archivbild der Vertragsunterzeichnung zwischen Alstom und GE aus dem Jahr 2014."
+              },
+              {
+                "zeit": "00:19.20",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 5,
+                "gesprochen": "So what happened?",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich einen Arbeiter in einer Fabrikhalle und bebildert nicht die spezifischen Ereignisse von 2018 bezüglich Stellenstreichungen. Korrektur: Grafik oder historische Archivaufnahme, die Stellenstreichungen oder die Ankündigung aus dem Jahr 2018 zeigt."
+              },
+              {
+                "zeit": "00:20.82",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "In 2018, GE announced 1,330 Hydro job cuts.",
+                "fest": false,
+                "text": "Die Zahl 1,330 Hydro job wird im Textfeld genannt, aber es ist nur eine generische Illustration eines Arbeiters ohne direkten Bezug zu Entlassungen oder der Ank%fcndigung im Jahr 2018. Korrektur: Ein zeitgen%fssisches Dokument oder eine Nachrichtengrafik, die die Ank%fcndigung der Stellenk%frzungen im Jahr 2018 zeigt."
+              },
+              {
+                "zeit": "00:32.90",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "In April 2024, energy became GE Vernova;",
+                "fest": false,
+                "text": "Das Bild zeigt eine ländliche Windkraftanlage mit Arbeitern, aber keinen Bezug zum Firmenübergang zu GE Vernova im April 2024. Korrektur: Ein realistisches oder dokumentarisches Bild, das die Umbenennung oder das Logo von GE Vernova im April 2024 zeigt."
+              },
+              {
+                "zeit": "00:36.24",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "aviation became GE Aerospace.",
+                "fest": false,
+                "text": "Die gesprochenen Wörter erwähnen den Namen GE Aerospace, aber das Bild zeigt eine genergische historische Illustration eines Arbeiters an einer Turbine und keinen Bezug zum spezifischen Luftfahrtunternehmen. Korrektur: Ein realistisches Foto oder grafische Darstellung von GE Aerospace mit Bezug zur Luftfahrtsparte."
+              }
+            ],
+            "sekunden": 619.0,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "40558107967-3",
+              "datum": "2026-10-27",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 619.0,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-25.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 2424.1,
+        "upload_titel": "GE Vernova's Roots: A Blocked Turbine, Job Cuts"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:07.10",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "In 2014, Alstom accepted GE's",
+            "fest": false,
+            "text": "Das Bild zeigt eine Geschäftsszene, aber keine Übernahme oder ein Angebot von Alstom oder GE im Jahr 2014. Korrektur: Historisches Foto oder Dokument der Übernahmeverhandlungen von Alstom im Jahr 2014."
+          },
+          {
+            "zeit": "00:10.44",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "€12.35 billion energy offer.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich generische Geschäftsleute in einem Büro und eine Overlay-Zahl, jedoch keinerlei historische Darstellung der Übernahme oder des €12.35 Milliarden Angebots von Alstom durch GE im Jahr 2014. Korrektur: Ein historisches Foto oder Archivbild der Vertragsunterzeichnung zwischen Alstom und GE aus dem Jahr 2014."
+          },
+          {
+            "zeit": "00:19.20",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 5,
+            "gesprochen": "So what happened?",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich einen Arbeiter in einer Fabrikhalle und bebildert nicht die spezifischen Ereignisse von 2018 bezüglich Stellenstreichungen. Korrektur: Grafik oder historische Archivaufnahme, die Stellenstreichungen oder die Ankündigung aus dem Jahr 2018 zeigt."
+          },
+          {
+            "zeit": "00:20.82",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 6,
+            "gesprochen": "In 2018, GE announced 1,330 Hydro job cuts.",
+            "fest": false,
+            "text": "Die Zahl 1,330 Hydro job wird im Textfeld genannt, aber es ist nur eine generische Illustration eines Arbeiters ohne direkten Bezug zu Entlassungen oder der Ank%fcndigung im Jahr 2018. Korrektur: Ein zeitgen%fssisches Dokument oder eine Nachrichtengrafik, die die Ank%fcndigung der Stellenk%frzungen im Jahr 2018 zeigt."
+          },
+          {
+            "zeit": "00:32.90",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 9,
+            "gesprochen": "In April 2024, energy became GE Vernova;",
+            "fest": false,
+            "text": "Das Bild zeigt eine ländliche Windkraftanlage mit Arbeitern, aber keinen Bezug zum Firmenübergang zu GE Vernova im April 2024. Korrektur: Ein realistisches oder dokumentarisches Bild, das die Umbenennung oder das Logo von GE Vernova im April 2024 zeigt."
+          },
+          {
+            "zeit": "00:36.24",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "aviation became GE Aerospace.",
+            "fest": false,
+            "text": "Die gesprochenen Wörter erwähnen den Namen GE Aerospace, aber das Bild zeigt eine genergische historische Illustration eines Arbeiters an einer Turbine und keinen Bezug zum spezifischen Luftfahrtunternehmen. Korrektur: Ein realistisches Foto oder grafische Darstellung von GE Aerospace mit Bezug zur Luftfahrtsparte."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 46.4,
+          "fps": 30.0,
+          "lufs": -15.2,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 41.3,
+              "bis_s": 42.88,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.988
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 26.4,
+              "bis_s": 46.9,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Workers",
+                "s": 0.0,
+                "e": 0.46,
+                "p": 0.8571937680244446
+              },
+              {
+                "w": "once",
+                "s": 0.46,
+                "e": 0.88,
+                "p": 0.9930764436721802
+              },
+              {
+                "w": "blocked",
+                "s": 0.88,
+                "e": 1.26,
+                "p": 0.9933376312255859
+              },
+              {
+                "w": "a",
+                "s": 1.26,
+                "e": 1.62,
+                "p": 0.9951035976409912
+              },
+              {
+                "w": "turbine",
+                "s": 1.62,
+                "e": 1.96,
+                "p": 0.9660667777061462
+              },
+              {
+                "w": "from",
+                "s": 1.96,
+                "e": 2.5,
+                "p": 0.9975823163986206
+              },
+              {
+                "w": "leaving.",
+                "s": 2.5,
+                "e": 2.78,
+                "p": 0.9988797307014465
+              },
+              {
+                "w": "Here's",
+                "s": 3.7,
+                "e": 4.08,
+                "p": 0.9750014543533325
+              },
+              {
+                "w": "GE",
+                "s": 4.08,
+                "e": 4.36,
+                "p": 0.8423938155174255
+              },
+              {
+                "w": "Vernova's",
+                "s": 4.36,
+                "e": 5.26,
+                "p": 0.6459934214750925
+              },
+              {
+                "w": "backstory.",
+                "s": 5.26,
+                "e": 5.68,
+                "p": 0.841857373714447
+              },
+              {
+                "w": "In",
+                "s": 7.14,
+                "e": 7.24,
+                "p": 0.9767182469367981
+              },
+              {
+                "w": "2014,",
+                "s": 7.24,
+                "e": 7.78,
+                "p": 0.9978869557380676
+              },
+              {
+                "w": "Alstom",
+                "s": 8.3,
+                "e": 8.82,
+                "p": 0.701493908961614
+              },
+              {
+                "w": "accepted",
+                "s": 8.82,
+                "e": 9.4,
+                "p": 0.9967944025993347
+              },
+              {
+                "w": "GE's",
+                "s": 9.4,
+                "e": 10.02,
+                "p": 0.994356244802475
+              },
+              {
+                "w": "12",
+                "s": 10.02,
+                "e": 10.34,
+                "p": 0.588195264339447
+              },
+              {
+                "w": ".35",
+                "s": 10.34,
+                "e": 11.32,
+                "p": 0.996108889579773
+              },
+              {
+                "w": "billion",
+                "s": 11.32,
+                "e": 11.62,
+                "p": 0.8188103437423706
+              },
+              {
+                "w": "euro",
+                "s": 11.62,
+                "e": 12.12,
+                "p": 0.536226749420166
+              },
+              {
+                "w": "energy",
+                "s": 12.12,
+                "e": 12.66,
+                "p": 0.9772241115570068
+              },
+              {
+                "w": "offer.",
+                "s": 12.66,
+                "e": 13.02,
+                "p": 0.9797456860542297
+              },
+              {
+                "w": "GE",
+                "s": 13.8,
+                "e": 14.0,
+                "p": 0.9988017082214355
+              },
+              {
+                "w": "had",
+                "s": 14.0,
+                "e": 14.4,
+                "p": 0.9958516359329224
+              },
+              {
+                "w": "committed",
+                "s": 14.4,
+                "e": 14.7,
+                "p": 0.9986334443092346
+              },
+              {
+                "w": "to",
+                "s": 14.7,
+                "e": 15.08,
+                "p": 0.9930436611175537
+              },
+              {
+                "w": "1",
+                "s": 15.08,
+                "e": 15.28,
+                "p": 0.6728970408439636
+              },
+              {
+                "w": ",000",
+                "s": 15.28,
+                "e": 15.82,
+                "p": 0.9898519217967987
+              },
+              {
+                "w": "French",
+                "s": 15.82,
+                "e": 16.12,
+                "p": 0.9722654223442078
+              },
+              {
+                "w": "jobs",
+                "s": 16.12,
+                "e": 16.54,
+                "p": 0.9026060700416565
+              },
+              {
+                "w": "when",
+                "s": 16.54,
+                "e": 16.9,
+                "p": 0.9806255102157593
+              },
+              {
+                "w": "buying",
+                "s": 16.9,
+                "e": 17.12,
+                "p": 0.9994507431983948
+              },
+              {
+                "w": "Alstom's",
+                "s": 17.12,
+                "e": 17.86,
+                "p": 0.9957904517650604
+              },
+              {
+                "w": "energy",
+                "s": 17.86,
+                "e": 18.04,
+                "p": 0.8348643183708191
+              },
+              {
+                "w": "division.",
+                "s": 18.04,
+                "e": 18.4,
+                "p": 0.9974038004875183
+              },
+              {
+                "w": "So",
+                "s": 19.24,
+                "e": 19.58,
+                "p": 0.9808765053749084
+              },
+              {
+                "w": "what",
+                "s": 19.58,
+                "e": 19.78,
+                "p": 0.764344334602356
+              },
+              {
+                "w": "happened?",
+                "s": 19.78,
+                "e": 20.06,
+                "p": 0.9976990818977356
+              },
+              {
+                "w": "In",
+                "s": 20.9,
+                "e": 21.16,
+                "p": 0.9962413311004639
+              },
+              {
+                "w": "2018,",
+                "s": 21.16,
+                "e": 21.66,
+                "p": 0.9984265565872192
+              },
+              {
+                "w": "GE",
+                "s": 22.42,
+                "e": 22.52,
+                "p": 0.9995490908622742
+              },
+              {
+                "w": "announced",
+                "s": 22.52,
+                "e": 22.92,
+                "p": 0.9989269375801086
+              },
+              {
+                "w": "1",
+                "s": 22.92,
+                "e": 23.36,
+                "p": 0.7774266004562378
+              },
+              {
+                "w": ",330",
+                "s": 23.36,
+                "e": 24.7,
+                "p": 0.9691410064697266
+              },
+              {
+                "w": "hydro",
+                "s": 24.7,
+                "e": 25.08,
+                "p": 0.6159695982933044
+              },
+              {
+                "w": "job",
+                "s": 25.08,
+                "e": 25.5,
+                "p": 0.7040379643440247
+              },
+              {
+                "w": "cuts.",
+                "s": 25.5,
+                "e": 25.72,
+                "p": 0.9551098942756653
+              },
+              {
+                "w": "In",
+                "s": 25.72,
+                "e": 26.58,
+                "p": 0.3868192136287689
+              },
+              {
+                "w": "2021,",
+                "s": 26.58,
+                "e": 27.34,
+                "p": 0.9904301762580872
+              },
+              {
+                "w": "unions",
+                "s": 27.62,
+                "e": 27.98,
+                "p": 0.7146291136741638
+              },
+              {
+                "w": "blockaded",
+                "s": 27.98,
+                "e": 28.6,
+                "p": 0.9322634637355804
+              },
+              {
+                "w": "Belford's",
+                "s": 28.6,
+                "e": 29.34,
+                "p": 0.6408781011899313
+              },
+              {
+                "w": "steam",
+                "s": 29.34,
+                "e": 29.6,
+                "p": 0.6824057102203369
+              },
+              {
+                "w": "site,",
+                "s": 29.6,
+                "e": 30.0,
+                "p": 0.9293457269668579
+              },
+              {
+                "w": "stopping",
+                "s": 30.22,
+                "e": 30.74,
+                "p": 0.9961524605751038
+              },
+              {
+                "w": "a",
+                "s": 30.74,
+                "e": 31.06,
+                "p": 0.9912992119789124
+              },
+              {
+                "w": "turbine",
+                "s": 31.06,
+                "e": 31.36,
+                "p": 0.8848937749862671
+              },
+              {
+                "w": "convoy.",
+                "s": 31.36,
+                "e": 31.76,
+                "p": 0.9835139513015747
+              },
+              {
+                "w": "In",
+                "s": 32.88,
+                "e": 32.9,
+                "p": 0.9901502132415771
+              },
+              {
+                "w": "April",
+                "s": 32.9,
+                "e": 33.12,
+                "p": 0.9968072175979614
+              },
+              {
+                "w": "2024,",
+                "s": 33.12,
+                "e": 33.82,
+                "p": 0.9231029748916626
+              },
+              {
+                "w": "energy",
+                "s": 33.86,
+                "e": 34.68,
+                "p": 0.9338489174842834
+              },
+              {
+                "w": "became",
+                "s": 34.68,
+                "e": 35.12,
+                "p": 0.9907118678092957
+              },
+              {
+                "w": "GE",
+                "s": 35.12,
+                "e": 35.44,
+                "p": 0.9386252164840698
+              },
+              {
+                "w": "Vernova,",
+                "s": 35.44,
+                "e": 36.02,
+                "p": 0.7285952717065811
+              },
+              {
+                "w": "aviation",
+                "s": 36.54,
+                "e": 36.76,
+                "p": 0.9002264738082886
+              },
+              {
+                "w": "became",
+                "s": 36.76,
+                "e": 37.42,
+                "p": 0.9335724711418152
+              },
+              {
+                "w": "GE",
+                "s": 37.42,
+                "e": 37.88,
+                "p": 0.9967247843742371
+              },
+              {
+                "w": "Aerospace.",
+                "s": 37.88,
+                "e": 38.32,
+                "p": 0.7188489437103271
+              },
+              {
+                "w": "Remember",
+                "s": 39.56,
+                "e": 39.56,
+                "p": 0.9433623552322388
+              },
+              {
+                "w": "that",
+                "s": 39.56,
+                "e": 39.84,
+                "p": 0.9815492033958435
+              },
+              {
+                "w": "turbine?",
+                "s": 39.84,
+                "e": 40.04,
+                "p": 0.9558641314506531
+              },
+              {
+                "w": "Be",
+                "s": 40.9,
+                "e": 40.96,
+                "p": 0.9856342673301697
+              },
+              {
+                "w": "sure",
+                "s": 40.96,
+                "e": 41.18,
+                "p": 0.9993717074394226
+              },
+              {
+                "w": "to",
+                "s": 41.18,
+                "e": 41.3,
+                "p": 0.9976478219032288
+              },
+              {
+                "w": "like,",
+                "s": 41.3,
+                "e": 41.5,
+                "p": 0.9478948712348938
+              },
+              {
+                "w": "share,",
+                "s": 41.7,
+                "e": 41.9,
+                "p": 0.998543381690979
+              },
+              {
+                "w": "and",
+                "s": 42.12,
+                "e": 42.18,
+                "p": 0.9970596432685852
+              },
+              {
+                "w": "save",
+                "s": 42.18,
+                "e": 42.42,
+                "p": 0.992275059223175
+              },
+              {
+                "w": "this",
+                "s": 42.42,
+                "e": 42.6,
+                "p": 0.9901420474052429
+              },
+              {
+                "w": "video.",
+                "s": 42.6,
+                "e": 42.88,
+                "p": 0.9991758465766907
+              },
+              {
+                "w": "Which",
+                "s": 43.52,
+                "e": 43.54,
+                "p": 0.9614362120628357
+              },
+              {
+                "w": "company",
+                "s": 43.54,
+                "e": 43.82,
+                "p": 0.989486575126648
+              },
+              {
+                "w": "next?",
+                "s": 43.82,
+                "e": 44.14,
+                "p": 0.9809869527816772
+              },
+              {
+                "w": "Comment",
+                "s": 44.7,
+                "e": 44.76,
+                "p": 0.9917301535606384
+              },
+              {
+                "w": "and",
+                "s": 44.76,
+                "e": 45.34,
+                "p": 0.8909514546394348
+              },
+              {
+                "w": "follow",
+                "s": 45.34,
+                "e": 45.58,
+                "p": 0.9924302697181702
+              },
+              {
+                "w": "for",
+                "s": 45.58,
+                "e": 45.82,
+                "p": 0.994708776473999
+              },
+              {
+                "w": "more!",
+                "s": 45.82,
+                "e": 45.98,
+                "p": 0.9997349381446838
+              }
+            ],
+            "dauer_s": 46.3573125,
+            "sprache": "en"
+          },
+          "roh_key": "d81513fa98d42ee805a4c4da29f1babdb08ac2ede8c7e7d00472c148daa2054c",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "de27b57c932f8822c8ff572e79bd98438d7c1ef42dc4e78fe076eb2b418b7eed",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 46.4,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 13,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "de27b57c932f8822c8ff572e79bd98438d7c1ef42dc4e78fe076eb2b418b7eed",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Gezeichnete Illustration einer großen Windturbine oder Turbine vor einer Stadtkulisse.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Abbildung zeigt eine Turbine, passend zum Satzteil über das Blockieren einer Turbine.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 1,
+              "gesehen": "Mehrere Arbeiter in Arbeitskleidung und Mützen stehen um einen Tisch herum und betrachten gemeinsam eine ausgebreitete Bauzeichnung in einem Raum.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt Arbeiter bei der Besprechung von Plänen, was gut zur erzählten Unternehmensgeschichte von GE Vernova und deren Industriehintergrund passt.",
+              "erforderliches_bild": "Keines, das Bild passt gut als erzählende Illustration."
+            },
+            {
+              "index": 2,
+              "gesehen": "Fünf Männer in Business-Anzügen sitzen um einen Konferenztisch in einem Büro mit großem Fenster.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine Geschäftsszene, aber keine Übernahme oder ein Angebot von Alstom oder GE im Jahr 2014.",
+              "erforderliches_bild": "Historisches Foto oder Dokument der Übernahmeverhandlungen von Alstom im Jahr 2014."
+            },
+            {
+              "index": 3,
+              "gesehen": "Gezeigt wird eine künstlich generierte Büroszene mit vier Männern in Anzügen an einem Tisch, die scheinbar Dokumente prüfen, darüber ein eingeblendeter Text mit '12.35 BILLION ENERGY'.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich generische Geschäftsleute in einem Büro und eine Overlay-Zahl, jedoch keinerlei historische Darstellung der Übernahme oder des €12.35 Milliarden Angebots von Alstom durch GE im Jahr 2014.",
+              "erforderliches_bild": "Ein historisches Foto oder Archivbild der Vertragsunterzeichnung zwischen Alstom und GE aus dem Jahr 2014."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Mann im Arbeitshemd steht neben einer Industriemaschine vor verschlossenen Toren, darüber ein Kasten mit dem Text '1,000 FRENCH JOBS'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gesprochenen Worte '1,000 French jobs' werden direkt durch das Plakat und die Illustration thematisch passend dargestellt.",
+              "erforderliches_bild": "keines"
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein Mann im Hemd steht mit verschränkten Armen in einer Fabrikhalle mit großen Fenstern und Zahnrädern.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich einen Arbeiter in einer Fabrikhalle und bebildert nicht die spezifischen Ereignisse von 2018 bezüglich Stellenstreichungen.",
+              "erforderliches_bild": "Grafik oder historische Archivaufnahme, die Stellenstreichungen oder die Ankündigung aus dem Jahr 2018 zeigt."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Arbeiter steht in einer Fabrikhalle vor Fenstern mit einem Stuhl und Regalen; im oberen Bereich ist ein Textfeld mit '1,330 HYDRO JOB' eingeblendet.",
+              "note": 4,
+              "passt": false,
+              "grund": "Die Zahl 1,330 Hydro job wird im Textfeld genannt, aber es ist nur eine generische Illustration eines Arbeiters ohne direkten Bezug zu Entlassungen oder der Ank%fcndigung im Jahr 2018.",
+              "erforderliches_bild": "Ein zeitgen%fssisches Dokument oder eine Nachrichtengrafik, die die Ank%fcndigung der Stellenk%frzungen im Jahr 2018 zeigt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein verrosteter Lkw steht auf einer schmalen Straße in einer europäischen Altstadt bei Nacht, mit Personen in Arbeitskleidung daneben, die den Weg blockieren könnten.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Darstellung zeigt einen Lkw, der von Arbeitern blockiert wird, was gut zu der erwähnten Blockade des Turbinentransports durch Gewerkschaften im Jahr 2021 passt.",
+              "erforderliches_bild": "Keine Änderung erforderlich."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein großer, silberner, tropfenförmiger Windturbinenrotor wird auf einem Lkw transportiert, während Arbeiter daneben stehen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell passend einen Turbinenkonvoi mit Arbeitern daneben, was exakt der gesprochenen Szene 'stopping a turbine convoy' entspricht.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 9,
+              "gesehen": "Eine gemalte Szene zeigt eine Gruppe von Personen und eine Windkraftanlage in einer ländlichen Hügellandschaft.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine ländliche Windkraftanlage mit Arbeitern, aber keinen Bezug zum Firmenübergang zu GE Vernova im April 2024.",
+              "erforderliches_bild": "Ein realistisches oder dokumentarisches Bild, das die Umbenennung oder das Logo von GE Vernova im April 2024 zeigt."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein Arbeiter in einem Industrie- oder Werkstattbereich arbeitet an einer großen Flugzeugtriebwerks-Schaufel (Turbine). Im Hintergrund sind städtische Gebäude zu sehen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochenen Wörter erwähnen den Namen GE Aerospace, aber das Bild zeigt eine genergische historische Illustration eines Arbeiters an einer Turbine und keinen Bezug zum spezifischen Luftfahrtunternehmen.",
+              "erforderliches_bild": "Ein realistisches Foto oder grafische Darstellung von GE Aerospace mit Bezug zur Luftfahrtsparte."
+            }
+          ],
+          "befunde": [
+            "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Geschäftsszene, aber keine Übernahme oder ein Angebot von Alstom oder GE im Jahr 2014.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich generische Geschäftsleute in einem Büro und eine Overlay-Zahl, jedoch keinerlei historische Darstellung der Übernahme oder des €12.35 Milliarden Angebots von Alstom durch GE im Jahr 2014.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen Arbeiter in einer Fabrikhalle und bebildert nicht die spezifischen Ereignisse von 2018 bezüglich Stellenstreichungen.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (4/10): Die Zahl 1,330 Hydro job wird im Textfeld genannt, aber es ist nur eine generische Illustration eines Arbeiters ohne direkten Bezug zu Entlassungen oder der Ank%fcndigung im Jahr 2018.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine ländliche Windkraftanlage mit Arbeitern, aber keinen Bezug zum Firmenübergang zu GE Vernova im April 2024.",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen den Namen GE Aerospace, aber das Bild zeigt eine genergische historische Illustration eines Arbeiters an einer Turbine und keinen Bezug zum spezifischen Luftfahrtunternehmen."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 13,
+          "ausgenommen": [
+            11,
+            12
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "de27b57c932f8822c8ff572e79bd98438d7c1ef42dc4e78fe076eb2b418b7eed",
+        "prompt_version": "2026-10-25.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

@@ -198,6 +198,11 @@ FORMAT_FAKTOR = 2.0
 BONUS_FORMAT = 10.0  # Formattag: Vorrang sicher, auch vor einer 60x-Neuheit
 # GEMESSEN 21.10.2026: „ChatGPT | The Notice : A short film by Reema Kagti" (248x) wurde Thema "ChatGPT: ChatGPT".
 KEIN_WERKZEUG = re.compile(r'\b(?:short film|trailer|music video|official video|lyrics|full movie)\b', re.I)
+# GEMESSEN 27.10.2026 (Lauf 40490036813): „I Built My Own TV Operating System With Claude Code" - ein fremdes
+# Bastelprojekt. Keine Quelle traegt es (Recherche fand Fuchsia/Android TV), eigene Erfahrung duerfen wir nicht
+# erfinden: Story 4/10, der KI-Tag verging. Wie schon „I Made My Own VST Plugins" (19.10.).
+# Danach stand „I Removed Every Ad From My Google TV using Claude" bereit - darum jede Ich-Tat in der Vergangenheit.
+ERLEBNIS = re.compile(r"\bI(?:'ve|\s+have)?\s+(?i:(?:just\s+)?(?:built|made|wrote|ran|[a-z]+ed))\b|(?i:\bmy\s+own\b)")
 # GEMESSEN 19.10.2026: „OpenAI alerta PF apos identificar ameacas contra Lula no ChatGPT" bestand trends._englisch
 # (fast nur ASCII-Buchstaben). Ein englischer Titel enthaelt fast immer eines dieser Woerter.
 ENGLISCH = re.compile(r"\b(?:the|a|an|to|is|in|of|for|and|with|my|your|you|how|this|it|i|just|vs|what|why|can|new|"
@@ -284,7 +289,7 @@ def zuschauer_themen(einstellung, gezeigt=(), google_liste=(), heute=None):
         p = name_im_text(v['titel'], namen)
         # GEMESSEN 19.10.: Spam („ChatGPT Premium gratis freischalten", 1.794 Aufrufe = 15.6x) lag vorn
         if p and englisch(v['titel']) and not trends.SPAM_VIDEO.search(v['titel']) \
-                and not KEIN_WERKZEUG.search(v['titel']) \
+                and not KEIN_WERKZEUG.search(v['titel']) and not ERLEBNIS.search(v['titel']) \
                 and (v.get('aufrufe') or 0) >= e['min_aufrufe']:
             art = trends.format_art(v['titel'])
             # Betraege im Titel sind fremde Behauptungen (Einkommen, Preise) - der Beleg kommt aus der Quelle
@@ -409,7 +414,8 @@ def _taugt(k):
     produkt, _, rest = (k.get('thema') or '').partition(': ')
     if rest and rest.strip().lower() == produkt.strip().lower():
         return False
-    return not any(KEIN_WERKZEUG.search(b.get('titel') or '') for b in k.get('beispiele') or [])
+    return not any(KEIN_WERKZEUG.search(b.get('titel') or '') or ERLEBNIS.search(b.get('titel') or '')
+                   for b in k.get('beispiele') or [])
 
 
 def beschreibung(k):
@@ -459,6 +465,10 @@ def waehlen(kanal, heute=None, themen=None, neu=False):
         # sonst bliebe es den ganzen Tag bei der freien Wahl (Walmart), obwohl Meta in den Schlagzeilen steht.
         if _profil(kanal).get('quelle') == 'wikipedia' and not alt.get('google_news'):
             raise KeyError('ohne Google News berechnet')
+        # 27.10.2026: Bericht des Morgens hatte ein Bastelprojekt gewaehlt - neue Filter gelten auch fuer ihn.
+        gewaehlt = next((x for x in alt.get('kandidaten') or [] if x.get('thema') == alt['thema']), None)
+        if gewaehlt and not _taugt(gewaehlt):
+            raise KeyError('gewaehltes Thema taugt nicht')
         if not themen.gespraech_grund(alt['thema']) and (not alt['thema'] or alt['thema'] in offen
                                                          or alt.get('zuschauer') or alt.get('trend')):
             # Bereits erledigte Ideen und alte Fehlklassifikationen neu waehlen.

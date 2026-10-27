@@ -821,16 +821,7 @@ def firmen_im_trend(datum=None, n=300):
             alias[m.get('from', '').lower()] = m.get('to', '').lower()
         for s in (d.get('query', {}).get('pages') or {}).values():
             b = s.get('description', '')
-            # GEMESSEN 13./14.10.2026: „Milwaukee Brewers" / „Cleveland Guardians" (Baseball-„franchise")
-            # waren Trendfirmen - Sportvereine sind keine Unternehmensgeschichte. 19.10.: „Dale Vince"
-            # („English business magnate (born 1961)") - eine Person, keine Firma.
-            if (FIRMA.search(b) and not re.search(r'\b(film|album|song|series|episode|band|team|club|league|'
-                                                 r'baseball|football|basketball|hockey|soccer|born|magnate)\b', b, re.I)
-                    and not re.match(r'(List of|Proposed|Timeline of|History of)', s['title'])
-                    # 19.10.: Schlagzeilenwort „Airline" -> Oberbegriff („Company that provides air transport")
-                    and not re.match(r'(company|business|organization|type|form) (that|which|of)\b', b, re.I)
-                    # GEMESSEN 22.10.2026: „Share (finance)" - „Unit of equity ownership in ... a corporation"
-                    and not re.match(r'(unit|kind|class|method|measure|part) of\b', b, re.I)):
+            if ist_firma(s['title'], b):
                 aus.append((s['title'], aufrufe.get(s['title'], 0), b))
 
     def im_fokus(artikel):
@@ -846,6 +837,83 @@ def firmen_im_trend(datum=None, n=300):
             _t.sleep(1)
             aus[i] = (t, aufrufe_gestern(t), b)
     return aus
+
+
+def ist_firma(titel, beschreibung):
+    """Wikipedia-Artikel ist eine Firma (Kurzbeschreibung), kein Verein, keine Person, kein Oberbegriff."""
+    b = beschreibung or ''
+    # GEMESSEN 13./14.10.2026: „Milwaukee Brewers" / „Cleveland Guardians" (Baseball-„franchise")
+    # waren Trendfirmen - Sportvereine sind keine Unternehmensgeschichte. 19.10.: „Dale Vince"
+    # („English business magnate (born 1961)") - eine Person, keine Firma.
+    return bool(FIRMA.search(b) and not re.search(r'\b(film|album|song|series|episode|band|team|club|league|'
+                                                  r'baseball|football|basketball|hockey|soccer|born|magnate)\b', b, re.I)
+                and not re.match(r'(List of|Proposed|Timeline of|History of)', titel)
+                # 19.10.: Schlagzeilenwort „Airline" -> Oberbegriff („Company that provides air transport")
+                and not re.match(r'(company|business|organization|type|form) (that|which|of)\b', b, re.I)
+                # GEMESSEN 22.10.2026: „Share (finance)" - „Unit of equity ownership in ... a corporation"
+                and not re.match(r'(unit|kind|class|method|measure|part) of\b', b, re.I))
+
+
+# Nutzer 27.10.2026 (YouTube-Studio-Trends: „The Fascinating Story Of Loctite", 184.517 Aufrufe in 9 Tagen):
+# Firmengeschichten, die gerade auf YouTube laufen, fand die Business-Pipeline nicht - sie kannte nur
+# Wikipedia-Aufrufe und Schlagzeilen. Der Firmenname steht in solchen Titeln hinter festen Wendungen.
+# Titel sind meist in Title Case („How Nike Became The Biggest ...") - darum 1-4 Woerter als Varianten,
+# Wikipedia entscheidet, welche eine Firma ist; die laengste gewinnt („Rolls-Royce Motor Cars" vor „Rolls-Royce").
+FIRMA_IM_TITEL = re.compile(
+    r"(?:(?i:\b(?:story|history|origins?|rise|fall|downfall|collapse|death|birth)\s+of\s+(?:the\s+)?)"
+    r"|(?i:\b(?:how|why)\s+(?:the\s+)?)(?=[A-Z0-9]))"
+    r"([A-Z0-9][\w&.'-]*(?:\s+(?:&\s+)?[A-Z0-9][\w&.'-]*){0,3})")
+
+
+def firmen_im_titel(titel):
+    """Namensvarianten (laengste zuerst) hinter „Story of", „Rise and Fall of", „How ...", „Why ..."."""
+    aus = []
+    for m in FIRMA_IM_TITEL.finditer(titel or ''):
+        woerter = m.group(1).split()
+        for n in range(len(woerter), 0, -1):
+            name = ' '.join(woerter[:n]).rstrip(".'-:&")
+            if name and name not in aus:
+                aus.append(name)
+    return aus
+
+
+def firmen_aus_youtube(suche, tage=30, dauer='medium', min_aufrufe=20000):
+    """[(Wikipedia-Titel, Ausreisser-Faktor, Video)] aus gut laufenden Firmengeschichten-Videos; [] ohne Schluessel."""
+    varianten = {}  # Name -> Video
+    for v in youtube_ausreisser(suche, tage=tage, je_begriff=15, top=40, dauer=dauer):
+        if (v.get('aufrufe') or 0) >= min_aufrufe:
+            for name in firmen_im_titel(v['titel']):
+                varianten.setdefault(name, v)
+    if not varianten:
+        return []
+    seiten = {}  # angefragter Name -> (Artikeltitel, Beschreibung)
+    namen = list(varianten)
+    for i in range(0, min(len(namen), 150), 50):  # 50 Titel je Anfrage (API-Grenze)
+        try:
+            d = json.loads(_hole('https://en.wikipedia.org/w/api.php?' + urllib.parse.urlencode({
+                'action': 'query', 'prop': 'description', 'titles': '|'.join(namen[i:i + 50]), 'format': 'json',
+                'redirects': 1}), WIKI_KENNUNG))
+        except Exception as e:
+            print('Wikipedia-Pruefung (YouTube-Firmen) nicht verfuegbar:', type(e).__name__)
+            continue
+        weiter = {m.get('from'): m.get('to') for m in d.get('query', {}).get('normalized', [])
+                  + d.get('query', {}).get('redirects', [])}
+        artikel = {s.get('title'): s for s in (d.get('query', {}).get('pages') or {}).values() if 'missing' not in s}
+        for name in namen[i:i + 50]:
+            ziel = name
+            for _ in range(3):  # normalisiert -> Weiterleitung -> Artikel
+                ziel = weiter.get(ziel, ziel)
+            if ziel in artikel:
+                seiten[name] = (ziel, artikel[ziel].get('description', ''))
+    aus, videos = [], set()
+    for name in namen:  # Reihenfolge: je Video die laengste Variante zuerst
+        v = varianten[name]
+        if v['id'] in videos or name not in seiten or not ist_firma(*seiten[name]):
+            continue
+        videos.add(v['id'])
+        if seiten[name][0] not in {a[0] for a in aus}:
+            aus.append((seiten[name][0], v['faktor'], v))
+    return sorted(aus, key=lambda x: -x[1])
 
 
 def wirtschafts_schlagzeilen():

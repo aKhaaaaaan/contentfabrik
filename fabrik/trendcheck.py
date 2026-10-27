@@ -31,6 +31,7 @@ ORDNER = Path('verlauf/trendcheck')
 BONUS_EIGEN = 1.0
 SCHWELLE = 1.5  # darunter kein echtes Trendsignal
 FREIE_KANDIDATEN = 5
+YT_FIRMEN = 3  # je Kandidat eine weitere YouTube-Suche (100 Einheiten des Tageskontingents)
 
 
 # GEMESSEN 23.10.2026: Der Bericht von 10:36 UTC kannte nur die Geld-Titelvorlage; nach deren Lieferung nahm das
@@ -143,13 +144,20 @@ def kandidaten(kanal, themen, mit_trendfirmen=True, google_liste=(), heute=None)
     if mit_trendfirmen and _profil(kanal).get('quelle') == 'wikipedia':
         import trends
         bekannt = {a.get('wikipedia') for a in aus}
+        # Nutzer 27.10.2026: Firmengeschichten, die gerade auf YouTube laufen (Loctite), zuerst - die Bewertung
+        # misst danach wie bei jeder Trendfirma den YouTube-Ausreisser („<Firma> story").
+        yt = trendquellen(kanal).get('firmen_suche') or []
+        for titel, _, _ in (trends.firmen_aus_youtube(yt) if yt else [])[:YT_FIRMEN]:
+            if titel not in bekannt:
+                bekannt.add(titel)
+                aus.append({'thema': titel, 'begriff': titel, 'wikipedia': titel, 'eigen': False, 'trendfirma': True})
         for titel, aufrufe, _ in trends.firmen_im_trend()[:FREIE_KANDIDATEN * 2]:
             if titel not in bekannt and len([a for a in aus if not a['eigen']]) < FREIE_KANDIDATEN:
                 # 21.10.2026 Nutzer: Trend im Fokus, fuer jeden Kanal. Vorher thema '' (nur Vorschlag an den Autor;
                 # Claude nahm meist eine "klassische Marke" wie Boeing/Ford statt der Trendfirma).
                 aus.append({'thema': titel, 'begriff': titel, 'wikipedia': titel, 'eigen': False, 'trendfirma': True})
     einstellung = trendquellen(kanal)
-    if mit_trendfirmen and einstellung:
+    if mit_trendfirmen and (einstellung.get('suche') or einstellung.get('google_news')):
         import trends
         aus += zuschauer_themen(einstellung, trends.gezeigte_themen(kanal), google_liste, heute)
     return aus

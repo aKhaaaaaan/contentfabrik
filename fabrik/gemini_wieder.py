@@ -46,6 +46,12 @@ def merken(kanal, ausgabe=Path('ausgabe'), jetzt=None):
     if lesen(ausgabe / 'bericht.json').get('status') == 'gesendet':
         datei.unlink(missing_ok=True)
         return 'geliefert'
+    # GEMELDET 27.10.2026: KI-Lauf scheiterte an der Faktenpruefung bzw. an apt (Produktion uebersprungen);
+    # ein 503 im optionalen Lernschritt bzw. ein Zeitlimit des Vorlaufs reichte fuer "Gemini wieder
+    # erreichbar" - der Nutzer hielt Gemini fuer die Ursache. Ein inhaltliches Urteil ist kein Ausfall.
+    pruefung = lesen(ausgabe / 'skript.json').get('pruefung')
+    if os.environ.get('PRODUKTION') == 'skipped' or (isinstance(pruefung, dict) and pruefung.get('probleme')):
+        return 'anderer Grund'
     if not gemini_beteiligt(jetzt):
         return 'anderer Grund'
     if datei.exists():

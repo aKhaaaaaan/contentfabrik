@@ -131,6 +131,12 @@ REPARATUR_SCHEMA = {'type':'OBJECT','properties':{
     'required':['thema','titel_zeile1','titel_zeile2','beschreibung','texte']}
 
 
+# GEMESSEN 27.10.2026 (Laeufe 40473183683, 40484828032): "correct or remove" -> der Autor formulierte die
+# unbelegte Aussage ("--max-budget-usd ... spend limit") zehnmal nur um, jede Fassung fiel wieder durch.
+STREICHEN = ('A claim marked unsupported is not in the sources: delete the whole sentence that carries it; '
+             'do not reword, soften or move it, and do not add a replacement fact. ')
+
+
 def sprechtext_reparieren(kanal, quellen, entwurf, korrekturen, mindest, hoechstens, zusatz=''):
     """Nur Text reparieren; bestehende Regie/Quellenfelder werden nicht staendig neu geschrieben."""
     import copy
@@ -143,7 +149,7 @@ def sprechtext_reparieren(kanal, quellen, entwurf, korrekturen, mindest, hoechst
                 f'ordered spoken phases and {mindest}-{hoechstens} TOTAL spoken words, including the final '
                 'like/share/save request. Preserve the story and fix ALL listed problems. Remove unsupported '
                 'speed, ease, savings and performance claims. Do not add replacement facts. '
-                'Repair title/description claims too. Return texte containing speech only, no scenes or '
+              + STREICHEN + 'Repair title/description claims too. Return texte containing speech only, no scenes or '
                 'production directions; retain the phase order. Do not output review scores.\n'
               + json.dumps(daten,ensure_ascii=False,separators=(',',':')))
     d, model = _groq_text(prompt,REPARATUR_SCHEMA,ausgabe_tokens=2048)
@@ -1021,7 +1027,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 entwurf, modell, mangel = schreiben(
                     anweisung(kanal, entwurf['thema'], frueher) + zusatz
                     + '\nHere is a draft. Keep its story, structure and wording, but FIX ONLY these problems '
-                      '(correct or remove each claim using the sources):\n- ' + '\n- '.join(probleme)
+                      '(correct or remove each claim using the sources). ' + STREICHEN + '\n- ' + '\n- '.join(probleme)
                     + '\nDRAFT:\n' + json.dumps(entwurf, ensure_ascii=False),
                     entwurf_basis=entwurf, korrekturen=probleme)
                 pruefung = pruefen(entwurf)
@@ -1153,7 +1159,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
                     repariert, m, mangel = schreiben(
                         anweisung(kanal, entwurf['thema'], frueher) + zusatz
                         + '\nHere is a draft. Keep its story, structure and wording, but FIX ONLY these fact problems '
-                          '(remove or correct the claim using the sources):\n- ' + '\n- '.join(p2['probleme'])
+                          '(remove or correct the claim using the sources). ' + STREICHEN + '\n- '
+                        + '\n- '.join(p2['probleme'])
                         + '\nDRAFT:\n' + json.dumps(neu, ensure_ascii=False),
                         entwurf_basis=neu, korrekturen=p2['probleme'])
                     if mangel:
@@ -1209,6 +1216,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
     # „Top 5 AI Video Tools" fand die Pruefung auch nach der Ueberarbeitung
     # veraltete Aussagen (Runway, Sora) - ohne aktuelle Suche kein Video.
     if not pruefung['ok']:
+        # GEMESSEN 27.10.2026: ohne Loeschen setzte jeder neue Versuch genau diese durchgefallene Fassung fort.
+        skript_entwurf.erledigen(kanal_pfad)
         print('FAKTENPRUEFUNG NICHT BESTANDEN - kein Video.', file=sys.stderr)
         sys.exit(2)
     gruende = skript_gruende(skript)

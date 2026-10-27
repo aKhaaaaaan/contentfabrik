@@ -1,115 +1,115 @@
 {
   "version": 1,
   "status": "ungeprueft",
-  "zeit": 1793081667.5578935,
-  "kontext": "c6f2ed05539608c59d703bf87bac1896dbd47a18d17aead464bcd229f22d55ff",
+  "zeit": 1793089976.9611843,
+  "kontext": "07129f93214df3985cfbfbd9dcaa22b2e18b5d4c68ce765dd0303278bc03fafd",
   "entwurf": {
-    "thema": "Claude Projects: what the sources support, free versus paid",
-    "titel_zeile1": "Claude Projects: Free?",
-    "titel_zeile2": "What Paying Adds",
+    "thema": "Claude Code costs: what the sources show about tokens and budget caps",
+    "titel_zeile1": "Claude Code Bill Check",
+    "titel_zeile2": "Tokens Before Your Prompt",
     "schluesselwoerter": [
-      "Claude Projects",
-      "RAG"
+      "Claude Code",
+      "tokens"
     ],
     "teile": [
       {
-        "name": "Repeating context",
-        "werkzeug": "Claude Projects",
-        "suche": "frustrated man at desk",
-        "text": "Re-explaining your background every chat gets old. Claude Projects keeps documents and context together, and free accounts get it.",
-        "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects",
-        "szene": "Black-haired presenter in black leather jacket and glowing cyan glasses sits at a cluttered desk, rubbing his temple in frustration, medium shot, warm lamp light, painted open-world-game poster style.",
+        "name": "Hook",
+        "werkzeug": "Claude Code",
+        "suche": "worried man apartment",
+        "text": "Your prompt isn't the first thing sent. Using Claude Code for a coding task? Here's the real cost picture.",
+        "quelle_url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
+        "szene": "Original painted open-world-game poster style: a black-haired man in a black leather jacket and glowing cyan glasses stands in a dim apartment, arms crossed, wary expression, wide shot, soft lamp light.",
         "bildtext": "",
         "geraeusch": "",
         "beat": "hook",
         "bildmodus": "illustration"
       },
       {
-        "name": "What a project is",
-        "werkzeug": "Claude Projects",
-        "suche": "Claude projects workspace",
-        "text": "A project is a workspace with its own chats and knowledge base. Upload documents; add instructions like a formal tone.",
-        "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects",
-        "szene": "Official Claude Help Center article on projects, showing the description of self-contained workspaces with chat histories and knowledge bases, clear close crop of the documentation text.",
+        "name": "Overhead",
+        "werkzeug": "Claude Code",
+        "suche": "token count comparison",
+        "text": "A third-party test measured Claude Code sending about 33,000 tokens before a one-line prompt arrived. OpenCode sent about 7,000.",
+        "quelle_url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
+        "szene": "Sourced blog excerpt of the Systima token overhead comparison, showing the Claude Code and OpenCode figures side by side.",
+        "bildtext": "33,000 tokens",
+        "geraeusch": "",
+        "beat": "beleg",
+        "bildmodus": "karte"
+      },
+      {
+        "name": "Subagents",
+        "werkzeug": "Claude Code",
+        "suche": "token usage multiplied",
+        "text": "Subagents multiply it. One small task cost 121,000 tokens directly, but 513,000 fanned out to two subagents.",
+        "quelle_url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
+        "szene": "Sourced blog excerpt of the Systima subagent finding, comparing the direct run of 121,000 tokens with the two-subagent run of 513,000.",
         "bildtext": "",
         "geraeusch": "",
         "beat": "erklaerung",
         "bildmodus": "karte"
       },
       {
-        "name": "Free limit",
-        "werkzeug": "Claude Projects",
-        "suche": "man sorting boxes desk",
-        "text": "Free accounts can create up to five projects. Hypothetically, one could hold work notes, another your study files.",
-        "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects",
-        "szene": "Presenter in black leather jacket and cyan glasses arranges five separate cardboard boxes in a neat row on a wooden desk, warm lamp light, medium close shot, painted game poster style.",
-        "bildtext": "up to five",
-        "geraeusch": "",
-        "beat": "beleg",
-        "bildmodus": "illustration"
-      },
-      {
-        "name": "What paying adds",
-        "werkzeug": "Claude Projects",
-        "suche": "Claude RAG paid plans",
-        "text": "So where does paying come in? RAG knowledge is only on paid plans: Pro, Max, Team or Enterprise.",
-        "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects",
-        "szene": "Official Claude Help Center passage stating that enhanced project knowledge with RAG is only available to users with paid Claude plans, tight crop on that text.",
+        "name": "Caps",
+        "werkzeug": "Claude Code",
+        "suche": "spend limit settings",
+        "text": "So can you cap it? The docs list a spend limit you set yourself, which Claude Code enforces every time.",
+        "quelle_url": "https://www.anthropic.com/engineering/claude-code-best-practices",
+        "szene": "Official Claude Code best practices page, showing the table row on how much it spends, with the spend limit you've set listed in the column for controls Claude Code enforces.",
         "bildtext": "",
         "geraeusch": "",
         "beat": "wendung",
         "bildmodus": "karte"
       },
       {
-        "name": "What RAG does",
-        "werkzeug": "Claude Projects",
-        "suche": "Claude RAG large content",
-        "text": "Paid projects scale to large amounts of content through RAG. The sources give no prices; check Anthropic's pricing page.",
-        "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects",
-        "szene": "Official Claude Help Center passage about paid projects scaling to handle large amounts of content through Retrieval Augmented Generation, clear close crop of the documentation text.",
-        "bildtext": "give no prices",
-        "geraeusch": "",
-        "beat": "erklaerung",
-        "bildmodus": "karte"
-      },
-      {
-        "name": "Honest limits",
-        "werkzeug": "Claude Projects",
-        "suche": "Claude plan usage limits",
-        "text": "Projects draw from your plan's usage, like any other Claude use. Free covers five projects; RAG needs paying.",
-        "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects",
-        "szene": "Official Claude Help Center note stating that projects draw from your plan's usage like any other use of Claude, close crop of the documentation text.",
+        "name": "Instruction file",
+        "werkzeug": "Claude Code",
+        "suche": "developer reading notes",
+        "text": "Instruction files count too. In that test, a 72KB instruction file added about 20,000 tokens to every request.",
+        "quelle_url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
+        "szene": "Sourced blog excerpt about the 72KB instruction file adding roughly 20,000 tokens to every request.",
         "bildtext": "",
         "geraeusch": "",
         "beat": "beleg",
         "bildmodus": "karte"
       },
       {
-        "name": "Ending",
+        "name": "Pricing",
+        "werkzeug": "Claude Code",
+        "suche": "man checking budget",
+        "text": "Free or paid? No prices in these sources, so check Anthropic's page. Your prompt rode second, behind that test's 33,000-token baseline.",
+        "quelle_url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
+        "szene": "Original painted open-world-game poster style: the black-haired man in a black leather jacket and glowing cyan glasses sits at a workshop desk, one hand raised in a stop gesture, thoughtful look, medium shot, warm lamp light.",
+        "bildtext": "",
+        "geraeusch": "",
+        "beat": "aufloesung",
+        "bildmodus": "illustration"
+      },
+      {
+        "name": "Abschluss",
         "werkzeug": "",
-        "suche": "man relaxing at desk",
-        "text": "No more re-explaining. Be sure to like, share and save this video.",
+        "suche": "man thumbs up rooftop",
+        "text": "Be sure to like, share and save this video.",
         "quelle_url": "",
-        "szene": "Presenter in black leather jacket and glowing cyan glasses leans back in his desk chair, arms crossed, calm thoughtful smile, tidy desk, wide shot, evening light, painted game poster style.",
+        "szene": "Original painted open-world-game poster style: the black-haired man in a black leather jacket and glowing cyan glasses smiles on a city rooftop at dusk, giving a thumbs up, medium shot, warm light.",
         "bildtext": "",
         "geraeusch": "",
         "beat": "aufloesung",
         "bildmodus": "illustration"
       }
     ],
-    "beschreibung": "Claude Projects are workspaces with their own chats, documents and instructions. Free accounts get up to five, while RAG project knowledge is on paid plans only. Prices aren't in the sources.",
+    "beschreibung": "A third-party test found Claude Code sends about 33,000 tokens before a one-line prompt. We show what the docs say about spend limits, and note that these sources list no prices.",
     "hashtags": [
-      "#Claude",
-      "#ClaudeProjects",
-      "#AIToolsExplained",
-      "#Anthropic"
+      "#ClaudeCode",
+      "#Anthropic",
+      "#Tokens",
+      "#AITools"
     ],
     "musik_suche": [
-      "curious restrained instrumental pulse",
-      "sparse minimal electronic underscore",
-      "light thoughtful ambient instrumental"
+      "curious restrained pulse instrumental",
+      "sparse minimal tech underscore",
+      "warm subtle electronic texture"
     ]
   },
   "modell": "claude:sonnet",
-  "sha": "b8ccf7463b886246b15770f50200341cb4a1479d6629986cab26e781d82b3dd5"
+  "sha": "b39363db709eab1fbb068a23159e6bd9791fbdceebdf823337ce6771bd7444da"
 }

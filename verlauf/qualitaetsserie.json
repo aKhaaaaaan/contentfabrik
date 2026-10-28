@@ -106483,6 +106483,1302 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "40691009317.1:ai-tools-explained",
+      "run_id": "40691009317",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-28T14:15:24.679481+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "fe05972f149a9dfcedd9badb398c77412e3ed95f",
+      "produktionsversion": "cb35db1633cf8d2918fd85cf1d60576db5d03fad90174ffc15d4e7496b090bc0",
+      "videoformat": "short",
+      "thema": "Claude Code: give it a check before you bill a client",
+      "titel": [
+        "*Claude* *Code* *Check*",
+        "Before You Bill Clients"
+      ],
+      "status": "gesendet",
+      "video_sha256": "0da998b02d3dacc0c7a52c75787e48caa5528d11b9195da1b0c22f2c3f65c9b8",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-28.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt nur einen generic Mann in einem Raum und erklärt weder, dass Claude Code behauptet hat, die Arbeit sei erledigt, noch das genannte Problem.",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine grafische Darstellung zum Thema LLM-Rechnung und Token-Kosten, bebildert mit einem 'Claude'-Logo. Die gesprochene Formulierung 'Imagine billing a client for that' im Kontext von unvollständiger Arbeit wird visuell jedoch nicht direkt und sinnvoll erklärt.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt einen Titel-Overlay mit dem Text 'CODE'S DOCS EXPLAIN WHY', der den gesprochenen Satz 'Claude Code's docs explain why' wortwörtlich wiedergibt. Es handelt sich jedoch um eine grafische Titelsequenz und nicht um die eigentliche Dokumentation oder eine visuelle Erklärung des Inhalts. Da",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Der Sprechertext behauptet, die Doku sage, Claude könne seine eigene Arbeit nicht prüfen. Der sichtbare Text im Bild behandelt jedoch andere veraltete Ratschläge (Kontextfenster, Großbuchstaben, Subagents) und enthält keine Information über die Selbstprüfung oder die Notwendigkeit externer Checks. D",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (4/10): Das Bild ist eine reine Text-Overlay-Präsentation, die den gesprochenen Satz wortwörtlich wiederholt. Es zeigt weder die CLAUDE.md-Datei noch eine Interaktion mit dem Modell, die die beschriebene Einschränkung (dass Claude die Entscheidung trifft) visuell belegt. Es handelt sich um eine stilisierte ",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine generische Chat-Oberfläche, in der die gesprochene Frage 'So what enforces rules?' als Text in einer Sprechblase wiederholt wird. Es handelt sich um eine reine Textwiedergabe der Narration, die jedoch keine visuelle Erklärung, ein technisches Interface oder eine grafische Darstel",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (4/10): Der sichtbare Text beschreibt die Konfiguration von Berechtigungsmodi und Listen-Ersetzung (settings.json), nicht aber die im Audio genannte Funktion von Hooks, die Regeln ohne Ausnahmen erzwingen. Die visuelle Information ist thematisch verwandt (Konfiguration), zeigt aber nicht den spezifischen Me",
+        "Offenes Problem (schwer): Das Bild zeigt nur einen generic Mann in einem Raum und erklärt weder, dass Claude Code behauptet hat, die Arbeit sei erledigt, noch das genannte Problem. Korrektur: Ein Screenshot von Claude Code, der anzeigt, dass die Aufgabe erledigt ist, oder ein Code-Beispiel.",
+        "Offenes Problem (schwer): Das Bild zeigt eine grafische Darstellung zum Thema LLM-Rechnung und Token-Kosten, bebildert mit einem 'Claude'-Logo. Die gesprochene Formulierung 'Imagine billing a client for that' im Kontext von unvollständiger Arbeit wird visuell jedoch nicht direkt und sinnvoll erklärt. Korrektur: Ein Screenshot oder eine Grafik, die eine unvollständige Code-Arbeit oder einen fehlerhaften Programmierstatus zeigt, um den Kontext der nicht erledigten Arbeit beim Abrechnen zu verdeutlichen.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Titel-Overlay mit dem Text 'CODE'S DOCS EXPLAIN WHY', der den gesprochenen Satz 'Claude Code's docs explain why' wortwörtlich wiedergibt. Es handelt sich jedoch um eine grafische Titelsequenz und nicht um die eigentliche Dokumentation oder eine visuelle Erklärung des Inhalts. Da keine tatsächlichen Dokumentationsinhalte oder Erklärungen sichtbar sind, ist das Bild nur thematisch passend, aber nicht als visuelle Erklärung der Aussage nützlich. Korrektur: Ein Screenshot der Claude-Code-Dokumentation, der den Abschnitt zeigt, in dem erklärt wird, warum das Modell seine eigene Arbeit nicht zuverlässig überprüfen kann.",
+        "Offenes Problem (schwer): Der Sprechertext behauptet, die Doku sage, Claude könne seine eigene Arbeit nicht prüfen. Der sichtbare Text im Bild behandelt jedoch andere veraltete Ratschläge (Kontextfenster, Großbuchstaben, Subagents) und enthält keine Information über die Selbstprüfung oder die Notwendigkeit externer Checks. Das Bild belegt die genannte Aussage nicht. Korrektur: Ein Screenshot der Claude Code Dokumentation, der den Abschnitt über die Notwendigkeit externer Checks (Tests, Hooks) anzeigt, oder eine Illustration, die den Mangel an Selbstprüfung des Modells visualisiert.",
+        "Offenes Problem (schwer): Das Bild ist eine reine Text-Overlay-Präsentation, die den gesprochenen Satz wortwörtlich wiederholt. Es zeigt weder die CLAUDE.md-Datei noch eine Interaktion mit dem Modell, die die beschriebene Einschränkung (dass Claude die Entscheidung trifft) visuell belegt. Es handelt sich um eine stilisierte Grafik, nicht um eine technische Demonstration oder ein dokumentiertes Beispiel. Korrektur: Ein Screenshot einer Claude-Code-Session, in dem eine Anweisung in der CLAUDE.md-Datei (z. B. 'Always run tests') sichtbar ist, gefolgt von einer Modellantwort, die diese Anweisung ignoriert oder nur teilweise befolgt, um die fehlende Zwangskraft zu demonstrieren.",
+        "Offenes Problem (schwer): Das Bild zeigt eine generische Chat-Oberfläche, in der die gesprochene Frage 'So what enforces rules?' als Text in einer Sprechblase wiederholt wird. Es handelt sich um eine reine Textwiedergabe der Narration, die jedoch keine visuelle Erklärung, ein technisches Interface oder eine grafische Darstellung des Konzepts 'Rules' oder 'Hooks' bietet. Es fehlt jede visuelle Information, die über die bloße Wiederholung des Satzes hinausgeht. Korrektur: Ein Screenshot der Claude-Code-Dokumentation oder eine grafische Darstellung, die den Begriff 'Hooks' oder eine Hook-Konfiguration (z. B. eine JSON-Datei oder ein Terminal-Befehl) zeigt, um die Erzählung über die Durchsetzung von Regeln zu visualisieren.",
+        "Offenes Problem (schwer): Der sichtbare Text beschreibt die Konfiguration von Berechtigungsmodi und Listen-Ersetzung (settings.json), nicht aber die im Audio genannte Funktion von Hooks, die Regeln ohne Ausnahmen erzwingen. Die visuelle Information ist thematisch verwandt (Konfiguration), zeigt aber nicht den spezifischen Mechanismus (Hooks), der im gesprochenen Satz erklärt wird. Korrektur: Ein Screenshot der Claude-Code-Dokumentation, der explizit Hooks (z. B. PreToolUse oder Stop) als Mechanismus zur Erzwingung von Regeln beschreibt, oder ein Code-Beispiel, das eine Hook-Konfiguration zeigt."
+      ],
+      "einstellungen": 14,
+      "unterschiedliche_motive": 14,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "40691009317",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-28",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 439.9,
+            "bau_s": 611.9,
+            "pruefung_s": 376.7,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt nur einen generic Mann in einem Raum und erklärt weder, dass Claude Code behauptet hat, die Arbeit sei erledigt, noch das genannte Problem.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine grafische Darstellung zum Thema LLM-Rechnung und Token-Kosten, bebildert mit einem 'Claude'-Logo. Die gesprochene Formulierung 'Imagine billing a client for that' im Kontext von unvollständiger Arbeit wird visuell jedoch nicht direkt und sinnvoll erklärt.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt einen Titel-Overlay mit dem Text 'CODE'S DOCS EXPLAIN WHY', der den gesprochenen Satz 'Claude Code's docs explain why' wortwörtlich wiedergibt. Es handelt sich jedoch um eine grafische Titelsequenz und nicht um die eigentliche Dokumentation oder eine visuelle Erklärung des Inhalts. Da",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Der Sprechertext behauptet, die Doku sage, Claude könne seine eigene Arbeit nicht prüfen. Der sichtbare Text im Bild behandelt jedoch andere veraltete Ratschläge (Kontextfenster, Großbuchstaben, Subagents) und enthält keine Information über die Selbstprüfung oder die Notwendigkeit externer Checks. D",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (4/10): Das Bild ist eine reine Text-Overlay-Präsentation, die den gesprochenen Satz wortwörtlich wiederholt. Es zeigt weder die CLAUDE.md-Datei noch eine Interaktion mit dem Modell, die die beschriebene Einschränkung (dass Claude die Entscheidung trifft) visuell belegt. Es handelt sich um eine stilisierte ",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine generische Chat-Oberfläche, in der die gesprochene Frage 'So what enforces rules?' als Text in einer Sprechblase wiederholt wird. Es handelt sich um eine reine Textwiedergabe der Narration, die jedoch keine visuelle Erklärung, ein technisches Interface oder eine grafische Darstel",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (4/10): Der sichtbare Text beschreibt die Konfiguration von Berechtigungsmodi und Listen-Ersetzung (settings.json), nicht aber die im Audio genannte Funktion von Hooks, die Regeln ohne Ausnahmen erzwingen. Die visuelle Information ist thematisch verwandt (Konfiguration), zeigt aber nicht den spezifischen Me",
+              "Offenes Problem (schwer): Das Bild zeigt nur einen generic Mann in einem Raum und erklärt weder, dass Claude Code behauptet hat, die Arbeit sei erledigt, noch das genannte Problem. Korrektur: Ein Screenshot von Claude Code, der anzeigt, dass die Aufgabe erledigt ist, oder ein Code-Beispiel.",
+              "Offenes Problem (schwer): Das Bild zeigt eine grafische Darstellung zum Thema LLM-Rechnung und Token-Kosten, bebildert mit einem 'Claude'-Logo. Die gesprochene Formulierung 'Imagine billing a client for that' im Kontext von unvollständiger Arbeit wird visuell jedoch nicht direkt und sinnvoll erklärt. Korrektur: Ein Screenshot oder eine Grafik, die eine unvollständige Code-Arbeit oder einen fehlerhaften Programmierstatus zeigt, um den Kontext der nicht erledigten Arbeit beim Abrechnen zu verdeutlichen.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Titel-Overlay mit dem Text 'CODE'S DOCS EXPLAIN WHY', der den gesprochenen Satz 'Claude Code's docs explain why' wortwörtlich wiedergibt. Es handelt sich jedoch um eine grafische Titelsequenz und nicht um die eigentliche Dokumentation oder eine visuelle Erklärung des Inhalts. Da keine tatsächlichen Dokumentationsinhalte oder Erklärungen sichtbar sind, ist das Bild nur thematisch passend, aber nicht als visuelle Erklärung der Aussage nützlich. Korrektur: Ein Screenshot der Claude-Code-Dokumentation, der den Abschnitt zeigt, in dem erklärt wird, warum das Modell seine eigene Arbeit nicht zuverlässig überprüfen kann.",
+              "Offenes Problem (schwer): Der Sprechertext behauptet, die Doku sage, Claude könne seine eigene Arbeit nicht prüfen. Der sichtbare Text im Bild behandelt jedoch andere veraltete Ratschläge (Kontextfenster, Großbuchstaben, Subagents) und enthält keine Information über die Selbstprüfung oder die Notwendigkeit externer Checks. Das Bild belegt die genannte Aussage nicht. Korrektur: Ein Screenshot der Claude Code Dokumentation, der den Abschnitt über die Notwendigkeit externer Checks (Tests, Hooks) anzeigt, oder eine Illustration, die den Mangel an Selbstprüfung des Modells visualisiert.",
+              "Offenes Problem (schwer): Das Bild ist eine reine Text-Overlay-Präsentation, die den gesprochenen Satz wortwörtlich wiederholt. Es zeigt weder die CLAUDE.md-Datei noch eine Interaktion mit dem Modell, die die beschriebene Einschränkung (dass Claude die Entscheidung trifft) visuell belegt. Es handelt sich um eine stilisierte Grafik, nicht um eine technische Demonstration oder ein dokumentiertes Beispiel. Korrektur: Ein Screenshot einer Claude-Code-Session, in dem eine Anweisung in der CLAUDE.md-Datei (z. B. 'Always run tests') sichtbar ist, gefolgt von einer Modellantwort, die diese Anweisung ignoriert oder nur teilweise befolgt, um die fehlende Zwangskraft zu demonstrieren.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generische Chat-Oberfläche, in der die gesprochene Frage 'So what enforces rules?' als Text in einer Sprechblase wiederholt wird. Es handelt sich um eine reine Textwiedergabe der Narration, die jedoch keine visuelle Erklärung, ein technisches Interface oder eine grafische Darstellung des Konzepts 'Rules' oder 'Hooks' bietet. Es fehlt jede visuelle Information, die über die bloße Wiederholung des Satzes hinausgeht. Korrektur: Ein Screenshot der Claude-Code-Dokumentation oder eine grafische Darstellung, die den Begriff 'Hooks' oder eine Hook-Konfiguration (z. B. eine JSON-Datei oder ein Terminal-Befehl) zeigt, um die Erzählung über die Durchsetzung von Regeln zu visualisieren.",
+              "Offenes Problem (schwer): Der sichtbare Text beschreibt die Konfiguration von Berechtigungsmodi und Listen-Ersetzung (settings.json), nicht aber die im Audio genannte Funktion von Hooks, die Regeln ohne Ausnahmen erzwingen. Die visuelle Information ist thematisch verwandt (Konfiguration), zeigt aber nicht den spezifischen Mechanismus (Hooks), der im gesprochenen Satz erklärt wird. Korrektur: Ein Screenshot der Claude-Code-Dokumentation, der explizit Hooks (z. B. PreToolUse oder Stop) als Mechanismus zur Erzwingung von Regeln beschreibt, oder ein Code-Beispiel, das eine Hook-Konfiguration zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 12.6,
+              "zeitmarken": 5.6,
+              "tempo": 1.004,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 14,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 422.1,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 14,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 49.8,
+              "gesamt": 611.5,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.0,
+                5.64,
+                6.84,
+                7.8,
+                6.68,
+                6.56,
+                4.46
+              ],
+              "woerter": 129
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Claude said the work was done. It wasn't.",
+                "fest": false,
+                "text": "Das Bild zeigt nur einen generic Mann in einem Raum und erklärt weder, dass Claude Code behauptet hat, die Arbeit sei erledigt, noch das genannte Problem. Korrektur: Ein Screenshot von Claude Code, der anzeigt, dass die Aufgabe erledigt ist, oder ein Code-Beispiel."
+              },
+              {
+                "zeit": "00:03.08",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Imagine billing a client for that.",
+                "fest": true,
+                "text": "Das Bild zeigt eine grafische Darstellung zum Thema LLM-Rechnung und Token-Kosten, bebildert mit einem 'Claude'-Logo. Die gesprochene Formulierung 'Imagine billing a client for that' im Kontext von unvollständiger Arbeit wird visuell jedoch nicht direkt und sinnvoll erklärt. Korrektur: Ein Screenshot oder eine Grafik, die eine unvollständige Code-Arbeit oder einen fehlerhaften Programmierstatus zeigt, um den Kontext der nicht erledigten Arbeit beim Abrechnen zu verdeutlichen."
+              },
+              {
+                "zeit": "00:04.90",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 2,
+                "gesprochen": "Claude Code's docs explain why.",
+                "fest": true,
+                "text": "Das Bild zeigt einen Titel-Overlay mit dem Text 'CODE'S DOCS EXPLAIN WHY', der den gesprochenen Satz 'Claude Code's docs explain why' wortwörtlich wiedergibt. Es handelt sich jedoch um eine grafische Titelsequenz und nicht um die eigentliche Dokumentation oder eine visuelle Erklärung des Inhalts. Da keine tatsächlichen Dokumentationsinhalte oder Erklärungen sichtbar sind, ist das Bild nur thematisch passend, aber nicht als visuelle Erklärung der Aussage nützlich. Korrektur: Ein Screenshot der Claude-Code-Dokumentation, der den Abschnitt zeigt, in dem erklärt wird, warum das Modell seine eigene Arbeit nicht zuverlässig überprüfen kann."
+              },
+              {
+                "zeit": "00:07.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Docs say it's usually because Claude can't check its own work.",
+                "fest": true,
+                "text": "Der Sprechertext behauptet, die Doku sage, Claude könne seine eigene Arbeit nicht prüfen. Der sichtbare Text im Bild behandelt jedoch andere veraltete Ratschläge (Kontextfenster, Großbuchstaben, Subagents) und enthält keine Information über die Selbstprüfung oder die Notwendigkeit externer Checks. Das Bild belegt die genannte Aussage nicht. Korrektur: Ein Screenshot der Claude Code Dokumentation, der den Abschnitt über die Notwendigkeit externer Checks (Tests, Hooks) anzeigt, oder eine Illustration, die den Mangel an Selbstprüfung des Modells visualisiert."
+              },
+              {
+                "zeit": "00:19.48",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "The catch: even a strongly worded CLAUDE.md line is still Claude's call each turn.",
+                "fest": true,
+                "text": "Das Bild ist eine reine Text-Overlay-Präsentation, die den gesprochenen Satz wortwörtlich wiederholt. Es zeigt weder die CLAUDE.md-Datei noch eine Interaktion mit dem Modell, die die beschriebene Einschränkung (dass Claude die Entscheidung trifft) visuell belegt. Es handelt sich um eine stilisierte Grafik, nicht um eine technische Demonstration oder ein dokumentiertes Beispiel. Korrektur: Ein Screenshot einer Claude-Code-Session, in dem eine Anweisung in der CLAUDE.md-Datei (z. B. 'Always run tests') sichtbar ist, gefolgt von einer Modellantwort, die diese Anweisung ignoriert oder nur teilweise befolgt, um die fehlende Zwangskraft zu demonstrieren."
+              },
+              {
+                "zeit": "00:25.02",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 8,
+                "gesprochen": "So what enforces rules?",
+                "fest": true,
+                "text": "Das Bild zeigt eine generische Chat-Oberfläche, in der die gesprochene Frage 'So what enforces rules?' als Text in einer Sprechblase wiederholt wird. Es handelt sich um eine reine Textwiedergabe der Narration, die jedoch keine visuelle Erklärung, ein technisches Interface oder eine grafische Darstellung des Konzepts 'Rules' oder 'Hooks' bietet. Es fehlt jede visuelle Information, die über die bloße Wiederholung des Satzes hinausgeht. Korrektur: Ein Screenshot der Claude-Code-Dokumentation oder eine grafische Darstellung, die den Begriff 'Hooks' oder eine Hook-Konfiguration (z. B. eine JSON-Datei oder ein Terminal-Befehl) zeigt, um die Erzählung über die Durchsetzung von Regeln zu visualisieren."
+              },
+              {
+                "zeit": "00:31.36",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 10,
+                "gesprochen": "Save them for rules with no exceptions.",
+                "fest": true,
+                "text": "Der sichtbare Text beschreibt die Konfiguration von Berechtigungsmodi und Listen-Ersetzung (settings.json), nicht aber die im Audio genannte Funktion von Hooks, die Regeln ohne Ausnahmen erzwingen. Die visuelle Information ist thematisch verwandt (Konfiguration), zeigt aber nicht den spezifischen Mechanismus (Hooks), der im gesprochenen Satz erklärt wird. Korrektur: Ein Screenshot der Claude-Code-Dokumentation, der explizit Hooks (z. B. PreToolUse oder Stop) als Mechanismus zur Erzwingung von Regeln beschreibt, oder ein Code-Beispiel, das eine Hook-Konfiguration zeigt."
+              }
+            ],
+            "sekunden": 1428.6,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "trendcheck": "Claude Code: How to Use REA GitHub to Reverse Engineer Anything in Claude Code: 2.1 Punkte - YouTube-Ausreisser 4.3x Kanalschnitt, Format richtig nutzen",
+        "grund": "",
+        "sekunden": 1446.5,
+        "upload_titel": "Claude Code Check: Before You Bill Clients | AI Tool #18"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Claude said the work was done. It wasn't.",
+            "fest": false,
+            "text": "Das Bild zeigt nur einen generic Mann in einem Raum und erklärt weder, dass Claude Code behauptet hat, die Arbeit sei erledigt, noch das genannte Problem. Korrektur: Ein Screenshot von Claude Code, der anzeigt, dass die Aufgabe erledigt ist, oder ein Code-Beispiel."
+          },
+          {
+            "zeit": "00:03.08",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Imagine billing a client for that.",
+            "fest": true,
+            "text": "Das Bild zeigt eine grafische Darstellung zum Thema LLM-Rechnung und Token-Kosten, bebildert mit einem 'Claude'-Logo. Die gesprochene Formulierung 'Imagine billing a client for that' im Kontext von unvollständiger Arbeit wird visuell jedoch nicht direkt und sinnvoll erklärt. Korrektur: Ein Screenshot oder eine Grafik, die eine unvollständige Code-Arbeit oder einen fehlerhaften Programmierstatus zeigt, um den Kontext der nicht erledigten Arbeit beim Abrechnen zu verdeutlichen."
+          },
+          {
+            "zeit": "00:04.90",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 2,
+            "gesprochen": "Claude Code's docs explain why.",
+            "fest": true,
+            "text": "Das Bild zeigt einen Titel-Overlay mit dem Text 'CODE'S DOCS EXPLAIN WHY', der den gesprochenen Satz 'Claude Code's docs explain why' wortwörtlich wiedergibt. Es handelt sich jedoch um eine grafische Titelsequenz und nicht um die eigentliche Dokumentation oder eine visuelle Erklärung des Inhalts. Da keine tatsächlichen Dokumentationsinhalte oder Erklärungen sichtbar sind, ist das Bild nur thematisch passend, aber nicht als visuelle Erklärung der Aussage nützlich. Korrektur: Ein Screenshot der Claude-Code-Dokumentation, der den Abschnitt zeigt, in dem erklärt wird, warum das Modell seine eigene Arbeit nicht zuverlässig überprüfen kann."
+          },
+          {
+            "zeit": "00:07.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "Docs say it's usually because Claude can't check its own work.",
+            "fest": true,
+            "text": "Der Sprechertext behauptet, die Doku sage, Claude könne seine eigene Arbeit nicht prüfen. Der sichtbare Text im Bild behandelt jedoch andere veraltete Ratschläge (Kontextfenster, Großbuchstaben, Subagents) und enthält keine Information über die Selbstprüfung oder die Notwendigkeit externer Checks. Das Bild belegt die genannte Aussage nicht. Korrektur: Ein Screenshot der Claude Code Dokumentation, der den Abschnitt über die Notwendigkeit externer Checks (Tests, Hooks) anzeigt, oder eine Illustration, die den Mangel an Selbstprüfung des Modells visualisiert."
+          },
+          {
+            "zeit": "00:19.48",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "The catch: even a strongly worded CLAUDE.md line is still Claude's call each turn.",
+            "fest": true,
+            "text": "Das Bild ist eine reine Text-Overlay-Präsentation, die den gesprochenen Satz wortwörtlich wiederholt. Es zeigt weder die CLAUDE.md-Datei noch eine Interaktion mit dem Modell, die die beschriebene Einschränkung (dass Claude die Entscheidung trifft) visuell belegt. Es handelt sich um eine stilisierte Grafik, nicht um eine technische Demonstration oder ein dokumentiertes Beispiel. Korrektur: Ein Screenshot einer Claude-Code-Session, in dem eine Anweisung in der CLAUDE.md-Datei (z. B. 'Always run tests') sichtbar ist, gefolgt von einer Modellantwort, die diese Anweisung ignoriert oder nur teilweise befolgt, um die fehlende Zwangskraft zu demonstrieren."
+          },
+          {
+            "zeit": "00:25.02",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 8,
+            "gesprochen": "So what enforces rules?",
+            "fest": true,
+            "text": "Das Bild zeigt eine generische Chat-Oberfläche, in der die gesprochene Frage 'So what enforces rules?' als Text in einer Sprechblase wiederholt wird. Es handelt sich um eine reine Textwiedergabe der Narration, die jedoch keine visuelle Erklärung, ein technisches Interface oder eine grafische Darstellung des Konzepts 'Rules' oder 'Hooks' bietet. Es fehlt jede visuelle Information, die über die bloße Wiederholung des Satzes hinausgeht. Korrektur: Ein Screenshot der Claude-Code-Dokumentation oder eine grafische Darstellung, die den Begriff 'Hooks' oder eine Hook-Konfiguration (z. B. eine JSON-Datei oder ein Terminal-Befehl) zeigt, um die Erzählung über die Durchsetzung von Regeln zu visualisieren."
+          },
+          {
+            "zeit": "00:31.36",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 10,
+            "gesprochen": "Save them for rules with no exceptions.",
+            "fest": true,
+            "text": "Der sichtbare Text beschreibt die Konfiguration von Berechtigungsmodi und Listen-Ersetzung (settings.json), nicht aber die im Audio genannte Funktion von Hooks, die Regeln ohne Ausnahmen erzwingen. Die visuelle Information ist thematisch verwandt (Konfiguration), zeigt aber nicht den spezifischen Mechanismus (Hooks), der im gesprochenen Satz erklärt wird. Korrektur: Ein Screenshot der Claude-Code-Dokumentation, der explizit Hooks (z. B. PreToolUse oder Stop) als Mechanismus zur Erzwingung von Regeln beschreibt, oder ein Code-Beispiel, das eine Hook-Konfiguration zeigt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 44.9,
+          "fps": 30.0,
+          "lufs": -14.6,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 40.92,
+              "bis_s": 42.24,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.928
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 24.9,
+              "bis_s": 45.4,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Claude",
+                "s": 0.0,
+                "e": 0.34,
+                "p": 0.13232341408729553
+              },
+              {
+                "w": "said",
+                "s": 0.34,
+                "e": 0.56,
+                "p": 0.9646361470222473
+              },
+              {
+                "w": "the",
+                "s": 0.56,
+                "e": 0.66,
+                "p": 0.9621583223342896
+              },
+              {
+                "w": "work",
+                "s": 0.66,
+                "e": 0.8,
+                "p": 0.989376425743103
+              },
+              {
+                "w": "was",
+                "s": 0.8,
+                "e": 0.94,
+                "p": 0.9935694932937622
+              },
+              {
+                "w": "done.",
+                "s": 0.94,
+                "e": 1.18,
+                "p": 0.9801984429359436
+              },
+              {
+                "w": "It",
+                "s": 1.8,
+                "e": 1.86,
+                "p": 0.9598393440246582
+              },
+              {
+                "w": "wasn't.",
+                "s": 1.86,
+                "e": 2.3,
+                "p": 0.9933681190013885
+              },
+              {
+                "w": "Imagine",
+                "s": 3.08,
+                "e": 3.08,
+                "p": 0.9775541424751282
+              },
+              {
+                "w": "building",
+                "s": 3.08,
+                "e": 3.32,
+                "p": 0.5356151461601257
+              },
+              {
+                "w": "a",
+                "s": 3.32,
+                "e": 3.56,
+                "p": 0.9938661456108093
+              },
+              {
+                "w": "client",
+                "s": 3.56,
+                "e": 3.92,
+                "p": 0.9867204427719116
+              },
+              {
+                "w": "for",
+                "s": 3.92,
+                "e": 4.22,
+                "p": 0.9885304570198059
+              },
+              {
+                "w": "that.",
+                "s": 4.22,
+                "e": 4.4,
+                "p": 0.9862014651298523
+              },
+              {
+                "w": "Claude",
+                "s": 4.94,
+                "e": 5.08,
+                "p": 0.9042738080024719
+              },
+              {
+                "w": "Code's",
+                "s": 5.08,
+                "e": 5.52,
+                "p": 0.5749522149562836
+              },
+              {
+                "w": "Docs",
+                "s": 5.52,
+                "e": 5.92,
+                "p": 0.6224644333124161
+              },
+              {
+                "w": "explain",
+                "s": 5.92,
+                "e": 6.22,
+                "p": 0.9369438290596008
+              },
+              {
+                "w": "why.",
+                "s": 6.22,
+                "e": 6.56,
+                "p": 0.996096670627594
+              },
+              {
+                "w": "Docs",
+                "s": 7.0,
+                "e": 7.4,
+                "p": 0.9557730555534363
+              },
+              {
+                "w": "say",
+                "s": 7.4,
+                "e": 7.46,
+                "p": 0.9818814396858215
+              },
+              {
+                "w": "it's",
+                "s": 7.46,
+                "e": 7.72,
+                "p": 0.9638848304748535
+              },
+              {
+                "w": "usually",
+                "s": 7.72,
+                "e": 8.1,
+                "p": 0.985112726688385
+              },
+              {
+                "w": "because",
+                "s": 8.1,
+                "e": 8.44,
+                "p": 0.9536982774734497
+              },
+              {
+                "w": "Claude",
+                "s": 8.44,
+                "e": 8.7,
+                "p": 0.9931451082229614
+              },
+              {
+                "w": "can't",
+                "s": 8.7,
+                "e": 9.16,
+                "p": 0.9975014626979828
+              },
+              {
+                "w": "check",
+                "s": 9.16,
+                "e": 9.34,
+                "p": 0.9907989501953125
+              },
+              {
+                "w": "its",
+                "s": 9.34,
+                "e": 9.58,
+                "p": 0.8754319548606873
+              },
+              {
+                "w": "own",
+                "s": 9.58,
+                "e": 9.76,
+                "p": 0.991442859172821
+              },
+              {
+                "w": "work.",
+                "s": 9.76,
+                "e": 10.1,
+                "p": 0.995407223701477
+              },
+              {
+                "w": "So",
+                "s": 10.66,
+                "e": 10.86,
+                "p": 0.9463728070259094
+              },
+              {
+                "w": "give",
+                "s": 10.86,
+                "e": 11.36,
+                "p": 0.5960302352905273
+              },
+              {
+                "w": "it",
+                "s": 11.36,
+                "e": 11.5,
+                "p": 0.9959784746170044
+              },
+              {
+                "w": "a",
+                "s": 11.5,
+                "e": 11.56,
+                "p": 0.9960850477218628
+              },
+              {
+                "w": "check",
+                "s": 11.56,
+                "e": 11.72,
+                "p": 0.9885438084602356
+              },
+              {
+                "w": "to",
+                "s": 11.72,
+                "e": 11.86,
+                "p": 0.9807594418525696
+              },
+              {
+                "w": "run.",
+                "s": 11.86,
+                "e": 12.0,
+                "p": 0.9895371198654175
+              },
+              {
+                "w": "Tests,",
+                "s": 12.68,
+                "e": 12.84,
+                "p": 0.31004735827445984
+              },
+              {
+                "w": "a",
+                "s": 13.22,
+                "e": 13.3,
+                "p": 0.7281852960586548
+              },
+              {
+                "w": "type",
+                "s": 13.3,
+                "e": 13.5,
+                "p": 0.932518482208252
+              },
+              {
+                "w": "check,",
+                "s": 13.5,
+                "e": 13.74,
+                "p": 0.9725885987281799
+              },
+              {
+                "w": "a",
+                "s": 14.06,
+                "e": 14.08,
+                "p": 0.9883610010147095
+              },
+              {
+                "w": "stople",
+                "s": 14.08,
+                "e": 14.44,
+                "p": 0.31615757942199707
+              },
+              {
+                "w": "hook,",
+                "s": 14.44,
+                "e": 14.6,
+                "p": 0.8075016140937805
+              },
+              {
+                "w": "or",
+                "s": 14.76,
+                "e": 14.78,
+                "p": 0.9882307052612305
+              },
+              {
+                "w": "CI",
+                "s": 14.78,
+                "e": 15.08,
+                "p": 0.5985778570175171
+              },
+              {
+                "w": "can",
+                "s": 15.08,
+                "e": 15.34,
+                "p": 0.9736200571060181
+              },
+              {
+                "w": "be",
+                "s": 15.34,
+                "e": 15.5,
+                "p": 0.9619265198707581
+              },
+              {
+                "w": "that",
+                "s": 15.5,
+                "e": 15.7,
+                "p": 0.9919192790985107
+              },
+              {
+                "w": "check.",
+                "s": 15.7,
+                "e": 15.92,
+                "p": 0.9901254177093506
+              },
+              {
+                "w": "They",
+                "s": 16.58,
+                "e": 16.6,
+                "p": 0.98902428150177
+              },
+              {
+                "w": "decide",
+                "s": 16.6,
+                "e": 16.88,
+                "p": 0.9932277798652649
+              },
+              {
+                "w": "when",
+                "s": 16.88,
+                "e": 17.26,
+                "p": 0.9887506365776062
+              },
+              {
+                "w": "work",
+                "s": 17.26,
+                "e": 17.48,
+                "p": 0.9466959834098816
+              },
+              {
+                "w": "counts",
+                "s": 17.48,
+                "e": 17.78,
+                "p": 0.9884898066520691
+              },
+              {
+                "w": "as",
+                "s": 17.78,
+                "e": 18.0,
+                "p": 0.9435406923294067
+              },
+              {
+                "w": "done.",
+                "s": 18.0,
+                "e": 18.38,
+                "p": 0.9004607796669006
+              },
+              {
+                "w": "The",
+                "s": 19.56,
+                "e": 19.6,
+                "p": 0.9774914979934692
+              },
+              {
+                "w": "catch,",
+                "s": 19.6,
+                "e": 19.76,
+                "p": 0.9488158226013184
+              },
+              {
+                "w": "even",
+                "s": 20.1,
+                "e": 20.52,
+                "p": 0.9908120036125183
+              },
+              {
+                "w": "a",
+                "s": 20.52,
+                "e": 20.62,
+                "p": 0.9865986108779907
+              },
+              {
+                "w": "strongly",
+                "s": 20.62,
+                "e": 20.94,
+                "p": 0.9934398531913757
+              },
+              {
+                "w": "worded,",
+                "s": 20.94,
+                "e": 21.42,
+                "p": 0.9482583701610565
+              },
+              {
+                "w": "cla",
+                "s": 21.64,
+                "e": 21.96,
+                "p": 0.5827986150979996
+              },
+              {
+                "w": ".md",
+                "s": 21.96,
+                "e": 22.3,
+                "p": 0.9684582948684692
+              },
+              {
+                "w": "line",
+                "s": 22.3,
+                "e": 22.64,
+                "p": 0.6842439770698547
+              },
+              {
+                "w": "is",
+                "s": 22.64,
+                "e": 22.84,
+                "p": 0.4738282561302185
+              },
+              {
+                "w": "still",
+                "s": 22.84,
+                "e": 23.1,
+                "p": 0.991489827632904
+              },
+              {
+                "w": "Claude's",
+                "s": 23.1,
+                "e": 23.58,
+                "p": 0.9362752437591553
+              },
+              {
+                "w": "call",
+                "s": 23.58,
+                "e": 23.72,
+                "p": 0.9666392207145691
+              },
+              {
+                "w": "each",
+                "s": 23.72,
+                "e": 24.0,
+                "p": 0.9948840737342834
+              },
+              {
+                "w": "turn.",
+                "s": 24.0,
+                "e": 24.34,
+                "p": 0.9917980432510376
+              },
+              {
+                "w": "So",
+                "s": 25.0,
+                "e": 25.12,
+                "p": 0.9806473851203918
+              },
+              {
+                "w": "what",
+                "s": 25.12,
+                "e": 25.5,
+                "p": 0.8934272527694702
+              },
+              {
+                "w": "enforces",
+                "s": 25.5,
+                "e": 25.84,
+                "p": 0.9290300607681274
+              },
+              {
+                "w": "rules?",
+                "s": 25.84,
+                "e": 26.28,
+                "p": 0.9893235564231873
+              },
+              {
+                "w": "Hooks",
+                "s": 27.28,
+                "e": 27.42,
+                "p": 0.9479401111602783
+              },
+              {
+                "w": "do.",
+                "s": 27.42,
+                "e": 27.52,
+                "p": 0.9817861914634705
+              },
+              {
+                "w": "Claude",
+                "s": 28.04,
+                "e": 28.24,
+                "p": 0.9646224975585938
+              },
+              {
+                "w": "Code",
+                "s": 28.24,
+                "e": 28.44,
+                "p": 0.9497395753860474
+              },
+              {
+                "w": "applies",
+                "s": 28.44,
+                "e": 28.74,
+                "p": 0.9832027554512024
+              },
+              {
+                "w": "them",
+                "s": 28.74,
+                "e": 28.96,
+                "p": 0.990546464920044
+              },
+              {
+                "w": "every",
+                "s": 28.96,
+                "e": 29.24,
+                "p": 0.9913353323936462
+              },
+              {
+                "w": "time,",
+                "s": 29.24,
+                "e": 29.62,
+                "p": 0.9708398580551147
+              },
+              {
+                "w": "whatever",
+                "s": 29.62,
+                "e": 29.84,
+                "p": 0.8624276518821716
+              },
+              {
+                "w": "the",
+                "s": 29.84,
+                "e": 30.06,
+                "p": 0.9831027388572693
+              },
+              {
+                "w": "model",
+                "s": 30.06,
+                "e": 30.22,
+                "p": 0.9901109337806702
+              },
+              {
+                "w": "decided.",
+                "s": 30.22,
+                "e": 30.54,
+                "p": 0.9402912259101868
+              },
+              {
+                "w": "Save",
+                "s": 31.26,
+                "e": 31.38,
+                "p": 0.968434751033783
+              },
+              {
+                "w": "them",
+                "s": 31.38,
+                "e": 31.56,
+                "p": 0.9890953898429871
+              },
+              {
+                "w": "for",
+                "s": 31.56,
+                "e": 31.7,
+                "p": 0.9942633509635925
+              },
+              {
+                "w": "rules",
+                "s": 31.7,
+                "e": 31.92,
+                "p": 0.9646002054214478
+              },
+              {
+                "w": "with",
+                "s": 31.92,
+                "e": 32.14,
+                "p": 0.9852466583251953
+              },
+              {
+                "w": "no",
+                "s": 32.14,
+                "e": 32.4,
+                "p": 0.9794753789901733
+              },
+              {
+                "w": "exceptions.",
+                "s": 32.4,
+                "e": 32.94,
+                "p": 0.9734925627708435
+              },
+              {
+                "w": "So",
+                "s": 33.92,
+                "e": 34.04,
+                "p": 0.9312381148338318
+              },
+              {
+                "w": "before",
+                "s": 34.04,
+                "e": 34.26,
+                "p": 0.6508591771125793
+              },
+              {
+                "w": "you",
+                "s": 34.26,
+                "e": 34.5,
+                "p": 0.9970108270645142
+              },
+              {
+                "w": "bell,",
+                "s": 34.5,
+                "e": 34.68,
+                "p": 0.5253856778144836
+              },
+              {
+                "w": "make",
+                "s": 34.92,
+                "e": 35.3,
+                "p": 0.9360888004302979
+              },
+              {
+                "w": "done",
+                "s": 35.3,
+                "e": 35.68,
+                "p": 0.6885626912117004
+              },
+              {
+                "w": "mean",
+                "s": 35.68,
+                "e": 36.18,
+                "p": 0.913078784942627
+              },
+              {
+                "w": "your",
+                "s": 36.18,
+                "e": 36.42,
+                "p": 0.9579998850822449
+              },
+              {
+                "w": "trek",
+                "s": 36.42,
+                "e": 36.64,
+                "p": 0.5228809714317322
+              },
+              {
+                "w": "passed.",
+                "s": 36.64,
+                "e": 37.04,
+                "p": 0.43411892652511597
+              },
+              {
+                "w": "Clodsward",
+                "s": 37.7,
+                "e": 38.04,
+                "p": 0.37115903695424396
+              },
+              {
+                "w": "alone",
+                "s": 38.04,
+                "e": 38.18,
+                "p": 0.7544271349906921
+              },
+              {
+                "w": "isn't",
+                "s": 38.18,
+                "e": 38.7,
+                "p": 0.9549099802970886
+              },
+              {
+                "w": "proof",
+                "s": 38.7,
+                "e": 38.88,
+                "p": 0.9937602877616882
+              },
+              {
+                "w": "and",
+                "s": 38.88,
+                "e": 39.28,
+                "p": 0.7912554740905762
+              },
+              {
+                "w": "hooks",
+                "s": 39.28,
+                "e": 39.5,
+                "p": 0.9267207980155945
+              },
+              {
+                "w": "need",
+                "s": 39.5,
+                "e": 39.7,
+                "p": 0.9535880088806152
+              },
+              {
+                "w": "set",
+                "s": 39.7,
+                "e": 39.92,
+                "p": 0.6211732029914856
+              },
+              {
+                "w": "up.",
+                "s": 39.92,
+                "e": 40.04,
+                "p": 0.9463983178138733
+              },
+              {
+                "w": "Be",
+                "s": 40.52,
+                "e": 40.66,
+                "p": 0.9881742000579834
+              },
+              {
+                "w": "sure",
+                "s": 40.66,
+                "e": 40.82,
+                "p": 0.999315619468689
+              },
+              {
+                "w": "to",
+                "s": 40.82,
+                "e": 40.92,
+                "p": 0.9931540489196777
+              },
+              {
+                "w": "like,",
+                "s": 40.92,
+                "e": 41.08,
+                "p": 0.9268671274185181
+              },
+              {
+                "w": "share",
+                "s": 41.1,
+                "e": 41.34,
+                "p": 0.995789110660553
+              },
+              {
+                "w": "and",
+                "s": 41.34,
+                "e": 41.62,
+                "p": 0.6977041959762573
+              },
+              {
+                "w": "save",
+                "s": 41.62,
+                "e": 41.86,
+                "p": 0.985191285610199
+              },
+              {
+                "w": "this",
+                "s": 41.86,
+                "e": 42.0,
+                "p": 0.9648526310920715
+              },
+              {
+                "w": "video.",
+                "s": 42.0,
+                "e": 42.24,
+                "p": 0.9971991777420044
+              },
+              {
+                "w": "Which",
+                "s": 42.84,
+                "e": 42.88,
+                "p": 0.8891120553016663
+              },
+              {
+                "w": "tool",
+                "s": 42.88,
+                "e": 43.06,
+                "p": 0.4820389151573181
+              },
+              {
+                "w": "next?",
+                "s": 43.06,
+                "e": 43.26,
+                "p": 0.9864242672920227
+              },
+              {
+                "w": "Comment",
+                "s": 43.72,
+                "e": 43.82,
+                "p": 0.9916222095489502
+              },
+              {
+                "w": "and",
+                "s": 43.82,
+                "e": 44.2,
+                "p": 0.9750452637672424
+              },
+              {
+                "w": "follow",
+                "s": 44.2,
+                "e": 44.38,
+                "p": 0.9948722720146179
+              },
+              {
+                "w": "for",
+                "s": 44.38,
+                "e": 44.52,
+                "p": 0.6931581497192383
+              },
+              {
+                "w": "more.",
+                "s": 44.52,
+                "e": 44.68,
+                "p": 0.9990509152412415
+              }
+            ],
+            "dauer_s": 44.9066875,
+            "sprache": "en"
+          },
+          "roh_key": "93744c5d672d93407de1ac7828639559beac323d1ba9cdd13cb6a7c65e1c8eb8",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "0da998b02d3dacc0c7a52c75787e48caa5528d11b9195da1b0c22f2c3f65c9b8",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 44.9,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 14,
+          "motive": 14,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "0da998b02d3dacc0c7a52c75787e48caa5528d11b9195da1b0c22f2c3f65c9b8",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein gemalter Mann steht nachdenklich vor einem Fenster in einem Zimmer.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt nur einen generic Mann in einem Raum und erklärt weder, dass Claude Code behauptet hat, die Arbeit sei erledigt, noch das genannte Problem.",
+              "erforderliches_bild": "Ein Screenshot von Claude Code, der anzeigt, dass die Aufgabe erledigt ist, oder ein Code-Beispiel."
+            },
+            {
+              "index": 1,
+              "gesehen": "In der Bildmitte ist ein Diagramm mit der Aufschrift 'LLM BILL', darunter 'INPUT TOKENS x PRICE', 'OUTPUT TOKENS x PRICE' und '= PAY PER TOKEN' zu sehen. Darunter befindet sich ein Button mit der Aufschrift 'BILLING A CLIENT'. Oben im Bild ist ein Logo mit dem Schriftzug 'Claude' platziert.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt eine grafische Darstellung zum Thema LLM-Rechnung und Token-Kosten, bebildert mit einem 'Claude'-Logo. Die gesprochene Formulierung 'Imagine billing a client for that' im Kontext von unvollständiger Arbeit wird visuell jedoch nicht direkt und sinnvoll erklärt.",
+              "erforderliches_bild": "Ein Screenshot oder eine Grafik, die eine unvollständige Code-Arbeit oder einen fehlerhaften Programmierstatus zeigt, um den Kontext der nicht erledigten Arbeit beim Abrechnen zu verdeutlichen."
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot der Claude-Code-Dokumentation, der den Abschnitt zeigt, in dem erklärt wird, warum das Modell seine eigene Arbeit nicht zuverlässig überprüfen kann.",
+              "gesehen": "Der Bildschirm zeigt einen dunklen, abstrakten Hintergrund mit einem zentralen, von einer Linie umrandeten Textfeld. Darin steht in heller Schrift 'CODE'S DOCS EXPLAIN WHY'. Darüber befindet sich ein kleinerer Titel 'CLAUDE CODE: GIVE IT A CHECK BEFORE YOU BILL A CLIENT'. Es sind keine weiteren grafischen Elemente, Icons oder Dokumentationsinhalte sichtbar.",
+              "grund": "Das Bild zeigt einen Titel-Overlay mit dem Text 'CODE'S DOCS EXPLAIN WHY', der den gesprochenen Satz 'Claude Code's docs explain why' wortwörtlich wiedergibt. Es handelt sich jedoch um eine grafische Titelsequenz und nicht um die eigentliche Dokumentation oder eine visuelle Erklärung des Inhalts. Da keine tatsächlichen Dokumentationsinhalte oder Erklärungen sichtbar sind, ist das Bild nur thematisch passend, aber nicht als visuelle Erklärung der Aussage nützlich.",
+              "index": 2,
+              "note": 5,
+              "passt": false
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot der Claude Code Dokumentation, der den Abschnitt über die Notwendigkeit externer Checks (Tests, Hooks) anzeigt, oder eine Illustration, die den Mangel an Selbstprüfung des Modells visualisiert.",
+              "gesehen": "Der Screenshot zeigt eine Tabelle mit den Spalten 'The old advice' und 'Why it's gone'. Die sichtbaren Zeilen behandeln Themen wie das Management des Kontextfensters, die Verwendung von Großbuchstaben (ALL CAPS) in Anweisungen und den Einsatz von Subagents. Es ist kein Text über die Unfähigkeit des Modells, seine eigene Arbeit zu überprüfen, zu sehen.",
+              "grund": "Der Sprechertext behauptet, die Doku sage, Claude könne seine eigene Arbeit nicht prüfen. Der sichtbare Text im Bild behandelt jedoch andere veraltete Ratschläge (Kontextfenster, Großbuchstaben, Subagents) und enthält keine Information über die Selbstprüfung oder die Notwendigkeit externer Checks. Das Bild belegt die genannte Aussage nicht.",
+              "index": 3,
+              "note": 3,
+              "passt": false
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot der Claude-Code-Dokumentation, der den Abschnitt 'Give Claude a check to run' zeigt, idealerweise mit einem gelben Hervorhebungsrahmen um den relevanten Text.",
+              "gesehen": "Der Screenshot zeigt einen Ausschnitt aus einer Dokumentation mit einer Liste von Problemen und Lösungen. Ein gelber Rahmen hebt den zweiten Punkt hervor, der besagt, dass Claude die Arbeit für erledigt hielt, es aber nicht war, weil es keine Möglichkeit gab, die eigene Arbeit zu überprüfen. Der Text verweist explizit auf den Abschnitt 'Give Claude a check to run'.",
+              "grund": "Das Bild zeigt exakt den Dokumentationsabschnitt, auf den sich die Sprechweise bezieht ('give it a check to run'). Der gelbe Rahmen lenkt den Blick auf den relevanten Text, der das Problem (fehlende Selbstprüfung) und die Lösung (einen Check ausführen lassen) beschreibt, was die Aussage im Video direkt visuell untermauert.",
+              "index": 4,
+              "note": 10,
+              "passt": true
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot einer Testausführung (z. B. Jest, Vitest) oder einer CI-Log-Ausgabe, die den Erfolg der Tests zeigt.",
+              "gesehen": "Der Bildausschnitt zeigt eine Tabelle mit den Spalten 'Non-deterministic (Claude decides)' und 'Deterministic (Claude Code enforces)'. Die Zeile 'When it's done' ist gelb hinterlegt. In der rechten Spalte dieser Zeile stehen die Begriffe 'Tests, typecheck, Stop hook, CI'.",
+              "grund": "Das Bild zeigt eine Dokumentations-Tabelle, in der unter der Kategorie 'Deterministic (Claude Code enforces)' explizit 'Tests, typecheck, Stop hook, CI' als Mechanismen aufgeführt sind. Dies deckt sich exakt mit der gesprochenen Aussage, dass diese Elemente die Prüfung ('check') darstellen, die festlegt, wann Arbeit als erledigt gilt.",
+              "index": 5,
+              "note": 10,
+              "passt": true
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot der Claude-Code-Dokumentation, der den Abschnitt über 'Checks' oder 'Definition of Done' zeigt, idealerweise mit einer Hervorhebung des Satzes, der erklärt, dass Tests oder Hooks den Abschluss definieren.",
+              "gesehen": "Der Screenshot zeigt einen Ausschnitt aus einer Dokumentation mit einer Aufzählung. Ein gelber Rahmen hebt den Punkt 'A check that has to pass before anything counts as done' hervor. Der umgebende Text erklärt, dass Claude diese Dinge nicht allein aus dem Code sehen kann.",
+              "grund": "Das Bild zeigt exakt den dokumentierten Text, der die im Audio genannte Aussage ('They decide when work counts as done') begründet. Die visuelle Hervorhebung des entsprechenden Dok-Textes bestätigt die Relevanz der gezeigten Quelle für die gesprochene Information.",
+              "index": 6,
+              "note": 10,
+              "passt": true
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot einer Claude-Code-Session, in dem eine Anweisung in der CLAUDE.md-Datei (z. B. 'Always run tests') sichtbar ist, gefolgt von einer Modellantwort, die diese Anweisung ignoriert oder nur teilweise befolgt, um die fehlende Zwangskraft zu demonstrieren.",
+              "gesehen": "Der Bildschirm zeigt eine grafische Darstellung mit dunklem Hintergrund. Oben steht der Titel 'CLAUDE CODE: GIVE IT A CHECK BEFORE YOU BILL A CLIENT'. In der Mitte befindet sich ein gelbes Warndreieck mit einem Ausrufezeichen. Darunter ist ein Textfeld mit orangener Schrift, das den Satz 'THE CATCH: EVEN A STRONGLY WORDED CLAUDE.MD LINE IS STILL CLAUDE'S CALL EACH TURN.' enthält.",
+              "grund": "Das Bild ist eine reine Text-Overlay-Präsentation, die den gesprochenen Satz wortwörtlich wiederholt. Es zeigt weder die CLAUDE.md-Datei noch eine Interaktion mit dem Modell, die die beschriebene Einschränkung (dass Claude die Entscheidung trifft) visuell belegt. Es handelt sich um eine stilisierte Grafik, nicht um eine technische Demonstration oder ein dokumentiertes Beispiel.",
+              "index": 7,
+              "note": 4,
+              "passt": false
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot der Claude-Code-Dokumentation oder eine grafische Darstellung, die den Begriff 'Hooks' oder eine Hook-Konfiguration (z. B. eine JSON-Datei oder ein Terminal-Befehl) zeigt, um die Erzählung über die Durchsetzung von Regeln zu visualisieren.",
+              "gesehen": "Der Bildschirm zeigt eine stilisierte Benutzeroberfläche mit dem Titel 'AI CHAT'. In einem türkisfarbenen Sprechblasen-Element steht der Text 'So what enforces rules?'. Darunter sind drei graue Punkte zu sehen, die auf eine Antwort oder ein Ladeverhalten hindeuten könnten. Der Hintergrund ist dunkel mit einem unscharfen Titel 'CLAUDE CODE: GIVE IT A CHECK...'.",
+              "grund": "Das Bild zeigt eine generische Chat-Oberfläche, in der die gesprochene Frage 'So what enforces rules?' als Text in einer Sprechblase wiederholt wird. Es handelt sich um eine reine Textwiedergabe der Narration, die jedoch keine visuelle Erklärung, ein technisches Interface oder eine grafische Darstellung des Konzepts 'Rules' oder 'Hooks' bietet. Es fehlt jede visuelle Information, die über die bloße Wiederholung des Satzes hinausgeht.",
+              "index": 8,
+              "note": 4,
+              "passt": false
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot der Claude-Code-Dokumentation, der den Abschnitt über 'Deterministic' Hooks zeigt und erklärt, dass diese von der Harness erzwungen werden, unabhängig von der Modellentscheidung.",
+              "gesehen": "Der Screenshot zeigt einen Ausschnitt aus einer Dokumentation mit dem Titel 'Deterministic'. Der Text erklärt, dass Claude Code (die Harness) die konfigurierte Anweisung ausführen muss, was ein Hook, eine Verweigerungsregel oder eine verwaltete Einstellung sein kann. Es wird betont, dass Claude Code dies 'every time' (jedes Mal) anwendet, unabhängig davon, was das Modell entschieden hat. Darunter ist eine Tabelle zu sehen, die 'Non-deterministic' (Claude decides) und 'Deterministic' (Claude-",
+              "grund": "Der sichtbare Text im Dokumentations-Screenshot erklärt exakt den im Audio genannten Mechanismus: Hooks sind deterministisch und werden von Claude Code (der Harness) erzwungen, unabhängig von der Entscheidung des Modells. Der Text 'applies this every time, no matter what the model decided' im Bild korrespondiert direkt mit der gesprochenen Aussage 'applies them every time, whatever the model decided'.",
+              "index": 9,
+              "note": 10,
+              "passt": true
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot der Claude-Code-Dokumentation, der explizit Hooks (z. B. PreToolUse oder Stop) als Mechanismus zur Erzwingung von Regeln beschreibt, oder ein Code-Beispiel, das eine Hook-Konfiguration zeigt.",
+              "gesehen": "Der Screenshot zeigt einen Ausschnitt aus einer Dokumentation mit einem gelben Warnhinweis. Der Text behandelt die Konfiguration von Listen in der settings.json, insbesondere die Verwendung von \"$defaults\", \"soft_deny\" und \"autoMode\". Es ist kein Text zu 'Hooks' oder 'Regeln ohne Ausnahmen' sichtbar.",
+              "grund": "Der sichtbare Text beschreibt die Konfiguration von Berechtigungsmodi und Listen-Ersetzung (settings.json), nicht aber die im Audio genannte Funktion von Hooks, die Regeln ohne Ausnahmen erzwingen. Die visuelle Information ist thematisch verwandt (Konfiguration), zeigt aber nicht den spezifischen Mechanismus (Hooks), der im gesprochenen Satz erklärt wird.",
+              "index": 10,
+              "note": 4,
+              "passt": false
+            },
+            {
+              "index": 11,
+              "gesehen": "In der Bildmitte ist ein Screenshot mit der Überschrift 'Let Claude run without you' zu sehen, welcher einen Textkasten mit Tipps enthält, wie man Claude Code beaufsichtigt.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt eine textliche Anleitung dazu, wie man Claude Code überwacht und Vorgaben definiert, was thematisch gut zur abschließenden Ermahnung passt, dass eigene Prüfungen und Kontrollen notwendig sind.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 12,
+              "gesehen": "Ein dunkler Bildschirm mit einem großen orangefarbenen Abwärtspfeil, einem weißen Balken und dem Text 'HOOKS NEED SETUP', dazu ein Banner oben mit 'CLAUDE CODE: GIVE IT A CHECK BEFORE YOU BILL A CLIENT'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt den Text 'HOOKS NEED SETUP', welcher exakt zu den gesprochenen Worten 'hooks need setup' passt.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da die visuelle Evidenz genau passt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt nur einen generic Mann in einem Raum und erklärt weder, dass Claude Code behauptet hat, die Arbeit sei erledigt, noch das genannte Problem.",
+            "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine grafische Darstellung zum Thema LLM-Rechnung und Token-Kosten, bebildert mit einem 'Claude'-Logo. Die gesprochene Formulierung 'Imagine billing a client for that' im Kontext von unvollständiger Arbeit wird visuell jedoch nicht direkt und sinnvoll erklärt.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt einen Titel-Overlay mit dem Text 'CODE'S DOCS EXPLAIN WHY', der den gesprochenen Satz 'Claude Code's docs explain why' wortwörtlich wiedergibt. Es handelt sich jedoch um eine grafische Titelsequenz und nicht um die eigentliche Dokumentation oder eine visuelle Erklärung des Inhalts. Da",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Der Sprechertext behauptet, die Doku sage, Claude könne seine eigene Arbeit nicht prüfen. Der sichtbare Text im Bild behandelt jedoch andere veraltete Ratschläge (Kontextfenster, Großbuchstaben, Subagents) und enthält keine Information über die Selbstprüfung oder die Notwendigkeit externer Checks. D",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (4/10): Das Bild ist eine reine Text-Overlay-Präsentation, die den gesprochenen Satz wortwörtlich wiederholt. Es zeigt weder die CLAUDE.md-Datei noch eine Interaktion mit dem Modell, die die beschriebene Einschränkung (dass Claude die Entscheidung trifft) visuell belegt. Es handelt sich um eine stilisierte ",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine generische Chat-Oberfläche, in der die gesprochene Frage 'So what enforces rules?' als Text in einer Sprechblase wiederholt wird. Es handelt sich um eine reine Textwiedergabe der Narration, die jedoch keine visuelle Erklärung, ein technisches Interface oder eine grafische Darstel",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (4/10): Der sichtbare Text beschreibt die Konfiguration von Berechtigungsmodi und Listen-Ersetzung (settings.json), nicht aber die im Audio genannte Funktion von Hooks, die Regeln ohne Ausnahmen erzwingen. Die visuelle Information ist thematisch verwandt (Konfiguration), zeigt aber nicht den spezifischen Me"
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 14,
+          "ausgenommen": [
+            13
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "0da998b02d3dacc0c7a52c75787e48caa5528d11b9195da1b0c22f2c3f65c9b8",
+        "prompt_version": "2026-10-28.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

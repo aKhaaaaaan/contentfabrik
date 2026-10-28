@@ -264,8 +264,12 @@ def main(kanal_pfad, thema='', entwurf=''):
         return 0
     reservierung = budget.reservieren(budgetkanal, gesamt)
     start = time.monotonic()
+    # GEMESSEN 28.10.2026 (Lauf 40691009317, Rolls-Royce): Handstart mit drei freien Fenstern (270 Min.) -
+    # der Lauf plante mit 2 Stunden Restzeit, GitHub brach den Job nach timeout-minutes 110 ab, kein Video,
+    # kein Entwurf. Ein Lauf arbeitet hoechstens ein Fenster lang (passend zu timeout-minutes der Workflows).
+    frei = min(reservierung[0], budget_fuer(kanalstandard.laden(kanal_pfad)))
     try:
-        return produzieren(kanal_pfad, kanal, thema, start, reservierung[0], themen,
+        return produzieren(kanal_pfad, kanal, thema, start, frei, themen,
                            **({'entwurf': entwurf} if entwurf else {}))
     finally:
         budget.abschliessen(budgetkanal, reservierung, time.monotonic() - start)

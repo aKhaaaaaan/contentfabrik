@@ -74,9 +74,11 @@ def bild(rgb, d, p):
         yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
         _gitter.update(form=(h, w), x=xx - w / 2, y=yy - h / 2)
     p = np.float32(p)
-    s = p - np.float32(0.5)  # Hintergrund und Vordergrund laufen gegeneinander, Mitte = Originalbild
+    s = p - np.float32(0.5)  # Mitte der Einstellung = Originalbild
     k = 1 / (1 + np.float32(HERAN) * p * d)  # nahe Teile wachsen leicht
-    mx = _gitter['x'] * k + np.float32(w / 2) - s * np.float32(VERSCHIEBUNG * w) * (d - np.float32(0.5))
+    # 28.10.2026: Hintergrund steht fast still, nur Nahes wandert (Tiefe ~ d^2: nah bewegt sich rund zehnmal
+    # weiter als die halbe Tiefe). Vorher drehte sich alles um die mittlere Tiefe - wirkte wie ein Schwenk.
+    mx = _gitter['x'] * k + np.float32(w / 2) - s * np.float32(VERSCHIEBUNG * w) * d * d
     my = _gitter['y'] * k + np.float32(h / 2)
     return cv2.remap(rgb, mx, my, interpolation=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
 

@@ -105330,6 +105330,1159 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "40687018472.1:business-origin-stories",
+      "run_id": "40687018472",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-28T13:49:49.646931+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "f01ab7fbf3cca68a82fc6add9a3d54b8a8be3b46",
+      "produktionsversion": "4098a77e2dc53d97a2f266b3d110e733d7a8d1bc32738da34e93bb2d334d216c",
+      "videoformat": "short",
+      "thema": "Hugo Boss",
+      "titel": [
+        "*Hugo* Boss: Six Machines",
+        "*Uniforms* and Regret"
+      ],
+      "status": "gesendet",
+      "video_sha256": "edbaad56d44eb640fe265df57979801983a5402826abc5a7a0b3af21a7a82ef6",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-28.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Die Szene zeigt einen Schneider bei der Arbeit, jedoch fehlt der spezifische Bezug zu dem erwähnten Zusammenbruch der Firma.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen leeren Raum im Retro-Stil und stellt die Pleite der Fabrik im Jahr 1931 nicht dar.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einem Raum am Fenster, aber keinen Bezug zum Parteibeitritt von Hugo Boss oder dem Beginn der Uniformbestellungen.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen Raum im historischen Stil mit Möbeln, aber weder den Parteieintritt noch Uniformbestellungen.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eingeblendeten Text und Zahlenangaben anstelle der erwähnten Zwangsarbeiter oder Frauen aus der Sowjetunion und Polen.",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar eine Modeszene beziehungsweise ein Bekleidungsgeschäft als Anspielung auf ein Modehaus, es fehlt jedoch jeglicher Bezug zu den sechs Nähmaschinen oder der historischen Entwicklung der Marke.",
+        "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Die historische Illustration zeigt zwar Näherinnen bei der Arbeit, jedoch gibt es keinen visuellen Bezug zu einer Entschuldigung oder dem Jahr 2011.",
+        "Offenes Problem (schwer): Die Szene zeigt einen Schneider bei der Arbeit, jedoch fehlt der spezifische Bezug zu dem erwähnten Zusammenbruch der Firma. Korrektur: Ein historisches Foto oder eine Darstellung einer geschlossenen Fabrik oder verlassenen Werkstatt mit wenigen Nähmaschinen.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich einen leeren Raum im Retro-Stil und stellt die Pleite der Fabrik im Jahr 1931 nicht dar. Korrektur: Eine historische Illustration oder Dokumentation, die das Schließen oder die Insolvenz der Fabrik im Jahr 1931 visualisiert.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Mann in einem Raum am Fenster, aber keinen Bezug zum Parteibeitritt von Hugo Boss oder dem Beginn der Uniformbestellungen. Korrektur: Eine historische Darstellung oder ein dokumentarisches Bild, das Hugo Boss im Zusammenhang mit der NSDAP oder dem Beginn der Uniformfertigung zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich einen Raum im historischen Stil mit Möbeln, aber weder den Parteieintritt noch Uniformbestellungen. Korrektur: Ein historisches Dokument oder eine Illustration, die den Parteieintritt oder Uniformbestellungen von Hugo Boss zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eingeblendeten Text und Zahlenangaben anstelle der erwähnten Zwangsarbeiter oder Frauen aus der Sowjetunion und Polen. Korrektur: Historische Dokumente oder Archivaufnahmen von Zwangsarbeiterinnen in einer Fabrik",
+        "Offenes Problem (schwer): Das Bild zeigt zwar eine Modeszene beziehungsweise ein Bekleidungsgeschäft als Anspielung auf ein Modehaus, es fehlt jedoch jeglicher Bezug zu den sechs Nähmaschinen oder der historischen Entwicklung der Marke. Korrektur: Eine historische Darstellung von sechs Nähmaschinen in einer einfachen Werkstatt im Kontrast zu einer modernen Mode-Boutique.",
+        "Offenes Problem (schwer): Die historische Illustration zeigt zwar Näherinnen bei der Arbeit, jedoch gibt es keinen visuellen Bezug zu einer Entschuldigung oder dem Jahr 2011. Korrektur: Ein Dokument oder Foto aus dem Jahr 2011, das die offizielle Entschuldigung oder Reueerklärung der Firma Hugo Boss zeigt."
+      ],
+      "einstellungen": 14,
+      "unterschiedliche_motive": 11,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "40687018472",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-28",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 2240.4,
+            "baufehler": "ValueError: Phase 6, Einstellung 12: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 2240.4
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 332.9,
+            "baufehler": "ValueError: Phase 6, Einstellung 12: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 332.9
+          },
+          {
+            "runde": 3,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 452.5,
+            "pruefung_s": 183.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Die Szene zeigt einen Schneider bei der Arbeit, jedoch fehlt der spezifische Bezug zu dem erwähnten Zusammenbruch der Firma.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen leeren Raum im Retro-Stil und stellt die Pleite der Fabrik im Jahr 1931 nicht dar.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einem Raum am Fenster, aber keinen Bezug zum Parteibeitritt von Hugo Boss oder dem Beginn der Uniformbestellungen.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen Raum im historischen Stil mit Möbeln, aber weder den Parteieintritt noch Uniformbestellungen.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eingeblendeten Text und Zahlenangaben anstelle der erwähnten Zwangsarbeiter oder Frauen aus der Sowjetunion und Polen.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar eine Modeszene beziehungsweise ein Bekleidungsgeschäft als Anspielung auf ein Modehaus, es fehlt jedoch jeglicher Bezug zu den sechs Nähmaschinen oder der historischen Entwicklung der Marke.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Die historische Illustration zeigt zwar Näherinnen bei der Arbeit, jedoch gibt es keinen visuellen Bezug zu einer Entschuldigung oder dem Jahr 2011.",
+              "Offenes Problem (schwer): Die Szene zeigt einen Schneider bei der Arbeit, jedoch fehlt der spezifische Bezug zu dem erwähnten Zusammenbruch der Firma. Korrektur: Ein historisches Foto oder eine Darstellung einer geschlossenen Fabrik oder verlassenen Werkstatt mit wenigen Nähmaschinen.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen leeren Raum im Retro-Stil und stellt die Pleite der Fabrik im Jahr 1931 nicht dar. Korrektur: Eine historische Illustration oder Dokumentation, die das Schließen oder die Insolvenz der Fabrik im Jahr 1931 visualisiert.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann in einem Raum am Fenster, aber keinen Bezug zum Parteibeitritt von Hugo Boss oder dem Beginn der Uniformbestellungen. Korrektur: Eine historische Darstellung oder ein dokumentarisches Bild, das Hugo Boss im Zusammenhang mit der NSDAP oder dem Beginn der Uniformfertigung zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen Raum im historischen Stil mit Möbeln, aber weder den Parteieintritt noch Uniformbestellungen. Korrektur: Ein historisches Dokument oder eine Illustration, die den Parteieintritt oder Uniformbestellungen von Hugo Boss zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eingeblendeten Text und Zahlenangaben anstelle der erwähnten Zwangsarbeiter oder Frauen aus der Sowjetunion und Polen. Korrektur: Historische Dokumente oder Archivaufnahmen von Zwangsarbeiterinnen in einer Fabrik",
+              "Offenes Problem (schwer): Das Bild zeigt zwar eine Modeszene beziehungsweise ein Bekleidungsgeschäft als Anspielung auf ein Modehaus, es fehlt jedoch jeglicher Bezug zu den sechs Nähmaschinen oder der historischen Entwicklung der Marke. Korrektur: Eine historische Darstellung von sechs Nähmaschinen in einer einfachen Werkstatt im Kontrast zu einer modernen Mode-Boutique.",
+              "Offenes Problem (schwer): Die historische Illustration zeigt zwar Näherinnen bei der Arbeit, jedoch gibt es keinen visuellen Bezug zu einer Entschuldigung oder dem Jahr 2011. Korrektur: Ein Dokument oder Foto aus dem Jahr 2011, das die offizielle Entschuldigung oder Reueerklärung der Firma Hugo Boss zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.25,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 12,
+              "stuecke_neu": 2,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 312.1,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 14,
+                "motive": 11,
+                "motive_min": 7
+              },
+              "effekte": 10,
+              "rendern": 52.5,
+              "gesamt": 452.3,
+              "videolaenge_s": 46.4,
+              "abschnitte_s": [
+                6.34,
+                6.06,
+                5.72,
+                9.32,
+                6.5,
+                6.58,
+                5.89
+              ],
+              "woerter": 86
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:03.90",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Boss's firm had collapsed.",
+                "fest": false,
+                "text": "Die Szene zeigt einen Schneider bei der Arbeit, jedoch fehlt der spezifische Bezug zu dem erwähnten Zusammenbruch der Firma. Korrektur: Ein historisches Foto oder eine Darstellung einer geschlossenen Fabrik oder verlassenen Werkstatt mit wenigen Nähmaschinen."
+              },
+              {
+                "zeit": "00:09.37",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "failed in 1931.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich einen leeren Raum im Retro-Stil und stellt die Pleite der Fabrik im Jahr 1931 nicht dar. Korrektur: Eine historische Illustration oder Dokumentation, die das Schließen oder die Insolvenz der Fabrik im Jahr 1931 visualisiert."
+              },
+              {
+                "zeit": "00:12.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "What changed?",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann in einem Raum am Fenster, aber keinen Bezug zum Parteibeitritt von Hugo Boss oder dem Beginn der Uniformbestellungen. Korrektur: Eine historische Darstellung oder ein dokumentarisches Bild, das Hugo Boss im Zusammenhang mit der NSDAP oder dem Beginn der Uniformfertigung zeigt."
+              },
+              {
+                "zeit": "00:13.90",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "He joined the Nazi Party; uniform orders followed.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich einen Raum im historischen Stil mit Möbeln, aber weder den Parteieintritt noch Uniformbestellungen. Korrektur: Ein historisches Dokument oder eine Illustration, die den Parteieintritt oder Uniformbestellungen von Hugo Boss zeigt."
+              },
+              {
+                "zeit": "00:27.44",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "It employed 140 forced laborers,",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich eingeblendeten Text und Zahlenangaben anstelle der erwähnten Zwangsarbeiter oder Frauen aus der Sowjetunion und Polen. Korrektur: Historische Dokumente oder Archivaufnahmen von Zwangsarbeiterinnen in einer Fabrik"
+              },
+              {
+                "zeit": "00:33.94",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "Six machines became a fashion house.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar eine Modeszene beziehungsweise ein Bekleidungsgeschäft als Anspielung auf ein Modehaus, es fehlt jedoch jeglicher Bezug zu den sechs Nähmaschinen oder der historischen Entwicklung der Marke. Korrektur: Eine historische Darstellung von sechs Nähmaschinen in einer einfachen Werkstatt im Kontrast zu einer modernen Mode-Boutique."
+              },
+              {
+                "zeit": "00:36.88",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "In 2011, it voiced profound regret.",
+                "fest": false,
+                "text": "Die historische Illustration zeigt zwar Näherinnen bei der Arbeit, jedoch gibt es keinen visuellen Bezug zu einer Entschuldigung oder dem Jahr 2011. Korrektur: Ein Dokument oder Foto aus dem Jahr 2011, das die offizielle Entschuldigung oder Reueerklärung der Firma Hugo Boss zeigt."
+              }
+            ],
+            "sekunden": 635.7,
+            "status": "geprueft"
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-28.1"
+            },
+            "skript_s": 19.8,
+            "bau_s": 1319.7,
+            "baufehler": "ValueError: Phase 5, Einstellung 11: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 1339.4,
+            "lernergebnis": {
+              "id": "40687018472-4",
+              "datum": "2026-10-28",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 1339.5,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {},
+              "auswertbar": false,
+              "prompt_version": "2026-10-28.1",
+              "verbessert": false
+            }
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 4584.9,
+        "upload_titel": "Hugo Boss: Six Machines: Uniforms and Regret"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:03.90",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Boss's firm had collapsed.",
+            "fest": false,
+            "text": "Die Szene zeigt einen Schneider bei der Arbeit, jedoch fehlt der spezifische Bezug zu dem erwähnten Zusammenbruch der Firma. Korrektur: Ein historisches Foto oder eine Darstellung einer geschlossenen Fabrik oder verlassenen Werkstatt mit wenigen Nähmaschinen."
+          },
+          {
+            "zeit": "00:09.37",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "failed in 1931.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich einen leeren Raum im Retro-Stil und stellt die Pleite der Fabrik im Jahr 1931 nicht dar. Korrektur: Eine historische Illustration oder Dokumentation, die das Schließen oder die Insolvenz der Fabrik im Jahr 1931 visualisiert."
+          },
+          {
+            "zeit": "00:12.40",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "What changed?",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann in einem Raum am Fenster, aber keinen Bezug zum Parteibeitritt von Hugo Boss oder dem Beginn der Uniformbestellungen. Korrektur: Eine historische Darstellung oder ein dokumentarisches Bild, das Hugo Boss im Zusammenhang mit der NSDAP oder dem Beginn der Uniformfertigung zeigt."
+          },
+          {
+            "zeit": "00:13.90",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "He joined the Nazi Party; uniform orders followed.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich einen Raum im historischen Stil mit Möbeln, aber weder den Parteieintritt noch Uniformbestellungen. Korrektur: Ein historisches Dokument oder eine Illustration, die den Parteieintritt oder Uniformbestellungen von Hugo Boss zeigt."
+          },
+          {
+            "zeit": "00:27.44",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "It employed 140 forced laborers,",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eingeblendeten Text und Zahlenangaben anstelle der erwähnten Zwangsarbeiter oder Frauen aus der Sowjetunion und Polen. Korrektur: Historische Dokumente oder Archivaufnahmen von Zwangsarbeiterinnen in einer Fabrik"
+          },
+          {
+            "zeit": "00:33.94",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "Six machines became a fashion house.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar eine Modeszene beziehungsweise ein Bekleidungsgeschäft als Anspielung auf ein Modehaus, es fehlt jedoch jeglicher Bezug zu den sechs Nähmaschinen oder der historischen Entwicklung der Marke. Korrektur: Eine historische Darstellung von sechs Nähmaschinen in einer einfachen Werkstatt im Kontrast zu einer modernen Mode-Boutique."
+          },
+          {
+            "zeit": "00:36.88",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "In 2011, it voiced profound regret.",
+            "fest": false,
+            "text": "Die historische Illustration zeigt zwar Näherinnen bei der Arbeit, jedoch gibt es keinen visuellen Bezug zu einer Entschuldigung oder dem Jahr 2011. Korrektur: Ein Dokument oder Foto aus dem Jahr 2011, das die offizielle Entschuldigung oder Reueerklärung der Firma Hugo Boss zeigt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 46.5,
+          "fps": 30.0,
+          "lufs": -14.9,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 40.9,
+              "bis_s": 42.7,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.926
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 26.5,
+              "bis_s": 47.0,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Six",
+                "s": 0.0,
+                "e": 0.36,
+                "p": 0.8740930557250977
+              },
+              {
+                "w": "sewing",
+                "s": 0.36,
+                "e": 0.94,
+                "p": 0.9926733374595642
+              },
+              {
+                "w": "machines",
+                "s": 0.94,
+                "e": 1.28,
+                "p": 0.9941588640213013
+              },
+              {
+                "w": "were",
+                "s": 1.28,
+                "e": 2.04,
+                "p": 0.9561940431594849
+              },
+              {
+                "w": "all",
+                "s": 2.04,
+                "e": 2.32,
+                "p": 0.9912700653076172
+              },
+              {
+                "w": "he",
+                "s": 2.32,
+                "e": 2.7,
+                "p": 0.9768807888031006
+              },
+              {
+                "w": "had",
+                "s": 2.7,
+                "e": 2.88,
+                "p": 0.9893125891685486
+              },
+              {
+                "w": "left.",
+                "s": 2.88,
+                "e": 3.2,
+                "p": 0.9979885816574097
+              },
+              {
+                "w": "Boss's",
+                "s": 3.9,
+                "e": 4.34,
+                "p": 0.6204729080200195
+              },
+              {
+                "w": "firm",
+                "s": 4.34,
+                "e": 4.62,
+                "p": 0.9291777014732361
+              },
+              {
+                "w": "had",
+                "s": 4.62,
+                "e": 5.06,
+                "p": 0.9693748950958252
+              },
+              {
+                "w": "collapsed.",
+                "s": 5.06,
+                "e": 5.46,
+                "p": 0.9990453124046326
+              },
+              {
+                "w": "His",
+                "s": 6.38,
+                "e": 6.46,
+                "p": 0.9865938425064087
+              },
+              {
+                "w": "workwear",
+                "s": 6.46,
+                "e": 6.86,
+                "p": 0.745204359292984
+              },
+              {
+                "w": "factory",
+                "s": 6.86,
+                "e": 7.22,
+                "p": 0.9981447458267212
+              },
+              {
+                "w": "opened",
+                "s": 7.22,
+                "e": 7.6,
+                "p": 0.9979220032691956
+              },
+              {
+                "w": "in",
+                "s": 7.6,
+                "e": 7.96,
+                "p": 0.997797966003418
+              },
+              {
+                "w": "1924,",
+                "s": 7.96,
+                "e": 8.66,
+                "p": 0.9977509379386902
+              },
+              {
+                "w": "then",
+                "s": 8.8,
+                "e": 9.76,
+                "p": 0.9895094633102417
+              },
+              {
+                "w": "failed",
+                "s": 9.76,
+                "e": 10.08,
+                "p": 0.9906170964241028
+              },
+              {
+                "w": "in",
+                "s": 10.08,
+                "e": 10.62,
+                "p": 0.8649404644966125
+              },
+              {
+                "w": "1931.",
+                "s": 10.62,
+                "e": 11.26,
+                "p": 0.9939530491828918
+              },
+              {
+                "w": "What",
+                "s": 12.5,
+                "e": 12.72,
+                "p": 0.9705402255058289
+              },
+              {
+                "w": "changed?",
+                "s": 12.72,
+                "e": 12.94,
+                "p": 0.9985847473144531
+              },
+              {
+                "w": "He",
+                "s": 13.9,
+                "e": 13.96,
+                "p": 0.9872649908065796
+              },
+              {
+                "w": "joined",
+                "s": 13.96,
+                "e": 14.28,
+                "p": 0.997040331363678
+              },
+              {
+                "w": "the",
+                "s": 14.28,
+                "e": 14.74,
+                "p": 0.9899768233299255
+              },
+              {
+                "w": "Nazi",
+                "s": 14.74,
+                "e": 14.96,
+                "p": 0.9862494468688965
+              },
+              {
+                "w": "party.",
+                "s": 14.96,
+                "e": 15.44,
+                "p": 0.44524773955345154
+              },
+              {
+                "w": "Uniform",
+                "s": 16.26,
+                "e": 16.38,
+                "p": 0.9822506308555603
+              },
+              {
+                "w": "orders",
+                "s": 16.38,
+                "e": 16.8,
+                "p": 0.9535729289054871
+              },
+              {
+                "w": "followed.",
+                "s": 16.8,
+                "e": 17.22,
+                "p": 0.9953749775886536
+              },
+              {
+                "w": "Sales",
+                "s": 18.16,
+                "e": 18.22,
+                "p": 0.9279835820198059
+              },
+              {
+                "w": "rose",
+                "s": 18.22,
+                "e": 18.58,
+                "p": 0.9970690608024597
+              },
+              {
+                "w": "from",
+                "s": 18.58,
+                "e": 19.1,
+                "p": 0.9979733824729919
+              },
+              {
+                "w": "38",
+                "s": 19.1,
+                "e": 19.64,
+                "p": 0.9658618569374084
+              },
+              {
+                "w": ",260",
+                "s": 19.64,
+                "e": 20.86,
+                "p": 0.9853764474391937
+              },
+              {
+                "w": "Reichsmarks",
+                "s": 20.86,
+                "e": 21.32,
+                "p": 0.8214063048362732
+              },
+              {
+                "w": "in",
+                "s": 21.32,
+                "e": 21.84,
+                "p": 0.9831373691558838
+              },
+              {
+                "w": "1932",
+                "s": 21.84,
+                "e": 22.52,
+                "p": 0.9982814788818359
+              },
+              {
+                "w": "to",
+                "s": 23.14,
+                "e": 23.58,
+                "p": 0.49083903431892395
+              },
+              {
+                "w": "over",
+                "s": 23.58,
+                "e": 23.74,
+                "p": 0.9919896721839905
+              },
+              {
+                "w": "3",
+                "s": 23.74,
+                "e": 24.2,
+                "p": 0.9280312657356262
+              },
+              {
+                "w": ",300",
+                "s": 24.2,
+                "e": 24.94,
+                "p": 0.985775500535965
+              },
+              {
+                "w": ",000",
+                "s": 24.94,
+                "e": 25.76,
+                "p": 0.9491255581378937
+              },
+              {
+                "w": "by",
+                "s": 25.76,
+                "e": 26.3,
+                "p": 0.9705253839492798
+              },
+              {
+                "w": "1941.",
+                "s": 26.3,
+                "e": 26.84,
+                "p": 0.9971789121627808
+              },
+              {
+                "w": "1941.",
+                "s": 26.84,
+                "e": 27.24,
+                "p": 0.05251993238925934
+              },
+              {
+                "w": "It",
+                "s": 28.08,
+                "e": 28.16,
+                "p": 0.978256344795227
+              },
+              {
+                "w": "employed",
+                "s": 28.16,
+                "e": 28.42,
+                "p": 0.9764305949211121
+              },
+              {
+                "w": "144",
+                "s": 28.42,
+                "e": 29.42,
+                "p": 0.9413226246833801
+              },
+              {
+                "w": "laborers,",
+                "s": 29.42,
+                "e": 30.18,
+                "p": 0.5636476278305054
+              },
+              {
+                "w": "mostly",
+                "s": 30.8,
+                "e": 31.06,
+                "p": 0.9969057440757751
+              },
+              {
+                "w": "women",
+                "s": 31.06,
+                "e": 31.36,
+                "p": 0.994706928730011
+              },
+              {
+                "w": "from",
+                "s": 31.36,
+                "e": 31.7,
+                "p": 0.9081861972808838
+              },
+              {
+                "w": "the",
+                "s": 31.7,
+                "e": 31.78,
+                "p": 0.9815123081207275
+              },
+              {
+                "w": "Soviet",
+                "s": 31.78,
+                "e": 32.08,
+                "p": 0.9939292669296265
+              },
+              {
+                "w": "Union",
+                "s": 32.08,
+                "e": 32.4,
+                "p": 0.9873943328857422
+              },
+              {
+                "w": "and",
+                "s": 32.4,
+                "e": 32.8,
+                "p": 0.9595039486885071
+              },
+              {
+                "w": "Poland.",
+                "s": 32.8,
+                "e": 33.02,
+                "p": 0.9984631538391113
+              },
+              {
+                "w": "Six",
+                "s": 33.96,
+                "e": 34.06,
+                "p": 0.8722910284996033
+              },
+              {
+                "w": "machines",
+                "s": 34.06,
+                "e": 34.42,
+                "p": 0.9485438466072083
+              },
+              {
+                "w": "became",
+                "s": 34.9,
+                "e": 35.2,
+                "p": 0.9692745804786682
+              },
+              {
+                "w": "a",
+                "s": 35.2,
+                "e": 35.54,
+                "p": 0.9924781322479248
+              },
+              {
+                "w": "fashion",
+                "s": 35.54,
+                "e": 35.74,
+                "p": 0.9429171681404114
+              },
+              {
+                "w": "house.",
+                "s": 35.74,
+                "e": 36.2,
+                "p": 0.9759340286254883
+              },
+              {
+                "w": "In",
+                "s": 36.9,
+                "e": 37.1,
+                "p": 0.9922590851783752
+              },
+              {
+                "w": "2011,",
+                "s": 37.1,
+                "e": 37.58,
+                "p": 0.9970306158065796
+              },
+              {
+                "w": "it",
+                "s": 38.08,
+                "e": 38.24,
+                "p": 0.9886466860771179
+              },
+              {
+                "w": "voiced",
+                "s": 38.24,
+                "e": 38.42,
+                "p": 0.9966933727264404
+              },
+              {
+                "w": "profound",
+                "s": 38.42,
+                "e": 39.0,
+                "p": 0.9729428291320801
+              },
+              {
+                "w": "regret.",
+                "s": 39.0,
+                "e": 39.54,
+                "p": 0.9959610104560852
+              },
+              {
+                "w": "Be",
+                "s": 40.52,
+                "e": 40.58,
+                "p": 0.9893626570701599
+              },
+              {
+                "w": "sure",
+                "s": 40.58,
+                "e": 40.78,
+                "p": 0.9989011287689209
+              },
+              {
+                "w": "to",
+                "s": 40.78,
+                "e": 40.9,
+                "p": 0.9954735636711121
+              },
+              {
+                "w": "like,",
+                "s": 40.9,
+                "e": 41.12,
+                "p": 0.8963222503662109
+              },
+              {
+                "w": "share",
+                "s": 41.4,
+                "e": 41.68,
+                "p": 0.9982597231864929
+              },
+              {
+                "w": "and",
+                "s": 41.68,
+                "e": 41.98,
+                "p": 0.6921695470809937
+              },
+              {
+                "w": "save",
+                "s": 41.98,
+                "e": 42.24,
+                "p": 0.9873535633087158
+              },
+              {
+                "w": "this",
+                "s": 42.24,
+                "e": 42.42,
+                "p": 0.9840414524078369
+              },
+              {
+                "w": "video.",
+                "s": 42.42,
+                "e": 42.7,
+                "p": 0.9981644749641418
+              },
+              {
+                "w": "Which",
+                "s": 43.34,
+                "e": 43.36,
+                "p": 0.9375289678573608
+              },
+              {
+                "w": "company",
+                "s": 43.36,
+                "e": 43.58,
+                "p": 0.9806461334228516
+              },
+              {
+                "w": "next?",
+                "s": 43.58,
+                "e": 43.9,
+                "p": 0.9605149030685425
+              },
+              {
+                "w": "Comment",
+                "s": 44.46,
+                "e": 44.58,
+                "p": 0.9917322397232056
+              },
+              {
+                "w": "and",
+                "s": 44.58,
+                "e": 45.2,
+                "p": 0.9677831530570984
+              },
+              {
+                "w": "follow",
+                "s": 45.2,
+                "e": 45.44,
+                "p": 0.9902840256690979
+              },
+              {
+                "w": "for",
+                "s": 45.44,
+                "e": 45.68,
+                "p": 0.9949016571044922
+              },
+              {
+                "w": "more.",
+                "s": 45.68,
+                "e": 45.86,
+                "p": 0.9992040991783142
+              }
+            ],
+            "dauer_s": 46.3573125,
+            "sprache": "en"
+          },
+          "roh_key": "82a416dac8d0bd689d7f0d691ca398a3de1fb080e0c6866e07491b842ddf60d6",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "edbaad56d44eb640fe265df57979801983a5402826abc5a7a0b3af21a7a82ef6",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 46.5,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 14,
+          "motive": 11,
+          "motive_min": 7
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "edbaad56d44eb640fe265df57979801983a5402826abc5a7a0b3af21a7a82ef6",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "In einem historischen Schneiderraum mit großen Fenstern zur Straßenseite stehen mehrere antike Nähmaschinen auf Holztischen. Im Hintergrund sind historische Gebäude und Passanten zu sehen. Oben im Bild befindet sich ein eingeblendeter Texttitel.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbaren Nähmaschinen in der Werkstatt veranschaulichen passend die im Satz erwähnten Nähmaschinen.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Mann an einer Nähmaschine in einer Werkstatt mit Stoffen und Regalen im Hintergrund",
+              "note": 4,
+              "passt": false,
+              "grund": "Die Szene zeigt einen Schneider bei der Arbeit, jedoch fehlt der spezifische Bezug zu dem erwähnten Zusammenbruch der Firma.",
+              "erforderliches_bild": "Ein historisches Foto oder eine Darstellung einer geschlossenen Fabrik oder verlassenen Werkstatt mit wenigen Nähmaschinen."
+            },
+            {
+              "index": 2,
+              "gesehen": "Eine historische Schneiderei mit mehreren antiken Nähmaschinen an Holztischen und Fenstern, durch die man eine Straße mit Altbauten sieht.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Darstellung zeigt eine historische Nähwerkstatt und passt visuell zur Erwähnung der Fabrikgründung im Jahr 1924.",
+              "erforderliches_bild": "Eine Werkstatt mit Nähmaschinen als historischer Kontext."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein gemaltes Interieur mit einem Holztisch, einem Stuhl und Fenstern, die auf Gebäude blicken, ohne Fabrikauflösung oder historischen Bezug.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich einen leeren Raum im Retro-Stil und stellt die Pleite der Fabrik im Jahr 1931 nicht dar.",
+              "erforderliches_bild": "Eine historische Illustration oder Dokumentation, die das Schließen oder die Insolvenz der Fabrik im Jahr 1931 visualisiert."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Mann im Mantel steht in einem Raum an einem großen Fenster und blickt nach draußen auf eine Straße.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Mann in einem Raum am Fenster, aber keinen Bezug zum Parteibeitritt von Hugo Boss oder dem Beginn der Uniformbestellungen.",
+              "erforderliches_bild": "Eine historische Darstellung oder ein dokumentarisches Bild, das Hugo Boss im Zusammenhang mit der NSDAP oder dem Beginn der Uniformfertigung zeigt."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein historisch wirkender Raum mit einem Tisch, Stuhl, Ofenrohr und Fenstern mit Blick auf Gebäude, jedoch ohne jegliche Darstellung eines Parteieintritts oder von Uniformbestellungen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich einen Raum im historischen Stil mit Möbeln, aber weder den Parteieintritt noch Uniformbestellungen.",
+              "erforderliches_bild": "Ein historisches Dokument oder eine Illustration, die den Parteieintritt oder Uniformbestellungen von Hugo Boss zeigt."
+            },
+            {
+              "index": 6,
+              "gesehen": "In einer Werkstatt sitzt eine Näherin an einer Nähmaschine, darüber eingeblendet ist ein Textfeld mit der Zahl 38,260 REICHSMARKS.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Zahl und Währung im Textfeld passen direkt zur gesprochenen Angabe von Sales rose from 38,260 reichsmarks in 1932.",
+              "erforderliches_bild": "Keine Änderung erforderlich."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein dunkelblauer Hintergrund mit einem gelben Kasten, der den Text HUGO BOSS sowie die gelben Zahlen 3,300,000 und den Text BY zeigt.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt den im gesprochenen Satz genannten Betrag von 3,300,000 passend zur Verkaufsentwicklung an.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 8,
+              "gesehen": "Der Text im Bild zeigt '140 FORCED LABORERS' im Zusammenhang mit HUGO BOSS.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eingeblendeten Text und Zahlenangaben anstelle der erwähnten Zwangsarbeiter oder Frauen aus der Sowjetunion und Polen.",
+              "erforderliches_bild": "Historische Dokumente oder Archivaufnahmen von Zwangsarbeiterinnen in einer Fabrik"
+            },
+            {
+              "index": 9,
+              "gesehen": "Gemälde im historischen Stil, das zwei Frauen an einem Arbeitstisch beim Nähen zeigt.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt Arbeiterinnen an Nähplätzen im historischen Stil, was inhaltlich zur Erwähnung von Arbeiterinnen passt.",
+              "erforderliches_bild": "n.v."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein stilvoller Mann im eleganten Anzug steht vor einer luxurifs wirkenden Mode-Boutique in einer europeisch anmutenden Straßenlandschaft, im Hintergrund sind Schaufensterpuppen mit verschiedenen Anzügen zu sehen.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt zwar eine Modeszene beziehungsweise ein Bekleidungsgeschäft als Anspielung auf ein Modehaus, es fehlt jedoch jeglicher Bezug zu den sechs Nähmaschinen oder der historischen Entwicklung der Marke.",
+              "erforderliches_bild": "Eine historische Darstellung von sechs Nähmaschinen in einer einfachen Werkstatt im Kontrast zu einer modernen Mode-Boutique."
+            },
+            {
+              "index": 11,
+              "gesehen": "Gemalte historische Illustration zweier Frauen im Arbeitskabinett, die nähen, mit weiteren Personen im Hintergrund vor einer Stadtkulisse",
+              "note": 3,
+              "passt": false,
+              "grund": "Die historische Illustration zeigt zwar Näherinnen bei der Arbeit, jedoch gibt es keinen visuellen Bezug zu einer Entschuldigung oder dem Jahr 2011.",
+              "erforderliches_bild": "Ein Dokument oder Foto aus dem Jahr 2011, das die offizielle Entschuldigung oder Reueerklärung der Firma Hugo Boss zeigt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Die Szene zeigt einen Schneider bei der Arbeit, jedoch fehlt der spezifische Bezug zu dem erwähnten Zusammenbruch der Firma.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen leeren Raum im Retro-Stil und stellt die Pleite der Fabrik im Jahr 1931 nicht dar.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einem Raum am Fenster, aber keinen Bezug zum Parteibeitritt von Hugo Boss oder dem Beginn der Uniformbestellungen.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen Raum im historischen Stil mit Möbeln, aber weder den Parteieintritt noch Uniformbestellungen.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eingeblendeten Text und Zahlenangaben anstelle der erwähnten Zwangsarbeiter oder Frauen aus der Sowjetunion und Polen.",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar eine Modeszene beziehungsweise ein Bekleidungsgeschäft als Anspielung auf ein Modehaus, es fehlt jedoch jeglicher Bezug zu den sechs Nähmaschinen oder der historischen Entwicklung der Marke.",
+            "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Die historische Illustration zeigt zwar Näherinnen bei der Arbeit, jedoch gibt es keinen visuellen Bezug zu einer Entschuldigung oder dem Jahr 2011."
+          ],
+          "modelle": [
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 14,
+          "ausgenommen": [
+            12,
+            13
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "edbaad56d44eb640fe265df57979801983a5402826abc5a7a0b3af21a7a82ef6",
+        "prompt_version": "2026-10-28.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [
+          "Six machines became a fashion house. - The source does not state that the six sewing machines directly turned into a fashion house; this is a figurative, unsupported claim."
+        ],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

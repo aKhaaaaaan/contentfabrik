@@ -19,6 +19,7 @@ import prompts
 import dramaturgie
 import bildplan
 import motivbudget
+import parallax
 import ton as audioqualitaet
 from PIL import Image, ImageDraw, ImageFont
 
@@ -437,11 +438,22 @@ def bild_rgb(im):
     return Image.alpha_composite(raster, rgba).convert('RGB')
 
 
+def karten_platz(groesse, kasten=None):
+    return einpassen(groesse, LAYOUT['gross'] if kasten == 'gross' else LAYOUT['foto'] if kasten else LAYOUT['karte'])
+
+
+def ecken_maske(groesse, ziel):
+    """Abgerundete Ecken der Karte als Graubild - fuer das lebende Bild ueber der Karte."""
+    maske = Image.new('L', groesse, 0)
+    ImageDraw.Draw(maske).rounded_rectangle((0, 0, *groesse), 28, fill=255)
+    maske.save(ziel)
+    return ziel
+
+
 def karten_ebene(karte, kasten=None):
     """Die Karte allein (abgerundet, mit Schatten) auf durchsichtigem Bild."""
     k = bild_rgb(Image.open(karte))
-    x, y, w, h = einpassen(k.size, LAYOUT['gross'] if kasten == 'gross' else
-                           LAYOUT['foto'] if kasten else LAYOUT['karte'])
+    x, y, w, h = karten_platz(k.size, kasten)
     k = k.resize((w, h), Image.LANCZOS)
     img = Image.new('RGBA', (B, H), (0, 0, 0, 0))
     schatten = Image.new('RGBA', (B, H), (0, 0, 0, 0))
@@ -473,7 +485,7 @@ def tipp_eingabe(ein, ebene, zeichne, titel, ordner):
                           str(Path(ordner) / 'tipp_%03d.png')] + ein[pos + 1:]
 
 
-def karten_filter(hg, ebene, kpfad, zoom=False):
+def karten_filter(hg, ebene, kpfad, zoom=False, lebend=None):
     """ffmpeg-Eingaben und Filter fuer einen Karten-Abschnitt: Hintergrund
     abgedunkelt und weich, Karte gleitet in 0,35 s von unten herein und blendet
     auf (sichtbarer Wechsel je Platz), Schrift obenauf.
@@ -495,14 +507,23 @@ def karten_filter(hg, ebene, kpfad, zoom=False):
     filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,fps={FPS},'
             f'eq=brightness=-0.12:saturation=0.95,gblur=sigma=18[bg];'
             f'[2:v]format=rgba,fade=in:st=0:d=0.35:alpha=1[k];'
-            f"[bg][k]overlay=x=0:y='32*max(0,1-t/0.35)':eval=frame[b1];"
-            + (f"[b1]zoompan=z='{ZOOM_KARTE}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
-               f':d=1:s={B}x{H}:fps={FPS}[b2];[b2][1:v]overlay=0:0,format=yuv420p' if zoom else
-               f'[b1][1:v]overlay=0:0,format=yuv420p'))
+            f"[bg][k]overlay=x=0:y='32*max(0,1-t/0.35)':eval=frame[b1];")
+    if lebend:
+        # Nutzer 28.10.2026 "lebende Bilder": die Parallax-Fahrt (parallax.py) liegt deckungsgleich ueber
+        # der stehenden Karte - Schatten, Ecken und Einflug bleiben wie bisher.
+        video, maske, (x, y, w, h) = lebend
+        filt = filt.replace('[b1];', '[b0];') + (
+            f'[3:v]scale={w}:{h},fps={FPS},format=rgba[lv];[4:v]format=gray,scale={w}:{h}[lm];'
+            f'[lv][lm]alphamerge,fade=in:st=0:d=0.35:alpha=1[lk];'
+            f"[b0][lk]overlay=x={x}:y='{y}+32*max(0,1-t/0.35)':eval=frame[b1];")
+    filt += (f"[b1]zoompan=z='{ZOOM_KARTE}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
+             f':d=1:s={B}x{H}:fps={FPS}[b2];[b2][1:v]overlay=0:0,format=yuv420p' if zoom else
+             f'[b1][1:v]overlay=0:0,format=yuv420p')
     if kpfad is None:  # Abschnitt ohne Karte: nur Hintergrund + Schrift
         return [*hg_ein, '-loop', '1', '-framerate', str(FPS), '-i', str(ebene)], filt.split('[2:v]')[0] +             '[bg][1:v]overlay=0:0,format=yuv420p'
     return [*hg_ein, '-loop', '1', '-framerate', str(FPS), '-i', str(ebene),
-            '-loop', '1', '-framerate', str(FPS), '-i', str(kpfad)], filt
+            '-loop', '1', '-framerate', str(FPS), '-i', str(kpfad)] + (
+        ['-i', str(lebend[0]), '-loop', '1', '-framerate', str(FPS), '-i', str(lebend[1])] if lebend else []), filt
 
 
 def hintergrund_holen(s, schon, dauer, quellen, aus):
@@ -1597,6 +1618,7 @@ def clip_code_key(s):
                           + Path(audioqualitaet.__file__).read_bytes()
                           + Path(dramaturgie.__file__).read_bytes()
                           + Path(motivbudget.__file__).read_bytes()
+                          + Path(parallax.__file__).read_bytes()
                           + Path(__file__).with_name('illustration.py').read_bytes()
                           + Path(__file__).with_name('infografik.py').read_bytes()
                           + themen_grafikcode(s)
@@ -2158,10 +2180,19 @@ def main(skript_pfad, aus, vorlage=None):
             # des Bildschirms leer“ - jede Illustration lag links in 1240x620 auf einem FREMDEN
             # unscharfen Hintergrundclip. Nutzerwunsch: das Motiv gross zeigen, dahinter DASSELBE Bild
             # verschwommen (wie in den ersten Videos). Short: weiter Vollbild mit Zoom.
+            lebend = None
             if ill:  # GEMELDET 10.10.2026: auch im Short Motiv gross, dahinter dasselbe Bild verschwommen
                 kpfad = aus / f'karte_{i:02d}.png'
                 karten_ebene(ill, kasten='gross').save(kpfad)
-                ein, filt = karten_filter(ill, ebene, kpfad, zoom=True)
+                # Nutzer 28.10.2026: lebende Bilder - nur gemalte Szenen ohne eingesetzte Zahl (Schrift verzoege)
+                if gemalt and i not in zahl_slots:
+                    groesse = Image.open(ill).size
+                    lv = parallax.video(ill, groesse, dauer, FPS, aus / f'lebend_{i:02d}.mp4')
+                    if lv:
+                        lebend = (lv, ecken_maske(groesse, aus / f'ecken_{i:02d}.png'),
+                                  karten_platz(groesse, 'gross'))
+                        print(f'Einstellung {i}: lebendes Bild (Parallax)')
+                ein, filt = karten_filter(ill, ebene, kpfad, zoom=True, lebend=lebend)
             elif ill:
                 n = max(1, int(dauer * FPS))
                 filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,'
@@ -2255,9 +2286,23 @@ def main(skript_pfad, aus, vorlage=None):
                     ereignisse += [(t0, 'pop'), (t0 + a, 'whoosh')]
                     merken()
                     continue
-            subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *ein, '-filter_complex', filt,
-                            '-t', f'{dauer:.3f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
-                            str(stueck)], check=True)
+            try:
+                subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *ein, '-filter_complex', filt,
+                                '-t', f'{dauer:.3f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
+                                str(stueck)], check=True)
+            except subprocess.CalledProcessError:
+                if not lebend:
+                    raise
+                # Lebende Bilder sind Kuer (Nutzer 28.10.: "mach nichts kaputt") - dann wie bisher bauen
+                print(f'Einstellung {i}: lebendes Bild gescheitert, baue mit Zoom')
+                ein, filt = karten_filter(ill, ebene, kpfad, zoom=True)
+                if i == 0:
+                    ein = tipp_eingabe(ein, ebene, lambda n: bild_fuer(
+                        t, s['titel'], i, len(shots), durchsichtig=not karte, karte=karte, akzent=akzent_farbe(s),
+                        logo=logo, titel_bis=n), s['titel'], aus)
+                subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *ein, '-filter_complex', filt,
+                                '-t', f'{dauer:.3f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
+                                str(stueck)], check=True)
             liste.append(f"file '{stueck.name}'")
             if i and phasenstart and (H > B or t.get('name') or t.get('beat') == 'wendung'):
                 ereignisse.append((t0, 'whoosh'))

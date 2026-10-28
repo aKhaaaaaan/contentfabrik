@@ -479,6 +479,15 @@ def figur_in_szene(szene, korrektur='', videoformat='short'):
             + (f'Repair this visible defect while keeping the scene: {korrektur[:220]}.' if korrektur else ''))
 
 
+# Gemeinsam fuer Baupruefung (bildpruefung) und Schlusspruefer (bildbezug.py), damit beide gleich urteilen.
+ABSTRAKTE_EREIGNISSE = (
+    'Abstract events (joining, deciding, apologizing, regretting, selling shares, winning a seat, sales rising, '
+    'a ban, a law) cannot be photographed: a scene of the people, place or objects involved at that moment is a '
+    'match. A rhetorical question or transition ("What changed?", "But then...") matches any image that continues '
+    'the current subject and setting. Never require the identity of a named person, only the narrated action. '
+    'A concrete object the words name (a train, sewing machines, pots) must still be visible. ')
+
+
 def bildpruefung(szene, referenz=False, videoformat='short', satz=''):
     # Nutzeraufgabe 15.10.2026 (Bilder muessen wortgenau passen): Bisher sah diese Pruefung nur die
     # geplante Szene; erst die Schlusspruefung am fertigen Video verglich mit dem gesprochenen Satz.
@@ -494,6 +503,9 @@ def bildpruefung(szene, referenz=False, videoformat='short', satz=''):
                   # Mietvertrag sichtbar"); verlangt wurde so ein Schriftstueck -> Schriftsalat. Gleiche Regel wie dort:
                   'For an abstract notion (rent, money, funding, debt, success, growth) the people or place it '
                   'affects in that concrete situation is a match; do not require a document, sign or chart. '
+                  # GEMESSEN 28.10.2026 (Hugo Boss/Rolls-Royce): abgelehnt, weil "Parteibeitritt", "Entschuldigung
+                  # 2011", "Vorstandssitz" oder die Identitaet eines Reisenden nicht sichtbar waren - unmalbar.
+                  + ABSTRAKTE_EREIGNISSE
                   if satz.strip() else '')
     return ('TASK: Inspect the generated illustration actually supplied, not the desired prompt. '
             + gesprochen

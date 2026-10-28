@@ -169,6 +169,7 @@ def pruefen(video, skript, ablauf, ziel):
                         'and setting, never proof of exact historical identity, address or event from pixels. '
                         'Ordinary fictional people are allowed; do not infer a real-person likeness from '
                         'an anonymous painted face. A generic scene missing the narrated action still fails. '
+                        + prompts.ABSTRAKTE_EREIGNISSE +
                         'Generated artwork must be unlettered. Actual frames can contain editorial titles, '
                         'subtitles, logo badges and number/date cards added after generation. Clearly separate '
                         'overlays are not lettering painted into the scene: ignore them as both evidence of '

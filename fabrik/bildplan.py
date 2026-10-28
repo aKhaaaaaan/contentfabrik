@@ -230,6 +230,18 @@ STELLVERTRETER = [
      ['executive desk with leather chair', 'new chief executive walking into a boardroom']),
     (r'\b(?:trials?|safety|drugs?|vaccines?|patients?|stud(?:y|ies)|clinical)\b',
      ['rack of sealed sample vials', 'microscope and test tubes', 'scientist holding a vial up to the light']),
+    # GEMESSEN 28.10.2026 (Hugo Boss / Rolls-Royce, 4 Bauversuche ohne Video): "voiced profound regret",
+    # "joined the Nazi Party", "Sales rose", "board seat" bekamen das Wortmotiv "regret"/"uniform orders"/"Sales rose" -
+    # der FLUX-Auftrag strich es als abstrakt, gemalt wurde ein beliebiger Mann im Raum, Pruefer 2/10.
+    (r'\b(?:regrets?|apolog\w*|admitted|acknowledg\w*|statement|condemn\w*)\b',
+     ['executive reading a statement at a press podium', 'press photographers crowding a podium']),
+    (r'\b(?:joined|membership|uniforms?)\b',
+     ['rows of finished uniforms on tailor racks', 'tailor fitting a uniform jacket on a mannequin']),
+    (r'\b(?:sales|revenue|profits?|turnover|orders|grew|soared|boomed|doubled|tripled)\b',
+     ['busy factory floor with stacks of finished goods', 'delivery trucks loaded with crates',
+      'crowded shop counter with customers']),
+    (r'\b(?:board|chairman|directors?|seat)\b',
+     ['executives seated around a long boardroom table', 'new director taking a seat at a boardroom table']),
     (r'\b(?:quit|failed|blocked|halted|stopped|collapsed?|bankrupt\w*|cancel\w*)\b',
      ['empty chair at a cleared desk', 'packed cardboard boxes by a closed door', 'red stop light over a lab door']),
 ]
@@ -253,7 +265,10 @@ def eigennamen(s):
 # Gestalt. Wie Eigennamen: kein malbares Motiv (5-Buchstaben-Staemme wie in woertlich).
 ABSTRAKT = frozenset(w[:5] for w in (
     'partners', 'partnership', 'safety', 'issues', 'shares', 'ipo', 'deal', 'deals', 'revenue', 'profit', 'profits',
-    'valuation', 'funding', 'growth', 'success', 'strategy', 'sales', 'results', 'billion', 'million', 'percent'))
+    'valuation', 'funding', 'growth', 'success', 'strategy', 'sales', 'results', 'billion', 'million', 'percent',
+    # 28.10.2026 (Hugo Boss): woertlich, aber unmalbar - "regret", "What changed", "Sales rose" wurden Hauptmotiv
+    'regret', 'regrets', 'apology', 'statement', 'membership', 'decision', 'changed', 'change', 'what', 'why',
+    'rose', 'grew', 'fell'))
 
 
 def malbar_machen(daten, zeitplan, namen=frozenset()):

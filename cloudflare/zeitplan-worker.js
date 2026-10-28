@@ -356,12 +356,13 @@ function kostenText(d, schwelle, prognose) {
     : `Warnung Gemini-Kosten: ${prozent} % der Grenze erreicht.`;
   return `${kopf}\nBisher ${eur(d.costAmount)} € von ${eur(d.budgetAmount)} € (${d.budgetDisplayName || 'Budget'}).\n` +
     'Bei Erreichen der Grenze pausieren bezahlte Stimme und Gemini-Reserve bis zum Monatsersten.\n' +
-    // Nutzer 28.10.2026: "den genauen Link, wo ich wieder aufladen muss". Das bezahlte Projekt contentfabrik-stimme
-    // rechnet monatlich ab (Postpay, Cloud-Rechnungskonto) - nichts aufzuladen; AI Studio /billing zeigt beim
-    // falsch gewaehlten Projekt "No billing account" und verleitet zu einem zweiten Konto.
-    'Kein Guthaben noetig: monatliche Rechnung (Projekt contentfabrik-stimme).\n' +
-    'Rechnung/Zahlungsart: https://console.cloud.google.com/billing\n' +
-    'Monatsgrenze aendern: https://aistudio.google.com/spend (oben Projekt contentfabrik-stimme waehlen)';
+    // Nutzer 28.10.2026: "den genauen Link, wo ich wieder aufladen muss". Screenshot AI Studio: Rechnungskonto des
+    // Projekts contentfabrik-stimme ist VORAUSZAHLUNG (5 EUR am 09.10., automatisches Aufladen aus). Bei 0 EUR
+    // Guthaben stoppen die Schluessel dieses Projekts; das Gratis-Projekt laeuft weiter. Im falschen Google-Konto
+    // zeigt /billing "No billing account" - dort NICHT "Set up billing" druecken.
+    'Bezahlte Stimme laeuft ueber Vorauszahlung: Guthaben wird verbraucht, nicht monatlich erneuert.\n' +
+    'Aufladen: https://aistudio.google.com/billing (Google-Konto mit Projekt contentfabrik-stimme)\n' +
+    'Monatsgrenze aendern: https://aistudio.google.com/spend';
 }
 
 async function kosten(request, env) {

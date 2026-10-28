@@ -102,7 +102,8 @@ def auftrag(entwurf, belege):
             f'Use a different mechanic for each: {"; ".join(MECHANIKEN)}.\n'
             f'Rules: {max(6, woerter(satz) - 4)}-{woerter(satz) + 4} words each; plain spoken English; the sentence '
             'must lead naturally into the rest of the script below; use ONLY facts stated in the script or the '
-            'sources; no clickbait the video does not pay off; no emojis; no "In this video"; no year, date or '
+            'sources; turn the emotion up hard (shock, risk, near-failure, surprise) but never inflate a fact '
+            '(28.10.2026, Nutzer); no clickbait the video does not pay off; no emojis; no "In this video"; no year, date or '
             'full name (25.10.2026: such openings held worst); never give away the answer or twist.\n'
             f'SCRIPT:\n{rest}\n\nSOURCES (facts allowed):\n{belege[:6000]}')
 
@@ -114,7 +115,8 @@ def wahl_auftrag(entwurf, kandidaten):
             'keep watching past 3 seconds AND that the rest of the script honestly pays off. Penalize vague '
             'teasing, clickbait, and sentences that do not connect to what follows. Also penalize openings that '
             'give away the answer or twist, or that lead with a year, date or full name; prefer a concrete '
-            'object, pain, moment or contradiction the viewer can picture.\n'
+            'object, pain, moment or contradiction the viewer can picture. Among honest options, pick the one '
+            'with the strongest emotional pull.\n'
             + zuschauer_daten() +
             f'CANDIDATES:\n{liste}\n\nREST OF THE SCRIPT (after the opening sentence):\n{rest[:3000]}\n'
             'Answer with the index of the best candidate in "beste".')

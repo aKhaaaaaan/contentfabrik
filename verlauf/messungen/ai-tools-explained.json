@@ -1,55 +1,5 @@
 [
   {
-    "id": "38264079499",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-12",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 1,
-        "grund": "Skript fehlgeschlagen (Code 1)",
-        "sekunden": 130.8
-      },
-      {
-        "runde": 2,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 1,
-        "grund": "Skript fehlgeschlagen (Code 1)",
-        "sekunden": 1.6
-      },
-      {
-        "runde": 3,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 1,
-        "grund": "Skript fehlgeschlagen (Code 1)",
-        "sekunden": 2.4
-      },
-      {
-        "runde": 4,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 1,
-        "grund": "Skript fehlgeschlagen (Code 1)",
-        "sekunden": 12.5
-      },
-      {
-        "runde": 5,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 1,
-        "grund": "Skript fehlgeschlagen (Code 1)",
-        "sekunden": 1.0
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Skript fehlgeschlagen (Code 1)",
-    "sekunden": 148.4
-  },
-  {
     "id": "38272095860",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-12",
@@ -14817,5 +14767,105 @@
     "grund": "",
     "sekunden": 1618.4,
     "upload_titel": "Claude Code Setup: What Pro Costs | AI Tool #17"
+  },
+  {
+    "id": "40656459732",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-10-28",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 420.1,
+        "pruefung_s": 38.2,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen fiktiven, nachdenklichen Mann in einer Innenraum-Szene, bietet jedoch keinerlei visuellen Bezug zur gesprochenen Projektwissen-Thematik oder zu Claude Code.",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine Vergleichstabelle über Claude Code, belegt aber nicht direkt die gesprochene Zeile über das Lesen von Code laut Dokumentation.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich einen fiktiven, nachdenklichen Mann in einer Innenraum-Szene, bietet jedoch keinerlei visuellen Bezug zur gesprochenen Projektwissen-Thematik oder zu Claude Code. Korrektur: Ein realistisches oder dokumentarisches Bild, das menschliches Fachwissen symbolisiert oder einen Entwickler bei der Dokumentation von nicht im Code stehendem Projektwissen zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt eine Vergleichstabelle über Claude Code, belegt aber nicht direkt die gesprochene Zeile über das Lesen von Code laut Dokumentation. Korrektur: Ein Dokument oder Screenshot, das zeigt, wie Claude Code Code-Dateien liest."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 11.5,
+          "zeitmarken": 6.6,
+          "tempo": 1.0,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 12,
+          "clips_und_stuecke": 229.0,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 12,
+            "motive": 12,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 46.0,
+          "gesamt": 419.8,
+          "videolaenge_s": 42.6,
+          "abschnitte_s": [
+            6.7,
+            5.86,
+            5.94,
+            5.64,
+            5.0,
+            5.5,
+            7.92
+          ],
+          "woerter": 132
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Some project knowledge lives only in someone's head.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich einen fiktiven, nachdenklichen Mann in einer Innenraum-Szene, bietet jedoch keinerlei visuellen Bezug zur gesprochenen Projektwissen-Thematik oder zu Claude Code. Korrektur: Ein realistisches oder dokumentarisches Bild, das menschliches Fachwissen symbolisiert oder einen Entwickler bei der Dokumentation von nicht im Code stehendem Projektwissen zeigt."
+          },
+          {
+            "zeit": "00:06.70",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "The docs say Claude reads your code well.",
+            "fest": true,
+            "text": "Das Bild zeigt eine Vergleichstabelle über Claude Code, belegt aber nicht direkt die gesprochene Zeile über das Lesen von Code laut Dokumentation. Korrektur: Ein Dokument oder Screenshot, das zeigt, wie Claude Code Code-Dateien liest."
+          }
+        ],
+        "sekunden": 458.3,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "status": "keine_korrektur",
+        "sekunden": 0.1
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 495.8,
+    "upload_titel": "Claude Code Handover: What It Can't See | AI Tool #18"
   }
 ]

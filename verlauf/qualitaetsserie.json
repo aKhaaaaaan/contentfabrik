@@ -101327,6 +101327,1164 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "40656459732.1:ai-tools-explained",
+      "run_id": "40656459732",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-28T08:34:25.553498+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "e979cf395154ab157462df64f4908ae05a6dc1ac",
+      "produktionsversion": "b1332e7723d60e8a696bbaf46d2a56b3cfed13e8cd1a9010d2ad3a8329189cce",
+      "videoformat": "short",
+      "thema": "Claude Code: handing over what it can't see",
+      "titel": [
+        "*Claude* *Code* *Handover*",
+        "What It Can't See"
+      ],
+      "status": "gesendet",
+      "video_sha256": "eed359a13442cd2e100a78c19f2f2211a03cb8b2f5d9b9e65af1584600c6528f",
+      "video_gebaut": true,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-25.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen fiktiven, nachdenklichen Mann in einer Innenraum-Szene, bietet jedoch keinerlei visuellen Bezug zur gesprochenen Projektwissen-Thematik oder zu Claude Code.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine Vergleichstabelle über Claude Code, belegt aber nicht direkt die gesprochene Zeile über das Lesen von Code laut Dokumentation.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich einen fiktiven, nachdenklichen Mann in einer Innenraum-Szene, bietet jedoch keinerlei visuellen Bezug zur gesprochenen Projektwissen-Thematik oder zu Claude Code. Korrektur: Ein realistisches oder dokumentarisches Bild, das menschliches Fachwissen symbolisiert oder einen Entwickler bei der Dokumentation von nicht im Code stehendem Projektwissen zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt eine Vergleichstabelle über Claude Code, belegt aber nicht direkt die gesprochene Zeile über das Lesen von Code laut Dokumentation. Korrektur: Ein Dokument oder Screenshot, das zeigt, wie Claude Code Code-Dateien liest."
+      ],
+      "einstellungen": 12,
+      "unterschiedliche_motive": 12,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "40656459732",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-28",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 420.1,
+            "pruefung_s": 38.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen fiktiven, nachdenklichen Mann in einer Innenraum-Szene, bietet jedoch keinerlei visuellen Bezug zur gesprochenen Projektwissen-Thematik oder zu Claude Code.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine Vergleichstabelle über Claude Code, belegt aber nicht direkt die gesprochene Zeile über das Lesen von Code laut Dokumentation.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen fiktiven, nachdenklichen Mann in einer Innenraum-Szene, bietet jedoch keinerlei visuellen Bezug zur gesprochenen Projektwissen-Thematik oder zu Claude Code. Korrektur: Ein realistisches oder dokumentarisches Bild, das menschliches Fachwissen symbolisiert oder einen Entwickler bei der Dokumentation von nicht im Code stehendem Projektwissen zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Vergleichstabelle über Claude Code, belegt aber nicht direkt die gesprochene Zeile über das Lesen von Code laut Dokumentation. Korrektur: Ein Dokument oder Screenshot, das zeigt, wie Claude Code Code-Dateien liest."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 11.5,
+              "zeitmarken": 6.6,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 12,
+              "clips_und_stuecke": 229.0,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 12,
+                "motive": 12,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 46.0,
+              "gesamt": 419.8,
+              "videolaenge_s": 42.6,
+              "abschnitte_s": [
+                6.7,
+                5.86,
+                5.94,
+                5.64,
+                5.0,
+                5.5,
+                7.92
+              ],
+              "woerter": 132
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Some project knowledge lives only in someone's head.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich einen fiktiven, nachdenklichen Mann in einer Innenraum-Szene, bietet jedoch keinerlei visuellen Bezug zur gesprochenen Projektwissen-Thematik oder zu Claude Code. Korrektur: Ein realistisches oder dokumentarisches Bild, das menschliches Fachwissen symbolisiert oder einen Entwickler bei der Dokumentation von nicht im Code stehendem Projektwissen zeigt."
+              },
+              {
+                "zeit": "00:06.70",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "The docs say Claude reads your code well.",
+                "fest": true,
+                "text": "Das Bild zeigt eine Vergleichstabelle über Claude Code, belegt aber nicht direkt die gesprochene Zeile über das Lesen von Code laut Dokumentation. Korrektur: Ein Dokument oder Screenshot, das zeigt, wie Claude Code Code-Dateien liest."
+              }
+            ],
+            "sekunden": 458.3,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 495.8,
+        "upload_titel": "Claude Code Handover: What It Can't See | AI Tool #18"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Some project knowledge lives only in someone's head.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich einen fiktiven, nachdenklichen Mann in einer Innenraum-Szene, bietet jedoch keinerlei visuellen Bezug zur gesprochenen Projektwissen-Thematik oder zu Claude Code. Korrektur: Ein realistisches oder dokumentarisches Bild, das menschliches Fachwissen symbolisiert oder einen Entwickler bei der Dokumentation von nicht im Code stehendem Projektwissen zeigt."
+          },
+          {
+            "zeit": "00:06.70",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "The docs say Claude reads your code well.",
+            "fest": true,
+            "text": "Das Bild zeigt eine Vergleichstabelle über Claude Code, belegt aber nicht direkt die gesprochene Zeile über das Lesen von Code laut Dokumentation. Korrektur: Ein Dokument oder Screenshot, das zeigt, wie Claude Code Code-Dateien liest."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 42.6,
+          "fps": 30.0,
+          "lufs": -14.5,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 38.42,
+              "bis_s": 39.76,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.973
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 22.6,
+              "bis_s": 43.1,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Some",
+                "s": 0.02,
+                "e": 0.46,
+                "p": 0.6507182717323303
+              },
+              {
+                "w": "project",
+                "s": 0.46,
+                "e": 0.74,
+                "p": 0.9390564560890198
+              },
+              {
+                "w": "knowledge",
+                "s": 0.74,
+                "e": 1.08,
+                "p": 0.9972276091575623
+              },
+              {
+                "w": "lives",
+                "s": 1.08,
+                "e": 1.52,
+                "p": 0.9839158654212952
+              },
+              {
+                "w": "only",
+                "s": 1.52,
+                "e": 1.92,
+                "p": 0.9785121083259583
+              },
+              {
+                "w": "in",
+                "s": 1.92,
+                "e": 2.06,
+                "p": 0.994540274143219
+              },
+              {
+                "w": "someone's",
+                "s": 2.06,
+                "e": 2.5,
+                "p": 0.9856105148792267
+              },
+              {
+                "w": "head.",
+                "s": 2.5,
+                "e": 2.66,
+                "p": 0.9971092343330383
+              },
+              {
+                "w": "Cloud",
+                "s": 3.4,
+                "e": 3.44,
+                "p": 0.5384492874145508
+              },
+              {
+                "w": "code",
+                "s": 3.44,
+                "e": 3.72,
+                "p": 0.5617150664329529
+              },
+              {
+                "w": "can't",
+                "s": 3.72,
+                "e": 4.02,
+                "p": 0.9933583736419678
+              },
+              {
+                "w": "see",
+                "s": 4.02,
+                "e": 4.18,
+                "p": 0.9958855509757996
+              },
+              {
+                "w": "that,",
+                "s": 4.18,
+                "e": 4.4,
+                "p": 0.9932199716567993
+              },
+              {
+                "w": "so",
+                "s": 4.64,
+                "e": 4.74,
+                "p": 0.9944566488265991
+              },
+              {
+                "w": "what",
+                "s": 4.74,
+                "e": 5.36,
+                "p": 0.8833078145980835
+              },
+              {
+                "w": "should",
+                "s": 5.36,
+                "e": 5.52,
+                "p": 0.9882893562316895
+              },
+              {
+                "w": "you",
+                "s": 5.52,
+                "e": 5.66,
+                "p": 0.9969657063484192
+              },
+              {
+                "w": "hand",
+                "s": 5.66,
+                "e": 5.8,
+                "p": 0.9947113990783691
+              },
+              {
+                "w": "over?",
+                "s": 5.8,
+                "e": 6.04,
+                "p": 0.9770793318748474
+              },
+              {
+                "w": "The",
+                "s": 6.72,
+                "e": 6.82,
+                "p": 0.8934227824211121
+              },
+              {
+                "w": "Docsate",
+                "s": 6.82,
+                "e": 7.22,
+                "p": 0.4419829497734706
+              },
+              {
+                "w": "Cloud",
+                "s": 7.22,
+                "e": 7.44,
+                "p": 0.4081261157989502
+              },
+              {
+                "w": "reads",
+                "s": 7.44,
+                "e": 7.78,
+                "p": 0.9967261552810669
+              },
+              {
+                "w": "your",
+                "s": 7.78,
+                "e": 7.94,
+                "p": 0.9926831126213074
+              },
+              {
+                "w": "code",
+                "s": 7.94,
+                "e": 8.18,
+                "p": 0.9977129697799683
+              },
+              {
+                "w": "well,",
+                "s": 8.18,
+                "e": 8.52,
+                "p": 0.9561598896980286
+              },
+              {
+                "w": "but",
+                "s": 8.94,
+                "e": 9.2,
+                "p": 0.9902881383895874
+              },
+              {
+                "w": "a",
+                "s": 9.2,
+                "e": 9.52,
+                "p": 0.952383816242218
+              },
+              {
+                "w": "deploy",
+                "s": 9.52,
+                "e": 9.8,
+                "p": 0.8479045629501343
+              },
+              {
+                "w": "process",
+                "s": 9.8,
+                "e": 10.28,
+                "p": 0.9970132112503052
+              },
+              {
+                "w": "in",
+                "s": 10.28,
+                "e": 10.54,
+                "p": 0.9785701632499695
+              },
+              {
+                "w": "someone's",
+                "s": 10.54,
+                "e": 10.84,
+                "p": 0.9944279491901398
+              },
+              {
+                "w": "head",
+                "s": 10.84,
+                "e": 11.04,
+                "p": 0.9976807832717896
+              },
+              {
+                "w": "isn't",
+                "s": 11.04,
+                "e": 11.6,
+                "p": 0.9875831007957458
+              },
+              {
+                "w": "in",
+                "s": 11.6,
+                "e": 11.74,
+                "p": 0.9912487268447876
+              },
+              {
+                "w": "the",
+                "s": 11.74,
+                "e": 11.84,
+                "p": 0.9864088296890259
+              },
+              {
+                "w": "repo.",
+                "s": 11.84,
+                "e": 11.96,
+                "p": 0.9943345785140991
+              },
+              {
+                "w": "So",
+                "s": 12.64,
+                "e": 12.72,
+                "p": 0.9716217517852783
+              },
+              {
+                "w": "what",
+                "s": 12.72,
+                "e": 13.12,
+                "p": 0.7609290480613708
+              },
+              {
+                "w": "goes",
+                "s": 13.12,
+                "e": 13.3,
+                "p": 0.9968265295028687
+              },
+              {
+                "w": "in",
+                "s": 13.3,
+                "e": 13.48,
+                "p": 0.9915459752082825
+              },
+              {
+                "w": "your",
+                "s": 13.48,
+                "e": 13.58,
+                "p": 0.9947286248207092
+              },
+              {
+                "w": "hand",
+                "s": 13.58,
+                "e": 13.8,
+                "p": 0.9966480135917664
+              },
+              {
+                "w": "over?",
+                "s": 13.8,
+                "e": 14.0,
+                "p": 0.3015878200531006
+              },
+              {
+                "w": "Only",
+                "s": 14.44,
+                "e": 14.76,
+                "p": 0.9887758493423462
+              },
+              {
+                "w": "what",
+                "s": 14.76,
+                "e": 14.92,
+                "p": 0.7811145782470703
+              },
+              {
+                "w": "cloud",
+                "s": 14.92,
+                "e": 15.12,
+                "p": 0.5987226366996765
+              },
+              {
+                "w": "can't",
+                "s": 15.12,
+                "e": 15.58,
+                "p": 0.9957314133644104
+              },
+              {
+                "w": "find",
+                "s": 15.58,
+                "e": 15.78,
+                "p": 0.9989522695541382
+              },
+              {
+                "w": "by",
+                "s": 15.78,
+                "e": 16.0,
+                "p": 0.9943344593048096
+              },
+              {
+                "w": "reading",
+                "s": 16.0,
+                "e": 16.28,
+                "p": 0.9937151074409485
+              },
+              {
+                "w": "the",
+                "s": 16.28,
+                "e": 16.5,
+                "p": 0.9952265024185181
+              },
+              {
+                "w": "repo.",
+                "s": 16.5,
+                "e": 16.74,
+                "p": 0.9991913437843323
+              },
+              {
+                "w": "Skip",
+                "s": 17.18,
+                "e": 17.26,
+                "p": 0.9357995986938477
+              },
+              {
+                "w": "the",
+                "s": 17.26,
+                "e": 17.46,
+                "p": 0.9977317452430725
+              },
+              {
+                "w": "rest.",
+                "s": 17.46,
+                "e": 17.58,
+                "p": 0.9993981122970581
+              },
+              {
+                "w": "The",
+                "s": 18.52,
+                "e": 18.52,
+                "p": 0.9161040186882019
+              },
+              {
+                "w": "Docs",
+                "s": 18.52,
+                "e": 18.84,
+                "p": 0.9616088271141052
+              },
+              {
+                "w": "examples,",
+                "s": 18.84,
+                "e": 19.04,
+                "p": 0.4230124354362488
+              },
+              {
+                "w": "a",
+                "s": 19.58,
+                "e": 19.6,
+                "p": 0.9925611615180969
+              },
+              {
+                "w": "meeting",
+                "s": 19.6,
+                "e": 19.78,
+                "p": 0.9911186099052429
+              },
+              {
+                "w": "decision,",
+                "s": 19.78,
+                "e": 20.08,
+                "p": 0.9954795837402344
+              },
+              {
+                "w": "a",
+                "s": 20.68,
+                "e": 20.7,
+                "p": 0.9939127564430237
+              },
+              {
+                "w": "deploy",
+                "s": 20.7,
+                "e": 20.96,
+                "p": 0.9948275685310364
+              },
+              {
+                "w": "process,",
+                "s": 20.96,
+                "e": 21.42,
+                "p": 0.996360719203949
+              },
+              {
+                "w": "an",
+                "s": 21.88,
+                "e": 21.92,
+                "p": 0.8907225728034973
+              },
+              {
+                "w": "environment",
+                "s": 21.92,
+                "e": 22.38,
+                "p": 0.993524432182312
+              },
+              {
+                "w": "variable",
+                "s": 22.38,
+                "e": 22.68,
+                "p": 0.9039160013198853
+              },
+              {
+                "w": "tests",
+                "s": 22.68,
+                "e": 23.26,
+                "p": 0.391666442155838
+              },
+              {
+                "w": "need,",
+                "s": 23.26,
+                "e": 23.62,
+                "p": 0.9895671010017395
+              },
+              {
+                "w": "give",
+                "s": 24.14,
+                "e": 24.3,
+                "p": 0.9861961603164673
+              },
+              {
+                "w": "it",
+                "s": 24.3,
+                "e": 24.4,
+                "p": 0.9984056353569031
+              },
+              {
+                "w": "a",
+                "s": 24.4,
+                "e": 24.46,
+                "p": 0.9973324537277222
+              },
+              {
+                "w": "check",
+                "s": 24.46,
+                "e": 24.66,
+                "p": 0.9948508143424988
+              },
+              {
+                "w": "to",
+                "s": 24.66,
+                "e": 24.9,
+                "p": 0.9908468127250671
+              },
+              {
+                "w": "run.",
+                "s": 24.9,
+                "e": 25.12,
+                "p": 0.9988512992858887
+              },
+              {
+                "w": "Without",
+                "s": 25.58,
+                "e": 25.84,
+                "p": 0.9655598402023315
+              },
+              {
+                "w": "one,",
+                "s": 25.84,
+                "e": 26.1,
+                "p": 0.9784522652626038
+              },
+              {
+                "w": "the",
+                "s": 26.38,
+                "e": 26.46,
+                "p": 0.9897526502609253
+              },
+              {
+                "w": "Docsate",
+                "s": 26.46,
+                "e": 26.9,
+                "p": 0.9808810353279114
+              },
+              {
+                "w": "Cloud",
+                "s": 26.9,
+                "e": 27.22,
+                "p": 0.5146446228027344
+              },
+              {
+                "w": "may",
+                "s": 27.22,
+                "e": 27.56,
+                "p": 0.9722877740859985
+              },
+              {
+                "w": "say",
+                "s": 27.56,
+                "e": 27.8,
+                "p": 0.9987707734107971
+              },
+              {
+                "w": "it's",
+                "s": 27.8,
+                "e": 28.0,
+                "p": 0.9900773763656616
+              },
+              {
+                "w": "done",
+                "s": 28.0,
+                "e": 28.16,
+                "p": 0.9932684302330017
+              },
+              {
+                "w": "too",
+                "s": 28.16,
+                "e": 28.34,
+                "p": 0.9885664582252502
+              },
+              {
+                "w": "early.",
+                "s": 28.34,
+                "e": 28.64,
+                "p": 0.9976325035095215
+              },
+              {
+                "w": "Claude",
+                "s": 29.2,
+                "e": 29.62,
+                "p": 0.021768834441900253
+              },
+              {
+                "w": "Code",
+                "s": 29.62,
+                "e": 29.82,
+                "p": 0.36998438835144043
+              },
+              {
+                "w": "comes",
+                "s": 29.82,
+                "e": 30.08,
+                "p": 0.878332257270813
+              },
+              {
+                "w": "with",
+                "s": 30.08,
+                "e": 30.24,
+                "p": 0.9940006136894226
+              },
+              {
+                "w": "Pro,",
+                "s": 30.24,
+                "e": 30.46,
+                "p": 0.5018258094787598
+              },
+              {
+                "w": "listed",
+                "s": 30.82,
+                "e": 31.02,
+                "p": 0.9816639423370361
+              },
+              {
+                "w": "at",
+                "s": 31.02,
+                "e": 31.16,
+                "p": 0.9697160124778748
+              },
+              {
+                "w": "$20",
+                "s": 31.16,
+                "e": 31.48,
+                "p": 0.9626692235469818
+              },
+              {
+                "w": "if",
+                "s": 31.48,
+                "e": 31.94,
+                "p": 0.8863351941108704
+              },
+              {
+                "w": "billed",
+                "s": 31.94,
+                "e": 32.08,
+                "p": 0.982276976108551
+              },
+              {
+                "w": "monthly,",
+                "s": 32.08,
+                "e": 32.32,
+                "p": 0.9892390966415405
+              },
+              {
+                "w": "usage",
+                "s": 32.94,
+                "e": 33.02,
+                "p": 0.7447789311408997
+              },
+              {
+                "w": "limits",
+                "s": 33.02,
+                "e": 33.34,
+                "p": 0.8245519399642944
+              },
+              {
+                "w": "apply.",
+                "s": 33.34,
+                "e": 33.6,
+                "p": 0.9862261414527893
+              },
+              {
+                "w": "The",
+                "s": 34.58,
+                "e": 34.68,
+                "p": 0.968390166759491
+              },
+              {
+                "w": "knowledge",
+                "s": 34.68,
+                "e": 34.94,
+                "p": 0.9780616760253906
+              },
+              {
+                "w": "from",
+                "s": 34.94,
+                "e": 35.14,
+                "p": 0.9941324591636658
+              },
+              {
+                "w": "someone's",
+                "s": 35.14,
+                "e": 35.5,
+                "p": 0.9850805103778839
+              },
+              {
+                "w": "head",
+                "s": 35.5,
+                "e": 35.66,
+                "p": 0.9910339713096619
+              },
+              {
+                "w": "now",
+                "s": 35.66,
+                "e": 35.88,
+                "p": 0.9856590628623962
+              },
+              {
+                "w": "sits",
+                "s": 35.88,
+                "e": 36.18,
+                "p": 0.9692621231079102
+              },
+              {
+                "w": "in",
+                "s": 36.18,
+                "e": 36.42,
+                "p": 0.8381586670875549
+              },
+              {
+                "w": "a",
+                "s": 36.42,
+                "e": 36.46,
+                "p": 0.9484013319015503
+              },
+              {
+                "w": "note",
+                "s": 36.46,
+                "e": 36.62,
+                "p": 0.9842904806137085
+              },
+              {
+                "w": "Claude",
+                "s": 36.62,
+                "e": 36.88,
+                "p": 0.9359133243560791
+              },
+              {
+                "w": "can",
+                "s": 36.88,
+                "e": 37.14,
+                "p": 0.9872121214866638
+              },
+              {
+                "w": "read.",
+                "s": 37.14,
+                "e": 37.34,
+                "p": 0.9973645806312561
+              },
+              {
+                "w": "Be",
+                "s": 38.14,
+                "e": 38.18,
+                "p": 0.987060546875
+              },
+              {
+                "w": "sure",
+                "s": 38.18,
+                "e": 38.32,
+                "p": 0.9988320469856262
+              },
+              {
+                "w": "to",
+                "s": 38.32,
+                "e": 38.42,
+                "p": 0.9931902289390564
+              },
+              {
+                "w": "like,",
+                "s": 38.42,
+                "e": 38.62,
+                "p": 0.896532416343689
+              },
+              {
+                "w": "share,",
+                "s": 38.7,
+                "e": 39.0,
+                "p": 0.9971818923950195
+              },
+              {
+                "w": "and",
+                "s": 39.18,
+                "e": 39.22,
+                "p": 0.9940429329872131
+              },
+              {
+                "w": "save",
+                "s": 39.22,
+                "e": 39.42,
+                "p": 0.9874005913734436
+              },
+              {
+                "w": "this",
+                "s": 39.42,
+                "e": 39.54,
+                "p": 0.965457022190094
+              },
+              {
+                "w": "video.",
+                "s": 39.54,
+                "e": 39.76,
+                "p": 0.9977630376815796
+              },
+              {
+                "w": "Which",
+                "s": 40.26,
+                "e": 40.3,
+                "p": 0.9531728029251099
+              },
+              {
+                "w": "till",
+                "s": 40.3,
+                "e": 40.48,
+                "p": 0.31320902705192566
+              },
+              {
+                "w": "next,",
+                "s": 40.48,
+                "e": 40.72,
+                "p": 0.9964281916618347
+              },
+              {
+                "w": "comment,",
+                "s": 41.04,
+                "e": 41.32,
+                "p": 0.980945885181427
+              },
+              {
+                "w": "and",
+                "s": 41.64,
+                "e": 41.7,
+                "p": 0.9953723549842834
+              },
+              {
+                "w": "follow",
+                "s": 41.7,
+                "e": 41.88,
+                "p": 0.979079008102417
+              },
+              {
+                "w": "for",
+                "s": 41.88,
+                "e": 42.02,
+                "p": 0.5060590505599976
+              },
+              {
+                "w": "more!",
+                "s": 42.02,
+                "e": 42.14,
+                "p": 0.9549816846847534
+              }
+            ],
+            "dauer_s": 42.5173125,
+            "sprache": "en"
+          },
+          "roh_key": "89bb5f363ecbfa4ee64599da166fd70bfd2f925574563b9d43be0e80ef995d93",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "eed359a13442cd2e100a78c19f2f2211a03cb8b2f5d9b9e65af1584600c6528f",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 42.6,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 12,
+          "motive": 12,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "eed359a13442cd2e100a78c19f2f2211a03cb8b2f5d9b9e65af1584600c6528f",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein gemaltes Bild eines jungen Mannes mit Sonnenbrille und schwarzer Lederjacke, der sich gestresst an den Kopf fasst, während er an einem Fenster und vor einem Bücherregal sitzt.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich einen fiktiven, nachdenklichen Mann in einer Innenraum-Szene, bietet jedoch keinerlei visuellen Bezug zur gesprochenen Projektwissen-Thematik oder zu Claude Code.",
+              "erforderliches_bild": "Ein realistisches oder dokumentarisches Bild, das menschliches Fachwissen symbolisiert oder einen Entwickler bei der Dokumentation von nicht im Code stehendem Projektwissen zeigt."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Screenshot einer Chat-Oberfläche zeigt den Text 'Claude Code can't see that, so what should you hand over?' unter der Markenüberschrift Claude.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbare Chat-Nachfrage im Interface stimmt exakt mit der gesprochenen Frage überein und stellt diese visuell dar.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 2,
+              "gesehen": "Eine Tabelle zeigt Vergleichspunkte zwischen nicht-deterministischen und deterministischen Vorgehensweisen von Claude Code mit Textzeilen.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt eine Vergleichstabelle über Claude Code, belegt aber nicht direkt die gesprochene Zeile über das Lesen von Code laut Dokumentation.",
+              "erforderliches_bild": "Ein Dokument oder Screenshot, das zeigt, wie Claude Code Code-Dateien liest."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Dokumenten-Screenshot mit einer Liste von Aufzählunspunkten, wobei der erste Punkt 'A deploy process that lives in someone's head' mit einem gelben Rahmen hervorgehoben ist.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt genau den im Text erwähnten Bereitstellungsprozess ('deploy process that lives in someone's head') als markierten Punkt in einer Dokumentation.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein AI-Chat-Fenster mit der Frage 'So what goes in your handover?' in einer grünen Sprechblase und drei Lade-Punkten darunter.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt den Moderator/Sprecher, der die genaue Frage aus der Narration ('So what goes in your handover?') als UI-Frage einblendet.",
+              "erforderliches_bild": "Nicht erforderlich, da die Frage direkt im Chat-Interface abgebildet ist."
+            },
+            {
+              "index": 5,
+              "gesehen": "In der Bildmitte ist ein Dialogfenster mit der gelb hinterlegten Aufschrift \"Only write down what Claude can't find by reading the repo, or what it would otherwise spend time rediscovering every session.\" zu sehen, eingefasst von einem orangefarbenen Rahmen.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das sichtbare Bild zeigt exakt den im gesprochenen Satz thematisierten Inhalt, dass Claude nur das aufgeschrieben haben möchte, was es nicht im Repo finden kann.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da die visuelle Evidenz genau passt."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein dunkelblauer Bildschirm mit dem Text 'CLAUDE CODE: HANDOVER WHAT IT CAN'T SEE' oben und vier farbig umrandeten K&auml;stchen mit Texten darunter: 'DOCS' EXAMPLES', 'MEETING DECISION', 'DEPLOY PROCESS', 'ENVIRONMENT VARIABLE TESTS NEED'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Textgrafik zeigt genau die in der Narration genannten Beispiele (docs' examples, meeting decision, deploy process, environment variable tests need) als visuelle Auflistung und erkl&auml;rt damit direkt den gesprochenen Inhalt.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da die Textfolie die Beispiele korrekt darstellt."
+            },
+            {
+              "index": 7,
+              "gesehen": "In dem Bild ist ein Textausschnitt mit einer gelben Hervorhebung zu sehen, welcher den Text 'Claude said it was done and it wasn’t quite, usually because it had no way to check its own work. See Give Claude a check to run.' zeigt.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt genau den besprochenen Dokumententext zur Problematik, dass Claude ohne Testprüfung zu früh fertig meldet, und enthält die markierte Handlungsanweisung passend zum gesprochenen Text.",
+              "erforderliches_bild": "Nicht erforderlich."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Screenshot zeigt die Preisseite für Claude Pro mit der Erwähnung von 17 USD bei jährlicher Abrechnung und 20 USD bei monatlicher Abrechnung.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt genau die erwähnte Pro-Version mit den Preisdetails für die monatliche Abrechnung von 20 USD.",
+              "erforderliches_bild": "Keines, das Bild passt perfekt."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein Bildausschnitt mit gelbem Rahmen zeigt Text zur Nutzungseinschränkung von Claude (Usage limits apply...)",
+              "note": 8,
+              "passt": true,
+              "grund": "Der sichtbare Text deckt sich direkt mit der gesprochenen Erwähnung der Nutzungsbedingungen bzw. usage limits.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da der Textinhalt exakt passt."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein dunkelblaues Bild mit den Textzeilen KNOWLEDGE, IN A NOTE CLAUDE und READ in farbigen Rahmen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt die Kernbegriffe der gesprochenen Handlung, dass Wissen in einer Notiz für Claude festgehalten wird.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein illustrierter Mann mit Sonnenbrille vor einer Skyline und eine Sprechblase mit der Aufforderung zum Liken und Teilen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbare Aufforderung und der ansprechende Präsentator passen genau zu dem gesprochenen Aufruf, das Video zu liken, zu teilen und zu speichern.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da der Inhalt perfekt übereinstimmt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen fiktiven, nachdenklichen Mann in einer Innenraum-Szene, bietet jedoch keinerlei visuellen Bezug zur gesprochenen Projektwissen-Thematik oder zu Claude Code.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine Vergleichstabelle über Claude Code, belegt aber nicht direkt die gesprochene Zeile über das Lesen von Code laut Dokumentation."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 12,
+          "ausgenommen": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "eed359a13442cd2e100a78c19f2f2211a03cb8b2f5d9b9e65af1584600c6528f",
+        "prompt_version": "2026-10-25.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

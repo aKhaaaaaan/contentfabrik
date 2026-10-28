@@ -1,0 +1,64 @@
+# Farbprobe 28.10.2026 (Nutzer: Archivclips "mehr Farbe, aber kraeftig"): gemeinfreie Prelinger-Clips mit DDColor
+# (Apache-2.0, ohne Grafikkarte) einfaerben, danach "Gemalt+" wie die Stock-Clip-Probe. Ergebnis nach Telegram.
+# Kein Video, kein Upload, beruehrt weder Verlauf noch Budget der Produktion.
+name: farbprobe
+on:
+  workflow_dispatch:
+    inputs:
+      modell:
+        description: 'DDColor-Modell (ddcolor_modelscope | ddcolor_artistic | ddcolor_paper_tiny)'
+        default: 'ddcolor_modelscope'
+      clips:
+        description: 'Archivclips id:startsekunde, durch Leerzeichen getrennt'
+        default: 'WorkPays1937:508 GreatRai1942:508 GreatRai1942:598'
+concurrency:
+  group: farbprobe
+  cancel-in-progress: false
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Werkzeuge
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          pip install -q torch torchvision --index-url https://download.pytorch.org/whl/cpu
+          pip install -q opencv-python-headless numpy pillow tqdm huggingface-hub scikit-image pyyaml scipy
+          # DDColor fest auf einen gepruefen Stand (28.10.2026), nicht auf den beweglichen main
+          git clone -q https://github.com/piddnad/DDColor ddcolor-code
+          git -C ddcolor-code checkout -q 2adb63f2656ac41cbdf7b894cddd94121a3faf13
+      - name: Einfaerben und malen
+        env:
+          MODELL: ${{ inputs.modell }}
+          CLIPS: ${{ inputs.clips }}
+        run: python fabrik/farbprobe.py ddcolor-code probe "$MODELL" $CLIPS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: farbprobe
+          path: probe
+      - name: In Telegram schicken
+        if: always()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          MODELL: ${{ inputs.modell }}
+          LOG: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          api="https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}"
+          zeit=$(python3 -c "import json;d=json.load(open('probe/messung.json'));print(', '.join(f\"{c['sekunden_je_bild']} s/Bild\" for c in d['clips']))" 2>/dev/null || echo "keine Messung")
+          for f in probe/farbe_[0-9].mp4; do
+            [ -f "$f" ] || continue
+            curl -s -F chat_id="$TELEGRAM_CHAT_ID" -F video=@"$f" -F supports_streaming=true \
+              -F caption="Farbprobe ($MODELL): Archiv | eingefaerbt | eingefaerbt+gemalt. Rechenzeit: $zeit" \
+              "$api/sendVideo" > /dev/null
+          done
+          ls probe/farbe_[0-9].mp4 >/dev/null 2>&1 || curl -s -d chat_id="$TELEGRAM_CHAT_ID" \
+            --data-urlencode text="Farbprobe fehlgeschlagen - Log: $LOG" \
+            "$api/sendMessage" > /dev/null

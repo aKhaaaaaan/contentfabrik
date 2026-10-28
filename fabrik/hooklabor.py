@@ -116,7 +116,8 @@ def wahl_auftrag(entwurf, kandidaten):
             'keep watching past 3 seconds AND that the rest of the script honestly pays off. Penalize vague '
             'teasing, clickbait, and sentences that do not connect to what follows. Also penalize openings that '
             'give away the answer or twist, or that lead with a year, date or full name; prefer a concrete '
-            'object, pain, moment or contradiction the viewer can picture. Among honest options, pick the one '
+            'object, pain, moment or contradiction the viewer can picture. Prefer the most dramatic, shocking moment '
+            'of the story (cold open). Among honest options, pick the one '
             'with the strongest emotional pull.\n'
             + zuschauer_daten() +
             f'CANDIDATES:\n{liste}\n\nREST OF THE SCRIPT (after the opening sentence):\n{rest[:3000]}\n'

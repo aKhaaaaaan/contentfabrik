@@ -38,6 +38,8 @@ SFX = Path(__file__).resolve().parent.parent / 'sfx'
 # Ruhige Bewegung auf Illustrationen; Bildwechsel folgen inhaltlichen Beats.
 GEMINI_FAKTOR = 1.0  # zuletzt angewandtes Gemini-Tempo (gemini_ton), fuer messung.json
 ZOOM = '1+0.035*min(on/{n},1)'
+HOOK_ZOOM = '1+0.10*min(on/{n},1)'  # Hook-Bild 28.10.2026: deutlich sichtbare Fahrt
+HOOK_TEXT_S = 2.0  # so lange steht der gesprochene Hook gross in der Bildmitte
 ZOOM_KARTE_MAX = 1.10  # 28.10.2026 Nutzer: "kein Motion" - vorher 1.06 bei +1,2 %/s kaum sichtbar
 ZOOM_KARTE = f'min(1+0.001*on,{ZOOM_KARTE_MAX})'  # je Bild bei 30 fps: +3 %/s, nach gut 3 s am Ende
 LAYOUT = {}
@@ -466,7 +468,8 @@ def karten_ebene(karte, kasten=None):
     return img
 
 
-TIPP_S_JE_ZEICHEN, TIPP_HOECHSTENS_S = 0.03, 0.9
+# 28.10.2026 (TikTok: Abbruch bei 0:01-0:02): Titel in hoechstens 0,35 s statt 0,9 s fertig getippt.
+TIPP_S_JE_ZEICHEN, TIPP_HOECHSTENS_S = 0.015, 0.35
 
 
 def tipp_eingabe(ein, ebene, zeichne, titel, ordner):
@@ -1585,12 +1588,17 @@ def untertitel(woerter, pfad, profil=None, akzente=()):
     index = 0
     for gruppe in gruppen:
         text = ' '.join(zeig(x['w']) for x in gruppe)
-        gfont = groesse
+        # GEMESSEN 28.10.2026 (TikTok-Analyse GE Vernova / Claude Code TV OS): die meisten wischten bei 0:01-0:02
+        # weg (Schnitt 4-7 s, 2-5 % bis zum Ende). In den ersten Sekunden steht der Hook deshalb gross in der
+        # Bildmitte statt klein unten - wer im Feed vorbeiwischt, liest ihn sofort.
+        hook = H > B and gruppe[0]['s'] < HOOK_TEXT_S
+        gfont = int(groesse * 1.5) if hook else groesse
         while schrift(gfont, str(SCHRIFTEN / 'Anton-Regular.ttf')).getlength(text) > breite and gfont > 52:
             gfont -= 2
         if schrift(gfont, str(SCHRIFTEN / 'Anton-Regular.ttf')).getlength(text) > breite:
             raise ValueError('Untertitel enthaelt ein zu langes Wort fuer lesbare Darstellung')
-        position = f'{{\\an2\\pos({LAYOUT["mitte"]},{H - rand})\\fs{gfont}}}'
+        position = (f'{{\\an5\\pos({LAYOUT["mitte"]},{int(H * .45)})\\fs{gfont}}}' if hook
+                    else f'{{\\an2\\pos({LAYOUT["mitte"]},{H - rand})\\fs{gfont}}}')
         for j, w in enumerate(gruppe):
             pop = position
             weg, da = '{\\3a&HFF&}', '{\\3a&H00&}'  # Kasten aus / an
@@ -2033,6 +2041,11 @@ def main(skript_pfad, aus, vorlage=None):
                     # mit Luftmatratze zeigen; erzeugt wurde ein Mann mit Sofas, die Bildpruefung hielt die
                     # Matratze fuer ein Nebendetail. Der Kern des Satzes ist Pflicht fuer Bild UND Pruefung.
                     szene = f"Key visible subject (must be clearly shown): {t['motiv']}. {szene}"
+                if i == 0 and H > B:
+                    # GEMESSEN 28.10.2026 (TikTok GE Vernova/Claude Code TV OS): Abbruch bei 0:01-0:02; das erste
+                    # Bild war dunkel, unscharf und zeigte niemanden. Ein Gesicht mit Gefuehl haelt den Daumen an.
+                    szene += (', a person in medium close-up showing a strong readable emotion (shock, despair or '
+                              'triumph) at this exact moment, bright high-contrast light, subject fills the frame')
                 ill = illustration_mit_ausweg(szene, aus / f'ill_{i:02d}.jpg', kanal_slug,
                                               t.get('figur', i == 0 or letzt), i == 0 or letzt,
                                               dramaturgie.videoformat(s), szene_zuerst=not letzt,
@@ -2181,7 +2194,24 @@ def main(skript_pfad, aus, vorlage=None):
             # unscharfen Hintergrundclip. Nutzerwunsch: das Motiv gross zeigen, dahinter DASSELBE Bild
             # verschwommen (wie in den ersten Videos). Short: weiter Vollbild mit Zoom.
             lebend = None
-            if ill:  # GEMELDET 10.10.2026: auch im Short Motiv gross, dahinter dasselbe Bild verschwommen
+            if ill and i == 0 and H > B:
+                # GEMESSEN 28.10.2026 (TikTok-Analyse): die meisten wischten bei 0:01-0:02 weg. Das erste Bild war
+                # ein verschwommener Hintergrund, die Karte glitt erst nach 0,35 s herein. Hook-Bild darum ab dem
+                # ersten Frame im Vollbild, heller, kraeftiger und mit deutlicherer Fahrt (Parallax, wenn moeglich).
+                lv = (parallax.video(ill, Image.open(ill).size, dauer, FPS, aus / f'lebend_{i:02d}.mp4')
+                      if gemalt and i not in zahl_slots else None)
+                n = max(1, int(dauer * FPS))
+                filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,fps={FPS},'
+                        f'eq=contrast=1.12:brightness=0.03:saturation=1.2,'
+                        f"zoompan=z='" + HOOK_ZOOM.format(n=n) + f"':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
+                        f':d=1:s={B}x{H}:fps={FPS}[v];[v][1:v]overlay=0:0,format=yuv420p')
+                ein = (['-i', str(lv)] if lv else ['-loop', '1', '-framerate', str(FPS), '-i', str(ill)]) \
+                    + ['-loop', '1', '-framerate', str(FPS), '-i', str(ebene)]
+                kpfad = aus / f'karte_{i:02d}.png'
+                karten_ebene(ill, kasten='gross').save(kpfad)  # nur fuer den Rueckfall auf die Karte
+                lebend = 'hook-vollbild'
+                print('Einstellung 0: Hook-Bild im Vollbild' + (' mit Parallax' if lv else ''))
+            elif ill:  # GEMELDET 10.10.2026: auch im Short Motiv gross, dahinter dasselbe Bild verschwommen
                 kpfad = aus / f'karte_{i:02d}.png'
                 karten_ebene(ill, kasten='gross').save(kpfad)
                 # Nutzer 28.10.2026: lebende Bilder - nur gemalte Szenen ohne eingesetzte Zahl (Schrift verzoege)
@@ -2226,6 +2256,7 @@ def main(skript_pfad, aus, vorlage=None):
                     t, s['titel'], i, len(shots), durchsichtig=not karte, karte=karte, akzent=akzent_farbe(s),
                     logo=logo, titel_bis=n), s['titel'], aus)
                 ereignisse.append((0.05, 'tippen'))
+                ereignisse.append((0.0, 'impact'))  # 28.10.2026: Schlag auf dem ersten Wort
             # GEMELDET (KI-Analyse): „Ablauf ueber 1,5 Minuten exakt gleich",
             # „Praxisbeispiele wuerden es lebendiger machen". Je Platz zwei
             # Stuecke: erst die Karte (2,8 s, Einflug), dann ein Clip, der zeigt,

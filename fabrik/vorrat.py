@@ -56,6 +56,12 @@ def gueltig(eintrag, daten, jetzt=None):
     try:
         alter = jetzt - datetime.datetime.fromisoformat(eintrag['erstellt_utc'])
         s = eintrag['skript']
+        # GEMESSEN 28.10.2026 (Lauf 40687018472): nach der Hook-Umstellung (prompts.VERSION 2026-10-28.1) baute
+        # der Abendtest das Vorrat-Skript von 05:17 mit dem alten Hook - kein Unterschied sichtbar. Der
+        # Entwurfscache verwirft bei neuer Version; der Vorrat jetzt ebenso.
+        import prompts
+        if eintrag.get('prompts') != prompts.VERSION:
+            return False
         # Laengengrenze der aktuellen Erzaehlstimme (z. B. Orus ~2 W/s): ein vorher fuer
         # Kokoro geschriebenes Skript wuerde zu lang (GEMESSEN 08.10.: 207 Woerter = 109 s).
         import dramaturgie, skript as skriptmodul
@@ -263,8 +269,9 @@ def fuellen(kanal_pfad, frist_s=1500):
                 break
             continue
         s = json.loads(ziel.read_text(encoding='utf-8'))
+        import prompts
         e = {'thema_eingabe': thema, 'erstellt_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
-             'modell': s.get('modell'), 'story_note': (s.get('story') or {}).get('note'), 'skript': s}
+             'prompts': prompts.VERSION, 'modell': s.get('modell'), 'story_note': (s.get('story') or {}).get('note'), 'skript': s}
         if not gueltig(e, _kanal_daten(kanal_pfad)):
             print('Vorrat: Pruefungen nicht bestanden - nicht aufgenommen')
             continue

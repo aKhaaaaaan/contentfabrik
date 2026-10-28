@@ -356,7 +356,9 @@ function kostenText(d, schwelle, prognose) {
     : `Warnung Gemini-Kosten: ${prozent} % der Grenze erreicht.`;
   return `${kopf}\nBisher ${eur(d.costAmount)} € von ${eur(d.budgetAmount)} € (${d.budgetDisplayName || 'Budget'}).\n` +
     'Bei Erreichen der Grenze pausieren bezahlte Stimme und Gemini-Reserve bis zum Monatsersten.\n' +
-    'Grenze ansehen/aendern: https://aistudio.google.com/spend';
+    // Nutzer 28.10.2026: "den genauen Link, wo ich wieder aufladen muss" (Quelle: ai.google.dev/gemini-api/docs/billing)
+    'Aufladen / Zahlung: https://aistudio.google.com/billing (bei Prepay: "Buy credits")\n' +
+    'Monatsgrenze aendern: https://aistudio.google.com/spend';
 }
 
 async function kosten(request, env) {

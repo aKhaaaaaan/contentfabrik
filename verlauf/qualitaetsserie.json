@@ -102485,6 +102485,1518 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "40656459732.1:business-origin-stories",
+      "run_id": "40656459732",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-28T09:18:47.028337+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "e979cf395154ab157462df64f4908ae05a6dc1ac",
+      "produktionsversion": "c890e768d8d90dd6d468b5519cf8e37760177cad248906a719691b0b8da534e1",
+      "videoformat": "short",
+      "thema": "BMW",
+      "titel": [
+        "*BMW* Made Pots and Pans",
+        "Then Daimler Almost Struck"
+      ],
+      "status": "gesendet",
+      "video_sha256": "adeb77ed68d080ba883bf82331664f630a6cd59837de1327c4656d22ba265941",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-25.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte erwähnen Topf- und Pfannenherstellung in der Nachkriegszeit, zu sehen ist jedoch nur ein Auto polierender Mann in einer Werkstatt ohne jeglichen Bezug zu Töpfen oder Pfannen.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die historische Szene zeigt Fabrikarbeiter, aber keine spezifischen Nachkriegsanlagen oder den Verbotshinweis zur Fahrzeugproduktion.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen Mann mit Papier, aber keinen Bezug zu Autos, dünnen Gewinnspannen oder finanziellen Problemen von BMW.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Die Szene zeigt Männer in einem Konferenzraum, aber weder die Übernahme durch Daimler-Benz noch das Jahr 1959 oder spezifische geschichtliche Details der BMW-Rettung werden visuell belegt.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Frage 'So what changed?' bezieht sich auf die Rettung von BMW durch die Familie Quandt, was in diesem Bild eines Handwerkers in einer Werkstatt nicht visuell erklärt oder dargestellt wird.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwei anonyme Geschäftsleute in einem Büro, aber keine Darstellung von Herbert und Harald Quandt oder einer Investition.",
+        "Offenes Problem (schwer): Die gesprochenen Worte erwähnen Topf- und Pfannenherstellung in der Nachkriegszeit, zu sehen ist jedoch nur ein Auto polierender Mann in einer Werkstatt ohne jeglichen Bezug zu Töpfen oder Pfannen. Korrektur: Historisches Bild von Nachkriegsprodukten wie Töpfen, Pfannen oder Fahrrädern aus einer BMW-Fabrik",
+        "Offenes Problem (schwer): Die historische Szene zeigt Fabrikarbeiter, aber keine spezifischen Nachkriegsanlagen oder den Verbotshinweis zur Fahrzeugproduktion. Korrektur: Historisches Foto oder Illustration einer Fabrik, die in der Nachkriegszeit Haushaltswaren wie Töpfe statt Autos produziert.",
+        "Offenes Problem (schwer): Die Szene zeigt einen Mann mit Papier, aber keinen Bezug zu Autos, dünnen Gewinnspannen oder finanziellen Problemen von BMW. Korrektur: Historische Dokumente oder Verkaufszahlen, die finanzielle Schwierigkeiten oder dünne Gewinnspannen der Automobilproduktion zeigen.",
+        "Offenes Problem (schwer): Die Szene zeigt Männer in einem Konferenzraum, aber weder die Übernahme durch Daimler-Benz noch das Jahr 1959 oder spezifische geschichtliche Details der BMW-Rettung werden visuell belegt. Korrektur: Historisches Foto oder Dokument der Daimler-Benz Hauptversammlung oder Übernahmeverhandlungen aus dem Jahr 1959.",
+        "Offenes Problem (schwer): Die gesprochene Frage 'So what changed?' bezieht sich auf die Rettung von BMW durch die Familie Quandt, was in diesem Bild eines Handwerkers in einer Werkstatt nicht visuell erklärt oder dargestellt wird. Korrektur: Ein historisches Foto oder eine Illustration von Herbert und Harald Quandt bei der Investition in BMW oder die Unterzeichnung von Rettungsverträgen.",
+        "Offenes Problem (schwer): Das Bild zeigt zwei anonyme Geschäftsleute in einem Büro, aber keine Darstellung von Herbert und Harald Quandt oder einer Investition. Korrektur: Ein historisches Bild von Herbert und Harald Quandt oder ihrer geschäftlichen Präsenz bei BMW."
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 13,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "40656459732",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-28",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 1284.5,
+            "pruefung_s": 39.6,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 3/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Handwerker in einer Werkstatt mit einem nachträglich aufgesetzten BMW-Logo, was nicht die im Text erwähnte Nachkriegszeit oder die Produktion von Töpfen und Pfannen darstellt.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar Töpfe und eine handwerkliche Szene, aber es wird weder die Nachkriegssituation noch die BMW-Werke oder das Verbot des Fahrzeugbaus gezeigt.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Handwerker in einer Werkstatt, aber keine Töpfe, Pfannen oder Fahrräder wie im Text erwähnt.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (6/10): Das Bild zeigt einen gestressten Geschäftsmann, was thematisch zu finanziellen Problemen passt, jedoch wird keine spezifische Geschäftsszene im Zusammenhang mit BMW oder Autos gezeigt.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die historische Situation einer bevorstehenden Übernahme durch Daimler-Benz im Jahr 1959 wird durch die Szene im Autohaus nicht spezifisch gezeigt.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen nachdenklichen Mann an einem Schreibtisch, was abstrakt zu der Frage passt, stellt jedoch keine historische Darstellung des BMW-Führungswandels oder der Rettung durch die Familie Quandt dar.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt zwei angebliche Investoren im Büro, aber nicht historisch spezifisch Herbert und Harald Quandt bei ihrer Investition.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Handwerker in einer Werkstatt mit einem nachträglich aufgesetzten BMW-Logo, was nicht die im Text erwähnte Nachkriegszeit oder die Produktion von Töpfen und Pfannen darstellt. Korrektur: Eine historische Illustration oder Darstellung von Fabrikarbeitern, die in der Nachkriegszeit Haushaltswaren wie Töpfe und Pfannen herstellen.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar Töpfe und eine handwerkliche Szene, aber es wird weder die Nachkriegssituation noch die BMW-Werke oder das Verbot des Fahrzeugbaus gezeigt. Korrektur: Eine historische Illustration oder ein Foto von BMW-Werken in der Nachkriegszeit, die Töpfe und Pfannen produzieren.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Handwerker in einer Werkstatt, aber keine Töpfe, Pfannen oder Fahrräder wie im Text erwähnt. Korrektur: Eine historische Werkstatt oder Fabrik, in der Töpfe, Pfannen oder Fahrräder hergestellt werden.",
+              "Offenes Problem (schwer): Das Bild zeigt einen gestressten Geschäftsmann, was thematisch zu finanziellen Problemen passt, jedoch wird keine spezifische Geschäftsszene im Zusammenhang mit BMW oder Autos gezeigt. Korrektur: Ein historisches Dokument oder Foto, das die finanziellen Schwierigkeiten von BMW in den 1950er Jahren illustriert.",
+              "Offenes Problem (schwer): Die historische Situation einer bevorstehenden Übernahme durch Daimler-Benz im Jahr 1959 wird durch die Szene im Autohaus nicht spezifisch gezeigt. Korrektur: Eine historische Darstellung oder ein Archivfoto der Verhandlungen oder der Firmenleitung von Daimler-Benz und BMW aus dem Jahr 1959.",
+              "Offenes Problem (schwer): Die Szene zeigt einen nachdenklichen Mann an einem Schreibtisch, was abstrakt zu der Frage passt, stellt jedoch keine historische Darstellung des BMW-Führungswandels oder der Rettung durch die Familie Quandt dar. Korrektur: Eine historische Darstellung oder ein Archivfoto von Herbert und Harald Quandt bei der Rettung von BMW im Jahr 1959.",
+              "Offenes Problem (schwer): Die Abbildung zeigt zwei angebliche Investoren im Büro, aber nicht historisch spezifisch Herbert und Harald Quandt bei ihrer Investition. Korrektur: Eine historische Darstellung oder ein dokumentarisches Foto von Herbert und Harald Quandt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Orus",
+              "stimme": 14.7,
+              "zeitmarken": 4.7,
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 1044.3,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 52.9,
+              "gesamt": 1284.0,
+              "videolaenge_s": 43.9,
+              "abschnitte_s": [
+                6.12,
+                5.46,
+                6.12,
+                6.9,
+                6.86,
+                6.28,
+                6.18
+              ],
+              "woerter": 87
+            },
+            "kategorien": {
+              "bild_passt": 3
+            },
+            "probleme": [
+              {
+                "zeit": "00:04.34",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "BMW did.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Handwerker in einer Werkstatt mit einem nachträglich aufgesetzten BMW-Logo, was nicht die im Text erwähnte Nachkriegszeit oder die Produktion von Töpfen und Pfannen darstellt. Korrektur: Eine historische Illustration oder Darstellung von Fabrikarbeitern, die in der Nachkriegszeit Haushaltswaren wie Töpfe und Pfannen herstellen."
+              },
+              {
+                "zeit": "00:06.12",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Postwar, BMW's remaining West German plants couldn't make vehicles or aircraft.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar Töpfe und eine handwerkliche Szene, aber es wird weder die Nachkriegssituation noch die BMW-Werke oder das Verbot des Fahrzeugbaus gezeigt. Korrektur: Eine historische Illustration oder ein Foto von BMW-Werken in der Nachkriegszeit, die Töpfe und Pfannen produzieren."
+              },
+              {
+                "zeit": "00:11.58",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 3,
+                "gesprochen": "It made pots, pans and bicycles.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Handwerker in einer Werkstatt, aber keine Töpfe, Pfannen oder Fahrräder wie im Text erwähnt. Korrektur: Eine historische Werkstatt oder Fabrik, in der Töpfe, Pfannen oder Fahrräder hergestellt werden."
+              },
+              {
+                "zeit": "00:21.15",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "thin margins caused serious financial trouble.",
+                "fest": false,
+                "text": "Das Bild zeigt einen gestressten Geschäftsmann, was thematisch zu finanziellen Problemen passt, jedoch wird keine spezifische Geschäftsszene im Zusammenhang mit BMW oder Autos gezeigt. Korrektur: Ein historisches Dokument oder Foto, das die finanziellen Schwierigkeiten von BMW in den 1950er Jahren illustriert."
+              },
+              {
+                "zeit": "00:24.60",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 7,
+                "gesprochen": "In 1959, rival Daimler-Benz nearly took BMW over.",
+                "fest": false,
+                "text": "Die historische Situation einer bevorstehenden Übernahme durch Daimler-Benz im Jahr 1959 wird durch die Szene im Autohaus nicht spezifisch gezeigt. Korrektur: Eine historische Darstellung oder ein Archivfoto der Verhandlungen oder der Firmenleitung von Daimler-Benz und BMW aus dem Jahr 1959."
+              },
+              {
+                "zeit": "00:29.36",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "So what changed?",
+                "fest": false,
+                "text": "Die Szene zeigt einen nachdenklichen Mann an einem Schreibtisch, was abstrakt zu der Frage passt, stellt jedoch keine historische Darstellung des BMW-Führungswandels oder der Rettung durch die Familie Quandt dar. Korrektur: Eine historische Darstellung oder ein Archivfoto von Herbert und Harald Quandt bei der Rettung von BMW im Jahr 1959."
+              },
+              {
+                "zeit": "00:31.46",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "Herbert and Harald Quandt invested heavily, so the",
+                "fest": false,
+                "text": "Die Abbildung zeigt zwei angebliche Investoren im Büro, aber nicht historisch spezifisch Herbert und Harald Quandt bei ihrer Investition. Korrektur: Eine historische Darstellung oder ein dokumentarisches Foto von Herbert und Harald Quandt."
+              }
+            ],
+            "sekunden": 1324.1,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-25.1"
+            },
+            "skript_s": 2.4,
+            "bau_s": 620.9,
+            "pruefung_s": 51.4,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte erwähnen Topf- und Pfannenherstellung in der Nachkriegszeit, zu sehen ist jedoch nur ein Auto polierender Mann in einer Werkstatt ohne jeglichen Bezug zu Töpfen oder Pfannen.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die historische Szene zeigt Fabrikarbeiter, aber keine spezifischen Nachkriegsanlagen oder den Verbotshinweis zur Fahrzeugproduktion.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen Mann mit Papier, aber keinen Bezug zu Autos, dünnen Gewinnspannen oder finanziellen Problemen von BMW.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Die Szene zeigt Männer in einem Konferenzraum, aber weder die Übernahme durch Daimler-Benz noch das Jahr 1959 oder spezifische geschichtliche Details der BMW-Rettung werden visuell belegt.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Frage 'So what changed?' bezieht sich auf die Rettung von BMW durch die Familie Quandt, was in diesem Bild eines Handwerkers in einer Werkstatt nicht visuell erklärt oder dargestellt wird.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwei anonyme Geschäftsleute in einem Büro, aber keine Darstellung von Herbert und Harald Quandt oder einer Investition.",
+              "Offenes Problem (schwer): Die gesprochenen Worte erwähnen Topf- und Pfannenherstellung in der Nachkriegszeit, zu sehen ist jedoch nur ein Auto polierender Mann in einer Werkstatt ohne jeglichen Bezug zu Töpfen oder Pfannen. Korrektur: Historisches Bild von Nachkriegsprodukten wie Töpfen, Pfannen oder Fahrrädern aus einer BMW-Fabrik",
+              "Offenes Problem (schwer): Die historische Szene zeigt Fabrikarbeiter, aber keine spezifischen Nachkriegsanlagen oder den Verbotshinweis zur Fahrzeugproduktion. Korrektur: Historisches Foto oder Illustration einer Fabrik, die in der Nachkriegszeit Haushaltswaren wie Töpfe statt Autos produziert.",
+              "Offenes Problem (schwer): Die Szene zeigt einen Mann mit Papier, aber keinen Bezug zu Autos, dünnen Gewinnspannen oder finanziellen Problemen von BMW. Korrektur: Historische Dokumente oder Verkaufszahlen, die finanzielle Schwierigkeiten oder dünne Gewinnspannen der Automobilproduktion zeigen.",
+              "Offenes Problem (schwer): Die Szene zeigt Männer in einem Konferenzraum, aber weder die Übernahme durch Daimler-Benz noch das Jahr 1959 oder spezifische geschichtliche Details der BMW-Rettung werden visuell belegt. Korrektur: Historisches Foto oder Dokument der Daimler-Benz Hauptversammlung oder Übernahmeverhandlungen aus dem Jahr 1959.",
+              "Offenes Problem (schwer): Die gesprochene Frage 'So what changed?' bezieht sich auf die Rettung von BMW durch die Familie Quandt, was in diesem Bild eines Handwerkers in einer Werkstatt nicht visuell erklärt oder dargestellt wird. Korrektur: Ein historisches Foto oder eine Illustration von Herbert und Harald Quandt bei der Investition in BMW oder die Unterzeichnung von Rettungsverträgen.",
+              "Offenes Problem (schwer): Das Bild zeigt zwei anonyme Geschäftsleute in einem Büro, aber keine Darstellung von Herbert und Harald Quandt oder einer Investition. Korrektur: Ein historisches Bild von Herbert und Harald Quandt oder ihrer geschäftlichen Präsenz bei BMW."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 6,
+              "stuecke_neu": 7,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 468.4,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 51.9,
+              "gesamt": 620.7,
+              "videolaenge_s": 43.9,
+              "abschnitte_s": [
+                6.12,
+                5.46,
+                6.12,
+                6.9,
+                6.86,
+                6.28,
+                6.18
+              ],
+              "woerter": 87
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:04.34",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "BMW did.",
+                "fest": false,
+                "text": "Die gesprochenen Worte erwähnen Topf- und Pfannenherstellung in der Nachkriegszeit, zu sehen ist jedoch nur ein Auto polierender Mann in einer Werkstatt ohne jeglichen Bezug zu Töpfen oder Pfannen. Korrektur: Historisches Bild von Nachkriegsprodukten wie Töpfen, Pfannen oder Fahrrädern aus einer BMW-Fabrik"
+              },
+              {
+                "zeit": "00:06.12",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Postwar, BMW's remaining West German plants couldn't make vehicles or aircraft.",
+                "fest": false,
+                "text": "Die historische Szene zeigt Fabrikarbeiter, aber keine spezifischen Nachkriegsanlagen oder den Verbotshinweis zur Fahrzeugproduktion. Korrektur: Historisches Foto oder Illustration einer Fabrik, die in der Nachkriegszeit Haushaltswaren wie Töpfe statt Autos produziert."
+              },
+              {
+                "zeit": "00:21.15",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "thin margins caused serious financial trouble.",
+                "fest": false,
+                "text": "Die Szene zeigt einen Mann mit Papier, aber keinen Bezug zu Autos, dünnen Gewinnspannen oder finanziellen Problemen von BMW. Korrektur: Historische Dokumente oder Verkaufszahlen, die finanzielle Schwierigkeiten oder dünne Gewinnspannen der Automobilproduktion zeigen."
+              },
+              {
+                "zeit": "00:24.60",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 7,
+                "gesprochen": "In 1959, rival Daimler-Benz nearly took BMW over.",
+                "fest": false,
+                "text": "Die Szene zeigt Männer in einem Konferenzraum, aber weder die Übernahme durch Daimler-Benz noch das Jahr 1959 oder spezifische geschichtliche Details der BMW-Rettung werden visuell belegt. Korrektur: Historisches Foto oder Dokument der Daimler-Benz Hauptversammlung oder Übernahmeverhandlungen aus dem Jahr 1959."
+              },
+              {
+                "zeit": "00:29.36",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "So what changed?",
+                "fest": false,
+                "text": "Die gesprochene Frage 'So what changed?' bezieht sich auf die Rettung von BMW durch die Familie Quandt, was in diesem Bild eines Handwerkers in einer Werkstatt nicht visuell erklärt oder dargestellt wird. Korrektur: Ein historisches Foto oder eine Illustration von Herbert und Harald Quandt bei der Investition in BMW oder die Unterzeichnung von Rettungsverträgen."
+              },
+              {
+                "zeit": "00:31.46",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "Herbert and Harald Quandt invested heavily, so the",
+                "fest": false,
+                "text": "Das Bild zeigt zwei anonyme Geschäftsleute in einem Büro, aber keine Darstellung von Herbert und Harald Quandt oder einer Investition. Korrektur: Ein historisches Bild von Herbert und Harald Quandt oder ihrer geschäftlichen Präsenz bei BMW."
+              }
+            ],
+            "sekunden": 674.7,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "40656459732-2",
+              "datum": "2026-10-28",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 674.7,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 3
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-25.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-25.1"
+            },
+            "skript_s": 2.8,
+            "bau_s": 446.6,
+            "pruefung_s": 28.7,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar einen Arbeiter und das BMW-Logo, aber nicht die im Text erwähnten Töpfe und Pfannen aus der Nachkriegszeit.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die Abbildung zeigt einen gezeichneten Mann in einer Straßenschlucht, aber nicht die Nachkriegs-Fahrzeugwerke von BMW oder deren Unfähigkeit, Fahrzeuge zu bauen.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (6/10): Das Bild zeigt den Austausch von Geld oder Münzen, was zwar im weitesten Sinne finanzielle Schwierigkeiten oder Transaktionen versinnbildlicht, aber nicht konkret dünne Gewinnspannen (thin margins) oder geschäftliche Finanzkrisen von BMW darstellt.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich vier Männer in Anzügen an einem Besprechungstisch, was die Erwähnung der versuchten Übernahme von BMW durch Daimler-Benz im Jahr 1959 in keiner Weise visuell darstellt.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Werkstattszene auf der Straße und eine Gruppe von Menschen, aber keinen Bezug zur Übernahmebedrohung durch Daimler-Benz im Jahr 1959.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die Abbildung zeigt zwei Männer beim Unterschreiben von Dokumenten in einem Büro, was zwar geschäftlich wirkt, aber keine konkrete historische Darstellung der Investoren Herbert und Harald Quandt ist.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (4/10): Die historische Illustration zeigt zwar symbolisch Töpfe, aber nicht die Investition von Herbert und Harald Quandt oder die finanzielle Rettung von BMW.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar einen Arbeiter und das BMW-Logo, aber nicht die im Text erwähnten Töpfe und Pfannen aus der Nachkriegszeit. Korrektur: Eine historische Illustration oder Darstellung von Töpfen, Pfannen und Fahrrädern, die BMW in der Nachkriegszeit produziert hat.",
+              "Offenes Problem (schwer): Die Abbildung zeigt einen gezeichneten Mann in einer Straßenschlucht, aber nicht die Nachkriegs-Fahrzeugwerke von BMW oder deren Unfähigkeit, Fahrzeuge zu bauen. Korrektur: Historische Darstellung der zerstörten oder umgestellten BMW-Werke in der Nachkriegszeit.",
+              "Offenes Problem (schwer): Das Bild zeigt den Austausch von Geld oder Münzen, was zwar im weitesten Sinne finanzielle Schwierigkeiten oder Transaktionen versinnbildlicht, aber nicht konkret dünne Gewinnspannen (thin margins) oder geschäftliche Finanzkrisen von BMW darstellt. Korrektur: Ein historisches Dokument, ein Bilanzelement oder eine Grafik, die die finanziellen Schwierigkeiten und geringen Gewinnmargen von BMW in den 1950er Jahren verdeutlicht.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich vier Männer in Anzügen an einem Besprechungstisch, was die Erwähnung der versuchten Übernahme von BMW durch Daimler-Benz im Jahr 1959 in keiner Weise visuell darstellt. Korrektur: Eine historische Darstellung oder ein Archivfoto aus dem Jahr 1959, das die Verhandlungen oder die Beinahe-Übernahme von BMW durch Daimler-Benz zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Werkstattszene auf der Straße und eine Gruppe von Menschen, aber keinen Bezug zur Übernahmebedrohung durch Daimler-Benz im Jahr 1959. Korrektur: Eine historische Darstellung der Vorstandssitzung oder der Rettungsaktion durch die Quandt-Brüder 1959.",
+              "Offenes Problem (schwer): Die Abbildung zeigt zwei Männer beim Unterschreiben von Dokumenten in einem Büro, was zwar geschäftlich wirkt, aber keine konkrete historische Darstellung der Investoren Herbert und Harald Quandt ist. Korrektur: Ein historisches Porträt oder eine Darstellung der Investoren Herbert und Harald Quandt in den 1950er Jahren.",
+              "Offenes Problem (schwer): Die historische Illustration zeigt zwar symbolisch Töpfe, aber nicht die Investition von Herbert und Harald Quandt oder die finanzielle Rettung von BMW. Korrektur: Ein historisches Foto der Investoren Herbert und Harald Quandt oder von BMW-Werken der Nachkriegszeit."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 7,
+              "stuecke_neu": 6,
+              "bilder_vereinfacht": 3,
+              "clips_und_stuecke": 304.8,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 53.3,
+              "gesamt": 446.3,
+              "videolaenge_s": 43.9,
+              "abschnitte_s": [
+                6.12,
+                5.46,
+                6.12,
+                6.9,
+                6.86,
+                6.28,
+                6.18
+              ],
+              "woerter": 87
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:04.34",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "BMW did.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar einen Arbeiter und das BMW-Logo, aber nicht die im Text erwähnten Töpfe und Pfannen aus der Nachkriegszeit. Korrektur: Eine historische Illustration oder Darstellung von Töpfen, Pfannen und Fahrrädern, die BMW in der Nachkriegszeit produziert hat."
+              },
+              {
+                "zeit": "00:06.12",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Postwar, BMW's remaining West German plants couldn't make vehicles or aircraft.",
+                "fest": false,
+                "text": "Die Abbildung zeigt einen gezeichneten Mann in einer Straßenschlucht, aber nicht die Nachkriegs-Fahrzeugwerke von BMW oder deren Unfähigkeit, Fahrzeuge zu bauen. Korrektur: Historische Darstellung der zerstörten oder umgestellten BMW-Werke in der Nachkriegszeit."
+              },
+              {
+                "zeit": "00:21.15",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "thin margins caused serious financial trouble.",
+                "fest": false,
+                "text": "Das Bild zeigt den Austausch von Geld oder Münzen, was zwar im weitesten Sinne finanzielle Schwierigkeiten oder Transaktionen versinnbildlicht, aber nicht konkret dünne Gewinnspannen (thin margins) oder geschäftliche Finanzkrisen von BMW darstellt. Korrektur: Ein historisches Dokument, ein Bilanzelement oder eine Grafik, die die finanziellen Schwierigkeiten und geringen Gewinnmargen von BMW in den 1950er Jahren verdeutlicht."
+              },
+              {
+                "zeit": "00:24.60",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 7,
+                "gesprochen": "In 1959, rival Daimler-Benz nearly took BMW over.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich vier Männer in Anzügen an einem Besprechungstisch, was die Erwähnung der versuchten Übernahme von BMW durch Daimler-Benz im Jahr 1959 in keiner Weise visuell darstellt. Korrektur: Eine historische Darstellung oder ein Archivfoto aus dem Jahr 1959, das die Verhandlungen oder die Beinahe-Übernahme von BMW durch Daimler-Benz zeigt."
+              },
+              {
+                "zeit": "00:29.36",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "So what changed?",
+                "fest": false,
+                "text": "Das Bild zeigt eine Werkstattszene auf der Straße und eine Gruppe von Menschen, aber keinen Bezug zur Übernahmebedrohung durch Daimler-Benz im Jahr 1959. Korrektur: Eine historische Darstellung der Vorstandssitzung oder der Rettungsaktion durch die Quandt-Brüder 1959."
+              },
+              {
+                "zeit": "00:31.46",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "Herbert and Harald Quandt invested heavily, so the",
+                "fest": false,
+                "text": "Die Abbildung zeigt zwei Männer beim Unterschreiben von Dokumenten in einem Büro, was zwar geschäftlich wirkt, aber keine konkrete historische Darstellung der Investoren Herbert und Harald Quandt ist. Korrektur: Ein historisches Porträt oder eine Darstellung der Investoren Herbert und Harald Quandt in den 1950er Jahren."
+              },
+              {
+                "zeit": "00:34.60",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "pots-and-pans survivor stayed independent.",
+                "fest": false,
+                "text": "Die historische Illustration zeigt zwar symbolisch Töpfe, aber nicht die Investition von Herbert und Harald Quandt oder die finanzielle Rettung von BMW. Korrektur: Ein historisches Foto der Investoren Herbert und Harald Quandt oder von BMW-Werken der Nachkriegszeit."
+              }
+            ],
+            "sekunden": 478.1,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "40656459732-3",
+              "datum": "2026-10-28",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 478.1,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-25.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 2579.4,
+        "upload_titel": "BMW Made Pots and Pans: Then Daimler Almost Struck"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:04.34",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "BMW did.",
+            "fest": false,
+            "text": "Die gesprochenen Worte erwähnen Topf- und Pfannenherstellung in der Nachkriegszeit, zu sehen ist jedoch nur ein Auto polierender Mann in einer Werkstatt ohne jeglichen Bezug zu Töpfen oder Pfannen. Korrektur: Historisches Bild von Nachkriegsprodukten wie Töpfen, Pfannen oder Fahrrädern aus einer BMW-Fabrik"
+          },
+          {
+            "zeit": "00:06.12",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "Postwar, BMW's remaining West German plants couldn't make vehicles or aircraft.",
+            "fest": false,
+            "text": "Die historische Szene zeigt Fabrikarbeiter, aber keine spezifischen Nachkriegsanlagen oder den Verbotshinweis zur Fahrzeugproduktion. Korrektur: Historisches Foto oder Illustration einer Fabrik, die in der Nachkriegszeit Haushaltswaren wie Töpfe statt Autos produziert."
+          },
+          {
+            "zeit": "00:21.15",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 6,
+            "gesprochen": "thin margins caused serious financial trouble.",
+            "fest": false,
+            "text": "Die Szene zeigt einen Mann mit Papier, aber keinen Bezug zu Autos, dünnen Gewinnspannen oder finanziellen Problemen von BMW. Korrektur: Historische Dokumente oder Verkaufszahlen, die finanzielle Schwierigkeiten oder dünne Gewinnspannen der Automobilproduktion zeigen."
+          },
+          {
+            "zeit": "00:24.60",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 7,
+            "gesprochen": "In 1959, rival Daimler-Benz nearly took BMW over.",
+            "fest": false,
+            "text": "Die Szene zeigt Männer in einem Konferenzraum, aber weder die Übernahme durch Daimler-Benz noch das Jahr 1959 oder spezifische geschichtliche Details der BMW-Rettung werden visuell belegt. Korrektur: Historisches Foto oder Dokument der Daimler-Benz Hauptversammlung oder Übernahmeverhandlungen aus dem Jahr 1959."
+          },
+          {
+            "zeit": "00:29.36",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "So what changed?",
+            "fest": false,
+            "text": "Die gesprochene Frage 'So what changed?' bezieht sich auf die Rettung von BMW durch die Familie Quandt, was in diesem Bild eines Handwerkers in einer Werkstatt nicht visuell erklärt oder dargestellt wird. Korrektur: Ein historisches Foto oder eine Illustration von Herbert und Harald Quandt bei der Investition in BMW oder die Unterzeichnung von Rettungsverträgen."
+          },
+          {
+            "zeit": "00:31.46",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 9,
+            "gesprochen": "Herbert and Harald Quandt invested heavily, so the",
+            "fest": false,
+            "text": "Das Bild zeigt zwei anonyme Geschäftsleute in einem Büro, aber keine Darstellung von Herbert und Harald Quandt oder einer Investition. Korrektur: Ein historisches Bild von Herbert und Harald Quandt oder ihrer geschäftlichen Präsenz bei BMW."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 43.9,
+          "fps": 30.0,
+          "lufs": -15.5,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 38.28,
+              "bis_s": 40.0,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.976
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 23.9,
+              "bis_s": 44.4,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Did",
+                "s": 0.0,
+                "e": 0.38,
+                "p": 0.8764755129814148
+              },
+              {
+                "w": "a",
+                "s": 0.38,
+                "e": 0.48,
+                "p": 0.9934331178665161
+              },
+              {
+                "w": "car",
+                "s": 0.48,
+                "e": 0.7,
+                "p": 0.9823585152626038
+              },
+              {
+                "w": "maker",
+                "s": 0.7,
+                "e": 1.02,
+                "p": 0.601409375667572
+              },
+              {
+                "w": "really",
+                "s": 1.02,
+                "e": 1.46,
+                "p": 0.9937708973884583
+              },
+              {
+                "w": "survive",
+                "s": 1.46,
+                "e": 1.98,
+                "p": 0.9942330718040466
+              },
+              {
+                "w": "on",
+                "s": 1.98,
+                "e": 2.56,
+                "p": 0.9879153966903687
+              },
+              {
+                "w": "pots",
+                "s": 2.56,
+                "e": 2.84,
+                "p": 0.8145813345909119
+              },
+              {
+                "w": "and",
+                "s": 2.84,
+                "e": 3.3,
+                "p": 0.9912928938865662
+              },
+              {
+                "w": "pans?",
+                "s": 3.3,
+                "e": 3.62,
+                "p": 0.9981719255447388
+              },
+              {
+                "w": "BMW",
+                "s": 4.42,
+                "e": 4.88,
+                "p": 0.9392744898796082
+              },
+              {
+                "w": "did.",
+                "s": 4.88,
+                "e": 5.48,
+                "p": 0.9845191240310669
+              },
+              {
+                "w": "Post",
+                "s": 6.02,
+                "e": 6.46,
+                "p": 0.9545304179191589
+              },
+              {
+                "w": "-war",
+                "s": 6.46,
+                "e": 6.8,
+                "p": 0.8793322145938873
+              },
+              {
+                "w": "BMW's",
+                "s": 6.8,
+                "e": 7.9,
+                "p": 0.7226893901824951
+              },
+              {
+                "w": "remaining",
+                "s": 7.9,
+                "e": 8.1,
+                "p": 0.9947804808616638
+              },
+              {
+                "w": "West",
+                "s": 8.1,
+                "e": 8.46,
+                "p": 0.8809009194374084
+              },
+              {
+                "w": "German",
+                "s": 8.46,
+                "e": 8.72,
+                "p": 0.9675171971321106
+              },
+              {
+                "w": "plants",
+                "s": 8.72,
+                "e": 9.04,
+                "p": 0.9851571321487427
+              },
+              {
+                "w": "couldn't",
+                "s": 9.04,
+                "e": 9.54,
+                "p": 0.9948510527610779
+              },
+              {
+                "w": "make",
+                "s": 9.54,
+                "e": 9.66,
+                "p": 0.999196469783783
+              },
+              {
+                "w": "vehicles",
+                "s": 9.66,
+                "e": 10.0,
+                "p": 0.9970340728759766
+              },
+              {
+                "w": "or",
+                "s": 10.0,
+                "e": 10.44,
+                "p": 0.9721617698669434
+              },
+              {
+                "w": "aircraft.",
+                "s": 10.44,
+                "e": 10.72,
+                "p": 0.9980018734931946
+              },
+              {
+                "w": "It",
+                "s": 11.58,
+                "e": 11.6,
+                "p": 0.9947144389152527
+              },
+              {
+                "w": "made",
+                "s": 11.6,
+                "e": 11.74,
+                "p": 0.9963341951370239
+              },
+              {
+                "w": "pots,",
+                "s": 11.74,
+                "e": 12.02,
+                "p": 0.9905135631561279
+              },
+              {
+                "w": "pans,",
+                "s": 12.5,
+                "e": 12.7,
+                "p": 0.997102677822113
+              },
+              {
+                "w": "and",
+                "s": 13.22,
+                "e": 13.32,
+                "p": 0.9976509213447571
+              },
+              {
+                "w": "bicycles.",
+                "s": 13.32,
+                "e": 13.62,
+                "p": 0.9927287101745605
+              },
+              {
+                "w": "Then",
+                "s": 15.16,
+                "e": 15.16,
+                "p": 0.9959298968315125
+              },
+              {
+                "w": "motorcycles",
+                "s": 15.16,
+                "e": 15.68,
+                "p": 0.7023861408233643
+              },
+              {
+                "w": "returned",
+                "s": 15.68,
+                "e": 16.22,
+                "p": 0.9804266691207886
+              },
+              {
+                "w": "in",
+                "s": 16.22,
+                "e": 16.46,
+                "p": 0.9856513738632202
+              },
+              {
+                "w": "1948.",
+                "s": 16.46,
+                "e": 16.72,
+                "p": 0.9963453412055969
+              },
+              {
+                "w": "Cars",
+                "s": 17.86,
+                "e": 17.94,
+                "p": 0.9705582857131958
+              },
+              {
+                "w": "returned",
+                "s": 17.94,
+                "e": 18.3,
+                "p": 0.9919530749320984
+              },
+              {
+                "w": "in",
+                "s": 18.3,
+                "e": 18.6,
+                "p": 0.9992185831069946
+              },
+              {
+                "w": "1952,",
+                "s": 18.6,
+                "e": 18.98,
+                "p": 0.9986798167228699
+              },
+              {
+                "w": "but",
+                "s": 20.04,
+                "e": 20.26,
+                "p": 0.9959906935691833
+              },
+              {
+                "w": "slow",
+                "s": 20.26,
+                "e": 20.46,
+                "p": 0.9971318244934082
+              },
+              {
+                "w": "sales",
+                "s": 20.46,
+                "e": 20.92,
+                "p": 0.8843674063682556
+              },
+              {
+                "w": "and",
+                "s": 20.92,
+                "e": 21.18,
+                "p": 0.9871742725372314
+              },
+              {
+                "w": "thin",
+                "s": 21.18,
+                "e": 21.36,
+                "p": 0.9925733804702759
+              },
+              {
+                "w": "margins",
+                "s": 21.36,
+                "e": 21.72,
+                "p": 0.9946773052215576
+              },
+              {
+                "w": "caused",
+                "s": 21.72,
+                "e": 22.12,
+                "p": 0.9963688850402832
+              },
+              {
+                "w": "serious",
+                "s": 22.12,
+                "e": 22.64,
+                "p": 0.9993059635162354
+              },
+              {
+                "w": "financial",
+                "s": 22.64,
+                "e": 23.06,
+                "p": 0.9984285235404968
+              },
+              {
+                "w": "trouble.",
+                "s": 23.06,
+                "e": 23.52,
+                "p": 0.9952164888381958
+              },
+              {
+                "w": "In",
+                "s": 24.66,
+                "e": 24.74,
+                "p": 0.9951391220092773
+              },
+              {
+                "w": "1959,",
+                "s": 24.74,
+                "e": 25.42,
+                "p": 0.9974246025085449
+              },
+              {
+                "w": "rival",
+                "s": 25.9,
+                "e": 26.28,
+                "p": 0.9811078906059265
+              },
+              {
+                "w": "Daimler",
+                "s": 26.28,
+                "e": 26.78,
+                "p": 0.8313432733217875
+              },
+              {
+                "w": "Benz",
+                "s": 26.78,
+                "e": 26.96,
+                "p": 0.35281023383140564
+              },
+              {
+                "w": "nearly",
+                "s": 26.96,
+                "e": 27.52,
+                "p": 0.9846950173377991
+              },
+              {
+                "w": "took",
+                "s": 27.52,
+                "e": 27.86,
+                "p": 0.996678352355957
+              },
+              {
+                "w": "BMW",
+                "s": 27.86,
+                "e": 28.04,
+                "p": 0.9975134134292603
+              },
+              {
+                "w": "over.",
+                "s": 28.04,
+                "e": 28.74,
+                "p": 0.9986829161643982
+              },
+              {
+                "w": "So",
+                "s": 28.74,
+                "e": 29.66,
+                "p": 0.4758486747741699
+              },
+              {
+                "w": "what",
+                "s": 29.66,
+                "e": 29.84,
+                "p": 0.6698843240737915
+              },
+              {
+                "w": "changed?",
+                "s": 29.84,
+                "e": 30.1,
+                "p": 0.9962179064750671
+              },
+              {
+                "w": "Herbert",
+                "s": 31.46,
+                "e": 31.46,
+                "p": 0.7209979295730591
+              },
+              {
+                "w": "and",
+                "s": 31.46,
+                "e": 31.74,
+                "p": 0.9818127155303955
+              },
+              {
+                "w": "Harold",
+                "s": 31.74,
+                "e": 31.94,
+                "p": 0.9202483892440796
+              },
+              {
+                "w": "Quant",
+                "s": 31.94,
+                "e": 32.2,
+                "p": 0.6015673279762268
+              },
+              {
+                "w": "invested",
+                "s": 32.2,
+                "e": 32.68,
+                "p": 0.9784722328186035
+              },
+              {
+                "w": "heavily,",
+                "s": 32.68,
+                "e": 33.3,
+                "p": 0.9785071611404419
+              },
+              {
+                "w": "so",
+                "s": 33.98,
+                "e": 34.3,
+                "p": 0.9824000597000122
+              },
+              {
+                "w": "the",
+                "s": 34.3,
+                "e": 34.42,
+                "p": 0.9908357858657837
+              },
+              {
+                "w": "pots",
+                "s": 34.42,
+                "e": 34.6,
+                "p": 0.4255431890487671
+              },
+              {
+                "w": "and",
+                "s": 34.6,
+                "e": 34.8,
+                "p": 0.877349317073822
+              },
+              {
+                "w": "pans",
+                "s": 34.8,
+                "e": 34.96,
+                "p": 0.9900240898132324
+              },
+              {
+                "w": "survivor",
+                "s": 34.96,
+                "e": 35.38,
+                "p": 0.9237515330314636
+              },
+              {
+                "w": "stayed",
+                "s": 35.38,
+                "e": 35.98,
+                "p": 0.9577328562736511
+              },
+              {
+                "w": "independent.",
+                "s": 35.98,
+                "e": 36.7,
+                "p": 0.9910344481468201
+              },
+              {
+                "w": "Be",
+                "s": 37.78,
+                "e": 38.08,
+                "p": 0.9881487488746643
+              },
+              {
+                "w": "sure",
+                "s": 38.08,
+                "e": 38.2,
+                "p": 0.999267041683197
+              },
+              {
+                "w": "to",
+                "s": 38.2,
+                "e": 38.28,
+                "p": 0.9965601563453674
+              },
+              {
+                "w": "like,",
+                "s": 38.28,
+                "e": 38.46,
+                "p": 0.8952417969703674
+              },
+              {
+                "w": "share,",
+                "s": 38.76,
+                "e": 39.04,
+                "p": 0.9941563606262207
+              },
+              {
+                "w": "and",
+                "s": 39.32,
+                "e": 39.34,
+                "p": 0.9955450296401978
+              },
+              {
+                "w": "save",
+                "s": 39.34,
+                "e": 39.56,
+                "p": 0.9867255687713623
+              },
+              {
+                "w": "this",
+                "s": 39.56,
+                "e": 39.72,
+                "p": 0.9848300218582153
+              },
+              {
+                "w": "video,",
+                "s": 39.72,
+                "e": 40.0,
+                "p": 0.9973165392875671
+              },
+              {
+                "w": "which",
+                "s": 40.46,
+                "e": 40.8,
+                "p": 0.9833950996398926
+              },
+              {
+                "w": "company",
+                "s": 40.8,
+                "e": 41.06,
+                "p": 0.9709721207618713
+              },
+              {
+                "w": "next,",
+                "s": 41.06,
+                "e": 41.34,
+                "p": 0.9322075843811035
+              },
+              {
+                "w": "comment,",
+                "s": 41.88,
+                "e": 42.14,
+                "p": 0.9841991662979126
+              },
+              {
+                "w": "and",
+                "s": 42.58,
+                "e": 42.82,
+                "p": 0.9975886344909668
+              },
+              {
+                "w": "follow",
+                "s": 42.82,
+                "e": 43.08,
+                "p": 0.9969149827957153
+              },
+              {
+                "w": "for",
+                "s": 43.08,
+                "e": 43.28,
+                "p": 0.9811479449272156
+              },
+              {
+                "w": "more.",
+                "s": 43.28,
+                "e": 43.48,
+                "p": 0.9988424181938171
+              }
+            ],
+            "dauer_s": 43.84,
+            "sprache": "en"
+          },
+          "roh_key": "a65d31e9191b885fda23ede2207a54947b90f3e4cca57897d3883bc919c1e168",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "adeb77ed68d080ba883bf82331664f630a6cd59837de1327c4656d22ba265941",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 43.9,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 13,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "adeb77ed68d080ba883bf82331664f630a6cd59837de1327c4656d22ba265941",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Eine historische Darstellung zeigt eine Person, die in einer Werkstatt mit einem Hammer auf einen Metalltopf oder eine Pfanne schlaegt. Im Hintergrund befinden sich weitere Kochgeraete und Töpfe an einer Wand sowie Personen auf einer Strasse.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt bildlich die im Text erwaehnte Produktion von Töpfen und Pfaennen, passt thematisch sehr gut als szenische Darstellung.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Mann im Anzug poliert die Motorhaube eines Oldtimers in einer Werkstatt, darüber eingeblendet ist das BMW-Logo.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochenen Worte erwähnen Topf- und Pfannenherstellung in der Nachkriegszeit, zu sehen ist jedoch nur ein Auto polierender Mann in einer Werkstatt ohne jeglichen Bezug zu Töpfen oder Pfannen.",
+              "erforderliches_bild": "Historisches Bild von Nachkriegsprodukten wie Töpfen, Pfannen oder Fahrrädern aus einer BMW-Fabrik"
+            },
+            {
+              "index": 2,
+              "gesehen": "Vier Arbeiter in Uniform stehen in einer Fabrik vor groben Maschinenteilen im Industriedesign.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die historische Szene zeigt Fabrikarbeiter, aber keine spezifischen Nachkriegsanlagen oder den Verbotshinweis zur Fahrzeugproduktion.",
+              "erforderliches_bild": "Historisches Foto oder Illustration einer Fabrik, die in der Nachkriegszeit Haushaltswaren wie Töpfe statt Autos produziert."
+            },
+            {
+              "index": 3,
+              "gesehen": "In einer Werkstatt steht ein Mann neben einem Fahrrad, im Hintergrund auf Tischen sind Töpfe und Pfannen zu sehen.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt die im Satz erwähnten Gegenstände Töpfe, Pfannen und ein Fahrrad in einer Werkstatt.",
+              "erforderliches_bild": "keines"
+            },
+            {
+              "index": 4,
+              "gesehen": "Eine historische Illustration zeigt ein schwarzes Motorrad in einer Werkstatt mit mehreren Männern in Anzügen und Hüten im Hintergrund.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration passt direkt zu der gesprochenen Erwähnung der Rückkehr der Motorräder in dieser Epoche.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 5,
+              "gesehen": "Eine Straßenszene aus den 1950er Jahren mit historischen Autos, die in einer Stadt geparkt sind oder langsam fahren, umgeben von Gebäuden und Personen im zeitgenössischen Stil.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt klassische Autos im Stil der 1950er Jahre, was gut zu der Erwähnung der Rückkehr von Autos im Jahr 1952 passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Mann im Anzug steht in einem Raum, schaut auf ein Dokument und hält einen Stift in der Hand.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Szene zeigt einen Mann mit Papier, aber keinen Bezug zu Autos, dünnen Gewinnspannen oder finanziellen Problemen von BMW.",
+              "erforderliches_bild": "Historische Dokumente oder Verkaufszahlen, die finanzielle Schwierigkeiten oder dünne Gewinnspannen der Automobilproduktion zeigen."
+            },
+            {
+              "index": 7,
+              "gesehen": "Eine Gruppe von Männern sitzt an einem Konferenztisch in einem Raum mit Fenster und Blick auf eine Straße. Sie sehen besorgt oder nachdenklich aus.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die Szene zeigt Männer in einem Konferenzraum, aber weder die Übernahme durch Daimler-Benz noch das Jahr 1959 oder spezifische geschichtliche Details der BMW-Rettung werden visuell belegt.",
+              "erforderliches_bild": "Historisches Foto oder Dokument der Daimler-Benz Hauptversammlung oder Übernahmeverhandlungen aus dem Jahr 1959."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein gemalter Mann mit Schnurrbart und Schürze in einer Werkstatt blickt nachdenklich nach unten.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochene Frage 'So what changed?' bezieht sich auf die Rettung von BMW durch die Familie Quandt, was in diesem Bild eines Handwerkers in einer Werkstatt nicht visuell erklärt oder dargestellt wird.",
+              "erforderliches_bild": "Ein historisches Foto oder eine Illustration von Herbert und Harald Quandt bei der Investition in BMW oder die Unterzeichnung von Rettungsverträgen."
+            },
+            {
+              "index": 9,
+              "gesehen": "Zwei historisch gekleidete Herren in einem traditionellen Büro mit Bücherregalen und Blick auf eine Straßenszene sitzen an einem Schreibtisch und sprechen miteinander.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt zwei anonyme Geschäftsleute in einem Büro, aber keine Darstellung von Herbert und Harald Quandt oder einer Investition.",
+              "erforderliches_bild": "Ein historisches Bild von Herbert und Harald Quandt oder ihrer geschäftlichen Präsenz bei BMW."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein Mann in einer Werkstatt stellt Kochtöpfe und Pfannen her, umgeben von Kupfergeschirr.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen Handwerker mit Kochtöpfen und Pfannen, was perfekt zum Begriff Töpfe-und-Pfannen-Überlebender (pots-and-pans survivor) im gesprochenen Text passt.",
+              "erforderliches_bild": ""
+            }
+          ],
+          "befunde": [
+            "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte erwähnen Topf- und Pfannenherstellung in der Nachkriegszeit, zu sehen ist jedoch nur ein Auto polierender Mann in einer Werkstatt ohne jeglichen Bezug zu Töpfen oder Pfannen.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die historische Szene zeigt Fabrikarbeiter, aber keine spezifischen Nachkriegsanlagen oder den Verbotshinweis zur Fahrzeugproduktion.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen Mann mit Papier, aber keinen Bezug zu Autos, dünnen Gewinnspannen oder finanziellen Problemen von BMW.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Die Szene zeigt Männer in einem Konferenzraum, aber weder die Übernahme durch Daimler-Benz noch das Jahr 1959 oder spezifische geschichtliche Details der BMW-Rettung werden visuell belegt.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Frage 'So what changed?' bezieht sich auf die Rettung von BMW durch die Familie Quandt, was in diesem Bild eines Handwerkers in einer Werkstatt nicht visuell erklärt oder dargestellt wird.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwei anonyme Geschäftsleute in einem Büro, aber keine Darstellung von Herbert und Harald Quandt oder einer Investition."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 13,
+          "ausgenommen": [
+            11,
+            12
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "adeb77ed68d080ba883bf82331664f630a6cd59837de1327c4656d22ba265941",
+        "prompt_version": "2026-10-25.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

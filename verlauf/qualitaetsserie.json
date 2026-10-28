@@ -103997,6 +103997,1339 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "40687018472.1:ai-tools-explained",
+      "run_id": "40687018472",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-28T12:31:23.496863+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "f01ab7fbf3cca68a82fc6add9a3d54b8a8be3b46",
+      "produktionsversion": "6a845f61ed35cc9e8ea6fc2061f36a49d642802a3d4548b20fc9d0df8b733ed3",
+      "videoformat": "short",
+      "thema": "What ChatGPT is and how a freelancer might use it for paid work",
+      "titel": [
+        "ChatGPT's Hidden Office",
+        "Found In Its Cache"
+      ],
+      "status": "gesendet",
+      "video_sha256": "7e832ee67181b9a4f3fbe5f5d0a770e9edbf446c37e4736a68354386a5dedca2",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-28.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Arbeiter an einem Schreibtisch, was zum Freiberufler-Kontext passt, aber das spezifische Thema der Frage nach einer Office-Suite in ChatGPT wird nicht visuell erklärt.",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich das ChatGPT-Logo und thematisch unpassende oder spielerische Textboxen, jedoch keinen Freelancer der in Dateien ertrinkt oder eine tatsächliche Überprüfung.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar den Text über die ChatGPT-Desktop-App für Linux und Codex, jedoch handelt es sich nur um eine Textankündigung/einen Beitrag und nicht um das konkrete Aufzeigen der App-Namen oder deren Umbenennung in einer echten Programmoberfläche.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Chat-Frage im Interface, aber nicht den Inhalt der App-Dateien oder Python/LibreOffice, die in diesem Abschnitt besprochen werden.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt nur Textüberschriften und UI-Elemente, während die gesprochenen Wörter Python, Node.js, Git und LibreOffice erwähnen, welche nicht dargestellt werden.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine grafische Darstellung von Codezeilen mit dem Titel PYTHON, aber nicht die im Text erwähnte Dateiliste oder den Inhalt des Caches mit Python, Node.js, git und Poppler.",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich Textfolien mit Stichworten wie 'FIND', aber keinerlei visuelle Darstellung von Dokumentenordnern, Skills oder gebündelten Binärdateien, wie es der gesprochene Text erfordert.",
+        "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich das ChatGPT-Logo und einen Textbanner, aber keinerlei Beweise oder Darstellungen für das Vorhandensein oder die Dateien einer Office-Suite wie LibreOffice.",
+        "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Es ist lediglich Text zu sehen, der sich auf Freelancer bezieht, aber keinerlei Überprüfung von Ausgaben oder Dokumenten.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Arbeiter an einem Schreibtisch, was zum Freiberufler-Kontext passt, aber das spezifische Thema der Frage nach einer Office-Suite in ChatGPT wird nicht visuell erklärt. Korrektur: Ein Screenshot des App-Caches oder der Dateistruktur, die die integrierten Programme zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich das ChatGPT-Logo und thematisch unpassende oder spielerische Textboxen, jedoch keinen Freelancer der in Dateien ertrinkt oder eine tatsächliche Überprüfung. Korrektur: Ein Foto eines Freelancers, der frustriert vor einem unübersichtlichen Stapel an digitalen oder physischen Kunden-Dateien sitzt.",
+        "Offenes Problem (schwer): Das Bild zeigt zwar den Text über die ChatGPT-Desktop-App für Linux und Codex, jedoch handelt es sich nur um eine Textankündigung/einen Beitrag und nicht um das konkrete Aufzeigen der App-Namen oder deren Umbenennung in einer echten Programmoberfläche. Korrektur: Ein Screenshot der Benutzeroberfläche der Desktop-Anwendung, die den Namen ChatGPT und Hinweise auf das Linux-Preview zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine Chat-Frage im Interface, aber nicht den Inhalt der App-Dateien oder Python/LibreOffice, die in diesem Abschnitt besprochen werden. Korrektur: Ein Dateibrowser oder Screenshot der Cache-Ordnerstruktur mit den enthaltenen Programmen wie Python, Node.js und LibreOffice.",
+        "Offenes Problem (schwer): Das Bild zeigt nur Textüberschriften und UI-Elemente, während die gesprochenen Wörter Python, Node.js, Git und LibreOffice erwähnen, welche nicht dargestellt werden. Korrektur: Ein Screenshot der App-Dateien im Cache-Ordner, der LibreOffice und Python zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine grafische Darstellung von Codezeilen mit dem Titel PYTHON, aber nicht die im Text erwähnte Dateiliste oder den Inhalt des Caches mit Python, Node.js, git und Poppler. Korrektur: Ein Screenshot oder eine Diagrammübersicht der Cache-Ordner und der darin enthaltenen Software-Pakete wie Python, Node.js, git und LibreOffice.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich Textfolien mit Stichworten wie 'FIND', aber keinerlei visuelle Darstellung von Dokumentenordnern, Skills oder gebündelten Binärdateien, wie es der gesprochene Text erfordert. Korrektur: Ein Screenshot oder eine Dateistrukturansicht, die den Ordner 'documents' mit den entsprechenden Skills zur Verwendung der Binärdateien zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich das ChatGPT-Logo und einen Textbanner, aber keinerlei Beweise oder Darstellungen für das Vorhandensein oder die Dateien einer Office-Suite wie LibreOffice. Korrektur: Einen Screenshot oder Ordnerinhalt, der die tatsächlichen Programmdateien wie LibreOffice oder die entsprechenden Binärdateien im App-Cache zeigt.",
+        "Offenes Problem (schwer): Es ist lediglich Text zu sehen, der sich auf Freelancer bezieht, aber keinerlei Überprüfung von Ausgaben oder Dokumenten. Korrektur: Ein Bild, das einen Freelancer beim Prüfen von Arbeitsergebnissen oder Dokumenten vor der Kundenübergabe zeigt."
+      ],
+      "einstellungen": 14,
+      "unterschiedliche_motive": 14,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "40687018472",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-28",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 443.1,
+            "pruefung_s": 72.5,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Arbeiter an einem Schreibtisch, was zum Freiberufler-Kontext passt, aber das spezifische Thema der Frage nach einer Office-Suite in ChatGPT wird nicht visuell erklärt.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich das ChatGPT-Logo und thematisch unpassende oder spielerische Textboxen, jedoch keinen Freelancer der in Dateien ertrinkt oder eine tatsächliche Überprüfung.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar den Text über die ChatGPT-Desktop-App für Linux und Codex, jedoch handelt es sich nur um eine Textankündigung/einen Beitrag und nicht um das konkrete Aufzeigen der App-Namen oder deren Umbenennung in einer echten Programmoberfläche.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Chat-Frage im Interface, aber nicht den Inhalt der App-Dateien oder Python/LibreOffice, die in diesem Abschnitt besprochen werden.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt nur Textüberschriften und UI-Elemente, während die gesprochenen Wörter Python, Node.js, Git und LibreOffice erwähnen, welche nicht dargestellt werden.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine grafische Darstellung von Codezeilen mit dem Titel PYTHON, aber nicht die im Text erwähnte Dateiliste oder den Inhalt des Caches mit Python, Node.js, git und Poppler.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich Textfolien mit Stichworten wie 'FIND', aber keinerlei visuelle Darstellung von Dokumentenordnern, Skills oder gebündelten Binärdateien, wie es der gesprochene Text erfordert.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich das ChatGPT-Logo und einen Textbanner, aber keinerlei Beweise oder Darstellungen für das Vorhandensein oder die Dateien einer Office-Suite wie LibreOffice.",
+              "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Es ist lediglich Text zu sehen, der sich auf Freelancer bezieht, aber keinerlei Überprüfung von Ausgaben oder Dokumenten.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Arbeiter an einem Schreibtisch, was zum Freiberufler-Kontext passt, aber das spezifische Thema der Frage nach einer Office-Suite in ChatGPT wird nicht visuell erklärt. Korrektur: Ein Screenshot des App-Caches oder der Dateistruktur, die die integrierten Programme zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich das ChatGPT-Logo und thematisch unpassende oder spielerische Textboxen, jedoch keinen Freelancer der in Dateien ertrinkt oder eine tatsächliche Überprüfung. Korrektur: Ein Foto eines Freelancers, der frustriert vor einem unübersichtlichen Stapel an digitalen oder physischen Kunden-Dateien sitzt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar den Text über die ChatGPT-Desktop-App für Linux und Codex, jedoch handelt es sich nur um eine Textankündigung/einen Beitrag und nicht um das konkrete Aufzeigen der App-Namen oder deren Umbenennung in einer echten Programmoberfläche. Korrektur: Ein Screenshot der Benutzeroberfläche der Desktop-Anwendung, die den Namen ChatGPT und Hinweise auf das Linux-Preview zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine Chat-Frage im Interface, aber nicht den Inhalt der App-Dateien oder Python/LibreOffice, die in diesem Abschnitt besprochen werden. Korrektur: Ein Dateibrowser oder Screenshot der Cache-Ordnerstruktur mit den enthaltenen Programmen wie Python, Node.js und LibreOffice.",
+              "Offenes Problem (schwer): Das Bild zeigt nur Textüberschriften und UI-Elemente, während die gesprochenen Wörter Python, Node.js, Git und LibreOffice erwähnen, welche nicht dargestellt werden. Korrektur: Ein Screenshot der App-Dateien im Cache-Ordner, der LibreOffice und Python zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine grafische Darstellung von Codezeilen mit dem Titel PYTHON, aber nicht die im Text erwähnte Dateiliste oder den Inhalt des Caches mit Python, Node.js, git und Poppler. Korrektur: Ein Screenshot oder eine Diagrammübersicht der Cache-Ordner und der darin enthaltenen Software-Pakete wie Python, Node.js, git und LibreOffice.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich Textfolien mit Stichworten wie 'FIND', aber keinerlei visuelle Darstellung von Dokumentenordnern, Skills oder gebündelten Binärdateien, wie es der gesprochene Text erfordert. Korrektur: Ein Screenshot oder eine Dateistrukturansicht, die den Ordner 'documents' mit den entsprechenden Skills zur Verwendung der Binärdateien zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich das ChatGPT-Logo und einen Textbanner, aber keinerlei Beweise oder Darstellungen für das Vorhandensein oder die Dateien einer Office-Suite wie LibreOffice. Korrektur: Einen Screenshot oder Ordnerinhalt, der die tatsächlichen Programmdateien wie LibreOffice oder die entsprechenden Binärdateien im App-Cache zeigt.",
+              "Offenes Problem (schwer): Es ist lediglich Text zu sehen, der sich auf Freelancer bezieht, aber keinerlei Überprüfung von Ausgaben oder Dokumenten. Korrektur: Ein Bild, das einen Freelancer beim Prüfen von Arbeitsergebnissen oder Dokumenten vor der Kundenübergabe zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 14.0,
+              "zeitmarken": 6.1,
+              "tempo": 1.1,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 14,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 169.1,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 14,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 37.2,
+              "gesamt": 442.6,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                8.0,
+                7.4,
+                6.54,
+                8.34,
+                5.18,
+                5.52,
+                4.01
+              ],
+              "woerter": 125
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Is a full office suite hiding inside ChatGPT?",
+                "fest": false,
+                "text": "Das Bild zeigt einen Arbeiter an einem Schreibtisch, was zum Freiberufler-Kontext passt, aber das spezifische Thema der Frage nach einer Office-Suite in ChatGPT wird nicht visuell erklärt. Korrektur: Ein Screenshot des App-Caches oder der Dateistruktur, die die integrierten Programme zeigt."
+              },
+              {
+                "zeit": "00:03.56",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "A freelancer drowning in client files would love that. Someone checked.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich das ChatGPT-Logo und thematisch unpassende oder spielerische Textboxen, jedoch keinen Freelancer der in Dateien ertrinkt oder eine tatsächliche Überprüfung. Korrektur: Ein Foto eines Freelancers, der frustriert vor einem unübersichtlichen Stapel an digitalen oder physischen Kunden-Dateien sitzt."
+              },
+              {
+                "zeit": "00:08.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "The desktop app, once called Codex, is now ChatGPT.",
+                "fest": true,
+                "text": "Das Bild zeigt zwar den Text über die ChatGPT-Desktop-App für Linux und Codex, jedoch handelt es sich nur um eine Textankündigung/einen Beitrag und nicht um das konkrete Aufzeigen der App-Namen oder deren Umbenennung in einer echten Programmoberfläche. Korrektur: Ein Screenshot der Benutzeroberfläche der Desktop-Anwendung, die den Namen ChatGPT und Hinweise auf das Linux-Preview zeigt."
+              },
+              {
+                "zeit": "00:19.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "So what was really in there?",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich eine Chat-Frage im Interface, aber nicht den Inhalt der App-Dateien oder Python/LibreOffice, die in diesem Abschnitt besprochen werden. Korrektur: Ein Dateibrowser oder Screenshot der Cache-Ordnerstruktur mit den enthaltenen Programmen wie Python, Node.js und LibreOffice."
+              },
+              {
+                "zeit": "00:21.94",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "Yes, really.",
+                "fest": true,
+                "text": "Das Bild zeigt nur Textüberschriften und UI-Elemente, während die gesprochenen Wörter Python, Node.js, Git und LibreOffice erwähnen, welche nicht dargestellt werden. Korrektur: Ein Screenshot der App-Dateien im Cache-Ordner, der LibreOffice und Python zeigt."
+              },
+              {
+                "zeit": "00:23.82",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "Inside sat Python, Node.js, git, Poppler and a full",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich eine grafische Darstellung von Codezeilen mit dem Titel PYTHON, aber nicht die im Text erwähnte Dateiliste oder den Inhalt des Caches mit Python, Node.js, git und Poppler. Korrektur: Ein Screenshot oder eine Diagrammübersicht der Cache-Ordner und der darin enthaltenen Software-Pakete wie Python, Node.js, git und LibreOffice."
+              },
+              {
+                "zeit": "00:32.56",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 10,
+                "gesprochen": "They tell Codex how to find and use those bundled binaries.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich Textfolien mit Stichworten wie 'FIND', aber keinerlei visuelle Darstellung von Dokumentenordnern, Skills oder gebündelten Binärdateien, wie es der gesprochene Text erfordert. Korrektur: Ein Screenshot oder eine Dateistrukturansicht, die den Ordner 'documents' mit den entsprechenden Skills zur Verwendung der Binärdateien zeigt."
+              },
+              {
+                "zeit": "00:35.46",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "So yes, the office suite is there.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich das ChatGPT-Logo und einen Textbanner, aber keinerlei Beweise oder Darstellungen für das Vorhandensein oder die Dateien einer Office-Suite wie LibreOffice. Korrektur: Einen Screenshot oder Ordnerinhalt, der die tatsächlichen Programmdateien wie LibreOffice oder die entsprechenden Binärdateien im App-Cache zeigt."
+              },
+              {
+                "zeit": "00:37.86",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 12,
+                "gesprochen": "Freelancers should still check any output before clients see it.",
+                "fest": true,
+                "text": "Es ist lediglich Text zu sehen, der sich auf Freelancer bezieht, aber keinerlei Überprüfung von Ausgaben oder Dokumenten. Korrektur: Ein Bild, das einen Freelancer beim Prüfen von Arbeitsergebnissen oder Dokumenten vor der Kundenübergabe zeigt."
+              }
+            ],
+            "sekunden": 515.6,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 552.3,
+        "upload_titel": "ChatGPT's Hidden Office: Found In Its Cache | AI Tool #18"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Is a full office suite hiding inside ChatGPT?",
+            "fest": false,
+            "text": "Das Bild zeigt einen Arbeiter an einem Schreibtisch, was zum Freiberufler-Kontext passt, aber das spezifische Thema der Frage nach einer Office-Suite in ChatGPT wird nicht visuell erklärt. Korrektur: Ein Screenshot des App-Caches oder der Dateistruktur, die die integrierten Programme zeigt."
+          },
+          {
+            "zeit": "00:03.56",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "A freelancer drowning in client files would love that. Someone checked.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich das ChatGPT-Logo und thematisch unpassende oder spielerische Textboxen, jedoch keinen Freelancer der in Dateien ertrinkt oder eine tatsächliche Überprüfung. Korrektur: Ein Foto eines Freelancers, der frustriert vor einem unübersichtlichen Stapel an digitalen oder physischen Kunden-Dateien sitzt."
+          },
+          {
+            "zeit": "00:08.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "The desktop app, once called Codex, is now ChatGPT.",
+            "fest": true,
+            "text": "Das Bild zeigt zwar den Text über die ChatGPT-Desktop-App für Linux und Codex, jedoch handelt es sich nur um eine Textankündigung/einen Beitrag und nicht um das konkrete Aufzeigen der App-Namen oder deren Umbenennung in einer echten Programmoberfläche. Korrektur: Ein Screenshot der Benutzeroberfläche der Desktop-Anwendung, die den Namen ChatGPT und Hinweise auf das Linux-Preview zeigt."
+          },
+          {
+            "zeit": "00:19.68",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "So what was really in there?",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich eine Chat-Frage im Interface, aber nicht den Inhalt der App-Dateien oder Python/LibreOffice, die in diesem Abschnitt besprochen werden. Korrektur: Ein Dateibrowser oder Screenshot der Cache-Ordnerstruktur mit den enthaltenen Programmen wie Python, Node.js und LibreOffice."
+          },
+          {
+            "zeit": "00:21.94",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 6,
+            "gesprochen": "Yes, really.",
+            "fest": true,
+            "text": "Das Bild zeigt nur Textüberschriften und UI-Elemente, während die gesprochenen Wörter Python, Node.js, Git und LibreOffice erwähnen, welche nicht dargestellt werden. Korrektur: Ein Screenshot der App-Dateien im Cache-Ordner, der LibreOffice und Python zeigt."
+          },
+          {
+            "zeit": "00:23.82",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "Inside sat Python, Node.js, git, Poppler and a full",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich eine grafische Darstellung von Codezeilen mit dem Titel PYTHON, aber nicht die im Text erwähnte Dateiliste oder den Inhalt des Caches mit Python, Node.js, git und Poppler. Korrektur: Ein Screenshot oder eine Diagrammübersicht der Cache-Ordner und der darin enthaltenen Software-Pakete wie Python, Node.js, git und LibreOffice."
+          },
+          {
+            "zeit": "00:32.56",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 10,
+            "gesprochen": "They tell Codex how to find and use those bundled binaries.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich Textfolien mit Stichworten wie 'FIND', aber keinerlei visuelle Darstellung von Dokumentenordnern, Skills oder gebündelten Binärdateien, wie es der gesprochene Text erfordert. Korrektur: Ein Screenshot oder eine Dateistrukturansicht, die den Ordner 'documents' mit den entsprechenden Skills zur Verwendung der Binärdateien zeigt."
+          },
+          {
+            "zeit": "00:35.46",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "So yes, the office suite is there.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich das ChatGPT-Logo und einen Textbanner, aber keinerlei Beweise oder Darstellungen für das Vorhandensein oder die Dateien einer Office-Suite wie LibreOffice. Korrektur: Einen Screenshot oder Ordnerinhalt, der die tatsächlichen Programmdateien wie LibreOffice oder die entsprechenden Binärdateien im App-Cache zeigt."
+          },
+          {
+            "zeit": "00:37.86",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 12,
+            "gesprochen": "Freelancers should still check any output before clients see it.",
+            "fest": true,
+            "text": "Es ist lediglich Text zu sehen, der sich auf Freelancer bezieht, aber keinerlei Überprüfung von Ausgaben oder Dokumenten. Korrektur: Ein Bild, das einen Freelancer beim Prüfen von Arbeitsergebnissen oder Dokumenten vor der Kundenübergabe zeigt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -14.5,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 41.3,
+              "bis_s": 42.46,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.986
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Is",
+                "s": 0.0,
+                "e": 0.28,
+                "p": 0.8537530899047852
+              },
+              {
+                "w": "a",
+                "s": 0.28,
+                "e": 0.4,
+                "p": 0.9019442200660706
+              },
+              {
+                "w": "full",
+                "s": 0.4,
+                "e": 0.64,
+                "p": 0.9684510827064514
+              },
+              {
+                "w": "office",
+                "s": 0.64,
+                "e": 1.1,
+                "p": 0.6424793601036072
+              },
+              {
+                "w": "suite",
+                "s": 1.1,
+                "e": 1.42,
+                "p": 0.9871503114700317
+              },
+              {
+                "w": "hiding",
+                "s": 1.42,
+                "e": 1.82,
+                "p": 0.9903792142868042
+              },
+              {
+                "w": "inside",
+                "s": 1.82,
+                "e": 2.34,
+                "p": 0.9966061115264893
+              },
+              {
+                "w": "ChatchyPT?",
+                "s": 2.34,
+                "e": 2.82,
+                "p": 0.408431900665164
+              },
+              {
+                "w": "A",
+                "s": 3.54,
+                "e": 3.66,
+                "p": 0.9860687255859375
+              },
+              {
+                "w": "freelancer",
+                "s": 3.66,
+                "e": 4.12,
+                "p": 0.9974774122238159
+              },
+              {
+                "w": "drowning",
+                "s": 4.12,
+                "e": 4.46,
+                "p": 0.707103967666626
+              },
+              {
+                "w": "in",
+                "s": 4.46,
+                "e": 4.8,
+                "p": 0.9989114999771118
+              },
+              {
+                "w": "client",
+                "s": 4.8,
+                "e": 5.0,
+                "p": 0.9568628668785095
+              },
+              {
+                "w": "files",
+                "s": 5.0,
+                "e": 5.3,
+                "p": 0.9936368465423584
+              },
+              {
+                "w": "would",
+                "s": 5.3,
+                "e": 5.68,
+                "p": 0.99244624376297
+              },
+              {
+                "w": "love",
+                "s": 5.68,
+                "e": 6.04,
+                "p": 0.9807131290435791
+              },
+              {
+                "w": "that.",
+                "s": 6.04,
+                "e": 6.32,
+                "p": 0.9931784868240356
+              },
+              {
+                "w": "Someone",
+                "s": 6.76,
+                "e": 7.18,
+                "p": 0.9756313562393188
+              },
+              {
+                "w": "checked.",
+                "s": 7.18,
+                "e": 7.36,
+                "p": 0.9974822402000427
+              },
+              {
+                "w": "The",
+                "s": 8.0,
+                "e": 8.0,
+                "p": 0.893018901348114
+              },
+              {
+                "w": "desktop",
+                "s": 8.0,
+                "e": 8.22,
+                "p": 0.919493556022644
+              },
+              {
+                "w": "app,",
+                "s": 8.22,
+                "e": 8.56,
+                "p": 0.9899471402168274
+              },
+              {
+                "w": "once",
+                "s": 8.56,
+                "e": 8.78,
+                "p": 0.8690025806427002
+              },
+              {
+                "w": "called",
+                "s": 8.78,
+                "e": 9.04,
+                "p": 0.9957393407821655
+              },
+              {
+                "w": "Codex,",
+                "s": 9.04,
+                "e": 9.22,
+                "p": 0.541006863117218
+              },
+              {
+                "w": "is",
+                "s": 9.62,
+                "e": 9.7,
+                "p": 0.9980260133743286
+              },
+              {
+                "w": "now",
+                "s": 9.7,
+                "e": 9.9,
+                "p": 0.998664140701294
+              },
+              {
+                "w": "ChatchyPT.",
+                "s": 9.9,
+                "e": 10.54,
+                "p": 0.9869660139083862
+              },
+              {
+                "w": "Its",
+                "s": 11.12,
+                "e": 11.32,
+                "p": 0.6550071239471436
+              },
+              {
+                "w": "Linux",
+                "s": 11.32,
+                "e": 11.5,
+                "p": 0.9940555095672607
+              },
+              {
+                "w": "preview",
+                "s": 11.5,
+                "e": 11.84,
+                "p": 0.9572343230247498
+              },
+              {
+                "w": "bundles",
+                "s": 11.84,
+                "e": 12.2,
+                "p": 0.9872172474861145
+              },
+              {
+                "w": "ChatchyPT,",
+                "s": 12.2,
+                "e": 12.98,
+                "p": 0.9889829009771347
+              },
+              {
+                "w": "work,",
+                "s": 13.36,
+                "e": 13.46,
+                "p": 0.793020486831665
+              },
+              {
+                "w": "and",
+                "s": 13.72,
+                "e": 13.78,
+                "p": 0.9987354874610901
+              },
+              {
+                "w": "Codex",
+                "s": 13.78,
+                "e": 13.94,
+                "p": 0.7847889065742493
+              },
+              {
+                "w": "together.",
+                "s": 13.94,
+                "e": 14.56,
+                "p": 0.9922401905059814
+              },
+              {
+                "w": "Developer",
+                "s": 15.4,
+                "e": 15.4,
+                "p": 0.7254760265350342
+              },
+              {
+                "w": "Simon",
+                "s": 15.4,
+                "e": 15.74,
+                "p": 0.9737927317619324
+              },
+              {
+                "w": "Willison",
+                "s": 15.74,
+                "e": 16.18,
+                "p": 0.6955386400222778
+              },
+              {
+                "w": "spotted",
+                "s": 16.18,
+                "e": 16.42,
+                "p": 0.9967229962348938
+              },
+              {
+                "w": "1",
+                "s": 16.42,
+                "e": 16.78,
+                "p": 0.994682252407074
+              },
+              {
+                "w": ".7",
+                "s": 16.78,
+                "e": 17.32,
+                "p": 0.9964341223239899
+              },
+              {
+                "w": "gigabytes",
+                "s": 17.32,
+                "e": 17.76,
+                "p": 0.8213930428028107
+              },
+              {
+                "w": "of",
+                "s": 17.76,
+                "e": 17.94,
+                "p": 0.9978881478309631
+              },
+              {
+                "w": "app",
+                "s": 17.94,
+                "e": 18.16,
+                "p": 0.8690961599349976
+              },
+              {
+                "w": "files",
+                "s": 18.16,
+                "e": 18.42,
+                "p": 0.9955223798751831
+              },
+              {
+                "w": "in",
+                "s": 18.42,
+                "e": 18.66,
+                "p": 0.9919518232345581
+              },
+              {
+                "w": "his",
+                "s": 18.66,
+                "e": 18.76,
+                "p": 0.9991194605827332
+              },
+              {
+                "w": "cache",
+                "s": 18.76,
+                "e": 18.94,
+                "p": 0.6937152743339539
+              },
+              {
+                "w": "folder.",
+                "s": 18.94,
+                "e": 19.24,
+                "p": 0.9985552430152893
+              },
+              {
+                "w": "So",
+                "s": 19.7,
+                "e": 19.74,
+                "p": 0.968226969242096
+              },
+              {
+                "w": "what",
+                "s": 19.74,
+                "e": 20.16,
+                "p": 0.6747213006019592
+              },
+              {
+                "w": "was",
+                "s": 20.16,
+                "e": 20.38,
+                "p": 0.9949896931648254
+              },
+              {
+                "w": "really",
+                "s": 20.38,
+                "e": 20.68,
+                "p": 0.9791749119758606
+              },
+              {
+                "w": "in",
+                "s": 20.68,
+                "e": 21.04,
+                "p": 0.997521698474884
+              },
+              {
+                "w": "there?",
+                "s": 21.04,
+                "e": 21.22,
+                "p": 0.9975740313529968
+              },
+              {
+                "w": "Yes,",
+                "s": 21.96,
+                "e": 22.24,
+                "p": 0.9674526453018188
+              },
+              {
+                "w": "really.",
+                "s": 22.52,
+                "e": 22.82,
+                "p": 0.9880725145339966
+              },
+              {
+                "w": "Inside",
+                "s": 23.8,
+                "e": 23.8,
+                "p": 0.9724011421203613
+              },
+              {
+                "w": "SAP",
+                "s": 23.8,
+                "e": 24.06,
+                "p": 0.6944483518600464
+              },
+              {
+                "w": "Python,",
+                "s": 24.06,
+                "e": 24.54,
+                "p": 0.7350380420684814
+              },
+              {
+                "w": "Node",
+                "s": 24.82,
+                "e": 24.94,
+                "p": 0.6629656553268433
+              },
+              {
+                "w": ".js,",
+                "s": 24.94,
+                "e": 25.32,
+                "p": 0.9129802882671356
+              },
+              {
+                "w": "Git,",
+                "s": 25.68,
+                "e": 25.76,
+                "p": 0.8562671542167664
+              },
+              {
+                "w": "Poplar,",
+                "s": 26.14,
+                "e": 26.3,
+                "p": 0.7065728604793549
+              },
+              {
+                "w": "and",
+                "s": 26.52,
+                "e": 26.54,
+                "p": 0.9964078068733215
+              },
+              {
+                "w": "a",
+                "s": 26.54,
+                "e": 26.66,
+                "p": 0.9953935146331787
+              },
+              {
+                "w": "full",
+                "s": 26.66,
+                "e": 26.94,
+                "p": 0.9983934760093689
+              },
+              {
+                "w": "copy",
+                "s": 26.94,
+                "e": 27.22,
+                "p": 0.9978482723236084
+              },
+              {
+                "w": "of",
+                "s": 27.22,
+                "e": 27.52,
+                "p": 0.9985490441322327
+              },
+              {
+                "w": "LibreOffice,",
+                "s": 27.52,
+                "e": 28.14,
+                "p": 0.8986664712429047
+              },
+              {
+                "w": "office,",
+                "s": 28.14,
+                "e": 28.22,
+                "p": 0.4502546191215515
+              },
+              {
+                "w": "the",
+                "s": 28.5,
+                "e": 28.62,
+                "p": 0.9618279933929443
+              },
+              {
+                "w": "open",
+                "s": 28.62,
+                "e": 28.84,
+                "p": 0.8556693196296692
+              },
+              {
+                "w": "source",
+                "s": 28.84,
+                "e": 29.1,
+                "p": 0.6760620474815369
+              },
+              {
+                "w": "office",
+                "s": 29.1,
+                "e": 29.42,
+                "p": 0.9089177250862122
+              },
+              {
+                "w": "suite.",
+                "s": 29.42,
+                "e": 29.66,
+                "p": 0.998320996761322
+              },
+              {
+                "w": "A",
+                "s": 30.24,
+                "e": 30.32,
+                "p": 0.9864363074302673
+              },
+              {
+                "w": "folder",
+                "s": 30.32,
+                "e": 30.48,
+                "p": 0.9963357448577881
+              },
+              {
+                "w": "named",
+                "s": 30.48,
+                "e": 30.72,
+                "p": 0.9256200790405273
+              },
+              {
+                "w": "documents",
+                "s": 30.72,
+                "e": 31.18,
+                "p": 0.3290599286556244
+              },
+              {
+                "w": "includes",
+                "s": 31.18,
+                "e": 31.54,
+                "p": 0.5383566617965698
+              },
+              {
+                "w": "skills.",
+                "s": 31.54,
+                "e": 31.92,
+                "p": 0.9615647196769714
+              },
+              {
+                "w": "They",
+                "s": 32.56,
+                "e": 32.62,
+                "p": 0.96896892786026
+              },
+              {
+                "w": "tell",
+                "s": 32.62,
+                "e": 32.82,
+                "p": 0.9861629605293274
+              },
+              {
+                "w": "Codex",
+                "s": 32.82,
+                "e": 33.0,
+                "p": 0.3743249773979187
+              },
+              {
+                "w": "how",
+                "s": 33.0,
+                "e": 33.32,
+                "p": 0.9823454022407532
+              },
+              {
+                "w": "to",
+                "s": 33.32,
+                "e": 33.42,
+                "p": 0.9975554347038269
+              },
+              {
+                "w": "find",
+                "s": 33.42,
+                "e": 33.66,
+                "p": 0.9939568042755127
+              },
+              {
+                "w": "and",
+                "s": 33.66,
+                "e": 33.86,
+                "p": 0.9833371043205261
+              },
+              {
+                "w": "use",
+                "s": 33.86,
+                "e": 34.1,
+                "p": 0.9953446984291077
+              },
+              {
+                "w": "those",
+                "s": 34.1,
+                "e": 34.28,
+                "p": 0.9587173461914062
+              },
+              {
+                "w": "bundled",
+                "s": 34.28,
+                "e": 34.54,
+                "p": 0.9899184107780457
+              },
+              {
+                "w": "binaries.",
+                "s": 34.54,
+                "e": 34.78,
+                "p": 0.984028160572052
+              },
+              {
+                "w": "So",
+                "s": 35.5,
+                "e": 35.52,
+                "p": 0.9627004861831665
+              },
+              {
+                "w": "yes,",
+                "s": 35.52,
+                "e": 36.0,
+                "p": 0.48575127124786377
+              },
+              {
+                "w": "the",
+                "s": 36.42,
+                "e": 36.5,
+                "p": 0.9885410666465759
+              },
+              {
+                "w": "office",
+                "s": 36.5,
+                "e": 36.68,
+                "p": 0.954168438911438
+              },
+              {
+                "w": "suite",
+                "s": 36.68,
+                "e": 36.92,
+                "p": 0.99869304895401
+              },
+              {
+                "w": "is",
+                "s": 36.92,
+                "e": 37.1,
+                "p": 0.9968306422233582
+              },
+              {
+                "w": "there.",
+                "s": 37.1,
+                "e": 37.34,
+                "p": 0.997442364692688
+              },
+              {
+                "w": "Freelancers",
+                "s": 37.92,
+                "e": 38.32,
+                "p": 0.9221870303153992
+              },
+              {
+                "w": "should",
+                "s": 38.32,
+                "e": 38.6,
+                "p": 0.9966799020767212
+              },
+              {
+                "w": "still",
+                "s": 38.6,
+                "e": 38.86,
+                "p": 0.9911988377571106
+              },
+              {
+                "w": "check",
+                "s": 38.86,
+                "e": 39.08,
+                "p": 0.99544757604599
+              },
+              {
+                "w": "any",
+                "s": 39.08,
+                "e": 39.28,
+                "p": 0.9830870628356934
+              },
+              {
+                "w": "output",
+                "s": 39.28,
+                "e": 39.54,
+                "p": 0.9687120914459229
+              },
+              {
+                "w": "before",
+                "s": 39.54,
+                "e": 39.82,
+                "p": 0.9951637983322144
+              },
+              {
+                "w": "clients",
+                "s": 39.82,
+                "e": 40.0,
+                "p": 0.8362679481506348
+              },
+              {
+                "w": "see",
+                "s": 40.0,
+                "e": 40.32,
+                "p": 0.9877123236656189
+              },
+              {
+                "w": "it.",
+                "s": 40.32,
+                "e": 40.42,
+                "p": 0.9907806515693665
+              },
+              {
+                "w": "Be",
+                "s": 40.98,
+                "e": 41.06,
+                "p": 0.9908950328826904
+              },
+              {
+                "w": "sure",
+                "s": 41.06,
+                "e": 41.22,
+                "p": 0.9995926022529602
+              },
+              {
+                "w": "to",
+                "s": 41.22,
+                "e": 41.3,
+                "p": 0.9957850575447083
+              },
+              {
+                "w": "like,",
+                "s": 41.3,
+                "e": 41.48,
+                "p": 0.9498247504234314
+              },
+              {
+                "w": "share,",
+                "s": 41.58,
+                "e": 41.8,
+                "p": 0.9968193769454956
+              },
+              {
+                "w": "and",
+                "s": 41.94,
+                "e": 41.96,
+                "p": 0.9954795837402344
+              },
+              {
+                "w": "save",
+                "s": 41.96,
+                "e": 42.14,
+                "p": 0.9927480816841125
+              },
+              {
+                "w": "this",
+                "s": 42.14,
+                "e": 42.24,
+                "p": 0.9823102355003357
+              },
+              {
+                "w": "video.",
+                "s": 42.24,
+                "e": 42.46,
+                "p": 0.9977321624755859
+              },
+              {
+                "w": "Which",
+                "s": 42.94,
+                "e": 42.96,
+                "p": 0.9557426571846008
+              },
+              {
+                "w": "tool",
+                "s": 42.96,
+                "e": 43.16,
+                "p": 0.9509382843971252
+              },
+              {
+                "w": "next?",
+                "s": 43.16,
+                "e": 43.38,
+                "p": 0.9815689325332642
+              },
+              {
+                "w": "Comment",
+                "s": 43.82,
+                "e": 43.92,
+                "p": 0.9929739236831665
+              },
+              {
+                "w": "and",
+                "s": 43.92,
+                "e": 44.22,
+                "p": 0.7315678596496582
+              },
+              {
+                "w": "follow",
+                "s": 44.22,
+                "e": 44.36,
+                "p": 0.9918712377548218
+              },
+              {
+                "w": "for",
+                "s": 44.36,
+                "e": 44.52,
+                "p": 0.965356171131134
+              },
+              {
+                "w": "more.",
+                "s": 44.52,
+                "e": 44.68,
+                "p": 0.9989821314811707
+              }
+            ],
+            "dauer_s": 44.9493125,
+            "sprache": "en"
+          },
+          "roh_key": "c2a7a411450ea17510db911ae931020d5fa2aa1d09fdf076092836391c21a925",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "7e832ee67181b9a4f3fbe5f5d0a770e9edbf446c37e4736a68354386a5dedca2",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 14,
+          "motive": 14,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "7e832ee67181b9a4f3fbe5f5d0a770e9edbf446c37e4736a68354386a5dedca2",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Mann sitzt an einem Holztisch in einem Raum mit großen Fenstern, die den Blick auf eine Stadtstraße freigeben, und arbeitet an einem Laptop und Dokumenten.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Arbeiter an einem Schreibtisch, was zum Freiberufler-Kontext passt, aber das spezifische Thema der Frage nach einer Office-Suite in ChatGPT wird nicht visuell erklärt.",
+              "erforderliches_bild": "Ein Screenshot des App-Caches oder der Dateistruktur, die die integrierten Programme zeigt."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein ChatGPT-Logo wird eingeblendet, darunter sind Textfelder mit Begriffen wie DROWNING CLIENT FILES, LOVE und SOMEONE CHECKED zu sehen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich das ChatGPT-Logo und thematisch unpassende oder spielerische Textboxen, jedoch keinen Freelancer der in Dateien ertrinkt oder eine tatsächliche Überprüfung.",
+              "erforderliches_bild": "Ein Foto eines Freelancers, der frustriert vor einem unübersichtlichen Stapel an digitalen oder physischen Kunden-Dateien sitzt."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Screenshot eines Forumsbeitrags oder Social-Media-Posts mit der Überschrift 'Codex in ChatGPT desktop app for Linux is now in preview' und dem Profil von sps.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt zwar den Text über die ChatGPT-Desktop-App für Linux und Codex, jedoch handelt es sich nur um eine Textankündigung/einen Beitrag und nicht um das konkrete Aufzeigen der App-Namen oder deren Umbenennung in einer echten Programmoberfläche.",
+              "erforderliches_bild": "Ein Screenshot der Benutzeroberfläche der Desktop-Anwendung, die den Namen ChatGPT und Hinweise auf das Linux-Preview zeigt."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Screenshot zeigt Text auf hellem Hintergrund mit der Überschrift zur ChatGPT Desktop-App für Linux und einer Liste von unterstützten Systemen und Paketen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt Textdetails zur Linux-Preview der ChatGPT-Desktop-App und passt direkt zur Erwähnung der Linux-Vorschau in der Narration.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Ausschnitt aus einem Textbeitrag von Simon Willison über den Cache-Ordner der OpenAI Codex bzw. ChatGPT Desktop-App mit einer gelben Markierung.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der Text und das verkleinerte Bild im Screenshot zeigen genau das Auffinden von 1.7GB App-Dateien im Cache-Ordner durch Simon Willison, passend zur gesprochenen Narration.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein AI Chat Interface mit einer Textnachricht \"So what was really in there?\" und drei Lade-Punkten.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine Chat-Frage im Interface, aber nicht den Inhalt der App-Dateien oder Python/LibreOffice, die in diesem Abschnitt besprochen werden.",
+              "erforderliches_bild": "Ein Dateibrowser oder Screenshot der Cache-Ordnerstruktur mit den enthaltenen Programmen wie Python, Node.js und LibreOffice."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein dunkler Bildschirm mit den Texten 'WHAT CHATGPT IS AND HOW A FREELANCER MIGHT USE IT FOR PAID WORK', 'YES' und 'REALLY'.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt nur Textüberschriften und UI-Elemente, während die gesprochenen Wörter Python, Node.js, Git und LibreOffice erwähnen, welche nicht dargestellt werden.",
+              "erforderliches_bild": "Ein Screenshot der App-Dateien im Cache-Ordner, der LibreOffice und Python zeigt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein grafisches Fenster im Terminal- oder Code-Look mit der Überschrift PYTHON und farbigen Code-Zeilen",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine grafische Darstellung von Codezeilen mit dem Titel PYTHON, aber nicht die im Text erwähnte Dateiliste oder den Inhalt des Caches mit Python, Node.js, git und Poppler.",
+              "erforderliches_bild": "Ein Screenshot oder eine Diagrammübersicht der Cache-Ordner und der darin enthaltenen Software-Pakete wie Python, Node.js, git und LibreOffice."
+            },
+            {
+              "index": 8,
+              "gesehen": "Die Abbildung zeigt ein grafisches Diagramm mit drei Datenbank-Zylindern, die per orangefarbener Linie mit einem 'APP'-Feld verbunden sind, darunter das Logo 'LibreOffice'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell die Erwähnung von LibreOffice und dessen Einbindung als Komponente in die App, passend zur Erwähnung des Office-Pakets im gesprochenen Text.",
+              "erforderliches_bild": "Ein geeignetes Diagramm oder eine Benutzeroberfläche."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein Screenshot zeigt ein Textzitat auf gelbem Hintergrund, das einen Verzeichnis-Pfad (.cache/codex-runtimes/...) und den darin enthaltenen Ordner 'documents' beschreibt, welcher 'skills' beinhaltet.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der Text beschreibt genau den Ordner namens 'documents' und dessen Inhalt ('skills'), der im gesprochenen Satz thematisiert wird.",
+              "erforderliches_bild": "Keines, das sichtbare Bild passt direkt zum Textzitat."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein dunkler Bildschirm mit dem Text 'WHAT CHATGPT IS AND HOW A FREELANCER MIGHT USE IT FOR PAID WORK' sowie drei Button-ähnlichen Feldern, wobei das mittlere Feld das Wort 'FIND' in oranger Farbe zeigt.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich Textfolien mit Stichworten wie 'FIND', aber keinerlei visuelle Darstellung von Dokumentenordnern, Skills oder gebündelten Binärdateien, wie es der gesprochene Text erfordert.",
+              "erforderliches_bild": "Ein Screenshot oder eine Dateistrukturansicht, die den Ordner 'documents' mit den entsprechenden Skills zur Verwendung der Binärdateien zeigt."
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein vergrössertes OpenAI-Logo wird auf einem dunklen Hintergrund angezeigt, überlagert mit einem hellen Textbanner, das die Aufschrift 'OFFICE SUITE IS THERE' trägt.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich das ChatGPT-Logo und einen Textbanner, aber keinerlei Beweise oder Darstellungen für das Vorhandensein oder die Dateien einer Office-Suite wie LibreOffice.",
+              "erforderliches_bild": "Einen Screenshot oder Ordnerinhalt, der die tatsächlichen Programmdateien wie LibreOffice oder die entsprechenden Binärdateien im App-Cache zeigt."
+            },
+            {
+              "index": 12,
+              "gesehen": "Ein schwarzer Bildschirm mit den Texten 'FREELANCERS' und 'BEFORE CLIENTS SEE' in farbigen Kästen sowie der Überschrift 'WHAT CHATGPT IS AND HOW A FREELANCER MIGHT USE IT FOR PAID WORK'.",
+              "note": 3,
+              "passt": false,
+              "grund": "Es ist lediglich Text zu sehen, der sich auf Freelancer bezieht, aber keinerlei Überprüfung von Ausgaben oder Dokumenten.",
+              "erforderliches_bild": "Ein Bild, das einen Freelancer beim Prüfen von Arbeitsergebnissen oder Dokumenten vor der Kundenübergabe zeigt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Arbeiter an einem Schreibtisch, was zum Freiberufler-Kontext passt, aber das spezifische Thema der Frage nach einer Office-Suite in ChatGPT wird nicht visuell erklärt.",
+            "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich das ChatGPT-Logo und thematisch unpassende oder spielerische Textboxen, jedoch keinen Freelancer der in Dateien ertrinkt oder eine tatsächliche Überprüfung.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar den Text über die ChatGPT-Desktop-App für Linux und Codex, jedoch handelt es sich nur um eine Textankündigung/einen Beitrag und nicht um das konkrete Aufzeigen der App-Namen oder deren Umbenennung in einer echten Programmoberfläche.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Chat-Frage im Interface, aber nicht den Inhalt der App-Dateien oder Python/LibreOffice, die in diesem Abschnitt besprochen werden.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt nur Textüberschriften und UI-Elemente, während die gesprochenen Wörter Python, Node.js, Git und LibreOffice erwähnen, welche nicht dargestellt werden.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine grafische Darstellung von Codezeilen mit dem Titel PYTHON, aber nicht die im Text erwähnte Dateiliste oder den Inhalt des Caches mit Python, Node.js, git und Poppler.",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich Textfolien mit Stichworten wie 'FIND', aber keinerlei visuelle Darstellung von Dokumentenordnern, Skills oder gebündelten Binärdateien, wie es der gesprochene Text erfordert.",
+            "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich das ChatGPT-Logo und einen Textbanner, aber keinerlei Beweise oder Darstellungen für das Vorhandensein oder die Dateien einer Office-Suite wie LibreOffice.",
+            "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Es ist lediglich Text zu sehen, der sich auf Freelancer bezieht, aber keinerlei Überprüfung von Ausgaben oder Dokumenten."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 14,
+          "ausgenommen": [
+            13
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "7e832ee67181b9a4f3fbe5f5d0a770e9edbf446c37e4736a68354386a5dedca2",
+        "prompt_version": "2026-10-28.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

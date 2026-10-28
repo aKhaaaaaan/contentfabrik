@@ -695,6 +695,12 @@ def wikipedia(titel, grenze=7000):
             geschichte = wikipedia('History of ' + seite['title'], grenze)
             if geschichte and len(geschichte['text']) > len(text):
                 return geschichte
+            # GEMESSEN 28.10.2026 (Vorrat-Lauf 40612854365): Rolls-Royce Limited hat 35.000 Zeichen Chronik
+            # unter Kapiteln wie "Motor cars"/"Incorporation" ohne das Wort History - nur 1.500 Zeichen
+            # Einleitung kamen an, das Thema wurde verworfen. Dann der Artikel selbst, ohne Anhaenge.
+            ganz = re.split(r'\n== (?:See also|References|Notes|External links|Further reading) ==', seite['extract'])[0]
+            if len(ganz) > len(text):
+                text = ganz[:grenze]
         return {'quelle': 'Wikipedia', 'name': seite['title'], 'url': seite.get('fullurl', ''), 'text': text}
     except Exception as e:
         print('Wikipedia nicht verfuegbar:', titel, str(e)[:120])

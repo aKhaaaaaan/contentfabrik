@@ -38,8 +38,8 @@ SFX = Path(__file__).resolve().parent.parent / 'sfx'
 # Ruhige Bewegung auf Illustrationen; Bildwechsel folgen inhaltlichen Beats.
 GEMINI_FAKTOR = 1.0  # zuletzt angewandtes Gemini-Tempo (gemini_ton), fuer messung.json
 ZOOM = '1+0.035*min(on/{n},1)'
-ZOOM_KARTE_MAX = 1.06
-ZOOM_KARTE = f'min(1+0.0004*on,{ZOOM_KARTE_MAX})'  # je Bild bei 30 fps: +1,2 %/s, nach 5 s am Ende
+ZOOM_KARTE_MAX = 1.10  # 28.10.2026 Nutzer: "kein Motion" - vorher 1.06 bei +1,2 %/s kaum sichtbar
+ZOOM_KARTE = f'min(1+0.001*on,{ZOOM_KARTE_MAX})'  # je Bild bei 30 fps: +3 %/s, nach gut 3 s am Ende
 LAYOUT = {}
 
 

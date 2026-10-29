@@ -354,6 +354,7 @@ SKRIPT_SCHEMA = {
     'required': ['thema', 'titel_zeile1', 'titel_zeile2', 'schluesselwoerter', 'teile', 'beschreibung', 'hashtags'],
 }
 
+PRUEF_GROQ_ZEICHEN = 10000  # Quellenauszug fuer Groqs Faktenpruefung (8K-Grenze inkl. 1.536 Antwort-Tokens)
 PRUEF_SCHEMA = {
     'type': 'OBJECT',
     'properties': {
@@ -775,13 +776,24 @@ def main(kanal_pfad, aus_pfad, thema=None):
     def pruef_text():
         return '\n'.join(f"[{q['quelle']}] {q['name']}: {q['text']}" for q in quellen)
 
+    def pruef_text_kurz(e, grenze=PRUEF_GROQ_ZEICHEN):
+        """Groq-Ausweichweg der Faktenpruefung: je Quelle die zum Skript passenden Saetze (zweit.auszug).
+        GEMESSEN 29.10.2026 (KI 40908435356): 5 offizielle Seiten a 6.000 Zeichen -> Gemini-Timeout, Groq
+        'Auftrag zu gross: 11780 Tokens' -> Abbruch. Ein Satz, der im Auszug fehlt, gilt eher als unbelegt
+        (strenger, nie lockerer)."""
+        import zweit
+        skripttext = ' '.join(t['text'] for t in e['teile'])
+        je = grenze // max(1, len(quellen))
+        return '\n'.join(f"[{q['quelle']}] {q['name']}: {zweit.auszug(q['text'], skripttext, je)}" for q in quellen)
+
     def pruefen(e):
         """KI-Faktencheck PLUS Zahlenprobe im Code (zahlen.py): Eine Zahl, die in
         keiner Quelle steht, laesst das Skript durchfallen - auch wenn die KI sie
         durchwinkt. Der Modellname zaehlt als Quelle („gemma-3-27b" belegt 27B)."""
         import zahlen
         p, pruefmodell = gemini(prompts.fakten(pruef_text(), e), PRUEF_SCHEMA,
-                              temperatur=0.1, cache='fakten', modelle=SEHEN)
+                              temperatur=0.1, cache='fakten', modelle=SEHEN,
+                              fallback_prompt=prompts.fakten(pruef_text_kurz(e), e))
         p = ohne_cta_einwand(p)
         fehlt = zahlen.unbelegt(e, [f"{q.get('quelle', '')} {q.get('name', '')} {q.get('text', '')}" for q in quellen])
         if fehlt:

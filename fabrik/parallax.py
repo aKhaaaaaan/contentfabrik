@@ -23,8 +23,11 @@ MODELL_URL = ('https://huggingface.co/onnx-community/depth-anything-v2-small/res
 MODELL_SHA = '01aa7a23de3f4a0ee1a2bb9997e6918104c85a9f95dea46d27b9b3fb0c6b9001'
 # Vordergrund wandert ueber die ganze Einstellung um diesen Anteil der Bildbreite gegen den Hintergrund.
 # Dezent: groessere Werte reissen an Kanten (Figur vor Wand) sichtbar auf.
-VERSCHIEBUNG = 0.10  # 29.10. Nutzer: im echten Video nicht wahrnehmbar (6 % ueber 5 s) - 10 %, 12 % verzog Raender
-HERAN = 0.10  # Vordergrund kommt zusaetzlich etwas naeher
+# 29.10.2026: 6 % ueber 5 s war im echten SK-Hynix-Short nicht wahrnehmbar; Nutzer wollte 15 %. Ohne Beschnitt
+# verzog 15 % die Raender (Beine doppelt, Stuhlbein) - mit RAND 8 % Beschnitt an der Werkstattszene sauber.
+VERSCHIEBUNG = 0.15
+HERAN = 0.15  # Vordergrund kommt zusaetzlich naeher
+RAND = 0.08  # so viel vom Rand wird abgeschnitten (gespiegelte Randpixel nie sichtbar)
 KURZE_SEITE = 392  # Modelleingabe, Vielfaches von 14
 
 _sitzung = None
@@ -83,6 +86,14 @@ def bild(rgb, d, p):
     return cv2.remap(rgb, mx, my, interpolation=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
 
 
+def ohne_rand(img):
+    """Rand abschneiden und auf die alte Groesse bringen - dort lagen bei starker Fahrt gespiegelte Pixel."""
+    import cv2
+    h, w = img.shape[:2]
+    y, x = int(h * RAND / 2), int(w * RAND / 2)
+    return cv2.resize(img[y:h - y, x:w - x], (w, h), interpolation=cv2.INTER_CUBIC)
+
+
 def video(quelle, groesse, dauer, fps, ziel):
     """MP4 (ohne Ton) der Parallax-Fahrt in groesse (b, h); None, wenn etwas fehlt."""
     if not an():
@@ -98,7 +109,7 @@ def video(quelle, groesse, dauer, fps, ziel):
                                    stdin=subprocess.PIPE)
         for i in range(n):
             p = i / (n - 1)
-            prozess.stdin.write(bild(rgb, d, 0.5 - 0.5 * np.cos(np.pi * p)).tobytes())  # sanft an/aus
+            prozess.stdin.write(ohne_rand(bild(rgb, d, 0.5 - 0.5 * np.cos(np.pi * p))).tobytes())  # sanft an/aus
         prozess.stdin.close()
         if prozess.wait() != 0:
             return None

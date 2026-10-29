@@ -2083,6 +2083,12 @@ def main(skript_pfad, aus, vorlage=None):
                     # mit Luftmatratze zeigen; erzeugt wurde ein Mann mit Sofas, die Bildpruefung hielt die
                     # Matratze fuer ein Nebendetail. Der Kern des Satzes ist Pflicht fuer Bild UND Pruefung.
                     szene = f"Key visible subject (must be clearly shown): {t['motiv']}. {szene}"
+                # 29.10.2026 (Rolls-Royce 1906): trotz "Edwardian" malte das Bildmodell Roehrenmonitore, moderne
+                # Jacken und ein 1950er-Auto. Feste Jahreszahl der Geschichte, nur positiv beschrieben.
+                zeit = archiv_jahr or archivclip.jahr(szene)
+                if zeit and zeit <= archivclip.JAHR_MAX and not letzt and not archivclip.MODERN.search(szene) \
+                        and not re.search(r'\b(?:1[89]|20)\d\d\b', szene):
+                    szene += f', in the year {zeit}, period-accurate {zeit} clothing, furniture, machines and vehicles'
                 if i == 0 and H > B:
                     # GEMESSEN 28.10.2026 (TikTok GE Vernova/Claude Code TV OS): Abbruch bei 0:01-0:02; das erste
                     # Bild war dunkel, unscharf und zeigte niemanden. Ein Gesicht mit Gefuehl haelt den Daumen an.

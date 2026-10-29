@@ -466,14 +466,23 @@ def grafik(ziel, text, motiv='', titel='', phase='', art=None):
     elif art == 'zahlen':
         # Gesprochene Zahlen mit Bezugswort als grosse Kacheln - keine erfundenen Werte.
         werte = zahlen(text)
-        hoehe = min(300, (850 - 30 * (len(werte) - 1)) // len(werte))
+        # 29.10.2026 (Rolls-Royce "Only £41,000 had arrived"): eine einzelne Zahl war klein oben links auf
+        # leerer dunkler Flaeche - am Spannungspunkt platt. Eine Zahl jetzt riesig und mittig.
+        einzeln = len(werte) == 1
+        hoehe = 470 if einzeln else min(300, (850 - 30 * (len(werte) - 1)) // len(werte))
         for k, (zahl, wort) in enumerate(werte):
-            y = 400 + k * (hoehe + 30)
+            y = (450 if einzeln else 400) + k * (hoehe + 30)
             farbe = (gelb, tuerkis, hell)[k % 3]
             d.rounded_rectangle((75, y, 1005, y + hoehe), 26, fill='#13283d', outline=farbe, width=5)
-            nz = passend(zahl, 860, min(140, hoehe - 110))
-            txt(115, y + 18, zahl, nz, farbe)
-            txt(115, y + 36 + nz, wort, passend(wort, 860, 46), hell)
+            nz = passend(zahl, 860, 280 if einzeln else min(140, hoehe - 110))
+            nw = passend(wort, 860, 72 if einzeln else 46)
+            if einzeln:
+                breite = max(d.textlength(zahl, font=font(nz)), 1)
+                txt(540 - breite / 2, y + 40, zahl, nz, farbe)
+                txt(540 - d.textlength(wort, font=font(nw)) / 2, y + 80 + nz, wort, nw, hell)
+            else:
+                txt(115, y + 18, zahl, nz, farbe)
+                txt(115, y + 36 + nz, wort, nw, hell)
         rest = [p for p in phrasen(text) if not any(z in p for z, _ in werte)]
         if rest and len(werte) == 1:
             y = 400 + hoehe + 40

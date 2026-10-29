@@ -107815,6 +107815,1359 @@
       "bericht": {},
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "40841805427.1:ai-tools-explained",
+      "run_id": "40841805427",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-29T08:33:21.677038+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "9d48c416a630c86e8a510921914594075bda78ef",
+      "produktionsversion": "534b297dcbe9aa1f9d8f262d1affb98dc56dec4021d74f3849eb9de70d0b0fe6",
+      "videoformat": "short",
+      "thema": "Claude watermarking and what freelancers should know",
+      "titel": [
+        "Claude's Hidden Fingerprint",
+        "Before You Bill Clients"
+      ],
+      "status": "gesendet",
+      "video_sha256": "3a6419cd9dc5d782ce1f57be1269a9387eb3ad758e071ba13e3653dacef83aa3",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-28.3",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Mann, der Dokumente prüft, aber der spezifische Aspekt des Berichts, der einen versteckten Fingerabdruck tragen könnte, wird nicht konkret dargestellt.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (6/10): Die gesprochenen Worte \"But not how you'd guess.\" werden lediglich als Textgrafik eingeblendet, es fehlt jedoch die Erklärung oder Veranschaulichung des tatsächlichen Vorgangs.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine Textbox mit verdecktem Text, aber weder die Erwähnung von Wortauswahl noch geheime grüne Listen oder statistische Muster.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich Textüberschriften der gesprochenen Metapher, jedoch keinerlei Illustration oder grafische Erklärung einer gewichteten Münze oder eines statistischen Musters.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt nur den Text 'secret key' als Untertitel, aber nicht, wie jemand damit etwas überprüft.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen Textkasten, passt aber nicht zu den gesprochenen Worten ueber Wortanzahl und Konfidenz.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich zwei farbige Textkästen mit Schlagwörtern aus dem gesprochenen Text, aber keine visuelle Erklärung, Diagramme oder Situation, die den Zusammenhang zwischen Textlänge und Wortwahl zeigt.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Die Textgrafiken illustrieren die gesprochenen Begriffe, zeigen jedoch keine konkrete visuelle Erklärung oder Handlung für den probabilistischen Prüfprozess.",
+        "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen Zwischentitel zum Thema, aber keine Darstellung oder Aktion bezüglich des Sprechens mit Kunden über die Nutzung von Claude.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Mann, der Dokumente prüft, aber der spezifische Aspekt des Berichts, der einen versteckten Fingerabdruck tragen könnte, wird nicht konkret dargestellt. Korrektur: Ein Dokument mit hervorgehobenen Worten oder ein Hinweis auf statistische Wasserzeichen im Text.",
+        "Offenes Problem (schwer): Die gesprochenen Worte \"But not how you'd guess.\" werden lediglich als Textgrafik eingeblendet, es fehlt jedoch die Erklärung oder Veranschaulichung des tatsächlichen Vorgangs. Korrektur: Eine anschauliche Grafik oder Animation, die zeigt, wie das Wasserzeichen unvorhersehbar oder auf überraschende Weise funktioniert.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine Textbox mit verdecktem Text, aber weder die Erwähnung von Wortauswahl noch geheime grüne Listen oder statistische Muster. Korrektur: Eine anschauliche Grafik oder Dokumentation, die zeigt, wie Wörter in Richtung einer grünen Liste gewichtet werden.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich Textüberschriften der gesprochenen Metapher, jedoch keinerlei Illustration oder grafische Erklärung einer gewichteten Münze oder eines statistischen Musters. Korrektur: Eine anschauliche Grafik einer Münze, die leicht in eine Richtung kippt, oder ein Diagramm, das eine statistische Musterverteilung von Wörtern visualisiert.",
+        "Offenes Problem (schwer): Das Bild zeigt nur den Text 'secret key' als Untertitel, aber nicht, wie jemand damit etwas überprüft. Korrektur: Eine Darstellung einer Person oder Software, die einen geheimen Schlüssel zur Überprüfung eines Textes anwendet.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich einen Textkasten, passt aber nicht zu den gesprochenen Worten ueber Wortanzahl und Konfidenz. Korrektur: Eine anschauliche Grafik oder ein Diagramm, das den Zusammenhang zwischen Wortanzahl (Laenge) und statistischer Konfidenz bei der Wasserzeichenerkennung darstellt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich zwei farbige Textkästen mit Schlagwörtern aus dem gesprochenen Text, aber keine visuelle Erklärung, Diagramme oder Situation, die den Zusammenhang zwischen Textlänge und Wortwahl zeigt. Korrektur: Ein vergleichendes Diagramm oder eine visuelle Gegenüberstellung einer kurzen E-Mail und eines langen Berichts, die zeigt, wie mehr Wörter zu einer höheren statistischen Zuverlässigkeit beim Erkennen des Wasserzeichens führen.",
+        "Offenes Problem (schwer): Die Textgrafiken illustrieren die gesprochenen Begriffe, zeigen jedoch keine konkrete visuelle Erklärung oder Handlung für den probabilistischen Prüfprozess. Korrektur: Eine anschauliche Grafik oder Animation, die eine statistische Wahrscheinlichkeitsverteilung oder einen Verifikationsprozess für Textwasserzeichen zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich einen Zwischentitel zum Thema, aber keine Darstellung oder Aktion bezüglich des Sprechens mit Kunden über die Nutzung von Claude. Korrektur: Eine Darstellung, die zeigt, wie ein Freiberufler einem Kunden mitteilt oder beschreibt, wie Claude verwendet wurde."
+      ],
+      "einstellungen": 15,
+      "unterschiedliche_motive": 15,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "40841805427",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-29",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 337.5,
+            "pruefung_s": 63.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Mann, der Dokumente prüft, aber der spezifische Aspekt des Berichts, der einen versteckten Fingerabdruck tragen könnte, wird nicht konkret dargestellt.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (6/10): Die gesprochenen Worte \"But not how you'd guess.\" werden lediglich als Textgrafik eingeblendet, es fehlt jedoch die Erklärung oder Veranschaulichung des tatsächlichen Vorgangs.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine Textbox mit verdecktem Text, aber weder die Erwähnung von Wortauswahl noch geheime grüne Listen oder statistische Muster.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich Textüberschriften der gesprochenen Metapher, jedoch keinerlei Illustration oder grafische Erklärung einer gewichteten Münze oder eines statistischen Musters.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt nur den Text 'secret key' als Untertitel, aber nicht, wie jemand damit etwas überprüft.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen Textkasten, passt aber nicht zu den gesprochenen Worten ueber Wortanzahl und Konfidenz.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich zwei farbige Textkästen mit Schlagwörtern aus dem gesprochenen Text, aber keine visuelle Erklärung, Diagramme oder Situation, die den Zusammenhang zwischen Textlänge und Wortwahl zeigt.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Die Textgrafiken illustrieren die gesprochenen Begriffe, zeigen jedoch keine konkrete visuelle Erklärung oder Handlung für den probabilistischen Prüfprozess.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen Zwischentitel zum Thema, aber keine Darstellung oder Aktion bezüglich des Sprechens mit Kunden über die Nutzung von Claude.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann, der Dokumente prüft, aber der spezifische Aspekt des Berichts, der einen versteckten Fingerabdruck tragen könnte, wird nicht konkret dargestellt. Korrektur: Ein Dokument mit hervorgehobenen Worten oder ein Hinweis auf statistische Wasserzeichen im Text.",
+              "Offenes Problem (schwer): Die gesprochenen Worte \"But not how you'd guess.\" werden lediglich als Textgrafik eingeblendet, es fehlt jedoch die Erklärung oder Veranschaulichung des tatsächlichen Vorgangs. Korrektur: Eine anschauliche Grafik oder Animation, die zeigt, wie das Wasserzeichen unvorhersehbar oder auf überraschende Weise funktioniert.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine Textbox mit verdecktem Text, aber weder die Erwähnung von Wortauswahl noch geheime grüne Listen oder statistische Muster. Korrektur: Eine anschauliche Grafik oder Dokumentation, die zeigt, wie Wörter in Richtung einer grünen Liste gewichtet werden.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich Textüberschriften der gesprochenen Metapher, jedoch keinerlei Illustration oder grafische Erklärung einer gewichteten Münze oder eines statistischen Musters. Korrektur: Eine anschauliche Grafik einer Münze, die leicht in eine Richtung kippt, oder ein Diagramm, das eine statistische Musterverteilung von Wörtern visualisiert.",
+              "Offenes Problem (schwer): Das Bild zeigt nur den Text 'secret key' als Untertitel, aber nicht, wie jemand damit etwas überprüft. Korrektur: Eine Darstellung einer Person oder Software, die einen geheimen Schlüssel zur Überprüfung eines Textes anwendet.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen Textkasten, passt aber nicht zu den gesprochenen Worten ueber Wortanzahl und Konfidenz. Korrektur: Eine anschauliche Grafik oder ein Diagramm, das den Zusammenhang zwischen Wortanzahl (Laenge) und statistischer Konfidenz bei der Wasserzeichenerkennung darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich zwei farbige Textkästen mit Schlagwörtern aus dem gesprochenen Text, aber keine visuelle Erklärung, Diagramme oder Situation, die den Zusammenhang zwischen Textlänge und Wortwahl zeigt. Korrektur: Ein vergleichendes Diagramm oder eine visuelle Gegenüberstellung einer kurzen E-Mail und eines langen Berichts, die zeigt, wie mehr Wörter zu einer höheren statistischen Zuverlässigkeit beim Erkennen des Wasserzeichens führen.",
+              "Offenes Problem (schwer): Die Textgrafiken illustrieren die gesprochenen Begriffe, zeigen jedoch keine konkrete visuelle Erklärung oder Handlung für den probabilistischen Prüfprozess. Korrektur: Eine anschauliche Grafik oder Animation, die eine statistische Wahrscheinlichkeitsverteilung oder einen Verifikationsprozess für Textwasserzeichen zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen Zwischentitel zum Thema, aber keine Darstellung oder Aktion bezüglich des Sprechens mit Kunden über die Nutzung von Claude. Korrektur: Eine Darstellung, die zeigt, wie ein Freiberufler einem Kunden mitteilt oder beschreibt, wie Claude verwendet wurde."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 13.6,
+              "zeitmarken": 6.1,
+              "tempo": 1.063,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 15,
+              "clips_und_stuecke": 130.3,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 15,
+                "motive": 15,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 44.9,
+              "gesamt": 337.0,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.16,
+                6.6,
+                6.18,
+                6.7,
+                7.24,
+                6.36,
+                4.77
+              ],
+              "woerter": 129
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Your client report may carry a hidden fingerprint.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann, der Dokumente prüft, aber der spezifische Aspekt des Berichts, der einen versteckten Fingerabdruck tragen könnte, wird nicht konkret dargestellt. Korrektur: Ein Dokument mit hervorgehobenen Worten oder ein Hinweis auf statistische Wasserzeichen im Text."
+              },
+              {
+                "zeit": "00:05.34",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 2,
+                "gesprochen": "But not how you'd guess.",
+                "fest": true,
+                "text": "Die gesprochenen Worte \"But not how you'd guess.\" werden lediglich als Textgrafik eingeblendet, es fehlt jedoch die Erklärung oder Veranschaulichung des tatsächlichen Vorgangs. Korrektur: Eine anschauliche Grafik oder Animation, die zeigt, wie das Wasserzeichen unvorhersehbar oder auf überraschende Weise funktioniert."
+              },
+              {
+                "zeit": "00:07.16",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Claude will nudge word choices toward secret green lists,",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich eine Textbox mit verdecktem Text, aber weder die Erwähnung von Wortauswahl noch geheime grüne Listen oder statistische Muster. Korrektur: Eine anschauliche Grafik oder Dokumentation, die zeigt, wie Wörter in Richtung einer grünen Liste gewichtet werden."
+              },
+              {
+                "zeit": "00:10.46",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 4,
+                "gesprochen": "like a slightly weighted coin, leaving a statistical pattern.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich Textüberschriften der gesprochenen Metapher, jedoch keinerlei Illustration oder grafische Erklärung einer gewichteten Münze oder eines statistischen Musters. Korrektur: Eine anschauliche Grafik einer Münze, die leicht in eine Richtung kippt, oder ein Diagramm, das eine statistische Musterverteilung von Wörtern visualisiert."
+              },
+              {
+                "zeit": "00:13.76",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "Only someone with the secret key can check it.",
+                "fest": true,
+                "text": "Das Bild zeigt nur den Text 'secret key' als Untertitel, aber nicht, wie jemand damit etwas überprüft. Korrektur: Eine Darstellung einer Person oder Software, die einen geheimen Schlüssel zur Überprüfung eines Textes anwendet."
+              },
+              {
+                "zeit": "00:16.20",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 6,
+                "gesprochen": "More words give more confidence; too few words give none.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich einen Textkasten, passt aber nicht zu den gesprochenen Worten ueber Wortanzahl und Konfidenz. Korrektur: Eine anschauliche Grafik oder ein Diagramm, das den Zusammenhang zwischen Wortanzahl (Laenge) und statistischer Konfidenz bei der Wasserzeichenerkennung darstellt."
+              },
+              {
+                "zeit": "00:23.29",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 8,
+                "gesprochen": "measure, while a long report offers many word choices.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich zwei farbige Textkästen mit Schlagwörtern aus dem gesprochenen Text, aber keine visuelle Erklärung, Diagramme oder Situation, die den Zusammenhang zwischen Textlänge und Wortwahl zeigt. Korrektur: Ein vergleichendes Diagramm oder eine visuelle Gegenüberstellung einer kurzen E-Mail und eines langen Berichts, die zeigt, wie mehr Wörter zu einer höheren statistischen Zuverlässigkeit beim Erkennen des Wasserzeichens führen."
+              },
+              {
+                "zeit": "00:26.64",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "Here's the twist: the check is only probabilistic.",
+                "fest": true,
+                "text": "Die Textgrafiken illustrieren die gesprochenen Begriffe, zeigen jedoch keine konkrete visuelle Erklärung oder Handlung für den probabilistischen Prüfprozess. Korrektur: Eine anschauliche Grafik oder Animation, die eine statistische Wahrscheinlichkeitsverteilung oder einen Verifikationsprozess für Textwasserzeichen zeigt."
+              },
+              {
+                "zeit": "00:33.88",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "Tell clients how you used Claude.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich einen Zwischentitel zum Thema, aber keine Darstellung oder Aktion bezüglich des Sprechens mit Kunden über die Nutzung von Claude. Korrektur: Eine Darstellung, die zeigt, wie ein Freiberufler einem Kunden mitteilt oder beschreibt, wie Claude verwendet wurde."
+              }
+            ],
+            "sekunden": 400.7,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 438.4,
+        "upload_titel": "Claude's Hidden Fingerprint: Before You Bill Clients | AI Tool #19"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Your client report may carry a hidden fingerprint.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann, der Dokumente prüft, aber der spezifische Aspekt des Berichts, der einen versteckten Fingerabdruck tragen könnte, wird nicht konkret dargestellt. Korrektur: Ein Dokument mit hervorgehobenen Worten oder ein Hinweis auf statistische Wasserzeichen im Text."
+          },
+          {
+            "zeit": "00:05.34",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 2,
+            "gesprochen": "But not how you'd guess.",
+            "fest": true,
+            "text": "Die gesprochenen Worte \"But not how you'd guess.\" werden lediglich als Textgrafik eingeblendet, es fehlt jedoch die Erklärung oder Veranschaulichung des tatsächlichen Vorgangs. Korrektur: Eine anschauliche Grafik oder Animation, die zeigt, wie das Wasserzeichen unvorhersehbar oder auf überraschende Weise funktioniert."
+          },
+          {
+            "zeit": "00:07.16",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "Claude will nudge word choices toward secret green lists,",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich eine Textbox mit verdecktem Text, aber weder die Erwähnung von Wortauswahl noch geheime grüne Listen oder statistische Muster. Korrektur: Eine anschauliche Grafik oder Dokumentation, die zeigt, wie Wörter in Richtung einer grünen Liste gewichtet werden."
+          },
+          {
+            "zeit": "00:10.46",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 4,
+            "gesprochen": "like a slightly weighted coin, leaving a statistical pattern.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich Textüberschriften der gesprochenen Metapher, jedoch keinerlei Illustration oder grafische Erklärung einer gewichteten Münze oder eines statistischen Musters. Korrektur: Eine anschauliche Grafik einer Münze, die leicht in eine Richtung kippt, oder ein Diagramm, das eine statistische Musterverteilung von Wörtern visualisiert."
+          },
+          {
+            "zeit": "00:13.76",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "Only someone with the secret key can check it.",
+            "fest": true,
+            "text": "Das Bild zeigt nur den Text 'secret key' als Untertitel, aber nicht, wie jemand damit etwas überprüft. Korrektur: Eine Darstellung einer Person oder Software, die einen geheimen Schlüssel zur Überprüfung eines Textes anwendet."
+          },
+          {
+            "zeit": "00:16.20",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 6,
+            "gesprochen": "More words give more confidence; too few words give none.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich einen Textkasten, passt aber nicht zu den gesprochenen Worten ueber Wortanzahl und Konfidenz. Korrektur: Eine anschauliche Grafik oder ein Diagramm, das den Zusammenhang zwischen Wortanzahl (Laenge) und statistischer Konfidenz bei der Wasserzeichenerkennung darstellt."
+          },
+          {
+            "zeit": "00:23.29",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 8,
+            "gesprochen": "measure, while a long report offers many word choices.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich zwei farbige Textkästen mit Schlagwörtern aus dem gesprochenen Text, aber keine visuelle Erklärung, Diagramme oder Situation, die den Zusammenhang zwischen Textlänge und Wortwahl zeigt. Korrektur: Ein vergleichendes Diagramm oder eine visuelle Gegenüberstellung einer kurzen E-Mail und eines langen Berichts, die zeigt, wie mehr Wörter zu einer höheren statistischen Zuverlässigkeit beim Erkennen des Wasserzeichens führen."
+          },
+          {
+            "zeit": "00:26.64",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "Here's the twist: the check is only probabilistic.",
+            "fest": true,
+            "text": "Die Textgrafiken illustrieren die gesprochenen Begriffe, zeigen jedoch keine konkrete visuelle Erklärung oder Handlung für den probabilistischen Prüfprozess. Korrektur: Eine anschauliche Grafik oder Animation, die eine statistische Wahrscheinlichkeitsverteilung oder einen Verifikationsprozess für Textwasserzeichen zeigt."
+          },
+          {
+            "zeit": "00:33.88",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "Tell clients how you used Claude.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich einen Zwischentitel zum Thema, aber keine Darstellung oder Aktion bezüglich des Sprechens mit Kunden über die Nutzung von Claude. Korrektur: Eine Darstellung, die zeigt, wie ein Freiberufler einem Kunden mitteilt oder beschreibt, wie Claude verwendet wurde."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -14.1,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 40.5,
+              "bis_s": 42.04,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.968
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Your",
+                "s": 0.0,
+                "e": 0.34,
+                "p": 0.591801106929779
+              },
+              {
+                "w": "client",
+                "s": 0.34,
+                "e": 0.6,
+                "p": 0.9754865765571594
+              },
+              {
+                "w": "report",
+                "s": 0.6,
+                "e": 0.86,
+                "p": 0.989663302898407
+              },
+              {
+                "w": "may",
+                "s": 0.86,
+                "e": 1.32,
+                "p": 0.9868248105049133
+              },
+              {
+                "w": "carry",
+                "s": 1.32,
+                "e": 1.66,
+                "p": 0.9935442209243774
+              },
+              {
+                "w": "a",
+                "s": 1.66,
+                "e": 1.94,
+                "p": 0.9821982979774475
+              },
+              {
+                "w": "hidden",
+                "s": 1.94,
+                "e": 2.2,
+                "p": 0.9879221320152283
+              },
+              {
+                "w": "fingerprint.",
+                "s": 2.2,
+                "e": 2.74,
+                "p": 0.9359741806983948
+              },
+              {
+                "w": "Claude",
+                "s": 3.3,
+                "e": 3.52,
+                "p": 0.3546144962310791
+              },
+              {
+                "w": "is",
+                "s": 3.52,
+                "e": 3.8,
+                "p": 0.9966509938240051
+              },
+              {
+                "w": "set",
+                "s": 3.8,
+                "e": 3.98,
+                "p": 0.9809727668762207
+              },
+              {
+                "w": "to",
+                "s": 3.98,
+                "e": 4.12,
+                "p": 0.9959195852279663
+              },
+              {
+                "w": "watermark",
+                "s": 4.12,
+                "e": 4.6,
+                "p": 0.64822156727314
+              },
+              {
+                "w": "its",
+                "s": 4.6,
+                "e": 4.76,
+                "p": 0.922717273235321
+              },
+              {
+                "w": "text,",
+                "s": 4.76,
+                "e": 5.02,
+                "p": 0.9841210246086121
+              },
+              {
+                "w": "but",
+                "s": 5.4,
+                "e": 5.52,
+                "p": 0.9928620457649231
+              },
+              {
+                "w": "not",
+                "s": 5.52,
+                "e": 5.98,
+                "p": 0.9591746926307678
+              },
+              {
+                "w": "how",
+                "s": 5.98,
+                "e": 6.12,
+                "p": 0.9411566257476807
+              },
+              {
+                "w": "you'd",
+                "s": 6.12,
+                "e": 6.3,
+                "p": 0.8361944854259491
+              },
+              {
+                "w": "guess.",
+                "s": 6.3,
+                "e": 6.42,
+                "p": 0.9965841770172119
+              },
+              {
+                "w": "Claude",
+                "s": 7.16,
+                "e": 7.54,
+                "p": 0.819320023059845
+              },
+              {
+                "w": "will",
+                "s": 7.54,
+                "e": 7.7,
+                "p": 0.9970415234565735
+              },
+              {
+                "w": "nudge",
+                "s": 7.7,
+                "e": 8.04,
+                "p": 0.9978957176208496
+              },
+              {
+                "w": "word",
+                "s": 8.04,
+                "e": 8.22,
+                "p": 0.8382219076156616
+              },
+              {
+                "w": "choices",
+                "s": 8.22,
+                "e": 8.58,
+                "p": 0.9492560625076294
+              },
+              {
+                "w": "towards",
+                "s": 8.58,
+                "e": 8.96,
+                "p": 0.7763733267784119
+              },
+              {
+                "w": "secret",
+                "s": 8.96,
+                "e": 9.3,
+                "p": 0.969257116317749
+              },
+              {
+                "w": "green",
+                "s": 9.3,
+                "e": 9.74,
+                "p": 0.8931716084480286
+              },
+              {
+                "w": "lists,",
+                "s": 9.74,
+                "e": 10.12,
+                "p": 0.9656133055686951
+              },
+              {
+                "w": "like",
+                "s": 10.26,
+                "e": 10.66,
+                "p": 0.996947705745697
+              },
+              {
+                "w": "a",
+                "s": 10.66,
+                "e": 10.8,
+                "p": 0.9954724907875061
+              },
+              {
+                "w": "slightly",
+                "s": 10.8,
+                "e": 11.02,
+                "p": 0.9916969537734985
+              },
+              {
+                "w": "weighted",
+                "s": 11.02,
+                "e": 11.38,
+                "p": 0.9091647863388062
+              },
+              {
+                "w": "coin,",
+                "s": 11.38,
+                "e": 11.62,
+                "p": 0.9949514865875244
+              },
+              {
+                "w": "leaving",
+                "s": 11.84,
+                "e": 12.06,
+                "p": 0.9975161552429199
+              },
+              {
+                "w": "a",
+                "s": 12.06,
+                "e": 12.18,
+                "p": 0.9812487363815308
+              },
+              {
+                "w": "statistical",
+                "s": 12.18,
+                "e": 12.36,
+                "p": 0.9836140871047974
+              },
+              {
+                "w": "pattern.",
+                "s": 12.36,
+                "e": 13.04,
+                "p": 0.9979745745658875
+              },
+              {
+                "w": "Only",
+                "s": 13.74,
+                "e": 13.74,
+                "p": 0.9932971596717834
+              },
+              {
+                "w": "someone",
+                "s": 13.74,
+                "e": 14.02,
+                "p": 0.9902477860450745
+              },
+              {
+                "w": "with",
+                "s": 14.02,
+                "e": 14.24,
+                "p": 0.9977836012840271
+              },
+              {
+                "w": "the",
+                "s": 14.24,
+                "e": 14.36,
+                "p": 0.4388927221298218
+              },
+              {
+                "w": "secret",
+                "s": 14.36,
+                "e": 14.64,
+                "p": 0.9896454811096191
+              },
+              {
+                "w": "key",
+                "s": 14.64,
+                "e": 14.9,
+                "p": 0.9960567951202393
+              },
+              {
+                "w": "can",
+                "s": 14.9,
+                "e": 15.2,
+                "p": 0.9924377799034119
+              },
+              {
+                "w": "check",
+                "s": 15.2,
+                "e": 15.38,
+                "p": 0.9979392886161804
+              },
+              {
+                "w": "it.",
+                "s": 15.38,
+                "e": 15.52,
+                "p": 0.9965921640396118
+              },
+              {
+                "w": "More",
+                "s": 16.2,
+                "e": 16.4,
+                "p": 0.15750335156917572
+              },
+              {
+                "w": "words",
+                "s": 16.4,
+                "e": 16.62,
+                "p": 0.9926077127456665
+              },
+              {
+                "w": "give",
+                "s": 16.62,
+                "e": 16.94,
+                "p": 0.9768257141113281
+              },
+              {
+                "w": "more",
+                "s": 16.94,
+                "e": 17.14,
+                "p": 0.9943631887435913
+              },
+              {
+                "w": "confidence.",
+                "s": 17.14,
+                "e": 17.48,
+                "p": 0.9990959167480469
+              },
+              {
+                "w": "Two",
+                "s": 17.98,
+                "e": 18.0,
+                "p": 0.4606491029262543
+              },
+              {
+                "w": "few",
+                "s": 18.0,
+                "e": 18.28,
+                "p": 0.9049702286720276
+              },
+              {
+                "w": "words",
+                "s": 18.28,
+                "e": 18.52,
+                "p": 0.968868613243103
+              },
+              {
+                "w": "give",
+                "s": 18.52,
+                "e": 18.9,
+                "p": 0.8218095898628235
+              },
+              {
+                "w": "none.",
+                "s": 18.9,
+                "e": 19.1,
+                "p": 0.9974541068077087
+              },
+              {
+                "w": "Does",
+                "s": 20.0,
+                "e": 20.0,
+                "p": 0.9508326649665833
+              },
+              {
+                "w": "length",
+                "s": 20.0,
+                "e": 20.14,
+                "p": 0.9445433020591736
+              },
+              {
+                "w": "matter?",
+                "s": 20.14,
+                "e": 20.48,
+                "p": 0.9991230368614197
+              },
+              {
+                "w": "Yes,",
+                "s": 21.22,
+                "e": 21.4,
+                "p": 0.9925227761268616
+              },
+              {
+                "w": "a",
+                "s": 21.8,
+                "e": 21.92,
+                "p": 0.984626829624176
+              },
+              {
+                "w": "short",
+                "s": 21.92,
+                "e": 22.12,
+                "p": 0.9959612488746643
+              },
+              {
+                "w": "email",
+                "s": 22.12,
+                "e": 22.38,
+                "p": 0.7357544898986816
+              },
+              {
+                "w": "offers",
+                "s": 22.38,
+                "e": 22.78,
+                "p": 0.9820263981819153
+              },
+              {
+                "w": "little",
+                "s": 22.78,
+                "e": 23.08,
+                "p": 0.9333948493003845
+              },
+              {
+                "w": "to",
+                "s": 23.08,
+                "e": 23.38,
+                "p": 0.9963646531105042
+              },
+              {
+                "w": "measure,",
+                "s": 23.38,
+                "e": 23.58,
+                "p": 0.9994576573371887
+              },
+              {
+                "w": "while",
+                "s": 23.72,
+                "e": 23.88,
+                "p": 0.9960651993751526
+              },
+              {
+                "w": "a",
+                "s": 23.88,
+                "e": 24.02,
+                "p": 0.9921607375144958
+              },
+              {
+                "w": "long",
+                "s": 24.02,
+                "e": 24.2,
+                "p": 0.9439342617988586
+              },
+              {
+                "w": "report",
+                "s": 24.2,
+                "e": 24.46,
+                "p": 0.99769526720047
+              },
+              {
+                "w": "offers",
+                "s": 24.46,
+                "e": 24.9,
+                "p": 0.9982160925865173
+              },
+              {
+                "w": "many",
+                "s": 24.9,
+                "e": 25.14,
+                "p": 0.997908353805542
+              },
+              {
+                "w": "word",
+                "s": 25.14,
+                "e": 25.38,
+                "p": 0.9934380650520325
+              },
+              {
+                "w": "choices.",
+                "s": 25.38,
+                "e": 25.68,
+                "p": 0.9983602166175842
+              },
+              {
+                "w": "Here's",
+                "s": 26.62,
+                "e": 26.88,
+                "p": 0.9807457029819489
+              },
+              {
+                "w": "the",
+                "s": 26.88,
+                "e": 26.96,
+                "p": 0.9951804876327515
+              },
+              {
+                "w": "twist.",
+                "s": 26.96,
+                "e": 27.08,
+                "p": 0.9923350214958191
+              },
+              {
+                "w": "The",
+                "s": 27.66,
+                "e": 27.76,
+                "p": 0.9475737810134888
+              },
+              {
+                "w": "check",
+                "s": 27.76,
+                "e": 27.88,
+                "p": 0.9854239821434021
+              },
+              {
+                "w": "is",
+                "s": 27.88,
+                "e": 28.14,
+                "p": 0.9970468878746033
+              },
+              {
+                "w": "only",
+                "s": 28.14,
+                "e": 28.44,
+                "p": 0.9935064315795898
+              },
+              {
+                "w": "probabilistic.",
+                "s": 28.44,
+                "e": 29.22,
+                "p": 0.9931669235229492
+              },
+              {
+                "w": "sick.",
+                "s": 29.22,
+                "e": 29.3,
+                "p": 0.2706851363182068
+              },
+              {
+                "w": "A",
+                "s": 29.66,
+                "e": 29.7,
+                "p": 0.9847348928451538
+              },
+              {
+                "w": "flagged",
+                "s": 29.7,
+                "e": 29.88,
+                "p": 0.42215439677238464
+              },
+              {
+                "w": "text",
+                "s": 29.88,
+                "e": 30.24,
+                "p": 0.9970679879188538
+              },
+              {
+                "w": "means",
+                "s": 30.24,
+                "e": 30.52,
+                "p": 0.9625483751296997
+              },
+              {
+                "w": "likely",
+                "s": 30.52,
+                "e": 30.82,
+                "p": 0.8950605988502502
+              },
+              {
+                "w": "AI",
+                "s": 30.82,
+                "e": 31.26,
+                "p": 0.8258894085884094
+              },
+              {
+                "w": "made",
+                "s": 31.26,
+                "e": 31.64,
+                "p": 0.6964483261108398
+              },
+              {
+                "w": "or",
+                "s": 31.64,
+                "e": 31.88,
+                "p": 0.9539900422096252
+              },
+              {
+                "w": "modified,",
+                "s": 31.88,
+                "e": 32.16,
+                "p": 0.9942530989646912
+              },
+              {
+                "w": "never",
+                "s": 32.68,
+                "e": 32.78,
+                "p": 0.9834666848182678
+              },
+              {
+                "w": "proof.",
+                "s": 32.78,
+                "e": 33.1,
+                "p": 0.9309330582618713
+              },
+              {
+                "w": "Tell",
+                "s": 33.86,
+                "e": 33.92,
+                "p": 0.9556592702865601
+              },
+              {
+                "w": "clients",
+                "s": 33.92,
+                "e": 34.24,
+                "p": 0.9608891010284424
+              },
+              {
+                "w": "how",
+                "s": 34.24,
+                "e": 34.56,
+                "p": 0.9762895703315735
+              },
+              {
+                "w": "you",
+                "s": 34.56,
+                "e": 34.76,
+                "p": 0.9880350232124329
+              },
+              {
+                "w": "used",
+                "s": 34.76,
+                "e": 34.98,
+                "p": 0.9827377200126648
+              },
+              {
+                "w": "Claude.",
+                "s": 34.98,
+                "e": 35.24,
+                "p": 0.2669297456741333
+              },
+              {
+                "w": "That's",
+                "s": 35.82,
+                "e": 36.04,
+                "p": 0.8658987581729889
+              },
+              {
+                "w": "our",
+                "s": 36.04,
+                "e": 36.34,
+                "p": 0.6921532154083252
+              },
+              {
+                "w": "advice,",
+                "s": 36.34,
+                "e": 36.58,
+                "p": 0.9985198378562927
+              },
+              {
+                "w": "not",
+                "s": 36.8,
+                "e": 36.84,
+                "p": 0.9876474142074585
+              },
+              {
+                "w": "anthropics.",
+                "s": 36.84,
+                "e": 37.36,
+                "p": 0.7228496223688126
+              },
+              {
+                "w": "Your",
+                "s": 37.94,
+                "e": 37.98,
+                "p": 0.9803799390792847
+              },
+              {
+                "w": "hidden",
+                "s": 37.98,
+                "e": 38.14,
+                "p": 0.9855090975761414
+              },
+              {
+                "w": "fingerprint",
+                "s": 38.14,
+                "e": 38.5,
+                "p": 0.9271041750907898
+              },
+              {
+                "w": "is",
+                "s": 38.5,
+                "e": 38.76,
+                "p": 0.9940432906150818
+              },
+              {
+                "w": "just",
+                "s": 38.76,
+                "e": 38.96,
+                "p": 0.9594191312789917
+              },
+              {
+                "w": "a",
+                "s": 38.96,
+                "e": 39.08,
+                "p": 0.9952874183654785
+              },
+              {
+                "w": "probability.",
+                "s": 39.08,
+                "e": 39.36,
+                "p": 0.9750441312789917
+              },
+              {
+                "w": "Be",
+                "s": 40.16,
+                "e": 40.26,
+                "p": 0.9874303340911865
+              },
+              {
+                "w": "sure",
+                "s": 40.26,
+                "e": 40.4,
+                "p": 0.9992284774780273
+              },
+              {
+                "w": "to",
+                "s": 40.4,
+                "e": 40.5,
+                "p": 0.9933358430862427
+              },
+              {
+                "w": "like,",
+                "s": 40.5,
+                "e": 40.7,
+                "p": 0.8704128265380859
+              },
+              {
+                "w": "share,",
+                "s": 40.82,
+                "e": 41.08,
+                "p": 0.996408998966217
+              },
+              {
+                "w": "and",
+                "s": 41.3,
+                "e": 41.32,
+                "p": 0.9913980960845947
+              },
+              {
+                "w": "save",
+                "s": 41.32,
+                "e": 41.6,
+                "p": 0.9887102246284485
+              },
+              {
+                "w": "this",
+                "s": 41.6,
+                "e": 41.76,
+                "p": 0.9646240472793579
+              },
+              {
+                "w": "video.",
+                "s": 41.76,
+                "e": 42.04,
+                "p": 0.9983099699020386
+              },
+              {
+                "w": "Which",
+                "s": 42.48,
+                "e": 42.6,
+                "p": 0.9295281767845154
+              },
+              {
+                "w": "till",
+                "s": 42.6,
+                "e": 42.8,
+                "p": 0.4705333411693573
+              },
+              {
+                "w": "next?",
+                "s": 42.8,
+                "e": 43.02,
+                "p": 0.9979755282402039
+              },
+              {
+                "w": "Comment",
+                "s": 43.52,
+                "e": 43.66,
+                "p": 0.9913074374198914
+              },
+              {
+                "w": "and",
+                "s": 43.66,
+                "e": 44.02,
+                "p": 0.9247483015060425
+              },
+              {
+                "w": "follow",
+                "s": 44.02,
+                "e": 44.36,
+                "p": 0.9869306087493896
+              },
+              {
+                "w": "for",
+                "s": 44.36,
+                "e": 44.52,
+                "p": 0.6954807639122009
+              },
+              {
+                "w": "more.",
+                "s": 44.52,
+                "e": 44.66,
+                "p": 0.9990037083625793
+              }
+            ],
+            "dauer_s": 44.9066875,
+            "sprache": "en"
+          },
+          "roh_key": "28bfac20959e975148440395124d597dda15d80f244f75c2c14d0c60b27eafc6",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "3a6419cd9dc5d782ce1f57be1269a9387eb3ad758e071ba13e3653dacef83aa3",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 15,
+          "motive": 15,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "3a6419cd9dc5d782ce1f57be1269a9387eb3ad758e071ba13e3653dacef83aa3",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Mann im schwarzen Lederjackett und Brille sitzt an einem Tisch und liest ein Dokument, welches von unten schwach beleuchtet wird.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Mann, der Dokumente prüft, aber der spezifische Aspekt des Berichts, der einen versteckten Fingerabdruck tragen könnte, wird nicht konkret dargestellt.",
+              "erforderliches_bild": "Ein Dokument mit hervorgehobenen Worten oder ein Hinweis auf statistische Wasserzeichen im Text."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein stilisiertes Sternsymbol in einem abgerundeten grauen Quadrat, umgeben von einem mintgrünen Markierungsrahmen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gesprochene Aufforderung zum Liken und Teilen passt zu den erkennbaren Social-Media-Interaktionssymbolen.",
+              "erforderliches_bild": "Keine Änderung erforderlich."
+            },
+            {
+              "index": 2,
+              "gesehen": "In einem dunklen Bild ist ein türkis leuchtender Kasten mit dem Text HOW YOU'D GUESS zu sehen.",
+              "note": 6,
+              "passt": false,
+              "grund": "Die gesprochenen Worte \"But not how you'd guess.\" werden lediglich als Textgrafik eingeblendet, es fehlt jedoch die Erklärung oder Veranschaulichung des tatsächlichen Vorgangs.",
+              "erforderliches_bild": "Eine anschauliche Grafik oder Animation, die zeigt, wie das Wasserzeichen unvorhersehbar oder auf überraschende Weise funktioniert."
+            },
+            {
+              "index": 3,
+              "gesehen": "Auf dem dunklen Bild ist eine große, hellgelbe Textbox auf der rechten Seite zu sehen, die Text im Hintergrund verdeckt, aber keine grünen Listen oder Wasserzeichen zeigt.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine Textbox mit verdecktem Text, aber weder die Erwähnung von Wortauswahl noch geheime grüne Listen oder statistische Muster.",
+              "erforderliches_bild": "Eine anschauliche Grafik oder Dokumentation, die zeigt, wie Wörter in Richtung einer grünen Liste gewichtet werden."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein stilisiertes Bild mit Text auf dunklem Hintergrund zeigt die Titel 'SLIGHTLY WEIGHTED COIN' und 'LEAVING A STATISTICAL PATTERN', aber keine visuelle Darstellung einer gewichteten Münze oder eines statistischen Musters.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich Textüberschriften der gesprochenen Metapher, jedoch keinerlei Illustration oder grafische Erklärung einer gewichteten Münze oder eines statistischen Musters.",
+              "erforderliches_bild": "Eine anschauliche Grafik einer Münze, die leicht in eine Richtung kippt, oder ein Diagramm, das eine statistische Musterverteilung von Wörtern visualisiert."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein abgedunkelter, fensterloser Raum oder eine UI-Oberfläche im Schatten mit dem eingeblendeten Text 'secret key' im unteren Bereich, ohne Darstellung des geheimen Schlüssels oder einer Überprüfung.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt nur den Text 'secret key' als Untertitel, aber nicht, wie jemand damit etwas überprüft.",
+              "erforderliches_bild": "Eine Darstellung einer Person oder Software, die einen geheimen Schlüssel zur Überprüfung eines Textes anwendet."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein gelb eingerahmter Textkasten mit unleserlichem oder unscharfem Text auf grauem Hintergrund, ohne visuelle Darstellung von Wortanzahlen, Vertrauen oder Statistiken.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich einen Textkasten, passt aber nicht zu den gesprochenen Worten ueber Wortanzahl und Konfidenz.",
+              "erforderliches_bild": "Eine anschauliche Grafik oder ein Diagramm, das den Zusammenhang zwischen Wortanzahl (Laenge) und statistischer Konfidenz bei der Wasserzeichenerkennung darstellt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein dunkelblauer Bildschirm mit der Aufschrift 'CLAUDE WATERMARKING AND WHAT FREELANCERS SHOULD KNOW', gefolgt von Textboxen mit der Frage 'DOES LENGTH MATTER' und der Antwort 'YES'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt die Frage 'Does length matter?' und die Antwort 'Yes' aus dem gesprochenen Text als Textgrafik.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein dunkelblauer Hintergrund mit zwei rechteckigen Feldern. Im oberen türkisernen Feld steht in großen Buchstaben 'MEASURE' und im unteren orangen Feld 'OFFERS MANY WORD CHOICES'.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich zwei farbige Textkästen mit Schlagwörtern aus dem gesprochenen Text, aber keine visuelle Erklärung, Diagramme oder Situation, die den Zusammenhang zwischen Textlänge und Wortwahl zeigt.",
+              "erforderliches_bild": "Ein vergleichendes Diagramm oder eine visuelle Gegenüberstellung einer kurzen E-Mail und eines langen Berichts, die zeigt, wie mehr Wörter zu einer höheren statistischen Zuverlässigkeit beim Erkennen des Wasserzeichens führen."
+            },
+            {
+              "index": 9,
+              "gesehen": "Das Bild zeigt drei Textboxen mit den Aufschriften 'HERE'S THE TWIST', 'CHECK' und 'PROBABILISTIC' vor einem dunklen Hintergrund.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Textgrafiken illustrieren die gesprochenen Begriffe, zeigen jedoch keine konkrete visuelle Erklärung oder Handlung für den probabilistischen Prüfprozess.",
+              "erforderliches_bild": "Eine anschauliche Grafik oder Animation, die eine statistische Wahrscheinlichkeitsverteilung oder einen Verifikationsprozess für Textwasserzeichen zeigt."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein Bildschirm mit dem Titel 'Claude Watermarking and What Freelancers Should Know' zeigt drei Optionen in Rahmen: 'Text means likely AI-made', 'Modified' (aktiv markiert in Orange) und 'Never proof'.",
+              "note": 9,
+              "passt": true,
+              "grund": "Die gezeigten Textoptionen fassen exakt die gesprochenen Bedingungen 'likely AI-made or modified, never proof' zusammen und stellen eine passende visuelle Erklärung dar.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein dunkler Hintergrund mit der Überschrift 'CLAUDE WATERMARKING AND WHAT FREELANCERS SHOULD KNOW' und einem Kasten mit dem Text 'HOW YOU USED CLAUDE'.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich einen Zwischentitel zum Thema, aber keine Darstellung oder Aktion bezüglich des Sprechens mit Kunden über die Nutzung von Claude.",
+              "erforderliches_bild": "Eine Darstellung, die zeigt, wie ein Freiberufler einem Kunden mitteilt oder beschreibt, wie Claude verwendet wurde."
+            },
+            {
+              "index": 12,
+              "gesehen": "Ein Textbild mit der Aufschrift THAT'S OUR ADVICE und NOT ANTHROPIC'S in farbigen Kästen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der Text im Bild gibt exakt den gesprochenen Satz 'That's our advice, not Anthropic's.' wieder.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 13,
+              "gesehen": "Ein dunkelblauer Bildschirm zeigt den Text 'CLAUDE WATERMARKING AND WHAT FREELANCERS SHOULD KNOW' oben und das hervorgehobene Wort 'PROBABILITY' in einem türkis umrandeten Kasten in der Mitte.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das sichtbare Wort 'PROBABILITY' in der Grafik passt exakt zu der gesprochenen Aussage über die Wahrscheinlichkeit ('probability').",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Mann, der Dokumente prüft, aber der spezifische Aspekt des Berichts, der einen versteckten Fingerabdruck tragen könnte, wird nicht konkret dargestellt.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (6/10): Die gesprochenen Worte \"But not how you'd guess.\" werden lediglich als Textgrafik eingeblendet, es fehlt jedoch die Erklärung oder Veranschaulichung des tatsächlichen Vorgangs.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine Textbox mit verdecktem Text, aber weder die Erwähnung von Wortauswahl noch geheime grüne Listen oder statistische Muster.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich Textüberschriften der gesprochenen Metapher, jedoch keinerlei Illustration oder grafische Erklärung einer gewichteten Münze oder eines statistischen Musters.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt nur den Text 'secret key' als Untertitel, aber nicht, wie jemand damit etwas überprüft.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen Textkasten, passt aber nicht zu den gesprochenen Worten ueber Wortanzahl und Konfidenz.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich zwei farbige Textkästen mit Schlagwörtern aus dem gesprochenen Text, aber keine visuelle Erklärung, Diagramme oder Situation, die den Zusammenhang zwischen Textlänge und Wortwahl zeigt.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Die Textgrafiken illustrieren die gesprochenen Begriffe, zeigen jedoch keine konkrete visuelle Erklärung oder Handlung für den probabilistischen Prüfprozess.",
+            "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen Zwischentitel zum Thema, aber keine Darstellung oder Aktion bezüglich des Sprechens mit Kunden über die Nutzung von Claude."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 15,
+          "ausgenommen": [
+            14
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "3a6419cd9dc5d782ce1f57be1269a9387eb3ad758e071ba13e3653dacef83aa3",
+        "prompt_version": "2026-10-28.3"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

@@ -8,6 +8,12 @@ on:
       modell:
         description: 'DDColor-Modell (ddcolor_modelscope | ddcolor_artistic | ddcolor_paper_tiny)'
         default: 'ddcolor_modelscope'
+      groesse:
+        description: 'Rechengroesse des Modells (512 gross/langsam, 256 schnell)'
+        default: '512'
+      schritt:
+        description: 'nur jedes n-te Bild einfaerben (1 = alle)'
+        default: '1'
       clips:
         description: 'Archivclips id:startsekunde, durch Leerzeichen getrennt'
         default: 'WorkPays1937:508 GreatRai1942:508 GreatRai1942:598'
@@ -37,6 +43,8 @@ jobs:
         env:
           MODELL: ${{ inputs.modell }}
           CLIPS: ${{ inputs.clips }}
+          GROESSE: ${{ inputs.groesse }}
+          SCHRITT: ${{ inputs.schritt }}
         run: python fabrik/farbprobe.py ddcolor-code probe "$MODELL" $CLIPS
       - uses: actions/upload-artifact@v4
         if: always()

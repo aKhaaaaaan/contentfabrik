@@ -6,6 +6,7 @@ Ausgabe je Clip: Video mit drei Spalten (Archiv | eingefaerbt | eingefaerbt + ge
 Aufruf: python fabrik/farbprobe.py <ddcolor-ordner> <ausgabe> <modell> id:start [id:start ...]
 """
 import json
+import os
 import subprocess
 import sys
 import time
@@ -15,6 +16,10 @@ import cv2
 import numpy as np
 
 SEKUNDEN = 3
+# 29.10.2026: Grossmodell 4,7 s/Bild - fuer den Alltag Rechengroesse und nur jedes SCHRITT-te Bild einfaerben;
+# die Farbe (ab) wandert langsam, darum bekommen die Bilder dazwischen die Farbe des letzten eingefaerbten.
+GROESSE = int(os.environ.get('GROESSE', 512))
+SCHRITT = max(1, int(os.environ.get('SCHRITT', 1)))
 BREITE, HOEHE = 360, 640
 
 
@@ -48,7 +53,7 @@ def modell_laden(ordner, name):
             if isinstance(config, dict):
                 kwargs = {**config, **kwargs}
             super().__init__(**kwargs)
-    return ColorizationPipeline(DDColorHF.from_pretrained(f'piddnad/{name}'), input_size=512)
+    return ColorizationPipeline(DDColorHF.from_pretrained(f'piddnad/{name}'), input_size=GROESSE)
 
 
 def main(ordner, aus, name, clips):
@@ -73,7 +78,13 @@ def main(ordner, aus, name, clips):
             if not ok:
                 break
             t = time.time()
-            bunt = pipeline.process(f)
+            if k % SCHRITT == 0:
+                bunt = pipeline.process(f)
+                ab = cv2.cvtColor(bunt, cv2.COLOR_BGR2LAB)[..., 1:]
+            else:  # Helligkeit vom aktuellen Bild, Farbe vom letzten eingefaerbten
+                lab = cv2.cvtColor(f, cv2.COLOR_BGR2LAB)
+                lab[..., 1:] = ab
+                bunt = cv2.cvtColor(lab, cv2.COLOR_LAB2BGR)
             zeiten.append(time.time() - t)
             v, b = vertikal(f), vertikal(bunt)
             bild = np.hstack([v, b, gemalt(b)])
@@ -88,7 +99,8 @@ def main(ordner, aus, name, clips):
                         '-crf', '23', str(aus / f'farbe_{n}.mp4')], check=True)
         messung.append({'clip': spec, 'bilder': k, 'sekunden_je_bild': round(sum(zeiten) / max(1, len(zeiten)), 2)})
         print(messung[-1], flush=True)
-    (aus / 'messung.json').write_text(json.dumps({'modell': name, 'clips': messung}, indent=2), encoding='utf-8')
+    (aus / 'messung.json').write_text(json.dumps({'modell': name, 'groesse': GROESSE, 'schritt': SCHRITT, 'clips': messung},
+                                                 indent=2), encoding='utf-8')
 
 
 if __name__ == '__main__':

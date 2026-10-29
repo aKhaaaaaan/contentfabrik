@@ -40,6 +40,7 @@ GEMINI_FAKTOR = 1.0  # zuletzt angewandtes Gemini-Tempo (gemini_ton), fuer messu
 ZOOM = '1+0.035*min(on/{n},1)'
 HOOK_ZOOM = '1+0.10*min(on/{n},1)'  # Hook-Bild 28.10.2026: deutlich sichtbare Fahrt
 HOOK_TEXT_S = 2.0  # so lange steht der gesprochene Hook gross in der Bildmitte
+ARCHIV_MAX = 4  # Archivclips je Short (29.10.2026: Mischung, Motivzahl bleibt)
 ZOOM_KARTE_MAX = 1.10  # 28.10.2026 Nutzer: "kein Motion" - vorher 1.06 bei +1,2 %/s kaum sichtbar
 ZOOM_KARTE = f'min(1+0.001*on,{ZOOM_KARTE_MAX})'  # je Bild bei 30 fps: +3 %/s, nach gut 3 s am Ende
 LAYOUT = {}
@@ -1638,6 +1639,7 @@ def clip_code_key(s):
                           + Path(dramaturgie.__file__).read_bytes()
                           + Path(motivbudget.__file__).read_bytes()
                           + Path(parallax.__file__).read_bytes()
+                          + Path(__file__).with_name('archivclip.py').read_bytes()
                           + Path(__file__).with_name('illustration.py').read_bytes()
                           + Path(__file__).with_name('infografik.py').read_bytes()
                           + themen_grafikcode(s)
@@ -1806,6 +1808,8 @@ def main(skript_pfad, aus, vorlage=None):
                       if not kanalprofil(s).get('gemalt_nur_rand') else {})
         FORTSCHRITT['plaetze'] = sorted((t['platz'] for t in s['teile'] if t.get('platz')), reverse=True)
         FORTSCHRITT['aktuell'] = None
+        # Nutzerentscheidung 29.10.2026: allgemeine Szenen als gemeinfreie Archivclips (eingefaerbt + gemalt).
+        archiv_zahl, archiv_letzt, archiv_benutzt = 0, -9, set()
         for i, shot in enumerate(shots):
             t, dauer, t0 = shot['teil'], shot['dauer_s'], shot['s']
             # 18 Schnitte sind keine 18 Motive: auch nicht benachbarte Wiederholungen zaehlen.
@@ -2038,6 +2042,24 @@ def main(skript_pfad, aus, vorlage=None):
                                                     texte.kommentar_frage(s, kurz=True))
                     quellen.append({'quelle': 'Illustration', 'seite': 'Originale Kanalfigur mit gesprochenem Aufruf'})
                     print(f'Einstellung {i}: Aufruf mit Kanalfigur und Sprechblase (ohne Bildmodell)')
+            archiv_video = None
+            if kanalprofil(s).get('archivclips') and H > B and modus in ('auto', 'illustration', 'foto')                     and not karte and not foto and not ill and 0 < i < len(shots) - 1 and i not in zahl_slots                     and archiv_zahl < ARCHIV_MAX and i - archiv_letzt >= 2 and dauer >= 2.0:
+                import archivclip
+                try:
+                    fund = archivclip.finden(t['text'], t.get('szene', ''), t.get('szene', ''), archiv_benutzt)
+                    if fund:
+                        roh = archivclip.schneiden(fund, dauer, aus / f'archiv_{i:02d}_roh.mp4')
+                        archiv_video, ill = archivclip.farbe(roh, aus / f'archiv_{i:02d}.mp4',
+                                                             aus / f'archiv_{i:02d}.jpg')
+                    if archiv_video:
+                        archiv_zahl, archiv_letzt = archiv_zahl + 1, i
+                        archiv_benutzt.add(fund['kennung'])
+                        quellen.append({'quelle': 'Internet Archive (Prelinger, Public Domain)', 'seite': fund['seite'],
+                                        'lizenz': fund['lizenz'], 'nennung': 'Archival footage, colorized and painted'})
+                        print(f"Einstellung {i}: Archivclip {fund['kennung']} (Note {fund['note']})")
+                except Exception as e:  # Archivclips sind Kuer - dann wie bisher gemalt
+                    print(f'Einstellung {i}: Archivclip nicht moeglich ({type(e).__name__}) - gemalte Szene')
+                    archiv_video, ill = None, None
             if os.environ.get('CLOUDFLARE_AI_TOKEN') and modus in ('auto', 'illustration', 'foto') \
                     and not karte and not foto and not ill:
                 import illustration
@@ -2229,8 +2251,12 @@ def main(skript_pfad, aus, vorlage=None):
             elif ill:  # GEMELDET 10.10.2026: auch im Short Motiv gross, dahinter dasselbe Bild verschwommen
                 kpfad = aus / f'karte_{i:02d}.png'
                 karten_ebene(ill, kasten='gross').save(kpfad)
+                if archiv_video:  # 29.10.2026: der Archivclip laeuft deckungsgleich auf der Karte
+                    groesse = Image.open(ill).size
+                    lebend = (archiv_video, ecken_maske(groesse, aus / f'ecken_{i:02d}.png'),
+                              karten_platz(groesse, 'gross'))
                 # Nutzer 28.10.2026: lebende Bilder - nur gemalte Szenen ohne eingesetzte Zahl (Schrift verzoege)
-                if gemalt and i not in zahl_slots:
+                elif gemalt and i not in zahl_slots:
                     groesse = Image.open(ill).size
                     lv = parallax.video(ill, groesse, dauer, FPS, aus / f'lebend_{i:02d}.mp4')
                     if lv:

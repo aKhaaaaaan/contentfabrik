@@ -835,6 +835,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
     woerter_von = lambda e: sum(len(t['text'].split()) for t in e['teile'])
     import skript_entwurf
     erste_fassung = True
+    geprueft_gesichert = False
     def schreiben_einzeln(auftrag, entwurf_basis=None, korrekturen=()):
         nonlocal erste_fassung
         # GEMESSEN: Auch die Ueberarbeitung nach der Faktenpruefung kuerzte
@@ -897,7 +898,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
                                  and kanal.get('format') == 'erklaerung' else None), quellen, auftrag, mindest, hoechstens,
                                  entwurf=aktueller_entwurf, korrekturen=korrekturen, zusatz=zusatz_))
             aktueller_entwurf = e
-            if not fortgesetzt:
+            if not fortgesetzt and not geprueft_gesichert:  # nie die beste gepruefte Fassung ueberschreiben
                 try:
                     skript_entwurf.sichern(kanal_pfad, thema, quellen, SKRIPT_SCHEMA, e, m)
                 except OSError:
@@ -1081,6 +1082,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
     # muss WIEDER durch die Faktenpruefung -
     # Spannung nie auf Kosten der Wahrheit. Behalten wird die beste Fassung.
     def fassung_speichern(entwurf, modell, pruefung, story):
+        nonlocal geprueft_gesichert
         zuordnen(entwurf, quellen)
         # GEMESSEN: Die KI liess „name" leer - dann fehlte der Name unter der Karte.
         for t in entwurf['teile']:
@@ -1128,6 +1130,15 @@ def main(kanal_pfad, aus_pfad, thema=None):
             'modell': modell, 'sekunden_ki': round(time.time() - t0, 1),
             'prompt_version': prompts.VERSION,
         }
+        # GEMESSEN 29.10.2026 (KI 40885084229, 40890125955): Story 6/10 stand fertig geprueft da, das Zeitlimit
+        # beendete die Story-Runden, der naechste Versuch begann wieder beim ersten Autorenentwurf. Jetzt setzt er
+        # bei der besten faktengeprueften Fassung fort (Pruefungen laufen erneut, gleicher Text = Pruefcache).
+        if pruefung.get('ok'):
+            try:
+                geprueft_gesichert = skript_entwurf.sichern(kanal_pfad, thema, quellen, SKRIPT_SCHEMA,
+                    {k: v for k, v in entwurf.items() if k != 'videoformat'}, modell) or geprueft_gesichert
+            except OSError:
+                pass
         Path(aus_pfad).parent.mkdir(parents=True, exist_ok=True)
         tmp = Path(str(aus_pfad) + '.tmp')
         tmp.write_text(json.dumps(skript, indent=2, ensure_ascii=False), encoding='utf-8')

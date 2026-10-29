@@ -287,7 +287,9 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     # GEMESSEN 17.10.2026 (Run 39032531951, Coca-Cola): 20 Min. reichten nicht - Autor, 6 Faktenkorrekturen,
     # Chronik- und Laengenkorrektur, dann "Skript-Zeitlimit erreicht". Bei 200 Min. Budget bleiben mit 45 Min.
     # Skript noch 155 Min. fuer Bilder, Bau und Pruefung (Gesamtbudget unveraendert).
-    skriptfrist = 45 * 60 if kanalstandard.laden(kanal_pfad).get('videoformat') == 'lang' else 480
+    # GEMESSEN 29.10.2026: 480 s reichten bei langsamem Gemini nicht (lokale MCP-Probe 665 s, zwei KI-Laeufe mit
+    # Story 6/10 im Zeitlimit). 900 s, weiter hoechstens 40 % der Restarbeit; das Gesamtbudget bleibt gleich.
+    skriptfrist = 45 * 60 if kanalstandard.laden(kanal_pfad).get('videoformat') == 'lang' else 900
     # GEMESSEN 17.10.2026: Short und Langvideo teilten verlauf/entwuerfe/<kanal>.json - ein Business-Short
     # konnte das gepruefte Langvideo-Skript (samt Teilbau) ueberschreiben. Langvideo hat einen eigenen Platz.
     cache_kanal = entwurf_cache.cache_name(kanal, kanal_pfad)
@@ -639,6 +641,10 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             print(letzter_grund)
             runde['status'] = 'zeitbudget'
             runde['phase'] = phase
+            if phase == 'Skript' and not basis and not entwurf:
+                # GEMESSEN 29.10.2026: nach dem Skript-Zeitlimit endete der Lauf mit ueber 60 Min. Restbudget.
+                # Der naechste Versuch setzt die gesicherte Fassung fort (skript_entwurf); die Schleife prueft die Zeit.
+                continue
             break
         except (ValueError, KeyError, TypeError, OSError) as e:
             letzter_grund = f'Versuch fehlgeschlagen ({type(e).__name__})'

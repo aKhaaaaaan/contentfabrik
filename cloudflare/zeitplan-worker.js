@@ -80,6 +80,7 @@ const HILFE = 'Befehle:\nStart - beide Kanaele\nStart Business - nur Business Or
   'Start KI - nur AI Tools Explained\n' +
   'Start KI bezahlt / Start Business bezahlt - auch wenn das Gratis-Kontingent leer ist\n' +
   'Status - Fortschritt in Prozent\n' +
+  'Themen - welche Themen als Naechstes drankommen\n' +
   'Abholen - Feedback/Themen aus dem Videobot sofort verarbeiten\n\n' +
   'Feedback gibst du im Videobot: auf ein Video antworten oder „Feedback: ..." schreiben.';
 
@@ -228,6 +229,37 @@ export async function pilotFortschritt(env, lauf) {
     + `Jetzt: ${schritt ? schritt.name : 'Vorbereitung'}${zeile}\n${lauf.html_url}`;
 }
 
+// Nutzer 29.10.2026: "Welche Themen stehen an? Auch bei Telegram, damit ich weiss, was in der Pipeline steht."
+// Wie lauf.py: fertig geprueftes Vorrat-Skript zuerst, sonst waehlt trendcheck aus Warteschlange und Trends.
+const KANAL_NAME = { 'ai-tools-explained': 'KI', 'business-origin-stories': 'Business' };
+
+async function roh(pfad) {
+  const r = await fetch(`https://raw.githubusercontent.com/${REPO}/main/${pfad}`);
+  return r.ok ? r.json() : null;
+}
+
+export async function themenUebersicht(env) {
+  const heute = new Date().toISOString().slice(0, 10);
+  const geladen = await roh('themen/warteschlange.json').catch(() => null);
+  const schlange = Array.isArray(geladen) ? geladen : [];
+  const teile = [];
+  for (const [kanal, name] of Object.entries(KANAL_NAME)) {
+    const vorrat = await fetch(`https://api.github.com/repos/${REPO}/contents/vorrat/${kanal}`, { headers: ghKopf(env) })
+      .then(r => r.ok ? r.json() : []).catch(() => []);
+    const fertig = (Array.isArray(vorrat) ? vorrat : []).filter(f => f.name.endsWith('.json'))
+      .map(f => f.name.replace(/-[0-9a-f]{12}\.json$/, '').replace(/-/g, ' '));
+    const offen = schlange.filter(e => e.kanal === kanal && (e.status || 'bereit') === 'bereit').map(e => e.thema);
+    const trend = await roh(`verlauf/trendcheck/${kanal}-${heute}.json`).catch(() => null);
+    teile.push(`${name}:\n` +
+      (fertig.length ? `Skript fertig: ${fertig.join(', ')}\n` : '') +
+      (offen.length ? offen.map((t, i) => `${i + 1}. ${t}`).join('\n') : 'Warteschlange leer') +
+      (trend && trend.thema ? `\nTrend heute: ${trend.thema}` : ''));
+  }
+  return 'Themen in der Pipeline\n\n' + teile.join('\n\n') +
+    '\n\nEin fertiges Skript kommt zuerst; sonst waehlt der Trend-Check das staerkste Thema aus Warteschlange und Trends.\n' +
+    'Neue Themen im Videobot mit „Business: ..." oder „KI: ..." schicken.';
+}
+
 export async function befehl(env, text) {
   // GEMELDET 24.10.2026: "Status?" bekam die Befehlsliste - Satzzeichen am Ende zaehlen nicht.
   // "/" bleibt: "/start" sendet Telegram beim ersten Oeffnen, das darf nichts starten.
@@ -246,6 +278,7 @@ export async function befehl(env, text) {
       r.conclusion === 'success' ? 'beendet' : r.conclusion === 'cancelled' ? 'abgebrochen' : 'Fehler'}\n${r.html_url}`)
       .join('\n') + '\n\n„Beendet" heisst nicht automatisch Video - das Ergebnis meldet der Videobot.';
   }
+  if (t === 'themen' || t === 'thema') return themenUebersicht(env);
   if (t === 'abholen') {
     // GEMELDET 08.10.2026: Feedback soll gleich im naechsten Lauf wirken, nicht erst nach 4 h.
     const e = await starte(env, 'themen.yml', {});

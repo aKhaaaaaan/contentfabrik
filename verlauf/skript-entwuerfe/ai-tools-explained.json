@@ -1,116 +1,115 @@
 {
   "version": 1,
   "status": "ungeprueft",
-  "zeit": 1793282145.7206666,
-  "kontext": "4e899d92b5785d6f7eeeefd387f7b7688fedec32b4d029f8974225769ae266b0",
+  "zeit": 1793284058.1899657,
+  "kontext": "896fdf1e5cdf986e29d9c8bc4490371007f26a509f4603ea1c267f3ea38f0523",
   "entwurf": {
-    "thema": "Claude Projects for paid guides",
-    "titel_zeile1": "Claude Projects Guides",
-    "titel_zeile2": "Start From Your Notes",
+    "thema": "Using Claude projects to prepare a checklist guide you might sell as a PDF",
+    "titel_zeile1": "Claude Guide Check",
+    "titel_zeile2": "Before You Sell It",
     "schluesselwoerter": [
       "Claude",
-      "Projects"
+      "projects"
     ],
     "teile": [
       {
         "name": "Hook",
         "werkzeug": "Claude",
-        "suche": "frustrated freelancer laptop",
-        "text": "Your AI-generated content sounds exactly like everyone else's. Brutal. Can Claude Projects fix that? One limit changes the answer.",
-        "szene": "Painted open-world-game poster style: black-haired presenter in black leather jacket and glowing cyan glasses sits at a cluttered desk, frowning at identical stacked drafts, medium shot, warm evening lamp light, calm space above and below.",
+        "suche": "frustrated person messy notes",
+        "text": "Nobody buys a messy, half-finished guide. Imagine your checklist PDF scattered across a dozen Claude chats and loose notes.",
+        "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects",
+        "szene": "Original painted open-world-game poster style: black-haired man in black leather jacket and glowing cyan glasses sits at a cluttered desk, frowning at scattered handwritten pages, medium shot, moody neon evening light.",
+        "bildtext": "",
+        "geraeusch": "",
         "beat": "hook",
-        "bildmodus": "illustration",
+        "bildmodus": "illustration"
+      },
+      {
+        "name": "Frage",
+        "werkzeug": "Claude",
+        "suche": "person organizing notes desk",
+        "text": "But the writing isn't the problem. Say you sell a checklist guide. Where does Claude keep all your notes?",
+        "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects",
+        "szene": "Painted urban game-poster style: the cyan-glasses presenter in black leather jacket sorts loose pages into neat stacks on a workshop table, close-up on hands, warm lamp light, calm space above and below.",
         "bildtext": "",
         "geraeusch": "",
-        "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects"
+        "beat": "frage",
+        "bildmodus": "illustration"
       },
       {
-        "name": "Workspace",
+        "name": "Projects",
         "werkzeug": "Claude",
-        "suche": "organizing notes workspace",
-        "text": "A project is a self-contained workspace with its own chat histories and knowledge base. You can upload documents and context.",
-        "szene": "Painted urban game-poster style: presenter in cyan glasses sorts handwritten notes and sample pages into a glowing folder-shaped workspace on a tabletop, close shot, soft cyan light, calm space above and below.",
-        "beat": "beleg",
-        "bildmodus": "karte",
-        "bildtext": "self-contained workspace",
+        "suche": "claude projects workspace",
+        "text": "Projects hold their own chat histories and knowledge bases. You upload documents, provide context, and have focused chats.",
+        "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects",
+        "szene": "Official Claude Help Center page on projects, showing the description of self-contained workspaces with their own chat histories and knowledge bases.",
+        "bildtext": "knowledge bases",
         "geraeusch": "",
-        "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects"
-      },
-      {
-        "name": "Context",
-        "werkzeug": "Claude",
-        "suche": "writer working from notes",
-        "text": "Upload your own notes and documents. Claude uses them to understand the background for chats inside that project.",
-        "szene": "Painted game-poster style: presenter in leather jacket writes at a studio table surrounded by pinned sketches and folders, a faint holographic assistant silhouette listening beside him, medium shot, teal and amber lighting.",
         "beat": "erklaerung",
-        "bildmodus": "illustration",
+        "bildmodus": "karte"
+      },
+      {
+        "name": "Plans",
+        "werkzeug": "Claude",
+        "suche": "claude projects free accounts",
+        "text": "Free accounts can make five projects. Usage limits apply.",
+        "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects",
+        "szene": "Official Claude Help Center page on projects, showing the line that projects are available to all users and that free users can create a maximum of five projects.",
         "bildtext": "",
         "geraeusch": "",
-        "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects"
+        "beat": "erklaerung",
+        "bildmodus": "karte"
       },
       {
-        "name": "Instructions",
+        "name": "Test",
         "werkzeug": "Claude",
-        "suche": "person setting writing tone",
-        "text": "So how do you shape the voice? Add project instructions, like a formal tone or an industry role.",
-        "szene": "Painted open-world-game poster style: presenter leans toward a laptop, one hand raised as if dictating guidance, thoughtful expression, medium close shot, dim room with cool cyan glow.",
+        "suche": "person writing success criteria",
+        "text": "So what comes first? Spend time defining your success criteria.",
+        "quelle_url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+        "szene": "Claude Platform Docs prompt engineering overview page, showing the lines about a clear definition of the success criteria for your use case.",
+        "bildtext": "success criteria",
+        "geraeusch": "",
         "beat": "wendung",
-        "bildmodus": "illustration",
-        "bildtext": "project instructions",
-        "geraeusch": "",
-        "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects"
-      },
-      {
-        "name": "Limits",
-        "werkzeug": "Claude",
-        "suche": "comparing subscription plans",
-        "text": "Here's the limit. Free accounts get five projects. Paid plans can expand knowledge up to 10x as it grows.",
-        "szene": "Painted urban game-poster style: presenter at a street-side cafe table weighing two options, one hand raised with five fingers, closed wallet beside a coffee cup, medium shot, golden afternoon light.",
-        "beat": "beleg",
-        "bildmodus": "illustration",
-        "bildtext": "five projects",
-        "geraeusch": "",
-        "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects"
+        "bildmodus": "karte"
       },
       {
         "name": "Payoff",
         "werkzeug": "Claude",
-        "suche": "writer smiling at desk",
-        "text": "Projects draw from your plan's usage. Your next guide can start from your own notes, not everyone else's.",
-        "szene": "Painted game-poster style: presenter in cyan glasses leans back at his desk with a satisfied smile, stacked notebooks beside him, medium shot, warm desk lamp, calm top and bottom space.",
-        "beat": "aufloesung",
-        "bildmodus": "illustration",
+        "suche": "man reviewing checklist confident",
+        "text": "So your scattered checklist guide gets one home for notes and one clear standard. No income is promised.",
+        "quelle_url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+        "szene": "Painted open-world-game poster style: the cyan-glasses presenter in black leather jacket smiles with relief, holding a neat finished stack of pages in a bright workshop, medium shot, warm light.",
         "bildtext": "",
         "geraeusch": "",
-        "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects"
+        "beat": "aufloesung",
+        "bildmodus": "illustration"
       },
       {
-        "name": "Abschluss",
+        "name": "Ende",
         "werkzeug": "",
-        "suche": "person smiling at camera",
+        "suche": "person smiling thumbs up",
         "text": "Be sure to like, share and save this video.",
-        "szene": "Painted open-world-game poster style: presenter in black leather jacket and glowing cyan glasses gives a confident thumbs-up beside a stack of notebooks, medium shot, sunset city backdrop.",
-        "beat": "aufloesung",
-        "bildmodus": "illustration",
+        "quelle_url": "",
+        "szene": "Painted urban game-poster style: the cyan-glasses presenter in black leather jacket gives a friendly nod beside a tidy desk at dusk, medium shot, neon glow, calm space for overlays.",
         "bildtext": "",
         "geraeusch": "",
-        "quelle_url": ""
+        "beat": "aufloesung",
+        "bildmodus": "illustration"
       }
     ],
-    "beschreibung": "Claude projects are self-contained workspaces with their own chats and knowledge bases, per Claude's help page. Free accounts can create five; paid plans can expand knowledge capacity up to 10x.",
+    "beschreibung": "How Claude projects can hold your documents and chats while you prepare a checklist guide, and why defining success criteria comes first. Details come from Claude's official pages; no income is promised.",
     "hashtags": [
       "#Claude",
       "#ClaudeProjects",
       "#AIToolsExplained",
-      "#AITools"
+      "#PromptEngineering"
     ],
     "musik_suche": [
-      "curious light instrumental pulse",
-      "sparse minimal underscore",
-      "warm restrained ambient"
-    ],
-    "videoformat": "short"
+      "curious restrained instrumental pulse",
+      "sparse minimal underscore warm",
+      "light ambient tech instrumental"
+    ]
   },
   "modell": "claude:sonnet",
-  "sha": "88183a657d70a4d9f91b1bf3fb3eac87b7ad6648217d3ef85b106be03eb021cf"
+  "sha": "f1a217b4bf322826939cf84a15a80978911a863b8f18b763583c7c28a3e0f786"
 }

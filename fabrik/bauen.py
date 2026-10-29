@@ -2217,12 +2217,15 @@ def main(skript_pfad, aus, vorlage=None):
             if werkzeug and not t.get('werkzeug'):
                 t = dict(t, werkzeug=werkzeug)
             logo = None
-            if werkzeug and werkzeug != letztes_werkzeug and i > 0:  # neuer Abschnitt: Logo (nicht auf dem Titelbild)
+            neu = bool(werkzeug) and werkzeug != letztes_werkzeug and i > 0
+            # 29.10. (Rolls-Royce): die Logo-Tafel lag auf der Zahl "9,000" - Logo dann eine Einstellung spaeter
+            if neu and i not in zahl_slots:  # neuer Abschnitt: Logo (nicht auf dem Titelbild)
                 if werkzeug not in logos:
                     import vorschaubild
                     logos[werkzeug] = vorschaubild.werkzeug_logo(werkzeug, t.get('quelle_url') or '')
                 logo = logos[werkzeug]
-            letztes_werkzeug = (werkzeug or letztes_werkzeug) if i > 0 else letztes_werkzeug
+            if i > 0 and not (neu and i in zahl_slots):
+                letztes_werkzeug = werkzeug or letztes_werkzeug
             bild_fuer(t, s['titel'], i, len(shots), durchsichtig=not karte,
                      karte=karte, akzent=akzent_farbe(s), logo=logo).save(ebene)
             # GEMELDET 08.10.2026: Nutzer will das Wort 'ILLUSTRATION' im Bild nicht ("ganz

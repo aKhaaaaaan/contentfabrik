@@ -114,10 +114,22 @@ def logo_readme(url):
     return None
 
 
+# Rolls-Royce 29.10.: Quelle war Wikipedia -> das Wikipedia-"W" erschien als Firmenlogo. Nachschlagewerke und
+# Videoseiten sind Belege, nicht die Herstellerseite.
+QUELLSEITEN = re.compile(r'(?:^|\.)(?:wikipedia\.org|wikimedia\.org|wikidata\.org|archive\.org|youtube\.com|'
+                         r'youtu\.be|google\.com)$', re.I)
+
+
+def wiki_titel(url):
+    """'https://en.wikipedia.org/wiki/Rolls-Royce_Limited' -> 'Rolls-Royce Limited' (genauer als der Kurzname)."""
+    m = re.match(r'https?://en\.wikipedia\.org/wiki/([^?#]+)', url or '')
+    return urllib.parse.unquote(m[1]).replace('_', ' ') if m else None
+
+
 def logo_favicon(url):
     """Offizielles Seiten-Symbol (Google-Favicon-Dienst, 256 px) fuer Herstellerseiten ohne Wikidata-Logo."""
     m = re.match(r'https?://([^/]+)', url or '')
-    if not m or re.match(r'(github\.com|huggingface\.co)$', m[1]):
+    if not m or re.match(r'(github\.com|huggingface\.co)$', m[1]) or QUELLSEITEN.search(m[1]):
         return None
     try:
         return _holen('https://www.google.com/s2/favicons?' + urllib.parse.urlencode({'domain': m[1], 'sz': 256}))
@@ -128,7 +140,8 @@ def logo_favicon(url):
 def werkzeug_logo(name, url=''):
     """Logo eines Werkzeugs als RGBA oder None: README (GitHub/HF), Wikidata, Seiten-Symbol.
     Zu kleine Bilder (< 128 px) werden verworfen - hochskaliert wirken sie unscharf."""
-    for holen in (lambda: logo_readme(url), lambda: logo_wikidata(name), lambda: logo_favicon(url)):
+    for holen in (lambda: logo_readme(url), lambda: logo_wikidata(name), lambda: logo_wikidata(wiki_titel(url)),
+                  lambda: logo_favicon(url)):
         daten = holen()
         if not daten:
             continue
@@ -147,7 +160,7 @@ def logo_bild(skript):
     quelle = next((t.get('quelle_url') for t in skript.get('teile', []) if t.get('quelle_url')), '')
     werkzeug = bool(re.match(r'https?://(github\.com|huggingface\.co)/', quelle or ''))
     quellen = (lambda: logo_readme(quelle), lambda: logo_wikidata(name(skript))) if werkzeug \
-        else (lambda: logo_wikidata(name(skript)),)
+        else (lambda: logo_wikidata(name(skript)), lambda: logo_wikidata(wiki_titel(quelle)))
     for holen in quellen:
         daten = holen()
         if not daten:

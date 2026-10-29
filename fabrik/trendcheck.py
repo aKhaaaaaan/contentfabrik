@@ -456,6 +456,21 @@ def bericht_veraltet(kanal, heute=None, jetzt=None):
         return True
 
 
+def heute_gescheitert(kanal, thema, heute=None, ordner=Path('verlauf/messungen')):
+    """Gesperrte Laeufe von heute mit diesem Trendthema (messungen: trendcheck = '<Thema>: <Punkte> ...')."""
+    if heute is None:
+        from zoneinfo import ZoneInfo
+        heute = datetime.datetime.now(ZoneInfo('Europe/Berlin')).date()
+    try:
+        laeufe = json.loads((Path(ordner) / f'{kanal}.json').read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return 0
+    # genau "<Thema>: <Zahl> Punkte" - Themen mit Doppelpunkt ("Claude: ...") duerfen nicht als "Claude" zaehlen
+    muster = re.compile(re.escape(thema) + r': \d+(?:\.\d+)? Punkte')
+    return sum(1 for e in laeufe if e.get('datum') == heute.isoformat() and e.get('status') == 'gesperrt'
+               and muster.match(str(e.get('trendcheck') or '')))
+
+
 def waehlen(kanal, heute=None, themen=None, neu=False):
     """Thema fuer den heutigen Lauf: (thema, bericht). Ein Ergebnis je Kanal und Tag.
     bericht ist None, wenn es nichts abzuwaegen gab (alte Reihenfolge, kein Netzabruf).

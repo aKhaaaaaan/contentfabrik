@@ -337,6 +337,13 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         # Der Trend-Check waehlt unter Warteschlange + Trendfirmen; '' = freie Trendwahl.
         import trendcheck
         thema, trend = trendcheck.waehlen(kanal, themen=themen)
+        if thema and trendcheck.heute_gescheitert(kanal, thema) >= 2:
+            # GEMESSEN 29.10.2026 (KI 40885084229, 40890125955): derselbe Trend ("Sell PDFs Made With Claude") lief
+            # zweimal ins Skript-Zeitlimit - die Quellen trugen ihn nicht. Dann die Nutzerthemen der Warteschlange.
+            ersatz = themen.nehmen(kanal)
+            print(f'Trendthema {thema} heute schon zweimal gescheitert - '
+                  + (f'Thema aus der Warteschlange: {ersatz}' if ersatz else 'freie Wahl'))
+            thema, trend = ersatz, None
         if thema and themen.schon_geliefert(kanal, thema) is True:
             # Zusatzvideo am selben Tag: der Bericht des Tages nennt das schon gesendete Thema - naechster Trend.
             offen_trend = trendcheck.trend_themen(kanal)

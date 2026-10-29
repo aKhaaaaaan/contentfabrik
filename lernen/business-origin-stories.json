@@ -1,15 +1,16 @@
 {
   "regeln": [
-    "Ensure every visual precisely matches the specific corporate entities, financial metrics, and event details mentioned in the accompanying narration.",
-    "Split dense narrative sentences into short, single-anchor statements, each paired with its own distinct visual motif.",
-    "Preserve channel identity using the recurring presenter (blue-eyed man with fedora, grey suit, dark tie, and gold pocket watch) and painted open-world-game style.",
-    "Use concrete, source-backed visual evidence for historical, financial, or technical concepts rather than abstract worker shots or generic graphics.",
-    "Maintain continuous narration and subtitles synchronized precisely with visual motif transitions.",
-    "Include mandatory spoken like, share, and save calls at format-required positions without substituting other calls.",
-    "Adjust pacing by format: maintain rapid 3-5 second shot changes for Shorts while allowing longer demonstrations in long-form videos.",
-    "Never override source-supported facts, limits, or verified details with speculative or fictionalized claims.",
-    "Treat review feedback conditionally as provisional data without asserting unobserved viewer behavior or banning entire styles.",
-    "Derive general writing and editing habits from check failures without creating rules tied to specific names or topics."
+    "Maintain the 'business-origin-stories' identity: feature the blue-eyed man with fedora, grey suit, dark tie, and gold pocket watch at the opening and throughout in useful actions.",
+    "Directly align visuals with narration: specifically depict mentioned actions, financial figures, or business roles instead of using abstract imagery (e.g., generic street scenes or men at windows).",
+    "Use the original painted open-world-game visual style for all fictional/illustrative scenes; never use unrelated stock footage or generic AI illustrations for specific historical/source-backed events.",
+    "For long videos, prioritize purposeful longer demonstrations and do not impose the rapid-fire pacing required for Shorts.",
+    "Include the mandatory spoken 'like, share, and save' call at the correct format-specific position; do not substitute with other calls-to-action.",
+    "Ensure synchronization: subtitles and visual motifs must change exactly with the continuous narration timing throughout the video.",
+    "Motif distinctness: do not count zooms, crops, background-only frames, or changed labels as new motifs; every motif must show a new subject or action.",
+    "Never override source-supported facts, factual limits, or approved voices with speculation or unverified claims.",
+    "Treat review feedback as provisional data: phrase lessons conditionally and do not overgeneralize a single image defect into a blanket ban on a style.",
+    "Prioritize concrete, observable fixes (e.g., replacing mismatched images) rather than claiming a technique will guarantee specific retention or performance scores.",
+    "Derive only general writing and editing habits from check failures; never create rules about specific names, topics, or historical facts."
   ],
   "korrekturen": [
     {
@@ -2953,6 +2954,107 @@
       "schwerpunkt": "bild",
       "kategorien_vorher": {
         "bild_passt": 2
+      },
+      "kategorien_nachher": {
+        "bild_passt": 2
+      },
+      "auswertbar": false,
+      "prompt_version": "2026-10-28.3",
+      "verbessert": false
+    },
+    {
+      "id": "40872532300-2",
+      "datum": "2026-10-29",
+      "vorher": null,
+      "nachher": null,
+      "vorher_gesperrt": true,
+      "nachher_gesperrt": true,
+      "sekunden": 481.3,
+      "aktionen": [
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 0
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 1
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 2
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 4
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 5
+        }
+      ],
+      "einstellungen": {
+        "stimme": "bm_george",
+        "tempo": 1.05,
+        "untertitel_profil": "ruhig",
+        "musik_pegel": null,
+        "effekt_pegel": null
+      },
+      "schwerpunkt": "bild",
+      "kategorien_vorher": {
+        "bild_passt": 2
+      },
+      "kategorien_nachher": {
+        "bild_passt": 1
+      },
+      "auswertbar": false,
+      "prompt_version": "2026-10-28.3",
+      "verbessert": false
+    },
+    {
+      "id": "40872532300-3",
+      "datum": "2026-10-29",
+      "vorher": null,
+      "nachher": null,
+      "vorher_gesperrt": true,
+      "nachher_gesperrt": true,
+      "sekunden": 363.6,
+      "aktionen": [
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 1
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 2
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 4
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 5
+        }
+      ],
+      "einstellungen": {
+        "stimme": "bm_george",
+        "tempo": 1.05,
+        "untertitel_profil": "ruhig",
+        "musik_pegel": null,
+        "effekt_pegel": null
+      },
+      "schwerpunkt": "bild",
+      "kategorien_vorher": {
+        "bild_passt": 1
       },
       "kategorien_nachher": {
         "bild_passt": 2

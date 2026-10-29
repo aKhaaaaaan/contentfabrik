@@ -34,22 +34,38 @@ def auszug(quelle, text, grenze=GRENZE_ZEICHEN):
     if len(quelle) <= grenze:
         return quelle
     namen = lambda s: {w.lower() for w in re.findall(r'\b(?:[A-Z][\w.-]+|\d[\d,.]*)\b', s)}
-    woerter = lambda s: {w for w in re.findall(r'[a-z]{5,}', s.lower())}
+    woerter = lambda s: {w[:6] for w in re.findall(r'[a-z]{5,}', s.lower())}  # flower = flowers
+    # Webseiten kommen mit harten Zeilenumbruechen mitten im Satz ("...templates are\nstarting points."): umbrochene
+    # Zeilen (ohne Satzzeichen am Ende, naechste klein) wieder zu einem Satz verbinden.
+    quelle = re.sub(r'(?<![.!?:;])\n(?=[a-z])', ' ', quelle)
     absaetze = [_saetze(a) for a in re.split(r'\n+', quelle) if a.strip()]
     orte = [(a, s) for a, saetze in enumerate(absaetze) for s in range(len(saetze))]
     merk = [(namen(absaetze[a][s]), woerter(absaetze[a][s])) for a, s in orte]
+    # GEMESSEN 29.10.2026 (KI 40943763878): "Gemini"/"OpenAI" stehen in fast jedem Satz der eigenen Doku und zaehlten
+    # dreifach - "const client = new OpenAI ();" schlug den Beleg "content ... is non-deterministic ... art and science".
+    # Haeufige Namen/Woerter zaehlen weniger, seltene (Belegwoerter) voll.
+    haeufig = {}
+    for mn, mw in merk:
+        for x in mn | {'w:' + y for y in mw}:
+            haeufig[x] = haeufig.get(x, 0) + 1
+    gewicht = lambda x, voll: voll if haeufig.get(x, 0) <= 3 else 1 if haeufig.get(x, 0) <= 12 else 0
     treffer = {}  # Quellsatz-Index -> beste Punktzahl
     for satz in _saetze(text.replace('\n', ' ')):
         n, w = namen(satz), woerter(satz)
-        punkte = [3 * len(n & mn) + len(w & mw) for mn, mw in merk]
-        if punkte and max(punkte) >= 3:
-            i = max(range(len(punkte)), key=punkte.__getitem__)
-            treffer[i] = max(treffer.get(i, 0), punkte[i])
+        punkte = [sum(gewicht(x, 3) for x in n & mn) + sum(gewicht('w:' + y, 2) for y in w & mw) for mn, mw in merk]
+        if punkte and max(punkte) < 3:  # Quelle wiederholt dieselben Woerter ueberall: ungewichtet wie bisher
+            punkte = [3 * len(n & mn) + len(w & mw) for mn, mw in merk]
+        # GEMESSEN 29.10.2026 (KI 40943763878): nur der EINE beste Quellsatz - die Kopfzeile "Official Google Gemini
+        # ... page" schlug den echten Beleg ("...bouquets of / dried flowers? Create a list of 5 options"), der ueber
+        # einen Zeilenumbruch geteilt war. Von 14.000 erlaubten Zeichen kamen 580 an; fuenf Sperren fuer belegte Saetze.
+        # Jetzt die vier besten Saetze und Nachbarn auch ueber Zeilenumbrueche hinweg.
+        for i in sorted(range(len(punkte)), key=lambda k: -punkte[k])[:4]:
+            if punkte[i] >= 3:
+                treffer[i] = max(treffer.get(i, 0), punkte[i])
     nimm, laenge = set(), 0
     # Erst die Belege (beste zuerst), dann Nachbarsaetze als Kontext.
     kandidaten = sorted(treffer, key=lambda i: -treffer[i])
-    kandidaten += [j for i in kandidaten for j in (i - 1, i + 1)
-                   if 0 <= j < len(orte) and orte[j][0] == orte[i][0]]
+    kandidaten += [j for d in (1, 2) for i in list(kandidaten) for j in (i - d, i + d) if 0 <= j < len(orte)]
     for i in kandidaten:
         a, s = orte[i]
         if i in nimm or laenge + len(absaetze[a][s]) + 1 > grenze:
@@ -73,6 +89,12 @@ def pruefen(text, quelle, art='YouTube Short script'):
                'For each problem set "schwer": true if a number, date, name, place or event is WRONG or invented; '
                'false if it is only an unsupported detail or exaggeration ("immediately", "broke", "millions"). '
                'Quote the exact clause and identify the missing or contradictory source support. '
+               # GEMESSEN 29.10.2026 (KI 40943763878, 5 Sperren): gemeldet wurden auch "Be sure to like, share and save",
+               # "briefing a very literal intern", "Her prompt says 'help me sell flowers'" und "No earnings promised".
+               'NOT claims, never list them: the request to like, share and save the video; jokes, sarcasm, '
+               'analogies and clearly figurative comparisons (e.g. "like briefing a very literal intern"); clearly '
+               'hypothetical viewer examples (e.g. "your prompt says \'help me sell flowers\'"); statements that '
+               'something is NOT promised or NOT shown. '
                'Accurate paraphrases are acceptable; do not invent a mismatch. When the excerpt lacks '
                'evidence, state that limitation rather than claiming the event never happened. '
                'Answer as JSON: {"probleme": [{"satz": "<exact sentence>", "fehler": "<what is wrong>", '

@@ -338,8 +338,9 @@ def anleitung_quellen(thema, maximal=4):
     for url in urls:
         text = seitentext(url)
         if len(text.split()) >= 150 and _englisch(text[:2000]):
-            aus.append({'quelle': 'Webseite', 'name': f'{m.group(1).strip()} official guide', 'url': url,
-                        'belegt': True, 'text': f'Official {m.group(1).strip()} documentation/help page.\n'
+            wer = quellname(url, m.group(1).strip())
+            aus.append({'quelle': 'Webseite', 'name': f'{wer} official guide', 'url': url,
+                        'belegt': True, 'text': f'Official {wer} documentation/help page ({url}).\n'
                                                 f'PAGE TEXT (fetched today):\n{text}'})
         if len(aus) >= maximal:
             break
@@ -369,9 +370,33 @@ def produkt_quellen(thema, maximal=4):
             gesehen.add(url)
             text = seitentext(url)
             if len(text.split()) >= 150 and _englisch(text[:2000]):
-                aus.append({'quelle': 'Webseite', 'name': f'{n} official documentation', 'url': url, 'belegt': True,
-                            'text': f'Official {n} documentation/help page.\nPAGE TEXT (fetched today):\n{text}'})
+                wer = quellname(url, n)
+                aus.append({'quelle': 'Webseite', 'name': f'{wer} official documentation', 'url': url, 'belegt': True,
+                            'text': f'Official {wer} documentation/help page ({url}).\nPAGE TEXT (fetched today):\n{text}'})
     return aus
+
+
+# GEMESSEN 29.10.2026 (KI 40943763878, "ChatGPT prompts"): Gemini- und Claude-Anleitung hiessen beide "prompts official
+# documentation" (Name aus dem Thema). Der Zweitpruefer fand "Gemini's docs show ... dried-flower shop" deshalb in
+# keiner Gemini-Quelle und sperrte fuenfmal, obwohl der Satz woertlich in ai.google.dev stand. Name = Herausgeber.
+HERAUSGEBER = [(r'(^|\.)(ai\.google\.dev|gemini\.google(\.com)?|blog\.google|cloud\.google\.com)$', 'Google Gemini'),
+               (r'(^|\.)openai\.com$', 'OpenAI'),
+               (r'(^|\.)(claude\.com|claude\.ai|anthropic\.com)$', 'Anthropic Claude'),
+               (r'(^|\.)modelcontextprotocol\.io$', 'Model Context Protocol')]
+
+
+def herausgeber(url):
+    host = urllib.parse.urlparse(url or '').hostname or ''
+    return next((name for muster, name in HERAUSGEBER if re.search(muster, host)), '')
+
+
+def quellname(url, produkt):
+    """'Google Gemini (prompts)', 'OpenAI (Codex)', 'Anthropic Claude (Claude Code)'; ohne bekannten Herausgeber
+    bleibt der Produktname."""
+    wer = herausgeber(url)
+    if not wer or produkt.lower() in wer.lower():
+        return wer or produkt
+    return f'{wer} ({produkt})'
 
 
 def thema_recherche(thema, tage=120, maximal=4):

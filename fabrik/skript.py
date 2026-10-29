@@ -807,8 +807,12 @@ def main(kanal_pfad, aus_pfad, thema=None):
         z = None
         if quellen and not pruefmodell.startswith('groq:'):
             import zweit
-            z = zweit.pruefen(' '.join(t['text'] for t in e['teile']),
-                              '\n'.join(f"{q.get('name', '')}: {q.get('text', '')}" for q in quellen))
+            # GEMESSEN 29.10.2026 (KI 40943763878): ein gemeinsamer Auszug ueber alle Quellen verlor die Quellnamen -
+            # "Gemini's docs show ..." war fuer den Pruefer keiner Gemini-Quelle zuzuordnen. Je Quelle mit Namen kuerzen.
+            skripttext = ' '.join(t['text'] for t in e['teile'])
+            je = (min(zweit.GRENZE_ZEICHEN, 24000 - len(skripttext)) - 200 * len(quellen)) // max(1, len(quellen))
+            z = zweit.pruefen(skripttext, '\n'.join(f"{q.get('name', '')}: {zweit.auszug(q.get('text', ''), skripttext, je)}"
+                                                    for q in quellen))
             if z:
                 print(f"Zweitpruefer ({z['modell']}): {len(z['probleme'])} schwer, {len(z['leicht'])} leicht")
                 if not z['ok']:

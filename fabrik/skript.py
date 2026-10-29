@@ -403,6 +403,13 @@ def hinweise(kanal, thema):
         # als Fable 5"): vorher bekam es die allgemeinen Trend-Repos als Belege - fremde Fakten zum falschen
         # Thema. Jetzt gezielte Recherche; ohne lesbare Quelle wird nichts geschrieben (Thema bleibt liegen).
         quellen = trends.thema_recherche(thema)
+        import themen
+        if not quellen and themen.details(re.sub(r'[^a-z0-9]+', '-', str(kanal.get('name', '')).lower()).strip('-'),
+                                          thema):
+            # GEMESSEN 29.10.2026 (KI 40898915373): Nutzerthema "Claude MCP: what it is and how to connect tools"
+            # fand 0 Quellen -> Abbruch. Nutzer: "Bau mehrere Quellen ein". Nur fuer Themen der Warteschlange:
+            # Trendtitel ("ChatGPT: VST Plugins") mit allgemeinen Produktseiten wuerden am Thema vorbei belegt.
+            quellen = trends.produkt_quellen(thema, 6)
         if quellen:
             text += ('\nSOURCES researched today for THIS topic (official pages first). Every factual claim - '
                      'prices, token counts, benchmark scores, dates - MUST come from these sources; if a comparison '
@@ -590,7 +597,7 @@ def anweisung(kanal, thema, frueher):
 
 
 def groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens,
-                      *, entwurf=None, korrekturen=None, zusatz=''):
+                      *, entwurf=None, korrekturen=None, zusatz='', kuerzen=True):
     """Gleiche Quellen und konkrete Reparaturen, ohne lange technische Renderer-Regie."""
     korrektur = '\n'.join(korrekturen) if korrekturen is not None else ''
     marker = next((m for m in ('\nHere is a draft.', '\nREWRITE for a stronger story') if m in auftrag), None)
@@ -652,9 +659,18 @@ def groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens,
     while True:
         prompt = prefix + json.dumps(daten, ensure_ascii=False, separators=(',', ':'))
         reserve = groq_skriptreserve(prompt)
-        if reserve <= 7900 or not lessons:
+        if reserve <= 7900:
             return prompt
-        lessons.pop()  # Nur optionale Altregeln; Belege/Fehlerliste/aktueller Text bleiben vollstaendig.
+        if lessons:
+            lessons.pop()  # Nur optionale Altregeln; Belege/Fehlerliste/aktueller Text bleiben vollstaendig.
+            continue
+        # GEMESSEN 29.10.2026 (KI 40885084229/40890125955/40898915373): schon 3-4 Quellenseiten a 6.000 Zeichen
+        # sprengten Groqs 8K-Grenze -> jede Faktenkorrektur einzeln, mit Laengenreparatur, bis zum Skript-Zeitlimit.
+        # Nur Groqs Schreibauftrag bekommt gekuerzte Quellen (Seitenanfang); die Faktenpruefung sieht alles.
+        laengste = max(daten['sources'], key=lambda q: len(q['text']), default=None)
+        if not kuerzen or not laengste or len(laengste['text']) <= 600:
+            return prompt
+        laengste['text'] = laengste['text'][:int(len(laengste['text']) * .85)]
 
 
 def groq_skriptreserve(prompt, schema=None, ausgabe_tokens=3072):
@@ -677,13 +693,20 @@ def korrekturen_schreiben(schreiber, kanal, thema, quellen, auftrag, mindest, ho
     # Skriptfrist verbraucht. Ein Langskript passt auch mit EINEM Einwand nicht in Groqs Grenze; Autor ist
     # dort Claude/Gemini. Darum beim Langvideo alle Einwaende in einem Durchgang.
     lang = dramaturgie.videoformat(kanal) == 'lang'
+    def groesse(k):
+        return groq_skriptreserve(groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens,
+                                                     entwurf=entwurf, korrekturen=rest[:k], kuerzen=False),
+                                  REPARATUR_SCHEMA if textreparatur else SKRIPT_SCHEMA,
+                                  2048 if textreparatur else 3072)
     while rest:
         n = len(rest)
-        while n > 1 and not lang and groq_skriptreserve(groq_skriptauftrag(kanal, thema, quellen, auftrag,
-                mindest, hoechstens, entwurf=entwurf, korrekturen=rest[:n]),
-                REPARATUR_SCHEMA if textreparatur else SKRIPT_SCHEMA,
-                2048 if textreparatur else 3072) > 7900:
+        while n > 1 and not lang and groesse(n) > 7900:
             n -= 1
+        if n == 1 and len(rest) > 1 and groesse(1) > 7900:
+            # GEMESSEN 29.10.2026 (KI 40885084229/40890125955): schon EIN Einwand sprengte die Grenze (Quellen);
+            # Aufteilen half nicht, kostete aber je Einwand eine Runde samt Laengenreparatur bis zum Zeitlimit.
+            # Dann alle auf einmal - der Schreibauftrag kuerzt dafuer die Quellen.
+            n = len(rest)
         if n < len(rest):
             print(f'Faktenkorrekturen aufteilen: {n} jetzt, {len(rest) - n} anschliessend', flush=True)
         entwurf, modell, mangel = schreiber(auftrag, entwurf, rest[:n])

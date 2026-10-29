@@ -346,6 +346,34 @@ def anleitung_quellen(thema, maximal=4):
     return aus
 
 
+def produkt_quellen(thema, maximal=4):
+    """Offizielle Seiten aller im Thema genannten Produkte (trendquellen 'anleitungen'), laengster Name zuerst.
+    GEMESSEN 29.10.2026 (KI 40898915373): "Claude MCP: what it is and how to connect tools" fand weder eine
+    Format-Anleitung noch einen HN-Treffer -> 0 Quellen, Abbruch. Nutzerthemen erklaeren meist ein Produkt."""
+    alle = anleitungen()
+    namen = [n for n in alle if re.search(r'\b' + re.escape(n) + r'\b', thema or '', re.I)]
+    namen = [n for n in namen if not any(n != m and n.lower() in m.lower() for m in namen)]  # Claude in Claude Code
+    # Allgemeine Marke ("Claude" bei "Claude MCP") nur ohne genaueres Produkt; sonst belegten Projects-Seiten
+    # das MCP-Thema.
+    def allgemein(n):
+        return any(m != n and m.lower().startswith(n.lower()) for m in alle)
+    if any(not allgemein(n) for n in namen):
+        namen = [n for n in namen if not allgemein(n)]
+    aus, gesehen = [], set()
+    # reihum je Produkt eine Seite ("Codex vs Claude Code" braucht beide)
+    for k in range(max((len(alle[n]) for n in namen), default=0)):
+        for n in namen:
+            url = alle[n][k] if k < len(alle[n]) else None
+            if not url or url in gesehen or len(aus) >= maximal:
+                continue
+            gesehen.add(url)
+            text = seitentext(url)
+            if len(text.split()) >= 150 and _englisch(text[:2000]):
+                aus.append({'quelle': 'Webseite', 'name': f'{n} official documentation', 'url': url, 'belegt': True,
+                            'text': f'Official {n} documentation/help page.\nPAGE TEXT (fetched today):\n{text}'})
+    return aus
+
+
 def thema_recherche(thema, tage=120, maximal=4):
     """Quellen GENAU zu einem Nutzerthema des AI-Kanals (Nutzerauftrag 10.10.2026: auch bezahlte
     Modelle/Tools vergleichen, z. B. Tokenverbrauch). Vorher bekam ein solches Thema die allgemeinen

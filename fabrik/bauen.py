@@ -2043,22 +2043,24 @@ def main(skript_pfad, aus, vorlage=None):
                     quellen.append({'quelle': 'Illustration', 'seite': 'Originale Kanalfigur mit gesprochenem Aufruf'})
                     print(f'Einstellung {i}: Aufruf mit Kanalfigur und Sprechblase (ohne Bildmodell)')
             archiv_video = None
-            if kanalprofil(s).get('archivclips') and H > B and modus in ('auto', 'illustration', 'foto')                     and not karte and not foto and not ill and 0 < i < len(shots) - 1 and i not in zahl_slots                     and archiv_zahl < ARCHIV_MAX and i - archiv_letzt >= 2 and dauer >= 2.0:
+            # Nutzerentscheidung 29.10.2026: allgemeine Szenen als Clip (Archiv bis 1975, Pixabay ab 1995), gemalt
+            clips_an = kanalprofil(s).get('archivclips') or kanalprofil(s).get('stockclips')
+            if clips_an and H > B and modus in ('auto', 'illustration', 'foto') and not karte and not foto \
+                    and not ill and 0 < i < len(shots) - 1 and i not in zahl_slots \
+                    and archiv_zahl < ARCHIV_MAX and i - archiv_letzt >= 2 and dauer >= 2.0:
                 import archivclip
                 try:
-                    fund = archivclip.finden(t['text'], t.get('szene', ''), t.get('szene', ''), archiv_benutzt)
-                    if fund:
-                        roh = archivclip.schneiden(fund, dauer, aus / f'archiv_{i:02d}_roh.mp4')
-                        archiv_video, ill = archivclip.farbe(roh, aus / f'archiv_{i:02d}.mp4',
-                                                             aus / f'archiv_{i:02d}.jpg')
+                    archiv_video, ill, q_clip = archivclip.fuer_einstellung(
+                        t['text'], t.get('szene', ''), t.get('suche', ''), dauer, aus / f'clip_{i:02d}',
+                        archiv=bool(kanalprofil(s).get('archivclips')),
+                        ohne_epoche=bool(kanalprofil(s).get('stockclips')),
+                        pixabay=lambda suche: clip_fuer(suche, schon, dauer, t['text']), benutzt=archiv_benutzt)
                     if archiv_video:
                         archiv_zahl, archiv_letzt = archiv_zahl + 1, i
-                        archiv_benutzt.add(fund['kennung'])
-                        quellen.append({'quelle': 'Internet Archive (Prelinger, Public Domain)', 'seite': fund['seite'],
-                                        'lizenz': fund['lizenz'], 'nennung': 'Archival footage, colorized and painted'})
-                        print(f"Einstellung {i}: Archivclip {fund['kennung']} (Note {fund['note']})")
-                except Exception as e:  # Archivclips sind Kuer - dann wie bisher gemalt
-                    print(f'Einstellung {i}: Archivclip nicht moeglich ({type(e).__name__}) - gemalte Szene')
+                        quellen.append(q_clip)
+                        print(f"Einstellung {i}: Clip ({q_clip['quelle']}) gemalt")
+                except Exception as e:  # Clips sind Kuer - dann wie bisher gemalt
+                    print(f'Einstellung {i}: Clip nicht moeglich ({type(e).__name__}) - gemalte Szene')
                     archiv_video, ill = None, None
             if os.environ.get('CLOUDFLARE_AI_TOKEN') and modus in ('auto', 'illustration', 'foto') \
                     and not karte and not foto and not ill:

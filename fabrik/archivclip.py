@@ -42,7 +42,7 @@ def suchbegriff(*texte):
 
 def jahr(epoche):
     """Jahr aus 'early 1930s', '1924', 'postwar 1950s'; None fuer modern/unklar."""
-    m = re.search(r'\b(1[89]\d)(\d)s?\b', str(epoche or ''))
+    m = re.search(r'\b(1[89]\d|20\d)(\d)s?\b', str(epoche or ''))
     return int(m.group(1) + m.group(2)) if m else None
 
 
@@ -240,3 +240,54 @@ def farbe(roh, ziel, standbild_ziel):
     if prozess.wait() != 0:
         return None, None
     return Path(ziel), Path(standbild_ziel)
+
+
+# ---- Moderne Clips (Pixabay) ------------------------------------------------------------------------------
+# Nutzer 29.10.2026: "aktuelle Videos, die nicht schwarz-weiss sind" - viele Firmengeschichten spielen nach 1975
+# (SK Hynix 2001, Moderna, Anthropic). Ab 1995 Pixabay (frei kommerziell nutzbar, vorhandene KI-Auswahl in
+# bauen.clip_fuer), nur gemalt. 1975-1995 bleibt gemalt: moderne Clips zeigten Smartphones/Flachbildschirme.
+# Logos bleiben erlaubt (Nutzer: "bei Firmengeschichten gehoeren Logos dazu").
+MODERN_AB = 1995
+MODERN = re.compile(r'\b(?:modern|today|present[- ]day|contemporary|nowadays)\b', re.I)
+
+
+def epoche_modern(szene, ohne_epoche=False):
+    """True: moderne Szene (Pixabay); False: keine Clips; None: historisch (Archiv)."""
+    j = jahr(szene)
+    if j is not None:
+        return True if j >= MODERN_AB else (None if j <= JAHR_MAX else False)
+    return True if (MODERN.search(str(szene or '')) or ohne_epoche) else False
+
+
+def zuschneiden(pfad, dauer, ziel):
+    """Pixabay-Clips sind lang und gross: nur die Einstellungsdauer, hoechstens 720 px hoch."""
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', str(pfad), '-t', f'{dauer + 0.3:.2f}', '-an',
+                    '-vf', "scale=-2:'min(720,ih)'", '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18',
+                    str(ziel)], check=True, timeout=180)
+    return Path(ziel)
+
+
+def fuer_einstellung(satz, szene, suche, dauer, basis, archiv=True, ohne_epoche=False, pixabay=None, benutzt=None):
+    """(Video, Standbild, Quelle) fuer eine Einstellung oder (None, None, None) -> gemaltes Bild."""
+    basis = Path(basis)
+    modern = epoche_modern(szene, ohne_epoche)
+    if modern and pixabay:
+        pfad, quelle = pixabay(suche or suchbegriff(satz, szene))
+        if not pfad:
+            return None, None, None
+        roh = zuschneiden(pfad, dauer, basis.with_name(basis.name + '_roh.mp4'))
+        video, bild = farbe(roh, basis.with_suffix('.mp4'), basis.with_suffix('.jpg'))
+        return (video, bild, dict(quelle, nennung='Stock footage, painted')) if video else (None, None, None)
+    if modern is None and archiv:
+        fund = finden(satz, szene, szene, benutzt or set())
+        if not fund:
+            return None, None, None
+        roh = schneiden(fund, dauer, basis.with_name(basis.name + '_roh.mp4'))
+        video, bild = farbe(roh, basis.with_suffix('.mp4'), basis.with_suffix('.jpg'))
+        if not video:
+            return None, None, None
+        if benutzt is not None:
+            benutzt.add(fund['kennung'])
+        return video, bild, {'quelle': 'Internet Archive (Prelinger, Public Domain)', 'seite': fund['seite'],
+                             'lizenz': fund['lizenz'], 'nennung': 'Archival footage, colorized and painted'}
+    return None, None, None

@@ -1,23 +1,5 @@
 [
   {
-    "id": "38571338850",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-14",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "auftragsfehler",
-        "exitcode": 5,
-        "grund": "Auftrag zu gross: geschaetzte Reserve 7914 Tokens, maximal7900",
-        "sekunden": 213.5
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Auftrag zu gross: geschaetzte Reserve 7914 Tokens, maximal7900",
-    "sekunden": 213.7
-  },
-  {
     "id": "38575328103",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-14",
@@ -15343,5 +15325,173 @@
     "grund": "Faktenpruefung nicht bestanden",
     "sekunden": 966.6,
     "upload_titel": "ChatGPT Prompts: Stop Vague Requests | AI Tool #19"
+  },
+  {
+    "id": "40949553360",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-10-29",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 2,
+        "grund": "Faktenpruefung nicht bestanden",
+        "sperrgruende": [
+          "Faktenpruefung fehlt oder ist nicht bestanden",
+          "Skript-Note fehlt oder ist ungueltig",
+          "Skript-Einzelbewertungen fehlen"
+        ],
+        "story_note": null,
+        "story_schwaechen": [],
+        "skript_probleme": [
+          "[second checker] Gemini's docs also call prompting iterative: add an example, refine, and rerun until the blurb sounds like you. - The source states that prompting is iterative, but does not specify adding an example, refining, or rerunning until the blurb sounds like you. Those details are not supported by the Gemini documentation.",
+          "[unsupported tool claim] Limit: output is non-deterministic, so read every draft first. - The source confirms that model output is non-deterministic, but it does not advise reading every draft first. That recommendation is not found in the provided documentation."
+        ],
+        "sekunden": 146.5
+      },
+      {
+        "runde": 2,
+        "art": "produktion",
+        "skript_s": 312.2,
+        "bau_s": 550.7,
+        "pruefung_s": 288.1,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 1/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich das Gesicht eines überraschten Mannes, während im Text über ungenaue ChatGPT-Prompts und zu lange Essays gesprochen wird; es fehlt jeglicher Bezug zu diesem Thema.",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Frau auf einer Straße, nicht aber einen unsichtbaren Praktikanten oder die Analogie zu vagen ChatGPT-Prompts.",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter 'But the fix is smaller than you'd think. Google's guide uses a dried-flower shop name request as its example.' thematisieren die Feinabstimmung von Prompts und ein Beispiel mit einem Blumenladen, was nicht durch ein isoliertes Gehirn-Bild erklärt oder gezeigt wird.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (1/10): Das Bild zeigt nur völlig unscharfe Flecken, während der Text 'Step one: set limits' bespricht.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich grafische Textfragmente und rote Punkte auf schwarzem Hintergrund, aber keine visuellen Elemente zu den gesprochenen Einschränkungen (Constraints) oder Anweisungen.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Text über Few-Shot-Beispiele, während die gesprochene Phase die rhetorische Frage behandelt, ob ein Prompt ausreicht, und Iteration erwähnt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich das Gesicht eines überraschten Mannes, während im Text über ungenaue ChatGPT-Prompts und zu lange Essays gesprochen wird; es fehlt jeglicher Bezug zu diesem Thema. Korrektur: Eine Bildschirmaufnahme eines Chatbot-Fensters, in dem eine viel zu lange Antwort auf eine einfache Frage nach fünf Namen zu sehen ist.",
+          "Offenes Problem (schwer): Das Bild zeigt eine Frau auf einer Straße, nicht aber einen unsichtbaren Praktikanten oder die Analogie zu vagen ChatGPT-Prompts. Korrektur: Eine humorvolle Illustration oder Grafik, die einen konversationsunfähigen Roboter oder einen verwirrten Praktikanten im Büro darstellt.",
+          "Offenes Problem (schwer): Die gesprochenen Wörter 'But the fix is smaller than you'd think. Google's guide uses a dried-flower shop name request as its example.' thematisieren die Feinabstimmung von Prompts und ein Beispiel mit einem Blumenladen, was nicht durch ein isoliertes Gehirn-Bild erklärt oder gezeigt wird. Korrektur: Ein Dokument oder eine Grafik mit dem Beispiel eines Blumengeschäfts oder Tipps zur Optimierung von Prompts.",
+          "Offenes Problem (schwer): Das Bild zeigt nur völlig unscharfe Flecken, während der Text 'Step one: set limits' bespricht. Korrektur: Eine Bildschirmaufnahme oder Grafik, die das Setzen von Grenzen oder Limits in einem Prompt zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich grafische Textfragmente und rote Punkte auf schwarzem Hintergrund, aber keine visuellen Elemente zu den gesprochenen Einschränkungen (Constraints) oder Anweisungen. Korrektur: Ein Beispiel für einen Prompt oder eine grafische Darstellung, die konkrete Einschränkungen oder Verbote für eine Aufgabe zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt einen Text über Few-Shot-Beispiele, während die gesprochene Phase die rhetorische Frage behandelt, ob ein Prompt ausreicht, und Iteration erwähnt. Korrektur: Ein Dokument oder Diagramm, das die iterative Überarbeitung eines Prompts zeigt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 31.6,
+          "zeitmarken": 6.6,
+          "tempo": 1.131,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 15,
+          "bilder_vereinfacht": 2,
+          "clips_und_stuecke": 355.7,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 15,
+            "motive": 15,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 53.3,
+          "gesamt": 550.2,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            7.22,
+            5.46,
+            6.7,
+            7.88,
+            8.64,
+            4.74,
+            4.36
+          ],
+          "woerter": 132
+        },
+        "kategorien": {
+          "bild_passt": 1
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "You asked for five names. You got an essay.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich das Gesicht eines überraschten Mannes, während im Text über ungenaue ChatGPT-Prompts und zu lange Essays gesprochen wird; es fehlt jeglicher Bezug zu diesem Thema. Korrektur: Eine Bildschirmaufnahme eines Chatbot-Fensters, in dem eine viel zu lange Antwort auf eine einfache Frage nach fünf Namen zu sehen ist."
+          },
+          {
+            "zeit": "00:02.94",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Vague ChatGPT prompts are like briefing a very confident intern blindfolded.",
+            "fest": true,
+            "text": "Das Bild zeigt eine Frau auf einer Straße, nicht aber einen unsichtbaren Praktikanten oder die Analogie zu vagen ChatGPT-Prompts. Korrektur: Eine humorvolle Illustration oder Grafik, die einen konversationsunfähigen Roboter oder einen verwirrten Praktikanten im Büro darstellt."
+          },
+          {
+            "zeit": "00:07.22",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "But the fix is smaller than you'd think.",
+            "fest": true,
+            "text": "Die gesprochenen Wörter 'But the fix is smaller than you'd think. Google's guide uses a dried-flower shop name request as its example.' thematisieren die Feinabstimmung von Prompts und ein Beispiel mit einem Blumenladen, was nicht durch ein isoliertes Gehirn-Bild erklärt oder gezeigt wird. Korrektur: Ein Dokument oder eine Grafik mit dem Beispiel eines Blumengeschäfts oder Tipps zur Optimierung von Prompts."
+          },
+          {
+            "zeit": "00:12.68",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Step one: set limits.",
+            "fest": true,
+            "text": "Das Bild zeigt nur völlig unscharfe Flecken, während der Text 'Step one: set limits' bespricht. Korrektur: Eine Bildschirmaufnahme oder Grafik, die das Setzen von Grenzen oder Limits in einem Prompt zeigt."
+          },
+          {
+            "zeit": "00:17.24",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 6,
+            "gesprochen": "Constraints can also say what not to do.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich grafische Textfragmente und rote Punkte auf schwarzem Hintergrund, aber keine visuellen Elemente zu den gesprochenen Einschränkungen (Constraints) oder Anweisungen. Korrektur: Ein Beispiel für einen Prompt oder eine grafische Darstellung, die konkrete Einschränkungen oder Verbote für eine Aufgabe zeigt."
+          },
+          {
+            "zeit": "00:19.38",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "So is one prompt enough? No.",
+            "fest": true,
+            "text": "Das Bild zeigt einen Text über Few-Shot-Beispiele, während die gesprochene Phase die rhetorische Frage behandelt, ob ein Prompt ausreicht, und Iteration erwähnt. Korrektur: Ein Dokument oder Diagramm, das die iterative Überarbeitung eines Prompts zeigt."
+          }
+        ],
+        "sekunden": 1151.0,
+        "status": "geprueft"
+      },
+      {
+        "runde": 3,
+        "art": "korrektur",
+        "status": "keine_korrektur",
+        "sekunden": 0.1
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 1333.2,
+    "upload_titel": "Better ChatGPT Prompts: Stop Getting Essays | AI Tool #19"
   }
 ]

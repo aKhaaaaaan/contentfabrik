@@ -3,6 +3,10 @@
 name: stimmvergleich
 on:
   workflow_dispatch:
+    inputs:
+      modus:
+        description: 'stimmen (Stimmen vergleichen) oder emotion (Uebertreibungsstufen je Kanal)'
+        default: stimmen
 jobs:
   proben:
     runs-on: ubuntu-latest
@@ -29,7 +33,9 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_TTS_API_KEY: ${{ secrets.GEMINI_TTS_API_KEY }}  # optional: bezahltes Projekt nur fuer die Stimme
-        run: python fabrik/stimmvergleich.py proben
+          MODUS: ${{ inputs.modus }}
+        run: |
+          if [ "$MODUS" = emotion ]; then python fabrik/emotionsprobe.py proben; else python fabrik/stimmvergleich.py proben; fi
       - name: In Telegram schicken
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -52,7 +58,7 @@ jobs:
               if antwort.get('ok') is not True:
                   raise SystemExit(f'Telegram {methode} abgelehnt')
           d = json.load(open('proben/proben.json', encoding='utf-8'))
-          tg('sendMessage', {'chat_id': chat, 'text':
+          tg('sendMessage', {'chat_id': chat, 'text': d.get('hinweis') or
              f'🎙️ Stimmvergleich - dieselbe Passage ({d["herkunft"]}) in {len(d["proben"])} Fassungen. '
              'Nr. 1 ist die bisherige Stimme. Hoer dir alle an und antworte hier: Stimme: N'})
           for p in d['proben']:

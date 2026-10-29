@@ -1620,6 +1620,17 @@ def untertitel(woerter, pfad, profil=None, akzente=()):
     Path(pfad).write_text(kopf + '\n'.join(zeilen) + '\n', encoding='utf-8')
 
 
+def nur_textkarte(t, shot):
+    """Wuerde die Erklaergrafik nur die gesprochenen Woerter in Kaesten zeigen ('kernsatz')?
+
+    GEMESSEN 29.10.2026 (KI-Lauf 40841805427, Wasserzeichen): 9 von 14 Bildern beanstandet, Textkarten wie
+    "HOW YOU'D GUESS" 2-3/10 ("zeigt lediglich eine Textbox"). Nutzerentscheidung 29.10.: statt reiner Textkarten
+    die geplante gemalte Szene (mit Parallax); Screenshots und Grafiken mit Gegenstand/Zahl/Vergleich bleiben."""
+    import erklaergrafik
+    return bool(t.get('szene') or t.get('motiv')) and \
+        erklaergrafik.layout(t.get('text', ''), shot.get('phase_text', '')) == 'kernsatz'
+
+
 def clip_code_key(s):
     """Einzige Formel fuer den Clip-Cache; Tests rufen sie auf statt sie abzuschreiben."""
     return hashlib.sha256(Path(__file__).read_bytes() + Path(prompts.__file__).read_bytes()
@@ -1896,6 +1907,9 @@ def main(skript_pfad, aus, vorlage=None):
                     if seite_bild and motiv_ok(seite_bild):
                         modus = 'seite'
                         print(f'Einstellung {i}: Screenshot der Quellseite ({seite_q["abschnitt"][:60]})')
+                    elif nur_textkarte(t, shot):
+                        modus = 'illustration'
+                        print(f'Einstellung {i}: Erklaergrafik waere nur Text - gemalte Szene')
                     else:
                         t, modus = dict(t, grafik_typ='erklaerung'), 'grafik'
             foto, fq = ((seite_bild, seite_q) if modus == 'seite' else
@@ -1941,7 +1955,8 @@ def main(skript_pfad, aus, vorlage=None):
                         # keine Karte moeglich - gemalte Szene statt Abbruch des ganzen Baus.
                         print(f'Einstellung {i}: weder Beispielbild noch Karte - gemalte Szene')
                         modus = 'illustration'
-            if modus == 'illustration' and kanalprofil(s).get('gemalt_nur_rand') and 0 < i < len(shots) - 1:
+            if modus == 'illustration' and kanalprofil(s).get('gemalt_nur_rand') and 0 < i < len(shots) - 1 \
+                    and not nur_textkarte(t, shot):
                 print(f'Einstellung {i}: Kanal malt nur Anfang/Aufruf - Erklaergrafik zum Satz')
                 t, modus = dict(t, grafik_typ='erklaerung'), 'grafik'
             # GEMELDET: „wirkt langweilig und eiskalt" - Illustrationen im Spiel-Plakat-Stil

@@ -113462,6 +113462,176 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "40943763878.1:ai-tools-explained",
+      "run_id": "40943763878",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-29T20:08:24.439558+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "0df3824462cb016a680bd198bcc551e85b572ac3",
+      "produktionsversion": "4a743f6e14569a6334eed8163b76425c0dcc1d76bad626eab77ed5c79849dde8",
+      "videoformat": "short",
+      "thema": "ChatGPT prompts: how to write better prompts",
+      "titel": [
+        "*ChatGPT* *Prompts*",
+        "Stop Vague Requests"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "40943763878",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-29",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "[unsupported tool claim] Gemini's docs show a prompt: names for a dried-flower shop, five options, just the names. - The source does not contain any Gemini documentation example of a dried‑flower shop naming prompt.",
+              "[unsupported tool claim] Gemini's docs show a one-sentence summary request, and formats like a table or bulleted list. - The source provides no Gemini documentation stating a one‑sentence summary request or table/bulleted‑list formats.",
+              "[unsupported tool claim] OpenAI's docs call content non-deterministic; prompting is a mix of art and science. - The source mentions that GPT models benefit from explicit instructions but does not say OpenAI's docs label content as non‑deterministic or describe prompting as art and science.",
+              "[unsupported tool claim] Gemini's docs call prompting iterative: experiment, refine. - The source does not include any statement that Gemini documentation describes prompting as iterative (experiment, refine)."
+            ],
+            "sekunden": 237.3
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "[unsupported tool claim] Here's the twist: output is non-deterministic, OpenAI says. - The source mentions that different snapshots of models can produce different results, but it does not state that output is non‑deterministic; the claim is not directly supported.",
+              "[unsupported tool claim] OpenAI recommends tests that measure prompt behavior while you iterate. - The source does not contain any statement that OpenAI recommends testing prompt behavior; this claim is unsupported by the provided documentation."
+            ],
+            "sekunden": 172.0
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "[unsupported tool claim] ChatGPT can fix that, but the fix is wonderfully boring. - The source does not provide any evidence that ChatGPT can fix a shop blurb or that the fix is \"wonderfully boring\"; this claim is unsupported.",
+              "[unsupported tool claim] Google's Gemini docs show a prompt asking for five dried-flower shop names, names only. - The source only mentions Gemini API documentation; it does not contain the specific example of a prompt for five dried‑flower shop names, so the claim is unsupported.",
+              "[unsupported tool claim] The catch: OpenAI says model output is non-deterministic. - The source notes that different snapshots can produce different results but does not contain a direct statement from OpenAI that model output is non‑deterministic; the claim lacks explicit support."
+            ],
+            "sekunden": 152.5
+          },
+          {
+            "runde": 4,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "[unsupported tool claim] Her prompt says 'help me sell flowers.' Total disaster. But that hypothetical florist's fix is smaller than she thinks. - No supporting evidence in the source; the statement about the prompt and the hypothetical florist's fix is not mentioned.",
+              "[unsupported tool claim] Think: basically briefing a very literal intern. - The source does not contain this analogy or any reference to a literal intern.",
+              "[unsupported tool claim] Gemini's guide calls clear, specific instructions an effective way to customize model behavior. - The source does not include a statement from Gemini's guide about clear, specific instructions; only generic prompt‑engineering guidance is present.",
+              "[unsupported tool claim] Add an example, and the model can take it into account. - The source does not mention adding examples as a prompt‑engineering technique.",
+              "[unsupported tool claim] Prompt engineering is iterative: experiment and refine. - The source states that prompt engineering is iterative, but it does not specifically say \"experiment and refine\".",
+              "[unsupported tool claim] OpenAI says even different snapshots of one family could produce different results. - The source notes that different snapshots of models within the same family can yield different results, but it does not attribute this claim to OpenAI.",
+              "[unsupported tool claim] Output varies, so she reads every answer first. - No evidence in the source that a user reads every answer first; this behavior is not documented.",
+              "[unsupported tool claim] 'Help me sell flowers' is now a specific brief with an example. - The source does not contain this specific brief or any example related to it.",
+              "[unsupported tool claim] Be sure to like, share and save this video. - The source provides no information about liking, sharing, or saving a video; this is unrelated promotional text."
+            ],
+            "sekunden": 242.3
+          },
+          {
+            "runde": 5,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "[unsupported tool claim] First, Anthropic's guide assumes you have clear success criteria, plus some way to test against them. - The source does not mention Anthropic's guide or any claim about success criteria or testing; this statement is unsupported by the provided source.",
+              "[unsupported tool claim] Google's guide says prompt engineering is iterative: guidelines are starting points, so experiment and refine. - The source only lists \"Prompt design strategies | Gemini API | Google AI for Developers\" and does not contain the quoted description of Google's guide; the claim is unsupported.",
+              "[unsupported tool claim] No earnings promised. - The source contains no information about earnings or promises; this statement is unsupported."
+            ],
+            "sekunden": 151.3
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Faktenpruefung nicht bestanden",
+        "sekunden": 966.6,
+        "upload_titel": "ChatGPT Prompts: Stop Vague Requests | AI Tool #19"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": false,
+        "probleme": [
+          "[unsupported tool claim] First, Anthropic's guide assumes you have clear success criteria, plus some way to test against them. - The source does not mention Anthropic's guide or any claim about success criteria or testing; this statement is unsupported by the provided source.",
+          "[unsupported tool claim] Google's guide says prompt engineering is iterative: guidelines are starting points, so experiment and refine. - The source only lists \"Prompt design strategies | Gemini API | Google AI for Developers\" and does not contain the quoted description of Google's guide; the claim is unsupported.",
+          "[unsupported tool claim] No earnings promised. - The source contains no information about earnings or promises; this statement is unsupported."
+        ],
+        "leicht": [
+          "First, Anthropic's guide assumes you have clear success criteria, plus some way to test against them. - The source does not mention Anthropic's guide or any claim about success criteria or testing; this statement is unsupported by the provided source.",
+          "Google's guide says prompt engineering is iterative: guidelines are starting points, so experiment and refine. - The source only lists \"Prompt design strategies | Gemini API | Google AI for Developers\" and does not contain the quoted description of Google's guide; the claim is unsupported.",
+          "No earnings promised. - The source contains no information about earnings or promises; this statement is unsupported."
+        ],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

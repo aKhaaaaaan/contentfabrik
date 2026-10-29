@@ -75,7 +75,10 @@ def tiktok_hashtags(skript):
     belegt = {''.join(woerter[i:i + n]) for i in range(len(woerter)) for n in range(1, 5)}
     belegt |= {w[:-1] for w in woerter if len(w) > 4 and w.endswith('s')}
     kategorien = {'AI Tools Explained': ['AITools', 'AI'],
-                  'Business Origin Stories': ['BusinessHistory', 'Business']}.get(skript.get('kanal'), [])
+                  # 29.10.2026 TikTok-"KI-Gliederung" BusinessStory (Nutzer-Screenshot): #businessstory 23,8K,
+                  # #storytelling 3,49M, #entrepreneurship 2,37M Beitraege - genau unsere Nische statt #BusinessHistory.
+                  'Business Origin Stories': ['BusinessStory', 'Storytelling', 'Entrepreneurship']
+                  }.get(skript.get('kanal'), [])
     allgemein = {t.lower() for t in kategorien}
     # Keine generischen Reichweiten-Tags oder Zugangs-/Lizenzbehauptungen aus Worttreffern.
     ausgeschlossen = {'fyp', 'foryou', 'foryoupage', 'viral', 'trending', 'short', 'shorts', 'freeai', 'opensource'}

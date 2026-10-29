@@ -397,7 +397,18 @@ def rueckfall_motiv(einstellung, phase=''):
                    if not any(z.isdigit() for z in w) and not w[0].isupper()]
         if woerter and ' '.join(woerter) not in teile:
             teile.append(' '.join(woerter))
-    return ', '.join(teile)
+    motiv = ', '.join(teile)
+    # GEMESSEN 29.10.2026 (KI 40949553360, Einstellung 4 und 6): Rettungsmotiv "man counting on fingers" - alle vier
+    # Versuche fielen an Haenden ("six fingers", "extra digit-like merging"), danach kamen Zufallsclips. Der
+    # Rettungsversuch soll sicher sein: Handgesten durch eine Pose ohne sichtbare Finger ersetzen.
+    ohne = HANDGESTE.sub('', motiv)
+    if ohne != motiv:
+        motiv = re.sub(r'\s+,', ',', re.sub(r'\s{2,}', ' ', ohne)).strip(' ,') + ', arms folded, thoughtful expression'
+    return motiv
+
+
+HANDGESTE = re.compile(r"\b(?:counting on (?:his |her |their )?fingers|pointing|gesturing|waving|clapping|typing|"
+                       r"tapping|writing|(?:raised |open )?(?:hands?|fingers?|fists?))\b", re.I)
 
 
 # Stil-Block der gemalten Bilder; je Kanal ueberschreibbar (kanaele/<slug>.json 'bildstil_prompt',

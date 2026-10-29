@@ -122,6 +122,14 @@ SAMMELN = """() => {
                : (el.innerText || '') + (img && img.alt ? ' ' + img.alt : '')).trim();
     if (!t || r.width < (bild ? 200 : 120) || r.height < (bild ? 120 : 12)) continue;
     if (visuell && r.height < 60) continue;
+    // GEMESSEN 29.10.2026 (KI 40949553360): Googles zweispaltige Beispieltabelle (Prompt | Response) war in Handybreite
+    // ein Wort pro Zeile - unlesbar, zweimal im Video. Gequetschte Tabellen sind kein Kandidat.
+    // Auch Spalten-Layouts ohne <table>: ein Textblock schmaler als ~60 % der Handybreite ist gequetscht.
+    if (!bild && r.width < 250) continue;
+    if (tag === 'TABLE') {
+      const zellen = el.rows && el.rows[0] ? [...el.rows[0].cells] : [];
+      if (zellen.length >= 2 && Math.min(...zellen.map(c => c.getBoundingClientRect().width)) < 170) continue;
+    }
     const s = getComputedStyle(el);
     if (s.visibility === 'hidden' || s.display === 'none') continue;
     if (el.closest('nav, header, footer, aside, [role=navigation], [aria-hidden=true]')) continue;

@@ -135,7 +135,8 @@ def pruefen(video, skript, ablauf, ziel):
                     bilder = [frame(video, s['s'] + s['dauer_s'] / 2, art, Path(temp) / f"{s['index']}.jpg") for s in teil]
                     daten = [{'index': s['index'], 'spoken_words': s.get('text', ''),
                               'whole_spoken_phase': s['phase_text'], 'time_s': round(s['s'], 2),
-                              **({'editor_logo_badge': True} if s.get('logo') else {})} for s in teil]
+                              **({'editor_logo_badge': True} if s.get('logo') else {}),
+                              **({'opening_reaction_shot': True} if s.get('reaktion') else {})} for s in teil]
                     auftrag = (prompts.DATEN + 'TASK: Independently verify narration-to-image relevance. '
                         'Image i corresponds only to item i below. These are actual frames cropped to remove '
                         'branding and subtitles. Do NOT infer the image from narration or a planned scene. '
@@ -178,6 +179,11 @@ def pruefen(video, skript, ablauf, ziel):
                         # 16.10.2026 (Coca-Cola, 2/10): unser eigenes Abschnittslogo galt als verbotenes Logo.
                         'A shot marked editor_logo_badge carries the company logo badge added by our editor '
                         'at the section start: ignore that badge and judge only the illustration under it. '
+                        # GEMESSEN 29.10.2026 (KI 40949553360): das gewollte Hook-Gesicht (Nutzer: "Gesicht mit starker
+                        # Emotion") bekam 2/10 "nur ein ueberraschter Mann, kein Bezug zu ChatGPT-Prompts".
+                        'A shot marked opening_reaction_shot is the deliberate first-second hook: a close-up face '
+                        'reacting to the spoken opening. Judge whether the visible emotion fits the feeling of '
+                        'those words (shock, frustration, disbelief); it need not explain the topic. '
                         'Judge visual meaning only, independent of anatomy, style, audio or prior ratings. '
                         'Score1-3 wrong/unrelated,4-6 vague/partial,7-10 directly useful visual explanation. '
                         'Set passt=false when below7 or the operation is not visible. grund must name the '

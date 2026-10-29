@@ -1865,6 +1865,7 @@ def main(skript_pfad, aus, vorlage=None):
         archiv_zahl, archiv_letzt, archiv_benutzt = 0, -9, set()
         import archivclip
         archiv_jahr = archivclip.story_jahr(*(x['teil'].get('text') for x in shots))
+        reaktion_bilder = set()  # Hook-Ersatz "Gesicht mit Gefuehl" (bildbezug bewertet das Gefuehl)
         for i, shot in enumerate(shots):
             t, dauer, t0 = shot['teil'], shot['dauer_s'], shot['s']
             # 18 Schnitte sind keine 18 Motive: auch nicht benachbarte Wiederholungen zaehlen.
@@ -1903,7 +1904,7 @@ def main(skript_pfad, aus, vorlage=None):
                 zustand['stuecke'][str(i)] = alt
                 bildablauf['einstellungen'].append(dict(shot, teil=None,
                     material_id=alt.get('material_id'), material_art=alt.get('material_art'),
-                    logo=bool(alt.get('logo')), fest=bool(alt.get('fest'))))
+                    logo=bool(alt.get('logo')), fest=bool(alt.get('fest')), reaktion=bool(alt.get('reaktion'))))
                 zeiten['stuecke_wiederverwendet'] += 1
                 # GEMESSEN 09.10.2026 (Aurelio, Nutzer 6/10): Jeder Neuversuch des Baus begann wieder
                 # bei 0 Ersatzbildern; aus dem Cache uebernommene Ersatzbilder zaehlten nicht. Ergebnis:
@@ -1923,11 +1924,12 @@ def main(skript_pfad, aus, vorlage=None):
                     'ereignisse': [(sek - t0, art) for sek, art in ereignisse[e0:]],
                     'fotos': sorted(benutzte_fotos - fotos0),
                     'material_id': material_hash, 'material_art': material_art,
-                    'ersatz': bild_ersatz > ersatz0, 'logo': bool(logo),
+                    'ersatz': bild_ersatz > ersatz0, 'logo': bool(logo), 'reaktion': i in reaktion_bilder,
                     'toleranz': bildablauf.get('motiv_toleranz', 0) > toleranz0, 'fest': fest}
                 # Der Schlusspruefer muss unser eigenes Abschnittslogo vom Bildinhalt unterscheiden koennen.
                 bildablauf['einstellungen'].append(dict(shot, teil=None,
-                    material_id=material_hash, material_art=material_art, logo=bool(logo), fest=fest))
+                    material_id=material_hash, material_art=material_art, logo=bool(logo), fest=fest,
+                    reaktion=i in reaktion_bilder))
                 (aus / 'bildablauf.json').write_text(json.dumps(bildablauf, indent=2), encoding='utf-8')
                 rendercache.speichern(aus, zustand)
             stueck = aus / f'stueck_{i:02d}.mp4'
@@ -1948,6 +1950,7 @@ def main(skript_pfad, aus, vorlage=None):
             if karte and (bildplan.material_id(karte) in {vorherige_id, *benutzte_materialien} or not motiv_ok(karte)):
                 print(f'Einstellung {i}: gleiche Quellseite wie davor - gemalte Szene')
                 karte, modus = None, 'illustration'
+            textkarte_rueckfall = False
             if kanalprofil(s).get('gemalt_nur_rand') and 0 < i < len(shots) - 1 and not karte \
                     and modus in ('auto', 'illustration', 'stock', 'foto', 'figur'):
                 # Nutzerentscheidung 15.10.2026 (KI-Kanal, Kosten sparen): gemalt nur Anfang und Aufruf.
@@ -1968,7 +1971,7 @@ def main(skript_pfad, aus, vorlage=None):
                         modus = 'seite'
                         print(f'Einstellung {i}: Screenshot der Quellseite ({seite_q["abschnitt"][:60]})')
                     elif nur_textkarte(t, shot):
-                        modus = 'illustration'
+                        modus, textkarte_rueckfall = 'illustration', True
                         print(f'Einstellung {i}: Erklaergrafik waere nur Text - gemalte Szene')
                     else:
                         t, modus = dict(t, grafik_typ='erklaerung'), 'grafik'
@@ -2187,11 +2190,25 @@ def main(skript_pfad, aus, vorlage=None):
                     if ill:
                         zeiten['bilder_vereinfacht'] = zeiten.get('bilder_vereinfacht', 0) + 1
                         print(f'Einstellung {i}: vereinfachte Szene bestanden')
+                        if i == 0 and H > B:
+                            reaktion_bilder.add(i)  # Schlusspruefer: Gefuehl zum Hook, nicht Themenbild
                     else:
                         print(f'Einstellung {i}: auch vereinfachte Szene nicht bestanden')
                 if ill:
                     karte, foto, gemalt = None, None, True
                     quellen.append({'quelle': 'Illustration', 'seite': 'KI-generiert (Cloudflare Workers AI, FLUX)'})
+            if textkarte_rueckfall and not (karte or foto or ill):
+                # GEMESSEN 29.10.2026 (KI 40949553360): "Step one: set limits" und "Constraints can also say what not
+                # to do" - gemalt scheiterte (FLUX malte "SET LIMIDS"), danach kamen Zufallsclips (unscharfer Wald 1/10,
+                # rote "WHO? WHAT?"-Schrift 2/10). Die Erklaergrafik zum Satz ist besser als ein fremder Clip.
+                import erklaergrafik
+                g = erklaergrafik.grafik(aus / f'ill_{i:02d}.jpg', t['text'], t.get('motiv', ''),
+                                         s.get('thema') or t.get('werkzeug') or '', shot.get('phase_text', ''))
+                if g and motiv_ok(g):
+                    ill = g
+                    quellen.append({'quelle': 'Erklaergrafik', 'seite': t.get('quelle_url', ''),
+                                    'nennung': 'Explainer graphic of the narrated statement, not a screenshot or measurement'})
+                    print(f'Einstellung {i}: gemalte Szene gescheitert - Erklaergrafik zum Satz statt Zufallsclip')
             # GEMESSEN: Im Kartenvideo holte der Schluss einen fremden Clip
             # (halber „Subscribe"-Knopf) - dort gilt jetzt derselbe Hintergrund.
             clip, quelle = ((None, None) if karte or foto or ill or (kartenvideo and modus == 'auto') or not stock_erlaubt else

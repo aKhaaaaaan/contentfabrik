@@ -23,8 +23,8 @@ MODELL_URL = ('https://huggingface.co/onnx-community/depth-anything-v2-small/res
 MODELL_SHA = '01aa7a23de3f4a0ee1a2bb9997e6918104c85a9f95dea46d27b9b3fb0c6b9001'
 # Vordergrund wandert ueber die ganze Einstellung um diesen Anteil der Bildbreite gegen den Hintergrund.
 # Dezent: groessere Werte reissen an Kanten (Figur vor Wand) sichtbar auf.
-VERSCHIEBUNG = 0.06  # 28.10. abends Nutzer: "kein Motion" bei 0.03 - 0.06 an echter Szene ohne Risse geprueft
-HERAN = 0.05  # Vordergrund kommt zusaetzlich etwas naeher
+VERSCHIEBUNG = 0.10  # 29.10. Nutzer: im echten Video nicht wahrnehmbar (6 % ueber 5 s) - 10 %, 12 % verzog Raender
+HERAN = 0.10  # Vordergrund kommt zusaetzlich etwas naeher
 KURZE_SEITE = 392  # Modelleingabe, Vielfaches von 14
 
 _sitzung = None

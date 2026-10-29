@@ -112107,6 +112107,91 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "40898915373.1:ai-tools-explained",
+      "run_id": "40898915373",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-29T15:12:22.950693+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "992f3db94550a0e08aaf0eb1be144c1ec031eb13",
+      "produktionsversion": "69c72539550d6cbb80875f6f147cd0dc0fa996b92a06a3976b1b50edd9da7280",
+      "videoformat": "short",
+      "thema": null,
+      "titel": null,
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "40898915373",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-29",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "RuntimeError: Keine belegte KI-Anwendung gefunden; keine unbelegte Skriptanfrage (skript.py:748)",
+            "sekunden": 1.8
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "RuntimeError: Keine belegte KI-Anwendung gefunden; keine unbelegte Skriptanfrage (skript.py:748)",
+            "sekunden": 1.7
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "RuntimeError: Keine belegte KI-Anwendung gefunden; keine unbelegte Skriptanfrage (skript.py:748)",
+            "sekunden": 2.1
+          },
+          {
+            "runde": 4,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "RuntimeError: Keine belegte KI-Anwendung gefunden; keine unbelegte Skriptanfrage (skript.py:748)",
+            "sekunden": 1.7
+          },
+          {
+            "runde": 5,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "RuntimeError: Keine belegte KI-Anwendung gefunden; keine unbelegte Skriptanfrage (skript.py:748)",
+            "sekunden": 2.3
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "RuntimeError: Keine belegte KI-Anwendung gefunden; keine unbelegte Skriptanfrage (skript.py:748)",
+        "sekunden": 9.7
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": null
     }
   ]
 }

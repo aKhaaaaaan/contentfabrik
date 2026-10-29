@@ -23,6 +23,9 @@ SZENEN = [
     (r'\b(?:trains?|railways?|railroads?|stations?|locomotives?|platforms?)\b', 'railroad'),
     (r'\b(?:factor(?:y|ies)|plants?|assembly|mills?|workshops?|machinery|workers)\b', 'factory workers'),
     (r'\b(?:ships?|harbou?rs?|ports?|docks?|shipyards?)\b', 'ship harbor'),
+    # Rolls-Royce 29.10.: Geldgeschichten (Aktien, Tresor, Vorstand) fanden keinen einzigen Suchbegriff
+    (r'\b(?:banks?|bankers?|vaults?|cash ?box(?:es)?|stock exchange|exchange hall|shares?|investors?)\b', 'bank'),
+    (r'\b(?:boardrooms?|board meeting|directors?)\b', 'business meeting'),
     (r'\b(?:offices?|clerks?|typewriters?|secretar\w+)\b', 'office workers'),
     (r'\b(?:shops?|stores?|customers?|counters?|shoppers?)\b', 'store customers'),
     (r'\b(?:cars?|automobiles?|motorcars?)\b', 'automobile'),
@@ -40,10 +43,25 @@ def suchbegriff(*texte):
     return next((begriff for muster, begriff in SZENEN if re.search(muster, t, re.I)), None)
 
 
+# Rolls-Royce 29.10.: Bildplan schrieb "Edwardian" statt einer Jahreszahl -> kein einziger Archivversuch
+EPOCHEN = [(r'\bvictorian\b', 1885), (r'\bedwardian\b', 1905), (r'\bturn[- ]of[- ]the[- ]century\b', 1900),
+           (r'\b(?:roaring )?twenties\b', 1925), (r'\b(?:great )?depression[- ]era\b|\bgreat depression\b', 1933),
+           (r'\binter-?war\b', 1930), (r'\bwartime\b|\bworld war (?:ii|two|2)\b', 1943), (r'\bpost-?war\b', 1950)]
+
+
 def jahr(epoche):
-    """Jahr aus 'early 1930s', '1924', 'postwar 1950s'; None fuer modern/unklar."""
-    m = re.search(r'\b(1[89]\d|20\d)(\d)s?\b', str(epoche or ''))
-    return int(m.group(1) + m.group(2)) if m else None
+    """Jahr aus 'early 1930s', '1924', 'postwar 1950s', 'Edwardian'; None fuer modern/unklar."""
+    t = str(epoche or '')
+    m = re.search(r'\b(1[89]\d|20\d)(\d)s?\b', t)
+    if m:
+        return int(m.group(1) + m.group(2))
+    return next((j for muster, j in EPOCHEN if re.search(muster, t, re.I)), None)
+
+
+def story_jahr(*texte):
+    """Fruehestes Jahr der Geschichte ("December 1906 ... January 1907" -> 1906) fuer Szenen ohne Epoche."""
+    jahre = [int(a + b) for a, b in re.findall(r'\b(1[89]\d|20[0-2])(\d)\b', ' '.join(str(x or '') for x in texte))]
+    return min(jahre) if jahre else None
 
 
 def _json(url, timeout=30):
@@ -108,7 +126,7 @@ def auswahl(bilder, satz, szene):
 
 def finden(satz, szene, epoche, benutzt=()):
     """{'kennung','datei','sekunde','note','lizenz'} oder None."""
-    begriff, j = suchbegriff(satz, szene), jahr(epoche)
+    begriff, j = suchbegriff(satz, szene), epoche if isinstance(epoche, int) else jahr(epoche)
     if not begriff or not j or j > JAHR_MAX:
         return None
     for kennung in filme(begriff, j):
@@ -251,9 +269,15 @@ MODERN_AB = 1995
 MODERN = re.compile(r'\b(?:modern|today|present[- ]day|contemporary|nowadays)\b', re.I)
 
 
-def epoche_modern(szene, ohne_epoche=False):
-    """True: moderne Szene (Pixabay); False: keine Clips; None: historisch (Archiv)."""
+def szenen_jahr(szene, geschichte=None):
+    """Jahr der Szene; ohne eigene Angabe (und nicht 'modern') das Jahr der Geschichte."""
     j = jahr(szene)
+    return j if j is not None or MODERN.search(str(szene or '')) else geschichte
+
+
+def epoche_modern(szene, ohne_epoche=False, geschichte=None):
+    """True: moderne Szene (Pixabay); False: keine Clips; None: historisch (Archiv)."""
+    j = szenen_jahr(szene, geschichte)
     if j is not None:
         return True if j >= MODERN_AB else (None if j <= JAHR_MAX else False)
     return True if (MODERN.search(str(szene or '')) or ohne_epoche) else False
@@ -267,10 +291,11 @@ def zuschneiden(pfad, dauer, ziel):
     return Path(ziel)
 
 
-def fuer_einstellung(satz, szene, suche, dauer, basis, archiv=True, ohne_epoche=False, pixabay=None, benutzt=None):
+def fuer_einstellung(satz, szene, suche, dauer, basis, archiv=True, ohne_epoche=False, pixabay=None, benutzt=None,
+                     geschichte=None):
     """(Video, Standbild, Quelle) fuer eine Einstellung oder (None, None, None) -> gemaltes Bild."""
     basis = Path(basis)
-    modern = epoche_modern(szene, ohne_epoche)
+    modern = epoche_modern(szene, ohne_epoche, geschichte)
     if modern and pixabay:
         pfad, quelle = pixabay(suche or suchbegriff(satz, szene))
         if not pfad:
@@ -279,7 +304,10 @@ def fuer_einstellung(satz, szene, suche, dauer, basis, archiv=True, ohne_epoche=
         video, bild = farbe(roh, basis.with_suffix('.mp4'), basis.with_suffix('.jpg'))
         return (video, bild, dict(quelle, nennung='Stock footage, painted')) if video else (None, None, None)
     if modern is None and archiv:
-        fund = finden(satz, szene, szene, benutzt or set())
+        if not suchbegriff(satz, szene):
+            print(f'Kein Archivclip: keine allgemeine filmbare Szene in "{satz[:50]}"')
+            return None, None, None
+        fund = finden(satz, szene, szenen_jahr(szene, geschichte), benutzt or set())
         if not fund:
             return None, None, None
         roh = schneiden(fund, dauer, basis.with_name(basis.name + '_roh.mp4'))

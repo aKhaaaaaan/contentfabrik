@@ -1810,6 +1810,8 @@ def main(skript_pfad, aus, vorlage=None):
         FORTSCHRITT['aktuell'] = None
         # Nutzerentscheidung 29.10.2026: allgemeine Szenen als gemeinfreie Archivclips (eingefaerbt + gemalt).
         archiv_zahl, archiv_letzt, archiv_benutzt = 0, -9, set()
+        import archivclip
+        archiv_jahr = archivclip.story_jahr(*(x['teil'].get('text') for x in shots))
         for i, shot in enumerate(shots):
             t, dauer, t0 = shot['teil'], shot['dauer_s'], shot['s']
             # 18 Schnitte sind keine 18 Motive: auch nicht benachbarte Wiederholungen zaehlen.
@@ -2047,14 +2049,15 @@ def main(skript_pfad, aus, vorlage=None):
             clips_an = kanalprofil(s).get('archivclips') or kanalprofil(s).get('stockclips')
             if clips_an and H > B and modus in ('auto', 'illustration', 'foto') and not karte and not foto \
                     and not ill and 0 < i < len(shots) - 1 and i not in zahl_slots \
-                    and archiv_zahl < ARCHIV_MAX and i - archiv_letzt >= 2 and dauer >= 2.0:
-                import archivclip
+                    and archiv_zahl < ARCHIV_MAX and i - archiv_letzt >= 2 and dauer >= 2.0 \
+                    and not texte.AUFRUF.search(t['text']):  # 29.10.: Pixabay-Clip lag auf dem Like-Aufruf
                 try:
                     archiv_video, ill, q_clip = archivclip.fuer_einstellung(
                         t['text'], t.get('szene', ''), t.get('suche', ''), dauer, aus / f'clip_{i:02d}',
                         archiv=bool(kanalprofil(s).get('archivclips')),
                         ohne_epoche=bool(kanalprofil(s).get('stockclips')),
-                        pixabay=lambda suche: clip_fuer(suche, schon, dauer, t['text']), benutzt=archiv_benutzt)
+                        pixabay=lambda suche: clip_fuer(suche, schon, dauer, t['text']), benutzt=archiv_benutzt,
+                        geschichte=archiv_jahr)
                     if archiv_video:
                         archiv_zahl, archiv_letzt = archiv_zahl + 1, i
                         quellen.append(q_clip)

@@ -1277,10 +1277,45 @@ def stimm_code_key(wahl):
     Stimme ungueltig."""
     import inspect, stimme_gemini
     teile = [Path(stimme_gemini.__file__).read_bytes(), Path(audioqualitaet.__file__).read_bytes()]
-    teile += [inspect.getsource(f).encode() for f in (gemini_ton, kokoro_ton, sprechbloecke, angleichen,
+    teile += [inspect.getsource(f).encode() for f in (gemini_ton, regie_bloecke, regie_naht, kokoro_ton, sprechbloecke, angleichen,
                                                        laengen_aus_woertern, erzaehlstimme)]
     teile.append(json.dumps(wahl or {}, sort_keys=True, ensure_ascii=False).encode())
     return hashlib.sha256(b'\0'.join(teile)).hexdigest()
+
+
+def regie_bloecke(teile, wahl):
+    """Stimm-Regie je Abschnitt (Nutzer 29.10.2026 nach Emotionsprobe: "Kombi von Stimme 7/8", also Schock,
+    Spannung, Fluestern, Triumph PLUS Ironie - "wenig lachen"). Aufeinanderfolgende Teile mit gleichem Beat sind
+    ein Aufruf. Laute (offizielle Gemini-Tags) nie vor dem ersten Wort (Hook-Regel) und nie im Like-Aufruf.
+    Gibt [(text, stil)] zurueck; der Text bleibt sonst woertlich."""
+    regie, laute = wahl.get('regie') or {}, wahl.get('laute') or {}
+    bloecke = []
+    for i, t in enumerate(teile):
+        beat = t.get('beat') or 'erklaerung'
+        text = t['text'].strip()
+        cta = i == len(teile) - 1 and re.search(r'\blike\b.*\bshare\b', text, re.I)
+        laut = laute.get(beat, '') if i and not cta else ''
+        if i and not laut and beat == 'wendung':
+            laut = '<short pause>'
+        stil = wahl.get('stil', '') + (f'; THIS PART: {regie[beat]}' if regie.get(beat) and not cta else '')
+        if bloecke and bloecke[-1][2] == beat and not laut and not cta:
+            bloecke[-1][0] += ' ' + text
+        else:
+            bloecke.append([(laut + ' ' if laut else '') + text, stil, beat])
+    return [(b[0], b[1]) for b in bloecke]
+
+
+def regie_naht(stuecke, rate, rand_s=0.12):
+    """Getrennt gesprochene Abschnitte ohne lange Stille dazwischen und mit gleicher Lautheit aneinander."""
+    aus = []
+    for x in stuecke:
+        laut = np.flatnonzero(np.abs(x) > 0.02)
+        if len(laut):
+            x = x[max(0, laut[0] - int(rand_s * rate)):laut[-1] + int(rand_s * rate)]
+        aus.append(x)
+    pegel = [float(np.sqrt(np.mean(x ** 2))) for x in aus if len(x)]
+    ziel = float(np.median(pegel)) if pegel else 0
+    return [x * min(2.0, ziel / r) if (r := float(np.sqrt(np.mean(x ** 2))) if len(x) else 0) > 0 else x for x in aus]
 
 
 def gemini_ton(s, wahl, grenzen):
@@ -1295,23 +1330,27 @@ def gemini_ton(s, wahl, grenzen):
     teile = []
     for i, t in enumerate(s['teile']):
         teile.append(('<short pause> ' if i and t.get('beat') == 'wendung' else '') + t['text'].strip())
+    auftraege = [(block, wahl.get('stil', '')) for block in sprechbloecke(teile)]
+    mit_regie = isinstance(wahl.get('regie'), dict) and dramaturgie.videoformat(s) != 'lang'
+    if mit_regie:
+        auftraege = regie_bloecke(s['teile'], wahl)
     import io
     for alt in STIMM_SPEICHER.glob('*.wav') if STIMM_SPEICHER.is_dir() else []:
         if time.time() - alt.stat().st_mtime > 7 * 86400:  # Cache klein halten
             alt.unlink(missing_ok=True)
     stuecke, rate, modell = [], None, 'Speicher'
     try:
-        for block in sprechbloecke(teile):
+        for block, stil in auftraege:
             # Bezahlte Stimme (seit 09.10.2026): jeder fertige Block wird gespeichert. Faellt Block 3
             # von 4 aus, kostet der naechste Versuch nur noch Block 3 und 4 - vorher gingen die
             # bezahlten Bloecke verloren und Kokoro sprach das ganze Video.
             datei = STIMM_SPEICHER / (hashlib.sha256(json.dumps(
-                [block, wahl.get('stimme', 'Orus'), wahl.get('stil', '')], ensure_ascii=False).encode()
+                [block, wahl.get('stimme', 'Orus'), stil], ensure_ascii=False).encode()
             ).hexdigest()[:32] + '.wav')
             if datei.is_file():
                 wav = datei.read_bytes()
             else:
-                wav, modell = stimme_gemini.sprechen(block, wahl.get('stimme', 'Orus'), wahl.get('stil', ''))
+                wav, modell = stimme_gemini.sprechen(block, wahl.get('stimme', 'Orus'), stil)
                 try:
                     STIMM_SPEICHER.mkdir(parents=True, exist_ok=True)
                     datei.write_bytes(wav)
@@ -1325,6 +1364,8 @@ def gemini_ton(s, wahl, grenzen):
     except (RuntimeError, OSError, KeyError) as e:
         print('Gemini-Stimme nicht verfuegbar, Kokoro spricht:', str(e)[:200])
         return None
+    if mit_regie:
+        stuecke = regie_naht(stuecke, rate)
     ton = np.concatenate(stuecke)
     dauer = len(ton) / rate
     oben = grenzen[1]

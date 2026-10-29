@@ -635,6 +635,7 @@ def groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens,
            dramaturgie.videoformat(kanal) == 'lang' else
            'After the final payoff speak exactly ONCE: Be sure to like, share and save this video.')
     prefix = (prompts.DATEN + prompts.FAKTEN_KURZ + prompts.SPRECHEN
+        + (prompts.HUMOR if kanal.get('humor') else '')
         + f'Write an original English video in {mindest}-{hoechstens} spoken words. '
         + prompts.wortplan(kanal, f'{mindest}-{hoechstens}')
         + ('Use 24-50 unranked beats. ' if dramaturgie.videoformat(kanal) == 'lang' else

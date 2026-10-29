@@ -109168,6 +109168,1354 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "40841805427.1:business-origin-stories",
+      "run_id": "40841805427",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-29T09:09:39.046699+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "9d48c416a630c86e8a510921914594075bda78ef",
+      "produktionsversion": "bf3cb15b9a8c5c004d4e9d3eb6c7b7b4ba518dee45bf3f459f18efa65f7b249f",
+      "videoformat": "short",
+      "thema": "SK Hynix",
+      "titel": [
+        "*SK* *Hynix* Nearly Collapsed",
+        "Chip Prices Fell 80%"
+      ],
+      "status": "gesendet",
+      "video_sha256": "e2a68ac7204bc960d973577a21e5546a7db1be2fda19475e66da08ff6713e4c2",
+      "video_gebaut": true,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-28.3",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einer Werkstatt und ein SK hynix Logo, jedoch nicht die Erwähnung von Hyundai Electronics, dem Gründungsjahr 1983 oder den Kampf gegen Samsung.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar eine elektronische Platine, aber der Text behandelt die Ertragsprobleme und das Ringen mit SRAM- und DRAM-Chips bei Hyundai Electronics, was visuell nicht spezifisch genug belegt wird.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte erwähnen den Rang im DRAM-Markt und finanzielle Verluste im Jahr 2001, aber das Bild zeigt nur einen allgemeinen Büroarbeiter beim Schreiben, ohne jeglichen Bezug zu Firmenzahlen, DRAM oder historischen Verlusten.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Arbeiter inmitten von Maschinen und veranschaulicht den massiven finanziellen Verlust von 5 Billionen Won nicht adäquat.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Mann in einer Werkstatt und ein SK hynix Logo, jedoch nicht die Erwähnung von Hyundai Electronics, dem Gründungsjahr 1983 oder den Kampf gegen Samsung. Korrektur: Ein historisches Foto oder eine Illustration von Hyundai Electronics aus dem Jahr 1983 oder ein Bezug zum Einstieg in die Chip-Produktion.",
+        "Offenes Problem (schwer): Das Bild zeigt zwar eine elektronische Platine, aber der Text behandelt die Ertragsprobleme und das Ringen mit SRAM- und DRAM-Chips bei Hyundai Electronics, was visuell nicht spezifisch genug belegt wird. Korrektur: Historisches Foto von fehlerhaften Silizium-Wafern oder SRAM-Chips aus den 1980er Jahren mit Angaben zu niedrigen Ausbeuteraten.",
+        "Offenes Problem (schwer): Die gesprochenen Worte erwähnen den Rang im DRAM-Markt und finanzielle Verluste im Jahr 2001, aber das Bild zeigt nur einen allgemeinen Büroarbeiter beim Schreiben, ohne jeglichen Bezug zu Firmenzahlen, DRAM oder historischen Verlusten. Korrektur: Ein historisches Dokument, eine Grafik über Marktzahlen von 1992 oder ein Bild aus einer Unternehmenszentrale aus dieser Epoche.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Arbeiter inmitten von Maschinen und veranschaulicht den massiven finanziellen Verlust von 5 Billionen Won nicht adäquat. Korrektur: Ein Dokument, ein Chart oder eine symbolische Darstellung der riesigen finanziellen Verluste von 5 Billionen Won im Jahr 2001."
+      ],
+      "einstellungen": 11,
+      "unterschiedliche_motive": 11,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "40841805427",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-29",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 746.3,
+            "pruefung_s": 121.3,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Mann in einem Lagerhaus mit Textoverlays, aber der Preissturz von Speicherchips wird nicht visuell dargestellt.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen fiktiven, dramatisch gestikulierenden Mann in einer Fabrikhalle, stellt aber nicht das tatsächliche Unternehmen SK Hynix oder dessen historische Situation dar.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Arbeiter im Gespräch, es gibt jedoch keinen Bezug zur Gründung von Hyundai Electronics im Jahr 1983 oder dem Markteinstieg gegen Samsung.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen besorgten Mann im Laborkittel, während der Text von SRAM-Chips, importierten DRAM-Designs und Problemen mit Ausbeuten spricht. Es fehlt jeglicher Bezug zu Halbleiterfertigung oder Chips.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Handschuh, deutet auf geschäftliche Vereinbarungen hin, aber es ist keine Herstellung von Speicherchips oder OEM-Abkommen zu sehen.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Mann mit einer Platine im Büro, was abstrakt zu Chipherstellung passt, aber der konkrete Inhalt 'Ninth in DRAM by 1992, it lost 5 trillion won in 2001' wird dadurch nicht visuell erklärt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann in einem Lagerhaus mit Textoverlays, aber der Preissturz von Speicherchips wird nicht visuell dargestellt. Korrektur: Ein Chart oder eine Visualisierung, die den Preissturz von Speicherchips um 80 Prozent zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen fiktiven, dramatisch gestikulierenden Mann in einer Fabrikhalle, stellt aber nicht das tatsächliche Unternehmen SK Hynix oder dessen historische Situation dar. Korrektur: Ein historisches Foto oder Dokument der Vorgängerfirma Hyundai Electronics oder eine grafische Darstellung des beinahe Zusammenbruchs.",
+              "Offenes Problem (schwer): Das Bild zeigt Arbeiter im Gespräch, es gibt jedoch keinen Bezug zur Gründung von Hyundai Electronics im Jahr 1983 oder dem Markteinstieg gegen Samsung. Korrektur: Eine historische Darstellung oder ein Symbolbild der Gründung von Hyundai Electronics oder der Firmengebäude von 1983.",
+              "Offenes Problem (schwer): Das Bild zeigt einen besorgten Mann im Laborkittel, während der Text von SRAM-Chips, importierten DRAM-Designs und Problemen mit Ausbeuten spricht. Es fehlt jeglicher Bezug zu Halbleiterfertigung oder Chips. Korrektur: Eine schematische Darstellung von Halbleiter-Wafern oder defekten DRAM-Chips, die Fertigungsprobleme veranschaulicht.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Handschuh, deutet auf geschäftliche Vereinbarungen hin, aber es ist keine Herstellung von Speicherchips oder OEM-Abkommen zu sehen. Korrektur: Eine Darstellung von Arbeitnehmern in einer Chipfabrik, die Speicherchips produzieren oder Verträge für ausländische Firmen unterzeichnen.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann mit einer Platine im Büro, was abstrakt zu Chipherstellung passt, aber der konkrete Inhalt 'Ninth in DRAM by 1992, it lost 5 trillion won in 2001' wird dadurch nicht visuell erklärt. Korrektur: Eine historische Grafik oder ein Archivfoto, das die Marktposition oder die finanziellen Verluste von Hyundai Electronics um 1992 bis 2001 darstellt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Orus",
+              "stimme": 14.8,
+              "zeitmarken": 5.8,
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 11,
+              "bilder_vereinfacht": 3,
+              "clips_und_stuecke": 590.5,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 11,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 48.2,
+              "gesamt": 745.9,
+              "videolaenge_s": 42.5,
+              "abschnitte_s": [
+                6.76,
+                5.66,
+                5.18,
+                5.26,
+                6.02,
+                4.82,
+                8.81
+              ],
+              "woerter": 87
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Memory chip prices plunged 80 percent.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann in einem Lagerhaus mit Textoverlays, aber der Preissturz von Speicherchips wird nicht visuell dargestellt. Korrektur: Ein Chart oder eine Visualisierung, die den Preissturz von Speicherchips um 80 Prozent zeigt."
+              },
+              {
+                "zeit": "00:03.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "SK Hynix's predecessor nearly collapsed.",
+                "fest": false,
+                "text": "Das Bild zeigt einen fiktiven, dramatisch gestikulierenden Mann in einer Fabrikhalle, stellt aber nicht das tatsächliche Unternehmen SK Hynix oder dessen historische Situation dar. Korrektur: Ein historisches Foto oder Dokument der Vorgängerfirma Hyundai Electronics oder eine grafische Darstellung des beinahe Zusammenbruchs."
+              },
+              {
+                "zeit": "00:06.76",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Hyundai Electronics, founded 1983, paid a steep entry price against Samsung.",
+                "fest": false,
+                "text": "Das Bild zeigt Arbeiter im Gespräch, es gibt jedoch keinen Bezug zur Gründung von Hyundai Electronics im Jahr 1983 oder dem Markteinstieg gegen Samsung. Korrektur: Eine historische Darstellung oder ein Symbolbild der Gründung von Hyundai Electronics oder der Firmengebäude von 1983."
+              },
+              {
+                "zeit": "00:12.42",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 3,
+                "gesprochen": "Its SRAM chips and imported DRAM design both struggled with yields.",
+                "fest": false,
+                "text": "Das Bild zeigt einen besorgten Mann im Laborkittel, während der Text von SRAM-Chips, importierten DRAM-Designs und Problemen mit Ausbeuten spricht. Es fehlt jeglicher Bezug zu Halbleiterfertigung oder Chips. Korrektur: Eine schematische Darstellung von Halbleiter-Wafern oder defekten DRAM-Chips, die Fertigungsprobleme veranschaulicht."
+              },
+              {
+                "zeit": "00:17.60",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 4,
+                "gesprochen": "So what worked? Making memory chips for foreign firms under OEM agreements.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Handschuh, deutet auf geschäftliche Vereinbarungen hin, aber es ist keine Herstellung von Speicherchips oder OEM-Abkommen zu sehen. Korrektur: Eine Darstellung von Arbeitnehmern in einer Chipfabrik, die Speicherchips produzieren oder Verträge für ausländische Firmen unterzeichnen."
+              },
+              {
+                "zeit": "00:22.86",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 5,
+                "gesprochen": "Ninth in DRAM by 1992, it lost",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann mit einer Platine im Büro, was abstrakt zu Chipherstellung passt, aber der konkrete Inhalt 'Ninth in DRAM by 1992, it lost 5 trillion won in 2001' wird dadurch nicht visuell erklärt. Korrektur: Eine historische Grafik oder ein Archivfoto, das die Marktposition oder die finanziellen Verluste von Hyundai Electronics um 1992 bis 2001 darstellt."
+              }
+            ],
+            "sekunden": 867.6,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-28.3"
+            },
+            "skript_s": 3.4,
+            "bau_s": 700.6,
+            "pruefung_s": 40.5,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen den Absturz der Speicherchip-Preise, aber das gezeigte Diagramm an der Tafel steigt nach oben und zeigt fälschlicherweise einen Anstieg statt des besprochenen Preissturzes.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Arbeiter in einer Werkstatt, aber es wird weder Hyundai Electronics noch das Gründungsjahr 1983 oder der Wettbewerb mit Samsung visuell dargestellt.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Phase erwähnt SRAM-Chips und DRAM-Design mit Ertragsproblemen, zu sehen ist jedoch nur ein allgemeiner Techniker an einer Platine ohne konkreten Bezug zu SRAM oder DRAM.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt allgemeine Büro- und Elektronikarbeiten, lässt aber keinen Bezug zu den gesprochenen Worten zu den geschäftlichen Verlusten oder Platzierungen der Firma im Jahr 1992 oder 2001 erkennen.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (4/10): Die Grafik zeigt zwar Textfetzen wie \"5 trillion won in 2001\", jedoch wird der Verlust oder die geschäftliche Handlung nicht bildlich dargestellt, sondern nur Textinhalte wiederholt.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen den Absturz der Speicherchip-Preise, aber das gezeigte Diagramm an der Tafel steigt nach oben und zeigt fälschlicherweise einen Anstieg statt des besprochenen Preissturzes. Korrektur: Ein passendes Diagramm oder eine Grafik, die einen deutlichen Preissturz oder Verfall von Speicherchip-Preisen darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Arbeiter in einer Werkstatt, aber es wird weder Hyundai Electronics noch das Gründungsjahr 1983 oder der Wettbewerb mit Samsung visuell dargestellt. Korrektur: Ein historisches Foto oder eine Illustration von Hyundai Electronics aus dem Jahr 1983 oder eine Fabrikumgebung, die den Halbleiter-Einstieg thematisiert.",
+              "Offenes Problem (schwer): Die gesprochene Phase erwähnt SRAM-Chips und DRAM-Design mit Ertragsproblemen, zu sehen ist jedoch nur ein allgemeiner Techniker an einer Platine ohne konkreten Bezug zu SRAM oder DRAM. Korrektur: Ein Dokument oder eine technische Darstellung, die die Ertragsprobleme oder das Design von SRAM- und DRAM-Chips zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt allgemeine Büro- und Elektronikarbeiten, lässt aber keinen Bezug zu den gesprochenen Worten zu den geschäftlichen Verlusten oder Platzierungen der Firma im Jahr 1992 oder 2001 erkennen. Korrektur: Eine historische Darstellung von Geschäftszahlen, Bilanzen oder Finanzdiagrammen, die die finanziellen Verluste von fünf Billionen Won im Jahr 2001 veranschaulichen.",
+              "Offenes Problem (schwer): Die Grafik zeigt zwar Textfetzen wie \"5 trillion won in 2001\", jedoch wird der Verlust oder die geschäftliche Handlung nicht bildlich dargestellt, sondern nur Textinhalte wiederholt. Korrektur: Historisches Dokument oder eine Nachrichtengrafik über den Verlust von 5 Billionen Won im Jahr 2001 bei Hyundai Electronics / Hynix."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 5,
+              "stuecke_neu": 6,
+              "bilder_vereinfacht": 3,
+              "clips_und_stuecke": 546.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 11,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 49.1,
+              "gesamt": 700.3,
+              "videolaenge_s": 42.5,
+              "abschnitte_s": [
+                6.76,
+                5.66,
+                5.18,
+                5.26,
+                6.02,
+                4.82,
+                8.81
+              ],
+              "woerter": 87
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Memory chip prices plunged 80 percent.",
+                "fest": false,
+                "text": "Die gesprochenen Wörter erwähnen den Absturz der Speicherchip-Preise, aber das gezeigte Diagramm an der Tafel steigt nach oben und zeigt fälschlicherweise einen Anstieg statt des besprochenen Preissturzes. Korrektur: Ein passendes Diagramm oder eine Grafik, die einen deutlichen Preissturz oder Verfall von Speicherchip-Preisen darstellt."
+              },
+              {
+                "zeit": "00:06.76",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Hyundai Electronics, founded 1983, paid a steep entry price against Samsung.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Arbeiter in einer Werkstatt, aber es wird weder Hyundai Electronics noch das Gründungsjahr 1983 oder der Wettbewerb mit Samsung visuell dargestellt. Korrektur: Ein historisches Foto oder eine Illustration von Hyundai Electronics aus dem Jahr 1983 oder eine Fabrikumgebung, die den Halbleiter-Einstieg thematisiert."
+              },
+              {
+                "zeit": "00:12.42",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 3,
+                "gesprochen": "Its SRAM chips and imported DRAM design both struggled with yields.",
+                "fest": false,
+                "text": "Die gesprochene Phase erwähnt SRAM-Chips und DRAM-Design mit Ertragsproblemen, zu sehen ist jedoch nur ein allgemeiner Techniker an einer Platine ohne konkreten Bezug zu SRAM oder DRAM. Korrektur: Ein Dokument oder eine technische Darstellung, die die Ertragsprobleme oder das Design von SRAM- und DRAM-Chips zeigt."
+              },
+              {
+                "zeit": "00:22.86",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 5,
+                "gesprochen": "Ninth in DRAM by 1992, it lost",
+                "fest": false,
+                "text": "Das Bild zeigt allgemeine Büro- und Elektronikarbeiten, lässt aber keinen Bezug zu den gesprochenen Worten zu den geschäftlichen Verlusten oder Platzierungen der Firma im Jahr 1992 oder 2001 erkennen. Korrektur: Eine historische Darstellung von Geschäftszahlen, Bilanzen oder Finanzdiagrammen, die die finanziellen Verluste von fünf Billionen Won im Jahr 2001 veranschaulichen."
+              },
+              {
+                "zeit": "00:25.87",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 6,
+                "gesprochen": "5 trillion won in 2001.",
+                "fest": false,
+                "text": "Die Grafik zeigt zwar Textfetzen wie \"5 trillion won in 2001\", jedoch wird der Verlust oder die geschäftliche Handlung nicht bildlich dargestellt, sondern nur Textinhalte wiederholt. Korrektur: Historisches Dokument oder eine Nachrichtengrafik über den Verlust von 5 Billionen Won im Jahr 2001 bei Hyundai Electronics / Hynix."
+              }
+            ],
+            "sekunden": 744.4,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "40841805427-2",
+              "datum": "2026-10-29",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 744.4,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-28.3",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                4
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-28.3"
+            },
+            "skript_s": 1.6,
+            "bau_s": 309.5,
+            "pruefung_s": 35.5,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einer Werkstatt und ein SK hynix Logo, jedoch nicht die Erwähnung von Hyundai Electronics, dem Gründungsjahr 1983 oder den Kampf gegen Samsung.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar eine elektronische Platine, aber der Text behandelt die Ertragsprobleme und das Ringen mit SRAM- und DRAM-Chips bei Hyundai Electronics, was visuell nicht spezifisch genug belegt wird.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte erwähnen den Rang im DRAM-Markt und finanzielle Verluste im Jahr 2001, aber das Bild zeigt nur einen allgemeinen Büroarbeiter beim Schreiben, ohne jeglichen Bezug zu Firmenzahlen, DRAM oder historischen Verlusten.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Arbeiter inmitten von Maschinen und veranschaulicht den massiven finanziellen Verlust von 5 Billionen Won nicht adäquat.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann in einer Werkstatt und ein SK hynix Logo, jedoch nicht die Erwähnung von Hyundai Electronics, dem Gründungsjahr 1983 oder den Kampf gegen Samsung. Korrektur: Ein historisches Foto oder eine Illustration von Hyundai Electronics aus dem Jahr 1983 oder ein Bezug zum Einstieg in die Chip-Produktion.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar eine elektronische Platine, aber der Text behandelt die Ertragsprobleme und das Ringen mit SRAM- und DRAM-Chips bei Hyundai Electronics, was visuell nicht spezifisch genug belegt wird. Korrektur: Historisches Foto von fehlerhaften Silizium-Wafern oder SRAM-Chips aus den 1980er Jahren mit Angaben zu niedrigen Ausbeuteraten.",
+              "Offenes Problem (schwer): Die gesprochenen Worte erwähnen den Rang im DRAM-Markt und finanzielle Verluste im Jahr 2001, aber das Bild zeigt nur einen allgemeinen Büroarbeiter beim Schreiben, ohne jeglichen Bezug zu Firmenzahlen, DRAM oder historischen Verlusten. Korrektur: Ein historisches Dokument, eine Grafik über Marktzahlen von 1992 oder ein Bild aus einer Unternehmenszentrale aus dieser Epoche.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Arbeiter inmitten von Maschinen und veranschaulicht den massiven finanziellen Verlust von 5 Billionen Won nicht adäquat. Korrektur: Ein Dokument, ein Chart oder eine symbolische Darstellung der riesigen finanziellen Verluste von 5 Billionen Won im Jahr 2001."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Orus",
+              "tempo": 1.2,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 6,
+              "stuecke_neu": 5,
+              "bilder_vereinfacht": 3,
+              "clips_und_stuecke": 211.7,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 11,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 50.1,
+              "gesamt": 309.1,
+              "videolaenge_s": 42.5,
+              "abschnitte_s": [
+                6.76,
+                5.66,
+                5.18,
+                5.26,
+                6.02,
+                4.82,
+                8.81
+              ],
+              "woerter": 87
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:06.76",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Hyundai Electronics, founded 1983, paid a steep entry price against Samsung.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann in einer Werkstatt und ein SK hynix Logo, jedoch nicht die Erwähnung von Hyundai Electronics, dem Gründungsjahr 1983 oder den Kampf gegen Samsung. Korrektur: Ein historisches Foto oder eine Illustration von Hyundai Electronics aus dem Jahr 1983 oder ein Bezug zum Einstieg in die Chip-Produktion."
+              },
+              {
+                "zeit": "00:12.42",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 3,
+                "gesprochen": "Its SRAM chips and imported DRAM design both struggled with yields.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar eine elektronische Platine, aber der Text behandelt die Ertragsprobleme und das Ringen mit SRAM- und DRAM-Chips bei Hyundai Electronics, was visuell nicht spezifisch genug belegt wird. Korrektur: Historisches Foto von fehlerhaften Silizium-Wafern oder SRAM-Chips aus den 1980er Jahren mit Angaben zu niedrigen Ausbeuteraten."
+              },
+              {
+                "zeit": "00:22.86",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 5,
+                "gesprochen": "Ninth in DRAM by 1992, it lost",
+                "fest": false,
+                "text": "Die gesprochenen Worte erwähnen den Rang im DRAM-Markt und finanzielle Verluste im Jahr 2001, aber das Bild zeigt nur einen allgemeinen Büroarbeiter beim Schreiben, ohne jeglichen Bezug zu Firmenzahlen, DRAM oder historischen Verlusten. Korrektur: Ein historisches Dokument, eine Grafik über Marktzahlen von 1992 oder ein Bild aus einer Unternehmenszentrale aus dieser Epoche."
+              },
+              {
+                "zeit": "00:25.87",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 6,
+                "gesprochen": "5 trillion won in 2001.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Arbeiter inmitten von Maschinen und veranschaulicht den massiven finanziellen Verlust von 5 Billionen Won nicht adäquat. Korrektur: Ein Dokument, ein Chart oder eine symbolische Darstellung der riesigen finanziellen Verluste von 5 Billionen Won im Jahr 2001."
+              }
+            ],
+            "sekunden": 346.5,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "40841805427-3",
+              "datum": "2026-10-29",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 346.5,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-28.3",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 2059.2,
+        "upload_titel": "SK Hynix Nearly Collapsed: Chip Prices Fell 80%"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:06.76",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "Hyundai Electronics, founded 1983, paid a steep entry price against Samsung.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann in einer Werkstatt und ein SK hynix Logo, jedoch nicht die Erwähnung von Hyundai Electronics, dem Gründungsjahr 1983 oder den Kampf gegen Samsung. Korrektur: Ein historisches Foto oder eine Illustration von Hyundai Electronics aus dem Jahr 1983 oder ein Bezug zum Einstieg in die Chip-Produktion."
+          },
+          {
+            "zeit": "00:12.42",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 3,
+            "gesprochen": "Its SRAM chips and imported DRAM design both struggled with yields.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar eine elektronische Platine, aber der Text behandelt die Ertragsprobleme und das Ringen mit SRAM- und DRAM-Chips bei Hyundai Electronics, was visuell nicht spezifisch genug belegt wird. Korrektur: Historisches Foto von fehlerhaften Silizium-Wafern oder SRAM-Chips aus den 1980er Jahren mit Angaben zu niedrigen Ausbeuteraten."
+          },
+          {
+            "zeit": "00:22.86",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 5,
+            "gesprochen": "Ninth in DRAM by 1992, it lost",
+            "fest": false,
+            "text": "Die gesprochenen Worte erwähnen den Rang im DRAM-Markt und finanzielle Verluste im Jahr 2001, aber das Bild zeigt nur einen allgemeinen Büroarbeiter beim Schreiben, ohne jeglichen Bezug zu Firmenzahlen, DRAM oder historischen Verlusten. Korrektur: Ein historisches Dokument, eine Grafik über Marktzahlen von 1992 oder ein Bild aus einer Unternehmenszentrale aus dieser Epoche."
+          },
+          {
+            "zeit": "00:25.87",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 6,
+            "gesprochen": "5 trillion won in 2001.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Arbeiter inmitten von Maschinen und veranschaulicht den massiven finanziellen Verlust von 5 Billionen Won nicht adäquat. Korrektur: Ein Dokument, ein Chart oder eine symbolische Darstellung der riesigen finanziellen Verluste von 5 Billionen Won im Jahr 2001."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 42.5,
+          "fps": 30.0,
+          "lufs": -14.7,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 36.44,
+              "bis_s": 38.38,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.887
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 22.5,
+              "bis_s": 43.0,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Memory",
+                "s": 0.0,
+                "e": 0.46,
+                "p": 0.8841759562492371
+              },
+              {
+                "w": "chip",
+                "s": 0.46,
+                "e": 0.8,
+                "p": 0.69218909740448
+              },
+              {
+                "w": "prices",
+                "s": 0.8,
+                "e": 1.12,
+                "p": 0.9723268747329712
+              },
+              {
+                "w": "plunged",
+                "s": 1.12,
+                "e": 1.62,
+                "p": 0.9885650277137756
+              },
+              {
+                "w": "80%.",
+                "s": 1.62,
+                "e": 3.42,
+                "p": 0.793124258518219
+              },
+              {
+                "w": "SK",
+                "s": 3.42,
+                "e": 3.84,
+                "p": 0.8895065188407898
+              },
+              {
+                "w": "Hynix",
+                "s": 3.84,
+                "e": 4.32,
+                "p": 0.5426395237445831
+              },
+              {
+                "w": "predecessor",
+                "s": 4.32,
+                "e": 4.84,
+                "p": 0.960615336894989
+              },
+              {
+                "w": "nearly",
+                "s": 4.84,
+                "e": 5.34,
+                "p": 0.9589068293571472
+              },
+              {
+                "w": "collapsed.",
+                "s": 5.34,
+                "e": 5.84,
+                "p": 0.9994556307792664
+              },
+              {
+                "w": "Hyundai",
+                "s": 6.76,
+                "e": 6.8,
+                "p": 0.9869771599769592
+              },
+              {
+                "w": "Electronics",
+                "s": 6.8,
+                "e": 7.26,
+                "p": 0.8106043338775635
+              },
+              {
+                "w": "founded",
+                "s": 7.26,
+                "e": 8.04,
+                "p": 0.5001110434532166
+              },
+              {
+                "w": "1983,",
+                "s": 8.04,
+                "e": 8.74,
+                "p": 0.990990161895752
+              },
+              {
+                "w": "paid",
+                "s": 8.74,
+                "e": 9.5,
+                "p": 0.9737440347671509
+              },
+              {
+                "w": "a",
+                "s": 9.5,
+                "e": 9.6,
+                "p": 0.9982852339744568
+              },
+              {
+                "w": "steep",
+                "s": 9.6,
+                "e": 9.86,
+                "p": 0.9973694086074829
+              },
+              {
+                "w": "entry",
+                "s": 9.86,
+                "e": 10.18,
+                "p": 0.9828267097473145
+              },
+              {
+                "w": "price",
+                "s": 10.18,
+                "e": 10.68,
+                "p": 0.9443976283073425
+              },
+              {
+                "w": "against",
+                "s": 10.68,
+                "e": 11.06,
+                "p": 0.9840339422225952
+              },
+              {
+                "w": "Samsung.",
+                "s": 11.06,
+                "e": 11.48,
+                "p": 0.9984017014503479
+              },
+              {
+                "w": "Its",
+                "s": 12.44,
+                "e": 12.56,
+                "p": 0.6448553800582886
+              },
+              {
+                "w": "SRAM",
+                "s": 12.56,
+                "e": 13.04,
+                "p": 0.9307920932769775
+              },
+              {
+                "w": "chips",
+                "s": 13.04,
+                "e": 13.24,
+                "p": 0.9864278435707092
+              },
+              {
+                "w": "and",
+                "s": 13.24,
+                "e": 13.74,
+                "p": 0.9706653356552124
+              },
+              {
+                "w": "imported",
+                "s": 13.74,
+                "e": 14.02,
+                "p": 0.9984101057052612
+              },
+              {
+                "w": "DRAM",
+                "s": 14.02,
+                "e": 14.58,
+                "p": 0.9588840901851654
+              },
+              {
+                "w": "design",
+                "s": 14.58,
+                "e": 14.86,
+                "p": 0.9905479550361633
+              },
+              {
+                "w": "both",
+                "s": 14.86,
+                "e": 15.38,
+                "p": 0.9693218469619751
+              },
+              {
+                "w": "struggled",
+                "s": 15.38,
+                "e": 15.84,
+                "p": 0.992397129535675
+              },
+              {
+                "w": "with",
+                "s": 15.84,
+                "e": 16.18,
+                "p": 0.9993764758110046
+              },
+              {
+                "w": "yields.",
+                "s": 16.18,
+                "e": 16.38,
+                "p": 0.9838870167732239
+              },
+              {
+                "w": "So",
+                "s": 17.62,
+                "e": 17.66,
+                "p": 0.9820526242256165
+              },
+              {
+                "w": "what",
+                "s": 17.66,
+                "e": 17.84,
+                "p": 0.8675612807273865
+              },
+              {
+                "w": "worked?",
+                "s": 17.84,
+                "e": 18.08,
+                "p": 0.9987443685531616
+              },
+              {
+                "w": "Making",
+                "s": 19.0,
+                "e": 19.0,
+                "p": 0.9844377636909485
+              },
+              {
+                "w": "memory",
+                "s": 19.0,
+                "e": 19.22,
+                "p": 0.8577198386192322
+              },
+              {
+                "w": "chips",
+                "s": 19.22,
+                "e": 19.64,
+                "p": 0.9951571822166443
+              },
+              {
+                "w": "for",
+                "s": 19.64,
+                "e": 19.88,
+                "p": 0.9978733062744141
+              },
+              {
+                "w": "foreign",
+                "s": 19.88,
+                "e": 20.22,
+                "p": 0.9793786406517029
+              },
+              {
+                "w": "firms",
+                "s": 20.22,
+                "e": 20.58,
+                "p": 0.9984285235404968
+              },
+              {
+                "w": "under",
+                "s": 20.58,
+                "e": 21.02,
+                "p": 0.9955646991729736
+              },
+              {
+                "w": "OEM",
+                "s": 21.02,
+                "e": 21.38,
+                "p": 0.9684014320373535
+              },
+              {
+                "w": "agreements.",
+                "s": 21.38,
+                "e": 21.8,
+                "p": 0.9402725696563721
+              },
+              {
+                "w": "Ninth",
+                "s": 22.88,
+                "e": 23.0,
+                "p": 0.6190568804740906
+              },
+              {
+                "w": "in",
+                "s": 23.0,
+                "e": 23.34,
+                "p": 0.9610273838043213
+              },
+              {
+                "w": "DRAM",
+                "s": 23.34,
+                "e": 23.82,
+                "p": 0.9972000122070312
+              },
+              {
+                "w": "by",
+                "s": 23.82,
+                "e": 24.04,
+                "p": 0.960027277469635
+              },
+              {
+                "w": "1992.",
+                "s": 24.04,
+                "e": 24.58,
+                "p": 0.9991336464881897
+              },
+              {
+                "w": "It",
+                "s": 25.52,
+                "e": 25.54,
+                "p": 0.9918633699417114
+              },
+              {
+                "w": "lost",
+                "s": 25.54,
+                "e": 25.7,
+                "p": 0.9928794503211975
+              },
+              {
+                "w": "5",
+                "s": 25.7,
+                "e": 26.16,
+                "p": 0.4723539352416992
+              },
+              {
+                "w": "trillion",
+                "s": 26.16,
+                "e": 26.48,
+                "p": 0.9776536822319031
+              },
+              {
+                "w": "won",
+                "s": 26.48,
+                "e": 26.84,
+                "p": 0.8387219309806824
+              },
+              {
+                "w": "in",
+                "s": 26.84,
+                "e": 27.24,
+                "p": 0.9905569553375244
+              },
+              {
+                "w": "2001.",
+                "s": 27.24,
+                "e": 27.48,
+                "p": 0.9859508872032166
+              },
+              {
+                "w": "Banks",
+                "s": 28.88,
+                "e": 28.88,
+                "p": 0.9364879727363586
+              },
+              {
+                "w": "intervened.",
+                "s": 28.88,
+                "e": 29.1,
+                "p": 0.9960263967514038
+              },
+              {
+                "w": "intervened.",
+                "s": 29.1,
+                "e": 29.42,
+                "p": 0.22494368255138397
+              },
+              {
+                "w": "SK",
+                "s": 30.12,
+                "e": 30.28,
+                "p": 0.9327482581138611
+              },
+              {
+                "w": "bought",
+                "s": 30.28,
+                "e": 30.66,
+                "p": 0.9818342328071594
+              },
+              {
+                "w": "Hynix",
+                "s": 30.66,
+                "e": 31.06,
+                "p": 0.6393749415874481
+              },
+              {
+                "w": "for",
+                "s": 31.06,
+                "e": 31.28,
+                "p": 0.9794126749038696
+              },
+              {
+                "w": "$3",
+                "s": 31.28,
+                "e": 31.6,
+                "p": 0.8594861030578613
+              },
+              {
+                "w": "billion",
+                "s": 31.6,
+                "e": 31.8,
+                "p": 0.7496010065078735
+              },
+              {
+                "w": "in",
+                "s": 31.8,
+                "e": 32.48,
+                "p": 0.9591293931007385
+              },
+              {
+                "w": "2012.",
+                "s": 32.48,
+                "e": 32.98,
+                "p": 0.9968794584274292
+              },
+              {
+                "w": "It",
+                "s": 33.66,
+                "e": 33.74,
+                "p": 0.9871934056282043
+              },
+              {
+                "w": "outlived",
+                "s": 33.74,
+                "e": 34.24,
+                "p": 0.9923829436302185
+              },
+              {
+                "w": "the",
+                "s": 34.24,
+                "e": 34.64,
+                "p": 0.9858328104019165
+              },
+              {
+                "w": "80",
+                "s": 34.64,
+                "e": 34.86,
+                "p": 0.9868609309196472
+              },
+              {
+                "w": "%",
+                "s": 34.86,
+                "e": 35.24,
+                "p": 0.8836068511009216
+              },
+              {
+                "w": "crash.",
+                "s": 35.24,
+                "e": 35.46,
+                "p": 0.9382781386375427
+              },
+              {
+                "w": "Like,",
+                "s": 36.44,
+                "e": 36.62,
+                "p": 0.9750012159347534
+              },
+              {
+                "w": "share",
+                "s": 36.94,
+                "e": 37.28,
+                "p": 0.7547889947891235
+              },
+              {
+                "w": "and",
+                "s": 37.28,
+                "e": 37.56,
+                "p": 0.6476103067398071
+              },
+              {
+                "w": "save",
+                "s": 37.56,
+                "e": 37.86,
+                "p": 0.9811423420906067
+              },
+              {
+                "w": "this",
+                "s": 37.86,
+                "e": 38.04,
+                "p": 0.9681000113487244
+              },
+              {
+                "w": "video.",
+                "s": 38.04,
+                "e": 38.38,
+                "p": 0.996358335018158
+              },
+              {
+                "w": "Which",
+                "s": 39.04,
+                "e": 39.1,
+                "p": 0.9391221404075623
+              },
+              {
+                "w": "company",
+                "s": 39.1,
+                "e": 39.4,
+                "p": 0.9878845810890198
+              },
+              {
+                "w": "next?",
+                "s": 39.4,
+                "e": 39.8,
+                "p": 0.9744855165481567
+              },
+              {
+                "w": "Comment",
+                "s": 40.38,
+                "e": 40.52,
+                "p": 0.992324709892273
+              },
+              {
+                "w": "and",
+                "s": 40.52,
+                "e": 41.26,
+                "p": 0.9207310080528259
+              },
+              {
+                "w": "follow",
+                "s": 41.26,
+                "e": 41.52,
+                "p": 0.9377748370170593
+              },
+              {
+                "w": "for",
+                "s": 41.52,
+                "e": 41.8,
+                "p": 0.988731324672699
+              },
+              {
+                "w": "more.",
+                "s": 41.8,
+                "e": 41.98,
+                "p": 0.9983620047569275
+              }
+            ],
+            "dauer_s": 42.3893125,
+            "sprache": "en"
+          },
+          "roh_key": "e29b73f7c79502f848a4ee602215a938015d897695b8f213b0c80b09f689893e",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "e2a68ac7204bc960d973577a21e5546a7db1be2fda19475e66da08ff6713e4c2",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 42.5,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 11,
+          "motive": 11,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "e2a68ac7204bc960d973577a21e5546a7db1be2fda19475e66da08ff6713e4c2",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein illustrierter Fabrikarbeiter oder Angestellter betrachtet verzweifelt eine Kiste mit Mikrochips, flankiert von Kartonstapeln.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gesprochenen Worte 'Memory chip prices plunged 80 percent' beschreiben einen Marktkrach bei Speicherchips, was durch die dargestellten Mikrochips und die entsetzte Person anschaulich illustriert wird.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da die Illustration zum Thema passt."
+            },
+            {
+              "index": 1,
+              "gesehen": "Eine bemalte Szene in einem Büro mit Umzugskartons, Computern und einer Person im Hintergrund.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt ein Büroszenario, das zum Kontext der Vorläuferkrise passt.",
+              "erforderliches_bild": "Keines"
+            },
+            {
+              "index": 2,
+              "gesehen": "In einem hölzernen Schuppen oder einer Werkstatt steht ein Mann im Hemd und hält einen zylinderförmigen Gegenstand in den Händen. Oben befindet sich ein Logo mit der Aufschrift SK hynix.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Mann in einer Werkstatt und ein SK hynix Logo, jedoch nicht die Erwähnung von Hyundai Electronics, dem Gründungsjahr 1983 oder den Kampf gegen Samsung.",
+              "erforderliches_bild": "Ein historisches Foto oder eine Illustration von Hyundai Electronics aus dem Jahr 1983 oder ein Bezug zum Einstieg in die Chip-Produktion."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Mann im Hemd steht in einem Raum an einem Tisch und betrachtet ein elektronisches Platinenbauteil in seinen Händen.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt zwar eine elektronische Platine, aber der Text behandelt die Ertragsprobleme und das Ringen mit SRAM- und DRAM-Chips bei Hyundai Electronics, was visuell nicht spezifisch genug belegt wird.",
+              "erforderliches_bild": "Historisches Foto von fehlerhaften Silizium-Wafern oder SRAM-Chips aus den 1980er Jahren mit Angaben zu niedrigen Ausbeuteraten."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Mann im grauen Anzug sitzt in einem Büro und hält eine Mikrochip-Platine in seinen Händen, im Hintergrund sind Stadtgebäude und Lampen zu sehen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gesprochene Frage und die Erwähnung der Herstellung von Speicherchips passen zu dem Bild, auf dem ein Geschäftsmann eine Chip-Platine betrachtet.",
+              "erforderliches_bild": "Keines, das Bild passt."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein älterer Mann sitzt an einem Schreibtisch in einem Büro mit Fenstern im Hintergrund und schreibt auf Dokumente.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochenen Worte erwähnen den Rang im DRAM-Markt und finanzielle Verluste im Jahr 2001, aber das Bild zeigt nur einen allgemeinen Büroarbeiter beim Schreiben, ohne jeglichen Bezug zu Firmenzahlen, DRAM oder historischen Verlusten.",
+              "erforderliches_bild": "Ein historisches Dokument, eine Grafik über Marktzahlen von 1992 oder ein Bild aus einer Unternehmenszentrale aus dieser Epoche."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Mann steht zwischen industriellen Maschinen in einer engen Straße mit Gebäuden, darüber eine Einblendung mit '5 TRILLION WON'.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Arbeiter inmitten von Maschinen und veranschaulicht den massiven finanziellen Verlust von 5 Billionen Won nicht adäquat.",
+              "erforderliches_bild": "Ein Dokument, ein Chart oder eine symbolische Darstellung der riesigen finanziellen Verluste von 5 Billionen Won im Jahr 2001."
+            },
+            {
+              "index": 7,
+              "gesehen": "Zwei geschäftsmannähnliche Figuren geben sich vor einer Skyline die Hand, mit einem großen gelben Overlay-Text '$3 BILLION' über ihnen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt eine geschäftliche Akquisition bzw. einen Firmenkauf ('SK bought Hynix for $3 billion') symbolisiert durch einen erfolgreichen Handschlag und den Betrag von 3 Milliarden Dollar als Overlay.",
+              "erforderliches_bild": "Ein realistisches Archivbild oder eine passendere Illustration der Firmenübernahme ohne künstliche Elemente."
+            }
+          ],
+          "befunde": [
+            "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einer Werkstatt und ein SK hynix Logo, jedoch nicht die Erwähnung von Hyundai Electronics, dem Gründungsjahr 1983 oder den Kampf gegen Samsung.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar eine elektronische Platine, aber der Text behandelt die Ertragsprobleme und das Ringen mit SRAM- und DRAM-Chips bei Hyundai Electronics, was visuell nicht spezifisch genug belegt wird.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte erwähnen den Rang im DRAM-Markt und finanzielle Verluste im Jahr 2001, aber das Bild zeigt nur einen allgemeinen Büroarbeiter beim Schreiben, ohne jeglichen Bezug zu Firmenzahlen, DRAM oder historischen Verlusten.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Arbeiter inmitten von Maschinen und veranschaulicht den massiven finanziellen Verlust von 5 Billionen Won nicht adäquat."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite"
+          ],
+          "einstellungen": 11,
+          "ausgenommen": [
+            8,
+            9,
+            10
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "e2a68ac7204bc960d973577a21e5546a7db1be2fda19475e66da08ff6713e4c2",
+        "prompt_version": "2026-10-28.3"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

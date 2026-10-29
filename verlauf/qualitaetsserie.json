@@ -112245,6 +112245,1223 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "40917784096.1:ai-tools-explained",
+      "run_id": "40917784096",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-10-29T17:21:30.954206+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "07b68aa3d20396c3a56c9dd2d3bf69c4acf0fc90",
+      "produktionsversion": "3bba15113cf2df68ce2895741bf42a85a32774dbfaa94449b64e7d11f3f10063",
+      "videoformat": "short",
+      "thema": "Claude MCP: connecting tools so you stop copy-pasting",
+      "titel": [
+        "*Claude* *MCP* Explained",
+        "*Connect* *Tools,* Stop Pasting"
+      ],
+      "status": "gesendet",
+      "video_sha256": "14a8dc7ca594efb147976152d596b2dcc819d52f4c74f90bc4fcd0cee4d1b70b",
+      "video_gebaut": true,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit einer Aufschrift PASTE, aber nicht die im Text erwähnte Handlung des Kopierens, Einfügens oder das Problem von vielen Tabs.",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Warnungstafel und Text mit Bezug auf das gesprochene Wort 'catch', aber keine visuelle Demonstration oder Erklärung, wie MCP das Kopieren und Einfügen reduziert.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar den Text 'USB-C port', der als Metapher erwähnt wird, aber keine konkrete technische Veranschaulichung des MCP-Standards oder von KI-Verbindungen.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Erklärtabelle über API-Antworten und Claude Code, während der Text von einem Issue-Tracker und einem verbundenen Server spricht.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen statischen Hilfetext statt der konkreten Benutzeroberfläche der Chat-Plus-Taste und des Connectors-Menüs.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Mann mit einer Aufschrift PASTE, aber nicht die im Text erwähnte Handlung des Kopierens, Einfügens oder das Problem von vielen Tabs. Korrektur: Ein Bildschirmfoto oder eine Visualisierung von vielen geöffneten Browser-Tabs oder einer Benutzeroberfläche, die das ständige Hin- und Herschalten und Kopieren verdeutlicht.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine Warnungstafel und Text mit Bezug auf das gesprochene Wort 'catch', aber keine visuelle Demonstration oder Erklärung, wie MCP das Kopieren und Einfügen reduziert. Korrektur: Ein Bildschirmfoto oder Diagramm, das den Anschluss eines externen Tools oder Servers an Claude zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt zwar den Text 'USB-C port', der als Metapher erwähnt wird, aber keine konkrete technische Veranschaulichung des MCP-Standards oder von KI-Verbindungen. Korrektur: Ein anschauliches Diagramm oder eine Grafik, die einen USB-C-Anschluss als universelle Schnittstelle im Vergleich zur Verbindung von KI-Apps mit externen Tools darstellt.",
+        "Offenes Problem (schwer): Das Bild zeigt eine Erklärtabelle über API-Antworten und Claude Code, während der Text von einem Issue-Tracker und einem verbundenen Server spricht. Korrektur: Ein Screenshot oder Diagramm, das zeigt, wie ein Server mit einem System oder Issue-Tracker verbunden ist.",
+        "Offenes Problem (schwer): Das Bild zeigt einen statischen Hilfetext statt der konkreten Benutzeroberfläche der Chat-Plus-Taste und des Connectors-Menüs. Korrektur: Einen echten Screenshot der Claude Desktop Anwendung, der das Plus-Symbol im Chat und das Connectors-Menü zeigt."
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 13,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "40917784096",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-10-29",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 639.6,
+            "pruefung_s": 279.7,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit einer Aufschrift PASTE, aber nicht die im Text erwähnte Handlung des Kopierens, Einfügens oder das Problem von vielen Tabs.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Warnungstafel und Text mit Bezug auf das gesprochene Wort 'catch', aber keine visuelle Demonstration oder Erklärung, wie MCP das Kopieren und Einfügen reduziert.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar den Text 'USB-C port', der als Metapher erwähnt wird, aber keine konkrete technische Veranschaulichung des MCP-Standards oder von KI-Verbindungen.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Erklärtabelle über API-Antworten und Claude Code, während der Text von einem Issue-Tracker und einem verbundenen Server spricht.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen statischen Hilfetext statt der konkreten Benutzeroberfläche der Chat-Plus-Taste und des Connectors-Menüs.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann mit einer Aufschrift PASTE, aber nicht die im Text erwähnte Handlung des Kopierens, Einfügens oder das Problem von vielen Tabs. Korrektur: Ein Bildschirmfoto oder eine Visualisierung von vielen geöffneten Browser-Tabs oder einer Benutzeroberfläche, die das ständige Hin- und Herschalten und Kopieren verdeutlicht.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine Warnungstafel und Text mit Bezug auf das gesprochene Wort 'catch', aber keine visuelle Demonstration oder Erklärung, wie MCP das Kopieren und Einfügen reduziert. Korrektur: Ein Bildschirmfoto oder Diagramm, das den Anschluss eines externen Tools oder Servers an Claude zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar den Text 'USB-C port', der als Metapher erwähnt wird, aber keine konkrete technische Veranschaulichung des MCP-Standards oder von KI-Verbindungen. Korrektur: Ein anschauliches Diagramm oder eine Grafik, die einen USB-C-Anschluss als universelle Schnittstelle im Vergleich zur Verbindung von KI-Apps mit externen Tools darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Erklärtabelle über API-Antworten und Claude Code, während der Text von einem Issue-Tracker und einem verbundenen Server spricht. Korrektur: Ein Screenshot oder Diagramm, das zeigt, wie ein Server mit einem System oder Issue-Tracker verbunden ist.",
+              "Offenes Problem (schwer): Das Bild zeigt einen statischen Hilfetext statt der konkreten Benutzeroberfläche der Chat-Plus-Taste und des Connectors-Menüs. Korrektur: Einen echten Screenshot der Claude Desktop Anwendung, der das Plus-Symbol im Chat und das Connectors-Menü zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 12.9,
+              "zeitmarken": 8.9,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "clips_und_stuecke": 386.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 40.3,
+              "gesamt": 639.1,
+              "videolaenge_s": 43.9,
+              "abschnitte_s": [
+                6.28,
+                6.1,
+                6.18,
+                6.88,
+                6.76,
+                6.52,
+                5.16
+              ],
+              "woerter": 123
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Copy, paste, copy, paste. Drowning in tabs.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann mit einer Aufschrift PASTE, aber nicht die im Text erwähnte Handlung des Kopierens, Einfügens oder das Problem von vielen Tabs. Korrektur: Ein Bildschirmfoto oder eine Visualisierung von vielen geöffneten Browser-Tabs oder einer Benutzeroberfläche, die das ständige Hin- und Herschalten und Kopieren verdeutlicht."
+              },
+              {
+                "zeit": "00:03.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Claude's MCP could cut that, but there's a catch.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich eine Warnungstafel und Text mit Bezug auf das gesprochene Wort 'catch', aber keine visuelle Demonstration oder Erklärung, wie MCP das Kopieren und Einfügen reduziert. Korrektur: Ein Bildschirmfoto oder Diagramm, das den Anschluss eines externen Tools oder Servers an Claude zeigt."
+              },
+              {
+                "zeit": "00:10.02",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Think USB-C port, but for AI.",
+                "fest": true,
+                "text": "Das Bild zeigt zwar den Text 'USB-C port', der als Metapher erwähnt wird, aber keine konkrete technische Veranschaulichung des MCP-Standards oder von KI-Verbindungen. Korrektur: Ein anschauliches Diagramm oder eine Grafik, die einen USB-C-Anschluss als universelle Schnittstelle im Vergleich zur Verbindung von KI-Apps mit externen Tools darstellt."
+              },
+              {
+                "zeit": "00:15.96",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "A connected server lets Claude read that system.",
+                "fest": true,
+                "text": "Das Bild zeigt eine Erklärtabelle über API-Antworten und Claude Code, während der Text von einem Issue-Tracker und einem verbundenen Server spricht. Korrektur: Ein Screenshot oder Diagramm, das zeigt, wie ein Server mit einem System oder Issue-Tracker verbunden ist."
+              },
+              {
+                "zeit": "00:27.88",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "After installing, the chat plus button, then Connectors, shows what's connected.",
+                "fest": true,
+                "text": "Das Bild zeigt einen statischen Hilfetext statt der konkreten Benutzeroberfläche der Chat-Plus-Taste und des Connectors-Menüs. Korrektur: Einen echten Screenshot der Claude Desktop Anwendung, der das Plus-Symbol im Chat und das Connectors-Menü zeigt."
+              }
+            ],
+            "sekunden": 919.3,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 934.5,
+        "upload_titel": "Claude MCP Explained: Connect Tools, Stop Pasting | AI Tool #19"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Copy, paste, copy, paste. Drowning in tabs.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann mit einer Aufschrift PASTE, aber nicht die im Text erwähnte Handlung des Kopierens, Einfügens oder das Problem von vielen Tabs. Korrektur: Ein Bildschirmfoto oder eine Visualisierung von vielen geöffneten Browser-Tabs oder einer Benutzeroberfläche, die das ständige Hin- und Herschalten und Kopieren verdeutlicht."
+          },
+          {
+            "zeit": "00:03.26",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Claude's MCP could cut that, but there's a catch.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich eine Warnungstafel und Text mit Bezug auf das gesprochene Wort 'catch', aber keine visuelle Demonstration oder Erklärung, wie MCP das Kopieren und Einfügen reduziert. Korrektur: Ein Bildschirmfoto oder Diagramm, das den Anschluss eines externen Tools oder Servers an Claude zeigt."
+          },
+          {
+            "zeit": "00:10.02",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "Think USB-C port, but for AI.",
+            "fest": true,
+            "text": "Das Bild zeigt zwar den Text 'USB-C port', der als Metapher erwähnt wird, aber keine konkrete technische Veranschaulichung des MCP-Standards oder von KI-Verbindungen. Korrektur: Ein anschauliches Diagramm oder eine Grafik, die einen USB-C-Anschluss als universelle Schnittstelle im Vergleich zur Verbindung von KI-Apps mit externen Tools darstellt."
+          },
+          {
+            "zeit": "00:15.96",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "A connected server lets Claude read that system.",
+            "fest": true,
+            "text": "Das Bild zeigt eine Erklärtabelle über API-Antworten und Claude Code, während der Text von einem Issue-Tracker und einem verbundenen Server spricht. Korrektur: Ein Screenshot oder Diagramm, das zeigt, wie ein Server mit einem System oder Issue-Tracker verbunden ist."
+          },
+          {
+            "zeit": "00:27.88",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "After installing, the chat plus button, then Connectors, shows what's connected.",
+            "fest": true,
+            "text": "Das Bild zeigt einen statischen Hilfetext statt der konkreten Benutzeroberfläche der Chat-Plus-Taste und des Connectors-Menüs. Korrektur: Einen echten Screenshot der Claude Desktop Anwendung, der das Plus-Symbol im Chat und das Connectors-Menü zeigt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 43.9,
+          "fps": 30.0,
+          "lufs": -14.4,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 39.74,
+              "bis_s": 41.14,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.986
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 23.9,
+              "bis_s": 44.4,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Copy,",
+                "s": 0.0,
+                "e": 0.4,
+                "p": 0.8920449018478394
+              },
+              {
+                "w": "paste,",
+                "s": 0.64,
+                "e": 0.94,
+                "p": 0.9643010497093201
+              },
+              {
+                "w": "copy,",
+                "s": 1.0,
+                "e": 1.24,
+                "p": 0.9969651103019714
+              },
+              {
+                "w": "paste?",
+                "s": 1.24,
+                "e": 1.7,
+                "p": 0.9979485869407654
+              },
+              {
+                "w": "Drowning",
+                "s": 1.98,
+                "e": 2.32,
+                "p": 0.9786172906557719
+              },
+              {
+                "w": "in",
+                "s": 2.32,
+                "e": 2.44,
+                "p": 0.8629017472267151
+              },
+              {
+                "w": "tabs?",
+                "s": 2.44,
+                "e": 2.62,
+                "p": 0.9224820733070374
+              },
+              {
+                "w": "Claude's",
+                "s": 3.52,
+                "e": 3.64,
+                "p": 0.7487979829311371
+              },
+              {
+                "w": "MCP",
+                "s": 3.64,
+                "e": 3.94,
+                "p": 0.8784535229206085
+              },
+              {
+                "w": "could",
+                "s": 3.94,
+                "e": 4.3,
+                "p": 0.9858224987983704
+              },
+              {
+                "w": "cut",
+                "s": 4.3,
+                "e": 4.62,
+                "p": 0.9918457865715027
+              },
+              {
+                "w": "that,",
+                "s": 4.62,
+                "e": 4.88,
+                "p": 0.992130696773529
+              },
+              {
+                "w": "but",
+                "s": 5.1,
+                "e": 5.12,
+                "p": 0.9943658113479614
+              },
+              {
+                "w": "there's",
+                "s": 5.12,
+                "e": 5.52,
+                "p": 0.9850207269191742
+              },
+              {
+                "w": "a",
+                "s": 5.52,
+                "e": 5.6,
+                "p": 0.9967831373214722
+              },
+              {
+                "w": "catch.",
+                "s": 5.6,
+                "e": 5.74,
+                "p": 0.9959593415260315
+              },
+              {
+                "w": "MCP",
+                "s": 6.36,
+                "e": 6.58,
+                "p": 0.991234540939331
+              },
+              {
+                "w": "is",
+                "s": 6.58,
+                "e": 6.86,
+                "p": 0.9967188239097595
+              },
+              {
+                "w": "an",
+                "s": 6.86,
+                "e": 6.94,
+                "p": 0.9849041700363159
+              },
+              {
+                "w": "open",
+                "s": 6.94,
+                "e": 7.12,
+                "p": 0.8087335228919983
+              },
+              {
+                "w": "standard",
+                "s": 7.12,
+                "e": 7.44,
+                "p": 0.8658092021942139
+              },
+              {
+                "w": "linking",
+                "s": 7.44,
+                "e": 7.8,
+                "p": 0.9391556978225708
+              },
+              {
+                "w": "AI",
+                "s": 7.8,
+                "e": 8.16,
+                "p": 0.9712136387825012
+              },
+              {
+                "w": "apps",
+                "s": 8.16,
+                "e": 8.54,
+                "p": 0.992617666721344
+              },
+              {
+                "w": "to",
+                "s": 8.54,
+                "e": 8.7,
+                "p": 0.9957044720649719
+              },
+              {
+                "w": "outside",
+                "s": 8.7,
+                "e": 8.84,
+                "p": 0.9905479550361633
+              },
+              {
+                "w": "tools",
+                "s": 8.84,
+                "e": 9.32,
+                "p": 0.9955084323883057
+              },
+              {
+                "w": "and",
+                "s": 9.32,
+                "e": 9.48,
+                "p": 0.9934279322624207
+              },
+              {
+                "w": "data.",
+                "s": 9.48,
+                "e": 9.68,
+                "p": 0.9965303540229797
+              },
+              {
+                "w": "Think",
+                "s": 10.0,
+                "e": 10.02,
+                "p": 0.9523067474365234
+              },
+              {
+                "w": "USB",
+                "s": 10.02,
+                "e": 10.48,
+                "p": 0.9648589491844177
+              },
+              {
+                "w": "-C",
+                "s": 10.48,
+                "e": 10.9,
+                "p": 0.8094257414340973
+              },
+              {
+                "w": "port,",
+                "s": 10.9,
+                "e": 11.12,
+                "p": 0.9884896874427795
+              },
+              {
+                "w": "but",
+                "s": 11.22,
+                "e": 11.36,
+                "p": 0.9975261092185974
+              },
+              {
+                "w": "for",
+                "s": 11.36,
+                "e": 11.56,
+                "p": 0.9924477338790894
+              },
+              {
+                "w": "AI.",
+                "s": 11.56,
+                "e": 11.76,
+                "p": 0.9955602884292603
+              },
+              {
+                "w": "Hypothetically,",
+                "s": 12.38,
+                "e": 12.74,
+                "p": 0.9547759890556335
+              },
+              {
+                "w": "a",
+                "s": 12.96,
+                "e": 13.02,
+                "p": 0.9963706731796265
+              },
+              {
+                "w": "freelancer",
+                "s": 13.02,
+                "e": 13.4,
+                "p": 0.9829970300197601
+              },
+              {
+                "w": "keeps",
+                "s": 13.4,
+                "e": 13.66,
+                "p": 0.9977520108222961
+              },
+              {
+                "w": "pasting",
+                "s": 13.66,
+                "e": 14.2,
+                "p": 0.9882867932319641
+              },
+              {
+                "w": "issue",
+                "s": 14.2,
+                "e": 14.42,
+                "p": 0.8919342756271362
+              },
+              {
+                "w": "tracker",
+                "s": 14.42,
+                "e": 14.68,
+                "p": 0.9885426759719849
+              },
+              {
+                "w": "notes",
+                "s": 14.68,
+                "e": 14.98,
+                "p": 0.8982710838317871
+              },
+              {
+                "w": "into",
+                "s": 14.98,
+                "e": 15.24,
+                "p": 0.9475390911102295
+              },
+              {
+                "w": "chat.",
+                "s": 15.24,
+                "e": 15.44,
+                "p": 0.7365853190422058
+              },
+              {
+                "w": "A",
+                "s": 15.96,
+                "e": 15.98,
+                "p": 0.9973195195198059
+              },
+              {
+                "w": "connected",
+                "s": 15.98,
+                "e": 16.18,
+                "p": 0.9930283427238464
+              },
+              {
+                "w": "server",
+                "s": 16.18,
+                "e": 16.64,
+                "p": 0.9985781908035278
+              },
+              {
+                "w": "lets",
+                "s": 16.64,
+                "e": 16.96,
+                "p": 0.896998405456543
+              },
+              {
+                "w": "Claude",
+                "s": 16.96,
+                "e": 17.22,
+                "p": 0.9845263957977295
+              },
+              {
+                "w": "read",
+                "s": 17.22,
+                "e": 17.52,
+                "p": 0.9795939922332764
+              },
+              {
+                "w": "that",
+                "s": 17.52,
+                "e": 17.76,
+                "p": 0.9830832481384277
+              },
+              {
+                "w": "system.",
+                "s": 17.76,
+                "e": 18.04,
+                "p": 0.9983590245246887
+              },
+              {
+                "w": "In",
+                "s": 18.58,
+                "e": 18.58,
+                "p": 0.9704344272613525
+              },
+              {
+                "w": "Claude",
+                "s": 18.58,
+                "e": 18.78,
+                "p": 0.8819836974143982
+              },
+              {
+                "w": "Desktop,",
+                "s": 18.78,
+                "e": 19.04,
+                "p": 0.6014103293418884
+              },
+              {
+                "w": "open",
+                "s": 19.42,
+                "e": 19.52,
+                "p": 0.7280405163764954
+              },
+              {
+                "w": "settings,",
+                "s": 19.52,
+                "e": 19.82,
+                "p": 0.36401936411857605
+              },
+              {
+                "w": "desktop",
+                "s": 20.32,
+                "e": 20.34,
+                "p": 0.5849119424819946
+              },
+              {
+                "w": "app,",
+                "s": 20.34,
+                "e": 20.76,
+                "p": 0.9821911454200745
+              },
+              {
+                "w": "manage",
+                "s": 21.04,
+                "e": 21.2,
+                "p": 0.9614222049713135
+              },
+              {
+                "w": "extensions.",
+                "s": 21.2,
+                "e": 21.5,
+                "p": 0.9940342307090759
+              },
+              {
+                "w": "Browse",
+                "s": 22.18,
+                "e": 22.32,
+                "p": 0.8152304291725159
+              },
+              {
+                "w": "extensions,",
+                "s": 22.32,
+                "e": 22.62,
+                "p": 0.9659489393234253
+              },
+              {
+                "w": "pick",
+                "s": 23.16,
+                "e": 23.24,
+                "p": 0.9879096746444702
+              },
+              {
+                "w": "an",
+                "s": 23.24,
+                "e": 23.4,
+                "p": 0.9645816683769226
+              },
+              {
+                "w": "anthropic",
+                "s": 23.4,
+                "e": 23.84,
+                "p": 0.9508972764015198
+              },
+              {
+                "w": "reviewed",
+                "s": 23.84,
+                "e": 24.0,
+                "p": 0.2682432234287262
+              },
+              {
+                "w": "one,",
+                "s": 24.0,
+                "e": 24.3,
+                "p": 0.997968852519989
+              },
+              {
+                "w": "and",
+                "s": 24.48,
+                "e": 24.5,
+                "p": 0.9986625909805298
+              },
+              {
+                "w": "click",
+                "s": 24.5,
+                "e": 24.68,
+                "p": 0.9992859959602356
+              },
+              {
+                "w": "install.",
+                "s": 24.68,
+                "e": 25.0,
+                "p": 0.8493867516517639
+              },
+              {
+                "w": "Some",
+                "s": 25.54,
+                "e": 25.66,
+                "p": 0.9961636066436768
+              },
+              {
+                "w": "extensions",
+                "s": 25.66,
+                "e": 25.82,
+                "p": 0.99687260389328
+              },
+              {
+                "w": "need",
+                "s": 25.82,
+                "e": 26.36,
+                "p": 0.9987646341323853
+              },
+              {
+                "w": "a",
+                "s": 26.36,
+                "e": 26.72,
+                "p": 0.9826295375823975
+              },
+              {
+                "w": "setup",
+                "s": 26.72,
+                "e": 26.96,
+                "p": 0.8936678171157837
+              },
+              {
+                "w": "like",
+                "s": 26.96,
+                "e": 27.22,
+                "p": 0.578464686870575
+              },
+              {
+                "w": "API",
+                "s": 27.22,
+                "e": 27.44,
+                "p": 0.9662697315216064
+              },
+              {
+                "w": "keys.",
+                "s": 27.44,
+                "e": 27.92,
+                "p": 0.8821289539337158
+              },
+              {
+                "w": "After",
+                "s": 27.92,
+                "e": 28.42,
+                "p": 0.6343044638633728
+              },
+              {
+                "w": "installing",
+                "s": 28.42,
+                "e": 28.86,
+                "p": 0.9876731038093567
+              },
+              {
+                "w": "the",
+                "s": 28.86,
+                "e": 29.12,
+                "p": 0.9178300499916077
+              },
+              {
+                "w": "chat",
+                "s": 29.12,
+                "e": 29.3,
+                "p": 0.5766220688819885
+              },
+              {
+                "w": "plus",
+                "s": 29.3,
+                "e": 29.56,
+                "p": 0.4158850610256195
+              },
+              {
+                "w": "button,",
+                "s": 29.56,
+                "e": 29.94,
+                "p": 0.9974157810211182
+              },
+              {
+                "w": "then",
+                "s": 30.1,
+                "e": 30.2,
+                "p": 0.9834800958633423
+              },
+              {
+                "w": "Connectors",
+                "s": 30.2,
+                "e": 30.8,
+                "p": 0.6981591880321503
+              },
+              {
+                "w": "shows",
+                "s": 30.8,
+                "e": 31.08,
+                "p": 0.9760239720344543
+              },
+              {
+                "w": "what's",
+                "s": 31.08,
+                "e": 31.38,
+                "p": 0.9688601493835449
+              },
+              {
+                "w": "connected.",
+                "s": 31.38,
+                "e": 31.56,
+                "p": 0.9923673272132874
+              },
+              {
+                "w": "So,",
+                "s": 32.22,
+                "e": 32.58,
+                "p": 0.9712733030319214
+              },
+              {
+                "w": "what's",
+                "s": 32.8,
+                "e": 33.02,
+                "p": 0.9853225350379944
+              },
+              {
+                "w": "the",
+                "s": 33.02,
+                "e": 33.1,
+                "p": 0.996473491191864
+              },
+              {
+                "w": "catch?",
+                "s": 33.1,
+                "e": 33.2,
+                "p": 0.9889362454414368
+              },
+              {
+                "w": "Trust",
+                "s": 34.02,
+                "e": 34.02,
+                "p": 0.9809163212776184
+              },
+              {
+                "w": "each",
+                "s": 34.02,
+                "e": 34.28,
+                "p": 0.9949623346328735
+              },
+              {
+                "w": "server.",
+                "s": 34.28,
+                "e": 34.66,
+                "p": 0.9754018187522888
+              },
+              {
+                "w": "Servers",
+                "s": 35.1,
+                "e": 35.32,
+                "p": 0.7592324018478394
+              },
+              {
+                "w": "fetching",
+                "s": 35.32,
+                "e": 35.66,
+                "p": 0.9945599734783173
+              },
+              {
+                "w": "outside",
+                "s": 35.66,
+                "e": 35.78,
+                "p": 0.9947038292884827
+              },
+              {
+                "w": "content",
+                "s": 35.78,
+                "e": 36.12,
+                "p": 0.9916262626647949
+              },
+              {
+                "w": "can",
+                "s": 36.12,
+                "e": 36.5,
+                "p": 0.99510657787323
+              },
+              {
+                "w": "expose",
+                "s": 36.5,
+                "e": 36.78,
+                "p": 0.9994090795516968
+              },
+              {
+                "w": "you",
+                "s": 36.78,
+                "e": 37.0,
+                "p": 0.9982138872146606
+              },
+              {
+                "w": "to",
+                "s": 37.0,
+                "e": 37.12,
+                "p": 0.9989221096038818
+              },
+              {
+                "w": "prompt",
+                "s": 37.12,
+                "e": 37.38,
+                "p": 0.9937969446182251
+              },
+              {
+                "w": "injection",
+                "s": 37.38,
+                "e": 37.62,
+                "p": 0.9905417561531067
+              },
+              {
+                "w": "risk.",
+                "s": 37.62,
+                "e": 38.18,
+                "p": 0.9758924841880798
+              },
+              {
+                "w": "Let's",
+                "s": 38.72,
+                "e": 38.92,
+                "p": 0.9950437843799591
+              },
+              {
+                "w": "copy",
+                "s": 38.92,
+                "e": 39.06,
+                "p": 0.9809974431991577
+              },
+              {
+                "w": "pasting,",
+                "s": 39.06,
+                "e": 39.52,
+                "p": 0.815984457731247
+              },
+              {
+                "w": "like,",
+                "s": 39.74,
+                "e": 39.86,
+                "p": 0.9456534385681152
+              },
+              {
+                "w": "share,",
+                "s": 39.92,
+                "e": 40.16,
+                "p": 0.9937695860862732
+              },
+              {
+                "w": "and",
+                "s": 40.3,
+                "e": 40.36,
+                "p": 0.99402916431427
+              },
+              {
+                "w": "save",
+                "s": 40.36,
+                "e": 40.66,
+                "p": 0.9946264624595642
+              },
+              {
+                "w": "this",
+                "s": 40.66,
+                "e": 40.88,
+                "p": 0.9876608848571777
+              },
+              {
+                "w": "video.",
+                "s": 40.88,
+                "e": 41.14,
+                "p": 0.9981456995010376
+              },
+              {
+                "w": "Which",
+                "s": 41.7,
+                "e": 41.72,
+                "p": 0.9508629441261292
+              },
+              {
+                "w": "tool",
+                "s": 41.72,
+                "e": 41.92,
+                "p": 0.9888734817504883
+              },
+              {
+                "w": "next?",
+                "s": 41.92,
+                "e": 42.14,
+                "p": 0.9924853444099426
+              },
+              {
+                "w": "Comment",
+                "s": 42.52,
+                "e": 42.68,
+                "p": 0.9955112934112549
+              },
+              {
+                "w": "and",
+                "s": 42.68,
+                "e": 43.16,
+                "p": 0.703531801700592
+              },
+              {
+                "w": "follow",
+                "s": 43.16,
+                "e": 43.36,
+                "p": 0.9977701902389526
+              },
+              {
+                "w": "it",
+                "s": 43.36,
+                "e": 43.44,
+                "p": 0.8726846575737
+              },
+              {
+                "w": "for",
+                "s": 43.44,
+                "e": 43.5,
+                "p": 0.9901915788650513
+              },
+              {
+                "w": "more.",
+                "s": 43.5,
+                "e": 43.64,
+                "p": 0.998293936252594
+              }
+            ],
+            "dauer_s": 43.8826875,
+            "sprache": "en"
+          },
+          "roh_key": "0107a729aa3b27cb32ff42b813ffdeb2a349606cdc4a1defcafad55a773057b7",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "14a8dc7ca594efb147976152d596b2dcc819d52f4c74f90bc4fcd0cee4d1b70b",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 43.9,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 13,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "14a8dc7ca594efb147976152d596b2dcc819d52f4c74f90bc4fcd0cee4d1b70b",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein gemaltes Porträt eines Mannes mit Brille und einer Jacke vor einer Stadtsilhouette im Sonnenuntergang, über seinem Gesicht liegt ein kastenartiges Overlay mit der Aufschrift PASTE.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Mann mit einer Aufschrift PASTE, aber nicht die im Text erwähnte Handlung des Kopierens, Einfügens oder das Problem von vielen Tabs.",
+              "erforderliches_bild": "Ein Bildschirmfoto oder eine Visualisierung von vielen geöffneten Browser-Tabs oder einer Benutzeroberfläche, die das ständige Hin- und Herschalten und Kopieren verdeutlicht."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein gelbes Dreieck mit Ausrufezeichen und ein Kasten mit dem Text 'Claude's MCP could cut that, but there's a catch.' sowie ein App-Icon am oberen Bildrand.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine Warnungstafel und Text mit Bezug auf das gesprochene Wort 'catch', aber keine visuelle Demonstration oder Erklärung, wie MCP das Kopieren und Einfügen reduziert.",
+              "erforderliches_bild": "Ein Bildschirmfoto oder Diagramm, das den Anschluss eines externen Tools oder Servers an Claude zeigt."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Dokument mit Textabschnitten und einer hervorgehobenen Box über AI applications und End-users, überlagert von einem großen grafischen Logo-Symbol.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt Text, der Konzepte rund um KI-Anwendungen und MCP erklärt, was gut zur Erläuterung von MCP als Standard passt.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein gemaltes Bild zeigt einen Hafen mit Containerschiffen und einer Brücke, überlagert mit dem Text USB-C port.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt zwar den Text 'USB-C port', der als Metapher erwähnt wird, aber keine konkrete technische Veranschaulichung des MCP-Standards oder von KI-Verbindungen.",
+              "erforderliches_bild": "Ein anschauliches Diagramm oder eine Grafik, die einen USB-C-Anschluss als universelle Schnittstelle im Vergleich zur Verbindung von KI-Apps mit externen Tools darstellt."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Mann sitzt an einem Laptop in einem Café und schaut aus dem Fenster, während auf dem Laptop-Bildschirm eine Benutzeroberfläche mit Post-it-Notizen zu sehen ist.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Szene zeigt passend einen Freelancer an einem Computer, was die hypothetische Situation der Textnotizen und Chat-Nutzung illustriert.",
+              "erforderliches_bild": "Ein passender Freelancer am Computer."
+            },
+            {
+              "index": 5,
+              "gesehen": "Eine Tabelle mit zwei Spalten zeigt Reaktionen wie working, completed, failed, cancelled und input_required auf der linken Seite und deren Handhabung durch Claude Code auf der rechten Seite.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine Erklärtabelle über API-Antworten und Claude Code, während der Text von einem Issue-Tracker und einem verbundenen Server spricht.",
+              "erforderliches_bild": "Ein Screenshot oder Diagramm, das zeigt, wie ein Server mit einem System oder Issue-Tracker verbunden ist."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Dokumenten-Screenshot mit einem hervorgehobenen Textabschnitt, der die Schritte zum Installieren von Desktop-Erweiterungen in Claude Desktop beschreibt.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt eine gut lesbare Textanleitung, die genau die im gesprochenen Text erwähnten Einstellungen ('Settings > Desktop app') erklärt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein Screenshot einer Anleitungsseite mit Text über das Installieren von Desktop-Erweiterungen, bei der Schritt 2 farblich hervorgehoben ist.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt genau die beschriebene Installationsanleitung für Erweiterungen in Claude Desktop ('Browse extensions', 'Install'), was zur gesprochenen Passage passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein dunkelgrüner Bildschirm mit dem Text 'CLAUDE MCP: CONNECTING TOOLS SO YOU STOP COPY-PASTING', 'API KEYS', einem großen gelben Pfeil nach unten, einem weißen Rechteck und zwei gelb umrandeten Buttons mit 'API' und 'API KEYS'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt den Text 'API KEYS', der exakt zu den gesprochenen Worten 'Some extensions need setup, like API keys.' passt.",
+              "erforderliches_bild": "Nicht erforderlich."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein Screenshot zeigt Text einer FAQ mit einer gelben Markierung, die erklärt, wie man MCP-Server in Claude Desktop verbindet.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt einen statischen Hilfetext statt der konkreten Benutzeroberfläche der Chat-Plus-Taste und des Connectors-Menüs.",
+              "erforderliches_bild": "Einen echten Screenshot der Claude Desktop Anwendung, der das Plus-Symbol im Chat und das Connectors-Menü zeigt."
+            },
+            {
+              "index": 10,
+              "gesehen": "In der Bildmitte ist ein Ausschnitt der Claude Desktop Benutzeroberfläche zu sehen, der eine Warnmeldung und Erklärung zum Vertrauen in MCP-Server und Prompt-Injektionsrisiken enthält.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt exakt die gesprochene Warnung bezüglich des Vertrauens in Server und des Risikos von Prompt-Injektionen.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein gelbes Warndreieck mit Ausrufezeichen und darunter ein Textfeld mit der Warnung 'Servers fetching outside content can expose you to prompt injection risk.'",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt exakt die im gesprochenen Text genannte Warnung vor Prompt-Injection-Risiken durch Server, die externe Inhalte abrufen.",
+              "erforderliches_bild": "Das Bild passt perfekt und benötigt keinen Ersatz."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit einer Aufschrift PASTE, aber nicht die im Text erwähnte Handlung des Kopierens, Einfügens oder das Problem von vielen Tabs.",
+            "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Warnungstafel und Text mit Bezug auf das gesprochene Wort 'catch', aber keine visuelle Demonstration oder Erklärung, wie MCP das Kopieren und Einfügen reduziert.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar den Text 'USB-C port', der als Metapher erwähnt wird, aber keine konkrete technische Veranschaulichung des MCP-Standards oder von KI-Verbindungen.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Erklärtabelle über API-Antworten und Claude Code, während der Text von einem Issue-Tracker und einem verbundenen Server spricht.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen statischen Hilfetext statt der konkreten Benutzeroberfläche der Chat-Plus-Taste und des Connectors-Menüs."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite"
+          ],
+          "einstellungen": 13,
+          "ausgenommen": [
+            12
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "14a8dc7ca594efb147976152d596b2dcc819d52f4c74f90bc4fcd0cee4d1b70b",
+        "prompt_version": "2026-10-29.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-3.5-flash-lite",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

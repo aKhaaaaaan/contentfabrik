@@ -1,22 +1,5 @@
 [
   {
-    "id": "38534578608",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-14",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "zeitbudget",
-        "phase": "Skript",
-        "sekunden": 480.0
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Skript-Zeitlimit erreicht (Arbeiter beendet)",
-    "sekunden": 480.1
-  },
-  {
     "id": "38551291062",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-14",
@@ -15124,5 +15107,141 @@
     "status": "gesperrt",
     "grund": "Auftrag zu gross: geschaetzte Reserve 11780 Tokens, maximal7900",
     "sekunden": 62.3
+  },
+  {
+    "id": "40917784096",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-10-29",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 639.6,
+        "pruefung_s": 279.7,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit einer Aufschrift PASTE, aber nicht die im Text erwähnte Handlung des Kopierens, Einfügens oder das Problem von vielen Tabs.",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Warnungstafel und Text mit Bezug auf das gesprochene Wort 'catch', aber keine visuelle Demonstration oder Erklärung, wie MCP das Kopieren und Einfügen reduziert.",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar den Text 'USB-C port', der als Metapher erwähnt wird, aber keine konkrete technische Veranschaulichung des MCP-Standards oder von KI-Verbindungen.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Erklärtabelle über API-Antworten und Claude Code, während der Text von einem Issue-Tracker und einem verbundenen Server spricht.",
+          "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen statischen Hilfetext statt der konkreten Benutzeroberfläche der Chat-Plus-Taste und des Connectors-Menüs.",
+          "Offenes Problem (schwer): Das Bild zeigt einen Mann mit einer Aufschrift PASTE, aber nicht die im Text erwähnte Handlung des Kopierens, Einfügens oder das Problem von vielen Tabs. Korrektur: Ein Bildschirmfoto oder eine Visualisierung von vielen geöffneten Browser-Tabs oder einer Benutzeroberfläche, die das ständige Hin- und Herschalten und Kopieren verdeutlicht.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine Warnungstafel und Text mit Bezug auf das gesprochene Wort 'catch', aber keine visuelle Demonstration oder Erklärung, wie MCP das Kopieren und Einfügen reduziert. Korrektur: Ein Bildschirmfoto oder Diagramm, das den Anschluss eines externen Tools oder Servers an Claude zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt zwar den Text 'USB-C port', der als Metapher erwähnt wird, aber keine konkrete technische Veranschaulichung des MCP-Standards oder von KI-Verbindungen. Korrektur: Ein anschauliches Diagramm oder eine Grafik, die einen USB-C-Anschluss als universelle Schnittstelle im Vergleich zur Verbindung von KI-Apps mit externen Tools darstellt.",
+          "Offenes Problem (schwer): Das Bild zeigt eine Erklärtabelle über API-Antworten und Claude Code, während der Text von einem Issue-Tracker und einem verbundenen Server spricht. Korrektur: Ein Screenshot oder Diagramm, das zeigt, wie ein Server mit einem System oder Issue-Tracker verbunden ist.",
+          "Offenes Problem (schwer): Das Bild zeigt einen statischen Hilfetext statt der konkreten Benutzeroberfläche der Chat-Plus-Taste und des Connectors-Menüs. Korrektur: Einen echten Screenshot der Claude Desktop Anwendung, der das Plus-Symbol im Chat und das Connectors-Menü zeigt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 12.9,
+          "zeitmarken": 8.9,
+          "tempo": 1.0,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 13,
+          "clips_und_stuecke": 386.9,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 13,
+            "motive": 13,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 40.3,
+          "gesamt": 639.1,
+          "videolaenge_s": 43.9,
+          "abschnitte_s": [
+            6.28,
+            6.1,
+            6.18,
+            6.88,
+            6.76,
+            6.52,
+            5.16
+          ],
+          "woerter": 123
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Copy, paste, copy, paste. Drowning in tabs.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann mit einer Aufschrift PASTE, aber nicht die im Text erwähnte Handlung des Kopierens, Einfügens oder das Problem von vielen Tabs. Korrektur: Ein Bildschirmfoto oder eine Visualisierung von vielen geöffneten Browser-Tabs oder einer Benutzeroberfläche, die das ständige Hin- und Herschalten und Kopieren verdeutlicht."
+          },
+          {
+            "zeit": "00:03.26",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Claude's MCP could cut that, but there's a catch.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich eine Warnungstafel und Text mit Bezug auf das gesprochene Wort 'catch', aber keine visuelle Demonstration oder Erklärung, wie MCP das Kopieren und Einfügen reduziert. Korrektur: Ein Bildschirmfoto oder Diagramm, das den Anschluss eines externen Tools oder Servers an Claude zeigt."
+          },
+          {
+            "zeit": "00:10.02",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "Think USB-C port, but for AI.",
+            "fest": true,
+            "text": "Das Bild zeigt zwar den Text 'USB-C port', der als Metapher erwähnt wird, aber keine konkrete technische Veranschaulichung des MCP-Standards oder von KI-Verbindungen. Korrektur: Ein anschauliches Diagramm oder eine Grafik, die einen USB-C-Anschluss als universelle Schnittstelle im Vergleich zur Verbindung von KI-Apps mit externen Tools darstellt."
+          },
+          {
+            "zeit": "00:15.96",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "A connected server lets Claude read that system.",
+            "fest": true,
+            "text": "Das Bild zeigt eine Erklärtabelle über API-Antworten und Claude Code, während der Text von einem Issue-Tracker und einem verbundenen Server spricht. Korrektur: Ein Screenshot oder Diagramm, das zeigt, wie ein Server mit einem System oder Issue-Tracker verbunden ist."
+          },
+          {
+            "zeit": "00:27.88",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "After installing, the chat plus button, then Connectors, shows what's connected.",
+            "fest": true,
+            "text": "Das Bild zeigt einen statischen Hilfetext statt der konkreten Benutzeroberfläche der Chat-Plus-Taste und des Connectors-Menüs. Korrektur: Einen echten Screenshot der Claude Desktop Anwendung, der das Plus-Symbol im Chat und das Connectors-Menü zeigt."
+          }
+        ],
+        "sekunden": 919.3,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "status": "keine_korrektur",
+        "sekunden": 0.1
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 934.5,
+    "upload_titel": "Claude MCP Explained: Connect Tools, Stop Pasting | AI Tool #19"
   }
 ]

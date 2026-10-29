@@ -585,20 +585,27 @@ def werkzeug_kopf(img, werkzeug, nr, akzent, logo=None):
     if nr == 0:
         return  # Bild 0 traegt oben den Videotitel; Name/Logo dort verdeckten die Figur (Vorschau 10.10.)
     d = ImageDraw.Draw(img)
-    f = text_font(werkzeug.upper(), 76 if B < H else 64)
     y = LAYOUT['titel_y']
-    schrift_text(img, (B / 2 - d.textlength(werkzeug.upper(), font=f) / 2, y), werkzeug.upper(), f, akzent, rand=4)
+    tafel = None
     if logo is not None:
-        breite = int(B * (.34 if B < H else .22))
+        # GEMESSEN 29.10.2026: die grosse Logo-Tafel unter dem Namen lag mitten auf dem Bild - auf der Zahl
+        # "9,000" (Rolls-Royce) und auf dem Text des MCP-Screenshots (KI 40917784096). Jetzt ein kleines
+        # Abzeichen links neben dem Namen in der Kopfzeile; es beruehrt das Bild nie.
+        hoehe = 96 if B < H else 80
         l = logo.copy()
-        l.thumbnail((breite, breite), Image.LANCZOS)
-        rand = 34
-        tafel = Image.new('RGBA', (l.width + 2 * rand, l.height + 2 * rand), (0, 0, 0, 0))
-        ImageDraw.Draw(tafel).rounded_rectangle((0, 0, tafel.width - 1, tafel.height - 1), 36,
-                                                fill=(255, 255, 255, 240), outline=akzent + (255,), width=6)
-        tafel.alpha_composite(l, (rand, rand))
-        oben = y + f.size + 40
-        img.alpha_composite(tafel, (int(B / 2 - tafel.width / 2), int(oben)))
+        l.thumbnail((hoehe * 3, hoehe - 20), Image.LANCZOS)
+        tafel = Image.new('RGBA', (l.width + 20, hoehe), (0, 0, 0, 0))
+        ImageDraw.Draw(tafel).rounded_rectangle((0, 0, tafel.width - 1, tafel.height - 1), 18,
+                                                fill=(255, 255, 255, 240), outline=akzent + (255,), width=4)
+        tafel.alpha_composite(l, (10, (hoehe - l.height) // 2))
+    platz = (tafel.width + 24) if tafel else 0
+    f = text_font(werkzeug.upper(), 76 if B < H else 64,
+                  breite=LAYOUT['rechts'] - LAYOUT['links'] - 32 - platz)
+    gesamt = platz + d.textlength(werkzeug.upper(), font=f)
+    links = B / 2 - gesamt / 2
+    if tafel:
+        img.alpha_composite(tafel, (int(links), int(y + f.size / 2 - tafel.height / 2 + 8)))
+    schrift_text(img, (links + platz, y), werkzeug.upper(), f, akzent, rand=4)
 
 
 def bild_fuer(teil, titel, nr, gesamt, durchsichtig=False, karte=None, akzent=(32, 210, 190), logo=None,
@@ -1628,8 +1635,13 @@ def nur_textkarte(t, shot):
     "HOW YOU'D GUESS" 2-3/10 ("zeigt lediglich eine Textbox"). Nutzerentscheidung 29.10.: statt reiner Textkarten
     die geplante gemalte Szene (mit Parallax); Screenshots und Grafiken mit Gegenstand/Zahl/Vergleich bleiben."""
     import erklaergrafik
-    return bool(t.get('szene') or t.get('motiv')) and \
-        erklaergrafik.layout(t.get('text', ''), shot.get('phase_text', '')) == 'kernsatz'
+    art = erklaergrafik.layout(t.get('text', ''), shot.get('phase_text', ''))
+    # GEMESSEN 29.10.2026 (KI 40917784096): "Claude's MCP could cut that, but there's a catch" wurde Warnschild +
+    # Satz (3/10, "lediglich eine Warnungstafel und Text"). Ein angekuendigter Haken ist ein Teaser, keine Warnung;
+    # echte Warnsaetze ("prompt injection risk") bestanden und bleiben Grafik.
+    teaser = art == 'warnung' and re.search(r'\b(?:catch|caveat|downside)\b', t.get('text', ''), re.I) \
+        and not re.search(r'\b(?:risks?|wrong|outdated|verify|careful|warning|expose\w*)\b', t.get('text', ''), re.I)
+    return bool(t.get('szene') or t.get('motiv')) and (art == 'kernsatz' or bool(teaser))
 
 
 def clip_code_key(s):
@@ -1908,7 +1920,8 @@ def main(skript_pfad, aus, vorlage=None):
                     # Absatz der offiziellen Quellseite, gelb markiert (seitenbild.py) - sonst die Erklaergrafik.
                     import seitenbild
                     seite_bild, seite_q = seitenbild.aufnehmen(t.get('quelle_url'), t['text'],
-                                                               aus / f'seite_{i:02d}.jpg', benutzte_abschnitte)
+                                                               aus / f'seite_{i:02d}.jpg', benutzte_abschnitte,
+                                                               namen=f"{t.get('werkzeug') or ''} {str(s.get('thema') or '').split(':')[0]}")
                     fest = True
                     if seite_bild and motiv_ok(seite_bild):
                         modus = 'seite'
@@ -2114,12 +2127,22 @@ def main(skript_pfad, aus, vorlage=None):
                              or 'a person at work in a warm room')
                     einfach = ('One clear subject in a calm, simple painted composition, wide shot from a '
                                'distance showing the whole figure and the room, plain unmarked surfaces: ' + motiv)
+                    pruef_motiv = motiv
+                    if i == 0 and H > B:
+                        # GEMESSEN 29.10.2026 (KI 40917784096, Claude MCP): alle 5 Hook-Versuche fielen an Haenden
+                        # (Tablet, Laptop, Telefon: "three visible hands"); die ruhige Totale zeigte wieder Haende
+                        # und ist kein Hook. Ersatz war die Kanalfigur mit Sprechblase = dasselbe Bild wie der
+                        # Schluss (2/10). Jetzt ein Gesicht mit Gefuehl, Kopf und Schultern fuellen das Bild.
+                        einfach = ('Head-and-shoulders close-up portrait, the face fills the frame and shows a strong '
+                                   'readable emotion (shock, frustration or relief) at this exact moment: '
+                                   + t['text'][:140] + ' Bright high-contrast painted light.')
+                        pruef_motiv = f"a person whose face visibly reacts with strong emotion to: {t['text'][:140]}"
                     # GEMESSEN 17.10.2026 (Langvideo Coca-Cola, Lauf 39040006644): 10 Rettungsbilder fielen nur am
                     # Bildaufbau durch ("medium shot instead of a wide shot", "several people instead of one
                     # subject", "outdoors instead of the room"). Die Aufbau-Hinweise sind Malhilfe, kein Inhalt:
                     # geprueft wird das Motiv (plus alle festen Regeln: Schrift, Haende, Epoche).
                     ill = illustration_mit_ausweg(einfach, aus / f'ill_{i:02d}.jpg', kanal_slug, False, False,
-                                                  dramaturgie.videoformat(s), pruef_szene=motiv)
+                                                  dramaturgie.videoformat(s), pruef_szene=pruef_motiv)
                     if ill:
                         zeiten['bilder_vereinfacht'] = zeiten.get('bilder_vereinfacht', 0) + 1
                         print(f'Einstellung {i}: vereinfachte Szene bestanden')

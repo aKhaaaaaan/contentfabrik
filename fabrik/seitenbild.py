@@ -29,7 +29,7 @@ def woerter(text):
     return {w.strip(".'-") for w in roh if (len(w) >= 4 or re.search(r'\d', w)) and w not in FUELL}
 
 
-def bester_abschnitt(satz, bloecke, benutzt=(), visuell=()):
+def bester_abschnitt(satz, bloecke, benutzt=(), visuell=(), namen=''):
     """Index des Absatzes, der am besten zum Satz passt, oder None.
 
     bloecke: Liste von Texten (sichtbare Absaetze der Seite). Sicherer Treffer: mindestens 2 gemeinsame Woerter
@@ -37,7 +37,11 @@ def bester_abschnitt(satz, bloecke, benutzt=(), visuell=()):
     Grafiken und Code (Indizes in visuell) gewinnen bei gleichem Treffer. Bei Gleichstand der kuerzere Absatz.
     GEMESSEN 22.10.2026 (KI-Lauf 39757744191): 4 von 10 Screenshots „zeigen lediglich einen Text"; Einstellung 11
     traf mit einem Drittel der Woerter einen Absatz zu einem anderen Punkt."""
-    ziel = woerter(satz)
+    # GEMESSEN 29.10.2026 (KI 40917784096): "A connected server lets Claude read that system" traf eine Tabelle
+    # "How Claude Code handles it" (2/10) - "claude" steht in jedem Absatz der Claude-Doku. Produktnamen zaehlen
+    # nicht als Treffer; der Anteil bleibt an allen Satzwoertern gemessen (sonst reichten 2 von 5 statt 2 von 6).
+    satzwoerter = woerter(satz)
+    ziel = satzwoerter - woerter(namen)
     if len(ziel) < 2:
         return None
     zahlen = {w for w in ziel if re.search(r'\d', w)}
@@ -46,8 +50,11 @@ def bester_abschnitt(satz, bloecke, benutzt=(), visuell=()):
         if i in benutzt or not 20 <= len(text) <= (2000 if i in visuell else 700):
             continue
         da = woerter(text)
-        gemeinsam = len(ziel & da)
-        if gemeinsam < 2 or (gemeinsam / len(ziel) < 0.4 and gemeinsam < 4):
+        # Treffer muessen beieinander stehen (eine Zeile oder zwei Nachbarsaetze): die 1.486-Zeichen-Tabelle hatte
+        # "connected", "server", "read" in drei verschiedenen Zeilen (KI 40917784096).
+        teile = [x for x in re.split(r'\n+|(?<=[.!?])\s+', text) if x.strip()] or [text]
+        gemeinsam = max(len(ziel & woerter(' '.join(teile[k:k + 2]))) for k in range(len(teile)))
+        if gemeinsam < 2 or (gemeinsam / len(satzwoerter) < 0.4 and gemeinsam < 4):
             continue
         w = (gemeinsam + len(zahlen & da) + (1 if i in visuell else 0), -len(text))
         if wert is None or w > wert:
@@ -148,7 +155,7 @@ MARKIEREN = """([n, woerter]) => {
 }"""
 
 
-def aufnehmen(url, satz, ziel, benutzt=None):
+def aufnehmen(url, satz, ziel, benutzt=None, namen=''):
     """(pfad, quelle) oder (None, None). benutzt: Menge schon gezeigter Absatz-Kennungen (url#index)."""
     if not re.match(r'https?://', url or '') or re.match(r'https?://(github\.com|huggingface\.co)/', url):
         return None, None
@@ -181,7 +188,7 @@ def aufnehmen(url, satz, ziel, benutzt=None):
                 bloecke = seite.evaluate(SAMMELN)
                 schon = {int(k.split('#')[-1]) for k in benutzt if k.startswith(url + '#')}
                 visuell = {n for n, x in enumerate(bloecke) if x.get('visuell')}
-                i = bester_abschnitt(satz, [b['t'] for b in bloecke], schon, visuell)
+                i = bester_abschnitt(satz, [b['t'] for b in bloecke], schon, visuell, namen)
                 if i is None:
                     return None, None
                 b = bloecke[i]

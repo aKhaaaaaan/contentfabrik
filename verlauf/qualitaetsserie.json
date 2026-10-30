@@ -119108,6 +119108,1540 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "41048229773.1:business-origin-stories",
+      "run_id": "41048229773",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-30T12:08:05.486545+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "3673a6ce4d91646ca67b501db8cfbe8d118416ff",
+      "produktionsversion": "4bd6fb5a5ffc93e4c3dc7232c3c08dc08c384cba5fc6a117ff2ed33df13ad4c5",
+      "videoformat": "short",
+      "thema": "Adidas",
+      "titel": [
+        "Adidas: Town of",
+        "Bent Necks"
+      ],
+      "status": "gesendet",
+      "video_sha256": "d312992a1af855729ea7470a20c49cf7860e5aabe3b1595037274b243465cf07",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar einen Schuh und eine überraschte Person, aber die spezifische Handlung 'Strangers got judged by their shoes' wird nicht dargestellt.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Männer auf einem Markt, aber weder den Namen Rudolf noch das Jahr 1924 oder ein entsprechendes historisches Ereignis.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Schuster in einer Werkstatt, aber nicht Jesse Owens im Jahr 1936 mit handgemachten Spikes und seinen vier gewonnenen Goldmedaillen.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gezeigte Szene zeigt zwei streitende oder verhandelnde Personen an einem Schreibtisch, aber sie stellt weder den geschäftlichen Bruch noch die Gründung von Adidas und Puma im Jahr 1949 visuell dar.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich Schuhe unter einem Tisch, aber nicht die spezifische Handlung, dass Handwerker absichtlich Adidas trugen und kostenlose Pumas erhielten.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen die Grabstätten der beiden Brüder, aber die gezeigte abstrakte gemalte Landschaft lässt keine konkreten Gräber oder den großen Abstand der Grabstätten erkennen.",
+        "Offenes Problem (schwer): Das Bild zeigt zwar einen Schuh und eine überraschte Person, aber die spezifische Handlung 'Strangers got judged by their shoes' wird nicht dargestellt. Korrektur: Eine Nahaufnahme von Personen, die auf der Straße kritisch auf die Schuhe anderer schauen.",
+        "Offenes Problem (schwer): Das Bild zeigt Männer auf einem Markt, aber weder den Namen Rudolf noch das Jahr 1924 oder ein entsprechendes historisches Ereignis. Korrektur: Eine historische Darstellung oder Archivaufnahme, die zwei Männer in den 1920er Jahren bei der Arbeit oder Zusammenarbeit zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Schuster in einer Werkstatt, aber nicht Jesse Owens im Jahr 1936 mit handgemachten Spikes und seinen vier gewonnenen Goldmedaillen. Korrektur: Eine historische Darstellung von Jesse Owens auf einer Laufbahn mit seinen Laufschuhen und Medaillen.",
+        "Offenes Problem (schwer): Die gezeigte Szene zeigt zwei streitende oder verhandelnde Personen an einem Schreibtisch, aber sie stellt weder den geschäftlichen Bruch noch die Gründung von Adidas und Puma im Jahr 1949 visuell dar. Korrektur: Eine historische Illustration oder dokumentarische Darstellung von zwei getrennten Fabriken oder den Logos von Adidas und Puma aus dem Jahr 1949.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich Schuhe unter einem Tisch, aber nicht die spezifische Handlung, dass Handwerker absichtlich Adidas trugen und kostenlose Pumas erhielten. Korrektur: Eine Illustration, die Handwerker mit Adidas-Schuhen bei Rudolf zu Hause zeigt, wie sie Pumas erhalten.",
+        "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen die Grabstätten der beiden Brüder, aber die gezeigte abstrakte gemalte Landschaft lässt keine konkreten Gräber oder den großen Abstand der Grabstätten erkennen. Korrektur: Ein Foto oder eine Illustration von zwei weit voneinander entfernten Grabstätten auf einem Friedhof."
+      ],
+      "einstellungen": 12,
+      "unterschiedliche_motive": 11,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "41048229773",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-30",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 396.4,
+            "bau_s": 865.1,
+            "pruefung_s": 32.9,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar einen Schuh und eine überraschte Person, aber die spezifische Handlung 'Strangers got judged by their shoes' wird nicht dargestellt.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Männer auf einem Markt, aber weder den Namen Rudolf noch das Jahr 1924 oder ein entsprechendes historisches Ereignis.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Schuster in einer Werkstatt, aber nicht Jesse Owens im Jahr 1936 mit handgemachten Spikes und seinen vier gewonnenen Goldmedaillen.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gezeigte Szene zeigt zwei streitende oder verhandelnde Personen an einem Schreibtisch, aber sie stellt weder den geschäftlichen Bruch noch die Gründung von Adidas und Puma im Jahr 1949 visuell dar.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich Schuhe unter einem Tisch, aber nicht die spezifische Handlung, dass Handwerker absichtlich Adidas trugen und kostenlose Pumas erhielten.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen die Grabstätten der beiden Brüder, aber die gezeigte abstrakte gemalte Landschaft lässt keine konkreten Gräber oder den großen Abstand der Grabstätten erkennen.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar einen Schuh und eine überraschte Person, aber die spezifische Handlung 'Strangers got judged by their shoes' wird nicht dargestellt. Korrektur: Eine Nahaufnahme von Personen, die auf der Straße kritisch auf die Schuhe anderer schauen.",
+              "Offenes Problem (schwer): Das Bild zeigt Männer auf einem Markt, aber weder den Namen Rudolf noch das Jahr 1924 oder ein entsprechendes historisches Ereignis. Korrektur: Eine historische Darstellung oder Archivaufnahme, die zwei Männer in den 1920er Jahren bei der Arbeit oder Zusammenarbeit zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Schuster in einer Werkstatt, aber nicht Jesse Owens im Jahr 1936 mit handgemachten Spikes und seinen vier gewonnenen Goldmedaillen. Korrektur: Eine historische Darstellung von Jesse Owens auf einer Laufbahn mit seinen Laufschuhen und Medaillen.",
+              "Offenes Problem (schwer): Die gezeigte Szene zeigt zwei streitende oder verhandelnde Personen an einem Schreibtisch, aber sie stellt weder den geschäftlichen Bruch noch die Gründung von Adidas und Puma im Jahr 1949 visuell dar. Korrektur: Eine historische Illustration oder dokumentarische Darstellung von zwei getrennten Fabriken oder den Logos von Adidas und Puma aus dem Jahr 1949.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich Schuhe unter einem Tisch, aber nicht die spezifische Handlung, dass Handwerker absichtlich Adidas trugen und kostenlose Pumas erhielten. Korrektur: Eine Illustration, die Handwerker mit Adidas-Schuhen bei Rudolf zu Hause zeigt, wie sie Pumas erhalten.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen die Grabstätten der beiden Brüder, aber die gezeigte abstrakte gemalte Landschaft lässt keine konkreten Gräber oder den großen Abstand der Grabstätten erkennen. Korrektur: Ein Foto oder eine Illustration von zwei weit voneinander entfernten Grabstätten auf einem Friedhof."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Fenrir",
+              "stimme": 11.6,
+              "zeitmarken": 4.8,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 12,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 711.2,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 12,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 47.7,
+              "gesamt": 864.7,
+              "videolaenge_s": 40.3,
+              "abschnitte_s": [
+                5.46,
+                5.14,
+                5.64,
+                6.84,
+                5.58,
+                6.96,
+                4.66
+              ],
+              "woerter": 101
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Strangers got judged by their shoes.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar einen Schuh und eine überraschte Person, aber die spezifische Handlung 'Strangers got judged by their shoes' wird nicht dargestellt. Korrektur: Eine Nahaufnahme von Personen, die auf der Straße kritisch auf die Schuhe anderer schauen."
+              },
+              {
+                "zeit": "00:08.64",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Rudolf joined in 1924.",
+                "fest": false,
+                "text": "Das Bild zeigt Männer auf einem Markt, aber weder den Namen Rudolf noch das Jahr 1924 oder ein entsprechendes historisches Ereignis. Korrektur: Eine historische Darstellung oder Archivaufnahme, die zwei Männer in den 1920er Jahren bei der Arbeit oder Zusammenarbeit zeigt."
+              },
+              {
+                "zeit": "00:10.60",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Jesse Owens wore Dassler's handmade spikes in 1936, then won four gold medals.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Schuster in einer Werkstatt, aber nicht Jesse Owens im Jahr 1936 mit handgemachten Spikes und seinen vier gewonnenen Goldmedaillen. Korrektur: Eine historische Darstellung von Jesse Owens auf einer Laufbahn mit seinen Laufschuhen und Medaillen."
+              },
+              {
+                "zeit": "00:16.24",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 5,
+                "gesprochen": "The brothers split. In 1949 Adolf formed Adidas,",
+                "fest": false,
+                "text": "Die gezeigte Szene zeigt zwei streitende oder verhandelnde Personen an einem Schreibtisch, aber sie stellt weder den geschäftlichen Bruch noch die Gründung von Adidas und Puma im Jahr 1949 visuell dar. Korrektur: Eine historische Illustration oder dokumentarische Darstellung von zwei getrennten Fabriken oder den Logos von Adidas und Puma aus dem Jahr 1949."
+              },
+              {
+                "zeit": "00:23.08",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 7,
+                "gesprochen": "How petty? Handymen called to Rudolf's home wore Adidas on purpose. He sent them for free Pumas.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich Schuhe unter einem Tisch, aber nicht die spezifische Handlung, dass Handwerker absichtlich Adidas trugen und kostenlose Pumas erhielten. Korrektur: Eine Illustration, die Handwerker mit Adidas-Schuhen bei Rudolf zu Hause zeigt, wie sie Pumas erhalten."
+              },
+              {
+                "zeit": "00:31.52",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "The brothers' graves sit as far apart as possible.",
+                "fest": false,
+                "text": "Die gesprochenen Wörter erwähnen die Grabstätten der beiden Brüder, aber die gezeigte abstrakte gemalte Landschaft lässt keine konkreten Gräber oder den großen Abstand der Grabstätten erkennen. Korrektur: Ein Foto oder eine Illustration von zwei weit voneinander entfernten Grabstätten auf einem Friedhof."
+              }
+            ],
+            "sekunden": 1294.5,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 2.2,
+            "bau_s": 504.0,
+            "pruefung_s": 26.7,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen geschockten Gesichtsausdruck als Einstiegsreaktion, aber keinen Bezug zu dem Satz über Schuhe.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Person, die Jacken an Stangen betrachtet in einer Straßenszene, aber weder Adolf noch Rudolf Dassler oder das Jahr 1924 sind erkennbar.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine winterliche Straße im Wald und stellt weder Jesse Owens, handgemachte Spikes noch den Gewinn von vier Goldmedaillen dar.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwei Männer vor Gebäuden, aber nicht die Trennung der Brüder oder die Gründung von Adidas im Jahr 1949.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Handwerker beim Schuhmachern, was thematisch entfernt zu den Gründern von Adidas und Puma passt, aber der konkrete Text 'and Rudolf formed Ruda, later Puma' wird nicht spezifisch bebildert.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Mann in einer Tür, aber nicht die spezifische Geschichte von Handwerkern bei Rudolfs Haus oder das Tragen von Adidas-Schuhen als Provokation.",
+              "Offenes Problem (schwer): Das Bild zeigt einen geschockten Gesichtsausdruck als Einstiegsreaktion, aber keinen Bezug zu dem Satz über Schuhe. Korrektur: Eine Nahaufnahme, in der Personen beurteilt werden oder der Fokus auf Schuhen liegt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Person, die Jacken an Stangen betrachtet in einer Straßenszene, aber weder Adolf noch Rudolf Dassler oder das Jahr 1924 sind erkennbar. Korrektur: Eine historische Darstellung von Adolf und Rudolf Dassler zusammen in den 1920er Jahren.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine winterliche Straße im Wald und stellt weder Jesse Owens, handgemachte Spikes noch den Gewinn von vier Goldmedaillen dar. Korrektur: Ein historisches Bild von Jesse Owens in Laufkleidung oder mit Medaillen bei den Olympischen Spielen.",
+              "Offenes Problem (schwer): Das Bild zeigt zwei Männer vor Gebäuden, aber nicht die Trennung der Brüder oder die Gründung von Adidas im Jahr 1949. Korrektur: Eine historische Darstellung der getrennten Firmen oder der Brüder nach ihrem Bruch.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Handwerker beim Schuhmachern, was thematisch entfernt zu den Gründern von Adidas und Puma passt, aber der konkrete Text 'and Rudolf formed Ruda, later Puma' wird nicht spezifisch bebildert. Korrektur: Historische Porträts oder Firmenlogos von Ruda bzw. Puma aus dem Jahr 1949.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann in einer Tür, aber nicht die spezifische Geschichte von Handwerkern bei Rudolfs Haus oder das Tragen von Adidas-Schuhen als Provokation. Korrektur: Eine Illustration, die Handwerker mit Adidas-Schuhen an der Haustür von Rudolf Dassler zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 6,
+              "stuecke_neu": 6,
+              "bilder_vereinfacht": 4,
+              "clips_und_stuecke": 441.7,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 12,
+                "motive": 12,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 50.6,
+              "gesamt": 502.9,
+              "videolaenge_s": 40.3,
+              "abschnitte_s": [
+                5.46,
+                5.14,
+                5.64,
+                6.84,
+                5.58,
+                6.96,
+                4.66
+              ],
+              "woerter": 101
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Strangers got judged by their shoes.",
+                "fest": false,
+                "text": "Das Bild zeigt einen geschockten Gesichtsausdruck als Einstiegsreaktion, aber keinen Bezug zu dem Satz über Schuhe. Korrektur: Eine Nahaufnahme, in der Personen beurteilt werden oder der Fokus auf Schuhen liegt."
+              },
+              {
+                "zeit": "00:08.64",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Rudolf joined in 1924.",
+                "fest": false,
+                "text": "Das Bild zeigt eine Person, die Jacken an Stangen betrachtet in einer Straßenszene, aber weder Adolf noch Rudolf Dassler oder das Jahr 1924 sind erkennbar. Korrektur: Eine historische Darstellung von Adolf und Rudolf Dassler zusammen in den 1920er Jahren."
+              },
+              {
+                "zeit": "00:10.60",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Jesse Owens wore Dassler's handmade spikes in 1936, then won four gold medals.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich eine winterliche Straße im Wald und stellt weder Jesse Owens, handgemachte Spikes noch den Gewinn von vier Goldmedaillen dar. Korrektur: Ein historisches Bild von Jesse Owens in Laufkleidung oder mit Medaillen bei den Olympischen Spielen."
+              },
+              {
+                "zeit": "00:16.24",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 5,
+                "gesprochen": "The brothers split. In 1949 Adolf formed Adidas,",
+                "fest": false,
+                "text": "Das Bild zeigt zwei Männer vor Gebäuden, aber nicht die Trennung der Brüder oder die Gründung von Adidas im Jahr 1949. Korrektur: Eine historische Darstellung der getrennten Firmen oder der Brüder nach ihrem Bruch."
+              },
+              {
+                "zeit": "00:19.66",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "and Rudolf formed Ruda, later Puma.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Handwerker beim Schuhmachern, was thematisch entfernt zu den Gründern von Adidas und Puma passt, aber der konkrete Text 'and Rudolf formed Ruda, later Puma' wird nicht spezifisch bebildert. Korrektur: Historische Porträts oder Firmenlogos von Ruda bzw. Puma aus dem Jahr 1949."
+              },
+              {
+                "zeit": "00:23.08",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 7,
+                "gesprochen": "How petty? Handymen called to Rudolf's home wore Adidas on purpose. He sent them for free Pumas.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann in einer Tür, aber nicht die spezifische Geschichte von Handwerkern bei Rudolfs Haus oder das Tragen von Adidas-Schuhen als Provokation. Korrektur: Eine Illustration, die Handwerker mit Adidas-Schuhen an der Haustür von Rudolf Dassler zeigt."
+              }
+            ],
+            "sekunden": 532.9,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "41048229773-2",
+              "datum": "2026-10-30",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 532.9,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 3.4,
+            "bau_s": 395.9,
+            "pruefung_s": 38.1,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen dramatisch schreienden Mann mit Gesten, aber keinen Bezug zu den im gesprochenen Text erwähnten Schuhen oder der Beurteilung von Fremden nach diesen.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen Mann beim Betrachten von Mänteln in einer Werkstatt oder Schneiderei, aber es ist keine Erwähnung von Rudolf oder einem Zusammenschluss im Jahr 1924 bildlich belegt.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen sportlich aussehenden Mann, aber weder Jesse Owens noch handmade Spikes oder den Gewinn von vier Goldmedaillen.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Szene mit einem Baumstumpf hat keinen Bezug zu den Gründern von Adidas oder der Unternehmensgründung im Jahr 1949.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Schuhmacher bei der Arbeit, illustriert aber nicht spezifisch die Gründung von Ruda oder Puma durch Rudolf Dassler.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar einen Mann, aber die spezifische Handlung des Sprechens über Handwerker mit Adidas-Schuhen bei Rudolf zu Hause und das Verschicken von Pumas wird weder dargestellt noch visuell erklärt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen dramatisch schreienden Mann mit Gesten, aber keinen Bezug zu den im gesprochenen Text erwähnten Schuhen oder der Beurteilung von Fremden nach diesen. Korrektur: Eine Nahaufnahme von Personen, die auf der Strasse auf die Schuhe anderer blicken.",
+              "Offenes Problem (schwer): Die Szene zeigt einen Mann beim Betrachten von Mänteln in einer Werkstatt oder Schneiderei, aber es ist keine Erwähnung von Rudolf oder einem Zusammenschluss im Jahr 1924 bildlich belegt. Korrektur: Ein historisches Bild von zwei Brüdern oder einem Mann, der im Jahr 1924 in einer Werkstatt zu einem anderen stößt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen sportlich aussehenden Mann, aber weder Jesse Owens noch handmade Spikes oder den Gewinn von vier Goldmedaillen. Korrektur: Eine historische Illustration oder Darstellung von Jesse Owens bei den Olympischen Spielen 1936 mit Spikes.",
+              "Offenes Problem (schwer): Die gezeigte Szene mit einem Baumstumpf hat keinen Bezug zu den Gründern von Adidas oder der Unternehmensgründung im Jahr 1949. Korrektur: Ein historisches Foto oder eine Illustration von Adolf Dassler mit dem Adidas-Logo oder der Werkstatt von 1949.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Schuhmacher bei der Arbeit, illustriert aber nicht spezifisch die Gründung von Ruda oder Puma durch Rudolf Dassler. Korrektur: Ein historisches Foto oder eine Illustration von Rudolf Dassler oder dem Firmenlogo von Ruda bzw. Puma.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar einen Mann, aber die spezifische Handlung des Sprechens über Handwerker mit Adidas-Schuhen bei Rudolf zu Hause und das Verschicken von Pumas wird weder dargestellt noch visuell erklärt. Korrektur: Eine historische Illustration oder Darstellung von Handwerkern an einer Haustür, die Schuhe begutachten oder Schuhe überreichen."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 6,
+              "stuecke_neu": 6,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 330.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 12,
+                "motive": 12,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 49.3,
+              "gesamt": 395.6,
+              "videolaenge_s": 40.3,
+              "abschnitte_s": [
+                5.46,
+                5.14,
+                5.64,
+                6.84,
+                5.58,
+                6.96,
+                4.66
+              ],
+              "woerter": 101
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Strangers got judged by their shoes.",
+                "fest": false,
+                "text": "Das Bild zeigt einen dramatisch schreienden Mann mit Gesten, aber keinen Bezug zu den im gesprochenen Text erwähnten Schuhen oder der Beurteilung von Fremden nach diesen. Korrektur: Eine Nahaufnahme von Personen, die auf der Strasse auf die Schuhe anderer blicken."
+              },
+              {
+                "zeit": "00:08.64",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Rudolf joined in 1924.",
+                "fest": false,
+                "text": "Die Szene zeigt einen Mann beim Betrachten von Mänteln in einer Werkstatt oder Schneiderei, aber es ist keine Erwähnung von Rudolf oder einem Zusammenschluss im Jahr 1924 bildlich belegt. Korrektur: Ein historisches Bild von zwei Brüdern oder einem Mann, der im Jahr 1924 in einer Werkstatt zu einem anderen stößt."
+              },
+              {
+                "zeit": "00:10.60",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Jesse Owens wore Dassler's handmade spikes in 1936, then won four gold medals.",
+                "fest": false,
+                "text": "Das Bild zeigt einen sportlich aussehenden Mann, aber weder Jesse Owens noch handmade Spikes oder den Gewinn von vier Goldmedaillen. Korrektur: Eine historische Illustration oder Darstellung von Jesse Owens bei den Olympischen Spielen 1936 mit Spikes."
+              },
+              {
+                "zeit": "00:16.24",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 5,
+                "gesprochen": "The brothers split. In 1949 Adolf formed Adidas,",
+                "fest": false,
+                "text": "Die gezeigte Szene mit einem Baumstumpf hat keinen Bezug zu den Gründern von Adidas oder der Unternehmensgründung im Jahr 1949. Korrektur: Ein historisches Foto oder eine Illustration von Adolf Dassler mit dem Adidas-Logo oder der Werkstatt von 1949."
+              },
+              {
+                "zeit": "00:19.66",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "and Rudolf formed Ruda, later Puma.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Schuhmacher bei der Arbeit, illustriert aber nicht spezifisch die Gründung von Ruda oder Puma durch Rudolf Dassler. Korrektur: Ein historisches Foto oder eine Illustration von Rudolf Dassler oder dem Firmenlogo von Ruda bzw. Puma."
+              },
+              {
+                "zeit": "00:23.08",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 7,
+                "gesprochen": "How petty? Handymen called to Rudolf's home wore Adidas on purpose. He sent them for free Pumas.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar einen Mann, aber die spezifische Handlung des Sprechens über Handwerker mit Adidas-Schuhen bei Rudolf zu Hause und das Verschicken von Pumas wird weder dargestellt noch visuell erklärt. Korrektur: Eine historische Illustration oder Darstellung von Handwerkern an einer Haustür, die Schuhe begutachten oder Schuhe überreichen."
+              }
+            ],
+            "sekunden": 437.5,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "41048229773-3",
+              "datum": "2026-10-30",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 437.5,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "trendcheck": "kein Kandidat mit echtem Trendsignal - freie Trendwahl",
+        "grund": "",
+        "sekunden": 2300.4,
+        "upload_titel": "Adidas: Town of: Bent Necks"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Strangers got judged by their shoes.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar einen Schuh und eine überraschte Person, aber die spezifische Handlung 'Strangers got judged by their shoes' wird nicht dargestellt. Korrektur: Eine Nahaufnahme von Personen, die auf der Straße kritisch auf die Schuhe anderer schauen."
+          },
+          {
+            "zeit": "00:08.64",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "Rudolf joined in 1924.",
+            "fest": false,
+            "text": "Das Bild zeigt Männer auf einem Markt, aber weder den Namen Rudolf noch das Jahr 1924 oder ein entsprechendes historisches Ereignis. Korrektur: Eine historische Darstellung oder Archivaufnahme, die zwei Männer in den 1920er Jahren bei der Arbeit oder Zusammenarbeit zeigt."
+          },
+          {
+            "zeit": "00:10.60",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Jesse Owens wore Dassler's handmade spikes in 1936, then won four gold medals.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Schuster in einer Werkstatt, aber nicht Jesse Owens im Jahr 1936 mit handgemachten Spikes und seinen vier gewonnenen Goldmedaillen. Korrektur: Eine historische Darstellung von Jesse Owens auf einer Laufbahn mit seinen Laufschuhen und Medaillen."
+          },
+          {
+            "zeit": "00:16.24",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 5,
+            "gesprochen": "The brothers split. In 1949 Adolf formed Adidas,",
+            "fest": false,
+            "text": "Die gezeigte Szene zeigt zwei streitende oder verhandelnde Personen an einem Schreibtisch, aber sie stellt weder den geschäftlichen Bruch noch die Gründung von Adidas und Puma im Jahr 1949 visuell dar. Korrektur: Eine historische Illustration oder dokumentarische Darstellung von zwei getrennten Fabriken oder den Logos von Adidas und Puma aus dem Jahr 1949."
+          },
+          {
+            "zeit": "00:23.08",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 7,
+            "gesprochen": "How petty? Handymen called to Rudolf's home wore Adidas on purpose. He sent them for free Pumas.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich Schuhe unter einem Tisch, aber nicht die spezifische Handlung, dass Handwerker absichtlich Adidas trugen und kostenlose Pumas erhielten. Korrektur: Eine Illustration, die Handwerker mit Adidas-Schuhen bei Rudolf zu Hause zeigt, wie sie Pumas erhalten."
+          },
+          {
+            "zeit": "00:31.52",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 9,
+            "gesprochen": "The brothers' graves sit as far apart as possible.",
+            "fest": false,
+            "text": "Die gesprochenen Wörter erwähnen die Grabstätten der beiden Brüder, aber die gezeigte abstrakte gemalte Landschaft lässt keine konkreten Gräber oder den großen Abstand der Grabstätten erkennen. Korrektur: Ein Foto oder eine Illustration von zwei weit voneinander entfernten Grabstätten auf einem Friedhof."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 40.3,
+          "fps": 30.0,
+          "lufs": -14.3,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 35.93,
+              "bis_s": 37.27,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.978
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 20.299999999999997,
+              "bis_s": 40.8,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Strangers",
+                "s": 0.05,
+                "e": 0.67,
+                "p": 0.8475349247455597
+              },
+              {
+                "w": "got",
+                "s": 0.67,
+                "e": 0.95,
+                "p": 0.965698778629303
+              },
+              {
+                "w": "judged",
+                "s": 0.95,
+                "e": 1.25,
+                "p": 0.9957387447357178
+              },
+              {
+                "w": "by",
+                "s": 1.25,
+                "e": 1.71,
+                "p": 0.9924524426460266
+              },
+              {
+                "w": "their",
+                "s": 1.71,
+                "e": 1.93,
+                "p": 0.9909109473228455
+              },
+              {
+                "w": "shoes.",
+                "s": 1.93,
+                "e": 2.29,
+                "p": 0.9893442392349243
+              },
+              {
+                "w": "Two",
+                "s": 3.03,
+                "e": 3.13,
+                "p": 0.9168137907981873
+              },
+              {
+                "w": "feuding",
+                "s": 3.13,
+                "e": 3.71,
+                "p": 0.9337791800498962
+              },
+              {
+                "w": "brothers",
+                "s": 3.71,
+                "e": 4.01,
+                "p": 0.9657168984413147
+              },
+              {
+                "w": "caused",
+                "s": 4.01,
+                "e": 4.53,
+                "p": 0.9452848434448242
+              },
+              {
+                "w": "it.",
+                "s": 4.53,
+                "e": 4.83,
+                "p": 0.9911443591117859
+              },
+              {
+                "w": "Adolf",
+                "s": 5.47,
+                "e": 5.65,
+                "p": 0.2963814437389374
+              },
+              {
+                "w": "Dassler",
+                "s": 5.65,
+                "e": 6.25,
+                "p": 0.8655554056167603
+              },
+              {
+                "w": "made",
+                "s": 6.25,
+                "e": 6.43,
+                "p": 0.9895037412643433
+              },
+              {
+                "w": "sports",
+                "s": 6.43,
+                "e": 6.69,
+                "p": 0.7326992750167847
+              },
+              {
+                "w": "shoes",
+                "s": 6.69,
+                "e": 7.05,
+                "p": 0.992854654788971
+              },
+              {
+                "w": "in",
+                "s": 7.05,
+                "e": 7.25,
+                "p": 0.9934451580047607
+              },
+              {
+                "w": "his",
+                "s": 7.25,
+                "e": 7.33,
+                "p": 0.9966073036193848
+              },
+              {
+                "w": "mother's",
+                "s": 7.33,
+                "e": 7.69,
+                "p": 0.9731884896755219
+              },
+              {
+                "w": "laundry",
+                "s": 7.69,
+                "e": 7.93,
+                "p": 0.9970356225967407
+              },
+              {
+                "w": "room.",
+                "s": 7.93,
+                "e": 8.37,
+                "p": 0.9967727065086365
+              },
+              {
+                "w": "Rudolf",
+                "s": 8.67,
+                "e": 8.91,
+                "p": 0.6966495513916016
+              },
+              {
+                "w": "joined",
+                "s": 8.91,
+                "e": 9.15,
+                "p": 0.9958533048629761
+              },
+              {
+                "w": "in",
+                "s": 9.15,
+                "e": 9.35,
+                "p": 0.9939950108528137
+              },
+              {
+                "w": "1924.",
+                "s": 9.35,
+                "e": 10.13,
+                "p": 0.9940145611763
+              },
+              {
+                "w": "Jesse",
+                "s": 10.65,
+                "e": 10.83,
+                "p": 0.9346652030944824
+              },
+              {
+                "w": "Owens",
+                "s": 10.83,
+                "e": 11.27,
+                "p": 0.910474419593811
+              },
+              {
+                "w": "wore",
+                "s": 11.27,
+                "e": 11.53,
+                "p": 0.9607059955596924
+              },
+              {
+                "w": "Dassler's",
+                "s": 11.53,
+                "e": 12.09,
+                "p": 0.9795501232147217
+              },
+              {
+                "w": "handmade",
+                "s": 12.09,
+                "e": 12.33,
+                "p": 0.7399144768714905
+              },
+              {
+                "w": "spikes",
+                "s": 12.33,
+                "e": 12.75,
+                "p": 0.9338560700416565
+              },
+              {
+                "w": "in",
+                "s": 12.75,
+                "e": 13.03,
+                "p": 0.9974538683891296
+              },
+              {
+                "w": "1936,",
+                "s": 13.03,
+                "e": 13.69,
+                "p": 0.9942084550857544
+              },
+              {
+                "w": "then",
+                "s": 14.13,
+                "e": 14.25,
+                "p": 0.9469579458236694
+              },
+              {
+                "w": "won",
+                "s": 14.25,
+                "e": 14.39,
+                "p": 0.9670736789703369
+              },
+              {
+                "w": "four",
+                "s": 14.39,
+                "e": 14.83,
+                "p": 0.9081150889396667
+              },
+              {
+                "w": "gold",
+                "s": 14.83,
+                "e": 15.11,
+                "p": 0.993334174156189
+              },
+              {
+                "w": "medals.",
+                "s": 15.11,
+                "e": 15.37,
+                "p": 0.997081458568573
+              },
+              {
+                "w": "The",
+                "s": 16.25,
+                "e": 16.27,
+                "p": 0.9331195950508118
+              },
+              {
+                "w": "brothers",
+                "s": 16.27,
+                "e": 16.47,
+                "p": 0.8625132441520691
+              },
+              {
+                "w": "split.",
+                "s": 16.47,
+                "e": 16.77,
+                "p": 0.9916127920150757
+              },
+              {
+                "w": "In",
+                "s": 17.37,
+                "e": 17.37,
+                "p": 0.9878472089767456
+              },
+              {
+                "w": "1949,",
+                "s": 17.37,
+                "e": 17.95,
+                "p": 0.9987536668777466
+              },
+              {
+                "w": "Adolf",
+                "s": 18.55,
+                "e": 18.85,
+                "p": 0.9056035280227661
+              },
+              {
+                "w": "formed",
+                "s": 18.85,
+                "e": 19.21,
+                "p": 0.9954850673675537
+              },
+              {
+                "w": "Adidas,",
+                "s": 19.21,
+                "e": 19.45,
+                "p": 0.9804625511169434
+              },
+              {
+                "w": "and",
+                "s": 19.93,
+                "e": 20.09,
+                "p": 0.9926308393478394
+              },
+              {
+                "w": "Rudolf",
+                "s": 20.09,
+                "e": 20.41,
+                "p": 0.9795362651348114
+              },
+              {
+                "w": "formed",
+                "s": 20.41,
+                "e": 20.71,
+                "p": 0.9948377013206482
+              },
+              {
+                "w": "Ruda,",
+                "s": 20.71,
+                "e": 21.21,
+                "p": 0.40255171060562134
+              },
+              {
+                "w": "later",
+                "s": 21.61,
+                "e": 21.87,
+                "p": 0.9612492918968201
+              },
+              {
+                "w": "Puma.",
+                "s": 21.87,
+                "e": 22.39,
+                "p": 0.6311763375997543
+              },
+              {
+                "w": "How",
+                "s": 22.95,
+                "e": 23.15,
+                "p": 0.7636128067970276
+              },
+              {
+                "w": "petty?",
+                "s": 23.15,
+                "e": 23.39,
+                "p": 0.9419071078300476
+              },
+              {
+                "w": "Handyman",
+                "s": 24.05,
+                "e": 24.39,
+                "p": 0.7891497810681661
+              },
+              {
+                "w": "called",
+                "s": 24.39,
+                "e": 24.59,
+                "p": 0.9864770174026489
+              },
+              {
+                "w": "to",
+                "s": 24.59,
+                "e": 24.77,
+                "p": 0.889431357383728
+              },
+              {
+                "w": "Rudolf's",
+                "s": 24.77,
+                "e": 25.21,
+                "p": 0.9801290233929952
+              },
+              {
+                "w": "home",
+                "s": 25.21,
+                "e": 25.35,
+                "p": 0.9951940178871155
+              },
+              {
+                "w": "or",
+                "s": 25.35,
+                "e": 25.69,
+                "p": 0.5670121908187866
+              },
+              {
+                "w": "Adidas",
+                "s": 25.69,
+                "e": 26.01,
+                "p": 0.9951576590538025
+              },
+              {
+                "w": "on",
+                "s": 26.01,
+                "e": 26.43,
+                "p": 0.9750626087188721
+              },
+              {
+                "w": "purpose.",
+                "s": 26.43,
+                "e": 26.91,
+                "p": 0.9868924021720886
+              },
+              {
+                "w": "He",
+                "s": 27.35,
+                "e": 27.45,
+                "p": 0.996008038520813
+              },
+              {
+                "w": "sent",
+                "s": 27.45,
+                "e": 27.61,
+                "p": 0.9960123300552368
+              },
+              {
+                "w": "them",
+                "s": 27.61,
+                "e": 27.77,
+                "p": 0.9912898540496826
+              },
+              {
+                "w": "for",
+                "s": 27.77,
+                "e": 27.93,
+                "p": 0.9932424426078796
+              },
+              {
+                "w": "free",
+                "s": 27.93,
+                "e": 28.17,
+                "p": 0.997885525226593
+              },
+              {
+                "w": "Puma's.",
+                "s": 28.17,
+                "e": 28.67,
+                "p": 0.8082401752471924
+              },
+              {
+                "w": "Locals",
+                "s": 28.67,
+                "e": 29.49,
+                "p": 0.8717248737812042
+              },
+              {
+                "w": "look",
+                "s": 29.49,
+                "e": 29.79,
+                "p": 0.612463116645813
+              },
+              {
+                "w": "down",
+                "s": 29.79,
+                "e": 30.09,
+                "p": 0.9922401905059814
+              },
+              {
+                "w": "at",
+                "s": 30.09,
+                "e": 30.29,
+                "p": 0.993915855884552
+              },
+              {
+                "w": "stranger's",
+                "s": 30.29,
+                "e": 30.83,
+                "p": 0.6532145738601685
+              },
+              {
+                "w": "shoes,",
+                "s": 30.83,
+                "e": 30.97,
+                "p": 0.9944607019424438
+              },
+              {
+                "w": "the",
+                "s": 31.51,
+                "e": 31.53,
+                "p": 0.9268723130226135
+              },
+              {
+                "w": "brothers'",
+                "s": 31.53,
+                "e": 31.85,
+                "p": 0.5681676864624023
+              },
+              {
+                "w": "graves",
+                "s": 32.11,
+                "e": 32.25,
+                "p": 0.9638056755065918
+              },
+              {
+                "w": "sit",
+                "s": 32.25,
+                "e": 32.71,
+                "p": 0.9921040534973145
+              },
+              {
+                "w": "as",
+                "s": 32.71,
+                "e": 32.99,
+                "p": 0.9492760300636292
+              },
+              {
+                "w": "far",
+                "s": 32.99,
+                "e": 33.33,
+                "p": 0.998428225517273
+              },
+              {
+                "w": "apart",
+                "s": 33.33,
+                "e": 33.93,
+                "p": 0.9895428419113159
+              },
+              {
+                "w": "as",
+                "s": 33.93,
+                "e": 34.15,
+                "p": 0.9840970039367676
+              },
+              {
+                "w": "possible.",
+                "s": 34.15,
+                "e": 34.55,
+                "p": 0.9972039461135864
+              },
+              {
+                "w": "Be",
+                "s": 35.65,
+                "e": 35.67,
+                "p": 0.9863070845603943
+              },
+              {
+                "w": "sure",
+                "s": 35.67,
+                "e": 35.83,
+                "p": 0.9993463158607483
+              },
+              {
+                "w": "to",
+                "s": 35.83,
+                "e": 35.93,
+                "p": 0.9938593506813049
+              },
+              {
+                "w": "like,",
+                "s": 35.93,
+                "e": 36.11,
+                "p": 0.9381449818611145
+              },
+              {
+                "w": "share,",
+                "s": 36.15,
+                "e": 36.41,
+                "p": 0.9972969889640808
+              },
+              {
+                "w": "and",
+                "s": 36.55,
+                "e": 36.63,
+                "p": 0.9963628649711609
+              },
+              {
+                "w": "save",
+                "s": 36.63,
+                "e": 36.87,
+                "p": 0.9660863280296326
+              },
+              {
+                "w": "this",
+                "s": 36.87,
+                "e": 36.99,
+                "p": 0.970258891582489
+              },
+              {
+                "w": "video.",
+                "s": 36.99,
+                "e": 37.27,
+                "p": 0.998724639415741
+              },
+              {
+                "w": "Which",
+                "s": 37.73,
+                "e": 37.75,
+                "p": 0.9837461709976196
+              },
+              {
+                "w": "company",
+                "s": 37.75,
+                "e": 37.95,
+                "p": 0.9843419194221497
+              },
+              {
+                "w": "next?",
+                "s": 37.95,
+                "e": 38.27,
+                "p": 0.9194340109825134
+              },
+              {
+                "w": "Comment",
+                "s": 38.69,
+                "e": 38.79,
+                "p": 0.993330180644989
+              },
+              {
+                "w": "and",
+                "s": 38.79,
+                "e": 39.17,
+                "p": 0.7511811852455139
+              },
+              {
+                "w": "follow",
+                "s": 39.17,
+                "e": 39.45,
+                "p": 0.9928380846977234
+              },
+              {
+                "w": "for",
+                "s": 39.45,
+                "e": 39.71,
+                "p": 0.9590298533439636
+              },
+              {
+                "w": "more!",
+                "s": 39.71,
+                "e": 39.89,
+                "p": 0.9988808035850525
+              }
+            ],
+            "dauer_s": 40.2346875,
+            "sprache": "en"
+          },
+          "roh_key": "a2b6b1261edc2b5a7b22a0a2635afa696d6f0a64d1f2a0899ddd6ba1dfecead3",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "d312992a1af855729ea7470a20c49cf7860e5aabe3b1595037274b243465cf07",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 40.3,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 12,
+          "motive": 11,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "d312992a1af855729ea7470a20c49cf7860e5aabe3b1595037274b243465cf07",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Mann mit Hut blickt überrascht in die Kamera und hält einen Schuh in seiner Hand, während im Hintergrund eine Straße zu sehen ist.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt zwar einen Schuh und eine überraschte Person, aber die spezifische Handlung 'Strangers got judged by their shoes' wird nicht dargestellt.",
+              "erforderliches_bild": "Eine Nahaufnahme von Personen, die auf der Straße kritisch auf die Schuhe anderer schauen."
+            },
+            {
+              "index": 1,
+              "gesehen": "Zwei Männer in Anzügen und Hüten stehen sich in einer Gasse gegenüber, gestikulieren heftig und streiten sich.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbaren Personen und ihre streitende, gestikulierende Haltung passen direkt zur Erzählung über zwei feindselige Brüder.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da die Szene passt."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Schuster arbeitet in einer Werkstatt an Schuhen auf einem kleinen Block, im Hintergrund Regale und Fenster mit Strassenblick.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt einen Schuster, der in einer gemütlichen Werkstatt Schuhe herstellt, was perfekt zur Erzählung von Adolf Dassler beim Schuhemachen passt.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da die Abbildung thematisch gut passt."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein gemaltes Bild von Männern in Anzügen und Mänteln auf einem Markt im Retro-Stil.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt Männer auf einem Markt, aber weder den Namen Rudolf noch das Jahr 1924 oder ein entsprechendes historisches Ereignis.",
+              "erforderliches_bild": "Eine historische Darstellung oder Archivaufnahme, die zwei Männer in den 1920er Jahren bei der Arbeit oder Zusammenarbeit zeigt."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Schuster sitzt in einer Werkstatt und bindet die Schnürsenkel an einem Schuh.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Schuster in einer Werkstatt, aber nicht Jesse Owens im Jahr 1936 mit handgemachten Spikes und seinen vier gewonnenen Goldmedaillen.",
+              "erforderliches_bild": "Eine historische Darstellung von Jesse Owens auf einer Laufbahn mit seinen Laufschuhen und Medaillen."
+            },
+            {
+              "index": 5,
+              "gesehen": "In einem dunklen Raum sitzen zwei Männer an einem Schreibtisch und sprechen miteinander, im Hintergrund ist der Kopf einer dritten Person zu sehen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gezeigte Szene zeigt zwei streitende oder verhandelnde Personen an einem Schreibtisch, aber sie stellt weder den geschäftlichen Bruch noch die Gründung von Adidas und Puma im Jahr 1949 visuell dar.",
+              "erforderliches_bild": "Eine historische Illustration oder dokumentarische Darstellung von zwei getrennten Fabriken oder den Logos von Adidas und Puma aus dem Jahr 1949."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Mann mit Bart und Schürze sitzt in einer Werkstatt am Fenster und arbeitet an einem Schuh.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen Schuster bei der Arbeit an einem Schuh, was thematisch gut zur historischen Schuhmacher- und Brüdergeschichte passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 7,
+              "gesehen": "Eine bemalte Szene zeigt die Füße einer Person mit dunklen Schuhen unter einem Tisch.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich Schuhe unter einem Tisch, aber nicht die spezifische Handlung, dass Handwerker absichtlich Adidas trugen und kostenlose Pumas erhielten.",
+              "erforderliches_bild": "Eine Illustration, die Handwerker mit Adidas-Schuhen bei Rudolf zu Hause zeigt, wie sie Pumas erhalten."
+            },
+            {
+              "index": 8,
+              "gesehen": "Eine Nahaufnahme zeigt einen Schuh und das Bein einer Person, die auf einem Kopfsteinpflaster in einer Straße steht, während die Kamera nach unten auf den Schuh blickt.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt eine Person, die von oben auf ihre Schuhe blickt auf der Straße, was genau den gesprochenen Satz 'Locals looked down at strangers' shoes' visuell veranschaulicht.",
+              "erforderliches_bild": "Nicht erforderlich, da das Bild perfekt passt."
+            },
+            {
+              "index": 9,
+              "gesehen": "Gezeigt wird eine gemalte Landschaft mit senkrechten steinernen Stelen oder Säulen in einer grünen Wiese.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gesprochenen Wörter erwähnen die Grabstätten der beiden Brüder, aber die gezeigte abstrakte gemalte Landschaft lässt keine konkreten Gräber oder den großen Abstand der Grabstätten erkennen.",
+              "erforderliches_bild": "Ein Foto oder eine Illustration von zwei weit voneinander entfernten Grabstätten auf einem Friedhof."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar einen Schuh und eine überraschte Person, aber die spezifische Handlung 'Strangers got judged by their shoes' wird nicht dargestellt.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Männer auf einem Markt, aber weder den Namen Rudolf noch das Jahr 1924 oder ein entsprechendes historisches Ereignis.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Schuster in einer Werkstatt, aber nicht Jesse Owens im Jahr 1936 mit handgemachten Spikes und seinen vier gewonnenen Goldmedaillen.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gezeigte Szene zeigt zwei streitende oder verhandelnde Personen an einem Schreibtisch, aber sie stellt weder den geschäftlichen Bruch noch die Gründung von Adidas und Puma im Jahr 1949 visuell dar.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich Schuhe unter einem Tisch, aber nicht die spezifische Handlung, dass Handwerker absichtlich Adidas trugen und kostenlose Pumas erhielten.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen die Grabstätten der beiden Brüder, aber die gezeigte abstrakte gemalte Landschaft lässt keine konkreten Gräber oder den großen Abstand der Grabstätten erkennen."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 12,
+          "ausgenommen": [
+            10,
+            11
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "d312992a1af855729ea7470a20c49cf7860e5aabe3b1595037274b243465cf07",
+        "prompt_version": "2026-10-29.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

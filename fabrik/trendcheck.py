@@ -462,7 +462,8 @@ def plan_auftrag(kanal, kurz):
             f'Order up to {PLAN_TAGE} topics from this checked list for the next {PLAN_TAGE} days, best first. Pick '
             'topics that make viewers stop scrolling: a world-famous name with a surprising, little-known story people '
             'repeat to friends. Avoid topics whose only story is current corporate news. Use ONLY exact topic names '
-            'from the list.\n' + _publikum(kanal) + 'CANDIDATES:\n' + liste)
+            'from the list.\n' + (prompts.ANFASSBAR if _profil(kanal).get('quelle') == 'wikipedia' else '')
+            + _publikum(kanal) + 'CANDIDATES:\n' + liste)
 
 
 def redaktion(kanal, bewertet, heute, ki=None):

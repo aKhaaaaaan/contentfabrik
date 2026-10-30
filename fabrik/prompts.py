@@ -530,6 +530,14 @@ def figur_in_szene(szene, korrektur='', videoformat='short'):
 
 
 # Gemeinsam fuer Baupruefung (bildpruefung) und Schlusspruefer (bildbezug.py), damit beide gleich urteilen.
+# GEMESSEN 30.10.2026 (ServiceNow 41113476677): Gruendung, Investoren, Boersengang - 7 Bilder 2-3/10, Skript zweimal
+# Spannung 5-6/10. Gelungene Videos (Rolls-Royce, Rolex, Hugo Boss, Lego) erzaehlen von etwas Anfassbarem.
+ANFASSBAR = (
+    'Pick a company whose story centers on something physical a viewer can see: a product (cars, watches, '
+    'clothes, toys, food, drinks, tools), a workshop, a factory or a shop. NOT pure software, cloud, finance, '
+    'banking, insurance, consulting, oil trading or holding companies: their stories are funding rounds, mergers '
+    'and IPOs that cannot be shown in a picture. ')
+
 ABSTRAKTE_EREIGNISSE = (
     'Abstract events (joining, deciding, apologizing, regretting, selling shares, winning a seat, sales rising, '
     'a ban, a law, debts piling up, selling or taking over a company, handing a business to heirs) cannot be '

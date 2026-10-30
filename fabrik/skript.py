@@ -1024,6 +1024,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
                                    '(founded 15+ years ago, a founder who took a risk, a near-failure) - '
                                    'viewers search for them today. A recent merger or corporate update is NOT '
                                    'an origin story; then pick a classic brand instead. ') if aktuell else '')
+                             + prompts.ANFASSBAR
                              + 'Pick a WORLD-FAMOUS brand most viewers know (long English Wikipedia article '
                              'with a detailed history section) - not a regional or niche company. '
                              'Give the exact title of its English Wikipedia article.' + basis_zusatz,

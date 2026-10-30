@@ -2149,7 +2149,10 @@ def main(skript_pfad, aus, vorlage=None):
                         t['text'], t.get('szene', ''), t.get('suche', ''), dauer, aus / f'clip_{i:02d}',
                         archiv=bool(kanalprofil(s).get('archivclips')),
                         ohne_epoche=bool(kanalprofil(s).get('stockclips')),
-                        pixabay=lambda suche, zusatz='': clip_fuer(suche, schon, dauer, t['text'] + zusatz), benutzt=archiv_benutzt,
+                        # GEMESSEN 30.10.2026: 7 von 8 eingebauten Pixabay-Clips fielen beim Schlusspruefer mit 2-3/10
+                        # durch (Kongo Gumi, ServiceNow) - Nutzer: Business ohne Pixabay, Archivclips bleiben.
+                        pixabay=(lambda suche, zusatz='': clip_fuer(suche, schon, dauer, t['text'] + zusatz))
+                        if stock_erlaubt else None, benutzt=archiv_benutzt,
                         geschichte=archiv_jahr)
                     if archiv_video:
                         archiv_zahl, archiv_letzt = archiv_zahl + 1, i

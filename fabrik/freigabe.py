@@ -161,7 +161,20 @@ def senden(skript_pfad, video_pfad):
     import texte
     titel = texte.upload_titel(skript)
     lang = videoformat(skript) == 'lang'
-    tags = ' '.join('#' + h.lstrip('#') for h in skript.get('hashtags', []))
+    # Nutzer 30.10.2026: aktuelle Trend-Hashtags mitliefern (YouTube-Shorts der letzten 14 Tage zu Thema + Nische)
+    if not lang and 'trend_hashtags' not in skript:
+        try:
+            import kanalstandard
+            import trends
+            nische = (kanalstandard.nach_name(skript.get('kanal')) or {}).get('trend_suche') or []
+            skript['trend_hashtags'] = [list(x) for x in trends.trend_hashtags(
+                [b for b in [str(skript.get('thema') or '').strip(), *nische[:1]] if b])]
+        except Exception as e:  # Komfort - darf den Versand nie kippen
+            print('Trend-Hashtags nicht ermittelt:', type(e).__name__)
+    trend_passend, trend_weitere = texte.trend_auswahl(skript)
+    eigene_tags = [h.lstrip('#') for h in skript.get('hashtags', [])]
+    tags = ' '.join('#' + h for h in eigene_tags + [x[0] for x in trend_passend
+                                                     if x[0].lower() not in {e.lower() for e in eigene_tags}][:3])
     # CC-Lizenzen verlangen Urheber, Lizenz und Quelle - automatisch anhaengen
     qpfad = Path(skript_pfad).with_name('quellen.json')
     quellen = json.loads(qpfad.read_text(encoding='utf-8')) if qpfad.exists() else []
@@ -254,6 +267,14 @@ def senden(skript_pfad, video_pfad):
                  '📱 TikTok-Text ist laenger als 2.200 Zeichen. Titel/Hashtags vor dem Posten kuerzen; '
                  'Quellen- und Lizenzangaben vollstaendig erhalten. KI-generierte Inhalte einschalten.'})
     kopieren_senden(chat, 'TikTok (KI-generierte Inhalte einschalten)', tiktok)
+    if trend_passend or trend_weitere:
+        def zeile(liste):
+            return ' '.join(f'#{tag} ({videos})' for tag, videos, *_ in liste)
+        telegram('sendMessage', {'chat_id': chat, 'text':
+                 '📈 Trend-Hashtags (meistgesehene YouTube-Shorts der letzten 14 Tage, Zahl = Videos damit)\n'
+                 + (f'Schon in den Texten oben: {zeile(trend_passend[:3])}\n' if trend_passend else '')
+                 + (f'Weitere - nur nehmen, wenn sie zum Video passen: {zeile(trend_weitere[:8])}'
+                    if trend_weitere else '')})
     print('Gesendet:', antwort.get('ok'))
 
 

@@ -232,6 +232,10 @@ def original_laden(eintrag, ordner):
                 raise ValueError('Originalartefakt ist unvollstaendig oder mehrdeutig')
             # Nur ausdruecklich ausgewaehlte Dateien unter festem Namen, keine Zip-Pfade extrahieren.
             (Path(ordner) / name).write_bytes(z.read(files[0]))
+        # 30.10.2026: der beim Versand erzeugte Text enthaelt die Trend-Hashtags des Tages (optional, aeltere fehlen)
+        text = [p for p in z.infolist() if Path(p.filename).name == 'tiktok-text.txt' and p.file_size < 64 * 1024]
+        if len(text) == 1:
+            (Path(ordner) / 'tiktok-text.txt').write_bytes(z.read(text[0]))
 
 
 def pruefen(eintrag, ordner):
@@ -300,8 +304,10 @@ def abarbeiten():
                     pruefen(e, tmp)
                     try:
                         import texte
-                        e['tiktok_text'] = texte.tiktok_text(json.loads(
-                            (Path(tmp) / 'skript.json').read_text(encoding='utf-8')))
+                        gespeichert = Path(tmp) / 'tiktok-text.txt'
+                        e['tiktok_text'] = (gespeichert.read_text(encoding='utf-8') if gespeichert.exists() else
+                                            texte.tiktok_text(json.loads(
+                                                (Path(tmp) / 'skript.json').read_text(encoding='utf-8'))))
                     except Exception:
                         pass  # Komfort: fehlt der Text, bleibt der Upload trotzdem moeglich.
                     e['status'] = tiktok.entwurf(Path(tmp) / 'short.mp4', oid, journal, max_warte_s=0)

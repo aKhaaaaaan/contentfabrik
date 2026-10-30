@@ -63,17 +63,43 @@ def hashtags_bereinigen(tags, inhalt):
     return aus
 
 
-def tiktok_hashtags(skript):
-    """Bis zu fuenf belegte Tags: konkretes Thema vor zwei Kanal-Kategorien.
+# Kategorie-Tags der Nischen, die ohne Wort im Video passen (30.10.2026, gemessene Trend-Tags beider Kanaele)
+NISCHE = ALLGEMEIN | {'entrepreneurship', 'successstory', 'businessstory', 'businesscasestudy', 'storytelling',
+                      'artificialintelligence', 'generativeai', 'machinelearning', 'productivity'}
 
-    Keine Trendbehauptung oder neue KI-Anfrage. Zusammengesetzte Tags muessen aus
-    benachbarten Woertern stammen; #cat passt nicht allein wegen 'application'.
-    """
+
+def _belegt(skript):
+    """Alle Wortketten (1-4 Woerter) aus Thema, Titel und Sprechtext, ohne Leerzeichen und klein."""
     inhalt = ' '.join([str(skript.get('thema', '')), titel_text(skript.get('titel', [])),
                       *[str(t.get('text', '')) for t in skript.get('teile', [])]])
     woerter = re.findall(r'[a-z0-9]+', inhalt.lower())
     belegt = {''.join(woerter[i:i + n]) for i in range(len(woerter)) for n in range(1, 5)}
-    belegt |= {w[:-1] for w in woerter if len(w) > 4 and w.endswith('s')}
+    return belegt | {w[:-1] for w in woerter if len(w) > 4 and w.endswith('s')}
+
+
+def trend_auswahl(skript):
+    """(passend, weitere) aus skript['trend_hashtags'] = [[tag, videos, aufrufe], ...].
+
+    Nutzer 30.10.2026: Trend-Hashtags sollen im Telegram-Text stehen. Automatisch hinein nur, was im Video
+    vorkommt oder eine Nischen-Kategorie ist (ein fremder Hashtag kann als irrefuehrend gelten); der Rest wird
+    nur zur eigenen Auswahl gezeigt."""
+    belegt = _belegt(skript)
+    passend, weitere = [], []
+    for eintrag in skript.get('trend_hashtags') or []:
+        tag = re.sub(r'[^A-Za-z0-9_]', '', str(eintrag[0]))
+        kern = tag.replace('_', '').lower()
+        if kern:
+            (passend if kern in belegt or kern in NISCHE else weitere).append([tag, *eintrag[1:]])
+    return passend, weitere
+
+
+def tiktok_hashtags(skript):
+    """Bis zu fuenf belegte Tags: konkretes Thema vor zwei Kanal-Kategorien, dazu bis zu drei passende Trend-Tags.
+
+    Keine neue KI-Anfrage. Zusammengesetzte Tags muessen aus
+    benachbarten Woertern stammen; #cat passt nicht allein wegen 'application'.
+    """
+    belegt = _belegt(skript)
     kategorien = {'AI Tools Explained': ['AITools', 'AI'],
                   # 29.10.2026 TikTok-"KI-Gliederung" BusinessStory (Nutzer-Screenshot): #businessstory 23,8K,
                   # #storytelling 3,49M, #entrepreneurship 2,37M Beitraege - genau unsere Nische statt #BusinessHistory.
@@ -92,7 +118,11 @@ def tiktok_hashtags(skript):
             aus.append(sauber)
             gesehen.add(kern)
     aus.sort(key=lambda tag: tag.replace('_', '').lower() not in werkzeuge)
-    return (aus[:5 - len(kategorien)] + kategorien)[:5]
+    eigene = (aus[:5 - len(kategorien)] + kategorien)[:5]
+    # 30.10.2026: bis zu drei passende Trend-Tags (YouTube-Shorts der letzten 14 Tage) zusaetzlich
+    schon = {x.lower() for x in eigene}
+    trend = [tag for tag, *_ in trend_auswahl(skript)[0] if tag.lower() not in schon and tag.lower() not in ausgeschlossen]
+    return eigene + trend[:3]
 
 
 def kapitelmarken(skript, abschnitte_s):

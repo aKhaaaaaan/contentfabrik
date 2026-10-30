@@ -90,6 +90,61 @@ def youtube_ausreisser(suchbegriffe, tage=30, je_begriff=15, top=10, dauer='shor
         return []
 
 
+# Nutzer 30.10.2026: "aktuelle Trend-Hashtags in den Telegram-Text, sonst muss ich staendig selber suchen".
+# Offizielle Quelle ohne Zusatzkosten: YouTube Data API (search 100 + videos 1 Einheit je Abruf, 10.000/Tag frei).
+# TikTok hat keine offene Hashtag-Schnittstelle (Creative Center nur per Webseite) - darum YouTube-Shorts als Signal.
+HASHTAG_LEER = {'fyp', 'foryou', 'foryoupage', 'fy', 'viral', 'viralvideo', 'viralshorts', 'trending', 'trend',
+                'shorts', 'short', 'youtubeshorts', 'ytshorts', 'shortsfeed', 'shortvideo', 'subscribe', 'explore',
+                'explorepage', 'reels', 'tiktok', 'youtube', 'video', 'new', 'like', 'follow'}
+
+
+def trend_hashtags(suchbegriffe, tage=14, je_begriff=25, top=12):
+    """[(tag, videos, aufrufe)] - Hashtags der meistgesehenen Shorts der letzten Tage zu diesen Suchbegriffen.
+
+    Nur Tags aus mindestens zwei verschiedenen Videos; Reichweiten-Floskeln (#fyp, #viral) zaehlen nicht."""
+    schluessel = os.environ.get('YOUTUBE_API_KEY')
+    if not schluessel or not suchbegriffe:
+        return []
+    seit = (datetime.datetime.utcnow() - datetime.timedelta(days=tage)).strftime('%Y-%m-%dT%H:%M:%SZ')
+    basis = 'https://www.googleapis.com/youtube/v3/'
+    try:
+        ids = []
+        for q in suchbegriffe:
+            d = json.loads(_hole(basis + 'search?' + urllib.parse.urlencode({
+                'part': 'snippet', 'q': q, 'type': 'video', 'order': 'viewCount', 'videoDuration': 'short',
+                'publishedAfter': seit, 'relevanceLanguage': 'en', 'regionCode': 'US', 'maxResults': je_begriff,
+                'key': schluessel})))
+            ids += [it['id']['videoId'] for it in d.get('items', []) if it['id']['videoId'] not in ids]
+        tags = {}
+        for i in range(0, len(ids), 50):
+            d = json.loads(_hole(basis + 'videos?' + urllib.parse.urlencode({
+                'part': 'snippet,statistics', 'id': ','.join(ids[i:i + 50]), 'key': schluessel})))
+            for it in d.get('items', []):
+                sn = it.get('snippet', {})
+                if not _englisch(html.unescape(sn.get('title', ''))):
+                    continue
+                aufrufe = int(it.get('statistics', {}).get('viewCount', 0))
+                text = ' '.join([sn.get('title', ''), sn.get('description', '')])
+                gefunden = {re.sub(r'[^a-z0-9]', '', t.lower()): t
+                            for t in re.findall(r'#([A-Za-z][A-Za-z0-9_]{1,40})', text)}
+                for t in sn.get('tags', []) or []:
+                    kern = re.sub(r'[^a-z0-9]', '', str(t).lower())
+                    if kern and ' ' not in str(t).strip():
+                        gefunden.setdefault(kern, str(t).strip())
+                for kern, name in gefunden.items():
+                    if kern in HASHTAG_LEER or not kern.isascii() or len(kern) < 2:
+                        continue
+                    e = tags.setdefault(kern, {'tag': name, 'videos': 0, 'aufrufe': 0})
+                    e['videos'] += 1
+                    e['aufrufe'] += aufrufe
+        liste = sorted((e for e in tags.values() if e['videos'] >= 2), key=lambda e: (e['videos'], e['aufrufe']),
+                       reverse=True)
+        return [(e['tag'], e['videos'], e['aufrufe']) for e in liste[:top]]
+    except Exception as e:
+        print('Trend-Hashtags nicht verfuegbar:', str(e).replace(schluessel, '***')[:160])
+        return []
+
+
 def google_trends(land='US', top=20):
     try:
         wurzel = ElementTree.fromstring(_hole(f'https://trends.google.com/trending/rss?geo={land}'))

@@ -117974,6 +117974,1140 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "41037368167.1:business-origin-stories",
+      "run_id": "41037368167",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-30T10:21:36.470945+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "bee4f5b2277cd395019d0ca6db36d49976af71fa",
+      "produktionsversion": "64bc906a2054ab5f6d6518f1598389592eb65767f0559d00b62b6bece930ba1f",
+      "videoformat": "short",
+      "thema": "Nintendo",
+      "titel": [
+        "Nintendo's Risky Cards",
+        "Yakuza Parlors to Disney"
+      ],
+      "status": "gesendet",
+      "video_sha256": "4894017644237e19e69d0683a611478120d7366a81f28f86480ae4df4792cd84",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Mann in einem Anzug, aber weder die Yakuza noch Glücksspiel-Karten oder Parlors sind erkennbar.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine geschäftliche Handschlag-Szene in einem historischen oder traditionellen Setting, aber keine Partnerschaft mit Walt Disney oder Karten mit Charakteren.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen eine Disney-Partnerschaft und das Erreichen von Kindern, aber das Bild zeigt lediglich zwei Männer beim Kartenspiel in einem traditionellen japanischen Raum ohne Bezug zu Disney-Figuren oder Kindern.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte handeln von steigenden Kartenverfügbarkeiten und Spielkarten, zu sehen ist jedoch ein Arcade-Automat mit Spielzeugfiguren und keinerlei Bezug zu Kartenverfügbarkeiten.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Mann in einem Anzug, aber weder die Yakuza noch Glücksspiel-Karten oder Parlors sind erkennbar. Korrektur: Ein historisches Bild von Glücksspiel-Salons oder traditionellen japanischen Spielkarten (Hanafuda), die mit der Yakuza in Verbindung gebracht werden.",
+        "Offenes Problem (schwer): Das Bild zeigt eine geschäftliche Handschlag-Szene in einem historischen oder traditionellen Setting, aber keine Partnerschaft mit Walt Disney oder Karten mit Charakteren. Korrektur: Eine historische Illustration, die Karten mit Walt-Disney-Figuren aus dem Jahr 1959 zeigt.",
+        "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen eine Disney-Partnerschaft und das Erreichen von Kindern, aber das Bild zeigt lediglich zwei Männer beim Kartenspiel in einem traditionellen japanischen Raum ohne Bezug zu Disney-Figuren oder Kindern. Korrektur: Eine historische Illustration oder Darstellung von Spielkarten mit Disney-Motiven, die an Kinder verkauft oder vermarktet werden.",
+        "Offenes Problem (schwer): Die gesprochenen Worte handeln von steigenden Kartenverfügbarkeiten und Spielkarten, zu sehen ist jedoch ein Arcade-Automat mit Spielzeugfiguren und keinerlei Bezug zu Kartenverfügbarkeiten. Korrektur: Eine historische Darstellung von Spielkartenverpackungen oder steigenden Verkaufzahlen von Spielkarten."
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 13,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "41037368167",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-30",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 190.8,
+            "bau_s": 572.3,
+            "pruefung_s": 43.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Mann in einem Anzug, aber weder die Yakuza noch Glücksspiel-Karten oder Parlors sind erkennbar.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine geschäftliche Handschlag-Szene in einem historischen oder traditionellen Setting, aber keine Partnerschaft mit Walt Disney oder Karten mit Charakteren.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen eine Disney-Partnerschaft und das Erreichen von Kindern, aber das Bild zeigt lediglich zwei Männer beim Kartenspiel in einem traditionellen japanischen Raum ohne Bezug zu Disney-Figuren oder Kindern.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte handeln von steigenden Kartenverfügbarkeiten und Spielkarten, zu sehen ist jedoch ein Arcade-Automat mit Spielzeugfiguren und keinerlei Bezug zu Kartenverfügbarkeiten.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann in einem Anzug, aber weder die Yakuza noch Glücksspiel-Karten oder Parlors sind erkennbar. Korrektur: Ein historisches Bild von Glücksspiel-Salons oder traditionellen japanischen Spielkarten (Hanafuda), die mit der Yakuza in Verbindung gebracht werden.",
+              "Offenes Problem (schwer): Das Bild zeigt eine geschäftliche Handschlag-Szene in einem historischen oder traditionellen Setting, aber keine Partnerschaft mit Walt Disney oder Karten mit Charakteren. Korrektur: Eine historische Illustration, die Karten mit Walt-Disney-Figuren aus dem Jahr 1959 zeigt.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen eine Disney-Partnerschaft und das Erreichen von Kindern, aber das Bild zeigt lediglich zwei Männer beim Kartenspiel in einem traditionellen japanischen Raum ohne Bezug zu Disney-Figuren oder Kindern. Korrektur: Eine historische Illustration oder Darstellung von Spielkarten mit Disney-Motiven, die an Kinder verkauft oder vermarktet werden.",
+              "Offenes Problem (schwer): Die gesprochenen Worte handeln von steigenden Kartenverfügbarkeiten und Spielkarten, zu sehen ist jedoch ein Arcade-Automat mit Spielzeugfiguren und keinerlei Bezug zu Kartenverfügbarkeiten. Korrektur: Eine historische Darstellung von Spielkartenverpackungen oder steigenden Verkaufzahlen von Spielkarten."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Fenrir",
+              "stimme": 13.0,
+              "zeitmarken": 5.0,
+              "tempo": 1.069,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 380.6,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 52.4,
+              "gesamt": 571.9,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.86,
+                7.82,
+                6.3,
+                4.78,
+                6.2,
+                5.5,
+                6.57
+              ],
+              "woerter": 103
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Yakuza-run gambling parlors loved its cards.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann in einem Anzug, aber weder die Yakuza noch Glücksspiel-Karten oder Parlors sind erkennbar. Korrektur: Ein historisches Bild von Glücksspiel-Salons oder traditionellen japanischen Spielkarten (Hanafuda), die mit der Yakuza in Verbindung gebracht werden."
+              },
+              {
+                "zeit": "00:26.76",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 7,
+                "gesprochen": "In 1959, a Walt Disney",
+                "fest": false,
+                "text": "Das Bild zeigt eine geschäftliche Handschlag-Szene in einem historischen oder traditionellen Setting, aber keine Partnerschaft mit Walt Disney oder Karten mit Charakteren. Korrektur: Eine historische Illustration, die Karten mit Walt-Disney-Figuren aus dem Jahr 1959 zeigt."
+              },
+              {
+                "zeit": "00:29.86",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "partnership put characters on cards, reaching children.",
+                "fest": false,
+                "text": "Die gesprochenen Wörter erwähnen eine Disney-Partnerschaft und das Erreichen von Kindern, aber das Bild zeigt lediglich zwei Männer beim Kartenspiel in einem traditionellen japanischen Raum ohne Bezug zu Disney-Figuren oder Kindern. Korrektur: Eine historische Illustration oder Darstellung von Spielkarten mit Disney-Motiven, die an Kinder verkauft oder vermarktet werden."
+              },
+              {
+                "zeit": "00:32.96",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "That boosted card sales.",
+                "fest": false,
+                "text": "Die gesprochenen Worte handeln von steigenden Kartenverfügbarkeiten und Spielkarten, zu sehen ist jedoch ein Arcade-Automat mit Spielzeugfiguren und keinerlei Bezug zu Kartenverfügbarkeiten. Korrektur: Eine historische Darstellung von Spielkartenverpackungen oder steigenden Verkaufzahlen von Spielkarten."
+              }
+            ],
+            "sekunden": 806.3,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 1.6,
+            "bau_s": 354.8,
+            "baufehler": "ValueError: Bildablauf gesperrt: Gleiches Motiv trotz mehrerer Einstellungen zu lange gehalten",
+            "status": "baufehler",
+            "sekunden": 356.3,
+            "lernergebnis": {
+              "id": "41037368167-2",
+              "datum": "2026-10-30",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 356.6,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {},
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          }
+        ],
+        "status": "gesendet",
+        "trendcheck": "Intel: 7.6 Punkte - YouTube-Ausreisser 12.1x Kanalschnitt, Wikipedia -1 % gegenueber Vormonat, heute in Google News (Intel Earnings: 2 Reasons the Stock Is Down So Much)",
+        "grund": "",
+        "sekunden": 1237.0,
+        "upload_titel": "Nintendo's Risky Cards: Yakuza Parlors to Disney"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Yakuza-run gambling parlors loved its cards.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann in einem Anzug, aber weder die Yakuza noch Glücksspiel-Karten oder Parlors sind erkennbar. Korrektur: Ein historisches Bild von Glücksspiel-Salons oder traditionellen japanischen Spielkarten (Hanafuda), die mit der Yakuza in Verbindung gebracht werden."
+          },
+          {
+            "zeit": "00:26.76",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 7,
+            "gesprochen": "In 1959, a Walt Disney",
+            "fest": false,
+            "text": "Das Bild zeigt eine geschäftliche Handschlag-Szene in einem historischen oder traditionellen Setting, aber keine Partnerschaft mit Walt Disney oder Karten mit Charakteren. Korrektur: Eine historische Illustration, die Karten mit Walt-Disney-Figuren aus dem Jahr 1959 zeigt."
+          },
+          {
+            "zeit": "00:29.86",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "partnership put characters on cards, reaching children.",
+            "fest": false,
+            "text": "Die gesprochenen Wörter erwähnen eine Disney-Partnerschaft und das Erreichen von Kindern, aber das Bild zeigt lediglich zwei Männer beim Kartenspiel in einem traditionellen japanischen Raum ohne Bezug zu Disney-Figuren oder Kindern. Korrektur: Eine historische Illustration oder Darstellung von Spielkarten mit Disney-Motiven, die an Kinder verkauft oder vermarktet werden."
+          },
+          {
+            "zeit": "00:32.96",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 9,
+            "gesprochen": "That boosted card sales.",
+            "fest": false,
+            "text": "Die gesprochenen Worte handeln von steigenden Kartenverfügbarkeiten und Spielkarten, zu sehen ist jedoch ein Arcade-Automat mit Spielzeugfiguren und keinerlei Bezug zu Kartenverfügbarkeiten. Korrektur: Eine historische Darstellung von Spielkartenverpackungen oder steigenden Verkaufzahlen von Spielkarten."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -14.4,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 40.92,
+              "bis_s": 42.14,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.989
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Yakuza",
+                "s": 0.0,
+                "e": 0.78,
+                "p": 0.8202335437138876
+              },
+              {
+                "w": "-run",
+                "s": 0.78,
+                "e": 0.96,
+                "p": 0.6849523633718491
+              },
+              {
+                "w": "gambling",
+                "s": 0.96,
+                "e": 1.3,
+                "p": 0.9747026562690735
+              },
+              {
+                "w": "parlors",
+                "s": 1.3,
+                "e": 1.98,
+                "p": 0.9668674866358439
+              },
+              {
+                "w": "loved",
+                "s": 1.98,
+                "e": 2.4,
+                "p": 0.902906596660614
+              },
+              {
+                "w": "its",
+                "s": 2.4,
+                "e": 2.88,
+                "p": 0.9519617557525635
+              },
+              {
+                "w": "cards.",
+                "s": 2.88,
+                "e": 3.22,
+                "p": 0.9800224304199219
+              },
+              {
+                "w": "That's",
+                "s": 3.8,
+                "e": 4.04,
+                "p": 0.9910808205604553
+              },
+              {
+                "w": "Nintendo,",
+                "s": 4.04,
+                "e": 4.2,
+                "p": 0.9714972972869873
+              },
+              {
+                "w": "decades",
+                "s": 4.98,
+                "e": 5.12,
+                "p": 0.9941498041152954
+              },
+              {
+                "w": "before",
+                "s": 5.12,
+                "e": 5.68,
+                "p": 0.9988390803337097
+              },
+              {
+                "w": "Mario.",
+                "s": 5.68,
+                "e": 5.98,
+                "p": 0.9786838889122009
+              },
+              {
+                "w": "Why",
+                "s": 6.58,
+                "e": 6.88,
+                "p": 0.9692983031272888
+              },
+              {
+                "w": "risk",
+                "s": 6.88,
+                "e": 7.16,
+                "p": 0.9842744469642639
+              },
+              {
+                "w": "it?",
+                "s": 7.16,
+                "e": 7.32,
+                "p": 0.9993171691894531
+              },
+              {
+                "w": "Japan",
+                "s": 7.88,
+                "e": 8.04,
+                "p": 0.9830873608589172
+              },
+              {
+                "w": "banned",
+                "s": 8.04,
+                "e": 8.48,
+                "p": 0.9974061846733093
+              },
+              {
+                "w": "most",
+                "s": 8.48,
+                "e": 8.92,
+                "p": 0.995629072189331
+              },
+              {
+                "w": "gambling",
+                "s": 8.92,
+                "e": 9.16,
+                "p": 0.9949290752410889
+              },
+              {
+                "w": "in",
+                "s": 9.16,
+                "e": 9.46,
+                "p": 0.9974930286407471
+              },
+              {
+                "w": "1882,",
+                "s": 9.46,
+                "e": 10.06,
+                "p": 0.9941593706607819
+              },
+              {
+                "w": "but",
+                "s": 10.3,
+                "e": 10.38,
+                "p": 0.9989318251609802
+              },
+              {
+                "w": "tolerated",
+                "s": 10.38,
+                "e": 10.84,
+                "p": 0.9865959286689758
+              },
+              {
+                "w": "Hanafuda.",
+                "s": 10.84,
+                "e": 11.38,
+                "p": 0.7503026723861694
+              },
+              {
+                "w": "Yamauchi",
+                "s": 12.08,
+                "e": 12.38,
+                "p": 0.877467930316925
+              },
+              {
+                "w": "founded",
+                "s": 12.38,
+                "e": 12.66,
+                "p": 0.9715827107429504
+              },
+              {
+                "w": "Nintendo",
+                "s": 12.66,
+                "e": 12.86,
+                "p": 0.9989469647407532
+              },
+              {
+                "w": "in",
+                "s": 12.86,
+                "e": 13.36,
+                "p": 0.997995138168335
+              },
+              {
+                "w": "1889",
+                "s": 13.36,
+                "e": 14.0,
+                "p": 0.9841885566711426
+              },
+              {
+                "w": "to",
+                "s": 14.0,
+                "e": 14.46,
+                "p": 0.9555503129959106
+              },
+              {
+                "w": "make",
+                "s": 14.46,
+                "e": 14.72,
+                "p": 0.9973883032798767
+              },
+              {
+                "w": "them.",
+                "s": 14.72,
+                "e": 14.88,
+                "p": 0.9983311295509338
+              },
+              {
+                "w": "Rivals",
+                "s": 15.72,
+                "e": 15.72,
+                "p": 0.47200852632522583
+              },
+              {
+                "w": "fled",
+                "s": 15.72,
+                "e": 16.06,
+                "p": 0.9912194609642029
+              },
+              {
+                "w": "the",
+                "s": 16.06,
+                "e": 16.32,
+                "p": 0.9929487705230713
+              },
+              {
+                "w": "criminal",
+                "s": 16.32,
+                "e": 16.5,
+                "p": 0.7561783790588379
+              },
+              {
+                "w": "association.",
+                "s": 16.5,
+                "e": 16.86,
+                "p": 0.9860600233078003
+              },
+              {
+                "w": "Yamauchi",
+                "s": 17.64,
+                "e": 18.12,
+                "p": 0.9930502971013387
+              },
+              {
+                "w": "persisted",
+                "s": 18.12,
+                "e": 18.44,
+                "p": 0.9985367059707642
+              },
+              {
+                "w": "and",
+                "s": 18.44,
+                "e": 19.22,
+                "p": 0.5852834582328796
+              },
+              {
+                "w": "soon",
+                "s": 19.22,
+                "e": 19.44,
+                "p": 0.994353175163269
+              },
+              {
+                "w": "became",
+                "s": 19.44,
+                "e": 19.82,
+                "p": 0.993898868560791
+              },
+              {
+                "w": "the",
+                "s": 19.82,
+                "e": 19.94,
+                "p": 0.9909393787384033
+              },
+              {
+                "w": "primary",
+                "s": 19.94,
+                "e": 20.28,
+                "p": 0.9975455403327942
+              },
+              {
+                "w": "Hanafuda",
+                "s": 20.28,
+                "e": 20.9,
+                "p": 0.9852527976036072
+              },
+              {
+                "w": "producer.",
+                "s": 20.9,
+                "e": 21.18,
+                "p": 0.9915892481803894
+              },
+              {
+                "w": "By",
+                "s": 22.0,
+                "e": 22.02,
+                "p": 0.9904666543006897
+              },
+              {
+                "w": "1929,",
+                "s": 22.02,
+                "e": 22.44,
+                "p": 0.998319685459137
+              },
+              {
+                "w": "Nintendo",
+                "s": 22.92,
+                "e": 23.22,
+                "p": 0.9993630051612854
+              },
+              {
+                "w": "was",
+                "s": 23.22,
+                "e": 23.54,
+                "p": 0.9967029690742493
+              },
+              {
+                "w": "Japan's",
+                "s": 23.54,
+                "e": 23.96,
+                "p": 0.9991980791091919
+              },
+              {
+                "w": "largest",
+                "s": 23.96,
+                "e": 24.38,
+                "p": 0.9976058006286621
+              },
+              {
+                "w": "playing",
+                "s": 24.38,
+                "e": 24.72,
+                "p": 0.9896355271339417
+              },
+              {
+                "w": "card",
+                "s": 24.72,
+                "e": 24.96,
+                "p": 0.9807064533233643
+              },
+              {
+                "w": "business.",
+                "s": 24.96,
+                "e": 25.22,
+                "p": 0.9985449314117432
+              },
+              {
+                "w": "So",
+                "s": 26.12,
+                "e": 26.18,
+                "p": 0.9818516969680786
+              },
+              {
+                "w": "what",
+                "s": 26.18,
+                "e": 26.32,
+                "p": 0.8190661072731018
+              },
+              {
+                "w": "changed",
+                "s": 26.32,
+                "e": 26.46,
+                "p": 0.5405892133712769
+              },
+              {
+                "w": "next?",
+                "s": 26.46,
+                "e": 26.78,
+                "p": 0.9979658126831055
+              },
+              {
+                "w": "Next,",
+                "s": 26.78,
+                "e": 26.96,
+                "p": 0.4406982362270355
+              },
+              {
+                "w": "in",
+                "s": 28.14,
+                "e": 28.2,
+                "p": 0.7290551066398621
+              },
+              {
+                "w": "1959,",
+                "s": 28.2,
+                "e": 29.04,
+                "p": 0.9833230376243591
+              },
+              {
+                "w": "a",
+                "s": 29.04,
+                "e": 29.26,
+                "p": 0.9909624457359314
+              },
+              {
+                "w": "Walt",
+                "s": 29.26,
+                "e": 29.42,
+                "p": 0.9808818101882935
+              },
+              {
+                "w": "Disney",
+                "s": 29.42,
+                "e": 29.74,
+                "p": 0.9991173148155212
+              },
+              {
+                "w": "partnership",
+                "s": 29.74,
+                "e": 30.12,
+                "p": 0.8195382952690125
+              },
+              {
+                "w": "put",
+                "s": 30.12,
+                "e": 30.4,
+                "p": 0.9950651526451111
+              },
+              {
+                "w": "characters",
+                "s": 30.4,
+                "e": 30.72,
+                "p": 0.9570971131324768
+              },
+              {
+                "w": "on",
+                "s": 30.72,
+                "e": 31.04,
+                "p": 0.9965929388999939
+              },
+              {
+                "w": "cards,",
+                "s": 31.04,
+                "e": 31.28,
+                "p": 0.972499430179596
+              },
+              {
+                "w": "reaching",
+                "s": 31.28,
+                "e": 31.88,
+                "p": 0.9953227639198303
+              },
+              {
+                "w": "children.",
+                "s": 31.88,
+                "e": 32.3,
+                "p": 0.9969792366027832
+              },
+              {
+                "w": "That",
+                "s": 33.0,
+                "e": 33.02,
+                "p": 0.9783034920692444
+              },
+              {
+                "w": "boosted",
+                "s": 33.02,
+                "e": 33.32,
+                "p": 0.9948603510856628
+              },
+              {
+                "w": "card",
+                "s": 33.32,
+                "e": 33.66,
+                "p": 0.8891690969467163
+              },
+              {
+                "w": "sales.",
+                "s": 33.66,
+                "e": 33.98,
+                "p": 0.9978334307670593
+              },
+              {
+                "w": "Toys",
+                "s": 34.58,
+                "e": 34.64,
+                "p": 0.8663280010223389
+              },
+              {
+                "w": "followed",
+                "s": 34.64,
+                "e": 35.0,
+                "p": 0.9771438241004944
+              },
+              {
+                "w": "in",
+                "s": 35.0,
+                "e": 35.28,
+                "p": 0.9928184747695923
+              },
+              {
+                "w": "the",
+                "s": 35.28,
+                "e": 35.38,
+                "p": 0.9885289072990417
+              },
+              {
+                "w": "1960s",
+                "s": 35.38,
+                "e": 36.28,
+                "p": 0.9227432310581207
+              },
+              {
+                "w": "are",
+                "s": 36.28,
+                "e": 36.4,
+                "p": 0.8738442063331604
+              },
+              {
+                "w": "K",
+                "s": 36.4,
+                "e": 36.58,
+                "p": 0.8511956334114075
+              },
+              {
+                "w": "-Games",
+                "s": 36.58,
+                "e": 36.78,
+                "p": 0.530715137720108
+              },
+              {
+                "w": "in",
+                "s": 36.78,
+                "e": 37.0,
+                "p": 0.9852234125137329
+              },
+              {
+                "w": "the",
+                "s": 37.0,
+                "e": 37.1,
+                "p": 0.9961685538291931
+              },
+              {
+                "w": "1970s.",
+                "s": 37.1,
+                "e": 37.9,
+                "p": 0.9914425909519196
+              },
+              {
+                "w": "Those",
+                "s": 38.48,
+                "e": 38.48,
+                "p": 0.9890880584716797
+              },
+              {
+                "w": "parlor",
+                "s": 38.48,
+                "e": 38.96,
+                "p": 0.865319699048996
+              },
+              {
+                "w": "cards",
+                "s": 38.96,
+                "e": 39.38,
+                "p": 0.996547520160675
+              },
+              {
+                "w": "built",
+                "s": 39.38,
+                "e": 40.0,
+                "p": 0.5781358480453491
+              },
+              {
+                "w": "it.",
+                "s": 40.0,
+                "e": 40.18,
+                "p": 0.9939723610877991
+              },
+              {
+                "w": "Like,",
+                "s": 40.92,
+                "e": 40.98,
+                "p": 0.9956449270248413
+              },
+              {
+                "w": "share,",
+                "s": 41.24,
+                "e": 41.4,
+                "p": 0.9743512868881226
+              },
+              {
+                "w": "and",
+                "s": 41.54,
+                "e": 41.56,
+                "p": 0.9956529140472412
+              },
+              {
+                "w": "save",
+                "s": 41.56,
+                "e": 41.76,
+                "p": 0.9878864288330078
+              },
+              {
+                "w": "this",
+                "s": 41.76,
+                "e": 41.88,
+                "p": 0.9856939315795898
+              },
+              {
+                "w": "video.",
+                "s": 41.88,
+                "e": 42.14,
+                "p": 0.9977139234542847
+              },
+              {
+                "w": "Which",
+                "s": 42.6,
+                "e": 42.62,
+                "p": 0.9813550114631653
+              },
+              {
+                "w": "company",
+                "s": 42.62,
+                "e": 42.8,
+                "p": 0.9949691891670227
+              },
+              {
+                "w": "next?",
+                "s": 42.8,
+                "e": 43.06,
+                "p": 0.9536520838737488
+              },
+              {
+                "w": "Comment",
+                "s": 43.68,
+                "e": 43.68,
+                "p": 0.9963375329971313
+              },
+              {
+                "w": "and",
+                "s": 43.68,
+                "e": 44.06,
+                "p": 0.7413612604141235
+              },
+              {
+                "w": "follow",
+                "s": 44.06,
+                "e": 44.28,
+                "p": 0.9956328272819519
+              },
+              {
+                "w": "for",
+                "s": 44.28,
+                "e": 44.46,
+                "p": 0.986885666847229
+              },
+              {
+                "w": "more.",
+                "s": 44.46,
+                "e": 44.6,
+                "p": 0.9995452761650085
+              }
+            ],
+            "dauer_s": 44.9493125,
+            "sprache": "en"
+          },
+          "roh_key": "6e0ff04515114c297c7e47689e587b9e8cdc1a4a6cb68031d440cb96196582ce",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "4894017644237e19e69d0683a611478120d7366a81f28f86480ae4df4792cd84",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 13,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "4894017644237e19e69d0683a611478120d7366a81f28f86480ae4df4792cd84",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein gemaltes Porträt eines Mannes im Anzug mit Krawatte und Goldkette vor einem Fenster mit Stadtblick, mit dem überlagerten Text 'GAMBLING PARLORS'.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Mann in einem Anzug, aber weder die Yakuza noch Glücksspiel-Karten oder Parlors sind erkennbar.",
+              "erforderliches_bild": "Ein historisches Bild von Glücksspiel-Salons oder traditionellen japanischen Spielkarten (Hanafuda), die mit der Yakuza in Verbindung gebracht werden."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Mann im historischen Gewand sitzt an einem Holztisch in einem Raum mit traditionellen Fenstern und bemalt konzentriert hanafuda-ähnliche Spielkarten mit einem Pinsel.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt einen Kartenhersteller bei der Produktion von traditionellen hanafuda-Spielkarten im 19. Jahrhundert, was perfekt zur Entstehungsgeschichte von Nintendo passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Mann im traditionellen Gewand sitzt an einem Holztisch in einem Raum mit Blick auf eine Pagode und bemalt kleine Karten mit roten Mustern.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Darstellung zeigt die Herstellung von Hanafuda-Karten in Japan passend zur Erwähnung der Karten und des historischen Kontextes.",
+              "erforderliches_bild": "nicht erforderlich da passend"
+            },
+            {
+              "index": 3,
+              "gesehen": "Eine historische Szene mit einer Holzpresse für Papier oder Karten, einem Regal mit bunten hanafuda-ähnlichen Blumenkarten und auf dem Tisch ausgebreiteten Kartenstapeln in einer traditionellen japanischen Werkstatt mit Blick auf eine Landschaft.",
+              "note": 9,
+              "passt": true,
+              "grund": "Die historischen Hanafuda-Karten und die Werkstattproduktion passen direkt zur Erwähnung der Kartengründung von Nintendo durch Yamauchi.",
+              "erforderliches_bild": "Keines, das Bild passt."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Mann mit traditioneller Kleidung und Haarknoten hält eine Holzkiste mit Spielkarten (Hanafuda) in den Händen, während im Hintergrund eine historische japanische Marktstraße und eine Burg zu sehen sind.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbare Szene zeigt Hanafuda-Karten in einer historischen japanischen Ära und illustriert passend die Handlung um den Hauptproduzenten von Hanafuda.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein gestapelter Satz kunstvoller alter Spielkarten mit traditionellen Blumenmotiven auf einem Holztisch.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbaren Hanafuda-Spielkarten passen direkt zu der Erwähnung, dass Yamauchi der Hauptproduzent dieser Karten wurde.",
+              "erforderliches_bild": "Keines, das Bild passt gut."
+            },
+            {
+              "index": 6,
+              "gesehen": "In einem historischen Raum sortieren und prüfen mehrere Personen an Holztischen Spielkarten und Dokumente, im Vordergrund ein eleganter Herr mit Anzug und Taschenuhr, im Hintergrund ein Holzdachschild mit japanischen Schriftzeichen und Blick auf eine traditionelle Straße.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt eine traditionelle Spielkartenproduktion und -prüfung in Japan im geschäftlichen Umfeld, was passend zum Thema von Nintendo als größtem Spielkartenunternehmen ist.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, das Bild passt gut."
+            },
+            {
+              "index": 7,
+              "gesehen": "Zwei japanische Männer im Anzug sitzen sich gegenüber und geben sich die Hand vor einem Fenster mit Blick auf eine geschäftige Straße.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine geschäftliche Handschlag-Szene in einem historischen oder traditionellen Setting, aber keine Partnerschaft mit Walt Disney oder Karten mit Charakteren.",
+              "erforderliches_bild": "Eine historische Illustration, die Karten mit Walt-Disney-Figuren aus dem Jahr 1959 zeigt."
+            },
+            {
+              "index": 8,
+              "gesehen": "Zwei japanische Männer sitzen auf Tatamimatten und spielen Karten an einem niedrigen Tisch vor einem traditionellen Fenster mit Sprossen, daneben steht ein rotes Spielzeugauto auf einer Ablage.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gesprochenen Wörter erwähnen eine Disney-Partnerschaft und das Erreichen von Kindern, aber das Bild zeigt lediglich zwei Männer beim Kartenspiel in einem traditionellen japanischen Raum ohne Bezug zu Disney-Figuren oder Kindern.",
+              "erforderliches_bild": "Eine historische Illustration oder Darstellung von Spielkarten mit Disney-Motiven, die an Kinder verkauft oder vermarktet werden."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein Arcade-Automat, gefüllt mit kleinen Puppen und Figuren, steht in einem Raum an einem Fenster, durch das man eine Straßenszene sieht.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochenen Worte handeln von steigenden Kartenverfügbarkeiten und Spielkarten, zu sehen ist jedoch ein Arcade-Automat mit Spielzeugfiguren und keinerlei Bezug zu Kartenverfügbarkeiten.",
+              "erforderliches_bild": "Eine historische Darstellung von Spielkartenverpackungen oder steigenden Verkaufzahlen von Spielkarten."
+            },
+            {
+              "index": 10,
+              "gesehen": "Drei Personen spielen an einem Arcade-Automaten auf einer Altstadtstraße.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gesprochenen Worte erwähnen Arcade-Spiele in den 1970ern und der Automat passt gut dazu.",
+              "erforderliches_bild": "Keine Änderung erforderlich."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Mann in einem Anzug, aber weder die Yakuza noch Glücksspiel-Karten oder Parlors sind erkennbar.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine geschäftliche Handschlag-Szene in einem historischen oder traditionellen Setting, aber keine Partnerschaft mit Walt Disney oder Karten mit Charakteren.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen eine Disney-Partnerschaft und das Erreichen von Kindern, aber das Bild zeigt lediglich zwei Männer beim Kartenspiel in einem traditionellen japanischen Raum ohne Bezug zu Disney-Figuren oder Kindern.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte handeln von steigenden Kartenverfügbarkeiten und Spielkarten, zu sehen ist jedoch ein Arcade-Automat mit Spielzeugfiguren und keinerlei Bezug zu Kartenverfügbarkeiten."
+          ],
+          "modelle": [
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 13,
+          "ausgenommen": [
+            11,
+            12
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "4894017644237e19e69d0683a611478120d7366a81f28f86480ae4df4792cd84",
+        "prompt_version": "2026-10-29.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [
+          "Those parlor cards built it. - Causal claim that the early gambling‑parlor cards \"built\" Nintendo is not stated in the source; the source only notes the cards were popular, not that they caused Nintendo’s later success."
+        ],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

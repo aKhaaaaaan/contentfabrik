@@ -2101,11 +2101,27 @@ def main(skript_pfad, aus, vorlage=None):
                     # Kopf: Firmenname statt Arbeitstitel - Enron 17.10.2026 zeigte das deutsche Thema
                     # "ENRON: AUFSTIEG UND ZUSAMMENBRUCH" im englischen Video.
                     import texte
-                    ill = erklaergrafik.figur_frage(aus / f'ill_{i:02d}.jpg', figur, texte.ohne_schluss(t['text'], s),
-                                                    kopf_firma or t.get('werkzeug') or s.get('thema') or '',
-                                                    texte.kommentar_frage(s, kurz=True))
-                    quellen.append({'quelle': 'Illustration', 'seite': 'Originale Kanalfigur mit gesprochenem Aufruf'})
-                    print(f'Einstellung {i}: Aufruf mit Kanalfigur und Sprechblase (ohne Bildmodell)')
+                    punkte = []
+                    if kanalprofil(s).get('nur_quellen') and H > B:
+                        # Nutzer 30.10.2026: Spickzettel zum Abfotografieren beim "save"-Aufruf (Werkzeug-Kanaele)
+                        import spickzettel
+                        try:
+                            punkte = spickzettel.zeilen(s, aus / 'spickzettel.json')
+                        except Exception as e:  # Kuer - dann das bisherige Schlussbild
+                            print('Spickzettel nicht moeglich:', type(e).__name__, str(e)[:120])
+                    if len(punkte) >= 2:
+                        ill = spickzettel.bild(aus / f'ill_{i:02d}.jpg', figur,
+                                               t.get('werkzeug') or kopf_firma or s.get('thema') or '', punkte,
+                                               spickzettel.quelle(s), texte.kommentar_frage(s, kurz=True))
+                        quellen.append({'quelle': 'Illustration', 'seite': 'Originale Kanalfigur mit Spickzettel '
+                                        '(Kurzfassung des gesprochenen Textes)'})
+                        print(f'Einstellung {i}: Aufruf mit Spickzettel ({len(punkte)} Zeilen)')
+                    else:
+                        ill = erklaergrafik.figur_frage(aus / f'ill_{i:02d}.jpg', figur, texte.ohne_schluss(t['text'], s),
+                                                        kopf_firma or t.get('werkzeug') or s.get('thema') or '',
+                                                        texte.kommentar_frage(s, kurz=True))
+                        quellen.append({'quelle': 'Illustration', 'seite': 'Originale Kanalfigur mit gesprochenem Aufruf'})
+                        print(f'Einstellung {i}: Aufruf mit Kanalfigur und Sprechblase (ohne Bildmodell)')
             archiv_video = clip_note = None
             # Nutzerentscheidung 29.10.2026: allgemeine Szenen als Clip (Archiv bis 1975, Pixabay ab 1995), gemalt
             clips_an = kanalprofil(s).get('archivclips') or kanalprofil(s).get('stockclips')

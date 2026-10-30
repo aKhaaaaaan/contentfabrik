@@ -96,9 +96,14 @@ def url(kennung, name):
     return f'https://archive.org/download/{kennung}/{urllib.parse.quote(name)}'
 
 
+def eingang(adresse):
+    """ffmpeg-Eingabe; den User-Agent gibt es nur fuer Web-Adressen (lokale Commons-Kopie: "Option not found")."""
+    return (['-user_agent', KENNUNG['User-Agent']] if str(adresse).startswith('http') else []) + ['-i', str(adresse)]
+
+
 def standbild(adresse, sekunde):
-    r = subprocess.run(['ffmpeg', '-loglevel', 'error', '-ss', f'{sekunde:.1f}', '-user_agent', KENNUNG['User-Agent'],
-                        '-i', adresse, '-frames:v', '1', '-vf', 'scale=384:-2', '-f', 'mjpeg', '-'],
+    r = subprocess.run(['ffmpeg', '-loglevel', 'error', '-ss', f'{sekunde:.1f}', *eingang(adresse),
+                        '-frames:v', '1', '-vf', 'scale=384:-2', '-f', 'mjpeg', '-'],
                        capture_output=True, timeout=60)
     return r.stdout if r.returncode == 0 and r.stdout else None
 
@@ -154,6 +159,7 @@ def commons(begriff, anzahl=4):
         lizenz = ((ii.get('extmetadata') or {}).get('LicenseShortName') or {}).get('value', '')
         if COMMONS_LIZENZ.match(lizenz) and 3 <= float(ii.get('duration') or 0) <= COMMONS_MAX_S and ii.get('url'):
             treffer.append({'kennung': p['title'], 'adresse': ii['url'], 'sekunden': float(ii['duration']),
+                            'groesse': int(ii.get('size') or 0),
                             'lizenz': lizenz, 'seite': ii.get('descriptionurl', ''), 'quelle': 'Wikimedia Commons'})
     return treffer[:anzahl]
 
@@ -175,6 +181,39 @@ def kandidaten(begriff, j):
             print('Archivsuche nicht erreichbar:', type(e).__name__)
 
 
+COMMONS_HOLEN_MAX = 80_000_000
+
+
+def holen(film):
+    """Commons-Datei einmal herunterladen statt 7 Einzelabrufe (6 Standbilder + Schnitt).
+
+    GEMESSEN 30.10.2026 (Business Adidas 41048229773): Standbilder klappten, der Schnitt desselben Commons-Films
+    brach ab (CalledProcessError); lokal lief er durch - Ursache vermutlich Drosselung (429), nicht bewiesen."""
+    if film.get('quelle') != 'Wikimedia Commons':
+        return film
+    import hashlib
+    import tempfile
+    pfad = urllib.parse.urlparse(film['adresse']).path  # /wikipedia/commons/6/67/Name.webm
+    # Tullamaine-Film: Original 227 MB (4K) fuer 45 s. Commons bietet jede Datei auch als 480p-Fassung an.
+    klein = ('https://upload.wikimedia.org' + pfad.replace('/commons/', '/commons/transcoded/', 1)
+             + '/' + pfad.rsplit('/', 1)[1] + '.480p.vp9.webm')
+    for adresse in (klein, film['adresse'] if 0 < film.get('groesse', 0) <= COMMONS_HOLEN_MAX else None):
+        if not adresse:
+            continue
+        ziel = Path(tempfile.gettempdir()) / ('commons_' + hashlib.sha1(adresse.encode()).hexdigest()[:12] + '.webm')
+        try:
+            if not ziel.exists():
+                with urllib.request.urlopen(urllib.request.Request(adresse, headers=KENNUNG), timeout=120) as r:
+                    daten = r.read(COMMONS_HOLEN_MAX + 1)
+                if len(daten) > COMMONS_HOLEN_MAX:
+                    continue
+                ziel.write_bytes(daten)
+            return dict(film, adresse=str(ziel))
+        except OSError as e:
+            print('Commons-Datei nicht geladen:', type(e).__name__)
+    return film
+
+
 def finden(satz, szene, epoche, benutzt=(), suche=''):
     """{'kennung','adresse','sekunde','note','lizenz','seite','quelle'} oder None."""
     j = epoche if isinstance(epoche, int) else jahr(epoche)
@@ -188,6 +227,7 @@ def finden(satz, szene, epoche, benutzt=(), suche=''):
             if film['kennung'] in versucht:
                 continue
             versucht.add(film['kennung'])
+            film = holen(film)
             stellen = [film['sekunden'] * (k + 1) / (KANDIDATEN + 1) for k in range(KANDIDATEN)]
             bilder, gueltig = [], []
             for s in stellen:
@@ -206,7 +246,7 @@ def finden(satz, szene, epoche, benutzt=(), suche=''):
 
 def schneiden(fund, dauer, ziel):
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-ss', f"{max(0, fund['sekunde'] - 0.5):.1f}",
-                    '-user_agent', KENNUNG['User-Agent'], '-i', fund['adresse'],
+                    *eingang(fund['adresse']),
                     '-t', f'{dauer + 0.3:.2f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', str(ziel)],
                    check=True, timeout=180)
     return Path(ziel)

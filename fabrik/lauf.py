@@ -331,14 +331,26 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                 print(f'Trendthema statt frei gewaehltem Vorrat-Skript: {thema}')
                 if trend:
                     os.environ['CF_TRENDGRUND'] = trend['grund'][:300]
+            elif themen.nehmen(kanal):
+                # Entscheidung A (30.10.2026): Nutzerthema vor frei gewaehltem Vorrat; der Vorrat bleibt erhalten.
+                ersatz = themen.nehmen(kanal)
+                print(f'Kein offener Trend - Thema aus der Warteschlange statt freiem Vorrat-Skript: {ersatz}')
+                thema = ersatz
             else:
                 print('Kein offener YouTube-/Google-Trend - geprueftes frei gewaehltes Vorrat-Skript')
-            vorrat_thema = None if offen_trend else ''
+            vorrat_thema = None if offen_trend or thema else ''
     if not thema and vorrat_thema is None and not trend:
         # GEMELDET 09.10.2026: Themen muessen aus Google Trends/YouTube-Viralem kommen.
         # Der Trend-Check waehlt unter Warteschlange + Trendfirmen; '' = freie Trendwahl.
         import trendcheck
         thema, trend = trendcheck.waehlen(kanal, themen=themen)
+        if thema == '':
+            # Nutzer 30.10.2026 (Entscheidung A): ohne echtes Trendsignal zuerst das eigene Thema der Warteschlange -
+            # Nintendo/Adidas kamen frei gewaehlt, obwohl "Kongo Gumi" (1,0 Punkte < 1,5) wartete.
+            ersatz = themen.nehmen(kanal)
+            if ersatz:
+                print(f'Kein Trendsignal - Thema aus der Warteschlange: {ersatz}')
+                thema, trend = ersatz, None
         if thema and trendcheck.heute_gescheitert(kanal, thema) >= 2:
             # GEMESSEN 29.10.2026 (KI 40885084229, 40890125955): derselbe Trend ("Sell PDFs Made With Claude") lief
             # zweimal ins Skript-Zeitlimit - die Quellen trugen ihn nicht. Dann die Nutzerthemen der Warteschlange.

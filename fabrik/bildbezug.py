@@ -14,6 +14,7 @@ VERSION = '2026-10-15.1'
 # Video faelschlich als "nicht geprueft").
 GUELTIGE_VERSIONEN = {VERSION, '2026-10-13.1'}
 MINIMUM = 7
+VORGEPRUEFT_MAX = 4  # = bauen.ARCHIV_MAX
 GRUPPE = 1  # Ein Bild je Urteil: Lite vertauschte in der Liveprobe Bilder in Sechsergruppen.
 SCHEMA = {'type': 'OBJECT', 'properties': {'pruefung': {'type': 'ARRAY', 'items': {
     'type': 'OBJECT', 'properties': {
@@ -121,6 +122,11 @@ def pruefen(video, skript, ablauf, ziel):
     # ausnehmen statt eine Note zu erfinden; ausgenommene Indizes stehen im Ergebnis.
     ergebnis['ausgenommen'] = [x['index'] for x in slots if aufruf(x['phase_text'])]
     slots = [x for x in slots if x['index'] not in ergebnis['ausgenommen']]
+    # Nutzer 30.10.2026 (Mittelweg): Archivclips hat die Clipauswahl schon Standbild gegen Satz bewertet (>= 7/10).
+    # Der Schlusspruefer sah danach nur den gemalten Frame und lehnte echte Archivszenen erneut ab.
+    ergebnis['vorgeprueft'] = [x['index'] for x in slots
+                               if type(x.get('vorgeprueft')) is int and x['vorgeprueft'] >= MINIMUM][:VORGEPRUEFT_MAX]
+    slots = [x for x in slots if x['index'] not in ergebnis['vorgeprueft']]
     code = ki_speicher.hashwert(Path(__file__).read_text(encoding='utf-8'))
     key = ki_speicher.cache_key(VERSION + code + json.dumps(slots, sort_keys=True), SCHEMA, SEHEN, .1, 'bildbezug', sha)
     cached = ki_speicher.cache_lesen(key, SCHEMA, SEHEN)
@@ -236,7 +242,10 @@ def gruende(d, sha):
     aus = d.get('ausgenommen') or []
     if not isinstance(aus, list) or len(aus) > 3 or any(type(i) is not int for i in aus):
         return ['Bild-Text-Pruefung: ungueltige Ausnahmen']
-    return bewerten(d['pruefung'], [{'index': i} for i in range(n) if i not in aus])
+    vor = d.get('vorgeprueft') or []
+    if not isinstance(vor, list) or len(vor) > VORGEPRUEFT_MAX or any(type(i) is not int for i in vor):
+        return ['Bild-Text-Pruefung: ungueltige Vorpruefungen']
+    return bewerten(d['pruefung'], [{'index': i} for i in range(n) if i not in aus and i not in vor])
 
 
 def revision_gruende(sha):

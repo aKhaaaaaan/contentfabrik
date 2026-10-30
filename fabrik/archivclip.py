@@ -441,7 +441,8 @@ def fuer_einstellung(satz, szene, suche, dauer, basis, archiv=True, ohne_epoche=
                 if benutzt is not None:
                     benutzt.add(fund['kennung'])
                 return video, bild, {'quelle': f"{fund['quelle']}, {fund['lizenz']}", 'seite': fund['seite'],
-                                     'lizenz': fund['lizenz'], 'nennung': 'Archival footage, colorized and painted'}
+                                     'lizenz': fund['lizenz'], 'nennung': 'Archival footage, colorized and painted',
+                                     'note': fund['note']}
     # 30.10.2026, Nutzer: "nicht nur Karten freimachen - wir brauchen was generell". Archive haben fuer die meisten
     # Saetze nichts (Nintendo/Intel: Note 0-6). Pixabay hat viel mehr; die KI-Auswahl bekommt die Epoche und lehnt
     # alles Moderne ab, der Schlusspruefer kontrolliert die Epoche ebenfalls. Ohne Jahr (unklar) bleibt es gemalt.

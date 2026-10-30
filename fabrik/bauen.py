@@ -1907,7 +1907,8 @@ def main(skript_pfad, aus, vorlage=None):
                 zustand['stuecke'][str(i)] = alt
                 bildablauf['einstellungen'].append(dict(shot, teil=None,
                     material_id=alt.get('material_id'), material_art=alt.get('material_art'),
-                    logo=bool(alt.get('logo')), fest=bool(alt.get('fest')), reaktion=bool(alt.get('reaktion'))))
+                    logo=bool(alt.get('logo')), fest=bool(alt.get('fest')), reaktion=bool(alt.get('reaktion')),
+                    vorgeprueft=alt.get('vorgeprueft')))
                 zeiten['stuecke_wiederverwendet'] += 1
                 # GEMESSEN 09.10.2026 (Aurelio, Nutzer 6/10): Jeder Neuversuch des Baus begann wieder
                 # bei 0 Ersatzbildern; aus dem Cache uebernommene Ersatzbilder zaehlten nicht. Ergebnis:
@@ -1928,11 +1929,12 @@ def main(skript_pfad, aus, vorlage=None):
                     'fotos': sorted(benutzte_fotos - fotos0),
                     'material_id': material_hash, 'material_art': material_art,
                     'ersatz': bild_ersatz > ersatz0, 'logo': bool(logo), 'reaktion': i in reaktion_bilder,
-                    'toleranz': bildablauf.get('motiv_toleranz', 0) > toleranz0, 'fest': fest}
+                    'toleranz': bildablauf.get('motiv_toleranz', 0) > toleranz0, 'fest': fest,
+                    'vorgeprueft': clip_note}
                 # Der Schlusspruefer muss unser eigenes Abschnittslogo vom Bildinhalt unterscheiden koennen.
                 bildablauf['einstellungen'].append(dict(shot, teil=None,
                     material_id=material_hash, material_art=material_art, logo=bool(logo), fest=fest,
-                    reaktion=i in reaktion_bilder))
+                    reaktion=i in reaktion_bilder, vorgeprueft=clip_note))
                 (aus / 'bildablauf.json').write_text(json.dumps(bildablauf, indent=2), encoding='utf-8')
                 rendercache.speichern(aus, zustand)
             stueck = aus / f'stueck_{i:02d}.mp4'
@@ -2104,7 +2106,7 @@ def main(skript_pfad, aus, vorlage=None):
                                                     texte.kommentar_frage(s, kurz=True))
                     quellen.append({'quelle': 'Illustration', 'seite': 'Originale Kanalfigur mit gesprochenem Aufruf'})
                     print(f'Einstellung {i}: Aufruf mit Kanalfigur und Sprechblase (ohne Bildmodell)')
-            archiv_video = None
+            archiv_video = clip_note = None
             # Nutzerentscheidung 29.10.2026: allgemeine Szenen als Clip (Archiv bis 1975, Pixabay ab 1995), gemalt
             clips_an = kanalprofil(s).get('archivclips') or kanalprofil(s).get('stockclips')
             if clips_an and H > B and modus in ('auto', 'illustration', 'foto') and not karte and not foto \
@@ -2121,6 +2123,9 @@ def main(skript_pfad, aus, vorlage=None):
                     if archiv_video:
                         archiv_zahl, archiv_letzt = archiv_zahl + 1, i
                         quellen.append(q_clip)
+                        # Nutzer 30.10.2026 (Mittelweg): die Archivauswahl hat dieses Standbild schon mit dem Satz
+                        # verglichen (>= 7/10) - der Schlusspruefer urteilt darueber nicht ein zweites Mal.
+                        clip_note = q_clip.get('note')
                         print(f"Einstellung {i}: Clip ({q_clip['quelle']}) gemalt")
                 except Exception as e:  # Clips sind Kuer - dann wie bisher gemalt
                     print(f'Einstellung {i}: Clip nicht moeglich ({type(e).__name__}) - gemalte Szene')

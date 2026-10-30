@@ -134,6 +134,13 @@ def skript(kanal, thema, frueher, blick, woerter):
                     'Make it felt: open on a relatable person-level frustration, let the viewer '
                     'feel the moment it clicks, and land on genuine excitement about what they can '
                     'now do - human stakes, not a feature list; stay factual. '
+                    # GEMESSEN 30.10.2026 (KI 41093721999): alle 4 Screenshots der Quellseite bestanden, alle 5 Bilder
+                    # zu Saetzen ohne Absatz in der Quelle ("like a colleague who knows your brand") 2/10. Nutzer:
+                    # Empfehlung A - jeder Satz zeigbar; Vergleiche nur im Einstieg.
+                    'After the first two sentences, every sentence must point at something visible on the tool\'s '
+                    'own source page - a named button, setting, menu, plan, price, limit or table row - using the '
+                    'page\'s own words, so it can be shown as a screenshot of that passage. Comparisons and '
+                    'metaphors only in the first two sentences. '
                     # 09.10.2026: Finanz-Werkzeuge werden bevorzugt (trends.schwerpunkt) - ein Kanal
                     # darf keine Anlage-/Steuerberatung geben (Haftung, YouTube-Regeln zu Finanzinhalten).
                     'If the tool touches money, investing, taxes or accounting: describe what the tool '

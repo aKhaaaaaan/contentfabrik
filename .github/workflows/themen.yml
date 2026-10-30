@@ -152,6 +152,14 @@ jobs:
           [ -n "$TIKTOK_CLIENT_KEY" ] && [ -n "$TIKTOK_CLIENT_SECRET" ] && [ -n "$TIKTOK_TOKENS" ] || exit 0
           python3 -m pip install -q cryptography==50.0.2
           python3 fabrik/erfolg.py tiktok
+      - name: Wochenbericht Publikum (montags, Telegram)
+        # 30.10.2026: Massstab ist das Publikum - die Zahlen oben bekam bisher niemand zu sehen.
+        if: steps.erfolg.outputs.abruf == '1'
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 fabrik/wochenbericht.py
       - uses: actions/cache/save@v4
         if: always() && hashFiles('tiktok-token-cache/**') != ''
         with:

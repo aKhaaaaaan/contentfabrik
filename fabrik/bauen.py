@@ -2163,6 +2163,11 @@ def main(skript_pfad, aus, vorlage=None):
                                               t.get('figur', i == 0 or letzt), i == 0 or letzt,
                                               dramaturgie.videoformat(s), szene_zuerst=not letzt,
                                               satz='' if letzt else t['text'])
+                if i == 0 and ill and H > B:
+                    # GEMESSEN 30.10.2026 (Adidas 41048229773): das als Gefuehls-Gesicht bestellte Hookbild fiel in
+                    # jeder Runde mit 3-4/10 durch ("zeigt keine Schuhe") - nur der Rettungsweg war als
+                    # Reaktionsbild markiert. Gleiche Bestellung, gleicher Massstab: Gefuehl zum gesprochenen Hook.
+                    reaktion_bilder.add(i)
                 if not ill and not illustration.KONTINGENT_LEER.exists():
                     # GEMESSEN 09.10.2026 (Langvideo Netflix, 94 Einstellungen): 3 Bauabbrueche, weil
                     # Bilder scheiterten - meist Cloudflare „output flagged" (Zufall) oder Figur-Pose.

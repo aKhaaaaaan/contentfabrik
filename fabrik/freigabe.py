@@ -266,7 +266,9 @@ def senden(skript_pfad, video_pfad):
         telegram('sendMessage', {'chat_id': chat, 'text':
                  '📱 TikTok-Text ist laenger als 2.200 Zeichen. Titel/Hashtags vor dem Posten kuerzen; '
                  'Quellen- und Lizenzangaben vollstaendig erhalten. KI-generierte Inhalte einschalten.'})
-    kopieren_senden(chat, 'TikTok (KI-generierte Inhalte einschalten)', tiktok)
+    # 30.10.2026: Trend-Sounds kann die Schnittstelle nicht setzen - in der App leise darunterlegen (10 s Arbeit).
+    kopieren_senden(chat, 'TikTok (KI-generierte Inhalte einschalten; in der App einen Trend-Sound ganz leise '
+                          'darunterlegen, Stimme muss klar bleiben)', tiktok)
     if trend_passend or trend_weitere:
         def zeile(liste):
             return ' '.join(f'#{tag} ({videos})' for tag, videos, *_ in liste)

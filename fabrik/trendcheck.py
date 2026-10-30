@@ -412,16 +412,98 @@ def entscheiden(bewertet):
     # 21.10.2026 Nutzer: „immer der Trend aus YouTube oder Google im Fokus" (alle Kanaele) - ohne solches
     # Signal nur eigene Telegram-Themen oder die bewaehrte Titelvorlage; sonst freie Wahl.
     for beste in bewertet:
-        if not beste.get('thema') or beste['punkte'] - (BONUS_EIGEN if beste['eigen'] else 0) < SCHWELLE:
-            continue
-        if not (beste['eigen'] or beste.get('vorlage') or stufe(beste) <= 1):
-            continue
-        if not beste['eigen'] and _wiederholung(beste.get('_kanal', ''), beste['thema']):
-            continue
-        if zu_unbekannt(beste):
-            continue
-        return beste['thema'], beschreibung(beste)
+        if _akzeptiert(beste):
+            return beste['thema'], beschreibung(beste)
     return '', 'kein Kandidat mit echtem Trendsignal - freie Trendwahl'
+
+
+def _akzeptiert(k):
+    if not k.get('thema') or k['punkte'] - (BONUS_EIGEN if k['eigen'] else 0) < SCHWELLE:
+        return False
+    if not (k['eigen'] or k.get('vorlage') or stufe(k) <= 1):
+        return False
+    if not k['eigen'] and _wiederholung(k.get('_kanal', ''), k['thema']):
+        return False
+    return not zu_unbekannt(k)
+
+
+# Nutzer 30.10.2026: "Claude auch die Themenauswahl - ohne viel Token, drei Tage Vorrat". Die Regeln liefern die
+# geprueften Kandidaten (Trendsignal, Bekanntheit, keine Wiederholung); Claude ordnet sie EINMAL fuer drei Tage nach
+# Geschichte (BMW-Toepfe 728 TikTok-Aufrufe, Walmart-Start 254 - beide Trend, die Formel sah keinen Unterschied).
+PLAN = Path('verlauf/themenplan')
+PLAN_TAGE = 3
+KURZLISTE = 8
+PLAN_SCHEMA = {'type': 'OBJECT', 'properties': {'reihenfolge': {'type': 'ARRAY', 'items': {'type': 'STRING'}},
+                                                'begruendung': {'type': 'STRING'}},
+               'required': ['reihenfolge', 'begruendung']}
+
+
+def _publikum(kanal, n=4):
+    """Kurz: staerkste und schwaechste TikTok-Themen des Kanals (echte Aufrufe) als Massstab fuer Claude."""
+    try:
+        tt = list((json.loads((Path('erfolg') / f'{kanal}.json').read_text(encoding='utf-8')).get('tiktok') or {}).values())
+    except (OSError, ValueError, AttributeError):
+        return ''
+    tt = sorted((v for v in tt if isinstance(v.get('aufrufe'), int) and v.get('titel')), key=lambda v: -v['aufrufe'])
+    if len(tt) < 2 * n:
+        return ''
+    def zeile(vs):
+        return '; '.join(f"{v['titel'][:60]} ({v['aufrufe']})" for v in vs)
+    return f'OUR REAL TIKTOK RESULTS - strongest: {zeile(tt[:n])}. Weakest: {zeile(tt[-n:])}.\n'
+
+
+def plan_auftrag(kanal, kurz):
+    import prompts
+    liste = '\n'.join(f"- {k['thema']} ({beschreibung(k)[:140]}"
+                      + (f"; Wikipedia {k['bekannt']} views/day" if type(k.get('bekannt')) is int else '')
+                      + ('; the owner asked for it' if k.get('eigen') else '') + ')' for k in kurz)
+    return (prompts.DATEN + f'TASK: You are the editor of the short-video channel "{_profil(kanal).get("name", kanal)}". '
+            f'Order up to {PLAN_TAGE} topics from this checked list for the next {PLAN_TAGE} days, best first. Pick '
+            'topics that make viewers stop scrolling: a world-famous name with a surprising, little-known story people '
+            'repeat to friends. Avoid topics whose only story is current corporate news. Use ONLY exact topic names '
+            'from the list.\n' + _publikum(kanal) + 'CANDIDATES:\n' + liste)
+
+
+def redaktion(kanal, bewertet, heute, ki=None):
+    """(thema, grund) aus dem Drei-Tage-Plan oder None (dann entscheidet die Formel wie bisher).
+    Claude wird hoechstens alle PLAN_TAGE gefragt und nie, wenn es weniger als zwei Kandidaten gibt."""
+    kurz = [k for k in bewertet if _akzeptiert(k)][:KURZLISTE]
+    nach_thema = {k['thema']: k for k in kurz}
+    pfad = PLAN / f'{kanal}.json'
+    try:
+        plan = json.loads(pfad.read_text(encoding='utf-8'))
+        if not 0 <= (heute - datetime.date.fromisoformat(plan['erstellt'])).days < PLAN_TAGE:
+            plan = None
+    except (OSError, ValueError, KeyError, TypeError):
+        plan = None
+    offen = [t for t in (plan or {}).get('reihenfolge', []) if t in nach_thema]
+    if plan and not offen:
+        return None  # Plan aufgebraucht/nicht mehr im Trend: bis zum Ablauf die Formel, keine neue Anfrage
+    if not offen:
+        if len(kurz) < 2:
+            return None
+        if ki is None:
+            import claude_ki
+            if not claude_ki.verfuegbar():
+                return None
+            ki = lambda auftrag: claude_ki.schreiben(auftrag, PLAN_SCHEMA, zeit=120)[0]
+        try:
+            antwort = ki(plan_auftrag(kanal, kurz)) or {}
+        except Exception as e:  # nie den Tageslauf an der Redaktion scheitern lassen
+            print('Claude-Themenplan nicht moeglich:', type(e).__name__, str(e)[:120])
+            return None
+        reihenfolge = list(dict.fromkeys(t for t in antwort.get('reihenfolge') or [] if t in nach_thema))[:PLAN_TAGE]
+        if not reihenfolge:
+            print('Claude-Themenplan ohne gueltiges Thema - Formel entscheidet')
+            return None
+        plan = {'erstellt': heute.isoformat(), 'reihenfolge': reihenfolge,
+                'begruendung': str(antwort.get('begruendung', ''))[:400]}
+        PLAN.mkdir(parents=True, exist_ok=True)
+        pfad.write_text(json.dumps(plan, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+        print('Claude-Themenplan:', reihenfolge, '-', plan['begruendung'][:200])
+        offen = reihenfolge
+    k = nach_thema[offen[0]]
+    return k['thema'], f"Claude-Redaktion (Plan vom {plan['erstellt']}): {beschreibung(k)}"
 
 
 def _wiederholung(kanal, thema):
@@ -546,6 +628,8 @@ def waehlen(kanal, heute=None, themen=None, neu=False):
         for x in bewertet:
             x['_kanal'] = kanal
         thema, grund = entscheiden(bewertet)
+        if thema:
+            thema, grund = redaktion(kanal, bewertet, heute) or (thema, grund)
     except Exception as e:  # nie den Tageslauf am Trend-Check scheitern lassen
         print('Trend-Check fehlgeschlagen:', type(e).__name__, str(e)[:120])
         thema, grund, bewertet = None, 'Trend-Check fehlgeschlagen', []

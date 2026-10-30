@@ -75,11 +75,12 @@ def wiki_aufwind(titel, heute=None):
     return round(sum(werte[-2:]) / 2 / basis, 2)
 
 
-# GEMESSEN 30.10.2026 (TikTok Business, 28 Videos): alle Firmen unter ~1.000 Wikipedia-Aufrufen/Tag liefen schwach
-# (Moderna 260/Tag -> 243 Aufrufe, Squibb 344 -> 244, GE Vernova 779 -> 270, Verizon 917 -> 244); alle Videos mit
-# 700+ Aufrufen hatten bekannte Marken (Hugo Boss 1.021 bis Netflix 7.633/Tag). Gilt nur fuer Trendfirmen,
-# nie fuer eigene Themen des Nutzers.
-BEKANNT_MIN = 1000
+# GEMESSEN 30.10.2026 mit bekanntheit() selbst (TikTok Business, 28 Videos): alle Firmen unter 800 Wikipedia-
+# Aufrufen/Tag liefen schwach (Moderna 265 -> 243 Aufrufe, Squibb 275 -> 244, GE Vernova 666 -> 270, Verizon 722 ->
+# 244); die schwaechsten 700+-Videos lagen knapp darueber (Rolls-Royce 838, Hugo Boss 842, Rolex 941). Die zuerst
+# aus Monatswerten abgeleitete Grenze 1.000 haette genau diese drei aussortiert. Nur fuer Trendfirmen, nie fuer
+# eigene Themen des Nutzers.
+BEKANNT_MIN = 800
 
 
 def bekanntheit(titel, heute=None):

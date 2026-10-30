@@ -1034,7 +1034,10 @@ def main(kanal_pfad, aus_pfad, thema=None):
             # 60-s-Geschichte schreiben, ohne zu strecken - sofort naechstes Thema.
             # GEMESSEN 05.10.2026: Jollibee (2.555 Zeichen), Balaji Wafers (1.353) - aus so
             # duennen Artikeln fiel jede Fassung durch die Faktenpruefung, kein Video.
-            if q and len(q['text']) < (12000 if lang else 5000):
+            # GEMESSEN 30.10.2026 (Business 41093721999): Nutzerthema Kongo Gumi (3.473 Zeichen, gegruendet 578,
+            # Pleite 2006) fuenfmal "zu kurz", kein Video. Die 5.000 stammten aus 60-s-Shorts; heute 35-45 s
+            # (~100 Woerter). Die gescheiterten Quellen lagen bei 1.353/2.555 Zeichen - 3.000 bleibt darueber.
+            if q and len(q['text']) < (12000 if lang else 3000):
                 print(f"Quelle zu kurz ({len(q['text'])} Zeichen): {q['name']} - neues Thema")
                 q = None
             if not q:

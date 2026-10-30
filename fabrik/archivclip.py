@@ -16,7 +16,8 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-KENNUNG = {'User-Agent': 'contentfabrik/1.0 (public-domain archive clips)'}
+# 30.10.2026: Wikimedia antwortet ohne Kontaktangabe im User-Agent mit 429 (Richtlinie fuer Bots)
+KENNUNG = {'User-Agent': 'contentfabrik/1.0 (https://github.com/aKhaaaaaan/contentfabrik; public-domain archive clips)'}
 # Satz/Szene -> Archivsuche. Nur allgemeine, filmbare Szenen; Reihenfolge = Vorrang.
 SZENEN = [
     (r'\b(?:sewing|seamstress\w*|tailor\w*|garments?|textiles?|clothing)\b', 'sewing'),
@@ -124,38 +125,88 @@ def auswahl(bilder, satz, szene):
     return beste, int(d.get('note') or 0)
 
 
-def finden(satz, szene, epoche, benutzt=()):
-    """{'kennung','datei','sekunde','note','lizenz'} oder None."""
-    begriff, j = suchbegriff(satz, szene), epoche if isinstance(epoche, int) else jahr(epoche)
-    if not begriff or not j or j > JAHR_MAX:
-        return None
+# Nintendo 30.10.2026: Nutzer - "nur die paar Begriffe (Fabrik, Buero) sind zu wenig". GEMESSEN: Prelinger findet per
+# Freitext "gambling" 12, "Japan" 66 Filme; Wikimedia Commons hat kurze gemeinfreie Filme ("Playing Cards (1896)",
+# "Le Tripot clandestin (1905)"). Darum zuerst die Suchwoerter der Bildplanung (2-4 Woerter je Einstellung), dann die
+# festen Szenen; Quellen Prelinger und Commons. Die KI-Auswahl (MIN_NOTE) bleibt das Tor.
+VERSUCHE = 4  # Filme je Einstellung (je Film 6 Standbilder + eine KI-Anfrage)
+COMMONS_LIZENZ = re.compile(r'^(?:public domain|cc0|cc by \d)', re.I)  # ohne SA/NC/ND: gemaltes Video bleibt frei
+COMMONS_MAX_S = 1800
+
+
+def begriffe(satz, szene, suche=''):
+    """Suchbegriffe in Vorrang-Reihenfolge: Bildplan-Suchwoerter, deren erste zwei, feste Szene, Einzelwoerter."""
+    worte = re.findall(r"[A-Za-z][A-Za-z'-]+", str(suche or ''))[:4]
+    # GEMESSEN 30.10.: "gambling card players" 0 Treffer, "gambling" allein 12 (Prelinger) bzw. 4 (Commons)
+    liste = [' '.join(worte), ' '.join(worte[:2]), suchbegriff(satz, szene)] + [w for w in worte if len(w) >= 5]
+    return [b for i, b in enumerate(liste) if b and b not in liste[:i]]
+
+
+def commons(begriff, anzahl=4):
+    """Kurze Videos von Wikimedia Commons mit freier Lizenz ohne Weitergabepflicht."""
+    d = _json('https://commons.wikimedia.org/w/api.php?' + urllib.parse.urlencode(
+        {'action': 'query', 'format': 'json', 'generator': 'search', 'gsrsearch': f'{begriff} filetype:video',
+         'gsrnamespace': 6, 'gsrlimit': 10, 'prop': 'imageinfo', 'iiprop': 'url|extmetadata|size',
+         'iiextmetadatafilter': 'LicenseShortName'}))
+    treffer = []
+    for p in sorted((d.get('query') or {}).get('pages', {}).values(), key=lambda p: p.get('index', 0)):
+        ii = (p.get('imageinfo') or [{}])[0]
+        lizenz = ((ii.get('extmetadata') or {}).get('LicenseShortName') or {}).get('value', '')
+        if COMMONS_LIZENZ.match(lizenz) and 3 <= float(ii.get('duration') or 0) <= COMMONS_MAX_S and ii.get('url'):
+            treffer.append({'kennung': p['title'], 'adresse': ii['url'], 'sekunden': float(ii['duration']),
+                            'lizenz': lizenz, 'seite': ii.get('descriptionurl', ''), 'quelle': 'Wikimedia Commons'})
+    return treffer[:anzahl]
+
+
+def prelinger(begriff, j):
     for kennung in filme(begriff, j):
-        if kennung in benutzt:
-            continue
         info = datei(kennung)
-        if not info:
-            continue
-        name, sekunden, lizenz = info
-        stellen = [sekunden * (k + 1) / (KANDIDATEN + 1) for k in range(KANDIDATEN)]
-        bilder, gueltig = [], []
-        for s in stellen:
-            b = standbild(url(kennung, name), s)
-            if b:
-                bilder.append(b)
-                gueltig.append(s)
-        if len(bilder) < 2:
-            continue
-        index, note = auswahl(bilder, satz, szene)
-        print(f'Archivclip {kennung} ({begriff}, ~{j}): Note {note}')
-        if index is not None and note >= MIN_NOTE:
-            return {'kennung': kennung, 'datei': name, 'sekunde': gueltig[index], 'note': note, 'lizenz': lizenz,
-                    'seite': f'https://archive.org/details/{kennung}'}
+        if info:
+            name, sekunden, lizenz = info
+            yield {'kennung': kennung, 'adresse': url(kennung, name), 'sekunden': sekunden, 'lizenz': lizenz,
+                   'seite': f'https://archive.org/details/{kennung}', 'quelle': 'Internet Archive (Prelinger)'}
+
+
+def kandidaten(begriff, j):
+    for quelle in (lambda: prelinger(begriff, j), lambda: commons(begriff)):
+        try:
+            yield from quelle()
+        except Exception as e:  # eine Quelle offline -> die andere
+            print('Archivsuche nicht erreichbar:', type(e).__name__)
+
+
+def finden(satz, szene, epoche, benutzt=(), suche=''):
+    """{'kennung','adresse','sekunde','note','lizenz','seite','quelle'} oder None."""
+    j = epoche if isinstance(epoche, int) else jahr(epoche)
+    if not j or j > JAHR_MAX:
+        return None
+    versucht = set(benutzt)
+    for begriff in begriffe(satz, szene, suche):
+        for film in kandidaten(begriff, j):
+            if len(versucht) - len(set(benutzt)) >= VERSUCHE:
+                return None
+            if film['kennung'] in versucht:
+                continue
+            versucht.add(film['kennung'])
+            stellen = [film['sekunden'] * (k + 1) / (KANDIDATEN + 1) for k in range(KANDIDATEN)]
+            bilder, gueltig = [], []
+            for s in stellen:
+                b = standbild(film['adresse'], s)
+                if b:
+                    bilder.append(b)
+                    gueltig.append(s)
+            if len(bilder) < 2:
+                continue
+            index, note = auswahl(bilder, satz, szene)
+            print(f"Archivclip {film['kennung'][:40]} ({begriff}, ~{j}): Note {note}")
+            if index is not None and note >= MIN_NOTE:
+                return dict(film, sekunde=gueltig[index], note=note)
     return None
 
 
 def schneiden(fund, dauer, ziel):
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-ss', f"{max(0, fund['sekunde'] - 0.5):.1f}",
-                    '-user_agent', KENNUNG['User-Agent'], '-i', url(fund['kennung'], fund['datei']),
+                    '-user_agent', KENNUNG['User-Agent'], '-i', fund['adresse'],
                     '-t', f'{dauer + 0.3:.2f}', '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', str(ziel)],
                    check=True, timeout=180)
     return Path(ziel)
@@ -309,32 +360,51 @@ def zuschneiden(pfad, dauer, ziel):
     return Path(ziel)
 
 
+def epochen_hinweis(j):
+    """Zusatz fuer die Clip-Auswahl, wenn Stock-Material eine historische Szene zeigen soll."""
+    return (f' [Story set in {j}: choose only footage where nothing visible postdates {j} - no smartphones, screens, '
+            'modern cars, modern clothing or modern buildings. Close-ups of hands, nature, fire, water or timeless '
+            'objects are fine. If none qualifies, nummer=-1.]')
+
+
 def fuer_einstellung(satz, szene, suche, dauer, basis, archiv=True, ohne_epoche=False, pixabay=None, benutzt=None,
                      geschichte=None):
-    """(Video, Standbild, Quelle) fuer eine Einstellung oder (None, None, None) -> gemaltes Bild."""
+    """(Video, Standbild, Quelle) fuer eine Einstellung oder (None, None, None) -> gemaltes Bild.
+
+    pixabay(suchwoerter, zusatz) - zusatz haengt die Epochenregel an den Satz fuer die KI-Auswahl."""
     basis = Path(basis)
     modern = epoche_modern(szene, ohne_epoche, geschichte)
-    bauteil = None if modern else zeitlos(satz, szene, suche)
-    if (modern or bauteil) and pixabay:
-        pfad, quelle = pixabay(bauteil or suche or suchbegriff(satz, szene))
+    j = None if modern else szenen_jahr(szene, geschichte)
+    hinweis = epochen_hinweis(j) if j else ''
+
+    def stock(begriff, zusatz=''):
+        pfad, quelle = pixabay(begriff, zusatz)
         if not pfad:
             return None, None, None
         roh = zuschneiden(pfad, dauer, basis.with_name(basis.name + '_roh.mp4'))
         video, bild = farbe(roh, basis.with_suffix('.mp4'), basis.with_suffix('.jpg'))
         return (video, bild, dict(quelle, nennung='Stock footage, painted')) if video else (None, None, None)
+
+    if modern and pixabay:
+        return stock(suche or suchbegriff(satz, szene))
+    bauteil = zeitlos(satz, szene, suche)
+    if bauteil and pixabay:
+        ergebnis = stock(bauteil, hinweis)
+        if ergebnis[0]:
+            return ergebnis
     if modern is None and archiv:
-        if not suchbegriff(satz, szene):
-            print(f'Kein Archivclip: keine allgemeine filmbare Szene in "{satz[:50]}"')
-            return None, None, None
-        fund = finden(satz, szene, szenen_jahr(szene, geschichte), benutzt or set())
-        if not fund:
-            return None, None, None
-        roh = schneiden(fund, dauer, basis.with_name(basis.name + '_roh.mp4'))
-        video, bild = farbe(roh, basis.with_suffix('.mp4'), basis.with_suffix('.jpg'))
-        if not video:
-            return None, None, None
-        if benutzt is not None:
-            benutzt.add(fund['kennung'])
-        return video, bild, {'quelle': 'Internet Archive (Prelinger, Public Domain)', 'seite': fund['seite'],
-                             'lizenz': fund['lizenz'], 'nennung': 'Archival footage, colorized and painted'}
+        fund = finden(satz, szene, j, benutzt or set(), suche) if begriffe(satz, szene, suche) else None
+        if fund:
+            roh = schneiden(fund, dauer, basis.with_name(basis.name + '_roh.mp4'))
+            video, bild = farbe(roh, basis.with_suffix('.mp4'), basis.with_suffix('.jpg'))
+            if video:
+                if benutzt is not None:
+                    benutzt.add(fund['kennung'])
+                return video, bild, {'quelle': f"{fund['quelle']}, {fund['lizenz']}", 'seite': fund['seite'],
+                                     'lizenz': fund['lizenz'], 'nennung': 'Archival footage, colorized and painted'}
+    # 30.10.2026, Nutzer: "nicht nur Karten freimachen - wir brauchen was generell". Archive haben fuer die meisten
+    # Saetze nichts (Nintendo/Intel: Note 0-6). Pixabay hat viel mehr; die KI-Auswahl bekommt die Epoche und lehnt
+    # alles Moderne ab, der Schlusspruefer kontrolliert die Epoche ebenfalls. Ohne Jahr (unklar) bleibt es gemalt.
+    if pixabay and hinweis and suche and not bauteil:
+        return stock(suche, hinweis)
     return None, None, None

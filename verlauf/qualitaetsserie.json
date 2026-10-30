@@ -116402,6 +116402,1578 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "41026135642.1:business-origin-stories",
+      "run_id": "41026135642",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-30T09:18:59.091746+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "4f04948ed5c2e2b17a20fb083f1f738355c9b901",
+      "produktionsversion": "d613db796ad08fc338eb46a45d8fd736702310741fb0cc3a5d9cc8fc46f4463d",
+      "videoformat": "short",
+      "thema": "Intel",
+      "titel": [
+        "Intel's Memory Trap",
+        "*Moore* Changed Course"
+      ],
+      "status": "gesendet",
+      "video_sha256": "38358c0b4582aff8c8d4ca876e2f007ba4a3be7f6f3f72c3913e3ad00a443ff9",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen besorgten Arbeiter in einem Lagerhaus, aber es gibt keinen visuellen Bezug zu Intel-Speicherchips oder finanziellen Verlusten.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit einem elektronischen Rechengerät, aber keinen Bezug zu Intels Speichermaschinen oder dem Speicherchip 1103.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann an einem Schreibtisch in einem geschäftigen Raum, aber keinen Speicherchip oder die Zahl 1103 als konkretes Objekt der genannten Art.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Wissenschaftler oder Arbeiter in Kitteln an einem Tisch, aber keinen Bezug zu japanischer Konkurrenz oder DRAM-Chips aus dem Jahr 1983.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter thematisieren die sinkende Profitabilität von DRAM-Speicherchips durch japanische Konkurrenz im Jahr 1983. Das Bild zeigt stattdessen einen Arbeiter, der Kartons bewegt, was keinen direkten Bezug zu Halbleitern oder wirtschaftlicher Rentabilität hat.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die gezeigte Szene stellt einen Mann an einem Computer dar, zeigt jedoch weder IBM noch die erwähnten Mikroprozessoren oder das Wachstum konkret.",
+        "Offenes Problem (schwer): Das Bild zeigt einen besorgten Arbeiter in einem Lagerhaus, aber es gibt keinen visuellen Bezug zu Intel-Speicherchips oder finanziellen Verlusten. Korrektur: Ein historisches Foto oder eine Grafik von Intel-Speicherchips wie dem 1103 oder ein Diagramm zu sinkenden Profiten.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Mann mit einem elektronischen Rechengerät, aber keinen Bezug zu Intels Speichermaschinen oder dem Speicherchip 1103. Korrektur: Eine historische Nahaufnahme des Intel 1103 Speicherchips oder zeitgenössische Dokumente dazu.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Mann an einem Schreibtisch in einem geschäftigen Raum, aber keinen Speicherchip oder die Zahl 1103 als konkretes Objekt der genannten Art. Korrektur: Eine Nahaufnahme des Intel 1103 Speicherchips oder historische Dokumente und Statistiken dazu.",
+        "Offenes Problem (schwer): Das Bild zeigt Wissenschaftler oder Arbeiter in Kitteln an einem Tisch, aber keinen Bezug zu japanischer Konkurrenz oder DRAM-Chips aus dem Jahr 1983. Korrektur: Ein historisches Foto oder eine Illustration von Speichermaschinen, Halbleiterfabriken oder Konkurrenzsituationen in der Halbleiterindustrie um 1983.",
+        "Offenes Problem (schwer): Die gesprochenen Wörter thematisieren die sinkende Profitabilität von DRAM-Speicherchips durch japanische Konkurrenz im Jahr 1983. Das Bild zeigt stattdessen einen Arbeiter, der Kartons bewegt, was keinen direkten Bezug zu Halbleitern oder wirtschaftlicher Rentabilität hat. Korrektur: Ein historisches Foto oder Diagramm, das den Verfall der Gewinnmargen von Speichermaschinen oder DRAM-Chips bei Intel im Jahr 1983 visualisiert.",
+        "Offenes Problem (schwer): Die gezeigte Szene stellt einen Mann an einem Computer dar, zeigt jedoch weder IBM noch die erwähnten Mikroprozessoren oder das Wachstum konkret. Korrektur: Ein historisches Bild eines IBM-PCs oder von frühen Intel-Microprozessoren."
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 13,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "41026135642",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-30",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 794.9,
+            "pruefung_s": 57.4,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen besorgten Mann, jedoch keinerlei Bezug zu Intel-Speicherchips oder finanziellen Verlusten.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Arbeiter in einer Gasse mit technischen Geräten, stellt aber nicht das historische Speicherchip-Geschäft oder die Identität von Intel dar.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar Männer in einem technischen Raum und ein Overlay mit der Zahl 1103, aber kein echter Mikrochip oder das konkrete Produkt wird gezeigt.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Passage erwähnt japanische Konkurrenz, die die Profitabilität von DRAM-Chips reduziert hat. Das Bild zeigt lediglich einen Arbeiter in einer Werkstatt und bebildert weder die japanische Konkurrenz noch DRAM-Chips oder sinkende Profitabilität.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen nachdenklichen Mann an einem Tisch, aber es ist keine geschäftliche Situation, keine sinkende Profitabilität oder ein Bezug zu DRAM-Chips erkennbar.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Mann in einem Büro mit einer Schreibmaschine und alten Computern, aber keinen Bezug zu IBM PCs oder Intel-Mikroprozessoren.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die historische Fabrikszene zeigt zwar industrielle Umgebung, aber nicht den konkreten Fokuswechsel von Speicherchips zu Mikroprozessoren durch Moore.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen besorgten Mann, jedoch keinerlei Bezug zu Intel-Speicherchips oder finanziellen Verlusten. Korrektur: Ein historisches Foto oder Diagramm des Intel-Speicherchips 1103 oder eine Darstellung von Marktdaten zu fallenden Gewinnen.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Arbeiter in einer Gasse mit technischen Geräten, stellt aber nicht das historische Speicherchip-Geschäft oder die Identität von Intel dar. Korrektur: Ein historisches Foto oder eine Illustration des Intel 1103 Speichers oder der Produktionsanlagen aus den 1970er Jahren.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar Männer in einem technischen Raum und ein Overlay mit der Zahl 1103, aber kein echter Mikrochip oder das konkrete Produkt wird gezeigt. Korrektur: Ein historisches Foto oder eine klare Darstellung des echten Intel 1103 Speichermoduls.",
+              "Offenes Problem (schwer): Die gesprochene Passage erwähnt japanische Konkurrenz, die die Profitabilität von DRAM-Chips reduziert hat. Das Bild zeigt lediglich einen Arbeiter in einer Werkstatt und bebildert weder die japanische Konkurrenz noch DRAM-Chips oder sinkende Profitabilität. Korrektur: Ein historisches Foto oder Diagramm, das japanische Halbleiterfabriken, DRAM-Chips oder sinkende Gewinnzahlen aus dem Jahr 1983 zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen nachdenklichen Mann an einem Tisch, aber es ist keine geschäftliche Situation, keine sinkende Profitabilität oder ein Bezug zu DRAM-Chips erkennbar. Korrektur: Eine Darstellung von Finanzgrafiken, die sinkende Gewinne im Chip-Bereich zeigen, oder historische Fabrik- und Marktszenen der Halbleiterindustrie.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann in einem Büro mit einer Schreibmaschine und alten Computern, aber keinen Bezug zu IBM PCs oder Intel-Mikroprozessoren. Korrektur: Eine historische Darstellung eines IBM PCs oder eines Intel-Mikroprozessors.",
+              "Offenes Problem (schwer): Die historische Fabrikszene zeigt zwar industrielle Umgebung, aber nicht den konkreten Fokuswechsel von Speicherchips zu Mikroprozessoren durch Moore. Korrektur: Ein historisches Foto oder eine Illustration, die Gordon Moore oder Intel-Entwickler bei der Umstellung der Produktion auf Mikroprozessoren zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Fenrir",
+              "stimme": 12.2,
+              "zeitmarken": 4.7,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "bilder_vereinfacht": 4,
+              "clips_und_stuecke": 495.6,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 12,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 56.2,
+              "gesamt": 794.5,
+              "videolaenge_s": 44.7,
+              "abschnitte_s": [
+                7.2,
+                7.48,
+                6.12,
+                6.18,
+                5.52,
+                7.48,
+                4.74
+              ],
+              "woerter": 100
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:04.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Intel's memory chips were bleeding profit.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich einen besorgten Mann, jedoch keinerlei Bezug zu Intel-Speicherchips oder finanziellen Verlusten. Korrektur: Ein historisches Foto oder Diagramm des Intel-Speicherchips 1103 oder eine Darstellung von Marktdaten zu fallenden Gewinnen."
+              },
+              {
+                "zeit": "00:07.20",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Memory was Intel's identity.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Arbeiter in einer Gasse mit technischen Geräten, stellt aber nicht das historische Speicherchip-Geschäft oder die Identität von Intel dar. Korrektur: Ein historisches Foto oder eine Illustration des Intel 1103 Speichers oder der Produktionsanlagen aus den 1970er Jahren."
+              },
+              {
+                "zeit": "00:09.42",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Its 1103 was the world's bestselling memory chip by 1972.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar Männer in einem technischen Raum und ein Overlay mit der Zahl 1103, aber kein echter Mikrochip oder das konkrete Produkt wird gezeigt. Korrektur: Ein historisches Foto oder eine klare Darstellung des echten Intel 1103 Speichermoduls."
+              },
+              {
+                "zeit": "00:14.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "By 1983, Japanese competition had dramatically",
+                "fest": false,
+                "text": "Die gesprochene Passage erwähnt japanische Konkurrenz, die die Profitabilität von DRAM-Chips reduziert hat. Das Bild zeigt lediglich einen Arbeiter in einer Werkstatt und bebildert weder die japanische Konkurrenz noch DRAM-Chips oder sinkende Profitabilität. Korrektur: Ein historisches Foto oder Diagramm, das japanische Halbleiterfabriken, DRAM-Chips oder sinkende Gewinnzahlen aus dem Jahr 1983 zeigt."
+              },
+              {
+                "zeit": "00:17.74",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "reduced the profitability of those DRAM chips.",
+                "fest": false,
+                "text": "Das Bild zeigt einen nachdenklichen Mann an einem Tisch, aber es ist keine geschäftliche Situation, keine sinkende Profitabilität oder ein Bezug zu DRAM-Chips erkennbar. Korrektur: Eine Darstellung von Finanzgrafiken, die sinkende Gewinne im Chip-Bereich zeigen, oder historische Fabrik- und Marktszenen der Halbleiterindustrie."
+              },
+              {
+                "zeit": "00:22.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "IBM's PC, built on Intel's microprocessor, kept growing.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann in einem Büro mit einer Schreibmaschine und alten Computern, aber keinen Bezug zu IBM PCs oder Intel-Mikroprozessoren. Korrektur: Eine historische Darstellung eines IBM PCs oder eines Intel-Mikroprozessors."
+              },
+              {
+                "zeit": "00:26.98",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "That growth helped convince Moore to shift Intel's focus from memory to microprocessors.",
+                "fest": false,
+                "text": "Die historische Fabrikszene zeigt zwar industrielle Umgebung, aber nicht den konkreten Fokuswechsel von Speicherchips zu Mikroprozessoren durch Moore. Korrektur: Ein historisches Foto oder eine Illustration, die Gordon Moore oder Intel-Entwickler bei der Umstellung der Produktion auf Mikroprozessoren zeigt."
+              }
+            ],
+            "sekunden": 852.3,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 14.6,
+            "bau_s": 630.7,
+            "pruefung_s": 137.6,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt keine verlustbringenden Speicherchips oder den wirtschaftlichen Niedergang der Speicherchip-Sparte von Intel.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Worte thematisieren die Identität von Intel durch Speicherchips (Memory), während das Bild einen Techniker mit einer Prozessor-Platine zeigt, was thematisch nicht genau übereinstimmt.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (6/10): Das Bild zeigt zwar die Zahl 1103 und gestapelte Kisten als Illustration für Speicherchips, aber das gezeichnete historische Straßenszenario ist zu abstrakt und zeigt keinen echten Mikrochip.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt ein generisches Büro mit Computern, aber keinen Bezug zu japanischer Konkurrenz oder DRAM-Chips.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das bild zeigt einen handwerker oder arbeiter in einer stadt, aber keine hinweise auf dram-chips, japanische konkurrenz oder sinkende profitabilitaet.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (4/10): Die gesprochene Zeile erwähnt den IBM PC und Intel-Mikroprozessoren, zu sehen ist jedoch nur eine allgemeine Fabrikzene mit einem alten Auto, aber kein konkreter IBM PC.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen fiktiven Mann in einem Raum, der nicht die Geschäftsentscheidung von Gordon Moore oder den Wechsel von Speicherchips zu Mikroprozessoren darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt keine verlustbringenden Speicherchips oder den wirtschaftlichen Niedergang der Speicherchip-Sparte von Intel. Korrektur: Historische Fotos oder Diagramme, die den Rückgang der Intel-Speicherchip-Verkäufe oder die entsprechenden DRAM-Chips zeigen.",
+              "Offenes Problem (schwer): Die gesprochenen Worte thematisieren die Identität von Intel durch Speicherchips (Memory), während das Bild einen Techniker mit einer Prozessor-Platine zeigt, was thematisch nicht genau übereinstimmt. Korrektur: Ein historisches Foto oder eine Darstellung des Intel 1103 Speicherchips.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar die Zahl 1103 und gestapelte Kisten als Illustration für Speicherchips, aber das gezeichnete historische Straßenszenario ist zu abstrakt und zeigt keinen echten Mikrochip. Korrektur: Ein historisches Foto oder ein detailgetreues Diagramm des tatsächlichen Intel 1103 Speicherchips.",
+              "Offenes Problem (schwer): Die Szene zeigt ein generisches Büro mit Computern, aber keinen Bezug zu japanischer Konkurrenz oder DRAM-Chips. Korrektur: Eine historische Grafik oder ein Archivbild, das japanische Elektronikproduktion oder die Marktsituation bei DRAM-Chips in den 1980er Jahren darstellt.",
+              "Offenes Problem (schwer): Das bild zeigt einen handwerker oder arbeiter in einer stadt, aber keine hinweise auf dram-chips, japanische konkurrenz oder sinkende profitabilitaet. Korrektur: Eine historische grafik oder szene, die den wettbewerb auf dem speicherchip-markt oder sinkende gewinne von dram-chips zeigt.",
+              "Offenes Problem (schwer): Die gesprochene Zeile erwähnt den IBM PC und Intel-Mikroprozessoren, zu sehen ist jedoch nur eine allgemeine Fabrikzene mit einem alten Auto, aber kein konkreter IBM PC. Korrektur: Ein zeitgenössischer IBM PC in einer Arbeitsumgebung.",
+              "Offenes Problem (schwer): Das Bild zeigt einen fiktiven Mann in einem Raum, der nicht die Geschäftsentscheidung von Gordon Moore oder den Wechsel von Speicherchips zu Mikroprozessoren darstellt. Korrektur: Eine historische Darstellung von Gordon Moore im Intel-Büro oder eine grafische Illustration des Übergangs von Speicherchips zu Mikroprozessoren."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 6,
+              "stuecke_neu": 7,
+              "bilder_vereinfacht": 3,
+              "clips_und_stuecke": 504.6,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 12,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 55.3,
+              "gesamt": 630.4,
+              "videolaenge_s": 44.7,
+              "abschnitte_s": [
+                7.2,
+                7.48,
+                6.12,
+                6.18,
+                5.52,
+                7.48,
+                4.74
+              ],
+              "woerter": 100
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:04.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Intel's memory chips were bleeding profit.",
+                "fest": false,
+                "text": "Das Bild zeigt keine verlustbringenden Speicherchips oder den wirtschaftlichen Niedergang der Speicherchip-Sparte von Intel. Korrektur: Historische Fotos oder Diagramme, die den Rückgang der Intel-Speicherchip-Verkäufe oder die entsprechenden DRAM-Chips zeigen."
+              },
+              {
+                "zeit": "00:07.20",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Memory was Intel's identity.",
+                "fest": false,
+                "text": "Die gesprochenen Worte thematisieren die Identität von Intel durch Speicherchips (Memory), während das Bild einen Techniker mit einer Prozessor-Platine zeigt, was thematisch nicht genau übereinstimmt. Korrektur: Ein historisches Foto oder eine Darstellung des Intel 1103 Speicherchips."
+              },
+              {
+                "zeit": "00:09.42",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Its 1103 was the world's bestselling memory chip by 1972.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar die Zahl 1103 und gestapelte Kisten als Illustration für Speicherchips, aber das gezeichnete historische Straßenszenario ist zu abstrakt und zeigt keinen echten Mikrochip. Korrektur: Ein historisches Foto oder ein detailgetreues Diagramm des tatsächlichen Intel 1103 Speicherchips."
+              },
+              {
+                "zeit": "00:14.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "By 1983, Japanese competition had dramatically",
+                "fest": false,
+                "text": "Die Szene zeigt ein generisches Büro mit Computern, aber keinen Bezug zu japanischer Konkurrenz oder DRAM-Chips. Korrektur: Eine historische Grafik oder ein Archivbild, das japanische Elektronikproduktion oder die Marktsituation bei DRAM-Chips in den 1980er Jahren darstellt."
+              },
+              {
+                "zeit": "00:17.74",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "reduced the profitability of those DRAM chips.",
+                "fest": false,
+                "text": "Das bild zeigt einen handwerker oder arbeiter in einer stadt, aber keine hinweise auf dram-chips, japanische konkurrenz oder sinkende profitabilitaet. Korrektur: Eine historische grafik oder szene, die den wettbewerb auf dem speicherchip-markt oder sinkende gewinne von dram-chips zeigt."
+              },
+              {
+                "zeit": "00:22.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "IBM's PC, built on Intel's microprocessor, kept growing.",
+                "fest": false,
+                "text": "Die gesprochene Zeile erwähnt den IBM PC und Intel-Mikroprozessoren, zu sehen ist jedoch nur eine allgemeine Fabrikzene mit einem alten Auto, aber kein konkreter IBM PC. Korrektur: Ein zeitgenössischer IBM PC in einer Arbeitsumgebung."
+              },
+              {
+                "zeit": "00:26.98",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "That growth helped convince Moore to shift Intel's focus from memory to microprocessors.",
+                "fest": false,
+                "text": "Das Bild zeigt einen fiktiven Mann in einem Raum, der nicht die Geschäftsentscheidung von Gordon Moore oder den Wechsel von Speicherchips zu Mikroprozessoren darstellt. Korrektur: Eine historische Darstellung von Gordon Moore im Intel-Büro oder eine grafische Illustration des Übergangs von Speicherchips zu Mikroprozessoren."
+              }
+            ],
+            "sekunden": 782.9,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "41026135642-2",
+              "datum": "2026-10-30",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 782.9,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 2.2,
+            "bau_s": 628.2,
+            "pruefung_s": 97.0,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen besorgten Arbeiter in einem Lagerhaus, aber es gibt keinen visuellen Bezug zu Intel-Speicherchips oder finanziellen Verlusten.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit einem elektronischen Rechengerät, aber keinen Bezug zu Intels Speichermaschinen oder dem Speicherchip 1103.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann an einem Schreibtisch in einem geschäftigen Raum, aber keinen Speicherchip oder die Zahl 1103 als konkretes Objekt der genannten Art.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Wissenschaftler oder Arbeiter in Kitteln an einem Tisch, aber keinen Bezug zu japanischer Konkurrenz oder DRAM-Chips aus dem Jahr 1983.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter thematisieren die sinkende Profitabilität von DRAM-Speicherchips durch japanische Konkurrenz im Jahr 1983. Das Bild zeigt stattdessen einen Arbeiter, der Kartons bewegt, was keinen direkten Bezug zu Halbleitern oder wirtschaftlicher Rentabilität hat.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die gezeigte Szene stellt einen Mann an einem Computer dar, zeigt jedoch weder IBM noch die erwähnten Mikroprozessoren oder das Wachstum konkret.",
+              "Offenes Problem (schwer): Das Bild zeigt einen besorgten Arbeiter in einem Lagerhaus, aber es gibt keinen visuellen Bezug zu Intel-Speicherchips oder finanziellen Verlusten. Korrektur: Ein historisches Foto oder eine Grafik von Intel-Speicherchips wie dem 1103 oder ein Diagramm zu sinkenden Profiten.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann mit einem elektronischen Rechengerät, aber keinen Bezug zu Intels Speichermaschinen oder dem Speicherchip 1103. Korrektur: Eine historische Nahaufnahme des Intel 1103 Speicherchips oder zeitgenössische Dokumente dazu.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann an einem Schreibtisch in einem geschäftigen Raum, aber keinen Speicherchip oder die Zahl 1103 als konkretes Objekt der genannten Art. Korrektur: Eine Nahaufnahme des Intel 1103 Speicherchips oder historische Dokumente und Statistiken dazu.",
+              "Offenes Problem (schwer): Das Bild zeigt Wissenschaftler oder Arbeiter in Kitteln an einem Tisch, aber keinen Bezug zu japanischer Konkurrenz oder DRAM-Chips aus dem Jahr 1983. Korrektur: Ein historisches Foto oder eine Illustration von Speichermaschinen, Halbleiterfabriken oder Konkurrenzsituationen in der Halbleiterindustrie um 1983.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter thematisieren die sinkende Profitabilität von DRAM-Speicherchips durch japanische Konkurrenz im Jahr 1983. Das Bild zeigt stattdessen einen Arbeiter, der Kartons bewegt, was keinen direkten Bezug zu Halbleitern oder wirtschaftlicher Rentabilität hat. Korrektur: Ein historisches Foto oder Diagramm, das den Verfall der Gewinnmargen von Speichermaschinen oder DRAM-Chips bei Intel im Jahr 1983 visualisiert.",
+              "Offenes Problem (schwer): Die gezeigte Szene stellt einen Mann an einem Computer dar, zeigt jedoch weder IBM noch die erwähnten Mikroprozessoren oder das Wachstum konkret. Korrektur: Ein historisches Bild eines IBM-PCs oder von frühen Intel-Microprozessoren."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 6,
+              "stuecke_neu": 7,
+              "bilder_vereinfacht": 6,
+              "clips_und_stuecke": 471.8,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 55.9,
+              "gesamt": 627.9,
+              "videolaenge_s": 44.7,
+              "abschnitte_s": [
+                7.2,
+                7.48,
+                6.12,
+                6.18,
+                5.52,
+                7.48,
+                4.74
+              ],
+              "woerter": 100
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:04.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Intel's memory chips were bleeding profit.",
+                "fest": false,
+                "text": "Das Bild zeigt einen besorgten Arbeiter in einem Lagerhaus, aber es gibt keinen visuellen Bezug zu Intel-Speicherchips oder finanziellen Verlusten. Korrektur: Ein historisches Foto oder eine Grafik von Intel-Speicherchips wie dem 1103 oder ein Diagramm zu sinkenden Profiten."
+              },
+              {
+                "zeit": "00:07.20",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Memory was Intel's identity.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann mit einem elektronischen Rechengerät, aber keinen Bezug zu Intels Speichermaschinen oder dem Speicherchip 1103. Korrektur: Eine historische Nahaufnahme des Intel 1103 Speicherchips oder zeitgenössische Dokumente dazu."
+              },
+              {
+                "zeit": "00:09.42",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Its 1103 was the world's bestselling memory chip by 1972.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann an einem Schreibtisch in einem geschäftigen Raum, aber keinen Speicherchip oder die Zahl 1103 als konkretes Objekt der genannten Art. Korrektur: Eine Nahaufnahme des Intel 1103 Speicherchips oder historische Dokumente und Statistiken dazu."
+              },
+              {
+                "zeit": "00:14.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "By 1983, Japanese competition had dramatically",
+                "fest": false,
+                "text": "Das Bild zeigt Wissenschaftler oder Arbeiter in Kitteln an einem Tisch, aber keinen Bezug zu japanischer Konkurrenz oder DRAM-Chips aus dem Jahr 1983. Korrektur: Ein historisches Foto oder eine Illustration von Speichermaschinen, Halbleiterfabriken oder Konkurrenzsituationen in der Halbleiterindustrie um 1983."
+              },
+              {
+                "zeit": "00:17.74",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "reduced the profitability of those DRAM chips.",
+                "fest": false,
+                "text": "Die gesprochenen Wörter thematisieren die sinkende Profitabilität von DRAM-Speicherchips durch japanische Konkurrenz im Jahr 1983. Das Bild zeigt stattdessen einen Arbeiter, der Kartons bewegt, was keinen direkten Bezug zu Halbleitern oder wirtschaftlicher Rentabilität hat. Korrektur: Ein historisches Foto oder Diagramm, das den Verfall der Gewinnmargen von Speichermaschinen oder DRAM-Chips bei Intel im Jahr 1983 visualisiert."
+              },
+              {
+                "zeit": "00:22.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "IBM's PC, built on Intel's microprocessor, kept growing.",
+                "fest": false,
+                "text": "Die gezeigte Szene stellt einen Mann an einem Computer dar, zeigt jedoch weder IBM noch die erwähnten Mikroprozessoren oder das Wachstum konkret. Korrektur: Ein historisches Bild eines IBM-PCs oder von frühen Intel-Microprozessoren."
+              }
+            ],
+            "sekunden": 727.4,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "41026135642-3",
+              "datum": "2026-10-30",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 727.4,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 2464.8,
+        "upload_titel": "Intel's Memory Trap: Moore Changed Course"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:04.40",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Intel's memory chips were bleeding profit.",
+            "fest": false,
+            "text": "Das Bild zeigt einen besorgten Arbeiter in einem Lagerhaus, aber es gibt keinen visuellen Bezug zu Intel-Speicherchips oder finanziellen Verlusten. Korrektur: Ein historisches Foto oder eine Grafik von Intel-Speicherchips wie dem 1103 oder ein Diagramm zu sinkenden Profiten."
+          },
+          {
+            "zeit": "00:07.20",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "Memory was Intel's identity.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann mit einem elektronischen Rechengerät, aber keinen Bezug zu Intels Speichermaschinen oder dem Speicherchip 1103. Korrektur: Eine historische Nahaufnahme des Intel 1103 Speicherchips oder zeitgenössische Dokumente dazu."
+          },
+          {
+            "zeit": "00:09.42",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "Its 1103 was the world's bestselling memory chip by 1972.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann an einem Schreibtisch in einem geschäftigen Raum, aber keinen Speicherchip oder die Zahl 1103 als konkretes Objekt der genannten Art. Korrektur: Eine Nahaufnahme des Intel 1103 Speicherchips oder historische Dokumente und Statistiken dazu."
+          },
+          {
+            "zeit": "00:14.68",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "By 1983, Japanese competition had dramatically",
+            "fest": false,
+            "text": "Das Bild zeigt Wissenschaftler oder Arbeiter in Kitteln an einem Tisch, aber keinen Bezug zu japanischer Konkurrenz oder DRAM-Chips aus dem Jahr 1983. Korrektur: Ein historisches Foto oder eine Illustration von Speichermaschinen, Halbleiterfabriken oder Konkurrenzsituationen in der Halbleiterindustrie um 1983."
+          },
+          {
+            "zeit": "00:17.74",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "reduced the profitability of those DRAM chips.",
+            "fest": false,
+            "text": "Die gesprochenen Wörter thematisieren die sinkende Profitabilität von DRAM-Speicherchips durch japanische Konkurrenz im Jahr 1983. Das Bild zeigt stattdessen einen Arbeiter, der Kartons bewegt, was keinen direkten Bezug zu Halbleitern oder wirtschaftlicher Rentabilität hat. Korrektur: Ein historisches Foto oder Diagramm, das den Verfall der Gewinnmargen von Speichermaschinen oder DRAM-Chips bei Intel im Jahr 1983 visualisiert."
+          },
+          {
+            "zeit": "00:22.68",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "IBM's PC, built on Intel's microprocessor, kept growing.",
+            "fest": false,
+            "text": "Die gezeigte Szene stellt einen Mann an einem Computer dar, zeigt jedoch weder IBM noch die erwähnten Mikroprozessoren oder das Wachstum konkret. Korrektur: Ein historisches Bild eines IBM-PCs oder von frühen Intel-Microprozessoren."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 44.7,
+          "fps": 30.0,
+          "lufs": -14.5,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 40.28,
+              "bis_s": 41.62,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.984
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 24.700000000000003,
+              "bis_s": 45.2,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "One",
+                "s": 0.0,
+                "e": 0.42,
+                "p": 0.8910814523696899
+              },
+              {
+                "w": "chip",
+                "s": 0.42,
+                "e": 0.78,
+                "p": 0.9330524206161499
+              },
+              {
+                "w": "made",
+                "s": 0.78,
+                "e": 1.08,
+                "p": 0.99600750207901
+              },
+              {
+                "w": "Intel",
+                "s": 1.08,
+                "e": 1.28,
+                "p": 0.9704353213310242
+              },
+              {
+                "w": "famous,",
+                "s": 1.28,
+                "e": 1.72,
+                "p": 0.9544511437416077
+              },
+              {
+                "w": "then",
+                "s": 2.68,
+                "e": 2.68,
+                "p": 0.9935786724090576
+              },
+              {
+                "w": "nearly",
+                "s": 2.68,
+                "e": 3.14,
+                "p": 0.9799056649208069
+              },
+              {
+                "w": "sank",
+                "s": 3.14,
+                "e": 3.62,
+                "p": 0.9849811792373657
+              },
+              {
+                "w": "it.",
+                "s": 3.62,
+                "e": 3.86,
+                "p": 0.9975244402885437
+              },
+              {
+                "w": "Intel's",
+                "s": 4.46,
+                "e": 4.94,
+                "p": 0.9761450886726379
+              },
+              {
+                "w": "memory",
+                "s": 4.94,
+                "e": 5.1,
+                "p": 0.9299224019050598
+              },
+              {
+                "w": "chips",
+                "s": 5.1,
+                "e": 5.4,
+                "p": 0.9963436722755432
+              },
+              {
+                "w": "were",
+                "s": 5.4,
+                "e": 5.72,
+                "p": 0.995786726474762
+              },
+              {
+                "w": "bleeding",
+                "s": 5.72,
+                "e": 6.14,
+                "p": 0.9834612607955933
+              },
+              {
+                "w": "profit.",
+                "s": 6.14,
+                "e": 6.64,
+                "p": 0.9744025468826294
+              },
+              {
+                "w": "Memory",
+                "s": 7.2,
+                "e": 7.5,
+                "p": 0.9838846325874329
+              },
+              {
+                "w": "was",
+                "s": 7.5,
+                "e": 7.76,
+                "p": 0.9983170032501221
+              },
+              {
+                "w": "Intel's",
+                "s": 7.76,
+                "e": 8.32,
+                "p": 0.9973235428333282
+              },
+              {
+                "w": "identity.",
+                "s": 8.32,
+                "e": 8.72,
+                "p": 0.9913008809089661
+              },
+              {
+                "w": "Its",
+                "s": 9.44,
+                "e": 9.56,
+                "p": 0.6999667286872864
+              },
+              {
+                "w": "1103",
+                "s": 9.56,
+                "e": 10.3,
+                "p": 0.9486481249332428
+              },
+              {
+                "w": "was",
+                "s": 10.3,
+                "e": 10.58,
+                "p": 0.9893263578414917
+              },
+              {
+                "w": "the",
+                "s": 10.58,
+                "e": 10.72,
+                "p": 0.9950869679450989
+              },
+              {
+                "w": "world's",
+                "s": 10.72,
+                "e": 11.02,
+                "p": 0.9940286576747894
+              },
+              {
+                "w": "best",
+                "s": 11.02,
+                "e": 11.3,
+                "p": 0.9880291819572449
+              },
+              {
+                "w": "-selling",
+                "s": 11.3,
+                "e": 11.72,
+                "p": 0.9023927748203278
+              },
+              {
+                "w": "memory",
+                "s": 11.72,
+                "e": 12.02,
+                "p": 0.9804301261901855
+              },
+              {
+                "w": "chip",
+                "s": 12.02,
+                "e": 12.28,
+                "p": 0.9990150928497314
+              },
+              {
+                "w": "by",
+                "s": 12.28,
+                "e": 12.58,
+                "p": 0.9874623417854309
+              },
+              {
+                "w": "1972.",
+                "s": 12.58,
+                "e": 13.04,
+                "p": 0.9973500967025757
+              },
+              {
+                "w": "By",
+                "s": 14.72,
+                "e": 14.92,
+                "p": 0.9963430762290955
+              },
+              {
+                "w": "1983,",
+                "s": 14.92,
+                "e": 15.48,
+                "p": 0.9991397857666016
+              },
+              {
+                "w": "Japanese",
+                "s": 16.04,
+                "e": 16.4,
+                "p": 0.9940542578697205
+              },
+              {
+                "w": "competition",
+                "s": 16.4,
+                "e": 16.9,
+                "p": 0.9462662935256958
+              },
+              {
+                "w": "had",
+                "s": 16.9,
+                "e": 17.34,
+                "p": 0.986486554145813
+              },
+              {
+                "w": "dramatically",
+                "s": 17.34,
+                "e": 17.82,
+                "p": 0.9986866116523743
+              },
+              {
+                "w": "reduced",
+                "s": 17.82,
+                "e": 18.4,
+                "p": 0.9877851009368896
+              },
+              {
+                "w": "the",
+                "s": 18.4,
+                "e": 18.58,
+                "p": 0.9972797632217407
+              },
+              {
+                "w": "profitability",
+                "s": 18.58,
+                "e": 18.9,
+                "p": 0.9992533326148987
+              },
+              {
+                "w": "of",
+                "s": 18.9,
+                "e": 19.42,
+                "p": 0.9993886947631836
+              },
+              {
+                "w": "those",
+                "s": 19.42,
+                "e": 19.58,
+                "p": 0.9751008152961731
+              },
+              {
+                "w": "DRAM",
+                "s": 19.58,
+                "e": 19.94,
+                "p": 0.900408148765564
+              },
+              {
+                "w": "chips.",
+                "s": 19.94,
+                "e": 20.1,
+                "p": 0.989380955696106
+              },
+              {
+                "w": "So",
+                "s": 20.8,
+                "e": 20.9,
+                "p": 0.9907800555229187
+              },
+              {
+                "w": "what",
+                "s": 20.9,
+                "e": 21.28,
+                "p": 0.6166315674781799
+              },
+              {
+                "w": "did",
+                "s": 21.28,
+                "e": 21.44,
+                "p": 0.9982491731643677
+              },
+              {
+                "w": "more",
+                "s": 21.44,
+                "e": 21.58,
+                "p": 0.9047260284423828
+              },
+              {
+                "w": "do?",
+                "s": 21.58,
+                "e": 22.04,
+                "p": 0.999326229095459
+              },
+              {
+                "w": "IBM's",
+                "s": 22.74,
+                "e": 23.16,
+                "p": 0.9951607584953308
+              },
+              {
+                "w": "PC,",
+                "s": 23.16,
+                "e": 23.32,
+                "p": 0.9884549379348755
+              },
+              {
+                "w": "built",
+                "s": 23.76,
+                "e": 23.98,
+                "p": 0.9931156039237976
+              },
+              {
+                "w": "on",
+                "s": 23.98,
+                "e": 24.16,
+                "p": 0.982428252696991
+              },
+              {
+                "w": "Intel's",
+                "s": 24.16,
+                "e": 24.56,
+                "p": 0.9987097084522247
+              },
+              {
+                "w": "microprocessor,",
+                "s": 24.56,
+                "e": 25.2,
+                "p": 0.9758065342903137
+              },
+              {
+                "w": "kept",
+                "s": 25.68,
+                "e": 25.76,
+                "p": 0.9959763884544373
+              },
+              {
+                "w": "growing.",
+                "s": 25.76,
+                "e": 26.18,
+                "p": 0.9957224130630493
+              },
+              {
+                "w": "That",
+                "s": 27.22,
+                "e": 27.6,
+                "p": 0.9921159148216248
+              },
+              {
+                "w": "growth",
+                "s": 27.6,
+                "e": 27.82,
+                "p": 0.9995266199111938
+              },
+              {
+                "w": "helped",
+                "s": 27.82,
+                "e": 28.12,
+                "p": 0.9961973428726196
+              },
+              {
+                "w": "convince",
+                "s": 28.12,
+                "e": 28.46,
+                "p": 0.9991563558578491
+              },
+              {
+                "w": "more",
+                "s": 28.46,
+                "e": 28.76,
+                "p": 0.7496092319488525
+              },
+              {
+                "w": "more",
+                "s": 28.76,
+                "e": 28.86,
+                "p": 0.4463959336280823
+              },
+              {
+                "w": "to",
+                "s": 28.86,
+                "e": 29.0,
+                "p": 0.8462740182876587
+              },
+              {
+                "w": "shift",
+                "s": 29.0,
+                "e": 29.28,
+                "p": 0.9681906700134277
+              },
+              {
+                "w": "Intel's",
+                "s": 29.28,
+                "e": 29.52,
+                "p": 0.9843760132789612
+              },
+              {
+                "w": "focus",
+                "s": 29.52,
+                "e": 30.0,
+                "p": 0.998673677444458
+              },
+              {
+                "w": "from",
+                "s": 30.0,
+                "e": 30.22,
+                "p": 0.9812375903129578
+              },
+              {
+                "w": "memory",
+                "s": 30.22,
+                "e": 30.54,
+                "p": 0.9850969910621643
+              },
+              {
+                "w": "to",
+                "s": 30.54,
+                "e": 30.98,
+                "p": 0.9837346076965332
+              },
+              {
+                "w": "microprocessors.",
+                "s": 30.98,
+                "e": 31.94,
+                "p": 0.9795066912968954
+              },
+              {
+                "w": "Moore's",
+                "s": 32.48,
+                "e": 32.86,
+                "p": 0.7471422404050827
+              },
+              {
+                "w": "8",
+                "s": 32.86,
+                "e": 33.06,
+                "p": 0.5823901295661926
+              },
+              {
+                "w": ".0386",
+                "s": 33.06,
+                "e": 33.48,
+                "p": 0.5834001898765564
+              },
+              {
+                "w": "soul",
+                "s": 33.48,
+                "e": 34.04,
+                "p": 0.6448359489440918
+              },
+              {
+                "w": "sourcing",
+                "s": 34.04,
+                "e": 34.36,
+                "p": 0.8286633491516113
+              },
+              {
+                "w": "helped.",
+                "s": 34.36,
+                "e": 34.82,
+                "p": 0.9914310574531555
+              },
+              {
+                "w": "Intel",
+                "s": 35.78,
+                "e": 35.78,
+                "p": 0.9955012202262878
+              },
+              {
+                "w": "escaped",
+                "s": 35.78,
+                "e": 36.04,
+                "p": 0.9841236472129822
+              },
+              {
+                "w": "the",
+                "s": 36.04,
+                "e": 36.4,
+                "p": 0.9963449835777283
+              },
+              {
+                "w": "memory",
+                "s": 36.4,
+                "e": 36.58,
+                "p": 0.9717066884040833
+              },
+              {
+                "w": "trap",
+                "s": 36.58,
+                "e": 36.84,
+                "p": 0.97743159532547
+              },
+              {
+                "w": "into",
+                "s": 36.84,
+                "e": 37.14,
+                "p": 0.9728661179542542
+              },
+              {
+                "w": "10",
+                "s": 37.14,
+                "e": 37.5,
+                "p": 0.8730619549751282
+              },
+              {
+                "w": "years",
+                "s": 37.5,
+                "e": 37.78,
+                "p": 0.994765043258667
+              },
+              {
+                "w": "of",
+                "s": 37.78,
+                "e": 38.02,
+                "p": 0.9906108975410461
+              },
+              {
+                "w": "unprecedented",
+                "s": 38.02,
+                "e": 38.8,
+                "p": 0.994499683380127
+              },
+              {
+                "w": "growth.",
+                "s": 38.8,
+                "e": 39.24,
+                "p": 0.9997164607048035
+              },
+              {
+                "w": "Be",
+                "s": 39.92,
+                "e": 40.02,
+                "p": 0.9951192140579224
+              },
+              {
+                "w": "sure",
+                "s": 40.02,
+                "e": 40.16,
+                "p": 0.9996015429496765
+              },
+              {
+                "w": "to",
+                "s": 40.16,
+                "e": 40.28,
+                "p": 0.9962981343269348
+              },
+              {
+                "w": "like,",
+                "s": 40.28,
+                "e": 40.48,
+                "p": 0.9334821105003357
+              },
+              {
+                "w": "share,",
+                "s": 40.62,
+                "e": 40.8,
+                "p": 0.99688321352005
+              },
+              {
+                "w": "and",
+                "s": 40.96,
+                "e": 41.0,
+                "p": 0.9969782829284668
+              },
+              {
+                "w": "save",
+                "s": 41.0,
+                "e": 41.2,
+                "p": 0.9935821890830994
+              },
+              {
+                "w": "this",
+                "s": 41.2,
+                "e": 41.36,
+                "p": 0.9847676157951355
+              },
+              {
+                "w": "video,",
+                "s": 41.36,
+                "e": 41.62,
+                "p": 0.9992374181747437
+              },
+              {
+                "w": "which",
+                "s": 41.96,
+                "e": 42.14,
+                "p": 0.9883719086647034
+              },
+              {
+                "w": "company",
+                "s": 42.14,
+                "e": 42.34,
+                "p": 0.9975607395172119
+              },
+              {
+                "w": "next?",
+                "s": 42.34,
+                "e": 42.64,
+                "p": 0.931670069694519
+              },
+              {
+                "w": "Comment",
+                "s": 43.3,
+                "e": 43.3,
+                "p": 0.9964503049850464
+              },
+              {
+                "w": "and",
+                "s": 43.3,
+                "e": 43.74,
+                "p": 0.8509153723716736
+              },
+              {
+                "w": "follow",
+                "s": 43.74,
+                "e": 43.98,
+                "p": 0.9972666501998901
+              },
+              {
+                "w": "for",
+                "s": 43.98,
+                "e": 44.16,
+                "p": 0.9883489608764648
+              },
+              {
+                "w": "more.",
+                "s": 44.16,
+                "e": 44.32,
+                "p": 0.9986514449119568
+              }
+            ],
+            "dauer_s": 44.6506875,
+            "sprache": "en"
+          },
+          "roh_key": "f2ec676a816b254f758974525a5bc02c179bfd9d9fa247241adc043826c36bd0",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "38358c0b4582aff8c8d4ca876e2f007ba4a3be7f6f3f72c3913e3ad00a443ff9",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 44.7,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 13,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "38358c0b4582aff8c8d4ca876e2f007ba4a3be7f6f3f72c3913e3ad00a443ff9",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Mann im Anzug mit Hut hält einen blauen Mikrochip in die Kamera und schaut schockiert oder entsetzt drein.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt den Moderator in einer dramatischen Pose mit einem Chip, was perfekt zum Einleitungssatz über einen berühmten Chip passt, der das Unternehmen fast ruiniert hätte.",
+              "erforderliches_bild": "Keine Änderung erforderlich."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Arbeiter in einem Industrie- oder Lagergebäude mit Bauhelm steht besorgt und frustriert da und hält ein Bauteil in der Hand.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt einen besorgten Arbeiter in einem Lagerhaus, aber es gibt keinen visuellen Bezug zu Intel-Speicherchips oder finanziellen Verlusten.",
+              "erforderliches_bild": "Ein historisches Foto oder eine Grafik von Intel-Speicherchips wie dem 1103 oder ein Diagramm zu sinkenden Profiten."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Mann steht in einem Raum an einem Fenster und tippt an einem kleinen elektronischen Gerät in seinen Händen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Mann mit einem elektronischen Rechengerät, aber keinen Bezug zu Intels Speichermaschinen oder dem Speicherchip 1103.",
+              "erforderliches_bild": "Eine historische Nahaufnahme des Intel 1103 Speicherchips oder zeitgenössische Dokumente dazu."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Mann sitzt an einem Holztisch in einem Büro mit Computern, im Hintergrund ein offener Eingang zu einer Straße.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Mann an einem Schreibtisch in einem geschäftigen Raum, aber keinen Speicherchip oder die Zahl 1103 als konkretes Objekt der genannten Art.",
+              "erforderliches_bild": "Eine Nahaufnahme des Intel 1103 Speicherchips oder historische Dokumente und Statistiken dazu."
+            },
+            {
+              "index": 4,
+              "gesehen": "Drei Männer in weißen Kitteln stehen in einem Raum mit großen Fenstern und blicken auf runde Metallscheiben.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt Wissenschaftler oder Arbeiter in Kitteln an einem Tisch, aber keinen Bezug zu japanischer Konkurrenz oder DRAM-Chips aus dem Jahr 1983.",
+              "erforderliches_bild": "Ein historisches Foto oder eine Illustration von Speichermaschinen, Halbleiterfabriken oder Konkurrenzsituationen in der Halbleiterindustrie um 1983."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein Mann in einem Arbeitshemd steht in einer Toröffnung und schiebt einen Pappkarton auf der Straße vor sich her, während im Hintergrund Gebäude einer Straße zu sehen sind.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochenen Wörter thematisieren die sinkende Profitabilität von DRAM-Speicherchips durch japanische Konkurrenz im Jahr 1983. Das Bild zeigt stattdessen einen Arbeiter, der Kartons bewegt, was keinen direkten Bezug zu Halbleitern oder wirtschaftlicher Rentabilität hat.",
+              "erforderliches_bild": "Ein historisches Foto oder Diagramm, das den Verfall der Gewinnmargen von Speichermaschinen oder DRAM-Chips bei Intel im Jahr 1983 visualisiert."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Mann im Anzug sitzt an einem Holztisch in einem Büro mit Bücherregalen und einem Fenster, vor dem eine Straße zu sehen ist, und blickt nachdenklich auf ein Dokument.",
+              "note": 7,
+              "passt": true,
+              "grund": "Die gesprochene Frage 'So what did Moore do?' leitet eine Übergangsphase ein und fragt nach der Handlung einer Person; das Bild zeigt einen konzentrierten Mann in einem Büro, was als erzählerische Illustration dieses Entscheidungsmoments direkt passend ist.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein Mann sitzt an einem alten Computer in einem Raum mit einem Fenster, durch das Straßenhäuser zu sehen sind.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gezeigte Szene stellt einen Mann an einem Computer dar, zeigt jedoch weder IBM noch die erwähnten Mikroprozessoren oder das Wachstum konkret.",
+              "erforderliches_bild": "Ein historisches Bild eines IBM-PCs oder von frühen Intel-Microprozessoren."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Mann im Anzug mit Krawatte steht in einem Büro und betrachtet einen Chip in seinen Händen. Im Hintergrund sind ein Fenster mit Straßenszene und Bilder an der Wand zu sehen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen Geschäftsmann in einem Büro aus der historischen Epoche, der einen Chip in den Händen hält, was thematisch zum strategischen Fokuswechsel bei Intel passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 9,
+              "gesehen": "In der Bildmitte ist ein dunkelblaues Rechteck mit gelbem Rand zu sehen, in dem groß die Zahl '80386' und darunter der Text 'SOLE-SOURCING HELPED' steht. Links oben befindet sich der Schriftzug 'INTEL'.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt den im Text genannten 80386-Prozessor von Intel im Zusammenhang mit dem Sole-Sourcing, was perfekt zur Narration passt.",
+              "erforderliches_bild": "keines"
+            },
+            {
+              "index": 10,
+              "gesehen": "In einer Werkstatt stehen Arbeiter, einige Männer betrachten eine Platine in einer Schale im Vordergrund. Im Hintergrund arbeiten Menschen an Maschinen und an einem alten Auto.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Werkstattszene passt gut zur Erwähnung des Auswegs aus der Krise und dem historischen Erfolg von Intel.",
+              "erforderliches_bild": ""
+            }
+          ],
+          "befunde": [
+            "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen besorgten Arbeiter in einem Lagerhaus, aber es gibt keinen visuellen Bezug zu Intel-Speicherchips oder finanziellen Verlusten.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit einem elektronischen Rechengerät, aber keinen Bezug zu Intels Speichermaschinen oder dem Speicherchip 1103.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann an einem Schreibtisch in einem geschäftigen Raum, aber keinen Speicherchip oder die Zahl 1103 als konkretes Objekt der genannten Art.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Wissenschaftler oder Arbeiter in Kitteln an einem Tisch, aber keinen Bezug zu japanischer Konkurrenz oder DRAM-Chips aus dem Jahr 1983.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter thematisieren die sinkende Profitabilität von DRAM-Speicherchips durch japanische Konkurrenz im Jahr 1983. Das Bild zeigt stattdessen einen Arbeiter, der Kartons bewegt, was keinen direkten Bezug zu Halbleitern oder wirtschaftlicher Rentabilität hat.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die gezeigte Szene stellt einen Mann an einem Computer dar, zeigt jedoch weder IBM noch die erwähnten Mikroprozessoren oder das Wachstum konkret."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite"
+          ],
+          "einstellungen": 13,
+          "ausgenommen": [
+            11,
+            12
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "38358c0b4582aff8c8d4ca876e2f007ba4a3be7f6f3f72c3913e3ad00a443ff9",
+        "prompt_version": "2026-10-29.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

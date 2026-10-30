@@ -738,6 +738,17 @@ def wiki_waehlen(thema, auftrag, schema, grenze):
     return wahl, trends.wikipedia(wahl['wikipedia'], grenze=grenze)
 
 
+def sperrliste(verlauf):
+    """Themen, die die freie Wahl meiden soll: gesendet (letzte 60 Eintraege) oder HEUTE gescheitert.
+
+    GEMESSEN 30.10.2026 (Business 41121316485): frei gewaehlt fuenfmal LEGO, jede Fassung Story 4-6/10 - ein
+    heute an Skriptqualitaet/Fakten gescheitertes Thema stand nicht in der Sperrliste."""
+    import budget
+    heute = budget.heute()  # dasselbe Datum wie lauf.verlauf_eintragen
+    return '; '.join(dict.fromkeys(v['thema'] for v in verlauf[-60:] if v.get('status') == 'gesendet' or (
+        v.get('datum') == heute and v.get('status') in ('skriptqualitaet', 'faktenpruefung'))))
+
+
 def main(kanal_pfad, aus_pfad, thema=None):
     import kanalstandard
     kanal = kanalstandard.laden(kanal_pfad)
@@ -762,7 +773,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
     verlauf_pfad = Path('verlauf') / (Path(kanal_pfad).stem + '.json')
     verlauf = json.loads(verlauf_pfad.read_text(encoding='utf-8')) if verlauf_pfad.exists() else []
     # Gescheiterte Versuche sind kein Grund, ein ausdrueckliches Nutzerthema zu meiden.
-    frueher = '; '.join(v['thema'] for v in verlauf[-60:] if v.get('status') == 'gesendet')
+    frueher = sperrliste(verlauf)
     if thema:
         frueher = ''
 

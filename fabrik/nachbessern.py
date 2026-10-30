@@ -168,6 +168,13 @@ def planen(skript, kritik, messung, config, kanal):
         hinweise = '\n'.join(hinweis(p) for p in probleme)
         if familie == 'story':
             hinweise += '\n' + '\n'.join((skript.get('story') or {}).get('schwaechen', []))
+        # GEMESSEN 30.10.2026 (ServiceNow 41113476677): Gemini 503, Groq-Ausweichweg "Auftrag zu gross" (13.441 statt
+        # max. 7.900 Tokens) - keine Korrektur. Reine Bildkorrekturen brauchen weder Quelltexte (belege) noch Regeln.
+        im_auftrag = skript if textziele else {
+            'thema': skript.get('thema'), 'teile': [
+                {'index': i, **{k: t[k] for k in ('text', 'suche', 'szene', 'bildmodus') if k in t}}
+                for i, t in enumerate(skript['teile'])]}
+        verlauf = lernen.laden(kanal).get('korrekturen', [])[-(8 if textziele else 3):]
         vorschlag, _ = gemini(
             'Repair THIS faceless video, keeping its topic, source-supported facts and rank order. '
             + prompts.DATEN + prompts.FAKTEN + prompts.SPRECHEN + prompts.SZENEN +
@@ -177,9 +184,9 @@ def planen(skript, kritik, messung, config, kanal):
             'Choose specific English stock-search terms and an accurate visual scene that fixes the review. '
             'Historical scenes must match the period. Illustrations are illustrative, never documentary evidence. '
             'Do not repeat the failed image approach. Never invent quotes or scenes in the speech.\n'
-            f'REVIEW:\n{hinweise}\nSCRIPT:\n{json.dumps(skript, ensure_ascii=False)}\n'
+            f'REVIEW:\n{hinweise}\nSCRIPT:\n{json.dumps(im_auftrag, ensure_ascii=False)}\n'
             'RECENT CORRECTION RESULTS (AI scores, not audience results):\n'
-            + json.dumps(lernen.laden(kanal).get('korrekturen', [])[-8:], ensure_ascii=False),
+            + json.dumps(verlauf, ensure_ascii=False),
             SCHEMA, temperatur=0.2, modelle=None if textziele else SEHEN)
         # GEMESSEN 10.10.2026 (Run 38060674129): EIN ungueltiger Eintrag brach die ganze Korrektur ab
         # (Code 1) - gueltige Vorschlaege gingen mit verloren. Jetzt: ungueltige einzeln verwerfen.

@@ -25,8 +25,10 @@ MODELL_SHA = '01aa7a23de3f4a0ee1a2bb9997e6918104c85a9f95dea46d27b9b3fb0c6b9001'
 # Dezent: groessere Werte reissen an Kanten (Figur vor Wand) sichtbar auf.
 # 29.10.2026: 6 % ueber 5 s war im echten SK-Hynix-Short nicht wahrnehmbar; Nutzer wollte 15 %. Ohne Beschnitt
 # verzog 15 % die Raender (Beine doppelt, Stuhlbein) - mit RAND 8 % Beschnitt an der Werkstattszene sauber.
-VERSCHIEBUNG = 0.15
-HERAN = 0.15  # Vordergrund kommt zusaetzlich naeher
+# 30.10.2026 (Business Intel): Nutzer - "die Kamera-Drehung verzerrt die Figuren, bisschen runterschrauben". Innerhalb
+# einer Figur aendert sich die Tiefe (Nase/Schulter/Arm) - jeder Tiefenunterschied verbiegt sie proportional.
+VERSCHIEBUNG = 0.10
+HERAN = 0.10  # Vordergrund kommt zusaetzlich naeher
 RAND = 0.08  # so viel vom Rand wird abgeschnitten (gespiegelte Randpixel nie sichtbar)
 KURZE_SEITE = 392  # Modelleingabe, Vielfaches von 14
 

@@ -283,6 +283,19 @@ def epoche_modern(szene, ohne_epoche=False, geschichte=None):
     return True if (MODERN.search(str(szene or '')) or ohne_epoche) else False
 
 
+# Intel 30.10.2026 (1968-1985): kein einziger Clip - Chip-Saetze fanden keinen Archivbegriff (Fabrikfilme der 60er
+# bekamen Note 2-3), und 1975-1995 bleibt Pixabay zu. Nahaufnahmen von Bauteilen zeigen keine Epoche (keine Mode,
+# kein Smartphone) - die gehen in jeder Zeit zu Pixabay. Kartoffel-/Pokerchips sind keine Bauteile.
+ZEITLOS = [(r'(?<!potato )(?<!poker )(?<!tortilla )(?<!corn )\b(?:micro)?chips?\b|\b(?:micro)?processors?\b|'
+            r'\bsemiconductors?\b|\btransistors?\b', 'computer chip'),
+           (r'\b(?:circuit|mother)boards?\b|\bcircuit boards?\b|\bsilicon wafers?\b|\bwafers?\b', 'circuit board')]
+
+
+def zeitlos(*texte):
+    t = ' '.join(str(x or '') for x in texte)
+    return next((begriff for muster, begriff in ZEITLOS if re.search(muster, t, re.I)), None)
+
+
 def zuschneiden(pfad, dauer, ziel):
     """Pixabay-Clips sind lang und gross: nur die Einstellungsdauer, hoechstens 720 px hoch."""
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', str(pfad), '-t', f'{dauer + 0.3:.2f}', '-an',
@@ -296,8 +309,9 @@ def fuer_einstellung(satz, szene, suche, dauer, basis, archiv=True, ohne_epoche=
     """(Video, Standbild, Quelle) fuer eine Einstellung oder (None, None, None) -> gemaltes Bild."""
     basis = Path(basis)
     modern = epoche_modern(szene, ohne_epoche, geschichte)
-    if modern and pixabay:
-        pfad, quelle = pixabay(suche or suchbegriff(satz, szene))
+    bauteil = None if modern else zeitlos(satz, szene, suche)
+    if (modern or bauteil) and pixabay:
+        pfad, quelle = pixabay(bauteil or suche or suchbegriff(satz, szene))
         if not pfad:
             return None, None, None
         roh = zuschneiden(pfad, dauer, basis.with_name(basis.name + '_roh.mp4'))

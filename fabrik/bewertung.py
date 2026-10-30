@@ -57,7 +57,7 @@ def _schreiben(pfad, daten):
     tmp.replace(pfad)
 
 
-def video_merken(message_id, sha, skript, kritik=None, upload_run_id=None):
+def video_merken(message_id, sha, skript, kritik=None, upload_run_id=None, entwurf=None, beanstandet=None):
     import texte
     titel = texte.titel_text(skript.get('titel', []))
     liste = [v for v in _lesen(VIDEOS, []) if v.get('message_id') != message_id]
@@ -71,6 +71,8 @@ def video_merken(message_id, sha, skript, kritik=None, upload_run_id=None):
                   'story_schwaechen': [str(w)[:200] for w in ((skript.get('story') or {}).get('schwaechen') or [])][:6],
                   'ki_probleme': [f"[{p.get('art', '')}] {str(p.get('text', ''))[:200]}"
                                   for p in (kritik.get('probleme') or []) if isinstance(p, dict)][:8],
+                  # 30.10.2026: Wochenbericht trennt sauber freigegeben / nur als Entwurf (None = unbekannt)
+                  **({'entwurf': bool(entwurf), 'beanstandet': int(beanstandet or 0)} if entwurf is not None else {}),
                   'datum_utc': datetime.datetime.now(datetime.timezone.utc).isoformat()})
     _schreiben(VIDEOS, liste[-200:])
 

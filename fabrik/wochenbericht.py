@@ -35,6 +35,16 @@ def lieferquote(name, heute, tage=TAGE):
     return sum(1 for d in daten if von.isoformat() < d <= heute.isoformat()), tage
 
 
+def freigaben(name, heute, tage=TAGE):
+    """(sauber freigegeben, nur als Entwurf, ohne Angabe) der Videos dieser Tage - Eintraege vor 30.10. kennen
+    das Merkmal nicht und werden nicht geraten."""
+    von = heute - datetime.timedelta(days=tage)
+    vs = [x for x in _laden('verlauf/telegram-videos.json', []) if x.get('kanal') == name
+          and von.isoformat() < str(x.get('datum_utc', ''))[:10] <= heute.isoformat()]
+    return (sum(x.get('entwurf') is False for x in vs), sum(x.get('entwurf') is True for x in vs),
+            sum('entwurf' not in x for x in vs))
+
+
 def frueh_bindung(kurve, stelle=FRUEH):
     """Anteil der Zuschauer bei `stelle` der Laenge aus [[anteil, verhaeltnis], ...] (YouTube audienceWatchRatio)."""
     punkte = [p for p in kurve or [] if isinstance(p, (list, tuple)) and len(p) == 2]
@@ -68,7 +78,10 @@ def kanal_text(slug, heute):
     name = KANAELE[slug]
     d = _laden(f'erfolg/{slug}.json', {})
     geliefert, tage = lieferquote(name, heute)
-    zeilen = [f'📺 {name}', f'Videos zugestellt: an {geliefert} von {tage} Tagen']
+    sauber, entwurf, offen = freigaben(name, heute)
+    zeilen = [f'📺 {name}', f'Videos zugestellt: an {geliefert} von {tage} Tagen'
+              + (f' - {sauber} sauber freigegeben, {entwurf} nur als Entwurf' if sauber or entwurf else '')
+              + (f' ({offen} ohne Angabe)' if offen and (sauber or entwurf) else '')]
     yt = _neu(list((d.get('videos') or {}).values()), heute, 14)
     if yt:
         anteil = [v['anteil_prozent'] for v in yt if isinstance(v.get('anteil_prozent'), (int, float))

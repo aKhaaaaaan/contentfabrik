@@ -7,6 +7,11 @@ ALLGEMEIN = {'shorts', 'short', 'ai', 'aitools', 'aitoolsexplained', 'freeai', '
              'tech', 'technology', 'brand', 'brands', 'company', 'companies'}
 
 
+SATZ_WEITER = ('to|and|or|then|of|for|with|before|after|in|on|at|by|from|into|the|a|an|became|become|is|was|'
+               'were|are|its|their|his|her')
+ZEILE_WEITER = 'to|of|for|with|before|after|in|on|at|by|from|into'  # "The ..." beginnt oft einen neuen Teil
+
+
 def titel_text(zeilen):
     """Zwei Titelzeilen lesbar verbinden. GEMESSEN 10.10.2026 (YouTube): „From DVDs to Streaming The
     Netflix Qwikster Detour" - ohne Trennzeichen wirkte der Titel wie ein Satz ohne Punkt und Komma."""
@@ -14,7 +19,16 @@ def titel_text(zeilen):
     if len(teile) < 2:
         return teile[0] if teile else ''
     erste, rest = teile[0], ' '.join(teile[1:])
-    return f'{erste} {rest}' if re.search(r'[:?!.,–-]$', erste) else f'{erste}: {rest}'
+    if re.search(r'[:?!.,–-]$', erste):
+        return f'{erste} {rest}'
+    # GEMESSEN 30.10.2026: "Adidas: Town of: Bent Necks", "Why Bell Atlantic Became: Verizon", "Anthropic Said No:
+    # To The Pentagon" - der Doppelpunkt zerschnitt Saetze, die ueber beide Zeilen laufen.
+    if re.search(rf'\b(?:{SATZ_WEITER})$', erste, re.I) or re.match(rf'(?:{ZEILE_WEITER})\b', rest, re.I):
+        return f'{erste} {rest}'
+    if re.match(r'(?:and|or|then|but)\b', rest, re.I):
+        return f'{erste}, {rest}'
+    # "Hugo Boss: Six Machines: Uniforms and Regret" - kein zweiter Doppelpunkt
+    return f'{erste}, {rest}' if ':' in erste else f'{erste}: {rest}'
 
 
 def serien_titel(titel, serie, datum, grenze=92):

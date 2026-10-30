@@ -41,6 +41,7 @@ ZOOM = '1+0.035*min(on/{n},1)'
 HOOK_ZOOM = '1+0.10*min(on/{n},1)'  # Hook-Bild 28.10.2026: deutlich sichtbare Fahrt
 HOOK_TEXT_S = 2.0  # so lange steht der gesprochene Hook gross in der Bildmitte
 ARCHIV_MAX = 4  # Archivclips je Short (29.10.2026: Mischung, Motivzahl bleibt)
+CLIP_NOTE_MIN = 7  # Stockclip-Auswahl wie archivclip.MIN_NOTE (30.10.2026)
 ZOOM_KARTE_MAX = 1.10  # 28.10.2026 Nutzer: "kein Motion" - vorher 1.06 bei +1,2 %/s kaum sichtbar
 ZOOM_KARTE = f'min(1+0.001*on,{ZOOM_KARTE_MAX})'  # je Bild bei 30 fps: +3 %/s, nach gut 3 s am Ende
 LAYOUT = {}
@@ -691,14 +692,23 @@ def waehle(kandidaten, satz):
                  if (v := h['videos'].get(art, {})).get('thumbnail')), headers=KENNUNG), timeout=20).read()
                   for h in kandidaten]
         from skript import gemini, SEHEN
+        # GEMESSEN 30.10.2026 (KI 41093721999): alle 3 Pixabay-Clips fielen beim Schlusspruefer mit 2/10 durch
+        # (Kerzen zu "wie ein Kollege", Audiogeraete, Tippen zu "Bezahlplaene") - die Auswahl nahm den besten von
+        # sechs, auch wenn keiner passte. Wie bei Archivclips (archivclip.MIN_NOTE) erst ab 7/10.
         wahl, _ = gemini(
             prompts.auswahl('stock', satz, len(bilder),
                             [{'index': i, 'tags': h.get('tags', '')} for i, h in enumerate(kandidaten)],
-                            regel_text(), 'lang' if B > H else 'short'),
-            {'type': 'OBJECT', 'properties': {'nummer': {'type': 'INTEGER'}}, 'required': ['nummer']},
+                            regel_text(), 'lang' if B > H else 'short')
+            + '\nAlso give note (1-10): how directly the chosen frame shows what these exact words say; 7 means a '
+              'viewer sees the connection at once, generic mood footage is at most 4.',
+            {'type': 'OBJECT', 'properties': {'nummer': {'type': 'INTEGER'}, 'note': {'type': 'INTEGER'}},
+             'required': ['nummer', 'note']},
             # GEMESSEN: mit dem grossen Modell ~60 s je Abschnitt (384 s je Video)
             temperatur=0.1, bilder=bilder, modelle=SEHEN)
-        n = wahl['nummer']
+        n, note = wahl['nummer'], wahl.get('note')
+        if type(n) is int and 0 <= n < len(kandidaten) and not (type(note) is int and note >= CLIP_NOTE_MIN):
+            print(f'Clip-Auswahl: bester Stockclip nur {note}/10 - anderes Bildmaterial')
+            return []
         return [kandidaten[n]] if type(n) is int and 0 <= n < len(kandidaten) else []
     except Exception as e:
         print('Clip-Auswahl ausgefallen - anderes Bildmaterial verwenden:', type(e).__name__)

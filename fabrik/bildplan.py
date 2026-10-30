@@ -216,6 +216,20 @@ FUELLWOERTER = {'with', 'from', 'that', 'this', 'their', 'there', 'they', 'into'
 # Keine Stellvertreter mit Papier/Schrift (Scheck, Vertrag, Kursanzeige, Akten): Probe 23.10. - das Bildmodell malt
 # Kauderwelsch-Schrift, jeder Versuch scheitert. Betraege kommen als echte Zahlenebene (bauen.zahl_momente).
 STELLVERTRETER = [
+    # GEMESSEN 30.10.2026 (Kongo Gumi 41103117263, 5 Bilder 2-4/10): "Then debts piled up", Verkauf an Takamatsu,
+    # "sons and sons-in-law" bekamen "besorgter Mann im Buero", Handschlag, Toepfer - Pruefer: kein Bezug.
+    # Vor Geld/Partner: sonst gewinnt der allgemeine Handschlag, der beim Verkauf mit 3/10 durchfiel.
+    (r'\b(?:debts?|owed|owing|creditors?|insolven\w*|overspen\w*)\b',
+     ['creditors crowding around a worried owner at his counter', 'bailiffs carrying furniture out of a workshop',
+      'owner shaking the last coins out of an empty cash box']),
+    (r'\b(?:sold|sale|sell\w*|takeover|took over|absorbed|bought out|assets)\b',
+     ['new owners in suits touring the old workshop while craftsmen watch',
+      'old owner handing a heavy ring of keys to a buyer at the workshop gate']),
+    (r'\b(?:heirs?|sons?|daughters?|sons-in-law|son-in-law|adopt\w*|generations?|inherit\w*|passed down'
+     r'|successors?|succession)\b',
+     ['old master handing his tools to a young heir at a workbench',
+      'several generations of one craftsman family standing together in their workshop',
+      'father teaching his son a craft at a workbench']),
     (r'\$|\b(?:million|billion|raised?|raising|funding|funded|invest\w*|capital|valu\w*|money|loans?)\b',
      ['investors leaning in around a boardroom table', 'bank vault door swinging open',
       'founder shaking hands with an investor']),
@@ -268,7 +282,9 @@ ABSTRAKT = frozenset(w[:5] for w in (
     'valuation', 'funding', 'growth', 'success', 'strategy', 'sales', 'results', 'billion', 'million', 'percent',
     # 28.10.2026 (Hugo Boss): woertlich, aber unmalbar - "regret", "What changed", "Sales rose" wurden Hauptmotiv
     'regret', 'regrets', 'apology', 'statement', 'membership', 'decision', 'changed', 'change', 'what', 'why',
-    'rose', 'grew', 'fell'))
+    'rose', 'grew', 'fell',
+    # 30.10.2026 (Kongo Gumi): Schulden, Verkauf, Nachfolge - Vorgaenge ohne eigene Gestalt
+    'debts', 'debt', 'sale', 'sold', 'takeover', 'assets', 'succession'))
 
 
 def malbar_machen(daten, zeitplan, namen=frozenset()):

@@ -398,6 +398,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     trend_fehlschlaege = 0
     versuch = 0
     korrekturen = 0
+    bildfehler_vorher = None
     letzter_baufehler = ''
     # GEMESSEN 17.10.2026 (Langvideo Coca-Cola, Run 39034546019): 84 Einstellungen; jeder Bauversuch kam
     # weiter (28 -> 42 -> 49 -> 51 -> 53, das Bild bestand jeweils im naechsten Anlauf), nach Versuch 5
@@ -758,6 +759,15 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             print('Lernen nicht moeglich - Kandidat bleibt erhalten')
         letzter_grund = '; '.join(gruende) if gruende else f'Ziel {ZIEL}/10 noch nicht erreicht'
         verlauf_eintragen(kanal, skript, 'unter_ziel' if gruende else 'kandidat', note)
+        # GEMESSEN 30.10.2026 (Intel 41026135642, Adidas 41048229773): Korrektur 2 und 3 bauten je 6-7 Bilder neu,
+        # danach fiel dieselbe Einstellung wieder mit 3/10 durch - 16-25 Min. ohne Wirkung, Versand als Entwurf.
+        bildfehler = sum(1 for g in gruende if str(g).startswith('Einstellung '))
+        if runde.get('art') == 'korrektur' and bildfehler and bildfehler >= (bildfehler_vorher or 0) \
+                and nur_bildbezug(gruende):
+            letzter_grund = 'Korrektur ohne Wirkung - keine weitere Bildrunde'
+            print(letzter_grund)
+            break
+        bildfehler_vorher = bildfehler
         thema = festes_thema
         print(f'{(time.monotonic() - start) / 60:.1f} Min. im aktuellen Lauf verbraucht')
 

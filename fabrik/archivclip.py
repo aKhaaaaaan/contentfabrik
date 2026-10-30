@@ -135,6 +135,9 @@ def auswahl(bilder, satz, szene):
 # "Le Tripot clandestin (1905)"). Darum zuerst die Suchwoerter der Bildplanung (2-4 Woerter je Einstellung), dann die
 # festen Szenen; Quellen Prelinger und Commons. Die KI-Auswahl (MIN_NOTE) bleibt das Tor.
 VERSUCHE = 4  # Filme je Einstellung (je Film 6 Standbilder + eine KI-Anfrage)
+# GEMESSEN 30.10.2026 (Adidas 41048229773): vier Filme fuer "two brothers ~1924", Noten 2/3/3/3, je 20-60 s.
+# Liegen die ersten beiden Filme unter AUSSICHT, trifft die Suche das Motiv nicht - gemaltes Bild statt Weitersuchen.
+AUSSICHT = 4
 COMMONS_LIZENZ = re.compile(r'^(?:public domain|cc0|cc by \d)', re.I)  # ohne SA/NC/ND: gemaltes Video bleibt frei
 COMMONS_MAX_S = 1800
 
@@ -220,9 +223,10 @@ def finden(satz, szene, epoche, benutzt=(), suche=''):
     if not j or j > JAHR_MAX:
         return None
     versucht = set(benutzt)
+    noten = []
     for begriff in begriffe(satz, szene, suche):
         for film in kandidaten(begriff, j):
-            if len(versucht) - len(set(benutzt)) >= VERSUCHE:
+            if len(versucht) - len(set(benutzt)) >= VERSUCHE or (len(noten) >= 2 and max(noten) < AUSSICHT):
                 return None
             if film['kennung'] in versucht:
                 continue
@@ -239,6 +243,7 @@ def finden(satz, szene, epoche, benutzt=(), suche=''):
                 continue
             index, note = auswahl(bilder, satz, szene)
             print(f"Archivclip {film['kennung'][:40]} ({begriff}, ~{j}): Note {note}")
+            noten.append(note or 0)
             if index is not None and note >= MIN_NOTE:
                 return dict(film, sekunde=gueltig[index], note=note)
     return None

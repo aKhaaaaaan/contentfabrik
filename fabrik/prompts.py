@@ -532,7 +532,9 @@ def figur_in_szene(szene, korrektur='', videoformat='short'):
 # Gemeinsam fuer Baupruefung (bildpruefung) und Schlusspruefer (bildbezug.py), damit beide gleich urteilen.
 ABSTRAKTE_EREIGNISSE = (
     'Abstract events (joining, deciding, apologizing, regretting, selling shares, winning a seat, sales rising, '
-    'a ban, a law) cannot be photographed: a scene of the people, place or objects involved at that moment is a '
+    'a ban, a law, debts piling up, selling or taking over a company, handing a business to heirs) cannot be '
+    'photographed: a scene of the people, place or objects involved at that moment (creditors at the counter, '
+    'buyers touring the workshop, an old master handing tools to an heir) is a '
     'match. A rhetorical question or transition ("What changed?", "But then...") matches any image that continues '
     'the current subject and setting. Never require the identity of a named person, only the narrated action. '
     'A concrete object the words name (a train, sewing machines, pots) must still be visible. ')

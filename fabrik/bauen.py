@@ -699,10 +699,15 @@ def waehle(kandidaten, satz):
             prompts.auswahl('stock', satz, len(bilder),
                             [{'index': i, 'tags': h.get('tags', '')} for i, h in enumerate(kandidaten)],
                             regel_text(), 'lang' if B > H else 'short')
-            + '\nAlso give note (1-10): how directly the chosen frame shows what these exact words say; 7 means a '
-              'viewer sees the connection at once, generic mood footage is at most 4.',
-            {'type': 'OBJECT', 'properties': {'nummer': {'type': 'INTEGER'}, 'note': {'type': 'INTEGER'}},
-             'required': ['nummer', 'note']},
+            # GEMESSEN 30.10.2026 (Kongo Gumi 41103117263): ein Toepfer-Clip kam fuer "sons and sons-in-law" durch,
+            # der Schlusspruefer gab 2/10. Gleicher Massstab wie dort: erst beschreiben (gesehen), dann benoten.
+            + '\nFIRST describe in gesehen only what the chosen frame visibly shows, ignoring tags. THEN give note '
+              '(1-10): how directly that visible subject and action show what these exact words say; 7 means a '
+              'viewer sees the connection at once. A merely related object, place or craft, a generic worker or '
+              'generic mood footage is at most 4. ' + prompts.ABSTRAKTE_EREIGNISSE,
+            {'type': 'OBJECT', 'properties': {'gesehen': {'type': 'STRING'}, 'nummer': {'type': 'INTEGER'},
+                                              'note': {'type': 'INTEGER'}},
+             'required': ['gesehen', 'nummer', 'note']},
             # GEMESSEN: mit dem grossen Modell ~60 s je Abschnitt (384 s je Video)
             temperatur=0.1, bilder=bilder, modelle=SEHEN)
         n, note = wahl['nummer'], wahl.get('note')

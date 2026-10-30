@@ -288,7 +288,12 @@ def epoche_modern(szene, ohne_epoche=False, geschichte=None):
 # kein Smartphone) - die gehen in jeder Zeit zu Pixabay. Kartoffel-/Pokerchips sind keine Bauteile.
 ZEITLOS = [(r'(?<!potato )(?<!poker )(?<!tortilla )(?<!corn )\b(?:micro)?chips?\b|\b(?:micro)?processors?\b|'
             r'\bsemiconductors?\b|\btransistors?\b', 'computer chip'),
-           (r'\b(?:circuit|mother)boards?\b|\bcircuit boards?\b|\bsilicon wafers?\b|\bwafers?\b', 'circuit board')]
+           (r'\b(?:circuit|mother)boards?\b|\bcircuit boards?\b|\bsilicon wafers?\b|\bwafers?\b', 'circuit board'),
+           # Nintendo 30.10.2026 (Hanafuda, Yakuza-Spielhallen): Archivfilme Note 2-6, kein Clip. Karten und Wuerfel
+           # sehen seit 100 Jahren gleich aus; Kredit-/Visitenkarten sind nicht gemeint.
+           (r'\b(?:playing|parlou?r|gambling|hanafuda|flower|poker) cards?\b|\bcard games?\b|\bdecks? of cards\b|'
+            r'\bhanafuda\b|\bdice\b|\bgambl(?:ing|ers?|ed)\b', 'playing cards'),
+           (r'\b(?:gold |silver |old )?coins?\b', 'coins')]
 
 
 def zeitlos(*texte):

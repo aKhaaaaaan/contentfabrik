@@ -1479,9 +1479,12 @@ def illustration_figur(kanal_slug):
 
 
 def nachbar_bild(aus, i, vorherige_id, gesperrt=()):
-    """Naechste schon gepruefte Illustration fuer Einstellung i, nie das Bild davor."""
+    """Naechste schon gepruefte Illustration fuer Einstellung i, nie das Bild davor oder danach."""
+    # GEMESSEN 30.10.2026 (Business Nintendo 41037368167): in der Korrekturrunde lag ill_01 schon bereit (Einstellung 1
+    # behalten) - Einstellung 0 nahm genau dieses Bild, Einstellung 9 ebenso ill_10 -> "Gleiches Motiv zu lange
+    # gehalten", ganzer Bauversuch verloren. Einstellung i+1 zeigt ihr eigenes ill_(i+1).
     kandidaten = [p for p in Path(aus).glob('ill_*.jpg') if re.fullmatch(r'ill_\d\d\.jpg', p.name)
-                  and p.name != f'ill_{i:02d}.jpg'
+                  and p.name not in (f'ill_{i:02d}.jpg', f'ill_{i + 1:02d}.jpg')
                   and bildplan.material_id(p) not in {vorherige_id, *gesperrt}]
     return min(kandidaten, key=lambda p: abs(int(p.stem[4:]) - i)) if kandidaten else None
 

@@ -357,9 +357,18 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                     offen_trend, trend = [neu_thema], neu_trend
                 else:
                     offen_trend = trendcheck.trend_themen(kanal)
+            # GEMESSEN 30.10.2026 (Business 41037368167): nach Intel kam freie Wahl (Nintendo), obwohl "Kongo Gumi"
+            # in der Warteschlange des Nutzers stand. Ohne weiteren Trend zuerst das naechste Nutzerthema.
+            ersatz = None if offen_trend else themen.nehmen(kanal)
+            if ersatz and themen.schon_geliefert(kanal, ersatz) is True:
+                ersatz = None
             print(f'Trendthema {thema} heute schon geliefert - '
-                  + (f'naechstes: {offen_trend[0]}' if offen_trend else 'kein weiterer Trend, freie Wahl'))
-            thema = offen_trend[0] if offen_trend else ''
+                  + (f'naechstes: {offen_trend[0]}' if offen_trend else
+                     f'kein weiterer Trend, Thema aus der Warteschlange: {ersatz}' if ersatz else
+                     'kein weiterer Trend, freie Wahl'))
+            thema = offen_trend[0] if offen_trend else (ersatz or '')
+            if ersatz:
+                trend = None
         if thema:
             print(f'Thema nach Trend-Check: {thema}')
         if trend and thema:

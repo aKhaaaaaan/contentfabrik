@@ -541,6 +541,24 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                     break  # Eine bekannte Kontingentsperre nicht durch neue Entwuerfe wiederholen.
                 if entwurf:
                     break  # Eine gesperrte feste Vorlage nicht unveraendert erneut pruefen.
+                if r == 2 and thema and not (ordner / 'skript.json').exists():
+                    # GEMESSEN 30.10.2026 (Business 41093721999): Kongo Gumi fuenfmal "Quelle zu kurz" - skript.py
+                    # endet dann OHNE Skriptdatei (Faktenfehler haben immer eine). Fester Fehler: nicht wiederholen,
+                    # Nutzerthema zurueckstellen (bleibt in der Liste) und mit dem naechsten weitermachen.
+                    if themen.zurueckstellen(kanal, thema, 'keine ausreichende Wikipedia-Quelle'):
+                        try:
+                            import statusmeldung
+                            statusmeldung.senden(f'📋 Thema „{thema}" zurueckgestellt: keine ausreichende Quelle fuer '
+                                                 'ein Video gefunden. Es bleibt in der Liste; weiter mit dem naechsten.')
+                        except Exception as e:  # Hinweis ist Kuer, das Video geht vor
+                            print('Hinweis zum zurueckgestellten Thema nicht gesendet:', type(e).__name__)
+                    ersatz = themen.nehmen(kanal)
+                    print(f'Keine Quelle fuer {thema} - '
+                          + (f'Thema aus der Warteschlange: {ersatz}' if ersatz else 'freie Wahl'), flush=True)
+                    thema = festes_thema = ersatz or ''
+                    trend = None
+                    os.environ.pop('CF_TRENDGRUND', None)
+                    continue
                 if r in (2, 3) and trend and aus_warteschlange and thema:
                     trend_fehlschlaege += 1
                     if trend_fehlschlaege >= 2:

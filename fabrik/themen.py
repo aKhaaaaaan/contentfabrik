@@ -578,6 +578,20 @@ def quelle(vorgabe):
         return None
 
 
+def zurueckstellen(kanal, thema, grund):
+    """Nutzerthema bleibt in der Liste, aber nehmen() ueberspringt es (status != 'bereit'). True, wenn gefunden.
+    GEMESSEN 30.10.2026: Kongo Gumi scheiterte fuenfmal identisch an der Quelle und haette jeden Tag ohne Trend
+    erneut blockiert."""
+    liste = laden()
+    for x in liste:
+        if x['kanal'] == kanal and x['thema'] == thema and x.get('status', 'bereit') == 'bereit':
+            x.update(status='zurueckgestellt', grund=str(grund)[:200],
+                     zurueckgestellt_am=datetime.date.today().isoformat())
+            speichern(liste)
+            return True
+    return False
+
+
 def erledigen(kanal, thema):
     liste = laden()
     for i, x in enumerate(liste):

@@ -63,6 +63,12 @@ def zuschauer_daten(kanal=None):
                        reverse=True)
         return werte if len(werte) >= 2 else []
     teile = []
+    # GEMESSEN 30.10.2026 (YouTube Analytics): Shorts-Feed zeigt die Videos (Business 785 Feed-Aufrufe/28 Tage), aber
+    # nur 17 % schauen weiter statt wegzuwischen (KI 30 %). engagedViews/views misst genau den Einstieg.
+    if werte := gruppiert(videos, lambda v: 100 * v['engaged'] / v['aufrufe']
+                          if isinstance(v.get('engaged'), int) and (v.get('aufrufe') or 0) >= 10 else None):
+        teile.append('YouTube, share of viewers who kept watching instead of swiping away: '
+                     + '; '.join(f'{ARTEN[a]}: {m:.0f}% ({n} videos)' for m, a, n in werte))
     if werte := gruppiert(videos, lambda v: v.get('anteil_prozent')):
         teile.append('YouTube, average share of the Short watched: '
                      + '; '.join(f'{ARTEN[a]}: {m:.0f}% ({n} videos)' for m, a, n in werte))
@@ -74,7 +80,8 @@ def zuschauer_daten(kanal=None):
     if not teile:
         return ''
     return ('REAL AUDIENCE DATA for this channel by opening type - ' + ' | '.join(teile)
-            + '. Prefer the stronger opening types when they fit the facts honestly.\n')
+            + '. Prefer the stronger opening types when they fit the facts honestly; for the first sentence the '
+              'swipe-away share counts most.\n')
 
 
 def teilen(text):

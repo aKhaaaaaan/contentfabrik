@@ -74,8 +74,12 @@ def kanal_text(slug, heute):
         anteil = [v['anteil_prozent'] for v in yt if isinstance(v.get('anteil_prozent'), (int, float))
                   and 0 < v['anteil_prozent'] <= 100]
         frueh = [f for f in (frueh_bindung(v.get('kurve')) for v in yt) if f]
+        # 30.10.2026: engagedViews/views = wer im Shorts-Feed weiterschaut statt wegzuwischen (Business 17 %)
+        bleiben = [v['engaged'] / v['aufrufe'] for v in yt if isinstance(v.get('engaged'), int) and v['aufrufe'] >= 10]
         zeilen.append(f'YouTube (14 Tage, {len(yt)} Videos): Median {statistics.median(v["aufrufe"] for v in yt):.0f} '
                       'Aufrufe' + (f', im Schnitt {statistics.mean(anteil):.0f} % angesehen' if anteil else ''))
+        if bleiben:
+            zeilen.append(f'   Im Feed weitergeschaut statt weggewischt: {statistics.mean(bleiben) * 100:.0f} %')
         if frueh:
             zeilen.append(f'   Nach den ersten Sekunden noch dabei: {statistics.mean(frueh) * 100:.0f} %'
                           + (' - der Einstieg verliert zu viele' if statistics.mean(frueh) < .75 else ''))

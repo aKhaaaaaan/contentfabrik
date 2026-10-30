@@ -145,7 +145,13 @@ def skript(kanal, thema, frueher, blick, woerter):
                   'decision, essential context, obstacle, response, consequence and payoff. Choose '
                   'the strongest real conflict in the source; a crisis is not mandatory. No invented '
                   'near-bankruptcy, poverty or founder emotions. Tell how decisions changed the '
-                  'outcome, rather than reciting a timeline. Omit platz and numbered Part labels.')
+                  'outcome, rather than reciting a timeline. Omit platz and numbered Part labels. '
+                  # GEMESSEN 30.10.2026 (TikTok Business): "BMW made pots and pans" 728, Rolls-Royce 701 - aber
+                  # Nachrichten-Winkel (Google CEO-Ultimatum 269, Skydance-Uebernahme 274, Moderna-IPO 243) ~250.
+                  'Tell the surprising, little-known episode most viewers do not know about this name (an odd '
+                  'first product, a near-collapse, an unlikely deal) - a fact people repeat to friends. Recent '
+                  'corporate news (mergers, IPOs, earnings, lawsuits, deals of the last two years) is never the '
+                  'story itself; mention it in one sentence at most.')
     if kanal.get('nur_quellen'):
         # GEMELDET 10.10.2026: Tool-Name gross als Ueberschrift, Logo am Anfang jedes Tool-Abschnitts.
         aufbau += (' Set werkzeug on EVERY part to the exact name of the tool that part is about, '

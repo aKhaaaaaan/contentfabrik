@@ -75,6 +75,33 @@ def wiki_aufwind(titel, heute=None):
     return round(sum(werte[-2:]) / 2 / basis, 2)
 
 
+# GEMESSEN 30.10.2026 (TikTok Business, 28 Videos): alle Firmen unter ~1.000 Wikipedia-Aufrufen/Tag liefen schwach
+# (Moderna 260/Tag -> 243 Aufrufe, Squibb 344 -> 244, GE Vernova 779 -> 270, Verizon 917 -> 244); alle Videos mit
+# 700+ Aufrufen hatten bekannte Marken (Hugo Boss 1.021 bis Netflix 7.633/Tag). Gilt nur fuer Trendfirmen,
+# nie fuer eigene Themen des Nutzers.
+BEKANNT_MIN = 1000
+
+
+def bekanntheit(titel, heute=None):
+    """Median der taeglichen Wikipedia-Aufrufe (60 Tage) = wie bekannt die Firma ist; None ohne Daten."""
+    import trends
+    heute = heute or datetime.date.today()
+    ende, anfang = heute - datetime.timedelta(days=1), heute - datetime.timedelta(days=61)
+    try:
+        d = json.loads(trends._hole(
+            'https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/'
+            f'{urllib.parse.quote(titel.replace(" ", "_"), safe="")}/daily/{anfang:%Y%m%d}/{ende:%Y%m%d}',
+            trends.WIKI_KENNUNG))
+        werte = [x['views'] for x in d.get('items', [])]
+    except Exception:
+        return None
+    return round(statistics.median(werte)) if len(werte) >= 10 else None
+
+
+def zu_unbekannt(k):
+    return not k.get('eigen') and type(k.get('bekannt')) is int and k['bekannt'] < BEKANNT_MIN
+
+
 GOOGLE_NEWS = 'Google News: '
 
 
@@ -357,6 +384,8 @@ def bewerten(liste, google_liste, heute=None, kanal='', hn_liste=()):
             continue
         k['youtube'], k['beispiele'] = yt_faktor(k['begriff'], ZUSATZ.get(kanal, ''))
         k['wiki'] = wiki_aufwind(k['wikipedia'], heute) if k.get('wikipedia') else None
+        if k.get('wikipedia') and not k.get('eigen') and _profil(kanal).get('quelle') == 'wikipedia':
+            k['bekannt'] = bekanntheit(k['wikipedia'], heute)
         k['google'] = google_treffer(k['begriff'], google_liste)
         k['hn'] = hn_treffer(k['begriff'], hn_liste)
         k['punkte'] = punkte(k['youtube'], k['wiki'], bool(k['google']), k['eigen'], k['hn'])
@@ -389,6 +418,8 @@ def entscheiden(bewertet):
             continue
         if not beste['eigen'] and _wiederholung(beste.get('_kanal', ''), beste['thema']):
             continue
+        if zu_unbekannt(beste):
+            continue
         return beste['thema'], beschreibung(beste)
     return '', 'kein Kandidat mit echtem Trendsignal - freie Trendwahl'
 
@@ -412,7 +443,7 @@ def trend_themen(kanal, heute=None):
     aus = []
     for k in sorted(b.get('kandidaten') or [], key=lambda k: (stufe(k), -(k.get('punkte') or 0))):
         t = k.get('thema') or ''
-        if t and stufe(k) <= 1 and t not in aus and _taugt(k) and not _wiederholung(kanal, t):
+        if t and stufe(k) <= 1 and t not in aus and _taugt(k) and not zu_unbekannt(k) and not _wiederholung(kanal, t):
             aus.append(t)
     return aus
 
@@ -526,7 +557,7 @@ def waehlen(kanal, heute=None, themen=None, neu=False):
                'zuschauer': any(x.get('zuschauer') and x['thema'] == thema for x in bewertet),
                'trend': any(x.get('thema') == thema and thema and x.get('stufe', 2) <= 1 for x in bewertet),
                'kandidaten': [{k: x.get(k) for k in ('thema', 'begriff', 'eigen', 'punkte', 'youtube', 'wiki',
-                                                     'google', 'hn', 'beispiele', 'stufe')} for x in bewertet]}
+                                                     'google', 'hn', 'beispiele', 'stufe', 'bekannt')} for x in bewertet]}
     ORDNER.mkdir(parents=True, exist_ok=True)
     pfad.write_text(json.dumps(bericht, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
     print('Trend-Check:', grund)

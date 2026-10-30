@@ -374,6 +374,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     heute_pfad.parent.mkdir(exist_ok=True)
     os.environ.pop('CF_HEUTE_SCHWAECHEN', None)
     letzter_grund = 'Kein Versuch abgeschlossen'
+    trend_fehlschlaege = 0
     versuch = 0
     korrekturen = 0
     letzter_baufehler = ''
@@ -519,6 +520,18 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                     break  # Eine bekannte Kontingentsperre nicht durch neue Entwuerfe wiederholen.
                 if entwurf:
                     break  # Eine gesperrte feste Vorlage nicht unveraendert erneut pruefen.
+                if r in (2, 3) and trend and aus_warteschlange and thema:
+                    trend_fehlschlaege += 1
+                    if trend_fehlschlaege >= 2:
+                        # GEMESSEN 29.10.2026 (Business 40953284925, DoorDash): Trend wegen eines Vergleichs in den
+                        # News, die Wikipedia-Geschichte eine Chronik aus Kaeufen und Klagen - fuenf Versuche Story
+                        # 4-7/10, kein Video. Nach zwei Sperren das naechste Nutzerthema bzw. freie Wahl.
+                        ersatz = themen.nehmen(kanal)
+                        print(f'Trendthema {thema} zweimal gesperrt - '
+                              + (f'Thema aus der Warteschlange: {ersatz}' if ersatz else 'freie Wahl'), flush=True)
+                        thema = festes_thema = ersatz or ''
+                        trend = None
+                        os.environ.pop('CF_TRENDGRUND', None)  # bericht['trendcheck'] bleibt: zaehlt fuer heute_gescheitert
                 continue
             skript = json.loads((ordner / 'skript.json').read_text(encoding='utf-8'))
             skriptfehler = skript_gruende(skript)

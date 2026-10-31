@@ -25,8 +25,11 @@ WAHL_SCHEMA = {
 }
 
 MECHANIKEN = ('a surprising number or contrast', 'a concrete moment with a person in action',
-              'a bold claim the video then proves', 'a direct question the viewer cannot answer yet',
-              'the end result first, then "how?"')
+              'a bold claim the video then proves', 'a shocking consequence stated as a plain fact',
+              'the end result first, stated as a fact')
+# GEMESSEN 30.10.2026 (YouTube Analytics, Business, engagedViews/views je Einstiegsart): Aussage 30 %, Zahl 17 %,
+# Frage 10 % blieben nach dem Wischen. Nutzer 31.10.2026: Hook fest als Aussage - Fragen als Einstieg entfallen.
+FRAGE = re.compile(r'\?\s*["\')]*\s*$')
 
 
 # Einstiegsarten wie lauf.py sie im Verlauf festhaelt (hook_art) - auf Englisch fuer den Auftrag
@@ -112,7 +115,8 @@ def auftrag(entwurf, belege):
             'sources; bold, dramatic, almost provocative wording - strong emotional words welcome (nightmare, brutal, '
             'shocking, disaster, insane) - but never inflate a fact; no source attribution '
             '(28.10.2026, Nutzer); no clickbait the video does not pay off; no emojis; no "In this video"; no year, date or '
-            'full name (25.10.2026: such openings held worst); never give away the answer or twist.\n'
+            'full name (25.10.2026: such openings held worst); never give away the answer or twist; a statement, '
+            'never a question (questions held 10 % of viewers, statements 30 %).\n'
             f'SCRIPT:\n{rest}\n\nSOURCES (facts allowed):\n{belege[:6000]}')
 
 
@@ -139,7 +143,8 @@ def kandidaten(antwort, alt):
         text = re.sub(r'\s+', ' ', str((h or {}).get('text', ''))).strip().strip('"')
         if text and text[-1] not in '.!?':
             text += '.'
-        if text and grenze[0] <= woerter(text) <= grenze[1] and text.lower() not in [a.lower() for a in aus]:
+        if text and grenze[0] <= woerter(text) <= grenze[1] and text.lower() not in [a.lower() for a in aus] \
+                and not FRAGE.search(text):
             aus.append(text)
     return aus[:ANZAHL + 1]
 
@@ -161,8 +166,12 @@ def verbessern(entwurf, belege, schreiber, richter):
     if len(liste) < 2:
         protokoll['ergebnis'] = 'keine gueltigen Varianten'
         return None, protokoll
-    wahl = richter(wahl_auftrag(entwurf, liste), WAHL_SCHEMA) or {}
+    # Ist der bisherige erste Satz eine Frage, steht er nicht zur Wahl (Nutzer 31.10.2026: Hook als Aussage)
+    versatz = 1 if FRAGE.search(alt) else 0
+    wahl = richter(wahl_auftrag(entwurf, liste[versatz:]), WAHL_SCHEMA) or {}
     beste = wahl.get('beste')
+    if isinstance(beste, int) and not isinstance(beste, bool):
+        beste += versatz
     protokoll['begruendung'] = str(wahl.get('begruendung', ''))[:300]
     if not isinstance(beste, int) or isinstance(beste, bool) or not 0 <= beste < len(liste):
         protokoll['ergebnis'] = 'ungueltige Wahl'

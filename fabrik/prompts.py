@@ -127,7 +127,8 @@ def skript(kanal, thema, frueher, blick, woerter):
             r'\btier ?list\b|\branked (?:from )?F to S\b', thema or '', re.I):
         # Nutzer 31.10.2026: Tierlist-Format (Pilot 1x/Woche, Vorbild TikTok @howto.print). fabrik/tierlist.py
         # liest "<Stufe> tier: <Name>." am Abschnittsanfang und zeigt die Tafel, die sich Stufe fuer Stufe fuellt.
-        aufbau = ('6-7 short parts: an unranked hook that asks which one earns S tier, then 4-5 ranked parts from '
+        aufbau = ('6-7 short parts: an unranked hook stating as a fact that only one of them earns S tier (a statement, '
+                  'not a question - hooklabor), then 4-5 ranked parts from '
                   'the lowest tier up to S, then the engagement part. Each ranked part MUST start exactly with '
                   '"<Tier> tier: <Name>." (Tier is one of F, C, B, A, S; Name at most 3 words), then ONE reason '
                   'that is visible on that product\'s official source page, in the page\'s own words. Use each '

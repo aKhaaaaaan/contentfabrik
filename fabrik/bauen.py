@@ -46,6 +46,9 @@ ARCHIV_MAX = 4  # Archivclips je Short (29.10.2026: Mischung, Motivzahl bleibt)
 # kostet bis zu 4 Filme x (6 Standbilder + 1 KI-Anfrage); WITZ_VERSUCHE begrenzt die Bauzeit.
 WITZ_MAX = 2
 WITZ_VERSUCHE = 4
+# Bedien- und Technikschritte: dazu passt kein Cartoon (31.10.: "about menu" -> Noten 1-3, alle Versuche verbraucht)
+WITZ_TECHNIK = re.compile(r'\b(menu|settings?|click|tap|button|install\w*|command|terminal|code|adb|developer|'
+                          r'build number|toggle|enable|disable|download|api|key|github|repo\w*|prompt)\b', re.I)
 
 
 def clip_max(shots, hochformat):
@@ -2104,7 +2107,7 @@ def main(skript_pfad, aus, vorlage=None):
             if karte and (bildplan.material_id(karte) in {vorherige_id, *benutzte_materialien} or not motiv_ok(karte)):
                 print(f'Einstellung {i}: gleiche Quellseite wie davor - gemalte Szene')
                 karte, modus = None, 'illustration'
-            textkarte_rueckfall = False
+            textkarte_rueckfall = weiche = False
             if kanalprofil(s).get('gemalt_nur_rand') and 0 < i < len(shots) - 1 and not karte \
                     and modus in ('auto', 'illustration', 'stock', 'foto', 'figur'):
                 # Nutzerentscheidung 15.10.2026 (KI-Kanal, Kosten sparen): gemalt nur Anfang und Aufruf.
@@ -2139,7 +2142,7 @@ def main(skript_pfad, aus, vorlage=None):
                     # Datenquellen nahm die Bildauswahl lieber irgendeinen Screenshot (News, Node-Editor) -
                     # 6 Ablehnungen. Dieselben Saetze bestanden als Erklaergrafik mit 8-10/10. Feste Weiche.
                     print(f'Einstellung {i}: Satz ueber Schluessel/Kosten/Daten/Download - Erklaergrafik')
-                    t, modus, fest = dict(t, grafik_typ='erklaerung'), 'grafik', True
+                    t, modus, fest, weiche = dict(t, grafik_typ='erklaerung'), 'grafik', True, True
             if modus == 'demo':
                 demo, fq = demo_fuer(t.get('quelle_url'), t['text'] + ' Visual: ' + t.get('szene', ''),
                                     benutzte_demos, t.get('demo_url'))
@@ -2287,23 +2290,35 @@ def main(skript_pfad, aus, vorlage=None):
             # ausser ausdruecklich false). Vorher nur Hochformat (H > B) - Langvideos hatten nie einen Clip.
             witz_an = kanalprofil(s).get('witzclips', True) is not False
             clips_an = kanalprofil(s).get('archivclips') or kanalprofil(s).get('stockclips') or witz_an
-            if clips_an and modus in ('auto', 'illustration', 'foto') and not karte and not foto \
-                    and not ill and 0 < i < len(shots) - 1 and i not in zahl_slots \
+            w_max = witz_max(len(shots), H > B)
+            witz = witz_an and witz_zahl < w_max and witz_versuche < WITZ_VERSUCHE * w_max // WITZ_MAX \
+                and not WITZ_TECHNIK.search(f"{t['text']} {t.get('suche', '')}")
+            # GEMESSEN 31.10.2026 (KI-Short 41221559923, 0 Witz-Clips): im KI-Kanal hat fast jede Einstellung schon
+            # eine Erklaergrafik (vorher: nur Einstellungen ohne Bild) - der einzige freie Platz war ein Menue-Schritt
+            # ("about menu"), alle 4 Versuche dort, Noten 1-3. Jetzt darf ein Witz-Clip eine allgemeine
+            # Erklaergrafik ersetzen; die feste Weiche (Schluessel/Kosten/Daten) und Quellseiten bleiben.
+            erklaer = witz and modus == 'grafik' and t.get('grafik_typ') == 'erklaerung' and not weiche \
+                and bool(ill) and bool(quellen) and quellen[-1].get('quelle') == 'Erklaergrafik'
+            if clips_an and (erklaer or modus in ('auto', 'illustration', 'foto') and not ill) \
+                    and not karte and not foto and 0 < i < len(shots) - 1 and i not in zahl_slots \
                     and archiv_zahl < clip_max(len(shots), H > B) and i - archiv_letzt >= 2 and dauer >= 2.0 \
                     and not texte.AUFRUF.search(t['text']):  # 29.10.: Pixabay-Clip lag auf dem Like-Aufruf
-                w_max = witz_max(len(shots), H > B)
-                witz = witz_an and witz_zahl < w_max and witz_versuche < WITZ_VERSUCHE * w_max // WITZ_MAX
                 witz_versuche += witz
+                grafik = ill
                 try:
                     archiv_video, ill, q_clip = archivclip.fuer_einstellung(
                         t['text'], t.get('szene', ''), t.get('suche', ''), dauer, aus / f'clip_{i:02d}',
-                        archiv=bool(kanalprofil(s).get('archivclips')),
-                        ohne_epoche=bool(kanalprofil(s).get('stockclips')),
+                        archiv=bool(kanalprofil(s).get('archivclips')) and not erklaer,
+                        ohne_epoche=bool(kanalprofil(s).get('stockclips')) and not erklaer,
                         # GEMESSEN 30.10.2026: 7 von 8 eingebauten Pixabay-Clips fielen beim Schlusspruefer mit 2-3/10
                         # durch (Kongo Gumi, ServiceNow) - Nutzer: Business ohne Pixabay, Archivclips bleiben.
                         pixabay=(lambda suche, zusatz='': clip_fuer(suche, schon, dauer, t['text'] + zusatz))
-                        if stock_erlaubt else None, benutzt=archiv_benutzt,
+                        if stock_erlaubt and not erklaer else None, benutzt=archiv_benutzt,
                         geschichte=archiv_jahr, witz=witz)
+                    if archiv_video and erklaer:
+                        quellen.pop()  # die ersetzte Erklaergrafik
+                    elif erklaer:
+                        ill = grafik
                     if archiv_video:
                         archiv_zahl, archiv_letzt = archiv_zahl + 1, i
                         witz_zahl += q_clip.get('art') == 'witz'
@@ -2314,7 +2329,7 @@ def main(skript_pfad, aus, vorlage=None):
                         print(f"Einstellung {i}: Clip ({q_clip['quelle']}) gemalt")
                 except Exception as e:  # Clips sind Kuer - dann wie bisher gemalt
                     print(f'Einstellung {i}: Clip nicht moeglich ({type(e).__name__}) - gemalte Szene')
-                    archiv_video, ill = None, None
+                    archiv_video, ill = None, grafik if erklaer else None
             if os.environ.get('CLOUDFLARE_AI_TOKEN') and modus in ('auto', 'illustration', 'foto') \
                     and not karte and not foto and not ill:
                 import illustration

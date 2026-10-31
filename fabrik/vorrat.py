@@ -194,8 +194,42 @@ def aufraeumen(kanal_pfad):
                 pfad.unlink(missing_ok=True)
 
 
+# GEMESSEN 31.10.2026 (skripte.yml 41153564650/41171142835/41178202588): drei Nachtlaeufe versuchten dieselben drei
+# KI-Trendthemen (Story 3-7, Code 3) und ExxonMobil (Quelle zu kurz) - 0 Skripte, tagsueber dann Live-Schreiben.
+GESCHEITERT = Path('verlauf/vorrat-gescheitert')
+GESCHEITERT_TAGE = 3
+
+
+def gescheitert(kanal, heute=None):
+    """Themen, deren Vorratsskript in den letzten GESCHEITERT_TAGE Tagen durchfiel."""
+    heute = heute or datetime.date.today()
+    try:
+        liste = json.loads((GESCHEITERT / f'{kanal}.json').read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return set()
+    return {x['thema'] for x in liste if 0 <= (heute - datetime.date.fromisoformat(x['datum'])).days
+            < GESCHEITERT_TAGE}
+
+
+def gescheitert_merken(kanal, thema, code, heute=None):
+    heute = heute or datetime.date.today()
+    pfad = GESCHEITERT / f'{kanal}.json'
+    try:
+        liste = json.loads(pfad.read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        liste = []
+    liste = [x for x in liste if (heute - datetime.date.fromisoformat(x['datum'])).days < GESCHEITERT_TAGE]
+    liste.append({'datum': heute.isoformat(), 'thema': thema, 'code': code})
+    GESCHEITERT.mkdir(parents=True, exist_ok=True)
+    pfad.write_text(json.dumps(liste, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+
+
 def offene_themen(kanal):
-    """Naechste Warteschlangen-Themen ohne Vorratsskript (auch spaeter geplante)."""
+    """Naechste Warteschlangen-Themen ohne Vorratsskript (auch spaeter geplante), ohne kuerzlich gescheiterte."""
+    return [t for t in _offene_themen(kanal) if t not in gescheitert(kanal)]
+
+
+def _offene_themen(kanal):
     import themen
     vorhanden = {e.get('thema_eingabe') for _, e in eintraege(kanal)}
     offen = [x['thema'] for x in themen.laden() if x['kanal'] == kanal
@@ -248,7 +282,9 @@ def fuellen(kanal_pfad, frist_s=1500):
         # Nachtlauf frei gewaehlt „HaozheH3/awesome-rea-games". Nutzer 21.10.: „Nachtvorrat muss das Thema immer vom
         # YouTube Trends oder ... Google Trends holen". Kanaele mit Zuschauer-Trendquellen schreiben nachts nichts
         # frei Gewaehltes; der Tageslauf waehlt bei Bedarf selbst (Titelvorlage/Trend-Check).
-        if not thema and _zuschauer_trends(kanal):
+        # 31.10.2026: Business waehlte danach TAGSUEBER frei (Lego, ServiceNow; 7-15 Min. je Lauf, einmal kein
+        # Video). Firmenkanaele waehlen darum schon nachts frei (prompts.ANFASSBAR, skript.sperrliste); KI nicht.
+        if not thema and _zuschauer_trends(kanal) and _kanal_daten(kanal_pfad).get('quelle') != 'wikipedia':
             print(f'Vorrat {kanal}: kein offenes Trendthema - nichts frei gewaehlt', flush=True)
             break
         if not thema and any(not e.get('thema_eingabe') for _, e in eintraege(kanal)):
@@ -267,6 +303,8 @@ def fuellen(kanal_pfad, frist_s=1500):
             print(f'Vorrat: Skript nicht aufgenommen (Code {r})')
             if not thema:
                 break
+            if r in (2, 3):  # Fakten/Quelle oder Story: dasselbe Thema in der naechsten Nacht nicht noch einmal
+                gescheitert_merken(kanal, thema, r)
             continue
         s = json.loads(ziel.read_text(encoding='utf-8'))
         import prompts

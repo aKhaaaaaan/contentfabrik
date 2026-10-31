@@ -1,418 +1,5 @@
 [
   {
-    "id": "38587713060",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-14",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 111.9,
-        "pruefung_s": 56.6,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Bewertung hook fehlt oder ist ungueltig",
-          "Video-bild_passt 2/10 unter 7/10",
-          "Video-Bewertung dynamik fehlt oder ist ungueltig",
-          "Video-Bewertung text fehlt oder ist ungueltig",
-          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
-          "Video-Bewertung tempo fehlt oder ist ungueltig",
-          "Video-Bewertung inhalt fehlt oder ist ungueltig",
-          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
-          "Video-Bewertung regeln fehlt oder ist ungueltig",
-          "Video-Bewertung story fehlt oder ist ungueltig",
-          "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht.",
-          "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt.",
-          "Einstellung 14: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige.",
-          "Offenes Problem (schwer): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet.",
-          "Offenes Problem (schwer): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt. Korrektur: Ein Screenshot, der konkret Pfeile, Boxen und Beschriftungen oberhalb von Fenstern darstellt.",
-          "Offenes Problem (schwer): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige. Korrektur: Eine Bildschirmaufnahme, die das Verschwinden des Pfeils nach der Anzeige einer Instruktion demonstriert."
-        ],
-        "messung": {
-          "stimme_wiederverwendet": true,
-          "erzaehlstimme": "gemini:Orus",
-          "tempo": 1.08,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 0,
-          "stuecke_neu": 18,
-          "clips_und_stuecke": 75.5,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 18,
-            "motive": 18,
-            "motive_min": 18
-          },
-          "effekte": 8,
-          "rendern": 35.8,
-          "gesamt": 111.7,
-          "videolaenge_s": 44.4,
-          "abschnitte_s": [
-            8.34,
-            4.0,
-            6.8,
-            6.94,
-            6.86,
-            8.34,
-            3.11
-          ],
-          "woerter": 98
-        },
-        "kategorien": {
-          "bild_passt": 2
-        },
-        "probleme": [
-          {
-            "zeit": "00:08",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "text": "Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet."
-          },
-          {
-            "zeit": "00:09",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "text": "Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt. Korrektur: Ein Screenshot, der konkret Pfeile, Boxen und Beschriftungen oberhalb von Fenstern darstellt."
-          },
-          {
-            "zeit": "00:30",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "text": "Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige. Korrektur: Eine Bildschirmaufnahme, die das Verschwinden des Pfeils nach der Anzeige einer Instruktion demonstriert."
-          }
-        ],
-        "sekunden": 168.6,
-        "status": "geprueft"
-      },
-      {
-        "runde": 2,
-        "art": "korrektur",
-        "plan": {
-          "aktionen": [
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 0
-            },
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 1
-            },
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 4
-            }
-          ],
-          "einstellungen": {
-            "stimme": "am_michael",
-            "tempo": 1.05,
-            "untertitel_profil": "ruhig",
-            "musik_pegel": null,
-            "effekt_pegel": null
-          },
-          "offen": [],
-          "teile": [
-            0,
-            1,
-            4
-          ],
-          "schwerpunkt": "bild",
-          "prompt_version": "2026-10-13.2"
-        },
-        "skript_s": 1.6,
-        "bau_s": 38.2,
-        "pruefung_s": 6.8,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Bewertung hook fehlt oder ist ungueltig",
-          "Video-bild_passt 2/10 unter 7/10",
-          "Video-Bewertung dynamik fehlt oder ist ungueltig",
-          "Video-Bewertung text fehlt oder ist ungueltig",
-          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
-          "Video-Bewertung tempo fehlt oder ist ungueltig",
-          "Video-Bewertung inhalt fehlt oder ist ungueltig",
-          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
-          "Video-Bewertung regeln fehlt oder ist ungueltig",
-          "Video-Bewertung story fehlt oder ist ungueltig",
-          "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht.",
-          "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt.",
-          "Einstellung 14: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige.",
-          "Offenes Problem (schwer): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet.",
-          "Offenes Problem (schwer): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt. Korrektur: Ein Screenshot, der konkret Pfeile, Boxen und Beschriftungen oberhalb von Fenstern darstellt.",
-          "Offenes Problem (schwer): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige. Korrektur: Eine Bildschirmaufnahme, die das Verschwinden des Pfeils nach der Anzeige einer Instruktion demonstriert."
-        ],
-        "messung": {
-          "stimme_wiederverwendet": true,
-          "erzaehlstimme": "gemini:Orus",
-          "tempo": 1.08,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 18,
-          "stuecke_neu": 0,
-          "clips_und_stuecke": 1.7,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 18,
-            "motive": 18,
-            "motive_min": 18
-          },
-          "effekte": 8,
-          "rendern": 35.9,
-          "gesamt": 38.1,
-          "videolaenge_s": 44.4,
-          "abschnitte_s": [
-            8.34,
-            4.0,
-            6.8,
-            6.94,
-            6.86,
-            8.34,
-            3.11
-          ],
-          "woerter": 98
-        },
-        "kategorien": {
-          "bild_passt": 2
-        },
-        "probleme": [
-          {
-            "zeit": "00:08",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "text": "Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet."
-          },
-          {
-            "zeit": "00:09",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "text": "Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt. Korrektur: Ein Screenshot, der konkret Pfeile, Boxen und Beschriftungen oberhalb von Fenstern darstellt."
-          },
-          {
-            "zeit": "00:30",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "text": "Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige. Korrektur: Eine Bildschirmaufnahme, die das Verschwinden des Pfeils nach der Anzeige einer Instruktion demonstriert."
-          }
-        ],
-        "sekunden": 46.7,
-        "status": "geprueft",
-        "lernergebnis": {
-          "id": "38587713060-2",
-          "datum": "2026-10-14",
-          "vorher": null,
-          "nachher": null,
-          "vorher_gesperrt": true,
-          "nachher_gesperrt": true,
-          "sekunden": 46.7,
-          "aktionen": [
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 0
-            },
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 1
-            },
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 4
-            }
-          ],
-          "einstellungen": {
-            "stimme": "am_michael",
-            "tempo": 1.05,
-            "untertitel_profil": "ruhig",
-            "musik_pegel": null,
-            "effekt_pegel": null
-          },
-          "schwerpunkt": "bild",
-          "kategorien_vorher": {
-            "bild_passt": 2
-          },
-          "kategorien_nachher": {
-            "bild_passt": 2
-          },
-          "auswertbar": false,
-          "prompt_version": "2026-10-13.2",
-          "verbessert": false
-        }
-      },
-      {
-        "runde": 3,
-        "art": "korrektur",
-        "plan": {
-          "aktionen": [
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 0
-            },
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 1
-            },
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 4
-            }
-          ],
-          "einstellungen": {
-            "stimme": "am_michael",
-            "tempo": 1.05,
-            "untertitel_profil": "ruhig",
-            "musik_pegel": null,
-            "effekt_pegel": null
-          },
-          "offen": [],
-          "teile": [
-            0,
-            1
-          ],
-          "schwerpunkt": "bild",
-          "prompt_version": "2026-10-13.2"
-        },
-        "skript_s": 1.8,
-        "bau_s": 38.8,
-        "pruefung_s": 6.7,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Bewertung hook fehlt oder ist ungueltig",
-          "Video-bild_passt 2/10 unter 7/10",
-          "Video-Bewertung dynamik fehlt oder ist ungueltig",
-          "Video-Bewertung text fehlt oder ist ungueltig",
-          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
-          "Video-Bewertung tempo fehlt oder ist ungueltig",
-          "Video-Bewertung inhalt fehlt oder ist ungueltig",
-          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
-          "Video-Bewertung regeln fehlt oder ist ungueltig",
-          "Video-Bewertung story fehlt oder ist ungueltig",
-          "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht.",
-          "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt.",
-          "Einstellung 14: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige.",
-          "Offenes Problem (schwer): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet.",
-          "Offenes Problem (schwer): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt. Korrektur: Ein Screenshot, der konkret Pfeile, Boxen und Beschriftungen oberhalb von Fenstern darstellt.",
-          "Offenes Problem (schwer): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige. Korrektur: Eine Bildschirmaufnahme, die das Verschwinden des Pfeils nach der Anzeige einer Instruktion demonstriert."
-        ],
-        "messung": {
-          "stimme_wiederverwendet": true,
-          "erzaehlstimme": "gemini:Orus",
-          "tempo": 1.08,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 18,
-          "stuecke_neu": 0,
-          "clips_und_stuecke": 2.5,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 18,
-            "motive": 18,
-            "motive_min": 18
-          },
-          "effekte": 8,
-          "rendern": 35.6,
-          "gesamt": 38.5,
-          "videolaenge_s": 44.4,
-          "abschnitte_s": [
-            8.34,
-            4.0,
-            6.8,
-            6.94,
-            6.86,
-            8.34,
-            3.11
-          ],
-          "woerter": 98
-        },
-        "kategorien": {
-          "bild_passt": 2
-        },
-        "probleme": [
-          {
-            "zeit": "00:08",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "text": "Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet."
-          },
-          {
-            "zeit": "00:09",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "text": "Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt. Korrektur: Ein Screenshot, der konkret Pfeile, Boxen und Beschriftungen oberhalb von Fenstern darstellt."
-          },
-          {
-            "zeit": "00:30",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "text": "Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige. Korrektur: Eine Bildschirmaufnahme, die das Verschwinden des Pfeils nach der Anzeige einer Instruktion demonstriert."
-          }
-        ],
-        "sekunden": 47.3,
-        "status": "geprueft",
-        "lernergebnis": {
-          "id": "38587713060-3",
-          "datum": "2026-10-14",
-          "vorher": null,
-          "nachher": null,
-          "vorher_gesperrt": true,
-          "nachher_gesperrt": true,
-          "sekunden": 47.3,
-          "aktionen": [
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 0
-            },
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 1
-            },
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 4
-            }
-          ],
-          "einstellungen": {
-            "stimme": "am_michael",
-            "tempo": 1.05,
-            "untertitel_profil": "ruhig",
-            "musik_pegel": null,
-            "effekt_pegel": null
-          },
-          "schwerpunkt": "bild",
-          "kategorien_vorher": {
-            "bild_passt": 2
-          },
-          "kategorien_nachher": {
-            "bild_passt": 2
-          },
-          "auswertbar": false,
-          "prompt_version": "2026-10-13.2",
-          "verbessert": false
-        }
-      },
-      {
-        "runde": 4,
-        "art": "korrektur",
-        "status": "korrekturgrenze",
-        "sekunden": 0.0
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Video-Note fehlt oder ist ungueltig; Video-Bewertung hook fehlt oder ist ungueltig; Video-bild_passt 2/10 unter 7/10; Video-Bewertung dynamik fehlt oder ist ungueltig; Video-Bewertung text fehlt oder ist ungueltig; Video-Bewertung ton_stimme fehlt oder ist ungueltig; Video-Bewertung tempo fehlt oder ist ungueltig; Video-Bewertung inhalt fehlt oder ist ungueltig; Video-Bewertung schluss_loop fehlt oder ist ungueltig; Video-Bewertung regeln fehlt oder ist ungueltig; Video-Bewertung story fehlt oder ist ungueltig; Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht.; Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt.; Einstellung 14: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige.; Offenes Problem (schwer): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet.; Offenes Problem (schwer): Das Bild zeigt eine Software-Tutorial-Oberfläche mit Buttons, während der gesprochene Text Fenster, Pfeile, Boxen und Beschriftungen erwähnt. Korrektur: Ein Screenshot, der konkret Pfeile, Boxen und Beschriftungen oberhalb von Fenstern darstellt.; Offenes Problem (schwer): Das Bild zeigt zwar ein System-Settings-Dialogfeld mit Text, aber nicht das Verschwinden des Pfeils nach der Instruktionsanzeige. Korrektur: Eine Bildschirmaufnahme, die das Verschwinden des Pfeils nach der Anzeige einer Instruktion demonstriert.",
-    "sekunden": 270.1,
-    "upload_titel": "Your AI Says Click: Bigarrow Shows Where | AI Tool #4"
-  },
-  {
     "id": "38589156299",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-14",
@@ -15870,5 +15457,750 @@
     "status": "gesperrt",
     "grund": "RuntimeError: Keine belegte KI-Anwendung gefunden; keine unbelegte Skriptanfrage (skript.py:784)",
     "sekunden": 9.1
+  },
+  {
+    "id": "41221559923",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-10-31",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-tempo 6/10 unter 7/10"
+        ],
+        "story_note": 7,
+        "story_schwaechen": [
+          "The sentence 'Samsung, LG, Roku, Vizio and Hisense VIDAA owners can only turn off tracking by remote' is an exclusion list that stalls the tutorial's tempo; remove it to keep the focus on Android TV.",
+          "The sentence 'CleanYourTV needs Android TV or Google TV' introduces a second name ('CleanYourTV') that conflicts with 'Claude Code', confusing the viewer about which tool is being used."
+        ],
+        "skript_probleme": [],
+        "sekunden": 470.2
+      },
+      {
+        "runde": 2,
+        "art": "produktion",
+        "skript_s": 201.7,
+        "bau_s": 964.1,
+        "pruefung_s": 224.9,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 1/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine generische Illustration eines Mannes in einer Stadt, die keinen Bezug zum geschilderten technischen Vorgang hat. Es ist weder ein Android-TV-Gerät noch ein Menü sichtbar, das die 'Build'-Nummer oder die Entwickleroptionen zeigt. Die visuelle Darstellung ist ein abstraktes Metaphe",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine generische Chat-Oberfläche, die den gesprochenen Satz als Text wiederholt. Es handelt sich jedoch nicht um die tatsächliche Software-Oberfläche von Claude Code, die im Video erklärt wird (z. B. Terminal, spezifische UI-Elemente). Es fehlt jede visuelle Evidenz für die beschrieben",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (1/10): Das Bild zeigt nur eine Chat-Oberfläche, aber nicht den geforderten Vorgang (Drücken von 'Build' sieben Mal im Einstellungsmenü).",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich das Home-Menü und ein abgeschnittenes Textfragment, nicht jedoch das Menü für 'Entwickleroptionen' oder den aktiven Vorgang des Einschaltens von 'USB-Debugging', wie in der Narration gefordert.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Szene zeigt lediglich das UI eines Smart-TVs, jedoch nicht die Interaktion mit Claude Code auf einem Laptop oder das Einfügen eines Prompts.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Startbildschirm eines Smart-TVs und keine Liste von Apps oder eine Interaktion mit einer Software, die nach Bestätigungen fragt.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich den Startbildschirm des Fernsehers, aber nicht die beschriebene Aktion oder den Prozess des Deaktivierens von Anzeigen oder Apps durch Claude Code.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Repository-Übersicht und keinen technischen Beleg für das Deaktivieren von Apps oder die visuelle Bestätigung, dass Werbeanzeigen 'stummgeschaltet' werden.",
+          "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich den Text der Narration, bietet jedoch keine visuelle Demonstration des beschriebenen Befehls oder der Rückgängigmachung der Änderungen.",
+          "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Github-Repository-Übersicht für ein Projekt namens 'tv-detox'. Es visualisiert in keiner Weise den Prozess des 'Abschaltens' oder 'Rückgängigmachens' von Anzeigen auf einem Android-TV, wie es die Narration beschreibt.",
+          "Offenes Problem (schwer): Das Bild zeigt eine generische Illustration eines Mannes in einer Stadt, die keinen Bezug zum geschilderten technischen Vorgang hat. Es ist weder ein Android-TV-Gerät noch ein Menü sichtbar, das die 'Build'-Nummer oder die Entwickleroptionen zeigt. Die visuelle Darstellung ist ein abstraktes Metapher-Bild, das den konkreten Schritt des siebenmaligen Drückens nicht erklärt oder darstellt. Korrektur: Ein Screenshot des Android-TV-Systems, der das 'About'-Menü (oder 'Info') zeigt, in dem der Eintrag 'Build number' (Bau-Nummer) sichtbar ist, idealerweise mit einer grafischen Markierung, die das siebenmalige Tippen andeutet.",
+          "Offenes Problem (schwer): Das Bild zeigt eine generische Chat-Oberfläche, die den gesprochenen Satz als Text wiederholt. Es handelt sich jedoch nicht um die tatsächliche Software-Oberfläche von Claude Code, die im Video erklärt wird (z. B. Terminal, spezifische UI-Elemente). Es fehlt jede visuelle Evidenz für die beschriebene Funktion (Bereinigung von Werbung), da nur der Text selbst als Grafik dargestellt ist. Dies ist eine bloße Textwiedergabe und keine technische Erklärung oder Demonstration. Korrektur: Ein Screenshot der Claude-Code-Oberfläche, der eine konkrete Interaktion zeigt, z. B. eine Liste von Apps, die das Tool analysiert, oder einen Befehl, der ausgeführt wird, um Werbung zu deaktivieren.",
+          "Offenes Problem (schwer): Das Bild zeigt nur eine Chat-Oberfläche, aber nicht den geforderten Vorgang (Drücken von 'Build' sieben Mal im Einstellungsmenü). Korrektur: Ein Screenshot oder eine Aufnahme des Android TV Einstellungsmenüs (About), in dem der 'Build'-Eintrag zu sehen ist oder das Menü für die 'Developer options' gezeigt wird.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich das Home-Menü und ein abgeschnittenes Textfragment, nicht jedoch das Menü für 'Entwickleroptionen' oder den aktiven Vorgang des Einschaltens von 'USB-Debugging', wie in der Narration gefordert. Korrektur: Ein Screenshot aus dem Einstellungsmenü des Android-TVs, der das Untermenü 'Entwickleroptionen' und den expliziten Umschalter für 'USB-Debugging' anzeigt.",
+          "Offenes Problem (schwer): Die gezeigte Szene zeigt lediglich das UI eines Smart-TVs, jedoch nicht die Interaktion mit Claude Code auf einem Laptop oder das Einfügen eines Prompts. Korrektur: Ein Bild, das einen Laptop mit einer Konsole zeigt, in der der Benutzer einen Befehl für Claude Code eingibt.",
+          "Offenes Problem (schwer): Das Bild zeigt den Startbildschirm eines Smart-TVs und keine Liste von Apps oder eine Interaktion mit einer Software, die nach Bestätigungen fragt. Korrektur: Ein Screenshot der Laptop-Konsole oder Benutzeroberfläche, in der Claude Code eine Liste von installierten Apps anzeigt und den Benutzer um eine Bestätigung bittet.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich den Startbildschirm des Fernsehers, aber nicht die beschriebene Aktion oder den Prozess des Deaktivierens von Anzeigen oder Apps durch Claude Code. Korrektur: Ein Screenshot, der die Schnittstelle von Claude Code zeigt, während das Programm die Liste der Apps auf dem Fernseher anzeigt und den Benutzer fragt, ob diese deaktiviert werden sollen.",
+          "Offenes Problem (schwer): Das Bild zeigt eine Repository-Übersicht und keinen technischen Beleg für das Deaktivieren von Apps oder die visuelle Bestätigung, dass Werbeanzeigen 'stummgeschaltet' werden. Korrektur: Ein Screenshot der Benutzeroberfläche des Android TVs, der zeigt, wie eine Werbe-App deaktiviert wird oder eine entsprechende Statusmeldung in der Konsole von Claude Code.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich den Text der Narration, bietet jedoch keine visuelle Demonstration des beschriebenen Befehls oder der Rückgängigmachung der Änderungen. Korrektur: Eine Bildschirmaufnahme des Terminals oder der Benutzeroberfläche, die zeigt, wie durch die Eingabe einer einzigen Befehlszeile die Bloatware oder Einstellungen rückgängig gemacht werden.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine Github-Repository-Übersicht für ein Projekt namens 'tv-detox'. Es visualisiert in keiner Weise den Prozess des 'Abschaltens' oder 'Rückgängigmachens' von Anzeigen auf einem Android-TV, wie es die Narration beschreibt. Korrektur: Ein Screenshot oder eine Animation, die zeigt, wie eine Android-TV-Einstellung oder ein Befehlszeilen-Tool eine App deaktiviert oder den Status 'ausgeschaltet' visuell bestätigt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 27.7,
+          "zeitmarken": 4.8,
+          "tempo": 1.127,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 14,
+          "clips_und_stuecke": 556.3,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 14,
+            "motive": 13,
+            "motive_min": 8
+          },
+          "effekte": 17,
+          "rendern": 43.5,
+          "gesamt": 963.7,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            7.5,
+            5.7,
+            5.86,
+            7.36,
+            7.68,
+            6.54,
+            4.38
+          ],
+          "woerter": 128,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 1
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "I pressed Build seven times, and my TV changed.",
+            "fest": false,
+            "text": "Das Bild zeigt eine generische Illustration eines Mannes in einer Stadt, die keinen Bezug zum geschilderten technischen Vorgang hat. Es ist weder ein Android-TV-Gerät noch ein Menü sichtbar, das die 'Build'-Nummer oder die Entwickleroptionen zeigt. Die visuelle Darstellung ist ein abstraktes Metapher-Bild, das den konkreten Schritt des siebenmaligen Drückens nicht erklärt oder darstellt. Korrektur: Ein Screenshot des Android-TV-Systems, der das 'About'-Menü (oder 'Info') zeigt, in dem der Eintrag 'Build number' (Bau-Nummer) sichtbar ist, idealerweise mit einer grafischen Markierung, die das siebenmalige Tippen andeutet."
+          },
+          {
+            "zeit": "00:03.36",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Claude Code can scrub it clean.",
+            "fest": false,
+            "text": "Das Bild zeigt eine generische Chat-Oberfläche, die den gesprochenen Satz als Text wiederholt. Es handelt sich jedoch nicht um die tatsächliche Software-Oberfläche von Claude Code, die im Video erklärt wird (z. B. Terminal, spezifische UI-Elemente). Es fehlt jede visuelle Evidenz für die beschriebene Funktion (Bereinigung von Werbung), da nur der Text selbst als Grafik dargestellt ist. Dies ist eine bloße Textwiedergabe und keine technische Erklärung oder Demonstration. Korrektur: Ein Screenshot der Claude-Code-Oberfläche, der eine konkrete Interaktion zeigt, z. B. eine Liste von Apps, die das Tool analysiert, oder einen Befehl, der ausgeführt wird, um Werbung zu deaktivieren."
+          },
+          {
+            "zeit": "00:07.50",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "First, press Build seven times in the TV's About menu.",
+            "fest": false,
+            "text": "Das Bild zeigt nur eine Chat-Oberfläche, aber nicht den geforderten Vorgang (Drücken von 'Build' sieben Mal im Einstellungsmenü). Korrektur: Ein Screenshot oder eine Aufnahme des Android TV Einstellungsmenüs (About), in dem der 'Build'-Eintrag zu sehen ist oder das Menü für die 'Developer options' gezeigt wird."
+          },
+          {
+            "zeit": "00:10.54",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 4,
+            "gesprochen": "Then switch on USB debugging in Developer options.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich das Home-Menü und ein abgeschnittenes Textfragment, nicht jedoch das Menü für 'Entwickleroptionen' oder den aktiven Vorgang des Einschaltens von 'USB-Debugging', wie in der Narration gefordert. Korrektur: Ein Screenshot aus dem Einstellungsmenü des Android-TVs, der das Untermenü 'Entwickleroptionen' und den expliziten Umschalter für 'USB-Debugging' anzeigt."
+          },
+          {
+            "zeit": "00:13.20",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "On a laptop, paste a prompt into Claude Code.",
+            "fest": false,
+            "text": "Die gezeigte Szene zeigt lediglich das UI eines Smart-TVs, jedoch nicht die Interaktion mit Claude Code auf einem Laptop oder das Einfügen eines Prompts. Korrektur: Ein Bild, das einen Laptop mit einer Konsole zeigt, in der der Benutzer einen Befehl für Claude Code eingibt."
+          },
+          {
+            "zeit": "00:15.42",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 6,
+            "gesprochen": "It lists every app and asks before each change.",
+            "fest": false,
+            "text": "Das Bild zeigt den Startbildschirm eines Smart-TVs und keine Liste von Apps oder eine Interaktion mit einer Software, die nach Bestätigungen fragt. Korrektur: Ein Screenshot der Laptop-Konsole oder Benutzeroberfläche, in der Claude Code eine Liste von installierten Apps anzeigt und den Benutzer um eine Bestätigung bittet."
+          },
+          {
+            "zeit": "00:19.06",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "So what happens to the ads? Nothing gets deleted.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich den Startbildschirm des Fernsehers, aber nicht die beschriebene Aktion oder den Prozess des Deaktivierens von Anzeigen oder Apps durch Claude Code. Korrektur: Ein Screenshot, der die Schnittstelle von Claude Code zeigt, während das Programm die Liste der Apps auf dem Fernseher anzeigt und den Benutzer fragt, ob diese deaktiviert werden sollen."
+          },
+          {
+            "zeit": "00:22.94",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 8,
+            "gesprochen": "They're just turned off, like muting a pushy salesman.",
+            "fest": false,
+            "text": "Das Bild zeigt eine Repository-Übersicht und keinen technischen Beleg für das Deaktivieren von Apps oder die visuelle Bestätigung, dass Werbeanzeigen 'stummgeschaltet' werden. Korrektur: Ein Screenshot der Benutzeroberfläche des Android TVs, der zeigt, wie eine Werbe-App deaktiviert wird oder eine entsprechende Statusmeldung in der Konsole von Claude Code."
+          },
+          {
+            "zeit": "00:32.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 10,
+            "gesprochen": "One line undoes everything.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich den Text der Narration, bietet jedoch keine visuelle Demonstration des beschriebenen Befehls oder der Rückgängigmachung der Änderungen. Korrektur: Eine Bildschirmaufnahme des Terminals oder der Benutzeroberfläche, die zeigt, wie durch die Eingabe einer einzigen Befehlszeile die Bloatware oder Einstellungen rückgängig gemacht werden."
+          },
+          {
+            "zeit": "00:36.90",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 12,
+            "gesprochen": "Those ads aren't dead, just switched off, undoable.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine Github-Repository-Übersicht für ein Projekt namens 'tv-detox'. Es visualisiert in keiner Weise den Prozess des 'Abschaltens' oder 'Rückgängigmachens' von Anzeigen auf einem Android-TV, wie es die Narration beschreibt. Korrektur: Ein Screenshot oder eine Animation, die zeigt, wie eine Android-TV-Einstellung oder ein Befehlszeilen-Tool eine App deaktiviert oder den Status 'ausgeschaltet' visuell bestätigt."
+          }
+        ],
+        "sekunden": 1390.8,
+        "status": "geprueft"
+      },
+      {
+        "runde": 3,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-10-29.2"
+        },
+        "skript_s": 3.6,
+        "bau_s": 316.4,
+        "pruefung_s": 631.3,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine generische Illustration eines Mannes, die den technischen Vorgang des siebenmaligen Drückens der 'Build'-Taste in einem TV-Menü nicht darstellt. Es fehlt jede visuelle Evidenz für die beschriebene Software-Interaktion (kein TV, kein Menü, keine Taste).",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen Titelbildschirm bzw. eine grafische Überschrift, aber keine echte Benutzeroberfläche eines Android TV-Menüs, in der man die Option 'Build' oder das entsprechende Menü zum Aktivieren des Entwicklermodus sehen könnte.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine abstrakte, schematische Darstellung mit dem Text 'DEBUGGING IN DEVELOPER OPTIONS', die den genannten Begriff aufgreift. Es fehlt jedoch die geforderte konkrete Benutzeroberfl\u0004che (die eigentlichen Entwickleroptionen) und der sichtbare Vorgang des Einschaltens (z. B. ein aktiviert",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine generische, stilisierte Darstellung eines Chat-Interfaces, die den gesprochenen Text als Grafik wiedergibt. Es fehlt jedoch die geforderte visuelle Evidenz: Es ist weder ein Laptop noch die spezifische Benutzeroberfläche von Claude Code (z. B. ein Terminal oder eine Web-App) zu s",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (6/10): Das Bild ist eine reine Textgrafik, die den gesprochenen Satz 'They're just turned off, like muting a pushy salesman' wortwörtlich wiedergibt. Es handelt sich um eine typografische Visualisierung der Metapher, die den Inhalt der Erzählung direkt unterstützt, aber keine technische Demonstration oder ",
+          "Einstellung 10: Bild passt nicht zum Sprechtext (4/10): Das Bild ist eine reine Textgrafik (Titelkarte), die den gesprochenen Satz 'One line undoes everything' wörtlich wiedergibt. Es zeigt jedoch nicht die technische Umsetzung, also den tatsächlichen Code oder die Kommandozeile, die diese Aktion ausführt. Da es sich um eine abstrakte Aussage handelt, di",
+          "Einstellung 12: Bild passt nicht zum Sprechtext (4/10): Das Bild ist eine grafische Titelsequenz mit einem Warnsymbol und dem gesprochenen Text als Untertitel. Es zeigt weder die beschriebene technische Eigenschaft (Apps sind deaktiviert, aber vorhanden) noch eine Benutzeroberfläche, die die Reversibilität ('undoable') demonstriert. Es ist eine stilisier",
+          "Offenes Problem (schwer): Das Bild zeigt eine generische Illustration eines Mannes, die den technischen Vorgang des siebenmaligen Drückens der 'Build'-Taste in einem TV-Menü nicht darstellt. Es fehlt jede visuelle Evidenz für die beschriebene Software-Interaktion (kein TV, kein Menü, keine Taste). Korrektur: Ein Screenshot des Android-TV-Systems, der das 'About'-Menü (oder 'Info') zeigt, in dem der Eintrag 'Build number' (Bau-Nummer) sichtbar ist, idealerweise mit einer grafischen Markierung, die das siebenmalige Tippen andeutet.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich einen Titelbildschirm bzw. eine grafische Überschrift, aber keine echte Benutzeroberfläche eines Android TV-Menüs, in der man die Option 'Build' oder das entsprechende Menü zum Aktivieren des Entwicklermodus sehen könnte. Korrektur: Ein Screenshot des tatsächlichen 'Info'- bzw. 'About'-Menüs auf einem Android-Fernsehgerät, in dem die 'Build-Nummer' sowie das Menü der 'Entwickleroptionen' zu sehen sind.",
+          "Offenes Problem (schwer): Das Bild zeigt eine abstrakte, schematische Darstellung mit dem Text 'DEBUGGING IN DEVELOPER OPTIONS', die den genannten Begriff aufgreift. Es fehlt jedoch die geforderte konkrete Benutzeroberfl\u0004che (die eigentlichen Entwickleroptionen) und der sichtbare Vorgang des Einschaltens (z. B. ein aktivierter Schalter). Die b\u0004ltigen Balken stellen keine reale Funktion oder ein dokumentiertes Beispiel dar. Korrektur: Ein Screenshot der echten Android-Entwickleroptionen, in dem der Schalter f\u000fcr 'USB-Debugging' sichtbar aktiviert ist.",
+          "Offenes Problem (schwer): Das Bild zeigt eine generische, stilisierte Darstellung eines Chat-Interfaces, die den gesprochenen Text als Grafik wiedergibt. Es fehlt jedoch die geforderte visuelle Evidenz: Es ist weder ein Laptop noch die spezifische Benutzeroberfläche von Claude Code (z. B. ein Terminal oder eine Web-App) zu sehen, in die ein Prompt eingefügt wird. Die Grafik ist eine Metapher für den Vorgang, aber keine Demonstration der tatsächlichen Software-Interaktion. Korrektur: Ein Screenshot eines Laptops, auf dem die Claude-Code-Oberfläche (Terminal oder Web-UI) zu sehen ist, mit einem sichtbaren Eingabefeld, in das ein Text-Prompt eingegeben oder eingefügt wird.",
+          "Offenes Problem (schwer): Das Bild ist eine reine Textgrafik, die den gesprochenen Satz 'They're just turned off, like muting a pushy salesman' wortwörtlich wiedergibt. Es handelt sich um eine typografische Visualisierung der Metapher, die den Inhalt der Erzählung direkt unterstützt, aber keine technische Demonstration oder Illustration der eigentlichen Aktion (Abschalten der App) zeigt. Korrektur: Ein Screenshot der Android-Einstellungen, der eine App mit dem Status 'Deaktiviert' zeigt, oder eine Illustration, die das Abschalten eines Werbefensters darstellt.",
+          "Offenes Problem (schwer): Das Bild ist eine reine Textgrafik (Titelkarte), die den gesprochenen Satz 'One line undoes everything' wörtlich wiedergibt. Es zeigt jedoch nicht die technische Umsetzung, also den tatsächlichen Code oder die Kommandozeile, die diese Aktion ausführt. Da es sich um eine abstrakte Aussage handelt, die keinen visuellen Prozess darstellt, ist die bloße Textwiedergabe ohne Kontext (wie ein Terminal) keine nützliche visuelle Erklärung der Operation. Korrektur: Ein Screenshot einer Terminal- oder Code-Editor-Oberfläche, in dem ein spezifischer Befehl (z. B. ein Skript-Aufruf oder eine Claude-Code-Anweisung) zur Rückgängigmachung der Änderungen eingegeben oder ausgeführt wird.",
+          "Offenes Problem (schwer): Das Bild ist eine grafische Titelsequenz mit einem Warnsymbol und dem gesprochenen Text als Untertitel. Es zeigt weder die beschriebene technische Eigenschaft (Apps sind deaktiviert, aber vorhanden) noch eine Benutzeroberfläche, die die Reversibilität ('undoable') demonstriert. Es ist eine stilisierte Zusammenfassung, keine visuelle Erklärung des Zustands. Korrektur: Ein Screenshot der Android-Einstellungen, der eine App mit aktiviertem Schalter zeigt, neben dem ein 'Undo'-Button oder eine Rückgängig-Option sichtbar ist, um die Reversibilität zu belegen."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Puck",
+          "tempo": 1.127,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 4,
+          "stuecke_neu": 10,
+          "clips_und_stuecke": 143.9,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 14,
+            "motive": 14,
+            "motive_min": 8
+          },
+          "effekte": 13,
+          "rendern": 42.5,
+          "gesamt": 316.1,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            7.5,
+            5.7,
+            5.86,
+            7.36,
+            7.68,
+            6.54,
+            4.38
+          ],
+          "woerter": 128,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "I pressed Build seven times, and my TV changed.",
+            "fest": false,
+            "text": "Das Bild zeigt eine generische Illustration eines Mannes, die den technischen Vorgang des siebenmaligen Drückens der 'Build'-Taste in einem TV-Menü nicht darstellt. Es fehlt jede visuelle Evidenz für die beschriebene Software-Interaktion (kein TV, kein Menü, keine Taste). Korrektur: Ein Screenshot des Android-TV-Systems, der das 'About'-Menü (oder 'Info') zeigt, in dem der Eintrag 'Build number' (Bau-Nummer) sichtbar ist, idealerweise mit einer grafischen Markierung, die das siebenmalige Tippen andeutet."
+          },
+          {
+            "zeit": "00:07.50",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "First, press Build seven times in the TV's About menu.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich einen Titelbildschirm bzw. eine grafische Überschrift, aber keine echte Benutzeroberfläche eines Android TV-Menüs, in der man die Option 'Build' oder das entsprechende Menü zum Aktivieren des Entwicklermodus sehen könnte. Korrektur: Ein Screenshot des tatsächlichen 'Info'- bzw. 'About'-Menüs auf einem Android-Fernsehgerät, in dem die 'Build-Nummer' sowie das Menü der 'Entwickleroptionen' zu sehen sind."
+          },
+          {
+            "zeit": "00:10.54",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 4,
+            "gesprochen": "Then switch on USB debugging in Developer options.",
+            "fest": false,
+            "text": "Das Bild zeigt eine abstrakte, schematische Darstellung mit dem Text 'DEBUGGING IN DEVELOPER OPTIONS', die den genannten Begriff aufgreift. Es fehlt jedoch die geforderte konkrete Benutzeroberfl\u0004che (die eigentlichen Entwickleroptionen) und der sichtbare Vorgang des Einschaltens (z. B. ein aktivierter Schalter). Die b\u0004ltigen Balken stellen keine reale Funktion oder ein dokumentiertes Beispiel dar. Korrektur: Ein Screenshot der echten Android-Entwickleroptionen, in dem der Schalter f\u000fcr 'USB-Debugging' sichtbar aktiviert ist."
+          },
+          {
+            "zeit": "00:13.20",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "On a laptop, paste a prompt into Claude Code.",
+            "fest": false,
+            "text": "Das Bild zeigt eine generische, stilisierte Darstellung eines Chat-Interfaces, die den gesprochenen Text als Grafik wiedergibt. Es fehlt jedoch die geforderte visuelle Evidenz: Es ist weder ein Laptop noch die spezifische Benutzeroberfläche von Claude Code (z. B. ein Terminal oder eine Web-App) zu sehen, in die ein Prompt eingefügt wird. Die Grafik ist eine Metapher für den Vorgang, aber keine Demonstration der tatsächlichen Software-Interaktion. Korrektur: Ein Screenshot eines Laptops, auf dem die Claude-Code-Oberfläche (Terminal oder Web-UI) zu sehen ist, mit einem sichtbaren Eingabefeld, in das ein Text-Prompt eingegeben oder eingefügt wird."
+          },
+          {
+            "zeit": "00:22.94",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 8,
+            "gesprochen": "They're just turned off, like muting a pushy salesman.",
+            "fest": false,
+            "text": "Das Bild ist eine reine Textgrafik, die den gesprochenen Satz 'They're just turned off, like muting a pushy salesman' wortwörtlich wiedergibt. Es handelt sich um eine typografische Visualisierung der Metapher, die den Inhalt der Erzählung direkt unterstützt, aber keine technische Demonstration oder Illustration der eigentlichen Aktion (Abschalten der App) zeigt. Korrektur: Ein Screenshot der Android-Einstellungen, der eine App mit dem Status 'Deaktiviert' zeigt, oder eine Illustration, die das Abschalten eines Werbefensters darstellt."
+          },
+          {
+            "zeit": "00:32.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 10,
+            "gesprochen": "One line undoes everything.",
+            "fest": false,
+            "text": "Das Bild ist eine reine Textgrafik (Titelkarte), die den gesprochenen Satz 'One line undoes everything' wörtlich wiedergibt. Es zeigt jedoch nicht die technische Umsetzung, also den tatsächlichen Code oder die Kommandozeile, die diese Aktion ausführt. Da es sich um eine abstrakte Aussage handelt, die keinen visuellen Prozess darstellt, ist die bloße Textwiedergabe ohne Kontext (wie ein Terminal) keine nützliche visuelle Erklärung der Operation. Korrektur: Ein Screenshot einer Terminal- oder Code-Editor-Oberfläche, in dem ein spezifischer Befehl (z. B. ein Skript-Aufruf oder eine Claude-Code-Anweisung) zur Rückgängigmachung der Änderungen eingegeben oder ausgeführt wird."
+          },
+          {
+            "zeit": "00:36.90",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 12,
+            "gesprochen": "Those ads aren't dead, just switched off, undoable.",
+            "fest": false,
+            "text": "Das Bild ist eine grafische Titelsequenz mit einem Warnsymbol und dem gesprochenen Text als Untertitel. Es zeigt weder die beschriebene technische Eigenschaft (Apps sind deaktiviert, aber vorhanden) noch eine Benutzeroberfläche, die die Reversibilität ('undoable') demonstriert. Es ist eine stilisierte Zusammenfassung, keine visuelle Erklärung des Zustands. Korrektur: Ein Screenshot der Android-Einstellungen, der eine App mit aktiviertem Schalter zeigt, neben dem ein 'Undo'-Button oder eine Rückgängig-Option sichtbar ist, um die Reversibilität zu belegen."
+          }
+        ],
+        "sekunden": 951.3,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "41221559923-3",
+          "datum": "2026-10-31",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 951.3,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 1
+          },
+          "kategorien_nachher": {
+            "bild_passt": 2
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-10-29.2",
+          "verbessert": false
+        }
+      },
+      {
+        "runde": 4,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-10-29.2"
+        },
+        "skript_s": 1.5,
+        "bau_s": 375.0,
+        "pruefung_s": 583.7,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine künstlerische Illustration eines Mannes und keine Benutzeroberfläche eines Android TV oder den beschriebenen Vorgang des Drückens der Build-Nummer.",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): The image shows a static GitHub project card for a tool named 'tv-detox' but does not demonstrate the 'scrubbing' or cleaning process mentioned in the narration.",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt lediglich eine Überschrift, aber nicht den erforderlichen Prozess, bei dem man sieben Mal auf 'Build' tippt, um die Entwickleroptionen freizuschalten.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich das Home-Menü und ein abgeschnittenes Textfragment, nicht jedoch das Menü für 'Entwickleroptionen' oder den aktiven Vorgang des Einschaltens von 'USB-Debugging', wie in der Narration gefordert.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Szene zeigt lediglich das UI eines Smart-TVs, jedoch nicht die Interaktion mit Claude Code auf einem Laptop oder das Einfügen eines Prompts.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Sätze 'So what happens to the ads? Nothing gets deleted.' werden nicht visuell durch das gezeigte GitHub-Repository-Interface illustriert. Das Bild zeigt lediglich die Projekt-Metadaten einer Drittanbieter-Software.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild enthält lediglich Textbausteine des Erzähltextes. Es zeigt weder die technische Oberfläche des Android-Fernsehers noch die Interaktion mit dem System, wie sie im Narrativ zur Erklärung der 'Deaktivierung' beschrieben wird.",
+          "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild enthält lediglich eine Textgrafik, die die Aussage wiederholt, aber die für das Verständnis des technischen Vorgangs notwendige Eingabeaufforderung, das Terminal oder die tatsächliche Befehlszeile, die den Rückgängigmachungsprozess demonstrieren würde, fehlt komplett.",
+          "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine grafische Darstellung des gesprochenen Satzes ohne den technischen Prozess oder die tatsächliche Einstellung am Android TV zu visualisieren, die das 'Abschalten' der Werbung belegen würde.",
+          "Offenes Problem (schwer): Das Bild zeigt eine künstlerische Illustration eines Mannes und keine Benutzeroberfläche eines Android TV oder den beschriebenen Vorgang des Drückens der Build-Nummer. Korrektur: Ein Screenshot des Einstellungsmenüs eines Android TVs, das die Option 'Build-Nummer' unter 'Info' zeigt.",
+          "Offenes Problem (schwer): The image shows a static GitHub project card for a tool named 'tv-detox' but does not demonstrate the 'scrubbing' or cleaning process mentioned in the narration. Korrektur: A screenshot or screen recording of the actual Claude Code terminal interface showing the tool actively scanning or listing apps to be scrubbed.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine Überschrift, aber nicht den erforderlichen Prozess, bei dem man sieben Mal auf 'Build' tippt, um die Entwickleroptionen freizuschalten. Korrektur: Ein Screenshot des Android-TV-Menüs 'Info', auf dem die Option 'Build' oder 'Build-Nummer' zu sehen ist, idealerweise während der Interaktion.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich das Home-Menü und ein abgeschnittenes Textfragment, nicht jedoch das Menü für 'Entwickleroptionen' oder den aktiven Vorgang des Einschaltens von 'USB-Debugging', wie in der Narration gefordert. Korrektur: Ein Screenshot aus dem Einstellungsmenü des Android-TVs, der das Untermenü 'Entwickleroptionen' und den expliziten Umschalter für 'USB-Debugging' anzeigt.",
+          "Offenes Problem (schwer): Die gezeigte Szene zeigt lediglich das UI eines Smart-TVs, jedoch nicht die Interaktion mit Claude Code auf einem Laptop oder das Einfügen eines Prompts. Korrektur: Ein Bild, das einen Laptop mit einer Konsole zeigt, in der der Benutzer einen Befehl für Claude Code eingibt.",
+          "Offenes Problem (schwer): Die gesprochenen Sätze 'So what happens to the ads? Nothing gets deleted.' werden nicht visuell durch das gezeigte GitHub-Repository-Interface illustriert. Das Bild zeigt lediglich die Projekt-Metadaten einer Drittanbieter-Software. Korrektur: Ein Screenshot einer Benutzeroberfläche oder eines Terminal-Logs, das den Prozess verdeutlicht, bei dem Apps deaktiviert, aber nicht gelöscht werden, zum Beispiel eine Liste mit dem Status 'disabled' statt 'uninstalled'.",
+          "Offenes Problem (schwer): Das Bild enthält lediglich Textbausteine des Erzähltextes. Es zeigt weder die technische Oberfläche des Android-Fernsehers noch die Interaktion mit dem System, wie sie im Narrativ zur Erklärung der 'Deaktivierung' beschrieben wird. Korrektur: Ein Screenshot der Benutzeroberfläche des Android-Fernsehers, auf dem ein Menü zu sehen ist, das zeigt, wie Anwendungen oder Werbeprozesse tatsächlich deaktiviert oder 'ausgeschaltet' werden.",
+          "Offenes Problem (schwer): Das Bild enthält lediglich eine Textgrafik, die die Aussage wiederholt, aber die für das Verständnis des technischen Vorgangs notwendige Eingabeaufforderung, das Terminal oder die tatsächliche Befehlszeile, die den Rückgängigmachungsprozess demonstrieren würde, fehlt komplett. Korrektur: Ein Screenshot eines Terminals oder einer Eingabeaufforderung, das die konkrete Befehlszeile zeigt, mit der der Benutzer die Änderungen rückgängig machen kann.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine grafische Darstellung des gesprochenen Satzes ohne den technischen Prozess oder die tatsächliche Einstellung am Android TV zu visualisieren, die das 'Abschalten' der Werbung belegen würde. Korrektur: Ein Screenshot der Android TV-Benutzeroberfläche oder des Einstellungsmenüs, das zeigt, wie die Werbedienste deaktiviert oder der Status auf 'ausgeschaltet' gesetzt wird."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Puck",
+          "tempo": 1.127,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 7,
+          "stuecke_neu": 7,
+          "clips_und_stuecke": 142.3,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 14,
+            "motive": 14,
+            "motive_min": 8
+          },
+          "effekte": 15,
+          "rendern": 43.2,
+          "gesamt": 374.7,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            7.5,
+            5.7,
+            5.86,
+            7.36,
+            7.68,
+            6.54,
+            4.38
+          ],
+          "woerter": 128,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "I pressed Build seven times, and my TV changed.",
+            "fest": false,
+            "text": "Das Bild zeigt eine künstlerische Illustration eines Mannes und keine Benutzeroberfläche eines Android TV oder den beschriebenen Vorgang des Drückens der Build-Nummer. Korrektur: Ein Screenshot des Einstellungsmenüs eines Android TVs, das die Option 'Build-Nummer' unter 'Info' zeigt."
+          },
+          {
+            "zeit": "00:03.36",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Claude Code can scrub it clean.",
+            "fest": false,
+            "text": "The image shows a static GitHub project card for a tool named 'tv-detox' but does not demonstrate the 'scrubbing' or cleaning process mentioned in the narration. Korrektur: A screenshot or screen recording of the actual Claude Code terminal interface showing the tool actively scanning or listing apps to be scrubbed."
+          },
+          {
+            "zeit": "00:07.50",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "First, press Build seven times in the TV's About menu.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine Überschrift, aber nicht den erforderlichen Prozess, bei dem man sieben Mal auf 'Build' tippt, um die Entwickleroptionen freizuschalten. Korrektur: Ein Screenshot des Android-TV-Menüs 'Info', auf dem die Option 'Build' oder 'Build-Nummer' zu sehen ist, idealerweise während der Interaktion."
+          },
+          {
+            "zeit": "00:10.54",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 4,
+            "gesprochen": "Then switch on USB debugging in Developer options.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich das Home-Menü und ein abgeschnittenes Textfragment, nicht jedoch das Menü für 'Entwickleroptionen' oder den aktiven Vorgang des Einschaltens von 'USB-Debugging', wie in der Narration gefordert. Korrektur: Ein Screenshot aus dem Einstellungsmenü des Android-TVs, der das Untermenü 'Entwickleroptionen' und den expliziten Umschalter für 'USB-Debugging' anzeigt."
+          },
+          {
+            "zeit": "00:13.20",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "On a laptop, paste a prompt into Claude Code.",
+            "fest": false,
+            "text": "Die gezeigte Szene zeigt lediglich das UI eines Smart-TVs, jedoch nicht die Interaktion mit Claude Code auf einem Laptop oder das Einfügen eines Prompts. Korrektur: Ein Bild, das einen Laptop mit einer Konsole zeigt, in der der Benutzer einen Befehl für Claude Code eingibt."
+          },
+          {
+            "zeit": "00:19.06",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "So what happens to the ads? Nothing gets deleted.",
+            "fest": false,
+            "text": "Die gesprochenen Sätze 'So what happens to the ads? Nothing gets deleted.' werden nicht visuell durch das gezeigte GitHub-Repository-Interface illustriert. Das Bild zeigt lediglich die Projekt-Metadaten einer Drittanbieter-Software. Korrektur: Ein Screenshot einer Benutzeroberfläche oder eines Terminal-Logs, das den Prozess verdeutlicht, bei dem Apps deaktiviert, aber nicht gelöscht werden, zum Beispiel eine Liste mit dem Status 'disabled' statt 'uninstalled'."
+          },
+          {
+            "zeit": "00:22.94",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 8,
+            "gesprochen": "They're just turned off, like muting a pushy salesman.",
+            "fest": false,
+            "text": "Das Bild enthält lediglich Textbausteine des Erzähltextes. Es zeigt weder die technische Oberfläche des Android-Fernsehers noch die Interaktion mit dem System, wie sie im Narrativ zur Erklärung der 'Deaktivierung' beschrieben wird. Korrektur: Ein Screenshot der Benutzeroberfläche des Android-Fernsehers, auf dem ein Menü zu sehen ist, das zeigt, wie Anwendungen oder Werbeprozesse tatsächlich deaktiviert oder 'ausgeschaltet' werden."
+          },
+          {
+            "zeit": "00:32.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 10,
+            "gesprochen": "One line undoes everything.",
+            "fest": false,
+            "text": "Das Bild enthält lediglich eine Textgrafik, die die Aussage wiederholt, aber die für das Verständnis des technischen Vorgangs notwendige Eingabeaufforderung, das Terminal oder die tatsächliche Befehlszeile, die den Rückgängigmachungsprozess demonstrieren würde, fehlt komplett. Korrektur: Ein Screenshot eines Terminals oder einer Eingabeaufforderung, das die konkrete Befehlszeile zeigt, mit der der Benutzer die Änderungen rückgängig machen kann."
+          },
+          {
+            "zeit": "00:36.90",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 12,
+            "gesprochen": "Those ads aren't dead, just switched off, undoable.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine grafische Darstellung des gesprochenen Satzes ohne den technischen Prozess oder die tatsächliche Einstellung am Android TV zu visualisieren, die das 'Abschalten' der Werbung belegen würde. Korrektur: Ein Screenshot der Android TV-Benutzeroberfläche oder des Einstellungsmenüs, das zeigt, wie die Werbedienste deaktiviert oder der Status auf 'ausgeschaltet' gesetzt wird."
+          }
+        ],
+        "sekunden": 960.3,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "41221559923-4",
+          "datum": "2026-10-31",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 960.3,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 2
+          },
+          "kategorien_nachher": {
+            "bild_passt": 2
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-10-29.2",
+          "verbessert": false
+        }
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 3806.8,
+    "upload_titel": "Claude Code Cleans: Your Android TV | AI Tool #21"
   }
 ]

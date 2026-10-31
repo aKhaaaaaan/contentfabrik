@@ -175,10 +175,15 @@ def kandidaten(kanal, themen, mit_trendfirmen=True, google_liste=(), heute=None)
         # Nutzer 27.10.2026: Firmengeschichten, die gerade auf YouTube laufen (Loctite), zuerst - die Bewertung
         # misst danach wie bei jeder Trendfirma den YouTube-Ausreisser („<Firma> story").
         yt = trendquellen(kanal).get('firmen_suche') or []
-        for titel, _, _ in (trends.firmen_aus_youtube(yt) if yt else [])[:YT_FIRMEN]:
-            if titel not in bekannt:
-                bekannt.add(titel)
-                aus.append({'thema': titel, 'begriff': titel, 'wikipedia': titel, 'eigen': False, 'trendfirma': True})
+        # Nutzer 31.10.2026: "TikTok auch beruecksichtigen - heisse Themen, die Jugend interessiert". TikTok hat keine
+        # offene Trend-Schnittstelle (Creative Center nur per Scraping, Sperr-Risiko) - YouTube Shorts sind dasselbe
+        # Publikum, oft dieselben Videos, ueber die offizielle API. Shorts zuerst, dann laengere Videos.
+        for dauer in ('short', 'medium'):
+            for titel, _, _ in (trends.firmen_aus_youtube(yt, dauer=dauer) if yt else [])[:YT_FIRMEN]:
+                if titel not in bekannt:
+                    bekannt.add(titel)
+                    aus.append({'thema': titel, 'begriff': titel, 'wikipedia': titel, 'eigen': False,
+                                'trendfirma': True, 'shorts': dauer == 'short'})
         for titel, aufrufe, _ in trends.firmen_im_trend()[:FREIE_KANDIDATEN * 2]:
             if titel not in bekannt and len([a for a in aus if not a['eigen']]) < FREIE_KANDIDATEN:
                 # 21.10.2026 Nutzer: Trend im Fokus, fuer jeden Kanal. Vorher thema '' (nur Vorschlag an den Autor;
@@ -233,6 +238,8 @@ TREND_STANDARD = {'tage': 7, 'dauer': 'medium', 'pruefen': 3, 'min_aufrufe': 500
 FORMAT_FAKTOR = 2.0
 BONUS_FORMAT = 10.0  # Formattag: Vorrang sicher, auch vor einer 60x-Neuheit
 # GEMESSEN 21.10.2026: „ChatGPT | The Notice : A short film by Reema Kagti" (248x) wurde Thema "ChatGPT: ChatGPT".
+SHORTS_BEGRIFFE = 6
+BONUS_SHORTS = 1.0  # Nutzer 31.10.2026: Shorts-Trend (junges TikTok-Publikum) vor gleich starkem Langvideo-Trend
 KEIN_WERKZEUG = re.compile(r'\b(?:short film|trailer|music video|official video|lyrics|full movie)\b', re.I)
 # GEMESSEN 31.10.2026 (KI 41184427322): „Anthropic Just Shipped Claude 2.0 (Master it in 17 minutes)" wurde Thema
 # "Anthropic: ..."; Claude schrieb ueber ein geplantes Text-Wasserzeichen - nichts Zeigbares, 12 Bilder 2-4/10.
@@ -331,8 +338,13 @@ def zuschauer_themen(einstellung, gezeigt=(), google_liste=(), heute=None):
             art = trends.format_art(kopf)
             roh.append({'thema': _zuschauer_thema(p, trends.ohne_betraege(kopf) if art in ('geld', 'sparen') else kopf),
                         'produkt': p, 'google': titel, 'youtube': None, 'beispiele': [], 'format': art})
-    for v in trends.youtube_ausreisser(e.get('suche') or [], tage=e['tage'], je_begriff=15, top=40,
-                                       dauer=e['dauer']):
+    # Nutzer 31.10.2026: Shorts als TikTok-Ersatz zuerst (siehe kandidaten). Nur die ersten SHORTS_BEGRIFFE
+    # Suchwoerter: jede Suche kostet 100 Einheiten des YouTube-Tageskontingents (10.000).
+    shorts = [dict(v, shorts=True) for v in trends.youtube_ausreisser(
+        (e.get('suche') or [])[:SHORTS_BEGRIFFE], tage=e['tage'], je_begriff=15, top=40, dauer='short')] \
+        if e['dauer'] != 'short' else []
+    for v in shorts + trends.youtube_ausreisser(e.get('suche') or [], tage=e['tage'], je_begriff=15, top=40,
+                                                dauer=e['dauer']):
         p = werkzeug_im_text(v['titel'], namen)
         # GEMESSEN 19.10.: Spam („ChatGPT Premium gratis freischalten", 1.794 Aufrufe = 15.6x) lag vorn
         if p and englisch(v['titel']) and not trends.SPAM_VIDEO.search(v['titel']) \
@@ -343,7 +355,7 @@ def zuschauer_themen(einstellung, gezeigt=(), google_liste=(), heute=None):
             # Betraege im Titel sind fremde Behauptungen (Einkommen, Preise) - der Beleg kommt aus der Quelle
             titel = trends.ohne_betraege(v['titel']) if art in ('geld', 'sparen') else v['titel']
             roh.append({'thema': _zuschauer_thema(p, titel), 'produkt': p, 'google': None,
-                        'youtube': v['faktor'], 'beispiele': [v], 'format': art})
+                        'youtube': v['faktor'], 'beispiele': [v], 'format': art, 'shorts': bool(v.get('shorts'))})
     tag = heute or datetime.date.today()
     formattag = tag.toordinal() % max(1, int(e['format_jeden'])) == 0
     for k in roh:
@@ -354,7 +366,8 @@ def zuschauer_themen(einstellung, gezeigt=(), google_liste=(), heute=None):
         ersatz = format_vorlage(e, tag, gezeigt)
         if ersatz:
             roh.append(dict(ersatz, vorrang=True))
-    roh.sort(key=lambda k: (not k['vorrang'], -punkte(k['youtube'], google=bool(k['google']))))
+    roh.sort(key=lambda k: (not k['vorrang'], -punkte(k['youtube'], google=bool(k['google']))
+                            - (BONUS_SHORTS if k.get('shorts') else 0)))
     aus, produkte, geprueft = [], set(), 0
     for k in roh:
         schluessel = (k['produkt'], bool(k.get('format')))
@@ -369,7 +382,7 @@ def zuschauer_themen(einstellung, gezeigt=(), google_liste=(), heute=None):
         aus.append({'thema': k['thema'], 'begriff': k['thema'], 'wikipedia': None, 'eigen': False,
                     'zuschauer': True, 'youtube': k['youtube'], 'beispiele': k['beispiele'],
                     'google': k['google'], 'format': k.get('format') or '', 'vorrang': k.get('vorrang', False),
-                    'vorlage': k.get('vorlage', False)})
+                    'vorlage': k.get('vorlage', False), 'shorts': bool(k.get('shorts'))})
     # GEMESSEN 19.10. (Live-Probe fuer 20.10.): kein Neuheiten-Trend mit Quelle (Argon schon gesendet, VST/Motion
     # ohne Beleg) -> der Lauf haette wieder eine zufaellige GitHub-Neuheit genommen. Dann lieber die Titelvorlage.
     if not aus and not any(k.get('vorlage') for k in roh):
@@ -393,7 +406,8 @@ def bewerten(liste, google_liste, heute=None, kanal='', hn_liste=()):
     for k in liste:
         if k.get('zuschauer'):  # Signale stammen schon aus der Suche - kein zweiter YouTube-Abruf
             k['punkte'] = round(punkte(k['youtube'], google=bool(k['google']))
-                                + (BONUS_FORMAT if k.get('vorrang') and not eigene else 0), 2)
+                                + (BONUS_FORMAT if k.get('vorrang') and not eigene else 0)
+                                + (BONUS_SHORTS if k.get('shorts') else 0), 2)
             continue
         k['youtube'], k['beispiele'] = yt_faktor(k['begriff'], ZUSATZ.get(kanal, ''))
         k['wiki'] = wiki_aufwind(k['wikipedia'], heute) if k.get('wikipedia') else None
@@ -401,7 +415,8 @@ def bewerten(liste, google_liste, heute=None, kanal='', hn_liste=()):
             k['bekannt'] = bekanntheit(k['wikipedia'], heute)
         k['google'] = google_treffer(k['begriff'], google_liste)
         k['hn'] = hn_treffer(k['begriff'], hn_liste)
-        k['punkte'] = punkte(k['youtube'], k['wiki'], bool(k['google']), k['eigen'], k['hn'])
+        k['punkte'] = punkte(k['youtube'], k['wiki'], bool(k['google']), k['eigen'], k['hn']) \
+            + (BONUS_SHORTS if k.get('shorts') and k['youtube'] else 0)
     # Nutzerentscheidung 21.10.2026: „Bei Trend erst YouTube-Trends, wenn da nichts ist, dann Google Trends."
     # Vorher zaehlte die Punktsumme - ein Google-Treffer (4 Punkte) schlug einen 10x-YouTube-Ausreisser (3,3).
     for k in liste:
@@ -495,13 +510,15 @@ def redaktion(kanal, bewertet, heute, ki=None):
     if plan and not offen:
         return None  # Plan aufgebraucht/nicht mehr im Trend: bis zum Ablauf die Formel, keine neue Anfrage
     if not offen:
-        if len(kurz) < 2:
+        if not kurz or (len(kurz) == 1 and kurz[0].get('eigen')):
             return None
         if ki is None:
             import claude_ki
             if not claude_ki.verfuegbar():
                 return None
-            ki = lambda auftrag: claude_ki.schreiben(auftrag, PLAN_SCHEMA, zeit=120)[0]
+            ki = lambda auftrag, schema=PLAN_SCHEMA: claude_ki.schreiben(auftrag, schema, zeit=120)[0]
+        if len(kurz) == 1:
+            return einzeln_pruefen(kanal, kurz[0], ki)
         try:
             antwort = ki(plan_auftrag(kanal, kurz)) or {}
         except Exception as e:  # nie den Tageslauf an der Redaktion scheitern lassen
@@ -519,6 +536,32 @@ def redaktion(kanal, bewertet, heute, ki=None):
         offen = reihenfolge
     k = nach_thema[offen[0]]
     return k['thema'], f"Claude-Redaktion (Plan vom {plan['erstellt']}): {beschreibung(k)}"
+
+
+EINZEL_SCHEMA = {'type': 'OBJECT', 'properties': {'taugt': {'type': 'BOOLEAN'}, 'grund': {'type': 'STRING'}},
+                 'required': ['taugt', 'grund']}
+
+
+def einzeln_pruefen(kanal, k, ki):
+    """Nur EIN Trend-Kandidat: Claude sagt kurz Ja/Nein (~200 Tokens). Nein -> ('', grund) = freie Wahl.
+    GEMESSEN 31.10.2026 (Business 41184427322): einziger Kandidat ExxonMobil, die Formel entschied ohne Pruefung -
+    nur der zu kurze Artikel verhinderte ein Oelkonzern-Video. Ausfall -> None (Formel wie bisher)."""
+    import prompts
+    regel = (prompts.ANFASSBAR if _profil(kanal).get('quelle') == 'wikipedia' else
+             prompts.ZEIGBAR if _profil(kanal).get('format') == 'erklaerung' else '')
+    try:
+        antwort = ki(prompts.DATEN + f'TASK: Short-video channel "{_profil(kanal).get("name", kanal)}". Would this '
+                     f'trending topic make a strong short with something a viewer can SEE and a surprising turn? '
+                     + regel + f'Answer taugt true/false and one short grund.\nTOPIC: {k["thema"]} '
+                     f'({beschreibung(k)[:140]})', EINZEL_SCHEMA) or {}
+    except Exception as e:
+        print('Claude-Einzelpruefung nicht moeglich:', type(e).__name__, str(e)[:120])
+        return None
+    if antwort.get('taugt') is False:
+        grund = f"Claude-Redaktion: {k['thema']} verworfen ({str(antwort.get('grund', ''))[:160]}) - freie Wahl"
+        print(grund)
+        return '', grund
+    return None
 
 
 def _wiederholung(kanal, thema):

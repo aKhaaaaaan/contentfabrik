@@ -126462,6 +126462,1526 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "41184427322.1:business-origin-stories",
+      "run_id": "41184427322",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-10-31T09:30:28.224377+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "a2691dd3eba462b7953b4343ea801a4b0c2bba6f",
+      "produktionsversion": "4e5aef52c26f88bff8827d3ef25491ea14bc3db4cc336a5f1681b16b1f7ddffa",
+      "videoformat": "short",
+      "thema": "Toyota",
+      "titel": [
+        "Toyota's *Bailout*",
+        "From Looms to Cars"
+      ],
+      "status": "gesendet",
+      "video_sha256": "195ee77a49aeee3fe3ce37686d49ea1d984789e50dbdf2d1dcf5f205465abefb",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 3/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Männer in einer Werkstatt bei der Autogestaltung, aber die im Sprechtext erwähnte Patentverkaufstransaktion an Platt Brothers wird nicht dargestellt.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage bezieht sich auf die Rettung von Toyota durch die Bank von Japan, zu sehen ist jedoch nur eine Gruppe von Geschäftsleuten an einem Tisch.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt Geschäftsleute an einem Konferenztisch, was zwar zu einer Firmenrettung oder Verhandlung passen könnte, aber die spezifische Bankenrettung oder Reformen durch die Bank of Japan werden nicht bildlich dargestellt.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Gruppe von Männern in Anzügen in einer Fabrik, aber es ist nicht zu erkennen, dass sie Führungskräfte bei Ford sind oder dort ein Training absolvieren.",
+        "Offenes Problem (schwer): Das Bild zeigt Männer in einer Werkstatt bei der Autogestaltung, aber die im Sprechtext erwähnte Patentverkaufstransaktion an Platt Brothers wird nicht dargestellt. Korrektur: Eine historische Darstellung eines Patentverkaufsvertrags oder von Webstühlen, die mit dem Verkauf verbunden sind.",
+        "Offenes Problem (schwer): Die gesprochene Frage bezieht sich auf die Rettung von Toyota durch die Bank von Japan, zu sehen ist jedoch nur eine Gruppe von Geschäftsleuten an einem Tisch. Korrektur: Eine historische Darstellung oder Szene, die Verhandlungen mit der Zentralbank oder Finanzhilfen für Toyota zeigt.",
+        "Offenes Problem (schwer): Die Szene zeigt Geschäftsleute an einem Konferenztisch, was zwar zu einer Firmenrettung oder Verhandlung passen könnte, aber die spezifische Bankenrettung oder Reformen durch die Bank of Japan werden nicht bildlich dargestellt. Korrektur: Eine historische Illustration oder Darstellung von Bankvertretern, die Verhandlungen über eine Finanzspritze oder Reformauflagen für ein Automobilunternehmen führen.",
+        "Offenes Problem (schwer): Das Bild zeigt eine Gruppe von Männern in Anzügen in einer Fabrik, aber es ist nicht zu erkennen, dass sie Führungskräfte bei Ford sind oder dort ein Training absolvieren. Korrektur: Ein historisches Bild von japanischen Automobil-Führungskräften, die das Ford-Werk besichtigen oder geschult werden."
+      ],
+      "einstellungen": 14,
+      "unterschiedliche_motive": 14,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "41184427322",
+        "kanal": "business-origin-stories",
+        "datum": "2026-10-31",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sekunden": 0.4
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "skript_s": 166.6,
+            "bau_s": 1072.7,
+            "pruefung_s": 47.6,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte erwähnen den Verkauf eines Webstuhlpatents an Platt Brothers zur Finanzierung der Autoentwicklung, aber das Bild zeigt lediglich fünf Männer an einem Tisch in einer Straßenszene ohne jeglichen Bezug zu Webstühlen, Patenten oder der Firma Platt Brothers.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar Männer und Lastwagen, aber die spezifische Situation eines Geldmangels und ausfallender Kredite von Lastwagenbesitzern im Jahr 1949 wird nicht direkt und aussagekräftig genug dargestellt.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage bezieht sich auf die Rettung von Toyota durch die Bank von Japan, während das Bild eine unpassende Besprechung in einem Raum mit einer Tresortür zeigt.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Die Szene zeigt einen Händedruck zwischen zwei geschäftsähnlichen Männern, was zwar eine geschäftliche Einigung oder einen Deal symbolisieren könnte, aber weder die Bank von Japan noch die Rettungsaktion oder geforderte Reformen darstellt.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die Szene zeigt eine historische Stra#e voller Lkws, aber keine Exekutivtreffen oder Schulungen bei Ford wie gesprochen.",
+              "Einstellung 12: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit einem Autoschl&ssel, aber die gesprochene Aufforderung zum Liken, Teilen und Speichern des Videos wird dadurch nicht dargestellt.",
+              "Offenes Problem (schwer): Die gesprochenen Worte erwähnen den Verkauf eines Webstuhlpatents an Platt Brothers zur Finanzierung der Autoentwicklung, aber das Bild zeigt lediglich fünf Männer an einem Tisch in einer Straßenszene ohne jeglichen Bezug zu Webstühlen, Patenten oder der Firma Platt Brothers. Korrektur: Eine historische Illustration oder ein Dokument, das den Verkauf des Webstuhlpatents an Platt Brothers oder den Vertrag zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar Männer und Lastwagen, aber die spezifische Situation eines Geldmangels und ausfallender Kredite von Lastwagenbesitzern im Jahr 1949 wird nicht direkt und aussagekräftig genug dargestellt. Korrektur: Eine historische Illustration oder Darstellung von Lastwagenbesitzern in finanziellen Schwierigkeiten oder Bankdokumenten aus dem Jahr 1949.",
+              "Offenes Problem (schwer): Die gesprochene Frage bezieht sich auf die Rettung von Toyota durch die Bank von Japan, während das Bild eine unpassende Besprechung in einem Raum mit einer Tresortür zeigt. Korrektur: Ein historisches Dokument oder eine Szene, die die Rettungsaktion der Bank von Japan für Toyota im Jahr 1949 symbolisiert.",
+              "Offenes Problem (schwer): Die Szene zeigt einen Händedruck zwischen zwei geschäftsähnlichen Männern, was zwar eine geschäftliche Einigung oder einen Deal symbolisieren könnte, aber weder die Bank von Japan noch die Rettungsaktion oder geforderte Reformen darstellt. Korrektur: Eine historische Darstellung einer Bank oder von Finanzdokumenten mit Bezug auf die Rettung durch die Bank von Japan.",
+              "Offenes Problem (schwer): Die Szene zeigt eine historische Stra#e voller Lkws, aber keine Exekutivtreffen oder Schulungen bei Ford wie gesprochen. Korrektur: Ein historisches Foto oder Illustration von japanischen F#uhrungskr#aften bei einer Schulung im Ford-Werk",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann mit einem Autoschl&ssel, aber die gesprochene Aufforderung zum Liken, Teilen und Speichern des Videos wird dadurch nicht dargestellt. Korrektur: Ein Bild, das Grafiken oder Symbole f&r Daumen hoch, Teilen und Speichern zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Fenrir",
+              "stimme": 12.1,
+              "zeitmarken": 5.0,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 14,
+              "bilder_vereinfacht": 3,
+              "clips_und_stuecke": 934.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 14,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 58.4,
+              "gesamt": 1072.4,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.0,
+                6.38,
+                5.34,
+                5.5,
+                4.1,
+                6.84,
+                9.8
+              ],
+              "woerter": 103
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:10.19",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "to Platt Brothers, funding car development.",
+                "fest": false,
+                "text": "Die gesprochenen Worte erwähnen den Verkauf eines Webstuhlpatents an Platt Brothers zur Finanzierung der Autoentwicklung, aber das Bild zeigt lediglich fünf Männer an einem Tisch in einer Straßenszene ohne jeglichen Bezug zu Webstühlen, Patenten oder der Firma Platt Brothers. Korrektur: Eine historische Illustration oder ein Dokument, das den Verkauf des Webstuhlpatents an Platt Brothers oder den Vertrag zeigt."
+              },
+              {
+                "zeit": "00:13.38",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Then 1949 brought a funds shortage, and truck owners defaulted on loans.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar Männer und Lastwagen, aber die spezifische Situation eines Geldmangels und ausfallender Kredite von Lastwagenbesitzern im Jahr 1949 wird nicht direkt und aussagekräftig genug dargestellt. Korrektur: Eine historische Illustration oder Darstellung von Lastwagenbesitzern in finanziellen Schwierigkeiten oder Bankdokumenten aus dem Jahr 1949."
+              },
+              {
+                "zeit": "00:18.72",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 5,
+                "gesprochen": "So what saved Toyota?",
+                "fest": false,
+                "text": "Die gesprochene Frage bezieht sich auf die Rettung von Toyota durch die Bank von Japan, während das Bild eine unpassende Besprechung in einem Raum mit einer Tresortür zeigt. Korrektur: Ein historisches Dokument oder eine Szene, die die Rettungsaktion der Bank von Japan für Toyota im Jahr 1949 symbolisiert."
+              },
+              {
+                "zeit": "00:20.52",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "The Bank of Japan bailed it out, demanding reforms.",
+                "fest": false,
+                "text": "Die Szene zeigt einen Händedruck zwischen zwei geschäftsähnlichen Männern, was zwar eine geschäftliche Einigung oder einen Deal symbolisieren könnte, aber weder die Bank von Japan noch die Rettungsaktion oder geforderte Reformen darstellt. Korrektur: Eine historische Darstellung einer Bank oder von Finanzdokumenten mit Bezug auf die Rettung durch die Bank von Japan."
+              },
+              {
+                "zeit": "00:28.32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "In 1950, executives trained at Ford.",
+                "fest": false,
+                "text": "Die Szene zeigt eine historische Stra#e voller Lkws, aber keine Exekutivtreffen oder Schulungen bei Ford wie gesprochen. Korrektur: Ein historisches Foto oder Illustration von japanischen F#uhrungskr#aften bei einer Schulung im Ford-Werk"
+              },
+              {
+                "zeit": "00:39.66",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 12,
+                "gesprochen": "Be sure to like, share and save this video. Which company next?",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann mit einem Autoschl&ssel, aber die gesprochene Aufforderung zum Liken, Teilen und Speichern des Videos wird dadurch nicht dargestellt. Korrektur: Ein Bild, das Grafiken oder Symbole f&r Daumen hoch, Teilen und Speichern zeigt."
+              }
+            ],
+            "sekunden": 1286.9,
+            "status": "geprueft"
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                1,
+                2,
+                3,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 3.8,
+            "bau_s": 725.2,
+            "pruefung_s": 42.7,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt Männer in historischer Kleidung an einem Tisch, was zur Entstehungszeit passt, aber der spezifische Verkauf eines Webstuhlpatents an die Platt Brothers wird nicht dargestellt.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine generische Besprechungsszene von Männern in Anzügen und enthält keinerlei sichtbare Hinweise auf Toyota, die Bank of Japan oder eine finanzielle Rettungsaktion.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Geschäftsleute bei einer Besprechung, aber weder die Bank von Japan noch eine Rettungsaktion oder geforderte Reformen sind visuell erkennbar.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (4/10): Die Szene zeigt Männer in einer Fabrik, aber das Training von Toyota-Führungskräften bei Ford wird nicht konkret dargestellt.",
+              "Einstellung 12: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine geschäftliche Besprechung von Männern im Anzug, was thematisch entfernt zum Konjunktiv oder zur Unternehmensführung passen könnte, aber es ist kein Aufruf zum Liken, Teilen oder Speichern und enthält keine entsprechenden Interaktionssymbole.",
+              "Offenes Problem (schwer): Das Bild zeigt Männer in historischer Kleidung an einem Tisch, was zur Entstehungszeit passt, aber der spezifische Verkauf eines Webstuhlpatents an die Platt Brothers wird nicht dargestellt. Korrektur: Eine historische Illustration oder Darstellung des Verkaufsvertrags oder von Webstühlen in einer Fabrik.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine generische Besprechungsszene von Männern in Anzügen und enthält keinerlei sichtbare Hinweise auf Toyota, die Bank of Japan oder eine finanzielle Rettungsaktion. Korrektur: Eine historische Darstellung oder historische Aufnahme der Rettung von Toyota durch die Bank of Japan mit Beteiligten in einer Bank oder Fabrik.",
+              "Offenes Problem (schwer): Das Bild zeigt Geschäftsleute bei einer Besprechung, aber weder die Bank von Japan noch eine Rettungsaktion oder geforderte Reformen sind visuell erkennbar. Korrektur: Eine Darstellung von Bankvertretern, die Geschäftsleute treffen oder Verhandlungen über eine finanzielle Rettung führen.",
+              "Offenes Problem (schwer): Die Szene zeigt Männer in einer Fabrik, aber das Training von Toyota-Führungskräften bei Ford wird nicht konkret dargestellt. Korrektur: Eine historische Illustration, die japanische Führungskräfte in einer Ford-Fabrik in den 1950er Jahren zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine geschäftliche Besprechung von Männern im Anzug, was thematisch entfernt zum Konjunktiv oder zur Unternehmensführung passen könnte, aber es ist kein Aufruf zum Liken, Teilen oder Speichern und enthält keine entsprechenden Interaktionssymbole. Korrektur: Ein Bild mit Social-Media-Interaktionssymbolen wie Daumen hoch, Teilen- und Speichern-Icons oder einem Moderator, der direkt in die Kamera spricht."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 8,
+              "stuecke_neu": 6,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 480.3,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 14,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 59.4,
+              "gesamt": 724.9,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.0,
+                6.38,
+                5.34,
+                5.5,
+                4.1,
+                6.84,
+                9.8
+              ],
+              "woerter": 103
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:10.19",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "to Platt Brothers, funding car development.",
+                "fest": false,
+                "text": "Das Bild zeigt Männer in historischer Kleidung an einem Tisch, was zur Entstehungszeit passt, aber der spezifische Verkauf eines Webstuhlpatents an die Platt Brothers wird nicht dargestellt. Korrektur: Eine historische Illustration oder Darstellung des Verkaufsvertrags oder von Webstühlen in einer Fabrik."
+              },
+              {
+                "zeit": "00:18.72",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 5,
+                "gesprochen": "So what saved Toyota?",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich eine generische Besprechungsszene von Männern in Anzügen und enthält keinerlei sichtbare Hinweise auf Toyota, die Bank of Japan oder eine finanzielle Rettungsaktion. Korrektur: Eine historische Darstellung oder historische Aufnahme der Rettung von Toyota durch die Bank of Japan mit Beteiligten in einer Bank oder Fabrik."
+              },
+              {
+                "zeit": "00:20.52",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "The Bank of Japan bailed it out, demanding reforms.",
+                "fest": false,
+                "text": "Das Bild zeigt Geschäftsleute bei einer Besprechung, aber weder die Bank von Japan noch eine Rettungsaktion oder geforderte Reformen sind visuell erkennbar. Korrektur: Eine Darstellung von Bankvertretern, die Geschäftsleute treffen oder Verhandlungen über eine finanzielle Rettung führen."
+              },
+              {
+                "zeit": "00:28.32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "In 1950, executives trained at Ford.",
+                "fest": false,
+                "text": "Die Szene zeigt Männer in einer Fabrik, aber das Training von Toyota-Führungskräften bei Ford wird nicht konkret dargestellt. Korrektur: Eine historische Illustration, die japanische Führungskräfte in einer Ford-Fabrik in den 1950er Jahren zeigt."
+              },
+              {
+                "zeit": "00:39.66",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 12,
+                "gesprochen": "Be sure to like, share and save this video. Which company next?",
+                "fest": false,
+                "text": "Das Bild zeigt eine geschäftliche Besprechung von Männern im Anzug, was thematisch entfernt zum Konjunktiv oder zur Unternehmensführung passen könnte, aber es ist kein Aufruf zum Liken, Teilen oder Speichern und enthält keine entsprechenden Interaktionssymbole. Korrektur: Ein Bild mit Social-Media-Interaktionssymbolen wie Daumen hoch, Teilen- und Speichern-Icons oder einem Moderator, der direkt in die Kamera spricht."
+              }
+            ],
+            "sekunden": 771.7,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "41184427322-3",
+              "datum": "2026-10-31",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 771.7,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                1,
+                3,
+                5,
+                6
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 2.6,
+            "bau_s": 483.5,
+            "pruefung_s": 70.9,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 3/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Männer in einer Werkstatt bei der Autogestaltung, aber die im Sprechtext erwähnte Patentverkaufstransaktion an Platt Brothers wird nicht dargestellt.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage bezieht sich auf die Rettung von Toyota durch die Bank von Japan, zu sehen ist jedoch nur eine Gruppe von Geschäftsleuten an einem Tisch.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt Geschäftsleute an einem Konferenztisch, was zwar zu einer Firmenrettung oder Verhandlung passen könnte, aber die spezifische Bankenrettung oder Reformen durch die Bank of Japan werden nicht bildlich dargestellt.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Gruppe von Männern in Anzügen in einer Fabrik, aber es ist nicht zu erkennen, dass sie Führungskräfte bei Ford sind oder dort ein Training absolvieren.",
+              "Offenes Problem (schwer): Das Bild zeigt Männer in einer Werkstatt bei der Autogestaltung, aber die im Sprechtext erwähnte Patentverkaufstransaktion an Platt Brothers wird nicht dargestellt. Korrektur: Eine historische Darstellung eines Patentverkaufsvertrags oder von Webstühlen, die mit dem Verkauf verbunden sind.",
+              "Offenes Problem (schwer): Die gesprochene Frage bezieht sich auf die Rettung von Toyota durch die Bank von Japan, zu sehen ist jedoch nur eine Gruppe von Geschäftsleuten an einem Tisch. Korrektur: Eine historische Darstellung oder Szene, die Verhandlungen mit der Zentralbank oder Finanzhilfen für Toyota zeigt.",
+              "Offenes Problem (schwer): Die Szene zeigt Geschäftsleute an einem Konferenztisch, was zwar zu einer Firmenrettung oder Verhandlung passen könnte, aber die spezifische Bankenrettung oder Reformen durch die Bank of Japan werden nicht bildlich dargestellt. Korrektur: Eine historische Illustration oder Darstellung von Bankvertretern, die Verhandlungen über eine Finanzspritze oder Reformauflagen für ein Automobilunternehmen führen.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Gruppe von Männern in Anzügen in einer Fabrik, aber es ist nicht zu erkennen, dass sie Führungskräfte bei Ford sind oder dort ein Training absolvieren. Korrektur: Ein historisches Bild von japanischen Automobil-Führungskräften, die das Ford-Werk besichtigen oder geschult werden."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 9,
+              "stuecke_neu": 5,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 370.5,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 14,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 60.4,
+              "gesamt": 483.2,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.0,
+                6.38,
+                5.34,
+                5.5,
+                4.1,
+                6.84,
+                9.8
+              ],
+              "woerter": 103
+            },
+            "kategorien": {
+              "bild_passt": 3
+            },
+            "probleme": [
+              {
+                "zeit": "00:10.19",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "to Platt Brothers, funding car development.",
+                "fest": false,
+                "text": "Das Bild zeigt Männer in einer Werkstatt bei der Autogestaltung, aber die im Sprechtext erwähnte Patentverkaufstransaktion an Platt Brothers wird nicht dargestellt. Korrektur: Eine historische Darstellung eines Patentverkaufsvertrags oder von Webstühlen, die mit dem Verkauf verbunden sind."
+              },
+              {
+                "zeit": "00:18.72",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 5,
+                "gesprochen": "So what saved Toyota?",
+                "fest": false,
+                "text": "Die gesprochene Frage bezieht sich auf die Rettung von Toyota durch die Bank von Japan, zu sehen ist jedoch nur eine Gruppe von Geschäftsleuten an einem Tisch. Korrektur: Eine historische Darstellung oder Szene, die Verhandlungen mit der Zentralbank oder Finanzhilfen für Toyota zeigt."
+              },
+              {
+                "zeit": "00:20.52",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "The Bank of Japan bailed it out, demanding reforms.",
+                "fest": false,
+                "text": "Die Szene zeigt Geschäftsleute an einem Konferenztisch, was zwar zu einer Firmenrettung oder Verhandlung passen könnte, aber die spezifische Bankenrettung oder Reformen durch die Bank of Japan werden nicht bildlich dargestellt. Korrektur: Eine historische Illustration oder Darstellung von Bankvertretern, die Verhandlungen über eine Finanzspritze oder Reformauflagen für ein Automobilunternehmen führen."
+              },
+              {
+                "zeit": "00:28.32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "In 1950, executives trained at Ford.",
+                "fest": false,
+                "text": "Das Bild zeigt eine Gruppe von Männern in Anzügen in einer Fabrik, aber es ist nicht zu erkennen, dass sie Führungskräfte bei Ford sind oder dort ein Training absolvieren. Korrektur: Ein historisches Bild von japanischen Automobil-Führungskräften, die das Ford-Werk besichtigen oder geschult werden."
+              }
+            ],
+            "sekunden": 557.0,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "41184427322-4",
+              "datum": "2026-10-31",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 557.0,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 3
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 5,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "trendcheck": "ExxonMobil: 4.0 Punkte - Wikipedia +0 % gegenueber Vormonat, heute in Google News (ExxonMobil and Chevron report blowout profits as Trump touts benefits of high oil prices)",
+        "grund": "",
+        "sekunden": 2697.3,
+        "upload_titel": "Toyota's Bailout From Looms to Cars"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 3
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:10.19",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "to Platt Brothers, funding car development.",
+            "fest": false,
+            "text": "Das Bild zeigt Männer in einer Werkstatt bei der Autogestaltung, aber die im Sprechtext erwähnte Patentverkaufstransaktion an Platt Brothers wird nicht dargestellt. Korrektur: Eine historische Darstellung eines Patentverkaufsvertrags oder von Webstühlen, die mit dem Verkauf verbunden sind."
+          },
+          {
+            "zeit": "00:18.72",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 5,
+            "gesprochen": "So what saved Toyota?",
+            "fest": false,
+            "text": "Die gesprochene Frage bezieht sich auf die Rettung von Toyota durch die Bank von Japan, zu sehen ist jedoch nur eine Gruppe von Geschäftsleuten an einem Tisch. Korrektur: Eine historische Darstellung oder Szene, die Verhandlungen mit der Zentralbank oder Finanzhilfen für Toyota zeigt."
+          },
+          {
+            "zeit": "00:20.52",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 6,
+            "gesprochen": "The Bank of Japan bailed it out, demanding reforms.",
+            "fest": false,
+            "text": "Die Szene zeigt Geschäftsleute an einem Konferenztisch, was zwar zu einer Firmenrettung oder Verhandlung passen könnte, aber die spezifische Bankenrettung oder Reformen durch die Bank of Japan werden nicht bildlich dargestellt. Korrektur: Eine historische Illustration oder Darstellung von Bankvertretern, die Verhandlungen über eine Finanzspritze oder Reformauflagen für ein Automobilunternehmen führen."
+          },
+          {
+            "zeit": "00:28.32",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 9,
+            "gesprochen": "In 1950, executives trained at Ford.",
+            "fest": false,
+            "text": "Das Bild zeigt eine Gruppe von Männern in Anzügen in einer Fabrik, aber es ist nicht zu erkennen, dass sie Führungskräfte bei Ford sind oder dort ein Training absolvieren. Korrektur: Ein historisches Bild von japanischen Automobil-Führungskräften, die das Ford-Werk besichtigen oder geschult werden."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -14.9,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 39.96,
+              "bis_s": 41.46,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.985
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "A",
+                "s": 0.0,
+                "e": 0.38,
+                "p": 0.8660145401954651
+              },
+              {
+                "w": "central",
+                "s": 0.38,
+                "e": 0.72,
+                "p": 0.966191291809082
+              },
+              {
+                "w": "bank",
+                "s": 0.72,
+                "e": 1.34,
+                "p": 0.9972345232963562
+              },
+              {
+                "w": "had",
+                "s": 1.34,
+                "e": 1.66,
+                "p": 0.9944168329238892
+              },
+              {
+                "w": "to",
+                "s": 1.66,
+                "e": 1.8,
+                "p": 0.9986782670021057
+              },
+              {
+                "w": "rescue",
+                "s": 1.8,
+                "e": 2.26,
+                "p": 0.9967533946037292
+              },
+              {
+                "w": "this",
+                "s": 2.26,
+                "e": 2.62,
+                "p": 0.9805459380149841
+              },
+              {
+                "w": "car",
+                "s": 2.62,
+                "e": 2.88,
+                "p": 0.9929361939430237
+              },
+              {
+                "w": "maker,",
+                "s": 2.88,
+                "e": 3.08,
+                "p": 0.39846333861351013
+              },
+              {
+                "w": "but",
+                "s": 3.84,
+                "e": 3.88,
+                "p": 0.9923723936080933
+              },
+              {
+                "w": "it",
+                "s": 3.88,
+                "e": 4.0,
+                "p": 0.9861747026443481
+              },
+              {
+                "w": "began",
+                "s": 4.0,
+                "e": 4.28,
+                "p": 0.9937810301780701
+              },
+              {
+                "w": "somewhere",
+                "s": 4.28,
+                "e": 4.76,
+                "p": 0.988558292388916
+              },
+              {
+                "w": "stranger,",
+                "s": 4.76,
+                "e": 5.28,
+                "p": 0.9501862525939941
+              },
+              {
+                "w": "looms.",
+                "s": 5.86,
+                "e": 6.12,
+                "p": 0.8198578357696533
+              },
+              {
+                "w": "In",
+                "s": 7.02,
+                "e": 7.1,
+                "p": 0.9792015552520752
+              },
+              {
+                "w": "1929,",
+                "s": 7.1,
+                "e": 7.92,
+                "p": 0.998881995677948
+              },
+              {
+                "w": "a",
+                "s": 8.24,
+                "e": 8.4,
+                "p": 0.9964677095413208
+              },
+              {
+                "w": "Toyota",
+                "s": 8.4,
+                "e": 8.66,
+                "p": 0.9650547504425049
+              },
+              {
+                "w": "loom",
+                "s": 8.66,
+                "e": 9.48,
+                "p": 0.6887357532978058
+              },
+              {
+                "w": "patent",
+                "s": 9.48,
+                "e": 9.74,
+                "p": 0.9865067005157471
+              },
+              {
+                "w": "sold",
+                "s": 9.74,
+                "e": 10.34,
+                "p": 0.9957572817802429
+              },
+              {
+                "w": "to",
+                "s": 10.34,
+                "e": 10.56,
+                "p": 0.998570442199707
+              },
+              {
+                "w": "Platt",
+                "s": 10.56,
+                "e": 10.9,
+                "p": 0.696246862411499
+              },
+              {
+                "w": "brothers,",
+                "s": 10.9,
+                "e": 11.18,
+                "p": 0.6737677454948425
+              },
+              {
+                "w": "funding",
+                "s": 11.54,
+                "e": 12.0,
+                "p": 0.9848723411560059
+              },
+              {
+                "w": "car",
+                "s": 12.0,
+                "e": 12.34,
+                "p": 0.9877166152000427
+              },
+              {
+                "w": "development.",
+                "s": 12.34,
+                "e": 12.62,
+                "p": 0.9983277916908264
+              },
+              {
+                "w": "Then",
+                "s": 13.44,
+                "e": 13.48,
+                "p": 0.9879586696624756
+              },
+              {
+                "w": "1949",
+                "s": 13.48,
+                "e": 14.22,
+                "p": 0.5581389665603638
+              },
+              {
+                "w": "brought",
+                "s": 14.22,
+                "e": 14.72,
+                "p": 0.9187381863594055
+              },
+              {
+                "w": "a",
+                "s": 14.72,
+                "e": 14.9,
+                "p": 0.9903061389923096
+              },
+              {
+                "w": "funds",
+                "s": 14.9,
+                "e": 15.16,
+                "p": 0.6094385981559753
+              },
+              {
+                "w": "shortage",
+                "s": 15.16,
+                "e": 15.66,
+                "p": 0.9748918414115906
+              },
+              {
+                "w": "and",
+                "s": 15.66,
+                "e": 16.24,
+                "p": 0.6348831653594971
+              },
+              {
+                "w": "truck",
+                "s": 16.24,
+                "e": 16.46,
+                "p": 0.9981768131256104
+              },
+              {
+                "w": "owners",
+                "s": 16.46,
+                "e": 16.74,
+                "p": 0.9913423657417297
+              },
+              {
+                "w": "defaulted",
+                "s": 16.74,
+                "e": 17.44,
+                "p": 0.9763096272945404
+              },
+              {
+                "w": "on",
+                "s": 17.44,
+                "e": 17.54,
+                "p": 0.9937574863433838
+              },
+              {
+                "w": "loans.",
+                "s": 17.54,
+                "e": 17.76,
+                "p": 0.9882550239562988
+              },
+              {
+                "w": "So",
+                "s": 18.76,
+                "e": 18.8,
+                "p": 0.9798812866210938
+              },
+              {
+                "w": "what",
+                "s": 18.8,
+                "e": 19.0,
+                "p": 0.9210641980171204
+              },
+              {
+                "w": "saved",
+                "s": 19.0,
+                "e": 19.32,
+                "p": 0.9724187254905701
+              },
+              {
+                "w": "Toyota?",
+                "s": 19.32,
+                "e": 19.64,
+                "p": 0.9929519295692444
+              },
+              {
+                "w": "The",
+                "s": 20.54,
+                "e": 20.6,
+                "p": 0.9890579581260681
+              },
+              {
+                "w": "Bank",
+                "s": 20.6,
+                "e": 20.94,
+                "p": 0.734312117099762
+              },
+              {
+                "w": "of",
+                "s": 20.94,
+                "e": 21.22,
+                "p": 0.996701180934906
+              },
+              {
+                "w": "Japan",
+                "s": 21.22,
+                "e": 21.62,
+                "p": 0.9993048906326294
+              },
+              {
+                "w": "bailed",
+                "s": 21.62,
+                "e": 22.08,
+                "p": 0.9380190968513489
+              },
+              {
+                "w": "it",
+                "s": 22.08,
+                "e": 22.3,
+                "p": 0.983805775642395
+              },
+              {
+                "w": "out,",
+                "s": 22.3,
+                "e": 22.5,
+                "p": 0.999338686466217
+              },
+              {
+                "w": "demanding",
+                "s": 22.76,
+                "e": 22.98,
+                "p": 0.9964146614074707
+              },
+              {
+                "w": "reforms.",
+                "s": 22.98,
+                "e": 23.46,
+                "p": 0.9974310994148254
+              },
+              {
+                "w": "Toyota",
+                "s": 24.24,
+                "e": 24.5,
+                "p": 0.9954120516777039
+              },
+              {
+                "w": "shrank,",
+                "s": 24.5,
+                "e": 24.92,
+                "p": 0.8255901038646698
+              },
+              {
+                "w": "but",
+                "s": 25.3,
+                "e": 25.4,
+                "p": 0.9952495098114014
+              },
+              {
+                "w": "a",
+                "s": 25.4,
+                "e": 25.48,
+                "p": 0.9881097078323364
+              },
+              {
+                "w": "U",
+                "s": 25.48,
+                "e": 25.68,
+                "p": 0.512645423412323
+              },
+              {
+                "w": ".S.",
+                "s": 25.68,
+                "e": 25.84,
+                "p": 0.9882603287696838
+              },
+              {
+                "w": "Army",
+                "s": 26.22,
+                "e": 26.3,
+                "p": 0.799608588218689
+              },
+              {
+                "w": "order",
+                "s": 26.3,
+                "e": 26.56,
+                "p": 0.7107927203178406
+              },
+              {
+                "w": "for",
+                "s": 26.56,
+                "e": 26.8,
+                "p": 0.9936769604682922
+              },
+              {
+                "w": "1",
+                "s": 26.8,
+                "e": 27.12,
+                "p": 0.6222274899482727
+              },
+              {
+                "w": ",000",
+                "s": 27.12,
+                "e": 27.72,
+                "p": 0.9950447678565979
+              },
+              {
+                "w": "trucks",
+                "s": 27.72,
+                "e": 27.94,
+                "p": 0.9845132231712341
+              },
+              {
+                "w": "helped.",
+                "s": 27.94,
+                "e": 28.3,
+                "p": 0.9886733889579773
+              },
+              {
+                "w": "helped.",
+                "s": 28.3,
+                "e": 28.48,
+                "p": 0.44428861141204834
+              },
+              {
+                "w": "In",
+                "s": 28.88,
+                "e": 29.1,
+                "p": 0.9895918965339661
+              },
+              {
+                "w": "1950,",
+                "s": 29.1,
+                "e": 29.62,
+                "p": 0.9774177670478821
+              },
+              {
+                "w": "executives",
+                "s": 30.0,
+                "e": 30.38,
+                "p": 0.9934183359146118
+              },
+              {
+                "w": "trained",
+                "s": 30.38,
+                "e": 31.02,
+                "p": 0.9953113198280334
+              },
+              {
+                "w": "at",
+                "s": 31.02,
+                "e": 31.36,
+                "p": 0.9958884119987488
+              },
+              {
+                "w": "Ford.",
+                "s": 31.36,
+                "e": 31.64,
+                "p": 0.991003155708313
+              },
+              {
+                "w": "Loom",
+                "s": 32.38,
+                "e": 32.6,
+                "p": 0.6489462554454803
+              },
+              {
+                "w": "lessons",
+                "s": 32.6,
+                "e": 32.76,
+                "p": 0.9476255774497986
+              },
+              {
+                "w": "helped",
+                "s": 32.76,
+                "e": 33.22,
+                "p": 0.9892780780792236
+              },
+              {
+                "w": "shape",
+                "s": 33.22,
+                "e": 33.58,
+                "p": 0.9960407018661499
+              },
+              {
+                "w": "its",
+                "s": 33.58,
+                "e": 33.78,
+                "p": 0.9051611423492432
+              },
+              {
+                "w": "production",
+                "s": 33.78,
+                "e": 34.02,
+                "p": 0.9978544116020203
+              },
+              {
+                "w": "system.",
+                "s": 34.02,
+                "e": 34.42,
+                "p": 0.9859650135040283
+              },
+              {
+                "w": "Rescued",
+                "s": 35.2,
+                "e": 35.54,
+                "p": 0.8802366852760315
+              },
+              {
+                "w": "once,",
+                "s": 35.54,
+                "e": 35.76,
+                "p": 0.9917371869087219
+              },
+              {
+                "w": "it",
+                "s": 36.16,
+                "e": 36.24,
+                "p": 0.9679447412490845
+              },
+              {
+                "w": "now",
+                "s": 36.24,
+                "e": 36.48,
+                "p": 0.9877055287361145
+              },
+              {
+                "w": "builds",
+                "s": 36.48,
+                "e": 36.8,
+                "p": 0.9847797751426697
+              },
+              {
+                "w": "about",
+                "s": 36.8,
+                "e": 37.02,
+                "p": 0.9305535554885864
+              },
+              {
+                "w": "10",
+                "s": 37.02,
+                "e": 37.44,
+                "p": 0.9503611922264099
+              },
+              {
+                "w": "million",
+                "s": 37.44,
+                "e": 38.02,
+                "p": 0.9680655002593994
+              },
+              {
+                "w": "vehicles",
+                "s": 38.02,
+                "e": 38.58,
+                "p": 0.9964727759361267
+              },
+              {
+                "w": "yearly.",
+                "s": 38.58,
+                "e": 38.9,
+                "p": 0.9951283931732178
+              },
+              {
+                "w": "Be",
+                "s": 39.66,
+                "e": 39.7,
+                "p": 0.9940277338027954
+              },
+              {
+                "w": "sure",
+                "s": 39.7,
+                "e": 39.86,
+                "p": 0.9991239905357361
+              },
+              {
+                "w": "to",
+                "s": 39.86,
+                "e": 39.96,
+                "p": 0.9950893521308899
+              },
+              {
+                "w": "like,",
+                "s": 39.96,
+                "e": 40.18,
+                "p": 0.9396417737007141
+              },
+              {
+                "w": "share,",
+                "s": 40.36,
+                "e": 40.56,
+                "p": 0.9970030188560486
+              },
+              {
+                "w": "and",
+                "s": 40.76,
+                "e": 40.8,
+                "p": 0.9964534044265747
+              },
+              {
+                "w": "save",
+                "s": 40.8,
+                "e": 41.04,
+                "p": 0.994989812374115
+              },
+              {
+                "w": "this",
+                "s": 41.04,
+                "e": 41.22,
+                "p": 0.9838323593139648
+              },
+              {
+                "w": "video.",
+                "s": 41.22,
+                "e": 41.46,
+                "p": 0.9987567663192749
+              },
+              {
+                "w": "Which",
+                "s": 42.08,
+                "e": 42.14,
+                "p": 0.9828150868415833
+              },
+              {
+                "w": "company",
+                "s": 42.14,
+                "e": 42.36,
+                "p": 0.9944515824317932
+              },
+              {
+                "w": "next?",
+                "s": 42.36,
+                "e": 42.68,
+                "p": 0.9751548767089844
+              },
+              {
+                "w": "Comment",
+                "s": 43.2,
+                "e": 43.34,
+                "p": 0.9919052124023438
+              },
+              {
+                "w": "and",
+                "s": 43.34,
+                "e": 43.98,
+                "p": 0.8097110986709595
+              },
+              {
+                "w": "follow",
+                "s": 43.98,
+                "e": 44.16,
+                "p": 0.9958034157752991
+              },
+              {
+                "w": "for",
+                "s": 44.16,
+                "e": 44.4,
+                "p": 0.9945863485336304
+              },
+              {
+                "w": "more.",
+                "s": 44.4,
+                "e": 44.56,
+                "p": 0.9995878338813782
+              }
+            ],
+            "dauer_s": 44.9066875,
+            "sprache": "en"
+          },
+          "roh_key": "c5a6d2f62c9c6a7062a16f09ae8ed491d2bae975a7fc4fef57e3bfcd660c47cc",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "195ee77a49aeee3fe3ce37686d49ea1d984789e50dbdf2d1dcf5f205465abefb",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 14,
+          "motive": 14,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "195ee77a49aeee3fe3ce37686d49ea1d984789e50dbdf2d1dcf5f205465abefb",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein illustriertes Gesicht eines Mannes mit extrem aufgerissenen Augen und offenem Mund, das einen Schock- oder Erstaunten-Gesichtsausdruck zeigt, vor einer historischen Bank- oder Gebäude-Fassade.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen klassischen opening_reaction_shot mit einem geschockten Gesichtsausdruck, der zur emotionalen Eröffnung über die Rettung durch eine Zentralbank passt.",
+              "erforderliches_bild": "Keines, der Schock-Gesichtsausdruck passt zum dramatischen Hook am Anfang."
+            },
+            {
+              "index": 1,
+              "gesehen": "Eine historische Werkstatt mit Webstühlen an denen Arbeiter in traditioneller Kleidung weben, im Vordergrund ein Mann in Anzug und Hut der an einem Webstuhl steht.",
+              "note": 9,
+              "passt": true,
+              "grund": "Die gesprochenen Worte erwähnen Webrahmen, und das Bild zeigt genau eine historische Weberei mit Webstühlen, was perfekt zum Thema passt.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 2,
+              "gesehen": "Mehrere Männer in Anzügen und Arbeitskleidung stehen in einer historischen Werkstatt, während zwei Männer eine grüne mechanische Webmaschine betrachten oder übergeben.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt passend den Verkauf oder die Übergabe einer Webmaschine im Jahr 1929.",
+              "erforderliches_bild": "Keines, das Bild passt."
+            },
+            {
+              "index": 3,
+              "gesehen": "Mehrere Männer in historischer Kleidung stehen in einer Werkstatt um ein Autochassis herum und besprechen etwas.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt Männer in einer Werkstatt bei der Autogestaltung, aber die im Sprechtext erwähnte Patentverkaufstransaktion an Platt Brothers wird nicht dargestellt.",
+              "erforderliches_bild": "Eine historische Darstellung eines Patentverkaufsvertrags oder von Webstühlen, die mit dem Verkauf verbunden sind."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Mann steht vor einem alten verrosteten LKW auf einer Straße mit Häusern, im Hintergrund ist ein weiterer Lastwagen zu sehen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gesprochene Textpassage erwähnt Lastwagenbesitzer und Kreditausfälle, und das Bild zeigt einen passenden alten LKW, was den historischen Kontext visuell unterstützt.",
+              "erforderliches_bild": "Keines, das Bild passt."
+            },
+            {
+              "index": 5,
+              "gesehen": "Vier Männer sitzen an einem Tisch in einem Raum mit Blick auf eine Straße, auf der ein Auto steht.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gesprochene Frage bezieht sich auf die Rettung von Toyota durch die Bank von Japan, zu sehen ist jedoch nur eine Gruppe von Geschäftsleuten an einem Tisch.",
+              "erforderliches_bild": "Eine historische Darstellung oder Szene, die Verhandlungen mit der Zentralbank oder Finanzhilfen für Toyota zeigt."
+            },
+            {
+              "index": 6,
+              "gesehen": "In einem holzgetäfelten Raum sitzen vier Männer in Anzügen an einem Konferenztisch und wirken wie bei einer geschäftlichen Besprechung oder Verhandlung.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Szene zeigt Geschäftsleute an einem Konferenztisch, was zwar zu einer Firmenrettung oder Verhandlung passen könnte, aber die spezifische Bankenrettung oder Reformen durch die Bank of Japan werden nicht bildlich dargestellt.",
+              "erforderliches_bild": "Eine historische Illustration oder Darstellung von Bankvertretern, die Verhandlungen über eine Finanzspritze oder Reformauflagen für ein Automobilunternehmen führen."
+            },
+            {
+              "index": 7,
+              "gesehen": "In einem historischen, illustrierten Stil sieht man eine Fabrikhalle im Freien, davor mehrere grüne Armeelaster und einige Männer in Uniform oder Zivil, während im Hintergrund Fabrikgebäude erkennbar sind.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt Lastwagen vor einer Fabrik und passt damit direkt zu der erwähnten U.S. Army Lkw-Bestellung zur Rettung Toyotas.",
+              "erforderliches_bild": "Keines, das Bild passt."
+            },
+            {
+              "index": 8,
+              "gesehen": "Eine historische Straßenszene mit zahlreichen grünen Lastwagen, die sich in Reihen erstrecken, und einem großen Schild mit der Aufschrift 1,000 TRUCKS HELPED im oberen Bereich.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell eine große Anzahl von Lastwagen, was perfekt zur Erwähnung der 1.000 Lkw-Bestellung durch die Armee im gesprochenen Text passt.",
+              "erforderliches_bild": "Keines, da das Bild direkt und passend die Lastwagen zeigt."
+            },
+            {
+              "index": 9,
+              "gesehen": "Eine Gruppe von Anzugträgern in einer großen Werkshalle oder Fabrik lacht und diskutiert zusammen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt eine Gruppe von Männern in Anzügen in einer Fabrik, aber es ist nicht zu erkennen, dass sie Führungskräfte bei Ford sind oder dort ein Training absolvieren.",
+              "erforderliches_bild": "Ein historisches Bild von japanischen Automobil-Führungskräften, die das Ford-Werk besichtigen oder geschult werden."
+            },
+            {
+              "index": 11,
+              "gesehen": "Eine digitale Illustration von massenhaft aufgereihten Autos in einer Stadtstraße unter einem großen Banner mit der Aufschrift '10 Million Vehicles'.",
+              "note": 9,
+              "passt": true,
+              "grund": "Die visuelle Darstellung von Millionen gebauten Fahrzeugen passt perfekt zu der im gesprochenen Text erwähnten Jahresproduktion von etwa 10 Millionen Fahrzeugen.",
+              "erforderliches_bild": "Keines, das Bild passt."
+            },
+            {
+              "index": 12,
+              "gesehen": "Eine endlose Straße mit Hunderten von roten und grauen Autos in Reih und Glied zwischen Fabriken und Industriegebäuden.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die vielen Autos illustrieren passend die heutigen Produktionszahlen von Millionen Fahrzeugen jährlich im Rahmen des Outros.",
+              "erforderliches_bild": "direkt passend"
+            },
+            {
+              "index": 13,
+              "gesehen": "Ein gemaltes Porträt eines Mannes in einem Anzug und Hut vor einer Stadtkulisse mit Textüberlagerung.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gesprochene Aufforderung zum Kommentieren und Folgen passt zu dem passenden ansprechenden Moderator oder Social-Media-Stil, hier in Form eines gezeichneten Präsentators.",
+              "erforderliches_bild": "Ein passender Moderator oder Social-Media-Aufforderungsbildschirm."
+            }
+          ],
+          "befunde": [
+            "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Männer in einer Werkstatt bei der Autogestaltung, aber die im Sprechtext erwähnte Patentverkaufstransaktion an Platt Brothers wird nicht dargestellt.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage bezieht sich auf die Rettung von Toyota durch die Bank von Japan, zu sehen ist jedoch nur eine Gruppe von Geschäftsleuten an einem Tisch.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt Geschäftsleute an einem Konferenztisch, was zwar zu einer Firmenrettung oder Verhandlung passen könnte, aber die spezifische Bankenrettung oder Reformen durch die Bank of Japan werden nicht bildlich dargestellt.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Gruppe von Männern in Anzügen in einer Fabrik, aber es ist nicht zu erkennen, dass sie Führungskräfte bei Ford sind oder dort ein Training absolvieren."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 14,
+          "ausgenommen": [],
+          "vorgeprueft": [
+            10
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "195ee77a49aeee3fe3ce37686d49ea1d984789e50dbdf2d1dcf5f205465abefb",
+        "prompt_version": "2026-10-29.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

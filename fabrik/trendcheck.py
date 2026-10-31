@@ -166,7 +166,8 @@ def yt_faktor(begriff, zusatz=''):
 
 def kandidaten(kanal, themen, mit_trendfirmen=True, google_liste=(), heute=None):
     aus = [{'thema': x['thema'], 'begriff': x.get('trend_suche') or x.get('wikipedia') or x['thema'],
-            'wikipedia': x.get('wikipedia'), 'eigen': True}
+            'wikipedia': x.get('wikipedia'), 'eigen': True,
+            **({'recycling': True} if str(x.get('id', '')).startswith('recycling-') else {})}
            for x in themen.laden() if x['kanal'] == kanal and x.get('status', 'bereit') == 'bereit'
            and not themen.gespraech_grund(x['thema'])]
     if mit_trendfirmen and _profil(kanal).get('quelle') == 'wikipedia':
@@ -432,13 +433,13 @@ def bewerten(liste, google_liste, heute=None, kanal='', hn_liste=()):
     # Vorher zaehlte die Punktsumme - ein Google-Treffer (4 Punkte) schlug einen 10x-YouTube-Ausreisser (3,3).
     for k in liste:
         k['stufe'] = stufe(k)
-    return sorted(liste, key=lambda k: (k['stufe'], -k['punkte']))
+    return sorted(liste, key=lambda k: (k['stufe'], not k.get('recycling'), -k['punkte']))
 
 
 def stufe(k):
     """0 = echter YouTube-Trend, 1 = nur Google (Tagestrends, bei Firmenkanaelen auch Google News), 2 = Rest (Wikipedia, Hacker News, Titelvorlage)."""
-    if punkte(k.get('youtube')) >= SCHWELLE or (k.get('format') == 'tierlist' and k.get('vorrang')):
-        return 0  # Tierlist-Tag (Nutzer 31.10.2026): der woechentliche Pilot geht vor
+    if punkte(k.get('youtube')) >= SCHWELLE or (k.get('format') == 'tierlist' and k.get('vorrang'))             or k.get('recycling'):
+        return 0  # Gewinner-Remake (recycling.py, einmal pro Woche) wie der Tierlist-Pilot vorn  # Tierlist-Tag (Nutzer 31.10.2026): der woechentliche Pilot geht vor
     return 1 if k.get('google') else 2
 
 
@@ -457,6 +458,8 @@ def entscheiden(bewertet):
 
 
 def _akzeptiert(k):
+    if k.get('recycling') and k.get('thema'):
+        return True  # bewiesenes Thema: braucht kein Tagessignal, die 60-Tage-Sperre gilt dem Remake nicht
     if not k.get('thema') or k['punkte'] - (BONUS_EIGEN if k['eigen'] else 0) < SCHWELLE:
         return False
     if not (k['eigen'] or k.get('vorlage') or stufe(k) <= 1):
@@ -663,6 +666,11 @@ def waehlen(kanal, heute=None, themen=None, neu=False):
     heute = heute or datetime.date.today()
     pfad = ORDNER / f'{kanal}-{heute.isoformat()}.json'
     try:
+        import recycling
+        neu = bool(recycling.einreihen(kanal, heute)) or neu  # neues Remake -> Morgenbericht neu rechnen
+    except Exception as e:  # nie den Tageslauf daran scheitern lassen
+        print('Gewinner-Remake nicht geprueft:', type(e).__name__, str(e)[:120])
+    try:
         if neu:
             raise KeyError('Neuberechnung angefordert')
         alt = json.loads(pfad.read_text(encoding='utf-8'))
@@ -698,7 +706,8 @@ def waehlen(kanal, heute=None, themen=None, neu=False):
         for x in bewertet:
             x['_kanal'] = kanal
         thema, grund = entscheiden(bewertet)
-        tierlist_tag = any(x['thema'] == thema and x.get('format') == 'tierlist' for x in bewertet)
+        tierlist_tag = any(x['thema'] == thema and (x.get('format') == 'tierlist' or x.get('recycling'))
+                           for x in bewertet)
         if thema and not tierlist_tag:  # der Claude-Plan ersetzt den woechentlichen Tierlist-Piloten nicht
             thema, grund = redaktion(kanal, bewertet, heute) or (thema, grund)
     except Exception as e:  # nie den Tageslauf am Trend-Check scheitern lassen

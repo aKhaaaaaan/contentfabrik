@@ -53,6 +53,14 @@ def quelle_reicht(t, kanal=KANAL):
     return q is None or len(q['text']) >= LANG_MIN_ZEICHEN
 
 
+def quellen_da(t):
+    """KI-Kanal (nur_quellen): findet die Themenrecherche Belege? skript.py schreibt ohne sie nichts.
+    GEMESSEN 31.10.2026 (Lauf 41202120654): Langvideo „Claude Projects for client work" - der Short war frei
+    gewaehlt und hatte seine Quellen aus dem Kanal-Schwerpunkt; mit festem Thema 0 Quellen, fuenfmal Abbruch."""
+    import trends
+    return bool(trends.thema_recherche(t))
+
+
 def thema(verlauf, geliefert, heute, name=NAME, reicht=None, rangfolge=None):
     """Short der letzten Tage (nicht von heute), dessen Thema noch kein Langvideo hatte.
     reicht(thema): optionale Quellenpruefung; ungeeignete Themen werden uebersprungen.
@@ -143,7 +151,8 @@ def vorpruefung(heute=None, eingabe='', kanal=KANAL):
     offen = offener_entwurf(kanal)
     if offen:
         return True, offen
-    reicht = (lambda t: quelle_reicht(t, kanal)) if _profil(kanal).get('quelle') == 'wikipedia' else None
+    reicht = (lambda t: quelle_reicht(t, kanal)) if _profil(kanal).get('quelle') == 'wikipedia' else \
+        (lambda t: quellen_da(t)) if _profil(kanal).get('nur_quellen') else None
     return True, thema(verlauf, geliefert, heute, _name(kanal), reicht, lambda l: trend_rangfolge(l, kanal))
 
 

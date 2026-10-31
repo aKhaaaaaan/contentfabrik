@@ -1,61 +1,5 @@
 [
   {
-    "id": "38581374408",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-14",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 23.0,
-        "baufehler": "ValueError: Phase 5: redaktionelle Bildfolge zu kurz fuer die gemessene Stimme",
-        "status": "baufehler",
-        "sekunden": 23.0
-      },
-      {
-        "runde": 2,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 4.5,
-        "baufehler": "ValueError: Phase 5: redaktionelle Bildfolge zu kurz fuer die gemessene Stimme",
-        "status": "baufehler",
-        "sekunden": 4.5
-      },
-      {
-        "runde": 3,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 4.6,
-        "baufehler": "ValueError: Phase 5: redaktionelle Bildfolge zu kurz fuer die gemessene Stimme",
-        "status": "baufehler",
-        "sekunden": 4.6
-      },
-      {
-        "runde": 4,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 4.5,
-        "baufehler": "ValueError: Phase 5: redaktionelle Bildfolge zu kurz fuer die gemessene Stimme",
-        "status": "baufehler",
-        "sekunden": 4.5
-      },
-      {
-        "runde": 5,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 4.5,
-        "baufehler": "ValueError: Phase 5: redaktionelle Bildfolge zu kurz fuer die gemessene Stimme",
-        "status": "baufehler",
-        "sekunden": 4.5
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Videobau fehlgeschlagen (ValueError: Phase 5: redaktionelle Bildfolge zu kurz fuer die gemessene Stimme)",
-    "sekunden": 41.4,
-    "upload_titel": "Your AI Says Click: Bigarrow Shows Where | AI Tool #4"
-  },
-  {
     "id": "38583452910",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-14",
@@ -15744,5 +15688,243 @@
     "grund": "",
     "sekunden": 906.9,
     "upload_titel": "Claude Projects For Client Work | AI Tool #20"
+  },
+  {
+    "id": "41184427322",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-10-31",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-hook 6/10 unter 7/10"
+        ],
+        "story_note": 7,
+        "story_schwaechen": [
+          "\"Anthropic's first page calls the watermark 'imperceptible.'\" - A source citation in the first three sentences is a concrete hook weakness that breaks momentum; move the technical mechanism explanation earlier and delay the attribution."
+        ],
+        "skript_probleme": [],
+        "sekunden": 297.5
+      },
+      {
+        "runde": 2,
+        "art": "produktion",
+        "skript_s": 218.5,
+        "bau_s": 475.3,
+        "pruefung_s": 48.1,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 1/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine Chat-Visualisierung mit dem zitierten Text, bietet jedoch keine Erklärung oder visuelle Demonstration der im Text erwähnten Wasserzeichen oder Steganographie.",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen allgemeinen Textausschnitt mit einer Markierung und veranschaulicht nicht die erwähnten Wortlisten oder probabilistischen Fingerabdrücke der Steganographie.",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Oberfläche für WorkOS und Logins ohne Browser, während im gesprochenen Text steganografische Fingerabdrücke und Wortwahl bei der Inferenz erklärt werden. Der Inhalt hat keinen Bezug zum Thema.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Es sind weder grüne noch rote Wortlisten oder Erklärungen dazu zu sehen.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (4/10): Es ist lediglich eine Grafik mit der Zahl 49 und Text zu sehen, aber kein Bild einer Münze oder eines Münzwurfs, wie es im gesprochenen Text als Metapher für die Wortwahl-Wahrscheinlichkeit verwendet wird.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich jemanden, der an einer Tastatur tippt. Es illustriert weder das Erwähnen von Wortlisten noch das Vermeiden bestimmter Wörter aus dem gesprochenen Text.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt nur unleserlichen Text in einem Kasten, aber nicht, wie sich Listen bei jedem Token verschieben oder wer den geheimen Schlüssel besitzt.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich Hände, die ein leeres Dokument halten, was den Text über Textlänge und Konfidenz nicht erklärt.",
+          "Einstellung 9: Bild passt nicht zum Sprechtext (1/10): Das Bild zeigt lediglich einen Textkasten ohne jeglichen Bezug zu Münzwürfen oder der Erläuterung von Wahrscheinlichkeiten.",
+          "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Zeile handelt von Text, der von Claude modifiziert und markiert wurde, während das Bild lediglich einen Mann mit einer Lupe vor dem Gesicht zeigt. Es fehlt jeglicher Bezug zu Textbearbeitung, KI oder Markierungen.",
+          "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen Mann am Fenster, aber nicht das Erklären oder Informieren von Kunden gegenueber.",
+          "Einstellung 12: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen sprechenden Mann vor Fenstern und visualisiert weder die Offenlegung gegenüber Kunden noch das Thema Wasserzeichen.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine Chat-Visualisierung mit dem zitierten Text, bietet jedoch keine Erklärung oder visuelle Demonstration der im Text erwähnten Wasserzeichen oder Steganographie. Korrektur: Eine anschauliche Grafik, die steganografische Wortwahl oder Wasserzeichen in einem Text demonstriert.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich einen allgemeinen Textausschnitt mit einer Markierung und veranschaulicht nicht die erwähnten Wortlisten oder probabilistischen Fingerabdrücke der Steganographie. Korrektur: Ein schematisches Diagramm oder Dokument, das die bewussten Wortentscheidungen oder probabilistischen Fingerabdrücke bei der Textgenerierung veranschaulicht.",
+          "Offenes Problem (schwer): Das Bild zeigt eine Software-Oberfläche für WorkOS und Logins ohne Browser, während im gesprochenen Text steganografische Fingerabdrücke und Wortwahl bei der Inferenz erklärt werden. Der Inhalt hat keinen Bezug zum Thema. Korrektur: Ein Diagramm oder eine visuelle Darstellung, die steganografische Wortauswahl oder probabilistische Erkennung verdeutlicht.",
+          "Offenes Problem (schwer): Es sind weder grüne noch rote Wortlisten oder Erklärungen dazu zu sehen. Korrektur: Eine anschauliche Grafik oder Liste, die grüne und rote Wörter oder Wortkombinationen zur steganografischen Kennzeichnung zeigt.",
+          "Offenes Problem (schwer): Es ist lediglich eine Grafik mit der Zahl 49 und Text zu sehen, aber kein Bild einer Münze oder eines Münzwurfs, wie es im gesprochenen Text als Metapher für die Wortwahl-Wahrscheinlichkeit verwendet wird. Korrektur: Eine anschauliche Grafik oder Animation einer gezinkten Münze, die mit den Wahrscheinlichkeiten 51 zu 49 fällt, um die beschriebene Wortwahl-Metapher zu verdeutlichen.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich jemanden, der an einer Tastatur tippt. Es illustriert weder das Erwähnen von Wortlisten noch das Vermeiden bestimmter Wörter aus dem gesprochenen Text. Korrektur: Eine schematische Darstellung oder Grafik von Wortlisten und Entscheidungspunkten, die das Ausweichen vor bestimmten Begriffen symbolisiert.",
+          "Offenes Problem (schwer): Das Bild zeigt nur unleserlichen Text in einem Kasten, aber nicht, wie sich Listen bei jedem Token verschieben oder wer den geheimen Schlüssel besitzt. Korrektur: Eine anschauliche Grafik oder Demonstration, die das Verschieben von Wortlisten oder einen Mechanismus mit einem geheimen Schlüssel zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich Hände, die ein leeres Dokument halten, was den Text über Textlänge und Konfidenz nicht erklärt. Korrektur: Eine anschauliche Grafik, die zeigt, wie die statistische Sicherheit mit zunehmender Textlänge ansteigt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich einen Textkasten ohne jeglichen Bezug zu Münzwürfen oder der Erläuterung von Wahrscheinlichkeiten. Korrektur: Eine anschauliche Grafik oder Demonstration von Münzwürfen, die das Prinzip von Wahrscheinlichkeiten bei kurzen vs. langen Texten erklärt.",
+          "Offenes Problem (schwer): Die gesprochene Zeile handelt von Text, der von Claude modifiziert und markiert wurde, während das Bild lediglich einen Mann mit einer Lupe vor dem Gesicht zeigt. Es fehlt jeglicher Bezug zu Textbearbeitung, KI oder Markierungen. Korrektur: Ein Bildschirm, der zeigt, wie ein KI-generierter oder bearbeiteter Text auf Unregelmäßigkeiten oder Wasserzeichen hin untersucht wird.",
+          "Offenes Problem (schwer): Die Szene zeigt einen Mann am Fenster, aber nicht das Erklären oder Informieren von Kunden gegenueber. Korrektur: Ein Freelancer, der mit einem Kunden an einem Schreibtisch sitzt und offen ein Dokument oder einen Laptop zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich einen sprechenden Mann vor Fenstern und visualisiert weder die Offenlegung gegenüber Kunden noch das Thema Wasserzeichen. Korrektur: Ein realistisches Szenario, in dem ein Freiberufler einen Kunden vor dem Bildschirm sitzt und transparent über die KI-Nutzung informiert."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 22.4,
+          "zeitmarken": 6.5,
+          "tempo": 1.139,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 14,
+          "bilder_vereinfacht": 3,
+          "clips_und_stuecke": 342.9,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 14,
+            "motive": 14,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 48.6,
+          "gesamt": 474.9,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            6.32,
+            7.28,
+            7.44,
+            6.5,
+            6.44,
+            6.7,
+            4.35
+          ],
+          "woerter": 135
+        },
+        "kategorien": {
+          "bild_passt": 1
+        },
+        "probleme": [
+          {
+            "zeit": "00:02.60",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "It's like a ghostwriter who can't stop autographing. Where's the signature hiding?",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich eine Chat-Visualisierung mit dem zitierten Text, bietet jedoch keine Erklärung oder visuelle Demonstration der im Text erwähnten Wasserzeichen oder Steganographie. Korrektur: Eine anschauliche Grafik, die steganografische Wortwahl oder Wasserzeichen in einem Text demonstriert."
+          },
+          {
+            "zeit": "00:06.32",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "Not invisible characters. The page calls it steganography: word choices",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich einen allgemeinen Textausschnitt mit einer Markierung und veranschaulicht nicht die erwähnten Wortlisten oder probabilistischen Fingerabdrücke der Steganographie. Korrektur: Ein schematisches Diagramm oder Dokument, das die bewussten Wortentscheidungen oder probabilistischen Fingerabdrücke bei der Textgenerierung veranschaulicht."
+          },
+          {
+            "zeit": "00:09.96",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "at inference time leave fingerprints, detected probabilistically.",
+            "fest": true,
+            "text": "Das Bild zeigt eine Software-Oberfläche für WorkOS und Logins ohne Browser, während im gesprochenen Text steganografische Fingerabdrücke und Wortwahl bei der Inferenz erklärt werden. Der Inhalt hat keinen Bezug zum Thema. Korrektur: Ein Diagramm oder eine visuelle Darstellung, die steganografische Wortauswahl oder probabilistische Erkennung verdeutlicht."
+          },
+          {
+            "zeit": "00:13.60",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Picture \"green\" and \"red\" word lists.",
+            "fest": true,
+            "text": "Es sind weder grüne noch rote Wortlisten oder Erklärungen dazu zu sehen. Korrektur: Eine anschauliche Grafik oder Liste, die grüne und rote Wörter oder Wortkombinationen zur steganografischen Kennzeichnung zeigt."
+          },
+          {
+            "zeit": "00:15.58",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "At each decision point, the model slightly favors green, like a crooked 51-49 coin.",
+            "fest": true,
+            "text": "Es ist lediglich eine Grafik mit der Zahl 49 und Text zu sehen, aber kein Bild einer Münze oder eines Münzwurfs, wie es im gesprochenen Text als Metapher für die Wortwahl-Wahrscheinlichkeit verwendet wird. Korrektur: Eine anschauliche Grafik oder Animation einer gezinkten Münze, die mit den Wahrscheinlichkeiten 51 zu 49 fällt, um die beschriebene Wortwahl-Metapher zu verdeutlichen."
+          },
+          {
+            "zeit": "00:21.04",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 6,
+            "gesprochen": "You can't just avoid certain words.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich jemanden, der an einer Tastatur tippt. Es illustriert weder das Erwähnen von Wortlisten noch das Vermeiden bestimmter Wörter aus dem gesprochenen Text. Korrektur: Eine schematische Darstellung oder Grafik von Wortlisten und Entscheidungspunkten, die das Ausweichen vor bestimmten Begriffen symbolisiert."
+          },
+          {
+            "zeit": "00:23.38",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "Lists shift at every token, and only someone with the secret key can tell.",
+            "fest": true,
+            "text": "Das Bild zeigt nur unleserlichen Text in einem Kasten, aber nicht, wie sich Listen bei jedem Token verschieben oder wer den geheimen Schlüssel besitzt. Korrektur: Eine anschauliche Grafik oder Demonstration, die das Verschieben von Wortlisten oder einen Mechanismus mit einem geheimen Schlüssel zeigt."
+          },
+          {
+            "zeit": "00:27.54",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "Confidence grows with text length; short snippets remain anonymous.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich Hände, die ein leeres Dokument halten, was den Text über Textlänge und Konfidenz nicht erklärt. Korrektur: Eine anschauliche Grafik, die zeigt, wie die statistische Sicherheit mit zunehmender Textlänge ansteigt."
+          },
+          {
+            "zeit": "00:30.78",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "Same as coin flips: flip too few times, and you can't tell.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich einen Textkasten ohne jeglichen Bezug zu Münzwürfen oder der Erläuterung von Wahrscheinlichkeiten. Korrektur: Eine anschauliche Grafik oder Demonstration von Münzwürfen, die das Prinzip von Wahrscheinlichkeiten bei kurzen vs. langen Texten erklärt."
+          },
+          {
+            "zeit": "00:33.98",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "Even text Claude merely modified can be flagged with some confidence.",
+            "fest": true,
+            "text": "Die gesprochene Zeile handelt von Text, der von Claude modifiziert und markiert wurde, während das Bild lediglich einen Mann mit einer Lupe vor dem Gesicht zeigt. Es fehlt jeglicher Bezug zu Textbearbeitung, KI oder Markierungen. Korrektur: Ein Bildschirm, der zeigt, wie ein KI-generierter oder bearbeiteter Text auf Unregelmäßigkeiten oder Wasserzeichen hin untersucht wird."
+          },
+          {
+            "zeit": "00:37.50",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "So tell clients upfront.",
+            "fest": true,
+            "text": "Die Szene zeigt einen Mann am Fenster, aber nicht das Erklären oder Informieren von Kunden gegenueber. Korrektur: Ein Freelancer, der mit einem Kunden an einem Schreibtisch sitzt und offen ein Dokument oder einen Laptop zeigt."
+          },
+          {
+            "zeit": "00:39.04",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 12,
+            "gesprochen": "Then the signature isn't a secret.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich einen sprechenden Mann vor Fenstern und visualisiert weder die Offenlegung gegenüber Kunden noch das Thema Wasserzeichen. Korrektur: Ein realistisches Szenario, in dem ein Freiberufler einen Kunden vor dem Bildschirm sitzt und transparent über die KI-Nutzung informiert."
+          }
+        ],
+        "sekunden": 741.9,
+        "status": "geprueft"
+      },
+      {
+        "runde": 3,
+        "art": "korrektur",
+        "status": "keine_korrektur",
+        "sekunden": 0.1
+      }
+    ],
+    "status": "gesendet",
+    "trendcheck": "Claude-Redaktion (Plan vom 2026-10-31): Anthropic: Anthropic Just Shipped Claude 2.0 (Master it in 17 minutes): 5.0 Punkte - YouTube-Ausreisser 79.4x Kanalschnitt",
+    "grund": "",
+    "sekunden": 1078.1,
+    "upload_titel": "Claude Will Sign Text: Tell Clients First | AI Tool #21"
   }
 ]

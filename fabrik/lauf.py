@@ -240,6 +240,8 @@ def verlauf_eintragen(kanal, skript, status, note, abschnitte=None, messung=None
         tempo=(messung or {}).get('tempo', skript.get('tempo', 1.05)),
         untertitel_profil=skript.get('untertitel_profil', 'standard'),
         musik_pegel=skript.get('musik_pegel', 0.1), effekt_pegel=skript.get('effekt_pegel', 1.0))
+    if (messung or {}).get('clips'):  # 31.10.2026: Witz-/Archivclips je Video fuer den Vergleich mit/ohne
+        v[-1]['einstellungen']['clips'] = messung['clips']
     p.write_text(json.dumps(v, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
 
 

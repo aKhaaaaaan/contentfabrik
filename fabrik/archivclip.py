@@ -112,16 +112,31 @@ SCHEMA = {'type': 'OBJECT', 'properties': {'beste': {'type': 'INTEGER'}, 'note':
                                            'gesehen': {'type': 'STRING'}}, 'required': ['beste', 'note', 'gesehen']}
 
 
-def auswahl(bilder, satz, szene):
+def auswahl(bilder, satz, szene, witz=False):
     """(Index, Note) des Standbilds, das den gesprochenen Satz am besten zeigt."""
     from skript import gemini, SEHEN
     import bildvision
-    auftrag = ('You pick archive film footage for a short documentary. The narrator says: '
-               + json.dumps(satz) + '. Planned scene: ' + json.dumps(str(szene)[:200])
-               + f'. Images 0-{len(bilder) - 1} are stills from public-domain films. Pick the still whose visible '
-               'subject and action best illustrate these words (people, place, objects, era). Score 1-10: 7+ only if '
-               'a viewer would accept it as showing this moment; title cards, text, credits, cartoons, blurry or '
-               'unrelated frames score 1-3. Describe what is visible in gesehen.')
+    if witz:
+        # Nutzer 31.10.2026: Zeichentrick- und alte Comedy-Szenen machen das Video unterhaltsamer - aber nur, wenn
+        # der Zuschauer die Szene sofort mit dem Satz verbindet (eine Zeichentrick-Fabrik zu "production doubled").
+        art = 'old cartoon' if witz == 'zeichentrick' else 'old silent comedy'
+        # Nutzer 31.10.2026: "Comedy-maessig" - ein ernstes Lehrfilm-Standbild ist kein Witz-Clip
+        auftrag = (f'You pick a short funny clip ({art}) for a documentary video. The narrator '
+                   'says: ' + json.dumps(satz) + f'. Images 0-{len(bilder) - 1} are stills from public-domain '
+                   f'{art} films. Pick the still that illustrates these words in a funny, exaggerated way a '
+                   'viewer connects instantly (same action, object or feeling). It must look comic at first glance: '
+                   'slapstick, chaos, exaggerated faces or reactions, things going wrong. A calm, serious or merely '
+                   'educational frame scores 5 at most. Score 1-10: 7+ only if it is funny AND the link to the '
+                   'words is obvious; random gags, title cards, text, credits, blurry frames, famous characters '
+                   '(Mickey, Felix, Betty Boop, Popeye, Oswald, Chaplin\'s tramp), weapons, nudity or ethnic '
+                   'caricatures score 1-3. Describe what is visible in gesehen.')
+    else:
+        auftrag = ('You pick archive film footage for a short documentary. The narrator says: '
+                   + json.dumps(satz) + '. Planned scene: ' + json.dumps(str(szene)[:200])
+                   + f'. Images 0-{len(bilder) - 1} are stills from public-domain films. Pick the still whose '
+                   'visible subject and action best illustrate these words (people, place, objects, era). Score 1-10: '
+                   '7+ only if a viewer would accept it as showing this moment; title cards, text, credits, cartoons, '
+                   'blurry or unrelated frames score 1-3. Describe what is visible in gesehen.')
     d, _ = bildvision.mit_ausweichweg(lambda: gemini(auftrag, SCHEMA, bilder=bilder, modelle=SEHEN, temperatur=.1),
                                       auftrag, SCHEMA, bilder[0])
     beste = d.get('beste')
@@ -176,6 +191,55 @@ def prelinger(begriff, j):
                    'seite': f'https://archive.org/details/{kennung}', 'quelle': 'Internet Archive (Prelinger)'}
 
 
+# ---- Witz-Clips: Zeichentrick und alte Comedy (Nutzer 31.10.2026, Shorts und Langvideos beider Kanaele) ---------
+# GEMESSEN 31.10.2026: Prelinger hat 55 ausdruecklich gemeinfreie Zeichentrickfilme, viele ueber Wirtschaft ("Meet
+# King Joe", "Going Places", "Working Dollars"), aber nur 2 Komoedien; Commons hat viele Stummfilm-Komoedien und
+# Cartoons - darunter Chaplin, Disneys Alice/Oswald, Betty Boop, Felix, Kermit (Marken, Content ID). Die sperrt
+# STARS; die KI-Auswahl lehnt bekannte Figuren zusaetzlich ab. Witz-Clips brauchen keine Epoche der Geschichte.
+# Nutzer 31.10.2026: "bevorzugt erstmal Zeichentrick, wenn es das nicht gibt, dann normalen Comedy-Clip" - und
+# "Comedy-maessig". Zeichentrick passt zum gemalten Stil und hat keine Schauspieler-Rechte; darum zwei Stufen.
+WITZ_ARTEN = ('zeichentrick', 'comedy')
+WITZ_FAECHER = {'zeichentrick': 'subject:(animation OR animated OR cartoon OR cartoons)',
+                'comedy': 'subject:(comedy OR humor OR humour OR slapstick)'}
+WITZ_COMMONS = {'zeichentrick': 'cartoon', 'comedy': 'comedy'}
+STARS = re.compile(r'chaplin|keaton|laurel|hardy|harold lloyd|arbuckle|disney|alice(?:\'s)? |oswald|mickey|minnie|'
+                   r'betty boop|popeye|felix|kermit|henson|koko|bimbo|superman|bugs bunny|porky|daffy|looney|bosko|'
+                   r'noveltoons|harvey|baby huey|little audrey|katnip|'
+                   r'merrie melodies|woody woodpecker|mighty mouse|casper|tom and jerry|coca-cola|lucky strike|'
+                   r'cigarette|virgin|hot pants|puberty|venereal|atom|duck and cover|war\b|nazi|hitler', re.I)
+WITZ_JAHR_MAX = 1975
+# Nutzer 31.10.2026 nach der Witz-Probe (41212623109): "Die 9/10 sind schon besser als die 8/10" - lieber ein
+# gemaltes Bild als ein mittelmaessiger Gag.
+WITZ_MIN_NOTE = 9
+
+
+def witz_kandidaten(begriff, art='zeichentrick'):
+    """Zeichentrick- ODER Comedy-Filme, zuerst Prelinger (Lizenz je Film geprueft), dann Commons; ohne gesperrte Namen."""
+    def prelinger_witz():
+        q = (f'collection:prelinger AND licenseurl:*publicdomain* AND ({begriff}) AND {WITZ_FAECHER[art]} '
+             f'AND year:[1900 TO {WITZ_JAHR_MAX}]')
+        d = _json('https://archive.org/advancedsearch.php?' + urllib.parse.urlencode(
+            {'q': q, 'fl[]': ['identifier', 'title'], 'rows': 4, 'sort[]': 'downloads desc', 'output': 'json'},
+            doseq=True))
+        for x in d['response']['docs']:
+            info = None if STARS.search(str(x.get('title', '')) + ' ' + x['identifier']) else datei(x['identifier'])
+            if info:
+                name, sekunden, lizenz = info
+                yield {'kennung': x['identifier'], 'adresse': url(x['identifier'], name), 'sekunden': sekunden,
+                       'lizenz': lizenz, 'seite': f"https://archive.org/details/{x['identifier']}",
+                       'quelle': 'Internet Archive (Prelinger)'}
+
+    def commons_witz():
+        for film in commons(f'{begriff} {WITZ_COMMONS[art]}'):
+            if not STARS.search(film['kennung']):
+                yield film
+    for quelle in (prelinger_witz, commons_witz):
+        try:
+            yield from quelle()
+        except Exception as e:  # eine Quelle offline -> die andere
+            print('Witz-Archiv nicht erreichbar:', type(e).__name__)
+
+
 def kandidaten(begriff, j):
     for quelle in (lambda: prelinger(begriff, j), lambda: commons(begriff)):
         try:
@@ -217,15 +281,16 @@ def holen(film):
     return film
 
 
-def finden(satz, szene, epoche, benutzt=(), suche=''):
-    """{'kennung','adresse','sekunde','note','lizenz','seite','quelle'} oder None."""
+def finden(satz, szene, epoche, benutzt=(), suche='', witz=False):
+    """{'kennung','adresse','sekunde','note','lizenz','seite','quelle'} oder None.
+    witz='zeichentrick' | 'comedy': Witz-Clip dieser Art, unabhaengig von der Epoche der Geschichte."""
     j = epoche if isinstance(epoche, int) else jahr(epoche)
-    if not j or j > JAHR_MAX:
+    if not witz and (not j or j > JAHR_MAX):
         return None
     versucht = set(benutzt)
     noten = []
     for begriff in begriffe(satz, szene, suche):
-        for film in kandidaten(begriff, j):
+        for film in (witz_kandidaten(begriff, witz) if witz else kandidaten(begriff, j)):
             if len(versucht) - len(set(benutzt)) >= VERSUCHE or (len(noten) >= 2 and max(noten) < AUSSICHT):
                 return None
             if film['kennung'] in versucht:
@@ -241,10 +306,11 @@ def finden(satz, szene, epoche, benutzt=(), suche=''):
                     gueltig.append(s)
             if len(bilder) < 2:
                 continue
-            index, note = auswahl(bilder, satz, szene)
-            print(f"Archivclip {film['kennung'][:40]} ({begriff}, ~{j}): Note {note}")
+            index, note = auswahl(bilder, satz, szene, witz)
+            print(f"{f'Witz-Clip ({witz})' if witz else 'Archivclip'} {film['kennung'][:40]} ({begriff}, ~{j}): "
+                  f"Note {note}")
             noten.append(note or 0)
-            if index is not None and note >= MIN_NOTE:
+            if index is not None and note >= (WITZ_MIN_NOTE if witz else MIN_NOTE):
                 return dict(film, sekunde=gueltig[index], note=note)
     return None
 
@@ -310,8 +376,9 @@ def gemalt(f, satt=1.7):
     return np.clip(g, 0, 255).astype(np.uint8)
 
 
-def farbe(roh, ziel, standbild_ziel):
-    """(Video, erstes Bild) eingefaerbt (nur Schwarz-Weiss) und gemalt; None, None wenn es nicht geht."""
+def farbe(roh, ziel, standbild_ziel, grau_ok=False):
+    """(Video, erstes Bild) eingefaerbt (nur Schwarz-Weiss) und gemalt; None, None wenn es nicht geht.
+    grau_ok: Witz-Clips duerfen ohne DDColor schwarz-weiss bleiben (KI-Kanal hat kein DDColor im Workflow)."""
     import cv2
     cap = cv2.VideoCapture(str(roh))
     fps = cap.get(cv2.CAP_PROP_FPS) or 25
@@ -326,7 +393,7 @@ def farbe(roh, ziel, standbild_ziel):
     einfaerber = None
     if schwarzweiss(bilder[::max(1, len(bilder) // 5)]):
         einfaerber = _einfaerber()
-        if einfaerber is None:
+        if einfaerber is None and not grau_ok:
             print('Archivclip schwarz-weiss, aber kein DDColor - gemaltes Bild statt Clip')
             return None, None
     h, w = bilder[0].shape[:2]
@@ -413,11 +480,23 @@ def epochen_hinweis(j):
 
 
 def fuer_einstellung(satz, szene, suche, dauer, basis, archiv=True, ohne_epoche=False, pixabay=None, benutzt=None,
-                     geschichte=None):
+                     geschichte=None, witz=False):
     """(Video, Standbild, Quelle) fuer eine Einstellung oder (None, None, None) -> gemaltes Bild.
 
-    pixabay(suchwoerter, zusatz) - zusatz haengt die Epochenregel an den Satz fuer die KI-Auswahl."""
+    pixabay(suchwoerter, zusatz) - zusatz haengt die Epochenregel an den Satz fuer die KI-Auswahl.
+    witz=True: zuerst ein passender Zeichentrick-, sonst ein Comedy-Clip (Quelle mit art='witz')."""
     basis = Path(basis)
+    for witz_art in (WITZ_ARTEN if witz and begriffe(satz, szene, suche) else ()):
+        fund = finden(satz, szene, None, benutzt or set(), suche, witz=witz_art)
+        if fund:
+            roh = schneiden(fund, dauer, basis.with_name(basis.name + '_roh.mp4'))
+            video, bild = farbe(roh, basis.with_suffix('.mp4'), basis.with_suffix('.jpg'), grau_ok=True)
+            if video:
+                if benutzt is not None:
+                    benutzt.add(fund['kennung'])
+                return video, bild, {'quelle': f"{fund['quelle']}, {fund['lizenz']}", 'seite': fund['seite'],
+                                     'lizenz': fund['lizenz'], 'nennung': 'Archival cartoon/comedy, painted',
+                                     'note': fund['note'], 'art': 'witz', 'witz_art': witz_art}
     modern = epoche_modern(szene, ohne_epoche, geschichte)
     j = None if modern else szenen_jahr(szene, geschichte)
     hinweis = epochen_hinweis(j) if j else ''
@@ -447,7 +526,7 @@ def fuer_einstellung(satz, szene, suche, dauer, basis, archiv=True, ohne_epoche=
                     benutzt.add(fund['kennung'])
                 return video, bild, {'quelle': f"{fund['quelle']}, {fund['lizenz']}", 'seite': fund['seite'],
                                      'lizenz': fund['lizenz'], 'nennung': 'Archival footage, colorized and painted',
-                                     'note': fund['note']}
+                                     'note': fund['note'], 'art': 'archiv'}
     # 30.10.2026, Nutzer: "nicht nur Karten freimachen - wir brauchen was generell". Archive haben fuer die meisten
     # Saetze nichts (Nintendo/Intel: Note 0-6). Pixabay hat viel mehr; die KI-Auswahl bekommt die Epoche und lehnt
     # alles Moderne ab, der Schlusspruefer kontrolliert die Epoche ebenfalls. Ohne Jahr (unklar) bleibt es gemalt.

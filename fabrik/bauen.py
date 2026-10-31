@@ -1508,6 +1508,122 @@ def nachbar_bild(aus, i, vorherige_id, gesperrt=()):
 FIGUR_EINSETZEN = {'moeglich': True}  # gilt fuer einen bauen.py-Prozess (= einen Bauversuch)
 
 
+def szene_auftrag(t, i, letzt, modus, archiv_jahr):
+    """Bildauftrag einer Einstellung - eine Quelle fuer den normalen Bau und den Vorab-Bau (VORAB_PARALLEL)."""
+    import archivclip
+    if i == 0 or letzt:
+        szene = t.get('szene') or ('pointing straight at the viewer with a confident grin, close-up, '
+                                   'city street at sunset' if i == 0 else 'giving a confident nod to '
+                                   'the viewer, half body, rooftop at golden hour')
+    else:  # aeltere Skripte ohne Feld szene: Bildsuche + Satz als Szene
+        szene = t.get('szene') or f"{t.get('suche', '')}, {t['text'][:120]}"
+    if modus == 'foto':
+        szene = ('A clearly illustrative reconstruction of a generic period-appropriate '
+                 'setting or object, not an actual archive photograph and not a likeness '
+                 'of a named historical person. ' + szene)
+    if t.get('motiv') and not letzt:
+        # Nutzerentscheidung 15.10.2026 (wortgenau): Airbnb-Einstellung 0 sollte ein Wohnzimmer
+        # mit Luftmatratze zeigen; erzeugt wurde ein Mann mit Sofas, die Bildpruefung hielt die
+        # Matratze fuer ein Nebendetail. Der Kern des Satzes ist Pflicht fuer Bild UND Pruefung.
+        szene = f"Key visible subject (must be clearly shown): {t['motiv']}. {szene}"
+    # 29.10.2026 (Rolls-Royce 1906): trotz "Edwardian" malte das Bildmodell Roehrenmonitore, moderne
+    # Jacken und ein 1950er-Auto. Feste Jahreszahl der Geschichte, nur positiv beschrieben.
+    zeit = archiv_jahr or archivclip.jahr(szene)
+    if zeit and zeit <= archivclip.JAHR_MAX and not letzt and not archivclip.MODERN.search(szene) \
+            and not re.search(r'\b(?:1[89]|20)\d\d\b', szene):
+        szene += f', in the year {zeit}, period-accurate {zeit} clothing, furniture, machines and vehicles'
+    if i == 0 and H > B:
+        # GEMESSEN 28.10.2026 (TikTok GE Vernova/Claude Code TV OS): Abbruch bei 0:01-0:02; das erste
+        # Bild war dunkel, unscharf und zeigte niemanden. Ein Gesicht mit Gefuehl haelt den Daumen an.
+        szene += (', a person in medium close-up showing a strong readable emotion (shock, despair or '
+                  'triumph) at this exact moment, bright high-contrast light, subject fills the frame')
+    return szene
+
+
+# Nutzer 31.10.2026 ("Bilder parallel"): jedes Bild wurde nacheinander gemalt und geprueft, 30-50 s je Stueck,
+# ~13 Min. je Bau. Illustrationen der Mitte (Story-Kanaele) entstehen vorab in VORAB_PARALLEL Threads; der Bau
+# nimmt ein Vorab-Bild nur bei identischem Auftrag. CF_VORAB_PARALLEL=0 schaltet es ab.
+VORAB_PARALLEL = 3
+
+
+def vorab_starten(s, shots, archiv_jahr, kanal_slug, aus, schon_fertig):
+    """{index: (szene, Future)} fuer die gemalten Mitte-Einstellungen; {} wenn abgeschaltet/nicht passend."""
+    if int(os.environ.get('CF_VORAB_PARALLEL', VORAB_PARALLEL)) <= 1 or not os.environ.get('CLOUDFLARE_AI_TOKEN') \
+            or kanalprofil(s).get('gemalt_nur_rand') or H <= B:
+        return {}
+    import queue
+    import threading
+    from concurrent.futures import Future
+    # Daemon-Threads statt ThreadPoolExecutor: bricht der Bau ab (ValueError), wartet das Programmende sonst auf
+    # alle noch offenen Vorab-Bilder (viele Minuten).
+    arbeit = queue.Queue()
+    vorab = {'_arbeit': arbeit}
+    for i, shot in enumerate(shots):
+        t = shot['teil']
+        if not 0 < i < len(shots) - 1 or i in schon_fertig or t.get('bildmodus', 'auto') not in ('auto', 'illustration') \
+                or t.get('asset') or texte_aufruf(t['text']):
+            continue
+        szene = szene_auftrag(t, i, False, t.get('bildmodus', 'auto'), archiv_jahr)
+        fut = Future()
+        vorab[i] = (szene, fut)
+        arbeit.put((fut, (szene, aus / f'vorab_{i:02d}.jpg', kanal_slug, t.get('figur', False), False,
+                          dramaturgie.videoformat(s)), {'szene_zuerst': True, 'satz': t['text']}))
+
+    def arbeiter():
+        while True:
+            try:
+                fut, args, kw = arbeit.get_nowait()
+            except queue.Empty:
+                return
+            if not fut.set_running_or_notify_cancel():
+                continue
+            try:
+                fut.set_result(illustration_mit_ausweg(*args, **kw))
+            except BaseException as e:  # noqa: B036 - Ergebnis gehoert dem Bau, nicht dem Thread
+                fut.set_exception(e)
+    n = int(os.environ.get('CF_VORAB_PARALLEL', VORAB_PARALLEL))
+    for _ in range(n):
+        threading.Thread(target=arbeiter, daemon=True).start()
+    print(f'Vorab-Bau: {len(vorab) - 1} Illustrationen in {n} Threads')
+    return vorab
+
+
+def texte_aufruf(text):
+    import texte
+    return bool(texte.AUFRUF.search(text or ''))
+
+
+def vorab_holen(vorab, i, szene, ziel):
+    """Fertiges Vorab-Bild bei gleichem Auftrag nach ziel kopieren. None = normaler Bau; False = derselbe Auftrag
+    ist vorab schon gescheitert (nicht doppelt versuchen, gleich der Rettungsweg)."""
+    eintrag = vorab.pop(i, None) if vorab else None
+    if not eintrag or eintrag[0] != szene:
+        if eintrag:
+            eintrag[1].cancel()
+        return None
+    try:
+        pfad = eintrag[1].result()
+    except Exception as e:  # nie den Bau am Vorab-Bild scheitern lassen
+        print(f'Einstellung {i}: Vorab-Bild ausgefallen ({type(e).__name__}) - normaler Bau')
+        return None
+    if not pfad:
+        return False
+    shutil.copy2(pfad, ziel)
+    return Path(ziel)
+
+
+def vorab_beenden(vorab):
+    if vorab:
+        for i in [i for i in vorab if i != '_arbeit']:
+            vorab.pop(i)[1].cancel()  # noch nicht begonnene Auftraege entfallen
+        import queue
+        while True:
+            try:
+                vorab['_arbeit'].get_nowait()
+            except queue.Empty:
+                break
+
+
 def illustration_mit_ausweg(szene, ziel, kanal_slug, mit_figur, rand, videoformat, szene_zuerst=False, satz='',
                             pruef_szene=None):
     """Illustration; scheitert das Einsetzen der Kanalfigur, nicht das ganze Video verlieren.
@@ -1885,6 +2001,9 @@ def main(skript_pfad, aus, vorlage=None):
         import archivclip
         archiv_jahr = archivclip.story_jahr(*(x['teil'].get('text') for x in shots))
         reaktion_bilder = set()  # Hook-Ersatz "Gesicht mit Gefuehl" (bildbezug bewertet das Gefuehl)
+        schon_fertig = {i for i, shot in enumerate(shots) if cache.get('stuecke', {}).get(str(i), {}).get('key')
+                        == rendercache.stueck_key(visuell, i, shot['dauer_s'], code_key)}
+        vorab = vorab_starten(s, shots, archiv_jahr, kanal_slug, aus, schon_fertig)
         for i, shot in enumerate(shots):
             t, dauer, t0 = shot['teil'], shot['dauer_s'], shot['s']
             # 18 Schnitte sind keine 18 Motive: auch nicht benachbarte Wiederholungen zaehlen.
@@ -2178,36 +2297,14 @@ def main(skript_pfad, aus, vorlage=None):
             if os.environ.get('CLOUDFLARE_AI_TOKEN') and modus in ('auto', 'illustration', 'foto') \
                     and not karte and not foto and not ill:
                 import illustration
-                if i == 0 or letzt:
-                    szene = t.get('szene') or ('pointing straight at the viewer with a confident grin, close-up, '
-                                               'city street at sunset' if i == 0 else 'giving a confident nod to '
-                                               'the viewer, half body, rooftop at golden hour')
-                else:  # aeltere Skripte ohne Feld szene: Bildsuche + Satz als Szene
-                    szene = t.get('szene') or f"{t.get('suche', '')}, {t['text'][:120]}"
-                if modus == 'foto':
-                    szene = ('A clearly illustrative reconstruction of a generic period-appropriate '
-                             'setting or object, not an actual archive photograph and not a likeness '
-                             'of a named historical person. ' + szene)
-                if t.get('motiv') and not letzt:
-                    # Nutzerentscheidung 15.10.2026 (wortgenau): Airbnb-Einstellung 0 sollte ein Wohnzimmer
-                    # mit Luftmatratze zeigen; erzeugt wurde ein Mann mit Sofas, die Bildpruefung hielt die
-                    # Matratze fuer ein Nebendetail. Der Kern des Satzes ist Pflicht fuer Bild UND Pruefung.
-                    szene = f"Key visible subject (must be clearly shown): {t['motiv']}. {szene}"
-                # 29.10.2026 (Rolls-Royce 1906): trotz "Edwardian" malte das Bildmodell Roehrenmonitore, moderne
-                # Jacken und ein 1950er-Auto. Feste Jahreszahl der Geschichte, nur positiv beschrieben.
-                zeit = archiv_jahr or archivclip.jahr(szene)
-                if zeit and zeit <= archivclip.JAHR_MAX and not letzt and not archivclip.MODERN.search(szene) \
-                        and not re.search(r'\b(?:1[89]|20)\d\d\b', szene):
-                    szene += f', in the year {zeit}, period-accurate {zeit} clothing, furniture, machines and vehicles'
-                if i == 0 and H > B:
-                    # GEMESSEN 28.10.2026 (TikTok GE Vernova/Claude Code TV OS): Abbruch bei 0:01-0:02; das erste
-                    # Bild war dunkel, unscharf und zeigte niemanden. Ein Gesicht mit Gefuehl haelt den Daumen an.
-                    szene += (', a person in medium close-up showing a strong readable emotion (shock, despair or '
-                              'triumph) at this exact moment, bright high-contrast light, subject fills the frame')
-                ill = illustration_mit_ausweg(szene, aus / f'ill_{i:02d}.jpg', kanal_slug,
-                                              t.get('figur', i == 0 or letzt), i == 0 or letzt,
-                                              dramaturgie.videoformat(s), szene_zuerst=not letzt,
-                                              satz='' if letzt else t['text'])
+                szene = szene_auftrag(t, i, letzt, modus, archiv_jahr)
+                ill = vorab_holen(vorab, i, szene, aus / f'ill_{i:02d}.jpg')
+                if ill is None:
+                    ill = illustration_mit_ausweg(szene, aus / f'ill_{i:02d}.jpg', kanal_slug,
+                                                  t.get('figur', i == 0 or letzt), i == 0 or letzt,
+                                                  dramaturgie.videoformat(s), szene_zuerst=not letzt,
+                                                  satz='' if letzt else t['text'])
+                ill = ill or None  # False: Vorab schon gescheitert -> Rettungsweg unten
                 if i == 0 and ill and H > B:
                     # GEMESSEN 30.10.2026 (Adidas 41048229773): das als Gefuehls-Gesicht bestellte Hookbild fiel in
                     # jeder Runde mit 3-4/10 durch ("zeigt keine Schuhe") - nur der Rettungsweg war als
@@ -2534,6 +2631,7 @@ def main(skript_pfad, aus, vorlage=None):
             if i and (material_art == 'karte' or (modus == 'demo' and material_art == 'foto')) and material_hash != vorher_id_merk:
                 ereignisse.append((t0, 'ausloeser'))  # echter Screenshot/Quellseite erscheint
             merken()
+        vorab_beenden(vorab)
         (aus / 'stuecke.txt').write_text('\n'.join(liste) + '\n', encoding='utf-8')
     bildpruefung = bildplan.pruefen(bildablauf, sum(laengen), dramaturgie.videoformat(s))
     (aus / 'bildablauf.json').write_text(json.dumps(bildablauf, indent=2), encoding='utf-8')

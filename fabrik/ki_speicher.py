@@ -6,6 +6,8 @@ import datetime
 import hashlib
 import json
 import math
+import os
+import threading
 import time
 from pathlib import Path
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
@@ -34,12 +36,18 @@ def lesen_json(pfad):
         return {}
 
 
+# 31.10.2026: Bilder werden parallel erzeugt und geprueft (bauen.VORAB_PARALLEL). Ein fester Temp-Name und
+# Lesen-Aendern-Schreiben ohne Sperre verloren dabei Kontingent-Sperren; RLock, weil sperren() speichern() ruft.
+SPERRE = threading.RLock()
+
+
 def speichern(pfad, daten):
     pfad = Path(pfad)
     pfad.parent.mkdir(parents=True, exist_ok=True)
-    tmp = pfad.with_suffix('.tmp')
-    tmp.write_text(json.dumps(daten, indent=2, ensure_ascii=False, allow_nan=False), encoding='utf-8')
-    tmp.replace(pfad)
+    with SPERRE:
+        tmp = pfad.with_name(f'{pfad.name}.{os.getpid()}.{threading.get_ident()}.tmp')
+        tmp.write_text(json.dumps(daten, indent=2, ensure_ascii=False, allow_nan=False), encoding='utf-8')
+        tmp.replace(pfad)
 
 
 def tagesreset(jetzt=None):
@@ -68,6 +76,11 @@ ZEITLIMIT_FENSTER_S = 2 * 3600
 
 
 def sperren(schluessel, modell, grund, sekunden=None):
+    with SPERRE:
+        _sperren(schluessel, modell, grund, sekunden)
+
+
+def _sperren(schluessel, modell, grund, sekunden=None):
     jetzt = time.time()
     alt = lesen_json(KONTINGENT)
     zeitlimits = alt.get('zeitlimits', {}) if alt.get('version') == VERSION else {}

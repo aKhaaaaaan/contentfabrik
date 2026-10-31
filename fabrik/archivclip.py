@@ -208,6 +208,9 @@ STARS = re.compile(r'chaplin|keaton|laurel|hardy|harold lloyd|arbuckle|disney|al
                    r'merrie melodies|woody woodpecker|mighty mouse|casper|tom and jerry|coca-cola|lucky strike|'
                    r'cigarette|virgin|hot pants|puberty|venereal|atom|duck and cover|war\b|nazi|hitler', re.I)
 WITZ_JAHR_MAX = 1975
+# Nutzer 31.10.2026 nach der Witz-Probe (41212623109): "Die 9/10 sind schon besser als die 8/10" - lieber ein
+# gemaltes Bild als ein mittelmaessiger Gag.
+WITZ_MIN_NOTE = 9
 
 
 def witz_kandidaten(begriff, art='zeichentrick'):
@@ -307,7 +310,7 @@ def finden(satz, szene, epoche, benutzt=(), suche='', witz=False):
             print(f"{f'Witz-Clip ({witz})' if witz else 'Archivclip'} {film['kennung'][:40]} ({begriff}, ~{j}): "
                   f"Note {note}")
             noten.append(note or 0)
-            if index is not None and note >= MIN_NOTE:
+            if index is not None and note >= (WITZ_MIN_NOTE if witz else MIN_NOTE):
                 return dict(film, sekunde=gueltig[index], note=note)
     return None
 

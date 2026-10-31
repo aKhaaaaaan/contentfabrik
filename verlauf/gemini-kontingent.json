@@ -30,13 +30,18 @@
       "bis": 1793430000.0
     },
     "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": {
-      "grund": "voruebergehend ueberlastet",
-      "bis": 1793409642.1180432
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1793423996.8654785
     },
     "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
-      "grund": "HTTP429; Serverfrist 361s",
-      "bis": 1793409707.9076142
+      "grund": "HTTP429; Serverfrist 297s",
+      "bis": 1793424161.65922
     }
   },
-  "zeitlimits": {}
+  "zeitlimits": {
+    "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": [
+      1793423658.1089852,
+      1793423816.8654785
+    ]
+  }
 }

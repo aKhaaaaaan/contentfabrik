@@ -198,15 +198,13 @@ jobs:
           mkdir -p modelle
           [ -f modelle/kokoro-v1.0.onnx ] || curl -sL -o modelle/kokoro-v1.0.onnx https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx
           [ -f modelle/voices-v1.0.bin ] || curl -sL -o modelle/voices-v1.0.bin https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin
-      # Nutzerentscheidung 29.10.2026: Archivclips (Business) werden mit DDColor eingefaerbt - nur dort installieren.
-      # Scheitert die Einrichtung, fehlt CF_DDCOLOR und der Lauf nimmt wie bisher gemalte Bilder.
+      # Nutzerentscheidung 29.10.2026: Archivclips werden mit DDColor eingefaerbt. Seit 31.10. fuer alle Kanaele
+      # (Zeichentrick-/Comedy-Clips auch im KI-Kanal). Scheitert die Einrichtung, fehlt CF_DDCOLOR: gemalte Bilder.
       - uses: actions/cache@v4
-        if: matrix.kanal == 'business-origin-stories'
         with:
           path: ~/.cache/huggingface
           key: ddcolor-modelscope-v1
       - name: Archivclips (DDColor)
-        if: matrix.kanal == 'business-origin-stories'
         continue-on-error: true
         run: |
           pip install -q torch torchvision --index-url https://download.pytorch.org/whl/cpu

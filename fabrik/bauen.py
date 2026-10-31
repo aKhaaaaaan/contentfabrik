@@ -42,6 +42,19 @@ ZOOM = '1+0.035*min(on/{n},1)'
 HOOK_ZOOM = '1+0.10*min(on/{n},1)'  # Hook-Bild 28.10.2026: deutlich sichtbare Fahrt
 HOOK_TEXT_S = 2.0  # so lange steht der gesprochene Hook gross in der Bildmitte
 ARCHIV_MAX = 4  # Archivclips je Short (29.10.2026: Mischung, Motivzahl bleibt)
+# Nutzer 31.10.2026: Zeichentrick-/Comedy-Clips, "2-4 je Short" - Gags dosiert, sonst wirkt es albern. Jeder Versuch
+# kostet bis zu 4 Filme x (6 Standbilder + 1 KI-Anfrage); WITZ_VERSUCHE begrenzt die Bauzeit.
+WITZ_MAX = 2
+WITZ_VERSUCHE = 4
+
+
+def clip_max(shots, hochformat):
+    """Clips je Video: Short ARCHIV_MAX, Langvideo etwa jede 8. Einstellung (Netflix-Langvideo: 94 Einstellungen)."""
+    return ARCHIV_MAX if hochformat else max(ARCHIV_MAX, shots // 8)
+
+
+def witz_max(shots, hochformat):
+    return WITZ_MAX if hochformat else max(WITZ_MAX, shots // 20)
 CLIP_NOTE_MIN = 7  # Stockclip-Auswahl wie archivclip.MIN_NOTE (30.10.2026)
 ZOOM_KARTE_MAX = 1.10  # 28.10.2026 Nutzer: "kein Motion" - vorher 1.06 bei +1,2 %/s kaum sichtbar
 ZOOM_KARTE = f'min(1+0.001*on,{ZOOM_KARTE_MAX})'  # je Bild bei 30 fps: +3 %/s, nach gut 3 s am Ende
@@ -1998,6 +2011,7 @@ def main(skript_pfad, aus, vorlage=None):
         FORTSCHRITT['aktuell'] = None
         # Nutzerentscheidung 29.10.2026: allgemeine Szenen als gemeinfreie Archivclips (eingefaerbt + gemalt).
         archiv_zahl, archiv_letzt, archiv_benutzt = 0, -9, set()
+        witz_zahl = witz_versuche = 0
         import archivclip
         archiv_jahr = archivclip.story_jahr(*(x['teil'].get('text') for x in shots))
         reaktion_bilder = set()  # Hook-Ersatz "Gesicht mit Gefuehl" (bildbezug bewertet das Gefuehl)
@@ -2269,11 +2283,17 @@ def main(skript_pfad, aus, vorlage=None):
                         print(f'Einstellung {i}: Aufruf mit Kanalfigur und Sprechblase (ohne Bildmodell)')
             archiv_video = clip_note = None
             # Nutzerentscheidung 29.10.2026: allgemeine Szenen als Clip (Archiv bis 1975, Pixabay ab 1995), gemalt
-            clips_an = kanalprofil(s).get('archivclips') or kanalprofil(s).get('stockclips')
-            if clips_an and H > B and modus in ('auto', 'illustration', 'foto') and not karte and not foto \
+            # Nutzer 31.10.2026: Zeichentrick-/Comedy-Clips in Shorts UND Langvideos beider Kanaele (witzclips, an
+            # ausser ausdruecklich false). Vorher nur Hochformat (H > B) - Langvideos hatten nie einen Clip.
+            witz_an = kanalprofil(s).get('witzclips', True) is not False
+            clips_an = kanalprofil(s).get('archivclips') or kanalprofil(s).get('stockclips') or witz_an
+            if clips_an and modus in ('auto', 'illustration', 'foto') and not karte and not foto \
                     and not ill and 0 < i < len(shots) - 1 and i not in zahl_slots \
-                    and archiv_zahl < ARCHIV_MAX and i - archiv_letzt >= 2 and dauer >= 2.0 \
+                    and archiv_zahl < clip_max(len(shots), H > B) and i - archiv_letzt >= 2 and dauer >= 2.0 \
                     and not texte.AUFRUF.search(t['text']):  # 29.10.: Pixabay-Clip lag auf dem Like-Aufruf
+                w_max = witz_max(len(shots), H > B)
+                witz = witz_an and witz_zahl < w_max and witz_versuche < WITZ_VERSUCHE * w_max // WITZ_MAX
+                witz_versuche += witz
                 try:
                     archiv_video, ill, q_clip = archivclip.fuer_einstellung(
                         t['text'], t.get('szene', ''), t.get('suche', ''), dauer, aus / f'clip_{i:02d}',
@@ -2283,9 +2303,10 @@ def main(skript_pfad, aus, vorlage=None):
                         # durch (Kongo Gumi, ServiceNow) - Nutzer: Business ohne Pixabay, Archivclips bleiben.
                         pixabay=(lambda suche, zusatz='': clip_fuer(suche, schon, dauer, t['text'] + zusatz))
                         if stock_erlaubt else None, benutzt=archiv_benutzt,
-                        geschichte=archiv_jahr)
+                        geschichte=archiv_jahr, witz=witz)
                     if archiv_video:
                         archiv_zahl, archiv_letzt = archiv_zahl + 1, i
+                        witz_zahl += q_clip.get('art') == 'witz'
                         quellen.append(q_clip)
                         # Nutzer 30.10.2026 (Mittelweg): die Archivauswahl hat dieses Standbild schon mit dem Satz
                         # verglichen (>= 7/10) - der Schlusspruefer urteilt darueber nicht ein zweites Mal.
@@ -2697,6 +2718,9 @@ def main(skript_pfad, aus, vorlage=None):
     zeiten['videolaenge_s'] = round(sum(laengen), 1)
     zeiten['abschnitte_s'] = [round(x, 2) for x in laengen]  # Absprung je Abschnitt (erfolg.py)
     zeiten['woerter'] = len(woerter)
+    # Nutzer 31.10.2026: Videos mit und ohne Witz-Clips nach 1-2 Wochen vergleichen (lauf.verlauf_eintragen)
+    arten = [q.get('art') for q in quellen if isinstance(q, dict)]
+    zeiten['clips'] = {'witz': arten.count('witz'), 'archiv': arten.count('archiv')}
     rendercache.speichern(aus, zustand)
     (aus / 'messung.json').write_text(json.dumps(zeiten, indent=2), encoding='utf-8')
     print(json.dumps(zeiten, indent=2))

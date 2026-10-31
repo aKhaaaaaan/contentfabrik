@@ -95,6 +95,20 @@ jobs:
           pip install -q --no-deps rapidocr_onnxruntime==1.2.3 && pip install -q opencv-python-headless==5.0.0.93 pyclipper==1.4.0 shapely==2.2.0 PyYAML==6.0.3 six==1.17.0 || echo "Schrifterkennung fehlt - nur Gemini-Pruefung"
           npm install -g -s @anthropic-ai/claude-code || echo "Claude-CLI fehlt - Autor Gemini/Groq"
           python -m playwright install chromium --only-shell || echo "Playwright fehlt - ohne Aufnahmen"
+      # Nutzer 31.10.2026: Archiv-, Zeichentrick- und Comedy-Clips auch im Langvideo (beide Kanaele), DDColor wie in
+      # video.yml. Scheitert die Einrichtung, fehlt CF_DDCOLOR: Witz-Clips bleiben schwarz-weiss, sonst gemalt.
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: ddcolor-modelscope-v1
+      - name: Archivclips (DDColor)
+        continue-on-error: true
+        run: |
+          pip install -q torch torchvision --index-url https://download.pytorch.org/whl/cpu
+          pip install -q huggingface-hub scikit-image pyyaml scipy tqdm
+          git clone -q https://github.com/piddnad/DDColor ddcolor-code
+          git -C ddcolor-code checkout -q 2adb63f2656ac41cbdf7b894cddd94121a3faf13
+          echo "CF_DDCOLOR=$PWD/ddcolor-code" >> "$GITHUB_ENV"
       - uses: actions/cache@v4
         with:
           path: modelle

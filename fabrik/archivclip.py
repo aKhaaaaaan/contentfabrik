@@ -203,7 +203,8 @@ WITZ_FAECHER = {'zeichentrick': 'subject:(animation OR animated OR cartoon OR ca
                 'comedy': 'subject:(comedy OR humor OR humour OR slapstick)'}
 WITZ_COMMONS = {'zeichentrick': 'cartoon', 'comedy': 'comedy'}
 STARS = re.compile(r'chaplin|keaton|laurel|hardy|harold lloyd|arbuckle|disney|alice(?:\'s)? |oswald|mickey|minnie|'
-                   r'betty boop|popeye|felix|kermit|henson|koko|bimbo|superman|bugs bunny|porky|daffy|looney|'
+                   r'betty boop|popeye|felix|kermit|henson|koko|bimbo|superman|bugs bunny|porky|daffy|looney|bosko|'
+                   r'noveltoons|harvey|baby huey|little audrey|katnip|'
                    r'merrie melodies|woody woodpecker|mighty mouse|casper|tom and jerry|coca-cola|lucky strike|'
                    r'cigarette|virgin|hot pants|puberty|venereal|atom|duck and cover|war\b|nazi|hitler', re.I)
 WITZ_JAHR_MAX = 1975

@@ -333,6 +333,17 @@ async function videobotEingang(request, env) {
   if (env.TG_VIDEO_CHAT_ID && chat !== String(env.TG_VIDEO_CHAT_ID).trim()) return new Response('ok');
   await env.ZUSTAND.put('vb:' + String(update.update_id).padStart(12, '0'), JSON.stringify(update),
     { expirationTtl: VB_TTL_S });
+  // GEMESSEN 31.10.2026: ein TikTok-Knopf kam fuenfmal an (18:04-18:08 UTC) - die Ladeanzeige beendete erst
+  // themen.py Minuten spaeter, der Knopf wirkte tot. Jetzt sofort quittieren (themen.py' Antwort laeuft dann ins Leere).
+  if (update.callback_query && update.callback_query.id) {
+    try {
+      await fetch(`https://api.telegram.org/bot${vbToken(env)}/answerCallbackQuery`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ callback_query_id: update.callback_query.id, show_alert: false,
+          text: 'Angekommen. Wird in 1-5 Min. verarbeitet, die Antwort kommt hier im Chat. Nicht nochmal tippen.' }),
+      });
+    } catch (e) { console.log('Knopf-Quittung:', e.message); }
+  }
   // Knopf oder Nachricht: Abholer gleich starten (laeuft er schon, holt er es beim naechsten Takt).
   if (env.GH_TOKEN) {
     try { await starte(env, 'themen.yml', { automatisch: 'true' }); } catch (e) { console.log('Abholer-Start:', e.message); }

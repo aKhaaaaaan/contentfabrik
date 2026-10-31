@@ -123,6 +123,17 @@ def skript(kanal, thema, frueher, blick, woerter):
                     'check date once, and do not claim we tested the tools. Fair tone: name what is '
                     'genuinely free too; no mocking other creators. End with one practical rule the '
                     'viewer can apply. Omit platz; no countdown.')
+    elif kanal.get('format') == 'erklaerung' and not lang and re.search(
+            r'\btier ?list\b|\branked (?:from )?F to S\b', thema or '', re.I):
+        # Nutzer 31.10.2026: Tierlist-Format (Pilot 1x/Woche, Vorbild TikTok @howto.print). fabrik/tierlist.py
+        # liest "<Stufe> tier: <Name>." am Abschnittsanfang und zeigt die Tafel, die sich Stufe fuer Stufe fuellt.
+        aufbau = ('6-7 short parts: an unranked hook that asks which one earns S tier, then 4-5 ranked parts from '
+                  'the lowest tier up to S, then the engagement part. Each ranked part MUST start exactly with '
+                  '"<Tier> tier: <Name>." (Tier is one of F, C, B, A, S; Name at most 3 words), then ONE reason '
+                  'that is visible on that product\'s official source page, in the page\'s own words. Use each '
+                  'tier at most once; S comes last. State the ranking basis once in the hook (what the official '
+                  'pages say, checked today), never personal tests. Only prices or limits exactly as sourced. '
+                  'Before the engagement request ask "Which one would you put in S tier?". Omit platz.')
     elif kanal.get('format') == 'erklaerung':
         aufbau = (('24-50 unranked visual beats' if lang else '6-8 short unranked visual beats')
                   + ': one concrete everyday problem, one documented tool, clear steps, supported '

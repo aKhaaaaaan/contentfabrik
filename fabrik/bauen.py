@@ -20,6 +20,7 @@ import dramaturgie
 import bildplan
 import motivbudget
 import parallax
+import tierlist
 import ton as audioqualitaet
 from PIL import Image, ImageDraw, ImageFont
 
@@ -2099,6 +2100,16 @@ def main(skript_pfad, aus, vorlage=None):
                 if not ill.is_file():
                     raise ValueError('Keine vorhandene originale Kanalfigur')
                 quellen.append({'quelle': 'Illustration', 'seite': 'Originale Kanalfigur: vorhandenes Referenzbild'})
+            # Nutzer 31.10.2026: Tierlist-Format (Pilot KI, 1x/Woche). Erste Einstellung eines Rangabschnitts
+            # ("C tier: ...") zeigt die Tafel; weitere Einstellungen der Phase behalten ihren Beleg (Quellseite).
+            if phasenstart and H > B and not ill and tierlist.stufe(t['text']) and tierlist.THEMA.search(
+                    str(s.get('thema') or '')):
+                ill = tierlist.bild(aus / f'ill_{i:02d}.jpg', tierlist.stand(s['teile'], shot['phase']),
+                                    tierlist.stufe(t['text']), str(s.get('thema') or '').split(':')[-1].strip())
+                karte = foto = None
+                quellen.append({'quelle': 'Erklaergrafik', 'seite': t.get('quelle_url', ''),
+                                'nennung': 'Tier list of the narrated ranking, not a measurement'})
+                print(f"Einstellung {i}: Tierlist-Tafel ({tierlist.stufe(t['text'])})")
             if ill and not motiv_ok(ill):
                 print(f'Einstellung {i}: Motiv schon verwendet - neue Illustration erforderlich')
                 ill, modus = None, 'illustration'

@@ -366,7 +366,16 @@ def zuschauer_themen(einstellung, gezeigt=(), google_liste=(), heute=None):
         ersatz = format_vorlage(e, tag, gezeigt)
         if ersatz:
             roh.append(dict(ersatz, vorrang=True))
-    roh.sort(key=lambda k: (not k['vorrang'], -punkte(k['youtube'], google=bool(k['google']))
+    # Nutzer 31.10.2026: Tierlist als Pilot einmal pro Woche (tierlist_tag); Vorlagen reihum je Woche
+    vorlagen = e.get('tierlist_vorlagen') or []
+    if vorlagen and tag.weekday() == e.get('tierlist_tag'):
+        for n in range(len(vorlagen)):
+            thema = vorlagen[(tag.toordinal() // 7 + n) % len(vorlagen)]
+            if thema.lower() not in gezeigt:
+                roh.append({'thema': thema, 'produkt': thema.split(':')[0].strip(), 'google': None, 'youtube': None,
+                            'beispiele': [], 'format': 'tierlist', 'vorlage': True, 'vorrang': True})
+                break
+    roh.sort(key=lambda k: (not k['vorrang'], k.get('format') != 'tierlist', -punkte(k['youtube'], google=bool(k['google']))
                             - (BONUS_SHORTS if k.get('shorts') else 0)))
     aus, produkte, geprueft = [], set(), 0
     for k in roh:
@@ -407,7 +416,9 @@ def bewerten(liste, google_liste, heute=None, kanal='', hn_liste=()):
         if k.get('zuschauer'):  # Signale stammen schon aus der Suche - kein zweiter YouTube-Abruf
             k['punkte'] = round(punkte(k['youtube'], google=bool(k['google']))
                                 + (BONUS_FORMAT if k.get('vorrang') and not eigene else 0)
-                                + (BONUS_SHORTS if k.get('shorts') else 0), 2)
+                                + (BONUS_SHORTS if k.get('shorts') else 0)
+                                + (BONUS_FORMAT if k.get('format') == 'tierlist' and k.get('vorrang')
+                                   and not eigene else 0), 2)
             continue
         k['youtube'], k['beispiele'] = yt_faktor(k['begriff'], ZUSATZ.get(kanal, ''))
         k['wiki'] = wiki_aufwind(k['wikipedia'], heute) if k.get('wikipedia') else None
@@ -426,8 +437,8 @@ def bewerten(liste, google_liste, heute=None, kanal='', hn_liste=()):
 
 def stufe(k):
     """0 = echter YouTube-Trend, 1 = nur Google (Tagestrends, bei Firmenkanaelen auch Google News), 2 = Rest (Wikipedia, Hacker News, Titelvorlage)."""
-    if punkte(k.get('youtube')) >= SCHWELLE:
-        return 0
+    if punkte(k.get('youtube')) >= SCHWELLE or (k.get('format') == 'tierlist' and k.get('vorrang')):
+        return 0  # Tierlist-Tag (Nutzer 31.10.2026): der woechentliche Pilot geht vor
     return 1 if k.get('google') else 2
 
 
@@ -610,7 +621,8 @@ def beschreibung(k):
         teile.append(f"Hacker News {k['hn']} Punkte")
     if k.get('format'):  # Telegram zeigt, warum heute ein Anleitungs-/Geld-Thema statt einer Neuheit
         teile.append({'geld': 'Format Geld verdienen', 'sparen': 'Format Geld sparen',
-                      'anleitung': 'Format richtig nutzen'}[k['format']]
+                      'anleitung': 'Format richtig nutzen', 'tierlist': 'Format Tierlist (Wochenpilot)'
+                      }.get(k['format'], 'Format ' + str(k['format']))
                      + (' (Formattag)' if k.get('vorrang') else '')
                      + (', bewaehrte Titelvorlage + offizielle Anleitung' if k.get('vorlage') else ''))
     return f"{k['thema'] or k['begriff']}: {k['punkte']} Punkte - " + ', '.join(teile or ['ohne Signal'])
@@ -686,7 +698,8 @@ def waehlen(kanal, heute=None, themen=None, neu=False):
         for x in bewertet:
             x['_kanal'] = kanal
         thema, grund = entscheiden(bewertet)
-        if thema:
+        tierlist_tag = any(x['thema'] == thema and x.get('format') == 'tierlist' for x in bewertet)
+        if thema and not tierlist_tag:  # der Claude-Plan ersetzt den woechentlichen Tierlist-Piloten nicht
             thema, grund = redaktion(kanal, bewertet, heute) or (thema, grund)
     except Exception as e:  # nie den Tageslauf am Trend-Check scheitern lassen
         print('Trend-Check fehlgeschlagen:', type(e).__name__, str(e)[:120])

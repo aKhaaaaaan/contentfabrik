@@ -352,6 +352,10 @@ def format_art(titel):
     """'geld', 'sparen', 'anleitung' oder '' - welches bewaehrte Titelmuster ein Zuschauerthema hat."""
     if SPAM_VIDEO.search(titel or ''):
         return ''
+    # Nutzer 31.10.2026: Tierlist-Format (fabrik/tierlist.py) - Belege wie bei Anleitungen aus trendquellen
+    import tierlist
+    if tierlist.THEMA.search(titel or ''):
+        return 'tierlist'
     # Ein Betrag allein ist kein Verdienst-Thema: „ChatGPT Plus price rises to $25 a month" ist Sparen (Test 23.10.)
     if GELD.search(GELDBETRAG.sub('', titel or '')):
         return 'geld'

@@ -538,6 +538,12 @@ ANFASSBAR = (
     'banking, insurance, consulting, oil trading or holding companies: their stories are funding rounds, mergers '
     'and IPOs that cannot be shown in a picture. ')
 
+# GEMESSEN 31.10.2026 (KI 41184427322): Hype-Titel "Claude 2.0" -> Skript ueber ein geplantes Wasserzeichen, 12 Bilder
+# 2-4/10. Werkzeugvideos brauchen eine Funktion, die man auf der Seite des Werkzeugs zeigen kann.
+ZEIGBAR = (
+    'Pick a concrete tool feature a viewer can see on the tool\'s own page, docs or GitHub (a button, a setting, '
+    'an example output). NOT news, rumors, planned features, version hype or company announcements. ')
+
 ABSTRAKTE_EREIGNISSE = (
     'Abstract events (joining, deciding, apologizing, regretting, selling shares, winning a seat, sales rising, '
     'a ban, a law, debts piling up, selling or taking over a company, handing a business to heirs) cannot be '

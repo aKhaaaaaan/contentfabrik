@@ -234,6 +234,17 @@ FORMAT_FAKTOR = 2.0
 BONUS_FORMAT = 10.0  # Formattag: Vorrang sicher, auch vor einer 60x-Neuheit
 # GEMESSEN 21.10.2026: „ChatGPT | The Notice : A short film by Reema Kagti" (248x) wurde Thema "ChatGPT: ChatGPT".
 KEIN_WERKZEUG = re.compile(r'\b(?:short film|trailer|music video|official video|lyrics|full movie)\b', re.I)
+# GEMESSEN 31.10.2026 (KI 41184427322): „Anthropic Just Shipped Claude 2.0 (Master it in 17 minutes)" wurde Thema
+# "Anthropic: ..."; Claude schrieb ueber ein geplantes Text-Wasserzeichen - nichts Zeigbares, 12 Bilder 2-4/10.
+# Hype-/Neuigkeitstitel sind kein Werkzeug zum Erklaeren; Firmennamen allein auch nicht.
+NEUIGKEIT = re.compile(r'\b(?:just (?:shipped|released|launched|dropped|announced)|leak(?:ed|s)?|rumou?rs?|'
+                       r'is (?:here|coming)|coming soon|announce[sd]?)\b', re.I)
+FIRMEN = frozenset({'anthropic', 'openai'})
+
+
+def werkzeug_im_text(text, namen):
+    """Wie name_im_text, aber ein Werkzeug statt eines Firmennamens; nur Firmenname -> None."""
+    return name_im_text(text, [n for n in namen if n.lower() not in FIRMEN])
 # GEMESSEN 27.10.2026 (Lauf 40490036813): „I Built My Own TV Operating System With Claude Code" - ein fremdes
 # Bastelprojekt. Keine Quelle traegt es (Recherche fand Fuchsia/Android TV), eigene Erfahrung duerfen wir nicht
 # erfinden: Story 4/10, der KI-Tag verging. Wie schon „I Made My Own VST Plugins" (19.10.).
@@ -315,17 +326,18 @@ def zuschauer_themen(einstellung, gezeigt=(), google_liste=(), heute=None):
                                              if z]
     for titel, news in google_liste:
         kopf = news[0] if news else titel.removeprefix(GOOGLE_NEWS)
-        p = name_im_text(' '.join([titel.removeprefix(GOOGLE_NEWS)] + news[:1]), namen)
-        if p:
+        p = werkzeug_im_text(' '.join([titel.removeprefix(GOOGLE_NEWS)] + news[:1]), namen)
+        if p and not NEUIGKEIT.search(kopf):
             art = trends.format_art(kopf)
             roh.append({'thema': _zuschauer_thema(p, trends.ohne_betraege(kopf) if art in ('geld', 'sparen') else kopf),
                         'produkt': p, 'google': titel, 'youtube': None, 'beispiele': [], 'format': art})
     for v in trends.youtube_ausreisser(e.get('suche') or [], tage=e['tage'], je_begriff=15, top=40,
                                        dauer=e['dauer']):
-        p = name_im_text(v['titel'], namen)
+        p = werkzeug_im_text(v['titel'], namen)
         # GEMESSEN 19.10.: Spam („ChatGPT Premium gratis freischalten", 1.794 Aufrufe = 15.6x) lag vorn
         if p and englisch(v['titel']) and not trends.SPAM_VIDEO.search(v['titel']) \
                 and not KEIN_WERKZEUG.search(v['titel']) and not ERLEBNIS.search(v['titel']) \
+                and not NEUIGKEIT.search(v['titel']) \
                 and (v.get('aufrufe') or 0) >= e['min_aufrufe']:
             art = trends.format_art(v['titel'])
             # Betraege im Titel sind fremde Behauptungen (Einkommen, Preise) - der Beleg kommt aus der Quelle
@@ -462,7 +474,8 @@ def plan_auftrag(kanal, kurz):
             f'Order up to {PLAN_TAGE} topics from this checked list for the next {PLAN_TAGE} days, best first. Pick '
             'topics that make viewers stop scrolling: a world-famous name with a surprising, little-known story people '
             'repeat to friends. Avoid topics whose only story is current corporate news. Use ONLY exact topic names '
-            'from the list.\n' + (prompts.ANFASSBAR if _profil(kanal).get('quelle') == 'wikipedia' else '')
+            'from the list.\n' + (prompts.ANFASSBAR if _profil(kanal).get('quelle') == 'wikipedia' else
+                                  prompts.ZEIGBAR if _profil(kanal).get('format') == 'erklaerung' else '')
             + _publikum(kanal) + 'CANDIDATES:\n' + liste)
 
 

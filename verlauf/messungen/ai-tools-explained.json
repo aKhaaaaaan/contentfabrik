@@ -1,370 +1,5 @@
 [
   {
-    "id": "38589156299",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-14",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 39.2,
-        "pruefung_s": 65.2,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Bewertung hook fehlt oder ist ungueltig",
-          "Video-bild_passt 2/10 unter 7/10",
-          "Video-Bewertung dynamik fehlt oder ist ungueltig",
-          "Video-Bewertung text fehlt oder ist ungueltig",
-          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
-          "Video-Bewertung tempo fehlt oder ist ungueltig",
-          "Video-Bewertung inhalt fehlt oder ist ungueltig",
-          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
-          "Video-Bewertung regeln fehlt oder ist ungueltig",
-          "Video-Bewertung story fehlt oder ist ungueltig",
-          "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht.",
-          "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Anleitung für Keynote mit nummerierten Schritten, aber keine Pfeile, Boxen und Beschriftungen über Fenstern.",
-          "Offenes Problem (schwer): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet.",
-          "Offenes Problem (schwer): Das Bild zeigt eine Software-Anleitung für Keynote mit nummerierten Schritten, aber keine Pfeile, Boxen und Beschriftungen über Fenstern. Korrektur: Ein Screenshot oder eine Grafik, die spezifisch Fenster mit darüber gezeichneten Pfeilen, Boxen und Beschriftungen zeigt."
-        ],
-        "messung": {
-          "stimme_wiederverwendet": true,
-          "erzaehlstimme": "gemini:Orus",
-          "tempo": 1.08,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 18,
-          "stuecke_neu": 0,
-          "clips_und_stuecke": 2.1,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 18,
-            "motive": 18,
-            "motive_min": 18
-          },
-          "effekte": 8,
-          "rendern": 36.2,
-          "gesamt": 38.9,
-          "videolaenge_s": 44.4,
-          "abschnitte_s": [
-            8.34,
-            4.0,
-            6.8,
-            6.94,
-            6.86,
-            8.34,
-            3.11
-          ],
-          "woerter": 98
-        },
-        "kategorien": {
-          "bild_passt": 2
-        },
-        "probleme": [
-          {
-            "zeit": "00:08",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "text": "Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet."
-          },
-          {
-            "zeit": "00:09",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "text": "Das Bild zeigt eine Software-Anleitung für Keynote mit nummerierten Schritten, aber keine Pfeile, Boxen und Beschriftungen über Fenstern. Korrektur: Ein Screenshot oder eine Grafik, die spezifisch Fenster mit darüber gezeichneten Pfeilen, Boxen und Beschriftungen zeigt."
-          }
-        ],
-        "sekunden": 104.4,
-        "status": "geprueft"
-      },
-      {
-        "runde": 2,
-        "art": "korrektur",
-        "plan": {
-          "aktionen": [
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 0
-            },
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 1
-            }
-          ],
-          "einstellungen": {
-            "stimme": "am_michael",
-            "tempo": 1.05,
-            "untertitel_profil": "ruhig",
-            "musik_pegel": null,
-            "effekt_pegel": null
-          },
-          "offen": [],
-          "teile": [
-            0,
-            1
-          ],
-          "schwerpunkt": "bild",
-          "prompt_version": "2026-10-13.2"
-        },
-        "skript_s": 5.8,
-        "bau_s": 37.0,
-        "pruefung_s": 7.0,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Bewertung hook fehlt oder ist ungueltig",
-          "Video-bild_passt 2/10 unter 7/10",
-          "Video-Bewertung dynamik fehlt oder ist ungueltig",
-          "Video-Bewertung text fehlt oder ist ungueltig",
-          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
-          "Video-Bewertung tempo fehlt oder ist ungueltig",
-          "Video-Bewertung inhalt fehlt oder ist ungueltig",
-          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
-          "Video-Bewertung regeln fehlt oder ist ungueltig",
-          "Video-Bewertung story fehlt oder ist ungueltig",
-          "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht.",
-          "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Anleitung für Keynote mit nummerierten Schritten, aber keine Pfeile, Boxen und Beschriftungen über Fenstern.",
-          "Offenes Problem (schwer): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet.",
-          "Offenes Problem (schwer): Das Bild zeigt eine Software-Anleitung für Keynote mit nummerierten Schritten, aber keine Pfeile, Boxen und Beschriftungen über Fenstern. Korrektur: Ein Screenshot oder eine Grafik, die spezifisch Fenster mit darüber gezeichneten Pfeilen, Boxen und Beschriftungen zeigt."
-        ],
-        "messung": {
-          "stimme_wiederverwendet": true,
-          "erzaehlstimme": "gemini:Orus",
-          "tempo": 1.08,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 18,
-          "stuecke_neu": 0,
-          "clips_und_stuecke": 0.2,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 18,
-            "motive": 18,
-            "motive_min": 18
-          },
-          "effekte": 8,
-          "rendern": 36.1,
-          "gesamt": 36.8,
-          "videolaenge_s": 44.4,
-          "abschnitte_s": [
-            8.34,
-            4.0,
-            6.8,
-            6.94,
-            6.86,
-            8.34,
-            3.11
-          ],
-          "woerter": 98
-        },
-        "kategorien": {
-          "bild_passt": 2
-        },
-        "probleme": [
-          {
-            "zeit": "00:08",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "text": "Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet."
-          },
-          {
-            "zeit": "00:09",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "text": "Das Bild zeigt eine Software-Anleitung für Keynote mit nummerierten Schritten, aber keine Pfeile, Boxen und Beschriftungen über Fenstern. Korrektur: Ein Screenshot oder eine Grafik, die spezifisch Fenster mit darüber gezeichneten Pfeilen, Boxen und Beschriftungen zeigt."
-          }
-        ],
-        "sekunden": 49.7,
-        "status": "geprueft",
-        "lernergebnis": {
-          "id": "38589156299-2",
-          "datum": "2026-10-14",
-          "vorher": null,
-          "nachher": null,
-          "vorher_gesperrt": true,
-          "nachher_gesperrt": true,
-          "sekunden": 49.7,
-          "aktionen": [
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 0
-            },
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 1
-            }
-          ],
-          "einstellungen": {
-            "stimme": "am_michael",
-            "tempo": 1.05,
-            "untertitel_profil": "ruhig",
-            "musik_pegel": null,
-            "effekt_pegel": null
-          },
-          "schwerpunkt": "bild",
-          "kategorien_vorher": {
-            "bild_passt": 2
-          },
-          "kategorien_nachher": {
-            "bild_passt": 2
-          },
-          "auswertbar": false,
-          "prompt_version": "2026-10-13.2",
-          "verbessert": false
-        }
-      },
-      {
-        "runde": 3,
-        "art": "korrektur",
-        "plan": {
-          "aktionen": [
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 0
-            },
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 1
-            }
-          ],
-          "einstellungen": {
-            "stimme": "am_michael",
-            "tempo": 1.05,
-            "untertitel_profil": "ruhig",
-            "musik_pegel": null,
-            "effekt_pegel": null
-          },
-          "offen": [],
-          "teile": [],
-          "schwerpunkt": "bild",
-          "prompt_version": "2026-10-13.2"
-        },
-        "skript_s": 1.4,
-        "bau_s": 37.4,
-        "pruefung_s": 7.0,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Bewertung hook fehlt oder ist ungueltig",
-          "Video-bild_passt 2/10 unter 7/10",
-          "Video-Bewertung dynamik fehlt oder ist ungueltig",
-          "Video-Bewertung text fehlt oder ist ungueltig",
-          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
-          "Video-Bewertung tempo fehlt oder ist ungueltig",
-          "Video-Bewertung inhalt fehlt oder ist ungueltig",
-          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
-          "Video-Bewertung regeln fehlt oder ist ungueltig",
-          "Video-Bewertung story fehlt oder ist ungueltig",
-          "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht.",
-          "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Anleitung für Keynote mit nummerierten Schritten, aber keine Pfeile, Boxen und Beschriftungen über Fenstern.",
-          "Offenes Problem (schwer): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet.",
-          "Offenes Problem (schwer): Das Bild zeigt eine Software-Anleitung für Keynote mit nummerierten Schritten, aber keine Pfeile, Boxen und Beschriftungen über Fenstern. Korrektur: Ein Screenshot oder eine Grafik, die spezifisch Fenster mit darüber gezeichneten Pfeilen, Boxen und Beschriftungen zeigt."
-        ],
-        "messung": {
-          "stimme_wiederverwendet": true,
-          "erzaehlstimme": "gemini:Orus",
-          "tempo": 1.08,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 18,
-          "stuecke_neu": 0,
-          "clips_und_stuecke": 0.3,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 18,
-            "motive": 18,
-            "motive_min": 18
-          },
-          "effekte": 8,
-          "rendern": 36.4,
-          "gesamt": 37.2,
-          "videolaenge_s": 44.4,
-          "abschnitte_s": [
-            8.34,
-            4.0,
-            6.8,
-            6.94,
-            6.86,
-            8.34,
-            3.11
-          ],
-          "woerter": 98
-        },
-        "kategorien": {
-          "bild_passt": 2
-        },
-        "probleme": [
-          {
-            "zeit": "00:08",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "text": "Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet."
-          },
-          {
-            "zeit": "00:09",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "text": "Das Bild zeigt eine Software-Anleitung für Keynote mit nummerierten Schritten, aber keine Pfeile, Boxen und Beschriftungen über Fenstern. Korrektur: Ein Screenshot oder eine Grafik, die spezifisch Fenster mit darüber gezeichneten Pfeilen, Boxen und Beschriftungen zeigt."
-          }
-        ],
-        "sekunden": 45.7,
-        "status": "geprueft",
-        "lernergebnis": {
-          "id": "38589156299-3",
-          "datum": "2026-10-14",
-          "vorher": null,
-          "nachher": null,
-          "vorher_gesperrt": true,
-          "nachher_gesperrt": true,
-          "sekunden": 45.7,
-          "aktionen": [
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 0
-            },
-            {
-              "art": "bild",
-              "variante": "foto",
-              "index": 1
-            }
-          ],
-          "einstellungen": {
-            "stimme": "am_michael",
-            "tempo": 1.05,
-            "untertitel_profil": "ruhig",
-            "musik_pegel": null,
-            "effekt_pegel": null
-          },
-          "schwerpunkt": "bild",
-          "kategorien_vorher": {
-            "bild_passt": 2
-          },
-          "kategorien_nachher": {
-            "bild_passt": 2
-          },
-          "auswertbar": false,
-          "prompt_version": "2026-10-13.2",
-          "verbessert": false
-        }
-      },
-      {
-        "runde": 4,
-        "art": "korrektur",
-        "status": "korrekturgrenze",
-        "sekunden": 0.0
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Video-Note fehlt oder ist ungueltig; Video-Bewertung hook fehlt oder ist ungueltig; Video-bild_passt 2/10 unter 7/10; Video-Bewertung dynamik fehlt oder ist ungueltig; Video-Bewertung text fehlt oder ist ungueltig; Video-Bewertung ton_stimme fehlt oder ist ungueltig; Video-Bewertung tempo fehlt oder ist ungueltig; Video-Bewertung inhalt fehlt oder ist ungueltig; Video-Bewertung schluss_loop fehlt oder ist ungueltig; Video-Bewertung regeln fehlt oder ist ungueltig; Video-Bewertung story fehlt oder ist ungueltig; Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht.; Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Software-Anleitung für Keynote mit nummerierten Schritten, aber keine Pfeile, Boxen und Beschriftungen über Fenstern.; Offenes Problem (schwer): Das Bild zeigt das Drucken und Erstellen von PDFs in TextEdit mit erklärenden Pfeilen, während der Text von Pfeilen, Boxen und Labels auf Windows spricht. Korrektur: Ein Screenshot oder eine Animation, die tatsächlich Pfeile, Boxen und Labels über geöffneten Windows-Fenstern einzeichnet.; Offenes Problem (schwer): Das Bild zeigt eine Software-Anleitung für Keynote mit nummerierten Schritten, aber keine Pfeile, Boxen und Beschriftungen über Fenstern. Korrektur: Ein Screenshot oder eine Grafik, die spezifisch Fenster mit darüber gezeichneten Pfeilen, Boxen und Beschriftungen zeigt.",
-    "sekunden": 205.6,
-    "upload_titel": "Your AI Says Click: Bigarrow Shows Where | AI Tool #4"
-  },
-  {
     "id": "38590139927",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-14",
@@ -16202,5 +15837,123 @@
     "grund": "",
     "sekunden": 3806.8,
     "upload_titel": "Claude Code Cleans: Your Android TV | AI Tool #21"
+  },
+  {
+    "id": "41288676252",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-11-01",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "skript_s": 342.8,
+        "bau_s": 753.0,
+        "pruefung_s": 35.2,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen präsentierenden Mann vor einer abstrakten Grafik und demonstriert weder Claude Projects noch den erwähnten Haken.",
+          "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Person beim Sortieren von physischen Karten, während im gesprochenen Text die Nutzung einer KI-Wissensbasis (Claude Projects) erklärt wird. Es ist kein Software-Interface oder eine digitale Wissensbasis zu sehen.",
+          "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich grafische Textgrafiken mit Schlagworten, aber keine sichtbare Bedienoberfläche oder Funktion von Claude Projects, die das Hochladen eines Briefings demonstrieren.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich einen präsentierenden Mann vor einer abstrakten Grafik und demonstriert weder Claude Projects noch den erwähnten Haken. Korrektur: Ein Screenshot der Claude Projects Benutzeroberfläche, die das Erstellen eines Projekts oder den Hinweis auf das Limit zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine Person beim Sortieren von physischen Karten, während im gesprochenen Text die Nutzung einer KI-Wissensbasis (Claude Projects) erklärt wird. Es ist kein Software-Interface oder eine digitale Wissensbasis zu sehen. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, die den Bereich für Projekte und Wissensbasen zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich grafische Textgrafiken mit Schlagworten, aber keine sichtbare Bedienoberfläche oder Funktion von Claude Projects, die das Hochladen eines Briefings demonstrieren. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der das Erstellen eines Projekts und das Hochladen von Dokumenten in den Knowledge Base-Bereich zeigt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 22.5,
+          "zeitmarken": 6.1,
+          "tempo": 1.126,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 13,
+          "bilder_vereinfacht": 1,
+          "clips_und_stuecke": 540.4,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 13,
+            "motive": 13,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 40.8,
+          "gesamt": 752.6,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            7.98,
+            6.5,
+            7.16,
+            6.2,
+            6.12,
+            6.64,
+            4.41
+          ],
+          "woerter": 133,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:04.72",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Claude Projects fixes that, but one catch waits at the end.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich einen präsentierenden Mann vor einer abstrakten Grafik und demonstriert weder Claude Projects noch den erwähnten Haken. Korrektur: Ein Screenshot der Claude Projects Benutzeroberfläche, die das Erstellen eines Projekts oder den Hinweis auf das Limit zeigt."
+          },
+          {
+            "zeit": "00:33.96",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "Claude uses the knowledge base as context for chats within that project.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich eine Person beim Sortieren von physischen Karten, während im gesprochenen Text die Nutzung einer KI-Wissensbasis (Claude Projects) erklärt wird. Es ist kein Software-Interface oder eine digitale Wissensbasis zu sehen. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, die den Bereich für Projekte und Wissensbasen zeigt."
+          },
+          {
+            "zeit": "00:38.38",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "Upload the briefing once; stop pasting.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich grafische Textgrafiken mit Schlagworten, aber keine sichtbare Bedienoberfläche oder Funktion von Claude Projects, die das Hochladen eines Briefings demonstrieren. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der das Erstellen eines Projekts und das Hochladen von Dokumenten in den Knowledge Base-Bereich zeigt."
+          }
+        ],
+        "sekunden": 1131.1,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "status": "keine_korrektur",
+        "sekunden": 0.1
+      }
+    ],
+    "status": "gesendet",
+    "trendcheck": "Claude-Redaktion (Plan vom 2026-10-31): Claude: I’m Begging You to Sell PDFs Made With Claude 💵: 5.0 Punkte - YouTube-Ausreisser 71.0x Kanalschnitt, Format Geld verdienen",
+    "grund": "",
+    "sekunden": 1169.2,
+    "upload_titel": "CLAUDE PROJECTS: STOP RE-EXPLAINING | AI Tool #22"
   }
 ]

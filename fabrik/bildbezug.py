@@ -15,6 +15,17 @@ VERSION = '2026-10-15.1'
 GUELTIGE_VERSIONEN = {VERSION, '2026-10-13.1'}
 MINIMUM = 7
 VORGEPRUEFT_MAX = 4  # = bauen.ARCHIV_MAX
+
+
+def vorgeprueft(slots):
+    """Indizes der Clips, die die Clipauswahl schon mit >= MINIMUM gegen den Satz bewertet hat.
+
+    GEMESSEN 01.11.2026: seit 31.10. kommen Clips auch ins Langvideo (bauen.clip_max = Einstellungen // 8,
+    dazu Witz-Clips) - die feste Grenze 4 haette den 5. Clip dem strengen Einzelbildpruefer gegeben, der
+    Cartoons/Archivszenen als nicht woertlich ablehnt und damit das ganze Video sperrt."""
+    grenze = max(VORGEPRUEFT_MAX, len(slots) // 5)
+    return [x['index'] for x in slots
+            if type(x.get('vorgeprueft')) is int and x['vorgeprueft'] >= MINIMUM][:grenze]
 GRUPPE = 1  # Ein Bild je Urteil: Lite vertauschte in der Liveprobe Bilder in Sechsergruppen.
 SCHEMA = {'type': 'OBJECT', 'properties': {'pruefung': {'type': 'ARRAY', 'items': {
     'type': 'OBJECT', 'properties': {
@@ -124,8 +135,7 @@ def pruefen(video, skript, ablauf, ziel):
     slots = [x for x in slots if x['index'] not in ergebnis['ausgenommen']]
     # Nutzer 30.10.2026 (Mittelweg): Archivclips hat die Clipauswahl schon Standbild gegen Satz bewertet (>= 7/10).
     # Der Schlusspruefer sah danach nur den gemalten Frame und lehnte echte Archivszenen erneut ab.
-    ergebnis['vorgeprueft'] = [x['index'] for x in slots
-                               if type(x.get('vorgeprueft')) is int and x['vorgeprueft'] >= MINIMUM][:VORGEPRUEFT_MAX]
+    ergebnis['vorgeprueft'] = vorgeprueft(slots)
     slots = [x for x in slots if x['index'] not in ergebnis['vorgeprueft']]
     code = ki_speicher.hashwert(Path(__file__).read_text(encoding='utf-8'))
     key = ki_speicher.cache_key(VERSION + code + json.dumps(slots, sort_keys=True), SCHEMA, SEHEN, .1, 'bildbezug', sha)
@@ -243,7 +253,7 @@ def gruende(d, sha):
     if not isinstance(aus, list) or len(aus) > 3 or any(type(i) is not int for i in aus):
         return ['Bild-Text-Pruefung: ungueltige Ausnahmen']
     vor = d.get('vorgeprueft') or []
-    if not isinstance(vor, list) or len(vor) > VORGEPRUEFT_MAX or any(type(i) is not int for i in vor):
+    if not isinstance(vor, list) or len(vor) > max(VORGEPRUEFT_MAX, n // 5) or any(type(i) is not int for i in vor):
         return ['Bild-Text-Pruefung: ungueltige Vorpruefungen']
     return bewerten(d['pruefung'], [{'index': i} for i in range(n) if i not in aus and i not in vor])
 

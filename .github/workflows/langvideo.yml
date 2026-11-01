@@ -150,6 +150,7 @@ jobs:
           THEMA: ${{ matrix.thema }}
           CF_WORKFLOW_STATUS: '1'
           CF_TEXT_FALLBACK: 'groq'
+          CF_CLAUDE_ZEIT: '480'  # Langvideo-Skript braucht ~230 s, die Shorts-Grenze 240 s riss (01.11.)
         run: python fabrik/lauf.py "formate/$KANAL.json" "$THEMA"
       - name: Abgebrochene Budgetreservierung abrechnen
         if: always() && steps.produktion.outcome == 'cancelled'

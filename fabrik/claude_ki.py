@@ -11,7 +11,7 @@ Bildauswahl bleiben bei Gemini/Groq.
 Faellt Claude aus (Limit, Token abgelehnt, nicht installiert): None - der
 Aufrufer versucht dann Gemini/Groq. Alle Fakten- und Qualitaetspruefungen bleiben bestehen.
 """
-import datetime, json, os, re, shutil, subprocess
+import datetime, json, os, re, shutil, subprocess, time
 from pathlib import Path
 
 # GEMESSEN 07.10.2026 mit CLI 2.1.292: 'claude-sonnet-5' antwortet zwar, ist aber das
@@ -62,6 +62,12 @@ def schreiben(prompt, schema, zeit=300):
         return None, grund
     if not verfuegbar():
         return None, 'Claude nicht eingerichtet'
+    # GEMESSEN 01.11.2026 (Langvideo 41318860708): ein KI-Langvideo-Skript (~1500 Woerter) brauchte 229 s, der
+    # zweite Versuch riss die 240-s-Grenze aus skript.py - Groq schreibt keine Langvideos, kein Video. Langvideos
+    # setzen CF_CLAUDE_ZEIT (langvideo.yml); die Restzeit des Schritts bleibt die Obergrenze.
+    if os.environ.get('CF_CLAUDE_ZEIT'):
+        rest = float(os.environ.get('CF_SCHRITT_ENDE', 'inf')) - time.monotonic() - 30
+        zeit = int(max(zeit, min(float(os.environ['CF_CLAUDE_ZEIT']), rest)))
     daten, grund = _schreiben(prompt, schema, zeit)
     if daten is None:
         sperren(grund)

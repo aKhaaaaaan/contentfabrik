@@ -127,13 +127,16 @@ def _schreiben(prompt, schema, zeit):
     auftrag = (prompt + '\n\nAnswer with ONLY one JSON object (no explanation, no markdown) that matches this '
                'JSON schema (Gemini notation, types in capitals):\n' + json.dumps(schema, ensure_ascii=False))
     try:
-        r = subprocess.run([shutil.which('claude'), '-p', '--model', MODELL, '--output-format', 'json', '--max-turns', '1'],
+        # GEMESSEN 01.11.2026 (Langvideo 41321109611): nach 349 s is_error OHNE result - typisch fuer einen
+        # Werkzeugaufruf, der an --max-turns 1 scheitert. Reine Textaufgabe: alle Werkzeuge aus (--tools "").
+        r = subprocess.run([shutil.which('claude'), '-p', '--model', MODELL, '--output-format', 'json', '--max-turns', '1',
+                            '--tools', ''],
                            input=auftrag, capture_output=True, text=True, encoding='utf-8', timeout=zeit,
                            # Nur der Abo-Token, nie ein evtl. gesetzter API-Schluessel (der kostet Geld)
                            env={**os.environ, 'ANTHROPIC_API_KEY': ''})
         d = json.loads(r.stdout)
         if d.get('is_error'):
-            return None, f"Claude-Fehler: {str(d.get('result'))[:160]}"
+            return None, f"Claude-Fehler ({d.get('subtype')}, {d.get('num_turns')} Schritte): {str(d.get('result'))[:160]}"
         return json_aus(d['result']), MODELL
     except Exception as e:
         return None, f'Claude nicht nutzbar: {str(e)[:160]}'

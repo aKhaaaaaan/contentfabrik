@@ -1,14 +1,27 @@
 {
   "version": 1,
   "modelle": {
+    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
+      "grund": "HTTP429; Serverfrist 545s",
+      "bis": 1793549219.1750584
+    },
     "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
       "grund": "Netzwerk-Zeitlimit",
-      "bis": 1793546325.6949522
+      "bis": 1793549247.0136974
+    },
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1793548892.120806
     }
   },
   "zeitlimits": {
     "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
-      1793546265.6949522
+      1793546265.6949522,
+      1793547482.6908364,
+      1793548707.0136974
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
+      1793548832.120806
     ]
   }
 }

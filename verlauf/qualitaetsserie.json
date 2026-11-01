@@ -131066,6 +131066,1472 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "41288676252.1:business-origin-stories",
+      "run_id": "41288676252",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-01T09:24:59.144457+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "1278173be4b2d572c0af8aaf9d35b62e51981b9f",
+      "produktionsversion": "0932aac94355feee39887e031abaf91df53a03568acced34f38943963fa3262d",
+      "videoformat": "short",
+      "thema": "Rubik's Cube",
+      "titel": [
+        "He Couldn't Solve It",
+        "His Own *Cube*"
+      ],
+      "status": "gesendet",
+      "video_sha256": "53ddd6270b34bb9cf23bf857ebe8d0705db363493b315cc90a9c3280b7ff5822",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Mann auf der Stra\"e an einem Stand, aber die Aussage \"He wasn't chasing a puzzle. He wanted small parts moving freely without the structure collapsing\" bezieht sich thematisch auf Ernő Rubik und die Mechanik seines Puzzles, was visuell nicht dargestellt wird.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen traurig oder nachdenklich wirkenden Mann auf einer Straße, während der gesprochene Text von kleinen beweglichen Teilen eines Puzzles ohne Zusammenbruch handelt. Der Bezug zum Thema Rubik's Cube und Mechanik fehlt völlig.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Textzeile beschreibt den geschäftlichen Vertragsschluss im September 1979 zwischen Seven Towns, Rubiks Partnern und Ideal. Das Bild zeigt zwar zwei Männer bei einer Unterschrift, jedoch lässt sich ein historischer Vertragsabschluss nicht durch ein generisches KI-gemälde von zwei Männ",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Männer in einer Werkstatt-Umgebung und die Zahl 500 Million, aber nicht den Rubik's Cube oder die Verkaufszahlen des Puzzles.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Mann auf der Stra\"e an einem Stand, aber die Aussage \"He wasn't chasing a puzzle. He wanted small parts moving freely without the structure collapsing\" bezieht sich thematisch auf Ernő Rubik und die Mechanik seines Puzzles, was visuell nicht dargestellt wird. Korrektur: Eine historische Illustration oder Darstellung von Ernő Rubik, der an den mechanischen Innereien oder Einzelteilen seines ersten mechanischen Prototypen des Rubik's Cube t\"uft.",
+        "Offenes Problem (schwer): Das Bild zeigt einen traurig oder nachdenklich wirkenden Mann auf einer Straße, während der gesprochene Text von kleinen beweglichen Teilen eines Puzzles ohne Zusammenbruch handelt. Der Bezug zum Thema Rubik's Cube und Mechanik fehlt völlig. Korrektur: Eine Nahaufnahme oder Animation der mechanischen Konstruktion eines Zauberwürfels mit kleinen beweglichen Teilen.",
+        "Offenes Problem (schwer): Die gesprochene Textzeile beschreibt den geschäftlichen Vertragsschluss im September 1979 zwischen Seven Towns, Rubiks Partnern und Ideal. Das Bild zeigt zwar zwei Männer bei einer Unterschrift, jedoch lässt sich ein historischer Vertragsabschluss nicht durch ein generisches KI-gemälde von zwei Männern im Büro belegen. Korrektur: Eine historische Dokumentation, Archivaufnahme oder Illustration, die die tatsächlichen Vertreter von Seven Towns oder das unterschriebene Dokument im historischen Kontext zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt Männer in einer Werkstatt-Umgebung und die Zahl 500 Million, aber nicht den Rubik's Cube oder die Verkaufszahlen des Puzzles. Korrektur: Ein Bild des Rubik's Cube mit Verkaufsstatistiken oder einer großen Anzahl verkaufter Würfel."
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 13,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "41288676252",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-01",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 927.9,
+            "pruefung_s": 29.0,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwei Personen, aber nicht die im Text erwähnten technischen Überlegungen von Ernő Rubik zu beweglichen Teilen und Strukturen.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Tischler oder Handwerker in seiner Werkstatt, der gedankenverloren aus dem Fenster blickt. Es ist keine Darstellung von kleinen, sich frei bewegenden Teilen oder einem mechanischen Rätsel wie dem Rubik's Cube zu sehen.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (4/10): Die Erwahnung des Verwirrens und Wiederherstellens der Farben wird nur sehr abstrakt durch das Hantieren an einem bunten Objekt dargestellt, ohne das eigentliche Zauberwurfel-Szenario klar zu zeigen.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Handwerker mit einem Hausmodell in einer Werkstatt, was inhaltlich nicht zur Erwähnung von Tibor Laczi und dem Nürnberger Spielwarenmesse-Verkauf des Rubik's Cube passt.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Szene mit geschäftlich wirkenden Männern, stellt jedoch nicht Tom Kremer beim Erkennen des Potenzials oder eine geschäftliche Einigung dar.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar bunte Würfel, aber keinen Bezug zur Umbenennung des Rubik's Cube oder den Verkaufszahlen von 1980.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine generelle Geschäftsszene oder Verhandlung von Männern im Anzug in einer Werkstatt mit dem Aufdruck 500 Million, aber weder den Rubik's Cube noch die im Text erwähnten Verkaufszahlen der 500 Millionen verkauften Exemplare des Puzzles.",
+              "Offenes Problem (schwer): Das Bild zeigt zwei Personen, aber nicht die im Text erwähnten technischen Überlegungen von Ernő Rubik zu beweglichen Teilen und Strukturen. Korrektur: Eine historische Skizze oder Animation der inneren Mechanik eines Zauberwürfels, die zeigt, wie die Teile ineinandergreifen.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Tischler oder Handwerker in seiner Werkstatt, der gedankenverloren aus dem Fenster blickt. Es ist keine Darstellung von kleinen, sich frei bewegenden Teilen oder einem mechanischen Rätsel wie dem Rubik's Cube zu sehen. Korrektur: Eine Nahaufnahme oder Illustration von mechanischen Bauteilen, Zahnrädern oder den inneren Mechanismen eines beweglichen Puzzles.",
+              "Offenes Problem (schwer): Die Erwahnung des Verwirrens und Wiederherstellens der Farben wird nur sehr abstrakt durch das Hantieren an einem bunten Objekt dargestellt, ohne das eigentliche Zauberwurfel-Szenario klar zu zeigen. Korrektur: Nahaufnahme eines Zauberwuerfels, der tatsaechlich verdreht und geloest wird.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Handwerker mit einem Hausmodell in einer Werkstatt, was inhaltlich nicht zur Erwähnung von Tibor Laczi und dem Nürnberger Spielwarenmesse-Verkauf des Rubik's Cube passt. Korrektur: Ein historisches Foto oder eine Illustration von Tibor Laczi oder einer Spielwarenmesse mit Spielzeug.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Szene mit geschäftlich wirkenden Männern, stellt jedoch nicht Tom Kremer beim Erkennen des Potenzials oder eine geschäftliche Einigung dar. Korrektur: Ein Porträt von Tom Kremer oder eine historische Szene, die zeigt, wie er das Puzzle betrachtet und sein Potenzial erkennt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar bunte Würfel, aber keinen Bezug zur Umbenennung des Rubik's Cube oder den Verkaufszahlen von 1980. Korrektur: Eine historische Verpackung oder ein Bild des Rubik's Cube aus dem Jahr 1980.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generelle Geschäftsszene oder Verhandlung von Männern im Anzug in einer Werkstatt mit dem Aufdruck 500 Million, aber weder den Rubik's Cube noch die im Text erwähnten Verkaufszahlen der 500 Millionen verkauften Exemplare des Puzzles. Korrektur: Eine Illustration oder Fotografie des Rubik's Cube zusammen mit einer grafischen Darstellung oder einem Symbol für die Verkaufsmenge von 500 Millionen Stück."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Fenrir",
+              "stimme": 10.2,
+              "zeitmarken": 2.8,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "bilder_vereinfacht": 5,
+              "clips_und_stuecke": 675.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 28.2,
+              "gesamt": 926.9,
+              "videolaenge_s": 39.5,
+              "abschnitte_s": [
+                6.62,
+                5.9,
+                3.82,
+                5.8,
+                6.42,
+                6.28,
+                4.68
+              ],
+              "woerter": 101,
+              "clips": {
+                "witz": 0,
+                "archiv": 1
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:06.62",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "He wasn't chasing a puzzle.",
+                "fest": false,
+                "text": "Das Bild zeigt zwei Personen, aber nicht die im Text erwähnten technischen Überlegungen von Ernő Rubik zu beweglichen Teilen und Strukturen. Korrektur: Eine historische Skizze oder Animation der inneren Mechanik eines Zauberwürfels, die zeigt, wie die Teile ineinandergreifen."
+              },
+              {
+                "zeit": "00:08.34",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "He wanted small parts moving freely without the structure collapsing.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Tischler oder Handwerker in seiner Werkstatt, der gedankenverloren aus dem Fenster blickt. Es ist keine Darstellung von kleinen, sich frei bewegenden Teilen oder einem mechanischen Rätsel wie dem Rubik's Cube zu sehen. Korrektur: Eine Nahaufnahme oder Illustration von mechanischen Bauteilen, Zahnrädern oder den inneren Mechanismen eines beweglichen Puzzles."
+              },
+              {
+                "zeit": "00:12.52",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "The puzzle appeared only when he scrambled it, then tried restoring the colours.",
+                "fest": false,
+                "text": "Die Erwahnung des Verwirrens und Wiederherstellens der Farben wird nur sehr abstrakt durch das Hantieren an einem bunten Objekt dargestellt, ohne das eigentliche Zauberwurfel-Szenario klar zu zeigen. Korrektur: Nahaufnahme eines Zauberwuerfels, der tatsaechlich verdreht und geloest wird."
+              },
+              {
+                "zeit": "00:16.34",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 5,
+                "gesprochen": "Who'd sell it?",
+                "fest": false,
+                "text": "Das Bild zeigt einen Handwerker mit einem Hausmodell in einer Werkstatt, was inhaltlich nicht zur Erwähnung von Tibor Laczi und dem Nürnberger Spielwarenmesse-Verkauf des Rubik's Cube passt. Korrektur: Ein historisches Foto oder eine Illustration von Tibor Laczi oder einer Spielwarenmesse mit Spielzeug."
+              },
+              {
+                "zeit": "00:22.14",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 7,
+                "gesprochen": "Tom Kremer saw its potential.",
+                "fest": false,
+                "text": "Das Bild zeigt eine Szene mit geschäftlich wirkenden Männern, stellt jedoch nicht Tom Kremer beim Erkennen des Potenzials oder eine geschäftliche Einigung dar. Korrektur: Ein Porträt von Tom Kremer oder eine historische Szene, die zeigt, wie er das Puzzle betrachtet und sein Potenzial erkennt."
+              },
+              {
+                "zeit": "00:28.56",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "Renamed Rubik's Cube in 1980, the puzzle that",
+                "fest": false,
+                "text": "Das Bild zeigt zwar bunte Würfel, aber keinen Bezug zur Umbenennung des Rubik's Cube oder den Verkaufszahlen von 1980. Korrektur: Eine historische Verpackung oder ein Bild des Rubik's Cube aus dem Jahr 1980."
+              },
+              {
+                "zeit": "00:31.70",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "stumped him sold about 500 million.",
+                "fest": false,
+                "text": "Das Bild zeigt eine generelle Geschäftsszene oder Verhandlung von Männern im Anzug in einer Werkstatt mit dem Aufdruck 500 Million, aber weder den Rubik's Cube noch die im Text erwähnten Verkaufszahlen der 500 Millionen verkauften Exemplare des Puzzles. Korrektur: Eine Illustration oder Fotografie des Rubik's Cube zusammen mit einer grafischen Darstellung oder einem Symbol für die Verkaufsmenge von 500 Millionen Stück."
+              }
+            ],
+            "sekunden": 956.9,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 2.9,
+            "bau_s": 750.1,
+            "pruefung_s": 28.6,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mechaniker an Zahnrädern, aber die gesprochenen Worte 'He wasn't chasing a puzzle' beschreiben Erno Rubik und die Entstehung des Würfels, nicht einen Mechaniker bei der Arbeit.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Handwerker in einer Werkstatt, der an einem unbestimmten Objekt arbeitet, aber die im Text erwähnten mechanischen Details und das Erfinden von kleinen beweglichen Teilen des Zauberwürfels sind visuell nicht erkennbar.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwei geschäftlich wirkende Männer bei einem Handschlag, was zwar eine geschäftliche Einigung symbolisieren könnte, aber in keiner Weise Tom Kremer oder die Erwähnung seiner Wahrnehmung des Potenzials des Puzzles zeigt.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt symbolisch einen Geschäftsabschluss oder Vertrag, jedoch nicht die konkreten Partner Seven Towns und Ideal oder die Unterzeichnung im Zusammenhang mit dem Rubik's Cube.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Menschen in einem Geschäft und ein Holzpuzzle auf dem Tisch, aber es gibt keinen Bezug zur Umbenennung des Rubik's Cube im Jahr 1980 oder zu den Verkaufszahlen.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mechaniker an Zahnrädern, aber die gesprochenen Worte 'He wasn't chasing a puzzle' beschreiben Erno Rubik und die Entstehung des Würfels, nicht einen Mechaniker bei der Arbeit. Korrektur: Eine historische Darstellung von Erno Rubik in seiner Werkstatt beim Entwickeln von kleinen beweglichen Teilen des ersten Würfels.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Handwerker in einer Werkstatt, der an einem unbestimmten Objekt arbeitet, aber die im Text erwähnten mechanischen Details und das Erfinden von kleinen beweglichen Teilen des Zauberwürfels sind visuell nicht erkennbar. Korrektur: Eine historische oder illustrierte Darstellung von Ernő Rubik, der an den ersten mechanischen Prototypen kleiner Blöcke oder Gelenke eines Würfels tüftelt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwei geschäftlich wirkende Männer bei einem Handschlag, was zwar eine geschäftliche Einigung symbolisieren könnte, aber in keiner Weise Tom Kremer oder die Erwähnung seiner Wahrnehmung des Potenzials des Puzzles zeigt. Korrektur: Ein historisches Foto oder eine Darstellung von Tom Kremer, wie er einen Zauberwürfel betrachtet oder in geschäftlichen Verhandlungen sitzt.",
+              "Offenes Problem (schwer): Die Szene zeigt symbolisch einen Geschäftsabschluss oder Vertrag, jedoch nicht die konkreten Partner Seven Towns und Ideal oder die Unterzeichnung im Zusammenhang mit dem Rubik's Cube. Korrektur: Historisches oder illustratives Bild von Geschäftsleuten bei einer Vertragsunterzeichnung oder ein Dokument zur Partnerschaft zwischen Seven Towns und Ideal.",
+              "Offenes Problem (schwer): Das Bild zeigt Menschen in einem Geschäft und ein Holzpuzzle auf dem Tisch, aber es gibt keinen Bezug zur Umbenennung des Rubik's Cube im Jahr 1980 oder zu den Verkaufszahlen. Korrektur: Eine historische Aufnahme oder Illustration des umbenannten Rubik's Cube mit Verpackung aus dem Jahr 1980."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 6,
+              "stuecke_neu": 7,
+              "bilder_vereinfacht": 3,
+              "clips_und_stuecke": 644.5,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 28.8,
+              "gesamt": 749.8,
+              "videolaenge_s": 39.5,
+              "abschnitte_s": [
+                6.62,
+                5.9,
+                3.82,
+                5.8,
+                6.42,
+                6.28,
+                4.68
+              ],
+              "woerter": 101,
+              "clips": {
+                "witz": 0,
+                "archiv": 1
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:06.62",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "He wasn't chasing a puzzle.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mechaniker an Zahnrädern, aber die gesprochenen Worte 'He wasn't chasing a puzzle' beschreiben Erno Rubik und die Entstehung des Würfels, nicht einen Mechaniker bei der Arbeit. Korrektur: Eine historische Darstellung von Erno Rubik in seiner Werkstatt beim Entwickeln von kleinen beweglichen Teilen des ersten Würfels."
+              },
+              {
+                "zeit": "00:08.34",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "He wanted small parts moving freely without the structure collapsing.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Handwerker in einer Werkstatt, der an einem unbestimmten Objekt arbeitet, aber die im Text erwähnten mechanischen Details und das Erfinden von kleinen beweglichen Teilen des Zauberwürfels sind visuell nicht erkennbar. Korrektur: Eine historische oder illustrierte Darstellung von Ernő Rubik, der an den ersten mechanischen Prototypen kleiner Blöcke oder Gelenke eines Würfels tüftelt."
+              },
+              {
+                "zeit": "00:22.14",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 7,
+                "gesprochen": "Tom Kremer saw its potential.",
+                "fest": false,
+                "text": "Das Bild zeigt zwei geschäftlich wirkende Männer bei einem Handschlag, was zwar eine geschäftliche Einigung symbolisieren könnte, aber in keiner Weise Tom Kremer oder die Erwähnung seiner Wahrnehmung des Potenzials des Puzzles zeigt. Korrektur: Ein historisches Foto oder eine Darstellung von Tom Kremer, wie er einen Zauberwürfel betrachtet oder in geschäftlichen Verhandlungen sitzt."
+              },
+              {
+                "zeit": "00:24.32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "By September, Seven Towns and Rubik's partners signed with Ideal.",
+                "fest": false,
+                "text": "Die Szene zeigt symbolisch einen Geschäftsabschluss oder Vertrag, jedoch nicht die konkreten Partner Seven Towns und Ideal oder die Unterzeichnung im Zusammenhang mit dem Rubik's Cube. Korrektur: Historisches oder illustratives Bild von Geschäftsleuten bei einer Vertragsunterzeichnung oder ein Dokument zur Partnerschaft zwischen Seven Towns und Ideal."
+              },
+              {
+                "zeit": "00:28.56",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "Renamed Rubik's Cube in 1980, the puzzle that",
+                "fest": false,
+                "text": "Das Bild zeigt Menschen in einem Geschäft und ein Holzpuzzle auf dem Tisch, aber es gibt keinen Bezug zur Umbenennung des Rubik's Cube im Jahr 1980 oder zu den Verkaufszahlen. Korrektur: Eine historische Aufnahme oder Illustration des umbenannten Rubik's Cube mit Verpackung aus dem Jahr 1980."
+              }
+            ],
+            "sekunden": 781.6,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "41288676252-2",
+              "datum": "2026-11-01",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 781.6,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                1,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 6.4,
+            "bau_s": 426.1,
+            "pruefung_s": 26.9,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Mann auf der Stra\"e an einem Stand, aber die Aussage \"He wasn't chasing a puzzle. He wanted small parts moving freely without the structure collapsing\" bezieht sich thematisch auf Ernő Rubik und die Mechanik seines Puzzles, was visuell nicht dargestellt wird.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen traurig oder nachdenklich wirkenden Mann auf einer Straße, während der gesprochene Text von kleinen beweglichen Teilen eines Puzzles ohne Zusammenbruch handelt. Der Bezug zum Thema Rubik's Cube und Mechanik fehlt völlig.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Textzeile beschreibt den geschäftlichen Vertragsschluss im September 1979 zwischen Seven Towns, Rubiks Partnern und Ideal. Das Bild zeigt zwar zwei Männer bei einer Unterschrift, jedoch lässt sich ein historischer Vertragsabschluss nicht durch ein generisches KI-gemälde von zwei Männ",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Männer in einer Werkstatt-Umgebung und die Zahl 500 Million, aber nicht den Rubik's Cube oder die Verkaufszahlen des Puzzles.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann auf der Stra\"e an einem Stand, aber die Aussage \"He wasn't chasing a puzzle. He wanted small parts moving freely without the structure collapsing\" bezieht sich thematisch auf Ernő Rubik und die Mechanik seines Puzzles, was visuell nicht dargestellt wird. Korrektur: Eine historische Illustration oder Darstellung von Ernő Rubik, der an den mechanischen Innereien oder Einzelteilen seines ersten mechanischen Prototypen des Rubik's Cube t\"uft.",
+              "Offenes Problem (schwer): Das Bild zeigt einen traurig oder nachdenklich wirkenden Mann auf einer Straße, während der gesprochene Text von kleinen beweglichen Teilen eines Puzzles ohne Zusammenbruch handelt. Der Bezug zum Thema Rubik's Cube und Mechanik fehlt völlig. Korrektur: Eine Nahaufnahme oder Animation der mechanischen Konstruktion eines Zauberwürfels mit kleinen beweglichen Teilen.",
+              "Offenes Problem (schwer): Die gesprochene Textzeile beschreibt den geschäftlichen Vertragsschluss im September 1979 zwischen Seven Towns, Rubiks Partnern und Ideal. Das Bild zeigt zwar zwei Männer bei einer Unterschrift, jedoch lässt sich ein historischer Vertragsabschluss nicht durch ein generisches KI-gemälde von zwei Männern im Büro belegen. Korrektur: Eine historische Dokumentation, Archivaufnahme oder Illustration, die die tatsächlichen Vertreter von Seven Towns oder das unterschriebene Dokument im historischen Kontext zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt Männer in einer Werkstatt-Umgebung und die Zahl 500 Million, aber nicht den Rubik's Cube oder die Verkaufszahlen des Puzzles. Korrektur: Ein Bild des Rubik's Cube mit Verkaufsstatistiken oder einer großen Anzahl verkaufter Würfel."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 8,
+              "stuecke_neu": 5,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 298.4,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 28.7,
+              "gesamt": 425.8,
+              "videolaenge_s": 39.5,
+              "abschnitte_s": [
+                6.62,
+                5.9,
+                3.82,
+                5.8,
+                6.42,
+                6.28,
+                4.68
+              ],
+              "woerter": 101,
+              "clips": {
+                "witz": 0,
+                "archiv": 1
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:06.62",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "He wasn't chasing a puzzle.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann auf der Stra\"e an einem Stand, aber die Aussage \"He wasn't chasing a puzzle. He wanted small parts moving freely without the structure collapsing\" bezieht sich thematisch auf Ernő Rubik und die Mechanik seines Puzzles, was visuell nicht dargestellt wird. Korrektur: Eine historische Illustration oder Darstellung von Ernő Rubik, der an den mechanischen Innereien oder Einzelteilen seines ersten mechanischen Prototypen des Rubik's Cube t\"uft."
+              },
+              {
+                "zeit": "00:08.34",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "He wanted small parts moving freely without the structure collapsing.",
+                "fest": false,
+                "text": "Das Bild zeigt einen traurig oder nachdenklich wirkenden Mann auf einer Straße, während der gesprochene Text von kleinen beweglichen Teilen eines Puzzles ohne Zusammenbruch handelt. Der Bezug zum Thema Rubik's Cube und Mechanik fehlt völlig. Korrektur: Eine Nahaufnahme oder Animation der mechanischen Konstruktion eines Zauberwürfels mit kleinen beweglichen Teilen."
+              },
+              {
+                "zeit": "00:24.32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "By September, Seven Towns and Rubik's partners signed with Ideal.",
+                "fest": false,
+                "text": "Die gesprochene Textzeile beschreibt den geschäftlichen Vertragsschluss im September 1979 zwischen Seven Towns, Rubiks Partnern und Ideal. Das Bild zeigt zwar zwei Männer bei einer Unterschrift, jedoch lässt sich ein historischer Vertragsabschluss nicht durch ein generisches KI-gemälde von zwei Männern im Büro belegen. Korrektur: Eine historische Dokumentation, Archivaufnahme oder Illustration, die die tatsächlichen Vertreter von Seven Towns oder das unterschriebene Dokument im historischen Kontext zeigt."
+              },
+              {
+                "zeit": "00:31.70",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "stumped him sold about 500 million.",
+                "fest": false,
+                "text": "Das Bild zeigt Männer in einer Werkstatt-Umgebung und die Zahl 500 Million, aber nicht den Rubik's Cube oder die Verkaufszahlen des Puzzles. Korrektur: Ein Bild des Rubik's Cube mit Verkaufsstatistiken oder einer großen Anzahl verkaufter Würfel."
+              }
+            ],
+            "sekunden": 459.5,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "41288676252-3",
+              "datum": "2026-11-01",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 459.5,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "trendcheck": "kein Kandidat mit echtem Trendsignal - freie Trendwahl",
+        "grund": "",
+        "sekunden": 2277.4,
+        "upload_titel": "He Couldn't Solve It: His Own Cube"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:06.62",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "He wasn't chasing a puzzle.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann auf der Stra\"e an einem Stand, aber die Aussage \"He wasn't chasing a puzzle. He wanted small parts moving freely without the structure collapsing\" bezieht sich thematisch auf Ernő Rubik und die Mechanik seines Puzzles, was visuell nicht dargestellt wird. Korrektur: Eine historische Illustration oder Darstellung von Ernő Rubik, der an den mechanischen Innereien oder Einzelteilen seines ersten mechanischen Prototypen des Rubik's Cube t\"uft."
+          },
+          {
+            "zeit": "00:08.34",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "He wanted small parts moving freely without the structure collapsing.",
+            "fest": false,
+            "text": "Das Bild zeigt einen traurig oder nachdenklich wirkenden Mann auf einer Straße, während der gesprochene Text von kleinen beweglichen Teilen eines Puzzles ohne Zusammenbruch handelt. Der Bezug zum Thema Rubik's Cube und Mechanik fehlt völlig. Korrektur: Eine Nahaufnahme oder Animation der mechanischen Konstruktion eines Zauberwürfels mit kleinen beweglichen Teilen."
+          },
+          {
+            "zeit": "00:24.32",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "By September, Seven Towns and Rubik's partners signed with Ideal.",
+            "fest": false,
+            "text": "Die gesprochene Textzeile beschreibt den geschäftlichen Vertragsschluss im September 1979 zwischen Seven Towns, Rubiks Partnern und Ideal. Das Bild zeigt zwar zwei Männer bei einer Unterschrift, jedoch lässt sich ein historischer Vertragsabschluss nicht durch ein generisches KI-gemälde von zwei Männern im Büro belegen. Korrektur: Eine historische Dokumentation, Archivaufnahme oder Illustration, die die tatsächlichen Vertreter von Seven Towns oder das unterschriebene Dokument im historischen Kontext zeigt."
+          },
+          {
+            "zeit": "00:31.70",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "stumped him sold about 500 million.",
+            "fest": false,
+            "text": "Das Bild zeigt Männer in einer Werkstatt-Umgebung und die Zahl 500 Million, aber nicht den Rubik's Cube oder die Verkaufszahlen des Puzzles. Korrektur: Ein Bild des Rubik's Cube mit Verkaufsstatistiken oder einer großen Anzahl verkaufter Würfel."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 39.5,
+          "fps": 29.9,
+          "lufs": -14.6,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 35.12,
+              "bis_s": 36.48,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.979
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 19.5,
+              "bis_s": 40.0,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "He",
+                "s": 0.0,
+                "e": 0.32,
+                "p": 0.8326475024223328
+              },
+              {
+                "w": "built",
+                "s": 0.32,
+                "e": 0.62,
+                "p": 0.9800394177436829
+              },
+              {
+                "w": "a",
+                "s": 0.62,
+                "e": 0.74,
+                "p": 0.9950929880142212
+              },
+              {
+                "w": "puzzle",
+                "s": 0.74,
+                "e": 1.1,
+                "p": 0.998100221157074
+              },
+              {
+                "w": "he",
+                "s": 1.1,
+                "e": 1.38,
+                "p": 0.9657177925109863
+              },
+              {
+                "w": "couldn't",
+                "s": 1.38,
+                "e": 1.94,
+                "p": 0.99168261885643
+              },
+              {
+                "w": "solve.",
+                "s": 1.94,
+                "e": 2.24,
+                "p": 0.9985724687576294
+              },
+              {
+                "w": "Erno",
+                "s": 3.08,
+                "e": 3.18,
+                "p": 0.6976436376571655
+              },
+              {
+                "w": "Rubik",
+                "s": 3.18,
+                "e": 3.6,
+                "p": 0.7347663342952728
+              },
+              {
+                "w": "reportedly",
+                "s": 3.6,
+                "e": 4.14,
+                "p": 0.9971904158592224
+              },
+              {
+                "w": "needed",
+                "s": 4.14,
+                "e": 4.54,
+                "p": 0.9977238774299622
+              },
+              {
+                "w": "a",
+                "s": 4.54,
+                "e": 4.82,
+                "p": 0.9913331866264343
+              },
+              {
+                "w": "month.",
+                "s": 4.82,
+                "e": 5.2,
+                "p": 0.9873114824295044
+              },
+              {
+                "w": "Why?",
+                "s": 5.76,
+                "e": 6.08,
+                "p": 0.984529972076416
+              },
+              {
+                "w": "He",
+                "s": 6.54,
+                "e": 6.82,
+                "p": 0.9791457653045654
+              },
+              {
+                "w": "wasn't",
+                "s": 6.82,
+                "e": 7.12,
+                "p": 0.9983314573764801
+              },
+              {
+                "w": "chasing",
+                "s": 7.12,
+                "e": 7.32,
+                "p": 0.9952220320701599
+              },
+              {
+                "w": "a",
+                "s": 7.32,
+                "e": 7.54,
+                "p": 0.9976990818977356
+              },
+              {
+                "w": "puzzle.",
+                "s": 7.54,
+                "e": 7.84,
+                "p": 0.999464213848114
+              },
+              {
+                "w": "He",
+                "s": 8.32,
+                "e": 8.4,
+                "p": 0.9936675429344177
+              },
+              {
+                "w": "wanted",
+                "s": 8.4,
+                "e": 8.6,
+                "p": 0.9976398944854736
+              },
+              {
+                "w": "small",
+                "s": 8.6,
+                "e": 8.94,
+                "p": 0.9973832964897156
+              },
+              {
+                "w": "parts",
+                "s": 8.94,
+                "e": 9.42,
+                "p": 0.9976075887680054
+              },
+              {
+                "w": "moving",
+                "s": 9.42,
+                "e": 9.72,
+                "p": 0.9668179750442505
+              },
+              {
+                "w": "freely",
+                "s": 9.72,
+                "e": 10.34,
+                "p": 0.9991369843482971
+              },
+              {
+                "w": "without",
+                "s": 10.34,
+                "e": 10.64,
+                "p": 0.9418662190437317
+              },
+              {
+                "w": "the",
+                "s": 10.64,
+                "e": 11.1,
+                "p": 0.9951164722442627
+              },
+              {
+                "w": "structure",
+                "s": 11.1,
+                "e": 11.34,
+                "p": 0.9964255690574646
+              },
+              {
+                "w": "collapsing.",
+                "s": 11.34,
+                "e": 11.78,
+                "p": 0.9971255660057068
+              },
+              {
+                "w": "The",
+                "s": 12.56,
+                "e": 12.58,
+                "p": 0.9767143726348877
+              },
+              {
+                "w": "puzzle",
+                "s": 12.58,
+                "e": 13.0,
+                "p": 0.9960312247276306
+              },
+              {
+                "w": "appeared",
+                "s": 13.0,
+                "e": 13.32,
+                "p": 0.9936623573303223
+              },
+              {
+                "w": "only",
+                "s": 13.32,
+                "e": 13.74,
+                "p": 0.987758457660675
+              },
+              {
+                "w": "when",
+                "s": 13.74,
+                "e": 13.92,
+                "p": 0.9987393021583557
+              },
+              {
+                "w": "he",
+                "s": 13.92,
+                "e": 14.06,
+                "p": 0.9827635288238525
+              },
+              {
+                "w": "scrambled",
+                "s": 14.06,
+                "e": 14.38,
+                "p": 0.983726978302002
+              },
+              {
+                "w": "it,",
+                "s": 14.38,
+                "e": 14.74,
+                "p": 0.97405606508255
+              },
+              {
+                "w": "then",
+                "s": 14.94,
+                "e": 15.08,
+                "p": 0.9853166937828064
+              },
+              {
+                "w": "tried",
+                "s": 15.08,
+                "e": 15.3,
+                "p": 0.99294114112854
+              },
+              {
+                "w": "restoring",
+                "s": 15.3,
+                "e": 15.68,
+                "p": 0.9944339394569397
+              },
+              {
+                "w": "the",
+                "s": 15.68,
+                "e": 15.92,
+                "p": 0.9928224682807922
+              },
+              {
+                "w": "colors.",
+                "s": 15.92,
+                "e": 16.08,
+                "p": 0.9631825089454651
+              },
+              {
+                "w": "Houd",
+                "s": 16.96,
+                "e": 17.02,
+                "p": 0.4960353672504425
+              },
+              {
+                "w": "sell",
+                "s": 17.02,
+                "e": 17.18,
+                "p": 0.12916097044944763
+              },
+              {
+                "w": "it?",
+                "s": 17.18,
+                "e": 17.38,
+                "p": 0.9957524538040161
+              },
+              {
+                "w": "Teabor",
+                "s": 17.92,
+                "e": 18.1,
+                "p": 0.3686649203300476
+              },
+              {
+                "w": "Lazzi",
+                "s": 18.1,
+                "e": 18.56,
+                "p": 0.6642250617345175
+              },
+              {
+                "w": "took",
+                "s": 18.56,
+                "e": 18.74,
+                "p": 0.9908000826835632
+              },
+              {
+                "w": "one",
+                "s": 18.74,
+                "e": 18.96,
+                "p": 0.9875274300575256
+              },
+              {
+                "w": "to",
+                "s": 18.96,
+                "e": 19.1,
+                "p": 0.9980056881904602
+              },
+              {
+                "w": "Nuremberg's",
+                "s": 19.1,
+                "e": 19.66,
+                "p": 0.9668925255537033
+              },
+              {
+                "w": "Toy",
+                "s": 19.66,
+                "e": 19.8,
+                "p": 0.7719600200653076
+              },
+              {
+                "w": "Fair,",
+                "s": 19.8,
+                "e": 20.0,
+                "p": 0.8741382956504822
+              },
+              {
+                "w": "February",
+                "s": 20.32,
+                "e": 20.46,
+                "p": 0.9909271001815796
+              },
+              {
+                "w": "1979.",
+                "s": 20.46,
+                "e": 21.24,
+                "p": 0.934388279914856
+              },
+              {
+                "w": "Tom",
+                "s": 22.1,
+                "e": 22.42,
+                "p": 0.9926828742027283
+              },
+              {
+                "w": "Kramer",
+                "s": 22.42,
+                "e": 22.66,
+                "p": 0.8701127171516418
+              },
+              {
+                "w": "saw",
+                "s": 22.66,
+                "e": 23.14,
+                "p": 0.997352123260498
+              },
+              {
+                "w": "its",
+                "s": 23.14,
+                "e": 23.3,
+                "p": 0.9453972578048706
+              },
+              {
+                "w": "potential.",
+                "s": 23.3,
+                "e": 23.7,
+                "p": 0.9990707635879517
+              },
+              {
+                "w": "By",
+                "s": 24.3,
+                "e": 24.36,
+                "p": 0.9923617839813232
+              },
+              {
+                "w": "September,",
+                "s": 24.36,
+                "e": 24.6,
+                "p": 0.9935418367385864
+              },
+              {
+                "w": "seven",
+                "s": 25.12,
+                "e": 25.32,
+                "p": 0.42306575179100037
+              },
+              {
+                "w": "towns",
+                "s": 25.32,
+                "e": 25.68,
+                "p": 0.9846216440200806
+              },
+              {
+                "w": "and",
+                "s": 25.68,
+                "e": 25.86,
+                "p": 0.9163308143615723
+              },
+              {
+                "w": "Rubik's",
+                "s": 25.86,
+                "e": 26.14,
+                "p": 0.9860798120498657
+              },
+              {
+                "w": "partners",
+                "s": 26.14,
+                "e": 26.4,
+                "p": 0.992169201374054
+              },
+              {
+                "w": "signed",
+                "s": 26.4,
+                "e": 26.96,
+                "p": 0.9860489368438721
+              },
+              {
+                "w": "with",
+                "s": 26.96,
+                "e": 27.24,
+                "p": 0.3463843762874603
+              },
+              {
+                "w": "ideal.",
+                "s": 27.24,
+                "e": 27.64,
+                "p": 0.7896966338157654
+              },
+              {
+                "w": "Renamed",
+                "s": 28.34,
+                "e": 28.8,
+                "p": 0.9392009377479553
+              },
+              {
+                "w": "Rubik's",
+                "s": 28.8,
+                "e": 29.52,
+                "p": 0.7831548452377319
+              },
+              {
+                "w": "Cube",
+                "s": 29.52,
+                "e": 29.8,
+                "p": 0.7684242129325867
+              },
+              {
+                "w": "in",
+                "s": 29.8,
+                "e": 30.02,
+                "p": 0.9818965196609497
+              },
+              {
+                "w": "1980,",
+                "s": 30.02,
+                "e": 30.5,
+                "p": 0.9960176348686218
+              },
+              {
+                "w": "the",
+                "s": 30.86,
+                "e": 31.0,
+                "p": 0.9677936434745789
+              },
+              {
+                "w": "puzzle",
+                "s": 31.0,
+                "e": 31.28,
+                "p": 0.9947182536125183
+              },
+              {
+                "w": "that",
+                "s": 31.28,
+                "e": 31.54,
+                "p": 0.9951812624931335
+              },
+              {
+                "w": "stumped",
+                "s": 31.54,
+                "e": 31.98,
+                "p": 0.956233948469162
+              },
+              {
+                "w": "him",
+                "s": 31.98,
+                "e": 32.26,
+                "p": 0.9951085448265076
+              },
+              {
+                "w": "sold",
+                "s": 32.26,
+                "e": 32.64,
+                "p": 0.9252002239227295
+              },
+              {
+                "w": "about",
+                "s": 32.64,
+                "e": 32.92,
+                "p": 0.9480637907981873
+              },
+              {
+                "w": "500",
+                "s": 32.92,
+                "e": 33.42,
+                "p": 0.6039330959320068
+              },
+              {
+                "w": "million.",
+                "s": 33.42,
+                "e": 34.08,
+                "p": 0.9518765211105347
+              },
+              {
+                "w": "Be",
+                "s": 34.66,
+                "e": 34.88,
+                "p": 0.9916515946388245
+              },
+              {
+                "w": "sure",
+                "s": 34.88,
+                "e": 35.0,
+                "p": 0.9984904527664185
+              },
+              {
+                "w": "to",
+                "s": 35.0,
+                "e": 35.12,
+                "p": 0.9943349957466125
+              },
+              {
+                "w": "like,",
+                "s": 35.12,
+                "e": 35.32,
+                "p": 0.9344362616539001
+              },
+              {
+                "w": "share,",
+                "s": 35.36,
+                "e": 35.66,
+                "p": 0.997259259223938
+              },
+              {
+                "w": "and",
+                "s": 35.76,
+                "e": 35.84,
+                "p": 0.9925697445869446
+              },
+              {
+                "w": "save",
+                "s": 35.84,
+                "e": 36.08,
+                "p": 0.9885852932929993
+              },
+              {
+                "w": "this",
+                "s": 36.08,
+                "e": 36.22,
+                "p": 0.9641860127449036
+              },
+              {
+                "w": "video.",
+                "s": 36.22,
+                "e": 36.48,
+                "p": 0.9975878000259399
+              },
+              {
+                "w": "Which",
+                "s": 36.96,
+                "e": 37.0,
+                "p": 0.990224301815033
+              },
+              {
+                "w": "company",
+                "s": 37.0,
+                "e": 37.2,
+                "p": 0.987957775592804
+              },
+              {
+                "w": "next?",
+                "s": 37.2,
+                "e": 37.46,
+                "p": 0.9397546648979187
+              },
+              {
+                "w": "Comment",
+                "s": 37.94,
+                "e": 38.14,
+                "p": 0.9956426620483398
+              },
+              {
+                "w": "and",
+                "s": 38.14,
+                "e": 38.58,
+                "p": 0.8106094598770142
+              },
+              {
+                "w": "follow",
+                "s": 38.58,
+                "e": 38.78,
+                "p": 0.9922969937324524
+              },
+              {
+                "w": "for",
+                "s": 38.78,
+                "e": 39.02,
+                "p": 0.9890576004981995
+              },
+              {
+                "w": "more!",
+                "s": 39.02,
+                "e": 39.2,
+                "p": 0.9994569420814514
+              }
+            ],
+            "dauer_s": 39.4026875,
+            "sprache": "en"
+          },
+          "roh_key": "9df9b9162b99b2a3397d11b46cb75ad7a8d092a7ee65d9d7645c7a16520ba172",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "53ddd6270b34bb9cf23bf857ebe8d0705db363493b315cc90a9c3280b7ff5822",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 39.5,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 13,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "53ddd6270b34bb9cf23bf857ebe8d0705db363493b315cc90a9c3280b7ff5822",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Mann mit Schiebermütze und Uhr um den Hals schaut frustriert und mit geöffnetem Mund auf etwas in seiner Hand, während im Hintergrund ein Holzfenster und Küchenutensilien zu sehen sind.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Nahaufnahme zeigt eine deutlich frustrierte und schockierte Reaktion eines Mannes, was perfekt als eröffnende Reaktionsaufnahme zur Aussage über ein unlösbares Rätsel passt.",
+              "erforderliches_bild": "Keines, das Bild passt."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein junger Mann steht auf einer Stra\"ena\"e zwischen Geb\"uden und beugt sich nach vorne, w\"ahrend er an einem Stand oder Kasten arbeitet.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Mann auf der Stra\"e an einem Stand, aber die Aussage \"He wasn't chasing a puzzle. He wanted small parts moving freely without the structure collapsing\" bezieht sich thematisch auf Ernő Rubik und die Mechanik seines Puzzles, was visuell nicht dargestellt wird.",
+              "erforderliches_bild": "Eine historische Illustration oder Darstellung von Ernő Rubik, der an den mechanischen Innereien oder Einzelteilen seines ersten mechanischen Prototypen des Rubik's Cube t\"uft."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein gemalter Mann steht auf einer Straße mit gekreuzten Armen und blickt nach unten, im Hintergrund sind Gebäude und undeutliche Personen zu sehen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt einen traurig oder nachdenklich wirkenden Mann auf einer Straße, während der gesprochene Text von kleinen beweglichen Teilen eines Puzzles ohne Zusammenbruch handelt. Der Bezug zum Thema Rubik's Cube und Mechanik fehlt völlig.",
+              "erforderliches_bild": "Eine Nahaufnahme oder Animation der mechanischen Konstruktion eines Zauberwürfels mit kleinen beweglichen Teilen."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein bunt bemalter Zauberwürfel im künstlerischen Stil vor einer Straßendekoration.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen Zauberwürfel passend zur Erwähnung des Puzzles im gesprochenen Text.",
+              "erforderliches_bild": "Ein passender Zauberwürfel"
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein älterer Mann und ein jüngerer Mann geben sich auf einem belebten Markt die Hand, im Hintergrund sind Marktstände und Passanten zu sehen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt zwei Männer bei einer geschäftlichen Vereinbarung beziehungsweise einem Handschlag, was den Satz über den Verkauf und die Geschäftsverhandlungen passend verbildlicht.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 6,
+              "gesehen": "Eine bezaubernde Illustration einer belebten historischen Markt- oder Messeszene mit Menschen und Spielwarenständen in einer überdachten Halle.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Darstellung einer belebten historischen Spielwarenmesse passt gut zu der Erwähnung der Spielwarenmesse in Nürnberg.",
+              "erforderliches_bild": "Eine historische Ansicht der Nürnberger Spielwarenmesse von 1979."
+            },
+            {
+              "index": 7,
+              "gesehen": "Zwei Männer in Anzügen sitzen an einem Tisch und geben sich zur Begrüssung oder Einigung die Hand.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt zwei Geschäftsmänner beim Handschlag, was zum Abschluss von Verträgen wie dem beschriebenen Partnerschafts-Deal passt.",
+              "erforderliches_bild": "Zwei Geschäftsleute im Handschlag oder in Verhandlung."
+            },
+            {
+              "index": 8,
+              "gesehen": "Zwei anzugbekleidete Männer sitzen an einem Tisch und unterhalten sich, einer unterschreibt gerade ein Dokument mit einem Füllfederhalter.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gesprochene Textzeile beschreibt den geschäftlichen Vertragsschluss im September 1979 zwischen Seven Towns, Rubiks Partnern und Ideal. Das Bild zeigt zwar zwei Männer bei einer Unterschrift, jedoch lässt sich ein historischer Vertragsabschluss nicht durch ein generisches KI-gemälde von zwei Männern im Büro belegen.",
+              "erforderliches_bild": "Eine historische Dokumentation, Archivaufnahme oder Illustration, die die tatsächlichen Vertreter von Seven Towns oder das unterschriebene Dokument im historischen Kontext zeigt."
+            },
+            {
+              "index": 9,
+              "gesehen": "In einem Spielwarengeschäft steht ein großer Zauberwürfel (Rubik's Cube) im Vordergrund auf einem Tresor oder Regal, während Kinder und Schaulustige durch ein großes Fenster auf eine europäische Altstadtstraße blicken.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der sichtbare Zauberwürfel im Schaufenster/Laden passt direkt zum benannten Objekt und der umbenannten Puzzle-Thematik im Text.",
+              "erforderliches_bild": "Nicht erforderlich"
+            },
+            {
+              "index": 10,
+              "gesehen": "In einem Raum stehen mehrere Männer in Anzügen und Arbeitskleidung, darüber ein Schild mit der Aufschrift '500 MILLION'.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt Männer in einer Werkstatt-Umgebung und die Zahl 500 Million, aber nicht den Rubik's Cube oder die Verkaufszahlen des Puzzles.",
+              "erforderliches_bild": "Ein Bild des Rubik's Cube mit Verkaufsstatistiken oder einer großen Anzahl verkaufter Würfel."
+            }
+          ],
+          "befunde": [
+            "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Mann auf der Stra\"e an einem Stand, aber die Aussage \"He wasn't chasing a puzzle. He wanted small parts moving freely without the structure collapsing\" bezieht sich thematisch auf Ernő Rubik und die Mechanik seines Puzzles, was visuell nicht dargestellt wird.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen traurig oder nachdenklich wirkenden Mann auf einer Straße, während der gesprochene Text von kleinen beweglichen Teilen eines Puzzles ohne Zusammenbruch handelt. Der Bezug zum Thema Rubik's Cube und Mechanik fehlt völlig.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Textzeile beschreibt den geschäftlichen Vertragsschluss im September 1979 zwischen Seven Towns, Rubiks Partnern und Ideal. Das Bild zeigt zwar zwei Männer bei einer Unterschrift, jedoch lässt sich ein historischer Vertragsabschluss nicht durch ein generisches KI-gemälde von zwei Männ",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Männer in einer Werkstatt-Umgebung und die Zahl 500 Million, aber nicht den Rubik's Cube oder die Verkaufszahlen des Puzzles."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 13,
+          "ausgenommen": [
+            11,
+            12
+          ],
+          "vorgeprueft": [
+            1
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "53ddd6270b34bb9cf23bf857ebe8d0705db363493b315cc90a9c3280b7ff5822",
+        "prompt_version": "2026-10-29.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

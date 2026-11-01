@@ -13,7 +13,7 @@ jedes Bild prueft Gemini (Schrift, Logos, verformte Haende/Gesichter).
 Eine konkrete Bildkritik geht in den zweiten Auftrag, die Szene bleibt erhalten.
 Nach zwei Versuchen oder bei ausgefallener Pruefung: Foto-/Clip-Rueckfall.
 """
-import base64, hashlib, io, json, os, shutil, time, uuid, urllib.error, urllib.request
+import base64, hashlib, io, json, os, shutil, threading, time, uuid, urllib.error, urllib.request
 from pathlib import Path
 from PIL import Image, ImageOps
 import prompts
@@ -21,6 +21,36 @@ import prompts
 KONTO = os.environ.get('CLOUDFLARE_ACCOUNT_ID', '09e49429346ef780d0e59a7fae936f95')
 FIGUREN = Path(__file__).resolve().parent.parent / 'figuren'
 GEZAEHLT = {'bilder': 0, 'abgelehnt': 0}
+# Nutzer 01.11.2026: "Wir muessen die Kosten im Blick haben" - Workers Paid seit 08.10. rechnet Neuronen ueber
+# 10.000/Tag ab (0,011 $ je 1.000). Jede Anfrage landet mit geschaetzten Neuronen (Cloudflare-Preisliste) in
+# verlauf/cloudflare-bilder/; der Wochenbericht zaehlt sie. Eine Datei je Lauf und Kanal: keine Git-Konflikte.
+VERBRAUCH = Path('verlauf/cloudflare-bilder')
+_SCHREIBEN = threading.Lock()
+
+
+def neuronen(modell, breite=1024, hoehe=1024, referenzen=0):
+    """Geschaetzte Neuronen einer Anfrage nach developers.cloudflare.com/workers-ai/platform/pricing (01.11.2026)."""
+    kacheln = -(-int(breite) // 512) * -(-int(hoehe) // 512)
+    if modell == 'flux-2-klein-9b':
+        return 1363.64 + 181.82 * max(0, int(breite) * int(hoehe) / 1e6 - 1)
+    if modell == 'flux-1-schnell':
+        return 4.8 * 4 + 9.6 * 8  # quadratisch 1024x1024, 8 Schritte
+    return 26.05 * kacheln + 5.37 * referenzen  # klein-4b; Referenzen sind kleiner als 512x512
+
+
+def _verbrauch_merken(modell, felder, referenzen):
+    if not os.environ.get('GITHUB_ACTIONS'):
+        return  # lokale Proben nicht in den Verlauf schreiben
+    zeile = {'datum': time.strftime('%Y-%m-%d', time.gmtime()), 'modell': modell,
+             'neuronen': round(neuronen(modell, felder.get('width', 1024), felder.get('height', 1024), referenzen), 1)}
+    datei = VERBRAUCH / f"{zeile['datum']}-{os.environ.get('GITHUB_RUN_ID', 'x')}-{os.environ.get('KANAL', 'x')}.jsonl"
+    try:
+        with _SCHREIBEN:
+            VERBRAUCH.mkdir(parents=True, exist_ok=True)
+            with open(datei, 'a', encoding='utf-8') as f:
+                f.write(json.dumps(zeile) + '\n')
+    except OSError as e:
+        print('Bildverbrauch nicht gespeichert:', e)
 
 
 # GEMESSEN 08.10.2026 (Lauf 37749486997): Cloudflare meldete „daily free allocation
@@ -59,6 +89,8 @@ def _anfrage(modell, felder, datei=None, charakter=None, nochmal=False):
         d = json.load(urllib.request.urlopen(urllib.request.Request(url, data=daten, headers=kopf), timeout=120))
     except urllib.error.HTTPError as e:
         d = json.loads(e.read().decode(errors='replace') or '{}')
+    if d.get('success') or 'flagged' in str(d.get('errors')).lower():  # auch ein gefiltertes Bild wurde gerechnet
+        _verbrauch_merken(modell, felder, len([p for p in (datei, charakter) if p is not None]))
     if d.get('success'):
         return base64.b64decode(d['result']['image'])
     GEZAEHLT['abgelehnt'] += 1

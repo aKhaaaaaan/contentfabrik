@@ -111,8 +111,37 @@ def kanal_text(slug, heute):
     return '\n'.join(zeilen)
 
 
+GRATIS_NEURONEN = 10000  # je Tag und Cloudflare-Konto, auch im Bezahltarif
+PREIS_JE_1000 = 0.011  # $ ueber dem Gratisanteil (Workers Paid)
+
+
+def bildkosten(heute, tage=TAGE, ordner=Path('verlauf/cloudflare-bilder')):
+    """Nutzer 01.11.2026: Kosten im Blick - Cloudflare-Bilder der letzten Tage aus illustration._verbrauch_merken.
+    Geschaetzt: das Dashboard rechnet ab, andere Nutzer desselben Kontos fehlen hier."""
+    von = (heute - datetime.timedelta(days=tage)).isoformat()
+    je_tag = {}
+    anfragen = 0
+    for datei in sorted(ordner.glob('*.jsonl')) if ordner.exists() else []:
+        for zeile in datei.read_text(encoding='utf-8').splitlines():
+            try:
+                z = json.loads(zeile)
+                datum, n = str(z['datum']), float(z['neuronen'])
+            except (ValueError, KeyError, TypeError):
+                continue
+            if von < datum <= heute.isoformat():
+                je_tag[datum] = je_tag.get(datum, 0) + n
+                anfragen += 1
+    if not anfragen:
+        return '💸 Cloudflare-Bilder: noch keine Daten (Zaehlung seit 01.11.)'
+    ueber = sum(max(0, n - GRATIS_NEURONEN) for n in je_tag.values())
+    return (f'💸 Cloudflare-Bilder ({tage} Tage): {anfragen} Bilder erzeugt, ~{sum(je_tag.values()) / 1000:.0f}k '
+            f'Neuronen, davon ~{ueber / 1000:.0f}k ueber dem Gratisanteil = ca. {ueber / 1000 * PREIS_JE_1000:.2f} $ '
+            '(+5 $ Grundgebuehr im Monat; geschaetzt, genaue Zahl im Cloudflare-Dashboard)')
+
+
 def text(heute):
-    return '📊 Wochenbericht - was beim Publikum ankam\n\n' + '\n\n'.join(kanal_text(k, heute) for k in KANAELE)
+    return ('📊 Wochenbericht - was beim Publikum ankam\n\n' + '\n\n'.join(kanal_text(k, heute) for k in KANAELE)
+            + '\n\n' + bildkosten(heute))
 
 
 def faellig(heute, marke=MARKE):

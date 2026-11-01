@@ -210,7 +210,9 @@ STARS = re.compile(r'chaplin|keaton|laurel|hardy|harold lloyd|arbuckle|disney|al
 WITZ_JAHR_MAX = 1975
 # Nutzer 31.10.2026 nach der Witz-Probe (41212623109): "Die 9/10 sind schon besser als die 8/10" - lieber ein
 # gemaltes Bild als ein mittelmaessiger Gag.
-WITZ_MIN_NOTE = 9
+# GEMESSEN 01.11.2026: 3 von 3 Shorts ohne Witz-Clip, beste Treffer 8/10 (ItsEvery1954, CaseofSp1940, YourName1960).
+# Abmachung "hat die Haelfte 0, auf 8 senken" - Nutzer: ja. Bessere Suchwoerter (Situation statt Bildwort) danach.
+WITZ_MIN_NOTE = 8
 
 
 def witz_kandidaten(begriff, art='zeichentrick'):

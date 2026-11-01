@@ -8,8 +8,6 @@ nur diesen Ausschnitt sieht der Bildpruefer (Dauerregel 4)."""
 import re
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
-
 SCHRIFT = Path(__file__).resolve().parents[1] / 'schriften/Montserrat-ExtraBold.ttf'
 STUFEN = ['S', 'A', 'B', 'C', 'F']
 FARBEN = {'S': '#e8453c', 'A': '#f39a2b', 'B': '#f4cf3a', 'C': '#3fbf5f', 'F': '#d94fd0'}
@@ -36,6 +34,8 @@ def stand(teile, bis):
 
 def bild(ziel, eintraege, aktuell, titel=''):
     """1080x1920-Tafel S..F mit den genannten Eintraegen; aktueller Rang gross oben und umrandet."""
+    # Erst hier: trends.format_art importiert dieses Modul auch in der Langvideo-Vorpruefung ohne Pillow (01.11.)
+    from PIL import Image, ImageDraw, ImageFont
     im = Image.new('RGB', (1080, 1920), '#121418')
     d = ImageDraw.Draw(im)
 

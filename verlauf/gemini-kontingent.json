@@ -1,28 +1,58 @@
 {
-  "version": 1,
-  "modelle": {
-    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
-      "grund": "Netzwerk-Zeitlimit",
-      "bis": 1793609092.3907487
-    },
-    "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
-      "grund": "Netzwerk-Zeitlimit",
-      "bis": 1793609137.4502044
-    }
+ "version": 1,
+ "modelle": {
+  "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
+   "grund": "voruebergehend ueberlastet",
+   "bis": 1793611110.8135178
   },
-  "zeitlimits": {
-    "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": [
-      1793604782.0132732,
-      1793605120.1713147
-    ],
-    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
-      1793608071.2814243
-    ],
-    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
-      1793609032.3907487
-    ],
-    "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
-      1793609077.4502044
-    ]
+  "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
+   "grund": "Netzwerk-Zeitlimit",
+   "bis": 1793610815.6341374
+  },
+  "18b3ef0930af7cca6de34adf:gemini-3.5-flash-lite": {
+   "grund": "voruebergehend ueberlastet",
+   "bis": 1793610990.6119354
+  },
+  "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": {
+   "grund": "voruebergehend ueberlastet",
+   "bis": 1793611010.4757192
+  },
+  "18b3ef0930af7cca6de34adf:gemini-3.5-flash": {
+   "grund": "Tageskontingent erschoepft",
+   "bis": 1793692800.0
+  },
+  "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": {
+   "grund": "Netzwerk-Zeitlimit",
+   "bis": 1793610982.2443311
+  },
+  "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
+   "grund": "Tageskontingent erschoepft",
+   "bis": 1793692800.0
   }
+ },
+ "zeitlimits": {
+  "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": [
+   1793604782.0132732,
+   1793605120.1713147
+  ],
+  "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
+   1793608071.2814243,
+   1793608911.5301356,
+   1793609626.2281246,
+   1793610228.1244276
+  ],
+  "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
+   1793608857.0247502,
+   1793608970.41542,
+   1793609032.3907487
+  ],
+  "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
+   1793609077.4502044,
+   1793610755.6341374
+  ],
+  "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": [
+   1793610689.2665398,
+   1793610802.2443311
+  ]
+ }
 }

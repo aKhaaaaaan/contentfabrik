@@ -133784,6 +133784,1584 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "41412735240.1:business-origin-stories",
+      "run_id": "41412735240",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-02T09:13:59.854096+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "666bedfef6df5ac2bd3d69f446e43e57fedc3844",
+      "produktionsversion": "b4b6d118dc50115b30700380767516977c1e6e6790122c039ee6a3ae2726f920",
+      "videoformat": "short",
+      "thema": "How Nintendo's exit led to PlayStation",
+      "titel": [
+        "*Nintendo* Walked Away",
+        "Sony Built *PlayStation*"
+      ],
+      "status": "gesendet",
+      "video_sha256": "c16256a7ca8f13ef3815753d3681bad1e6860e603805377f9ab3f3092d15df73",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Mann in einem Büro, was nicht zur Erwähnung von Nintendos Vertragbrechung und dem unerwarteten Verlauf passt.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwei geschäftsähnlich sprechende Männer, was die Verhandlungen und den Streit über Umsätze thematisch vage anreißt, aber es fehlt der konkrete geschichtliche Bezug zu Nintendo, Sony oder Philips.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (4/10): Es zeigt zwar eine Besprechung zweier Bueromitarbeiter im Anzug, aber die spezifische ErwEhnung von Nintendo und der historischen Demuetigung wird nicht visuell belegt, da es sich um eine generische Szene handelt.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit Mischpulten in einem Raum, aber keinen Bezug zu Sony Music, einem Teamumzug oder der Einführung der Konsole in Japan im Jahr 1994.",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen den Einstieg von Sony in die Entwicklung der PlayStation sowie eine Aufforderung zum Liken und Teilen. Im Bild ist lediglich eine illustrierte Person an einem Schreibtisch zu sehen, was keinen Bezug zu PlayStation oder einer Aufforderung zur Interaktion zeigt.",
+        "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Aufforderung zum Liken, Teilen und Speichern wird durch eine normale Anime-Illustration von Personen in einem Elektronikladen nicht visuell dargestellt, es ist kein Interface oder Engagement-Symbol zu sehen.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Mann in einem Büro, was nicht zur Erwähnung von Nintendos Vertragbrechung und dem unerwarteten Verlauf passt. Korrektur: Eine historische Darstellung der Veröffentlichung des CD-ROM Super Famicom oder eine Szene, die die geschäftliche Enttäuschung illustriert.",
+        "Offenes Problem (schwer): Das Bild zeigt zwei geschäftsähnlich sprechende Männer, was die Verhandlungen und den Streit über Umsätze thematisch vage anreißt, aber es fehlt der konkrete geschichtliche Bezug zu Nintendo, Sony oder Philips. Korrektur: Eine historische Illustration oder Darstellung von Sony- und Nintendo-Vertretern bei gescheiterten Vertragsverhandlungen.",
+        "Offenes Problem (schwer): Es zeigt zwar eine Besprechung zweier Bueromitarbeiter im Anzug, aber die spezifische ErwEhnung von Nintendo und der historischen Demuetigung wird nicht visuell belegt, da es sich um eine generische Szene handelt. Korrektur: Eine Darstellung oder historische Illustration, die die Situation bei Sony oder die vertragliche Trennung zwischen Sony und Nintendo verdeutlicht.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Mann mit Mischpulten in einem Raum, aber keinen Bezug zu Sony Music, einem Teamumzug oder der Einführung der Konsole in Japan im Jahr 1994. Korrektur: Ein historisches Foto oder eine Illustration, die das Entwicklerteam in den Büros von Sony Music oder die Präsentation der PlayStation in Japan im Jahr 1994 zeigt.",
+        "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen den Einstieg von Sony in die Entwicklung der PlayStation sowie eine Aufforderung zum Liken und Teilen. Im Bild ist lediglich eine illustrierte Person an einem Schreibtisch zu sehen, was keinen Bezug zu PlayStation oder einer Aufforderung zur Interaktion zeigt. Korrektur: Ein historisches Bild der PlayStation-Konsole, des Sony-Teams oder eine Darstellung von Social-Media-Interaktionssymbolen wie Like und Teilen.",
+        "Offenes Problem (schwer): Die gesprochene Aufforderung zum Liken, Teilen und Speichern wird durch eine normale Anime-Illustration von Personen in einem Elektronikladen nicht visuell dargestellt, es ist kein Interface oder Engagement-Symbol zu sehen. Korrektur: Ein passendes Bild mit Social-Media-Interaktionssymbolen wie Daumen-hoch, Teilen- und Speicher-Icons."
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 13,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "41412735240",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-02",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 712.8,
+            "pruefung_s": 44.3,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die sichtbaren Personen drücken zwar Erstaunen aus, aber der bildliche Inhalt zeigt keine direkte Relevanz oder Erklärung zu den gesprochenen Worten ueber den Wendepunkt im Geschaeftsverhaeltnis zwischen Sony und Nintendo.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Zeile erwähnt die Enthüllung eines CD-ROM Super Famicom durch Sony im Juni 1991, aber das Bild zeigt lediglich einen zufälligen Mann auf einer Straße ohne jeden Bezug zu Sony, Nintendo oder technischer Hardware.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen willkürlichen Mann mit verschränkten Armen auf der Straße und liefert keinerlei sichtbaren Bezug zum Thema 'Nintendo couldn't agree on splitting revenue and chose Philips'.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (4/10): Die rhetorische Frage leitet eine Erklaerung ueber die Firmenpolitik ein, aber das Bild zeigt nur eine generelle Geschaeftsbesprechung ohne konkreten Bezug zu Ohga, Kutaragi oder Nintendo.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen geschäftlich gekleideten Mann in einem Büro, aber weder die erwähnte Humilierung von Nintendo noch einen Bezug zu Kutaragi oder der historischen Situation.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die Szene zeigt ein Elektronikgesch(ft mit R(hrenfernsehern, aber weder den Umzug des Teams zu Sony Music noch die Markteinf(hrung der Konsole in Japan im Jahr 1994.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwei Männer an technischen Geräten, aber es ist kein Bezug zur Playstation-Entwicklung oder der Schlusshandlung erkennbar.",
+              "Offenes Problem (schwer): Die sichtbaren Personen drücken zwar Erstaunen aus, aber der bildliche Inhalt zeigt keine direkte Relevanz oder Erklärung zu den gesprochenen Worten ueber den Wendepunkt im Geschaeftsverhaeltnis zwischen Sony und Nintendo. Korrektur: Eine Darstellung von Geschäftsleuten in einem Meeting, die überrascht auf Papiere oder einen Vertrag blicken.",
+              "Offenes Problem (schwer): Die gesprochene Zeile erwähnt die Enthüllung eines CD-ROM Super Famicom durch Sony im Juni 1991, aber das Bild zeigt lediglich einen zufälligen Mann auf einer Straße ohne jeden Bezug zu Sony, Nintendo oder technischer Hardware. Korrektur: Ein historisches Foto oder eine Illustration des Sony-Nintendo CD-ROM Prototyps oder der entsprechenden Präsentation von 1991.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen willkürlichen Mann mit verschränkten Armen auf der Straße und liefert keinerlei sichtbaren Bezug zum Thema 'Nintendo couldn't agree on splitting revenue and chose Philips'. Korrektur: Eine Illustration, die Verhandlungen zwischen Nintendo und Sony oder das Abwenden zu Philips darstellt.",
+              "Offenes Problem (schwer): Die rhetorische Frage leitet eine Erklaerung ueber die Firmenpolitik ein, aber das Bild zeigt nur eine generelle Geschaeftsbesprechung ohne konkreten Bezug zu Ohga, Kutaragi oder Nintendo. Korrektur: Eine historische Darstellung oder realistische Szene von Sony-Führungskräften, die eine geschäftliche Entscheidung über das Konsolenprojekt diskutieren.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen geschäftlich gekleideten Mann in einem Büro, aber weder die erwähnte Humilierung von Nintendo noch einen Bezug zu Kutaragi oder der historischen Situation. Korrektur: Eine historische Illustration oder Darstellung, die die geschäftliche Abweisung oder Demütigung von Nintendo gegenüber Sony thematisiert.",
+              "Offenes Problem (schwer): Die Szene zeigt ein Elektronikgesch(ft mit R(hrenfernsehern, aber weder den Umzug des Teams zu Sony Music noch die Markteinf(hrung der Konsole in Japan im Jahr 1994. Korrektur: Ein historisches Foto oder eine Illustration von Sony-Mitarbeitern in einem B(ro oder Studio von Sony Music sowie eine fr(he PlayStation-Konsole.",
+              "Offenes Problem (schwer): Das Bild zeigt zwei Männer an technischen Geräten, aber es ist kein Bezug zur Playstation-Entwicklung oder der Schlusshandlung erkennbar. Korrektur: Ein Bild, das die Entwicklung der ersten Playstation oder Sony-Techniker bei der Arbeit an der Konsole zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Fenrir",
+              "stimme": 12.6,
+              "zeitmarken": 3.5,
+              "tempo": 1.014,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "bilder_vereinfacht": 5,
+              "clips_und_stuecke": 428.4,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 45.1,
+              "gesamt": 712.4,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.08,
+                6.9,
+                7.0,
+                5.54,
+                5.52,
+                4.44,
+                8.54
+              ],
+              "woerter": 103,
+              "clips": {
+                "witz": 2,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:04.30",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "But that wasn't the strangest part.",
+                "fest": false,
+                "text": "Die sichtbaren Personen drücken zwar Erstaunen aus, aber der bildliche Inhalt zeigt keine direkte Relevanz oder Erklärung zu den gesprochenen Worten ueber den Wendepunkt im Geschaeftsverhaeltnis zwischen Sony und Nintendo. Korrektur: Eine Darstellung von Geschäftsleuten in einem Meeting, die überrascht auf Papiere oder einen Vertrag blicken."
+              },
+              {
+                "zeit": "00:07.08",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "In June 1991, Sony revealed a CD-ROM Super",
+                "fest": false,
+                "text": "Die gesprochene Zeile erwähnt die Enthüllung eines CD-ROM Super Famicom durch Sony im Juni 1991, aber das Bild zeigt lediglich einen zufälligen Mann auf einer Straße ohne jeden Bezug zu Sony, Nintendo oder technischer Hardware. Korrektur: Ein historisches Foto oder eine Illustration des Sony-Nintendo CD-ROM Prototyps oder der entsprechenden Präsentation von 1991."
+              },
+              {
+                "zeit": "00:13.98",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Nintendo couldn't agree on splitting revenue and chose Philips.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich einen willkürlichen Mann mit verschränkten Armen auf der Straße und liefert keinerlei sichtbaren Bezug zum Thema 'Nintendo couldn't agree on splitting revenue and chose Philips'. Korrektur: Eine Illustration, die Verhandlungen zwischen Nintendo und Sony oder das Abwenden zu Philips darstellt."
+              },
+              {
+                "zeit": "00:26.52",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 7,
+                "gesprochen": "Why did Ohga keep it?",
+                "fest": false,
+                "text": "Die rhetorische Frage leitet eine Erklaerung ueber die Firmenpolitik ein, aber das Bild zeigt nur eine generelle Geschaeftsbesprechung ohne konkreten Bezug zu Ohga, Kutaragi oder Nintendo. Korrektur: Eine historische Darstellung oder realistische Szene von Sony-Führungskräften, die eine geschäftliche Entscheidung über das Konsolenprojekt diskutieren."
+              },
+              {
+                "zeit": "00:28.28",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Kutaragi reminded him of Nintendo's humiliation.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich einen geschäftlich gekleideten Mann in einem Büro, aber weder die erwähnte Humilierung von Nintendo noch einen Bezug zu Kutaragi oder der historischen Situation. Korrektur: Eine historische Illustration oder Darstellung, die die geschäftliche Abweisung oder Demütigung von Nintendo gegenüber Sony thematisiert."
+              },
+              {
+                "zeit": "00:32.04",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "The team moved to Sony Music, and the console reached Japan in 1994.",
+                "fest": false,
+                "text": "Die Szene zeigt ein Elektronikgesch(ft mit R(hrenfernsehern, aber weder den Umzug des Teams zu Sony Music noch die Markteinf(hrung der Konsole in Japan im Jahr 1994. Korrektur: Ein historisches Foto oder eine Illustration von Sony-Mitarbeitern in einem B(ro oder Studio von Sony Music sowie eine fr(he PlayStation-Konsole."
+              },
+              {
+                "zeit": "00:36.48",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 10,
+                "gesprochen": "That snub pushed Sony into building PlayStation.",
+                "fest": false,
+                "text": "Das Bild zeigt zwei Männer an technischen Geräten, aber es ist kein Bezug zur Playstation-Entwicklung oder der Schlusshandlung erkennbar. Korrektur: Ein Bild, das die Entwicklung der ersten Playstation oder Sony-Techniker bei der Arbeit an der Konsole zeigt."
+              }
+            ],
+            "sekunden": 757.1,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                4,
+                5,
+                6
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 2.9,
+            "bau_s": 532.4,
+            "pruefung_s": 52.8,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Mann in einem Büro, was nicht zur Erwähnung von Nintendos Vertragbrechung und dem unerwarteten Verlauf passt.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwei geschäftsähnlich sprechende Männer, was die Verhandlungen und den Streit über Umsätze thematisch vage anreißt, aber es fehlt der konkrete geschichtliche Bezug zu Nintendo, Sony oder Philips.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (4/10): Es zeigt zwar eine Besprechung zweier Bueromitarbeiter im Anzug, aber die spezifische ErwEhnung von Nintendo und der historischen Demuetigung wird nicht visuell belegt, da es sich um eine generische Szene handelt.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit Mischpulten in einem Raum, aber keinen Bezug zu Sony Music, einem Teamumzug oder der Einführung der Konsole in Japan im Jahr 1994.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen den Einstieg von Sony in die Entwicklung der PlayStation sowie eine Aufforderung zum Liken und Teilen. Im Bild ist lediglich eine illustrierte Person an einem Schreibtisch zu sehen, was keinen Bezug zu PlayStation oder einer Aufforderung zur Interaktion zeigt.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Aufforderung zum Liken, Teilen und Speichern wird durch eine normale Anime-Illustration von Personen in einem Elektronikladen nicht visuell dargestellt, es ist kein Interface oder Engagement-Symbol zu sehen.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann in einem Büro, was nicht zur Erwähnung von Nintendos Vertragbrechung und dem unerwarteten Verlauf passt. Korrektur: Eine historische Darstellung der Veröffentlichung des CD-ROM Super Famicom oder eine Szene, die die geschäftliche Enttäuschung illustriert.",
+              "Offenes Problem (schwer): Das Bild zeigt zwei geschäftsähnlich sprechende Männer, was die Verhandlungen und den Streit über Umsätze thematisch vage anreißt, aber es fehlt der konkrete geschichtliche Bezug zu Nintendo, Sony oder Philips. Korrektur: Eine historische Illustration oder Darstellung von Sony- und Nintendo-Vertretern bei gescheiterten Vertragsverhandlungen.",
+              "Offenes Problem (schwer): Es zeigt zwar eine Besprechung zweier Bueromitarbeiter im Anzug, aber die spezifische ErwEhnung von Nintendo und der historischen Demuetigung wird nicht visuell belegt, da es sich um eine generische Szene handelt. Korrektur: Eine Darstellung oder historische Illustration, die die Situation bei Sony oder die vertragliche Trennung zwischen Sony und Nintendo verdeutlicht.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann mit Mischpulten in einem Raum, aber keinen Bezug zu Sony Music, einem Teamumzug oder der Einführung der Konsole in Japan im Jahr 1994. Korrektur: Ein historisches Foto oder eine Illustration, die das Entwicklerteam in den Büros von Sony Music oder die Präsentation der PlayStation in Japan im Jahr 1994 zeigt.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen den Einstieg von Sony in die Entwicklung der PlayStation sowie eine Aufforderung zum Liken und Teilen. Im Bild ist lediglich eine illustrierte Person an einem Schreibtisch zu sehen, was keinen Bezug zu PlayStation oder einer Aufforderung zur Interaktion zeigt. Korrektur: Ein historisches Bild der PlayStation-Konsole, des Sony-Teams oder eine Darstellung von Social-Media-Interaktionssymbolen wie Like und Teilen.",
+              "Offenes Problem (schwer): Die gesprochene Aufforderung zum Liken, Teilen und Speichern wird durch eine normale Anime-Illustration von Personen in einem Elektronikladen nicht visuell dargestellt, es ist kein Interface oder Engagement-Symbol zu sehen. Korrektur: Ein passendes Bild mit Social-Media-Interaktionssymbolen wie Daumen-hoch, Teilen- und Speicher-Icons."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.014,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 6,
+              "stuecke_neu": 7,
+              "bilder_vereinfacht": 3,
+              "clips_und_stuecke": 386.5,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 44.2,
+              "gesamt": 532.1,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.08,
+                6.9,
+                7.0,
+                5.54,
+                5.52,
+                4.44,
+                8.54
+              ],
+              "woerter": 103,
+              "clips": {
+                "witz": 3,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:04.30",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "But that wasn't the strangest part.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann in einem Büro, was nicht zur Erwähnung von Nintendos Vertragbrechung und dem unerwarteten Verlauf passt. Korrektur: Eine historische Darstellung der Veröffentlichung des CD-ROM Super Famicom oder eine Szene, die die geschäftliche Enttäuschung illustriert."
+              },
+              {
+                "zeit": "00:13.98",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Nintendo couldn't agree on splitting revenue and chose Philips.",
+                "fest": false,
+                "text": "Das Bild zeigt zwei geschäftsähnlich sprechende Männer, was die Verhandlungen und den Streit über Umsätze thematisch vage anreißt, aber es fehlt der konkrete geschichtliche Bezug zu Nintendo, Sony oder Philips. Korrektur: Eine historische Illustration oder Darstellung von Sony- und Nintendo-Vertretern bei gescheiterten Vertragsverhandlungen."
+              },
+              {
+                "zeit": "00:28.28",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Kutaragi reminded him of Nintendo's humiliation.",
+                "fest": false,
+                "text": "Es zeigt zwar eine Besprechung zweier Bueromitarbeiter im Anzug, aber die spezifische ErwEhnung von Nintendo und der historischen Demuetigung wird nicht visuell belegt, da es sich um eine generische Szene handelt. Korrektur: Eine Darstellung oder historische Illustration, die die Situation bei Sony oder die vertragliche Trennung zwischen Sony und Nintendo verdeutlicht."
+              },
+              {
+                "zeit": "00:32.04",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "The team moved to Sony Music, and the console reached Japan in 1994.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann mit Mischpulten in einem Raum, aber keinen Bezug zu Sony Music, einem Teamumzug oder der Einführung der Konsole in Japan im Jahr 1994. Korrektur: Ein historisches Foto oder eine Illustration, die das Entwicklerteam in den Büros von Sony Music oder die Präsentation der PlayStation in Japan im Jahr 1994 zeigt."
+              },
+              {
+                "zeit": "00:36.48",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 10,
+                "gesprochen": "That snub pushed Sony into building PlayStation.",
+                "fest": false,
+                "text": "Die gesprochenen Wörter erwähnen den Einstieg von Sony in die Entwicklung der PlayStation sowie eine Aufforderung zum Liken und Teilen. Im Bild ist lediglich eine illustrierte Person an einem Schreibtisch zu sehen, was keinen Bezug zu PlayStation oder einer Aufforderung zur Interaktion zeigt. Korrektur: Ein historisches Bild der PlayStation-Konsole, des Sony-Teams oder eine Darstellung von Social-Media-Interaktionssymbolen wie Like und Teilen."
+              },
+              {
+                "zeit": "00:40.08",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 11,
+                "gesprochen": "Be sure to like, share and save this video. Which company next?",
+                "fest": false,
+                "text": "Die gesprochene Aufforderung zum Liken, Teilen und Speichern wird durch eine normale Anime-Illustration von Personen in einem Elektronikladen nicht visuell dargestellt, es ist kein Interface oder Engagement-Symbol zu sehen. Korrektur: Ein passendes Bild mit Social-Media-Interaktionssymbolen wie Daumen-hoch, Teilen- und Speicher-Icons."
+              }
+            ],
+            "sekunden": 588.1,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "41412735240-2",
+              "datum": "2026-11-02",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 588.1,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                2,
+                4,
+                5,
+                6
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 2.6,
+            "bau_s": 439.6,
+            "pruefung_s": 170.8,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt lediglich eine generische Geschäftssitzung, die thematisch vage den geschäftlichen Aspekt ('splitting revenue') andeutet, aber keine spezifische Handlung oder Beweise für den Streit zwischen Nintendo, Sony und Philips darstellt.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen generischen Geschäftsmann in einem Büro, was keinen inhaltlichen Bezug zur narrativen Frage über die strategische Entscheidung von Norio Ohga bezüglich des Sony-Projekts hat.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Szene ist eine allgemeine körperliche Auseinandersetzung und liefert keinen visuellen Kontext, der sich auf die geschäftliche oder historische Demütigung von Nintendo durch Sony bezieht.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine allgemeine Studioszene, die in keinem inhaltlichen oder historischen Zusammenhang mit der Entwicklung der PlayStation oder der Geschichte von Sony Music und Nintendo steht.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einer Werkstatt, was keinen Bezug zur Entwicklung oder zum Bau der PlayStation-Konsole hat. Es fehlt jeglicher Bezug zu Elektronik, Software oder der spezifischen Handlung des Konsolenbaus.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einem Tonstudio, enthält jedoch weder Symbole für Gefällt mir, Teilen oder Speichern noch einen zur Kamera gewandten Moderator für den Social-Media-Aufruf.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine generische Geschäftssitzung, die thematisch vage den geschäftlichen Aspekt ('splitting revenue') andeutet, aber keine spezifische Handlung oder Beweise für den Streit zwischen Nintendo, Sony und Philips darstellt. Korrektur: Eine historische Aufnahme oder eine Illustration, die die konkrete Vertragsunterzeichnung oder ein Treffen zwischen Vertretern von Nintendo und Philips zeigt, um die geschäftliche Abkehr von Sony zu verdeutlichen.",
+              "Offenes Problem (schwer): Das Bild zeigt einen generischen Geschäftsmann in einem Büro, was keinen inhaltlichen Bezug zur narrativen Frage über die strategische Entscheidung von Norio Ohga bezüglich des Sony-Projekts hat. Korrektur: Ein historisches Foto oder eine Illustration von Norio Ohga bei einer internen Besprechung bei Sony oder eine Darstellung der geschäftlichen Spannungen zwischen Sony und Nintendo.",
+              "Offenes Problem (schwer): Die gezeigte Szene ist eine allgemeine körperliche Auseinandersetzung und liefert keinen visuellen Kontext, der sich auf die geschäftliche oder historische Demütigung von Nintendo durch Sony bezieht. Korrektur: Ein historisches Foto oder eine Dokumentation, die Ken Kutaragi oder den Moment der geschäftlichen Abfuhr zwischen Sony und Nintendo in einem formellen oder geschäftlichen Kontext zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine allgemeine Studioszene, die in keinem inhaltlichen oder historischen Zusammenhang mit der Entwicklung der PlayStation oder der Geschichte von Sony Music und Nintendo steht. Korrektur: Ein historisches Foto oder eine Illustration, die Sony-Entwickler bei der Arbeit an der ersten PlayStation-Konsole oder in den Büros von Sony Music zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann in einer Werkstatt, was keinen Bezug zur Entwicklung oder zum Bau der PlayStation-Konsole hat. Es fehlt jeglicher Bezug zu Elektronik, Software oder der spezifischen Handlung des Konsolenbaus. Korrektur: Ein Bild, das eine Konsole (PlayStation) oder eine technische Entwicklungsumgebung zeigt, die den Bezug zur Konstruktionsarbeit herstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann in einem Tonstudio, enthält jedoch weder Symbole für Gefällt mir, Teilen oder Speichern noch einen zur Kamera gewandten Moderator für den Social-Media-Aufruf. Korrektur: Ein Bild mit gut erkennbaren Icons für Gefällt mir, Teilen und Speichern oder ein Moderator, der das Publikum direkt zum Interagieren auffordert."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.014,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 7,
+              "stuecke_neu": 6,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 349.5,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 43.8,
+              "gesamt": 438.6,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.08,
+                6.9,
+                7.0,
+                5.54,
+                5.52,
+                4.44,
+                8.54
+              ],
+              "woerter": 103,
+              "clips": {
+                "witz": 5,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:13.98",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Nintendo couldn't agree on splitting revenue and chose Philips.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich eine generische Geschäftssitzung, die thematisch vage den geschäftlichen Aspekt ('splitting revenue') andeutet, aber keine spezifische Handlung oder Beweise für den Streit zwischen Nintendo, Sony und Philips darstellt. Korrektur: Eine historische Aufnahme oder eine Illustration, die die konkrete Vertragsunterzeichnung oder ein Treffen zwischen Vertretern von Nintendo und Philips zeigt, um die geschäftliche Abkehr von Sony zu verdeutlichen."
+              },
+              {
+                "zeit": "00:26.52",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 7,
+                "gesprochen": "Why did Ohga keep it?",
+                "fest": false,
+                "text": "Das Bild zeigt einen generischen Geschäftsmann in einem Büro, was keinen inhaltlichen Bezug zur narrativen Frage über die strategische Entscheidung von Norio Ohga bezüglich des Sony-Projekts hat. Korrektur: Ein historisches Foto oder eine Illustration von Norio Ohga bei einer internen Besprechung bei Sony oder eine Darstellung der geschäftlichen Spannungen zwischen Sony und Nintendo."
+              },
+              {
+                "zeit": "00:28.28",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Kutaragi reminded him of Nintendo's humiliation.",
+                "fest": false,
+                "text": "Die gezeigte Szene ist eine allgemeine körperliche Auseinandersetzung und liefert keinen visuellen Kontext, der sich auf die geschäftliche oder historische Demütigung von Nintendo durch Sony bezieht. Korrektur: Ein historisches Foto oder eine Dokumentation, die Ken Kutaragi oder den Moment der geschäftlichen Abfuhr zwischen Sony und Nintendo in einem formellen oder geschäftlichen Kontext zeigt."
+              },
+              {
+                "zeit": "00:32.04",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "The team moved to Sony Music, and the console reached Japan in 1994.",
+                "fest": false,
+                "text": "Das Bild zeigt eine allgemeine Studioszene, die in keinem inhaltlichen oder historischen Zusammenhang mit der Entwicklung der PlayStation oder der Geschichte von Sony Music und Nintendo steht. Korrektur: Ein historisches Foto oder eine Illustration, die Sony-Entwickler bei der Arbeit an der ersten PlayStation-Konsole oder in den Büros von Sony Music zeigt."
+              },
+              {
+                "zeit": "00:36.48",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 10,
+                "gesprochen": "That snub pushed Sony into building PlayStation.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann in einer Werkstatt, was keinen Bezug zur Entwicklung oder zum Bau der PlayStation-Konsole hat. Es fehlt jeglicher Bezug zu Elektronik, Software oder der spezifischen Handlung des Konsolenbaus. Korrektur: Ein Bild, das eine Konsole (PlayStation) oder eine technische Entwicklungsumgebung zeigt, die den Bezug zur Konstruktionsarbeit herstellt."
+              },
+              {
+                "zeit": "00:40.08",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 11,
+                "gesprochen": "Be sure to like, share and save this video. Which company next?",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann in einem Tonstudio, enthält jedoch weder Symbole für Gefällt mir, Teilen oder Speichern noch einen zur Kamera gewandten Moderator für den Social-Media-Aufruf. Korrektur: Ein Bild mit gut erkennbaren Icons für Gefällt mir, Teilen und Speichern oder ein Moderator, der das Publikum direkt zum Interagieren auffordert."
+              }
+            ],
+            "sekunden": 613.0,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "41412735240-3",
+              "datum": "2026-11-02",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 613.0,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          }
+        ],
+        "status": "gesendet",
+        "trendcheck": "kein Kandidat mit echtem Trendsignal - freie Trendwahl",
+        "grund": "",
+        "sekunden": 2029.1,
+        "upload_titel": "Nintendo Walked Away: Sony Built PlayStation"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:04.30",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "But that wasn't the strangest part.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann in einem Büro, was nicht zur Erwähnung von Nintendos Vertragbrechung und dem unerwarteten Verlauf passt. Korrektur: Eine historische Darstellung der Veröffentlichung des CD-ROM Super Famicom oder eine Szene, die die geschäftliche Enttäuschung illustriert."
+          },
+          {
+            "zeit": "00:13.98",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Nintendo couldn't agree on splitting revenue and chose Philips.",
+            "fest": false,
+            "text": "Das Bild zeigt zwei geschäftsähnlich sprechende Männer, was die Verhandlungen und den Streit über Umsätze thematisch vage anreißt, aber es fehlt der konkrete geschichtliche Bezug zu Nintendo, Sony oder Philips. Korrektur: Eine historische Illustration oder Darstellung von Sony- und Nintendo-Vertretern bei gescheiterten Vertragsverhandlungen."
+          },
+          {
+            "zeit": "00:28.28",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "Kutaragi reminded him of Nintendo's humiliation.",
+            "fest": false,
+            "text": "Es zeigt zwar eine Besprechung zweier Bueromitarbeiter im Anzug, aber die spezifische ErwEhnung von Nintendo und der historischen Demuetigung wird nicht visuell belegt, da es sich um eine generische Szene handelt. Korrektur: Eine Darstellung oder historische Illustration, die die Situation bei Sony oder die vertragliche Trennung zwischen Sony und Nintendo verdeutlicht."
+          },
+          {
+            "zeit": "00:32.04",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 9,
+            "gesprochen": "The team moved to Sony Music, and the console reached Japan in 1994.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann mit Mischpulten in einem Raum, aber keinen Bezug zu Sony Music, einem Teamumzug oder der Einführung der Konsole in Japan im Jahr 1994. Korrektur: Ein historisches Foto oder eine Illustration, die das Entwicklerteam in den Büros von Sony Music oder die Präsentation der PlayStation in Japan im Jahr 1994 zeigt."
+          },
+          {
+            "zeit": "00:36.48",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 10,
+            "gesprochen": "That snub pushed Sony into building PlayStation.",
+            "fest": false,
+            "text": "Die gesprochenen Wörter erwähnen den Einstieg von Sony in die Entwicklung der PlayStation sowie eine Aufforderung zum Liken und Teilen. Im Bild ist lediglich eine illustrierte Person an einem Schreibtisch zu sehen, was keinen Bezug zu PlayStation oder einer Aufforderung zur Interaktion zeigt. Korrektur: Ein historisches Bild der PlayStation-Konsole, des Sony-Teams oder eine Darstellung von Social-Media-Interaktionssymbolen wie Like und Teilen."
+          },
+          {
+            "zeit": "00:40.08",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 11,
+            "gesprochen": "Be sure to like, share and save this video. Which company next?",
+            "fest": false,
+            "text": "Die gesprochene Aufforderung zum Liken, Teilen und Speichern wird durch eine normale Anime-Illustration von Personen in einem Elektronikladen nicht visuell dargestellt, es ist kein Interface oder Engagement-Symbol zu sehen. Korrektur: Ein passendes Bild mit Social-Media-Interaktionssymbolen wie Daumen-hoch, Teilen- und Speicher-Icons."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -14.6,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 40.42,
+              "bis_s": 41.9,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.978
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "A",
+                "s": 0.0,
+                "e": 0.36,
+                "p": 0.8987356424331665
+              },
+              {
+                "w": "day",
+                "s": 0.36,
+                "e": 0.7,
+                "p": 0.9905141592025757
+              },
+              {
+                "w": "after",
+                "s": 0.7,
+                "e": 1.32,
+                "p": 0.9951105713844299
+              },
+              {
+                "w": "Sony's",
+                "s": 1.32,
+                "e": 1.84,
+                "p": 0.9748403131961823
+              },
+              {
+                "w": "reveal,",
+                "s": 1.84,
+                "e": 2.1,
+                "p": 0.9676339030265808
+              },
+              {
+                "w": "Nintendo",
+                "s": 2.62,
+                "e": 2.88,
+                "p": 0.9926636219024658
+              },
+              {
+                "w": "dumped",
+                "s": 2.88,
+                "e": 3.56,
+                "p": 0.9811255931854248
+              },
+              {
+                "w": "them.",
+                "s": 3.56,
+                "e": 3.86,
+                "p": 0.9904302954673767
+              },
+              {
+                "w": "But",
+                "s": 4.28,
+                "e": 4.54,
+                "p": 0.9873336553573608
+              },
+              {
+                "w": "that",
+                "s": 4.54,
+                "e": 4.76,
+                "p": 0.9801784157752991
+              },
+              {
+                "w": "wasn't",
+                "s": 4.76,
+                "e": 5.16,
+                "p": 0.9965740442276001
+              },
+              {
+                "w": "the",
+                "s": 5.16,
+                "e": 5.24,
+                "p": 0.9966306090354919
+              },
+              {
+                "w": "strangest",
+                "s": 5.24,
+                "e": 5.72,
+                "p": 0.9988350868225098
+              },
+              {
+                "w": "part.",
+                "s": 5.72,
+                "e": 6.02,
+                "p": 0.9995948672294617
+              },
+              {
+                "w": "In",
+                "s": 7.1,
+                "e": 7.26,
+                "p": 0.9750365614891052
+              },
+              {
+                "w": "June",
+                "s": 7.26,
+                "e": 7.46,
+                "p": 0.9961993098258972
+              },
+              {
+                "w": "1991,",
+                "s": 7.46,
+                "e": 8.04,
+                "p": 0.9195446968078613
+              },
+              {
+                "w": "Sony",
+                "s": 8.56,
+                "e": 8.92,
+                "p": 0.993220329284668
+              },
+              {
+                "w": "revealed",
+                "s": 8.92,
+                "e": 9.42,
+                "p": 0.9982776641845703
+              },
+              {
+                "w": "a",
+                "s": 9.42,
+                "e": 9.6,
+                "p": 0.9778314828872681
+              },
+              {
+                "w": "CD",
+                "s": 9.6,
+                "e": 9.82,
+                "p": 0.91655033826828
+              },
+              {
+                "w": "-ROM",
+                "s": 9.82,
+                "e": 10.2,
+                "p": 0.970135360956192
+              },
+              {
+                "w": "Super",
+                "s": 10.2,
+                "e": 10.48,
+                "p": 0.783320963382721
+              },
+              {
+                "w": "Famicom,",
+                "s": 10.48,
+                "e": 11.16,
+                "p": 0.9747169216473898
+              },
+              {
+                "w": "a",
+                "s": 11.44,
+                "e": 11.58,
+                "p": 0.9935232400894165
+              },
+              {
+                "w": "joint",
+                "s": 11.58,
+                "e": 11.8,
+                "p": 0.9851945042610168
+              },
+              {
+                "w": "project",
+                "s": 11.8,
+                "e": 12.24,
+                "p": 0.9913727045059204
+              },
+              {
+                "w": "since",
+                "s": 12.24,
+                "e": 12.52,
+                "p": 0.9947248101234436
+              },
+              {
+                "w": "1988.",
+                "s": 12.52,
+                "e": 13.22,
+                "p": 0.9982637763023376
+              },
+              {
+                "w": "Nintendo",
+                "s": 13.98,
+                "e": 14.22,
+                "p": 0.9943935871124268
+              },
+              {
+                "w": "couldn't",
+                "s": 14.22,
+                "e": 15.02,
+                "p": 0.9984665215015411
+              },
+              {
+                "w": "agree",
+                "s": 15.02,
+                "e": 15.26,
+                "p": 0.9701089859008789
+              },
+              {
+                "w": "on",
+                "s": 15.26,
+                "e": 15.48,
+                "p": 0.9949219822883606
+              },
+              {
+                "w": "splitting",
+                "s": 15.48,
+                "e": 15.74,
+                "p": 0.9856840372085571
+              },
+              {
+                "w": "revenue",
+                "s": 15.74,
+                "e": 16.06,
+                "p": 0.9764600396156311
+              },
+              {
+                "w": "and",
+                "s": 16.06,
+                "e": 16.48,
+                "p": 0.9671403765678406
+              },
+              {
+                "w": "chose",
+                "s": 16.48,
+                "e": 16.84,
+                "p": 0.9931701421737671
+              },
+              {
+                "w": "Philips.",
+                "s": 16.84,
+                "e": 17.1,
+                "p": 0.5588191151618958
+              },
+              {
+                "w": "Sony's",
+                "s": 17.82,
+                "e": 18.22,
+                "p": 0.9916971325874329
+              },
+              {
+                "w": "president",
+                "s": 18.22,
+                "e": 18.52,
+                "p": 0.7704446911811829
+              },
+              {
+                "w": "was",
+                "s": 18.52,
+                "e": 18.94,
+                "p": 0.9982252717018127
+              },
+              {
+                "w": "infuriated.",
+                "s": 18.94,
+                "e": 20.36,
+                "p": 0.9918819963932037
+              },
+              {
+                "w": "Oga",
+                "s": 21.02,
+                "e": 21.36,
+                "p": 0.7097297310829163
+              },
+              {
+                "w": "put",
+                "s": 21.36,
+                "e": 21.62,
+                "p": 0.997826874256134
+              },
+              {
+                "w": "Kuturagi",
+                "s": 21.62,
+                "e": 22.06,
+                "p": 0.5309686561425527
+              },
+              {
+                "w": "in",
+                "s": 22.06,
+                "e": 22.3,
+                "p": 0.9952046871185303
+              },
+              {
+                "w": "charge,",
+                "s": 22.3,
+                "e": 22.5,
+                "p": 0.9940310120582581
+              },
+              {
+                "w": "but",
+                "s": 22.98,
+                "e": 23.12,
+                "p": 0.9969974756240845
+              },
+              {
+                "w": "most",
+                "s": 23.12,
+                "e": 23.38,
+                "p": 0.9976092576980591
+              },
+              {
+                "w": "at",
+                "s": 23.38,
+                "e": 23.56,
+                "p": 0.8994406461715698
+              },
+              {
+                "w": "a",
+                "s": 23.56,
+                "e": 23.66,
+                "p": 0.9895929098129272
+              },
+              {
+                "w": "June",
+                "s": 23.66,
+                "e": 23.9,
+                "p": 0.9959491491317749
+              },
+              {
+                "w": "1992",
+                "s": 23.9,
+                "e": 24.44,
+                "p": 0.9794542193412781
+              },
+              {
+                "w": "meeting",
+                "s": 24.44,
+                "e": 24.94,
+                "p": 0.9975460171699524
+              },
+              {
+                "w": "opposed",
+                "s": 24.94,
+                "e": 25.42,
+                "p": 0.9559262990951538
+              },
+              {
+                "w": "it.",
+                "s": 25.42,
+                "e": 25.78,
+                "p": 0.9963955283164978
+              },
+              {
+                "w": "Why",
+                "s": 26.44,
+                "e": 26.96,
+                "p": 0.9614342451095581
+              },
+              {
+                "w": "did",
+                "s": 26.96,
+                "e": 27.06,
+                "p": 0.994365930557251
+              },
+              {
+                "w": "Oga",
+                "s": 27.06,
+                "e": 27.28,
+                "p": 0.9814607203006744
+              },
+              {
+                "w": "keep",
+                "s": 27.28,
+                "e": 27.48,
+                "p": 0.9981017708778381
+              },
+              {
+                "w": "it?",
+                "s": 27.48,
+                "e": 27.6,
+                "p": 0.998765230178833
+              },
+              {
+                "w": "But,",
+                "s": 27.6,
+                "e": 27.8,
+                "p": 0.32362839579582214
+              },
+              {
+                "w": "Kutaragi",
+                "s": 28.54,
+                "e": 28.82,
+                "p": 0.5786106139421463
+              },
+              {
+                "w": "reminded",
+                "s": 28.82,
+                "e": 29.26,
+                "p": 0.9911908507347107
+              },
+              {
+                "w": "him",
+                "s": 29.26,
+                "e": 29.5,
+                "p": 0.992561399936676
+              },
+              {
+                "w": "of",
+                "s": 29.5,
+                "e": 29.68,
+                "p": 0.9978475570678711
+              },
+              {
+                "w": "Nintendo's",
+                "s": 29.68,
+                "e": 30.44,
+                "p": 0.9846238195896149
+              },
+              {
+                "w": "humiliation.",
+                "s": 30.44,
+                "e": 30.7,
+                "p": 0.8524297475814819
+              },
+              {
+                "w": "The",
+                "s": 32.04,
+                "e": 32.06,
+                "p": 0.9904913306236267
+              },
+              {
+                "w": "team",
+                "s": 32.06,
+                "e": 32.26,
+                "p": 0.9937233328819275
+              },
+              {
+                "w": "moved",
+                "s": 32.26,
+                "e": 32.46,
+                "p": 0.9819453358650208
+              },
+              {
+                "w": "to",
+                "s": 32.46,
+                "e": 32.62,
+                "p": 0.9984121322631836
+              },
+              {
+                "w": "Sony",
+                "s": 32.62,
+                "e": 32.76,
+                "p": 0.9945822358131409
+              },
+              {
+                "w": "Music,",
+                "s": 32.76,
+                "e": 33.1,
+                "p": 0.5900678038597107
+              },
+              {
+                "w": "and",
+                "s": 33.56,
+                "e": 33.6,
+                "p": 0.9923370480537415
+              },
+              {
+                "w": "the",
+                "s": 33.6,
+                "e": 33.7,
+                "p": 0.9870108366012573
+              },
+              {
+                "w": "console",
+                "s": 33.7,
+                "e": 34.0,
+                "p": 0.9924836754798889
+              },
+              {
+                "w": "reached",
+                "s": 34.0,
+                "e": 34.24,
+                "p": 0.9953900575637817
+              },
+              {
+                "w": "Japan",
+                "s": 34.24,
+                "e": 34.54,
+                "p": 0.9962077140808105
+              },
+              {
+                "w": "in",
+                "s": 34.54,
+                "e": 34.9,
+                "p": 0.9928117394447327
+              },
+              {
+                "w": "1994.",
+                "s": 34.9,
+                "e": 35.62,
+                "p": 0.9971441626548767
+              },
+              {
+                "w": "That",
+                "s": 36.44,
+                "e": 36.68,
+                "p": 0.9737836718559265
+              },
+              {
+                "w": "snub",
+                "s": 36.68,
+                "e": 37.06,
+                "p": 0.932909220457077
+              },
+              {
+                "w": "pushed",
+                "s": 37.06,
+                "e": 37.54,
+                "p": 0.9486626386642456
+              },
+              {
+                "w": "Sony",
+                "s": 37.54,
+                "e": 37.92,
+                "p": 0.9772858023643494
+              },
+              {
+                "w": "into",
+                "s": 37.92,
+                "e": 38.28,
+                "p": 0.9656611084938049
+              },
+              {
+                "w": "building",
+                "s": 38.28,
+                "e": 38.6,
+                "p": 0.7572104930877686
+              },
+              {
+                "w": "PlayStation.",
+                "s": 38.6,
+                "e": 39.02,
+                "p": 0.691371738910675
+              },
+              {
+                "w": "Be",
+                "s": 40.08,
+                "e": 40.18,
+                "p": 0.9838522672653198
+              },
+              {
+                "w": "sure",
+                "s": 40.18,
+                "e": 40.32,
+                "p": 0.9992581009864807
+              },
+              {
+                "w": "to",
+                "s": 40.32,
+                "e": 40.42,
+                "p": 0.9943535327911377
+              },
+              {
+                "w": "like,",
+                "s": 40.42,
+                "e": 40.6,
+                "p": 0.9103764295578003
+              },
+              {
+                "w": "share,",
+                "s": 40.7,
+                "e": 41.02,
+                "p": 0.9978121519088745
+              },
+              {
+                "w": "and",
+                "s": 41.26,
+                "e": 41.28,
+                "p": 0.9936646223068237
+              },
+              {
+                "w": "save",
+                "s": 41.28,
+                "e": 41.48,
+                "p": 0.9929383397102356
+              },
+              {
+                "w": "this",
+                "s": 41.48,
+                "e": 41.62,
+                "p": 0.9749770760536194
+              },
+              {
+                "w": "video",
+                "s": 41.62,
+                "e": 41.9,
+                "p": 0.9970093965530396
+              },
+              {
+                "w": "with",
+                "s": 41.9,
+                "e": 42.3,
+                "p": 0.8195725083351135
+              },
+              {
+                "w": "Company",
+                "s": 42.3,
+                "e": 42.5,
+                "p": 0.718292772769928
+              },
+              {
+                "w": "Next!",
+                "s": 42.5,
+                "e": 42.74,
+                "p": 0.9112460613250732
+              },
+              {
+                "w": "Comment",
+                "s": 43.32,
+                "e": 43.44,
+                "p": 0.9806171655654907
+              },
+              {
+                "w": "and",
+                "s": 43.44,
+                "e": 44.0,
+                "p": 0.6804720163345337
+              },
+              {
+                "w": "follow",
+                "s": 44.0,
+                "e": 44.26,
+                "p": 0.9826081395149231
+              },
+              {
+                "w": "for",
+                "s": 44.26,
+                "e": 44.48,
+                "p": 0.9920054078102112
+              },
+              {
+                "w": "more!",
+                "s": 44.48,
+                "e": 44.62,
+                "p": 0.9993510842323303
+              }
+            ],
+            "dauer_s": 44.9493125,
+            "sprache": "en"
+          },
+          "roh_key": "8ce958a7c979ad5c9966a8def4c9ec73b710fc29523367afd7b02a3661f231ed",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "c16256a7ca8f13ef3815753d3681bad1e6860e603805377f9ab3f3092d15df73",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 13,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "c16256a7ca8f13ef3815753d3681bad1e6860e603805377f9ab3f3092d15df73",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Eine Gruppe geschockter oder überraschter Männer in Anzügen im Flur, die in eine Richtung blicken, mit einem Overlay Text 'SONY'S REVEAL'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gezeigten geschockten Gesichter als opening_reaction_shot passen sehr gut zu der emotionalen Eröffnung über die Enttäuschung nach dem Reveal, und das Video enthält die angegebene visuelle Szene.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da der Hook visuell passt."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Mann im braunen Sakko vor Fenstern mit Stadtblick schaut leicht besorgt und nachdenklich nach oben.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Mann in einem Büro, was nicht zur Erwähnung von Nintendos Vertragbrechung und dem unerwarteten Verlauf passt.",
+              "erforderliches_bild": "Eine historische Darstellung der Veröffentlichung des CD-ROM Super Famicom oder eine Szene, die die geschäftliche Enttäuschung illustriert."
+            },
+            {
+              "index": 4,
+              "gesehen": "Zwei Männer sitzen sich an einem Tisch in einem von hinten beleuchteten Gang oder einer Lagerhalle gegenüber, im Hintergrund Gebäude und eine vage Straßenszene, davor gestapelte Kartons.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt zwei geschäftsähnlich sprechende Männer, was die Verhandlungen und den Streit über Umsätze thematisch vage anreißt, aber es fehlt der konkrete geschichtliche Bezug zu Nintendo, Sony oder Philips.",
+              "erforderliches_bild": "Eine historische Illustration oder Darstellung von Sony- und Nintendo-Vertretern bei gescheiterten Vertragsverhandlungen."
+            },
+            {
+              "index": 6,
+              "gesehen": "In einem Buero sitzt ein Mann im Anzug an einem Besprechungstisch und haelt einen kleinen braunen Gegenstand hoch, waehrend andere Personen im Anzug um den Tisch herum sitzen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Szene zeigt eine Geschaeftsbesprechung mit mehreren Personen in Anzuegen, was zu der Erwaehnung eines Meetings und einer Fuehrungsentscheidung passt.",
+              "erforderliches_bild": "Ein realistischeres Bild eines Geschaeftsmeetings aus den 1990er Jahren mit Sony- und Nintendo-Vertretern."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein Mann im Anzug sitzt nachdenklich an einem Schreibtisch mit Lampe und Schreibmaschine in einem Büro vor einem Fenster.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die rhetorische Frage leitet den gedanklichen Konflikt ein und passt zu einem nachdenklichen Protagonisten.",
+              "erforderliches_bild": "Ein nachdenklicher Mann in einem Büro, passend zur narrativen Frage über die Entscheidungsfindung."
+            },
+            {
+              "index": 8,
+              "gesehen": "Zwei Personen im Anzug sitzen in einem Bueroraum an einem Schreibtisch und sprechen miteinander vor dem Fenster.",
+              "note": 4,
+              "passt": false,
+              "grund": "Es zeigt zwar eine Besprechung zweier Bueromitarbeiter im Anzug, aber die spezifische ErwEhnung von Nintendo und der historischen Demuetigung wird nicht visuell belegt, da es sich um eine generische Szene handelt.",
+              "erforderliches_bild": "Eine Darstellung oder historische Illustration, die die Situation bei Sony oder die vertragliche Trennung zwischen Sony und Nintendo verdeutlicht."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein Mann mit Bart steht in einem mit Audiotechnik und Mischpulten ausgestatteten Raum und hält eine kleine Kiste in den Händen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Mann mit Mischpulten in einem Raum, aber keinen Bezug zu Sony Music, einem Teamumzug oder der Einführung der Konsole in Japan im Jahr 1994.",
+              "erforderliches_bild": "Ein historisches Foto oder eine Illustration, die das Entwicklerteam in den Büros von Sony Music oder die Präsentation der PlayStation in Japan im Jahr 1994 zeigt."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein junger Mann sitzt an einem Schreibtisch in einem Zimmer mit warmem Abendlicht, schreibt etwas auf und blickt auf einen kleinen Retro-Bildschirm sowie eine Audiokonsole. Im Hintergrund ist ein Fenster mit Blick auf eine Stadt zu sehen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gesprochenen Wörter erwähnen den Einstieg von Sony in die Entwicklung der PlayStation sowie eine Aufforderung zum Liken und Teilen. Im Bild ist lediglich eine illustrierte Person an einem Schreibtisch zu sehen, was keinen Bezug zu PlayStation oder einer Aufforderung zur Interaktion zeigt.",
+              "erforderliches_bild": "Ein historisches Bild der PlayStation-Konsole, des Sony-Teams oder eine Darstellung von Social-Media-Interaktionssymbolen wie Like und Teilen."
+            },
+            {
+              "index": 11,
+              "gesehen": "In einem Elektro- oder Retro-Gärtelein laden mehrere Personen, darunter Kundinnen und ein Verkäufer, in einer Szene mit Regalen voll Fernsehern.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gesprochene Aufforderung zum Liken, Teilen und Speichern wird durch eine normale Anime-Illustration von Personen in einem Elektronikladen nicht visuell dargestellt, es ist kein Interface oder Engagement-Symbol zu sehen.",
+              "erforderliches_bild": "Ein passendes Bild mit Social-Media-Interaktionssymbolen wie Daumen-hoch, Teilen- und Speicher-Icons."
+            },
+            {
+              "index": 12,
+              "gesehen": "Ein gemalter Mann mit Hut in einer Straßenszene, darüber eine Sprechblase mit Text zur Interaktion.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbare Aufforderung zur Interaktion (Kommentieren und Folgen) in der Sprechblase passt zu der gesprochenen Handlungsaufforderung am Ende des Videos.",
+              "erforderliches_bild": "kein Ersatz erforderlich"
+            }
+          ],
+          "befunde": [
+            "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Mann in einem Büro, was nicht zur Erwähnung von Nintendos Vertragbrechung und dem unerwarteten Verlauf passt.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwei geschäftsähnlich sprechende Männer, was die Verhandlungen und den Streit über Umsätze thematisch vage anreißt, aber es fehlt der konkrete geschichtliche Bezug zu Nintendo, Sony oder Philips.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (4/10): Es zeigt zwar eine Besprechung zweier Bueromitarbeiter im Anzug, aber die spezifische ErwEhnung von Nintendo und der historischen Demuetigung wird nicht visuell belegt, da es sich um eine generische Szene handelt.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit Mischpulten in einem Raum, aber keinen Bezug zu Sony Music, einem Teamumzug oder der Einführung der Konsole in Japan im Jahr 1994.",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen den Einstieg von Sony in die Entwicklung der PlayStation sowie eine Aufforderung zum Liken und Teilen. Im Bild ist lediglich eine illustrierte Person an einem Schreibtisch zu sehen, was keinen Bezug zu PlayStation oder einer Aufforderung zur Interaktion zeigt.",
+            "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Aufforderung zum Liken, Teilen und Speichern wird durch eine normale Anime-Illustration von Personen in einem Elektronikladen nicht visuell dargestellt, es ist kein Interface oder Engagement-Symbol zu sehen."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 13,
+          "ausgenommen": [],
+          "vorgeprueft": [
+            2,
+            3,
+            5
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "c16256a7ca8f13ef3815753d3681bad1e6860e603805377f9ab3f3092d15df73",
+        "prompt_version": "2026-10-29.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

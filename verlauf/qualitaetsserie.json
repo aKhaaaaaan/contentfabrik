@@ -132532,6 +132532,1258 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "41412735240.1:ai-tools-explained",
+      "run_id": "41412735240",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-02T08:37:51.970127+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "666bedfef6df5ac2bd3d69f446e43e57fedc3844",
+      "produktionsversion": "254eb9ddec89a48e0e6a80db83a80be407a9bb0ba31360c1e0fcc67124838d68",
+      "videoformat": "short",
+      "thema": "Is your LG smart TV listening? What researchers found and how to switch it off",
+      "titel": [
+        "IS YOUR *LG* *TV*",
+        "LISTENING?"
+      ],
+      "status": "gesendet",
+      "video_sha256": "7637a1956dacba734c03822f0953b9f5377c49a7d5abf98c42291fb646ac8899",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Hand mit einem Handmikrofon und einen Monitor mit Farbklecksen. Es ist weder ein LG-Fernseher mit dunklem Bildschirm noch ein stummgeschaltetes Mikrofon zu sehen.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Passage verlangt das Ausschalten von ACR, Far-Field-Spracherkennung und interessenbezogenen Anzeigen in den Einstellungen, gezeigt wird jedoch nur eine Hand mit einer Fernbedienung im dunklen Zimmer ohne Menü oder Einstellungsansicht.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Spieler mit Controller, während die gesprochenen Wörter eine Suche nach Einstellungen ('settings scavenger hunt') beschreiben.",
+        "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann auf einem Sofa neben einem Schaltschrank und passt nicht zu den Worten 'Alleged, disputed, better locked down.', da weder der umstrittene Sachverhalt noch Sicherheitsmaßnahmen dargestellt werden.",
+        "Offenes Problem (schwer): Das Bild zeigt eine Hand mit einem Handmikrofon und einen Monitor mit Farbklecksen. Es ist weder ein LG-Fernseher mit dunklem Bildschirm noch ein stummgeschaltetes Mikrofon zu sehen. Korrektur: Ein ausgeschalteter oder dunkler LG-Fernseher mit einem erkennbaren Mikrofon-Symbol oder einer Stummschaltungsanzeige.",
+        "Offenes Problem (schwer): Die gesprochene Passage verlangt das Ausschalten von ACR, Far-Field-Spracherkennung und interessenbezogenen Anzeigen in den Einstellungen, gezeigt wird jedoch nur eine Hand mit einer Fernbedienung im dunklen Zimmer ohne Menü oder Einstellungsansicht. Korrektur: Ein Screenshot der Fernseheinstellungen, das das Menü zum Deaktivieren von ACR und Far-Field-Spracherkennung zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Spieler mit Controller, während die gesprochenen Wörter eine Suche nach Einstellungen ('settings scavenger hunt') beschreiben. Korrektur: Ein Screenshot des Einstellungsmenüs eines Smart-TVs, das Optionen wie ACR oder Far-Field-Spracherkennung zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Mann auf einem Sofa neben einem Schaltschrank und passt nicht zu den Worten 'Alleged, disputed, better locked down.', da weder der umstrittene Sachverhalt noch Sicherheitsmaßnahmen dargestellt werden. Korrektur: Ein Screenshot von Gerätesicherheitseinstellungen oder ein Symbol für Datenschutz und Sicherheit."
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 13,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "41412735240",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-02",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 656.7,
+            "pruefung_s": 39.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Hand mit einem Handmikrofon und einen Monitor mit Farbklecksen. Es ist weder ein LG-Fernseher mit dunklem Bildschirm noch ein stummgeschaltetes Mikrofon zu sehen.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Passage verlangt das Ausschalten von ACR, Far-Field-Spracherkennung und interessenbezogenen Anzeigen in den Einstellungen, gezeigt wird jedoch nur eine Hand mit einer Fernbedienung im dunklen Zimmer ohne Menü oder Einstellungsansicht.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Spieler mit Controller, während die gesprochenen Wörter eine Suche nach Einstellungen ('settings scavenger hunt') beschreiben.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann auf einem Sofa neben einem Schaltschrank und passt nicht zu den Worten 'Alleged, disputed, better locked down.', da weder der umstrittene Sachverhalt noch Sicherheitsmaßnahmen dargestellt werden.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Hand mit einem Handmikrofon und einen Monitor mit Farbklecksen. Es ist weder ein LG-Fernseher mit dunklem Bildschirm noch ein stummgeschaltetes Mikrofon zu sehen. Korrektur: Ein ausgeschalteter oder dunkler LG-Fernseher mit einem erkennbaren Mikrofon-Symbol oder einer Stummschaltungsanzeige.",
+              "Offenes Problem (schwer): Die gesprochene Passage verlangt das Ausschalten von ACR, Far-Field-Spracherkennung und interessenbezogenen Anzeigen in den Einstellungen, gezeigt wird jedoch nur eine Hand mit einer Fernbedienung im dunklen Zimmer ohne Menü oder Einstellungsansicht. Korrektur: Ein Screenshot der Fernseheinstellungen, das das Menü zum Deaktivieren von ACR und Far-Field-Spracherkennung zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Spieler mit Controller, während die gesprochenen Wörter eine Suche nach Einstellungen ('settings scavenger hunt') beschreiben. Korrektur: Ein Screenshot des Einstellungsmenüs eines Smart-TVs, das Optionen wie ACR oder Far-Field-Spracherkennung zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann auf einem Sofa neben einem Schaltschrank und passt nicht zu den Worten 'Alleged, disputed, better locked down.', da weder der umstrittene Sachverhalt noch Sicherheitsmaßnahmen dargestellt werden. Korrektur: Ein Screenshot von Gerätesicherheitseinstellungen oder ein Symbol für Datenschutz und Sicherheit."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 26.7,
+              "zeitmarken": 5.4,
+              "tempo": 1.25,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 420.4,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 55.5,
+              "gesamt": 656.3,
+              "videolaenge_s": 45.6,
+              "abschnitte_s": [
+                6.1,
+                7.34,
+                8.24,
+                6.08,
+                7.24,
+                6.66,
+                3.96
+              ],
+              "woerter": 130,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:09.77",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "dark-screen LG TV whose main microphone was muted.",
+                "fest": true,
+                "text": "Das Bild zeigt eine Hand mit einem Handmikrofon und einen Monitor mit Farbklecksen. Es ist weder ein LG-Fernseher mit dunklem Bildschirm noch ein stummgeschaltetes Mikrofon zu sehen. Korrektur: Ein ausgeschalteter oder dunkler LG-Fernseher mit einem erkennbaren Mikrofon-Symbol oder einer Stummschaltungsanzeige."
+              },
+              {
+                "zeit": "00:27.76",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Either way, limit tracking. Switch off ACR, Far-Field voice recognition and interest-based ads.",
+                "fest": true,
+                "text": "Die gesprochene Passage verlangt das Ausschalten von ACR, Far-Field-Spracherkennung und interessenbezogenen Anzeigen in den Einstellungen, gezeigt wird jedoch nur eine Hand mit einer Fernbedienung im dunklen Zimmer ohne Menü oder Einstellungsansicht. Korrektur: Ein Screenshot der Fernseheinstellungen, das das Menü zum Deaktivieren von ACR und Far-Field-Spracherkennung zeigt."
+              },
+              {
+                "zeit": "00:32.76",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "Yes, a settings scavenger hunt.",
+                "fest": true,
+                "text": "Das Bild zeigt einen Spieler mit Controller, während die gesprochenen Wörter eine Suche nach Einstellungen ('settings scavenger hunt') beschreiben. Korrektur: Ein Screenshot des Einstellungsmenüs eines Smart-TVs, das Optionen wie ACR oder Far-Field-Spracherkennung zeigt."
+              },
+              {
+                "zeit": "00:39.22",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "Alleged, disputed, better locked down.",
+                "fest": true,
+                "text": "Das Bild zeigt einen Mann auf einem Sofa neben einem Schaltschrank und passt nicht zu den Worten 'Alleged, disputed, better locked down.', da weder der umstrittene Sachverhalt noch Sicherheitsmaßnahmen dargestellt werden. Korrektur: Ein Screenshot von Gerätesicherheitseinstellungen oder ein Symbol für Datenschutz und Sicherheit."
+              }
+            ],
+            "sekunden": 695.9,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 713.6,
+        "upload_titel": "IS YOUR LG TV: LISTENING? | AI Tool #23"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:09.77",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "dark-screen LG TV whose main microphone was muted.",
+            "fest": true,
+            "text": "Das Bild zeigt eine Hand mit einem Handmikrofon und einen Monitor mit Farbklecksen. Es ist weder ein LG-Fernseher mit dunklem Bildschirm noch ein stummgeschaltetes Mikrofon zu sehen. Korrektur: Ein ausgeschalteter oder dunkler LG-Fernseher mit einem erkennbaren Mikrofon-Symbol oder einer Stummschaltungsanzeige."
+          },
+          {
+            "zeit": "00:27.76",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "Either way, limit tracking. Switch off ACR, Far-Field voice recognition and interest-based ads.",
+            "fest": true,
+            "text": "Die gesprochene Passage verlangt das Ausschalten von ACR, Far-Field-Spracherkennung und interessenbezogenen Anzeigen in den Einstellungen, gezeigt wird jedoch nur eine Hand mit einer Fernbedienung im dunklen Zimmer ohne Menü oder Einstellungsansicht. Korrektur: Ein Screenshot der Fernseheinstellungen, das das Menü zum Deaktivieren von ACR und Far-Field-Spracherkennung zeigt."
+          },
+          {
+            "zeit": "00:32.76",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "Yes, a settings scavenger hunt.",
+            "fest": true,
+            "text": "Das Bild zeigt einen Spieler mit Controller, während die gesprochenen Wörter eine Suche nach Einstellungen ('settings scavenger hunt') beschreiben. Korrektur: Ein Screenshot des Einstellungsmenüs eines Smart-TVs, das Optionen wie ACR oder Far-Field-Spracherkennung zeigt."
+          },
+          {
+            "zeit": "00:39.22",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "Alleged, disputed, better locked down.",
+            "fest": true,
+            "text": "Das Bild zeigt einen Mann auf einem Sofa neben einem Schaltschrank und passt nicht zu den Worten 'Alleged, disputed, better locked down.', da weder der umstrittene Sachverhalt noch Sicherheitsmaßnahmen dargestellt werden. Korrektur: Ein Screenshot von Gerätesicherheitseinstellungen oder ein Symbol für Datenschutz und Sicherheit."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.6,
+          "fps": 30.0,
+          "lufs": -14.1,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 41.92,
+              "bis_s": 43.28,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.986
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.6,
+              "bis_s": 46.1,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Your",
+                "s": 0.0,
+                "e": 0.18,
+                "p": 0.7263442873954773
+              },
+              {
+                "w": "TV",
+                "s": 0.18,
+                "e": 0.4,
+                "p": 0.9759361147880554
+              },
+              {
+                "w": "is",
+                "s": 0.4,
+                "e": 0.74,
+                "p": 0.9940024018287659
+              },
+              {
+                "w": "off,",
+                "s": 0.74,
+                "e": 1.06,
+                "p": 0.9682189226150513
+              },
+              {
+                "w": "yet",
+                "s": 1.32,
+                "e": 1.44,
+                "p": 0.9842055439949036
+              },
+              {
+                "w": "it",
+                "s": 1.44,
+                "e": 1.58,
+                "p": 0.9714122414588928
+              },
+              {
+                "w": "may",
+                "s": 1.58,
+                "e": 1.84,
+                "p": 0.9771584272384644
+              },
+              {
+                "w": "be",
+                "s": 1.84,
+                "e": 2.0,
+                "p": 0.9981313347816467
+              },
+              {
+                "w": "recording.",
+                "s": 2.0,
+                "e": 2.34,
+                "p": 0.9915675520896912
+              },
+              {
+                "w": "Awkward",
+                "s": 2.94,
+                "e": 3.18,
+                "p": 0.9517756998538971
+              },
+              {
+                "w": "for",
+                "s": 3.18,
+                "e": 3.4,
+                "p": 0.9834575653076172
+              },
+              {
+                "w": "your",
+                "s": 3.4,
+                "e": 3.5,
+                "p": 0.987987756729126
+              },
+              {
+                "w": "couch,",
+                "s": 3.5,
+                "e": 3.68,
+                "p": 0.9847669005393982
+              },
+              {
+                "w": "but",
+                "s": 3.74,
+                "e": 4.1,
+                "p": 0.9929835796356201
+              },
+              {
+                "w": "the",
+                "s": 4.1,
+                "e": 4.3,
+                "p": 0.9447183012962341
+              },
+              {
+                "w": "muted",
+                "s": 4.3,
+                "e": 4.56,
+                "p": 0.9906589984893799
+              },
+              {
+                "w": "microphone",
+                "s": 4.56,
+                "e": 4.82,
+                "p": 0.9900643229484558
+              },
+              {
+                "w": "is",
+                "s": 4.82,
+                "e": 5.32,
+                "p": 0.9978852868080139
+              },
+              {
+                "w": "weirder.",
+                "s": 5.32,
+                "e": 5.86,
+                "p": 0.9939378698666891
+              },
+              {
+                "w": "Gamers",
+                "s": 6.08,
+                "e": 6.38,
+                "p": 0.8289449214935303
+              },
+              {
+                "w": "Nexus,",
+                "s": 6.38,
+                "e": 6.54,
+                "p": 0.29252293705940247
+              },
+              {
+                "w": "Level",
+                "s": 6.9,
+                "e": 7.0,
+                "p": 0.6003534197807312
+              },
+              {
+                "w": "One",
+                "s": 7.0,
+                "e": 7.24,
+                "p": 0.42520275712013245
+              },
+              {
+                "w": "Text,",
+                "s": 7.24,
+                "e": 7.38,
+                "p": 0.2935829758644104
+              },
+              {
+                "w": "and",
+                "s": 7.6,
+                "e": 7.62,
+                "p": 0.9920427203178406
+              },
+              {
+                "w": "three",
+                "s": 7.62,
+                "e": 7.92,
+                "p": 0.9127431511878967
+              },
+              {
+                "w": "researchers",
+                "s": 7.92,
+                "e": 8.38,
+                "p": 0.9558338522911072
+              },
+              {
+                "w": "say",
+                "s": 8.38,
+                "e": 8.74,
+                "p": 0.9722310900688171
+              },
+              {
+                "w": "they",
+                "s": 8.74,
+                "e": 8.82,
+                "p": 0.9861268997192383
+              },
+              {
+                "w": "captured",
+                "s": 8.82,
+                "e": 9.02,
+                "p": 0.989449143409729
+              },
+              {
+                "w": "audio",
+                "s": 9.02,
+                "e": 9.34,
+                "p": 0.9925960898399353
+              },
+              {
+                "w": "from",
+                "s": 9.34,
+                "e": 9.66,
+                "p": 0.9970191717147827
+              },
+              {
+                "w": "a",
+                "s": 9.66,
+                "e": 9.74,
+                "p": 0.9870806336402893
+              },
+              {
+                "w": "dark",
+                "s": 9.74,
+                "e": 10.02,
+                "p": 0.9604314565658569
+              },
+              {
+                "w": "screen",
+                "s": 10.02,
+                "e": 10.38,
+                "p": 0.6346097588539124
+              },
+              {
+                "w": "LG",
+                "s": 10.38,
+                "e": 10.66,
+                "p": 0.932761549949646
+              },
+              {
+                "w": "TV",
+                "s": 10.66,
+                "e": 11.0,
+                "p": 0.9533357620239258
+              },
+              {
+                "w": "whose",
+                "s": 11.0,
+                "e": 11.44,
+                "p": 0.8196246027946472
+              },
+              {
+                "w": "main",
+                "s": 11.44,
+                "e": 11.68,
+                "p": 0.9883657693862915
+              },
+              {
+                "w": "microphone",
+                "s": 11.68,
+                "e": 12.1,
+                "p": 0.9887082576751709
+              },
+              {
+                "w": "was",
+                "s": 12.1,
+                "e": 12.5,
+                "p": 0.9977841973304749
+              },
+              {
+                "w": "muted.",
+                "s": 12.5,
+                "e": 12.98,
+                "p": 0.9965018033981323
+              },
+              {
+                "w": "They",
+                "s": 13.44,
+                "e": 13.44,
+                "p": 0.983668863773346
+              },
+              {
+                "w": "say",
+                "s": 13.44,
+                "e": 13.58,
+                "p": 0.998145341873169
+              },
+              {
+                "w": "a",
+                "s": 13.58,
+                "e": 13.72,
+                "p": 0.9864075183868408
+              },
+              {
+                "w": "TV",
+                "s": 13.72,
+                "e": 13.94,
+                "p": 0.9957882761955261
+              },
+              {
+                "w": "unplugged",
+                "s": 13.94,
+                "e": 14.76,
+                "p": 0.9867101907730103
+              },
+              {
+                "w": "from",
+                "s": 14.76,
+                "e": 14.88,
+                "p": 0.9985241293907166
+              },
+              {
+                "w": "ethernet,",
+                "s": 14.88,
+                "e": 15.28,
+                "p": 0.8592474162578583
+              },
+              {
+                "w": "uploaded",
+                "s": 15.44,
+                "e": 15.7,
+                "p": 0.9521183371543884
+              },
+              {
+                "w": "stored",
+                "s": 15.7,
+                "e": 16.1,
+                "p": 0.8580853343009949
+              },
+              {
+                "w": "audio",
+                "s": 16.1,
+                "e": 16.68,
+                "p": 0.9989141225814819
+              },
+              {
+                "w": "after",
+                "s": 16.68,
+                "e": 17.08,
+                "p": 0.9325159788131714
+              },
+              {
+                "w": "reconnecting.",
+                "s": 17.08,
+                "e": 17.72,
+                "p": 0.994865894317627
+              },
+              {
+                "w": "Creepy,",
+                "s": 17.84,
+                "e": 18.14,
+                "p": 0.9764630794525146
+              },
+              {
+                "w": "if",
+                "s": 18.14,
+                "e": 18.26,
+                "p": 0.9968620538711548
+              },
+              {
+                "w": "true.",
+                "s": 18.26,
+                "e": 18.4,
+                "p": 0.9965793490409851
+              },
+              {
+                "w": "So",
+                "s": 18.82,
+                "e": 18.82,
+                "p": 0.9836142063140869
+              },
+              {
+                "w": "what's",
+                "s": 18.82,
+                "e": 19.22,
+                "p": 0.8875015676021576
+              },
+              {
+                "w": "LG's",
+                "s": 19.22,
+                "e": 19.54,
+                "p": 0.9804269671440125
+              },
+              {
+                "w": "reply?",
+                "s": 19.54,
+                "e": 19.7,
+                "p": 0.9973534345626831
+              },
+              {
+                "w": "Who",
+                "s": 20.46,
+                "e": 20.76,
+                "p": 0.328950971364975
+              },
+              {
+                "w": "spurs?",
+                "s": 20.76,
+                "e": 21.04,
+                "p": 0.3820418417453766
+              },
+              {
+                "w": "LG",
+                "s": 21.38,
+                "e": 21.6,
+                "p": 0.9897375702857971
+              },
+              {
+                "w": "disputes",
+                "s": 21.6,
+                "e": 22.02,
+                "p": 0.7227143049240112
+              },
+              {
+                "w": "this,",
+                "s": 22.02,
+                "e": 22.4,
+                "p": 0.998745322227478
+              },
+              {
+                "w": "recording",
+                "s": 22.74,
+                "e": 22.78,
+                "p": 0.9939886331558228
+              },
+              {
+                "w": "needs",
+                "s": 22.78,
+                "e": 23.08,
+                "p": 0.9850216507911682
+              },
+              {
+                "w": "the",
+                "s": 23.08,
+                "e": 23.36,
+                "p": 0.9930205941200256
+              },
+              {
+                "w": "voice",
+                "s": 23.36,
+                "e": 23.56,
+                "p": 0.9347567558288574
+              },
+              {
+                "w": "button,",
+                "s": 23.56,
+                "e": 23.78,
+                "p": 0.9979647397994995
+              },
+              {
+                "w": "or",
+                "s": 24.0,
+                "e": 24.14,
+                "p": 0.9980646967887878
+              },
+              {
+                "w": "high",
+                "s": 24.14,
+                "e": 24.48,
+                "p": 0.6745949983596802
+              },
+              {
+                "w": "LG",
+                "s": 24.48,
+                "e": 24.68,
+                "p": 0.9365435838699341
+              },
+              {
+                "w": "with",
+                "s": 24.68,
+                "e": 25.08,
+                "p": 0.9142148494720459
+              },
+              {
+                "w": "far",
+                "s": 25.08,
+                "e": 25.24,
+                "p": 0.7732790112495422
+              },
+              {
+                "w": "-field",
+                "s": 25.24,
+                "e": 25.46,
+                "p": 0.7043566405773163
+              },
+              {
+                "w": "on.",
+                "s": 25.46,
+                "e": 25.56,
+                "p": 0.8735524415969849
+              },
+              {
+                "w": "Unrecognized",
+                "s": 25.9,
+                "e": 26.34,
+                "p": 0.9848206043243408
+              },
+              {
+                "w": "audio",
+                "s": 26.34,
+                "e": 26.56,
+                "p": 0.9900216460227966
+              },
+              {
+                "w": "gets",
+                "s": 26.56,
+                "e": 26.86,
+                "p": 0.9784981608390808
+              },
+              {
+                "w": "deleted.",
+                "s": 26.86,
+                "e": 27.24,
+                "p": 0.9984368681907654
+              },
+              {
+                "w": "Either",
+                "s": 27.78,
+                "e": 27.78,
+                "p": 0.9940698146820068
+              },
+              {
+                "w": "way,",
+                "s": 27.78,
+                "e": 27.96,
+                "p": 0.9992207288742065
+              },
+              {
+                "w": "limit",
+                "s": 28.24,
+                "e": 28.4,
+                "p": 0.9794294834136963
+              },
+              {
+                "w": "tracking.",
+                "s": 28.4,
+                "e": 28.74,
+                "p": 0.969305157661438
+              },
+              {
+                "w": "Switch",
+                "s": 28.74,
+                "e": 29.16,
+                "p": 0.15796980261802673
+              },
+              {
+                "w": "off",
+                "s": 29.16,
+                "e": 29.32,
+                "p": 0.9284171462059021
+              },
+              {
+                "w": "ACR,",
+                "s": 29.32,
+                "e": 30.0,
+                "p": 0.8492705225944519
+              },
+              {
+                "w": "far",
+                "s": 30.28,
+                "e": 30.32,
+                "p": 0.3800368309020996
+              },
+              {
+                "w": "-field",
+                "s": 30.32,
+                "e": 30.62,
+                "p": 0.736810177564621
+              },
+              {
+                "w": "voice",
+                "s": 30.62,
+                "e": 30.82,
+                "p": 0.9438000321388245
+              },
+              {
+                "w": "recognition,",
+                "s": 30.82,
+                "e": 31.06,
+                "p": 0.9945653676986694
+              },
+              {
+                "w": "and",
+                "s": 31.52,
+                "e": 31.56,
+                "p": 0.991204559803009
+              },
+              {
+                "w": "interest",
+                "s": 31.56,
+                "e": 31.88,
+                "p": 0.9413623809814453
+              },
+              {
+                "w": "-based",
+                "s": 31.88,
+                "e": 32.12,
+                "p": 0.952508419752121
+              },
+              {
+                "w": "ads.",
+                "s": 32.12,
+                "e": 32.34,
+                "p": 0.9816190004348755
+              },
+              {
+                "w": "Yes,",
+                "s": 32.78,
+                "e": 32.94,
+                "p": 0.9463295936584473
+              },
+              {
+                "w": "a",
+                "s": 33.18,
+                "e": 33.26,
+                "p": 0.9696798324584961
+              },
+              {
+                "w": "settings",
+                "s": 33.26,
+                "e": 33.52,
+                "p": 0.4599604606628418
+              },
+              {
+                "w": "scavenger",
+                "s": 33.52,
+                "e": 34.16,
+                "p": 0.9628068208694458
+              },
+              {
+                "w": "hunt.",
+                "s": 34.16,
+                "e": 34.28,
+                "p": 0.9971398115158081
+              },
+              {
+                "w": "Then",
+                "s": 34.6,
+                "e": 35.0,
+                "p": 0.8944565653800964
+              },
+              {
+                "w": "enable",
+                "s": 35.0,
+                "e": 35.34,
+                "p": 0.6533763408660889
+              },
+              {
+                "w": "Do",
+                "s": 35.34,
+                "e": 35.66,
+                "p": 0.36588212847709656
+              },
+              {
+                "w": "Not",
+                "s": 35.66,
+                "e": 35.84,
+                "p": 0.7925814986228943
+              },
+              {
+                "w": "Sell",
+                "s": 35.84,
+                "e": 36.0,
+                "p": 0.967488169670105
+              },
+              {
+                "w": "My",
+                "s": 36.0,
+                "e": 36.18,
+                "p": 0.9659220576286316
+              },
+              {
+                "w": "Personal",
+                "s": 36.18,
+                "e": 36.42,
+                "p": 0.9817543625831604
+              },
+              {
+                "w": "Information,",
+                "s": 36.42,
+                "e": 36.94,
+                "p": 0.9810740351676941
+              },
+              {
+                "w": "off",
+                "s": 37.22,
+                "e": 37.36,
+                "p": 0.9320636987686157
+              },
+              {
+                "w": "by",
+                "s": 37.36,
+                "e": 37.62,
+                "p": 0.9595226049423218
+              },
+              {
+                "w": "default.",
+                "s": 37.62,
+                "e": 37.88,
+                "p": 0.9979848861694336
+              },
+              {
+                "w": "Your",
+                "s": 38.46,
+                "e": 38.52,
+                "p": 0.817577600479126
+              },
+              {
+                "w": "dark",
+                "s": 38.52,
+                "e": 38.66,
+                "p": 0.5184837579727173
+              },
+              {
+                "w": "TV,",
+                "s": 38.66,
+                "e": 38.9,
+                "p": 0.9361484050750732
+              },
+              {
+                "w": "alleged,",
+                "s": 39.22,
+                "e": 39.52,
+                "p": 0.9868760108947754
+              },
+              {
+                "w": "disputed,",
+                "s": 40.02,
+                "e": 40.04,
+                "p": 0.9298548102378845
+              },
+              {
+                "w": "better",
+                "s": 40.7,
+                "e": 40.7,
+                "p": 0.9743555784225464
+              },
+              {
+                "w": "lockdown.",
+                "s": 40.7,
+                "e": 41.02,
+                "p": 0.7510567903518677
+              },
+              {
+                "w": "Be",
+                "s": 41.66,
+                "e": 41.7,
+                "p": 0.9839785695075989
+              },
+              {
+                "w": "sure",
+                "s": 41.7,
+                "e": 41.82,
+                "p": 0.9993196725845337
+              },
+              {
+                "w": "to",
+                "s": 41.82,
+                "e": 41.92,
+                "p": 0.996769905090332
+              },
+              {
+                "w": "like,",
+                "s": 41.92,
+                "e": 42.08,
+                "p": 0.9500224590301514
+              },
+              {
+                "w": "share,",
+                "s": 42.24,
+                "e": 42.4,
+                "p": 0.9959155917167664
+              },
+              {
+                "w": "and",
+                "s": 42.56,
+                "e": 42.6,
+                "p": 0.9971423745155334
+              },
+              {
+                "w": "save",
+                "s": 42.6,
+                "e": 42.88,
+                "p": 0.9906260967254639
+              },
+              {
+                "w": "this",
+                "s": 42.88,
+                "e": 43.02,
+                "p": 0.9875615835189819
+              },
+              {
+                "w": "video.",
+                "s": 43.02,
+                "e": 43.28,
+                "p": 0.997632622718811
+              },
+              {
+                "w": "Which",
+                "s": 43.82,
+                "e": 43.84,
+                "p": 0.5191901922225952
+              },
+              {
+                "w": "tool",
+                "s": 43.84,
+                "e": 44.02,
+                "p": 0.6186597347259521
+              },
+              {
+                "w": "next?",
+                "s": 44.02,
+                "e": 44.18,
+                "p": 0.9817026853561401
+              },
+              {
+                "w": "Comment",
+                "s": 44.64,
+                "e": 44.64,
+                "p": 0.9906423687934875
+              },
+              {
+                "w": "and",
+                "s": 44.64,
+                "e": 44.88,
+                "p": 0.840634286403656
+              },
+              {
+                "w": "follow",
+                "s": 44.88,
+                "e": 45.1,
+                "p": 0.9957181811332703
+              },
+              {
+                "w": "for",
+                "s": 45.1,
+                "e": 45.24,
+                "p": 0.9803476929664612
+              },
+              {
+                "w": "more.",
+                "s": 45.24,
+                "e": 45.4,
+                "p": 0.9996426105499268
+              }
+            ],
+            "dauer_s": 45.504,
+            "sprache": "en"
+          },
+          "roh_key": "d6269bf4ea243297cf4d637f3a8ef71b03b2123b8b3d7ad3285d97e4fbbfd159",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "7637a1956dacba734c03822f0953b9f5377c49a7d5abf98c42291fb646ac8899",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.6,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 13,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "7637a1956dacba734c03822f0953b9f5377c49a7d5abf98c42291fb646ac8899",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Mann sitzt in einem abgedunkelten Raum auf einer Couch, trägt eine Brille und eine schwarze Jacke, mit einem Fernseher rechts von ihm.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Eröffnungsvideo zeigt einen geschockten/besorgten Mann auf der Couch und passt zum Thema des vermeintlichen Aufnehmens im Wohnzimmer.",
+              "erforderliches_bild": "Keines"
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein hervorgehobener Textausschnitt in einem gelben Kasten zeigt Forschungsdetails zu einem stummgeschalteten Mikrofon eines Fernsehers.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt den Text und die Untersuchungsergebnisse bezüglich des stummgeschalteten Mikrofons, was genau den gesprochenen Worten entspricht.",
+              "erforderliches_bild": "Keines, das aktuelle Bild ist bereits passend."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Ausschnitt mit Text über die Untersuchung von Gamers Nexus zu LG Fernsehern.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt den im Text erwähnten Befund von Gamers Nexus und passt damit direkt zu den gesprochenen Worten.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 3,
+              "gesehen": "Eine Hand hält ein Mikrofon vor einem Bildschirm mit abstrakten bunten Farbklecksen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine Hand mit einem Handmikrofon und einen Monitor mit Farbklecksen. Es ist weder ein LG-Fernseher mit dunklem Bildschirm noch ein stummgeschaltetes Mikrofon zu sehen.",
+              "erforderliches_bild": "Ein ausgeschalteter oder dunkler LG-Fernseher mit einem erkennbaren Mikrofon-Symbol oder einer Stummschaltungsanzeige."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein hervorgehobener Textausschnitt in einem gelben Kasten, der beschreibt, dass ein Fernseher vom Ethernet getrennt wurde und nach dem Wiederverbinden Audiodaten hochgeladen hat.",
+              "note": 9,
+              "passt": true,
+              "grund": "Der Text im Bild deckt sich direkt mit den gesprochenen Worten 'They say a TV unplugged from ethernet uploaded stored audio after reconnecting'.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 5,
+              "gesehen": "In einem dunklen Chatfenster mit der Überschrift AI CHAT steht in einer türkisfarbenen Sprechblase der Satz So what's LG's reply?, darunter drei ladepunkte.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Frage So what's LG's reply? aus dem gesprochenen Text wird direkt als interaktive Chatnachricht im Bild angezeigt, was als redaktionelles Stilmittel zur rhetorischen Einleitung der Antwort perfekt passt.",
+              "erforderliches_bild": "Keines, das Bild zeigt die exakte gesprochene Frage visuell an."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein hervorgehobener Textausschnitt in einem Artikel, der besagt, dass Sprachdaten laut LG nur bei gedrückter Sprachtaste oder dem Befehl 'Hi LG' aufgezeichnet werden.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der sichtbare Text im gelben Kasten gibt genau das Statement von LG wieder, welches im gesprochenen Text („LG disputes this: recording needs the voice button, or Hi LG with Far-Field on.“) thematisiert wird.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein markierter Textausschnitt in einem Nachrichtenartikel zeigt das Zitat: The audio is immediately deleted if the wake word is not recognised, the company said.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt genau den Textausschnitt, der die Aussage zum Loschen unerkannter Audioaufnahmen belegt.",
+              "erforderliches_bild": "Ein passender Belegtext oder eine offizielle Stellungnahme als Screenshot."
+            },
+            {
+              "index": 8,
+              "gesehen": "Eine gezeichnete Hand bedient eine Fernbedienung, im Hintergrund ist ein abgedunkeltes Schlafzimmer mit Lampe und Bett zu sehen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochene Passage verlangt das Ausschalten von ACR, Far-Field-Spracherkennung und interessenbezogenen Anzeigen in den Einstellungen, gezeigt wird jedoch nur eine Hand mit einer Fernbedienung im dunklen Zimmer ohne Menü oder Einstellungsansicht.",
+              "erforderliches_bild": "Ein Screenshot der Fernseheinstellungen, das das Menü zum Deaktivieren von ACR und Far-Field-Spracherkennung zeigt."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein Mann mit Brille und schwarzer Lederjacke sitzt auf einer Couch und bedient einen Gamecontroller vor einem großen Fernseher mit bunten Formen im Wohnzimmer.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Spieler mit Controller, während die gesprochenen Wörter eine Suche nach Einstellungen ('settings scavenger hunt') beschreiben.",
+              "erforderliches_bild": "Ein Screenshot des Einstellungsmenüs eines Smart-TVs, das Optionen wie ACR oder Far-Field-Spracherkennung zeigt."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein gelb hervorgehobener Textausschnitt in einem Dokument oder Artikel, der von einem Rechtsstreit und 'Do Not Sell My Personal Information' handelt.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt genau den Textausschnitt, der im gesprochenen Satz 'Then enable Do Not Sell My Personal Information' thematisiert wird.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein Mann sitzt entspannt auf einem Sofa in einem Zimmer mit großem Fenster, neben ihm an der Wand hängt ein Sicherungskasten oder Schaltkasten.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Mann auf einem Sofa neben einem Schaltschrank und passt nicht zu den Worten 'Alleged, disputed, better locked down.', da weder der umstrittene Sachverhalt noch Sicherheitsmaßnahmen dargestellt werden.",
+              "erforderliches_bild": "Ein Screenshot von Gerätesicherheitseinstellungen oder ein Symbol für Datenschutz und Sicherheit."
+            }
+          ],
+          "befunde": [
+            "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Hand mit einem Handmikrofon und einen Monitor mit Farbklecksen. Es ist weder ein LG-Fernseher mit dunklem Bildschirm noch ein stummgeschaltetes Mikrofon zu sehen.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Passage verlangt das Ausschalten von ACR, Far-Field-Spracherkennung und interessenbezogenen Anzeigen in den Einstellungen, gezeigt wird jedoch nur eine Hand mit einer Fernbedienung im dunklen Zimmer ohne Menü oder Einstellungsansicht.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Spieler mit Controller, während die gesprochenen Wörter eine Suche nach Einstellungen ('settings scavenger hunt') beschreiben.",
+            "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann auf einem Sofa neben einem Schaltschrank und passt nicht zu den Worten 'Alleged, disputed, better locked down.', da weder der umstrittene Sachverhalt noch Sicherheitsmaßnahmen dargestellt werden."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 13,
+          "ausgenommen": [
+            12
+          ],
+          "vorgeprueft": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "7637a1956dacba734c03822f0953b9f5377c49a7d5abf98c42291fb646ac8899",
+        "prompt_version": "2026-10-29.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

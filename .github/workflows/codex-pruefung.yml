@@ -1,0 +1,61 @@
+name: codex-pruefung
+run-name: Codex-Skriptpruefung ${{ inputs.auftrag }}
+on:
+  workflow_dispatch:
+    inputs:
+      auftrag:
+        required: true
+        type: string
+      modus:
+        type: choice
+        options: [pruefen, vorrat]
+        default: pruefen
+permissions:
+  contents: write
+concurrency:
+  group: contentfabrik-zustand
+  cancel-in-progress: false
+  queue: max
+jobs:
+  pruefen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unabhaengig pruefen
+        env:
+          CF_CODEX_ID: ${{ inputs.auftrag }}
+          CF_CODEX_MODUS: ${{ inputs.modus }}
+          CF_CODEX_PAKET: ${{ secrets.CF_CODEX_PAKET }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          PYTHONUNBUFFERED: '1'
+        run: python fabrik/codex_pruefung.py
+      - name: Nur bestandenen Vorrat und Kontingentstand sichern
+        if: always() && inputs.modus == 'vorrat'
+        run: |
+          git config user.name 'contentfabrik-bot'
+          git config user.email 'contentfabrik-bot@users.noreply.github.com'
+          git config merge.contentfabrik-themen.driver 'python fabrik/zustand_merge.py %O %A %B'
+          for pfad in vorrat themen verlauf; do
+            [ ! -d "$pfad" ] || git add -- "$pfad"
+          done
+          git diff --cached --quiet && exit 0
+          git commit -qm "Unabhaengig geprueften Autorenfallback sichern"
+          for i in 1 2 3; do
+            git pull -q --rebase || { git rebase --abort; exit 1; }
+            git push -q && exit 0
+            sleep 3
+          done
+          exit 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: codex-pruefung-${{ inputs.auftrag }}
+          path: ausgabe/codex-pruefung/ergebnis.json
+          retention-days: 1

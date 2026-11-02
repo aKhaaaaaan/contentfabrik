@@ -12,6 +12,7 @@ import io
 import json
 import re
 import subprocess
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -215,6 +216,27 @@ WITZ_JAHR_MAX = 1975
 WITZ_MIN_NOTE = 8
 
 
+# 02.11.: "person typing", "addressing" und "locked screen" fanden beliebige Lehrfilme statt eines Gags.
+# Die erzaehlte Alltagssituation zuerst suchen; der Bildpruefer entscheidet weiter am gesprochenen Satz.
+# Keine weitere KI-Anfrage und unveraendert hoechstens VERSUCHE Filme je Auswahl.
+WITZ_SITUATIONEN = [
+    (r'\b(?:hackers?|stole|stolen|steal\w*|thieves|thief|robbery|robbed)\b', 'thief'),
+    (r'\b(?:locked|lock|locking)\b', 'locked door'),
+    (r'\b(?:bills?|money|costs?|debt|cash|profits?|expensive)\b', 'money'),
+    (r'\b(?:workers?|factory|factories|assembly|production)\b', 'factory'),
+    (r'\b(?:wait\w*|queues?|delays?)\b', 'waiting'),
+    (r'\b(?:failed|fails|failure|mistakes?|wrong|chaos)\b', 'trouble'),
+    (r'\b(?:race|racing|faster|rivals?|competitors?)\b', 'race'),
+]
+
+
+def witz_begriffe(satz, szene, suche=''):
+    """Sichtbare Situation aus dem Sprechtext vor den woertlichen Bildplanbegriffen; hoechstens vier."""
+    situation = next((b for muster, b in WITZ_SITUATIONEN if re.search(muster, str(satz or ''), re.I)), None)
+    liste = ([situation] if situation else []) + begriffe(satz, szene, suche)
+    return list(dict.fromkeys(liste))[:4]
+
+
 def witz_kandidaten(begriff, art='zeichentrick'):
     """Zeichentrick- ODER Comedy-Filme, zuerst Prelinger (Lizenz je Film geprueft), dann Commons; ohne gesperrte Namen."""
     def prelinger_witz():
@@ -266,21 +288,28 @@ def holen(film):
     # Tullamaine-Film: Original 227 MB (4K) fuer 45 s. Commons bietet jede Datei auch als 480p-Fassung an.
     klein = ('https://upload.wikimedia.org' + pfad.replace('/commons/', '/commons/transcoded/', 1)
              + '/' + pfad.rsplit('/', 1)[1] + '.480p.vp9.webm')
-    for adresse in (klein, film['adresse'] if 0 < film.get('groesse', 0) <= COMMONS_HOLEN_MAX else None):
-        if not adresse:
-            continue
-        ziel = Path(tempfile.gettempdir()) / ('commons_' + hashlib.sha1(adresse.encode()).hexdigest()[:12] + '.webm')
-        try:
-            if not ziel.exists():
-                with urllib.request.urlopen(urllib.request.Request(adresse, headers=KENNUNG), timeout=120) as r:
-                    daten = r.read(COMMONS_HOLEN_MAX + 1)
-                if len(daten) > COMMONS_HOLEN_MAX:
-                    continue
-                ziel.write_bytes(daten)
+    adressen = [a for a in (klein, film['adresse'] if 0 < film.get('groesse', 0) <= COMMONS_HOLEN_MAX else None) if a]
+    dateien = [(a, Path(tempfile.gettempdir()) / ('commons_' + hashlib.sha1(a.encode()).hexdigest()[:12] + '.webm'))
+               for a in adressen]
+    # Auch ein schon geladenes Original vor einem erneuten Abruf der fehlenden 480p-Fassung verwenden.
+    for _, ziel in dateien:
+        if ziel.exists() and 0 < ziel.stat().st_size <= COMMONS_HOLEN_MAX:
             return dict(film, adresse=str(ziel))
+    for adresse, ziel in dateien:
+        try:
+            with urllib.request.urlopen(urllib.request.Request(adresse, headers=KENNUNG), timeout=120) as r:
+                daten = r.read(COMMONS_HOLEN_MAX + 1)
+            if not daten or len(daten) > COMMONS_HOLEN_MAX:
+                continue
+            ziel.write_bytes(daten)
+            return dict(film, adresse=str(ziel))
+        except urllib.error.HTTPError as e:
+            print('Commons-Datei nicht geladen: HTTP', e.code)
+            if e.code == 429:
+                break  # Drosselung beachten; keine sechs Standbilder und danach Schnitt ueber dieselbe URL.
         except OSError as e:
             print('Commons-Datei nicht geladen:', type(e).__name__)
-    return film
+    return None  # Nur eine lokal ladbare Commons-Datei bekommt Standbilder, Vision und einen Schnitt.
 
 
 def finden(satz, szene, epoche, benutzt=(), suche='', witz=False):
@@ -291,7 +320,7 @@ def finden(satz, szene, epoche, benutzt=(), suche='', witz=False):
         return None
     versucht = set(benutzt)
     noten = []
-    for begriff in begriffe(satz, szene, suche):
+    for begriff in (witz_begriffe(satz, szene, suche) if witz else begriffe(satz, szene, suche)):
         for film in (witz_kandidaten(begriff, witz) if witz else kandidaten(begriff, j)):
             if len(versucht) - len(set(benutzt)) >= VERSUCHE or (len(noten) >= 2 and max(noten) < AUSSICHT):
                 return None
@@ -299,6 +328,8 @@ def finden(satz, szene, epoche, benutzt=(), suche='', witz=False):
                 continue
             versucht.add(film['kennung'])
             film = holen(film)
+            if film is None:
+                continue
             stellen = [film['sekunden'] * (k + 1) / (KANDIDATEN + 1) for k in range(KANDIDATEN)]
             bilder, gueltig = [], []
             for s in stellen:

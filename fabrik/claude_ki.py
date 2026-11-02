@@ -89,6 +89,32 @@ def limit_ende(grund, jetzt=None):
         ende = datetime.datetime.fromtimestamp(int(m.group(1)), datetime.timezone.utc)
         if jetzt < ende <= jetzt + datetime.timedelta(days=8):
             return ende
+    # Echte CLI-Meldungen nennen statt einer Unix-Zeit z. B. "Nov 4, 3pm (UTC)" oder "7:30pm (UTC)".
+    # Nur ausdrueckliches UTC auswerten; Monatsnamen ohne Abhaengigkeit von der Rechner-Lokalisierung.
+    m = re.search(r'\bresets?\s+(?:([A-Za-z]{3})\s+(\d{1,2}),?\s+)?'
+                  r'(\d{1,2})(?::(\d{2}))?\s*(am|pm)\s*\(UTC\)', grund, re.I)
+    if m:
+        monat, tag, stunde, minute, halbtag = m.groups()
+        stunde, minute = int(stunde), int(minute or 0)
+        if 1 <= stunde <= 12 and 0 <= minute < 60:
+            stunde = stunde % 12 + (12 if halbtag.lower() == 'pm' else 0)
+            try:
+                if monat:
+                    monate = ('jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec')
+                    nummer = monate.index(monat.lower()) + 1
+                    for jahr in (jetzt.year, jetzt.year + 1):
+                        ende = datetime.datetime(jahr, nummer, int(tag), stunde, minute,
+                                                 tzinfo=datetime.timezone.utc)
+                        if jetzt < ende <= jetzt + datetime.timedelta(days=8):
+                            return ende
+                else:
+                    ende = jetzt.astimezone(datetime.timezone.utc).replace(hour=stunde, minute=minute,
+                                                                           second=0, microsecond=0)
+                    if ende <= jetzt:
+                        ende += datetime.timedelta(days=1)
+                    return ende
+            except ValueError:
+                pass
     # Ohne lesbare Zeit: Wochenlimit eine Stunde, 5-Stunden-Limit 30 Min. pausieren, dann neu versuchen -
     # lieber ein kurzer Fehlversuch mehr als einen Tag lang auf Claude verzichten.
     return jetzt + datetime.timedelta(minutes=60 if re.search(r'week', grund, re.I) else 30)

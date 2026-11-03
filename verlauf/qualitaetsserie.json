@@ -137992,6 +137992,1183 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "41602941575.1:business-origin-stories",
+      "run_id": "41602941575",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-03T09:30:28.090626+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "49675b6e280dfeeb90ec42418929aca39645e4fe",
+      "produktionsversion": "ba190599d2ee600e809af3cb5e7ad37c7947a5e4c3825ee6da5a99af23eaf58d",
+      "videoformat": "short",
+      "thema": "Rivian Origin Story",
+      "titel": [
+        "They Beat Ford And GM",
+        "Then Price Hikes Triggered Backlash"
+      ],
+      "status": "gesendet",
+      "video_sha256": "d27eaacd3f15439e9633c8a1b48281cfd26a42059b5a4ff48168dfa19fdf7382",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einer Gasse statt des erworbenen Mitsubishi-Werks.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Personen in einem Raum, aber keinen R1T-Elektro-Pick-up oder die Auslieferung an Kunden.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Phase erwähnt das Überleben des Pickups nach Preissteigerungen, aber das Bild zeigt lediglich zwei Männer beim Händedruck vor einem blauen Auto in einem Innenraum.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Mann in einer Gasse statt des erworbenen Mitsubishi-Werks. Korrektur: Ein Foto oder eine Illustration des erworbenen Mitsubishi-Werks in Illinois.",
+        "Offenes Problem (schwer): Das Bild zeigt Personen in einem Raum, aber keinen R1T-Elektro-Pick-up oder die Auslieferung an Kunden. Korrektur: Ein Foto des Rivian R1T Pick-up-Trucks bei der Übergabe oder Auslieferung an Kunden.",
+        "Offenes Problem (schwer): Die gesprochene Phase erwähnt das Überleben des Pickups nach Preissteigerungen, aber das Bild zeigt lediglich zwei Männer beim Händedruck vor einem blauen Auto in einem Innenraum. Korrektur: Ein Foto des Rivian-Pickups oder von Kunden und Mitarbeitern, die eine Fahrzeugauslieferung feiern."
+      ],
+      "einstellungen": 11,
+      "unterschiedliche_motive": 11,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "41602941575",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-03",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "zeitbudget",
+            "phase": "Skript",
+            "sekunden": 900.0
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "RuntimeError: Sprechtextreparatur verliert Phasen oder enthaelt leeren Text (skript.py:157)",
+            "sekunden": 148.0
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 5/10 unter 7/10",
+              "Skript-hook 4/10 unter 7/10",
+              "Skript-spannung 4/10 unter 7/10",
+              "Skript-ueberraschung 4/10 unter 7/10",
+              "Skript-tempo 5/10 unter 7/10",
+              "Skript-aufloesung 5/10 unter 7/10",
+              "Skript-teilbarkeit 4/10 unter 6/10"
+            ],
+            "story_note": 5,
+            "story_schwaechen": [
+              "Sentence: Two broke brothers sketched cartoons in a tiny Kansas studio before going bankrupt. Why it matters: It relies on a generic biographical cliché rather than a striking specific curiosity gap. Fix: Start with the paradox of the bankruptcy before the global empire, e.g., 'The creators of the w"
+            ],
+            "skript_probleme": [],
+            "sekunden": 435.5
+          },
+          {
+            "runde": 4,
+            "art": "produktion",
+            "skript_s": 178.4,
+            "bau_s": 607.5,
+            "pruefung_s": 76.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Soldaten und eine Industriehalle, aber nicht den Erwerb der Mitsubishi-Fabrik im Jahr 2017.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen den R1T-Truck, aber zu sehen ist nur ein großer Lastwagen und Fahrzeuge auf einer Straße, nicht der genannte Elektro-Pick-up.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die Personen und der Blick durch die Tür zeigen kein elektrisches Pick-up-Fahrzeug oder eine Bestätigung von Vorbestellungen.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen besorgten Geschäftsmann mit einem Dokument, was zwar zu einer angespannten Situation wie Kundenkritik oder Verträgen passt, aber nicht konkret die geschäftliche Handlung des Einlösens von Vorbestellungen bei Rivian belegt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Soldaten und eine Industriehalle, aber nicht den Erwerb der Mitsubishi-Fabrik im Jahr 2017. Korrektur: Foto der Fabrik in Illinois oder von der Übernahme im Jahr 2017.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen den R1T-Truck, aber zu sehen ist nur ein großer Lastwagen und Fahrzeuge auf einer Straße, nicht der genannte Elektro-Pick-up. Korrektur: Ein Bild des Rivian R1T Elektro-Pick-up auf einer Straße oder bei einer Auslieferung.",
+              "Offenes Problem (schwer): Die Personen und der Blick durch die Tür zeigen kein elektrisches Pick-up-Fahrzeug oder eine Bestätigung von Vorbestellungen. Korrektur: Ein Foto des Rivian R1T Pick-up-Trucks oder von Kunden bei der Übergabe des Fahrzeugs.",
+              "Offenes Problem (schwer): Das Bild zeigt einen besorgten Geschäftsmann mit einem Dokument, was zwar zu einer angespannten Situation wie Kundenkritik oder Verträgen passt, aber nicht konkret die geschäftliche Handlung des Einlösens von Vorbestellungen bei Rivian belegt. Korrektur: Ein Foto von Dokumenten oder einer offiziellen Bestätigung bezüglich der Vorbestellungen oder ein Bild von Rivian-Führungskräften, die Kundenversprechen einhalten."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Fenrir",
+              "stimme": 12.0,
+              "zeitmarken": 4.0,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 11,
+              "bilder_vereinfacht": 3,
+              "clips_und_stuecke": 541.1,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 11,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 40.4,
+              "gesamt": 606.3,
+              "videolaenge_s": 41.3,
+              "abschnitte_s": [
+                5.4,
+                5.26,
+                6.04,
+                6.9,
+                4.76,
+                7.8,
+                5.12
+              ],
+              "woerter": 96,
+              "clips": {
+                "witz": 1,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:10.66",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 2,
+                "gesprochen": "In 2017 they acquired a former Mitsubishi",
+                "fest": false,
+                "text": "Das Bild zeigt einen Soldaten und eine Industriehalle, aber nicht den Erwerb der Mitsubishi-Fabrik im Jahr 2017. Korrektur: Foto der Fabrik in Illinois oder von der Übernahme im Jahr 2017."
+              },
+              {
+                "zeit": "00:20.15",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 5,
+                "gesprochen": "R1T truck before major competitors arrived.",
+                "fest": false,
+                "text": "Die gesprochenen Wörter erwähnen den R1T-Truck, aber zu sehen ist nur ein großer Lastwagen und Fahrzeuge auf einer Straße, nicht der genannte Elektro-Pick-up. Korrektur: Ein Bild des Rivian R1T Elektro-Pick-up auf einer Straße oder bei einer Auslieferung."
+              },
+              {
+                "zeit": "00:28.36",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 7,
+                "gesprochen": "That groundbreaking electric pickup survived after",
+                "fest": false,
+                "text": "Die Personen und der Blick durch die Tür zeigen kein elektrisches Pick-up-Fahrzeug oder eine Bestätigung von Vorbestellungen. Korrektur: Ein Foto des Rivian R1T Pick-up-Trucks oder von Kunden bei der Übergabe des Fahrzeugs."
+              },
+              {
+                "zeit": "00:32.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 8,
+                "gesprochen": "Rivian honored original preorders for early reservation holders.",
+                "fest": false,
+                "text": "Das Bild zeigt einen besorgten Geschäftsmann mit einem Dokument, was zwar zu einer angespannten Situation wie Kundenkritik oder Verträgen passt, aber nicht konkret die geschäftliche Handlung des Einlösens von Vorbestellungen bei Rivian belegt. Korrektur: Ein Foto von Dokumenten oder einer offiziellen Bestätigung bezüglich der Vorbestellungen oder ein Bild von Rivian-Führungskräften, die Kundenversprechen einhalten."
+              }
+            ],
+            "sekunden": 862.2,
+            "status": "geprueft"
+          },
+          {
+            "runde": 5,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                2,
+                3,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 2.4,
+            "bau_s": 551.3,
+            "pruefung_s": 19.0,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einer Gasse statt des erworbenen Mitsubishi-Werks.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Personen in einem Raum, aber keinen R1T-Elektro-Pick-up oder die Auslieferung an Kunden.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Phase erwähnt das Überleben des Pickups nach Preissteigerungen, aber das Bild zeigt lediglich zwei Männer beim Händedruck vor einem blauen Auto in einem Innenraum.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann in einer Gasse statt des erworbenen Mitsubishi-Werks. Korrektur: Ein Foto oder eine Illustration des erworbenen Mitsubishi-Werks in Illinois.",
+              "Offenes Problem (schwer): Das Bild zeigt Personen in einem Raum, aber keinen R1T-Elektro-Pick-up oder die Auslieferung an Kunden. Korrektur: Ein Foto des Rivian R1T Pick-up-Trucks bei der Übergabe oder Auslieferung an Kunden.",
+              "Offenes Problem (schwer): Die gesprochene Phase erwähnt das Überleben des Pickups nach Preissteigerungen, aber das Bild zeigt lediglich zwei Männer beim Händedruck vor einem blauen Auto in einem Innenraum. Korrektur: Ein Foto des Rivian-Pickups oder von Kunden und Mitarbeitern, die eine Fahrzeugauslieferung feiern."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 7,
+              "stuecke_neu": 4,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 469.4,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 11,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 40.4,
+              "gesamt": 550.3,
+              "videolaenge_s": 41.3,
+              "abschnitte_s": [
+                5.4,
+                5.26,
+                6.04,
+                6.9,
+                4.76,
+                7.8,
+                5.12
+              ],
+              "woerter": 96,
+              "clips": {
+                "witz": 2,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:10.66",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 2,
+                "gesprochen": "In 2017 they acquired a former Mitsubishi",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann in einer Gasse statt des erworbenen Mitsubishi-Werks. Korrektur: Ein Foto oder eine Illustration des erworbenen Mitsubishi-Werks in Illinois."
+              },
+              {
+                "zeit": "00:20.15",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 5,
+                "gesprochen": "R1T truck before major competitors arrived.",
+                "fest": false,
+                "text": "Das Bild zeigt Personen in einem Raum, aber keinen R1T-Elektro-Pick-up oder die Auslieferung an Kunden. Korrektur: Ein Foto des Rivian R1T Pick-up-Trucks bei der Übergabe oder Auslieferung an Kunden."
+              },
+              {
+                "zeit": "00:28.36",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 7,
+                "gesprochen": "That groundbreaking electric pickup survived after",
+                "fest": false,
+                "text": "Die gesprochene Phase erwähnt das Überleben des Pickups nach Preissteigerungen, aber das Bild zeigt lediglich zwei Männer beim Händedruck vor einem blauen Auto in einem Innenraum. Korrektur: Ein Foto des Rivian-Pickups oder von Kunden und Mitarbeitern, die eine Fahrzeugauslieferung feiern."
+              }
+            ],
+            "sekunden": 572.7,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "41602941575-5",
+              "datum": "2026-11-03",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 572.7,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          }
+        ],
+        "status": "gesendet",
+        "trendcheck": "kein Kandidat mit echtem Trendsignal - freie Trendwahl",
+        "grund": "",
+        "sekunden": 2989.0,
+        "upload_titel": "They Beat Ford And GM, Then Price Hikes Triggered Backlash"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:10.66",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 2,
+            "gesprochen": "In 2017 they acquired a former Mitsubishi",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann in einer Gasse statt des erworbenen Mitsubishi-Werks. Korrektur: Ein Foto oder eine Illustration des erworbenen Mitsubishi-Werks in Illinois."
+          },
+          {
+            "zeit": "00:20.15",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 5,
+            "gesprochen": "R1T truck before major competitors arrived.",
+            "fest": false,
+            "text": "Das Bild zeigt Personen in einem Raum, aber keinen R1T-Elektro-Pick-up oder die Auslieferung an Kunden. Korrektur: Ein Foto des Rivian R1T Pick-up-Trucks bei der Übergabe oder Auslieferung an Kunden."
+          },
+          {
+            "zeit": "00:28.36",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 7,
+            "gesprochen": "That groundbreaking electric pickup survived after",
+            "fest": false,
+            "text": "Die gesprochene Phase erwähnt das Überleben des Pickups nach Preissteigerungen, aber das Bild zeigt lediglich zwei Männer beim Händedruck vor einem blauen Auto in einem Innenraum. Korrektur: Ein Foto des Rivian-Pickups oder von Kunden und Mitarbeitern, die eine Fahrzeugauslieferung feiern."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 41.3,
+          "fps": 30.0,
+          "lufs": -14.3,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 36.54,
+              "bis_s": 38.12,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.968
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 21.299999999999997,
+              "bis_s": 41.8,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "They",
+                "s": 0.0,
+                "e": 0.4,
+                "p": 0.9142671823501587
+              },
+              {
+                "w": "beat",
+                "s": 0.4,
+                "e": 0.64,
+                "p": 0.9677721261978149
+              },
+              {
+                "w": "auto",
+                "s": 0.64,
+                "e": 1.04,
+                "p": 0.9568281173706055
+              },
+              {
+                "w": "industry",
+                "s": 1.04,
+                "e": 1.48,
+                "p": 0.5305007696151733
+              },
+              {
+                "w": "giants",
+                "s": 1.48,
+                "e": 1.94,
+                "p": 0.9783841371536255
+              },
+              {
+                "w": "to",
+                "s": 1.94,
+                "e": 2.22,
+                "p": 0.990342378616333
+              },
+              {
+                "w": "launch",
+                "s": 2.22,
+                "e": 2.4,
+                "p": 0.9983194470405579
+              },
+              {
+                "w": "the",
+                "s": 2.4,
+                "e": 2.62,
+                "p": 0.9795372486114502
+              },
+              {
+                "w": "very",
+                "s": 2.62,
+                "e": 2.96,
+                "p": 0.9689722657203674
+              },
+              {
+                "w": "first",
+                "s": 2.96,
+                "e": 3.42,
+                "p": 0.9909754395484924
+              },
+              {
+                "w": "electric",
+                "s": 3.42,
+                "e": 3.86,
+                "p": 0.9734955430030823
+              },
+              {
+                "w": "pickup",
+                "s": 3.86,
+                "e": 4.28,
+                "p": 0.9434917569160461
+              },
+              {
+                "w": "truck.",
+                "s": 4.28,
+                "e": 4.56,
+                "p": 0.9988375306129456
+              },
+              {
+                "w": "RJ",
+                "s": 5.36,
+                "e": 5.6,
+                "p": 0.9334246516227722
+              },
+              {
+                "w": "Scarrange",
+                "s": 5.6,
+                "e": 6.3,
+                "p": 0.5293006797631582
+              },
+              {
+                "w": "founded",
+                "s": 6.3,
+                "e": 6.68,
+                "p": 0.9921883344650269
+              },
+              {
+                "w": "the",
+                "s": 6.68,
+                "e": 6.84,
+                "p": 0.8993470072746277
+              },
+              {
+                "w": "firm",
+                "s": 6.84,
+                "e": 7.04,
+                "p": 0.9821071028709412
+              },
+              {
+                "w": "in",
+                "s": 7.04,
+                "e": 7.22,
+                "p": 0.9969558715820312
+              },
+              {
+                "w": "2009,",
+                "s": 7.22,
+                "e": 7.9,
+                "p": 0.9985241293907166
+              },
+              {
+                "w": "abandoning",
+                "s": 8.28,
+                "e": 8.72,
+                "p": 0.8382658958435059
+              },
+              {
+                "w": "an",
+                "s": 8.72,
+                "e": 8.96,
+                "p": 0.989535391330719
+              },
+              {
+                "w": "early",
+                "s": 8.96,
+                "e": 9.22,
+                "p": 0.978364884853363
+              },
+              {
+                "w": "sports",
+                "s": 9.22,
+                "e": 9.5,
+                "p": 0.8102303147315979
+              },
+              {
+                "w": "car",
+                "s": 9.5,
+                "e": 9.74,
+                "p": 0.9110092520713806
+              },
+              {
+                "w": "plan.",
+                "s": 9.74,
+                "e": 10.02,
+                "p": 0.9706101417541504
+              },
+              {
+                "w": "In",
+                "s": 10.68,
+                "e": 10.9,
+                "p": 0.9946008920669556
+              },
+              {
+                "w": "2017,",
+                "s": 10.9,
+                "e": 11.48,
+                "p": 0.9967036843299866
+              },
+              {
+                "w": "they",
+                "s": 11.94,
+                "e": 12.16,
+                "p": 0.9975934624671936
+              },
+              {
+                "w": "acquired",
+                "s": 12.16,
+                "e": 12.44,
+                "p": 0.999163031578064
+              },
+              {
+                "w": "a",
+                "s": 12.44,
+                "e": 12.7,
+                "p": 0.9985009431838989
+              },
+              {
+                "w": "former",
+                "s": 12.7,
+                "e": 12.98,
+                "p": 0.9977141618728638
+              },
+              {
+                "w": "Mitsubishi",
+                "s": 12.98,
+                "e": 13.6,
+                "p": 0.9940060575803121
+              },
+              {
+                "w": "factory",
+                "s": 13.6,
+                "e": 13.94,
+                "p": 0.9505118131637573
+              },
+              {
+                "w": "in",
+                "s": 13.94,
+                "e": 14.24,
+                "p": 0.9983199238777161
+              },
+              {
+                "w": "Illinois",
+                "s": 14.24,
+                "e": 14.52,
+                "p": 0.9989333748817444
+              },
+              {
+                "w": "for",
+                "s": 14.52,
+                "e": 14.94,
+                "p": 0.9824458360671997
+              },
+              {
+                "w": "$16",
+                "s": 14.94,
+                "e": 15.38,
+                "p": 0.9012856185436249
+              },
+              {
+                "w": "million.",
+                "s": 15.38,
+                "e": 15.9,
+                "p": 0.9648198485374451
+              },
+              {
+                "w": "By",
+                "s": 16.72,
+                "e": 17.32,
+                "p": 0.9942229390144348
+              },
+              {
+                "w": "late",
+                "s": 17.32,
+                "e": 17.48,
+                "p": 0.9968909621238708
+              },
+              {
+                "w": "2021,",
+                "s": 17.48,
+                "e": 17.98,
+                "p": 0.9825201630592346
+              },
+              {
+                "w": "customers",
+                "s": 18.38,
+                "e": 18.78,
+                "p": 0.9970607161521912
+              },
+              {
+                "w": "finally",
+                "s": 18.78,
+                "e": 19.34,
+                "p": 0.9965046644210815
+              },
+              {
+                "w": "received",
+                "s": 19.34,
+                "e": 19.82,
+                "p": 0.9781280159950256
+              },
+              {
+                "w": "the",
+                "s": 19.82,
+                "e": 20.06,
+                "p": 0.9962342381477356
+              },
+              {
+                "w": "R1T",
+                "s": 20.06,
+                "e": 20.62,
+                "p": 0.9690096179644266
+              },
+              {
+                "w": "truck",
+                "s": 20.62,
+                "e": 20.88,
+                "p": 0.9370180368423462
+              },
+              {
+                "w": "before",
+                "s": 20.88,
+                "e": 21.34,
+                "p": 0.9686347842216492
+              },
+              {
+                "w": "major",
+                "s": 21.34,
+                "e": 21.72,
+                "p": 0.9975823163986206
+              },
+              {
+                "w": "competitors",
+                "s": 21.72,
+                "e": 22.1,
+                "p": 0.9992501139640808
+              },
+              {
+                "w": "arrived.",
+                "s": 22.1,
+                "e": 22.62,
+                "p": 0.9986974596977234
+              },
+              {
+                "w": "And",
+                "s": 23.54,
+                "e": 23.62,
+                "p": 0.38396838307380676
+              },
+              {
+                "w": "so",
+                "s": 23.62,
+                "e": 23.74,
+                "p": 0.9913954138755798
+              },
+              {
+                "w": "what",
+                "s": 23.74,
+                "e": 24.02,
+                "p": 0.8152934312820435
+              },
+              {
+                "w": "happened",
+                "s": 24.02,
+                "e": 24.36,
+                "p": 0.9978705644607544
+              },
+              {
+                "w": "when",
+                "s": 24.36,
+                "e": 24.6,
+                "p": 0.9935431480407715
+              },
+              {
+                "w": "sudden",
+                "s": 24.6,
+                "e": 24.9,
+                "p": 0.9964600205421448
+              },
+              {
+                "w": "price",
+                "s": 24.9,
+                "e": 25.24,
+                "p": 0.9945743680000305
+              },
+              {
+                "w": "increases",
+                "s": 25.24,
+                "e": 25.78,
+                "p": 0.9814573526382446
+              },
+              {
+                "w": "in",
+                "s": 25.78,
+                "e": 26.08,
+                "p": 0.9645910859107971
+              },
+              {
+                "w": "March",
+                "s": 26.08,
+                "e": 26.24,
+                "p": 0.9976077079772949
+              },
+              {
+                "w": "2022",
+                "s": 26.24,
+                "e": 26.84,
+                "p": 0.9753774404525757
+              },
+              {
+                "w": "sparked",
+                "s": 26.84,
+                "e": 27.46,
+                "p": 0.980073869228363
+              },
+              {
+                "w": "customer",
+                "s": 27.46,
+                "e": 28.0,
+                "p": 0.9610769152641296
+              },
+              {
+                "w": "backlash?",
+                "s": 28.0,
+                "e": 28.34,
+                "p": 0.9803030490875244
+              },
+              {
+                "w": "backlash.",
+                "s": 28.34,
+                "e": 28.58,
+                "p": 0.19894132018089294
+              },
+              {
+                "w": "That",
+                "s": 29.56,
+                "e": 29.8,
+                "p": 0.9517164826393127
+              },
+              {
+                "w": "groundbreaking",
+                "s": 29.8,
+                "e": 30.2,
+                "p": 0.9679412841796875
+              },
+              {
+                "w": "electric",
+                "s": 30.2,
+                "e": 30.62,
+                "p": 0.9942103624343872
+              },
+              {
+                "w": "pickup",
+                "s": 30.62,
+                "e": 31.06,
+                "p": 0.9260107278823853
+              },
+              {
+                "w": "survived",
+                "s": 31.06,
+                "e": 31.32,
+                "p": 0.9926294088363647
+              },
+              {
+                "w": "after",
+                "s": 31.32,
+                "e": 32.1,
+                "p": 0.8309221863746643
+              },
+              {
+                "w": "Rivian",
+                "s": 32.1,
+                "e": 32.46,
+                "p": 0.8513217270374298
+              },
+              {
+                "w": "honored",
+                "s": 32.46,
+                "e": 32.76,
+                "p": 0.7768245935440063
+              },
+              {
+                "w": "original",
+                "s": 32.76,
+                "e": 33.36,
+                "p": 0.8030774593353271
+              },
+              {
+                "w": "pre",
+                "s": 33.36,
+                "e": 33.64,
+                "p": 0.987648606300354
+              },
+              {
+                "w": "-orders",
+                "s": 33.64,
+                "e": 33.9,
+                "p": 0.96021369099617
+              },
+              {
+                "w": "for",
+                "s": 33.9,
+                "e": 34.18,
+                "p": 0.9960045218467712
+              },
+              {
+                "w": "early",
+                "s": 34.18,
+                "e": 34.46,
+                "p": 0.9931957721710205
+              },
+              {
+                "w": "reservation",
+                "s": 34.46,
+                "e": 34.86,
+                "p": 0.9729484915733337
+              },
+              {
+                "w": "holders.",
+                "s": 34.86,
+                "e": 35.28,
+                "p": 0.9590322375297546
+              },
+              {
+                "w": "Be",
+                "s": 36.2,
+                "e": 36.28,
+                "p": 0.9892908930778503
+              },
+              {
+                "w": "sure",
+                "s": 36.28,
+                "e": 36.42,
+                "p": 0.9989025592803955
+              },
+              {
+                "w": "to",
+                "s": 36.42,
+                "e": 36.54,
+                "p": 0.9954981803894043
+              },
+              {
+                "w": "like,",
+                "s": 36.54,
+                "e": 36.74,
+                "p": 0.8548439145088196
+              },
+              {
+                "w": "share,",
+                "s": 36.94,
+                "e": 37.16,
+                "p": 0.997871994972229
+              },
+              {
+                "w": "and",
+                "s": 37.38,
+                "e": 37.42,
+                "p": 0.993198037147522
+              },
+              {
+                "w": "save",
+                "s": 37.42,
+                "e": 37.72,
+                "p": 0.9881812334060669
+              },
+              {
+                "w": "this",
+                "s": 37.72,
+                "e": 37.88,
+                "p": 0.9730640649795532
+              },
+              {
+                "w": "video.",
+                "s": 37.88,
+                "e": 38.12,
+                "p": 0.9979763627052307
+              },
+              {
+                "w": "Which",
+                "s": 38.68,
+                "e": 38.7,
+                "p": 0.9740648865699768
+              },
+              {
+                "w": "company",
+                "s": 38.7,
+                "e": 38.88,
+                "p": 0.9848253130912781
+              },
+              {
+                "w": "next?",
+                "s": 38.88,
+                "e": 39.2,
+                "p": 0.9577361345291138
+              },
+              {
+                "w": "Comment",
+                "s": 39.64,
+                "e": 39.8,
+                "p": 0.9950529932975769
+              },
+              {
+                "w": "and",
+                "s": 39.8,
+                "e": 40.28,
+                "p": 0.8369371294975281
+              },
+              {
+                "w": "follow",
+                "s": 40.28,
+                "e": 40.5,
+                "p": 0.9921390414237976
+              },
+              {
+                "w": "for",
+                "s": 40.5,
+                "e": 40.74,
+                "p": 0.9703361988067627
+              },
+              {
+                "w": "more!",
+                "s": 40.74,
+                "e": 40.92,
+                "p": 0.999168872833252
+              }
+            ],
+            "dauer_s": 41.28,
+            "sprache": "en"
+          },
+          "roh_key": "298f999bcad00e625c824375dd5e2b7df9b11d3453816afd51938d25ec9e5c35",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "d27eaacd3f15439e9633c8a1b48281cfd26a42059b5a4ff48168dfa19fdf7382",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 41.3,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 11,
+          "motive": 11,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "d27eaacd3f15439e9633c8a1b48281cfd26a42059b5a4ff48168dfa19fdf7382",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Close-up einer geschockten männlichen Person in Anzug und Hut vor einem grünen Pickup.",
+              "note": 8,
+              "passt": true,
+              "grund": "Dies ist ein opening_reaction_shot, der die geschockte Emotion passend zum Einstieg zeigt.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da der Gesichtsausdruck zum eröffnenden Ton passt."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein älterer Mann mit grauem Haar, weißem Hemd und Hosenträgern sitzt an einem Holztisch, zeichnet an einer Skizze und hält einen Bleistift in der Hand. Im Hintergrund sind Skizzen von Autos an der Wand und eine grüne Lampe zu sehen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt den Gründer beim Entwerfen von Autos in einem zeittypischen Studio, passend zu den Worten über den Beginn der Firmengeschichte und den früheren Sportwagenplan.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Mann im Hemd steht im Hof zwischen Ziegelgebäuden, kein Fabrikgebäude oder Fabrikkauf zu sehen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Mann in einer Gasse statt des erworbenen Mitsubishi-Werks.",
+              "erforderliches_bild": "Ein Foto oder eine Illustration des erworbenen Mitsubishi-Werks in Illinois."
+            },
+            {
+              "index": 3,
+              "gesehen": "Two businessmen shaking hands across a desk in an office, with a large window in the background showing a brick factory with tall chimneys and cars outside, and a floating overlay reading \"$16 MILLION\".",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt eine Geschäftsszene, die zum Erwerb einer Fabrik passt, und enthält den Betrag von 16 Millionen als Overlay.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 5,
+              "gesehen": "Vier Personen stehen in einem Raum mit Blick durch ein großes Fenster auf eine sonnige Straßenszene.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt Personen in einem Raum, aber keinen R1T-Elektro-Pick-up oder die Auslieferung an Kunden.",
+              "erforderliches_bild": "Ein Foto des Rivian R1T Pick-up-Trucks bei der Übergabe oder Auslieferung an Kunden."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein gemaltes Bild eines besorgten Mannes, der sich die Hand an den Kopf fasst und nachdenklich oder frustriert dreinschaut, im Hintergrund eine Straßenszene und eine Lampe.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gesprochene Zeile fragt nach einer krisenhaften Situation ('sudden price increases... sparked customer backlash'), und die gezeigte Einstellung stellt eine klassische Revisions- oder Frustrationsreaktion dar, die zu einer solchen rhetorischen Frage passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 7,
+              "gesehen": "In einer Garage oder einem Autohaus stehen sich zwei Männer gegenüber und geben sich die Hand vor der Front eines blauen Autos.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gesprochene Phase erwähnt das Überleben des Pickups nach Preissteigerungen, aber das Bild zeigt lediglich zwei Männer beim Händedruck vor einem blauen Auto in einem Innenraum.",
+              "erforderliches_bild": "Ein Foto des Rivian-Pickups oder von Kunden und Mitarbeitern, die eine Fahrzeugauslieferung feiern."
+            }
+          ],
+          "befunde": [
+            "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einer Gasse statt des erworbenen Mitsubishi-Werks.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Personen in einem Raum, aber keinen R1T-Elektro-Pick-up oder die Auslieferung an Kunden.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Phase erwähnt das Überleben des Pickups nach Preissteigerungen, aber das Bild zeigt lediglich zwei Männer beim Händedruck vor einem blauen Auto in einem Innenraum."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 11,
+          "ausgenommen": [
+            9,
+            10
+          ],
+          "vorgeprueft": [
+            4,
+            8
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "d27eaacd3f15439e9633c8a1b48281cfd26a42059b5a4ff48168dfa19fdf7382",
+        "prompt_version": "2026-10-29.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

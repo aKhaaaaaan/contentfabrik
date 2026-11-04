@@ -1,48 +1,39 @@
 {
- "version": 1,
- "modelle": {
-  "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
-   "grund": "voruebergehend ueberlastet",
-   "bis": 1793782105.77559
+  "version": 1,
+  "modelle": {
+    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-20b": {
+      "grund": "HTTP429; Serverfrist 1692s",
+      "bis": 1793783377.9932847
+    },
+    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
+      "grund": "HTTP429; Serverfrist 1439s",
+      "bis": 1793783207.9564795
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1793783135.0463495
+    },
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1793782915.0769315
+    }
   },
-  "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
-   "grund": "voruebergehend ueberlastet",
-   "bis": 1793782134.3917634
-  },
-  "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-20b": {
-   "grund": "HTTP429; Serverfrist 1692s",
-   "bis": 1793783377.9932847
-  },
-  "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
-   "grund": "HTTP429; Serverfrist 1439s",
-   "bis": 1793783207.9564795
-  },
-  "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
-   "grund": "voruebergehend ueberlastet",
-   "bis": 1793782071.340942
-  },
-  "18b3ef0930af7cca6de34adf:gemini-3.5-flash": {
-   "grund": "voruebergehend ueberlastet",
-   "bis": 1793782076.7984097
-  },
-  "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": {
-   "grund": "Netzwerk-Zeitlimit",
-   "bis": 1793782339.0015824
+  "zeitlimits": {
+    "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": [
+      1793777130.773705,
+      1793777523.6716843,
+      1793781173.489706,
+      1793781799.0015824
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
+      1793781003.9289594,
+      1793781520.1040108
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.5-flash": [
+      1793781685.942104
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
+      1793782855.0769315
+    ]
   }
- },
- "zeitlimits": {
-  "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": [
-   1793777130.773705,
-   1793777523.6716843,
-   1793781173.489706,
-   1793781799.0015824
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
-   1793781003.9289594,
-   1793781520.1040108
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-3.5-flash": [
-   1793781685.942104
-  ]
- }
 }

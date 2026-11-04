@@ -1,41 +1,34 @@
 {
- "version": 1,
- "modelle": {
-  "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
-   "grund": "voruebergehend ueberlastet",
-   "bis": 1793787705.541581
+  "version": 1,
+  "modelle": {
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1793788432.0144935
+    },
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1793788452.0459466
+    }
   },
-  "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
-   "grund": "voruebergehend ueberlastet",
-   "bis": 1793787707.2391572
-  },
-  "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
-   "grund": "Netzwerk-Zeitlimit",
-   "bis": 1793787634.167398
-  },
-  "18b3ef0930af7cca6de34adf:gemini-3.5-flash": {
-   "grund": "voruebergehend ueberlastet",
-   "bis": 1793787755.1470058
+  "zeitlimits": {
+    "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": [
+      1793781173.489706,
+      1793781799.0015824
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
+      1793781520.1040108,
+      1793787094.167398
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.5-flash": [
+      1793781685.942104
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
+      1793782855.0769315,
+      1793788272.0459466
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
+      1793787348.2619288,
+      1793788252.0144935
+    ]
   }
- },
- "zeitlimits": {
-  "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": [
-   1793781173.489706,
-   1793781799.0015824
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
-   1793781003.9289594,
-   1793781520.1040108,
-   1793787094.167398
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-3.5-flash": [
-   1793781685.942104
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
-   1793782855.0769315
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
-   1793787348.2619288
-  ]
- }
 }

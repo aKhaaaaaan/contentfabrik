@@ -1,105 +1,120 @@
 {
   "version": 1,
   "status": "ungeprueft",
-  "zeit": 1793777085.497798,
-  "kontext": "b66d8c629fee463a2b23ef96d5ee0c252d6b6658bad4c53330792e1ab6267a46",
+  "zeit": 1793780762.361292,
+  "kontext": "b3f1d44b2523479b7179e9bd1e6d9eb5b224a4a2c3f46dc4e39e657be92fad50",
   "entwurf": {
-    "thema": "AI coding for beginners",
-    "titel_zeile1": "Claude Code Basics",
-    "titel_zeile2": "Your First 10 Minutes",
-    "beschreibung": "A quick, humorous walk‑through showing how absolute beginners can install Claude Code, generate a hello‑world script, and verify it, while highlighting the tool’s limits.",
+    "thema": "Claude for Roblox Beginners",
+    "titel_zeile1": "Claude + Roblox",
+    "titel_zeile2": "Setup Made Easy",
+    "beschreibung": "A quick guide showing how to use Anthropic Claude to generate Roblox scripts, with real steps, limits, and a humorous spin.",
+    "schluesselwoerter": [
+      "Claude",
+      "Roblox",
+      "AI scripting",
+      "project",
+      "ModuleScript",
+      "game dev"
+    ],
     "hashtags": [
-      "#AIcoding",
-      "#ClaudeCode",
-      "#BeginnerTips"
+      "#ClaudeAI",
+      "#RobloxDev",
+      "#AICode",
+      "#GameDevTips",
+      "#TechComedy"
     ],
     "musik_suche": [
       "upbeat electronic",
-      "chill lo‑fi"
-    ],
-    "schluesselwoerter": [
-      "Claude Code",
-      "AI coding assistant",
-      "install CLI",
-      "hello world script",
-      "code verification",
-      "limitations"
+      "lo‑fi tech vibe",
+      "chill synth"
     ],
     "teile": [
       {
-        "platz": 1,
         "name": "Hook",
-        "werkzeug": "Claude Code",
-        "suche": "Claude Code install, AI coding beginner",
-        "text": "Ever tried writing code and ended up staring at a blank screen? Claude Code can jump‑start your first function.",
-        "quelle_url": "https://docs.claude.com/en/docs/claude-code/quickstart",
-        "szene": "A tired student sits at a cluttered desk, coffee steaming, terminal open, blinking cursor awaiting a first line of code.",
+        "werkzeug": "Claude",
+        "suche": "Claude Roblox setup",
+        "text": "Start by opening Claude and choosing a new project for your Roblox work.",
+        "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects",
+        "szene": "A frustrated indie dev sits at a cluttered desk, steam rising from a coffee mug, laptop screen showing a red error. Neon‑glow city night outside the window, soft street light filters in.",
+        "beat": "hook",
         "bildmodus": "illustration",
-        "bildtext": "Student at desk with coffee and terminal",
-        "geraeusch": "soft typing clicks"
+        "bildtext": "Developer frowning at Roblox Studio error screen",
+        "geraeusch": "keyboard clack, sigh"
       },
       {
-        "platz": 2,
-        "name": "Install",
-        "werkzeug": "Claude CLI",
-        "suche": "Claude CLI download, install Claude Code",
-        "text": "Open your terminal, run the install command from Claude’s site, and watch the silent download finish without any pop‑ups.",
-        "quelle_url": "https://docs.claude.com/en/docs/claude-code/quickstart",
-        "szene": "The screen shows a single line echoing the download, while the user leans back, wondering if it ever really started.",
+        "name": "Project Creation",
+        "werkzeug": "Claude",
+        "suche": "Claude project create",
+        "text": "In the project sidebar, upload your existing script files so Claude can reference them during the chat.",
+        "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects",
+        "szene": "The same dev clicks ‘New Project’ in Claude’s sidebar, drags a .lua file onto the interface; a holographic grid lights up around the code.",
+        "beat": "frage",
         "bildmodus": "illustration",
-        "bildtext": "Terminal displaying download line",
-        "geraeusch": "quiet download hum"
+        "bildtext": "Project dashboard with uploaded script",
+        "geraeusch": "soft UI chime"
       },
       {
-        "platz": 3,
-        "name": "First Prompt",
-        "werkzeug": "Claude Code",
-        "suche": "Claude hello world example, AI code generation",
-        "text": "Launch Claude, type a simple request like “create a hello‑world script,” and it writes the file instantly.",
-        "quelle_url": "https://docs.claude.com/en/docs/claude-code/overview",
-        "szene": "The terminal prints a new file name, then displays the hello‑world code, as the user grins at the magic.",
+        "name": "Generate ModuleScript",
+        "werkzeug": "Claude",
+        "suche": "Claude generate ModuleScript",
+        "text": "Ask Claude to generate a ModuleScript for player movement; the model will produce code snippets based on the uploaded context.",
+        "quelle_url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+        "szene": "The dev types a prompt, Claude streams code; the dev highlights the text, drags it into the Explorer window, and watches a tiny avatar sprint.",
+        "beat": "beleg",
         "bildmodus": "illustration",
-        "bildtext": "Terminal showing generated hello‑world file",
-        "geraeusch": "soft beep"
+        "bildtext": "Generated ModuleScript being dropped into Explorer",
+        "geraeusch": "whoosh of code transfer"
       },
       {
-        "platz": 4,
-        "name": "Limitation",
-        "werkzeug": "Claude Code",
-        "suche": "Claude code execution limit, run generated code",
-        "text": "Claude can’t run code on its own; you must execute the script locally to see if it works.",
-        "quelle_url": "https://www.anthropic.com/engineering/claude-code-best-practices",
-        "szene": "The user hits enter, and the console returns a syntax error, reminding them that AI isn’t a compiler.",
+        "name": "Verify API Compatibility",
+        "werkzeug": "Roblox Developer Docs",
+        "suche": "Roblox API reference",
+        "text": "But what if the generated code still fails to compile?",
+        "quelle_url": "https://developer.roblox.com/en-us/api-reference",
+        "szene": "A split‑screen shows Claude’s suggestion on the left, Roblox API page on the right; the dev circles mismatched function names with a red pen.",
+        "beat": "erklaerung",
         "bildmodus": "illustration",
-        "bildtext": "Error message in terminal",
-        "geraeusch": "error buzz"
+        "bildtext": "Side‑by‑side code vs. API reference",
+        "geraeusch": "paper flip, light beep"
       },
       {
-        "platz": 5,
-        "name": "Verification",
-        "werkzeug": "IDE",
-        "suche": "verify AI generated code, test Claude script",
-        "text": "Copy the script into your IDE, run a test, and compare output with Claude’s description to confirm accuracy.",
-        "quelle_url": "https://docs.claude.com/en/docs/claude-code/overview",
-        "szene": "In a bright IDE, the code executes cleanly, a green check appears, and the learner sighs in relief.",
+        "name": "Enjoy Instant Results",
+        "werkzeug": "Roblox Studio",
+        "suche": "Roblox test run",
+        "text": "Check each function against Roblox’s official API docs and adjust any mismatches before running. After testing, you can copy the ModuleScript into Studio's Explorer pane.",
+        "quelle_url": "https://developer.roblox.com/en-us/articles/Getting-Started",
+        "szene": "The avatar zooms across a neon‑lit arena; the dev leans back, eyes wide, coffee untouched, neon reflections glinting off the screen.",
+        "beat": "wendung",
         "bildmodus": "illustration",
-        "bildtext": "IDE showing green check mark",
-        "geraeusch": "soft chime"
+        "bildtext": "Avatar dashing in a neon arena",
+        "geraeusch": "whoosh, triumphant chime"
       },
       {
-        "platz": 6,
-        "name": "CTA",
+        "name": "Final Pitch",
+        "werkzeug": "Claude",
+        "suche": "Claude AI benefits",
+        "text": "Free users can create up to five projects, so keep your work organized and within that quota.",
+        "quelle_url": "https://claude.com/pricing",
+        "szene": "The presenter, a cartoonish tech host in a game‑poster style jacket, points at a flashing “Play” button, winking at the camera.",
+        "beat": "aufloesung",
+        "bildmodus": "illustration",
+        "bildtext": "Presenter inviting viewers to try Claude",
+        "geraeusch": "cheerful synth sting"
+      },
+      {
+        "name": "Call to Action",
         "werkzeug": "Social",
-        "suche": "",
-        "text": "Be sure to like, share and save this video.",
+        "suche": "like share save CTA",
+        "text": "If this helps you level up, like, share, and save this video, thanks for watching.",
         "quelle_url": "",
-        "szene": "The presenter winks, pointing at a floating CTA banner in a stylized urban‑poster backdrop.",
+        "szene": "Bold graphic icons of thumbs‑up, share arrows, and a bookmark bounce on a dark background.",
+        "beat": "frage",
         "bildmodus": "illustration",
-        "bildtext": "Presenter with CTA banner",
-        "geraeusch": "light applause"
+        "bildtext": "CTA icons animated",
+        "geraeusch": "click"
       }
     ]
   },
-  "modell": "groq:openai/gpt-oss-120b",
-  "sha": "9e1e589c8275bc6a9136eee04abf640e11f22439a24465b4d0f7f5a6e039b8c1"
+  "modell": "groq:openai/gpt-oss-20b",
+  "sha": "cf33abbc54e98056b65fee8e45df3162a4118bc5ddd2fff810c36e4c9700d4d9"
 }

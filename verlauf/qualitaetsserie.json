@@ -139169,6 +139169,60 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "41799153257.1:ai-tools-explained",
+      "run_id": "41799153257",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-04T08:26:25.898305+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "8c37ec90e0a80fe1e4006435fd31e3082e6e63ea",
+      "produktionsversion": "11f0334a7466d4acc30705cd1333ee7e09cc6f54a8622a875a84dc0838284e7d",
+      "videoformat": "short",
+      "thema": null,
+      "titel": null,
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "41799153257",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-04",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "auftragsfehler",
+            "exitcode": 5,
+            "grund": "Auftrag zu gross: geschaetzte Reserve 8322 Tokens, maximal7900",
+            "sekunden": 32.2
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "Claude: How to Set Up Claude for Roblox: Beginner's Guide (Skills, Blender & More): 2.0 Punkte - YouTube-Ausreisser 4.0x Kanalschnitt, Format richtig nutzen (Formattag)",
+        "grund": "Auftrag zu gross: geschaetzte Reserve 8322 Tokens, maximal7900",
+        "sekunden": 32.3
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": null
     }
   ]
 }

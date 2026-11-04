@@ -1,30 +1,36 @@
 {
   "version": 1,
   "modelle": {
-    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
-      "grund": "Netzwerk-Zeitlimit",
-      "bis": 1793788432.0144935
-    },
     "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
       "grund": "Netzwerk-Zeitlimit",
-      "bis": 1793788452.0459466
+      "bis": 1793789746.638804
+    },
+    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
+      "grund": "HTTP429; Serverfrist 1011s",
+      "bis": 1793790507.2722156
+    },
+    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-20b": {
+      "grund": "HTTP429; Serverfrist 426s",
+      "bis": 1793789985.049617
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
+      "grund": "Tageskontingent erschoepft",
+      "bis": 1793865600.0
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1793789769.091203
     }
   },
   "zeitlimits": {
-    "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": [
-      1793781173.489706,
-      1793781799.0015824
-    ],
     "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
-      1793781520.1040108,
-      1793787094.167398
-    ],
-    "18b3ef0930af7cca6de34adf:gemini-3.5-flash": [
-      1793781685.942104
+      1793787094.167398,
+      1793789589.091203
     ],
     "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
       1793782855.0769315,
-      1793788272.0459466
+      1793788272.0459466,
+      1793789206.638804
     ],
     "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
       1793787348.2619288,

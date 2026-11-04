@@ -139223,6 +139223,116 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "41799153257.1:business-origin-stories",
+      "run_id": "41799153257",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-04T08:45:05.193790+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "8c37ec90e0a80fe1e4006435fd31e3082e6e63ea",
+      "produktionsversion": "ba190599d2ee600e809af3cb5e7ad37c7947a5e4c3825ee6da5a99af23eaf58d",
+      "videoformat": "short",
+      "thema": "AMD business origin story",
+      "titel": [
+        "How *AMD* Survived",
+        "By Cloning Rival Microchips"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 1,
+      "unterschiedliche_motive": 1,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "41799153257",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-04",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "RuntimeError: Sprechtextreparatur verliert Phasen oder enthaelt leeren Text (skript.py:157)",
+            "sekunden": 158.4
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 1,
+            "grund": "RuntimeError: Sprechtextreparatur verliert Phasen oder enthaelt leeren Text (skript.py:157)",
+            "sekunden": 1.1
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 4/10 unter 7/10",
+              "Skript-hook 4/10 unter 7/10",
+              "Skript-spannung 4/10 unter 7/10",
+              "Skript-ueberraschung 4/10 unter 7/10",
+              "Skript-tempo 5/10 unter 7/10",
+              "Skript-aufloesung 5/10 unter 7/10",
+              "Skript-teilbarkeit 4/10 unter 6/10"
+            ],
+            "story_note": 4,
+            "story_schwaechen": [
+              "First sentence fails to create a curiosity gap; it merely states facts. Consider opening with a surprising claim such as ‘Did you know the company that began as a small chip maker now dominates the GPU market?’ using the same historical facts.",
+              "The narration lacks clear beat structure, so viewers lose track of what new information is revealed each part. Add simple transitions like ‘Next…’ or ‘Meanwhile’ to signal each new beat while keeping the story concise."
+            ],
+            "skript_probleme": [],
+            "sekunden": 522.5
+          },
+          {
+            "runde": 4,
+            "art": "produktion",
+            "status": "anbieterpause",
+            "exitcode": 4,
+            "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq-Kontingent nicht verfuegbar: HTTP429; Serverfrist 1692s",
+            "sekunden": 59.6
+          },
+          {
+            "runde": 5,
+            "art": "produktion",
+            "skript_s": 95.1,
+            "bau_s": 93.2,
+            "baufehler": "ValueError: Bildtext zu lang fuer lesbare Darstellung",
+            "status": "baufehler",
+            "sekunden": 188.3
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "AMD: 6.89 Punkte - YouTube-Ausreisser 7.4x Kanalschnitt, Wikipedia -16 % gegenueber Vormonat, heute in Google News (AMD Stock Jumps on Big Earnings Beat)",
+        "grund": "Videobau fehlgeschlagen (ValueError: Bildtext zu lang fuer lesbare Darstellung)",
+        "sekunden": 931.8,
+        "upload_titel": "How AMD Survived By Cloning Rival Microchips"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

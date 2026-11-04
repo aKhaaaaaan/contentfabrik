@@ -327,8 +327,11 @@ def seitentext(url, grenze=6000):
 # nutzt", „95 % nutzen Claude falsch" - die Titelmuster, die auf YouTube gerade laufen. Belege dafuer sind die
 # offiziellen Anleitungen des Produkts (trendquellen/<kanal>.json, Feld anleitungen), keine Fremdvideos.
 # Nur Nutzungs-Muster: „Master Claude Motion" ist eine Funktionsneuheit, keine Anleitung (gemessen 19.10.)
+# 04.11.2026: Drei Zuschauer-TikToks „Claude kann X - so geht's" hatten 5-7 % Speicherquote (Animation, earshot,
+# Videoschnitt). Titel mit tutorial / step by step / setup fielen bisher aus dem Anleitungsformat.
 ANLEITUNG = re.compile(r"\b(?:wrong|mistakes?|correctly|properly|right way|how to use|tips|tricks|hidden features?|"
-                       r"settings you|beginners?|like a pro|better prompts?|prompting)\b", re.I)
+                       r"settings you|beginners?|like a pro|better prompts?|prompting|tutorials?|"
+                       r"step[- ]by[- ]step|set(?:ting)?[- ]?up|walkthrough)\b", re.I)
 GELD = re.compile(r"\b(?:make money|making money|earn(?:ing)?|income|side hustle|paise|sell(?:ing)?|business|"
                   r"clients?|freelanc\w*)\b|[$₹€£]\s?\d|/(?:day|month)\b|\bper (?:day|month)\b", re.I)
 # Nur Umgehung von Bezahlschranken (Freischalten, Cracks, Mod-APKs) ist tabu. Nutzer 19.10.2026: „Hoffnung machende"

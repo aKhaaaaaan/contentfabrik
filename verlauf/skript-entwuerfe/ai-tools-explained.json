@@ -1,7 +1,7 @@
 {
   "version": 1,
   "status": "ungeprueft",
-  "zeit": 1793780762.361292,
+  "zeit": 1793786785.0048919,
   "kontext": "b3f1d44b2523479b7179e9bd1e6d9eb5b224a4a2c3f46dc4e39e657be92fad50",
   "entwurf": {
     "thema": "Claude for Roblox Beginners",
@@ -33,7 +33,7 @@
         "name": "Hook",
         "werkzeug": "Claude",
         "suche": "Claude Roblox setup",
-        "text": "Start by opening Claude and choosing a new project for your Roblox work.",
+        "text": "Open Claude today and start a new project dedicated to your Roblox scripts.",
         "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects",
         "szene": "A frustrated indie dev sits at a cluttered desk, steam rising from a coffee mug, laptop screen showing a red error. Neon‑glow city night outside the window, soft street light filters in.",
         "beat": "hook",
@@ -45,7 +45,7 @@
         "name": "Project Creation",
         "werkzeug": "Claude",
         "suche": "Claude project create",
-        "text": "In the project sidebar, upload your existing script files so Claude can reference them during the chat.",
+        "text": "Upload any existing code files into the project’s Library so the model sees your context.",
         "quelle_url": "https://support.claude.com/en/articles/9517075-what-are-projects",
         "szene": "The same dev clicks ‘New Project’ in Claude’s sidebar, drags a .lua file onto the interface; a holographic grid lights up around the code.",
         "beat": "frage",
@@ -57,7 +57,7 @@
         "name": "Generate ModuleScript",
         "werkzeug": "Claude",
         "suche": "Claude generate ModuleScript",
-        "text": "Ask Claude to generate a ModuleScript for player movement; the model will produce code snippets based on the uploaded context.",
+        "text": "Ask Claude for help with a specific script task, such as writing a player‑movement routine.",
         "quelle_url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
         "szene": "The dev types a prompt, Claude streams code; the dev highlights the text, drags it into the Explorer window, and watches a tiny avatar sprint.",
         "beat": "beleg",
@@ -69,7 +69,7 @@
         "name": "Verify API Compatibility",
         "werkzeug": "Roblox Developer Docs",
         "suche": "Roblox API reference",
-        "text": "But what if the generated code still fails to compile?",
+        "text": "Review the reply carefully; cross‑check each function against Roblox’s official API documentation.",
         "quelle_url": "https://developer.roblox.com/en-us/api-reference",
         "szene": "A split‑screen shows Claude’s suggestion on the left, Roblox API page on the right; the dev circles mismatched function names with a red pen.",
         "beat": "erklaerung",
@@ -81,7 +81,7 @@
         "name": "Enjoy Instant Results",
         "werkzeug": "Roblox Studio",
         "suche": "Roblox test run",
-        "text": "Check each function against Roblox’s official API docs and adjust any mismatches before running. After testing, you can copy the ModuleScript into Studio's Explorer pane.",
+        "text": "Make any necessary adjustments, then paste the corrected code into Studio’s Explorer pane.",
         "quelle_url": "https://developer.roblox.com/en-us/articles/Getting-Started",
         "szene": "The avatar zooms across a neon‑lit arena; the dev leans back, eyes wide, coffee untouched, neon reflections glinting off the screen.",
         "beat": "wendung",
@@ -93,7 +93,7 @@
         "name": "Final Pitch",
         "werkzeug": "Claude",
         "suche": "Claude AI benefits",
-        "text": "Free users can create up to five projects, so keep your work organized and within that quota.",
+        "text": "Remember that free accounts may create up to five projects, so keep your workspace organized.",
         "quelle_url": "https://claude.com/pricing",
         "szene": "The presenter, a cartoonish tech host in a game‑poster style jacket, points at a flashing “Play” button, winking at the camera.",
         "beat": "aufloesung",
@@ -105,7 +105,7 @@
         "name": "Call to Action",
         "werkzeug": "Social",
         "suche": "like share save CTA",
-        "text": "If this helps you level up, like, share, and save this video, thanks for watching.",
+        "text": "If you found this guide useful, please like, share, and save it for future reference.",
         "quelle_url": "",
         "szene": "Bold graphic icons of thumbs‑up, share arrows, and a bookmark bounce on a dark background.",
         "beat": "frage",
@@ -116,5 +116,5 @@
     ]
   },
   "modell": "groq:openai/gpt-oss-20b",
-  "sha": "cf33abbc54e98056b65fee8e45df3162a4118bc5ddd2fff810c36e4c9700d4d9"
+  "sha": "2d7f548740125827d1c09418cdb3d2f217a2e2beb69e8912fa2c127ac7da0554"
 }

@@ -1087,6 +1087,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
             zusatz = (basis_zusatz + f"\nSOURCE (English Wikipedia, \"{q['name']}\"). Every factual claim MUST "
                       f"come from this text; leave out anything that is not in it:\n{q['text']}\n")
             print(f"Quelle: Wikipedia - {q['name']} ({len(q['text'])} Zeichen)")
+        # Business holt die Wikipedia-Quelle erst hier (lokaler Echttest 04.11.2026: oben noch 0 Quellen).
+        quellen_sichern(aus_pfad, runden_thema, quellen)
         entwurf, modell, mangel = schreiben(anweisung(kanal, runden_thema,
                                                       '; '.join(filter(None, [frueher] + verworfen))) + zusatz)
         # Zweiter Durchgang: Fakten und Regeln pruefen (Konzept 4a, Punkt 8).

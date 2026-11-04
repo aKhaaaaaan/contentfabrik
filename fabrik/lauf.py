@@ -845,6 +845,11 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     entwurf_cache.erledigen(cache_kanal)
     import vorrat
     vorrat.erledigen(kanal, skript)
+    try:  # gelieferte Clips merken, damit der naechste Bau (beide Kanaele) andere nimmt
+        import archivclip
+        archivclip.merken(json.loads((aus / 'quellen.json').read_text(encoding='utf-8')), kanal)
+    except (OSError, ValueError) as e:
+        print('Genutzte Clips nicht gemerkt:', type(e).__name__)
     # GEMESSEN 01.11.2026: der Android-TV-Short (Handstart 41221559923 mit dem Warteschlangen-Thema) blieb stehen -
     # aus_warteschlange war False, und das Skript nannte sich anders ("...off an old Android TV"), also griff auch
     # schon_geliefert nicht. Der naechste KI-Short haette ihn noch einmal gebaut. Handstart traegt es jetzt mit aus.

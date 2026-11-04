@@ -512,6 +512,44 @@ def epochen_hinweis(j):
             'objects are fine. If none qualifies, nummer=-1.]')
 
 
+# GEMELDET 04.11.2026: „bei Zeichentrick immer dieselben Clips". GEZAEHLT (8 Videos 02.-04.11.): „Why Play
+# Leapfrog" (1949) 3x, „We Learn..." (1965) 2x - `benutzt` galt nur innerhalb EINES Videos. Gelieferte Clips
+# merkt sich jetzt verlauf/clips-genutzt.json ueber beide Kanaele; die Auswahl ueberspringt sie SPERRE_TAGE lang.
+GENUTZT = Path('verlauf/clips-genutzt.json')
+SPERRE_TAGE = 14
+
+
+def zuletzt_genutzt(heute=None, pfad=None):
+    """Kennungen der in den letzten SPERRE_TAGE gelieferten Archiv-/Witzclips (alle Kanaele)."""
+    import datetime
+    heute = heute or datetime.date.today()
+    try:
+        liste = json.loads(Path(pfad or GENUTZT).read_text(encoding='utf-8'))
+        return {e['kennung'] for e in liste
+                if (heute - datetime.date.fromisoformat(e['datum'])).days < SPERRE_TAGE}
+    except (OSError, ValueError, KeyError, TypeError):
+        return set()  # Gedaechtnis ist Kuer: ohne Datei wie bisher
+
+
+def merken(quellen, kanal, heute=None, pfad=None):
+    """Nach erfolgreichem Versand die eingebauten Clips eintragen (hoechstens 60 Tage, 300 Eintraege)."""
+    import datetime
+    heute = heute or datetime.date.today()
+    pfad = Path(pfad or GENUTZT)
+    try:
+        liste = json.loads(pfad.read_text(encoding='utf-8')) if pfad.exists() else []
+    except (OSError, ValueError):
+        liste = []
+    neu = [{'kennung': q['kennung'], 'seite': q.get('seite', ''), 'kanal': kanal, 'datum': heute.isoformat()}
+           for q in quellen if isinstance(q, dict) and q.get('art') in ('witz', 'archiv') and q.get('kennung')]
+    if not neu:
+        return 0
+    liste = [e for e in liste if isinstance(e, dict) and e.get('datum', '') >= (heute - datetime.timedelta(days=60)).isoformat()]
+    pfad.parent.mkdir(parents=True, exist_ok=True)
+    pfad.write_text(json.dumps((liste + neu)[-300:], indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
+    return len(neu)
+
+
 def fuer_einstellung(satz, szene, suche, dauer, basis, archiv=True, ohne_epoche=False, pixabay=None, benutzt=None,
                      geschichte=None, witz=False):
     """(Video, Standbild, Quelle) fuer eine Einstellung oder (None, None, None) -> gemaltes Bild.
@@ -529,7 +567,8 @@ def fuer_einstellung(satz, szene, suche, dauer, basis, archiv=True, ohne_epoche=
                     benutzt.add(fund['kennung'])
                 return video, bild, {'quelle': f"{fund['quelle']}, {fund['lizenz']}", 'seite': fund['seite'],
                                      'lizenz': fund['lizenz'], 'nennung': 'Archival cartoon/comedy, painted',
-                                     'note': fund['note'], 'art': 'witz', 'witz_art': witz_art}
+                                     'note': fund['note'], 'art': 'witz', 'witz_art': witz_art,
+                                     'kennung': fund['kennung']}
     modern = epoche_modern(szene, ohne_epoche, geschichte)
     j = None if modern else szenen_jahr(szene, geschichte)
     hinweis = epochen_hinweis(j) if j else ''
@@ -559,7 +598,7 @@ def fuer_einstellung(satz, szene, suche, dauer, basis, archiv=True, ohne_epoche=
                     benutzt.add(fund['kennung'])
                 return video, bild, {'quelle': f"{fund['quelle']}, {fund['lizenz']}", 'seite': fund['seite'],
                                      'lizenz': fund['lizenz'], 'nennung': 'Archival footage, colorized and painted',
-                                     'note': fund['note'], 'art': 'archiv'}
+                                     'note': fund['note'], 'art': 'archiv', 'kennung': fund['kennung']}
     # 30.10.2026, Nutzer: "nicht nur Karten freimachen - wir brauchen was generell". Archive haben fuer die meisten
     # Saetze nichts (Nintendo/Intel: Note 0-6). Pixabay hat viel mehr; die KI-Auswahl bekommt die Epoche und lehnt
     # alles Moderne ab, der Schlusspruefer kontrolliert die Epoche ebenfalls. Ohne Jahr (unklar) bleibt es gemalt.

@@ -2013,9 +2013,10 @@ def main(skript_pfad, aus, vorlage=None):
         FORTSCHRITT['plaetze'] = sorted((t['platz'] for t in s['teile'] if t.get('platz')), reverse=True)
         FORTSCHRITT['aktuell'] = None
         # Nutzerentscheidung 29.10.2026: allgemeine Szenen als gemeinfreie Archivclips (eingefaerbt + gemalt).
-        archiv_zahl, archiv_letzt, archiv_benutzt = 0, -9, set()
-        witz_zahl = witz_versuche = 0
+        # Kanaluebergreifend zuletzt gelieferte Clips nicht wiederholen (archivclip.zuletzt_genutzt, 04.11.2026).
         import archivclip
+        archiv_zahl, archiv_letzt, archiv_benutzt = 0, -9, archivclip.zuletzt_genutzt()
+        witz_zahl = witz_versuche = 0
         archiv_jahr = archivclip.story_jahr(*(x['teil'].get('text') for x in shots))
         reaktion_bilder = set()  # Hook-Ersatz "Gesicht mit Gefuehl" (bildbezug bewertet das Gefuehl)
         schon_fertig = {i for i, shot in enumerate(shots) if cache.get('stuecke', {}).get(str(i), {}).get('key')

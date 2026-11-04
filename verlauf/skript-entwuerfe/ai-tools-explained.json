@@ -1,127 +1,105 @@
 {
   "version": 1,
   "status": "ungeprueft",
-  "zeit": 1793768782.8787673,
+  "zeit": 1793777085.497798,
   "kontext": "b66d8c629fee463a2b23ef96d5ee0c252d6b6658bad4c53330792e1ab6267a46",
   "entwurf": {
-    "thema": "AI coding for beginners: your first 10 minutes with Claude Code",
-    "titel_zeile1": "Claude Code in Action",
-    "titel_zeile2": "First 10 Minutes",
-    "beschreibung": "A quick, humor‑filled guide that shows a complete beginner how to install Claude Code, get a snippet, and understand its limits—all in under two minutes.",
+    "thema": "AI coding for beginners",
+    "titel_zeile1": "Claude Code Basics",
+    "titel_zeile2": "Your First 10 Minutes",
+    "beschreibung": "A quick, humorous walk‑through showing how absolute beginners can install Claude Code, generate a hello‑world script, and verify it, while highlighting the tool’s limits.",
     "hashtags": [
       "#AIcoding",
       "#ClaudeCode",
-      "#DevTools",
-      "#TechComedy",
       "#BeginnerTips"
     ],
     "musik_suche": [
-      "lofi hip hop beat",
-      "upbeat tech instrumental",
-      "minimal synth groove"
+      "upbeat electronic",
+      "chill lo‑fi"
     ],
     "schluesselwoerter": [
       "Claude Code",
       "AI coding assistant",
       "install CLI",
-      "generate code",
-      "MCP limitation",
-      "quickstart"
+      "hello world script",
+      "code verification",
+      "limitations"
     ],
     "teile": [
       {
         "platz": 1,
         "name": "Hook",
         "werkzeug": "Claude Code",
-        "suche": "Claude Code install, AI coding assistant",
-        "text": "Ever tried coding without a clue? It feels like juggling flaming keyboards while your coffee watches in the morning.",
+        "suche": "Claude Code install, AI coding beginner",
+        "text": "Ever tried writing code and ended up staring at a blank screen? Claude Code can jump‑start your first function.",
         "quelle_url": "https://docs.claude.com/en/docs/claude-code/quickstart",
-        "szene": "A bright kitchen at dawn, a frazzled person holds a laptop, steam rises from a mug, light streams through a window, painted urban poster style.",
+        "szene": "A tired student sits at a cluttered desk, coffee steaming, terminal open, blinking cursor awaiting a first line of code.",
         "bildmodus": "illustration",
-        "bildtext": "Person looking bewildered at laptop, coffee beside them.",
-        "geraeusch": "clinking mugs, faint keyboard typing",
-        "beat": "hook"
+        "bildtext": "Student at desk with coffee and terminal",
+        "geraeusch": "soft typing clicks"
       },
       {
         "platz": 2,
-        "name": "Problem",
-        "werkzeug": "Claude Code",
-        "suche": "coding errors, Stack Overflow sigh",
-        "text": "You open a fresh project, but the first function throws mysterious errors, and Stack Overflow just sighs for you.",
-        "quelle_url": "https://www.anthropic.com/engineering/claude-code-best-practices",
-        "szene": "A cramped home office, code errors flash red on screen, a frustrated developer sighs, neon glow from monitors, urban poster vibe.",
+        "name": "Install",
+        "werkzeug": "Claude CLI",
+        "suche": "Claude CLI download, install Claude Code",
+        "text": "Open your terminal, run the install command from Claude’s site, and watch the silent download finish without any pop‑ups.",
+        "quelle_url": "https://docs.claude.com/en/docs/claude-code/quickstart",
+        "szene": "The screen shows a single line echoing the download, while the user leans back, wondering if it ever really started.",
         "bildmodus": "illustration",
-        "bildtext": "Error messages crowding the screen.",
-        "geraeusch": "error buzz, sigh",
-        "beat": "frage"
+        "bildtext": "Terminal displaying download line",
+        "geraeusch": "quiet download hum"
       },
       {
         "platz": 3,
-        "name": "Solution Intro",
+        "name": "First Prompt",
         "werkzeug": "Claude Code",
-        "suche": "Claude Code overview, AI code generation",
-        "text": "Claude Code steps in, reads your repo, and writes a working snippet before you can finish your coffee.",
+        "suche": "Claude hello world example, AI code generation",
+        "text": "Launch Claude, type a simple request like “create a hello‑world script,” and it writes the file instantly.",
         "quelle_url": "https://docs.claude.com/en/docs/claude-code/overview",
-        "szene": "A stylized terminal window glows, Claude avatar appears, code flows onto the screen, sunrise light filters in.",
+        "szene": "The terminal prints a new file name, then displays the hello‑world code, as the user grins at the magic.",
         "bildmodus": "illustration",
-        "bildtext": "Claude generating code on terminal.",
-        "geraeusch": "soft whoosh, typing taps",
-        "beat": "erklaerung"
+        "bildtext": "Terminal showing generated hello‑world file",
+        "geraeusch": "soft beep"
       },
       {
         "platz": 4,
-        "name": "Install",
-        "werkzeug": "Claude CLI",
-        "suche": "Claude install script, CLI version check",
-        "text": "In your terminal, run the install script, then type 'claude --version' to confirm it’s alive and ready now.",
-        "quelle_url": "https://docs.claude.com/en/docs/claude-code/quickstart",
-        "szene": "Close‑up of hands typing a curl command, progress bar invisible, terminal prompt shows version number, morning light highlights the screen.",
+        "name": "Limitation",
+        "werkzeug": "Claude Code",
+        "suche": "Claude code execution limit, run generated code",
+        "text": "Claude can’t run code on its own; you must execute the script locally to see if it works.",
+        "quelle_url": "https://www.anthropic.com/engineering/claude-code-best-practices",
+        "szene": "The user hits enter, and the console returns a syntax error, reminding them that AI isn’t a compiler.",
         "bildmodus": "illustration",
-        "bildtext": "Terminal installing Claude.",
-        "geraeusch": "command echo, soft chime",
-        "beat": "beleg"
+        "bildtext": "Error message in terminal",
+        "geraeusch": "error buzz"
       },
       {
         "platz": 5,
-        "name": "Generate Code",
-        "werkzeug": "Claude Code",
-        "suche": "generate JSON parser, AI code snippet",
-        "text": "Ask Claude, 'Create a function that parses JSON safely,' and watch it generate code with built‑in tests instantly.",
-        "quelle_url": "https://docs.claude.com/en/docs/claude-code/quickstart",
-        "szene": "Animated speech bubble from Claude, code appears line by line, test results flash green, developer smiles.",
+        "name": "Verification",
+        "werkzeug": "IDE",
+        "suche": "verify AI generated code, test Claude script",
+        "text": "Copy the script into your IDE, run a test, and compare output with Claude’s description to confirm accuracy.",
+        "quelle_url": "https://docs.claude.com/en/docs/claude-code/overview",
+        "szene": "In a bright IDE, the code executes cleanly, a green check appears, and the learner sighs in relief.",
         "bildmodus": "illustration",
-        "bildtext": "Claude outputting a safe JSON parser.",
-        "geraeusch": "keyboard clack, success ding",
-        "beat": "wendung"
+        "bildtext": "IDE showing green check mark",
+        "geraeusch": "soft chime"
       },
       {
         "platz": 6,
-        "name": "Limitation",
-        "werkzeug": "MCP",
-        "suche": "Claude MCP setup, private API access",
-        "text": "Remember, Claude can’t access private APIs without MCP setup, so you’ll need to connect those tools yourself later.",
-        "quelle_url": "https://docs.claude.com/en/docs/claude-code/mcp",
-        "szene": "A puzzle of API icons floats above a laptop, Claude looks puzzled, a toolbox labeled MCP sits nearby.",
-        "bildmodus": "illustration",
-        "bildtext": "Claude awaiting MCP connection.",
-        "geraeusch": "soft puzzle click, faint buzz",
-        "beat": "aufloesung"
-      },
-      {
-        "platz": 7,
         "name": "CTA",
         "werkzeug": "Social",
-        "suche": "like share save, tech video CTA",
-        "text": "Like, share, and save this video, please! for more",
-        "quelle_url": "https://claude.com/pricing",
-        "szene": "The presenter points at a bright button, urban poster backdrop, confetti pops, camera zooms out.",
+        "suche": "",
+        "text": "Be sure to like, share and save this video.",
+        "quelle_url": "",
+        "szene": "The presenter winks, pointing at a floating CTA banner in a stylized urban‑poster backdrop.",
         "bildmodus": "illustration",
-        "bildtext": "Presenter urging engagement.",
-        "geraeusch": "click, upbeat outro chime",
-        "beat": "frage"
+        "bildtext": "Presenter with CTA banner",
+        "geraeusch": "light applause"
       }
     ]
   },
   "modell": "groq:openai/gpt-oss-120b",
-  "sha": "e407fceeddafbff7997441c46fda56f59b35eee65598195fb661742e311e0075"
+  "sha": "9e1e589c8275bc6a9136eee04abf640e11f22439a24465b4d0f7f5a6e039b8c1"
 }

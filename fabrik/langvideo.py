@@ -151,6 +151,12 @@ def vorpruefung(heute=None, eingabe='', kanal=KANAL):
     offen = offener_entwurf(kanal)
     if offen:
         return True, offen
+    # 04.11.2026: ein unabhaengig geprueftes Ersatzskript (Codex-Bruecke nach Claude-/Groq-Ausfall) hat Vorrang,
+    # sonst waehlte der Ersatztermin ein anderes Thema und das fertige Skript bliebe liegen.
+    import vorrat
+    ersatz = vorrat.lang_thema(Path('formate') / f'{kanal}.json')
+    if ersatz:
+        return True, ersatz
     reicht = (lambda t: quelle_reicht(t, kanal)) if _profil(kanal).get('quelle') == 'wikipedia' else \
         (lambda t: quellen_da(t)) if _profil(kanal).get('nur_quellen') else None
     return True, thema(verlauf, geliefert, heute, _name(kanal), reicht, lambda l: trend_rangfolge(l, kanal))

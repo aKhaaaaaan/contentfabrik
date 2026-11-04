@@ -19,7 +19,8 @@ concurrency:
 jobs:
   pruefen:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    # Langvideo-Pruefung (bis ~1800 Woerter) braucht laenger als ein Short (codex_pruefung.PRUEF_S).
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
         with:

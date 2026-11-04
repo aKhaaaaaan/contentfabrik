@@ -50,6 +50,36 @@ def eintraege(kanal):
     return sorted(liste, key=lambda x: x[1].get('erstellt_utc', ''))
 
 
+def gleiches_format(eintrag, daten):
+    """Short und Langvideo teilen den Ordner; jeder Lauf sieht nur Eintraege seines Formats.
+    04.11.2026: Der Codex-Ersatzautor legt auch Langvideo-Skripte hier ab - das naechtliche Aufraeumen
+    der Shorts haette sie als „ungueltig" geloescht und sie haetten einen Short-Platz belegt."""
+    import dramaturgie
+    try:
+        return dramaturgie.videoformat(eintrag['skript']) == dramaturgie.videoformat(daten)
+    except (KeyError, TypeError):
+        return True  # kaputter Eintrag: wie bisher dem normalen Aufraeumen ueberlassen
+
+
+def eintraege_format(kanal, daten):
+    return [(p, e) for p, e in eintraege(kanal) if gleiches_format(e, daten)]
+
+
+def lang_thema(kanal_pfad):
+    """Festes Thema des aeltesten gueltigen Langvideo-Skripts im Vorrat ('' wenn keins).
+    Darf die Langvideo-Vorpruefung nie kippen: ohne Vorrat oder lesbares Profil einfach ''."""
+    if not eintraege(Path(kanal_pfad).stem):
+        return ''
+    try:
+        daten = _kanal_daten(kanal_pfad)
+    except (OSError, ValueError, KeyError, TypeError):
+        return ''
+    for _, e in eintraege_format(Path(kanal_pfad).stem, daten):
+        if e.get('thema_eingabe') and gueltig(e, daten):
+            return e['thema_eingabe']
+    return ''
+
+
 def gueltig(eintrag, daten, jetzt=None):
     from qualitaet import skript_gruende
     jetzt = jetzt or datetime.datetime.now(datetime.timezone.utc)
@@ -155,7 +185,7 @@ def erledigen(kanal, skript):
 def aufraeumen(kanal_pfad):
     kanal = Path(kanal_pfad).stem
     daten = _kanal_daten(kanal_pfad)
-    for pfad, e in eintraege(kanal):
+    for pfad, e in eintraege_format(kanal, daten):
         if not gueltig(e, daten):
             print('Vorrat: abgelaufen/ungueltig entfernt:', pfad.name)
             pfad.unlink(missing_ok=True)
@@ -177,7 +207,7 @@ def aufraeumen(kanal_pfad):
     except Exception as fehler:
         print('Vorrat: Warteschlange nicht lesbar, nichts entfernt:', type(fehler).__name__)
         return
-    for pfad, e in eintraege(kanal):
+    for pfad, e in eintraege_format(kanal, daten):
         thema = e.get('thema_eingabe') or ''
         if thema and thema not in offen:
             print('Vorrat: Thema nicht mehr in der Warteschlange, entfernt:', pfad.name)
@@ -275,7 +305,8 @@ def fuellen(kanal_pfad, frist_s=1500):
     ende = time.monotonic() + frist_s
     neu = 0
     themenliste = offene_themen(kanal)
-    while len(eintraege(kanal)) < ZIEL and time.monotonic() + 300 < ende:
+    daten = _kanal_daten(kanal_pfad)
+    while len(eintraege_format(kanal, daten)) < ZIEL and time.monotonic() + 300 < ende:
         # Ohne Warteschlangen-Thema waehlt skript.py selbst (AI-Kanal: aktuelle Werkzeuge).
         thema = themenliste.pop(0) if themenliste else ''
         # GEMESSEN 22.10.2026 (01:05 UTC): Das KI-Trendthema fiel durch die Faktenpruefung, danach schrieb der
@@ -287,7 +318,7 @@ def fuellen(kanal_pfad, frist_s=1500):
         if not thema and _zuschauer_trends(kanal) and _kanal_daten(kanal_pfad).get('quelle') != 'wikipedia':
             print(f'Vorrat {kanal}: kein offenes Trendthema - nichts frei gewaehlt', flush=True)
             break
-        if not thema and any(not e.get('thema_eingabe') for _, e in eintraege(kanal)):
+        if not thema and any(not e.get('thema_eingabe') for _, e in eintraege_format(kanal, daten)):
             break  # ein frei gewaehltes Skript genuegt; Warteschlange hat Vorrang
         ziel = Path('vorrat-arbeit') / kanal / 'skript.json'
         shutil.rmtree(ziel.parent, ignore_errors=True)

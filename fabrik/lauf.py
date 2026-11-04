@@ -249,6 +249,21 @@ def budget_fuer(profil):
     return BUDGET_LANG_S if profil.get('videoformat') == 'lang' else BUDGET_S
 
 
+def skriptquellen_beilegen(aus, status, wurzel=Path('.')):
+    """Gesperrter Lauf: Quellen des letzten Skriptversuchs ins Artefakt legen, damit der lokale
+    Ersatzautor (pruefungen/codex_bruecke.py) dasselbe Thema schreiben kann.
+    GEMESSEN 04.11.2026 (KI 41815813677, 41837686265): Claude pausiert + Groq 429 -> kein skript.json,
+    Artefakt ohne Quellen, der Ersatzautor erkannte beide Faelle und konnte nichts tun."""
+    if status in ('gesendet', 'pilot_bestanden'):
+        return
+    dateien = sorted(Path(wurzel).glob('versuch*/skriptquellen.json'), key=lambda p: p.stat().st_mtime)
+    if dateien:
+        try:
+            shutil.copy2(dateien[-1], Path(aus) / 'skriptquellen.json')
+        except OSError as e:
+            print('Skriptquellen nicht ins Artefakt kopiert:', type(e).__name__)
+
+
 def main(kanal_pfad, thema='', entwurf=''):
     import themen
     kanal = Path(kanal_pfad).stem
@@ -438,6 +453,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         except (OSError, ValueError, KeyError):
             pass
         (aus / 'bericht.json').write_text(json.dumps(bericht, indent=2, ensure_ascii=False), encoding='utf-8')
+        skriptquellen_beilegen(aus, status)
         pfad = Path('verlauf/messungen') / f'{kanal}.json'
         pfad.parent.mkdir(parents=True, exist_ok=True)
         liste = json.loads(pfad.read_text(encoding='utf-8')) if pfad.exists() else []

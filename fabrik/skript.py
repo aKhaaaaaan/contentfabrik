@@ -749,6 +749,21 @@ def sperrliste(verlauf):
         v.get('datum') == heute and v.get('status') in ('skriptqualitaet', 'faktenpruefung'))))
 
 
+def quellen_sichern(aus_pfad, thema, quellen):
+    """Quellen neben das Skript legen, bevor ein Autor gefragt wird (skriptquellen.json)."""
+    if not quellen:
+        return
+    try:
+        Path(aus_pfad).parent.mkdir(parents=True, exist_ok=True)
+        Path(aus_pfad).with_name('skriptquellen.json').write_text(json.dumps({
+            'thema': (thema or quellen[0].get('name') or '')[:200],
+            'belege': [{'name': q.get('name', ''), 'text': q.get('text', ''),
+                        'url': q.get('url', ''), 'quelle': q.get('quelle', '')} for q in quellen]},
+            ensure_ascii=False), encoding='utf-8')
+    except OSError:
+        pass  # Nur Diagnose/Ersatzautor - das Skript selbst geht vor.
+
+
 def main(kanal_pfad, aus_pfad, thema=None):
     import kanalstandard
     kanal = kanalstandard.laden(kanal_pfad)
@@ -783,6 +798,10 @@ def main(kanal_pfad, aus_pfad, thema=None):
     if kanal.get('nur_quellen') and not quellen:
         raise RuntimeError('Keine belegte KI-Anwendung gefunden; keine unbelegte Skriptanfrage')
     print(f'Skript: {len(quellen)} Quellen abgerufen; Entwurf und Pruefungen folgen', flush=True)
+    # GEMESSEN 04.11.2026 (KI 41815813677, 41837686265): Claude pausiert, Groq 429 -> kein skript.json,
+    # die Quellen standen nirgends mehr. Der lokale Ersatzautor konnte deshalb nicht einspringen.
+    # Sofort sichern, damit ein gescheiterter Lauf sie im Artefakt mitliefert (nur oeffentliche Quellen).
+    quellen_sichern(aus_pfad, thema, quellen)
     # Die Pruefung bekommt dieselben Quellen - sonst haelt sie eine heute
     # belegte Neuheit fuer „unverifizierbar", nur weil ihr Wissen aelter ist.
     def pruef_text():

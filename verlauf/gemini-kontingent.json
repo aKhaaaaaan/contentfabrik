@@ -17,27 +17,44 @@
       "grund": "Tageskontingent erschoepft",
       "bis": 1793865600.0
     },
-    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
-      "grund": "HTTP429; Serverfrist 951s",
-      "bis": 1793800027.8203552
+    "18b3ef0930af7cca6de34adf:gemini-3.5-flash-lite": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1793810609.4101222
     },
-    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-20b": {
-      "grund": "HTTP429; Serverfrist 1202s",
-      "bis": 1793800385.7155802
-    },
-    "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": {
-      "grund": "voruebergehend ueberlastet",
-      "bis": 1793799805.3046658
+    "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1793810440.6926403
     },
     "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": {
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1793810647.5591621
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": {
       "grund": "Netzwerk-Zeitlimit",
-      "bis": 1793799763.1570828
+      "bis": 1793810956.47361
     }
   },
   "zeitlimits": {
+    "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": [
+      1793807523.5062342,
+      1793808648.9325945,
+      1793810416.47361
+    ],
     "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": [
-      1793799402.3635564,
-      1793799583.1570828
+      1793807820.9159625,
+      1793808063.7551851,
+      1793808505.672839
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.5-flash-lite": [
+      1793807894.091283,
+      1793808108.8355467,
+      1793808786.7755346,
+      1793809401.2919338,
+      1793810069.4101222
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": [
+      1793809700.317096,
+      1793810260.6926403
     ]
   }
 }

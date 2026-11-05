@@ -238,14 +238,27 @@ class TikTokAPIError(RuntimeError):
 # leer und wird neu angemeldet - ohne angekommene Bytes kein Doppel-Entwurf moeglich.
 TRANSFER_LEER = 'TRANSFER_LEER'
 LEER_NACH_S = 15 * 60
+# GEMESSEN 05.11.2026 (KI "Codex vs Claude Code", publish_id ...2576790): alle 13.574.355 Bytes
+# angekommen, TikTok meldete aber 50+ Min. PROCESSING_UPLOAD (sonst 3-5 Min.), kein Entwurf im Postfach.
+# Dann EINMAL je Video neu anmelden; ein spaet doch ankommender erster Entwurf waere ein Doppel,
+# das der Nutzer loescht - besser als gar kein Video. Danach nicht weiter wiederholen.
+HAENGT_NACH_S = 30 * 60
 
 
 def leer_verwerfen(stand, jetzt=None):
-    """True (und Journal fuer Neustart vorbereitet), wenn der Upload seit LEER_NACH_S bei 0 Bytes steht."""
+    """True (und Journal fuer Neustart vorbereitet), wenn der Upload seit LEER_NACH_S bei 0 Bytes steht
+    oder trotz uebertragener Bytes seit HAENGT_NACH_S in der Verarbeitung haengt (nur einmal je Video)."""
     jetzt = time.time() if jetzt is None else jetzt
-    if stand.get('status') != 'PROCESSING_UPLOAD' or stand.get('uploaded_bytes') != 0 \
-            or jetzt - float(stand.get('init_zeit') or 0) < LEER_NACH_S:
+    if stand.get('status') != 'PROCESSING_UPLOAD':
         return False
+    alter = jetzt - float(stand.get('init_zeit') or 0)
+    leer = stand.get('uploaded_bytes') == 0 and alter >= LEER_NACH_S
+    haengt = (stand.get('uploaded_bytes') or 0) > 0 and alter >= HAENGT_NACH_S \
+        and not stand.get('haengend_neu_gesendet')
+    if not (leer or haengt):
+        return False
+    if haengt:
+        stand['haengend_neu_gesendet'] = True
     stand.setdefault('verworfene_publish_ids', []).append(stand.pop('publish_id'))
     stand.pop('uploaded_bytes', None)
     stand.pop('init_zeit', None)

@@ -284,7 +284,11 @@ ABSTRAKT = frozenset(w[:5] for w in (
     'regret', 'regrets', 'apology', 'statement', 'membership', 'decision', 'changed', 'change', 'what', 'why',
     'rose', 'grew', 'fell',
     # 30.10.2026 (Kongo Gumi): Schulden, Verkauf, Nachfolge - Vorgaenge ohne eigene Gestalt
-    'debts', 'debt', 'sale', 'sold', 'takeover', 'assets', 'succession'))
+    'debts', 'debt', 'sale', 'sold', 'takeover', 'assets', 'succession',
+    # GEMESSEN 05.11.2026 (Casio 42016448883): "strangest part" und "rebuild it" wurden Pflichtmotiv; das Bildmodell
+    # malte "reblild it" als Schrift ins Bild, der Pruefer lehnte ab. Satzteile ohne Gegenstand.
+    'part', 'parts', 'thing', 'things', 'strangest', 'strange', 'weird', 'rebuild', 'build', 'built', 'followed',
+    'launched', 'calls', 'called', 'reason', 'idea', 'answer', 'question', 'moment'))
 
 
 def malbar_machen(daten, zeitplan, namen=frozenset()):
@@ -295,6 +299,7 @@ def malbar_machen(daten, zeitplan, namen=frozenset()):
     Kanalvorlage nimmt sonst die alte Handlung)."""
     texte = {x['index']: (x['text'], x.get('phase_text', '')) for x in zeitplan}
     benutzt, ersetzt = set(), 0
+    vorher = {}  # phase_text -> letztes malbares Motiv derselben Sprechphase
     for d in daten:
         if d.get('bildmodus') not in ('illustration', 'stock', 'foto') or d.get('index') not in texte:
             continue
@@ -308,8 +313,19 @@ def malbar_machen(daten, zeitplan, namen=frozenset()):
             d.pop('aktion', None)
             d.pop('details', None)  # Materialmerkmale gehoeren zum ersetzten Gegenstand
             motiv, ersetzt = frei[0], ersetzt + 1
+        elif not woertlich(motiv, text, phase, namen) and vorher.get(phase):
+            # 05.11.2026 (Casio): ohne Stellvertreter blieb "strangest part" stehen. Dann den Gegenstand der
+            # eigenen Sprechphase weiterzeigen (Leitgegenstand) statt eines Satzfetzens, der als Schrift endet.
+            leit = vorher[phase]
+            d.update(motiv=leit, szene=', '.join(x for x in (leit, d.get('ort') and 'in ' + str(d['ort']),
+                                                             str(d.get('epoche') or '')) if x))
+            d.pop('aktion', None)
+            d.pop('details', None)
+            motiv, ersetzt = leit, ersetzt + 1
         if motiv in stellvertreter(f'{text} {phase}'):
             benutzt.add(motiv)
+        if woertlich(motiv, text, phase, namen) or motiv == vorher.get(phase):
+            vorher[phase] = motiv
     return ersetzt
 
 

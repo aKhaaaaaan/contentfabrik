@@ -144217,6 +144217,105 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "42010782370.1:business-origin-stories",
+      "run_id": "42010782370",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-05T10:51:22.009838+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "e8f19e239a5e23d4b0bb3534e93f183ea7058184",
+      "produktionsversion": "bca0157c0cb73ef86445ebbf51aabaed56d1404758fa88dbdca5439936cbf55a",
+      "videoformat": "short",
+      "thema": "Levi's rivets and the myth of the unchanged jeans design",
+      "titel": [
+        "*LEVI'S* RIVET MYTH",
+        "THE DESIGN DID CHANGE"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 1,
+      "unterschiedliche_motive": 1,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "42010782370",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-05",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 299.5,
+            "bau_s": 457.6,
+            "baufehler": "ValueError: Bildtext zu lang fuer lesbare Darstellung",
+            "status": "baufehler",
+            "sekunden": 757.1
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 89.3,
+            "baufehler": "ValueError: Bildtext zu lang fuer lesbare Darstellung",
+            "status": "baufehler",
+            "sekunden": 89.3
+          },
+          {
+            "runde": 3,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 253.5,
+            "baufehler": "ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 253.5
+          },
+          {
+            "runde": 4,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 30.0,
+            "baufehler": "ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 30.0
+          },
+          {
+            "runde": 5,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 207.1,
+            "baufehler": "ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 207.1
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "kein Kandidat mit echtem Trendsignal - freie Trendwahl",
+        "grund": "Videobau fehlgeschlagen (ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz)",
+        "sekunden": 1337.5,
+        "upload_titel": "LEVI'S RIVET MYTH: THE DESIGN DID CHANGE"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-3.1-flash-lite",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

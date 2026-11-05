@@ -491,7 +491,17 @@ def _gleiche_firma(a, b):
     return lang[:len(kurz)] == kurz
 
 
-def wiederholung_gesperrt(kanal, thema, titel=None, jetzt=None):
+def _wiki_titel(quellen):
+    """Artikelnamen aus Wikipedia-Quellen („.../wiki/Levi_Strauss_%26_Co." -> „Levi Strauss & Co.")."""
+    namen = []
+    for u in quellen or []:
+        m = re.search(r'wikipedia\.org/wiki/([^?#]+)', str(u))
+        if m:
+            namen.append(urllib.parse.unquote(m[1]).replace('_', ' '))
+    return namen
+
+
+def wiederholung_gesperrt(kanal, thema, titel=None, jetzt=None, quellen=None):
     """Grund (str), wenn ein frei gewaehltes Thema jetzt nicht wieder gebaut/hochgeladen werden darf, sonst None.
 
     Gesperrt: dasselbe Thema in den letzten WIEDERHOLUNG_TAGE Tagen geliefert, oder (jederzeit) derselbe Titel.
@@ -509,8 +519,13 @@ def wiederholung_gesperrt(kanal, thema, titel=None, jetzt=None):
     # war trotzdem frei - nur exakter Text zaehlte. Firmenkanaele vergleichen die Firma („Ford Motor Company" =
     # „Ford", „Meta Platforms" = „Meta"). KI-Themen nicht: dort ist „Claude Code: <Winkel>" je Winkel ein Thema.
     gleich = _gleiche_firma if profil.get('quelle') == 'wikipedia' else (lambda a, b: norm(a) == norm(b))
+    # GEMESSEN 05.11.2026 (Business 42010782370): „Levi's rivets and the myth of the unchanged jeans design"
+    # galt als neue Firma, obwohl „Levi Strauss & Co." am 04.11. kam (Telegram 1944) - frei formulierte Themen
+    # beginnen nicht immer mit dem Firmennamen. Die Wikipedia-Quelle nennt die Firma eindeutig.
+    kandidaten = [thema] + (_wiki_titel(quellen) if profil.get('quelle') == 'wikipedia' else [])
     for e in geliefert:
-        if not isinstance(e, dict) or e.get('kanal') != name or not gleich(e.get('thema'), thema):
+        if not isinstance(e, dict) or e.get('kanal') != name \
+                or not any(gleich(e.get('thema'), k) for k in kandidaten):
             continue
         if titel and _titel_norm(e.get('titel')) == _titel_norm(titel):
             return f'gleicher Titel wie Telegram {e.get("message_id")}'

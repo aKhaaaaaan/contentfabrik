@@ -45,7 +45,7 @@ def wiederholt(kanal, thema, s):
     if thema or kanal.endswith('-lang'):
         return None
     import themen
-    return themen.wiederholung_gesperrt(kanal, s.get('thema'), s.get('titel')) or None
+    return themen.wiederholung_gesperrt(kanal, s.get('thema'), s.get('titel'), quellen=s.get('quellen')) or None
 
 
 def laden(kanal, profil, thema):

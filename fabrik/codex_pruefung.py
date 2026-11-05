@@ -144,7 +144,7 @@ def bewerten(p, kennung, modus='pruefen'):
         import trends
         # Ein Langvideo erzaehlt bewusst die ganze Geschichte eines gelaufenen Shorts (langvideo.py) -
         # Short-Wiederholungssperren gelten dafuer nicht; doppelte Langvideos verhindert langvideo.faellig().
-        wiederholt = not lang and themen.wiederholung_gesperrt(p['kanal'], s['thema'], s['titel'])
+        wiederholt = not lang and themen.wiederholung_gesperrt(p['kanal'], s['thema'], s['titel'], quellen=s.get('quellen'))
         vorhanden = any(vorrat.gueltig(e, profil) and
             (e.get('thema_eingabe') == p['thema'] or sha(e.get('skript', {}).get('belege')) == p['quellen_sha'])
             for _, e in vorrat.eintraege(p['kanal']))

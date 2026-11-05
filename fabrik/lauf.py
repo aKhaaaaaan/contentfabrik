@@ -596,7 +596,8 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             # GEMESSEN 21.10.2026: frei gewaehlt schrieb Claude "Ford Motor Company", geliefert schon am 18.10.
             # (Telegram 702) - die Liste frueherer Themen im Auftrag ist nur eine Bitte. Harte Sperre hier.
             # 21.10.2026 Nutzer: nach 60 Tagen mit neuem Blickwinkel wieder erlaubt (themen.wiederholung_gesperrt).
-            gesperrt = not festes_thema and themen.wiederholung_gesperrt(kanal, skript.get('thema'), skript.get('titel'))
+            gesperrt = not festes_thema and themen.wiederholung_gesperrt(
+                kanal, skript.get('thema'), skript.get('titel'), quellen=skript.get('quellen'))
             if isinstance(gesperrt, str):
                 skriptfehler = skriptfehler + [f'Thema schon geliefert: {skript.get("thema")} ({gesperrt}) - '
                                                'anderes Thema waehlen']

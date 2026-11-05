@@ -144118,6 +144118,105 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "42007329254.1:business-origin-stories",
+      "run_id": "42007329254",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-05T10:04:59.735873+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "846313189ed778fa1a57d219e5ef9dbd3cfac3e3",
+      "produktionsversion": "89bc7dacd84c50fbdd106e3bd44b62a36ea3c37cdc8cb528f380bf3f2f61fd65",
+      "videoformat": "short",
+      "thema": "Louis Vuitton",
+      "titel": [
+        "COPIED TRUNKS",
+        "THE PATTERN FIGHT"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "42007329254",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-05",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "status": "skriptqualitaet",
+            "sperrgruende": [
+              "Thema schon geliefert: Louis Vuitton (Thema vor 23 Tagen geliefert (Telegram 399); wieder erst nach 60 Tagen mit neuem Blickwinkel) - anderes Thema waehlen"
+            ],
+            "sekunden": 0.0
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "status": "skriptqualitaet",
+            "sperrgruende": [
+              "Thema schon geliefert: Louis Vuitton (Thema vor 23 Tagen geliefert (Telegram 399); wieder erst nach 60 Tagen mit neuem Blickwinkel) - anderes Thema waehlen"
+            ],
+            "sekunden": 0.0
+          },
+          {
+            "runde": 3,
+            "art": "bau_fortsetzen",
+            "status": "skriptqualitaet",
+            "sperrgruende": [
+              "Thema schon geliefert: Louis Vuitton (Thema vor 23 Tagen geliefert (Telegram 399); wieder erst nach 60 Tagen mit neuem Blickwinkel) - anderes Thema waehlen"
+            ],
+            "sekunden": 0.0
+          },
+          {
+            "runde": 4,
+            "art": "bau_fortsetzen",
+            "status": "skriptqualitaet",
+            "sperrgruende": [
+              "Thema schon geliefert: Louis Vuitton (Thema vor 23 Tagen geliefert (Telegram 399); wieder erst nach 60 Tagen mit neuem Blickwinkel) - anderes Thema waehlen"
+            ],
+            "sekunden": 0.0
+          },
+          {
+            "runde": 5,
+            "art": "bau_fortsetzen",
+            "status": "skriptqualitaet",
+            "sperrgruende": [
+              "Thema schon geliefert: Louis Vuitton (Thema vor 23 Tagen geliefert (Telegram 399); wieder erst nach 60 Tagen mit neuem Blickwinkel) - anderes Thema waehlen"
+            ],
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "kein Kandidat mit echtem Trendsignal - freie Trendwahl",
+        "grund": "Thema schon geliefert: Louis Vuitton (Thema vor 23 Tagen geliefert (Telegram 399); wieder erst nach 60 Tagen mit neuem Blickwinkel) - anderes Thema waehlen",
+        "sekunden": 31.6,
+        "upload_titel": "COPIED TRUNKS: THE PATTERN FIGHT"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-3.1-flash-lite",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

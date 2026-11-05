@@ -144425,6 +144425,1304 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "42023097882.1:ai-tools-explained",
+      "run_id": "42023097882",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-05T12:25:07.769051+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "c76a319e46606fb6fe8f91f29b201844839b8a6a",
+      "produktionsversion": "be1f6dde1b97ea71d6baf8f83773b66f2c51af9d8074b97b598773e2f8805150",
+      "videoformat": "short",
+      "thema": "Codex vs Claude Code: what each one does",
+      "titel": [
+        "*CODEX* VS *CLAUDE* *CODE*",
+        "WHAT EACH ONE DOES"
+      ],
+      "status": "gesendet",
+      "video_sha256": "c3cfd78c38350f00eeefdcbf65f872fe5dca9efd48f72db3f81ed5b26a4911e8",
+      "video_gebaut": true,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine allgemeine Szene auf einem belebten Markt oder in einer Straße, jedoch keinen Bezug zum Thema Software, KI, Fehlerbehebung oder dem expliziten Inhalt der Narration.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Ladevorgang eines 'Docs agent' und nicht das Eintippen oder die Ausführung des Befehls '/review' in einer Terminalumgebung.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich die Textfrage 'So what's different?' in einem leeren Chatfenster, bietet aber keinerlei visuelle Erklärung oder Gegenüberstellung der Unterschiede zwischen Codex und Claude Code, die in der Narration thematisiert werden.",
+        "Einstellung 16: Bild passt nicht zum Sprechtext (6/10): Das Bild zeigt zwar eine Zusammenfassung der Funktionen von Codex und Claude Code, bietet jedoch keinerlei visuelle Darstellung oder Anleitung zu den genannten Aufforderungen zum Liken, Teilen oder Speichern des Videos.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Szene auf einem belebten Markt oder in einer Straße, jedoch keinen Bezug zum Thema Software, KI, Fehlerbehebung oder dem expliziten Inhalt der Narration. Korrektur: Ein Screenshot einer Benutzeroberfläche, der eine Software-Anwendung zeigt, die den Grund für einen Fehler oder ein 'Zugeständnis' einer KI offenlegt.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Ladevorgang eines 'Docs agent' und nicht das Eintippen oder die Ausführung des Befehls '/review' in einer Terminalumgebung. Korrektur: Ein Screenshot der Terminaloberfläche, in dem der Befehl '/review' aktiv eingegeben wird oder das Ergebnis dieses Befehls in der Konsole zu sehen ist.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich die Textfrage 'So what's different?' in einem leeren Chatfenster, bietet aber keinerlei visuelle Erklärung oder Gegenüberstellung der Unterschiede zwischen Codex und Claude Code, die in der Narration thematisiert werden. Korrektur: Ein Vergleichsdiagramm oder eine Benutzeroberfläche, die die spezifischen Unterschiede zwischen Codex und Claude Code (wie terminal, IDE oder Desktop-App-Optionen) gegenüberstellt.",
+        "Offenes Problem (schwer): Das Bild zeigt zwar eine Zusammenfassung der Funktionen von Codex und Claude Code, bietet jedoch keinerlei visuelle Darstellung oder Anleitung zu den genannten Aufforderungen zum Liken, Teilen oder Speichern des Videos. Korrektur: Ein Bild, das Interaktionsschaltflächen (wie 'Gefällt mir', 'Teilen', 'Speichern') oder den Moderator zeigt, der diese Handlungen direkt anspricht."
+      ],
+      "einstellungen": 17,
+      "unterschiedliche_motive": 17,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "42023097882",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-05",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 5/10 unter 7/10",
+              "Skript-hook 4/10 unter 7/10",
+              "Skript-spannung 5/10 unter 7/10",
+              "Skript-ueberraschung 5/10 unter 7/10",
+              "Skript-tempo 6/10 unter 7/10",
+              "Skript-aufloesung 6/10 unter 7/10",
+              "Skript-teilbarkeit 4/10 unter 6/10"
+            ],
+            "story_note": 5,
+            "story_schwaechen": [
+              "The opening sentence 'Your AI says it's finished. It isn't.' is vague and fails to establish why the viewer should care about Codex or Claude specifically, leading to low initial engagement.",
+              "The narration lacks a clear distinction between the two tools, treating them as interchangeable, which fails to answer the promise of the title.",
+              "The transition between the tools is disjointed, and the call to action is tacked on without logical connection to the content."
+            ],
+            "skript_probleme": [],
+            "sekunden": 267.9
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "skript_s": 187.5,
+            "bau_s": 537.4,
+            "pruefung_s": 529.1,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine allgemeine Szene auf einem belebten Markt oder in einer Straße, jedoch keinen Bezug zum Thema Software, KI, Fehlerbehebung oder dem expliziten Inhalt der Narration.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Ladevorgang eines 'Docs agent' und nicht das Eintippen oder die Ausführung des Befehls '/review' in einer Terminalumgebung.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich die Textfrage 'So what's different?' in einem leeren Chatfenster, bietet aber keinerlei visuelle Erklärung oder Gegenüberstellung der Unterschiede zwischen Codex und Claude Code, die in der Narration thematisiert werden.",
+              "Einstellung 16: Bild passt nicht zum Sprechtext (6/10): Das Bild zeigt zwar eine Zusammenfassung der Funktionen von Codex und Claude Code, bietet jedoch keinerlei visuelle Darstellung oder Anleitung zu den genannten Aufforderungen zum Liken, Teilen oder Speichern des Videos.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Szene auf einem belebten Markt oder in einer Straße, jedoch keinen Bezug zum Thema Software, KI, Fehlerbehebung oder dem expliziten Inhalt der Narration. Korrektur: Ein Screenshot einer Benutzeroberfläche, der eine Software-Anwendung zeigt, die den Grund für einen Fehler oder ein 'Zugeständnis' einer KI offenlegt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Ladevorgang eines 'Docs agent' und nicht das Eintippen oder die Ausführung des Befehls '/review' in einer Terminalumgebung. Korrektur: Ein Screenshot der Terminaloberfläche, in dem der Befehl '/review' aktiv eingegeben wird oder das Ergebnis dieses Befehls in der Konsole zu sehen ist.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich die Textfrage 'So what's different?' in einem leeren Chatfenster, bietet aber keinerlei visuelle Erklärung oder Gegenüberstellung der Unterschiede zwischen Codex und Claude Code, die in der Narration thematisiert werden. Korrektur: Ein Vergleichsdiagramm oder eine Benutzeroberfläche, die die spezifischen Unterschiede zwischen Codex und Claude Code (wie terminal, IDE oder Desktop-App-Optionen) gegenüberstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar eine Zusammenfassung der Funktionen von Codex und Claude Code, bietet jedoch keinerlei visuelle Darstellung oder Anleitung zu den genannten Aufforderungen zum Liken, Teilen oder Speichern des Videos. Korrektur: Ein Bild, das Interaktionsschaltflächen (wie 'Gefällt mir', 'Teilen', 'Speichern') oder den Moderator zeigt, der diese Handlungen direkt anspricht."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 29.4,
+              "zeitmarken": 3.4,
+              "tempo": 1.152,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 17,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 278.6,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 17,
+                "motive": 17,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 28.5,
+              "gesamt": 537.0,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.38,
+                6.52,
+                6.9,
+                6.4,
+                6.06,
+                5.76,
+                5.99
+              ],
+              "woerter": 135,
+              "clips": {
+                "witz": 2,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:05.52",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 2,
+                "gesprochen": "One admits why.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich eine allgemeine Szene auf einem belebten Markt oder in einer Straße, jedoch keinen Bezug zum Thema Software, KI, Fehlerbehebung oder dem expliziten Inhalt der Narration. Korrektur: Ein Screenshot einer Benutzeroberfläche, der eine Software-Anwendung zeigt, die den Grund für einen Fehler oder ein 'Zugeständnis' einer KI offenlegt."
+              },
+              {
+                "zeit": "00:11.36",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 4,
+                "gesprochen": "Type /review to find issues before committing.",
+                "fest": true,
+                "text": "Das Bild zeigt einen Ladevorgang eines 'Docs agent' und nicht das Eintippen oder die Ausführung des Befehls '/review' in einer Terminalumgebung. Korrektur: Ein Screenshot der Terminaloberfläche, in dem der Befehl '/review' aktiv eingegeben wird oder das Ergebnis dieses Befehls in der Konsole zu sehen ist."
+              },
+              {
+                "zeit": "00:20.80",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "So what's different?",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich die Textfrage 'So what's different?' in einem leeren Chatfenster, bietet aber keinerlei visuelle Erklärung oder Gegenüberstellung der Unterschiede zwischen Codex und Claude Code, die in der Narration thematisiert werden. Korrektur: Ein Vergleichsdiagramm oder eine Benutzeroberfläche, die die spezifischen Unterschiede zwischen Codex und Claude Code (wie terminal, IDE oder Desktop-App-Optionen) gegenüberstellt."
+              },
+              {
+                "zeit": "00:41.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 16,
+                "gesprochen": "Be sure to like, share and save this video. Which tool next? Comment, and follow for more.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar eine Zusammenfassung der Funktionen von Codex und Claude Code, bietet jedoch keinerlei visuelle Darstellung oder Anleitung zu den genannten Aufforderungen zum Liken, Teilen oder Speichern des Videos. Korrektur: Ein Bild, das Interaktionsschaltflächen (wie 'Gefällt mir', 'Teilen', 'Speichern') oder den Moderator zeigt, der diese Handlungen direkt anspricht."
+              }
+            ],
+            "sekunden": 1254.0,
+            "status": "geprueft"
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 1534.9,
+        "upload_titel": "CODEX VS CLAUDE CODE: WHAT EACH ONE DOES | AI Tool #26"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:05.52",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 2,
+            "gesprochen": "One admits why.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich eine allgemeine Szene auf einem belebten Markt oder in einer Straße, jedoch keinen Bezug zum Thema Software, KI, Fehlerbehebung oder dem expliziten Inhalt der Narration. Korrektur: Ein Screenshot einer Benutzeroberfläche, der eine Software-Anwendung zeigt, die den Grund für einen Fehler oder ein 'Zugeständnis' einer KI offenlegt."
+          },
+          {
+            "zeit": "00:11.36",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 4,
+            "gesprochen": "Type /review to find issues before committing.",
+            "fest": true,
+            "text": "Das Bild zeigt einen Ladevorgang eines 'Docs agent' und nicht das Eintippen oder die Ausführung des Befehls '/review' in einer Terminalumgebung. Korrektur: Ein Screenshot der Terminaloberfläche, in dem der Befehl '/review' aktiv eingegeben wird oder das Ergebnis dieses Befehls in der Konsole zu sehen ist."
+          },
+          {
+            "zeit": "00:20.80",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "So what's different?",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich die Textfrage 'So what's different?' in einem leeren Chatfenster, bietet aber keinerlei visuelle Erklärung oder Gegenüberstellung der Unterschiede zwischen Codex und Claude Code, die in der Narration thematisiert werden. Korrektur: Ein Vergleichsdiagramm oder eine Benutzeroberfläche, die die spezifischen Unterschiede zwischen Codex und Claude Code (wie terminal, IDE oder Desktop-App-Optionen) gegenüberstellt."
+          },
+          {
+            "zeit": "00:41.40",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 16,
+            "gesprochen": "Be sure to like, share and save this video. Which tool next? Comment, and follow for more.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar eine Zusammenfassung der Funktionen von Codex und Claude Code, bietet jedoch keinerlei visuelle Darstellung oder Anleitung zu den genannten Aufforderungen zum Liken, Teilen oder Speichern des Videos. Korrektur: Ein Bild, das Interaktionsschaltflächen (wie 'Gefällt mir', 'Teilen', 'Speichern') oder den Moderator zeigt, der diese Handlungen direkt anspricht."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -14.3,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 41.68,
+              "bis_s": 42.9,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.993
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Your",
+                "s": 0.0,
+                "e": 0.22,
+                "p": 0.8070383667945862
+              },
+              {
+                "w": "AI",
+                "s": 0.22,
+                "e": 0.4,
+                "p": 0.9415380954742432
+              },
+              {
+                "w": "says",
+                "s": 0.4,
+                "e": 0.68,
+                "p": 0.9911463856697083
+              },
+              {
+                "w": "it's",
+                "s": 0.68,
+                "e": 0.88,
+                "p": 0.9739302396774292
+              },
+              {
+                "w": "fixed.",
+                "s": 0.88,
+                "e": 0.98,
+                "p": 0.9813490509986877
+              },
+              {
+                "w": "Codex",
+                "s": 1.54,
+                "e": 1.54,
+                "p": 0.4399678409099579
+              },
+              {
+                "w": "and",
+                "s": 1.54,
+                "e": 1.82,
+                "p": 0.980201005935669
+              },
+              {
+                "w": "Claude",
+                "s": 1.82,
+                "e": 2.02,
+                "p": 0.2349112182855606
+              },
+              {
+                "w": "Code",
+                "s": 2.02,
+                "e": 2.18,
+                "p": 0.5483373999595642
+              },
+              {
+                "w": "both",
+                "s": 2.18,
+                "e": 2.46,
+                "p": 0.9646860361099243
+              },
+              {
+                "w": "promise",
+                "s": 2.46,
+                "e": 2.88,
+                "p": 0.9164743423461914
+              },
+              {
+                "w": "that,",
+                "s": 2.88,
+                "e": 3.06,
+                "p": 0.990079402923584
+              },
+              {
+                "w": "but",
+                "s": 3.28,
+                "e": 3.4,
+                "p": 0.9909411072731018
+              },
+              {
+                "w": "your",
+                "s": 3.4,
+                "e": 3.7,
+                "p": 0.910753607749939
+              },
+              {
+                "w": "bug",
+                "s": 3.7,
+                "e": 4.1,
+                "p": 0.9185335040092468
+              },
+              {
+                "w": "disagrees.",
+                "s": 4.1,
+                "e": 4.72,
+                "p": 0.9910175800323486
+              },
+              {
+                "w": "One",
+                "s": 5.58,
+                "e": 5.9,
+                "p": 0.9472874402999878
+              },
+              {
+                "w": "admits",
+                "s": 5.9,
+                "e": 6.48,
+                "p": 0.8570347428321838
+              },
+              {
+                "w": "why.",
+                "s": 6.48,
+                "e": 6.76,
+                "p": 0.9936621189117432
+              },
+              {
+                "w": "Codex",
+                "s": 7.36,
+                "e": 7.36,
+                "p": 0.10894564539194107
+              },
+              {
+                "w": "CLI.",
+                "s": 7.36,
+                "e": 7.9,
+                "p": 0.6981644630432129
+              },
+              {
+                "w": "Inspect,",
+                "s": 8.48,
+                "e": 8.66,
+                "p": 0.9742252230644226
+              },
+              {
+                "w": "edit,",
+                "s": 8.92,
+                "e": 9.06,
+                "p": 0.9383971691131592
+              },
+              {
+                "w": "and",
+                "s": 9.28,
+                "e": 9.32,
+                "p": 0.996392548084259
+              },
+              {
+                "w": "run",
+                "s": 9.32,
+                "e": 9.56,
+                "p": 0.99440997838974
+              },
+              {
+                "w": "code",
+                "s": 9.56,
+                "e": 9.8,
+                "p": 0.8953284621238708
+              },
+              {
+                "w": "from",
+                "s": 9.8,
+                "e": 10.2,
+                "p": 0.991595447063446
+              },
+              {
+                "w": "your",
+                "s": 10.2,
+                "e": 10.44,
+                "p": 0.9978721141815186
+              },
+              {
+                "w": "terminal.",
+                "s": 10.44,
+                "e": 10.9,
+                "p": 0.9145852327346802
+              },
+              {
+                "w": "Type",
+                "s": 11.34,
+                "e": 11.42,
+                "p": 0.9834564328193665
+              },
+              {
+                "w": "slash",
+                "s": 11.42,
+                "e": 11.66,
+                "p": 0.16823799908161163
+              },
+              {
+                "w": "review",
+                "s": 11.66,
+                "e": 12.08,
+                "p": 0.9545148611068726
+              },
+              {
+                "w": "to",
+                "s": 12.08,
+                "e": 12.26,
+                "p": 0.9940833449363708
+              },
+              {
+                "w": "find",
+                "s": 12.26,
+                "e": 12.44,
+                "p": 0.9986218214035034
+              },
+              {
+                "w": "issues",
+                "s": 12.44,
+                "e": 12.76,
+                "p": 0.9911069273948669
+              },
+              {
+                "w": "before",
+                "s": 12.76,
+                "e": 13.16,
+                "p": 0.9991471767425537
+              },
+              {
+                "w": "committing.",
+                "s": 13.16,
+                "e": 13.52,
+                "p": 0.9803712368011475
+              },
+              {
+                "w": "Editor",
+                "s": 13.9,
+                "e": 14.08,
+                "p": 0.7131536602973938
+              },
+              {
+                "w": "person,",
+                "s": 14.08,
+                "e": 14.32,
+                "p": 0.9045816659927368
+              },
+              {
+                "w": "choose",
+                "s": 14.58,
+                "e": 14.76,
+                "p": 0.9919267892837524
+              },
+              {
+                "w": "the",
+                "s": 14.76,
+                "e": 14.92,
+                "p": 0.9967593550682068
+              },
+              {
+                "w": "Codex",
+                "s": 14.92,
+                "e": 15.1,
+                "p": 0.8133489489555359
+              },
+              {
+                "w": "icon.",
+                "s": 15.1,
+                "e": 15.54,
+                "p": 0.9881539940834045
+              },
+              {
+                "w": "Get",
+                "s": 16.2,
+                "e": 16.2,
+                "p": 0.972355842590332
+              },
+              {
+                "w": "checkpoints",
+                "s": 16.2,
+                "e": 16.46,
+                "p": 0.9697917103767395
+              },
+              {
+                "w": "that",
+                "s": 16.46,
+                "e": 16.76,
+                "p": 0.9577386975288391
+              },
+              {
+                "w": "you",
+                "s": 16.76,
+                "e": 16.86,
+                "p": 0.9853787422180176
+              },
+              {
+                "w": "revert",
+                "s": 16.86,
+                "e": 17.02,
+                "p": 0.9742609858512878
+              },
+              {
+                "w": "changes.",
+                "s": 17.02,
+                "e": 17.66,
+                "p": 0.9917844533920288
+              },
+              {
+                "w": "So",
+                "s": 17.96,
+                "e": 17.98,
+                "p": 0.9822136163711548
+              },
+              {
+                "w": "a",
+                "s": 17.98,
+                "e": 18.04,
+                "p": 0.6880583167076111
+              },
+              {
+                "w": "bad",
+                "s": 18.04,
+                "e": 18.2,
+                "p": 0.6084520220756531
+              },
+              {
+                "w": "fix",
+                "s": 18.2,
+                "e": 18.42,
+                "p": 0.9897029995918274
+              },
+              {
+                "w": "gets",
+                "s": 18.42,
+                "e": 18.7,
+                "p": 0.9709303379058838
+              },
+              {
+                "w": "an",
+                "s": 18.7,
+                "e": 18.8,
+                "p": 0.9930163621902466
+              },
+              {
+                "w": "undo,",
+                "s": 18.8,
+                "e": 19.0,
+                "p": 0.9045207500457764
+              },
+              {
+                "w": "not",
+                "s": 19.36,
+                "e": 19.68,
+                "p": 0.9968655705451965
+              },
+              {
+                "w": "a",
+                "s": 19.68,
+                "e": 19.86,
+                "p": 0.99713134765625
+              },
+              {
+                "w": "funeral.",
+                "s": 19.86,
+                "e": 20.08,
+                "p": 0.9810988306999207
+              },
+              {
+                "w": "So",
+                "s": 20.86,
+                "e": 20.86,
+                "p": 0.9334046840667725
+              },
+              {
+                "w": "what's",
+                "s": 20.86,
+                "e": 21.42,
+                "p": 0.9066753387451172
+              },
+              {
+                "w": "different?",
+                "s": 21.42,
+                "e": 21.7,
+                "p": 0.9990986585617065
+              },
+              {
+                "w": "Claude",
+                "s": 22.36,
+                "e": 22.54,
+                "p": 0.21473252773284912
+              },
+              {
+                "w": "Code's",
+                "s": 22.54,
+                "e": 22.94,
+                "p": 0.9756817519664764
+              },
+              {
+                "w": "browser",
+                "s": 22.94,
+                "e": 23.14,
+                "p": 0.9785817265510559
+              },
+              {
+                "w": "option",
+                "s": 23.14,
+                "e": 23.54,
+                "p": 0.9243428111076355
+              },
+              {
+                "w": "says",
+                "s": 23.54,
+                "e": 23.84,
+                "p": 0.9865228533744812
+              },
+              {
+                "w": "no",
+                "s": 23.84,
+                "e": 24.18,
+                "p": 0.7951428890228271
+              },
+              {
+                "w": "local",
+                "s": 24.18,
+                "e": 24.48,
+                "p": 0.9950516819953918
+              },
+              {
+                "w": "setup.",
+                "s": 24.48,
+                "e": 24.82,
+                "p": 0.8895325660705566
+              },
+              {
+                "w": "Also,",
+                "s": 25.18,
+                "e": 25.34,
+                "p": 0.9960579872131348
+              },
+              {
+                "w": "terminal",
+                "s": 25.5,
+                "e": 25.82,
+                "p": 0.4213995337486267
+              },
+              {
+                "w": "IDE",
+                "s": 25.82,
+                "e": 26.26,
+                "p": 0.5850617289543152
+              },
+              {
+                "w": "desktop",
+                "s": 26.26,
+                "e": 26.78,
+                "p": 0.39327430725097656
+              },
+              {
+                "w": "app.",
+                "s": 26.78,
+                "e": 27.22,
+                "p": 0.9887157082557678
+              },
+              {
+                "w": "Catch?",
+                "s": 27.66,
+                "e": 27.76,
+                "p": 0.9049166440963745
+              },
+              {
+                "w": "The",
+                "s": 27.76,
+                "e": 28.2,
+                "p": 0.5245845913887024
+              },
+              {
+                "w": "Deskop",
+                "s": 28.2,
+                "e": 28.48,
+                "p": 0.6198511521021525
+              },
+              {
+                "w": "app",
+                "s": 28.48,
+                "e": 28.62,
+                "p": 0.8542440533638
+              },
+              {
+                "w": "says",
+                "s": 28.62,
+                "e": 28.88,
+                "p": 0.9895406365394592
+              },
+              {
+                "w": "a",
+                "s": 28.88,
+                "e": 29.06,
+                "p": 0.8018219470977783
+              },
+              {
+                "w": "paid",
+                "s": 29.06,
+                "e": 29.28,
+                "p": 0.9886090755462646
+              },
+              {
+                "w": "subscription",
+                "s": 29.28,
+                "e": 29.54,
+                "p": 0.9990731477737427
+              },
+              {
+                "w": "is",
+                "s": 29.54,
+                "e": 29.86,
+                "p": 0.9985221028327942
+              },
+              {
+                "w": "required.",
+                "s": 29.86,
+                "e": 30.1,
+                "p": 0.9983454942703247
+              },
+              {
+                "w": "Codex",
+                "s": 30.74,
+                "e": 30.74,
+                "p": 0.7875227928161621
+              },
+              {
+                "w": "Eli",
+                "s": 30.74,
+                "e": 30.92,
+                "p": 0.12908363342285156
+              },
+              {
+                "w": "offers",
+                "s": 30.92,
+                "e": 31.38,
+                "p": 0.9975438714027405
+              },
+              {
+                "w": "sign",
+                "s": 31.38,
+                "e": 31.92,
+                "p": 0.3186536133289337
+              },
+              {
+                "w": "in",
+                "s": 31.92,
+                "e": 32.08,
+                "p": 0.5499979257583618
+              },
+              {
+                "w": "with",
+                "s": 32.08,
+                "e": 32.2,
+                "p": 0.9970295429229736
+              },
+              {
+                "w": "ChachiPT.",
+                "s": 32.2,
+                "e": 32.62,
+                "p": 0.338200181722641
+              },
+              {
+                "w": "Can",
+                "s": 33.26,
+                "e": 33.66,
+                "p": 0.690056562423706
+              },
+              {
+                "w": "you",
+                "s": 33.66,
+                "e": 33.82,
+                "p": 0.9946740865707397
+              },
+              {
+                "w": "trust",
+                "s": 33.82,
+                "e": 34.16,
+                "p": 0.9983331561088562
+              },
+              {
+                "w": "done?",
+                "s": 34.16,
+                "e": 34.72,
+                "p": 0.5285309553146362
+              },
+              {
+                "w": "Claude",
+                "s": 35.04,
+                "e": 35.22,
+                "p": 0.821010947227478
+              },
+              {
+                "w": "said",
+                "s": 35.22,
+                "e": 35.54,
+                "p": 0.9973405003547668
+              },
+              {
+                "w": "it",
+                "s": 35.54,
+                "e": 35.64,
+                "p": 0.9959839582443237
+              },
+              {
+                "w": "was",
+                "s": 35.64,
+                "e": 35.7,
+                "p": 0.9990735054016113
+              },
+              {
+                "w": "done,",
+                "s": 35.7,
+                "e": 35.88,
+                "p": 0.9988225102424622
+              },
+              {
+                "w": "and",
+                "s": 35.96,
+                "e": 36.1,
+                "p": 0.9938932657241821
+              },
+              {
+                "w": "it",
+                "s": 36.1,
+                "e": 36.2,
+                "p": 0.997563362121582
+              },
+              {
+                "w": "wasn't",
+                "s": 36.2,
+                "e": 36.56,
+                "p": 0.9991019368171692
+              },
+              {
+                "w": "quite",
+                "s": 36.56,
+                "e": 36.78,
+                "p": 0.9832479953765869
+              },
+              {
+                "w": "fixed.",
+                "s": 36.78,
+                "e": 37.36,
+                "p": 0.5169377326965332
+              },
+              {
+                "w": "Give",
+                "s": 37.8,
+                "e": 37.82,
+                "p": 0.9923050999641418
+              },
+              {
+                "w": "Claude",
+                "s": 37.82,
+                "e": 38.0,
+                "p": 0.9873130917549133
+              },
+              {
+                "w": "a",
+                "s": 38.0,
+                "e": 38.2,
+                "p": 0.9963028430938721
+              },
+              {
+                "w": "check",
+                "s": 38.2,
+                "e": 38.4,
+                "p": 0.9859811067581177
+              },
+              {
+                "w": "to",
+                "s": 38.4,
+                "e": 38.58,
+                "p": 0.996601939201355
+              },
+              {
+                "w": "run.",
+                "s": 38.58,
+                "e": 38.74,
+                "p": 0.9984737038612366
+              },
+              {
+                "w": "So",
+                "s": 38.96,
+                "e": 39.1,
+                "p": 0.9811811447143555
+              },
+              {
+                "w": "it's",
+                "s": 39.1,
+                "e": 39.52,
+                "p": 0.9291738569736481
+              },
+              {
+                "w": "fixed,",
+                "s": 39.52,
+                "e": 39.74,
+                "p": 0.9949937462806702
+              },
+              {
+                "w": "now",
+                "s": 39.74,
+                "e": 40.18,
+                "p": 0.9910757541656494
+              },
+              {
+                "w": "means",
+                "s": 40.18,
+                "e": 40.38,
+                "p": 0.9548718929290771
+              },
+              {
+                "w": "prove",
+                "s": 40.38,
+                "e": 40.78,
+                "p": 0.9688114523887634
+              },
+              {
+                "w": "it.",
+                "s": 40.78,
+                "e": 41.02,
+                "p": 0.9987521171569824
+              },
+              {
+                "w": "Be",
+                "s": 41.42,
+                "e": 41.48,
+                "p": 0.9960000514984131
+              },
+              {
+                "w": "sure",
+                "s": 41.48,
+                "e": 41.58,
+                "p": 0.9995642304420471
+              },
+              {
+                "w": "to",
+                "s": 41.58,
+                "e": 41.68,
+                "p": 0.9963483214378357
+              },
+              {
+                "w": "like,",
+                "s": 41.68,
+                "e": 41.84,
+                "p": 0.9733196496963501
+              },
+              {
+                "w": "share,",
+                "s": 41.88,
+                "e": 42.14,
+                "p": 0.9966088533401489
+              },
+              {
+                "w": "and",
+                "s": 42.22,
+                "e": 42.28,
+                "p": 0.9988910555839539
+              },
+              {
+                "w": "save",
+                "s": 42.28,
+                "e": 42.48,
+                "p": 0.9963868856430054
+              },
+              {
+                "w": "this",
+                "s": 42.48,
+                "e": 42.64,
+                "p": 0.9959419369697571
+              },
+              {
+                "w": "video,",
+                "s": 42.64,
+                "e": 42.9,
+                "p": 0.999046266078949
+              },
+              {
+                "w": "which",
+                "s": 43.12,
+                "e": 43.18,
+                "p": 0.969714879989624
+              },
+              {
+                "w": "tool",
+                "s": 43.18,
+                "e": 43.36,
+                "p": 0.6812651753425598
+              },
+              {
+                "w": "next,",
+                "s": 43.36,
+                "e": 43.56,
+                "p": 0.975959062576294
+              },
+              {
+                "w": "comment,",
+                "s": 43.64,
+                "e": 44.02,
+                "p": 0.9975161552429199
+              },
+              {
+                "w": "and",
+                "s": 44.16,
+                "e": 44.26,
+                "p": 0.9995649456977844
+              },
+              {
+                "w": "follow",
+                "s": 44.26,
+                "e": 44.5,
+                "p": 0.9988942742347717
+              },
+              {
+                "w": "for",
+                "s": 44.5,
+                "e": 44.64,
+                "p": 0.987713098526001
+              },
+              {
+                "w": "more.",
+                "s": 44.64,
+                "e": 44.8,
+                "p": 0.9998366832733154
+              }
+            ],
+            "dauer_s": 44.9066875,
+            "sprache": "en"
+          },
+          "roh_key": "59b73a070f3ca07a140dd2d1ff598b62b7f5d9533dfc0465c987914649ce833b",
+          "wiederverwendet": true,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "c3cfd78c38350f00eeefdcbf65f872fe5dca9efd48f72db3f81ed5b26a4911e8",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 17,
+          "motive": 17,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "c3cfd78c38350f00eeefdcbf65f872fe5dca9efd48f72db3f81ed5b26a4911e8",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein digital gemaltes Porträt eines Mannes mit weit aufgerissenen Augen, der schockiert oder ungläubig aussieht. Über seinem Gesicht ist ein rotes Rechteck mit dem Text \"IT'S FIXED\" eingeblendet.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen schockierten Gesichtsausdruck, der perfekt zur einleitenden Erzählung über die Diskrepanz zwischen der Behauptung der KI, ein Fehler sei behoben, und der Realität passt.",
+              "erforderliches_bild": "Keine Änderung erforderlich."
+            },
+            {
+              "index": 1,
+              "gesehen": "A black window labeled 'CLAUDE CODE' contains rows of colored rectangles representing code lines, with the text 'BUG DISAGREES' appearing prominently below.",
+              "note": 8,
+              "passt": true,
+              "grund": "The visual display matches the narrative theme of comparing Codex and Claude Code and directly illustrates the 'bug disagrees' premise mentioned in the narration.",
+              "erforderliches_bild": "None"
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Mann mit braunen Haaren und einer braunen Jacke steht im Vordergrund auf einer belebten Straße. Im Hintergrund sind Menschen an Ständen oder in kleinen Geschäften zu sehen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine allgemeine Szene auf einem belebten Markt oder in einer Straße, jedoch keinen Bezug zum Thema Software, KI, Fehlerbehebung oder dem expliziten Inhalt der Narration.",
+              "erforderliches_bild": "Ein Screenshot einer Benutzeroberfläche, der eine Software-Anwendung zeigt, die den Grund für einen Fehler oder ein 'Zugeständnis' einer KI offenlegt."
+            },
+            {
+              "index": 3,
+              "gesehen": "A pop-up window titled Codex CLI displaying the text 'Inspect, edit, and run code from your terminal.'",
+              "note": 10,
+              "passt": true,
+              "grund": "The image explicitly displays the text narrated in the speech regarding the functionality of the Codex CLI.",
+              "erforderliches_bild": "none"
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Dialogfenster mit dem Titel 'Docs agent' wird angezeigt, das 'Loading docs agent...' anzeigt, überlagert auf einer gelben Konsole mit Textbefehlen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Ladevorgang eines 'Docs agent' und nicht das Eintippen oder die Ausführung des Befehls '/review' in einer Terminalumgebung.",
+              "erforderliches_bild": "Ein Screenshot der Terminaloberfläche, in dem der Befehl '/review' aktiv eingegeben wird oder das Ergebnis dieses Befehls in der Konsole zu sehen ist."
+            },
+            {
+              "index": 5,
+              "gesehen": "A close-up of a UI menu listing options for VS Code, Cursor, Windsurf, Xcode, and JetBrains IDEs, with a yellow box highlighting the specific instructional text for 'VS Code, Cursor, or Windsurf' mentioning the Codex icon and command palette.",
+              "note": 9,
+              "passt": true,
+              "grund": "The text in the highlighted box directly corresponds to the spoken instruction 'Choose the Codex icon', providing the visual context for the editor workflow mentioned in the audio.",
+              "erforderliches_bild": "n/a"
+            },
+            {
+              "index": 6,
+              "gesehen": "A close-up of a screen displaying a text box labeled '3 Start your first chat' which explains how to open a project, use Codex, and create Git checkpoints.",
+              "note": 8,
+              "passt": true,
+              "grund": "The image explicitly mentions 'Create Git checkpoints' in the context of the user guide for Codex, directly supporting the narration about using Git checkpoints for reverting changes.",
+              "erforderliches_bild": "n/a"
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein dunkles UI-Panel mit der Überschrift 'AI CHAT' und einer Sprechblase mit dem Text 'So what's different?'.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich die Textfrage 'So what's different?' in einem leeren Chatfenster, bietet aber keinerlei visuelle Erklärung oder Gegenüberstellung der Unterschiede zwischen Codex und Claude Code, die in der Narration thematisiert werden.",
+              "erforderliches_bild": "Ein Vergleichsdiagramm oder eine Benutzeroberfläche, die die spezifischen Unterschiede zwischen Codex und Claude Code (wie terminal, IDE oder Desktop-App-Optionen) gegenüberstellt."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein dunkler Bildschirm mit einem großen orangefarbenen Pfeil, der auf ein leeres weißes Eingabefeld zeigt, darunter die Beschriftung 'BROWSER OPTION' und Schaltflächen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt explizit die 'BROWSER OPTION', über die im Text gesprochen wird, und visualisiert diese Auswahlmöglichkeit durch den Pfeil.",
+              "erforderliches_bild": "Nicht erforderlich."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein grafisches Menü mit drei markierten Feldern: TERMINAL, IDE und DESKTOP APP.",
+              "note": 10,
+              "passt": true,
+              "grund": "Die im Video eingeblendete Grafik zeigt genau die drei Begriffe (TERMINAL, IDE, DESKTOP APP), die im narrativen Teil simultan aufgezählt werden.",
+              "erforderliches_bild": "Das Bild ist vorhanden und passend."
+            },
+            {
+              "index": 11,
+              "gesehen": "A graphic overlay on a dark background displays the text 'CODEX VS CLAUDE CODE: WHAT EACH ONE DOES' at the top, followed by two outlined text boxes: one containing 'CLI OFFERS SIGN IN' and the one below containing 'CHATGPT'.",
+              "note": 9,
+              "passt": true,
+              "grund": "The text on screen directly visualizes the narrated claim 'Codex CLI offers Sign in with ChatGPT', providing a clear, text-based summary of the spoken information.",
+              "erforderliches_bild": "none"
+            },
+            {
+              "index": 12,
+              "gesehen": "Ein AI-Chatfenster, in dem die Frage 'Can you trust \"done\"?' in einer Sprechblase angezeigt wird.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt den genauen Wortlaut der narrativen Frage, was den Kontext der Vertrauenswürdigkeit von KI-Ergebnissen unterstreicht.",
+              "erforderliches_bild": "n/a"
+            },
+            {
+              "index": 13,
+              "gesehen": "A close-up shot of a document with highlighted text. The text reads: 'Claude said it was done and it wasn't quite, usually because it had no way to check its own work. See Give Claude a check to run.'",
+              "note": 10,
+              "passt": true,
+              "grund": "The visual display shows exactly the sentence being narrated in the video, providing direct textual evidence for the narrated claim.",
+              "erforderliches_bild": "not applicable"
+            },
+            {
+              "index": 14,
+              "gesehen": "A close-up shot of a white text block on a pale background containing the heading 'Give Claude a check to run' followed by three paragraphs of black text explaining how Claude handles tasks and the need for test suites.",
+              "note": 10,
+              "passt": true,
+              "grund": "The text on screen perfectly matches the spoken narration 'Give Claude a check to run' and elaborates on the concept discussed in the audio.",
+              "erforderliches_bild": "not applicable"
+            },
+            {
+              "index": 16,
+              "gesehen": "Ein stilisiertes Bild eines Mannes mit einer Sonnenbrille, in deren Gläsern Zahlen zu sehen sind. Darunter befindet sich ein Textfeld mit der Überschrift 'SCREENSHOT THIS' und Stichpunkten zu Codex und Claude Code.",
+              "note": 6,
+              "passt": false,
+              "grund": "Das Bild zeigt zwar eine Zusammenfassung der Funktionen von Codex und Claude Code, bietet jedoch keinerlei visuelle Darstellung oder Anleitung zu den genannten Aufforderungen zum Liken, Teilen oder Speichern des Videos.",
+              "erforderliches_bild": "Ein Bild, das Interaktionsschaltflächen (wie 'Gefällt mir', 'Teilen', 'Speichern') oder den Moderator zeigt, der diese Handlungen direkt anspricht."
+            }
+          ],
+          "befunde": [
+            "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine allgemeine Szene auf einem belebten Markt oder in einer Straße, jedoch keinen Bezug zum Thema Software, KI, Fehlerbehebung oder dem expliziten Inhalt der Narration.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Ladevorgang eines 'Docs agent' und nicht das Eintippen oder die Ausführung des Befehls '/review' in einer Terminalumgebung.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich die Textfrage 'So what's different?' in einem leeren Chatfenster, bietet aber keinerlei visuelle Erklärung oder Gegenüberstellung der Unterschiede zwischen Codex und Claude Code, die in der Narration thematisiert werden.",
+            "Einstellung 16: Bild passt nicht zum Sprechtext (6/10): Das Bild zeigt zwar eine Zusammenfassung der Funktionen von Codex und Claude Code, bietet jedoch keinerlei visuelle Darstellung oder Anleitung zu den genannten Aufforderungen zum Liken, Teilen oder Speichern des Videos."
+          ],
+          "modelle": [
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite"
+          ],
+          "einstellungen": 17,
+          "ausgenommen": [],
+          "vorgeprueft": [
+            10,
+            15
+          ]
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "c3cfd78c38350f00eeefdcbf65f872fe5dca9efd48f72db3f81ed5b26a4911e8",
+        "prompt_version": "2026-10-29.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

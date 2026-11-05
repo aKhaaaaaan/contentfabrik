@@ -1,44 +1,34 @@
 {
- "version": 1,
- "modelle": {
-  "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
-   "grund": "Netzwerk-Zeitlimit",
-   "bis": 1793868747.9376
+  "version": 1,
+  "modelle": {
+    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
+      "grund": "HTTP429; Serverfrist 1316s",
+      "bis": 1793870028.7447972
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1793869791.1495137
+    },
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1793869811.180557
+    }
   },
-  "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
-   "grund": "Netzwerk-Zeitlimit",
-   "bis": 1793868861.6543784
-  },
-  "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
-   "grund": "voruebergehend ueberlastet",
-   "bis": 1793868936.2783694
-  },
-  "18b3ef0930af7cca6de34adf:gemini-3.5-flash-lite": {
-   "grund": "voruebergehend ueberlastet",
-   "bis": 1793868788.1515663
-  },
-  "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": {
-   "grund": "Netzwerk-Zeitlimit",
-   "bis": 1793868772.5721655
-  },
-  "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
-   "grund": "HTTP429; Serverfrist 1316s",
-   "bis": 1793870028.7447972
+  "zeitlimits": {
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
+      1793867162.8648436,
+      1793867853.5295467,
+      1793868681.6543784,
+      1793869271.180557
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
+      1793867705.6558464,
+      1793867817.6820273,
+      1793868207.9376,
+      1793869251.1495137
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": [
+      1793868712.5721655
+    ]
   }
- },
- "zeitlimits": {
-  "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
-   1793867162.8648436,
-   1793867853.5295467,
-   1793868681.6543784
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
-   1793867705.6558464,
-   1793867817.6820273,
-   1793868207.9376
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": [
-   1793868712.5721655
-  ]
- }
 }

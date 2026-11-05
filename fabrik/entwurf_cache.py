@@ -35,6 +35,19 @@ def profil_key(profil):
         (code / 'skript.py').read_text(encoding='utf-8')])
 
 
+def wiederholt(kanal, thema, s):
+    """Grund, wenn ein FREI gewaehltes Short-Thema laut themen.wiederholung_gesperrt nicht wieder gebaut werden darf.
+
+    GEMESSEN 05.11.2026 (Business 41994110012 -> 42007329254): Groq waehlte frei „Louis Vuitton“ (vor 23 Tagen
+    geliefert), Story 8 bestanden, die Wiederholungssperre sperrte - der finally-Block sicherte es trotzdem als
+    geprueften Entwurf. Der Neustart lud genau diesen Entwurf, wurde wieder gesperrt und gab sofort auf.
+    Nutzerthemen (thema gesetzt) und Langvideos (erzaehlen bewusst ein gelaufenes Short-Thema) sind ausgenommen."""
+    if thema or kanal.endswith('-lang'):
+        return None
+    import themen
+    return themen.wiederholung_gesperrt(kanal, s.get('thema'), s.get('titel')) or None
+
+
 def laden(kanal, profil, thema):
     meta, ordner = pfade(kanal)
     try:
@@ -48,6 +61,9 @@ def laden(kanal, profil, thema):
                 or not 0 <= time.time() - d['erstellt'] <= (TTL_LANG if kanal.endswith('-lang') else TTL) or skript_gruende(s) \
                 or d['skript_sha'] != ki_speicher.hashwert(s):
             return None
+        if wiederholt(kanal, thema, s):
+            meta.unlink(missing_ok=True)  # sonst laedt jeder weitere Lauf denselben gesperrten Entwurf
+            return None
         ordner.mkdir(parents=True, exist_ok=True)
         (ordner / 'skript.json').write_text(json.dumps(s, ensure_ascii=False), encoding='utf-8')
         return ordner
@@ -58,7 +74,7 @@ def laden(kanal, profil, thema):
 def sichern(kanal, profil, thema, ordner):
     meta, ziel = pfade(kanal)
     s = json.loads((Path(ordner) / 'skript.json').read_text(encoding='utf-8'))
-    if skript_gruende(s):
+    if skript_gruende(s) or wiederholt(kanal, thema, s):
         return False
     alt = ki_speicher.lesen_json(meta)
     sha = ki_speicher.hashwert(s)

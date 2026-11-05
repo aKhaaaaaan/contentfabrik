@@ -604,6 +604,13 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                 letzter_grund = '; '.join(skriptfehler)
                 runde.update(status='skriptqualitaet', sperrgruende=skriptfehler)
                 verlauf_eintragen(kanal, skript, 'skriptqualitaet', None, grund=letzter_grund)
+                if isinstance(gesperrt, str) and bau_basis:
+                    # 05.11.2026 (42007329254): ein gesperrter Entwurf aus Cache/Vorrat beendete den ganzen Lauf.
+                    # Verwerfen und frei neu schreiben, solange noch Zeit ist.
+                    entwurf_cache.erledigen(cache_kanal)
+                    bau_basis = None
+                    print('Gesperrten Entwurf verworfen - neues Thema wird geschrieben', flush=True)
+                    continue
                 if basis:
                     break
                 continue

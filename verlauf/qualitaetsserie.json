@@ -144022,6 +144022,102 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "41994110012.1:business-origin-stories",
+      "run_id": "41994110012",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-05T09:12:30.639847+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "b9afa6b377499aa17b3d993da4b324a9fd0c4711",
+      "produktionsversion": "89bc7dacd84c50fbdd106e3bd44b62a36ea3c37cdc8cb528f380bf3f2f61fd65",
+      "videoformat": "short",
+      "thema": null,
+      "titel": null,
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "41994110012",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-05",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-tempo 6/10 unter 7/10"
+            ],
+            "story_note": 7,
+            "story_schwaechen": [
+              "Sentence 'Seven former Linkabit employees founded it on July 1, 1985, led by Irwin Jacobs.' is filler context that stalls the narrative momentum. Short-form viewers need a direct path from the problem to the solution; replace this with the specific financial pressure the company faced.",
+              "Sentence 'The towers went. Please like, share and save this video.' is a bit abrupt. Fix: Connect the stock growth to the user action, e.g., 'To see more tech pivots, like, share and save this video.'"
+            ],
+            "skript_probleme": [],
+            "sekunden": 217.2
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sekunden": 83.2
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sekunden": 84.5
+          },
+          {
+            "runde": 4,
+            "art": "produktion",
+            "status": "skriptqualitaet",
+            "sperrgruende": [
+              "Thema schon geliefert: Louis Vuitton (Thema vor 23 Tagen geliefert (Telegram 399); wieder erst nach 60 Tagen mit neuem Blickwinkel) - anderes Thema waehlen"
+            ],
+            "sekunden": 456.5
+          },
+          {
+            "runde": 5,
+            "art": "produktion",
+            "status": "anbieterpause",
+            "exitcode": 4,
+            "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq-Antwort verletzt das JSON-Schema",
+            "sekunden": 205.9
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "kein Kandidat mit echtem Trendsignal - freie Trendwahl",
+        "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq-Antwort verletzt das JSON-Schema",
+        "sekunden": 1063.0
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": null
     }
   ]
 }

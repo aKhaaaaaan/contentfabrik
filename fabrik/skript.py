@@ -137,23 +137,65 @@ STREICHEN = ('A claim marked unsupported is not in the sources: delete the whole
              'do not reword, soften or move it, and do not add a replacement fact. ')
 
 
+# GEMESSEN 01./04.11.2026 (KI 41799153257, 41811670856; 5 Runden): Claude pausiert, Groq repariert - mit allen
+# Quellen ergab das 8.322-11.422 Token Reserve bei 7.900 erlaubten ("Auftrag zu gross"), Runde verloren. Fuer die
+# REPARATUR werden die Quellentexte gekuerzt, bis der Auftrag passt; die Faktenpruefung danach sieht weiter alles.
+REPARATUR_RESERVE_MAX = 7700
+
+
+def _quellen_kuerzen(quellen, anteil):
+    aus = []
+    for q in quellen:
+        t = q.get('text', '')
+        if anteil < 1 and len(t) > 400:
+            t = t[:max(400, int(len(t) * anteil))]
+            t = t[:t.rfind('. ') + 1] if '. ' in t[200:] else t
+        aus.append({'name': q.get('name', ''), 'text': t, 'url': q.get('url', '')})
+    return aus
+
+
 def sprechtext_reparieren(kanal, quellen, entwurf, korrekturen, mindest, hoechstens, zusatz=''):
     """Nur Text reparieren; bestehende Regie/Quellenfelder werden nicht staendig neu geschrieben."""
     import copy
-    daten = {'sources':[{k:q.get(k,'') for k in ('name','text','url')} for q in quellen],
-             'current_draft':{k:entwurf.get(k,'') for k in ('thema','titel_zeile1','titel_zeile2','beschreibung')},
-             'corrections':list(korrekturen),'extra':zusatz.split('\nPREVIOUS DRAFT:\n',1)[0]}
-    daten['current_draft']['texte'] = [t['text'] for t in entwurf['teile']]
-    prompt = (prompts.DATEN + prompts.FAKTEN_KURZ + prompts.SPRECHEN
-              + f'Repair this English narration using ONLY the supplied sources. Keep exactly {len(entwurf["teile"])} '
-                f'ordered spoken phases and {mindest}-{hoechstens} TOTAL spoken words, including the final '
-                'like/share/save request. Preserve the story and fix ALL listed problems. Remove unsupported '
-                'speed, ease, savings and performance claims. Do not add replacement facts. '
-              + STREICHEN + 'Repair title/description claims too. Return texte containing speech only, no scenes or '
-                'production directions; retain the phase order. Do not output review scores.\n'
-              + json.dumps(daten,ensure_ascii=False,separators=(',',':')))
+    import math
+    import autorenvergleich as av
+    format_laenge = len(json.dumps({'type': 'json_schema', 'json_schema': {
+        'name': 'contentfabrik_antwort', 'strict': True, 'schema': av.groq_schema(REPARATUR_SCHEMA)}}))
+    phasen = len(entwurf['teile'])
+
+    def auftrag(anteil, hinweis=''):
+        daten = {'sources':_quellen_kuerzen(quellen, anteil),
+                 'current_draft':{k:entwurf.get(k,'') for k in ('thema','titel_zeile1','titel_zeile2','beschreibung')},
+                 'corrections':list(korrekturen),'extra':zusatz.split('\nPREVIOUS DRAFT:\n',1)[0]}
+        daten['current_draft']['texte'] = [t['text'] for t in entwurf['teile']]
+        return (prompts.DATEN + prompts.FAKTEN_KURZ + prompts.SPRECHEN
+                + f'Repair this English narration using ONLY the supplied sources. Keep exactly {phasen} '
+                  f'ordered spoken phases and {mindest}-{hoechstens} TOTAL spoken words, including the final '
+                  'like/share/save request. Preserve the story and fix ALL listed problems. Remove unsupported '
+                  'speed, ease, savings and performance claims. Do not add replacement facts. '
+                + STREICHEN + 'Repair title/description claims too. Return texte containing speech only, no scenes or '
+                  'production directions; retain the phase order. Do not output review scores.\n' + hinweis
+                + json.dumps(daten,ensure_ascii=False,separators=(',',':')))
+
+    anteil = 1.0
+    prompt = auftrag(anteil)
+    while math.ceil((len(prompt) + format_laenge) / 3) + 2048 > REPARATUR_RESERVE_MAX and anteil > 0.1:
+        anteil *= 0.8
+        prompt = auftrag(anteil)
+    if anteil < 1:
+        print(f'Textreparatur: Quellen fuer den Auftrag auf {anteil:.0%} gekuerzt (Faktenpruefung sieht alle)',
+              flush=True)
     d, model = _groq_text(prompt,REPARATUR_SCHEMA,ausgabe_tokens=2048)
-    if len(d['texte']) != len(entwurf['teile']) or any(not t.strip() for t in d['texte']):
+    if len(d['texte']) != phasen or any(not t.strip() for t in d['texte']):
+        # GEMESSEN 30.10.-05.11.2026 (Business, 5 Runden): eine gestrichene Aussage leerte eine ganze Phase oder
+        # das Modell lieferte eine Phase weniger -> Runde verloren. Einmal mit dem konkreten Fehler nachfragen.
+        print(f'Textreparatur: {len(d["texte"])} Phasen statt {phasen} oder leere Phase - einmal nachfragen',
+              flush=True)
+        d, model = _groq_text(auftrag(anteil, f'Your previous answer returned {len(d["texte"])} phases or an '
+                              f'empty phase. Return exactly {phasen} non-empty phases. If deleting a claim would '
+                              'empty a phase, keep a shorter phase built only from facts already in the draft '
+                              'that the sources support.\n'), REPARATUR_SCHEMA, ausgabe_tokens=2048)
+    if len(d['texte']) != phasen or any(not t.strip() for t in d['texte']):
         raise RuntimeError('Sprechtextreparatur verliert Phasen oder enthaelt leeren Text')
     e = copy.deepcopy(entwurf)
     for key in ('thema','titel_zeile1','titel_zeile2','beschreibung'):

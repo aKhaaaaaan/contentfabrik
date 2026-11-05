@@ -660,9 +660,24 @@ def werkzeug_kopf(img, werkzeug, nr, akzent, logo=None):
         ImageDraw.Draw(tafel).rounded_rectangle((0, 0, tafel.width - 1, tafel.height - 1), 18,
                                                 fill=(255, 255, 255, 240), outline=akzent + (255,), width=4)
         tafel.alpha_composite(l, (10, (hoehe - l.height) // 2))
-    platz = (tafel.width + 24) if tafel else 0
-    f = text_font(werkzeug.upper(), 76 if B < H else 64,
-                  breite=LAYOUT['rechts'] - LAYOUT['links'] - 32 - platz)
+    # GEMESSEN 04./05.11.2026 (Business, 8 Baufehler, u. a. 42010782370): langer Firmenname plus Logo passte
+    # nicht in die Kopfzeile -> ValueError, ganzer Bau abgebrochen. Die Kopfzeile ist Beiwerk: erst ohne Logo,
+    # dann ohne Rechtsform-Zusatz, sonst ohne Kopfzeile weiterbauen.
+    kurz = re.sub(r'\s*\(.*?\)|,?\s+(?:co\.?,?\s*)?(?:inc|ltd|llc|plc|corp(?:oration)?|company|'
+                  r'gmbh|ag|s\.?a|n\.?v|k\.?k)\.?$', '', werkzeug, flags=re.I).strip() or werkzeug
+    f = None
+    for name, t in ((werkzeug, tafel), (werkzeug, None), (kurz, None)):
+        platz = (t.width + 24) if t else 0
+        try:
+            f = text_font(name.upper(), 76 if B < H else 64,
+                          breite=LAYOUT['rechts'] - LAYOUT['links'] - 32 - platz)
+        except ValueError:
+            continue
+        werkzeug, tafel = name, t
+        break
+    if f is None:
+        print(f'Kopfzeile ausgelassen: Name zu lang ({werkzeug[:40]})', flush=True)
+        return
     gesamt = platz + d.textlength(werkzeug.upper(), font=f)
     links = B / 2 - gesamt / 2
     if tafel:

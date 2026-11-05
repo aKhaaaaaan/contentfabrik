@@ -344,7 +344,9 @@ def abholen():
             continue
         # GEMELDET 11.10.2026: „Status" an den Videobot landete als Business-Idee Nr. 8. Befehle des
         # Steuerungs-Bots sind nie Themen - Hinweis auf den richtigen Bot statt Warteschlange.
-        if re.fullmatch(r'(status|abholen|start(\s+(business|ki|ai))?)[.!?]?', text.strip(), re.I):
+        # 05.11.2026: neue Steuerungsbefehle „Themen [Business|KI]“ und „Befehle“ ebenfalls nie als Thema.
+        if re.fullmatch(r'(status|abholen|befehle|start(\s+(business|ki|ai))?(\s+bezahlt)?|'
+                        r'themen?(\s+(business|ki|ai))?)[.!?]?', text.strip(), re.I):
             merken(u['update_id'], f'„{text[:30]}" ist ein Befehl fuer den Bot „Contentfabrik Steuerung" - '
                    'bitte dort schicken. Hier wurde nichts als Thema gespeichert.')
             continue

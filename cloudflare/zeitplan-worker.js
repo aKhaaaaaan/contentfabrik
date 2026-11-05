@@ -76,13 +76,39 @@ const zeitplanStart = (iso) => {
   });
 };
 const KANAELE = { business: 'business-origin-stories', ki: 'ai-tools-explained', ai: 'ai-tools-explained' };
-const HILFE = 'Befehle:\nStart - beide Kanaele\nStart Business - nur Business Origin Stories\n' +
-  'Start KI - nur AI Tools Explained\n' +
-  'Start KI bezahlt / Start Business bezahlt - auch wenn das Gratis-Kontingent leer ist\n' +
-  'Status - Fortschritt in Prozent\n' +
-  'Themen - welche Themen als Naechstes drankommen\n' +
-  'Abholen - Feedback/Themen aus dem Videobot sofort verarbeiten\n\n' +
-  'Feedback gibst du im Videobot: auf ein Video antworten oder „Feedback: ..." schreiben.';
+// Nutzer 05.11.2026: "Befehlsliste ausbauen, Befehle fuer Themen, bei einem unbekannten Wort die Liste zeigen,
+// fehlende Befehle aufnehmen, schoener machen". Klartext (kein parse_mode) - Sonderzeichen brechen nichts.
+const HILFE = [
+  '📋 Befehle – Contentfabrik Steuerung',
+  '',
+  '▶️ Videos starten',
+  '• Start – beide Kanäle',
+  '• Start Business – nur Business Origin Stories',
+  '• Start KI – nur AI Tools Explained',
+  '• Start KI bezahlt / Start Business bezahlt – auch wenn das Gratis-Kontingent leer ist',
+  '',
+  '🎬 Langvideo',
+  '• Langvideo Business / Langvideo KI – Langvideo jetzt statt am Plantag (Business Fr, KI Sa)',
+  '  (nur wenn in den letzten 6 Tagen keins geliefert wurde)',
+  '',
+  '🗂 Themen',
+  '• Themen – was als Nächstes drankommt (beide Kanäle)',
+  '• Themen Business / Themen KI – nur ein Kanal',
+  '',
+  '📊 Überblick',
+  '• Status – was gerade läuft, in Prozent',
+  '• Abholen – Feedback und Themen aus dem Videobot sofort verarbeiten',
+  '• Hilfe – diese Liste',
+  '',
+  '💬 Im Videobot (nicht hier)',
+  '• Business: Wie LEGO entstand – neues Thema',
+  '• KI: Claude Code Schritt für Schritt – neues Thema',
+  '• Business: + je Zeile eine Idee – bis zu 25 Themen auf einmal',
+  '• Business: <YouTube-/TikTok-Link> – Thema aus einem Video, neu recherchiert',
+  '• Skript Business: <Thema> + darunter dein Text – eigenes Skript',
+  '• Feedback: … oder auf ein Video antworten – Rückmeldung',
+  '• Unter jedem Video: ✅/❌, Note oder „TikTok-Entwurf hochladen“ antippen',
+].join('\n');
 
 // GEMESSEN 08.10.2026: Am Handy eingefuegter Token -> Telegram 'Not Found' (ungueltig).
 // Leerzeichen/Zeilenumbrueche und ein mitkopiertes 'bot' davor entfernen.
@@ -238,12 +264,13 @@ async function roh(pfad) {
   return r.ok ? r.json() : null;
 }
 
-export async function themenUebersicht(env) {
+export async function themenUebersicht(env, nur = '') {
   const heute = new Date().toISOString().slice(0, 10);
   const geladen = await roh('themen/warteschlange.json').catch(() => null);
   const schlange = Array.isArray(geladen) ? geladen : [];
   const teile = [];
   for (const [kanal, name] of Object.entries(KANAL_NAME)) {
+    if (nur && nur !== kanal) continue;
     const vorrat = await fetch(`https://api.github.com/repos/${REPO}/contents/vorrat/${kanal}`, { headers: ghKopf(env) })
       .then(r => r.ok ? r.json() : []).catch(() => []);
     const fertig = (Array.isArray(vorrat) ? vorrat : []).filter(f => f.name.endsWith('.json'))
@@ -255,7 +282,7 @@ export async function themenUebersicht(env) {
       (offen.length ? offen.map((t, i) => `${i + 1}. ${t}`).join('\n') : 'Warteschlange leer') +
       (trend && trend.thema ? `\nTrend heute: ${trend.thema}` : ''));
   }
-  return 'Themen in der Pipeline\n\n' + teile.join('\n\n') +
+  return '🗂 Themen in der Pipeline\n\n' + teile.join('\n\n') +
     '\n\nEin fertiges Skript kommt zuerst; sonst waehlt der Trend-Check das staerkste Thema aus Warteschlange und Trends.\n' +
     'Neue Themen im Videobot mit „Business: ..." oder „KI: ..." schicken.';
 }
@@ -278,7 +305,22 @@ export async function befehl(env, text) {
       r.conclusion === 'success' ? 'beendet' : r.conclusion === 'cancelled' ? 'abgebrochen' : 'Fehler'}\n${r.html_url}`)
       .join('\n') + '\n\n„Beendet" heisst nicht automatisch Video - das Ergebnis meldet der Videobot.';
   }
-  if (t === 'themen' || t === 'thema') return themenUebersicht(env);
+  if (t === 'hilfe' || t === 'help' || t === 'befehle' || t === '/start' || t === '/help') return HILFE;
+  const th = t.match(/^(?:themen|thema)(?:\s+(business|ki|ai))?$/);
+  if (th) return themenUebersicht(env, th[1] ? KANAELE[th[1]] : '');
+  // Themen gehoeren in den Videobot (themen.py liest nur dort) - nicht still als Unbekannt abtun.
+  if (/^(business|ki|ai|skript\s+\w+)\s*:/.test(t)) {
+    return 'Themen und Skripte bitte im Videobot schicken - dieser Bot startet nur und zeigt den Stand.\n\n' + HILFE;
+  }
+  // Nutzer 05.11.2026: "Longvideo-Befehle hab ich in der Liste nicht gefunden". langvideo.yml mit gesetztem
+  // Kanal = Handstart ohne Wochentagspruefung; langvideo.faellig() verhindert ein zweites Langvideo im Abstand.
+  const lv = t.match(/^(?:start\s+)?(?:langvideo|longvideo|lang)\s+(business|ki|ai)$/);
+  if (lv) {
+    const e = await starte(env, 'langvideo.yml', { kanal: KANAELE[lv[1]], thema: '' });
+    if (e.includes('bereits aktiv')) return 'Es laeuft gerade schon ein Langvideo - kein Doppelstart. Schreib „Status".';
+    return `Langvideo gestartet (${KANAELE[lv[1]]}). Dauert ca. 60-120 Minuten; Ergebnis ueber den Videobot.\n` +
+      'Wurde in den letzten 6 Tagen schon ein Langvideo geliefert, beendet sich der Lauf ohne neues Video.';
+  }
   if (t === 'abholen') {
     // GEMELDET 08.10.2026: Feedback soll gleich im naechsten Lauf wirken, nicht erst nach 4 h.
     const e = await starte(env, 'themen.yml', {});
@@ -287,7 +329,7 @@ export async function befehl(env, text) {
         'werden jetzt verarbeitet. Der Videobot bestaetigt in ca. 2-3 Minuten.';
   }
   const m = t.match(/^start(?:\s+(business|ki|ai))?(\s+bezahlt)?$/);
-  if (!m) return HILFE;
+  if (!m) return `„${String(text || '').trim().slice(0, 40)}“ kenne ich nicht.\n\n` + HILFE;
   const heute = new Date().toISOString().slice(0, 10);
   const manuell = (await laeufe(env, `&event=workflow_dispatch&created=%3E%3D${heute}`, 'video.yml', 50))
     .filter((r) => !zeitplanStart(r.created_at)).length;

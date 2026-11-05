@@ -131,7 +131,11 @@ def pruefen(video, skript, ablauf, ziel):
     # Eichung 15.10.2026: Selbst beim vom Nutzer freigegebenen Louis-Vuitton-Video lehnte der Pruefer
     # beide Like/Teilen/Speichern-Einstellungen ab. Dort gibt es nichts zu illustrieren - offen
     # ausnehmen statt eine Note zu erfinden; ausgenommene Indizes stehen im Ergebnis.
-    ergebnis['ausgenommen'] = [x['index'] for x in slots if aufruf(x['phase_text'])]
+    # GEMESSEN 05.11.2026 (KI 42023097882, Einstellung 16): die Schlussphase hatte vor dem Aufruf noch einen Satz,
+    # also galt die Ausnahme nicht - das Spickzettel-Bild unter "Be sure to like, share and save" fiel mit 6/10
+    # durch ("keine Darstellung der Aufforderung"). Auch das einzelne Bild, unter dem nur der Aufruf laeuft, ist frei.
+    ergebnis['ausgenommen'] = [x['index'] for x in slots
+                               if aufruf(x['phase_text']) or (str(x.get('text') or '').strip() and aufruf(x['text']))]
     slots = [x for x in slots if x['index'] not in ergebnis['ausgenommen']]
     # Nutzer 30.10.2026 (Mittelweg): Archivclips hat die Clipauswahl schon Standbild gegen Satz bewertet (>= 7/10).
     # Der Schlusspruefer sah danach nur den gemalten Frame und lehnte echte Archivszenen erneut ab.

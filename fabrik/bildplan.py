@@ -288,7 +288,9 @@ ABSTRAKT = frozenset(w[:5] for w in (
     # GEMESSEN 05.11.2026 (Casio 42016448883): "strangest part" und "rebuild it" wurden Pflichtmotiv; das Bildmodell
     # malte "reblild it" als Schrift ins Bild, der Pruefer lehnte ab. Satzteile ohne Gegenstand.
     'part', 'parts', 'thing', 'things', 'strangest', 'strange', 'weird', 'rebuild', 'build', 'built', 'followed',
-    'launched', 'calls', 'called', 'reason', 'idea', 'answer', 'question', 'moment'))
+    'launched', 'calls', 'called', 'reason', 'idea', 'answer', 'question', 'moment',
+    # 05.11.2026 (KI 42023097882): "One admits why." -> Motiv "admit why" -> "Painted lettering found: admit why"
+    'admit', 'admits', 'explain', 'explains', 'happened', 'happens', 'matters', 'means', 'fixed', 'prove', 'works'))
 
 
 def malbar_machen(daten, zeitplan, namen=frozenset()):

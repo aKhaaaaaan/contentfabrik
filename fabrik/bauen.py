@@ -421,6 +421,50 @@ def foto_fuer(bilder, satz, benutzt):
         return None, None
 
 
+PRODUKTFOTOS = {}  # Wikipedia-Artikel -> freie Commons-Fotos (einmal je Bau abgefragt)
+
+
+def produkt_foto(s, satz, benutzt, ziel):
+    """Echtes freies Foto aus dem Wikipedia-Artikel der Geschichte, mit dem Malfilter „Gemalt+" - als Ersatz,
+    wenn die KI-Malerei fuer eine Einstellung scheitert. (pfad, quelle) oder (None, None).
+
+    GEMESSEN 05.11.2026 (Business Casio, Laeufe 42010782370/42016448883): 87 gemalte Bilder zu Recht verworfen
+    (Kauderwelsch-Schrift 37, Haende 24, falsche Epoche 13 - „Rechner von 1949 mit LCD"); Einstellung 1 bestand
+    nie, das Video brach ab. Commons hat genau diese Produkte (Casio 14-A CC0, Casio Mini CC BY-SA).
+    Nutzer 05.11.2026 nach Probe in Telegram: „Ersatzbilder sind okay, kannst die verwenden"."""
+    import trends
+    import archivclip
+    namen = [n for n in _wiki_artikel(s)] or [str(s.get('thema') or '').split(':')[0]]
+    bilder = []
+    for name in namen[:2]:
+        if name not in PRODUKTFOTOS:
+            PRODUKTFOTOS[name] = trends.wiki_bilder(name) if name else []
+        bilder += PRODUKTFOTOS[name]
+    foto, fq = foto_fuer(bilder, satz, benutzt)
+    if not foto:
+        return None, None
+    try:
+        import cv2
+        f = cv2.imread(str(foto))
+        cv2.imwrite(str(ziel), archivclip.gemalt(f), [cv2.IMWRITE_JPEG_QUALITY, 92])
+    except Exception as e:
+        print('Produktfoto nicht gemalt:', type(e).__name__)
+        return None, None
+    # CC BY-SA verlangt, Aenderungen anzugeben
+    return Path(ziel), dict(fq, nennung=f"{fq.get('von') or 'unknown'}, {fq.get('lizenz')}, via Wikimedia Commons "
+                                       '(painted filter applied)')
+
+
+def _wiki_artikel(s):
+    import urllib.parse
+    aus = []
+    for u in s.get('quellen') or []:
+        m = re.search(r'wikipedia\.org/wiki/([^?#]+)', str(u))
+        if m:
+            aus.append(urllib.parse.unquote(m[1]).replace('_', ' '))
+    return list(dict.fromkeys(aus))
+
+
 def mini_karte(karte, platz):
     """Kleine Karte + Platznummer oben, waehrend darunter der Praxis-Clip
     laeuft - so bleibt klar, um welches Werkzeug es geht."""
@@ -2409,6 +2453,13 @@ def main(skript_pfad, aus, vorlage=None):
             material = ill or foto or karte or clip
             if material and not motiv_ok(material):
                 material = ill = foto = karte = clip = None
+            if not material and kanalprofil(s).get('bildstil') == 'illustration':
+                # 05.11.2026: gemalte Szene gescheitert -> echtes Produktfoto, gemalt (Nutzerfreigabe, siehe produkt_foto)
+                pf, pq = produkt_foto(s, t['text'] + ' Visual: ' + t.get('szene', ''), benutzte_fotos,
+                                      aus / f'produktfoto_{i:02d}.jpg')
+                if pf and motiv_ok(pf):
+                    foto, fq, material = pf, pq, pf
+                    print(f'Einstellung {i}: gemalte Szene gescheitert - echtes Foto mit Malfilter ({pq.get("seite", "")[-60:]})')
             if not material and i == 0 and kanalprofil(s).get('gemalt_nur_rand'):
                 # GEMESSEN 16.10.2026 (Lauf 38888929052): Einstieg scheiterte 5x, Ersatz war die Grafik von
                 # Einstellung 1 doppelt (6/10). Kanalfigur + woertliche Frage in der Sprechblase, kostenlos.

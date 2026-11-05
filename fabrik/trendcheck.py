@@ -30,7 +30,9 @@ from xml.etree import ElementTree
 ORDNER = Path('verlauf/trendcheck')
 BONUS_EIGEN = 1.0
 SCHWELLE = 1.5  # darunter kein echtes Trendsignal
-FREIE_KANDIDATEN = 5
+# GEMESSEN 05.11.2026: 4 von 6 Business-Tagen ohne Trendthema - die 5 Plaetze belegten schon gelieferte Firmen
+# (Google, Nvidia, Microsoft ...), aussortiert wurde erst danach. Jetzt vorher aussortieren und 8 Plaetze.
+FREIE_KANDIDATEN = 8
 YT_FIRMEN = 3  # je Kandidat eine weitere YouTube-Suche (100 Einheiten des Tageskontingents)
 
 
@@ -180,13 +182,18 @@ def kandidaten(kanal, themen, mit_trendfirmen=True, google_liste=(), heute=None)
         # offene Trend-Schnittstelle (Creative Center nur per Scraping, Sperr-Risiko) - YouTube Shorts sind dasselbe
         # Publikum, oft dieselben Videos, ueber die offizielle API. Shorts zuerst, dann laengere Videos.
         for dauer in ('short', 'medium'):
-            for titel, _, _ in (trends.firmen_aus_youtube(yt, dauer=dauer) if yt else [])[:YT_FIRMEN]:
-                if titel not in bekannt:
+            neu = 0
+            for titel, _, _ in (trends.firmen_aus_youtube(yt, dauer=dauer) if yt else []):
+                if neu < YT_FIRMEN and titel not in bekannt and not _wiederholung(kanal, titel):
                     bekannt.add(titel)
+                    neu += 1
                     aus.append({'thema': titel, 'begriff': titel, 'wikipedia': titel, 'eigen': False,
                                 'trendfirma': True, 'shorts': dauer == 'short'})
-        for titel, aufrufe, _ in trends.firmen_im_trend()[:FREIE_KANDIDATEN * 2]:
-            if titel not in bekannt and len([a for a in aus if not a['eigen']]) < FREIE_KANDIDATEN:
+        for titel, aufrufe, _ in trends.firmen_im_trend():
+            if len([a for a in aus if not a['eigen']]) >= FREIE_KANDIDATEN:
+                break
+            if titel not in bekannt and not _wiederholung(kanal, titel):
+                bekannt.add(titel)
                 # 21.10.2026 Nutzer: Trend im Fokus, fuer jeden Kanal. Vorher thema '' (nur Vorschlag an den Autor;
                 # Claude nahm meist eine "klassische Marke" wie Boeing/Ford statt der Trendfirma).
                 aus.append({'thema': titel, 'begriff': titel, 'wikipedia': titel, 'eigen': False, 'trendfirma': True})

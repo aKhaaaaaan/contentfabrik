@@ -30,11 +30,22 @@ def _hole(url, kopf=None, zeit=30):
         return r.read()
 
 
+FREMDWOERTER = {'eine', 'einer', 'auf', 'und', 'der', 'das', 'ist', 'mit', 'nicht', 'wie', 'warum', 'geschichte',
+                'unternehmen', 'firma', 'una', 'que', 'por', 'para', 'historia', 'empresa', 'como', 'porque',
+                'nao', 'uma', 'het', 'een', 'och', 'est', 'une', 'pourquoi', 'histoire', 'entreprise',
+                'perche', 'storia', 'azienda', 'nasil', 'neden', 'tarihi', 'kaise', 'kyun'}
+
+
 def _englisch(titel):
     # GEMESSEN 02.10.2026: Trotz relevanceLanguage=en kamen Titel in Hindi
     # und Bengali - die taugen nicht als Vorbild fuer einen englischen Kanal.
     buchst = [z for z in titel if z.isalpha()]
-    return bool(buchst) and sum(z.isascii() for z in buchst) / len(buchst) > 0.9
+    if not buchst or sum(z.isascii() for z in buchst) / len(buchst) <= 0.9:
+        return False
+    # GEMESSEN 05.11.2026: „EINE GESCHICHTE auf GOOGLE MAPS" (deutsch, nur ASCII) machte Google zur Trendfirma.
+    # Haeufige Funktionswoerter anderer Sprachen, die im Englischen nicht vorkommen (keine Namen wie „La", „De").
+    woerter = set(re.findall(r'[a-z]+', titel.lower()))
+    return len(woerter & FREMDWOERTER) < 1
 
 
 def youtube_ausreisser(suchbegriffe, tage=30, je_begriff=15, top=10, dauer='short'):

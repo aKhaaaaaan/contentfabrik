@@ -89,10 +89,22 @@ def kontingent(base, remote, lokal):
     return aus
 
 
+def groq_tag(base, remote, lokal):
+    """verlauf/groq-vision-tag.json: Verbrauch beider Laeufe zusammenzaehlen (05.11.2026), neuerer Tag gewinnt."""
+    if remote.get('datum') != lokal.get('datum'):
+        return max(remote, lokal, key=lambda d: str(d.get('datum')))
+    t = lambda d: d.get('tokens') if type(d.get('tokens')) is int else 0
+    basis = t(base) if base.get('datum') == remote.get('datum') else 0
+    return {'datum': remote.get('datum'), 'tokens': t(remote) + t(lokal) - basis}
+
+
 if __name__ == '__main__':
     try:
-        base, remote, lokal = [json.loads(Path(p).read_text(encoding='utf-8')) for p in sys.argv[1:4]]
-        if all(isinstance(x, dict) and isinstance(x.get('modelle'), dict) for x in (remote, lokal)):
+        # Neu angelegte Datei auf beiden Seiten (z. B. groq-vision-tag.json): Git uebergibt eine leere Basis.
+        base, remote, lokal = [json.loads(Path(p).read_text(encoding='utf-8') or '{}') for p in sys.argv[1:4]]
+        if all(isinstance(x, dict) and set(x) == {'datum', 'tokens'} for x in (remote, lokal)):
+            d = groq_tag(base if isinstance(base, dict) else {}, remote, lokal)
+        elif all(isinstance(x, dict) and isinstance(x.get('modelle'), dict) for x in (remote, lokal)):
             d = kontingent(base, remote, lokal)
         else:
             d = feld(base, remote, lokal)

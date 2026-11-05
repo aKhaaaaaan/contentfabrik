@@ -156,10 +156,28 @@ MARKIEREN = """([n, woerter]) => {
       if (k > wert) { beste = tr; wert = k; }
     }
     if (beste) for (const c of beste.querySelectorAll('td, th')) c.style.background = '#fff3a8';
+  } else if (el.tagName === 'PRE' || el.querySelector('pre, code')) {
+    // GEMESSEN 05.11.2026 (KI 42023097882, Codex-CLI-Seite): gelber Grund unter heller Codeschrift machte
+    // den Terminal-Ausschnitt unlesbar. Code nur umrahmen; die Zeile mit den Satzwoertern bekommt eine Leiste.
+    rahmen(el);
   } else {
     el.style.background = '#fff3a8';
     rahmen(el);
   }
+}"""
+
+# GEMESSEN 05.11.2026 (KI 42023097882, Einstellung 4): ein schwebendes Seiten-Chatfenster ("Docs agent",
+# "Ask AI") lag ueber der unteren Haelfte des Ausschnitts, der Pruefer sah "Ladevorgang eines Docs agent" (3/10).
+# Fest positionierte Ebenen (Chat-Widgets, Banner, Kopfleisten) vor der Aufnahme ausblenden.
+UEBERLAGERUNGEN = """() => {
+  let n = 0;
+  for (const e of document.querySelectorAll('body *')) {
+    const s = getComputedStyle(e);
+    if ((s.position === 'fixed' || s.position === 'sticky') && e.getBoundingClientRect().height > 0) {
+      e.style.setProperty('display', 'none', 'important'); n++;
+    }
+  }
+  return n;
 }"""
 
 
@@ -201,6 +219,7 @@ def aufnehmen(url, satz, ziel, benutzt=None, namen=''):
                     return None, None
                 b = bloecke[i]
                 seite.evaluate(MARKIEREN, [i, sorted(woerter(satz))])
+                seite.evaluate(UEBERLAGERUNGEN)
                 hoehe = seite.evaluate('() => document.documentElement.scrollHeight')
                 oben = ausschnitt_oben(b, [x for x in bloecke if x.get('visuell')], hoehe)
                 Path(ziel).parent.mkdir(parents=True, exist_ok=True)

@@ -144316,6 +144316,115 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "42016448883.1:business-origin-stories",
+      "run_id": "42016448883",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-05T11:38:47.054065+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "10a422bf1df89df89d1631b55c79f249184a9227",
+      "produktionsversion": "a8107e4427761bad92217d37bcd894d634dab9c0164b353196167248bc73ade3",
+      "videoformat": "short",
+      "thema": "Casio's origin: from a ring-mounted cigarette holder to the 14-A and the cheap Mini calculator",
+      "titel": [
+        "A Cigarette Holder",
+        "Funded Calculators"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 1,
+      "unterschiedliche_motive": 1,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "42016448883",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-05",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptqualitaet",
+            "sperrgruende": [
+              "Thema schon geliefert: Levi Strauss & Co. (Thema vor 0 Tagen geliefert (Telegram 1944); wieder erst nach 60 Tagen mit neuem Blickwinkel) - anderes Thema waehlen"
+            ],
+            "sekunden": 231.8
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 6/10 unter 7/10",
+              "Skript-spannung 6/10 unter 7/10",
+              "Skript-aufloesung 6/10 unter 7/10"
+            ],
+            "story_note": 6,
+            "story_schwaechen": [
+              "The narration lacks a beat wendung or a deeper explanation of the 'why' beyond demand, leaving the story feeling incomplete.",
+              "The prompt-required call to action feels tacked on and lacks a meaningful connection to the specific history shared."
+            ],
+            "skript_probleme": [],
+            "sekunden": 296.4
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "skript_s": 349.7,
+            "bau_s": 522.9,
+            "baufehler": "ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 872.6
+          },
+          {
+            "runde": 4,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 77.7,
+            "baufehler": "ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 77.7
+          },
+          {
+            "runde": 5,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 243.3,
+            "baufehler": "ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 243.3
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "kein Kandidat mit echtem Trendsignal - freie Trendwahl",
+        "grund": "Videobau fehlgeschlagen (ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz)",
+        "sekunden": 1723.9,
+        "upload_titel": "A Cigarette Holder: Funded Calculators"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-3.5-flash-lite",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

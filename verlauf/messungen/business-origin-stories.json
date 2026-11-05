@@ -1,23 +1,5 @@
 [
   {
-    "id": "39032531951",
-    "kanal": "business-origin-stories",
-    "datum": "2026-10-17",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "zeitbudget",
-        "phase": "Skript",
-        "sekunden": 1200.0
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Skript-Zeitlimit erreicht (Arbeiter beendet)",
-    "sekunden": 1200.1,
-    "upload_titel": "Coca-Cola's $1 Mistake: Candler's Costly Contract"
-  },
-  {
     "id": "39034546019",
     "kanal": "business-origin-stories",
     "datum": "2026-10-17",
@@ -22530,5 +22512,72 @@
     "grund": "Videobau fehlgeschlagen (ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz)",
     "sekunden": 1337.5,
     "upload_titel": "LEVI'S RIVET MYTH: THE DESIGN DID CHANGE"
+  },
+  {
+    "id": "42016448883",
+    "kanal": "business-origin-stories",
+    "datum": "2026-11-05",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "status": "skriptqualitaet",
+        "sperrgruende": [
+          "Thema schon geliefert: Levi Strauss & Co. (Thema vor 0 Tagen geliefert (Telegram 1944); wieder erst nach 60 Tagen mit neuem Blickwinkel) - anderes Thema waehlen"
+        ],
+        "sekunden": 231.8
+      },
+      {
+        "runde": 2,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-Note 6/10 unter 7/10",
+          "Skript-spannung 6/10 unter 7/10",
+          "Skript-aufloesung 6/10 unter 7/10"
+        ],
+        "story_note": 6,
+        "story_schwaechen": [
+          "The narration lacks a beat wendung or a deeper explanation of the 'why' beyond demand, leaving the story feeling incomplete.",
+          "The prompt-required call to action feels tacked on and lacks a meaningful connection to the specific history shared."
+        ],
+        "skript_probleme": [],
+        "sekunden": 296.4
+      },
+      {
+        "runde": 3,
+        "art": "produktion",
+        "skript_s": 349.7,
+        "bau_s": 522.9,
+        "baufehler": "ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz",
+        "status": "baufehler",
+        "sekunden": 872.6
+      },
+      {
+        "runde": 4,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 77.7,
+        "baufehler": "ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz",
+        "status": "baufehler",
+        "sekunden": 77.7
+      },
+      {
+        "runde": 5,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 243.3,
+        "baufehler": "ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz",
+        "status": "baufehler",
+        "sekunden": 243.3
+      }
+    ],
+    "status": "gesperrt",
+    "trendcheck": "kein Kandidat mit echtem Trendsignal - freie Trendwahl",
+    "grund": "Videobau fehlgeschlagen (ValueError: Phase 0, Einstellung 1: kein passendes Hauptbild; kein Hintergrundersatz)",
+    "sekunden": 1723.9,
+    "upload_titel": "A Cigarette Holder: Funded Calculators"
   }
 ]

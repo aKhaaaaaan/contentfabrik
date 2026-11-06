@@ -786,8 +786,14 @@ def sperrliste(verlauf):
     GEMESSEN 30.10.2026 (Business 41121316485): frei gewaehlt fuenfmal LEGO, jede Fassung Story 4-6/10 - ein
     heute an Skriptqualitaet/Fakten gescheitertes Thema stand nicht in der Sperrliste."""
     import budget
+    import themen
     heute = budget.heute()  # dasselbe Datum wie lauf.verlauf_eintragen
-    return '; '.join(dict.fromkeys(v['thema'] for v in verlauf[-60:] if v.get('status') == 'gesendet' or (
+    # GEMESSEN 06.11.2026 (Langvideo 42219418311): "die letzten 60 Eintraege" deckten bei 105 Eintraegen
+    # (viele Fehlversuche) nur noch 16 Tage ab - Ford (18./21.10.) und Louis Vuitton (13.10.) fehlten, der Lauf
+    # schrieb beide und verlor 20 Min. an der harten Sperre in lauf.py. Jetzt dieselben 60 TAGE wie die Sperre.
+    ab = (datetime.date.fromisoformat(heute) - datetime.timedelta(days=themen.WIEDERHOLUNG_TAGE)).isoformat()
+    return '; '.join(dict.fromkeys(v['thema'] for v in verlauf if (
+        v.get('status') == 'gesendet' and str(v.get('datum', '')) >= ab) or (
         v.get('datum') == heute and v.get('status') in ('skriptqualitaet', 'faktenpruefung'))))
 
 
@@ -1114,9 +1120,18 @@ def main(kanal_pfad, aus_pfad, thema=None):
                 print(f"Quelle zu kurz ({len(q['text'])} Zeichen): {q['name']} - neues Thema")
                 q = None
             if not q:
-                print(f"Kein Wikipedia-Artikel: {wahl['wikipedia']} - neues Thema")
+                print(f"Keine brauchbare Quelle: {wahl['wikipedia']} - neues Thema")
                 verworfen.append(wahl['thema'])
                 continue
+            # GEMESSEN 06.11.2026 (Langvideo 42219418311): frei gewaehlt kam Ford (vor 19 Tagen geliefert) - erst
+            # nach ~20 Min. Skript/Pruefungen sperrte lauf.py das Thema. Dieselbe Sperre jetzt VOR dem Schreiben.
+            if not thema:
+                import themen
+                schon = themen.wiederholung_gesperrt(Path(kanal_pfad).stem, wahl['thema'], quellen=[q.get('url', '')])
+                if schon:
+                    print(f"Thema schon geliefert: {wahl['thema']} ({schon}) - neues Thema")
+                    verworfen.append(wahl['thema'])
+                    continue
             quellen = [q]
             wiki_fotos = trends.wiki_bilder(q['name']) if kanal.get('bildstil') != 'illustration' else []
             kanal['_bildmaterial'] = [{'titel': b['titel'], 'beschreibung': b['beschreibung'][:240]}

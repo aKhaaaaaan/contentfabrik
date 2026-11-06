@@ -52,7 +52,11 @@ def nachfuehren(wurzel='.'):
     for kanal in gefaehrdet(wurzel):
         meta = Path(wurzel) / 'verlauf/entwuerfe' / (kanal + '.json')
         d = json.loads(meta.read_text(encoding='utf-8'))
-        d['profil'] = entwurf_cache.profil_key(Path(wurzel) / 'kanaele' / (kanal + '.json'))
+        # GEMESSEN 06.11.2026: '<kanal>-lang' (Langvideo, Schluessel aus formate/) brach mit FileNotFoundError ab.
+        name = kanal.removesuffix('-lang')
+        ordner = ('formate', 'kanaele') if kanal.endswith('-lang') else ('kanaele', 'formate')
+        profil = next(p for p in (Path(wurzel) / o / (name + '.json') for o in ordner) if p.exists())
+        d['profil'] = entwurf_cache.profil_key(profil)
         ki_speicher.speichern(meta, d)
         print('Profil nachgefuehrt:', kanal)
 

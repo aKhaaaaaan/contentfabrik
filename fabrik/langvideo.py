@@ -50,7 +50,17 @@ def quelle_reicht(t, kanal=KANAL):
     import themen
     import trends
     q = trends.wikipedia(themen.details(kanal, t).get('wikipedia') or t, grenze=30000)
+    # GEMESSEN 06.11.2026 (Lauf 42219418311): "Rivian Origin Story" gibt es nicht als Artikel -> None -> "reicht";
+    # skript.py fand dann "Rivian" mit 11.575 Zeichen, zu kurz, und fiel auf freie Wahl. Firmennamen nachschlagen.
+    name = artikelname(t)
+    if q is None and name != t:
+        q = trends.wikipedia(name, grenze=30000)
     return q is None or len(q['text']) >= LANG_MIN_ZEICHEN
+
+
+def artikelname(t):
+    """Short-Thema -> Firmenname: "Rivian Origin Story" -> "Rivian", "Tesla: How ..." -> "Tesla"."""
+    return re.sub(r'\s+origin\s+story$', '', _begriff(t), flags=re.I).strip() or str(t)
 
 
 def quellen_da(t):

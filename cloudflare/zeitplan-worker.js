@@ -264,6 +264,44 @@ async function roh(pfad) {
   return r.ok ? r.json() : null;
 }
 
+const WOCHENTAG = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+
+function tagText(iso) {
+  if (!iso) return '';
+  const d = new Date(iso + 'T12:00:00Z');
+  return `${WOCHENTAG[d.getUTCDay()]} ${iso.slice(8, 10)}.${iso.slice(5, 7)}.`;
+}
+
+// Nutzer 06.11.2026: "Themen-Befehl praeziser, zum Beispiel Shorts und Long Themen" - je Kanal zwei Bloecke.
+// Langvideo: verlauf/themenplan/lang-<kanal>.json (langvideo.py vorschau, taeglich und nach jedem Langvideo-Lauf).
+export function langBlock(lang, heute) {
+  if (!lang || !lang.termin) return '🎞 Langvideo: kein Termin geplant (formate/<kanal>.json lang_tage)';
+  const [von, bis] = lang.laenge_s || [];
+  const dauer = von && bis ? ` (${Math.round(von / 60)}–${Math.round(bis / 60)} Min.)` : '';
+  const termin = lang.termin === heute ? `heute, ${tagText(lang.termin)}` : tagText(lang.termin);
+  const zeilen = [`🎞 Langvideo${dauer}`, `Termin: ${termin} ab 13:07` + (lang.ersatz ? ` · Ersatz ${tagText(lang.ersatz)}` : '')];
+  if (lang.fest) zeilen.push(`Thema: ${lang.fest} (${lang.fest_grund || 'fest'})`);
+  else if ((lang.kandidaten || []).length) {
+    zeilen.push('Kandidaten (aus den Shorts der letzten Tage; der Trend-Check wählt am Termin):');
+    zeilen.push(...lang.kandidaten.map((t, i) => `${i + 1}. ${t}`));
+    if (!lang.quellen_geprueft) zeilen.push('Quellen prüft der Lauf selbst.');
+  } else zeilen.push('Thema: freie Wahl (kein passender Short der letzten Tage)');
+  if (lang.erstellt && lang.erstellt !== heute) zeilen.push(`(Stand ${tagText(lang.erstellt)})`);
+  return zeilen.join('\n');
+}
+
+export function shortBlock(fertig, plan, offen, trend, heute) {
+  const zeilen = ['📱 Shorts (35–45 s, täglich)'];
+  if (fertig.length) zeilen.push(`Skript fertig (kommt zuerst): ${fertig.join(', ')}`);
+  if (trend && trend.thema) zeilen.push(`Heute: ${trend.thema}`);
+  const tage = plan && plan.erstellt ? (Date.parse(heute) - Date.parse(plan.erstellt)) / 86400000 : 99;
+  const reihe = tage >= 0 && tage < 3 ? (plan.reihenfolge || []).filter(t => !trend || t !== trend.thema) : [];
+  if (reihe.length) zeilen.push(`Redaktionsplan (Stand ${tagText(plan.erstellt)}): ${reihe.join(' · ')}`);
+  zeilen.push(offen.length ? 'Warteschlange (deine Themen):\n' + offen.map((t, i) => `${i + 1}. ${t}`).join('\n')
+    : 'Warteschlange (deine Themen): leer');
+  return zeilen.join('\n');
+}
+
 export async function themenUebersicht(env, nur = '') {
   const heute = new Date().toISOString().slice(0, 10);
   const geladen = await roh('themen/warteschlange.json').catch(() => null);
@@ -273,18 +311,20 @@ export async function themenUebersicht(env, nur = '') {
     if (nur && nur !== kanal) continue;
     const vorrat = await fetch(`https://api.github.com/repos/${REPO}/contents/vorrat/${kanal}`, { headers: ghKopf(env) })
       .then(r => r.ok ? r.json() : []).catch(() => []);
-    const fertig = (Array.isArray(vorrat) ? vorrat : []).filter(f => f.name.endsWith('.json'))
-      .map(f => f.name.replace(/-[0-9a-f]{12}\.json$/, '').replace(/-/g, ' '));
+    // Ein Langvideo-Skript im Vorrat steht im Langvideo-Block (vorschau.fest), nicht bei den Shorts.
+    const lang = await roh(`verlauf/themenplan/lang-${kanal}.json`).catch(() => null);
+    // GEMESSEN 06.11.2026: der Dateiname ("codex-16f6a9ce...") ist kein Thema - Inhalt lesen (meist 0-3 Dateien).
+    const dateien = (Array.isArray(vorrat) ? vorrat : []).filter(f => f.name.endsWith('.json')).slice(0, 6);
+    const fertig = (await Promise.all(dateien.map(f => roh(`vorrat/${kanal}/${f.name}`).catch(() => null))))
+      .filter(e => e && e.skript && e.skript.videoformat !== 'lang')
+      .map(e => e.thema_eingabe || e.skript.thema).filter(Boolean);
     const offen = schlange.filter(e => e.kanal === kanal && (e.status || 'bereit') === 'bereit').map(e => e.thema);
     const trend = await roh(`verlauf/trendcheck/${kanal}-${heute}.json`).catch(() => null);
-    teile.push(`${name}:\n` +
-      (fertig.length ? `Skript fertig: ${fertig.join(', ')}\n` : '') +
-      (offen.length ? offen.map((t, i) => `${i + 1}. ${t}`).join('\n') : 'Warteschlange leer') +
-      (trend && trend.thema ? `\nTrend heute: ${trend.thema}` : ''));
+    const plan = await roh(`verlauf/themenplan/${kanal}.json`).catch(() => null);
+    teile.push(`━━ ${name} ━━\n` + shortBlock(fertig, plan, offen, trend, heute) + '\n\n' + langBlock(lang, heute));
   }
   return '🗂 Themen in der Pipeline\n\n' + teile.join('\n\n') +
-    '\n\nEin fertiges Skript kommt zuerst; sonst waehlt der Trend-Check das staerkste Thema aus Warteschlange und Trends.\n' +
-    'Neue Themen im Videobot mit „Business: ..." oder „KI: ..." schicken.';
+    '\n\nNeue Themen im Videobot mit „Business: ..." oder „KI: ..." schicken.';
 }
 
 export async function befehl(env, text) {

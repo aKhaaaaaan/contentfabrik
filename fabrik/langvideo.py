@@ -75,6 +75,12 @@ def thema(verlauf, geliefert, heute, name=NAME, reicht=None, rangfolge=None):
     """Short der letzten Tage (nicht von heute), dessen Thema noch kein Langvideo hatte.
     reicht(thema): optionale Quellenpruefung; ungeeignete Themen werden uebersprungen.
     rangfolge(themen): optionale Trendbewertung; ohne sie oder ohne Trend gewinnt der juengste."""
+    geeignet = kandidaten(verlauf, geliefert, heute, name, reicht)
+    return _rangfolge_waehlen(geeignet, rangfolge) if geeignet else ''
+
+
+def kandidaten(verlauf, geliefert, heute, name=NAME, reicht=None):
+    """Geeignete Short-Themen fuer ein Langvideo, juengster zuerst (hoechstens TREND_KANDIDATEN)."""
     # GEMESSEN 17.10.2026: nur GELIEFERTE Langvideos zaehlen - zwei gescheiterte Coca-Cola-Versuche
     # (Skriptfrist, Bauversuche) liessen den Neustart Airbnb waehlen; der fast fertige Teilbau
     # (Skript, Stimme, 53/84 Bilder) waere verloren gewesen.
@@ -104,8 +110,10 @@ def thema(verlauf, geliefert, heute, name=NAME, reicht=None, rangfolge=None):
             geeignet.append(e['thema'])
         else:
             print('Langvideo: Quelle zu kurz fuer', e['thema'], '- naechster Short')
-    if not geeignet:
-        return ''
+    return geeignet
+
+
+def _rangfolge_waehlen(geeignet, rangfolge):
     # Nutzer 24.10.2026: "die Themen muessen auch fuer Langvideos heiss sein" - Moderna war am Tag seines
     # Shorts ein Trend, am Langvideo-Tag fuehrte Tesla (YouTube 622x, Google News). Unter den geeigneten
     # Shorts gewinnt der heute staerkste YouTube-/Google-Trend (gleiche Regel wie trendcheck.entscheiden);
@@ -234,6 +242,63 @@ def plan(heute=None, eingabe='', kanal=''):
                 aus.append({'kanal': k, 'thema': t})
     return aus
 
+
+VORSCHAU = Path('verlauf/themenplan')
+
+
+def vorschau(kanal, heute=None, reicht=None):
+    """Was der Telegram-Befehl "Themen" zum Langvideo zeigt: naechster Termin, Ersatztag, fertiges Thema oder
+    Kandidaten. Nutzer 06.11.2026: "Themen-Befehl praeziser, zum Beispiel Shorts und Long Themen".
+    Ohne Trend-Check (100 YouTube-Einheiten je Thema) - den macht der Lauf am Termin."""
+    heute = heute or datetime.date.today()
+    p = Path('verlauf') / f'{kanal}.json'
+    verlauf = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
+    g = Path('verlauf/telegram-videos.json')
+    geliefert = json.loads(g.read_text(encoding='utf-8')) if g.exists() else []
+    tage = {TAGE[t] for t in formate().get(kanal, [])}
+    termine = [d for d in (heute + datetime.timedelta(days=i) for i in range(14))
+               if d.weekday() in tage and faellig(verlauf, d)]
+    termin = termine[0] if termine else None
+    # Ersatztag = der naechste lang_tag direkt danach in derselben Woche (Fr -> Sa); ein Lieferung am Termin sperrt ihn
+    ersatz = next((d for d in termine[1:] if (d - termin).days < ABSTAND_TAGE), None) if termin else None
+    letzte = max((str(e.get('datum', '')) for e in verlauf if ist_lang(e) and e.get('status') == 'gesendet'),
+                 default='')
+    aus = {'kanal': kanal, 'erstellt': heute.isoformat(), 'termin': termin.isoformat() if termin else '',
+           'ersatz': ersatz.isoformat() if ersatz else '', 'letztes_langvideo': letzte,
+           'laenge_s': _lang_profil(kanal).get('laenge_s') or [], 'fest': '', 'fest_grund': '', 'kandidaten': [],
+           'quellen_geprueft': reicht is not None}
+    offen = offener_entwurf(kanal)
+    import vorrat
+    ersatz_skript = '' if offen else vorrat.lang_thema(Path('formate') / f'{kanal}.json')
+    if offen or ersatz_skript:
+        aus.update(fest=offen or ersatz_skript, fest_grund='gepruefter Entwurf' if offen else 'fertiges Skript')
+    elif termin:
+        aus['kandidaten'] = kandidaten(verlauf, geliefert, termin, _name(kanal), reicht)
+    return aus
+
+
+def _lang_profil(kanal):
+    try:
+        return json.loads((Path('formate') / f'{kanal}.json').read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return {}
+
+
+def vorschau_schreiben(heute=None):
+    VORSCHAU.mkdir(parents=True, exist_ok=True)
+    for kanal in formate():
+        try:
+            reicht = (lambda t, k=kanal: quelle_reicht(t, k)) if _profil(kanal).get('quelle') == 'wikipedia' else None
+            v = vorschau(kanal, heute, reicht)
+        except Exception as e:  # die Vorschau darf keinen Lauf stoeren
+            print('Langvideo-Vorschau fehlgeschlagen:', kanal, str(e)[:160])
+            continue
+        (VORSCHAU / f'lang-{kanal}.json').write_text(json.dumps(v, ensure_ascii=False, indent=1), encoding='utf-8')
+        print('Langvideo-Vorschau:', kanal, v['termin'], v['fest'] or v['kandidaten'])
+
+
+if __name__ == '__main__' and sys.argv[1:] == ['vorschau']:
+    vorschau_schreiben()
 
 if __name__ == '__main__' and sys.argv[1:] == ['vorpruefung']:
     liste = plan(eingabe=os.environ.get('EINGABE', '').strip(), kanal=os.environ.get('LANG_KANAL', '').strip())

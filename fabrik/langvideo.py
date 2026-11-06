@@ -264,6 +264,9 @@ def vorschau(kanal, heute=None, reicht=None):
     tage = {TAGE[t] for t in formate().get(kanal, [])}
     termine = [d for d in (heute + datetime.timedelta(days=i) for i in range(14))
                if d.weekday() in tage and faellig(verlauf, d)]
+    # GEMESSEN 06.11.2026: die Vorschau zeigte abends "Termin: heute", obwohl das Langvideo-Budget verbraucht war.
+    if termine and termine[0] == heute and not budget_frei(kanal, heute):
+        termine = termine[1:]
     termin = termine[0] if termine else None
     # Ersatztag = der naechste lang_tag direkt danach in derselben Woche (Fr -> Sa); ein Lieferung am Termin sperrt ihn
     ersatz = next((d for d in termine[1:] if (d - termin).days < ABSTAND_TAGE), None) if termin else None
@@ -291,6 +294,19 @@ def _lang_profil(kanal):
         return json.loads((Path('formate') / f'{kanal}.json').read_text(encoding='utf-8'))
     except (OSError, ValueError):
         return {}
+
+
+def budget_frei(kanal, heute):
+    """Reicht das heutige Langvideo-Budget noch fuer einen Lauf? (gleiche Rechnung wie lauf.main)"""
+    try:
+        import budget
+        import lauf
+        if heute.isoformat() != budget.heute():
+            return True
+        grenze = lauf.tagesgrenze(f'lang-{kanal}', lauf.BUDGET_LANG_S)
+        return budget.rest(f'lang-{kanal}', grenze) > lauf.SENDEN_S
+    except Exception:
+        return True
 
 
 def vorschau_schreiben(heute=None):

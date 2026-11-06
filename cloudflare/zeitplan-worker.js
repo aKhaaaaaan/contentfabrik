@@ -298,8 +298,12 @@ export function nutzertag(iso) {
 export function shortBlock(fertig, plan, offen, trend, heute, berlin = heute) {
   const zeilen = ['📱 Shorts (35–45 s, täglich)'];
   // Nutzer 06.11.2026: jeden zweiten Tag kommt sein Warteschlangen-Thema vor dem Trend.
-  if (offen.length) zeilen.push(nutzertag(berlin) ? `Heute ist Nutzertag: „${offen[0]}" kommt vor dem Trend`
-    : `Nächster Nutzertag morgen: „${offen[0]}" kommt vor dem Trend`);
+  if (offen.length) {
+    // Am Abend ist das heutige Short meist schon gelaufen - die Tage nennen statt "heute ist Nutzertag".
+    const tage = [0, 1, 2, 3].map(n => new Date(Date.parse(berlin + 'T12:00:00Z') + n * 86400000).toISOString().slice(0, 10))
+      .filter(nutzertag).slice(0, 2).map(tagText);
+    zeilen.push(`Nutzertage ${tage.join(', ')}: „${offen[0]}" kommt dann vor dem Trend`);
+  }
   if (fertig.length) zeilen.push(`Skript fertig (kommt zuerst): ${fertig.join(', ')}`);
   if (trend && trend.thema) zeilen.push(`Heute: ${trend.thema}`);
   const tage = plan && plan.erstellt ? (Date.parse(heute) - Date.parse(plan.erstellt)) / 86400000 : 99;

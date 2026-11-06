@@ -7,7 +7,7 @@ Handy, der Nutzer laedt es mit der YouTube-/TikTok-App selbst hoch.
 Aufruf:  python fabrik/freigabe.py ausgabe/skript.json ausgabe/short.mp4
 Umgebung: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
 """
-import json, os, sys, uuid, urllib.request, urllib.error
+import json, os, sys, time, uuid, urllib.request, urllib.error
 from pathlib import Path
 from qualitaet import bewerten
 from dramaturgie import videoformat
@@ -32,12 +32,26 @@ def telegram(methode, felder, datei=None, feld='video', typ='video/mp4'):
     teile.append(f'--{grenze}--\r\n'.encode())
     req = urllib.request.Request(f'https://api.telegram.org/bot{token}/{methode}', data=b''.join(teile),
                                  headers={'Content-Type': f'multipart/form-data; boundary={grenze}'})
-    try:
-        with urllib.request.urlopen(req, timeout=300) as r:
-            antwort = json.load(r)
-    except urllib.error.HTTPError as e:
-        raise RuntimeError(f'Telegram lehnt ab ({e.code}): '
-                           + e.read().decode(errors='replace')[:300].replace(token, '***')) from None
+    # GEMESSEN 06.11.2026 (Business 42187352585): Video zugestellt, die Textnachricht danach bekam HTTP 429
+    # "retry after 8" (gleichzeitig sendete eine Hoerprobe ueber denselben Bot) -> "zustellfehler", ohne Texte und
+    # Knoepfe. Telegram nennt die Wartezeit: abwarten und nochmal, hoechstens dreimal und hoechstens 60 s.
+    for versuch in range(4):
+        try:
+            with urllib.request.urlopen(req, timeout=300) as r:
+                antwort = json.load(r)
+            break
+        except urllib.error.HTTPError as e:
+            inhalt = e.read().decode(errors='replace')
+            try:
+                warte = int((json.loads(inhalt).get('parameters') or {}).get('retry_after', 0))
+            except (ValueError, TypeError, AttributeError):
+                warte = 0
+            if e.code == 429 and versuch < 3 and 0 < warte <= 60:
+                print(f'Telegram: zu viele Anfragen, {warte} s warten', flush=True)
+                time.sleep(warte + 1)
+                continue
+            raise RuntimeError(f'Telegram lehnt ab ({e.code}): '
+                               + inhalt[:300].replace(token, '***')) from None
     if antwort.get('ok') is not True:
         raise RuntimeError('Telegram hat die Zustellung nicht bestaetigt')
     return antwort

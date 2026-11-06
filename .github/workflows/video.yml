@@ -216,7 +216,8 @@ jobs:
         with:
           path: clips
           key: clips-${{ matrix.kanal }}-${{ github.run_id }}
-          restore-keys: clips-
+          # 06.11.2026: "clips-" holte im KI-Lauf den Clip-Ordner von Business (Archivfilme) - je Kanal getrennt.
+          restore-keys: clips-${{ matrix.kanal }}-
       - uses: actions/cache/restore@v4
         id: ki-cache
         with:

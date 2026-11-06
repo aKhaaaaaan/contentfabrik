@@ -278,6 +278,16 @@ def main(kanal_pfad, thema='', entwurf=''):
     gesamt = tagesgrenze(budgetkanal, budget_fuer(kanalstandard.laden(kanal_pfad)))
     if budget.rest(budgetkanal, gesamt) <= SENDEN_S:
         print(f'{kanal}: Tagesbudget verbraucht - keine neue Produktion')
+        # GEMESSEN 06.11.2026 (Langvideo 42278377826, GitHub-Zeitplan 7 Std. verspaetet): ohne Bericht meldete
+        # Telegram "Cloud-Lauf fehlgeschlagen oder abgebrochen" - es lag nur am verbrauchten Tagesbudget.
+        try:
+            Path('ausgabe').mkdir(exist_ok=True)
+            if not Path('ausgabe/bericht.json').exists():
+                Path('ausgabe/bericht.json').write_text(json.dumps({'kanal': kanal, 'status': 'budget', 'sekunden': 0, 'grund': (
+                    'Tagesbudget fuer heute verbraucht - keine neue Produktion. Naechster Versuch am naechsten '
+                    'geplanten Tag.')}, ensure_ascii=False), encoding='utf-8')
+        except OSError:
+            pass
         return 0
     reservierung = budget.reservieren(budgetkanal, gesamt)
     start = time.monotonic()

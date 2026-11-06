@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       modus:
-        description: 'stimmen (Stimmen vergleichen) oder emotion (Uebertreibungsstufen je Kanal)'
+        description: 'stimmen (Stimmen vergleichen), emotion (Uebertreibungsstufen je Kanal) oder tempo (KI: beschleunigt vs. natuerlich)'
         default: stimmen
 jobs:
   proben:
@@ -35,7 +35,9 @@ jobs:
           GEMINI_TTS_API_KEY: ${{ secrets.GEMINI_TTS_API_KEY }}  # optional: bezahltes Projekt nur fuer die Stimme
           MODUS: ${{ inputs.modus }}
         run: |
-          if [ "$MODUS" = emotion ]; then python fabrik/emotionsprobe.py proben; else python fabrik/stimmvergleich.py proben; fi
+          if [ "$MODUS" = emotion ]; then python fabrik/emotionsprobe.py proben
+          elif [ "$MODUS" = tempo ]; then python fabrik/tempoprobe.py proben
+          else python fabrik/stimmvergleich.py proben; fi
       - name: In Telegram schicken
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

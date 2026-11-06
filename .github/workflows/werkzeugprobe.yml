@@ -1,0 +1,35 @@
+name: werkzeugprobe
+# 06.11.2026: prueft .github/werkzeuge.sh. ohne_apt=false fuellt den Paket-Cache, ohne_apt=true installiert
+# ffmpeg nur daraus und rendert mit den Filtern der Videolaeufe (libx264, subtitles, zoompan, loudnorm,
+# atempo, sidechaincompress).
+on:
+  workflow_dispatch:
+    inputs:
+      ohne_apt:
+        type: boolean
+        default: true
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: ~/apt-debs
+          key: apt-ffmpeg-${{ runner.os }}-v1
+      - name: Werkzeuge
+        env:
+          CF_APT_AUS: ${{ inputs.ohne_apt && '1' || '' }}
+        run: bash .github/werkzeuge.sh
+      - name: Filterprobe
+        run: |
+          set -e
+          printf '1\n00:00:00,000 --> 00:00:02,000\nHallo Probe\n' > /tmp/u.srt
+          ffmpeg -hide_banner -loglevel error -y -f lavfi -i color=c=blue:s=1080x1920:d=2 \
+            -f lavfi -i sine=f=440:d=2 -f lavfi -i sine=f=220:d=2 \
+            -filter_complex "[0:v]zoompan=z='min(1+0.002*on,1.25)':d=1:s=1080x1920:fps=30,subtitles=/tmp/u.srt[v];[1:a]atempo=1.1[a1];[a1][2:a]sidechaincompress[a2];[a2]loudnorm=I=-14[a]" \
+            -map "[v]" -map "[a]" -c:v libx264 -c:a aac -shortest /tmp/probe.mp4
+          ffprobe -v error -show_entries format=duration -of csv=p=0 /tmp/probe.mp4

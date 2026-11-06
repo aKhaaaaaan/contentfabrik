@@ -2233,6 +2233,8 @@ def main(skript_pfad, aus, vorlage=None):
                 return bool(pfad) and motivbudget.erlaubt(bildplan.material_id(pfad),
                     benutzte_materialien, verbleibend, mindest)
             ersatz0 = bild_ersatz
+            import bildvision
+            ausfall0 = bildvision.AUSFAELLE
             phasenstart = i == 0 or shots[i - 1]['phase'] != shot['phase']
             FORTSCHRITT['aktuell'] = t.get('platz') or FORTSCHRITT['aktuell']
             if phasenstart and (t.get('platz') == 1 or (i > 0 and t.get('beat') == 'wendung')):
@@ -2249,7 +2251,11 @@ def main(skript_pfad, aus, vorlage=None):
             # GEMESSEN 17.10.2026 (Enron, Lauf 39017190861): Der zweite Bau uebernahm Einstellung 8 samt
             # einmaliger Ausnahme aus dem Cache, vergass sie aber - Einstellung 9 bekam eine zweite Ausnahme.
             alt_toleranz = bool(alt.get('toleranz')) and not bildablauf.get('motiv_toleranz')
-            if alt.get('key') == key and rendercache.dateien_ok(aus, alt.get('dateien', [])) \
+            # GEMESSEN 06.11.2026 (Ford-Langvideo): 13 Notfall-Ersatzbilder aus einem Anbieterausfall lagen im
+            # Teilbau - der naechste Lauf haette sie wieder uebernommen. Ersatz ist letzte Rettung: beim
+            # naechsten Bau zuerst wieder ein echtes, passendes Bild versuchen.
+            if alt.get('key') == key and not alt.get('ersatz') \
+                    and rendercache.dateien_ok(aus, alt.get('dateien', [])) \
                     and motivbudget.erlaubt(alt.get('material_id'), benutzte_materialien,
                                            verbleibend, mindest - alt_toleranz):
                 if alt_toleranz:
@@ -2653,6 +2659,14 @@ def main(skript_pfad, aus, vorlage=None):
                         ill = material = kachel
                         quellen.append({'quelle': 'Erklaergrafik', 'seite': 'Gesprochene Zahlen als Kachel'})
                         print(f'Einstellung {i}: Zahlenkachel statt doppeltem Nachbarbild')
+            if not material and bildvision.AUSFAELLE > ausfall0:
+                # GEMESSEN 06.11.2026 (Ford-Langvideo 42255331749): Pruefung ausgefallen (Gemini-Tageskontingent,
+                # Groq-Vision 429/503) ist keine Ablehnung - Ersatzbilder fuellten 13 Einstellungen mit denselben
+                # zwei Nachbarn, Video 2/10, 2,5 Std. Budget. Jetzt Anbieterpause (Code 4): fertige Einstellungen
+                # bleiben im Teilbau, der naechste Lauf macht dort weiter.
+                from skript import AnbieterNichtVerfuegbar
+                raise AnbieterNichtVerfuegbar(f'Einstellung {i}: Bildpruefung nicht verfuegbar (Gemini-Kontingent '
+                                              'und Groq-Vision) - kein Video aus Ersatzbildern')
             if not material and bild_ersatz < ersatz_max:
                 # GEMESSEN 08.10.2026 (Lauf 37753715598): eine einzige Einstellung ohne
                 # bestandenes Bild kippte das ganze Video (3x). Hoechstens zweimal ein schon

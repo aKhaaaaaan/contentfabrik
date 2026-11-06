@@ -102,6 +102,12 @@ def pruefen(prompt,schema,bilder,_nochmal=True,zweck='video'):
     return answer,CACHE_MODELL
 
 
+# GEMESSEN 06.11.2026 (Ford-Langvideo 42255331749): Gemini-Tageskontingent leer + Groq-Vision 429/503 -> jede
+# Pruefung 'nicht verfuegbar', bauen.py fuellte 13 Einstellungen mit denselben zwei Nachbarbildern (bild_passt
+# 2/10, 2,5 Std. Budget ohne Video). bauen.py liest diesen Zaehler und bricht dann mit Anbieterpause ab.
+AUSFAELLE=0
+
+
 def mit_ausweichweg(gemini_aufruf,prompt,schema,bild,zweck='einzelbild'):
     """Gemini-Bildurteil; antwortet Gemini GAR NICHT (503/429/Zeitlimit), urteilt Groq-Vision mit demselben Auftrag.
 
@@ -111,7 +117,9 @@ def mit_ausweichweg(gemini_aufruf,prompt,schema,bild,zweck='einzelbild'):
     try:
         return gemini_aufruf()
     except Exception as e:
+        global AUSFAELLE
         if not os.environ.get('GROQ_API_KEY'):
+            AUSFAELLE+=1
             raise
         print(f'Gemini-Bildpruefung ausgefallen ({type(e).__name__}) - Groq-Vision urteilt mit demselben Auftrag',flush=True)
         import stoerung
@@ -123,4 +131,5 @@ def mit_ausweichweg(gemini_aufruf,prompt,schema,bild,zweck='einzelbild'):
             print(f'Groq-Vision: {type(fehler).__name__}: {str(fehler)[:120]}',flush=True)
             stoerung.melden('bildpruefung-aus','Auch Groq-Vision antwortet nicht - keine Bildpruefung moeglich.',
                             'Ungepruefte Bilder werden nie verwendet; das Video wird spaeter erneut geprueft.')
+            AUSFAELLE+=1
             raise

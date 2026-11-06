@@ -8,12 +8,19 @@
 set -u
 DEBS="$HOME/apt-debs"
 NEU=/tmp/apt-debs
+QUELLEN=/tmp/ubuntu-quellen
 if [ "${CF_APT_AUS:-}" != "1" ]; then
   mkdir -p "$NEU/partial"
+  ls /etc/apt/sources.list.d/
   for i in 1 2; do
-    timeout 240 sudo apt-get -o Acquire::Retries=3 update -qq && \
+    # Nur die Ubuntu-Quellen aktualisieren: die Zusatzquellen des Runners (Microsoft, Git LFS ...) braucht
+    # ffmpeg nicht, und eine einzelne haengende Quelle blockiert sonst das ganze Update.
+    rm -rf "$QUELLEN" && mkdir -p "$QUELLEN"
+    cp /etc/apt/sources.list.d/ubuntu.sources "$QUELLEN"/ 2>/dev/null || cp /etc/apt/sources.list "$QUELLEN"/ubuntu.list
+    timeout 240 sudo apt-get -o Acquire::Retries=3 -o Dir::Etc::sourcelist=/dev/null \
+      -o Dir::Etc::sourceparts="$QUELLEN" update > /tmp/apt.log 2>&1 && \
     timeout 240 sudo apt-get -o Acquire::Retries=3 -o Dir::Cache::archives="$NEU" \
-      -o APT::Keep-Downloaded-Packages=true install -y -qq ffmpeg fonts-dejavu-core > /dev/null && \
+      -o APT::Keep-Downloaded-Packages=true install -y -qq ffmpeg fonts-dejavu-core >> /tmp/apt.log 2>&1 && \
     command -v ffmpeg && {
       # nur ein vollstaendiger Satz kommt in den Cache (ein leerer Ordner wird nicht gespeichert)
       if ls "$NEU"/*.deb > /dev/null 2>&1 && [ ! -d "$DEBS" ]; then
@@ -21,7 +28,8 @@ if [ "${CF_APT_AUS:-}" != "1" ]; then
       fi
       exit 0
     }
-    echo "apt-Versuch $i fehlgeschlagen"
+    echo "apt-Versuch $i fehlgeschlagen:"
+    tail -15 /tmp/apt.log
     # GEMESSEN 24.10.2026 (Lauf 40108829296): Azure-Spiegel hing; zweiter Versuch ueber den Ubuntu-Hauptserver.
     sudo sed -i 's#http://azure.archive.ubuntu.com#http://archive.ubuntu.com#g' \
       /etc/apt/sources.list /etc/apt/sources.list.d/*.sources 2>/dev/null || true

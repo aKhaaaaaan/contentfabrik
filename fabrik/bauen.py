@@ -2138,7 +2138,7 @@ def main(skript_pfad, aus, vorlage=None):
                 bildablauf['einstellungen'].append(dict(shot, teil=None,
                     material_id=alt.get('material_id'), material_art=alt.get('material_art'),
                     logo=bool(alt.get('logo')), fest=bool(alt.get('fest')), reaktion=bool(alt.get('reaktion')),
-                    vorgeprueft=alt.get('vorgeprueft')))
+                    vorgeprueft=alt.get('vorgeprueft'), zitat_belegt=bool(alt.get('zitat_belegt'))))
                 zeiten['stuecke_wiederverwendet'] += 1
                 # GEMESSEN 09.10.2026 (Aurelio, Nutzer 6/10): Jeder Neuversuch des Baus begann wieder
                 # bei 0 Ersatzbildern; aus dem Cache uebernommene Ersatzbilder zaehlten nicht. Ergebnis:
@@ -2153,6 +2153,9 @@ def main(skript_pfad, aus, vorlage=None):
             l0, q0, e0 = len(liste), len(quellen), len(ereignisse)
             fotos0 = set(benutzte_fotos)
             def merken():
+                # 06.11.2026: Screenshot, dessen markierter Abschnitt jedes gesprochene Zitat woertlich enthaelt.
+                # Erst beim Aufruf auswerten - modus/fq stehen erst nach der Bildwahl dieser Einstellung fest.
+                zitat = bool(modus == 'seite' and isinstance(fq, dict) and fq.get('zitat_belegt'))
                 zustand['stuecke'][str(i)] = {'key': key,
                     'dateien': [z[6:-1] for z in liste[l0:]], 'quellen': quellen[q0:],
                     'ereignisse': [(sek - t0, art) for sek, art in ereignisse[e0:]],
@@ -2160,11 +2163,11 @@ def main(skript_pfad, aus, vorlage=None):
                     'material_id': material_hash, 'material_art': material_art,
                     'ersatz': bild_ersatz > ersatz0, 'logo': bool(logo), 'reaktion': i in reaktion_bilder,
                     'toleranz': bildablauf.get('motiv_toleranz', 0) > toleranz0, 'fest': fest,
-                    'vorgeprueft': clip_note}
+                    'vorgeprueft': clip_note, 'zitat_belegt': zitat}
                 # Der Schlusspruefer muss unser eigenes Abschnittslogo vom Bildinhalt unterscheiden koennen.
                 bildablauf['einstellungen'].append(dict(shot, teil=None,
                     material_id=material_hash, material_art=material_art, logo=bool(logo), fest=fest,
-                    reaktion=i in reaktion_bilder, vorgeprueft=clip_note))
+                    reaktion=i in reaktion_bilder, vorgeprueft=clip_note, zitat_belegt=zitat))
                 (aus / 'bildablauf.json').write_text(json.dumps(bildablauf, indent=2), encoding='utf-8')
                 rendercache.speichern(aus, zustand)
             stueck = aus / f'stueck_{i:02d}.mp4'

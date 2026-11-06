@@ -47,6 +47,26 @@ def aufruf(text):
     return all(w in t for w in ('like', 'share', 'save')) and len(t.split()) <= 14
 
 
+ZITAT_MAX = 3  # je Video; alle anderen Bilder urteilt der Pruefer wie bisher
+
+
+def zitat_anerkennen(ergebnisse, slots):
+    """Abgelehnte Quellseiten-Screenshots, deren markierter Abschnitt jedes gesprochene Zitat woertlich enthaelt
+    (seitenbild.zitat_belegt), gelten als belegt - ausser der Pruefer nennt sie voellig falsch (Note 1-2).
+
+    GEMESSEN 06.11.2026 (KI 42187352585, Live-Probe mit echtem Pruefer): "$20 if billed monthly." und "Prices per
+    1M tokens." waren gelb markiert, Noten 3-5/10 (Nachbarpreis, Fakt aus dem naechsten Satz); eine schaerfere
+    Prompt-Regel half nicht. Kontrolle derselben Probe: falsches Bild 2/10 bleibt gesperrt."""
+    belegt = {x['index'] for x in slots if x.get('zitat_belegt') is True}
+    aus = []
+    for e in ergebnisse if isinstance(ergebnisse, list) else []:
+        if isinstance(e, dict) and e.get('index') in belegt and e.get('passt') is False                 and type(e.get('note')) is int and e['note'] >= 3 and len(aus) < ZITAT_MAX:
+            e.update(passt=True, note=MINIMUM, grund=str(e.get('grund', ''))
+                     + ' | Gesprochenes Zitat steht woertlich im markierten Abschnitt der Quellseite (Textvergleich).')
+            aus.append(e['index'])
+    return aus
+
+
 def bewerten(ergebnisse, slots):
     """Vollstaendige Einzelbefunde; ein fehlender/abgelehnter Slot besteht nie."""
     befunde = []
@@ -240,6 +260,7 @@ def pruefen(video, skript, ablauf, ziel):
         except Exception as e:
             ergebnis['befunde'] = ['Bild-Text-Pruefung nicht vollstaendig moeglich: ' + type(e).__name__]
             return speichern()
+    ergebnis['zitat_belegt'] = zitat_anerkennen(ergebnis['pruefung'], slots)
     ergebnis['befunde'] = bewerten(ergebnis['pruefung'], slots)
     ergebnis['ok'] = not ergebnis['befunde']
     return speichern()

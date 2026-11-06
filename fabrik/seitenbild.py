@@ -29,6 +29,20 @@ def woerter(text):
     return {w.strip(".'-") for w in roh if (len(w) >= 4 or re.search(r'\d', w)) and w not in FUELL}
 
 
+def _norm(text):
+    return re.sub(r'\s+', ' ', re.sub(r'[‘’]', "'", str(text or ''))).strip(' .,;:').lower()
+
+
+def zitat_belegt(satz, abschnitt):
+    """Steht JEDES gesprochene Zitat (in Anfuehrungszeichen, ab 6 Zeichen) woertlich im markierten Abschnitt?
+
+    GEMESSEN 06.11.2026 (KI 42187352585, Live-Probe): gelb markiert "$20 if billed monthly." und "Prices per 1M
+    tokens." - der Bildpruefer gab trotzdem 3-5/10 (Nachbarpreis, Fakt aus dem naechsten Satz). Der woertliche
+    Textvergleich ist ein objektiver Beleg, den bildbezug.pruefen fuer wenige Bilder je Video gelten laesst."""
+    zitate = re.findall(r'["“]([^"”]{6,})["”]', satz or '')
+    return bool(zitate) and all(_norm(z) in _norm(abschnitt) for z in zitate)
+
+
 def bester_abschnitt(satz, bloecke, benutzt=(), visuell=(), namen=''):
     """Index des Absatzes, der am besten zum Satz passt, oder None.
 
@@ -233,6 +247,7 @@ def aufnehmen(url, satz, ziel, benutzt=None, namen=''):
         benutzt.add(kennung)
         return Path(ziel), {'quelle': 'Screenshot der Quellseite', 'seite': url, 'datei': kennung,
                             'abschnitt': b['t'][:200], 'visuell': bool(b.get('visuell')), 'bild': bool(b.get('bild')),
+                            'zitat_belegt': zitat_belegt(satz, b['t']),
                             'sha256': hashlib.sha256(Path(ziel).read_bytes()).hexdigest()}
     except Exception as e:
         print('Quellseiten-Screenshot nicht moeglich:', url, str(e)[:150])

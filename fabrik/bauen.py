@@ -421,6 +421,44 @@ def foto_fuer(bilder, satz, benutzt):
         return None, None
 
 
+# Nutzer 06.11.2026: "bei Nintendo, Sony ... sahen die Figuren nicht wie Japaner aus, sondern wie westliche Leute".
+# Ort und Epoche standen im Auftrag, die Herkunft der Menschen nicht - das Modell malte Standard-Westler. Der erste Satz
+# des Wikipedia-Artikels nennt sie ("Casio ... is a Japanese multinational ..."); main() setzt LEUTE je Bau.
+HERKUNFT = re.compile(r'\b(?:is|was) an? (?:[A-Za-z-]+ ){0,3}?(Japanese|South Korean|Korean|Chinese|Taiwanese|'
+                      r'Indian|German|French|Italian|Spanish|Swedish|Danish|Norwegian|Finnish|Swiss|Dutch|Belgian|'
+                      r'Austrian|British|English|Scottish|Irish|American|Canadian|Mexican|Brazilian|Australian|'
+                      r'Israeli|Turkish|Russian|Nigerian|South African|Indonesian|Thai|Vietnamese|Kenyan|Ghanaian|Egyptian|'
+                      r'Ethiopian|Moroccan|Tanzanian|Ugandan|Rwandan|Senegalese|Ivorian|Pakistani|Bangladeshi|'
+                      r'Sri Lankan|Nepali|Filipino|Malaysian|Singaporean|Saudi|Emirati|Qatari|Iranian|Lebanese|'
+                      r'Argentine|Chilean|Colombian|Peruvian|Venezuelan|Cuban|Jamaican|Polish|Greek|Portuguese|'
+                      r'Ukrainian|Czech|Hungarian|Romanian|New Zealand)\b')
+LAND = {'Japan': 'Japanese', 'South Korea': 'South Korean', 'China': 'Chinese', 'Taiwan': 'Taiwanese', 'India': 'Indian', 'Germany': 'German', 'France': 'French', 'Italy': 'Italian', 'Spain': 'Spanish', 'Sweden': 'Swedish', 'Denmark': 'Danish', 'Norway': 'Norwegian', 'Finland': 'Finnish', 'Switzerland': 'Swiss', 'the Netherlands': 'Dutch', 'Netherlands': 'Dutch', 'Belgium': 'Belgian', 'Austria': 'Austrian', 'the United Kingdom': 'British', 'England': 'English', 'Scotland': 'Scottish', 'Ireland': 'Irish', 'the United States': 'American', 'Canada': 'Canadian', 'Mexico': 'Mexican', 'Brazil': 'Brazilian', 'Australia': 'Australian', 'Israel': 'Israeli', 'Turkey': 'Turkish', 
+    'Nigeria': 'Nigerian', 'South Africa': 'South African', 'Kenya': 'Kenyan', 'Ghana': 'Ghanaian', 
+    'Egypt': 'Egyptian', 'Ethiopia': 'Ethiopian', 'Morocco': 'Moroccan', 'Rwanda': 'Rwandan', 
+    'Pakistan': 'Pakistani', 'Bangladesh': 'Bangladeshi', 'Indonesia': 'Indonesian', 'Thailand': 'Thai', 
+    'Vietnam': 'Vietnamese', 'the Philippines': 'Filipino', 'Malaysia': 'Malaysian', 'Singapore': 'Singaporean', 
+    'Saudi Arabia': 'Saudi', 'the United Arab Emirates': 'Emirati', 'Dubai': 'Emirati', 'Qatar': 'Qatari', 
+    'Argentina': 'Argentine', 'Chile': 'Chilean', 'Colombia': 'Colombian', 'Peru': 'Peruvian', 
+    'Russia': 'Russian', 'Poland': 'Polish', 'Greece': 'Greek', 'Portugal': 'Portuguese'}
+LAND_IN = re.compile(r'\b(?:founded|headquartered|based|established) in (?:[A-Z][A-Za-z]+, )?(' + '|'.join(sorted(LAND, key=len, reverse=True)) + r')\b')
+LEUTE = ''
+
+
+def herkunft_leute(s):
+    """Nationalitaet aus dem ersten Wikipedia-Beleg der Geschichte ('' wenn unbekannt oder kein Story-Kanal)."""
+    if kanalprofil(s).get('quelle') != 'wikipedia':
+        return ''
+    for b in s.get('belege') or []:
+        if isinstance(b, dict) and 'wikipedia.org' in str(b.get('url', '')):
+            m = HERKUNFT.search(str(b.get('text', ''))[:400])
+            if m:
+                return m.group(1)
+            m = LAND_IN.search(str(b.get('text', ''))[:600])
+            if m:
+                return LAND[m.group(1)]
+    return ''
+
+
 PRODUKTFOTOS = {}  # Wikipedia-Artikel -> freie Commons-Fotos (einmal je Bau abgefragt)
 
 
@@ -453,6 +491,53 @@ def produkt_foto(s, satz, benutzt, ziel):
     # CC BY-SA verlangt, Aenderungen anzugeben
     return Path(ziel), dict(fq, nennung=f"{fq.get('von') or 'unknown'}, {fq.get('lizenz')}, via Wikimedia Commons "
                                        '(painted filter applied)')
+
+
+# Nutzer 06.11.2026: "einen originalen Typ Bild founder nimmt und das bemalt - rechtlich okay". Zugesagt: nur als
+# PORTRAET, wenn der Satz die Person nennt (nie in erfundener Handlung), nur gemeinfrei/CC0/CC BY - CC BY-SA verlangt
+# fuer die bemalte Fassung dieselbe Lizenz und bleibt draussen. Hoechstens PORTRAET_MAX je Video.
+PORTRAET_MAX = 2
+PORTRAETS = {'genutzt': 0}
+PERSON = re.compile(r"\b([A-Z][a-z]+(?:[ -][A-Z][a-z]+){1,2})\b")
+
+
+def lizenz_portraet_ok(lizenz):
+    l = re.sub(r'[\s_-]+', ' ', str(lizenz or '').strip().lower())
+    return bool(re.match(r'(public domain|pd\b|cc0|cc by( [0-9.]+)?$)', l))
+
+
+def personen_im_satz(s, satz):
+    """Namen aus dem Satz, die auch im Wikipedia-Beleg der Geschichte stehen (keine Firma/Thema)."""
+    belege = ' '.join(str(b.get('text', '')) for b in s.get('belege') or []
+                      if isinstance(b, dict) and 'wikipedia.org' in str(b.get('url', '')))
+    firma = str(s.get('thema') or '').split(':')[0].lower()
+    return [n for n in dict.fromkeys(PERSON.findall(satz or ''))
+            if n in belege and n.lower() not in firma and firma not in n.lower()]
+
+
+def gruender_portraet(s, satz, benutzt, ziel):
+    """Echtes freies Portraetfoto einer im Satz genannten Person, mit Malfilter. (pfad, quelle) oder (None, None)."""
+    if PORTRAETS['genutzt'] >= PORTRAET_MAX:
+        return None, None
+    import trends
+    import archivclip
+    for name in personen_im_satz(s, satz)[:2]:
+        if name not in PRODUKTFOTOS:
+            PRODUKTFOTOS[name] = trends.wiki_bilder(name) if name else []
+        bilder = [b for b in PRODUKTFOTOS[name] if lizenz_portraet_ok(b.get('lizenz'))]
+        foto, fq = foto_fuer(bilder, f'Portrait photograph of the real person {name}. Narration: {satz}', benutzt)
+        if not foto:
+            continue
+        try:
+            import cv2
+            cv2.imwrite(str(ziel), archivclip.gemalt(cv2.imread(str(foto))), [cv2.IMWRITE_JPEG_QUALITY, 92])
+        except Exception as e:
+            print('Portraet nicht gemalt:', type(e).__name__)
+            continue
+        PORTRAETS['genutzt'] += 1
+        return Path(ziel), dict(fq, nennung=f"Portrait of {name}: {fq.get('von') or 'unknown'}, {fq.get('lizenz')}, "
+                                            'via Wikimedia Commons (painted filter applied)')
+    return None, None
 
 
 def _wiki_artikel(s):
@@ -1607,6 +1692,8 @@ def szene_auftrag(t, i, letzt, modus, archiv_jahr):
     if zeit and zeit <= archivclip.JAHR_MAX and not letzt and not archivclip.MODERN.search(szene) \
             and not re.search(r'\b(?:1[89]|20)\d\d\b', szene):
         szene += f', in the year {zeit}, period-accurate {zeit} clothing, furniture, machines and vehicles'
+    if LEUTE and not letzt and modus != 'figur':
+        szene += f', the people shown are {LEUTE} men and women'
     if i == 0 and H > B:
         # GEMESSEN 28.10.2026 (TikTok GE Vernova/Claude Code TV OS): Abbruch bei 0:01-0:02; das erste
         # Bild war dunkel, unscharf und zeigte niemanden. Ein Gesicht mit Gefuehl haelt den Daumen an.
@@ -1949,6 +2036,11 @@ def main(skript_pfad, aus, vorlage=None):
     # Nutzer 26.10.2026: Kommentarfrage + Folgen-Grund gesprochen. Erst hier, damit Fakten-/Storypruefung
     # ihn nie als Behauptung werten; gilt gleich fuer neue Skripte, Vorrat und Korrekturlaeufe.
     s = texte.mit_schluss(s)
+    global LEUTE
+    LEUTE = herkunft_leute(s)
+    PORTRAETS['genutzt'] = 0
+    if LEUTE:
+        print(f'Figuren: {LEUTE} (Herkunft laut Wikipedia)', flush=True)
     if os.environ.get('CF_BILDSPEICHER_BASIS'):
         # Gepruefte Bilder je Thema ausserhalb des Versuchsordners: ein gescheiterter Bau (auch nach einer
         # Codeaenderung) setzt dort fort, wo er gescheitert ist (Nutzerentscheidung 17.10.2026).
@@ -2415,6 +2507,12 @@ def main(skript_pfad, aus, vorlage=None):
                 except Exception as e:  # Clips sind Kuer - dann wie bisher gemalt
                     print(f'Einstellung {i}: Clip nicht moeglich ({type(e).__name__}) - gemalte Szene')
                     archiv_video, ill = None, grafik if erklaer else None
+            if kanalprofil(s).get('bildstil') == 'illustration' and modus in ('auto', 'illustration', 'foto') \
+                    and not karte and not foto and not ill and 0 < i and not letzt:
+                pf, pq = gruender_portraet(s, t['text'], benutzte_fotos, aus / f'portraet_{i:02d}.jpg')
+                if pf and motiv_ok(pf):
+                    foto, fq = pf, pq
+                    print(f'Einstellung {i}: echtes Portraet mit Malfilter ({pq.get("seite", "")[-60:]})')
             if os.environ.get('CLOUDFLARE_AI_TOKEN') and modus in ('auto', 'illustration', 'foto') \
                     and not karte and not foto and not ill:
                 import illustration

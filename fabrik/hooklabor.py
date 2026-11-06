@@ -181,4 +181,35 @@ def verbessern(entwurf, belege, schreiber, richter):
         protokoll['ergebnis'] = 'bisheriger Hook bleibt'
         return None, protokoll
     protokoll['ergebnis'] = 'neuer Hook vorgeschlagen'
+    # GEMESSEN 06.11.2026 (KI 42187352585): der Favorit fiel in der Story-Pruefung (5/10), die vier anderen Varianten
+    # wurden nie geprueft und die brave alte Zeile blieb (Nutzer: "Hook war zu brav"). Reserve fuer den Aufrufer.
+    protokoll['reserve'] = [k for i, k in enumerate(liste) if i not in (0, beste)]
     return einsetzen(entwurf, liste[beste]), protokoll
+
+
+RESERVE = 2  # weitere Varianten, wenn der Favorit durchfaellt (je Variante Fakten- + Story-Pruefung)
+
+
+def durchprobieren(entwurf, neu, protokoll, pruefen, bewerten, besser, zeit_ok=lambda: True):
+    """Favorit, dann bis zu RESERVE weitere Varianten pruefen; erste bestandene gewinnt.
+
+    GEMESSEN 06.11.2026 (KI 42187352585): der Favorit "It's midnight, and you're still sorting emails by hand." fiel
+    mit Story 5/10 durch, die vier anderen Varianten wurden nie geprueft - es blieb die brave alte Zeile (Nutzer:
+    "Hook war zu brav"). pruefen(e) -> Faktenbefund {'ok': ...}; bewerten(e) -> Story; besser(s2) -> bool.
+    Gibt (entwurf, pruefung, story) des Gewinners oder None zurueck; das Protokoll haelt jeden Versuch fest."""
+    versuche = ([neu] if neu is not None else []) + [einsetzen(entwurf, k) for k in
+                                                     (protokoll.get('reserve') or [])[:RESERVE]]
+    for n, e in enumerate(versuche):
+        if n and not zeit_ok():
+            break
+        satz = teilen(e['teile'][0]['text'])[0]
+        p2 = pruefen(e)
+        s2 = bewerten(e) if p2.get('ok') else None
+        if s2 and besser(s2):
+            protokoll['ergebnis'] = f"uebernommen (Story {s2['note']}/10)" + (f' - Variante {n + 1}' if n else '')
+            protokoll['gewaehlt'] = satz
+            return e, p2, s2
+        protokoll['ergebnis'] = ('verworfen: Faktenpruefung' if not p2.get('ok') else
+                                 f"verworfen: Story {s2['note'] if s2 else '-'}")
+        protokoll.setdefault('versuche', []).append(f"{satz} -> {protokoll['ergebnis']}")
+    return None

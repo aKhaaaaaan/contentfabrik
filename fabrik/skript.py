@@ -1318,17 +1318,19 @@ def main(kanal_pfad, aus_pfad, thema=None):
         if float(os.environ.get('CF_SCHRITT_ENDE', 'inf')) - time.monotonic() > 180:
             try:
                 neu, hook_protokoll = hook_labor(entwurf)
-                if neu is not None:
-                    zahl = woerter_von(neu)
-                    p2 = pruefen(neu) if mindest <= zahl <= hoechstens else {'ok': False, 'probleme': ['Laenge']}
-                    s2 = story_bewerten(dict(neu, videoformat=dramaturgie.videoformat(kanal))) if p2['ok'] else None
-                    if s2 and rang(s2, STORY_KATEGORIEN) >= rang(story, STORY_KATEGORIEN):
-                        entwurf, pruefung, story = neu, p2, s2
-                        hook_protokoll['ergebnis'] = f"uebernommen (Story {s2['note']}/10)"
-                    else:
-                        hook_protokoll['ergebnis'] = ('verworfen: Faktenpruefung' if not p2['ok'] else
-                                                      f"verworfen: Story {s2['note'] if s2 else '-'}/10 "
-                                                      f"statt {story['note']}/10")
+                import hooklabor
+
+                def hook_pruefen(e):
+                    return pruefen(e) if mindest <= woerter_von(e) <= hoechstens else {'ok': False, 'probleme': ['Laenge']}
+                gewinner = hooklabor.durchprobieren(
+                    entwurf, neu, hook_protokoll, hook_pruefen,
+                    lambda e: story_bewerten(dict(e, videoformat=dramaturgie.videoformat(kanal))),
+                    lambda s2: rang(s2, STORY_KATEGORIEN) >= rang(story, STORY_KATEGORIEN),
+                    lambda: float(os.environ.get('CF_SCHRITT_ENDE', 'inf')) - time.monotonic() > 180)
+                if gewinner:
+                    entwurf, pruefung, story = gewinner
+                elif str(hook_protokoll.get('ergebnis', '')).startswith('verworfen: Story'):
+                    hook_protokoll['ergebnis'] += f" statt {story['note']}/10"
                 print('Hook-Labor:', hook_protokoll.get('ergebnis'), '|', hook_protokoll.get('gewaehlt', '')[:120],
                       flush=True)
                 fassung_speichern(entwurf, modell, pruefung, story)

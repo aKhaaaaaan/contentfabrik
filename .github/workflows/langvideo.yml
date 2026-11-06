@@ -173,11 +173,15 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           KANAL: ${{ matrix.kanal }}
+          PRODUKTION: ${{ steps.produktion.outcome }}
         run: |
           git config user.name 'contentfabrik-bot'
           git config user.email 'contentfabrik-bot@users.noreply.github.com'
           git config merge.contentfabrik-themen.driver 'python fabrik/zustand_merge.py %O %A %B'
           python fabrik/langvideo.py vorschau || true  # Themen-Befehl: naechster Termin nach diesem Lauf
+          # 06.11.2026: Langvideo ohne Video wegen Gemini/Groq-Bildpruefung - wie video.yml die Meldung
+          # "Gemini wieder erreichbar" vormerken (bisher nur Shorts; Ford-Langvideo 42255331749).
+          python fabrik/gemini_wieder.py merken || true
           for pfad in verlauf lernen themen vorrat; do
             [ ! -d "$pfad" ] || git add -- "$pfad"
           done

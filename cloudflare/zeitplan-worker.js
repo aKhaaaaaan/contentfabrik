@@ -290,8 +290,16 @@ export function langBlock(lang, heute) {
   return zeilen.join('\n');
 }
 
-export function shortBlock(fertig, plan, offen, trend, heute) {
+// = themen.nutzertag (Python): Berliner Datum, toordinal() gerade. 1970-01-01 hat toordinal 719163.
+export function nutzertag(iso) {
+  return (Math.round(Date.parse(iso + 'T00:00:00Z') / 86400000) + 719163) % 2 === 0;
+}
+
+export function shortBlock(fertig, plan, offen, trend, heute, berlin = heute) {
   const zeilen = ['📱 Shorts (35–45 s, täglich)'];
+  // Nutzer 06.11.2026: jeden zweiten Tag kommt sein Warteschlangen-Thema vor dem Trend.
+  if (offen.length) zeilen.push(nutzertag(berlin) ? `Heute ist Nutzertag: „${offen[0]}" kommt vor dem Trend`
+    : `Nächster Nutzertag morgen: „${offen[0]}" kommt vor dem Trend`);
   if (fertig.length) zeilen.push(`Skript fertig (kommt zuerst): ${fertig.join(', ')}`);
   if (trend && trend.thema) zeilen.push(`Heute: ${trend.thema}`);
   const tage = plan && plan.erstellt ? (Date.parse(heute) - Date.parse(plan.erstellt)) / 86400000 : 99;
@@ -304,6 +312,7 @@ export function shortBlock(fertig, plan, offen, trend, heute) {
 
 export async function themenUebersicht(env, nur = '') {
   const heute = new Date().toISOString().slice(0, 10);
+  const berlin = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Berlin' });
   const geladen = await roh('themen/warteschlange.json').catch(() => null);
   const schlange = Array.isArray(geladen) ? geladen : [];
   const teile = [];
@@ -321,7 +330,7 @@ export async function themenUebersicht(env, nur = '') {
     const offen = schlange.filter(e => e.kanal === kanal && (e.status || 'bereit') === 'bereit').map(e => e.thema);
     const trend = await roh(`verlauf/trendcheck/${kanal}-${heute}.json`).catch(() => null);
     const plan = await roh(`verlauf/themenplan/${kanal}.json`).catch(() => null);
-    teile.push(`━━ ${name} ━━\n` + shortBlock(fertig, plan, offen, trend, heute) + '\n\n' + langBlock(lang, heute));
+    teile.push(`━━ ${name} ━━\n` + shortBlock(fertig, plan, offen, trend, heute, berlin) + '\n\n' + langBlock(lang, heute));
   }
   return '🗂 Themen in der Pipeline\n\n' + teile.join('\n\n') +
     '\n\nNeue Themen im Videobot mit „Business: ..." oder „KI: ..." schicken.';

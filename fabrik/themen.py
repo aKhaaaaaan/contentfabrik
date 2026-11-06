@@ -560,6 +560,16 @@ def zaehlt_als_tagesvideo(kanal, eintrag, heute):
         return True
 
 
+def nutzertag(heute=None):
+    """Jeder zweite Tag (Berliner Datum) gehoert der Warteschlange des Nutzers: dann kommt sein Thema VOR dem Trend.
+    Nutzer 06.11.2026 ("ja, wenn es sinnvoll ist"): KI-Thema vom 28.10. wartete 9 Tage, weil fast taeglich ein
+    Trend vorging (Entscheidung A vom 30.10.: Warteschlange nur ohne Trend). Publikum 30.10.: Trendthemen
+    ~250 TikTok-Aufrufe, bekannte Marken mit Wendung 700-970 - die Nutzerlisten sind meist solche Marken."""
+    from zoneinfo import ZoneInfo
+    heute = heute or datetime.datetime.now(ZoneInfo('Europe/Berlin')).date()
+    return heute.toordinal() % 2 == 0
+
+
 def nehmen(kanal):
     """Aeltestes Thema lesen. Erst erfolgreicher Versand entfernt es; schon gelieferte Themen nie erneut."""
     from zoneinfo import ZoneInfo

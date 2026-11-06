@@ -343,7 +343,12 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             import trendcheck
             gewaehlt, trend = trendcheck.waehlen(kanal, themen=themen)
             offen_trend = trendcheck.trend_themen(kanal)
-            if offen_trend:
+            nutzer = themen.nehmen(kanal) if themen.nutzertag() else ''
+            if nutzer and trendcheck.heute_gescheitert(kanal, nutzer) < 2:
+                # Nutzer 06.11.2026: jeden zweiten Tag sein Thema vor dem Trend (themen.nutzertag).
+                print(f'Nutzertag - Thema aus der Warteschlange vor dem Trend: {nutzer}')
+                thema, trend, offen_trend = nutzer, None, []
+            elif offen_trend:
                 thema = offen_trend[0]
                 print(f'Trendthema statt frei gewaehltem Vorrat-Skript: {thema}')
                 if trend:
@@ -360,7 +365,14 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         # GEMELDET 09.10.2026: Themen muessen aus Google Trends/YouTube-Viralem kommen.
         # Der Trend-Check waehlt unter Warteschlange + Trendfirmen; '' = freie Trendwahl.
         import trendcheck
-        thema, trend = trendcheck.waehlen(kanal, themen=themen)
+        nutzer = themen.nehmen(kanal) if themen.nutzertag() else ''
+        if nutzer and trendcheck.heute_gescheitert(kanal, nutzer) < 2:
+            # Nutzer 06.11.2026: jeden zweiten Tag sein Thema vor dem Trend (themen.nutzertag). Zweimal heute
+            # gescheitert -> wieder der Trend, sonst liefe derselbe Versuch ein drittes Mal.
+            print(f'Nutzertag - Thema aus der Warteschlange vor dem Trend: {nutzer}')
+            thema, trend = nutzer, None
+        else:
+            thema, trend = trendcheck.waehlen(kanal, themen=themen)
         if thema == '':
             # Nutzer 30.10.2026 (Entscheidung A): ohne echtes Trendsignal zuerst das eigene Thema der Warteschlange -
             # Nintendo/Adidas kamen frei gewaehlt, obwohl "Kongo Gumi" (1,0 Punkte < 1,5) wartete.

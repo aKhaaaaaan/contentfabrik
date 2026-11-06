@@ -240,12 +240,54 @@ def plan(heute=None, eingabe='', kanal=''):
             return []
         ja, t = vorpruefung(heute, eingabe, kanal)
         return [{'kanal': kanal, 'thema': t}] if ja else []
-    aus = []
+    # Nutzer 06.11.2026: "nie beide Langvideos an einem Tag" - Business Fr, KI Sa, dazwischen Shorts. Business
+    # scheiterte am Freitag, der Ersatz-Samstag waere mit dem KI-Langvideo zusammengefallen. Jetzt hoechstens EIN
+    # Langvideo je Tag: der regulaere Kanal des Tages zuerst, ein verpasster holt am naechsten freien Tag nach.
+    for k in anwaerter(heute):
+        if not budget_frei(k, heute):
+            print(f'Langvideo {k}: Tagesbudget verbraucht - naechster freier Tag')
+            continue
+        ja, t = vorpruefung(heute, '', k)
+        if ja:
+            return [{'kanal': k, 'thema': t}]
+    return []
+
+
+NACHHOLEN_TAGE = 3  # so viele Tage nach dem ersten lang_tag darf ein verpasstes Langvideo nachgeholt werden
+
+
+def anwaerter(tag):
+    """Kanaele, die an diesem Tag ein Langvideo bauen duerfen, Vorrang zuerst: der Kanal, dessen ERSTER lang_tag
+    heute ist; danach der am laengsten ueberfaellige (Ersatztag oder Nachholen bis NACHHOLEN_TAGE)."""
+    liste = []
     for k, tage in formate().items():
-        if heute.weekday() in {TAGE[t] for t in tage}:
-            ja, t = vorpruefung(heute, '', k)
-            if ja:
-                aus.append({'kanal': k, 'thema': t})
+        nummern = [TAGE[t] for t in tage]
+        if not nummern:
+            continue
+        seit = (tag.weekday() - nummern[0]) % 7
+        if seit == 0:
+            liste.append((0, k))
+        elif tag.weekday() in nummern or seit <= NACHHOLEN_TAGE:
+            liste.append((10 - seit, k))
+    return [k for _, k in sorted(liste)]
+
+
+def zuteilung(heute, tage=14):
+    """{datum: kanal} - welcher Kanal an welchem Tag sein Langvideo baut (je Tag hoechstens einer), unter der
+    Annahme, dass jeder Termin liefert. Grundlage fuer die Vorschau des Themen-Befehls."""
+    verlaeufe = {}
+    for k in formate():
+        p = Path('verlauf') / f'{k}.json'
+        verlaeufe[k] = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
+    aus, fertig = {}, set()
+    for i in range(tage):
+        d = heute + datetime.timedelta(days=i)
+        for k in anwaerter(d):
+            if k in fertig or not faellig(verlaeufe[k], d) or (d == heute and not budget_frei(k, d)):
+                continue
+            aus[d] = k
+            fertig.add(k)
+            break
     return aus
 
 
@@ -261,15 +303,13 @@ def vorschau(kanal, heute=None, reicht=None):
     verlauf = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
     g = Path('verlauf/telegram-videos.json')
     geliefert = json.loads(g.read_text(encoding='utf-8')) if g.exists() else []
-    tage = {TAGE[t] for t in formate().get(kanal, [])}
-    termine = [d for d in (heute + datetime.timedelta(days=i) for i in range(14))
-               if d.weekday() in tage and faellig(verlauf, d)]
-    # GEMESSEN 06.11.2026: die Vorschau zeigte abends "Termin: heute", obwohl das Langvideo-Budget verbraucht war.
-    if termine and termine[0] == heute and not budget_frei(kanal, heute):
-        termine = termine[1:]
-    termin = termine[0] if termine else None
-    # Ersatztag = der naechste lang_tag direkt danach in derselben Woche (Fr -> Sa); ein Lieferung am Termin sperrt ihn
-    ersatz = next((d for d in termine[1:] if (d - termin).days < ABSTAND_TAGE), None) if termin else None
+    # Gleiche Regel wie plan(): je Tag hoechstens ein Langvideo (Nutzer 06.11.2026). Verbrauchtes Budget heute
+    # schiebt auf den naechsten freien Tag (GEMESSEN 06.11. abends: Vorschau zeigte "Termin: heute").
+    plan_tage = zuteilung(heute)
+    termin = next((d for d, k in sorted(plan_tage.items()) if k == kanal), None)
+    # Ersatztag = naechster Tag danach, an dem der Kanal darf und kein anderes Langvideo eingeplant ist
+    ersatz = next((d for d in (termin + datetime.timedelta(days=i) for i in range(1, NACHHOLEN_TAGE + 1))
+                   if kanal in anwaerter(d) and plan_tage.get(d) in (None, kanal)), None) if termin else None
     letzte = max((str(e.get('datum', '')) for e in verlauf if ist_lang(e) and e.get('status') == 'gesendet'),
                  default='')
     aus = {'kanal': kanal, 'erstellt': heute.isoformat(), 'termin': termin.isoformat() if termin else '',

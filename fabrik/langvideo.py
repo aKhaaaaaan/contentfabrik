@@ -166,6 +166,12 @@ def vorpruefung(heute=None, eingabe='', kanal=KANAL):
         return False, ''
     # GEMESSEN 17.10.2026: der Sonntag haette Enron (neuester Short) gewaehlt, obwohl ein gepruefter
     # Coca-Cola-Entwurf samt Stimme bereitlag. Erst fertig bauen, was schon bezahlt/geprueft ist.
+    # 06.11.2026 Nutzer ("nimm ein anderes Thema als Ford"): ein ausdrueckliches Langvideo-Thema aus der
+    # Warteschlange (format 'lang') geht sogar dem offenen Entwurf und dem Vorrat-Skript vor.
+    import themen
+    eigen = themen.lang_nehmen(kanal)
+    if eigen:
+        return True, eigen
     offen = offener_entwurf(kanal)
     if offen:
         return True, offen
@@ -267,11 +273,14 @@ def vorschau(kanal, heute=None, reicht=None):
            'ersatz': ersatz.isoformat() if ersatz else '', 'letztes_langvideo': letzte,
            'laenge_s': _lang_profil(kanal).get('laenge_s') or [], 'fest': '', 'fest_grund': '', 'kandidaten': [],
            'quellen_geprueft': reicht is not None}
-    offen = offener_entwurf(kanal)
+    import themen
     import vorrat
-    ersatz_skript = '' if offen else vorrat.lang_thema(Path('formate') / f'{kanal}.json')
-    if offen or ersatz_skript:
-        aus.update(fest=offen or ersatz_skript, fest_grund='gepruefter Entwurf' if offen else 'fertiges Skript')
+    eigen = themen.lang_nehmen(kanal)
+    offen = '' if eigen else offener_entwurf(kanal)
+    ersatz_skript = '' if offen or eigen else vorrat.lang_thema(Path('formate') / f'{kanal}.json')
+    if offen or eigen or ersatz_skript:
+        aus.update(fest=eigen or offen or ersatz_skript,
+                   fest_grund='dein Thema' if eigen else 'gepruefter Entwurf' if offen else 'fertiges Skript')
     elif termin:
         aus['kandidaten'] = kandidaten(verlauf, geliefert, termin, _name(kanal), reicht)
     return aus

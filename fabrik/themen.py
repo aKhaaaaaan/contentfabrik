@@ -570,11 +570,19 @@ def nutzertag(heute=None):
     return heute.toordinal() % 2 == 0
 
 
+def lang_nehmen(kanal):
+    """Festes Langvideo-Thema des Nutzers (Eintrag mit format 'lang'), aeltestes zuerst; '' wenn keins.
+    Nutzer 06.11.2026: "Nimm ein anderes Thema als Ford - was aktuell und heiss ist" (Pokemon)."""
+    return next((x['thema'] for x in laden() if x['kanal'] == kanal and x.get('format') == 'lang'
+                 and x.get('status', 'bereit') == 'bereit' and not schon_geliefert(kanal, x['thema'])), '')
+
+
 def nehmen(kanal):
     """Aeltestes Thema lesen. Erst erfolgreicher Versand entfernt es; schon gelieferte Themen nie erneut."""
     from zoneinfo import ZoneInfo
     heute = datetime.datetime.now(ZoneInfo('Europe/Berlin')).date().isoformat()
     return next((x['thema'] for x in laden() if x['kanal'] == kanal
+                 and x.get('format') != 'lang'  # 06.11.2026: Langvideo-Themen nimmt nur langvideo.py
                  and x.get('status', 'bereit') == 'bereit'
                  and not gespraech_grund(x['thema'])
                  and x.get('geplant_ab', heute) <= heute

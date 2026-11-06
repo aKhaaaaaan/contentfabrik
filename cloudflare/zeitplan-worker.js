@@ -327,7 +327,8 @@ export async function themenUebersicht(env, nur = '') {
     const fertig = (await Promise.all(dateien.map(f => roh(`vorrat/${kanal}/${f.name}`).catch(() => null))))
       .filter(e => e && e.skript && e.skript.videoformat !== 'lang')
       .map(e => e.thema_eingabe || e.skript.thema).filter(Boolean);
-    const offen = schlange.filter(e => e.kanal === kanal && (e.status || 'bereit') === 'bereit').map(e => e.thema);
+    const offen = schlange.filter(e => e.kanal === kanal && e.format !== 'lang' && (e.status || 'bereit') === 'bereit')
+      .map(e => e.thema);  // Langvideo-Themen (format 'lang') stehen im Langvideo-Block
     const trend = await roh(`verlauf/trendcheck/${kanal}-${heute}.json`).catch(() => null);
     const plan = await roh(`verlauf/themenplan/${kanal}.json`).catch(() => null);
     teile.push(`━━ ${name} ━━\n` + shortBlock(fertig, plan, offen, trend, heute, berlin) + '\n\n' + langBlock(lang, heute));

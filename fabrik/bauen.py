@@ -1895,6 +1895,24 @@ def nur_textkarte(t, shot):
     return bool(t.get('szene') or t.get('motiv')) and (art == 'kernsatz' or bool(teaser))
 
 
+# GEMESSEN 06.11.2026 (KI 42187352585, Preisthema): drei Saetze mit "bills/paid/price" bekamen dreimal dieselbe
+# "LLM BILL"-Rechnungsgrafik (Einstellungen 1, 5, 13). Feste Grafiken mit immer gleichem Bild nur einmal je Video;
+# danach die geplante gemalte Szene. Vergleich, Balken, Zahlen und Chat-Frage zeigen je Satz anderes und bleiben.
+FESTE_GRAFIKEN = ('rechnung', 'schluessel', 'download', 'daten', 'ausgabe', 'warnung')
+GRAFIK_ARTEN = set()
+
+
+def grafik_wiederholt(t, shot):
+    import erklaergrafik
+    art = erklaergrafik.layout(t.get('text', ''), shot.get('phase_text', ''))
+    return art in FESTE_GRAFIKEN and art in GRAFIK_ARTEN and bool(t.get('szene') or t.get('motiv'))
+
+
+def grafik_merken(t, shot):
+    import erklaergrafik
+    GRAFIK_ARTEN.add(erklaergrafik.layout(t.get('text', ''), shot.get('phase_text', '')))
+
+
 def clip_code_key(s):
     """Einzige Formel fuer den Clip-Cache; Tests rufen sie auf statt sie abzuschreiben."""
     return hashlib.sha256(Path(__file__).read_bytes() + Path(prompts.__file__).read_bytes()
@@ -2190,8 +2208,12 @@ def main(skript_pfad, aus, vorlage=None):
                     elif nur_textkarte(t, shot):
                         modus, textkarte_rueckfall = 'illustration', True
                         print(f'Einstellung {i}: Erklaergrafik waere nur Text - gemalte Szene')
+                    elif grafik_wiederholt(t, shot):
+                        modus, textkarte_rueckfall = 'illustration', True
+                        print(f'Einstellung {i}: dieselbe Erklaergrafik gab es schon - gemalte Szene')
                     else:
                         t, modus = dict(t, grafik_typ='erklaerung'), 'grafik'
+                        grafik_merken(t, shot)
             foto, fq = ((seite_bild, seite_q) if modus == 'seite' else
                         (None, None) if karte or modus in ('stock', 'illustration', 'demo', 'figur', 'grafik', 'asset')
                         else foto_fuer(s.get('bilder') or [], t['text'] + ' Visual: ' + t.get('szene', ''), benutzte_fotos))

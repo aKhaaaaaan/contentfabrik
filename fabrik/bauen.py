@@ -636,7 +636,33 @@ def tipp_eingabe(ein, ebene, zeichne, titel, ordner):
                           str(Path(ordner) / 'tipp_%03d.png')] + ein[pos + 1:]
 
 
-def karten_filter(hg, ebene, kpfad, zoom=False, lebend=None):
+# Nutzer 06.11.2026 "es fehlen Clips" -> Vorschlag "bewegter Screenshot" freigegeben: wie eine Bildschirmaufnahme
+# faehrt die Kamera auf den gelb markierten Absatz (seitenbild.marke) und zoomt um FOKUS_ZOOM heran. Vorher stand
+# der Screenshot fast still (+3 %/s mittig, hoechstens 10 %).
+FOKUS_ZOOM = 0.25
+
+
+def fokus_zoom(fx, fy, n):
+    """zoompan-Ausdruecke (z, x, y): weiche Fahrt (smoothstep) in n Bildern vom Bildmittelpunkt zum Punkt fx/fy
+    (Anteile 0-1 des Bildes), Zoom 1 -> 1+FOKUS_ZOOM; der Ausschnitt bleibt immer im Bild."""
+    e = f'(min(on/{max(1, int(n))},1)*min(on/{max(1, int(n))},1)*(3-2*min(on/{max(1, int(n))},1)))'
+    z = f'1+{FOKUS_ZOOM}*{e}'
+    x = f'max(0,min(iw-iw/zoom,iw*(0.5+({fx:.4f}-0.5)*{e})-iw/zoom/2))'
+    y = f'max(0,min(ih-ih/zoom,ih*(0.5+({fy:.4f}-0.5)*{e})-ih/zoom/2))'
+    return z, x, y
+
+
+def fokus_punkt(foto, quelle, kasten):
+    """(fx, fy) des markierten Absatzes im fertigen Bild als Anteil von B/H, sonst None."""
+    m = (quelle or {}).get('marke') if isinstance(quelle, dict) else None
+    if not m or len(m) != 2:
+        return None
+    with Image.open(foto) as im:
+        x, y, w, h = karten_platz(im.size, kasten)
+    return (x + w / 2) / B, (y + (m[0] + m[1] / 2) * h) / H
+
+
+def karten_filter(hg, ebene, kpfad, zoom=False, lebend=None, fokus=None):
     """ffmpeg-Eingaben und Filter fuer einen Karten-Abschnitt: Hintergrund
     abgedunkelt und weich, Karte gleitet in 0,35 s von unten herein und blendet
     auf (sichtbarer Wechsel je Platz), Schrift obenauf.
@@ -667,9 +693,14 @@ def karten_filter(hg, ebene, kpfad, zoom=False, lebend=None):
             f'[3:v]scale={w}:{h},fps={FPS},format=rgba[lv];[4:v]format=gray,scale={w}:{h}[lm];'
             f'[lv][lm]alphamerge,fade=in:st=0:d=0.35:alpha=1[lk];'
             f"[b0][lk]overlay=x={x}:y='{y}+32*max(0,1-t/0.35)':eval=frame[b1];")
-    filt += (f"[b1]zoompan=z='{ZOOM_KARTE}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
-             f':d=1:s={B}x{H}:fps={FPS}[b2];[b2][1:v]overlay=0:0,format=yuv420p' if zoom else
-             f'[b1][1:v]overlay=0:0,format=yuv420p')
+    if zoom and fokus:
+        z, x, y = fokus_zoom(*fokus)
+        filt += (f"[b1]scale={2 * B}:{2 * H},zoompan=z='{z}':x='{x}':y='{y}'"
+                 f':d=1:s={B}x{H}:fps={FPS}[b2];[b2][1:v]overlay=0:0,format=yuv420p')
+    else:
+        filt += (f"[b1]zoompan=z='{ZOOM_KARTE}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
+                 f':d=1:s={B}x{H}:fps={FPS}[b2];[b2][1:v]overlay=0:0,format=yuv420p' if zoom else
+                 f'[b1][1:v]overlay=0:0,format=yuv420p')
     if kpfad is None:  # Abschnitt ohne Karte: nur Hintergrund + Schrift
         return [*hg_ein, '-loop', '1', '-framerate', str(FPS), '-i', str(ebene)], filt.split('[2:v]')[0] +             '[bg][1:v]overlay=0:0,format=yuv420p'
     return [*hg_ein, '-loop', '1', '-framerate', str(FPS), '-i', str(ebene),
@@ -2749,8 +2780,13 @@ def main(skript_pfad, aus, vorlage=None):
             elif foto:
                 quellen.append(fq)
                 kpfad = aus / f'karte_{i:02d}.png'
-                karten_ebene(foto, kasten='gross' if B > H else True).save(kpfad)
-                ein, filt = karten_filter(foto, ebene, kpfad, zoom=True)
+                kasten = 'gross' if B > H else True
+                karten_ebene(foto, kasten=kasten).save(kpfad)
+                punkt = fokus_punkt(foto, fq, kasten)  # nur Quellseiten-Screenshots haben 'marke'
+                if punkt:
+                    print(f'Einstellung {i}: Kamerafahrt auf den markierten Absatz')
+                ein, filt = karten_filter(foto, ebene, kpfad, zoom=True,
+                                          fokus=(*punkt, dauer * FPS * 0.8) if punkt else None)
             elif karte:
                 kpfad = None
                 if karte:

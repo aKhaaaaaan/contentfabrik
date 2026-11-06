@@ -76,6 +76,13 @@ def bester_abschnitt(satz, bloecke, benutzt=(), visuell=(), namen=''):
     return beste
 
 
+def marke(block, oben, hoehe=HOEHE):
+    """(oben, hoehe) des markierten Absatzes als Anteil der Bildhoehe, auf das Bild begrenzt."""
+    y1 = min(max((block['y'] - oben) / hoehe, 0.0), 1.0)
+    y2 = min(max((block['y'] + block['h'] - oben) / hoehe, y1), 1.0)
+    return [round(y1, 4), round(y2 - y1, 4)]
+
+
 def ausschnitt_oben(block, visuelle, seitenhoehe, hoehe=HOEHE):
     """Oberkante des Bildausschnitts. Eine Tabelle/Grafik direkt unter dem markierten Absatz kommt mit ins Bild
     (Absatz oben, Tabelle darunter), sonst der Absatz im oberen Drittel."""
@@ -248,6 +255,8 @@ def aufnehmen(url, satz, ziel, benutzt=None, namen=''):
         return Path(ziel), {'quelle': 'Screenshot der Quellseite', 'seite': url, 'datei': kennung,
                             'abschnitt': b['t'][:200], 'visuell': bool(b.get('visuell')), 'bild': bool(b.get('bild')),
                             'zitat_belegt': zitat_belegt(satz, b['t']),
+                            # Lage des markierten Absatzes im Bild (Anteil oben, Anteil Hoehe) - bauen zoomt dorthin
+                            'marke': marke(b, oben),
                             'sha256': hashlib.sha256(Path(ziel).read_bytes()).hexdigest()}
     except Exception as e:
         print('Quellseiten-Screenshot nicht moeglich:', url, str(e)[:150])

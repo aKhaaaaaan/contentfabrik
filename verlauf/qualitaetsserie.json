@@ -152084,6 +152084,1338 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "42355295863.1:business-origin-stories",
+      "run_id": "42355295863",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-07T09:29:14.106648+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "9553990de7cbc382484901bb95f5258148217a8a",
+      "produktionsversion": "4074f0c86fb2dbe879ab85d24dff815f4d8e325ddcdea259502fd8943ea27074",
+      "videoformat": "short",
+      "thema": "Temu",
+      "titel": [
+        "Congress Said Pull Ads",
+        "*Temu* Aired Them Anyway"
+      ],
+      "status": "gesendet",
+      "video_sha256": "c963a4c2c349faa289412cdcd6427451e88b116b3647514c243092a141f308b5",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt fünf Männer in Anzügen bei einer Versammlung, passt aber nicht zu den spezifischen Daten über den Start in Amerika und Super-Bowl-Werbung.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwei Personen mit Kartons in einem Flur, was in keinem Bezug zu den Wachstumszahlen von Temu oder Amazon im gesprochenen Text steht.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine allgemeine, symbolische Illustration eines Geschäftsmannes an einem Schreibtisch im Freien, stellt aber nicht die im Text erwähnten Werbeanzeigen, Kongressabgeordneten oder den Erfolg von Temu dar.",
+        "Offenes Problem (schwer): Das Bild zeigt fünf Männer in Anzügen bei einer Versammlung, passt aber nicht zu den spezifischen Daten über den Start in Amerika und Super-Bowl-Werbung. Korrektur: Eine Illustration oder Szene, die den Start im September 2022 oder Super-Bowl-Werbung darstellt.",
+        "Offenes Problem (schwer): Das Bild zeigt zwei Personen mit Kartons in einem Flur, was in keinem Bezug zu den Wachstumszahlen von Temu oder Amazon im gesprochenen Text steht. Korrektur: Ein Diagramm oder eine Infografik, die die Nutzerzahlen von Temu im Vergleich zu Amazon im August veranschaulicht.",
+        "Offenes Problem (schwer): Das Bild zeigt eine allgemeine, symbolische Illustration eines Geschäftsmannes an einem Schreibtisch im Freien, stellt aber nicht die im Text erwähnten Werbeanzeigen, Kongressabgeordneten oder den Erfolg von Temu dar. Korrektur: Eine Illustration oder Darstellung, die Temu-Werbeanzeigen oder die Bekanntheit der Marke in den Medien zeigt."
+      ],
+      "einstellungen": 10,
+      "unterschiedliche_motive": 10,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "42355295863",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-07",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 950.3,
+            "pruefung_s": 29.0,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die Abbildung zeigt generische Männer in Anzügen im Stadion, nicht die konkreten Werbespots oder das Thema von Temu.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine generelle Marktszene mit einem Mann, der in einen Karton schaut, aber es stellt weder den Start in Amerika noch Super-Bowl-Werbung dar.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Gruppe von Menschen, die sich unterhalten, aber es illustriert nicht die Wachstumsstatistiken oder Nutzerzahlen von Temu im Vergleich zu Amazon, die im Text genannt werden.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt Personen mit einem Paket auf einer Straße, was den Satz über Kongressabgeordnete und den Bekanntheitsgrad von Temu nicht visuell erklärt.",
+              "Offenes Problem (schwer): Die Abbildung zeigt generische Männer in Anzügen im Stadion, nicht die konkreten Werbespots oder das Thema von Temu. Korrektur: Ein Screenshot des tatsächlichen Temu Super Bowl Werbespots.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generelle Marktszene mit einem Mann, der in einen Karton schaut, aber es stellt weder den Start in Amerika noch Super-Bowl-Werbung dar. Korrektur: Eine historische Illustration oder Grafik, die den Start von Temu in den USA im September 2022 oder die Super-Bowl-Werbung zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Gruppe von Menschen, die sich unterhalten, aber es illustriert nicht die Wachstumsstatistiken oder Nutzerzahlen von Temu im Vergleich zu Amazon, die im Text genannt werden. Korrektur: Ein Diagramm oder eine Grafik, die das Nutzerwachstum von Temu im Vergleich zu Amazon zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt Personen mit einem Paket auf einer Straße, was den Satz über Kongressabgeordnete und den Bekanntheitsgrad von Temu nicht visuell erklärt. Korrektur: Ein Bild, das den Erfolg der Werbung, Schlagzeilen über die Kongress-Kontroverse oder statistische Grafiken zum Wachstum von Temu zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Fenrir",
+              "stimme": 11.1,
+              "zeitmarken": 4.3,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 10,
+              "bilder_vereinfacht": 5,
+              "clips_und_stuecke": 870.0,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 10,
+                "motive": 10,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 50.3,
+              "gesamt": 949.8,
+              "videolaenge_s": 43.0,
+              "abschnitte_s": [
+                6.9,
+                5.88,
+                5.72,
+                5.46,
+                5.68,
+                8.12,
+                5.2
+              ],
+              "woerter": 101,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:03.74",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Temu's giveaway ads still appeared. Why?",
+                "fest": false,
+                "text": "Die Abbildung zeigt generische Männer in Anzügen im Stadion, nicht die konkreten Werbespots oder das Thema von Temu. Korrektur: Ein Screenshot des tatsächlichen Temu Super Bowl Werbespots."
+              },
+              {
+                "zeit": "00:12.78",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 3,
+                "gesprochen": "Launched in America September 2022, it ran Super Bowl ads by February 2023.",
+                "fest": false,
+                "text": "Das Bild zeigt eine generelle Marktszene mit einem Mann, der in einen Karton schaut, aber es stellt weder den Start in Amerika noch Super-Bowl-Werbung dar. Korrektur: Eine historische Illustration oder Grafik, die den Start von Temu in den USA im September 2022 oder die Super-Bowl-Werbung zeigt."
+              },
+              {
+                "zeit": "00:29.64",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 6,
+                "gesprochen": "By August, users reached 91% of Amazon's.",
+                "fest": false,
+                "text": "Das Bild zeigt eine Gruppe von Menschen, die sich unterhalten, aber es illustriert nicht die Wachstumsstatistiken oder Nutzerzahlen von Temu im Vergleich zu Amazon, die im Text genannt werden. Korrektur: Ein Diagramm oder eine Grafik, die das Nutzerwachstum von Temu im Vergleich zu Amazon zeigt."
+              },
+              {
+                "zeit": "00:33.84",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 7,
+                "gesprochen": "The ads congressmen wanted blocked made Temu a household name.",
+                "fest": false,
+                "text": "Das Bild zeigt Personen mit einem Paket auf einer Straße, was den Satz über Kongressabgeordnete und den Bekanntheitsgrad von Temu nicht visuell erklärt. Korrektur: Ein Bild, das den Erfolg der Werbung, Schlagzeilen über die Kongress-Kontroverse oder statistische Grafiken zum Wachstum von Temu zeigt."
+              }
+            ],
+            "sekunden": 979.2,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                2,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 2.6,
+            "bau_s": 433.4,
+            "pruefung_s": 16.0,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt fünf Männer in Anzügen bei einer Versammlung, passt aber nicht zu den spezifischen Daten über den Start in Amerika und Super-Bowl-Werbung.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwei Personen mit Kartons in einem Flur, was in keinem Bezug zu den Wachstumszahlen von Temu oder Amazon im gesprochenen Text steht.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine allgemeine, symbolische Illustration eines Geschäftsmannes an einem Schreibtisch im Freien, stellt aber nicht die im Text erwähnten Werbeanzeigen, Kongressabgeordneten oder den Erfolg von Temu dar.",
+              "Offenes Problem (schwer): Das Bild zeigt fünf Männer in Anzügen bei einer Versammlung, passt aber nicht zu den spezifischen Daten über den Start in Amerika und Super-Bowl-Werbung. Korrektur: Eine Illustration oder Szene, die den Start im September 2022 oder Super-Bowl-Werbung darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwei Personen mit Kartons in einem Flur, was in keinem Bezug zu den Wachstumszahlen von Temu oder Amazon im gesprochenen Text steht. Korrektur: Ein Diagramm oder eine Infografik, die die Nutzerzahlen von Temu im Vergleich zu Amazon im August veranschaulicht.",
+              "Offenes Problem (schwer): Das Bild zeigt eine allgemeine, symbolische Illustration eines Geschäftsmannes an einem Schreibtisch im Freien, stellt aber nicht die im Text erwähnten Werbeanzeigen, Kongressabgeordneten oder den Erfolg von Temu dar. Korrektur: Eine Illustration oder Darstellung, die Temu-Werbeanzeigen oder die Bekanntheit der Marke in den Medien zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 6,
+              "stuecke_neu": 4,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 275.1,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 10,
+                "motive": 10,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 49.7,
+              "gesamt": 432.4,
+              "videolaenge_s": 43.0,
+              "abschnitte_s": [
+                6.9,
+                5.88,
+                5.72,
+                5.46,
+                5.68,
+                8.12,
+                5.2
+              ],
+              "woerter": 101,
+              "clips": {
+                "witz": 1,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:12.78",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 3,
+                "gesprochen": "Launched in America September 2022, it ran Super Bowl ads by February 2023.",
+                "fest": false,
+                "text": "Das Bild zeigt fünf Männer in Anzügen bei einer Versammlung, passt aber nicht zu den spezifischen Daten über den Start in Amerika und Super-Bowl-Werbung. Korrektur: Eine Illustration oder Szene, die den Start im September 2022 oder Super-Bowl-Werbung darstellt."
+              },
+              {
+                "zeit": "00:29.64",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 6,
+                "gesprochen": "By August, users reached 91% of Amazon's.",
+                "fest": false,
+                "text": "Das Bild zeigt zwei Personen mit Kartons in einem Flur, was in keinem Bezug zu den Wachstumszahlen von Temu oder Amazon im gesprochenen Text steht. Korrektur: Ein Diagramm oder eine Infografik, die die Nutzerzahlen von Temu im Vergleich zu Amazon im August veranschaulicht."
+              },
+              {
+                "zeit": "00:33.84",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 7,
+                "gesprochen": "The ads congressmen wanted blocked made Temu a household name.",
+                "fest": false,
+                "text": "Das Bild zeigt eine allgemeine, symbolische Illustration eines Geschäftsmannes an einem Schreibtisch im Freien, stellt aber nicht die im Text erwähnten Werbeanzeigen, Kongressabgeordneten oder den Erfolg von Temu dar. Korrektur: Eine Illustration oder Darstellung, die Temu-Werbeanzeigen oder die Bekanntheit der Marke in den Medien zeigt."
+              }
+            ],
+            "sekunden": 452.0,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "42355295863-2",
+              "datum": "2026-11-07",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 452.0,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                2,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 2.5,
+            "bau_s": 363.6,
+            "pruefung_s": 18.8,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt fünf Politiker-ähnliche Männer auf einer Bühne in einem Stadion, was nicht zum Thema der Markteinführung von Temu oder Super-Bowl-Werbung passt.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Gruppe von Menschen, die ein Paket halten, hat jedoch keinen Bezug zu den Nutzerzahlen im Vergleich zu Amazon.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt lediglich einen präsentierenden Mann in einem Raum, jedoch nicht die im Sprechtext erwähnten Werbespots, den Erfolg von Temu oder die Kongressabgeordneten.",
+              "Offenes Problem (schwer): Das Bild zeigt fünf Politiker-ähnliche Männer auf einer Bühne in einem Stadion, was nicht zum Thema der Markteinführung von Temu oder Super-Bowl-Werbung passt. Korrektur: Eine Darstellung einer großen amerikanischen Football-Arena oder Werbetafeln, die auf die Super-Bowl-Werbung von Temu hinweisen.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Gruppe von Menschen, die ein Paket halten, hat jedoch keinen Bezug zu den Nutzerzahlen im Vergleich zu Amazon. Korrektur: Ein Diagramm oder eine Infografik, die das Nutzerwachstum von Temu im Vergleich zu Amazon im August darstellt.",
+              "Offenes Problem (schwer): Die Szene zeigt lediglich einen präsentierenden Mann in einem Raum, jedoch nicht die im Sprechtext erwähnten Werbespots, den Erfolg von Temu oder die Kongressabgeordneten. Korrektur: Eine Illustration oder Grafik, die den Erfolg der Temu-Werbekampagnen oder die Erwähnung im Kongress darstellt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 7,
+              "stuecke_neu": 3,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 300.7,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 10,
+                "motive": 10,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 49.9,
+              "gesamt": 363.3,
+              "videolaenge_s": 43.0,
+              "abschnitte_s": [
+                6.9,
+                5.88,
+                5.72,
+                5.46,
+                5.68,
+                8.12,
+                5.2
+              ],
+              "woerter": 101,
+              "clips": {
+                "witz": 1,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:12.78",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 3,
+                "gesprochen": "Launched in America September 2022, it ran Super Bowl ads by February 2023.",
+                "fest": false,
+                "text": "Das Bild zeigt fünf Politiker-ähnliche Männer auf einer Bühne in einem Stadion, was nicht zum Thema der Markteinführung von Temu oder Super-Bowl-Werbung passt. Korrektur: Eine Darstellung einer großen amerikanischen Football-Arena oder Werbetafeln, die auf die Super-Bowl-Werbung von Temu hinweisen."
+              },
+              {
+                "zeit": "00:29.64",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 6,
+                "gesprochen": "By August, users reached 91% of Amazon's.",
+                "fest": false,
+                "text": "Das Bild zeigt eine Gruppe von Menschen, die ein Paket halten, hat jedoch keinen Bezug zu den Nutzerzahlen im Vergleich zu Amazon. Korrektur: Ein Diagramm oder eine Infografik, die das Nutzerwachstum von Temu im Vergleich zu Amazon im August darstellt."
+              },
+              {
+                "zeit": "00:33.84",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 7,
+                "gesprochen": "The ads congressmen wanted blocked made Temu a household name.",
+                "fest": false,
+                "text": "Die Szene zeigt lediglich einen präsentierenden Mann in einem Raum, jedoch nicht die im Sprechtext erwähnten Werbespots, den Erfolg von Temu oder die Kongressabgeordneten. Korrektur: Eine Illustration oder Grafik, die den Erfolg der Temu-Werbekampagnen oder die Erwähnung im Kongress darstellt."
+              }
+            ],
+            "sekunden": 384.9,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "42355295863-3",
+              "datum": "2026-11-07",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 384.9,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 1884.4,
+        "upload_titel": "Congress Said Pull Ads: Temu Aired Them Anyway"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:12.78",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 3,
+            "gesprochen": "Launched in America September 2022, it ran Super Bowl ads by February 2023.",
+            "fest": false,
+            "text": "Das Bild zeigt fünf Männer in Anzügen bei einer Versammlung, passt aber nicht zu den spezifischen Daten über den Start in Amerika und Super-Bowl-Werbung. Korrektur: Eine Illustration oder Szene, die den Start im September 2022 oder Super-Bowl-Werbung darstellt."
+          },
+          {
+            "zeit": "00:29.64",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 6,
+            "gesprochen": "By August, users reached 91% of Amazon's.",
+            "fest": false,
+            "text": "Das Bild zeigt zwei Personen mit Kartons in einem Flur, was in keinem Bezug zu den Wachstumszahlen von Temu oder Amazon im gesprochenen Text steht. Korrektur: Ein Diagramm oder eine Infografik, die die Nutzerzahlen von Temu im Vergleich zu Amazon im August veranschaulicht."
+          },
+          {
+            "zeit": "00:33.84",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 7,
+            "gesprochen": "The ads congressmen wanted blocked made Temu a household name.",
+            "fest": false,
+            "text": "Das Bild zeigt eine allgemeine, symbolische Illustration eines Geschäftsmannes an einem Schreibtisch im Freien, stellt aber nicht die im Text erwähnten Werbeanzeigen, Kongressabgeordneten oder den Erfolg von Temu dar. Korrektur: Eine Illustration oder Darstellung, die Temu-Werbeanzeigen oder die Bekanntheit der Marke in den Medien zeigt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 43.0,
+          "fps": 30.0,
+          "lufs": -14.8,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 38.04,
+              "bis_s": 39.76,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.903
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 23.0,
+              "bis_s": 43.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Congressman",
+                "s": 0.0,
+                "e": 0.54,
+                "p": 0.30561503767967224
+              },
+              {
+                "w": "asked",
+                "s": 0.54,
+                "e": 0.98,
+                "p": 0.9550592303276062
+              },
+              {
+                "w": "CBS",
+                "s": 0.98,
+                "e": 1.32,
+                "p": 0.8434771299362183
+              },
+              {
+                "w": "not",
+                "s": 1.32,
+                "e": 2.06,
+                "p": 0.817009687423706
+              },
+              {
+                "w": "to",
+                "s": 2.06,
+                "e": 2.42,
+                "p": 0.9895630478858948
+              },
+              {
+                "w": "run",
+                "s": 2.42,
+                "e": 2.64,
+                "p": 0.9788001775741577
+              },
+              {
+                "w": "this",
+                "s": 2.64,
+                "e": 2.88,
+                "p": 0.973747730255127
+              },
+              {
+                "w": "ad.",
+                "s": 2.88,
+                "e": 3.12,
+                "p": 0.9982849955558777
+              },
+              {
+                "w": "Timu's",
+                "s": 3.72,
+                "e": 4.1,
+                "p": 0.7262108226617178
+              },
+              {
+                "w": "giveaway",
+                "s": 4.1,
+                "e": 4.32,
+                "p": 0.9026030898094177
+              },
+              {
+                "w": "ads",
+                "s": 4.32,
+                "e": 4.72,
+                "p": 0.9617567658424377
+              },
+              {
+                "w": "still",
+                "s": 4.72,
+                "e": 5.14,
+                "p": 0.9702502489089966
+              },
+              {
+                "w": "appeared.",
+                "s": 5.14,
+                "e": 5.4,
+                "p": 0.9950418472290039
+              },
+              {
+                "w": "Why?",
+                "s": 6.08,
+                "e": 6.22,
+                "p": 0.9740249514579773
+              },
+              {
+                "w": "Timu",
+                "s": 6.92,
+                "e": 7.34,
+                "p": 0.9770805537700653
+              },
+              {
+                "w": "is",
+                "s": 7.34,
+                "e": 7.48,
+                "p": 0.922841489315033
+              },
+              {
+                "w": "a",
+                "s": 7.48,
+                "e": 7.58,
+                "p": 0.9343647360801697
+              },
+              {
+                "w": "Chinese",
+                "s": 7.58,
+                "e": 7.84,
+                "p": 0.9900262355804443
+              },
+              {
+                "w": "-owned",
+                "s": 7.84,
+                "e": 8.2,
+                "p": 0.8028790652751923
+              },
+              {
+                "w": "marketplace",
+                "s": 8.2,
+                "e": 8.56,
+                "p": 0.9612985253334045
+              },
+              {
+                "w": "selling",
+                "s": 8.56,
+                "e": 9.12,
+                "p": 0.9578121900558472
+              },
+              {
+                "w": "heavily",
+                "s": 9.12,
+                "e": 9.56,
+                "p": 0.9914101958274841
+              },
+              {
+                "w": "discounted",
+                "s": 9.56,
+                "e": 9.98,
+                "p": 0.836740255355835
+              },
+              {
+                "w": "goods,",
+                "s": 9.98,
+                "e": 10.38,
+                "p": 0.9980950951576233
+              },
+              {
+                "w": "mostly",
+                "s": 10.66,
+                "e": 11.04,
+                "p": 0.995203971862793
+              },
+              {
+                "w": "shipped",
+                "s": 11.04,
+                "e": 11.38,
+                "p": 0.9977694749832153
+              },
+              {
+                "w": "directly",
+                "s": 11.38,
+                "e": 11.68,
+                "p": 0.9857646822929382
+              },
+              {
+                "w": "from",
+                "s": 11.68,
+                "e": 11.98,
+                "p": 0.9956356883049011
+              },
+              {
+                "w": "China.",
+                "s": 11.98,
+                "e": 12.18,
+                "p": 0.9996461868286133
+              },
+              {
+                "w": "Launched",
+                "s": 12.76,
+                "e": 13.14,
+                "p": 0.9897618591785431
+              },
+              {
+                "w": "in",
+                "s": 13.14,
+                "e": 13.32,
+                "p": 0.9966225624084473
+              },
+              {
+                "w": "America",
+                "s": 13.32,
+                "e": 13.5,
+                "p": 0.9749484062194824
+              },
+              {
+                "w": "September",
+                "s": 13.5,
+                "e": 13.86,
+                "p": 0.9198333621025085
+              },
+              {
+                "w": "2022,",
+                "s": 13.86,
+                "e": 14.76,
+                "p": 0.9828965067863464
+              },
+              {
+                "w": "it",
+                "s": 15.18,
+                "e": 15.34,
+                "p": 0.9925346374511719
+              },
+              {
+                "w": "ran",
+                "s": 15.34,
+                "e": 15.52,
+                "p": 0.9883891344070435
+              },
+              {
+                "w": "Super",
+                "s": 15.52,
+                "e": 15.8,
+                "p": 0.9856652021408081
+              },
+              {
+                "w": "Bowl",
+                "s": 15.8,
+                "e": 16.04,
+                "p": 0.6650800704956055
+              },
+              {
+                "w": "ads",
+                "s": 16.04,
+                "e": 16.26,
+                "p": 0.9615810513496399
+              },
+              {
+                "w": "by",
+                "s": 16.26,
+                "e": 16.54,
+                "p": 0.9797095060348511
+              },
+              {
+                "w": "February",
+                "s": 16.54,
+                "e": 17.02,
+                "p": 0.9902465343475342
+              },
+              {
+                "w": "2023.",
+                "s": 17.02,
+                "e": 17.9,
+                "p": 0.8975688517093658
+              },
+              {
+                "w": "In",
+                "s": 18.58,
+                "e": 18.74,
+                "p": 0.9928471446037292
+              },
+              {
+                "w": "February",
+                "s": 18.74,
+                "e": 18.98,
+                "p": 0.9964020252227783
+              },
+              {
+                "w": "2024,",
+                "s": 18.98,
+                "e": 19.74,
+                "p": 0.9660648703575134
+              },
+              {
+                "w": "it",
+                "s": 20.2,
+                "e": 20.4,
+                "p": 0.9974591135978699
+              },
+              {
+                "w": "offered",
+                "s": 20.4,
+                "e": 20.62,
+                "p": 0.9935013651847839
+              },
+              {
+                "w": "$15",
+                "s": 20.62,
+                "e": 21.08,
+                "p": 0.9601123034954071
+              },
+              {
+                "w": "million",
+                "s": 21.08,
+                "e": 21.38,
+                "p": 0.975169837474823
+              },
+              {
+                "w": "in",
+                "s": 21.38,
+                "e": 21.86,
+                "p": 0.9721232652664185
+              },
+              {
+                "w": "giveaways",
+                "s": 21.86,
+                "e": 22.1,
+                "p": 0.9834275841712952
+              },
+              {
+                "w": "in",
+                "s": 22.1,
+                "e": 22.6,
+                "p": 0.9910629987716675
+              },
+              {
+                "w": "Super",
+                "s": 22.6,
+                "e": 22.8,
+                "p": 0.9927248954772949
+              },
+              {
+                "w": "Bowl",
+                "s": 22.8,
+                "e": 23.04,
+                "p": 0.983120322227478
+              },
+              {
+                "w": "ads.",
+                "s": 23.04,
+                "e": 23.24,
+                "p": 0.9890300631523132
+              },
+              {
+                "w": "Did",
+                "s": 23.94,
+                "e": 23.96,
+                "p": 0.9861536026000977
+              },
+              {
+                "w": "it",
+                "s": 23.96,
+                "e": 24.06,
+                "p": 0.9988732933998108
+              },
+              {
+                "w": "work?",
+                "s": 24.06,
+                "e": 24.18,
+                "p": 0.9985652565956116
+              },
+              {
+                "w": "Work,",
+                "s": 24.18,
+                "e": 24.32,
+                "p": 0.05270843952894211
+              },
+              {
+                "w": "searches",
+                "s": 24.76,
+                "e": 25.0,
+                "p": 0.7568755745887756
+              },
+              {
+                "w": "and",
+                "s": 25.0,
+                "e": 25.34,
+                "p": 0.8627452254295349
+              },
+              {
+                "w": "traffic",
+                "s": 25.34,
+                "e": 25.64,
+                "p": 0.9028922915458679
+              },
+              {
+                "w": "spite,",
+                "s": 25.64,
+                "e": 26.04,
+                "p": 0.342378705739975
+              },
+              {
+                "w": "reaching",
+                "s": 26.48,
+                "e": 26.76,
+                "p": 0.9966512322425842
+              },
+              {
+                "w": "100",
+                "s": 26.76,
+                "e": 27.38,
+                "p": 0.9756906628608704
+              },
+              {
+                "w": "million",
+                "s": 27.38,
+                "e": 27.9,
+                "p": 0.9486867785453796
+              },
+              {
+                "w": "active",
+                "s": 27.9,
+                "e": 28.5,
+                "p": 0.9736371040344238
+              },
+              {
+                "w": "US",
+                "s": 28.5,
+                "e": 28.7,
+                "p": 0.6077096462249756
+              },
+              {
+                "w": "users.",
+                "s": 28.7,
+                "e": 29.08,
+                "p": 0.9939987659454346
+              },
+              {
+                "w": "By",
+                "s": 29.6,
+                "e": 29.8,
+                "p": 0.9781460762023926
+              },
+              {
+                "w": "August,",
+                "s": 29.8,
+                "e": 30.08,
+                "p": 0.9960533380508423
+              },
+              {
+                "w": "users",
+                "s": 30.42,
+                "e": 30.68,
+                "p": 0.993058443069458
+              },
+              {
+                "w": "reached",
+                "s": 30.68,
+                "e": 30.9,
+                "p": 0.9945167899131775
+              },
+              {
+                "w": "91",
+                "s": 30.9,
+                "e": 31.48,
+                "p": 0.9877771735191345
+              },
+              {
+                "w": "%",
+                "s": 31.48,
+                "e": 32.34,
+                "p": 0.7279211282730103
+              },
+              {
+                "w": "of",
+                "s": 32.34,
+                "e": 32.64,
+                "p": 0.9867525100708008
+              },
+              {
+                "w": "Amazon's.",
+                "s": 32.64,
+                "e": 33.3,
+                "p": 0.8560748398303986
+              },
+              {
+                "w": "The",
+                "s": 33.74,
+                "e": 33.96,
+                "p": 0.9765674471855164
+              },
+              {
+                "w": "ads",
+                "s": 33.96,
+                "e": 34.18,
+                "p": 0.9391001462936401
+              },
+              {
+                "w": "Congressman",
+                "s": 34.18,
+                "e": 34.54,
+                "p": 0.6771235466003418
+              },
+              {
+                "w": "wanted",
+                "s": 34.54,
+                "e": 34.98,
+                "p": 0.956173300743103
+              },
+              {
+                "w": "blocked,",
+                "s": 34.98,
+                "e": 35.36,
+                "p": 0.9747521877288818
+              },
+              {
+                "w": "made",
+                "s": 35.66,
+                "e": 35.82,
+                "p": 0.6313350200653076
+              },
+              {
+                "w": "Timu",
+                "s": 35.82,
+                "e": 36.24,
+                "p": 0.5564701110124588
+              },
+              {
+                "w": "a",
+                "s": 36.24,
+                "e": 36.4,
+                "p": 0.9149531722068787
+              },
+              {
+                "w": "household",
+                "s": 36.4,
+                "e": 36.66,
+                "p": 0.9733946323394775
+              },
+              {
+                "w": "name.",
+                "s": 36.66,
+                "e": 37.08,
+                "p": 0.9978514909744263
+              },
+              {
+                "w": "Be",
+                "s": 37.74,
+                "e": 37.78,
+                "p": 0.9855917692184448
+              },
+              {
+                "w": "sure",
+                "s": 37.78,
+                "e": 37.92,
+                "p": 0.9981764554977417
+              },
+              {
+                "w": "to",
+                "s": 37.92,
+                "e": 38.04,
+                "p": 0.9945610165596008
+              },
+              {
+                "w": "like,",
+                "s": 38.04,
+                "e": 38.24,
+                "p": 0.9017934203147888
+              },
+              {
+                "w": "share",
+                "s": 38.52,
+                "e": 38.72,
+                "p": 0.9971237778663635
+              },
+              {
+                "w": "and",
+                "s": 38.72,
+                "e": 39.02,
+                "p": 0.5697135925292969
+              },
+              {
+                "w": "save",
+                "s": 39.02,
+                "e": 39.32,
+                "p": 0.9905463457107544
+              },
+              {
+                "w": "this",
+                "s": 39.32,
+                "e": 39.52,
+                "p": 0.9603272080421448
+              },
+              {
+                "w": "video.",
+                "s": 39.52,
+                "e": 39.76,
+                "p": 0.9965078234672546
+              },
+              {
+                "w": "Which",
+                "s": 40.34,
+                "e": 40.34,
+                "p": 0.9757397174835205
+              },
+              {
+                "w": "company",
+                "s": 40.34,
+                "e": 40.52,
+                "p": 0.971509575843811
+              },
+              {
+                "w": "next?",
+                "s": 40.52,
+                "e": 40.82,
+                "p": 0.9759051203727722
+              },
+              {
+                "w": "Comment",
+                "s": 41.4,
+                "e": 41.5,
+                "p": 0.9944221377372742
+              },
+              {
+                "w": "and",
+                "s": 41.5,
+                "e": 42.0,
+                "p": 0.9621399641036987
+              },
+              {
+                "w": "follow",
+                "s": 42.0,
+                "e": 42.22,
+                "p": 0.9900637269020081
+              },
+              {
+                "w": "for",
+                "s": 42.22,
+                "e": 42.44,
+                "p": 0.9854193925857544
+              },
+              {
+                "w": "more.",
+                "s": 42.44,
+                "e": 42.58,
+                "p": 0.9992614388465881
+              }
+            ],
+            "dauer_s": 42.9226875,
+            "sprache": "en"
+          },
+          "roh_key": "0ff32c23f10968de9c43c688c8340871790f98a7b664d017ba170f86bc97ef9c",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "c963a4c2c349faa289412cdcd6427451e88b116b3647514c243092a141f308b5",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 43.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 10,
+          "motive": 10,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "c963a4c2c349faa289412cdcd6427451e88b116b3647514c243092a141f308b5",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein gemaltes Nahbild eines erschrockenen oder besorgten männlichen Gesichts mit großen Augen und starker Stirnfaltenbildung, überlagert mit Text.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen geschockten Gesichtsausdruck als Reaktion auf die Eröffnungsaussage über die Kontroverse um die Werbung, was als opening_reaction_shot zum Gefühl der Worte passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 2,
+              "gesehen": "In einer Hafenschlucht stehen zahlreiche rote Seefrachtcontainer gestapelt, davor steht ein einzelner Mann im Hemd.",
+              "note": 7,
+              "passt": true,
+              "grund": "Die gezeigten Seefrachtcontainer passen direkt zur Erwähnung des weltweiten Güterversands und des Marktplatzes aus China.",
+              "erforderliches_bild": "Ein realistisches Bild von Seefrachtcontainern im Hafen."
+            },
+            {
+              "index": 3,
+              "gesehen": "Fünf Männer in Anzügen stehen auf einer Bühne vor einem großen Publikum und beleuchteten Bildschirmen.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt fünf Männer in Anzügen bei einer Versammlung, passt aber nicht zu den spezifischen Daten über den Start in Amerika und Super-Bowl-Werbung.",
+              "erforderliches_bild": "Eine Illustration oder Szene, die den Start im September 2022 oder Super-Bowl-Werbung darstellt."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Mann überreicht einer lächelnden Frau eine Geschenkbox mit einer roten Schleife vor einem Hintergrund mit Innenraum und Stadtfenster. Darüber eingeblendet ist ein grafisches Feld mit '$15 MILLION'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell die Erwähnung der Werbeaktion mit einem Geschenk und dem passenden Text '$15 million' im Overlay, was zum Erzähltext über die veranstalteten Gewinnspiele im Rahmen der Super-Bowl-Ads passt.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 5,
+              "gesehen": "Eine gemalte Illustration zeigt eine Gruppe von erschrockenen oder überraschten Menschen in einer U-Bahn, im Vordergrund hält ein junger Mann ein Smartphone mit bunten Inhalten, darüber ein Textfeld mit '100 MILLION ACTIVE'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild visualisiert die enorme Reichweite und das Erreichen von 100 Millionen aktiven Nutzern durch geschockte und aufmerksame Menschenmengen sowie das Smartphone im Fokus passend zur gesprochenen Zahl.",
+              "erforderliches_bild": "Keine Änderung erforderlich, das Bild passt gut zur genannten Statistik."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Mann und eine Frau stehen in einem Flur vor einem Aufzug und tragen einen hohen Stapel Umzugskartons.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt zwei Personen mit Kartons in einem Flur, was in keinem Bezug zu den Wachstumszahlen von Temu oder Amazon im gesprochenen Text steht.",
+              "erforderliches_bild": "Ein Diagramm oder eine Infografik, die die Nutzerzahlen von Temu im Vergleich zu Amazon im August veranschaulicht."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein im Anzug am Schreibtisch sitzender Mann schreibt an einem Dokument auf der Straße in einer Stadt, daneben wächst eine kleine Pflanze aus einem Papierstapel.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt eine allgemeine, symbolische Illustration eines Geschäftsmannes an einem Schreibtisch im Freien, stellt aber nicht die im Text erwähnten Werbeanzeigen, Kongressabgeordneten oder den Erfolg von Temu dar.",
+              "erforderliches_bild": "Eine Illustration oder Darstellung, die Temu-Werbeanzeigen oder die Bekanntheit der Marke in den Medien zeigt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt fünf Männer in Anzügen bei einer Versammlung, passt aber nicht zu den spezifischen Daten über den Start in Amerika und Super-Bowl-Werbung.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwei Personen mit Kartons in einem Flur, was in keinem Bezug zu den Wachstumszahlen von Temu oder Amazon im gesprochenen Text steht.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine allgemeine, symbolische Illustration eines Geschäftsmannes an einem Schreibtisch im Freien, stellt aber nicht die im Text erwähnten Werbeanzeigen, Kongressabgeordneten oder den Erfolg von Temu dar."
+          ],
+          "modelle": [
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 10,
+          "ausgenommen": [
+            8,
+            9
+          ],
+          "vorgeprueft": [
+            1
+          ],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "c963a4c2c349faa289412cdcd6427451e88b116b3647514c243092a141f308b5",
+        "prompt_version": "2026-10-29.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "modell": "groq:openai/gpt-oss-20b",
+        "zweitpruefer_modell": null,
+        "zweitpruefer_anderer_anbieter": false
+      }
     }
   ]
 }

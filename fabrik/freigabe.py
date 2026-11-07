@@ -50,8 +50,21 @@ def telegram(methode, felder, datei=None, feld='video', typ='video/mp4'):
                 print(f'Telegram: zu viele Anfragen, {warte} s warten', flush=True)
                 time.sleep(warte + 1)
                 continue
+            # GEMESSEN 07.11.2026 (KI-Langvideo 42383149158): fertiges Video (87 Einstellungen, 66 Min. Bau),
+            # sendVideo bekam einmal HTTP 504 "Gateway Timeout" -> zustellfehler, kein Video. Serverfehler sind
+            # voruebergehend: 20/40/60 s warten und nochmal.
+            if e.code in (500, 502, 503, 504) and versuch < 3:
+                print(f'Telegram: Serverfehler {e.code}, {20 * (versuch + 1)} s warten', flush=True)
+                time.sleep(20 * (versuch + 1))
+                continue
             raise RuntimeError(f'Telegram lehnt ab ({e.code}): '
                                + inhalt[:300].replace(token, '***')) from None
+        except (urllib.error.URLError, TimeoutError, ConnectionError) as e:
+            if versuch < 3:
+                print(f'Telegram: Verbindung gestoert ({type(e).__name__}), {20 * (versuch + 1)} s warten', flush=True)
+                time.sleep(20 * (versuch + 1))
+                continue
+            raise
     if antwort.get('ok') is not True:
         raise RuntimeError('Telegram hat die Zustellung nicht bestaetigt')
     return antwort

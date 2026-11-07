@@ -345,8 +345,10 @@ def abholen():
         # GEMELDET 11.10.2026: „Status" an den Videobot landete als Business-Idee Nr. 8. Befehle des
         # Steuerungs-Bots sind nie Themen - Hinweis auf den richtigen Bot statt Warteschlange.
         # 05.11.2026: neue Steuerungsbefehle „Themen [Business|KI]“ und „Befehle“ ebenfalls nie als Thema.
-        if re.fullmatch(r'(status|abholen|befehle|start(\s+(business|ki|ai))?(\s+bezahlt)?|'
-                        r'themen?(\s+(business|ki|ai))?)[.!?]?', text.strip(), re.I):
+        # 07.11.2026: „Skript KI [lang]“ (ohne Doppelpunkt) und „Langvideo KI“ sind ebenfalls Steuerungsbefehle.
+        if re.fullmatch(r'(status|abholen|befehle|hilfe|start(\s+(business|ki|ai))?(\s+bezahlt)?|'
+                        r'themen?(\s+(business|ki|ai))?|skript\s+(business|ki|ai)(\s+(lang|long|langvideo|short))?|'
+                        r'(start\s+)?(langvideo|longvideo|lang)\s+(business|ki|ai))[.!?]?', text.strip(), re.I):
             merken(u['update_id'], f'„{text[:30]}" ist ein Befehl fuer den Bot „Contentfabrik Steuerung" - '
                    'bitte dort schicken. Hier wurde nichts als Thema gespeichert.')
             continue
@@ -586,6 +588,16 @@ def nehmen(kanal):
                  and x.get('status', 'bereit') == 'bereit'
                  and not gespraech_grund(x['thema'])
                  and x.get('geplant_ab', heute) <= heute
+                 and not schon_geliefert(kanal, x['thema'])), '')
+
+
+def eigenes_skript(kanal):
+    """Thema des aeltesten offenen EIGENEN Skripts ("Skript KI: ..." im Videobot) oder ''.
+
+    Nutzer 07.11.2026: "Wenn ich eigene Skript habe und moechte Video dafuer" - bisher wartete es wie ein
+    normales Thema auf den Nutzertag/Trend. Ein eigenes Skript kommt beim naechsten Lauf des Kanals zuerst."""
+    return next((x['thema'] for x in laden() if x['kanal'] == kanal and x.get('nutzerskript')
+                 and x.get('format') != 'lang' and x.get('status', 'bereit') == 'bereit'
                  and not schon_geliefert(kanal, x['thema'])), '')
 
 

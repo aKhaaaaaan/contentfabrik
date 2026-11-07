@@ -80,33 +80,41 @@ const KANAELE = { business: 'business-origin-stories', ki: 'ai-tools-explained',
 // fehlende Befehle aufnehmen, schoener machen". Klartext (kein parse_mode) - Sonderzeichen brechen nichts.
 const HILFE = [
   '📋 Befehle – Contentfabrik Steuerung',
+  'Einfach den Befehl schicken, Groß/Kleinschreibung egal.',
   '',
-  '▶️ Videos starten',
-  '• Start – beide Kanäle',
-  '• Start Business – nur Business Origin Stories',
-  '• Start KI – nur AI Tools Explained',
-  '• Start KI bezahlt / Start Business bezahlt – auch wenn das Gratis-Kontingent leer ist',
+  '▶️ SHORTS STARTEN',
+  '• Start – baut für beide Kanäle je ein Short (ca. 30–45 Min.)',
+  '• Start KI / Start Business – nur für einen Kanal',
+  '• Start KI bezahlt – nur wenn das Gratis-Kontingent leer gemeldet wurde',
   '',
-  '🎬 Langvideo',
-  '• Langvideo Business / Langvideo KI – Langvideo jetzt statt am Plantag (Business Fr, KI Sa)',
-  '  (nur wenn in den letzten 6 Tagen keins geliefert wurde)',
+  '🎬 LANGVIDEO',
+  '• Langvideo Business / Langvideo KI – jetzt bauen statt am Plantag (Fr Business, Sa KI)',
+  '  dauert 1–3 Std.; wurde in den letzten 6 Tagen schon eins geliefert, kommt kein neues',
   '',
-  '🗂 Themen',
-  '• Themen – was als Nächstes drankommt (beide Kanäle)',
+  '📝 SKRIPT ANSEHEN',
+  '• Skript KI / Skript Business – Text des letzten Shorts',
+  '• Skript KI lang / Skript Business lang – Text des letzten Langvideos',
+  '',
+  '🗂 THEMEN',
+  '• Themen – was als Nächstes drankommt (Shorts + Langvideo)',
   '• Themen Business / Themen KI – nur ein Kanal',
   '',
-  '📊 Überblick',
+  '📊 STAND',
   '• Status – was gerade läuft, in Prozent',
-  '• Abholen – Feedback und Themen aus dem Videobot sofort verarbeiten',
+  '• Abholen – Nachrichten aus dem Videobot sofort verarbeiten (sonst alle 5 Min.)',
   '• Hilfe – diese Liste',
   '',
   '💬 Im Videobot (nicht hier)',
-  '• Business: Wie LEGO entstand – neues Thema',
-  '• KI: Claude Code Schritt für Schritt – neues Thema',
+  '• KI: Claude Code Schritt für Schritt – neues Thema in die Warteschlange',
   '• Business: + je Zeile eine Idee – bis zu 25 Themen auf einmal',
-  '• Business: <YouTube-/TikTok-Link> – Thema aus einem Video, neu recherchiert',
-  '• Skript Business: <Thema> + darunter dein Text – eigenes Skript',
+  '• Business: <YouTube-/TikTok-Link> – Thema aus dem Video, neu recherchiert',
+  '• Eigenes Skript (nur Shorts):',
+  '  1. Zeile: Skript KI: <Thema>  (oder Skript Business: <Thema>)',
+  '  darunter dein Text, 40–900 Wörter',
+  '  → kommt beim nächsten Lauf des Kanals zuerst dran. Sofort: hier „Abholen“, dann „Start KI“',
+  '  → Fakten werden geprüft; der Text wird auf 35–45 s gekürzt, wenn er länger ist',
   '• Feedback: … oder auf ein Video antworten – Rückmeldung',
+  '• Stimme 1, 3 – Stimmwahl nach einem Stimmvergleich',
   '• Unter jedem Video: ✅/❌, Note oder „TikTok-Entwurf hochladen“ antippen',
 ].join('\n');
 
@@ -118,6 +126,20 @@ async function geheimnis(env) {
   // Webhook-Schutz ohne weiteres Secret: aus dem Bot-Token abgeleitet (A-Z, a-z, 0-9 erlaubt).
   const h = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('cf-befehl:' + tgToken(env)));
   return [...new Uint8Array(h)].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 48);
+}
+
+export function nachrichtTeile(text, grenze = 3900) {
+  const teile = [];
+  let rest = String(text || '');
+  while (rest.length > grenze) {
+    let schnitt = rest.lastIndexOf('\n\n', grenze);
+    if (schnitt < grenze / 2) schnitt = rest.lastIndexOf(' ', grenze);
+    if (schnitt < grenze / 2) schnitt = grenze;
+    teile.push(rest.slice(0, schnitt).trim());
+    rest = rest.slice(schnitt).trim();
+  }
+  if (rest || !teile.length) teile.push(rest);
+  return teile;
 }
 
 async function antworten(env, chat, text) {
@@ -362,6 +384,17 @@ export async function befehl(env, text) {
   if (t === 'hilfe' || t === 'help' || t === 'befehle' || t === '/start' || t === '/help') return HILFE;
   const th = t.match(/^(?:themen|thema)(?:\s+(business|ki|ai))?$/);
   if (th) return themenUebersicht(env, th[1] ? KANAELE[th[1]] : '');
+  // Nutzer 07.11.2026: Skript nicht mehr nach jedem Video im Videobot (zu lang zum Scrollen), nur auf Abruf.
+  // freigabe.skript_merken schreibt verlauf/skripte/<kanal>.json beim Versand.
+  const sk = t.match(/^skript\s+(business|ki|ai)(?:\s+(lang|long|langvideo|short))?$/);
+  if (sk) {
+    const art = sk[2] && sk[2] !== 'short' ? 'lang' : 'short';
+    const d = await roh(`verlauf/skripte/${KANAELE[sk[1]]}.json`).catch(() => null);
+    const e = d && d[art];
+    if (!e || !e.text) return `Noch kein gespeichertes Skript (${art === 'lang' ? 'Langvideo' : 'Short'}) für ${sk[1] === 'business' ? 'Business' : 'KI'}. ` +
+      'Skripte werden ab dem nächsten gesendeten Video gespeichert.';
+    return `📝 ${art === 'lang' ? 'Langvideo' : 'Short'} · ${e.titel || e.thema} (${tagText(String(e.datum || '').slice(0, 10))})\n\n${e.text}`;
+  }
   // Themen gehoeren in den Videobot (themen.py liest nur dort) - nicht still als Unbekannt abtun.
   if (/^(business|ki|ai|skript\s+\w+)\s*:/.test(t)) {
     return 'Themen und Skripte bitte im Videobot schicken - dieser Bot startet nur und zeigt den Stand.\n\n' + HILFE;
@@ -481,7 +514,8 @@ async function telegram(request, env) {
   if (chat !== String(env.TG_CHAT_ID)) return new Response('ok');  // fremde Chats still ignorieren
   let text;
   try { text = await befehl(env, msg.text); } catch (e) { text = 'Fehler: ' + String(e.message || e).slice(0, 200); }
-  await antworten(env, chat, text);
+  // Telegram nimmt hoechstens 4096 Zeichen je Nachricht (ein Langvideo-Skript hat ~7000) - an Absaetzen teilen.
+  for (const teil of nachrichtTeile(text)) await antworten(env, chat, teil);
   return new Response('ok');
 }
 

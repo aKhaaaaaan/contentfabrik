@@ -340,6 +340,13 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     trend = None
     vorrat_thema = None
     if not thema and not entwurf:
+        import trendcheck
+        eigen = themen.eigenes_skript(kanal)
+        if isinstance(eigen, str) and eigen and trendcheck.heute_gescheitert(kanal, eigen) < 2:
+            # Nutzer 07.11.2026: eigenes Skript aus dem Videobot vor Vorrat, Nutzertag und Trend.
+            print(f'Eigenes Skript aus dem Videobot zuerst: {eigen}')
+            thema = eigen
+    if not thema and not entwurf:
         import vorrat
         vorrat_thema = vorrat.bereit(kanal_pfad)
         if vorrat_thema:

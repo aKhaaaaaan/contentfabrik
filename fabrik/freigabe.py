@@ -138,6 +138,27 @@ def vorschaubild_senden(chat, pfad, variante='A'):
         return False
 
 
+def skript_merken(skript, lang, titel='', ordner=Path('verlauf/skripte')):
+    """Letztes gesendetes Skript je Kanal und Format fuer den Befehl "Skript KI"/"Skript Business"."""
+    import datetime
+    import kanalstandard
+    slug = next((k for k, d in kanalstandard.alle().items() if d.get('name') == skript.get('kanal')), None)
+    if not slug:
+        return None
+    pfad = Path(ordner) / f'{slug}.json'
+    try:
+        daten = json.loads(pfad.read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        daten = {}
+    daten['lang' if lang else 'short'] = {
+        'thema': skript.get('thema', ''), 'titel': str(titel or ''),
+        'datum': datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='minutes'),
+        'text': '\n\n'.join(t['text'] for t in skript.get('teile', []))}
+    pfad.parent.mkdir(parents=True, exist_ok=True)
+    pfad.write_text(json.dumps(daten, ensure_ascii=False, indent=1), encoding='utf-8')
+    return pfad
+
+
 def senden(skript_pfad, video_pfad):
     skript = json.loads(Path(skript_pfad).read_text(encoding='utf-8'))
     kritik_pfad = Path(skript_pfad).with_name('kritik.json')
@@ -264,7 +285,9 @@ def senden(skript_pfad, video_pfad):
         telegram('sendMessage', {'chat_id': chat, 'text':
                  'Original in voller Qualitaet, Skript und Pruefbericht im privaten GitHub-Artefakt '
                  '(GitHub-Anmeldung erforderlich):\n' + original})
-    kopieren_senden(chat, 'Skript', '\n\n'.join(t['text'] for t in skript['teile']))
+    # Nutzer 07.11.2026: kein Skript mehr im Telegram-Kanal ("sonst muss man lange scrollen") - nur auf Befehl
+    # "Skript KI"/"Skript Business" im Steuerungsbot (liest verlauf/skripte/<slug>.json, Worker).
+    skript_merken(skript, lang, titel)
     kopieren_senden(chat, 'YouTube-Titel', titel if lang else f'{titel} #shorts')
     kopieren_senden(chat, 'YouTube-Beschreibung', f"{skript['beschreibung']}\n\n{tags}")
     if lang:

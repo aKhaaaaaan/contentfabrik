@@ -39,12 +39,19 @@ def begriffe(text, motiv=''):
     def schliessen():
         if folge:
             namen.append(' '.join(folge)); folge.clear()
+    def name_am_satzanfang(k, w):
+        # GEMESSEN 07.11.2026 (KI-Langvideo 42373492410): "Find the pricing paragraph. One word ..." ergab die
+        # Beschriftungen "Find" und "One", "Only token prices ..." -> "Only". Ein grossgeschriebener Satzanfang
+        # ist nur ein Name, wenn er wie einer aussieht (OpenAI, GPT-5) - wie bisher schon beim ersten Wort
+        # ("Use Claude Code" bleibt "Claude Code").
+        return bool(re.search(r'.[A-Z0-9]', w))
     for k, roh in enumerate(woerter):
         w = roh.rstrip(",.;:?!'")
         zahl = re.fullmatch(r'(\d[\d,.]*)-plus', w)
+        satzanfang = k == 0 or woerter[k - 1][-1:] in '.?!'
         if zahl:
             schliessen(); namen.append(zahl[1] + '+')
-        elif k > 0 and w[:1].isupper() and w not in STOPP:
+        elif w[:1].isupper() and w not in STOPP and (not satzanfang or name_am_satzanfang(k, w)):
             folge.append(w)
         elif re.fullmatch(r'\d[\d,.]*\+|\$\d[\d,.]*', w):
             schliessen(); namen.append(w)
@@ -358,8 +365,35 @@ def figur_frage(ziel, figur, text, titel='', zusatz=''):
     return Path(ziel)
 
 
-def grafik(ziel, text, motiv='', titel='', phase='', art=None):
-    im = Image.new('RGB', (1080, 1920), '#10202d')
+HINTERGRUND = '#10202d'
+
+
+def querformat(im, hinweis='EXPLAINER GRAPHIC'):
+    """Hochkant-Grafik (1080x1920) als 1920x1080 fuer Langvideos: nur der Inhalt (y ~300-1260), gross.
+
+    GEMESSEN 07.11.2026 (KI-Langvideo 42373492410, Gemini 4 Carbon): 49 von 87 Einstellungen waren Erklaergrafiken
+    im Shorts-Format; bauen.py passte 1080x1920 in den 1536x864-Kasten -> 486 px breiter Streifen in der Mitte,
+    Schrift kaum lesbar, Rest unscharfer Hintergrund. Hier: Inhaltsbereich ausschneiden und bildfuellend setzen."""
+    from PIL import ImageChops
+    oben, unten = 280, 1300  # Fusszeile (y 1500) gehoert nicht zum Inhalt; sie kommt unten neu dazu
+    teil = im.crop((0, oben, im.width, min(unten, im.height)))
+    rahmen = ImageChops.difference(teil, Image.new('RGB', teil.size, HINTERGRUND)).convert('L').point(
+        lambda v: 255 if v > 18 else 0).getbbox()
+    if rahmen:
+        x0, y0, x1, y1 = rahmen
+        teil = teil.crop((max(0, x0 - 40), max(0, y0 - 40), min(teil.width, x1 + 40), min(teil.height, y1 + 40)))
+    B, H = 1920, 1080
+    faktor = min((B - 240) / teil.width, (H - 200) / teil.height, 1.8)
+    teil = teil.resize((max(1, int(teil.width * faktor)), max(1, int(teil.height * faktor))), Image.LANCZOS)
+    neu = Image.new('RGB', (B, H), HINTERGRUND)
+    neu.paste(teil, ((B - teil.width) // 2, (H - 70 - teil.height) // 2 + 10))
+    if hinweis:
+        ImageDraw.Draw(neu).text((60, H - 60), hinweis, font=ImageFont.truetype(str(SCHRIFT), 24), fill='#8dabbf')
+    return neu
+
+
+def grafik(ziel, text, motiv='', titel='', phase='', art=None, quer=False):
+    im = Image.new('RGB', (1080, 1920), HINTERGRUND)
     d = ImageDraw.Draw(im)
     def font(n):
         return ImageFont.truetype(str(SCHRIFT), n)
@@ -797,7 +831,10 @@ def grafik(ziel, text, motiv='', titel='', phase='', art=None):
         d.rounded_rectangle((x, y, x + breite, y + 70), 16, fill='#13283d', outline=gelb, width=4)
         txt(x + 30, y + 12, name, 40, gelb)
         x += breite + 24
-    txt(75, 1500, 'EXPLAINER GRAPHIC', 25, '#8dabbf')
+    if quer:
+        im = querformat(im)
+    else:
+        txt(75, 1500, 'EXPLAINER GRAPHIC', 25, '#8dabbf')
     Path(ziel).parent.mkdir(parents=True, exist_ok=True)
     im.save(ziel, 'JPEG', quality=93)
     return Path(ziel)

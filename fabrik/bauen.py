@@ -2026,6 +2026,11 @@ def grafik_wiederholt(t, shot):
     return art in FESTE_GRAFIKEN and art in GRAFIK_ARTEN and bool(t.get('szene') or t.get('motiv'))
 
 
+def erklaergrafik_zahlen(t):
+    import erklaergrafik
+    return bool(erklaergrafik.zahlen(t.get('text', '')))
+
+
 def grafik_merken(t, shot):
     import erklaergrafik
     GRAFIK_ARTEN.add(erklaergrafik.layout(t.get('text', ''), shot.get('phase_text', '')))
@@ -2340,6 +2345,11 @@ def main(skript_pfad, aus, vorlage=None):
                     elif nur_textkarte(t, shot):
                         modus, textkarte_rueckfall = 'illustration', True
                         print(f'Einstellung {i}: Erklaergrafik waere nur Text - gemalte Szene')
+                    elif grafik_wiederholt(t, shot) and erklaergrafik_zahlen(t):
+                        # 07.11.2026 (Gemini 4 Carbon): Preis-Saetze mit Betraegen bekamen 10x dieselbe
+                        # "LLM BILL"-Grafik - die gesprochenen Betraege als Zahlenkachel sind je Satz anders.
+                        t, modus = dict(t, grafik_typ='erklaerung', grafik_art='zahlen'), 'grafik'
+                        print(f'Einstellung {i}: dieselbe Erklaergrafik gab es schon - Zahlenkachel')
                     elif grafik_wiederholt(t, shot):
                         modus, textkarte_rueckfall = 'illustration', True
                         print(f'Einstellung {i}: dieselbe Erklaergrafik gab es schon - gemalte Szene')
@@ -2389,10 +2399,13 @@ def main(skript_pfad, aus, vorlage=None):
                         # keine Karte moeglich - gemalte Szene statt Abbruch des ganzen Baus.
                         print(f'Einstellung {i}: weder Beispielbild noch Karte - gemalte Szene')
                         modus = 'illustration'
+            # GEMESSEN 07.11.2026 (KI-Langvideo 42373492410): 14x "dieselbe Erklaergrafik gab es schon - gemalte
+            # Szene", direkt danach machte diese Regel wieder dieselbe "LLM BILL"-Grafik daraus (rund 10x im Video).
             if modus == 'illustration' and kanalprofil(s).get('gemalt_nur_rand') and 0 < i < len(shots) - 1 \
-                    and not nur_textkarte(t, shot):
+                    and not nur_textkarte(t, shot) and not grafik_wiederholt(t, shot):
                 print(f'Einstellung {i}: Kanal malt nur Anfang/Aufruf - Erklaergrafik zum Satz')
                 t, modus = dict(t, grafik_typ='erklaerung'), 'grafik'
+                grafik_merken(t, shot)
             # GEMELDET: „wirkt langweilig und eiskalt" - Illustrationen im Spiel-Plakat-Stil
             # (fabrik/illustration.py): die Kanalfigur im Einstieg und am Schluss; sonst eine
             # Szene nur dort, wo kein echtes Foto passt - echte Fotos bleiben fuer Fakten.
@@ -2435,7 +2448,7 @@ def main(skript_pfad, aus, vorlage=None):
                     import erklaergrafik
                     ill = erklaergrafik.grafik(aus / f'ill_{i:02d}.jpg', t['text'], t.get('motiv', ''),
                                                s.get('thema') or t.get('werkzeug') or '',
-                                               shot.get('phase_text', ''))
+                                               shot.get('phase_text', ''), art=t.get('grafik_art'), quer=B > H)
                     quellen.append({'quelle': 'Erklaergrafik', 'seite': t.get('quelle_url', ''),
                                     'nennung': 'Explainer graphic of the narrated statement, not a screenshot or measurement'})
                 elif s.get('thema') == 'Nintendo: The Problem with Durable Cards':
@@ -2613,8 +2626,12 @@ def main(skript_pfad, aus, vorlage=None):
                 # to do" - gemalt scheiterte (FLUX malte "SET LIMIDS"), danach kamen Zufallsclips (unscharfer Wald 1/10,
                 # rote "WHO? WHAT?"-Schrift 2/10). Die Erklaergrafik zum Satz ist besser als ein fremder Clip.
                 import erklaergrafik
-                g = erklaergrafik.grafik(aus / f'ill_{i:02d}.jpg', t['text'], t.get('motiv', ''),
-                                         s.get('thema') or t.get('werkzeug') or '', shot.get('phase_text', ''))
+                # 07.11.2026: eine schon gezeigte feste Grafik nicht als Rueckfall wiederholen - Betraege als Kachel
+                wdh = grafik_wiederholt(t, shot)
+                g = (None if wdh and not erklaergrafik_zahlen(t) else
+                     erklaergrafik.grafik(aus / f'ill_{i:02d}.jpg', t['text'], t.get('motiv', ''),
+                                          s.get('thema') or t.get('werkzeug') or '', shot.get('phase_text', ''),
+                                          art='zahlen' if wdh else None, quer=B > H))
                 if g and motiv_ok(g):
                     ill = g
                     quellen.append({'quelle': 'Erklaergrafik', 'seite': t.get('quelle_url', ''),

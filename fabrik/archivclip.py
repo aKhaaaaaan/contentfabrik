@@ -154,6 +154,14 @@ VERSUCHE = 4  # Filme je Einstellung (je Film 6 Standbilder + eine KI-Anfrage)
 # GEMESSEN 30.10.2026 (Adidas 41048229773): vier Filme fuer "two brothers ~1924", Noten 2/3/3/3, je 20-60 s.
 # Liegen die ersten beiden Filme unter AUSSICHT, trifft die Suche das Motiv nicht - gemaltes Bild statt Weitersuchen.
 AUSSICHT = 4
+# GEMESSEN Ford-Langvideo 42255331749: 122 Clip-Bewertungen (je eine Gemini-Anfrage, ~1/3 aller), nur 9 bestanden,
+# 37 Wiederholungen ("Automobile parade" 6x). Pokemon-Langvideo 42481318121: 24 Witz-Bewertungen, alle 0-3/10.
+# Je Videoprozess: ein Film mit Note <= HOFFNUNGSLOS wird nicht noch einmal bewertet; nach FEHLSERIE_MAX Einstellungen
+# hintereinander ohne Treffer (mit echten Bewertungen) sucht diese Art fuer den Rest des Videos nicht mehr.
+HOFFNUNGSLOS = 3
+FEHLSERIE_MAX = {'witz': 3, 'archiv': 8}
+ABGELEHNT = set()
+FEHLSERIE = {'witz': 0, 'archiv': 0}
 COMMONS_LIZENZ = re.compile(r'^(?:public domain|cc0|cc by \d)', re.I)  # ohne SA/NC/ND: gemaltes Video bleibt frei
 COMMONS_MAX_S = 1800
 
@@ -318,11 +326,25 @@ def finden(satz, szene, epoche, benutzt=(), suche='', witz=False):
     j = epoche if isinstance(epoche, int) else jahr(epoche)
     if not witz and (not j or j > JAHR_MAX):
         return None
-    versucht = set(benutzt)
-    noten = []
+    art = 'witz' if witz else 'archiv'
+    if FEHLSERIE[art] >= FEHLSERIE_MAX[art]:
+        return None
+    versucht = set(benutzt) | ABGELEHNT
+    noten, echt = [], []
+    fund = _suchen(satz, szene, j, versucht, len(versucht), suche, witz, noten, echt)
+    if fund:
+        FEHLSERIE[art] = 0
+    elif echt:
+        FEHLSERIE[art] += 1
+        if FEHLSERIE[art] == FEHLSERIE_MAX[art]:
+            print(f'{art}-Clips: {FEHLSERIE[art]} Einstellungen ohne Treffer - Suche fuer dieses Video beendet')
+    return fund
+
+
+def _suchen(satz, szene, j, versucht, start, suche, witz, noten, echt):
     for begriff in (witz_begriffe(satz, szene, suche) if witz else begriffe(satz, szene, suche)):
         for film in (witz_kandidaten(begriff, witz) if witz else kandidaten(begriff, j)):
-            if len(versucht) - len(set(benutzt)) >= VERSUCHE or (len(noten) >= 2 and max(noten) < AUSSICHT):
+            if len(versucht) - start >= VERSUCHE or (len(noten) >= 2 and max(noten) < AUSSICHT):
                 return None
             if film['kennung'] in versucht:
                 continue
@@ -343,6 +365,11 @@ def finden(satz, szene, epoche, benutzt=(), suche='', witz=False):
             print(f"{f'Witz-Clip ({witz})' if witz else 'Archivclip'} {film['kennung'][:40]} ({begriff}, ~{j}): "
                   f"Note {note}")
             noten.append(note or 0)
+            if index is not None and (note or 0) <= HOFFNUNGSLOS:  # nur echte Urteile, kein Pruefungsausfall
+                ABGELEHNT.add(film['kennung'])
+                echt.append(note)
+            elif index is not None:
+                echt.append(note)
             if index is not None and note >= (WITZ_MIN_NOTE if witz else MIN_NOTE):
                 return dict(film, sekunde=gueltig[index], note=note)
     return None

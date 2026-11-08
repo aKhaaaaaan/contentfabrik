@@ -50,13 +50,59 @@ def serien_titel(titel, serie, datum, grenze=92):
     return (titel[:grenze - len(zusatz)].rstrip() + zusatz) if titel else zusatz.strip(' |')
 
 
+FRAGEWORT = re.compile(r'^(?:what|which|why|how|is|are|can|does|do|when|who|ai|the|a|an|your|my)\b', re.I)
+
+
+def werkzeug_name(skript):
+    """Kurzer Eigenname aus dem Thema (Teil vor ':' oder das ganze Thema), sonst ''.
+
+    GEMESSEN 08.11.2026 (YouTube-Studio, 28 Tage): 11 % der Aufrufe ueber die Suche, gesucht werden exakte
+    Toolnamen ("docling", "openshell", "fincept terminal"). Titel wie "Topic In, Video Out: What's The Catch?"
+    (Thema MoneyPrinterTurbo) enthielten den Namen nicht. Saetze/Fragen als Thema liefern bewusst nichts."""
+    thema = str(skript.get('thema') or '').strip()
+    name = thema.split(':', 1)[0].strip()
+    if not name or len(name) > 40 or len(name.split()) > 4 or re.search(r'[?!,.]', name) or FRAGEWORT.match(name):
+        return ''
+    return name
+
+
+def mit_werkzeug_name(titel, skript):
+    """Toolnamen voranstellen, wenn kein Wort davon im Titel steht (Gross-/Kleinschreibung egal)."""
+    name = werkzeug_name(skript)
+    woerter = [w for w in re.findall(r'[a-z0-9]+', name.lower()) if len(w) >= 3]
+    if not name or not woerter or any(w in titel.lower() for w in woerter):
+        return titel
+    return f'{name} – {titel}' if titel else name
+
+
+def mit_stand(beschreibung, skript, datum=None):
+    """'Info as of <Monat Jahr>.' fuer Erklaer-Kanaele, vor Quellen-/Lizenzzeilen; nie doppelt.
+
+    GEMELDET 08.11.2026 (YouTube-Kommentar laut Studio): Zuschauer fragte, ob Modell-Limits noch aktuell sind.
+    Geschichten (format geschichte) veralten nicht und bekommen keine Zeile."""
+    import datetime
+    from zoneinfo import ZoneInfo
+    import kanalstandard
+    if (kanalstandard.nach_name(skript.get('kanal')) or {}).get('format', 'geschichte') == 'geschichte' \
+            or 'Info as of ' in beschreibung:
+        return beschreibung
+    datum = datum or datetime.datetime.now(ZoneInfo('Europe/Berlin')).date()
+    monate = ('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+              'October', 'November', 'December')  # fest englisch, unabhaengig vom System-Locale
+    zeile = f'Info as of {monate[datum.month - 1]} {datum.year}.'
+    zeilen = beschreibung.splitlines()
+    beginn = next((i for i, z in enumerate(zeilen) if z.strip().lower().startswith(
+        ('source:', 'sources:', 'quelle', 'music:', 'photos', 'clips:', 'illustrations are'))), len(zeilen))
+    return '\n'.join(zeilen[:beginn] + [zeile] + zeilen[beginn:])
+
+
 def upload_titel(skript, datum=None):
     """Gemeinsamer Upload-Titel fuer Telegram, Berichte und Plattformen."""
     import datetime
     from zoneinfo import ZoneInfo
     from dramaturgie import videoformat
     import kanalstandard
-    titel = titel_text(skript['titel'])
+    titel = mit_werkzeug_name(titel_text(skript['titel']), skript)
     if videoformat(skript) == 'lang':
         return titel
     profil = kanalstandard.nach_name(skript.get('kanal')) or {}

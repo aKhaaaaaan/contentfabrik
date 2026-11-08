@@ -32,9 +32,13 @@ def interaktion(daten):
                  'Count these words in the narration budget. A follow/subscribe request alone '
                  'does not satisfy this requirement. ')
     if videoformat(daten) == 'lang':
-        return (gemeinsam + 'LONG FORM: Include exactly TWO calls to action: one near the beginning, '
-                'after the initial hook and first useful context within the opening 20-30 seconds, '
-                'and one at the end after the central answer. Each asks for all three actions. '
+        # GEMESSEN 08.11.2026 (YouTube-Studio, OpenShell-Langvideo): Bindung 88 % -> 53 % zwischen 0:06 und 0:18;
+        # Toolname/Nutzen erst bei 0:35, der fruehe Aufruf stand VOR dem ersten Mehrwert. Nutzer: Aufruf erst nach
+        # dem ersten echten Nutzen. Pruef-Fenster (sprachpruefung) bleibt 3-90 s.
+        return (gemeinsam + 'LONG FORM: Include exactly TWO calls to action: the first right after the first '
+                'real payoff (the end of the first chapter, a concrete answer or demonstration the viewer can '
+                'use), between 45 and 80 seconds in, never before it; and one at the end after the central '
+                'answer. Each asks for all three actions. '
                 'The opening sentence remains the story hook; do not open with engagement requests. '
                 'Return to the story immediately after the early request; no mid-video repetitions. ')
     return (gemeinsam + 'SHORT FORM: Include exactly ONE call to action near the end, after the '
@@ -61,7 +65,9 @@ def auftrag(daten):
         + interaktion(daten))
     if videoformat(daten) == 'lang':
         return (gemeinsam + 'LONG FORM: Start with a specific outcome, surprising sourced detail or '
-                'problem; demonstrate why it matters within the first 20-30 seconds. No logo intro '
+                'problem. Within the first 10 seconds name the exact subject (tool, product or company) and '
+                'the concrete benefit or stake for the viewer; no abstract scenario before that. '
+                'Demonstrate why it matters within the first 20-30 seconds. No logo intro '
                 'or channel housekeeping. '
                 # Nutzer 16.10.2026 (Langvideo-Leitfaden): sofort zeigen, was der Zuschauer am Ende weiss -
                 # gibt ihm den Grund zu bleiben. Ein Satz, keine Kapitelaufzaehlung.

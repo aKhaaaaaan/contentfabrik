@@ -302,6 +302,21 @@ def main(kanal_pfad, thema='', entwurf=''):
         budget.abschliessen(budgetkanal, reservierung, time.monotonic() - start)
 
 
+def lesbar(gruende):
+    """Sperrgruende fuer Telegram/Bericht kuerzen (nur Anzeige, nie fuer Gate-Entscheidungen).
+    GEMELDET 08.11.2026 (Berkshire 42462747293): Lief die Gesamtbewertung nicht (Bildpruefung sperrte zuerst),
+    standen zehn Zeilen „Video-Bewertung x fehlt oder ist ungueltig" vor dem echten Grund - Nutzer: „Was ist
+    jetzt wieder los?". Die fehlenden Einzelnoten werden zu einer Zeile, Bildbefunde zuerst."""
+    g = [str(x) for x in gruende or []]
+    if 'Video-Note fehlt oder ist ungueltig' not in g:
+        return g
+    rest = [x for x in g if x != 'Video-Note fehlt oder ist ungueltig'
+            and not re.match(r'^Video-Bewertung \w+ fehlt oder ist ungueltig$', x)]
+    bilder = [x for x in rest if x.startswith('Einstellung ')]
+    andere = [x for x in rest if not x.startswith('Einstellung ')]
+    return bilder + andere + ['Gesamtbewertung nicht gelaufen (Bildpruefung sperrte vorher)']
+
+
 def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     import lernen
     import entwurf_cache
@@ -812,7 +827,8 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
                 print('Lernen fehlgeschlagen - Kandidat bleibt erhalten')
         except Exception:
             print('Lernen nicht moeglich - Kandidat bleibt erhalten')
-        letzter_grund = '; '.join(gruende) if gruende else f'Ziel {ZIEL}/10 noch nicht erreicht'
+        letzter_grund = ('; '.join(lesbar(gruende)) if gruende
+                         else f'Ziel {ZIEL}/10 noch nicht erreicht')
         verlauf_eintragen(kanal, skript, 'unter_ziel' if gruende else 'kandidat', note)
         # GEMESSEN 30.10.2026 (Intel 41026135642, Adidas 41048229773): Korrektur 2 und 3 bauten je 6-7 Bilder neu,
         # danach fiel dieselbe Einstellung wieder mit 3/10 durch - 16-25 Min. ohne Wirkung, Versand als Entwurf.
@@ -875,6 +891,11 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         protokoll('zustellfehler')
         raise
     if code:
+        # GEMELDET 08.11.2026 (Berkshire 42462747293): Video fertig, Telegram antwortete viermal 504 - die
+        # Meldung nannte nur die Bildbefunde des Entwurfs, nicht dass bloss die Zustellung scheiterte.
+        letzter_grund = ('Video fertig gebaut' + (' (Entwurf)' if entwurf else '') + ', aber Telegram hat die '
+                         'Zustellung nicht angenommen (Serverstoerung). Kein Neubau noetig - Nachsenden ueber '
+                         'pilot-versand mit dieser Laufnummer.')
         protokoll('zustellfehler')
         raise RuntimeError(f'Telegram-Zustellung fehlgeschlagen (Code {code})')
     verlauf_eintragen(kanal, skript, 'gesendet', note, messung.get('abschnitte_s'),

@@ -568,6 +568,14 @@ BILDREGIE = (
     'Build it around the spoken subject performing one visible action, or a visible state/consequence. '
     'Make the exact product or process dominate; choose a close object detail, useful human interaction '
     'or location reveal according to what this sentence says. A room is context, not the whole story. '
+    # GEMESSEN 08.11.2026 (Pokemon-Langvideo 42481318121): 47 von 82 Einstellungen am Bildbezug gescheitert, rund 30
+    # davon "Geschaeftsleute im Buero", Handschlag, Besprechung, Toast, Mann am Schreibtisch - zu Saetzen ueber
+    # Vertraege, Mitbesitz, Budget, FCC-Regeln, Sendervertraege. Der Pruefer: "generische Szene, kein Bezug".
+    'Sentences about deals, contracts, ownership, budgets, rules, ratings or numbers are NOT illustrated by people '
+    'talking, meeting, shaking hands, toasting or sitting at a desk. Show the concrete thing the sentence is about '
+    'and its visible consequence instead: the product itself in the hands of its users, a full or empty shop shelf '
+    'of that product, a screen glowing in a living room for a broadcast, a factory line making that product, the '
+    'two devices connected for a trade. A meeting or desk scene only when the words describe that very meeting. '
     'For generated physical products explicitly named in narration, show the product itself with plain '
     'unlettered surfaces; this overrides the generic advice to hide writing-bearing objects, but never '
     'permits invented interfaces, writing, brand packaging or tool outputs. '

@@ -154468,6 +154468,1433 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "42462747293.1:business-origin-stories",
+      "run_id": "42462747293",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-08T09:34:43.304104+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "38de92b82bfeac614c472b1a5ca7206167a5e3e1",
+      "produktionsversion": "c53a785ea497259c2200fd5d6cbd0f280166b4758300a9eb21036887d5420859",
+      "videoformat": "short",
+      "thema": "Berkshire Hathaway",
+      "titel": [
+        "HIS BIGGEST MISTAKE",
+        "BUFFETT'S TEXTILE TRAP"
+      ],
+      "status": "zustellfehler",
+      "video_sha256": "6cc7c179000067744272eaa2123ba32ac5f6c62144524d1c03668af9e0d1d201",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Hauptcharakter und einige Männer in einer Lagerhalle, aber es ist keine konkrete Szene des Aktienangebots oder des Rückkaufs für 11,50 Dollar erkennbar.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt drei Männer in Anzügen in einem Raum, jedoch ist keine geschäftliche Vereinbarung oder eine mündliche Absprache im Sinne der Erzählung erkennbar.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine allgemeine Büroszene und keinen konkreten Bezug zum geschriebenen oder mündlichen Geldbetrag von 11,375 Dollar.",
+        "Offenes Problem (schwer): Das Bild zeigt den Hauptcharakter und einige Männer in einer Lagerhalle, aber es ist keine konkrete Szene des Aktienangebots oder des Rückkaufs für 11,50 Dollar erkennbar. Korrektur: Eine historische Illustration, die zeigt, wie Aktienanteile oder Papiere für einen bestimmten Betrag angeboten werden.",
+        "Offenes Problem (schwer): Das Bild zeigt drei Männer in Anzügen in einem Raum, jedoch ist keine geschäftliche Vereinbarung oder eine mündliche Absprache im Sinne der Erzählung erkennbar. Korrektur: Eine Darstellung zweier geschäftsmäßig wirkender Männer, die sich handelseinig gegenüberstehen oder eine mündliche Vereinbarung andeuten.",
+        "Offenes Problem (schwer): Das Bild zeigt eine allgemeine Büroszene und keinen konkreten Bezug zum geschriebenen oder mündlichen Geldbetrag von 11,375 Dollar. Korrektur: Ein Dokument oder ein handschriftlicher Vertrag, auf dem der genaue Betrag von 11,375 Dollar zu sehen ist."
+      ],
+      "einstellungen": 12,
+      "unterschiedliche_motive": 11,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "42462747293",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-08",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 966.5,
+            "pruefung_s": 32.9,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (6/10): Das Bild zeigt einen gesch ftlichen Handschlag, was abstrakt zum Deal passt, aber nicht das Schrumpfen des schriftlichen Angebots oder Buffetts w tende Reaktion darstellt.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt zwar historische Personen und eine historische Szene, jedoch wird kein Aktienkauf oder eine Transaktion aus dem Jahr 1962 dargestellt.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar eine geschäftliche Verhandlungssituation in einer historischen Epoche, aber das spezifische Angebot von Aktien zu 11.50 Dollar im Jahr 1964 ist visuell nicht darstellbar und wird hier nur durch eine allgemeine Büroszene ersetzt.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen generellen Geschäftsmann in einem Büro, aber keinerlei Bezug zur mündlichen Vereinbarung eines Managers im Jahr 1964 oder den Aktienkursen.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Frage bezieht sich auf ein schriftliches Angebot bzw. eine schriftliche Vereinbarung mit einem abweichenden Betrag, während das Bild lediglich eine Sitzung vor einem Tresor zeigt.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Handschlag-Szene in einem Büro, aber keinen Bezug zu dem gesprochenen Betrag von 11,375 Dollar oder einem schriftlichen Angebot.",
+              "Offenes Problem (schwer): Das Bild zeigt einen gesch ftlichen Handschlag, was abstrakt zum Deal passt, aber nicht das Schrumpfen des schriftlichen Angebots oder Buffetts w tende Reaktion darstellt. Korrektur: Eine Illustration, die Warren Buffett w tend blickend auf ein entt uschendes Dokument mit einer veränderten Summe zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar historische Personen und eine historische Szene, jedoch wird kein Aktienkauf oder eine Transaktion aus dem Jahr 1962 dargestellt. Korrektur: Eine historische Illustration oder Darstellung von Aktienzertifikaten beziehungsweise einer Transaktion aus dem Jahr 1962.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar eine geschäftliche Verhandlungssituation in einer historischen Epoche, aber das spezifische Angebot von Aktien zu 11.50 Dollar im Jahr 1964 ist visuell nicht darstellbar und wird hier nur durch eine allgemeine Büroszene ersetzt. Korrektur: Eine realistische oder historische Illustration, die eine Aktienverkaufstransaktion oder Dokumente mit Preisangaben aus den 1960er Jahren zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen generellen Geschäftsmann in einem Büro, aber keinerlei Bezug zur mündlichen Vereinbarung eines Managers im Jahr 1964 oder den Aktienkursen. Korrektur: Eine historische Illustration, die zwei Geschäftsleute bei einer mündlichen Verhandlung im Jahr 1964 zeigt.",
+              "Offenes Problem (schwer): Die gesprochene Frage bezieht sich auf ein schriftliches Angebot bzw. eine schriftliche Vereinbarung mit einem abweichenden Betrag, während das Bild lediglich eine Sitzung vor einem Tresor zeigt. Korrektur: Ein Dokument oder Brief mit einer handschriftlichen oder maschinenschriftlichen Summe wie 11.375 Dollar.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Handschlag-Szene in einem Büro, aber keinen Bezug zu dem gesprochenen Betrag von 11,375 Dollar oder einem schriftlichen Angebot. Korrektur: Ein Dokument oder ein geschriebenes Angebot mit einer Geldsumme, die einen enttäuschenden Betrag zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Fenrir",
+              "stimme": 12.3,
+              "zeitmarken": 4.3,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 12,
+              "bilder_vereinfacht": 3,
+              "clips_und_stuecke": 767.0,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 12,
+                "motive": 12,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 50.8,
+              "gesamt": 966.1,
+              "videolaenge_s": 44.0,
+              "abschnitte_s": [
+                7.68,
+                5.14,
+                6.36,
+                7.82,
+                4.48,
+                7.5,
+                4.98
+              ],
+              "woerter": 102,
+              "clips": {
+                "witz": 1,
+                "archiv": 1
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Buffett's oral deal shrank in writing.",
+                "fest": false,
+                "text": "Das Bild zeigt einen gesch ftlichen Handschlag, was abstrakt zum Deal passt, aber nicht das Schrumpfen des schriftlichen Angebots oder Buffetts w tende Reaktion darstellt. Korrektur: Eine Illustration, die Warren Buffett w tend blickend auf ein entt uschendes Dokument mit einer veränderten Summe zeigt."
+              },
+              {
+                "zeit": "00:07.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "In 1962, his fund bought Berkshire shares at $7.50, expecting a profitable tender offer.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar historische Personen und eine historische Szene, jedoch wird kein Aktienkauf oder eine Transaktion aus dem Jahr 1962 dargestellt. Korrektur: Eine historische Illustration oder Darstellung von Aktienzertifikaten beziehungsweise einer Transaktion aus dem Jahr 1962."
+              },
+              {
+                "zeit": "00:12.82",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 3,
+                "gesprochen": "In 1964, he offered his shares back at $11.50.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar eine geschäftliche Verhandlungssituation in einer historischen Epoche, aber das spezifische Angebot von Aktien zu 11.50 Dollar im Jahr 1964 ist visuell nicht darstellbar und wird hier nur durch eine allgemeine Büroszene ersetzt. Korrektur: Eine realistische oder historische Illustration, die eine Aktienverkaufstransaktion oder Dokumente mit Preisangaben aus den 1960er Jahren zeigt."
+              },
+              {
+                "zeit": "00:17.06",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "The manager orally agreed.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich einen generellen Geschäftsmann in einem Büro, aber keinerlei Bezug zur mündlichen Vereinbarung eines Managers im Jahr 1964 oder den Aktienkursen. Korrektur: Eine historische Illustration, die zwei Geschäftsleute bei einer mündlichen Verhandlung im Jahr 1964 zeigt."
+              },
+              {
+                "zeit": "00:19.18",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 5,
+                "gesprochen": "So what arrived in writing?",
+                "fest": false,
+                "text": "Die gesprochene Frage bezieht sich auf ein schriftliches Angebot bzw. eine schriftliche Vereinbarung mit einem abweichenden Betrag, während das Bild lediglich eine Sitzung vor einem Tresor zeigt. Korrektur: Ein Dokument oder Brief mit einer handschriftlichen oder maschinenschriftlichen Summe wie 11.375 Dollar."
+              },
+              {
+                "zeit": "00:21.34",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "Only $11.375.",
+                "fest": false,
+                "text": "Das Bild zeigt eine Handschlag-Szene in einem Büro, aber keinen Bezug zu dem gesprochenen Betrag von 11,375 Dollar oder einem schriftlichen Angebot. Korrektur: Ein Dokument oder ein geschriebenes Angebot mit einer Geldsumme, die einen enttäuschenden Betrag zeigt."
+              }
+            ],
+            "sekunden": 999.5,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 1.8,
+            "bau_s": 607.7,
+            "pruefung_s": 26.7,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 3/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine historische Szene mit Männern, aber nicht den konkreten Vorgang des Aktienrückkaufs oder Angebots von 11,50 Dollar.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die sichtbare Szene zeigt eine Büroszene mit Personen, aber keinen mündlichen Deal oder die Verhandlungen über Aktienpreise.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt drei geschäftliche Personen an einem Tisch, aber keinen konkreten Bezug zum Betrag von 11,375 Dollar oder einem schriftlichen Dokument mit dieser Zahl.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen Mann am Tisch mit Kursen im Hintergrund, was thematisch entfernt an Aktienkauf erinnert, aber die konkrete Handlung des Aktienkaufs zur Kontrolle wird nicht visuell dargestellt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine historische Szene mit Männern, aber nicht den konkreten Vorgang des Aktienrückkaufs oder Angebots von 11,50 Dollar. Korrektur: Eine historische Illustration, die zeigt, wie Aktienanteile oder Papiere für 11,50 angeboten werden.",
+              "Offenes Problem (schwer): Die sichtbare Szene zeigt eine Büroszene mit Personen, aber keinen mündlichen Deal oder die Verhandlungen über Aktienpreise. Korrektur: Eine historische Szene zweier Geschäftsmänner, die per Handschlag oder Gespräch eine Vereinbarung treffen.",
+              "Offenes Problem (schwer): Das Bild zeigt drei geschäftliche Personen an einem Tisch, aber keinen konkreten Bezug zum Betrag von 11,375 Dollar oder einem schriftlichen Dokument mit dieser Zahl. Korrektur: Ein Dokument oder Brief, in dem die genannte Summe von 11,375 Dollar sichtbar ist.",
+              "Offenes Problem (schwer): Die Szene zeigt einen Mann am Tisch mit Kursen im Hintergrund, was thematisch entfernt an Aktienkauf erinnert, aber die konkrete Handlung des Aktienkaufs zur Kontrolle wird nicht visuell dargestellt. Korrektur: Eine historische Illustration, die Warren Buffett zeigt, wie er aktiv mehr Aktienanteile erwirbt, um die Kontrolle über das Unternehmen zu erlangen."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 6,
+              "stuecke_neu": 6,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 448.5,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 12,
+                "motive": 12,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 51.3,
+              "gesamt": 607.4,
+              "videolaenge_s": 44.0,
+              "abschnitte_s": [
+                7.68,
+                5.14,
+                6.36,
+                7.82,
+                4.48,
+                7.5,
+                4.98
+              ],
+              "woerter": 102,
+              "clips": {
+                "witz": 2,
+                "archiv": 1
+              }
+            },
+            "kategorien": {
+              "bild_passt": 3
+            },
+            "probleme": [
+              {
+                "zeit": "00:12.82",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 3,
+                "gesprochen": "In 1964, he offered his shares back at $11.50.",
+                "fest": false,
+                "text": "Das Bild zeigt eine historische Szene mit Männern, aber nicht den konkreten Vorgang des Aktienrückkaufs oder Angebots von 11,50 Dollar. Korrektur: Eine historische Illustration, die zeigt, wie Aktienanteile oder Papiere für 11,50 angeboten werden."
+              },
+              {
+                "zeit": "00:17.06",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "The manager orally agreed.",
+                "fest": false,
+                "text": "Die sichtbare Szene zeigt eine Büroszene mit Personen, aber keinen mündlichen Deal oder die Verhandlungen über Aktienpreise. Korrektur: Eine historische Szene zweier Geschäftsmänner, die per Handschlag oder Gespräch eine Vereinbarung treffen."
+              },
+              {
+                "zeit": "00:21.34",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "Only $11.375.",
+                "fest": false,
+                "text": "Das Bild zeigt drei geschäftliche Personen an einem Tisch, aber keinen konkreten Bezug zum Betrag von 11,375 Dollar oder einem schriftlichen Dokument mit dieser Zahl. Korrektur: Ein Dokument oder Brief, in dem die genannte Summe von 11,375 Dollar sichtbar ist."
+              },
+              {
+                "zeit": "00:27.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Instead, he bought more stock at an even higher price to take control.",
+                "fest": false,
+                "text": "Die Szene zeigt einen Mann am Tisch mit Kursen im Hintergrund, was thematisch entfernt an Aktienkauf erinnert, aber die konkrete Handlung des Aktienkaufs zur Kontrolle wird nicht visuell dargestellt. Korrektur: Eine historische Illustration, die Warren Buffett zeigt, wie er aktiv mehr Aktienanteile erwirbt, um die Kontrolle über das Unternehmen zu erlangen."
+              }
+            ],
+            "sekunden": 636.2,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "42462747293-2",
+              "datum": "2026-11-08",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 636.2,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 3
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                2,
+                3,
+                4
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 2.5,
+            "bau_s": 551.9,
+            "pruefung_s": 23.1,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Hauptcharakter und einige Männer in einer Lagerhalle, aber es ist keine konkrete Szene des Aktienangebots oder des Rückkaufs für 11,50 Dollar erkennbar.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt drei Männer in Anzügen in einem Raum, jedoch ist keine geschäftliche Vereinbarung oder eine mündliche Absprache im Sinne der Erzählung erkennbar.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine allgemeine Büroszene und keinen konkreten Bezug zum geschriebenen oder mündlichen Geldbetrag von 11,375 Dollar.",
+              "Offenes Problem (schwer): Das Bild zeigt den Hauptcharakter und einige Männer in einer Lagerhalle, aber es ist keine konkrete Szene des Aktienangebots oder des Rückkaufs für 11,50 Dollar erkennbar. Korrektur: Eine historische Illustration, die zeigt, wie Aktienanteile oder Papiere für einen bestimmten Betrag angeboten werden.",
+              "Offenes Problem (schwer): Das Bild zeigt drei Männer in Anzügen in einem Raum, jedoch ist keine geschäftliche Vereinbarung oder eine mündliche Absprache im Sinne der Erzählung erkennbar. Korrektur: Eine Darstellung zweier geschäftsmäßig wirkender Männer, die sich handelseinig gegenüberstehen oder eine mündliche Vereinbarung andeuten.",
+              "Offenes Problem (schwer): Das Bild zeigt eine allgemeine Büroszene und keinen konkreten Bezug zum geschriebenen oder mündlichen Geldbetrag von 11,375 Dollar. Korrektur: Ein Dokument oder ein handschriftlicher Vertrag, auf dem der genaue Betrag von 11,375 Dollar zu sehen ist."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 8,
+              "stuecke_neu": 4,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 486.7,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 12,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 51.2,
+              "gesamt": 551.6,
+              "videolaenge_s": 44.0,
+              "abschnitte_s": [
+                7.68,
+                5.14,
+                6.36,
+                7.82,
+                4.48,
+                7.5,
+                4.98
+              ],
+              "woerter": 102,
+              "clips": {
+                "witz": 2,
+                "archiv": 1
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:12.82",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 3,
+                "gesprochen": "In 1964, he offered his shares back at $11.50.",
+                "fest": false,
+                "text": "Das Bild zeigt den Hauptcharakter und einige Männer in einer Lagerhalle, aber es ist keine konkrete Szene des Aktienangebots oder des Rückkaufs für 11,50 Dollar erkennbar. Korrektur: Eine historische Illustration, die zeigt, wie Aktienanteile oder Papiere für einen bestimmten Betrag angeboten werden."
+              },
+              {
+                "zeit": "00:17.06",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "The manager orally agreed.",
+                "fest": false,
+                "text": "Das Bild zeigt drei Männer in Anzügen in einem Raum, jedoch ist keine geschäftliche Vereinbarung oder eine mündliche Absprache im Sinne der Erzählung erkennbar. Korrektur: Eine Darstellung zweier geschäftsmäßig wirkender Männer, die sich handelseinig gegenüberstehen oder eine mündliche Vereinbarung andeuten."
+              },
+              {
+                "zeit": "00:21.34",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "Only $11.375.",
+                "fest": false,
+                "text": "Das Bild zeigt eine allgemeine Büroszene und keinen konkreten Bezug zum geschriebenen oder mündlichen Geldbetrag von 11,375 Dollar. Korrektur: Ein Dokument oder ein handschriftlicher Vertrag, auf dem der genaue Betrag von 11,375 Dollar zu sehen ist."
+              }
+            ],
+            "sekunden": 577.5,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "42462747293-3",
+              "datum": "2026-11-08",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 577.5,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 3
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "zustellfehler",
+        "grund": "Video-Note fehlt oder ist ungueltig; Video-Bewertung hook fehlt oder ist ungueltig; Video-bild_passt 2/10 unter 7/10; Video-Bewertung dynamik fehlt oder ist ungueltig; Video-Bewertung text fehlt oder ist ungueltig; Video-Bewertung ton_stimme fehlt oder ist ungueltig; Video-Bewertung tempo fehlt oder ist ungueltig; Video-Bewertung inhalt fehlt oder ist ungueltig; Video-Bewertung schluss_loop fehlt oder ist ungueltig; Video-Bewertung regeln fehlt oder ist ungueltig; Video-Bewertung story fehlt oder ist ungueltig; Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Hauptcharakter und einige Männer in einer Lagerhalle, aber es ist keine konkrete Szene des Aktienangebots oder des Rückkaufs für 11,50 Dollar erkennbar.; Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt drei Männer in Anzügen in einem Raum, jedoch ist keine geschäftliche Vereinbarung oder eine mündliche Absprache im Sinne der Erzählung erkennbar.; Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine allgemeine Büroszene und keinen konkreten Bezug zum geschriebenen oder mündlichen Geldbetrag von 11,375 Dollar.; Offenes Problem (schwer): Das Bild zeigt den Hauptcharakter und einige Männer in einer Lagerhalle, aber es ist keine konkrete Szene des Aktienangebots oder des Rückkaufs für 11,50 Dollar erkennbar. Korrektur: Eine historische Illustration, die zeigt, wie Aktienanteile oder Papiere für einen bestimmten Betrag angeboten werden.; Offenes Problem (schwer): Das Bild zeigt drei Männer in Anzügen in einem Raum, jedoch ist keine geschäftliche Vereinbarung oder eine mündliche Absprache im Sinne der Erzählung erkennbar. Korrektur: Eine Darstellung zweier geschäftsmäßig wirkender Männer, die sich handelseinig gegenüberstehen oder eine mündliche Vereinbarung andeuten.; Offenes Problem (schwer): Das Bild zeigt eine allgemeine Büroszene und keinen konkreten Bezug zum geschriebenen oder mündlichen Geldbetrag von 11,375 Dollar. Korrektur: Ein Dokument oder ein handschriftlicher Vertrag, auf dem der genaue Betrag von 11,375 Dollar zu sehen ist.",
+        "sekunden": 2914.4,
+        "upload_titel": "HIS BIGGEST MISTAKE: BUFFETT'S TEXTILE TRAP"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:12.82",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 3,
+            "gesprochen": "In 1964, he offered his shares back at $11.50.",
+            "fest": false,
+            "text": "Das Bild zeigt den Hauptcharakter und einige Männer in einer Lagerhalle, aber es ist keine konkrete Szene des Aktienangebots oder des Rückkaufs für 11,50 Dollar erkennbar. Korrektur: Eine historische Illustration, die zeigt, wie Aktienanteile oder Papiere für einen bestimmten Betrag angeboten werden."
+          },
+          {
+            "zeit": "00:17.06",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "The manager orally agreed.",
+            "fest": false,
+            "text": "Das Bild zeigt drei Männer in Anzügen in einem Raum, jedoch ist keine geschäftliche Vereinbarung oder eine mündliche Absprache im Sinne der Erzählung erkennbar. Korrektur: Eine Darstellung zweier geschäftsmäßig wirkender Männer, die sich handelseinig gegenüberstehen oder eine mündliche Vereinbarung andeuten."
+          },
+          {
+            "zeit": "00:21.34",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 6,
+            "gesprochen": "Only $11.375.",
+            "fest": false,
+            "text": "Das Bild zeigt eine allgemeine Büroszene und keinen konkreten Bezug zum geschriebenen oder mündlichen Geldbetrag von 11,375 Dollar. Korrektur: Ein Dokument oder ein handschriftlicher Vertrag, auf dem der genaue Betrag von 11,375 Dollar zu sehen ist."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 43.9,
+          "fps": 30.0,
+          "lufs": -14.6,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 39.74,
+              "bis_s": 41.08,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.977
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 23.9,
+              "bis_s": 44.4,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Buffett's",
+                "s": 0.0,
+                "e": 0.64,
+                "p": 0.9540628492832184
+              },
+              {
+                "w": "oral",
+                "s": 0.64,
+                "e": 0.92,
+                "p": 0.5067064166069031
+              },
+              {
+                "w": "deal",
+                "s": 0.92,
+                "e": 1.42,
+                "p": 0.9859175086021423
+              },
+              {
+                "w": "shrank",
+                "s": 1.42,
+                "e": 2.4,
+                "p": 0.9837770164012909
+              },
+              {
+                "w": "in",
+                "s": 2.4,
+                "e": 2.6,
+                "p": 0.9844850301742554
+              },
+              {
+                "w": "writing.",
+                "s": 2.6,
+                "e": 2.88,
+                "p": 0.9937930107116699
+              },
+              {
+                "w": "His",
+                "s": 3.6,
+                "e": 3.7,
+                "p": 0.9602161645889282
+              },
+              {
+                "w": "angry",
+                "s": 3.7,
+                "e": 4.04,
+                "p": 0.9453192353248596
+              },
+              {
+                "w": "reaction",
+                "s": 4.04,
+                "e": 4.72,
+                "p": 0.9974551796913147
+              },
+              {
+                "w": "became",
+                "s": 4.72,
+                "e": 4.92,
+                "p": 0.9921345710754395
+              },
+              {
+                "w": "his",
+                "s": 4.92,
+                "e": 5.28,
+                "p": 0.9886628985404968
+              },
+              {
+                "w": "biggest",
+                "s": 5.28,
+                "e": 5.66,
+                "p": 0.9932711720466614
+              },
+              {
+                "w": "investment",
+                "s": 5.66,
+                "e": 6.06,
+                "p": 0.993148148059845
+              },
+              {
+                "w": "mistake.",
+                "s": 6.06,
+                "e": 7.0,
+                "p": 0.9927636981010437
+              },
+              {
+                "w": "In",
+                "s": 7.64,
+                "e": 7.78,
+                "p": 0.9923535585403442
+              },
+              {
+                "w": "1962,",
+                "s": 7.78,
+                "e": 8.3,
+                "p": 0.9948943853378296
+              },
+              {
+                "w": "his",
+                "s": 8.72,
+                "e": 8.86,
+                "p": 0.995610773563385
+              },
+              {
+                "w": "fund",
+                "s": 8.86,
+                "e": 9.08,
+                "p": 0.5349938869476318
+              },
+              {
+                "w": "-bought",
+                "s": 9.08,
+                "e": 9.32,
+                "p": 0.7701944510142008
+              },
+              {
+                "w": "Berkshire",
+                "s": 9.32,
+                "e": 9.56,
+                "p": 0.9523443579673767
+              },
+              {
+                "w": "shares",
+                "s": 9.56,
+                "e": 9.94,
+                "p": 0.9400781989097595
+              },
+              {
+                "w": "at",
+                "s": 9.94,
+                "e": 10.18,
+                "p": 0.995768666267395
+              },
+              {
+                "w": "$750,",
+                "s": 10.18,
+                "e": 10.52,
+                "p": 0.5622029006481171
+              },
+              {
+                "w": "expecting",
+                "s": 10.94,
+                "e": 11.22,
+                "p": 0.9890979528427124
+              },
+              {
+                "w": "a",
+                "s": 11.22,
+                "e": 11.42,
+                "p": 0.997441291809082
+              },
+              {
+                "w": "profitable",
+                "s": 11.42,
+                "e": 11.78,
+                "p": 0.9977391958236694
+              },
+              {
+                "w": "tender",
+                "s": 11.78,
+                "e": 12.12,
+                "p": 0.7279732823371887
+              },
+              {
+                "w": "offer.",
+                "s": 12.12,
+                "e": 12.38,
+                "p": 0.5506788492202759
+              },
+              {
+                "w": "In",
+                "s": 12.82,
+                "e": 13.02,
+                "p": 0.9959773421287537
+              },
+              {
+                "w": "1964,",
+                "s": 13.02,
+                "e": 13.48,
+                "p": 0.9968311190605164
+              },
+              {
+                "w": "he",
+                "s": 14.06,
+                "e": 14.16,
+                "p": 0.996269702911377
+              },
+              {
+                "w": "offered",
+                "s": 14.16,
+                "e": 14.36,
+                "p": 0.9891610741615295
+              },
+              {
+                "w": "his",
+                "s": 14.36,
+                "e": 14.54,
+                "p": 0.9942488670349121
+              },
+              {
+                "w": "shares",
+                "s": 14.54,
+                "e": 14.72,
+                "p": 0.9810491800308228
+              },
+              {
+                "w": "back",
+                "s": 14.72,
+                "e": 15.04,
+                "p": 0.9927330017089844
+              },
+              {
+                "w": "at",
+                "s": 15.04,
+                "e": 15.26,
+                "p": 0.9879797697067261
+              },
+              {
+                "w": "$11",
+                "s": 15.26,
+                "e": 15.88,
+                "p": 0.9947012662887573
+              },
+              {
+                "w": ".50.",
+                "s": 15.88,
+                "e": 16.42,
+                "p": 0.9893597960472107
+              },
+              {
+                "w": "The",
+                "s": 17.06,
+                "e": 17.3,
+                "p": 0.9918745160102844
+              },
+              {
+                "w": "manager",
+                "s": 17.3,
+                "e": 17.52,
+                "p": 0.9649640321731567
+              },
+              {
+                "w": "orally",
+                "s": 17.52,
+                "e": 17.9,
+                "p": 0.9575811624526978
+              },
+              {
+                "w": "agreed.",
+                "s": 17.9,
+                "e": 18.4,
+                "p": 0.998711347579956
+              },
+              {
+                "w": "So",
+                "s": 19.22,
+                "e": 19.26,
+                "p": 0.9269999265670776
+              },
+              {
+                "w": "what",
+                "s": 19.26,
+                "e": 19.46,
+                "p": 0.857866108417511
+              },
+              {
+                "w": "arrived",
+                "s": 19.46,
+                "e": 19.88,
+                "p": 0.9957348704338074
+              },
+              {
+                "w": "in",
+                "s": 19.88,
+                "e": 20.24,
+                "p": 0.9887864589691162
+              },
+              {
+                "w": "writing?",
+                "s": 20.24,
+                "e": 20.56,
+                "p": 0.9981212019920349
+              },
+              {
+                "w": "Only",
+                "s": 21.38,
+                "e": 21.38,
+                "p": 0.7709375023841858
+              },
+              {
+                "w": "$11",
+                "s": 21.38,
+                "e": 22.02,
+                "p": 0.99521404504776
+              },
+              {
+                "w": ".38",
+                "s": 22.02,
+                "e": 23.06,
+                "p": 0.8106914758682251
+              },
+              {
+                "w": "of",
+                "s": 23.06,
+                "e": 23.3,
+                "p": 0.7940791249275208
+              },
+              {
+                "w": "a",
+                "s": 23.3,
+                "e": 23.36,
+                "p": 0.9684630632400513
+              },
+              {
+                "w": "cent.",
+                "s": 23.36,
+                "e": 23.6,
+                "p": 0.9975442290306091
+              },
+              {
+                "w": "Buffett",
+                "s": 24.64,
+                "e": 24.64,
+                "p": 0.9884040355682373
+              },
+              {
+                "w": "admitted",
+                "s": 24.64,
+                "e": 25.04,
+                "p": 0.9971519708633423
+              },
+              {
+                "w": "that",
+                "s": 25.04,
+                "e": 25.5,
+                "p": 0.9434188604354858
+              },
+              {
+                "w": "made",
+                "s": 25.5,
+                "e": 25.78,
+                "p": 0.97762131690979
+              },
+              {
+                "w": "him",
+                "s": 25.78,
+                "e": 26.06,
+                "p": 0.9951595664024353
+              },
+              {
+                "w": "angry.",
+                "s": 26.06,
+                "e": 26.44,
+                "p": 0.9974673986434937
+              },
+              {
+                "w": "Instead,",
+                "s": 26.44,
+                "e": 27.36,
+                "p": 0.6205555200576782
+              },
+              {
+                "w": "he",
+                "s": 27.6,
+                "e": 27.64,
+                "p": 0.9861366748809814
+              },
+              {
+                "w": "bought",
+                "s": 27.64,
+                "e": 27.82,
+                "p": 0.9642277359962463
+              },
+              {
+                "w": "more",
+                "s": 27.82,
+                "e": 28.1,
+                "p": 0.9506563544273376
+              },
+              {
+                "w": "stock",
+                "s": 28.1,
+                "e": 28.44,
+                "p": 0.994247555732727
+              },
+              {
+                "w": "at",
+                "s": 28.44,
+                "e": 28.74,
+                "p": 0.939194917678833
+              },
+              {
+                "w": "an",
+                "s": 28.74,
+                "e": 28.84,
+                "p": 0.9758029580116272
+              },
+              {
+                "w": "even",
+                "s": 28.84,
+                "e": 29.0,
+                "p": 0.9929015040397644
+              },
+              {
+                "w": "higher",
+                "s": 29.0,
+                "e": 29.34,
+                "p": 0.993898868560791
+              },
+              {
+                "w": "price",
+                "s": 29.34,
+                "e": 29.78,
+                "p": 0.9934951663017273
+              },
+              {
+                "w": "to",
+                "s": 29.78,
+                "e": 30.2,
+                "p": 0.9636857509613037
+              },
+              {
+                "w": "take",
+                "s": 30.2,
+                "e": 30.36,
+                "p": 0.9643116593360901
+              },
+              {
+                "w": "control.",
+                "s": 30.36,
+                "e": 30.72,
+                "p": 0.9863345623016357
+              },
+              {
+                "w": "That",
+                "s": 31.54,
+                "e": 31.62,
+                "p": 0.9683884978294373
+              },
+              {
+                "w": "shrunken",
+                "s": 31.62,
+                "e": 32.14,
+                "p": 0.9910533428192139
+              },
+              {
+                "w": "deal",
+                "s": 32.14,
+                "e": 32.32,
+                "p": 0.9926247000694275
+              },
+              {
+                "w": "left",
+                "s": 32.32,
+                "e": 32.62,
+                "p": 0.9855355024337769
+              },
+              {
+                "w": "him",
+                "s": 32.62,
+                "e": 32.74,
+                "p": 0.9985783100128174
+              },
+              {
+                "w": "controlling",
+                "s": 32.74,
+                "e": 33.08,
+                "p": 0.9958414435386658
+              },
+              {
+                "w": "a",
+                "s": 33.08,
+                "e": 33.32,
+                "p": 0.9780535697937012
+              },
+              {
+                "w": "declining",
+                "s": 33.32,
+                "e": 33.66,
+                "p": 0.9967676401138306
+              },
+              {
+                "w": "textile",
+                "s": 33.66,
+                "e": 34.14,
+                "p": 0.9795953631401062
+              },
+              {
+                "w": "business.",
+                "s": 34.14,
+                "e": 34.68,
+                "p": 0.9954941272735596
+              },
+              {
+                "w": "He",
+                "s": 35.28,
+                "e": 35.52,
+                "p": 0.9897973537445068
+              },
+              {
+                "w": "said",
+                "s": 35.52,
+                "e": 35.74,
+                "p": 0.9623253345489502
+              },
+              {
+                "w": "it",
+                "s": 35.74,
+                "e": 36.04,
+                "p": 0.9125643372535706
+              },
+              {
+                "w": "denied",
+                "s": 36.04,
+                "e": 36.26,
+                "p": 0.9905921816825867
+              },
+              {
+                "w": "him",
+                "s": 36.26,
+                "e": 36.5,
+                "p": 0.9886260628700256
+              },
+              {
+                "w": "about",
+                "s": 36.5,
+                "e": 36.78,
+                "p": 0.9461196660995483
+              },
+              {
+                "w": "$200",
+                "s": 36.78,
+                "e": 37.34,
+                "p": 0.8763557076454163
+              },
+              {
+                "w": "billion.",
+                "s": 37.34,
+                "e": 38.2,
+                "p": 0.838862955570221
+              },
+              {
+                "w": "Be",
+                "s": 39.04,
+                "e": 39.48,
+                "p": 0.9841093420982361
+              },
+              {
+                "w": "sure",
+                "s": 39.48,
+                "e": 39.62,
+                "p": 0.999046266078949
+              },
+              {
+                "w": "to",
+                "s": 39.62,
+                "e": 39.74,
+                "p": 0.991753339767456
+              },
+              {
+                "w": "like,",
+                "s": 39.74,
+                "e": 39.9,
+                "p": 0.9441719651222229
+              },
+              {
+                "w": "share,",
+                "s": 40.02,
+                "e": 40.18,
+                "p": 0.9973354935646057
+              },
+              {
+                "w": "and",
+                "s": 40.38,
+                "e": 40.44,
+                "p": 0.9867547154426575
+              },
+              {
+                "w": "save",
+                "s": 40.44,
+                "e": 40.68,
+                "p": 0.9876272082328796
+              },
+              {
+                "w": "this",
+                "s": 40.68,
+                "e": 40.82,
+                "p": 0.9515653252601624
+              },
+              {
+                "w": "video.",
+                "s": 40.82,
+                "e": 41.08,
+                "p": 0.996189296245575
+              },
+              {
+                "w": "Which",
+                "s": 41.58,
+                "e": 41.58,
+                "p": 0.9844106435775757
+              },
+              {
+                "w": "company",
+                "s": 41.58,
+                "e": 41.78,
+                "p": 0.989678144454956
+              },
+              {
+                "w": "next?",
+                "s": 41.78,
+                "e": 42.12,
+                "p": 0.947794497013092
+              },
+              {
+                "w": "Comment",
+                "s": 42.56,
+                "e": 42.6,
+                "p": 0.9958751797676086
+              },
+              {
+                "w": "and",
+                "s": 42.6,
+                "e": 43.02,
+                "p": 0.8756900429725647
+              },
+              {
+                "w": "follow",
+                "s": 43.02,
+                "e": 43.22,
+                "p": 0.9971809387207031
+              },
+              {
+                "w": "for",
+                "s": 43.22,
+                "e": 43.44,
+                "p": 0.9811532497406006
+              },
+              {
+                "w": "more.",
+                "s": 43.44,
+                "e": 43.6,
+                "p": 0.9987748265266418
+              }
+            ],
+            "dauer_s": 43.8826875,
+            "sprache": "en"
+          },
+          "roh_key": "fb35703ac0b1f68bb97f9da26a1d8975de2af0580ea104e6bec24dde3537944d",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "6cc7c179000067744272eaa2123ba32ac5f6c62144524d1c03668af9e0d1d201",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 43.9,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 12,
+          "motive": 11,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "6cc7c179000067744272eaa2123ba32ac5f6c62144524d1c03668af9e0d1d201",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Zwei historische Geschäftsleute im Anzug und Hut geben sich in einem Büro die Hand, im Hintergrund ein Fenster und Regale.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt eine geschäftliche Einigung per Handschlag im historischen Stil, was gut zu der Erwähnung eines mündlichen Deals passt.",
+              "erforderliches_bild": "Nicht erforderlich"
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Mann mit verschränkten Armen steht im Vordergrund einer Scheune oder Lagerhalle, während im Hintergrund mehrere Männer in historischen Mänteln und Hüten stehen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt den Hauptcharakter und einige Männer in einer Lagerhalle, aber es ist keine konkrete Szene des Aktienangebots oder des Rückkaufs für 11,50 Dollar erkennbar.",
+              "erforderliches_bild": "Eine historische Illustration, die zeigt, wie Aktienanteile oder Papiere für einen bestimmten Betrag angeboten werden."
+            },
+            {
+              "index": 4,
+              "gesehen": "In einem beleuchteten Raum stehen drei Anzugträger und unterhalten sich, wobei zwei von ihnen verschränkte Arme haben.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt drei Männer in Anzügen in einem Raum, jedoch ist keine geschäftliche Vereinbarung oder eine mündliche Absprache im Sinne der Erzählung erkennbar.",
+              "erforderliches_bild": "Eine Darstellung zweier geschäftsmäßig wirkender Männer, die sich handelseinig gegenüberstehen oder eine mündliche Vereinbarung andeuten."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein Mann im grauen Hemd sitzt in einem Büro vor einem Fenster und liest konsterniert ein Dokument.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das gesehene Dokument in den Händen des Mannes passt zur Frage, was schriftlich ankam.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein gemaltes Bild von Geschäftsleuten an einem Besprechungstisch mit Dokumenten.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine allgemeine Büroszene und keinen konkreten Bezug zum geschriebenen oder mündlichen Geldbetrag von 11,375 Dollar.",
+              "erforderliches_bild": "Ein Dokument oder ein handschriftlicher Vertrag, auf dem der genaue Betrag von 11,375 Dollar zu sehen ist."
+            },
+            {
+              "index": 8,
+              "gesehen": "In einem historischen Büro sitzen mehrere Personen an einem Holztisch und schauen auf Dokumente, während im Hintergrund durch ein Fenster eine Straße mit Autos zu sehen ist.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Besprechungsszene passt gut zur Handlung des Aktienkaufs und der Übernahme.",
+              "erforderliches_bild": "Historische Büroszene mit Personen bei Vertragsunterzeichnung"
+            },
+            {
+              "index": 9,
+              "gesehen": "In einer historischen Textilfabrik mit großen Webmaschinen stehen Männer in Anzügen, die den Betrieb besichtigen.",
+              "note": 9,
+              "passt": true,
+              "grund": "Die historische Textilfabrik und die anwesenden Personen passen perfekt zur Erwähnung des kontrollierten Textilunternehmens.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein dunkler Hintergrund mit der Überschrift BERKSHIRE HATHAWAY und einer Infobox mit der großen gelben Zahl 200 und dem Text BILLION darunter.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbare Infobox zeigt passend zum gesprochenen Betrag '200 billion' im Zusammenhang mit Berkshire Hathaway.",
+              "erforderliches_bild": ""
+            }
+          ],
+          "befunde": [
+            "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Hauptcharakter und einige Männer in einer Lagerhalle, aber es ist keine konkrete Szene des Aktienangebots oder des Rückkaufs für 11,50 Dollar erkennbar.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt drei Männer in Anzügen in einem Raum, jedoch ist keine geschäftliche Vereinbarung oder eine mündliche Absprache im Sinne der Erzählung erkennbar.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine allgemeine Büroszene und keinen konkreten Bezug zum geschriebenen oder mündlichen Geldbetrag von 11,375 Dollar."
+          ],
+          "modelle": [
+            "gemini-3.5-flash-lite",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 12,
+          "ausgenommen": [
+            11
+          ],
+          "vorgeprueft": [
+            1,
+            2,
+            7
+          ],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "6cc7c179000067744272eaa2123ba32ac5f6c62144524d1c03668af9e0d1d201",
+        "prompt_version": "2026-10-29.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [
+          "His angry reaction became his biggest investment mistake. - Source says Buffett was angry about the lower tender offer and separately called buying the textile company his biggest mistake; it does not state that his angry reaction itself was the biggest investment mistake, creating an unsupported causal link."
+        ],
+        "modell": "gemini-3.1-flash-lite",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

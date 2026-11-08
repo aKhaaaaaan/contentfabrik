@@ -1,44 +1,46 @@
 {
- "version": 1,
- "modelle": {
-  "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
-   "grund": "Netzwerk-Zeitlimit",
-   "bis": 1794130415.7337646
+  "version": 1,
+  "modelle": {
+    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
+      "grund": "Tageskontingent erschoepft",
+      "bis": 1794211200.0
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.5-flash": {
+      "grund": "Tageskontingent erschoepft",
+      "bis": 1794211200.0
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1794131675.9800735
+    },
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1794131696.0341477
+    }
   },
-  "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
-   "grund": "Netzwerk-Zeitlimit",
-   "bis": 1794130351.3192203
-  },
-  "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
-   "grund": "Tageskontingent erschoepft",
-   "bis": 1794211200.0
-  },
-  "18b3ef0930af7cca6de34adf:gemini-3.5-flash": {
-   "grund": "Tageskontingent erschoepft",
-   "bis": 1794211200.0
+  "zeitlimits": {
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
+      1794126438.9121776,
+      1794126583.0676556,
+      1794128598.582602,
+      1794129766.2575586,
+      1794129875.7337646,
+      1794131135.9800735
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
+      1794127224.845331,
+      1794127421.921053,
+      1794128632.039303,
+      1794129266.3534987,
+      1794129811.3192203,
+      1794131156.0341477
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
+      1794127695.8670585,
+      1794128701.1835313
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": [
+      1794128785.9881063
+    ]
   }
- },
- "zeitlimits": {
-  "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
-   1794126438.9121776,
-   1794126583.0676556,
-   1794128598.582602,
-   1794129766.2575586,
-   1794129875.7337646
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
-   1794127224.845331,
-   1794127421.921053,
-   1794128632.039303,
-   1794129266.3534987,
-   1794129811.3192203
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
-   1794127695.8670585,
-   1794128701.1835313
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": [
-   1794128785.9881063
-  ]
- }
 }

@@ -15,6 +15,20 @@ from dramaturgie import videoformat
 GRENZE = 50 * 1024 * 1024  # Telegram-Bots duerfen hoechstens 50 MB senden
 
 
+# GEMELDET 08.11.2026 (Berkshire, 504 x4): jeder 504 auf sendVideo lieferte das Video trotzdem aus -> der Nutzer
+# bekam mehrere Kopien und fragte, ob Kontingent verbraucht wurde. Am 07.11. kam nach einem 504 dagegen KEIN Video.
+# Die Wiederholung bleibt deshalb (fehlendes Video ist schlimmer), aber der Nutzer erfaehrt, woher Kopien kommen.
+UPLOAD_STOERUNGEN = []
+
+
+def stoerung_hinweis():
+    """Kurzer Hinweis nach erfolgreichem Upload, wenn vorher Serverstoerungen wiederholt wurden; sonst ''."""
+    if not UPLOAD_STOERUNGEN:
+        return ''
+    return (f'ℹ️ Telegram hatte beim Senden eine Störung ({", ".join(UPLOAD_STOERUNGEN)}), das Video wurde erneut '
+            'gesendet. Steht es oben mehrfach: die Kopien sind identisch, einfach löschen. Kein Kontingent verbraucht.')
+
+
 def telegram(methode, felder, datei=None, feld='video', typ='video/mp4'):
     token = os.environ['TELEGRAM_BOT_TOKEN']
     grenze = uuid.uuid4().hex
@@ -55,6 +69,8 @@ def telegram(methode, felder, datei=None, feld='video', typ='video/mp4'):
             # voruebergehend: 20/40/60 s warten und nochmal.
             if e.code in (500, 502, 503, 504) and versuch < 3:
                 print(f'Telegram: Serverfehler {e.code}, {20 * (versuch + 1)} s warten', flush=True)
+                if datei:
+                    UPLOAD_STOERUNGEN.append(str(e.code))
                 time.sleep(20 * (versuch + 1))
                 continue
             raise RuntimeError(f'Telegram lehnt ab ({e.code}): '
@@ -62,12 +78,31 @@ def telegram(methode, felder, datei=None, feld='video', typ='video/mp4'):
         except (urllib.error.URLError, TimeoutError, ConnectionError) as e:
             if versuch < 3:
                 print(f'Telegram: Verbindung gestoert ({type(e).__name__}), {20 * (versuch + 1)} s warten', flush=True)
+                if datei:
+                    UPLOAD_STOERUNGEN.append('Verbindung')
                 time.sleep(20 * (versuch + 1))
                 continue
             raise
     if antwort.get('ok') is not True:
         raise RuntimeError('Telegram hat die Zustellung nicht bestaetigt')
     return antwort
+
+
+def pruefzeile(kritik, note):
+    """KI-Pruefzeile fuer die Begleitnachricht ('' ohne Kritik)."""
+    pruef = ''
+    if kritik and note is None:
+        # GEMELDET 08.11.2026: "KI-Prüfung: None/10" - die Gesamtbewertung lief nicht, weil die Bildpruefung vorher
+        # sperrte (Entwurf). Den Grund nennen statt "None".
+        pruef = ('🟡 <b>KI-Gesamtbewertung nicht gelaufen</b> – die Bildprüfung hat vorher gesperrt '
+                 '(siehe Hinweis am Video).\n\n')
+    elif kritik:
+        pruef = (f"🟢 <b>KI-Prüfung: {note}/10</b> – "
+                 f"{esc(kritik.get('fazit', '')[:200])}\n"
+                 + ''.join(f"• {esc(p.get('zeit', '')[:10])} {esc(p.get('text', '')[:120])}\n"
+                           for p in kritik.get('probleme', [])[:5])
+                 + '\n')
+    return pruef
 
 
 def esc(text):
@@ -273,6 +308,11 @@ def senden(skript_pfad, video_pfad):
              (Path(video_pfad).name, video))
     message_id = video_antwort.get('result', {}).get('message_id')
     print('Telegram-Video bestaetigt; message_id:', message_id)
+    if stoerung_hinweis():
+        try:  # nur Hinweis - darf den gelieferten Versand nicht kippen
+            telegram('sendMessage', {'chat_id': chat, 'text': stoerung_hinweis()})
+        except (RuntimeError, OSError) as e:
+            print('Stoerungshinweis nicht gesendet:', str(e)[:120])
     if message_id is not None:
         try:  # Zuordnung fuer Knoepfe/Antworten; darf den gelieferten Versand nicht kippen
             bewertung.video_merken(message_id, sha, skript, kritik, upload_run_id=upload_run, entwurf=entwurf,
@@ -281,13 +321,7 @@ def senden(skript_pfad, video_pfad):
             print('Video-Zuordnung fuer Bewertung nicht gespeichert:', str(e)[:120])
     # 2. Die Texte einzeln - antippen kopiert sie (Monospace-Format in Telegram)
     zeit = planungszeit(skript.get('posten_ny', '15:00'))
-    pruef = ''
-    if kritik:
-        pruef = (f"🟢 <b>KI-Prüfung: {note}/10</b> – "
-                 f"{esc(kritik.get('fazit', '')[:200])}\n"
-                 + ''.join(f"• {esc(p.get('zeit', '')[:10])} {esc(p.get('text', '')[:120])}\n"
-                           for p in kritik.get('probleme', [])[:5])
-                 + '\n')
+    pruef = pruefzeile(kritik, note)
     story = skript.get('story')
     if story:
         pruef = f"📖 <b>Story: {story['note']}/10</b>\n" + pruef

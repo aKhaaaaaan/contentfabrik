@@ -672,8 +672,9 @@ def groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens,
                 if kanal.get('format') == 'geschichte' else
                 'One everyday problem, one documented tool, practical steps, supported use and honest limitation; '
                 'make the frustration and the payoff felt (human stakes, factual).')
-    cta = ('Speak exactly TWO concise like/share/save requests: after first useful context within '
-           '20-30 seconds and after the ending payoff; never before the hook.' if
+    # 08.11.2026 (YouTube-Studio OpenShell): frueher Aufruf bei 0:35 stand vor dem ersten Nutzen -> wie dramaturgie.
+    cta = ('Speak exactly TWO concise like/share/save requests: right after the first real payoff '
+           '(45-80 seconds in, never before it) and after the ending payoff.' if
            dramaturgie.videoformat(kanal) == 'lang' else
            'After the final payoff speak exactly ONCE: Be sure to like, share and save this video.')
     prefix = (prompts.DATEN + prompts.FAKTEN_KURZ + prompts.SPRECHEN

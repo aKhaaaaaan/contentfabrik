@@ -40,8 +40,11 @@ def musikbett(ziel, technisch=False, rate=24000):
         w.writeframes((spur * 32767).astype(np.int16).tobytes())
     return Path(ziel)
 
-PEGEL = {'riser': 0.12, 'impact': 0.20, 'pop': 0.12, 'glitch': 0.10, 'geraeusch': 0.10, 'ausloeser': 0.12,
-         'tippen': 0.08}
+# Nutzer 09.11.2026: "Die Sounds muessen lauter werden, die sind eh nur kurz." Vorher lagen die Spitzen ~15-17 dB
+# unter der Stimme (auf dem Handy kaum hoerbar); Erklaervideos liegen eher 6-10 dB darunter. Kurze Effekte doppelt
+# so laut (+6 dB; Aufprall +5 dB, bleibt >=6 dB unter der Stimmspitze), Szenengeraeusche (bis 1,5 s, koennen unter Sprache liegen) nur +3 dB.
+PEGEL = {'riser': 0.24, 'impact': 0.35, 'pop': 0.24, 'glitch': 0.20, 'geraeusch': 0.14, 'ausloeser': 0.24,
+         'tippen': 0.16, 'whoosh': 0.28}
 LAENGE = {'riser': 2.0, 'impact': 0.8, 'pop': 0.25, 'glitch': 0.35, 'geraeusch': 1.5, 'ausloeser': 0.25,
           'tippen': 1.0}
 

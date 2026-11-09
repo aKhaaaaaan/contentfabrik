@@ -1,39 +1,47 @@
 {
   "version": 1,
   "modelle": {
-    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
-      "grund": "Netzwerk-Zeitlimit",
-      "bis": 1794221516.0075743
-    },
-    "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": {
-      "grund": "voruebergehend ueberlastet",
-      "bis": 1794221502.0198565
-    },
-    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
-      "grund": "Netzwerk-Zeitlimit",
-      "bis": 1794221876.0520003
-    },
-    "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
-      "grund": "voruebergehend ueberlastet",
-      "bis": 1794221762.3443935
-    },
     "18b3ef0930af7cca6de34adf:gemini-3.5-flash": {
       "grund": "Tageskontingent erschoepft",
       "bis": 1794297600.0
+    },
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
+      "grund": "Tageskontingent erschoepft",
+      "bis": 1794297600.0
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
+      "grund": "Tageskontingent erschoepft",
+      "bis": 1794297600.0
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1794222469.6944637
+    },
+    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
+      "grund": "HTTP429; Serverfrist 511s",
+      "bis": 1794222800.841702
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1794222761.7350023
     }
   },
   "zeitlimits": {
     "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
       1794220912.7782712,
       1794221008.474151,
-      1794221336.0520003
+      1794221336.0520003,
+      1794221912.4042428
     ],
     "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
-      1794214355.6832683,
       1794220976.0075743
     ],
     "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
       1794220945.0524724
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": [
+      1794221877.8897972,
+      1794222289.6944637
     ]
   }
 }

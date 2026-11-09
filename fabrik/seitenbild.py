@@ -60,8 +60,9 @@ def bester_abschnitt(satz, bloecke, benutzt=(), visuell=(), namen=''):
         return None
     zahlen = {w for w in ziel if re.search(r'\d', w)}
     beste, wert = None, None
+    schon_beste, schon_wert = None, None  # bester Treffer unter den schon gezeigten Absaetzen
     for i, text in enumerate(bloecke):
-        if i in benutzt or not 20 <= len(text) <= (2000 if i in visuell else 700):
+        if not 20 <= len(text) <= (2000 if i in visuell else 700):
             continue
         da = woerter(text)
         # Treffer muessen beieinander stehen (eine Zeile oder zwei Nachbarsaetze): die 1.486-Zeichen-Tabelle hatte
@@ -71,8 +72,19 @@ def bester_abschnitt(satz, bloecke, benutzt=(), visuell=(), namen=''):
         if gemeinsam < 2 or (gemeinsam / len(satzwoerter) < 0.4 and gemeinsam < 4):
             continue
         w = (gemeinsam + len(zahlen & da) + (1 if i in visuell else 0), -len(text))
-        if wert is None or w > wert:
+        if i in benutzt:
+            if schon_wert is None or w > schon_wert:
+                schon_beste, schon_wert = i, w
+        elif wert is None or w > wert:
             beste, wert = i, w
+    # GEMESSEN 09.11.2026 (KI 42585619814, Knowledge-Cutoff-Blog): "The error rate timeline shows roughly when it
+    # loses signal" traf denselben Absatz wie Einstellung 2 (schon gezeigt) -> gemalte Ersatzszene, generischer
+    # Aktienchart 2/10. Direkt unter dem Absatz stand genau dieses Diagramm. Ist der passende Absatz schon gezeigt,
+    # nimmt der Satz die ungenutzte Grafik/Tabelle direkt darunter (der Absatz beschreibt sie).
+    if beste is None and schon_beste is not None:
+        for k in (schon_beste + 1, schon_beste + 2):
+            if k < len(bloecke) and k in visuell and k not in benutzt:
+                return k
     return beste
 
 

@@ -155895,6 +155895,1032 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "42585619814.1:ai-tools-explained",
+      "run_id": "42585619814",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-09T08:36:08.216348+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "b169415932d400d16e73b38a28ad9a539859be31",
+      "produktionsversion": "9a34254ee59ff028dc15cdcca04176aa6982ded34db002141d3379419dc05370",
+      "videoformat": "short",
+      "thema": "How Claude Opus 5's knowledge cutoff was probed with Wikipedia daily-fact quizzes",
+      "titel": [
+        "*OPUS* 5'S MEMORY",
+        "STOPS EARLY?"
+      ],
+      "status": "gesendet",
+      "video_sha256": "0a4a328cdc7b3702d022ec0ed3d0ee757762bf2ef2272b87829fc388f83b831d",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die gezeigten Textk\"stchen mit Titeln erkl\"ren nicht die im Text erw\"hnte Fehlerquote oder das Quiz im Detail.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen eine Fehlerquoten-Timeline, die den Signalverlust zeigt. Auf dem Bild ist jedoch nur ein generischer Aktienchart auf einem Laptop zu sehen, kein Diagramm zu Fehlern oder einer Zeitachse.",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen den Widerspruch zwischen Quiz-Januar und Label-Mai, während das Bild lediglich einen Mann in einem Büro zeigt, der ein Leuchtglas hält. Das Quiz oder die genannten Monate sind visuell nicht dargestellt.",
+        "Offenes Problem (schwer): Die gezeigten Textk\"stchen mit Titeln erkl\"ren nicht die im Text erw\"hnte Fehlerquote oder das Quiz im Detail. Korrektur: Ein Screenshot eines Quiz-Interfaces oder einer Grafik mit Fragen f\"r K\"nstliche Intelligenzen.",
+        "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen eine Fehlerquoten-Timeline, die den Signalverlust zeigt. Auf dem Bild ist jedoch nur ein generischer Aktienchart auf einem Laptop zu sehen, kein Diagramm zu Fehlern oder einer Zeitachse. Korrektur: Ein echtes Diagramm, das die Fehlerquote oder den Zeitverlauf des KI-Wissensabbruchs darstellt.",
+        "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen den Widerspruch zwischen Quiz-Januar und Label-Mai, während das Bild lediglich einen Mann in einem Büro zeigt, der ein Leuchtglas hält. Das Quiz oder die genannten Monate sind visuell nicht dargestellt. Korrektur: Eine Bildschirmansicht oder Grafik, die den Vergleich zwischen dem Quiz-Ergebnis Januar und dem Label Mai zeigt."
+      ],
+      "einstellungen": 12,
+      "unterschiedliche_motive": 11,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "42585619814",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-09",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 552.2,
+            "pruefung_s": 33.3,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die gezeigten Textk\"stchen mit Titeln erkl\"ren nicht die im Text erw\"hnte Fehlerquote oder das Quiz im Detail.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen eine Fehlerquoten-Timeline, die den Signalverlust zeigt. Auf dem Bild ist jedoch nur ein generischer Aktienchart auf einem Laptop zu sehen, kein Diagramm zu Fehlern oder einer Zeitachse.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen den Widerspruch zwischen Quiz-Januar und Label-Mai, während das Bild lediglich einen Mann in einem Büro zeigt, der ein Leuchtglas hält. Das Quiz oder die genannten Monate sind visuell nicht dargestellt.",
+              "Offenes Problem (schwer): Die gezeigten Textk\"stchen mit Titeln erkl\"ren nicht die im Text erw\"hnte Fehlerquote oder das Quiz im Detail. Korrektur: Ein Screenshot eines Quiz-Interfaces oder einer Grafik mit Fragen f\"r K\"nstliche Intelligenzen.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen eine Fehlerquoten-Timeline, die den Signalverlust zeigt. Auf dem Bild ist jedoch nur ein generischer Aktienchart auf einem Laptop zu sehen, kein Diagramm zu Fehlern oder einer Zeitachse. Korrektur: Ein echtes Diagramm, das die Fehlerquote oder den Zeitverlauf des KI-Wissensabbruchs darstellt.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen den Widerspruch zwischen Quiz-Januar und Label-Mai, während das Bild lediglich einen Mann in einem Büro zeigt, der ein Leuchtglas hält. Das Quiz oder die genannten Monate sind visuell nicht dargestellt. Korrektur: Eine Bildschirmansicht oder Grafik, die den Vergleich zwischen dem Quiz-Ergebnis Januar und dem Label Mai zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 21.7,
+              "zeitmarken": 4.6,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 12,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 396.1,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 12,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 46.3,
+              "gesamt": 551.1,
+              "videolaenge_s": 39.2,
+              "abschnitte_s": [
+                5.38,
+                5.3,
+                4.58,
+                7.06,
+                7.02,
+                5.16,
+                4.74
+              ],
+              "woerter": 104,
+              "clips": {
+                "witz": 1,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:10.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 3,
+                "gesprochen": "Pop quiz for robots.",
+                "fest": true,
+                "text": "Die gezeigten Textk\"stchen mit Titeln erkl\"ren nicht die im Text erw\"hnte Fehlerquote oder das Quiz im Detail. Korrektur: Ein Screenshot eines Quiz-Interfaces oder einer Grafik mit Fragen f\"r K\"nstliche Intelligenzen."
+              },
+              {
+                "zeit": "00:12.24",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "The error rate timeline shows roughly when it loses signal.",
+                "fest": true,
+                "text": "Die gesprochenen Wörter erwähnen eine Fehlerquoten-Timeline, die den Signalverlust zeigt. Auf dem Bild ist jedoch nur ein generischer Aktienchart auf einem Laptop zu sehen, kein Diagramm zu Fehlern oder einer Zeitachse. Korrektur: Ein echtes Diagramm, das die Fehlerquote oder den Zeitverlauf des KI-Wissensabbruchs darstellt."
+              },
+              {
+                "zeit": "00:30.96",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "Only an estimate: the quiz says January, the label says May.",
+                "fest": true,
+                "text": "Die gesprochenen Wörter erwähnen den Widerspruch zwischen Quiz-Januar und Label-Mai, während das Bild lediglich einen Mann in einem Büro zeigt, der ein Leuchtglas hält. Das Quiz oder die genannten Monate sind visuell nicht dargestellt. Korrektur: Eine Bildschirmansicht oder Grafik, die den Vergleich zwischen dem Quiz-Ergebnis Januar und dem Label Mai zeigt."
+              }
+            ],
+            "sekunden": 585.5,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 604.1,
+        "upload_titel": "OPUS 5'S MEMORY: STOPS EARLY? | AI Tool #30"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:10.68",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 3,
+            "gesprochen": "Pop quiz for robots.",
+            "fest": true,
+            "text": "Die gezeigten Textk\"stchen mit Titeln erkl\"ren nicht die im Text erw\"hnte Fehlerquote oder das Quiz im Detail. Korrektur: Ein Screenshot eines Quiz-Interfaces oder einer Grafik mit Fragen f\"r K\"nstliche Intelligenzen."
+          },
+          {
+            "zeit": "00:12.24",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "The error rate timeline shows roughly when it loses signal.",
+            "fest": true,
+            "text": "Die gesprochenen Wörter erwähnen eine Fehlerquoten-Timeline, die den Signalverlust zeigt. Auf dem Bild ist jedoch nur ein generischer Aktienchart auf einem Laptop zu sehen, kein Diagramm zu Fehlern oder einer Zeitachse. Korrektur: Ein echtes Diagramm, das die Fehlerquote oder den Zeitverlauf des KI-Wissensabbruchs darstellt."
+          },
+          {
+            "zeit": "00:30.96",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "Only an estimate: the quiz says January, the label says May.",
+            "fest": true,
+            "text": "Die gesprochenen Wörter erwähnen den Widerspruch zwischen Quiz-Januar und Label-Mai, während das Bild lediglich einen Mann in einem Büro zeigt, der ein Leuchtglas hält. Das Quiz oder die genannten Monate sind visuell nicht dargestellt. Korrektur: Eine Bildschirmansicht oder Grafik, die den Vergleich zwischen dem Quiz-Ergebnis Januar und dem Label Mai zeigt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 39.3,
+          "fps": 29.9,
+          "lufs": -14.0,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 34.8,
+              "bis_s": 36.42,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.973
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 19.299999999999997,
+              "bis_s": 39.8,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Your",
+                "s": 0.0,
+                "e": 0.36,
+                "p": 0.692010760307312
+              },
+              {
+                "w": "AI",
+                "s": 0.36,
+                "e": 0.66,
+                "p": 0.917264461517334
+              },
+              {
+                "w": "may",
+                "s": 0.66,
+                "e": 1.04,
+                "p": 0.9342495203018188
+              },
+              {
+                "w": "be",
+                "s": 1.04,
+                "e": 1.22,
+                "p": 0.9895987510681152
+              },
+              {
+                "w": "stuck",
+                "s": 1.22,
+                "e": 1.56,
+                "p": 0.9691670536994934
+              },
+              {
+                "w": "in",
+                "s": 1.56,
+                "e": 1.86,
+                "p": 0.9903244972229004
+              },
+              {
+                "w": "the",
+                "s": 1.86,
+                "e": 1.92,
+                "p": 0.9926124811172485
+              },
+              {
+                "w": "past.",
+                "s": 1.92,
+                "e": 2.28,
+                "p": 0.9989824891090393
+              },
+              {
+                "w": "Clot",
+                "s": 2.9,
+                "e": 3.12,
+                "p": 0.19906028360128403
+              },
+              {
+                "w": "Opus",
+                "s": 3.12,
+                "e": 3.34,
+                "p": 0.6641497164964676
+              },
+              {
+                "w": "5",
+                "s": 3.34,
+                "e": 3.58,
+                "p": 0.7845080494880676
+              },
+              {
+                "w": "might",
+                "s": 3.58,
+                "e": 4.0,
+                "p": 0.9695760607719421
+              },
+              {
+                "w": "be",
+                "s": 4.0,
+                "e": 4.28,
+                "p": 0.9959178566932678
+              },
+              {
+                "w": "that",
+                "s": 4.28,
+                "e": 4.5,
+                "p": 0.9154542088508606
+              },
+              {
+                "w": "house",
+                "s": 4.5,
+                "e": 4.72,
+                "p": 0.8843053579330444
+              },
+              {
+                "w": "guest.",
+                "s": 4.72,
+                "e": 4.92,
+                "p": 0.664422869682312
+              },
+              {
+                "w": "How",
+                "s": 5.4,
+                "e": 5.48,
+                "p": 0.9506530165672302
+              },
+              {
+                "w": "do",
+                "s": 5.48,
+                "e": 5.58,
+                "p": 0.9804877638816833
+              },
+              {
+                "w": "you",
+                "s": 5.58,
+                "e": 5.68,
+                "p": 0.9878615140914917
+              },
+              {
+                "w": "catch",
+                "s": 5.68,
+                "e": 5.84,
+                "p": 0.9977171421051025
+              },
+              {
+                "w": "it?",
+                "s": 5.84,
+                "e": 6.1,
+                "p": 0.994175910949707
+              },
+              {
+                "w": "Wikipedia",
+                "s": 6.7,
+                "e": 6.7,
+                "p": 0.7823438048362732
+              },
+              {
+                "w": "Daily",
+                "s": 6.7,
+                "e": 7.32,
+                "p": 0.5887647867202759
+              },
+              {
+                "w": "Facts",
+                "s": 7.32,
+                "e": 7.62,
+                "p": 0.9355480074882507
+              },
+              {
+                "w": "in",
+                "s": 7.62,
+                "e": 8.24,
+                "p": 0.5096752047538757
+              },
+              {
+                "w": "an",
+                "s": 8.24,
+                "e": 8.34,
+                "p": 0.9520115852355957
+              },
+              {
+                "w": "eight",
+                "s": 8.34,
+                "e": 8.68,
+                "p": 0.36430150270462036
+              },
+              {
+                "w": "-way",
+                "s": 8.68,
+                "e": 9.0,
+                "p": 0.8859657049179077
+              },
+              {
+                "w": "multiple",
+                "s": 9.0,
+                "e": 9.4,
+                "p": 0.8693880438804626
+              },
+              {
+                "w": "-choice",
+                "s": 9.4,
+                "e": 9.82,
+                "p": 0.9186524450778961
+              },
+              {
+                "w": "quiz.",
+                "s": 9.82,
+                "e": 10.18,
+                "p": 0.9951722025871277
+              },
+              {
+                "w": "Pop",
+                "s": 10.82,
+                "e": 10.82,
+                "p": 0.9158504605293274
+              },
+              {
+                "w": "quiz",
+                "s": 10.82,
+                "e": 11.06,
+                "p": 0.8915818929672241
+              },
+              {
+                "w": "for",
+                "s": 11.06,
+                "e": 11.36,
+                "p": 0.9857891201972961
+              },
+              {
+                "w": "robots.",
+                "s": 11.36,
+                "e": 11.6,
+                "p": 0.9437679648399353
+              },
+              {
+                "w": "The",
+                "s": 12.22,
+                "e": 12.26,
+                "p": 0.9758040904998779
+              },
+              {
+                "w": "error",
+                "s": 12.26,
+                "e": 12.48,
+                "p": 0.9641575217247009
+              },
+              {
+                "w": "rate",
+                "s": 12.48,
+                "e": 12.72,
+                "p": 0.9873301982879639
+              },
+              {
+                "w": "timeline",
+                "s": 12.72,
+                "e": 13.04,
+                "p": 0.986113965511322
+              },
+              {
+                "w": "shows",
+                "s": 13.04,
+                "e": 13.42,
+                "p": 0.9967407584190369
+              },
+              {
+                "w": "roughly",
+                "s": 13.42,
+                "e": 13.92,
+                "p": 0.9668571352958679
+              },
+              {
+                "w": "when",
+                "s": 13.92,
+                "e": 14.28,
+                "p": 0.9958504438400269
+              },
+              {
+                "w": "it",
+                "s": 14.28,
+                "e": 14.36,
+                "p": 0.9952805638313293
+              },
+              {
+                "w": "loses",
+                "s": 14.36,
+                "e": 14.56,
+                "p": 0.9949179887771606
+              },
+              {
+                "w": "signal.",
+                "s": 14.56,
+                "e": 14.88,
+                "p": 0.9719130992889404
+              },
+              {
+                "w": "Opus",
+                "s": 15.32,
+                "e": 15.5,
+                "p": 0.9901846647262573
+              },
+              {
+                "w": "5's",
+                "s": 15.5,
+                "e": 15.88,
+                "p": 0.7359825670719147
+              },
+              {
+                "w": "published",
+                "s": 15.88,
+                "e": 16.26,
+                "p": 0.9307644963264465
+              },
+              {
+                "w": "reliable",
+                "s": 16.26,
+                "e": 16.68,
+                "p": 0.519147515296936
+              },
+              {
+                "w": "and",
+                "s": 16.68,
+                "e": 17.18,
+                "p": 0.9710054397583008
+              },
+              {
+                "w": "overall",
+                "s": 17.18,
+                "e": 17.62,
+                "p": 0.9949943423271179
+              },
+              {
+                "w": "cutoffs",
+                "s": 17.62,
+                "e": 18.32,
+                "p": 0.6866130083799362
+              },
+              {
+                "w": "say",
+                "s": 18.32,
+                "e": 18.7,
+                "p": 0.837316632270813
+              },
+              {
+                "w": "May",
+                "s": 18.7,
+                "e": 18.98,
+                "p": 0.8261908292770386
+              },
+              {
+                "w": "2026.",
+                "s": 18.98,
+                "e": 20.04,
+                "p": 0.8975690603256226
+              },
+              {
+                "w": "Do",
+                "s": 20.88,
+                "e": 20.92,
+                "p": 0.42098888754844666
+              },
+              {
+                "w": "the",
+                "s": 20.92,
+                "e": 21.02,
+                "p": 0.987503707408905
+              },
+              {
+                "w": "quiz",
+                "s": 21.02,
+                "e": 21.14,
+                "p": 0.9868112206459045
+              },
+              {
+                "w": "agree?",
+                "s": 21.14,
+                "e": 21.42,
+                "p": 0.993606686592102
+              },
+              {
+                "w": "Nope.",
+                "s": 22.38,
+                "e": 22.4,
+                "p": 0.9492153525352478
+              },
+              {
+                "w": "It",
+                "s": 22.82,
+                "e": 22.88,
+                "p": 0.8554076552391052
+              },
+              {
+                "w": "seems",
+                "s": 22.88,
+                "e": 23.18,
+                "p": 0.9941079616546631
+              },
+              {
+                "w": "to",
+                "s": 23.18,
+                "e": 23.36,
+                "p": 0.996623158454895
+              },
+              {
+                "w": "know",
+                "s": 23.36,
+                "e": 23.48,
+                "p": 0.9455201029777527
+              },
+              {
+                "w": "nothing",
+                "s": 23.48,
+                "e": 23.88,
+                "p": 0.9927788376808167
+              },
+              {
+                "w": "more",
+                "s": 23.88,
+                "e": 24.14,
+                "p": 0.9977057576179504
+              },
+              {
+                "w": "than",
+                "s": 24.14,
+                "e": 24.32,
+                "p": 0.995213508605957
+              },
+              {
+                "w": "January",
+                "s": 24.32,
+                "e": 24.6,
+                "p": 0.9944608211517334
+              },
+              {
+                "w": "2026.",
+                "s": 24.6,
+                "e": 25.62,
+                "p": 0.965575784444809
+              },
+              {
+                "w": "Even",
+                "s": 26.24,
+                "e": 26.46,
+                "p": 0.9928154945373535
+              },
+              {
+                "w": "coding",
+                "s": 26.46,
+                "e": 26.76,
+                "p": 0.9527536630630493
+              },
+              {
+                "w": "package",
+                "s": 26.76,
+                "e": 27.16,
+                "p": 0.9374685287475586
+              },
+              {
+                "w": "versions.",
+                "s": 27.16,
+                "e": 27.5,
+                "p": 0.9786142706871033
+              },
+              {
+                "w": "Awkward.",
+                "s": 28.42,
+                "e": 28.72,
+                "p": 0.9481041133403778
+              },
+              {
+                "w": "Stuck",
+                "s": 29.32,
+                "e": 29.76,
+                "p": 0.7269901186227798
+              },
+              {
+                "w": "in",
+                "s": 29.76,
+                "e": 29.9,
+                "p": 0.9685001373291016
+              },
+              {
+                "w": "the",
+                "s": 29.9,
+                "e": 30.0,
+                "p": 0.997861921787262
+              },
+              {
+                "w": "past,",
+                "s": 30.0,
+                "e": 30.22,
+                "p": 0.9923586249351501
+              },
+              {
+                "w": "only",
+                "s": 30.76,
+                "e": 30.98,
+                "p": 0.9673465490341187
+              },
+              {
+                "w": "an",
+                "s": 30.98,
+                "e": 31.14,
+                "p": 0.9602421522140503
+              },
+              {
+                "w": "estimate.",
+                "s": 31.14,
+                "e": 31.56,
+                "p": 0.993161678314209
+              },
+              {
+                "w": "The",
+                "s": 31.98,
+                "e": 32.0,
+                "p": 0.9856284856796265
+              },
+              {
+                "w": "quiz",
+                "s": 32.0,
+                "e": 32.14,
+                "p": 0.9887109398841858
+              },
+              {
+                "w": "says",
+                "s": 32.14,
+                "e": 32.44,
+                "p": 0.9947249293327332
+              },
+              {
+                "w": "January,",
+                "s": 32.44,
+                "e": 32.84,
+                "p": 0.9330998659133911
+              },
+              {
+                "w": "the",
+                "s": 33.18,
+                "e": 33.24,
+                "p": 0.9681057333946228
+              },
+              {
+                "w": "labels",
+                "s": 33.24,
+                "e": 33.48,
+                "p": 0.7283371090888977
+              },
+              {
+                "w": "has",
+                "s": 33.48,
+                "e": 33.68,
+                "p": 0.759085476398468
+              },
+              {
+                "w": "May.",
+                "s": 33.68,
+                "e": 33.98,
+                "p": 0.5965362787246704
+              },
+              {
+                "w": "Be",
+                "s": 34.48,
+                "e": 34.52,
+                "p": 0.9920240640640259
+              },
+              {
+                "w": "sure",
+                "s": 34.52,
+                "e": 34.68,
+                "p": 0.9987402558326721
+              },
+              {
+                "w": "to",
+                "s": 34.68,
+                "e": 34.8,
+                "p": 0.9941461086273193
+              },
+              {
+                "w": "like,",
+                "s": 34.8,
+                "e": 35.06,
+                "p": 0.8629714250564575
+              },
+              {
+                "w": "share,",
+                "s": 35.18,
+                "e": 35.44,
+                "p": 0.9946335554122925
+              },
+              {
+                "w": "and",
+                "s": 35.64,
+                "e": 35.72,
+                "p": 0.998161256313324
+              },
+              {
+                "w": "save",
+                "s": 35.72,
+                "e": 36.0,
+                "p": 0.9918067455291748
+              },
+              {
+                "w": "this",
+                "s": 36.0,
+                "e": 36.16,
+                "p": 0.9918354749679565
+              },
+              {
+                "w": "video.",
+                "s": 36.16,
+                "e": 36.42,
+                "p": 0.9990190267562866
+              },
+              {
+                "w": "Which",
+                "s": 36.96,
+                "e": 36.96,
+                "p": 0.9522107243537903
+              },
+              {
+                "w": "tool",
+                "s": 36.96,
+                "e": 37.16,
+                "p": 0.8643214702606201
+              },
+              {
+                "w": "next?",
+                "s": 37.16,
+                "e": 37.4,
+                "p": 0.6035853624343872
+              },
+              {
+                "w": "Comment",
+                "s": 38.06,
+                "e": 38.06,
+                "p": 0.9856658577919006
+              },
+              {
+                "w": "and",
+                "s": 38.06,
+                "e": 38.42,
+                "p": 0.8322371244430542
+              },
+              {
+                "w": "follow",
+                "s": 38.42,
+                "e": 38.64,
+                "p": 0.9955424666404724
+              },
+              {
+                "w": "for",
+                "s": 38.64,
+                "e": 38.86,
+                "p": 0.9883208274841309
+              },
+              {
+                "w": "more.",
+                "s": 38.86,
+                "e": 39.0,
+                "p": 0.99973064661026
+              }
+            ],
+            "dauer_s": 39.2106875,
+            "sprache": "en"
+          },
+          "roh_key": "33610f05152e97a5eb88c53af5960d316420a1619e2f3ab6e059fdc2029caa74",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "0a4a328cdc7b3702d022ec0ed3d0ee757762bf2ef2272b87829fc388f83b831d",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 39.3,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 12,
+          "motive": 11,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "0a4a328cdc7b3702d022ec0ed3d0ee757762bf2ef2272b87829fc388f83b831d",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein gemaltes Bild eines Mannes mit Sonnenbrille und Lederjacke, der eine große Taschenuhr hält. Auf seinem Gesicht ist ein rotes Textfeld mit dem Text BE STUCK IN eingeblendet.",
+              "note": 8,
+              "passt": true,
+              "grund": "Eröffnungsszene als Reaction-Shot. Der Gesichtsausdruck des Mannes mit Sonnenbrille und Lederjacke drückt Skepsis und Verwirrung aus, was passend zum Start der Aussage 'Your AI may be stuck in the past' ist.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da der emotionale Ausdruck im Opening-Reaction-Shot zum Einstieg passt."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Bildschirmfoto mit dem Text 'Model Knowledge Timelines', 'Historical Quizzes' und einer gelb markierten Textbox, die die Erstellung eines Datensatzes aus Wikipedia-Tagesfakten und einen 8-Wege-Multiple-Choice-Quiz erklärt.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt genau den erklärten Text über die Methode des Wikipedia-Tagesfakten-Quizzes und passt somit direkt zur gesprochenen Erklärung der Vorgehensweise.",
+              "erforderliches_bild": "Ein passender Screenshot der Quiz-Methode."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein dunkelblauer Bildschirm mit zwei K\"stchen und den Aufschriften POP QUIZ und ROBOTS in t\"rkiser und gelber Schrift.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gezeigten Textk\"stchen mit Titeln erkl\"ren nicht die im Text erw\"hnte Fehlerquote oder das Quiz im Detail.",
+              "erforderliches_bild": "Ein Screenshot eines Quiz-Interfaces oder einer Grafik mit Fragen f\"r K\"nstliche Intelligenzen."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein junger Mann sitzt an einem Holztisch und schaut auf einen Laptop-Bildschirm, auf dem ein Börsenchart mit ansteigenden Linien zu sehen ist.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochenen Wörter erwähnen eine Fehlerquoten-Timeline, die den Signalverlust zeigt. Auf dem Bild ist jedoch nur ein generischer Aktienchart auf einem Laptop zu sehen, kein Diagramm zu Fehlern oder einer Zeitachse.",
+              "erforderliches_bild": "Ein echtes Diagramm, das die Fehlerquote oder den Zeitverlauf des KI-Wissensabbruchs darstellt."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein Screenshot eines Textes auf einem Bildschirm mit einer hervorgehobenen gelben Box, die den Text ueber Opus 5 und Wissensgrenzen zeigt.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der sichtbare Text im Bild zeigt genau die in der gesprochenen Narration erwaehnten publizierten Zuverlaessigkeits- und Gesamtwissensgrenzen von Opus 5.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 6,
+              "gesehen": "In einem Chat-Fenster steht die Textnachricht mit der Frage 'May 2026. Did the quiz agree?', gefolgt von animierten drei Punkten für eine Antwort.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt genau die gestellte Frage aus dem gesprochenen Satz als Chat-Nachricht, was exakt zum Thema passt.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein Ausschnitt aus einem Textdokument mit hervorgehobenem gelben Kasten, in dem steht: Opus 5 is a bit unusual. The published reliable and overall knowledge cutoffs are May 2026 and yet it seems to know nothing more than previous Jan 2026 cutoff models...",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt genau den Textabschnitt, der beschreibt, dass Opus 5 trotz eines angegebenen Wissensstands von Mai 2026 nicht über Januar 2026 hinauskommt.",
+              "erforderliches_bild": "Keines, da das aktuelle Bild perfekt passt."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein dunkelblaues Fenster mit der Aufschrift EVEN CODING PACKAGE VERSIONS und einer Liste von nummerierten Zeilen 1 bis 12, die bunte Balken in verschiedenen Farben und Längen zeigen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbaren grafischen Versionen und Balken passen exakt zu dem gesprochenen Begriff even coding package versions.",
+              "erforderliches_bild": "Ein geeignetes Bild zeigt die visuellen Paketversionsbalken der Programmierung."
+            },
+            {
+              "index": 9,
+              "gesehen": "In dem Bild ist ein Chatfenster mit der Aufschrift AI CHAT zu sehen, in dem eine Sprechblase mit dem Text Stuck in the past? und drei Ladepunkte angezeigt werden.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Sprechblase zeigt genau die gesprochene rhetorische Frage Stuck in the past? und passt als grafisches Element direkt zum Satzanfang.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein Mann sitzt nachts an einem Schreibtisch vor Fenstern mit nächtlicher Skyline und betrachtet prüfend ein leuchtendes Glas und einen kleinen Behälter.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochenen Wörter erwähnen den Widerspruch zwischen Quiz-Januar und Label-Mai, während das Bild lediglich einen Mann in einem Büro zeigt, der ein Leuchtglas hält. Das Quiz oder die genannten Monate sind visuell nicht dargestellt.",
+              "erforderliches_bild": "Eine Bildschirmansicht oder Grafik, die den Vergleich zwischen dem Quiz-Ergebnis Januar und dem Label Mai zeigt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die gezeigten Textk\"stchen mit Titeln erkl\"ren nicht die im Text erw\"hnte Fehlerquote oder das Quiz im Detail.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen eine Fehlerquoten-Timeline, die den Signalverlust zeigt. Auf dem Bild ist jedoch nur ein generischer Aktienchart auf einem Laptop zu sehen, kein Diagramm zu Fehlern oder einer Zeitachse.",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen den Widerspruch zwischen Quiz-Januar und Label-Mai, während das Bild lediglich einen Mann in einem Büro zeigt, der ein Leuchtglas hält. Das Quiz oder die genannten Monate sind visuell nicht dargestellt."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 12,
+          "ausgenommen": [
+            11
+          ],
+          "vorgeprueft": [
+            1
+          ],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "0a4a328cdc7b3702d022ec0ed3d0ee757762bf2ef2272b87829fc388f83b831d",
+        "prompt_version": "2026-10-29.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-3.1-flash-lite",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

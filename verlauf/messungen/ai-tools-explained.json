@@ -1,459 +1,5 @@
 [
   {
-    "id": "39630357478",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-21",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 262.0,
-        "pruefung_s": 486.2,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Bewertung hook fehlt oder ist ungueltig",
-          "Video-bild_passt 2/10 unter 7/10",
-          "Video-Bewertung dynamik fehlt oder ist ungueltig",
-          "Video-Bewertung text fehlt oder ist ungueltig",
-          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
-          "Video-Bewertung tempo fehlt oder ist ungueltig",
-          "Video-Bewertung inhalt fehlt oder ist ungueltig",
-          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
-          "Video-Bewertung regeln fehlt oder ist ungueltig",
-          "Video-Bewertung story fehlt oder ist ungueltig",
-          "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Programmierer an einem Laptop in einer städtischen Umgebung, aber weder die in der Narration erwähnte zustandslose API noch ein erklärendes Beispiel dazu sind erkennbar.",
-          "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen.",
-          "Einstellung 7: Bild passt nicht zum Sprechtext (5/10): Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch.",
-          "Offenes Problem (schwer): Das Bild zeigt einen Programmierer an einem Laptop in einer städtischen Umgebung, aber weder die in der Narration erwähnte zustandslose API noch ein erklärendes Beispiel dazu sind erkennbar. Korrektur: Ein Diagramm oder eine Code-Visualisierung, die zeigt, wie eine AI-API bei jedem Aufruf einen neuen Zustand startet oder den Gesprächsverlauf als JSON-Array überträgt.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen. Korrektur: Eine Bildschirmaufnahme, die das tatsächliche JSON-Array zeigt, welches bei jedem Zug gesendet wird.",
-          "Offenes Problem (schwer): Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch. Korrektur: Ein Bild, das ein konkretes gebrochenes System oder einen visualisierten Softwarefehler im Rahmen des Agenten-Harness zeigt."
-        ],
-        "messung": {
-          "stimme_wiederverwendet": false,
-          "erzaehlstimme": "gemini:Puck",
-          "stimme": 14.3,
-          "zeitmarken": 5.1,
-          "tempo": 1.045,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 0,
-          "stuecke_neu": 15,
-          "clips_und_stuecke": 102.2,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 15,
-            "motive": 15,
-            "motive_min": 8
-          },
-          "effekte": 11,
-          "rendern": 26.6,
-          "gesamt": 261.6,
-          "videolaenge_s": 45.0,
-          "abschnitte_s": [
-            6.04,
-            5.12,
-            6.48,
-            7.88,
-            7.02,
-            7.06,
-            5.43
-          ],
-          "woerter": 128
-        },
-        "kategorien": {
-          "bild_passt": 2
-        },
-        "probleme": [
-          {
-            "zeit": "00:00.00",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 0,
-            "einstellung": 0,
-            "gesprochen": "Why does an AI API start fresh every turn?",
-            "text": "Das Bild zeigt einen Programmierer an einem Laptop in einer städtischen Umgebung, aber weder die in der Narration erwähnte zustandslose API noch ein erklärendes Beispiel dazu sind erkennbar. Korrektur: Ein Diagramm oder eine Code-Visualisierung, die zeigt, wie eine AI-API bei jedem Aufruf einen neuen Zustand startet oder den Gesprächsverlauf als JSON-Array überträgt."
-          },
-          {
-            "zeit": "00:07.90",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 1,
-            "einstellung": 3,
-            "gesprochen": "Each turn, you send the whole conversation as a JSON array.",
-            "text": "Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen. Korrektur: Eine Bildschirmaufnahme, die das tatsächliche JSON-Array zeigt, welches bei jedem Zug gesendet wird."
-          },
-          {
-            "zeit": "00:19.76",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 3,
-            "einstellung": 7,
-            "gesprochen": "Each patch exists because something concrete broke.",
-            "text": "Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch. Korrektur: Ein Bild, das ein konkretes gebrochenes System oder einen visualisierten Softwarefehler im Rahmen des Agenten-Harness zeigt."
-          }
-        ],
-        "sekunden": 748.1,
-        "status": "geprueft"
-      },
-      {
-        "runde": 2,
-        "art": "korrektur",
-        "plan": {
-          "aktionen": [
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 0
-            },
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 1
-            },
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 3
-            }
-          ],
-          "einstellungen": {
-            "stimme": "am_michael",
-            "tempo": 1.05,
-            "untertitel_profil": "ruhig",
-            "musik_pegel": null,
-            "effekt_pegel": null
-          },
-          "offen": [],
-          "teile": [
-            0,
-            1,
-            3
-          ],
-          "schwerpunkt": "bild",
-          "prompt_version": "2026-10-18.1"
-        },
-        "skript_s": 15.3,
-        "bau_s": 114.8,
-        "pruefung_s": 12.5,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Bewertung hook fehlt oder ist ungueltig",
-          "Video-bild_passt 2/10 unter 7/10",
-          "Video-Bewertung dynamik fehlt oder ist ungueltig",
-          "Video-Bewertung text fehlt oder ist ungueltig",
-          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
-          "Video-Bewertung tempo fehlt oder ist ungueltig",
-          "Video-Bewertung inhalt fehlt oder ist ungueltig",
-          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
-          "Video-Bewertung regeln fehlt oder ist ungueltig",
-          "Video-Bewertung story fehlt oder ist ungueltig",
-          "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Sci-Fi-Charakter mit magischer Kugel in einer Gasse, was nicht zur Frage nach stateless AI APIs und Python-Agenten passt.",
-          "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen.",
-          "Einstellung 7: Bild passt nicht zum Sprechtext (5/10): Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch.",
-          "Offenes Problem (schwer): Das Bild zeigt einen Sci-Fi-Charakter mit magischer Kugel in einer Gasse, was nicht zur Frage nach stateless AI APIs und Python-Agenten passt. Korrektur: Eine anschauliche Grafik oder Code-Darstellung, die das Konzept eines stateless API-Aufrufs mit JSON-Arrays demonstriert.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen. Korrektur: Eine Bildschirmaufnahme, die das tatsächliche JSON-Array zeigt, welches bei jedem Zug gesendet wird.",
-          "Offenes Problem (schwer): Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch. Korrektur: Ein Bild, das ein konkretes gebrochenes System oder einen visualisierten Softwarefehler im Rahmen des Agenten-Harness zeigt."
-        ],
-        "messung": {
-          "stimme_wiederverwendet": true,
-          "erzaehlstimme": "gemini:Puck",
-          "tempo": 1.045,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 12,
-          "stuecke_neu": 3,
-          "clips_und_stuecke": 74.3,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 15,
-            "motive": 15,
-            "motive_min": 8
-          },
-          "effekte": 11,
-          "rendern": 26.2,
-          "gesamt": 114.6,
-          "videolaenge_s": 45.0,
-          "abschnitte_s": [
-            6.04,
-            5.12,
-            6.48,
-            7.88,
-            7.02,
-            7.06,
-            5.43
-          ],
-          "woerter": 128
-        },
-        "kategorien": {
-          "bild_passt": 2
-        },
-        "probleme": [
-          {
-            "zeit": "00:00.00",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 0,
-            "einstellung": 0,
-            "gesprochen": "Why does an AI API start fresh every turn?",
-            "text": "Das Bild zeigt einen Sci-Fi-Charakter mit magischer Kugel in einer Gasse, was nicht zur Frage nach stateless AI APIs und Python-Agenten passt. Korrektur: Eine anschauliche Grafik oder Code-Darstellung, die das Konzept eines stateless API-Aufrufs mit JSON-Arrays demonstriert."
-          },
-          {
-            "zeit": "00:07.90",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 1,
-            "einstellung": 3,
-            "gesprochen": "Each turn, you send the whole conversation as a JSON array.",
-            "text": "Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen. Korrektur: Eine Bildschirmaufnahme, die das tatsächliche JSON-Array zeigt, welches bei jedem Zug gesendet wird."
-          },
-          {
-            "zeit": "00:19.76",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 3,
-            "einstellung": 7,
-            "gesprochen": "Each patch exists because something concrete broke.",
-            "text": "Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch. Korrektur: Ein Bild, das ein konkretes gebrochenes System oder einen visualisierten Softwarefehler im Rahmen des Agenten-Harness zeigt."
-          }
-        ],
-        "sekunden": 142.6,
-        "status": "geprueft",
-        "lernergebnis": {
-          "id": "39630357478-2",
-          "datum": "2026-10-21",
-          "vorher": null,
-          "nachher": null,
-          "vorher_gesperrt": true,
-          "nachher_gesperrt": true,
-          "sekunden": 142.6,
-          "aktionen": [
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 0
-            },
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 1
-            },
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 3
-            }
-          ],
-          "einstellungen": {
-            "stimme": "am_michael",
-            "tempo": 1.05,
-            "untertitel_profil": "ruhig",
-            "musik_pegel": null,
-            "effekt_pegel": null
-          },
-          "schwerpunkt": "bild",
-          "kategorien_vorher": {
-            "bild_passt": 2
-          },
-          "kategorien_nachher": {
-            "bild_passt": 2
-          },
-          "auswertbar": false,
-          "prompt_version": "2026-10-18.1",
-          "verbessert": false
-        }
-      },
-      {
-        "runde": 3,
-        "art": "korrektur",
-        "plan": {
-          "aktionen": [
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 0
-            },
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 1
-            },
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 3
-            }
-          ],
-          "einstellungen": {
-            "stimme": "am_michael",
-            "tempo": 1.05,
-            "untertitel_profil": "ruhig",
-            "musik_pegel": null,
-            "effekt_pegel": null
-          },
-          "offen": [],
-          "teile": [
-            0,
-            1,
-            3
-          ],
-          "schwerpunkt": "bild",
-          "prompt_version": "2026-10-18.1"
-        },
-        "skript_s": 17.3,
-        "bau_s": 199.4,
-        "pruefung_s": 16.6,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Bewertung hook fehlt oder ist ungueltig",
-          "Video-bild_passt 2/10 unter 7/10",
-          "Video-Bewertung dynamik fehlt oder ist ungueltig",
-          "Video-Bewertung text fehlt oder ist ungueltig",
-          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
-          "Video-Bewertung tempo fehlt oder ist ungueltig",
-          "Video-Bewertung inhalt fehlt oder ist ungueltig",
-          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
-          "Video-Bewertung regeln fehlt oder ist ungueltig",
-          "Video-Bewertung story fehlt oder ist ungueltig",
-          "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine stilisierte Illustration mit einer Frage als Text in einer Sprechblase, demonstriert jedoch keine technische Erklärung oder das Buch beziehungsweise den Code zur API.",
-          "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt allgemeine Quellenangaben und Benutzeroberflächenelemente, aber nicht das erwähnte Buch oder einen Toy Python Agent.",
-          "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen.",
-          "Einstellung 7: Bild passt nicht zum Sprechtext (5/10): Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich eine stilisierte Illustration mit einer Frage als Text in einer Sprechblase, demonstriert jedoch keine technische Erklärung oder das Buch beziehungsweise den Code zur API. Korrektur: Ein Bild, das den Python-Code, die API-Struktur oder das erwähnte Buch zeigt.",
-          "Offenes Problem (schwer): Das Bild zeigt allgemeine Quellenangaben und Benutzeroberflächenelemente, aber nicht das erwähnte Buch oder einen Toy Python Agent. Korrektur: Ein tatsächliches Buch oder Code-Beispiel eines Toy Python Agents.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen. Korrektur: Eine Bildschirmaufnahme, die das tatsächliche JSON-Array zeigt, welches bei jedem Zug gesendet wird.",
-          "Offenes Problem (schwer): Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch. Korrektur: Ein Bild, das ein konkretes gebrochenes System oder einen visualisierten Softwarefehler im Rahmen des Agenten-Harness zeigt."
-        ],
-        "messung": {
-          "stimme_wiederverwendet": true,
-          "erzaehlstimme": "gemini:Puck",
-          "tempo": 1.045,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 12,
-          "stuecke_neu": 3,
-          "clips_und_stuecke": 160.9,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 15,
-            "motive": 15,
-            "motive_min": 8
-          },
-          "effekte": 11,
-          "rendern": 25.8,
-          "gesamt": 199.2,
-          "videolaenge_s": 45.0,
-          "abschnitte_s": [
-            6.04,
-            5.12,
-            6.48,
-            7.88,
-            7.02,
-            7.06,
-            5.43
-          ],
-          "woerter": 128
-        },
-        "kategorien": {
-          "bild_passt": 2
-        },
-        "probleme": [
-          {
-            "zeit": "00:00.00",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 0,
-            "einstellung": 0,
-            "gesprochen": "Why does an AI API start fresh every turn?",
-            "text": "Das Bild zeigt lediglich eine stilisierte Illustration mit einer Frage als Text in einer Sprechblase, demonstriert jedoch keine technische Erklärung oder das Buch beziehungsweise den Code zur API. Korrektur: Ein Bild, das den Python-Code, die API-Struktur oder das erwähnte Buch zeigt."
-          },
-          {
-            "zeit": "00:03.44",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 0,
-            "einstellung": 1,
-            "gesprochen": "This book answers it with a toy Python agent.",
-            "text": "Das Bild zeigt allgemeine Quellenangaben und Benutzeroberflächenelemente, aber nicht das erwähnte Buch oder einen Toy Python Agent. Korrektur: Ein tatsächliches Buch oder Code-Beispiel eines Toy Python Agents."
-          },
-          {
-            "zeit": "00:07.90",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 1,
-            "einstellung": 3,
-            "gesprochen": "Each turn, you send the whole conversation as a JSON array.",
-            "text": "Das Bild zeigt lediglich das Repository-Cover und keine JSON-Array-Struktur oder die Erläuterung dazu wie im Text gesprochen. Korrektur: Eine Bildschirmaufnahme, die das tatsächliche JSON-Array zeigt, welches bei jedem Zug gesendet wird."
-          },
-          {
-            "zeit": "00:19.76",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 3,
-            "einstellung": 7,
-            "gesprochen": "Each patch exists because something concrete broke.",
-            "text": "Die Textfolie greift zwar den Spruch auf, zeigt aber weder eine konkrete Erläuterung noch eine visualisierte Fehlerursache oder einen Patch. Korrektur: Ein Bild, das ein konkretes gebrochenes System oder einen visualisierten Softwarefehler im Rahmen des Agenten-Harness zeigt."
-          }
-        ],
-        "sekunden": 233.3,
-        "status": "geprueft",
-        "lernergebnis": {
-          "id": "39630357478-3",
-          "datum": "2026-10-21",
-          "vorher": null,
-          "nachher": null,
-          "vorher_gesperrt": true,
-          "nachher_gesperrt": true,
-          "sekunden": 233.3,
-          "aktionen": [
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 0
-            },
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 1
-            },
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 3
-            }
-          ],
-          "einstellungen": {
-            "stimme": "am_michael",
-            "tempo": 1.05,
-            "untertitel_profil": "ruhig",
-            "musik_pegel": null,
-            "effekt_pegel": null
-          },
-          "schwerpunkt": "bild",
-          "kategorien_vorher": {
-            "bild_passt": 2
-          },
-          "kategorien_nachher": {
-            "bild_passt": 2
-          },
-          "auswertbar": false,
-          "prompt_version": "2026-10-18.1",
-          "verbessert": false
-        }
-      },
-      {
-        "runde": 4,
-        "art": "korrektur",
-        "status": "korrekturgrenze",
-        "sekunden": 0.0
-      }
-    ],
-    "status": "gesendet",
-    "grund": "",
-    "sekunden": 1144.5,
-    "upload_titel": "Why AI APIs Restart: Harness Engineering 101 | AI Tool #11"
-  },
-  {
     "id": "39747394681",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-22",
@@ -10227,5 +9773,151 @@
     "status": "gesperrt",
     "grund": "RuntimeError: Keine belegte KI-Anwendung gefunden; keine unbelegte Skriptanfrage (skript.py:848)",
     "sekunden": 12.0
+  },
+  {
+    "id": "42658643882",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-11-09",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-tempo 6/10 unter 7/10"
+        ],
+        "story_note": 7,
+        "story_schwaechen": [
+          "Sentence: It also lists GPU: at least 4GB dedicated VRAM recommended. Why: The passive delivery reads like a technical manual, stalling the narrative momentum. Fix: Add at least 4GB of dedicated VRAM to keep the processing off your main system.",
+          "Sentence: Ollama's defaults: under 24 GiB VRAM, 4k context. Why: The lack of a verb or causal connection makes this specific data point feel like a fragmented note. Fix: Ollama automatically caps you at 4k context unless you have over 24 gigs of VRAM."
+        ],
+        "skript_probleme": [],
+        "sekunden": 154.0
+      },
+      {
+        "runde": 2,
+        "art": "produktion",
+        "skript_s": 124.5,
+        "bau_s": 383.2,
+        "pruefung_s": 40.4,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Text der Moderation in einem Chat-Interface, aber nicht den genannten Laptop-Lüfter oder die physische Belastung.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Es zeigt lediglich das generische Wort 'AGENTS' in einer abstrakten UI-Grafik, aber nicht die gesprochenen Details zu Agenten, Coding-Tools oder den 64000 Token.",
+          "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Der gesprochene Befehl ollama ps und die Konsolenausgabe sind im Bild nicht sichtbar.",
+          "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen wütenden Mann mit hochgereckten Fäusten, aber weder den Befehl ollama ps noch eine Auslastungsanzeige der GPU.",
+          "Offenes Problem (schwer): Das Bild zeigt den Text der Moderation in einem Chat-Interface, aber nicht den genannten Laptop-Lüfter oder die physische Belastung. Korrektur: Ein Foto eines Laptops mit laut aufdrehendem Lüfter oder sichtbarer Auslastung.",
+          "Offenes Problem (schwer): Es zeigt lediglich das generische Wort 'AGENTS' in einer abstrakten UI-Grafik, aber nicht die gesprochenen Details zu Agenten, Coding-Tools oder den 64000 Token. Korrektur: Eine Darstellung oder Dokumentation, die Codierwerkzeuge oder Agenten im Zusammenhang mit den erwähnten 64000 Token zeigt.",
+          "Offenes Problem (schwer): Der gesprochene Befehl ollama ps und die Konsolenausgabe sind im Bild nicht sichtbar. Korrektur: Ein Screenshot eines Terminalfensters, das den Befehl ollama ps und dessen Ausgabe zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt einen wütenden Mann mit hochgereckten Fäusten, aber weder den Befehl ollama ps noch eine Auslastungsanzeige der GPU. Korrektur: Ein Terminalfenster, das den Befehl ollama ps und die entsprechende GPU-Auslastung zeigt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 24.6,
+          "zeitmarken": 2.7,
+          "tempo": 1.0,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 14,
+          "bilder_vereinfacht": 1,
+          "clips_und_stuecke": 317.5,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 14,
+            "motive": 14,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 28.2,
+          "gesamt": 382.8,
+          "videolaenge_s": 44.7,
+          "abschnitte_s": [
+            6.92,
+            6.12,
+            4.08,
+            7.78,
+            6.06,
+            8.98,
+            4.75
+          ],
+          "woerter": 106,
+          "clips": {
+            "witz": 1,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:03.46",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Local AI is hungry.",
+            "fest": true,
+            "text": "Das Bild zeigt den Text der Moderation in einem Chat-Interface, aber nicht den genannten Laptop-Lüfter oder die physische Belastung. Korrektur: Ein Foto eines Laptops mit laut aufdrehendem Lüfter oder sichtbarer Auslastung."
+          },
+          {
+            "zeit": "00:24.90",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "Agents and coding tools should use at least 64000",
+            "fest": true,
+            "text": "Es zeigt lediglich das generische Wort 'AGENTS' in einer abstrakten UI-Grafik, aber nicht die gesprochenen Details zu Agenten, Coding-Tools oder den 64000 Token. Korrektur: Eine Darstellung oder Dokumentation, die Codierwerkzeuge oder Agenten im Zusammenhang mit den erwähnten 64000 Token zeigt."
+          },
+          {
+            "zeit": "00:30.96",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "Run ollama ps.",
+            "fest": true,
+            "text": "Der gesprochene Befehl ollama ps und die Konsolenausgabe sind im Bild nicht sichtbar. Korrektur: Ein Screenshot eines Terminalfensters, das den Befehl ollama ps und dessen Ausgabe zeigt."
+          },
+          {
+            "zeit": "00:36.48",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 12,
+            "gesprochen": "there. That screaming fan? Now you know what to check.",
+            "fest": true,
+            "text": "Das Bild zeigt einen wütenden Mann mit hochgereckten Fäusten, aber weder den Befehl ollama ps noch eine Auslastungsanzeige der GPU. Korrektur: Ein Terminalfenster, das den Befehl ollama ps und die entsprechende GPU-Auslastung zeigt."
+          }
+        ],
+        "sekunden": 548.1,
+        "status": "geprueft"
+      },
+      {
+        "runde": 3,
+        "art": "korrektur",
+        "status": "keine_korrektur",
+        "sekunden": 0.1
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 721.2,
+    "upload_titel": "LOCAL AI NEEDS: HOW MUCH RAM? | AI Tool #30"
   }
 ]

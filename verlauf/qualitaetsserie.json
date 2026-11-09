@@ -162236,6 +162236,1152 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "42658643882.1:ai-tools-explained",
+      "run_id": "42658643882",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-09T17:03:16.962046+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "fce13184883f2466b65f9863b5b0cf2df8139e23",
+      "produktionsversion": "73f29a2c4b0bfa752165b40221496640fcb15e44bf3c592aff75a5ee9c9c7393",
+      "videoformat": "short",
+      "thema": "Local AI models: how much RAM and VRAM the official docs recommend",
+      "titel": [
+        "LOCAL AI NEEDS",
+        "HOW MUCH *RAM?*"
+      ],
+      "status": "gesendet",
+      "video_sha256": "d675b7a286fab7665ea0fafbe05b2a7cf0d4bd385fbe6f5328669f82e34b0946",
+      "video_gebaut": true,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Text der Moderation in einem Chat-Interface, aber nicht den genannten Laptop-Lüfter oder die physische Belastung.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Es zeigt lediglich das generische Wort 'AGENTS' in einer abstrakten UI-Grafik, aber nicht die gesprochenen Details zu Agenten, Coding-Tools oder den 64000 Token.",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Der gesprochene Befehl ollama ps und die Konsolenausgabe sind im Bild nicht sichtbar.",
+        "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen wütenden Mann mit hochgereckten Fäusten, aber weder den Befehl ollama ps noch eine Auslastungsanzeige der GPU.",
+        "Offenes Problem (schwer): Das Bild zeigt den Text der Moderation in einem Chat-Interface, aber nicht den genannten Laptop-Lüfter oder die physische Belastung. Korrektur: Ein Foto eines Laptops mit laut aufdrehendem Lüfter oder sichtbarer Auslastung.",
+        "Offenes Problem (schwer): Es zeigt lediglich das generische Wort 'AGENTS' in einer abstrakten UI-Grafik, aber nicht die gesprochenen Details zu Agenten, Coding-Tools oder den 64000 Token. Korrektur: Eine Darstellung oder Dokumentation, die Codierwerkzeuge oder Agenten im Zusammenhang mit den erwähnten 64000 Token zeigt.",
+        "Offenes Problem (schwer): Der gesprochene Befehl ollama ps und die Konsolenausgabe sind im Bild nicht sichtbar. Korrektur: Ein Screenshot eines Terminalfensters, das den Befehl ollama ps und dessen Ausgabe zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt einen wütenden Mann mit hochgereckten Fäusten, aber weder den Befehl ollama ps noch eine Auslastungsanzeige der GPU. Korrektur: Ein Terminalfenster, das den Befehl ollama ps und die entsprechende GPU-Auslastung zeigt."
+      ],
+      "einstellungen": 14,
+      "unterschiedliche_motive": 14,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "42658643882",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-09",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-tempo 6/10 unter 7/10"
+            ],
+            "story_note": 7,
+            "story_schwaechen": [
+              "Sentence: It also lists GPU: at least 4GB dedicated VRAM recommended. Why: The passive delivery reads like a technical manual, stalling the narrative momentum. Fix: Add at least 4GB of dedicated VRAM to keep the processing off your main system.",
+              "Sentence: Ollama's defaults: under 24 GiB VRAM, 4k context. Why: The lack of a verb or causal connection makes this specific data point feel like a fragmented note. Fix: Ollama automatically caps you at 4k context unless you have over 24 gigs of VRAM."
+            ],
+            "skript_probleme": [],
+            "sekunden": 154.0
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "skript_s": 124.5,
+            "bau_s": 383.2,
+            "pruefung_s": 40.4,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Text der Moderation in einem Chat-Interface, aber nicht den genannten Laptop-Lüfter oder die physische Belastung.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Es zeigt lediglich das generische Wort 'AGENTS' in einer abstrakten UI-Grafik, aber nicht die gesprochenen Details zu Agenten, Coding-Tools oder den 64000 Token.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Der gesprochene Befehl ollama ps und die Konsolenausgabe sind im Bild nicht sichtbar.",
+              "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen wütenden Mann mit hochgereckten Fäusten, aber weder den Befehl ollama ps noch eine Auslastungsanzeige der GPU.",
+              "Offenes Problem (schwer): Das Bild zeigt den Text der Moderation in einem Chat-Interface, aber nicht den genannten Laptop-Lüfter oder die physische Belastung. Korrektur: Ein Foto eines Laptops mit laut aufdrehendem Lüfter oder sichtbarer Auslastung.",
+              "Offenes Problem (schwer): Es zeigt lediglich das generische Wort 'AGENTS' in einer abstrakten UI-Grafik, aber nicht die gesprochenen Details zu Agenten, Coding-Tools oder den 64000 Token. Korrektur: Eine Darstellung oder Dokumentation, die Codierwerkzeuge oder Agenten im Zusammenhang mit den erwähnten 64000 Token zeigt.",
+              "Offenes Problem (schwer): Der gesprochene Befehl ollama ps und die Konsolenausgabe sind im Bild nicht sichtbar. Korrektur: Ein Screenshot eines Terminalfensters, das den Befehl ollama ps und dessen Ausgabe zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen wütenden Mann mit hochgereckten Fäusten, aber weder den Befehl ollama ps noch eine Auslastungsanzeige der GPU. Korrektur: Ein Terminalfenster, das den Befehl ollama ps und die entsprechende GPU-Auslastung zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 24.6,
+              "zeitmarken": 2.7,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 14,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 317.5,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 14,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 28.2,
+              "gesamt": 382.8,
+              "videolaenge_s": 44.7,
+              "abschnitte_s": [
+                6.92,
+                6.12,
+                4.08,
+                7.78,
+                6.06,
+                8.98,
+                4.75
+              ],
+              "woerter": 106,
+              "clips": {
+                "witz": 1,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:03.46",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Local AI is hungry.",
+                "fest": true,
+                "text": "Das Bild zeigt den Text der Moderation in einem Chat-Interface, aber nicht den genannten Laptop-Lüfter oder die physische Belastung. Korrektur: Ein Foto eines Laptops mit laut aufdrehendem Lüfter oder sichtbarer Auslastung."
+              },
+              {
+                "zeit": "00:24.90",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Agents and coding tools should use at least 64000",
+                "fest": true,
+                "text": "Es zeigt lediglich das generische Wort 'AGENTS' in einer abstrakten UI-Grafik, aber nicht die gesprochenen Details zu Agenten, Coding-Tools oder den 64000 Token. Korrektur: Eine Darstellung oder Dokumentation, die Codierwerkzeuge oder Agenten im Zusammenhang mit den erwähnten 64000 Token zeigt."
+              },
+              {
+                "zeit": "00:30.96",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "Run ollama ps.",
+                "fest": true,
+                "text": "Der gesprochene Befehl ollama ps und die Konsolenausgabe sind im Bild nicht sichtbar. Korrektur: Ein Screenshot eines Terminalfensters, das den Befehl ollama ps und dessen Ausgabe zeigt."
+              },
+              {
+                "zeit": "00:36.48",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 12,
+                "gesprochen": "there. That screaming fan? Now you know what to check.",
+                "fest": true,
+                "text": "Das Bild zeigt einen wütenden Mann mit hochgereckten Fäusten, aber weder den Befehl ollama ps noch eine Auslastungsanzeige der GPU. Korrektur: Ein Terminalfenster, das den Befehl ollama ps und die entsprechende GPU-Auslastung zeigt."
+              }
+            ],
+            "sekunden": 548.1,
+            "status": "geprueft"
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 721.2,
+        "upload_titel": "LOCAL AI NEEDS: HOW MUCH RAM? | AI Tool #30"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:03.46",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Local AI is hungry.",
+            "fest": true,
+            "text": "Das Bild zeigt den Text der Moderation in einem Chat-Interface, aber nicht den genannten Laptop-Lüfter oder die physische Belastung. Korrektur: Ein Foto eines Laptops mit laut aufdrehendem Lüfter oder sichtbarer Auslastung."
+          },
+          {
+            "zeit": "00:24.90",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "Agents and coding tools should use at least 64000",
+            "fest": true,
+            "text": "Es zeigt lediglich das generische Wort 'AGENTS' in einer abstrakten UI-Grafik, aber nicht die gesprochenen Details zu Agenten, Coding-Tools oder den 64000 Token. Korrektur: Eine Darstellung oder Dokumentation, die Codierwerkzeuge oder Agenten im Zusammenhang mit den erwähnten 64000 Token zeigt."
+          },
+          {
+            "zeit": "00:30.96",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "Run ollama ps.",
+            "fest": true,
+            "text": "Der gesprochene Befehl ollama ps und die Konsolenausgabe sind im Bild nicht sichtbar. Korrektur: Ein Screenshot eines Terminalfensters, das den Befehl ollama ps und dessen Ausgabe zeigt."
+          },
+          {
+            "zeit": "00:36.48",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 12,
+            "gesprochen": "there. That screaming fan? Now you know what to check.",
+            "fest": true,
+            "text": "Das Bild zeigt einen wütenden Mann mit hochgereckten Fäusten, aber weder den Befehl ollama ps noch eine Auslastungsanzeige der GPU. Korrektur: Ein Terminalfenster, das den Befehl ollama ps und die entsprechende GPU-Auslastung zeigt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 44.7,
+          "fps": 30.0,
+          "lufs": -14.1,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 40.24,
+              "bis_s": 41.9,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.986
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 24.700000000000003,
+              "bis_s": 45.2,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Your",
+                "s": 0.0,
+                "e": 0.26,
+                "p": 0.7566604018211365
+              },
+              {
+                "w": "laptop",
+                "s": 0.26,
+                "e": 0.52,
+                "p": 0.8209890127182007
+              },
+              {
+                "w": "fan",
+                "s": 0.52,
+                "e": 1.0,
+                "p": 0.7642432451248169
+              },
+              {
+                "w": "screamed",
+                "s": 1.0,
+                "e": 1.46,
+                "p": 0.9471064209938049
+              },
+              {
+                "w": "like",
+                "s": 1.46,
+                "e": 2.32,
+                "p": 0.9781876802444458
+              },
+              {
+                "w": "a",
+                "s": 2.32,
+                "e": 2.44,
+                "p": 0.9914753437042236
+              },
+              {
+                "w": "jet.",
+                "s": 2.44,
+                "e": 2.82,
+                "p": 0.7900930047035217
+              },
+              {
+                "w": "Local",
+                "s": 3.48,
+                "e": 3.56,
+                "p": 0.9796876907348633
+              },
+              {
+                "w": "AI",
+                "s": 3.56,
+                "e": 3.98,
+                "p": 0.9563080668449402
+              },
+              {
+                "w": "is",
+                "s": 3.98,
+                "e": 4.32,
+                "p": 0.9952758550643921
+              },
+              {
+                "w": "hungry,",
+                "s": 4.32,
+                "e": 4.68,
+                "p": 0.9784482717514038
+              },
+              {
+                "w": "but",
+                "s": 5.2,
+                "e": 5.26,
+                "p": 0.9923601746559143
+              },
+              {
+                "w": "how",
+                "s": 5.26,
+                "e": 5.74,
+                "p": 0.9446433782577515
+              },
+              {
+                "w": "hungry,",
+                "s": 5.74,
+                "e": 6.18,
+                "p": 0.9751180410385132
+              },
+              {
+                "w": "really?",
+                "s": 6.56,
+                "e": 6.56,
+                "p": 0.9962235689163208
+              },
+              {
+                "w": "LM",
+                "s": 6.92,
+                "e": 7.08,
+                "p": 0.8812869191169739
+              },
+              {
+                "w": "Studio",
+                "s": 7.08,
+                "e": 7.38,
+                "p": 0.5754578709602356
+              },
+              {
+                "w": "recommends",
+                "s": 7.38,
+                "e": 7.86,
+                "p": 0.9914701581001282
+              },
+              {
+                "w": "at",
+                "s": 7.86,
+                "e": 8.22,
+                "p": 0.9867544770240784
+              },
+              {
+                "w": "least",
+                "s": 8.22,
+                "e": 8.36,
+                "p": 0.9908720850944519
+              },
+              {
+                "w": "16",
+                "s": 8.36,
+                "e": 8.96,
+                "p": 0.9600035548210144
+              },
+              {
+                "w": "gigs",
+                "s": 8.96,
+                "e": 9.26,
+                "p": 0.7942719459533691
+              },
+              {
+                "w": "of",
+                "s": 9.26,
+                "e": 9.5,
+                "p": 0.9966879487037659
+              },
+              {
+                "w": "RAM,",
+                "s": 9.5,
+                "e": 9.72,
+                "p": 0.9125949144363403
+              },
+              {
+                "w": "plus",
+                "s": 10.04,
+                "e": 10.44,
+                "p": 0.990153968334198
+              },
+              {
+                "w": "4",
+                "s": 10.44,
+                "e": 11.0,
+                "p": 0.5459506511688232
+              },
+              {
+                "w": "gigs",
+                "s": 11.0,
+                "e": 11.32,
+                "p": 0.9619855284690857
+              },
+              {
+                "w": "of",
+                "s": 11.32,
+                "e": 11.58,
+                "p": 0.9952482581138611
+              },
+              {
+                "w": "dedicated",
+                "s": 11.58,
+                "e": 11.94,
+                "p": 0.9950437545776367
+              },
+              {
+                "w": "VRAM.",
+                "s": 11.94,
+                "e": 12.72,
+                "p": 0.8676069974899292
+              },
+              {
+                "w": "8",
+                "s": 13.04,
+                "e": 13.16,
+                "p": 0.9542115330696106
+              },
+              {
+                "w": "-Gig",
+                "s": 13.16,
+                "e": 13.38,
+                "p": 0.4148322542508443
+              },
+              {
+                "w": "Max",
+                "s": 13.38,
+                "e": 13.54,
+                "p": 0.4643048048019409
+              },
+              {
+                "w": "may",
+                "s": 13.54,
+                "e": 13.88,
+                "p": 0.8638600707054138
+              },
+              {
+                "w": "still",
+                "s": 13.88,
+                "e": 14.14,
+                "p": 0.9953183531761169
+              },
+              {
+                "w": "work.",
+                "s": 14.14,
+                "e": 14.34,
+                "p": 0.9969866871833801
+              },
+              {
+                "w": "Smaller",
+                "s": 14.56,
+                "e": 14.92,
+                "p": 0.977863222360611
+              },
+              {
+                "w": "models,",
+                "s": 14.92,
+                "e": 15.08,
+                "p": 0.9948465824127197
+              },
+              {
+                "w": "modest",
+                "s": 15.8,
+                "e": 15.8,
+                "p": 0.9779304265975952
+              },
+              {
+                "w": "context",
+                "s": 15.8,
+                "e": 16.1,
+                "p": 0.5341767072677612
+              },
+              {
+                "w": "sizes.",
+                "s": 16.1,
+                "e": 16.66,
+                "p": 0.9805141091346741
+              },
+              {
+                "w": "Oh,",
+                "s": 17.14,
+                "e": 17.28,
+                "p": 0.09869839996099472
+              },
+              {
+                "w": "this",
+                "s": 17.34,
+                "e": 17.48,
+                "p": 0.4439462721347809
+              },
+              {
+                "w": "person.",
+                "s": 17.48,
+                "e": 17.64,
+                "p": 0.6004531383514404
+              },
+              {
+                "w": "Oh,",
+                "s": 18.04,
+                "e": 18.1,
+                "p": 0.45597055554389954
+              },
+              {
+                "w": "llama's",
+                "s": 18.24,
+                "e": 18.54,
+                "p": 0.7673879663149515
+              },
+              {
+                "w": "twist?",
+                "s": 18.54,
+                "e": 18.72,
+                "p": 0.9700241684913635
+              },
+              {
+                "w": "Under",
+                "s": 19.36,
+                "e": 19.54,
+                "p": 0.9826384782791138
+              },
+              {
+                "w": "24",
+                "s": 19.54,
+                "e": 19.88,
+                "p": 0.9873106479644775
+              },
+              {
+                "w": "-jigabyte",
+                "s": 19.88,
+                "e": 20.42,
+                "p": 0.816942885518074
+              },
+              {
+                "w": "VRAM,",
+                "s": 20.42,
+                "e": 20.86,
+                "p": 0.9951382577419281
+              },
+              {
+                "w": "it",
+                "s": 21.12,
+                "e": 21.16,
+                "p": 0.9287372827529907
+              },
+              {
+                "w": "defaults",
+                "s": 21.16,
+                "e": 21.44,
+                "p": 0.9979074001312256
+              },
+              {
+                "w": "to",
+                "s": 21.44,
+                "e": 21.76,
+                "p": 0.997568666934967
+              },
+              {
+                "w": "4K",
+                "s": 21.76,
+                "e": 22.4,
+                "p": 0.8373153507709503
+              },
+              {
+                "w": "context.",
+                "s": 22.4,
+                "e": 22.82,
+                "p": 0.6004094481468201
+              },
+              {
+                "w": "Goldfish",
+                "s": 23.58,
+                "e": 23.92,
+                "p": 0.9766043126583099
+              },
+              {
+                "w": "memory.",
+                "s": 23.92,
+                "e": 24.12,
+                "p": 0.9455167055130005
+              },
+              {
+                "w": "Agents",
+                "s": 24.9,
+                "e": 24.92,
+                "p": 0.9538456797599792
+              },
+              {
+                "w": "and",
+                "s": 24.92,
+                "e": 25.16,
+                "p": 0.97867351770401
+              },
+              {
+                "w": "coding",
+                "s": 25.16,
+                "e": 25.32,
+                "p": 0.9413703083992004
+              },
+              {
+                "w": "tools",
+                "s": 25.32,
+                "e": 25.64,
+                "p": 0.9983747005462646
+              },
+              {
+                "w": "should",
+                "s": 25.64,
+                "e": 25.88,
+                "p": 0.9966253042221069
+              },
+              {
+                "w": "use",
+                "s": 25.88,
+                "e": 26.06,
+                "p": 0.9966094493865967
+              },
+              {
+                "w": "at",
+                "s": 26.06,
+                "e": 26.24,
+                "p": 0.9938222169876099
+              },
+              {
+                "w": "least",
+                "s": 26.24,
+                "e": 26.36,
+                "p": 0.9949626922607422
+              },
+              {
+                "w": "64",
+                "s": 26.36,
+                "e": 26.8,
+                "p": 0.9874059557914734
+              },
+              {
+                "w": ",000",
+                "s": 26.8,
+                "e": 27.76,
+                "p": 0.9620227217674255
+              },
+              {
+                "w": "tokens.",
+                "s": 27.76,
+                "e": 28.08,
+                "p": 0.9932000041007996
+              },
+              {
+                "w": "and",
+                "s": 28.08,
+                "e": 28.5,
+                "p": 0.34988266229629517
+              },
+              {
+                "w": "bigger",
+                "s": 28.5,
+                "e": 28.72,
+                "p": 0.9722890853881836
+              },
+              {
+                "w": "context",
+                "s": 28.72,
+                "e": 29.1,
+                "p": 0.49128738045692444
+              },
+              {
+                "w": "needs",
+                "s": 29.1,
+                "e": 29.5,
+                "p": 0.9887216091156006
+              },
+              {
+                "w": "more",
+                "s": 29.5,
+                "e": 29.78,
+                "p": 0.9981589913368225
+              },
+              {
+                "w": "memory.",
+                "s": 29.78,
+                "e": 30.08,
+                "p": 0.9982686042785645
+              },
+              {
+                "w": "Run",
+                "s": 30.94,
+                "e": 30.96,
+                "p": 0.9198940992355347
+              },
+              {
+                "w": "Olama",
+                "s": 30.96,
+                "e": 31.5,
+                "p": 0.6154116988182068
+              },
+              {
+                "w": "slash",
+                "s": 31.5,
+                "e": 31.72,
+                "p": 0.025985129177570343
+              },
+              {
+                "w": "PS.",
+                "s": 31.72,
+                "e": 32.02,
+                "p": 0.4929506480693817
+              },
+              {
+                "w": "Processor",
+                "s": 33.02,
+                "e": 33.02,
+                "p": 0.5069596171379089
+              },
+              {
+                "w": "says",
+                "s": 33.02,
+                "e": 33.42,
+                "p": 0.9900974035263062
+              },
+              {
+                "w": "100",
+                "s": 33.42,
+                "e": 33.84,
+                "p": 0.9434603452682495
+              },
+              {
+                "w": "%",
+                "s": 33.84,
+                "e": 34.5,
+                "p": 0.9308691024780273
+              },
+              {
+                "w": "GPU",
+                "s": 34.5,
+                "e": 34.82,
+                "p": 0.9931811690330505
+              },
+              {
+                "w": "when",
+                "s": 34.82,
+                "e": 35.28,
+                "p": 0.9525089263916016
+              },
+              {
+                "w": "the",
+                "s": 35.28,
+                "e": 35.38,
+                "p": 0.9919176697731018
+              },
+              {
+                "w": "model",
+                "s": 35.38,
+                "e": 35.52,
+                "p": 0.9880023002624512
+              },
+              {
+                "w": "loads",
+                "s": 35.52,
+                "e": 35.82,
+                "p": 0.9924362301826477
+              },
+              {
+                "w": "entirely",
+                "s": 35.82,
+                "e": 36.32,
+                "p": 0.992741048336029
+              },
+              {
+                "w": "there.",
+                "s": 36.32,
+                "e": 36.72,
+                "p": 0.9950191974639893
+              },
+              {
+                "w": "That's",
+                "s": 37.26,
+                "e": 37.5,
+                "p": 0.928766518831253
+              },
+              {
+                "w": "screaming",
+                "s": 37.5,
+                "e": 37.76,
+                "p": 0.6015918254852295
+              },
+              {
+                "w": "fan.",
+                "s": 37.76,
+                "e": 38.14,
+                "p": 0.5259342193603516
+              },
+              {
+                "w": "Now",
+                "s": 38.6,
+                "e": 38.82,
+                "p": 0.9972600936889648
+              },
+              {
+                "w": "you",
+                "s": 38.82,
+                "e": 39.02,
+                "p": 0.9603161215782166
+              },
+              {
+                "w": "know",
+                "s": 39.02,
+                "e": 39.14,
+                "p": 0.9979876279830933
+              },
+              {
+                "w": "what",
+                "s": 39.14,
+                "e": 39.26,
+                "p": 0.6471341252326965
+              },
+              {
+                "w": "to",
+                "s": 39.26,
+                "e": 39.36,
+                "p": 0.9912862181663513
+              },
+              {
+                "w": "check.",
+                "s": 39.36,
+                "e": 39.54,
+                "p": 0.9923853874206543
+              },
+              {
+                "w": "Be",
+                "s": 39.96,
+                "e": 39.98,
+                "p": 0.9757930636405945
+              },
+              {
+                "w": "sure",
+                "s": 39.98,
+                "e": 40.14,
+                "p": 0.9994049072265625
+              },
+              {
+                "w": "to",
+                "s": 40.14,
+                "e": 40.24,
+                "p": 0.9968746900558472
+              },
+              {
+                "w": "like,",
+                "s": 40.24,
+                "e": 40.5,
+                "p": 0.9297487735748291
+              },
+              {
+                "w": "share,",
+                "s": 40.58,
+                "e": 40.88,
+                "p": 0.9944942593574524
+              },
+              {
+                "w": "and",
+                "s": 41.08,
+                "e": 41.16,
+                "p": 0.9991119503974915
+              },
+              {
+                "w": "save",
+                "s": 41.16,
+                "e": 41.42,
+                "p": 0.9960508942604065
+              },
+              {
+                "w": "this",
+                "s": 41.42,
+                "e": 41.62,
+                "p": 0.9951764345169067
+              },
+              {
+                "w": "video.",
+                "s": 41.62,
+                "e": 41.9,
+                "p": 0.9993126392364502
+              },
+              {
+                "w": "Which",
+                "s": 42.38,
+                "e": 42.4,
+                "p": 0.8803297281265259
+              },
+              {
+                "w": "tool",
+                "s": 42.4,
+                "e": 42.6,
+                "p": 0.6239660978317261
+              },
+              {
+                "w": "next?",
+                "s": 42.6,
+                "e": 42.84,
+                "p": 0.6417890787124634
+              },
+              {
+                "w": "Comment",
+                "s": 43.5,
+                "e": 43.5,
+                "p": 0.9897130727767944
+              },
+              {
+                "w": "and",
+                "s": 43.5,
+                "e": 43.86,
+                "p": 0.875641405582428
+              },
+              {
+                "w": "follow",
+                "s": 43.86,
+                "e": 44.1,
+                "p": 0.9973568916320801
+              },
+              {
+                "w": "for",
+                "s": 44.1,
+                "e": 44.3,
+                "p": 0.9866097569465637
+              },
+              {
+                "w": "more.",
+                "s": 44.3,
+                "e": 44.46,
+                "p": 0.9996998310089111
+              }
+            ],
+            "dauer_s": 44.6933125,
+            "sprache": "en"
+          },
+          "roh_key": "267f902a7a327647a47d429332777ad6c3ac8c6c04ef86a51d55d58a8ed371f6",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "d675b7a286fab7665ea0fafbe05b2a7cf0d4bd385fbe6f5328669f82e34b0946",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 44.7,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 14,
+          "motive": 14,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "d675b7a286fab7665ea0fafbe05b2a7cf0d4bd385fbe6f5328669f82e34b0946",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein geschockter Mann schaut mit weit aufgerissenem Mund auf einen Laptop, aus dem ein Ventilator und Funken herausragen.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt einen geschockten Gesichtsausdruck als Reaktion auf den lauten Laptop-Lüfter, was perfekt zum Öffnungs-Hook passt.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da es sich um einen passenden opening_reaction_shot handelt."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein dunkles UI mit der Aufschrift AI CHAT und einer Sprechblase mit dem Text Local AI is hungry., darunter drei Ladepunkte.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt den Text der Moderation in einem Chat-Interface, aber nicht den genannten Laptop-Lüfter oder die physische Belastung.",
+              "erforderliches_bild": "Ein Foto eines Laptops mit laut aufdrehendem Lüfter oder sichtbarer Auslastung."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein AI-Chat-Fenster mit der Aufschrift 'AI CHAT' und einer Sprechblase mit dem Text 'But how hungry, really?' sowie drei animierten Punkten darunter.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Textfrage in der Sprechblase entspricht genau den gesprochenen Worten 'But how hungry, really?' als rhetorische Fortsetzung des Themas.",
+              "erforderliches_bild": "keines"
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Dokumenten-Screenshot zeigt die Systemanforderungen von LM Studio mit einem gelben Kasten um den Text zur RAM-Empfehlung (mindestens 16GB RAM).",
+              "note": 10,
+              "passt": true,
+              "grund": "Der sichtbare Text im Dokumenten-Ausschnitt belegt exakt die gesprochene Empfehlung zu den benötigten 16GB RAM für LM Studio.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da der Inhalt perfekt übereinstimmt."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Dokumentausschnitt mit gelb markiertem Text über Anforderungen von LM Studio, wobei die Zeile 'GPU: at least 4GB of dedicated VRAM is recommended.' hervorgehoben ist.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt genau die offizielle Dokumentation von LM Studio, die 4GB dedizierten VRAM empfiehlt, was perfekt zu den gesprochenen Worten passt.",
+              "erforderliches_bild": "Kein anderes Bild erforderlich, da die offizielle Dokumentation für diesen Satz direkt zu sehen ist."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein Screenshot zeigt die Dokumentation von LM Studio mit gelb markiertem Text, der besagt, dass LM Studio auf 8GB-Macs mit kleineren Modellen und bescheidenen Kontextgrößen verwendet werden kann.",
+              "note": 10,
+              "passt": true,
+              "grund": "Der sichtbare Text im Bild stimmt exakt mit der gesprochenen Aussage über die Verwendung von LM Studio auf 8GB-Macs überein.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein Screenshot zeigt die Dokumentation von Ollama mit einer gelben Hervorhebung um den Punkt \"< 24 GiB VRAM: 4k context\".",
+              "note": 10,
+              "passt": true,
+              "grund": "Der Text und die Hervorhebung stimmen exakt mit der gesprochenen Aussage über Ollamas Standardkontext bei weniger als 24 GiB VRAM überein.",
+              "erforderliches_bild": "Keines, das Bild passt perfekt."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein stilisiertes Fenster mit der Aufschrift 'AGENTS' und bunten Rechtecken als Platzhalter.",
+              "note": 2,
+              "passt": false,
+              "grund": "Es zeigt lediglich das generische Wort 'AGENTS' in einer abstrakten UI-Grafik, aber nicht die gesprochenen Details zu Agenten, Coding-Tools oder den 64000 Token.",
+              "erforderliches_bild": "Eine Darstellung oder Dokumentation, die Codierwerkzeuge oder Agenten im Zusammenhang mit den erwähnten 64000 Token zeigt."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein grafisches UI mit einer Box namens 'AI OUTPUT', Textzeilen und zwei Schaltflächen 'TOKENS' sowie 'CONTEXT NEEDS MORE MEMORY'.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbaren Elemente passen direkt zu den gesprochenen Worten über Token und größeren Kontext, der mehr Speicher benötigt.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da das Bild passt."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein Mann sitzt an einem Holztisch mit zwei Laptops und schreibt Code. Keine Befehlszeile mit ollama ps ist zu sehen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Der gesprochene Befehl ollama ps und die Konsolenausgabe sind im Bild nicht sichtbar.",
+              "erforderliches_bild": "Ein Screenshot eines Terminalfensters, das den Befehl ollama ps und dessen Ausgabe zeigt."
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein Screenshot zeigt die Dokumentation von Ollama mit der Erkl(rung, dass 100% GPU bedeutet, dass das Modell vollst(ndig in die GPU geladen wurde.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt die erkl(rrende Dokumentation zu der im gesprochenen Text genannten Prozessorauslastung (100% GPU), wodurch der Begriff visuell exakt und n(tzlich erkl(rt wird.",
+              "erforderliches_bild": "Keines, da das aktuelle Bild perfekt passt."
+            },
+            {
+              "index": 12,
+              "gesehen": "Ein Mann mit Sonnenbrille und Lederjacke schreit wütend vor einem Fenster.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt einen wütenden Mann mit hochgereckten Fäusten, aber weder den Befehl ollama ps noch eine Auslastungsanzeige der GPU.",
+              "erforderliches_bild": "Ein Terminalfenster, das den Befehl ollama ps und die entsprechende GPU-Auslastung zeigt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Text der Moderation in einem Chat-Interface, aber nicht den genannten Laptop-Lüfter oder die physische Belastung.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Es zeigt lediglich das generische Wort 'AGENTS' in einer abstrakten UI-Grafik, aber nicht die gesprochenen Details zu Agenten, Coding-Tools oder den 64000 Token.",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Der gesprochene Befehl ollama ps und die Konsolenausgabe sind im Bild nicht sichtbar.",
+            "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen wütenden Mann mit hochgereckten Fäusten, aber weder den Befehl ollama ps noch eine Auslastungsanzeige der GPU."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 14,
+          "ausgenommen": [
+            13
+          ],
+          "vorgeprueft": [
+            6
+          ],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "d675b7a286fab7665ea0fafbe05b2a7cf0d4bd385fbe6f5328669f82e34b0946",
+        "prompt_version": "2026-10-29.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

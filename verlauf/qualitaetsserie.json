@@ -156921,6 +156921,1177 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "42585619814.1:business-origin-stories",
+      "run_id": "42585619814",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-09T08:52:53.498008+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "b169415932d400d16e73b38a28ad9a539859be31",
+      "produktionsversion": "dfca8c0f007b9208568a0197429e09cce900d82abf65c3a691b0d90d0dc8952a",
+      "videoformat": "short",
+      "thema": "Amazon",
+      "titel": [
+        "AMAZON'S TOY DEAL",
+        "ENDED IN COURT"
+      ],
+      "status": "gesendet",
+      "video_sha256": "ea1262b896e66b8941c8a3bd3bad9f4c5dbfc2ac25b47da9966cee194ccb9e90",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt geschäftlich gekleidete Männer vor einem Regierungs- oder Gerichtsgebäude, was vage zum Thema Gericht passt, aber die konkrete Amazon-Spielzeug-Partnerschaft und deren Rechtsstreit wird nicht dargestellt.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar geschäftliche Partner, aber die historische Unterschrift des Toys R Us-Deals wird nicht dargestellt, sondern nur eine generete Szene mit einem Overlay.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine historische Straßenszene mit Männern, aber keinerlei Verkäufer, Amazon oder Online-Spielzeugverkäufe.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Infografik mit Zahlen und Texten, aber keine historische Szene, die das Starten einer eigenen Website oder den Gerichtsentscheid/die Schadenersatzzahlung an Toys \"R\" Us veranschaulicht.",
+        "Offenes Problem (schwer): Das Bild zeigt geschäftlich gekleidete Männer vor einem Regierungs- oder Gerichtsgebäude, was vage zum Thema Gericht passt, aber die konkrete Amazon-Spielzeug-Partnerschaft und deren Rechtsstreit wird nicht dargestellt. Korrektur: Eine realistische historische Illustration oder Aktenkombination, die einen Gerichtssaal oder Anwälte von Toys R Us und Amazon im Streit um den Spielzeughandel im Jahr 2004 zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt zwar geschäftliche Partner, aber die historische Unterschrift des Toys R Us-Deals wird nicht dargestellt, sondern nur eine generete Szene mit einem Overlay. Korrektur: Eine historische oder illustrierte Darstellung von Geschäftsleuten, die einen Vertrag unterzeichnen.",
+        "Offenes Problem (schwer): Das Bild zeigt eine historische Straßenszene mit Männern, aber keinerlei Verkäufer, Amazon oder Online-Spielzeugverkäufe. Korrektur: Eine Illustration, die streitende Parteien oder Dokumente zu einem Gerichtsverfahren über den Verkauf von Spielzeug im Internet zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine Infografik mit Zahlen und Texten, aber keine historische Szene, die das Starten einer eigenen Website oder den Gerichtsentscheid/die Schadenersatzzahlung an Toys \"R\" Us veranschaulicht. Korrektur: Eine historische Aufnahme von Managern von Toys R Us bei der Ankündigung ihrer neuen Website oder Archivmaterial des Gerichtsgebäudes nach dem Urteil."
+      ],
+      "einstellungen": 10,
+      "unterschiedliche_motive": 10,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "42585619814",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-09",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 410.2,
+            "pruefung_s": 23.8,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt geschäftlich gekleidete Männer vor einem Regierungs- oder Gerichtsgebäude, was vage zum Thema Gericht passt, aber die konkrete Amazon-Spielzeug-Partnerschaft und deren Rechtsstreit wird nicht dargestellt.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar geschäftliche Partner, aber die historische Unterschrift des Toys R Us-Deals wird nicht dargestellt, sondern nur eine generete Szene mit einem Overlay.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine historische Straßenszene mit Männern, aber keinerlei Verkäufer, Amazon oder Online-Spielzeugverkäufe.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Infografik mit Zahlen und Texten, aber keine historische Szene, die das Starten einer eigenen Website oder den Gerichtsentscheid/die Schadenersatzzahlung an Toys \"R\" Us veranschaulicht.",
+              "Offenes Problem (schwer): Das Bild zeigt geschäftlich gekleidete Männer vor einem Regierungs- oder Gerichtsgebäude, was vage zum Thema Gericht passt, aber die konkrete Amazon-Spielzeug-Partnerschaft und deren Rechtsstreit wird nicht dargestellt. Korrektur: Eine realistische historische Illustration oder Aktenkombination, die einen Gerichtssaal oder Anwälte von Toys R Us und Amazon im Streit um den Spielzeughandel im Jahr 2004 zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar geschäftliche Partner, aber die historische Unterschrift des Toys R Us-Deals wird nicht dargestellt, sondern nur eine generete Szene mit einem Overlay. Korrektur: Eine historische oder illustrierte Darstellung von Geschäftsleuten, die einen Vertrag unterzeichnen.",
+              "Offenes Problem (schwer): Das Bild zeigt eine historische Straßenszene mit Männern, aber keinerlei Verkäufer, Amazon oder Online-Spielzeugverkäufe. Korrektur: Eine Illustration, die streitende Parteien oder Dokumente zu einem Gerichtsverfahren über den Verkauf von Spielzeug im Internet zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine Infografik mit Zahlen und Texten, aber keine historische Szene, die das Starten einer eigenen Website oder den Gerichtsentscheid/die Schadenersatzzahlung an Toys \"R\" Us veranschaulicht. Korrektur: Eine historische Aufnahme von Managern von Toys R Us bei der Ankündigung ihrer neuen Website oder Archivmaterial des Gerichtsgebäudes nach dem Urteil."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Fenrir",
+              "stimme": 11.9,
+              "zeitmarken": 3.2,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 10,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 250.3,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 10,
+                "motive": 10,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 36.3,
+              "gesamt": 409.7,
+              "videolaenge_s": 39.9,
+              "abschnitte_s": [
+                7.14,
+                5.82,
+                5.44,
+                6.24,
+                4.3,
+                5.72,
+                5.22
+              ],
+              "woerter": 96,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:04.28",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Amazon's toy deal hit court.",
+                "fest": false,
+                "text": "Das Bild zeigt geschäftlich gekleidete Männer vor einem Regierungs- oder Gerichtsgebäude, was vage zum Thema Gericht passt, aber die konkrete Amazon-Spielzeug-Partnerschaft und deren Rechtsstreit wird nicht dargestellt. Korrektur: Eine realistische historische Illustration oder Aktenkombination, die einen Gerichtssaal oder Anwälte von Toys R Us und Amazon im Streit um den Spielzeughandel im Jahr 2004 zeigt."
+              },
+              {
+                "zeit": "00:07.14",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "In 2000, Toys \"R\" Us signed a 10-year deal worth $50 million yearly.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar geschäftliche Partner, aber die historische Unterschrift des Toys R Us-Deals wird nicht dargestellt, sondern nur eine generete Szene mit einem Overlay. Korrektur: Eine historische oder illustrierte Darstellung von Geschäftsleuten, die einen Vertrag unterzeichnen."
+              },
+              {
+                "zeit": "00:21.52",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 5,
+                "gesprochen": "let outside sellers offer those toys.",
+                "fest": false,
+                "text": "Das Bild zeigt eine historische Straßenszene mit Männern, aber keinerlei Verkäufer, Amazon oder Online-Spielzeugverkäufe. Korrektur: Eine Illustration, die streitende Parteien oder Dokumente zu einem Gerichtsverfahren über den Verkauf von Spielzeug im Internet zeigt."
+              },
+              {
+                "zeit": "00:28.94",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 7,
+                "gesprochen": "It launched its own website, and was later awarded $51 million in damages.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich eine Infografik mit Zahlen und Texten, aber keine historische Szene, die das Starten einer eigenen Website oder den Gerichtsentscheid/die Schadenersatzzahlung an Toys \"R\" Us veranschaulicht. Korrektur: Eine historische Aufnahme von Managern von Toys R Us bei der Ankündigung ihrer neuen Website oder Archivmaterial des Gerichtsgebäudes nach dem Urteil."
+              }
+            ],
+            "sekunden": 434.1,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                3,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 2.3,
+            "bau_s": 354.8,
+            "pruefung_s": 16.9,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 3/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Textgrafiken zu Amazon und einer Geldsumme, aber weder die vertragsschließenden Parteien (Toys R Us) noch die konkrete Transaktion oder Handlung des Deals werden dargestellt.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (6/10): Das Bild zeigt Kunden und Verkäufer in einem Spielzeuggeschäft mit Blick auf eine Straße, veranschaulicht jedoch nicht den exklusiven Lieferstatus von Toys \"R\" Us oder eine Website-Umleitung zu Amazon.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gezeichnete Szene zeigt Menschen, die mit Spielzeug oder Objekten spielen, aber sie bebildert nicht die Erwähnung von externen Verkäufern auf einer Plattform oder den konkreten Rechtsstreit über Toys R Us und Amazon.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen den Start einer eigenen Website und eine Schadenersatzzahlung von 51 Millionen. Das Bild zeigt jedoch eine abstrakte Geschäftsszene, die das Starten einer Website oder das Gewinnen von Schadenersatz nicht darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich Textgrafiken zu Amazon und einer Geldsumme, aber weder die vertragsschließenden Parteien (Toys R Us) noch die konkrete Transaktion oder Handlung des Deals werden dargestellt. Korrektur: Ein historisches Foto oder eine Illustration von Geschäftsleuten von Toys R Us und Amazon, die einen Vertrag unterzeichnen.",
+              "Offenes Problem (schwer): Das Bild zeigt Kunden und Verkäufer in einem Spielzeuggeschäft mit Blick auf eine Straße, veranschaulicht jedoch nicht den exklusiven Lieferstatus von Toys \"R\" Us oder eine Website-Umleitung zu Amazon. Korrektur: Eine historische Illustration oder Darstellung, die eine Website-Umleitung von Toys \"R\" Us zu Amazon symbolisiert.",
+              "Offenes Problem (schwer): Die gezeichnete Szene zeigt Menschen, die mit Spielzeug oder Objekten spielen, aber sie bebildert nicht die Erwähnung von externen Verkäufern auf einer Plattform oder den konkreten Rechtsstreit über Toys R Us und Amazon. Korrektur: Eine Darstellung von Verkaufsangeboten auf einer E-Commerce-Plattform oder ein Gerichtssaal im Zusammenhang mit dem Rechtsstreit.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen den Start einer eigenen Website und eine Schadenersatzzahlung von 51 Millionen. Das Bild zeigt jedoch eine abstrakte Geschäftsszene, die das Starten einer Website oder das Gewinnen von Schadenersatz nicht darstellt. Korrektur: Ein realistisches oder historisches Foto der Website von Toys R Us aus dieser Zeit oder ein Gerichtssaal, das die Verurteilung zu Schadenersatz verdeutlicht."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 6,
+              "stuecke_neu": 4,
+              "clips_und_stuecke": 218.1,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 10,
+                "motive": 10,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 36.5,
+              "gesamt": 353.9,
+              "videolaenge_s": 39.9,
+              "abschnitte_s": [
+                7.14,
+                5.82,
+                5.44,
+                6.24,
+                4.3,
+                5.72,
+                5.22
+              ],
+              "woerter": 96,
+              "clips": {
+                "witz": 1,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 3
+            },
+            "probleme": [
+              {
+                "zeit": "00:07.14",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "In 2000, Toys \"R\" Us signed a 10-year deal worth $50 million yearly.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich Textgrafiken zu Amazon und einer Geldsumme, aber weder die vertragsschließenden Parteien (Toys R Us) noch die konkrete Transaktion oder Handlung des Deals werden dargestellt. Korrektur: Ein historisches Foto oder eine Illustration von Geschäftsleuten von Toys R Us und Amazon, die einen Vertrag unterzeichnen."
+              },
+              {
+                "zeit": "00:12.96",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 3,
+                "gesprochen": "Toys \"R\" Us became exclusive toy supplier, and its website redirected to Amazon.",
+                "fest": false,
+                "text": "Das Bild zeigt Kunden und Verkäufer in einem Spielzeuggeschäft mit Blick auf eine Straße, veranschaulicht jedoch nicht den exklusiven Lieferstatus von Toys \"R\" Us oder eine Website-Umleitung zu Amazon. Korrektur: Eine historische Illustration oder Darstellung, die eine Website-Umleitung von Toys \"R\" Us zu Amazon symbolisiert."
+              },
+              {
+                "zeit": "00:21.52",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 5,
+                "gesprochen": "let outside sellers offer those toys.",
+                "fest": false,
+                "text": "Die gezeichnete Szene zeigt Menschen, die mit Spielzeug oder Objekten spielen, aber sie bebildert nicht die Erwähnung von externen Verkäufern auf einer Plattform oder den konkreten Rechtsstreit über Toys R Us und Amazon. Korrektur: Eine Darstellung von Verkaufsangeboten auf einer E-Commerce-Plattform oder ein Gerichtssaal im Zusammenhang mit dem Rechtsstreit."
+              },
+              {
+                "zeit": "00:28.94",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 7,
+                "gesprochen": "It launched its own website, and was later awarded $51 million in damages.",
+                "fest": false,
+                "text": "Die gesprochenen Wörter erwähnen den Start einer eigenen Website und eine Schadenersatzzahlung von 51 Millionen. Das Bild zeigt jedoch eine abstrakte Geschäftsszene, die das Starten einer Website oder das Gewinnen von Schadenersatz nicht darstellt. Korrektur: Ein realistisches oder historisches Foto der Website von Toys R Us aus dieser Zeit oder ein Gerichtssaal, das die Verurteilung zu Schadenersatz verdeutlicht."
+              }
+            ],
+            "sekunden": 374.0,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "42585619814-2",
+              "datum": "2026-11-09",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 374.0,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 3
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 871.7,
+        "upload_titel": "AMAZON'S TOY DEAL: ENDED IN COURT"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:04.28",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Amazon's toy deal hit court.",
+            "fest": false,
+            "text": "Das Bild zeigt geschäftlich gekleidete Männer vor einem Regierungs- oder Gerichtsgebäude, was vage zum Thema Gericht passt, aber die konkrete Amazon-Spielzeug-Partnerschaft und deren Rechtsstreit wird nicht dargestellt. Korrektur: Eine realistische historische Illustration oder Aktenkombination, die einen Gerichtssaal oder Anwälte von Toys R Us und Amazon im Streit um den Spielzeughandel im Jahr 2004 zeigt."
+          },
+          {
+            "zeit": "00:07.14",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "In 2000, Toys \"R\" Us signed a 10-year deal worth $50 million yearly.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar geschäftliche Partner, aber die historische Unterschrift des Toys R Us-Deals wird nicht dargestellt, sondern nur eine generete Szene mit einem Overlay. Korrektur: Eine historische oder illustrierte Darstellung von Geschäftsleuten, die einen Vertrag unterzeichnen."
+          },
+          {
+            "zeit": "00:21.52",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 5,
+            "gesprochen": "let outside sellers offer those toys.",
+            "fest": false,
+            "text": "Das Bild zeigt eine historische Straßenszene mit Männern, aber keinerlei Verkäufer, Amazon oder Online-Spielzeugverkäufe. Korrektur: Eine Illustration, die streitende Parteien oder Dokumente zu einem Gerichtsverfahren über den Verkauf von Spielzeug im Internet zeigt."
+          },
+          {
+            "zeit": "00:28.94",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 7,
+            "gesprochen": "It launched its own website, and was later awarded $51 million in damages.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine Infografik mit Zahlen und Texten, aber keine historische Szene, die das Starten einer eigenen Website oder den Gerichtsentscheid/die Schadenersatzzahlung an Toys \"R\" Us veranschaulicht. Korrektur: Eine historische Aufnahme von Managern von Toys R Us bei der Ankündigung ihrer neuen Website oder Archivmaterial des Gerichtsgebäudes nach dem Urteil."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 39.9,
+          "fps": 29.9,
+          "lufs": -14.7,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 34.96,
+              "bis_s": 36.56,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.969
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 19.9,
+              "bis_s": 40.4,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "A",
+                "s": 0.0,
+                "e": 0.36,
+                "p": 0.8179625868797302
+              },
+              {
+                "w": "toy",
+                "s": 0.36,
+                "e": 0.68,
+                "p": 0.9521496891975403
+              },
+              {
+                "w": "giant",
+                "s": 0.68,
+                "e": 1.18,
+                "p": 0.9945889711380005
+              },
+              {
+                "w": "handed",
+                "s": 1.18,
+                "e": 1.68,
+                "p": 0.9651983380317688
+              },
+              {
+                "w": "its",
+                "s": 1.68,
+                "e": 1.98,
+                "p": 0.9530997276306152
+              },
+              {
+                "w": "website",
+                "s": 1.98,
+                "e": 2.38,
+                "p": 0.9761282205581665
+              },
+              {
+                "w": "to",
+                "s": 2.38,
+                "e": 2.74,
+                "p": 0.99528968334198
+              },
+              {
+                "w": "a",
+                "s": 2.74,
+                "e": 2.88,
+                "p": 0.7623943090438843
+              },
+              {
+                "w": "rival.",
+                "s": 2.88,
+                "e": 3.3,
+                "p": 0.9904769659042358
+              },
+              {
+                "w": "Amazon's",
+                "s": 4.3,
+                "e": 4.82,
+                "p": 0.9395820200443268
+              },
+              {
+                "w": "toy",
+                "s": 4.82,
+                "e": 5.02,
+                "p": 0.7118821740150452
+              },
+              {
+                "w": "deal",
+                "s": 5.02,
+                "e": 5.28,
+                "p": 0.9856876730918884
+              },
+              {
+                "w": "hit",
+                "s": 5.28,
+                "e": 5.58,
+                "p": 0.9976068735122681
+              },
+              {
+                "w": "court.",
+                "s": 5.58,
+                "e": 5.96,
+                "p": 0.8437896370887756
+              },
+              {
+                "w": "In",
+                "s": 7.12,
+                "e": 7.34,
+                "p": 0.9677638411521912
+              },
+              {
+                "w": "2000,",
+                "s": 7.34,
+                "e": 7.74,
+                "p": 0.97954922914505
+              },
+              {
+                "w": "Toys",
+                "s": 8.18,
+                "e": 8.42,
+                "p": 0.9549726843833923
+              },
+              {
+                "w": "R",
+                "s": 8.42,
+                "e": 8.62,
+                "p": 0.7675729990005493
+              },
+              {
+                "w": "Us",
+                "s": 8.62,
+                "e": 8.78,
+                "p": 0.9905620217323303
+              },
+              {
+                "w": "signed",
+                "s": 8.78,
+                "e": 9.04,
+                "p": 0.9931924939155579
+              },
+              {
+                "w": "a",
+                "s": 9.04,
+                "e": 9.16,
+                "p": 0.9957934617996216
+              },
+              {
+                "w": "10",
+                "s": 9.16,
+                "e": 9.5,
+                "p": 0.8406299948692322
+              },
+              {
+                "w": "-year",
+                "s": 9.5,
+                "e": 9.84,
+                "p": 0.8802632987499237
+              },
+              {
+                "w": "deal",
+                "s": 9.84,
+                "e": 10.12,
+                "p": 0.9970700740814209
+              },
+              {
+                "w": "worth",
+                "s": 10.12,
+                "e": 10.34,
+                "p": 0.9880791306495667
+              },
+              {
+                "w": "$50",
+                "s": 10.34,
+                "e": 11.06,
+                "p": 0.8633717596530914
+              },
+              {
+                "w": "million",
+                "s": 11.06,
+                "e": 11.46,
+                "p": 0.9719496965408325
+              },
+              {
+                "w": "yearly.",
+                "s": 11.46,
+                "e": 12.2,
+                "p": 0.8892728090286255
+              },
+              {
+                "w": "Toys",
+                "s": 12.94,
+                "e": 13.22,
+                "p": 0.9764799475669861
+              },
+              {
+                "w": "R",
+                "s": 13.22,
+                "e": 13.44,
+                "p": 0.9963749051094055
+              },
+              {
+                "w": "Us",
+                "s": 13.44,
+                "e": 13.72,
+                "p": 0.9971538782119751
+              },
+              {
+                "w": "became",
+                "s": 13.72,
+                "e": 13.98,
+                "p": 0.9937136769294739
+              },
+              {
+                "w": "exclusive",
+                "s": 13.98,
+                "e": 14.64,
+                "p": 0.9685847163200378
+              },
+              {
+                "w": "toy",
+                "s": 14.64,
+                "e": 15.02,
+                "p": 0.9837509989738464
+              },
+              {
+                "w": "supplier,",
+                "s": 15.02,
+                "e": 15.3,
+                "p": 0.9827746748924255
+              },
+              {
+                "w": "and",
+                "s": 15.82,
+                "e": 15.92,
+                "p": 0.9614514112472534
+              },
+              {
+                "w": "its",
+                "s": 15.92,
+                "e": 16.04,
+                "p": 0.9638579487800598
+              },
+              {
+                "w": "website",
+                "s": 16.04,
+                "e": 16.4,
+                "p": 0.9973701238632202
+              },
+              {
+                "w": "redirected",
+                "s": 16.4,
+                "e": 16.88,
+                "p": 0.9786723852157593
+              },
+              {
+                "w": "to",
+                "s": 16.88,
+                "e": 17.38,
+                "p": 0.9967323541641235
+              },
+              {
+                "w": "Amazon.",
+                "s": 17.38,
+                "e": 17.58,
+                "p": 0.9991324543952942
+              },
+              {
+                "w": "But",
+                "s": 18.42,
+                "e": 18.9,
+                "p": 0.991411566734314
+              },
+              {
+                "w": "in",
+                "s": 18.9,
+                "e": 19.1,
+                "p": 0.7048904895782471
+              },
+              {
+                "w": "2004,",
+                "s": 19.1,
+                "e": 19.68,
+                "p": 0.9982106685638428
+              },
+              {
+                "w": "it",
+                "s": 20.16,
+                "e": 20.3,
+                "p": 0.9502315521240234
+              },
+              {
+                "w": "sued,",
+                "s": 20.3,
+                "e": 20.6,
+                "p": 0.9876754283905029
+              },
+              {
+                "w": "claiming",
+                "s": 20.98,
+                "e": 21.28,
+                "p": 0.9996098875999451
+              },
+              {
+                "w": "Amazon",
+                "s": 21.28,
+                "e": 21.64,
+                "p": 0.999005138874054
+              },
+              {
+                "w": "let",
+                "s": 21.64,
+                "e": 22.02,
+                "p": 0.9604678153991699
+              },
+              {
+                "w": "outside",
+                "s": 22.02,
+                "e": 22.26,
+                "p": 0.9726608991622925
+              },
+              {
+                "w": "sellers",
+                "s": 22.26,
+                "e": 22.96,
+                "p": 0.9612586498260498
+              },
+              {
+                "w": "offer",
+                "s": 22.96,
+                "e": 23.32,
+                "p": 0.9876999855041504
+              },
+              {
+                "w": "those",
+                "s": 23.32,
+                "e": 23.62,
+                "p": 0.9930104613304138
+              },
+              {
+                "w": "toys.",
+                "s": 23.62,
+                "e": 23.86,
+                "p": 0.9968114495277405
+              },
+              {
+                "w": "Who",
+                "s": 24.58,
+                "e": 24.76,
+                "p": 0.9621599912643433
+              },
+              {
+                "w": "won?",
+                "s": 24.76,
+                "e": 24.96,
+                "p": 0.9988467693328857
+              },
+              {
+                "w": "In",
+                "s": 25.68,
+                "e": 25.74,
+                "p": 0.9931608438491821
+              },
+              {
+                "w": "2006,",
+                "s": 25.74,
+                "e": 26.46,
+                "p": 0.997232973575592
+              },
+              {
+                "w": "a",
+                "s": 26.64,
+                "e": 26.84,
+                "p": 0.9970964193344116
+              },
+              {
+                "w": "court",
+                "s": 26.84,
+                "e": 27.08,
+                "p": 0.9754531383514404
+              },
+              {
+                "w": "let",
+                "s": 27.08,
+                "e": 27.32,
+                "p": 0.955485463142395
+              },
+              {
+                "w": "Toys",
+                "s": 27.32,
+                "e": 27.54,
+                "p": 0.9830678105354309
+              },
+              {
+                "w": "R",
+                "s": 27.54,
+                "e": 27.76,
+                "p": 0.9987332224845886
+              },
+              {
+                "w": "Us",
+                "s": 27.76,
+                "e": 27.96,
+                "p": 0.9969336986541748
+              },
+              {
+                "w": "unwind",
+                "s": 27.96,
+                "e": 28.6,
+                "p": 0.9937695860862732
+              },
+              {
+                "w": "the",
+                "s": 28.6,
+                "e": 28.74,
+                "p": 0.9937194585800171
+              },
+              {
+                "w": "deal.",
+                "s": 28.74,
+                "e": 28.94,
+                "p": 0.9997631907463074
+              },
+              {
+                "w": "It",
+                "s": 28.94,
+                "e": 29.48,
+                "p": 0.7778595685958862
+              },
+              {
+                "w": "launched",
+                "s": 29.48,
+                "e": 29.68,
+                "p": 0.9947073459625244
+              },
+              {
+                "w": "its",
+                "s": 29.68,
+                "e": 29.94,
+                "p": 0.9529144763946533
+              },
+              {
+                "w": "own",
+                "s": 29.94,
+                "e": 30.12,
+                "p": 0.9952273368835449
+              },
+              {
+                "w": "website",
+                "s": 30.12,
+                "e": 30.44,
+                "p": 0.9789034128189087
+              },
+              {
+                "w": "and",
+                "s": 30.44,
+                "e": 30.92,
+                "p": 0.8385270833969116
+              },
+              {
+                "w": "was",
+                "s": 30.92,
+                "e": 31.02,
+                "p": 0.9918051958084106
+              },
+              {
+                "w": "later",
+                "s": 31.02,
+                "e": 31.22,
+                "p": 0.9962032437324524
+              },
+              {
+                "w": "awarded",
+                "s": 31.22,
+                "e": 31.7,
+                "p": 0.9971908926963806
+              },
+              {
+                "w": "$51",
+                "s": 31.7,
+                "e": 32.46,
+                "p": 0.8089908957481384
+              },
+              {
+                "w": "million",
+                "s": 32.46,
+                "e": 32.8,
+                "p": 0.8602480888366699
+              },
+              {
+                "w": "in",
+                "s": 32.8,
+                "e": 33.38,
+                "p": 0.9388551712036133
+              },
+              {
+                "w": "damages.",
+                "s": 33.38,
+                "e": 33.7,
+                "p": 0.9955169558525085
+              },
+              {
+                "w": "Be",
+                "s": 34.42,
+                "e": 34.68,
+                "p": 0.9869056344032288
+              },
+              {
+                "w": "sure",
+                "s": 34.68,
+                "e": 34.84,
+                "p": 0.9979175925254822
+              },
+              {
+                "w": "to",
+                "s": 34.84,
+                "e": 34.96,
+                "p": 0.9939607381820679
+              },
+              {
+                "w": "like,",
+                "s": 34.96,
+                "e": 35.18,
+                "p": 0.8779377937316895
+              },
+              {
+                "w": "share,",
+                "s": 35.44,
+                "e": 35.56,
+                "p": 0.9970358610153198
+              },
+              {
+                "w": "and",
+                "s": 35.76,
+                "e": 35.86,
+                "p": 0.9927079081535339
+              },
+              {
+                "w": "save",
+                "s": 35.86,
+                "e": 36.14,
+                "p": 0.9947932362556458
+              },
+              {
+                "w": "this",
+                "s": 36.14,
+                "e": 36.28,
+                "p": 0.9566344618797302
+              },
+              {
+                "w": "video.",
+                "s": 36.28,
+                "e": 36.56,
+                "p": 0.9969388246536255
+              },
+              {
+                "w": "Which",
+                "s": 37.28,
+                "e": 37.32,
+                "p": 0.9895025491714478
+              },
+              {
+                "w": "company",
+                "s": 37.32,
+                "e": 37.5,
+                "p": 0.9849461317062378
+              },
+              {
+                "w": "next?",
+                "s": 37.5,
+                "e": 37.82,
+                "p": 0.9664546847343445
+              },
+              {
+                "w": "Comment",
+                "s": 38.3,
+                "e": 38.5,
+                "p": 0.9953376054763794
+              },
+              {
+                "w": "and",
+                "s": 38.5,
+                "e": 38.94,
+                "p": 0.8348761796951294
+              },
+              {
+                "w": "follow",
+                "s": 38.94,
+                "e": 39.16,
+                "p": 0.9947333335876465
+              },
+              {
+                "w": "for",
+                "s": 39.16,
+                "e": 39.36,
+                "p": 0.934305727481842
+              },
+              {
+                "w": "more!",
+                "s": 39.36,
+                "e": 39.52,
+                "p": 0.9993960857391357
+              }
+            ],
+            "dauer_s": 39.8933125,
+            "sprache": "en"
+          },
+          "roh_key": "a98663f0967de68770d8dea041c49999b4cf4473467c50060333904bc063d276",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "ea1262b896e66b8941c8a3bd3bad9f4c5dbfc2ac25b47da9966cee194ccb9e90",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 39.9,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 10,
+          "motive": 10,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "ea1262b896e66b8941c8a3bd3bad9f4c5dbfc2ac25b47da9966cee194ccb9e90",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Gezeigt wird eine künstlich generierte Illustration zweier Männer in Anzügen, die sich in einem Spielzeugladen die Hand geben, während im Hintergrund Regale mit Spielzeug zu sehen sind.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die abstrakte Handlung des Übergebens einer Website und Geschäftsbeziehungen kann nicht direkt fotografiert werden; das Bild zeigt passend zwei Parteien (einen Spielzeugriesen und einen Rivalen), die einen Deal per Handschlag besiegeln, umgeben von Spielzeug.",
+              "erforderliches_bild": "Keines, das Bild passt."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Mann im grauen Anzug und Hut geht im Vordergrund mit einer Aktentasche vor einem klassischen großen Gebäude mit Säulen, im Hintergrund sind mehrere andere Männer in Anzügen zu sehen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt geschäftlich gekleidete Männer vor einem Regierungs- oder Gerichtsgebäude, was vage zum Thema Gericht passt, aber die konkrete Amazon-Spielzeug-Partnerschaft und deren Rechtsstreit wird nicht dargestellt.",
+              "erforderliches_bild": "Eine realistische historische Illustration oder Aktenkombination, die einen Gerichtssaal oder Anwälte von Toys R Us und Amazon im Streit um den Spielzeughandel im Jahr 2004 zeigt."
+            },
+            {
+              "index": 2,
+              "gesehen": "Zwei Anzugträger stoßen in einem Büro mit Champagnergläsern an, darüber ein Overlay mit dem Text $50 Million Yearly.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt zwar geschäftliche Partner, aber die historische Unterschrift des Toys R Us-Deals wird nicht dargestellt, sondern nur eine generete Szene mit einem Overlay.",
+              "erforderliches_bild": "Eine historische oder illustrierte Darstellung von Geschäftsleuten, die einen Vertrag unterzeichnen."
+            },
+            {
+              "index": 3,
+              "gesehen": "In einem Laden voller Regale mit Spielzeugkartons stehen Personen, von denen eine Person im Vordergrund eine Spielzeugverpackung zeigt, während im Hintergrund eine Straße zu sehen ist.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbaren Personen und Spielzeugkartons illustrieren passend die Partnerschaft als Spielzeuglieferant.",
+              "erforderliches_bild": "Eine realistische oder illustrierte Darstellung einer Spielzeuglieferung oder des exklusiven Vertriebs."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein älterer Mann übergibt vor einem vergitterten Tor an eine Frau einen Schlüsselbund.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Übergabe eines Gegenstandes (Schlüssel anstelle des Geschäfts oder der Website) stellt den abstrakt erzählten Rechtsstreit und die Beendigung bzw. Übergabe einer Partnerschaft metaphorisch dar.",
+              "erforderliches_bild": "Keines, das Bild passt im metaphorischen Sinne."
+            },
+            {
+              "index": 5,
+              "gesehen": "Eine gemalte Straßenszene im historischen Stil mit Männern in Hüten und Anzügen, von denen einer im Vordergrund steht, ohne Bezug zu Online-Verkäufern",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine historische Straßenszene mit Männern, aber keinerlei Verkäufer, Amazon oder Online-Spielzeugverkäufe.",
+              "erforderliches_bild": "Eine Illustration, die streitende Parteien oder Dokumente zu einem Gerichtsverfahren über den Verkauf von Spielzeug im Internet zeigt."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Richter in einer Robe sitzt an einem Schreibtisch in einem Gerichtssaal, während drei Personen links und eine Person rechts vor ihm sitzen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen Gerichtssaal und einen Richter, was zum gesprochenen Text 'a court let Toys 'R' Us unwind the deal' und 'Who won?' passt. Abstrakte Gerichtsentscheidungen können durch eine passende Gerichtszene dargestellt werden.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, das Bild passt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein grafischer Bildschirm mit der großen Aufschrift \"$51 MILLION\" und darunter \"LAUNCHED ITS OWN WEBSITE\".",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine Infografik mit Zahlen und Texten, aber keine historische Szene, die das Starten einer eigenen Website oder den Gerichtsentscheid/die Schadenersatzzahlung an Toys \"R\" Us veranschaulicht.",
+              "erforderliches_bild": "Eine historische Aufnahme von Managern von Toys R Us bei der Ankündigung ihrer neuen Website oder Archivmaterial des Gerichtsgebäudes nach dem Urteil."
+            }
+          ],
+          "befunde": [
+            "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt geschäftlich gekleidete Männer vor einem Regierungs- oder Gerichtsgebäude, was vage zum Thema Gericht passt, aber die konkrete Amazon-Spielzeug-Partnerschaft und deren Rechtsstreit wird nicht dargestellt.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar geschäftliche Partner, aber die historische Unterschrift des Toys R Us-Deals wird nicht dargestellt, sondern nur eine generete Szene mit einem Overlay.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine historische Straßenszene mit Männern, aber keinerlei Verkäufer, Amazon oder Online-Spielzeugverkäufe.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Infografik mit Zahlen und Texten, aber keine historische Szene, die das Starten einer eigenen Website oder den Gerichtsentscheid/die Schadenersatzzahlung an Toys \"R\" Us veranschaulicht."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 10,
+          "ausgenommen": [
+            8,
+            9
+          ],
+          "vorgeprueft": [],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "ea1262b896e66b8941c8a3bd3bad9f4c5dbfc2ac25b47da9966cee194ccb9e90",
+        "prompt_version": "2026-10-29.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [
+          "A toy giant handed its website to a rival. - Source says the Toys \"R\" Us website was redirected to Amazon's Toys & Games category, not that the website was handed over; the statement exaggerates the arrangement."
+        ],
+        "modell": "gemini-3.1-flash-lite",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

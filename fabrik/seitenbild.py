@@ -165,9 +165,12 @@ SAMMELN = """() => {
     }
     const s = getComputedStyle(el);
     if (s.visibility === 'hidden' || s.display === 'none') continue;
-    if (el.closest('nav, header, footer, aside, [role=navigation], [aria-hidden=true]')) continue;
+    // H1 steht oft im Artikelkopf (<header>, support.claude.com 09.11.2026) - Navigation/Fusszeile bleiben draussen
+    if (el.closest(tag === 'H1' ? 'nav, footer, aside, [role=navigation], [aria-hidden=true]'
+                                : 'nav, header, footer, aside, [role=navigation], [aria-hidden=true]')) continue;
     el.setAttribute('data-cf', String(aus.length));
-    aus.push({t: t.slice(0, visuell ? 2000 : 800), y: r.top + window.scrollY, h: r.height, visuell, bild});
+    aus.push({t: t.slice(0, visuell ? 2000 : 800), y: r.top + window.scrollY, h: r.height, visuell, bild,
+              kopf: tag === 'H1'});
   }
   return aus;
 }"""
@@ -214,8 +217,19 @@ UEBERLAGERUNGEN = """() => {
 }"""
 
 
-def aufnehmen(url, satz, ziel, benutzt=None, namen=''):
-    """(pfad, quelle) oder (None, None). benutzt: Menge schon gezeigter Absatz-Kennungen (url#index)."""
+def kopf_index(bloecke, schon=()):
+    """Index der ersten noch nicht gezeigten Hauptueberschrift (H1) oder None.
+
+    GEMESSEN 09.11.2026 (KI 42602390712, Claude Projects): Witz-/Uebergangssaetze ("Fancy.", "Explain once.
+    Revolutionary.", "Claude Projects fixes that") fanden keinen Absatz -> gemalte Szene -> vereinfachte Szene
+    "Mann im Buero/Cafe" 2-3/10 ("zeigt nicht das Produkt Claude Projects"). Alle 6 Quellseiten-Screenshots
+    desselben Videos bestanden. Der Seitenkopf mit Produktname ist der ehrlichere Beleg als eine Allerweltsszene."""
+    return next((n for n, b in enumerate(bloecke) if b.get('kopf') and n not in schon), None)
+
+
+def aufnehmen(url, satz, ziel, benutzt=None, namen='', kopf=False):
+    """(pfad, quelle) oder (None, None). benutzt: Menge schon gezeigter Absatz-Kennungen (url#index).
+    kopf: ohne passenden Absatz die Hauptueberschrift (H1) der Seite zeigen, falls noch nicht gezeigt."""
     if not re.match(r'https?://', url or '') or re.match(r'https?://(github\.com|huggingface\.co)/', url):
         return None, None
     try:
@@ -248,6 +262,8 @@ def aufnehmen(url, satz, ziel, benutzt=None, namen=''):
                 schon = {int(k.split('#')[-1]) for k in benutzt if k.startswith(url + '#')}
                 visuell = {n for n, x in enumerate(bloecke) if x.get('visuell')}
                 i = bester_abschnitt(satz, [b['t'] for b in bloecke], schon, visuell, namen)
+                if i is None and kopf:
+                    i = kopf_index(bloecke, schon)
                 if i is None:
                     return None, None
                 b = bloecke[i]
@@ -273,3 +289,14 @@ def aufnehmen(url, satz, ziel, benutzt=None, namen=''):
     except Exception as e:
         print('Quellseiten-Screenshot nicht moeglich:', url, str(e)[:150])
         return None, None
+
+
+def ersatz(url, satz, phase, ziel, benutzt, namen=''):
+    """(bild, quelle, art) oder (None, None, None): Screenshot fuer einen Satz ohne eigenen Absatz (siehe kopf_index).
+    Zuerst ein Absatz zum ganzen gesprochenen Abschnitt, dann die Hauptueberschrift der Seite (nur einmal je Seite)."""
+    if phase and phase.strip() != str(satz).strip():
+        b, q = aufnehmen(url, phase, ziel, benutzt, namen=namen)
+        if b:
+            return b, q, 'Abschnitt zur Phase'
+    b, q = aufnehmen(url, satz, ziel, benutzt, namen=namen, kopf=True)
+    return (b, q, 'Seitenkopf') if b else (None, None, None)

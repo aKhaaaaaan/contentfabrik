@@ -159,7 +159,8 @@ AUSSICHT = 4
 # Je Videoprozess: ein Film mit Note <= HOFFNUNGSLOS wird nicht noch einmal bewertet; nach FEHLSERIE_MAX Einstellungen
 # hintereinander ohne Treffer (mit echten Bewertungen) sucht diese Art fuer den Rest des Videos nicht mehr.
 HOFFNUNGSLOS = 3
-FEHLSERIE_MAX = {'witz': 3, 'archiv': 8}
+WITZ_FEHLSERIE_LANG = 3
+FEHLSERIE_MAX = {'witz': WITZ_FEHLSERIE_LANG, 'archiv': 8}  # Witz-Grenze setzt bauen je Format
 ABGELEHNT = set()
 FEHLSERIE = {'witz': 0, 'archiv': 0}
 COMMONS_LIZENZ = re.compile(r'^(?:public domain|cc0|cc by \d)', re.I)  # ohne SA/NC/ND: gemaltes Video bleibt frei

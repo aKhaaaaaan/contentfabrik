@@ -45,7 +45,9 @@ ARCHIV_MAX = 4  # Archivclips je Short (29.10.2026: Mischung, Motivzahl bleibt)
 # Nutzer 31.10.2026: Zeichentrick-/Comedy-Clips, "2-4 je Short" - Gags dosiert, sonst wirkt es albern. Jeder Versuch
 # kostet bis zu 4 Filme x (6 Standbilder + 1 KI-Anfrage); WITZ_VERSUCHE begrenzt die Bauzeit.
 WITZ_MAX = 2
-WITZ_VERSUCHE = 4
+# Nutzer 09.11.2026: "Es gibt keine Clips bei den Business-Videos." GEMESSEN: Shein-Short 42602390712 0 Clips (10 Filme,
+# Noten 0-4), Amazon-Short 42585619814 1 Clip. Fast alle Kandidaten passen nicht - mehr Einstellungen versuchen lassen.
+WITZ_VERSUCHE = 6
 # Bedien- und Technikschritte: dazu passt kein Cartoon (31.10.: "about menu" -> Noten 1-3, alle Versuche verbraucht)
 WITZ_TECHNIK = re.compile(r'\b(menu|settings?|click|tap|button|install\w*|command|terminal|code|adb|developer|'
                           r'build number|toggle|enable|disable|download|api|key|github|repo\w*|prompt)\b', re.I)
@@ -2234,6 +2236,9 @@ def main(skript_pfad, aus, vorlage=None):
         # Nutzerentscheidung 29.10.2026: allgemeine Szenen als gemeinfreie Archivclips (eingefaerbt + gemalt).
         # Kanaluebergreifend zuletzt gelieferte Clips nicht wiederholen (archivclip.zuletzt_genutzt, 04.11.2026).
         import archivclip
+        # Die Fehlserien-Bremse (08.11.2026) war fuer Langvideos gedacht (122 Bewertungen); im Short begrenzt schon
+        # WITZ_VERSUCHE, dort beendete sie die Suche nach 3 von 4 Versuchen (Shein 09.11.: 0 Clips).
+        archivclip.FEHLSERIE_MAX['witz'] = archivclip.WITZ_FEHLSERIE_LANG if B > H else 99
         archiv_zahl, archiv_letzt, archiv_benutzt = 0, -9, archivclip.zuletzt_genutzt()
         witz_zahl = witz_versuche = 0
         archiv_jahr = archivclip.story_jahr(*(x['teil'].get('text') for x in shots))
@@ -2349,16 +2354,27 @@ def main(skript_pfad, aus, vorlage=None):
                     # Nutzer 21.10.2026: gemalt/Grafik nur, wenn es keinen echten Screenshot gibt. Der passende
                     # Absatz der offiziellen Quellseite, gelb markiert (seitenbild.py) - sonst die Erklaergrafik.
                     import seitenbild
+                    namen = f"{t.get('werkzeug') or ''} {str(s.get('thema') or '').split(':')[0]}"
                     seite_bild, seite_q = seitenbild.aufnehmen(t.get('quelle_url'), t['text'],
                                                                aus / f'seite_{i:02d}.jpg', benutzte_abschnitte,
-                                                               namen=f"{t.get('werkzeug') or ''} {str(s.get('thema') or '').split(':')[0]}")
+                                                               namen=namen)
                     fest = True
                     if seite_bild and motiv_ok(seite_bild):
                         modus = 'seite'
                         print(f'Einstellung {i}: Screenshot der Quellseite ({seite_q["abschnitt"][:60]})')
                     elif nur_textkarte(t, shot):
-                        modus, textkarte_rueckfall = 'illustration', True
-                        print(f'Einstellung {i}: Erklaergrafik waere nur Text - gemalte Szene')
+                        # Nutzer 09.11.2026 ("Ja"): Satz ohne eigenen Absatz -> erst Absatz zum ganzen Sprechabschnitt,
+                        # dann Seitenkopf mit Produktname, erst danach die gemalte Szene (seitenbild.ersatz)
+                        seite_bild, seite_q, wie = seitenbild.ersatz(t.get('quelle_url'), t['text'],
+                                                                     shot.get('phase_text', ''),
+                                                                     aus / f'seite_{i:02d}.jpg', benutzte_abschnitte,
+                                                                     namen)
+                        if seite_bild and motiv_ok(seite_bild):
+                            modus = 'seite'
+                            print(f'Einstellung {i}: Screenshot der Quellseite ({wie}: {seite_q["abschnitt"][:60]})')
+                        else:
+                            modus, textkarte_rueckfall = 'illustration', True
+                            print(f'Einstellung {i}: Erklaergrafik waere nur Text - gemalte Szene')
                     elif grafik_wiederholt(t, shot) and erklaergrafik_zahlen(t):
                         # 07.11.2026 (Gemini 4 Carbon): Preis-Saetze mit Betraegen bekamen 10x dieselbe
                         # "LLM BILL"-Grafik - die gesprochenen Betraege als Zahlenkachel sind je Satz anders.

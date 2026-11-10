@@ -165003,6 +165003,1148 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "42782285391.1:business-origin-stories",
+      "run_id": "42782285391",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-10T09:13:09.243039+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "a39750e48ebca17bb44ec21c4f81a681b038b894",
+      "produktionsversion": "b0cd4b40c45ad76c53f7b5a6bfea9f254e6a7ba1d02debdc04f27a3fa529bd09",
+      "videoformat": "short",
+      "thema": "Honda",
+      "titel": [
+        "HONDA'S BOMBED START",
+        "FROM WAR-SURPLUS ENGINES"
+      ],
+      "status": "gesendet",
+      "video_sha256": "f8089cdd983e149b43a45a34f6587d631baa18a519839a7c69bf79e47a25e7a6",
+      "video_gebaut": true,
+      "ki_story_note": 9,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 3/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Die gesprochenen Worte erwähnen den Verkauf an Toyota für 450.000 Yen. Die Abbildung zeigt eine Gruppe von Männern in einer Werkstatt, was zwar den Kontext eines Unternehmens oder Treffens anspielt, aber die konkrete wirtschaftliche Transaktion oder den Verkauf an Toyota nicht visuell darstellt.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage bezieht sich auf das Ende des Motorenvorrats und Hondas nächste Schritte, aber die Szene zeigt lediglich eine Strassenszene mit Personen und einer leeren Kiste ohne Bezug zum Motorenmangel.",
+        "Offenes Problem (schwer): Die gesprochenen Worte erwähnen den Verkauf an Toyota für 450.000 Yen. Die Abbildung zeigt eine Gruppe von Männern in einer Werkstatt, was zwar den Kontext eines Unternehmens oder Treffens anspielt, aber die konkrete wirtschaftliche Transaktion oder den Verkauf an Toyota nicht visuell darstellt. Korrektur: Eine Darstellung eines Geschäftsübergangs, von Verhandlungen oder von Akten und Geld in einem historischen japanischen Kontext.",
+        "Offenes Problem (schwer): Die gesprochene Frage bezieht sich auf das Ende des Motorenvorrats und Hondas nächste Schritte, aber die Szene zeigt lediglich eine Strassenszene mit Personen und einer leeren Kiste ohne Bezug zum Motorenmangel. Korrektur: Eine Darstellung von leeren Kisten oder Lagerräumen, die symbolisch den Mangel an Motoren verdeutlicht."
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 13,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "42782285391",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-10",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 356.4,
+            "baufehler": "AnbieterNichtVerfuegbar: Einstellung 5: Bildpruefung nicht verfuegbar (Gemini-Kontingent und Groq-Vision) - kein Video aus Ersatzbildern",
+            "status": "anbieterpause",
+            "sekunden": 447.8
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 624.8,
+            "pruefung_s": 39.5,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 3/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Die gesprochenen Worte erwähnen den Verkauf an Toyota für 450.000 Yen. Die Abbildung zeigt eine Gruppe von Männern in einer Werkstatt, was zwar den Kontext eines Unternehmens oder Treffens anspielt, aber die konkrete wirtschaftliche Transaktion oder den Verkauf an Toyota nicht visuell darstellt.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage bezieht sich auf das Ende des Motorenvorrats und Hondas nächste Schritte, aber die Szene zeigt lediglich eine Strassenszene mit Personen und einer leeren Kiste ohne Bezug zum Motorenmangel.",
+              "Offenes Problem (schwer): Die gesprochenen Worte erwähnen den Verkauf an Toyota für 450.000 Yen. Die Abbildung zeigt eine Gruppe von Männern in einer Werkstatt, was zwar den Kontext eines Unternehmens oder Treffens anspielt, aber die konkrete wirtschaftliche Transaktion oder den Verkauf an Toyota nicht visuell darstellt. Korrektur: Eine Darstellung eines Geschäftsübergangs, von Verhandlungen oder von Akten und Geld in einem historischen japanischen Kontext.",
+              "Offenes Problem (schwer): Die gesprochene Frage bezieht sich auf das Ende des Motorenvorrats und Hondas nächste Schritte, aber die Szene zeigt lediglich eine Strassenszene mit Personen und einer leeren Kiste ohne Bezug zum Motorenmangel. Korrektur: Eine Darstellung von leeren Kisten oder Lagerräumen, die symbolisch den Mangel an Motoren verdeutlicht."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.013,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 4,
+              "stuecke_neu": 9,
+              "clips_und_stuecke": 579.6,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 44.6,
+              "gesamt": 624.5,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                5.48,
+                7.54,
+                7.32,
+                6.44,
+                4.8,
+                8.1,
+                5.34
+              ],
+              "woerter": 101,
+              "clips": {
+                "witz": 1,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 3
+            },
+            "probleme": [
+              {
+                "zeit": "00:05.48",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "He sold the salvageable remains to Toyota for ¥450,000.",
+                "fest": false,
+                "text": "Die gesprochenen Worte erwähnen den Verkauf an Toyota für 450.000 Yen. Die Abbildung zeigt eine Gruppe von Männern in einer Werkstatt, was zwar den Kontext eines Unternehmens oder Treffens anspielt, aber die konkrete wirtschaftliche Transaktion oder den Verkauf an Toyota nicht visuell darstellt. Korrektur: Eine Darstellung eines Geschäftsübergangs, von Verhandlungen oder von Akten und Geld in einem historischen japanischen Kontext."
+              },
+              {
+                "zeit": "00:26.78",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Then the supply of 500 engines ran out. So what did Honda do?",
+                "fest": false,
+                "text": "Die gesprochene Frage bezieht sich auf das Ende des Motorenvorrats und Hondas nächste Schritte, aber die Szene zeigt lediglich eine Strassenszene mit Personen und einer leeren Kiste ohne Bezug zum Motorenmangel. Korrektur: Eine Darstellung von leeren Kisten oder Lagerräumen, die symbolisch den Mangel an Motoren verdeutlicht."
+              }
+            ],
+            "sekunden": 664.3,
+            "status": "geprueft"
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                1,
+                4
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 3.4,
+            "bau_s": 346.3,
+            "pruefung_s": 30.9,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Die historische Illustration zeigt zwar Fabrikarbeiter in einer Fabrikumgebung, aber nicht die konkrete Aktion des Verkaufs von Resten an Toyota oder den Bau von improvisierten motorisierten Fahrrädern aus Funkgeneratoren.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen besorgten Mann in einem Lagerraum, aber nicht den Mangel an Motoren oder die Frage nach Hondas nächstem Schritt.",
+              "Offenes Problem (schwer): Die historische Illustration zeigt zwar Fabrikarbeiter in einer Fabrikumgebung, aber nicht die konkrete Aktion des Verkaufs von Resten an Toyota oder den Bau von improvisierten motorisierten Fahrrädern aus Funkgeneratoren. Korrektur: Eine historische Illustration, die Soichiro Honda bei der Arbeit an improvisierten motorisierten Fahrrädern in einer kleinen Werkstatt zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen besorgten Mann in einem Lagerraum, aber nicht den Mangel an Motoren oder die Frage nach Hondas nächstem Schritt. Korrektur: Eine historische Illustration oder Darstellung von leerem Vorrat an Generatoren oder der Werkstatt ohne Motoren."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.013,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 11,
+              "stuecke_neu": 2,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 171.5,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 44.0,
+              "gesamt": 346.1,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                5.48,
+                7.54,
+                7.32,
+                6.44,
+                4.8,
+                8.1,
+                5.34
+              ],
+              "woerter": 101,
+              "clips": {
+                "witz": 1,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:03.60",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "So what did Soichiro Honda do next?",
+                "fest": false,
+                "text": "Die historische Illustration zeigt zwar Fabrikarbeiter in einer Fabrikumgebung, aber nicht die konkrete Aktion des Verkaufs von Resten an Toyota oder den Bau von improvisierten motorisierten Fahrrädern aus Funkgeneratoren. Korrektur: Eine historische Illustration, die Soichiro Honda bei der Arbeit an improvisierten motorisierten Fahrrädern in einer kleinen Werkstatt zeigt."
+              },
+              {
+                "zeit": "00:26.78",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Then the supply of 500 engines ran out. So what did Honda do?",
+                "fest": false,
+                "text": "Das Bild zeigt einen besorgten Mann in einem Lagerraum, aber nicht den Mangel an Motoren oder die Frage nach Hondas nächstem Schritt. Korrektur: Eine historische Illustration oder Darstellung von leerem Vorrat an Generatoren oder der Werkstatt ohne Motoren."
+              }
+            ],
+            "sekunden": 380.6,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "42782285391-3",
+              "datum": "2026-11-10",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 380.6,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 3
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 1552.6,
+        "upload_titel": "HONDA'S BOMBED START FROM WAR-SURPLUS ENGINES"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 3
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:05.48",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "He sold the salvageable remains to Toyota for ¥450,000.",
+            "fest": false,
+            "text": "Die gesprochenen Worte erwähnen den Verkauf an Toyota für 450.000 Yen. Die Abbildung zeigt eine Gruppe von Männern in einer Werkstatt, was zwar den Kontext eines Unternehmens oder Treffens anspielt, aber die konkrete wirtschaftliche Transaktion oder den Verkauf an Toyota nicht visuell darstellt. Korrektur: Eine Darstellung eines Geschäftsübergangs, von Verhandlungen oder von Akten und Geld in einem historischen japanischen Kontext."
+          },
+          {
+            "zeit": "00:26.78",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "Then the supply of 500 engines ran out. So what did Honda do?",
+            "fest": false,
+            "text": "Die gesprochene Frage bezieht sich auf das Ende des Motorenvorrats und Hondas nächste Schritte, aber die Szene zeigt lediglich eine Strassenszene mit Personen und einer leeren Kiste ohne Bezug zum Motorenmangel. Korrektur: Eine Darstellung von leeren Kisten oder Lagerräumen, die symbolisch den Mangel an Motoren verdeutlicht."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -14.1,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 40.08,
+              "bis_s": 41.58,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.986
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Bombs,",
+                "s": 0.0,
+                "e": 0.56,
+                "p": 0.49299687147140503
+              },
+              {
+                "w": "and",
+                "s": 1.0,
+                "e": 1.04,
+                "p": 0.9925674200057983
+              },
+              {
+                "w": "an",
+                "s": 1.04,
+                "e": 1.14,
+                "p": 0.9913670420646667
+              },
+              {
+                "w": "earthquake",
+                "s": 1.14,
+                "e": 1.54,
+                "p": 0.9834743142127991
+              },
+              {
+                "w": "flattened",
+                "s": 1.54,
+                "e": 2.1,
+                "p": 0.9640902280807495
+              },
+              {
+                "w": "his",
+                "s": 2.1,
+                "e": 2.48,
+                "p": 0.9941192865371704
+              },
+              {
+                "w": "factories.",
+                "s": 2.48,
+                "e": 2.78,
+                "p": 0.998677670955658
+              },
+              {
+                "w": "So",
+                "s": 3.62,
+                "e": 3.64,
+                "p": 0.9928890466690063
+              },
+              {
+                "w": "what",
+                "s": 3.64,
+                "e": 3.8,
+                "p": 0.8029512166976929
+              },
+              {
+                "w": "did",
+                "s": 3.8,
+                "e": 3.88,
+                "p": 0.9793658256530762
+              },
+              {
+                "w": "Sowichirohonda",
+                "s": 3.88,
+                "e": 4.62,
+                "p": 0.5571543052792549
+              },
+              {
+                "w": "do",
+                "s": 4.62,
+                "e": 4.84,
+                "p": 0.9914896488189697
+              },
+              {
+                "w": "next?",
+                "s": 4.84,
+                "e": 4.96,
+                "p": 0.9971663355827332
+              },
+              {
+                "w": "He",
+                "s": 5.5,
+                "e": 5.72,
+                "p": 0.9619863033294678
+              },
+              {
+                "w": "sold",
+                "s": 5.72,
+                "e": 6.0,
+                "p": 0.9932960867881775
+              },
+              {
+                "w": "the",
+                "s": 6.0,
+                "e": 6.26,
+                "p": 0.9881049394607544
+              },
+              {
+                "w": "salvageable",
+                "s": 6.26,
+                "e": 6.82,
+                "p": 0.9179824888706207
+              },
+              {
+                "w": "remains",
+                "s": 6.82,
+                "e": 7.12,
+                "p": 0.9977007508277893
+              },
+              {
+                "w": "to",
+                "s": 7.12,
+                "e": 7.44,
+                "p": 0.9873471260070801
+              },
+              {
+                "w": "Toyota",
+                "s": 7.44,
+                "e": 7.72,
+                "p": 0.9514625072479248
+              },
+              {
+                "w": "for",
+                "s": 7.72,
+                "e": 8.28,
+                "p": 0.9843469858169556
+              },
+              {
+                "w": "450",
+                "s": 8.28,
+                "e": 9.22,
+                "p": 0.8948711156845093
+              },
+              {
+                "w": ",000",
+                "s": 9.22,
+                "e": 10.14,
+                "p": 0.9851009547710419
+              },
+              {
+                "w": "yen.",
+                "s": 10.14,
+                "e": 10.4,
+                "p": 0.8376666903495789
+              },
+              {
+                "w": "But",
+                "s": 11.12,
+                "e": 11.26,
+                "p": 0.9950373768806458
+              },
+              {
+                "w": "the",
+                "s": 11.26,
+                "e": 11.38,
+                "p": 0.9900632500648499
+              },
+              {
+                "w": "strangest",
+                "s": 11.38,
+                "e": 11.9,
+                "p": 0.9988377690315247
+              },
+              {
+                "w": "part",
+                "s": 11.9,
+                "e": 12.08,
+                "p": 0.9993152618408203
+              },
+              {
+                "w": "followed.",
+                "s": 12.08,
+                "e": 12.56,
+                "p": 0.9937781095504761
+              },
+              {
+                "w": "That",
+                "s": 13.04,
+                "e": 13.3,
+                "p": 0.994117021560669
+              },
+              {
+                "w": "money",
+                "s": 13.3,
+                "e": 13.54,
+                "p": 0.9991427659988403
+              },
+              {
+                "w": "founded",
+                "s": 13.54,
+                "e": 14.02,
+                "p": 0.9123539328575134
+              },
+              {
+                "w": "an",
+                "s": 14.02,
+                "e": 14.2,
+                "p": 0.9875855445861816
+              },
+              {
+                "w": "institute",
+                "s": 14.2,
+                "e": 14.6,
+                "p": 0.871814489364624
+              },
+              {
+                "w": "in",
+                "s": 14.6,
+                "e": 14.94,
+                "p": 0.9984721541404724
+              },
+              {
+                "w": "October",
+                "s": 14.94,
+                "e": 15.28,
+                "p": 0.9832947850227356
+              },
+              {
+                "w": "1946,",
+                "s": 15.28,
+                "e": 16.06,
+                "p": 0.8242642879486084
+              },
+              {
+                "w": "12",
+                "s": 16.86,
+                "e": 17.12,
+                "p": 0.9140276908874512
+              },
+              {
+                "w": "men",
+                "s": 17.12,
+                "e": 17.42,
+                "p": 0.9914029240608215
+              },
+              {
+                "w": "won",
+                "s": 17.42,
+                "e": 17.88,
+                "p": 0.5052019953727722
+              },
+              {
+                "w": "16",
+                "s": 17.88,
+                "e": 18.5,
+                "p": 0.9935036301612854
+              },
+              {
+                "w": "square",
+                "s": 18.5,
+                "e": 18.86,
+                "p": 0.8121455907821655
+              },
+              {
+                "w": "meter",
+                "s": 18.86,
+                "e": 19.22,
+                "p": 0.7161364555358887
+              },
+              {
+                "w": "shack.",
+                "s": 19.22,
+                "e": 19.52,
+                "p": 0.7663875818252563
+              },
+              {
+                "w": "They",
+                "s": 20.36,
+                "e": 20.48,
+                "p": 0.9940837025642395
+              },
+              {
+                "w": "sold",
+                "s": 20.48,
+                "e": 20.7,
+                "p": 0.9995647072792053
+              },
+              {
+                "w": "improvised",
+                "s": 20.7,
+                "e": 21.28,
+                "p": 0.9697843194007874
+              },
+              {
+                "w": "motorized",
+                "s": 21.28,
+                "e": 22.16,
+                "p": 0.8914975523948669
+              },
+              {
+                "w": "bicycles,",
+                "s": 22.16,
+                "e": 22.52,
+                "p": 0.9960709810256958
+              },
+              {
+                "w": "powered",
+                "s": 22.98,
+                "e": 23.16,
+                "p": 0.9965943694114685
+              },
+              {
+                "w": "by",
+                "s": 23.16,
+                "e": 23.38,
+                "p": 0.9977418184280396
+              },
+              {
+                "w": "500",
+                "s": 23.38,
+                "e": 23.84,
+                "p": 0.9881801605224609
+              },
+              {
+                "w": "war",
+                "s": 23.84,
+                "e": 24.48,
+                "p": 0.8720985651016235
+              },
+              {
+                "w": "surplus",
+                "s": 24.48,
+                "e": 24.92,
+                "p": 0.9911307096481323
+              },
+              {
+                "w": "radio",
+                "s": 24.92,
+                "e": 25.24,
+                "p": 0.8173326849937439
+              },
+              {
+                "w": "generator",
+                "s": 25.24,
+                "e": 25.76,
+                "p": 0.9839162230491638
+              },
+              {
+                "w": "engines.",
+                "s": 25.76,
+                "e": 26.1,
+                "p": 0.997037410736084
+              },
+              {
+                "w": "Then,",
+                "s": 26.74,
+                "e": 27.3,
+                "p": 0.7125945687294006
+              },
+              {
+                "w": "the",
+                "s": 27.58,
+                "e": 27.72,
+                "p": 0.9883139133453369
+              },
+              {
+                "w": "supply",
+                "s": 27.72,
+                "e": 27.94,
+                "p": 0.9852831363677979
+              },
+              {
+                "w": "of",
+                "s": 27.94,
+                "e": 28.16,
+                "p": 0.9953824877738953
+              },
+              {
+                "w": "500",
+                "s": 28.16,
+                "e": 28.54,
+                "p": 0.9624627828598022
+              },
+              {
+                "w": "engines",
+                "s": 28.54,
+                "e": 28.8,
+                "p": 0.9864997863769531
+              },
+              {
+                "w": "ran",
+                "s": 28.8,
+                "e": 29.22,
+                "p": 0.9785495400428772
+              },
+              {
+                "w": "out.",
+                "s": 29.22,
+                "e": 29.48,
+                "p": 0.9987000226974487
+              },
+              {
+                "w": "So",
+                "s": 30.28,
+                "e": 30.3,
+                "p": 0.9559416770935059
+              },
+              {
+                "w": "what",
+                "s": 30.3,
+                "e": 30.44,
+                "p": 0.7238469123840332
+              },
+              {
+                "w": "did",
+                "s": 30.44,
+                "e": 30.52,
+                "p": 0.9562249779701233
+              },
+              {
+                "w": "Honda",
+                "s": 30.52,
+                "e": 30.64,
+                "p": 0.9797794222831726
+              },
+              {
+                "w": "do?",
+                "s": 30.64,
+                "e": 30.96,
+                "p": 0.9963698387145996
+              },
+              {
+                "w": "Honda",
+                "s": 31.72,
+                "e": 32.0,
+                "p": 0.9938226938247681
+              },
+              {
+                "w": "built",
+                "s": 32.0,
+                "e": 32.32,
+                "p": 0.9960399866104126
+              },
+              {
+                "w": "its",
+                "s": 32.32,
+                "e": 32.52,
+                "p": 0.9407966732978821
+              },
+              {
+                "w": "own",
+                "s": 32.52,
+                "e": 32.82,
+                "p": 0.9944128394126892
+              },
+              {
+                "w": "copy,",
+                "s": 32.82,
+                "e": 33.18,
+                "p": 0.9832819104194641
+              },
+              {
+                "w": "nicknamed",
+                "s": 33.64,
+                "e": 33.82,
+                "p": 0.9765387177467346
+              },
+              {
+                "w": "Bata",
+                "s": 33.82,
+                "e": 34.44,
+                "p": 0.47443395107984543
+              },
+              {
+                "w": "-Bata.",
+                "s": 34.44,
+                "e": 34.72,
+                "p": 0.7814640899499258
+              },
+              {
+                "w": "By",
+                "s": 35.26,
+                "e": 35.48,
+                "p": 0.9935001730918884
+              },
+              {
+                "w": "1964,",
+                "s": 35.48,
+                "e": 36.18,
+                "p": 0.9978781938552856
+              },
+              {
+                "w": "it",
+                "s": 36.56,
+                "e": 36.66,
+                "p": 0.9933202266693115
+              },
+              {
+                "w": "was",
+                "s": 36.66,
+                "e": 36.8,
+                "p": 0.9973917007446289
+              },
+              {
+                "w": "the",
+                "s": 36.8,
+                "e": 36.92,
+                "p": 0.9922404289245605
+              },
+              {
+                "w": "world's",
+                "s": 36.92,
+                "e": 37.24,
+                "p": 0.9832346737384796
+              },
+              {
+                "w": "largest",
+                "s": 37.24,
+                "e": 37.82,
+                "p": 0.9958454966545105
+              },
+              {
+                "w": "motorcycle",
+                "s": 37.82,
+                "e": 38.32,
+                "p": 0.9983001351356506
+              },
+              {
+                "w": "manufacturer.",
+                "s": 38.32,
+                "e": 39.0,
+                "p": 0.9990772008895874
+              },
+              {
+                "w": "Be",
+                "s": 39.7,
+                "e": 39.78,
+                "p": 0.9914699196815491
+              },
+              {
+                "w": "sure",
+                "s": 39.78,
+                "e": 39.94,
+                "p": 0.9992167949676514
+              },
+              {
+                "w": "to",
+                "s": 39.94,
+                "e": 40.08,
+                "p": 0.9948886036872864
+              },
+              {
+                "w": "like,",
+                "s": 40.08,
+                "e": 40.26,
+                "p": 0.935722827911377
+              },
+              {
+                "w": "share,",
+                "s": 40.3,
+                "e": 40.58,
+                "p": 0.997886598110199
+              },
+              {
+                "w": "and",
+                "s": 40.76,
+                "e": 40.82,
+                "p": 0.9972547888755798
+              },
+              {
+                "w": "save",
+                "s": 40.82,
+                "e": 41.12,
+                "p": 0.9937148690223694
+              },
+              {
+                "w": "this",
+                "s": 41.12,
+                "e": 41.3,
+                "p": 0.9902167320251465
+              },
+              {
+                "w": "video.",
+                "s": 41.3,
+                "e": 41.58,
+                "p": 0.9987562894821167
+              },
+              {
+                "w": "Which",
+                "s": 42.14,
+                "e": 42.16,
+                "p": 0.9658092856407166
+              },
+              {
+                "w": "company",
+                "s": 42.16,
+                "e": 42.34,
+                "p": 0.9984533786773682
+              },
+              {
+                "w": "next?",
+                "s": 42.34,
+                "e": 42.64,
+                "p": 0.9344453811645508
+              },
+              {
+                "w": "Comment",
+                "s": 43.22,
+                "e": 43.28,
+                "p": 0.9905869364738464
+              },
+              {
+                "w": "and",
+                "s": 43.28,
+                "e": 43.88,
+                "p": 0.6851511597633362
+              },
+              {
+                "w": "follow",
+                "s": 43.88,
+                "e": 44.14,
+                "p": 0.9967064261436462
+              },
+              {
+                "w": "for",
+                "s": 44.14,
+                "e": 44.38,
+                "p": 0.9874175786972046
+              },
+              {
+                "w": "more.",
+                "s": 44.38,
+                "e": 44.54,
+                "p": 0.9996684789657593
+              }
+            ],
+            "dauer_s": 44.9493125,
+            "sprache": "en"
+          },
+          "roh_key": "01a330583a8547868d75bc01a11e305aa055cf600f7e1ad0d90f7740d6bea422",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "f8089cdd983e149b43a45a34f6587d631baa18a519839a7c69bf79e47a25e7a6",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 13,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "f8089cdd983e149b43a45a34f6587d631baa18a519839a7c69bf79e47a25e7a6",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Eine bemalte Illustration zeigt im Vordergrund mehrere Männer in zeitgenössischer Kleidung mit geschockten Gesichtsausdrücken vor einer zerstörten Stadtkulisse mit Trümmern.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Nahaufnahme zeigt eine geschockte Reaktion auf die Zerstörung passend zu den Worten über zerstörte Fabriken.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 1,
+              "gesehen": "Eine historische Illustration zeigt einen engen Fabrik- oder Werkstatthof mit Arbeitern und Maschinen in einem alten Industriegebiet.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die rhetorische Frage setzt das Thema fort und die Illustration zeigt das historische Umfeld von Honda.",
+              "erforderliches_bild": "Keines"
+            },
+            {
+              "index": 2,
+              "gesehen": "Mehrere anzuggekleidete Männer in einer historischen Werkstatt oder einem Innenhof, die sich unterhalten.",
+              "note": 4,
+              "passt": false,
+              "grund": "Die gesprochenen Worte erwähnen den Verkauf an Toyota für 450.000 Yen. Die Abbildung zeigt eine Gruppe von Männern in einer Werkstatt, was zwar den Kontext eines Unternehmens oder Treffens anspielt, aber die konkrete wirtschaftliche Transaktion oder den Verkauf an Toyota nicht visuell darstellt.",
+              "erforderliches_bild": "Eine Darstellung eines Geschäftsübergangs, von Verhandlungen oder von Akten und Geld in einem historischen japanischen Kontext."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein älterer Mann und ein jüngerer Mann in einem Gebäude mit offenem Blick auf eine japanische Straße im Sonnenlicht übergeben sich Schlüssel.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Übergabe eines Geschäfts oder Eigentums wird hier passend und bildhaft illustriert.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 5,
+              "gesehen": "In einer Holzhütte versammelte Gruppe von zwölf japanischen Männern, die um eine Petroleumlampe herum sitzen.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt passend zur Erzählung zwölf Männer in einer kleinen Holzhütte.",
+              "erforderliches_bild": "keines"
+            },
+            {
+              "index": 6,
+              "gesehen": "In einer historischen Werkstatt stehen vier Männer um ein Fahrrad herum, das mit einem kleinen Motor ausgestattet ist. Einer der Männer im Anzug hält den Lenker, während der Mann in der Mitte das Fahrrad betrachtet und ein anderer Mann im Hintergrund zusieht.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt perfekt die im Text erwähnten improvisierten motorisierten Fahrräder und die Gruppe von Männern, die daran arbeiten.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, das Bild passt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein gemaltes Bild zeigt einen Mann in Arbeitskleidung mit einer runden Apparatur in den Händen, umgeben von anderen Menschen in einer Gasse und einem Textfeld oben mit der Aufschrift 500 WAR SURPLUS.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen Mann mit einer Kriegs-Reste-Apparatur im Stil der Erwähnung von 500 Kriegswaren-Generator-Motoren.",
+              "erforderliches_bild": "Historische oder illustrierte Darstellung der improvisierten Motoren oder des Teams."
+            },
+            {
+              "index": 8,
+              "gesehen": "In einer historischen Straßenszene in Japan stehen ein Mann in Anzug und Hut sowie mehrere Personen um eine Holzkiste herum und sprechen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gesprochene Frage bezieht sich auf das Ende des Motorenvorrats und Hondas nächste Schritte, aber die Szene zeigt lediglich eine Strassenszene mit Personen und einer leeren Kiste ohne Bezug zum Motorenmangel.",
+              "erforderliches_bild": "Eine Darstellung von leeren Kisten oder Lagerräumen, die symbolisch den Mangel an Motoren verdeutlicht."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein älterer asiatischer Mann arbeitet konzentriert in einer Werkstatt an einem mechanischen Motorblock, während im Hintergrund weitere Arbeiter in einer historischen Umgebung zu sehen sind.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Werkstattszene passt gut zur Erstellung der eigenen Motoren und Fahrzeuge in den Anfängen von Honda.",
+              "erforderliches_bild": "Ein historischer Mechaniker, der an einem Motor arbeitet."
+            },
+            {
+              "index": 10,
+              "gesehen": "In einer historischen Fabrikhalle arbeiten zahlreiche Arbeiter an langen Fließbändern, auf denen viele Motorräder aufgereiht stehen.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt eine große Motorradfabrik mit vielen Motorrädern, was perfekt zu der Aussage passt, dass Honda der weltweit größte Motorradhersteller wurde.",
+              "erforderliches_bild": "Nicht erforderlich, da das Bild genau zur Aussage passt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Die gesprochenen Worte erwähnen den Verkauf an Toyota für 450.000 Yen. Die Abbildung zeigt eine Gruppe von Männern in einer Werkstatt, was zwar den Kontext eines Unternehmens oder Treffens anspielt, aber die konkrete wirtschaftliche Transaktion oder den Verkauf an Toyota nicht visuell darstellt.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage bezieht sich auf das Ende des Motorenvorrats und Hondas nächste Schritte, aber die Szene zeigt lediglich eine Strassenszene mit Personen und einer leeren Kiste ohne Bezug zum Motorenmangel."
+          ],
+          "modelle": [
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite"
+          ],
+          "einstellungen": 13,
+          "ausgenommen": [
+            11,
+            12
+          ],
+          "vorgeprueft": [
+            4
+          ],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "f8089cdd983e149b43a45a34f6587d631baa18a519839a7c69bf79e47a25e7a6",
+        "prompt_version": "2026-10-29.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

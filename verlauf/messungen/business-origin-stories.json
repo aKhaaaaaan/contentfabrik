@@ -1,24 +1,5 @@
 [
   {
-    "id": "39612435386",
-    "kanal": "business-origin-stories",
-    "datum": "2026-10-21",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "anbieterpause",
-        "exitcode": 4,
-        "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq-Minutenreserve passt nicht in die verbleibende Frist",
-        "sekunden": 459.6
-      }
-    ],
-    "status": "gesperrt",
-    "trendcheck": "Anthropic: 7.59 Punkte - YouTube-Ausreisser 28.1x Kanalschnitt, Hacker News 172 Punkte",
-    "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq-Minutenreserve passt nicht in die verbleibende Frist",
-    "sekunden": 459.7
-  },
-  {
     "id": "39626741954",
     "kanal": "business-origin-stories",
     "datum": "2026-10-21",
@@ -24361,5 +24342,262 @@
     "grund": "",
     "sekunden": 1428.4,
     "upload_titel": "WHATSAPP NEARLY QUIT, THEN CAME THE JOKES"
+  },
+  {
+    "id": "42782285391",
+    "kanal": "business-origin-stories",
+    "datum": "2026-11-10",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 356.4,
+        "baufehler": "AnbieterNichtVerfuegbar: Einstellung 5: Bildpruefung nicht verfuegbar (Gemini-Kontingent und Groq-Vision) - kein Video aus Ersatzbildern",
+        "status": "anbieterpause",
+        "sekunden": 447.8
+      },
+      {
+        "runde": 2,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 624.8,
+        "pruefung_s": 39.5,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 3/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Die gesprochenen Worte erwähnen den Verkauf an Toyota für 450.000 Yen. Die Abbildung zeigt eine Gruppe von Männern in einer Werkstatt, was zwar den Kontext eines Unternehmens oder Treffens anspielt, aber die konkrete wirtschaftliche Transaktion oder den Verkauf an Toyota nicht visuell darstellt.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage bezieht sich auf das Ende des Motorenvorrats und Hondas nächste Schritte, aber die Szene zeigt lediglich eine Strassenszene mit Personen und einer leeren Kiste ohne Bezug zum Motorenmangel.",
+          "Offenes Problem (schwer): Die gesprochenen Worte erwähnen den Verkauf an Toyota für 450.000 Yen. Die Abbildung zeigt eine Gruppe von Männern in einer Werkstatt, was zwar den Kontext eines Unternehmens oder Treffens anspielt, aber die konkrete wirtschaftliche Transaktion oder den Verkauf an Toyota nicht visuell darstellt. Korrektur: Eine Darstellung eines Geschäftsübergangs, von Verhandlungen oder von Akten und Geld in einem historischen japanischen Kontext.",
+          "Offenes Problem (schwer): Die gesprochene Frage bezieht sich auf das Ende des Motorenvorrats und Hondas nächste Schritte, aber die Szene zeigt lediglich eine Strassenszene mit Personen und einer leeren Kiste ohne Bezug zum Motorenmangel. Korrektur: Eine Darstellung von leeren Kisten oder Lagerräumen, die symbolisch den Mangel an Motoren verdeutlicht."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Fenrir",
+          "tempo": 1.013,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 4,
+          "stuecke_neu": 9,
+          "clips_und_stuecke": 579.6,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 13,
+            "motive": 13,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 44.6,
+          "gesamt": 624.5,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            5.48,
+            7.54,
+            7.32,
+            6.44,
+            4.8,
+            8.1,
+            5.34
+          ],
+          "woerter": 101,
+          "clips": {
+            "witz": 1,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 3
+        },
+        "probleme": [
+          {
+            "zeit": "00:05.48",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "He sold the salvageable remains to Toyota for ¥450,000.",
+            "fest": false,
+            "text": "Die gesprochenen Worte erwähnen den Verkauf an Toyota für 450.000 Yen. Die Abbildung zeigt eine Gruppe von Männern in einer Werkstatt, was zwar den Kontext eines Unternehmens oder Treffens anspielt, aber die konkrete wirtschaftliche Transaktion oder den Verkauf an Toyota nicht visuell darstellt. Korrektur: Eine Darstellung eines Geschäftsübergangs, von Verhandlungen oder von Akten und Geld in einem historischen japanischen Kontext."
+          },
+          {
+            "zeit": "00:26.78",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "Then the supply of 500 engines ran out. So what did Honda do?",
+            "fest": false,
+            "text": "Die gesprochene Frage bezieht sich auf das Ende des Motorenvorrats und Hondas nächste Schritte, aber die Szene zeigt lediglich eine Strassenszene mit Personen und einer leeren Kiste ohne Bezug zum Motorenmangel. Korrektur: Eine Darstellung von leeren Kisten oder Lagerräumen, die symbolisch den Mangel an Motoren verdeutlicht."
+          }
+        ],
+        "sekunden": 664.3,
+        "status": "geprueft"
+      },
+      {
+        "runde": 3,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bm_george",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            1,
+            4
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-10-29.2"
+        },
+        "skript_s": 3.4,
+        "bau_s": 346.3,
+        "pruefung_s": 30.9,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Die historische Illustration zeigt zwar Fabrikarbeiter in einer Fabrikumgebung, aber nicht die konkrete Aktion des Verkaufs von Resten an Toyota oder den Bau von improvisierten motorisierten Fahrrädern aus Funkgeneratoren.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen besorgten Mann in einem Lagerraum, aber nicht den Mangel an Motoren oder die Frage nach Hondas nächstem Schritt.",
+          "Offenes Problem (schwer): Die historische Illustration zeigt zwar Fabrikarbeiter in einer Fabrikumgebung, aber nicht die konkrete Aktion des Verkaufs von Resten an Toyota oder den Bau von improvisierten motorisierten Fahrrädern aus Funkgeneratoren. Korrektur: Eine historische Illustration, die Soichiro Honda bei der Arbeit an improvisierten motorisierten Fahrrädern in einer kleinen Werkstatt zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt einen besorgten Mann in einem Lagerraum, aber nicht den Mangel an Motoren oder die Frage nach Hondas nächstem Schritt. Korrektur: Eine historische Illustration oder Darstellung von leerem Vorrat an Generatoren oder der Werkstatt ohne Motoren."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Fenrir",
+          "tempo": 1.013,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 11,
+          "stuecke_neu": 2,
+          "bilder_vereinfacht": 2,
+          "clips_und_stuecke": 171.5,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 13,
+            "motive": 13,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 44.0,
+          "gesamt": 346.1,
+          "videolaenge_s": 45.0,
+          "abschnitte_s": [
+            5.48,
+            7.54,
+            7.32,
+            6.44,
+            4.8,
+            8.1,
+            5.34
+          ],
+          "woerter": 101,
+          "clips": {
+            "witz": 1,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:03.60",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "So what did Soichiro Honda do next?",
+            "fest": false,
+            "text": "Die historische Illustration zeigt zwar Fabrikarbeiter in einer Fabrikumgebung, aber nicht die konkrete Aktion des Verkaufs von Resten an Toyota oder den Bau von improvisierten motorisierten Fahrrädern aus Funkgeneratoren. Korrektur: Eine historische Illustration, die Soichiro Honda bei der Arbeit an improvisierten motorisierten Fahrrädern in einer kleinen Werkstatt zeigt."
+          },
+          {
+            "zeit": "00:26.78",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "Then the supply of 500 engines ran out. So what did Honda do?",
+            "fest": false,
+            "text": "Das Bild zeigt einen besorgten Mann in einem Lagerraum, aber nicht den Mangel an Motoren oder die Frage nach Hondas nächstem Schritt. Korrektur: Eine historische Illustration oder Darstellung von leerem Vorrat an Generatoren oder der Werkstatt ohne Motoren."
+          }
+        ],
+        "sekunden": 380.6,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "42782285391-3",
+          "datum": "2026-11-10",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 380.6,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bm_george",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 3
+          },
+          "kategorien_nachher": {
+            "bild_passt": 2
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-10-29.2",
+          "verbessert": false
+        }
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 1552.6,
+    "upload_titel": "HONDA'S BOMBED START FROM WAR-SURPLUS ENGINES"
   }
 ]

@@ -1,46 +1,44 @@
 {
- "version": 1,
- "modelle": {
-  "18b3ef0930af7cca6de34adf:gemini-3.5-flash": {
-   "grund": "Tageskontingent erschoepft",
-   "bis": 1794384000.0
+  "version": 1,
+  "modelle": {
+    "18b3ef0930af7cca6de34adf:gemini-3.5-flash": {
+      "grund": "Tageskontingent erschoepft",
+      "bis": 1794384000.0
+    },
+    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
+      "grund": "HTTP429; Serverfrist 1112s",
+      "bis": 1794302697.6979837
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
+      "grund": "Tageskontingent erschoepft",
+      "bis": 1794384000.0
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1794302793.2552736
+    },
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1794303198.3330803
+    }
   },
-  "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": {
-   "grund": "voruebergehend ueberlastet",
-   "bis": 1794302254.0168679
-  },
-  "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
-   "grund": "HTTP429; Serverfrist 1112s",
-   "bis": 1794302697.6979837
-  },
-  "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
-   "grund": "voruebergehend ueberlastet",
-   "bis": 1794302263.9512105
-  },
-  "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
-   "grund": "Netzwerk-Zeitlimit",
-   "bis": 1794302119.9221728
-  },
-  "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
-   "grund": "Tageskontingent erschoepft",
-   "bis": 1794384000.0
+  "zeitlimits": {
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
+      1794298270.1913993,
+      1794298361.635494,
+      1794300792.7263286,
+      1794301579.9221728,
+      1794302658.3330803
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
+      1794299244.4618638
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": [
+      1794300218.7837384
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
+      1794300343.3194356,
+      1794302613.2552736
+    ]
   }
- },
- "zeitlimits": {
-  "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
-   1794298270.1913993,
-   1794298361.635494,
-   1794300792.7263286,
-   1794301579.9221728
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
-   1794299244.4618638
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": [
-   1794300218.7837384
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
-   1794300343.3194356
-  ]
- }
 }

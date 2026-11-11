@@ -96,7 +96,9 @@ def phrasen(text, n=4):
 def zahlen(text):
     """Gesprochene Mengen mit Bezugswort ("1,903 Guides" -> 1,903 GUIDES); Jahreszahlen zaehlen nicht."""
     aus = []
-    for m in re.finditer(r"(\$?\d[\d,.]*\d|\$?\d)(-plus|\+)?\s+([A-Za-z][A-Za-z'-]*)(?:\s+([A-Za-z][A-Za-z'-]*))?", text):
+    # (?<![A-Za-z\d.-]): Ziffern an einem Namen sind keine Menge - GEMESSEN 11.11.2026 AMD "Intel's x86 chips"
+    # ergab die Zahlenkarte "86 CHIPS" (ebenso Am9080, GPT-4o).
+    for m in re.finditer(r"(?<![A-Za-z\d.,-])(\$?\d[\d,.]*\d|\$?\d)(-plus|\+)?\s+([A-Za-z][A-Za-z'-]*)(?:\s+([A-Za-z][A-Za-z'-]*))?", text):
         if re.fullmatch(JAHR, m[1]):
             continue
         woerter = [x for x in (m[3], m[4]) if x and x.lower() not in FUELL | {'and', 'or', 'across', 'in', 'of'}]

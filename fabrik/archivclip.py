@@ -177,10 +177,11 @@ def begriffe(satz, szene, suche=''):
 
 def commons(begriff, anzahl=4):
     """Kurze Videos von Wikimedia Commons mit freier Lizenz ohne Weitergabepflicht."""
+    # 'kategorien' (sichtbare Commons-Kategorien) kommt in DERSELBEN Anfrage mit - kein zusaetzlicher Abruf.
     d = _json('https://commons.wikimedia.org/w/api.php?' + urllib.parse.urlencode(
         {'action': 'query', 'format': 'json', 'generator': 'search', 'gsrsearch': f'{begriff} filetype:video',
-         'gsrnamespace': 6, 'gsrlimit': 10, 'prop': 'imageinfo', 'iiprop': 'url|extmetadata|size',
-         'iiextmetadatafilter': 'LicenseShortName'}))
+         'gsrnamespace': 6, 'gsrlimit': 10, 'prop': 'imageinfo|categories', 'iiprop': 'url|extmetadata|size',
+         'iiextmetadatafilter': 'LicenseShortName', 'cllimit': 'max', 'clshow': '!hidden'}))
     treffer = []
     for p in sorted((d.get('query') or {}).get('pages', {}).values(), key=lambda p: p.get('index', 0)):
         ii = (p.get('imageinfo') or [{}])[0]
@@ -188,6 +189,7 @@ def commons(begriff, anzahl=4):
         if COMMONS_LIZENZ.match(lizenz) and 3 <= float(ii.get('duration') or 0) <= COMMONS_MAX_S and ii.get('url'):
             treffer.append({'kennung': p['title'], 'adresse': ii['url'], 'sekunden': float(ii['duration']),
                             'groesse': int(ii.get('size') or 0),
+                            'kategorien': [str(k.get('title', ''))[9:] for k in p.get('categories') or []],
                             'lizenz': lizenz, 'seite': ii.get('descriptionurl', ''), 'quelle': 'Wikimedia Commons'})
     return treffer[:anzahl]
 
@@ -246,6 +248,22 @@ def witz_begriffe(satz, szene, suche=''):
     return list(dict.fromkeys(liste))[:4]
 
 
+# GEMESSEN 10.11.2026 (Google Slides 42797626784): Commons-Volltext "empty cartoon" fand eine Protein-Simulation
+# ("cartoon representation" ist Strukturbiologie-Fachwort), Flash-Lite gab ihr 8/10 als Zeichentrick -> im Video
+# direkt nach dem Hook. Ihre einzige Kategorie: "Videos from studies uploaded with Open Access Media Importer".
+# Darum zaehlt fuer Witz-Clips von Commons die Kategorie, nicht der Suchtreffer: Film-/Cartoon-Kategorie Pflicht,
+# Studien-/Fachvideos und "non-free"-Abbildungen (fremde Rechte, z. B. Nelvana) gesperrt.
+WITZ_KATEGORIE = re.compile(r'cartoon|animated film|animation|comedy|comedies|slapstick|silent film|short film', re.I)
+WITZ_KATEGORIE_SPERRE = re.compile(r'open access media importer|studies|scientific|journal|molecul|protein|medical|'
+                                   r'non-free', re.I)
+
+
+def witz_kategorie_ok(film):
+    """Commons-Witzclip nur, wenn seine Kategorien ihn als Film/Cartoon/Comedy ausweisen und nicht als Fachvideo."""
+    kategorien = ' | '.join(film.get('kategorien') or [])
+    return bool(WITZ_KATEGORIE.search(kategorien)) and not WITZ_KATEGORIE_SPERRE.search(kategorien)
+
+
 def witz_kandidaten(begriff, art='zeichentrick'):
     """Zeichentrick- ODER Comedy-Filme, zuerst Prelinger (Lizenz je Film geprueft), dann Commons; ohne gesperrte Namen."""
     def prelinger_witz():
@@ -263,9 +281,11 @@ def witz_kandidaten(begriff, art='zeichentrick'):
                        'quelle': 'Internet Archive (Prelinger)'}
 
     def commons_witz():
-        for film in commons(f'{begriff} {WITZ_COMMONS[art]}'):
-            if not STARS.search(film['kennung']):
-                yield film
+        # erst filtern, dann auf 4 kuerzen - sonst verdraengen Fachvideos die echten Filme der Trefferliste
+        passend = [f for f in commons(f'{begriff} {WITZ_COMMONS[art]}', anzahl=10)
+                   if not STARS.search(f['kennung'] + ' ' + ' '.join(f.get('kategorien') or []))
+                   and witz_kategorie_ok(f)]  # Oswald "Trolley Troubles (1927)": Disney nur in der Kategorie
+        yield from passend[:4]
     for quelle in (prelinger_witz, commons_witz):
         try:
             yield from quelle()

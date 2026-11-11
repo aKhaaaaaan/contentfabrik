@@ -171111,6 +171111,1169 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "43026986478.1:business-origin-stories",
+      "run_id": "43026986478",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-11T13:54:20.121379+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "564d9c084ae3619d35aa74a9a53e15c35a5d6d8b",
+      "produktionsversion": "b0cd4b40c45ad76c53f7b5a6bfea9f254e6a7ba1d02debdc04f27a3fa529bd09",
+      "videoformat": "short",
+      "thema": "The Exploration Company",
+      "titel": [
+        "A *HELICOPTER* *DROP*",
+        "FOR EUROPE'S CAPSULE"
+      ],
+      "status": "gesendet",
+      "video_sha256": "62780c85d838410c0e4035657644d85880238b0a9c46458f3925d650fd97a414",
+      "video_gebaut": true,
+      "ki_story_note": 9,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine dramatische Szene mit einem Hubschrauber in der Wüste und einer geschockten Person, aber keinen Bezug zum Gründungsjahr 2021 oder der Gründerin Hélène Huby.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen fiktiven Mann in einem Anzug in einer Werkstatt. Die im Text genannte Gründung durch Hélène Huby im Jahr 2021 wird dadurch weder inhaltlich noch personell dargestellt.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Astronauten in einem Raumschiff-Kontrollraum mit einem reinen Text-Overlay, aber nicht den konkreten Vertrag oder die Preisverleihung der ESA über 760 Millionen Euro.",
+        "Offenes Problem (schwer): Das Bild zeigt eine dramatische Szene mit einem Hubschrauber in der Wüste und einer geschockten Person, aber keinen Bezug zum Gründungsjahr 2021 oder der Gründerin Hélène Huby. Korrektur: Ein historisches Foto oder Archivbild aus dem Jahr 2021, das Hélène Huby oder die Gründung von The Exploration Company zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt einen fiktiven Mann in einem Anzug in einer Werkstatt. Die im Text genannte Gründung durch Hélène Huby im Jahr 2021 wird dadurch weder inhaltlich noch personell dargestellt. Korrektur: Eine historische oder illustrierte Szene, die Hélène Huby bei der Gründung des Unternehmens mit Ingenieuren zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Astronauten in einem Raumschiff-Kontrollraum mit einem reinen Text-Overlay, aber nicht den konkreten Vertrag oder die Preisverleihung der ESA über 760 Millionen Euro. Korrektur: Ein Dokument oder eine Pressekonferenz, die die ESA-Vergabe von 760 Millionen Euro zeigt."
+      ],
+      "einstellungen": 12,
+      "unterschiedliche_motive": 11,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "43026986478",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-11",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 141.4,
+            "baufehler": "AnbieterNichtVerfuegbar: Einstellung 2: Bildpruefung nicht verfuegbar (Gemini-Kontingent und Groq-Vision) - kein Video aus Ersatzbildern",
+            "status": "anbieterpause",
+            "sekunden": 239.1
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 378.4,
+            "pruefung_s": 48.4,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine dramatische Szene mit einem Hubschrauber in der Wüste und einer geschockten Person, aber keinen Bezug zum Gründungsjahr 2021 oder der Gründerin Hélène Huby.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen fiktiven Mann in einem Anzug in einer Werkstatt. Die im Text genannte Gründung durch Hélène Huby im Jahr 2021 wird dadurch weder inhaltlich noch personell dargestellt.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Astronauten in einem Raumschiff-Kontrollraum mit einem reinen Text-Overlay, aber nicht den konkreten Vertrag oder die Preisverleihung der ESA über 760 Millionen Euro.",
+              "Offenes Problem (schwer): Das Bild zeigt eine dramatische Szene mit einem Hubschrauber in der Wüste und einer geschockten Person, aber keinen Bezug zum Gründungsjahr 2021 oder der Gründerin Hélène Huby. Korrektur: Ein historisches Foto oder Archivbild aus dem Jahr 2021, das Hélène Huby oder die Gründung von The Exploration Company zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen fiktiven Mann in einem Anzug in einer Werkstatt. Die im Text genannte Gründung durch Hélène Huby im Jahr 2021 wird dadurch weder inhaltlich noch personell dargestellt. Korrektur: Eine historische oder illustrierte Szene, die Hélène Huby bei der Gründung des Unternehmens mit Ingenieuren zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Astronauten in einem Raumschiff-Kontrollraum mit einem reinen Text-Overlay, aber nicht den konkreten Vertrag oder die Preisverleihung der ESA über 760 Millionen Euro. Korrektur: Ein Dokument oder eine Pressekonferenz, die die ESA-Vergabe von 760 Millionen Euro zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 2,
+              "stuecke_neu": 10,
+              "bilder_vereinfacht": 4,
+              "clips_und_stuecke": 342.2,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 12,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 35.7,
+              "gesamt": 378.1,
+              "videolaenge_s": 37.7,
+              "abschnitte_s": [
+                5.74,
+                5.56,
+                4.74,
+                5.48,
+                4.5,
+                6.56,
+                5.1
+              ],
+              "woerter": 98,
+              "clips": {
+                "witz": 1,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:05.74",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Rewind to 2021.",
+                "fest": false,
+                "text": "Das Bild zeigt eine dramatische Szene mit einem Hubschrauber in der Wüste und einer geschockten Person, aber keinen Bezug zum Gründungsjahr 2021 oder der Gründerin Hélène Huby. Korrektur: Ein historisches Foto oder Archivbild aus dem Jahr 2021, das Hélène Huby oder die Gründung von The Exploration Company zeigt."
+              },
+              {
+                "zeit": "00:07.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Hélène Huby founded it with engineers she'd worked with at Airbus.",
+                "fest": false,
+                "text": "Das Bild zeigt einen fiktiven Mann in einem Anzug in einer Werkstatt. Die im Text genannte Gründung durch Hélène Huby im Jahr 2021 wird dadurch weder inhaltlich noch personell dargestellt. Korrektur: Eine historische oder illustrierte Szene, die Hélène Huby bei der Gründung des Unternehmens mit Ingenieuren zeigt."
+              },
+              {
+                "zeit": "00:26.02",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 8,
+                "gesprochen": "After that drop, ESA awarded 760 million",
+                "fest": false,
+                "text": "Das Bild zeigt einen Astronauten in einem Raumschiff-Kontrollraum mit einem reinen Text-Overlay, aber nicht den konkreten Vertrag oder die Preisverleihung der ESA über 760 Millionen Euro. Korrektur: Ein Dokument oder eine Pressekonferenz, die die ESA-Vergabe von 760 Millionen Euro zeigt."
+              }
+            ],
+            "sekunden": 426.8,
+            "status": "geprueft"
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                1,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 6.0,
+            "bau_s": 335.0,
+            "pruefung_s": 106.5,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Phase erwähnt das Jahr 2021 und die Gründung durch Hélène Huby, aber das Bild zeigt nur einen Hubschrauber und eine verängstigte Frau im Western-Stil, was keinen direkten Bezug zur Gründung darstellt.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Fallschirm in der Luft, aber keinen Bezug zu Hälène Huby oder der Gründung mit Airbus-Ingenieuren im Jahr 2021.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (6/10): Das Bild zeigt ein Raumschiff (Raumkapsel) im Orbit um die Erde, was den ersten Teil der Aussage 'reusable spacecraft for orbit' visuell direkt belegt. Es fehlt jedoch eine Darstellung des Mondes, der im zweiten Teil der Aussage ('and the Moon') explizit genannt wird. Da nur ein Teil der genannten Z",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Jeep am Fallschirm, was zwar thematisch zur Fallschirmprüfung passt, aber ein unlettered KI-generiertes Bild im Comic-Stil anstelle von echtem Testmaterial oder einer realistischen Darstellung der Raumkapsel-Fallschirme ist.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eingeblendeten Text und Zahlen zur Finanzierung bzw. Auszeichnung, jedoch nicht die visuelle Darstellung oder Belegung der Handlung beziehungsweise der Raumfahrtagentur ESA im Zusammenhang mit dem Abwurf.",
+              "Offenes Problem (schwer): Die gesprochene Phase erwähnt das Jahr 2021 und die Gründung durch Hélène Huby, aber das Bild zeigt nur einen Hubschrauber und eine verängstigte Frau im Western-Stil, was keinen direkten Bezug zur Gründung darstellt. Korrektur: Ein historisches Foto oder eine Illustration, die die Gründerin Hélène Huby im Jahr 2021 bei der Gründung des Unternehmens zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Fallschirm in der Luft, aber keinen Bezug zu Hälène Huby oder der Gründung mit Airbus-Ingenieuren im Jahr 2021. Korrektur: Ein Foto von Hälène Huby zusammen mit ihren Gründungsingenieuren.",
+              "Offenes Problem (schwer): Das Bild zeigt ein Raumschiff (Raumkapsel) im Orbit um die Erde, was den ersten Teil der Aussage 'reusable spacecraft for orbit' visuell direkt belegt. Es fehlt jedoch eine Darstellung des Mondes, der im zweiten Teil der Aussage ('and the Moon') explizit genannt wird. Da nur ein Teil der genannten Ziele (Orbit) sichtbar ist, ist die Übereinstimmung nur teilweise gegeben. Korrektur: Ein Bild, das eine Raumkapsel oder ein Raumschiff in der Erdumlaufbahn zeigt, idealerweise mit einer Darstellung des Mondes im Hintergrund oder einer Beschriftung, die die Mission zu Orbit und Mond verdeutlicht.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Jeep am Fallschirm, was zwar thematisch zur Fallschirmprüfung passt, aber ein unlettered KI-generiertes Bild im Comic-Stil anstelle von echtem Testmaterial oder einer realistischen Darstellung der Raumkapsel-Fallschirme ist. Korrektur: Ein Foto oder Video vom tatsächlichen Testabwurf des Nyx-Raumschiffs und seiner geöffneten Fallschirme in der Wüste.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eingeblendeten Text und Zahlen zur Finanzierung bzw. Auszeichnung, jedoch nicht die visuelle Darstellung oder Belegung der Handlung beziehungsweise der Raumfahrtagentur ESA im Zusammenhang mit dem Abwurf. Korrektur: Ein Foto oder eine Grafik, die die Verleihung oder offizielle Bekanntgabe durch die ESA bezüglich der 760 Millionen Euro für die Nyx-Flüge zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 9,
+              "stuecke_neu": 3,
+              "clips_und_stuecke": 217.8,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 12,
+                "motive": 10,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 34.4,
+              "gesamt": 334.8,
+              "videolaenge_s": 37.7,
+              "abschnitte_s": [
+                5.74,
+                5.56,
+                4.74,
+                5.48,
+                4.5,
+                6.56,
+                5.1
+              ],
+              "woerter": 98,
+              "clips": {
+                "witz": 1,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:05.74",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "Rewind to 2021.",
+                "fest": false,
+                "text": "Die gesprochene Phase erwähnt das Jahr 2021 und die Gründung durch Hélène Huby, aber das Bild zeigt nur einen Hubschrauber und eine verängstigte Frau im Western-Stil, was keinen direkten Bezug zur Gründung darstellt. Korrektur: Ein historisches Foto oder eine Illustration, die die Gründerin Hélène Huby im Jahr 2021 bei der Gründung des Unternehmens zeigt."
+              },
+              {
+                "zeit": "00:07.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Hélène Huby founded it with engineers she'd worked with at Airbus.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Fallschirm in der Luft, aber keinen Bezug zu Hälène Huby oder der Gründung mit Airbus-Ingenieuren im Jahr 2021. Korrektur: Ein Foto von Hälène Huby zusammen mit ihren Gründungsingenieuren."
+              },
+              {
+                "zeit": "00:11.30",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Its main project, Nyx, is a reusable spacecraft for orbit and the Moon.",
+                "fest": false,
+                "text": "Das Bild zeigt ein Raumschiff (Raumkapsel) im Orbit um die Erde, was den ersten Teil der Aussage 'reusable spacecraft for orbit' visuell direkt belegt. Es fehlt jedoch eine Darstellung des Mondes, der im zweiten Teil der Aussage ('and the Moon') explizit genannt wird. Da nur ein Teil der genannten Ziele (Orbit) sichtbar ist, ist die Übereinstimmung nur teilweise gegeben. Korrektur: Ein Bild, das eine Raumkapsel oder ein Raumschiff in der Erdumlaufbahn zeigt, idealerweise mit einer Darstellung des Mondes im Hintergrund oder einer Beschriftung, die die Mission zu Orbit und Mond verdeutlicht."
+              },
+              {
+                "zeit": "00:21.52",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 6,
+                "gesprochen": "So did they open?",
+                "fest": false,
+                "text": "Das Bild zeigt einen Jeep am Fallschirm, was zwar thematisch zur Fallschirmprüfung passt, aber ein unlettered KI-generiertes Bild im Comic-Stil anstelle von echtem Testmaterial oder einer realistischen Darstellung der Raumkapsel-Fallschirme ist. Korrektur: Ein Foto oder Video vom tatsächlichen Testabwurf des Nyx-Raumschiffs und seiner geöffneten Fallschirme in der Wüste."
+              },
+              {
+                "zeit": "00:26.02",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 8,
+                "gesprochen": "After that drop, ESA awarded 760 million",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich eingeblendeten Text und Zahlen zur Finanzierung bzw. Auszeichnung, jedoch nicht die visuelle Darstellung oder Belegung der Handlung beziehungsweise der Raumfahrtagentur ESA im Zusammenhang mit dem Abwurf. Korrektur: Ein Foto oder eine Grafik, die die Verleihung oder offizielle Bekanntgabe durch die ESA bezüglich der 760 Millionen Euro für die Nyx-Flüge zeigt."
+              }
+            ],
+            "sekunden": 447.6,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "43026986478-3",
+              "datum": "2026-11-11",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 447.6,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 1162.7,
+        "upload_titel": "A HELICOPTER DROP FOR EUROPE'S CAPSULE"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:05.74",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "Rewind to 2021.",
+            "fest": false,
+            "text": "Das Bild zeigt eine dramatische Szene mit einem Hubschrauber in der Wüste und einer geschockten Person, aber keinen Bezug zum Gründungsjahr 2021 oder der Gründerin Hélène Huby. Korrektur: Ein historisches Foto oder Archivbild aus dem Jahr 2021, das Hélène Huby oder die Gründung von The Exploration Company zeigt."
+          },
+          {
+            "zeit": "00:07.40",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "Hélène Huby founded it with engineers she'd worked with at Airbus.",
+            "fest": false,
+            "text": "Das Bild zeigt einen fiktiven Mann in einem Anzug in einer Werkstatt. Die im Text genannte Gründung durch Hélène Huby im Jahr 2021 wird dadurch weder inhaltlich noch personell dargestellt. Korrektur: Eine historische oder illustrierte Szene, die Hélène Huby bei der Gründung des Unternehmens mit Ingenieuren zeigt."
+          },
+          {
+            "zeit": "00:26.02",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 8,
+            "gesprochen": "After that drop, ESA awarded 760 million",
+            "fest": false,
+            "text": "Das Bild zeigt einen Astronauten in einem Raumschiff-Kontrollraum mit einem reinen Text-Overlay, aber nicht den konkreten Vertrag oder die Preisverleihung der ESA über 760 Millionen Euro. Korrektur: Ein Dokument oder eine Pressekonferenz, die die ESA-Vergabe von 760 Millionen Euro zeigt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 37.6,
+          "fps": 29.9,
+          "lufs": -14.5,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 32.91,
+              "bis_s": 34.41,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.967
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 17.6,
+              "bis_s": 38.1,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "A",
+                "s": 0.05,
+                "e": 0.33,
+                "p": 0.8393741846084595
+              },
+              {
+                "w": "helicopter",
+                "s": 0.33,
+                "e": 0.69,
+                "p": 0.9897857904434204
+              },
+              {
+                "w": "let",
+                "s": 0.69,
+                "e": 1.15,
+                "p": 0.9261654019355774
+              },
+              {
+                "w": "go,",
+                "s": 1.15,
+                "e": 1.43,
+                "p": 0.9965805411338806
+              },
+              {
+                "w": "high",
+                "s": 1.69,
+                "e": 1.97,
+                "p": 0.9533507823944092
+              },
+              {
+                "w": "above",
+                "s": 1.97,
+                "e": 2.31,
+                "p": 0.9972381591796875
+              },
+              {
+                "w": "the",
+                "s": 2.31,
+                "e": 2.45,
+                "p": 0.994918167591095
+              },
+              {
+                "w": "desert.",
+                "s": 2.45,
+                "e": 2.73,
+                "p": 0.9791648387908936
+              },
+              {
+                "w": "Would",
+                "s": 3.33,
+                "e": 3.39,
+                "p": 0.6866719722747803
+              },
+              {
+                "w": "the",
+                "s": 3.39,
+                "e": 3.49,
+                "p": 0.9763135313987732
+              },
+              {
+                "w": "parachutes",
+                "s": 3.49,
+                "e": 3.91,
+                "p": 0.9590461552143097
+              },
+              {
+                "w": "open",
+                "s": 3.91,
+                "e": 4.21,
+                "p": 0.9961296319961548
+              },
+              {
+                "w": "or",
+                "s": 4.21,
+                "e": 4.79,
+                "p": 0.592015266418457
+              },
+              {
+                "w": "fail?",
+                "s": 4.79,
+                "e": 5.13,
+                "p": 0.9985811710357666
+              },
+              {
+                "w": "Rewind",
+                "s": 5.81,
+                "e": 6.23,
+                "p": 0.9804338216781616
+              },
+              {
+                "w": "to",
+                "s": 6.23,
+                "e": 6.39,
+                "p": 0.9886102676391602
+              },
+              {
+                "w": "2021,",
+                "s": 6.39,
+                "e": 7.01,
+                "p": 0.9924399852752686
+              },
+              {
+                "w": "Helene",
+                "s": 7.41,
+                "e": 7.81,
+                "p": 0.7662578821182251
+              },
+              {
+                "w": "Hubbe",
+                "s": 7.81,
+                "e": 8.27,
+                "p": 0.2368331253528595
+              },
+              {
+                "w": "founded",
+                "s": 8.27,
+                "e": 8.63,
+                "p": 0.8993543386459351
+              },
+              {
+                "w": "it",
+                "s": 8.63,
+                "e": 8.83,
+                "p": 0.9924544095993042
+              },
+              {
+                "w": "with",
+                "s": 8.83,
+                "e": 8.93,
+                "p": 0.9943617582321167
+              },
+              {
+                "w": "engineers",
+                "s": 8.93,
+                "e": 9.25,
+                "p": 0.9272981286048889
+              },
+              {
+                "w": "she'd",
+                "s": 9.25,
+                "e": 9.71,
+                "p": 0.9447837769985199
+              },
+              {
+                "w": "worked",
+                "s": 9.71,
+                "e": 9.89,
+                "p": 0.9908245801925659
+              },
+              {
+                "w": "with",
+                "s": 9.89,
+                "e": 10.11,
+                "p": 0.9974702596664429
+              },
+              {
+                "w": "at",
+                "s": 10.11,
+                "e": 10.29,
+                "p": 0.9577224850654602
+              },
+              {
+                "w": "Airbus.",
+                "s": 10.29,
+                "e": 10.57,
+                "p": 0.9720913767814636
+              },
+              {
+                "w": "Its",
+                "s": 11.31,
+                "e": 11.37,
+                "p": 0.7841898202896118
+              },
+              {
+                "w": "main",
+                "s": 11.37,
+                "e": 11.51,
+                "p": 0.9959010481834412
+              },
+              {
+                "w": "project,",
+                "s": 11.51,
+                "e": 11.87,
+                "p": 0.9979546070098877
+              },
+              {
+                "w": "Nix,",
+                "s": 12.33,
+                "e": 12.47,
+                "p": 0.7171899974346161
+              },
+              {
+                "w": "is",
+                "s": 12.73,
+                "e": 12.91,
+                "p": 0.998379111289978
+              },
+              {
+                "w": "a",
+                "s": 12.91,
+                "e": 12.97,
+                "p": 0.9913504123687744
+              },
+              {
+                "w": "reusable",
+                "s": 12.97,
+                "e": 13.27,
+                "p": 0.976327657699585
+              },
+              {
+                "w": "spacecraft",
+                "s": 13.27,
+                "e": 13.95,
+                "p": 0.9622366428375244
+              },
+              {
+                "w": "for",
+                "s": 13.95,
+                "e": 14.37,
+                "p": 0.9956526756286621
+              },
+              {
+                "w": "orbit",
+                "s": 14.37,
+                "e": 14.69,
+                "p": 0.970475971698761
+              },
+              {
+                "w": "and",
+                "s": 14.69,
+                "e": 15.01,
+                "p": 0.9914446473121643
+              },
+              {
+                "w": "the",
+                "s": 15.01,
+                "e": 15.19,
+                "p": 0.981914222240448
+              },
+              {
+                "w": "moon.",
+                "s": 15.19,
+                "e": 15.35,
+                "p": 0.7512897253036499
+              },
+              {
+                "w": "It",
+                "s": 16.03,
+                "e": 16.11,
+                "p": 0.9898473620414734
+              },
+              {
+                "w": "raised",
+                "s": 16.11,
+                "e": 16.29,
+                "p": 0.8568801283836365
+              },
+              {
+                "w": "40",
+                "s": 16.29,
+                "e": 16.79,
+                "p": 0.9578097462654114
+              },
+              {
+                "w": "million",
+                "s": 16.79,
+                "e": 17.13,
+                "p": 0.9764140248298645
+              },
+              {
+                "w": "euros",
+                "s": 17.13,
+                "e": 17.57,
+                "p": 0.8446699380874634
+              },
+              {
+                "w": "in",
+                "s": 17.57,
+                "e": 17.79,
+                "p": 0.9972479939460754
+              },
+              {
+                "w": "2023,",
+                "s": 17.79,
+                "e": 18.53,
+                "p": 0.9863582849502563
+              },
+              {
+                "w": "then",
+                "s": 18.93,
+                "e": 19.07,
+                "p": 0.9906932711601257
+              },
+              {
+                "w": "160",
+                "s": 19.07,
+                "e": 19.39,
+                "p": 0.9925776124000549
+              },
+              {
+                "w": "million",
+                "s": 19.39,
+                "e": 20.39,
+                "p": 0.9971984624862671
+              },
+              {
+                "w": "in",
+                "s": 20.39,
+                "e": 20.53,
+                "p": 0.9484422206878662
+              },
+              {
+                "w": "Sears",
+                "s": 20.53,
+                "e": 20.73,
+                "p": 0.7798291444778442
+              },
+              {
+                "w": "B.",
+                "s": 20.73,
+                "e": 21.11,
+                "p": 0.5424351096153259
+              },
+              {
+                "w": "So",
+                "s": 21.55,
+                "e": 21.97,
+                "p": 0.9897337555885315
+              },
+              {
+                "w": "did",
+                "s": 21.97,
+                "e": 22.07,
+                "p": 0.8419132232666016
+              },
+              {
+                "w": "they",
+                "s": 22.07,
+                "e": 22.21,
+                "p": 0.9983718991279602
+              },
+              {
+                "w": "open?",
+                "s": 22.21,
+                "e": 22.37,
+                "p": 0.9967113733291626
+              },
+              {
+                "w": "Both",
+                "s": 23.23,
+                "e": 23.23,
+                "p": 0.9756225943565369
+              },
+              {
+                "w": "parachute",
+                "s": 23.23,
+                "e": 23.57,
+                "p": 0.8425183296203613
+              },
+              {
+                "w": "sets",
+                "s": 23.57,
+                "e": 23.95,
+                "p": 0.9808304309844971
+              },
+              {
+                "w": "deployed",
+                "s": 23.95,
+                "e": 24.35,
+                "p": 0.9870370626449585
+              },
+              {
+                "w": "and",
+                "s": 24.35,
+                "e": 24.75,
+                "p": 0.9587603807449341
+              },
+              {
+                "w": "descent",
+                "s": 24.75,
+                "e": 25.05,
+                "p": 0.9295952320098877
+              },
+              {
+                "w": "went",
+                "s": 25.05,
+                "e": 25.43,
+                "p": 0.9884998202323914
+              },
+              {
+                "w": "as",
+                "s": 25.43,
+                "e": 25.75,
+                "p": 0.9979641437530518
+              },
+              {
+                "w": "planned.",
+                "s": 25.75,
+                "e": 26.03,
+                "p": 0.9084164500236511
+              },
+              {
+                "w": "land.",
+                "s": 26.03,
+                "e": 26.23,
+                "p": 0.6223781108856201
+              },
+              {
+                "w": "After",
+                "s": 26.97,
+                "e": 26.97,
+                "p": 0.9881268739700317
+              },
+              {
+                "w": "that",
+                "s": 26.97,
+                "e": 27.15,
+                "p": 0.9946264624595642
+              },
+              {
+                "w": "drop,",
+                "s": 27.15,
+                "e": 27.35,
+                "p": 0.8815041780471802
+              },
+              {
+                "w": "Asa",
+                "s": 27.79,
+                "e": 27.99,
+                "p": 0.6205312758684158
+              },
+              {
+                "w": "awarded",
+                "s": 27.99,
+                "e": 28.31,
+                "p": 0.9941399097442627
+              },
+              {
+                "w": "760",
+                "s": 28.31,
+                "e": 28.75,
+                "p": 0.5091598629951477
+              },
+              {
+                "w": "million",
+                "s": 28.75,
+                "e": 29.77,
+                "p": 0.9635031223297119
+              },
+              {
+                "w": "euros",
+                "s": 29.77,
+                "e": 30.23,
+                "p": 0.7660761475563049
+              },
+              {
+                "w": "for",
+                "s": 30.23,
+                "e": 30.65,
+                "p": 0.978179395198822
+              },
+              {
+                "w": "up",
+                "s": 30.65,
+                "e": 30.79,
+                "p": 0.9913755059242249
+              },
+              {
+                "w": "to",
+                "s": 30.79,
+                "e": 30.95,
+                "p": 0.9951057434082031
+              },
+              {
+                "w": "3",
+                "s": 30.95,
+                "e": 31.31,
+                "p": 0.39803948998451233
+              },
+              {
+                "w": "nicks",
+                "s": 31.31,
+                "e": 31.65,
+                "p": 0.5606758669018745
+              },
+              {
+                "w": "flights.",
+                "s": 31.65,
+                "e": 31.87,
+                "p": 0.9711776375770569
+              },
+              {
+                "w": "Be",
+                "s": 32.59,
+                "e": 32.63,
+                "p": 0.9820152521133423
+              },
+              {
+                "w": "sure",
+                "s": 32.63,
+                "e": 32.79,
+                "p": 0.9983592629432678
+              },
+              {
+                "w": "to",
+                "s": 32.79,
+                "e": 32.91,
+                "p": 0.9957656860351562
+              },
+              {
+                "w": "like,",
+                "s": 32.91,
+                "e": 33.13,
+                "p": 0.8595857620239258
+              },
+              {
+                "w": "share,",
+                "s": 33.31,
+                "e": 33.53,
+                "p": 0.9947265982627869
+              },
+              {
+                "w": "and",
+                "s": 33.73,
+                "e": 33.75,
+                "p": 0.9940580129623413
+              },
+              {
+                "w": "save",
+                "s": 33.75,
+                "e": 34.01,
+                "p": 0.991295576095581
+              },
+              {
+                "w": "this",
+                "s": 34.01,
+                "e": 34.15,
+                "p": 0.9665632247924805
+              },
+              {
+                "w": "video.",
+                "s": 34.15,
+                "e": 34.41,
+                "p": 0.9979766011238098
+              },
+              {
+                "w": "Which",
+                "s": 34.87,
+                "e": 34.91,
+                "p": 0.9813575744628906
+              },
+              {
+                "w": "company",
+                "s": 34.91,
+                "e": 35.15,
+                "p": 0.991097092628479
+              },
+              {
+                "w": "next?",
+                "s": 35.15,
+                "e": 35.47,
+                "p": 0.9590802788734436
+              },
+              {
+                "w": "Comment",
+                "s": 35.91,
+                "e": 36.11,
+                "p": 0.995560884475708
+              },
+              {
+                "w": "and",
+                "s": 36.11,
+                "e": 36.67,
+                "p": 0.7795790433883667
+              },
+              {
+                "w": "follow",
+                "s": 36.67,
+                "e": 36.89,
+                "p": 0.9889445304870605
+              },
+              {
+                "w": "for",
+                "s": 36.89,
+                "e": 37.11,
+                "p": 0.991965651512146
+              },
+              {
+                "w": "more!",
+                "s": 37.11,
+                "e": 37.27,
+                "p": 0.9993521571159363
+              }
+            ],
+            "dauer_s": 37.6106875,
+            "sprache": "en"
+          },
+          "roh_key": "b666776fb8b5245577aec2fd639f12b2e3500033a1d88f6e3f32457102dc5806",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "62780c85d838410c0e4035657644d85880238b0a9c46458f3925d650fd97a414",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 37.6,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 12,
+          "motive": 11,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "62780c85d838410c0e4035657644d85880238b0a9c46458f3925d650fd97a414",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Helikopter fliegt in der Luft über einer Wüstenlandschaft, im Vordergrund blickt eine Person erschrocken nach oben, mit eingebautem Text 'GO HIGH ABOVE'.",
+              "note": 9,
+              "passt": true,
+              "grund": "Die gesprochenen Wörter 'A helicopter let go high above the desert' werden durch den gezeigten Hubschrauber und die Wüstenkulisse direkt und visuell passend belegt.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein offener Fallschirm ist am Himmel zu sehen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt einen geöffneten Fallschirm, was genau dem gesprochenen Satz über das Öffnen der Fallschirme entspricht.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 2,
+              "gesehen": "Gezeigt wird eine erschreckte Frau vor einer staubigen Wüstenstadt, über der ein Hubschrauber fliegt.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine dramatische Szene mit einem Hubschrauber in der Wüste und einer geschockten Person, aber keinen Bezug zum Gründungsjahr 2021 oder der Gründerin Hélène Huby.",
+              "erforderliches_bild": "Ein historisches Foto oder Archivbild aus dem Jahr 2021, das Hélène Huby oder die Gründung von The Exploration Company zeigt."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Mann im grauen Anzug, Hemd, Krawatte und Hut steht in einer Werkstatt oder einem Raum mit Fenstern im Hintergrund und Werkzeugen an der Wand und spricht gestikulierend in die Kamera.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt einen fiktiven Mann in einem Anzug in einer Werkstatt. Die im Text genannte Gründung durch Hélène Huby im Jahr 2021 wird dadurch weder inhaltlich noch personell dargestellt.",
+              "erforderliches_bild": "Eine historische oder illustrierte Szene, die Hélène Huby bei der Gründung des Unternehmens mit Ingenieuren zeigt."
+            },
+            {
+              "index": 4,
+              "gesehen": "Eine computergenerierte Illustration zeigt ein futuristisches raumschiffahnliches Raumfahrzeug im Vordergrund, das vor der Erde im Weltall schwebt.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gesprochene Erwähnung des wiederverwendbaren Raumfahrzeugs Nyx für Orbit und Mond passt gut zu der anschaulichen Illustration eines Raumschiffs vor der Erde.",
+              "erforderliches_bild": "Ein realistisches Foto oder eine detaillierte Illustration des Raumfahrzeugs Nyx im Weltall."
+            },
+            {
+              "index": 5,
+              "gesehen": "Gezeigt wird eine illustrierte Szene von zwei Geschäftsleuten im Werkstatt-Setting, die sich die Hände schütteln, mit einer Einblendung '40 MILLION EUROS' oben im Bild.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt die symbolische Darstellung einer Finanzierungsrunde und passt zu der Erwähnung, dass das Unternehmen 40 Millionen Euro eingesammelt hat.",
+              "erforderliches_bild": "Ein passendes Bild ist bereits vorhanden."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein illustriertes Bild eines Jeeps mit einem großen Fallschirm, der in der Luft über einer Wüstenlandschaft hängt.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen an einem Fallschirm hängenden Gegenstand (den Jeep als Prototypentest für die Kapsellandung) passend zu der Frage, ob sich die Fallschirme öffnen.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein Fallschirmspringer schwebt an einem geöffneten Fallschirm über einer Wüstenstadt, im Hintergrund ist die untergehende Sonne zu sehen.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt einen geöffneten Fallschirm und passt direkt zu den gesprochenen Worten, dass sich die Fallschirme geöffnet haben.",
+              "erforderliches_bild": "Ein passender Fallschirm ist im Bild zu sehen."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Mann im Astronautenanzug steht in einem Kontrollraum, im Hintergrund große Bildschirme und Fenster, darüber ein großes Overlay mit der Aufschrift '760 MILLION EUROS'.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Astronauten in einem Raumschiff-Kontrollraum mit einem reinen Text-Overlay, aber nicht den konkreten Vertrag oder die Preisverleihung der ESA über 760 Millionen Euro.",
+              "erforderliches_bild": "Ein Dokument oder eine Pressekonferenz, die die ESA-Vergabe von 760 Millionen Euro zeigt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine dramatische Szene mit einem Hubschrauber in der Wüste und einer geschockten Person, aber keinen Bezug zum Gründungsjahr 2021 oder der Gründerin Hélène Huby.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen fiktiven Mann in einem Anzug in einer Werkstatt. Die im Text genannte Gründung durch Hélène Huby im Jahr 2021 wird dadurch weder inhaltlich noch personell dargestellt.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Astronauten in einem Raumschiff-Kontrollraum mit einem reinen Text-Overlay, aber nicht den konkreten Vertrag oder die Preisverleihung der ESA über 760 Millionen Euro."
+          ],
+          "modelle": [
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite"
+          ],
+          "einstellungen": 12,
+          "ausgenommen": [
+            10,
+            11
+          ],
+          "vorgeprueft": [
+            9
+          ],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "62780c85d838410c0e4035657644d85880238b0a9c46458f3925d650fd97a414",
+        "prompt_version": "2026-10-29.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "modell": "groq:openai/gpt-oss-20b",
+        "zweitpruefer_modell": null,
+        "zweitpruefer_anderer_anbieter": false
+      }
     }
   ]
 }

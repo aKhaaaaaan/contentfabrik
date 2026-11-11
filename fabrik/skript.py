@@ -562,7 +562,7 @@ def story_bewerten(entwurf):
     erg, _ = gemini(prompts.story(text, STORY_KATEGORIEN,
                                   ' / '.join(entwurf['titel']) if isinstance(entwurf.get('titel'), list) else
                                   f'{entwurf.get("titel_zeile1", "")} / {entwurf.get("titel_zeile2", "")}',
-                                  dramaturgie.videoformat(entwurf)),
+                                  dramaturgie.formatdaten(entwurf)),
                     STORY_SCHEMA, temperatur=0.2, cache='story')
     return erg
 
@@ -676,6 +676,9 @@ def groq_skriptauftrag(kanal, thema, quellen, auftrag, mindest, hoechstens,
     cta = ('Speak exactly TWO concise like/share/save requests: right after the first real payoff '
            '(45-80 seconds in, never before it) and after the ending payoff.' if
            dramaturgie.videoformat(kanal) == 'lang' else
+           # kurz halten: Groqs 8K-Auftrag (test_reparaturketten_1310) hatte nur 8 Token Reserve
+           'Mid-video, after the first payoff, say ONCE: Be sure to like, share and save this video.'
+           if dramaturgie.aufruf_mitte(kanal) else
            'After the final payoff speak exactly ONCE: Be sure to like, share and save this video.')
     prefix = (prompts.DATEN + prompts.FAKTEN_KURZ + prompts.SPRECHEN
         + (prompts.HUMOR if kanal.get('humor') else '')
@@ -1210,6 +1213,8 @@ def main(kanal_pfad, aus_pfad, thema=None):
             'untertitel_profil': lernen.erprobte_einstellungen(stem).get('untertitel_profil', 'ruhig'),
             'posten_ny': kanal.get('posten_ny', '15:00'),
             'laenge_s': dramaturgie.laengen(kanal), 'videoformat': dramaturgie.videoformat(kanal),
+            # Kurztest 11.11.: Pruefer/Kritik/Bau lesen die Aufruf-Position aus dem Skript, nicht aus dem Profil
+            **{k: kanal[k] for k in ('short_aufruf', 'short_loop') if k in kanal},
             'regeln': kanal.get('_regeln', []),
             'winkel': kanal.get('_winkel', ''), 'format': kanal.get('format', 'ranking'),
             'story': story,
@@ -1264,7 +1269,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
     hook_protokoll = None
     story = None
     if pruefung['ok']:
-        entwurf['videoformat'] = dramaturgie.videoformat(kanal)
+        entwurf.update(dramaturgie.formatdaten(kanal))
         story = story_bewerten(entwurf)
         print(f"Story: {story['note']}/10 {story['kategorien']}")
         fassung_speichern(entwurf, modell, pruefung, story)
@@ -1315,7 +1320,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
                         print('Auch die Reparatur fiel durch - verworfen')
                         continue
                     neu = repariert
-                neu['videoformat'] = dramaturgie.videoformat(kanal)
+                neu.update(dramaturgie.formatdaten(kanal))
                 s2 = story_bewerten(neu)
                 print(f"Story neu: {s2['note']}/10 (vorher {story['note']})")
                 if rang(s2, STORY_KATEGORIEN) > rang(story, STORY_KATEGORIEN):
@@ -1340,7 +1345,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
                     return pruefen(e) if mindest <= woerter_von(e) <= hoechstens else {'ok': False, 'probleme': ['Laenge']}
                 gewinner = hooklabor.durchprobieren(
                     entwurf, neu, hook_protokoll, hook_pruefen,
-                    lambda e: story_bewerten(dict(e, videoformat=dramaturgie.videoformat(kanal))),
+                    lambda e: story_bewerten(dict(e, **dramaturgie.formatdaten(kanal))),
                     lambda s2: rang(s2, STORY_KATEGORIEN) >= rang(story, STORY_KATEGORIEN),
                     lambda: float(os.environ.get('CF_SCHRITT_ENDE', 'inf')) - time.monotonic() > 180)
                 if gewinner:

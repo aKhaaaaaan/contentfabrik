@@ -9,6 +9,8 @@ wird nur, was danach die Fakten- und die Story-Pruefung besteht (Aufrufer prueft
 """
 import re
 
+import spannungsbogen
+
 ANZAHL = 5
 
 HOOK_SCHEMA = {
@@ -115,7 +117,9 @@ def auftrag(entwurf, belege):
             'sources; bold, dramatic, almost provocative wording - strong emotional words welcome (nightmare, brutal, '
             'shocking, disaster, insane) - but never inflate a fact; no source attribution '
             '(28.10.2026, Nutzer); no clickbait the video does not pay off; no emojis; no "In this video"; no year, date or '
-            'full name (25.10.2026: such openings held worst); never give away the answer or twist; a statement, '
+            'full person name (25.10.2026: such openings held worst); name the brand or product itself or show one '
+            'concrete object or moment - never a vague stand-in like "a computer giant" or "a toy giant" '
+            '(11.11.2026); never give away the answer or twist; a statement, '
             'never a question (questions held 10 % of viewers, statements 30 %).\n'
             f'SCRIPT:\n{rest}\n\nSOURCES (facts allowed):\n{belege[:6000]}')
 
@@ -126,7 +130,8 @@ def wahl_auftrag(entwurf, kandidaten):
     return ('You are a strict short-form video editor. Pick the opening sentence that makes the most viewers '
             'keep watching past 3 seconds AND that the rest of the script honestly pays off. Penalize vague '
             'teasing, clickbait, and sentences that do not connect to what follows. Also penalize openings that '
-            'give away the answer or twist, or that lead with a year, date or full name; prefer a concrete '
+            'give away the answer or twist, or that lead with a year, date or full person name, or that hide the '
+            'subject behind a vague stand-in ("a computer giant", "a toy giant"); prefer the brand name or a concrete '
             'object, pain, moment or contradiction the viewer can picture. Prefer the most dramatic, shocking moment '
             'of the story (cold open). Among honest options, pick the one '
             'with the strongest emotional pull.\n'
@@ -135,7 +140,7 @@ def wahl_auftrag(entwurf, kandidaten):
             'Answer with the index of the best candidate in "beste".')
 
 
-def kandidaten(antwort, alt):
+def kandidaten(antwort, alt, thema=''):
     """Gueltige, verschiedene Varianten; Index 0 bleibt immer der bisherige Satz."""
     aus = [alt]
     grenze = (max(6, woerter(alt) - 4), woerter(alt) + 4)
@@ -144,7 +149,7 @@ def kandidaten(antwort, alt):
         if text and text[-1] not in '.!?':
             text += '.'
         if text and grenze[0] <= woerter(text) <= grenze[1] and text.lower() not in [a.lower() for a in aus] \
-                and not FRAGE.search(text):
+                and not FRAGE.search(text) and not spannungsbogen.platzhalter(text, thema):
             aus.append(text)
     return aus[:ANZAHL + 1]
 
@@ -161,7 +166,7 @@ def einsetzen(entwurf, satz):
 def verbessern(entwurf, belege, schreiber, richter):
     """Gibt (neuer_entwurf oder None, Protokoll) zurueck. schreiber/richter: (prompt, schema) -> dict."""
     alt = teilen(entwurf['teile'][0]['text'])[0]
-    liste = kandidaten(schreiber(auftrag(entwurf, belege), HOOK_SCHEMA), alt)
+    liste = kandidaten(schreiber(auftrag(entwurf, belege), HOOK_SCHEMA), alt, entwurf.get('thema', ''))
     protokoll = {'alt': alt, 'kandidaten': liste[1:]}
     if len(liste) < 2:
         protokoll['ergebnis'] = 'keine gueltigen Varianten'

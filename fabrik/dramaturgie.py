@@ -41,9 +41,34 @@ def interaktion(daten):
                 'answer. Each asks for all three actions. '
                 'The opening sentence remains the story hook; do not open with engagement requests. '
                 'Return to the story immediately after the early request; no mid-video repetitions. ')
+    if aufruf_mitte(daten):
+        # Kurztest 11.11.2026 (kanaele/*.json short_aufruf "mitte"): YouTube-Studio KI 23 s Wiedergabe bei 35-45 s -
+        # der Aufruf am Ende erreicht die meisten Zuschauer nie. Mitte = nach dem ersten echten Nutzen.
+        return (gemeinsam + 'SHORT FORM: Include exactly ONE call to action in the MIDDLE of the video, right '
+                'after the first real payoff (the first useful step, answer or reveal), never in the first two '
+                'sentences and never in the last sentence. It asks for all three actions. Then continue the '
+                'story; the video ends on content, not on a request. Keep the hook focused on the subject. ')
     return (gemeinsam + 'SHORT FORM: Include exactly ONE call to action near the end, after the '
             'main payoff. It asks for all three actions. Keep the hook focused on the subject '
             'and the ending brief. ')
+
+
+def formatdaten(daten):
+    """Videoformat plus Kurztest-Schalter - alles, was Story-/Videopruefer ueber Aufruf-Position und Ende wissen
+    muessen. GEMESSEN 11.11.2026 (Code): story_bewerten gab nur das Videoformat weiter -> der Pruefer haette einen
+    Aufruf in der Mitte als falsch platziert gewertet."""
+    return {'videoformat': videoformat(daten),
+            **{k: daten[k] for k in ('short_aufruf', 'short_loop') if k in daten}}
+
+
+def aufruf_mitte(daten):
+    """Short mit Pflichtaufruf in der Mitte statt am Ende (Kanalprofil short_aufruf = 'mitte')."""
+    return videoformat(daten) == 'short' and daten.get('short_aufruf') == 'mitte'
+
+
+def loop_ende(daten):
+    """Short endet so, dass der letzte Satz in den ersten zurueckfuehrt (Kanalprofil short_loop)."""
+    return videoformat(daten) == 'short' and daten.get('short_loop') is True
 
 
 def auftrag(daten):
@@ -100,7 +125,13 @@ def auftrag(daten):
             # wegwischen." Rund 70 % entscheiden in den ersten 2 s (Shorts-Benchmarks 2026).
             # Der Videobau setzt an der 'wendung' Musikpause, Riser und Impact.
             'No greeting, channel name or "in this video" before the first fact. Label exactly '
-            'one real turning point (the beat where the story changes) as beat wendung.')
+            'one real turning point (the beat where the story changes) as beat wendung.'
+            # Kurztest 11.11.2026: Shorts laufen in Schleife; ein Ende, das in den Anfang zurueckfuehrt, zaehlt
+            # die zweite Runde als Wiedergabe. Kein Abschiedssatz, keine Frage nach dem letzten Inhaltssatz.
+            + (' LOOP ENDING: the final sentence completes the payoff and is phrased so that it flows '
+               'naturally into the first sentence when the video replays (e.g. it ends on the same concrete '
+               'object or problem the hook opened with). No sign-off, question or request after it.'
+               if loop_ende(daten) else ''))
 
 
 CHRONIK_MAX = 8  # Langvideo: hoechstens so viele Saetze duerfen mit einem Datum beginnen

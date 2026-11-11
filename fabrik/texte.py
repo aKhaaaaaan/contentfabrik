@@ -240,6 +240,10 @@ AUFRUF = re.compile(r'like,?\s*(?:and\s*)?share,?\s*(?:and\s*)?save', re.I)
 
 
 def schluss_gesprochen(skript):
+    # Kurztest 11.11.2026: Aufruf in der Mitte + Loop-Ende -> kein angehaengter Schlusssatz (er stuende mitten im
+    # Video und kostet ~7 von ~55 Woertern); wortgrenzen() zieht dann auch nichts ab.
+    if skript.get('short_aufruf') == 'mitte' and skript.get('videoformat', 'short') == 'short':
+        return ''
     return SCHLUSS_GESPROCHEN.get(str(skript.get('kanal') or skript.get('name') or ''), '')
 
 

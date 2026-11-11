@@ -1,21 +1,36 @@
 {
   "version": 1,
   "modelle": {
-    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
-      "grund": "Netzwerk-Zeitlimit",
-      "bis": 1794398529.7987726
+    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
+      "grund": "Tageskontingent erschoepft",
+      "bis": 1794470400.0
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.5-flash": {
+      "grund": "Tageskontingent erschoepft",
+      "bis": 1794470400.0
     },
     "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
-      "grund": "Netzwerk-Zeitlimit",
-      "bis": 1794398574.8547878
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1794403968.6750307
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1794404236.2385275
     }
   },
   "zeitlimits": {
     "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
-      1794398469.7987726
+      1794398469.7987726,
+      1794403540.352944
     ],
     "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
       1794398514.8547878
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
+      1794402929.3332562
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.5-flash": [
+      1794402977.4468498
     ]
   }
 }

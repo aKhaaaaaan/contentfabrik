@@ -169883,6 +169883,1234 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "43026986478.1:ai-tools-explained",
+      "run_id": "43026986478",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-11T13:32:30.992170+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "564d9c084ae3619d35aa74a9a53e15c35a5d6d8b",
+      "produktionsversion": "73f29a2c4b0bfa752165b40221496640fcb15e44bf3c592aff75a5ee9c9c7393",
+      "videoformat": "short",
+      "thema": "5 real Claude Code commands: /compact, /init, /review, /cost, /rewind",
+      "titel": [
+        "*CLAUDE* *CODE* *COMMANDS*",
+        "CLEAN THE JUNK DRAWER"
+      ],
+      "status": "gesendet",
+      "video_sha256": "fbca8fc1c54f1617a7e5575f50cac15e9094967562022e307cddff84ebb88f38",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 1/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Metapher mit einer Schublade, aber keine Claude Code Befehle oder eine Benutzeroberflaeche zur Befehlsausfuehrung.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (1/10): Das Bild zeigt lediglich eine Person in einem Büro. Es gibt keine visuelle Darstellung des Befehls /compact, einer Zusammenfassung oder einer Software-Schnittstelle.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Begriff 'REWIND' und 'STARTER CLAUDE MD', während die Erzählung den Befehl '/init' und die Erstellung einer CLAUDE.md-Datei bespricht. Es gibt keinen Bezug zum Befehl /init.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt nur ein grafisches Textfeld mit MEMORY REFINES und der unpassenden Überschrift REWIND, anstatt die tatsächliche Befehlszeile oder Anwendung des Befehls /memory zu demonstrieren.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt eine grafische Erklärung der Kostenberechnung ('LLM BILL'), die thematisch zum /cost-Befehl passt. Es fehlt jedoch die visuelle Darstellung der im Text gestellten Frage, ob /cost ein Alias ist (z. B. durch die Anzeige des Befehls selbst oder eine Gleichsetzung mit /usage). Das Bild er",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (1/10): Das Bild zeigt eine generische Figur in einer städtischen Umgebung, die keinen Bezug zum gesprochenen Inhalt über den '/cost'-Befehl oder die Anzeige von Kosten und Limits in der Software hat. Es fehlt jegliche technische Darstellung oder ein Interface.",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Die Erzählung beschreibt den spezifischen Befehl '/cost' und dessen Funktion (Anzeige von Kosten und Limits). Das Bild zeigt nur eine generische Szene eines Arbeiters an einem Computer, ohne dass der genannte Befehl oder die spezifische Ausgabe sichtbar ist. Es fehlt der konkrete Bezug zur beschrieb",
+        "Einstellung 11: Bild passt nicht zum Sprechtext (5/10): Die sichtbare Grafik ist eine abstrakte Illustration, die den Begriff 'Rewind' und 'Code' durch nummerierte Balken darstellt. Sie zeigt jedoch keine tatsächliche Software-Oberfläche, keinen Cursor, keine Eingabezeile oder eine spezifische Interaktion, die das Zurückrollen auf einen Checkpoint demons",
+        "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt ein physisches Schubladensystem mit Schrauben, was das im Video verwendete Metapher-Bild der 'stuffed junk drawer' (überfüllte Schubladen) aufgreift. Es zeigt jedoch keine Software-Oberfläche, keinen Code und keine Aktion, die das 'Rückgängig-Machen' (Undo) oder den /rewind-Befehl dar",
+        "Offenes Problem (schwer): Das Bild zeigt eine Metapher mit einer Schublade, aber keine Claude Code Befehle oder eine Benutzeroberflaeche zur Befehlsausfuehrung. Korrektur: Ein Screenshot oder eine Animation, die die Ausfuehrung von Claude Code Befehlen in der Konsole zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine Person in einem Büro. Es gibt keine visuelle Darstellung des Befehls /compact, einer Zusammenfassung oder einer Software-Schnittstelle. Korrektur: Ein Screenshot der Software-Konsole, in der der Befehl /compact eingegeben wurde und das resultierende zusammenfassende Ergebnis zu sehen ist.",
+        "Offenes Problem (schwer): Das Bild zeigt den Begriff 'REWIND' und 'STARTER CLAUDE MD', während die Erzählung den Befehl '/init' und die Erstellung einer CLAUDE.md-Datei bespricht. Es gibt keinen Bezug zum Befehl /init. Korrektur: Ein Screenshot oder eine Animation, die das Ausführen des Befehls /init in der Kommandozeile zeigt und wie die CLAUDE.md-Datei generiert wird.",
+        "Offenes Problem (schwer): Die Abbildung zeigt nur ein grafisches Textfeld mit MEMORY REFINES und der unpassenden Überschrift REWIND, anstatt die tatsächliche Befehlszeile oder Anwendung des Befehls /memory zu demonstrieren. Korrektur: Eine Bildschirmaufnahme des Terminals mit der Eingabe und Ausführung des Befehls /memory.",
+        "Offenes Problem (schwer): Das Bild zeigt eine grafische Erklärung der Kostenberechnung ('LLM BILL'), die thematisch zum /cost-Befehl passt. Es fehlt jedoch die visuelle Darstellung der im Text gestellten Frage, ob /cost ein Alias ist (z. B. durch die Anzeige des Befehls selbst oder eine Gleichsetzung mit /usage). Das Bild erklärt die Funktion, beantwortet aber nicht die spezifische rhetorische Frage nach dem Alias-Status. Korrektur: Ein Screenshot der Claude-Code-Oberfläche, der den Befehl '/cost' oder '/usage' in der Eingabezeile zeigt, oder eine grafische Darstellung, die die Äquivalenz der beiden Befehle (z. B. '/cost' = '/usage') direkt visualisiert.",
+        "Offenes Problem (schwer): Das Bild zeigt eine generische Figur in einer städtischen Umgebung, die keinen Bezug zum gesprochenen Inhalt über den '/cost'-Befehl oder die Anzeige von Kosten und Limits in der Software hat. Es fehlt jegliche technische Darstellung oder ein Interface. Korrektur: Ein Screenshot der Claude-Code-Oberfläche, der den Befehl '/cost' oder '/usage' zeigt, sowie die Ausgabe mit den Kosten und den Plan-Limits.",
+        "Offenes Problem (schwer): Die Erzählung beschreibt den spezifischen Befehl '/cost' und dessen Funktion (Anzeige von Kosten und Limits). Das Bild zeigt nur eine generische Szene eines Arbeiters an einem Computer, ohne dass der genannte Befehl oder die spezifische Ausgabe sichtbar ist. Es fehlt der konkrete Bezug zur beschriebenen Software-Funktion. Korrektur: Ein Screenshot der Claude-Code-Oberfläche, der den Befehl '/cost' oder '/usage' eingetippt zeigt und darunter die Ausgabe mit den Kosten und den Plan-Limits anzeigt.",
+        "Offenes Problem (schwer): Die sichtbare Grafik ist eine abstrakte Illustration, die den Begriff 'Rewind' und 'Code' durch nummerierte Balken darstellt. Sie zeigt jedoch keine tatsächliche Software-Oberfläche, keinen Cursor, keine Eingabezeile oder eine spezifische Interaktion, die das Zurückrollen auf einen Checkpoint demonstriert. Es fehlt der konkrete visuelle Nachweis der beschriebenen Operation in einer echten oder realistischen Umgebung. Korrektur: Ein Screenshot der Claude Code-Oberfläche, der den Befehl '/rewind' in der Eingabezeile zeigt, oder eine grafische Darstellung, die einen Zeitleisten-Indikator (Checkpoint) auf einer Code- oder Chat-Historie visualisiert, der nach links zurückgesetzt wird.",
+        "Offenes Problem (schwer): Das Bild zeigt ein physisches Schubladensystem mit Schrauben, was das im Video verwendete Metapher-Bild der 'stuffed junk drawer' (überfüllte Schubladen) aufgreift. Es zeigt jedoch keine Software-Oberfläche, keinen Code und keine Aktion, die das 'Rückgängig-Machen' (Undo) oder den /rewind-Befehl darstellt. Es ist eine statische Metapher ohne Bezug zur spezifischen technischen Operation. Korrektur: Ein Screenshot der Claude-Code-Oberfläche, der den /rewind-Befehl zeigt, oder eine grafische Darstellung, die den Rückgängig-Machen-Prozess (Undo) in einer Code- oder Chat-Umgebung visualisiert."
+      ],
+      "einstellungen": 14,
+      "unterschiedliche_motive": 14,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "43026986478",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-11",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 715.2,
+            "pruefung_s": 345.5,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 1/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Metapher mit einer Schublade, aber keine Claude Code Befehle oder eine Benutzeroberflaeche zur Befehlsausfuehrung.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (1/10): Das Bild zeigt lediglich eine Person in einem Büro. Es gibt keine visuelle Darstellung des Befehls /compact, einer Zusammenfassung oder einer Software-Schnittstelle.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Begriff 'REWIND' und 'STARTER CLAUDE MD', während die Erzählung den Befehl '/init' und die Erstellung einer CLAUDE.md-Datei bespricht. Es gibt keinen Bezug zum Befehl /init.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt nur ein grafisches Textfeld mit MEMORY REFINES und der unpassenden Überschrift REWIND, anstatt die tatsächliche Befehlszeile oder Anwendung des Befehls /memory zu demonstrieren.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt eine grafische Erklärung der Kostenberechnung ('LLM BILL'), die thematisch zum /cost-Befehl passt. Es fehlt jedoch die visuelle Darstellung der im Text gestellten Frage, ob /cost ein Alias ist (z. B. durch die Anzeige des Befehls selbst oder eine Gleichsetzung mit /usage). Das Bild er",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (1/10): Das Bild zeigt eine generische Figur in einer städtischen Umgebung, die keinen Bezug zum gesprochenen Inhalt über den '/cost'-Befehl oder die Anzeige von Kosten und Limits in der Software hat. Es fehlt jegliche technische Darstellung oder ein Interface.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Die Erzählung beschreibt den spezifischen Befehl '/cost' und dessen Funktion (Anzeige von Kosten und Limits). Das Bild zeigt nur eine generische Szene eines Arbeiters an einem Computer, ohne dass der genannte Befehl oder die spezifische Ausgabe sichtbar ist. Es fehlt der konkrete Bezug zur beschrieb",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (5/10): Die sichtbare Grafik ist eine abstrakte Illustration, die den Begriff 'Rewind' und 'Code' durch nummerierte Balken darstellt. Sie zeigt jedoch keine tatsächliche Software-Oberfläche, keinen Cursor, keine Eingabezeile oder eine spezifische Interaktion, die das Zurückrollen auf einen Checkpoint demons",
+              "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt ein physisches Schubladensystem mit Schrauben, was das im Video verwendete Metapher-Bild der 'stuffed junk drawer' (überfüllte Schubladen) aufgreift. Es zeigt jedoch keine Software-Oberfläche, keinen Code und keine Aktion, die das 'Rückgängig-Machen' (Undo) oder den /rewind-Befehl dar",
+              "Offenes Problem (schwer): Das Bild zeigt eine Metapher mit einer Schublade, aber keine Claude Code Befehle oder eine Benutzeroberflaeche zur Befehlsausfuehrung. Korrektur: Ein Screenshot oder eine Animation, die die Ausfuehrung von Claude Code Befehlen in der Konsole zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine Person in einem Büro. Es gibt keine visuelle Darstellung des Befehls /compact, einer Zusammenfassung oder einer Software-Schnittstelle. Korrektur: Ein Screenshot der Software-Konsole, in der der Befehl /compact eingegeben wurde und das resultierende zusammenfassende Ergebnis zu sehen ist.",
+              "Offenes Problem (schwer): Das Bild zeigt den Begriff 'REWIND' und 'STARTER CLAUDE MD', während die Erzählung den Befehl '/init' und die Erstellung einer CLAUDE.md-Datei bespricht. Es gibt keinen Bezug zum Befehl /init. Korrektur: Ein Screenshot oder eine Animation, die das Ausführen des Befehls /init in der Kommandozeile zeigt und wie die CLAUDE.md-Datei generiert wird.",
+              "Offenes Problem (schwer): Die Abbildung zeigt nur ein grafisches Textfeld mit MEMORY REFINES und der unpassenden Überschrift REWIND, anstatt die tatsächliche Befehlszeile oder Anwendung des Befehls /memory zu demonstrieren. Korrektur: Eine Bildschirmaufnahme des Terminals mit der Eingabe und Ausführung des Befehls /memory.",
+              "Offenes Problem (schwer): Das Bild zeigt eine grafische Erklärung der Kostenberechnung ('LLM BILL'), die thematisch zum /cost-Befehl passt. Es fehlt jedoch die visuelle Darstellung der im Text gestellten Frage, ob /cost ein Alias ist (z. B. durch die Anzeige des Befehls selbst oder eine Gleichsetzung mit /usage). Das Bild erklärt die Funktion, beantwortet aber nicht die spezifische rhetorische Frage nach dem Alias-Status. Korrektur: Ein Screenshot der Claude-Code-Oberfläche, der den Befehl '/cost' oder '/usage' in der Eingabezeile zeigt, oder eine grafische Darstellung, die die Äquivalenz der beiden Befehle (z. B. '/cost' = '/usage') direkt visualisiert.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generische Figur in einer städtischen Umgebung, die keinen Bezug zum gesprochenen Inhalt über den '/cost'-Befehl oder die Anzeige von Kosten und Limits in der Software hat. Es fehlt jegliche technische Darstellung oder ein Interface. Korrektur: Ein Screenshot der Claude-Code-Oberfläche, der den Befehl '/cost' oder '/usage' zeigt, sowie die Ausgabe mit den Kosten und den Plan-Limits.",
+              "Offenes Problem (schwer): Die Erzählung beschreibt den spezifischen Befehl '/cost' und dessen Funktion (Anzeige von Kosten und Limits). Das Bild zeigt nur eine generische Szene eines Arbeiters an einem Computer, ohne dass der genannte Befehl oder die spezifische Ausgabe sichtbar ist. Es fehlt der konkrete Bezug zur beschriebenen Software-Funktion. Korrektur: Ein Screenshot der Claude-Code-Oberfläche, der den Befehl '/cost' oder '/usage' eingetippt zeigt und darunter die Ausgabe mit den Kosten und den Plan-Limits anzeigt.",
+              "Offenes Problem (schwer): Die sichtbare Grafik ist eine abstrakte Illustration, die den Begriff 'Rewind' und 'Code' durch nummerierte Balken darstellt. Sie zeigt jedoch keine tatsächliche Software-Oberfläche, keinen Cursor, keine Eingabezeile oder eine spezifische Interaktion, die das Zurückrollen auf einen Checkpoint demonstriert. Es fehlt der konkrete visuelle Nachweis der beschriebenen Operation in einer echten oder realistischen Umgebung. Korrektur: Ein Screenshot der Claude Code-Oberfläche, der den Befehl '/rewind' in der Eingabezeile zeigt, oder eine grafische Darstellung, die einen Zeitleisten-Indikator (Checkpoint) auf einer Code- oder Chat-Historie visualisiert, der nach links zurückgesetzt wird.",
+              "Offenes Problem (schwer): Das Bild zeigt ein physisches Schubladensystem mit Schrauben, was das im Video verwendete Metapher-Bild der 'stuffed junk drawer' (überfüllte Schubladen) aufgreift. Es zeigt jedoch keine Software-Oberfläche, keinen Code und keine Aktion, die das 'Rückgängig-Machen' (Undo) oder den /rewind-Befehl darstellt. Es ist eine statische Metapher ohne Bezug zur spezifischen technischen Operation. Korrektur: Ein Screenshot der Claude-Code-Oberfläche, der den /rewind-Befehl zeigt, oder eine grafische Darstellung, die den Rückgängig-Machen-Prozess (Undo) in einer Code- oder Chat-Umgebung visualisiert."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 24.2,
+              "zeitmarken": 3.8,
+              "tempo": 1.016,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 14,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 566.3,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 14,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 37.9,
+              "gesamt": 714.3,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                5.08,
+                5.9,
+                7.0,
+                8.84,
+                7.5,
+                6.0,
+                4.67
+              ],
+              "woerter": 103,
+              "clips": {
+                "witz": 2,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 1
+            },
+            "probleme": [
+              {
+                "zeit": "00:02.50",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Claude Code's real commands tidy it up.",
+                "fest": true,
+                "text": "Das Bild zeigt eine Metapher mit einer Schublade, aber keine Claude Code Befehle oder eine Benutzeroberflaeche zur Befehlsausfuehrung. Korrektur: Ein Screenshot oder eine Animation, die die Ausfuehrung von Claude Code Befehlen in der Konsole zeigt."
+              },
+              {
+                "zeit": "00:05.08",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "/compact summarizes your chat to free up context.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich eine Person in einem Büro. Es gibt keine visuelle Darstellung des Befehls /compact, einer Zusammenfassung oder einer Software-Schnittstelle. Korrektur: Ein Screenshot der Software-Konsole, in der der Befehl /compact eingegeben wurde und das resultierende zusammenfassende Ergebnis zu sehen ist."
+              },
+              {
+                "zeit": "00:10.98",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "/init generates a starter CLAUDE.md.",
+                "fest": true,
+                "text": "Das Bild zeigt den Begriff 'REWIND' und 'STARTER CLAUDE MD', während die Erzählung den Befehl '/init' und die Erstellung einer CLAUDE.md-Datei bespricht. Es gibt keinen Bezug zum Befehl /init. Korrektur: Ein Screenshot oder eine Animation, die das Ausführen des Befehls /init in der Kommandozeile zeigt und wie die CLAUDE.md-Datei generiert wird."
+              },
+              {
+                "zeit": "00:13.86",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "Then /memory refines it.",
+                "fest": true,
+                "text": "Die Abbildung zeigt nur ein grafisches Textfeld mit MEMORY REFINES und der unpassenden Überschrift REWIND, anstatt die tatsächliche Befehlszeile oder Anwendung des Befehls /memory zu demonstrieren. Korrektur: Eine Bildschirmaufnahme des Terminals mit der Eingabe und Ausführung des Befehls /memory."
+              },
+              {
+                "zeit": "00:23.32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 8,
+                "gesprochen": "So is /cost another alias?",
+                "fest": true,
+                "text": "Das Bild zeigt eine grafische Erklärung der Kostenberechnung ('LLM BILL'), die thematisch zum /cost-Befehl passt. Es fehlt jedoch die visuelle Darstellung der im Text gestellten Frage, ob /cost ein Alias ist (z. B. durch die Anzeige des Befehls selbst oder eine Gleichsetzung mit /usage). Das Bild erklärt die Funktion, beantwortet aber nicht die spezifische rhetorische Frage nach dem Alias-Status. Korrektur: Ein Screenshot der Claude-Code-Oberfläche, der den Befehl '/cost' oder '/usage' in der Eingabezeile zeigt, oder eine grafische Darstellung, die die Äquivalenz der beiden Befehle (z. B. '/cost' = '/usage') direkt visualisiert."
+              },
+              {
+                "zeit": "00:26.82",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "Yes.",
+                "fest": false,
+                "text": "Das Bild zeigt eine generische Figur in einer städtischen Umgebung, die keinen Bezug zum gesprochenen Inhalt über den '/cost'-Befehl oder die Anzeige von Kosten und Limits in der Software hat. Es fehlt jegliche technische Darstellung oder ein Interface. Korrektur: Ein Screenshot der Claude-Code-Oberfläche, der den Befehl '/cost' oder '/usage' zeigt, sowie die Ausgabe mit den Kosten und den Plan-Limits."
+              },
+              {
+                "zeit": "00:28.76",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 10,
+                "gesprochen": "/cost is /usage in a fake mustache, showing session cost and plan limits.",
+                "fest": true,
+                "text": "Die Erzählung beschreibt den spezifischen Befehl '/cost' und dessen Funktion (Anzeige von Kosten und Limits). Das Bild zeigt nur eine generische Szene eines Arbeiters an einem Computer, ohne dass der genannte Befehl oder die spezifische Ausgabe sichtbar ist. Es fehlt der konkrete Bezug zur beschriebenen Software-Funktion. Korrektur: Ein Screenshot der Claude-Code-Oberfläche, der den Befehl '/cost' oder '/usage' eingetippt zeigt und darunter die Ausgabe mit den Kosten und den Plan-Limits anzeigt."
+              },
+              {
+                "zeit": "00:34.32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "/rewind rolls code and conversation back to a checkpoint.",
+                "fest": true,
+                "text": "Die sichtbare Grafik ist eine abstrakte Illustration, die den Begriff 'Rewind' und 'Code' durch nummerierte Balken darstellt. Sie zeigt jedoch keine tatsächliche Software-Oberfläche, keinen Cursor, keine Eingabezeile oder eine spezifische Interaktion, die das Zurückrollen auf einen Checkpoint demonstriert. Es fehlt der konkrete visuelle Nachweis der beschriebenen Operation in einer echten oder realistischen Umgebung. Korrektur: Ein Screenshot der Claude Code-Oberfläche, der den Befehl '/rewind' in der Eingabezeile zeigt, oder eine grafische Darstellung, die einen Zeitleisten-Indikator (Checkpoint) auf einer Code- oder Chat-Historie visualisiert, der nach links zurückgesetzt wird."
+              },
+              {
+                "zeit": "00:38.06",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 12,
+                "gesprochen": "The junk drawer gets undo.",
+                "fest": true,
+                "text": "Das Bild zeigt ein physisches Schubladensystem mit Schrauben, was das im Video verwendete Metapher-Bild der 'stuffed junk drawer' (überfüllte Schubladen) aufgreift. Es zeigt jedoch keine Software-Oberfläche, keinen Code und keine Aktion, die das 'Rückgängig-Machen' (Undo) oder den /rewind-Befehl darstellt. Es ist eine statische Metapher ohne Bezug zur spezifischen technischen Operation. Korrektur: Ein Screenshot der Claude-Code-Oberfläche, der den /rewind-Befehl zeigt, oder eine grafische Darstellung, die den Rückgängig-Machen-Prozess (Undo) in einer Code- oder Chat-Umgebung visualisiert."
+              }
+            ],
+            "sekunden": 1060.7,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 1079.9,
+        "upload_titel": "CLAUDE CODE COMMANDS: CLEAN THE JUNK DRAWER | AI Tool #32"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 1
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:02.50",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Claude Code's real commands tidy it up.",
+            "fest": true,
+            "text": "Das Bild zeigt eine Metapher mit einer Schublade, aber keine Claude Code Befehle oder eine Benutzeroberflaeche zur Befehlsausfuehrung. Korrektur: Ein Screenshot oder eine Animation, die die Ausfuehrung von Claude Code Befehlen in der Konsole zeigt."
+          },
+          {
+            "zeit": "00:05.08",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "/compact summarizes your chat to free up context.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich eine Person in einem Büro. Es gibt keine visuelle Darstellung des Befehls /compact, einer Zusammenfassung oder einer Software-Schnittstelle. Korrektur: Ein Screenshot der Software-Konsole, in der der Befehl /compact eingegeben wurde und das resultierende zusammenfassende Ergebnis zu sehen ist."
+          },
+          {
+            "zeit": "00:10.98",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "/init generates a starter CLAUDE.md.",
+            "fest": true,
+            "text": "Das Bild zeigt den Begriff 'REWIND' und 'STARTER CLAUDE MD', während die Erzählung den Befehl '/init' und die Erstellung einer CLAUDE.md-Datei bespricht. Es gibt keinen Bezug zum Befehl /init. Korrektur: Ein Screenshot oder eine Animation, die das Ausführen des Befehls /init in der Kommandozeile zeigt und wie die CLAUDE.md-Datei generiert wird."
+          },
+          {
+            "zeit": "00:13.86",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "Then /memory refines it.",
+            "fest": true,
+            "text": "Die Abbildung zeigt nur ein grafisches Textfeld mit MEMORY REFINES und der unpassenden Überschrift REWIND, anstatt die tatsächliche Befehlszeile oder Anwendung des Befehls /memory zu demonstrieren. Korrektur: Eine Bildschirmaufnahme des Terminals mit der Eingabe und Ausführung des Befehls /memory."
+          },
+          {
+            "zeit": "00:23.32",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 8,
+            "gesprochen": "So is /cost another alias?",
+            "fest": true,
+            "text": "Das Bild zeigt eine grafische Erklärung der Kostenberechnung ('LLM BILL'), die thematisch zum /cost-Befehl passt. Es fehlt jedoch die visuelle Darstellung der im Text gestellten Frage, ob /cost ein Alias ist (z. B. durch die Anzeige des Befehls selbst oder eine Gleichsetzung mit /usage). Das Bild erklärt die Funktion, beantwortet aber nicht die spezifische rhetorische Frage nach dem Alias-Status. Korrektur: Ein Screenshot der Claude-Code-Oberfläche, der den Befehl '/cost' oder '/usage' in der Eingabezeile zeigt, oder eine grafische Darstellung, die die Äquivalenz der beiden Befehle (z. B. '/cost' = '/usage') direkt visualisiert."
+          },
+          {
+            "zeit": "00:26.82",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "Yes.",
+            "fest": false,
+            "text": "Das Bild zeigt eine generische Figur in einer städtischen Umgebung, die keinen Bezug zum gesprochenen Inhalt über den '/cost'-Befehl oder die Anzeige von Kosten und Limits in der Software hat. Es fehlt jegliche technische Darstellung oder ein Interface. Korrektur: Ein Screenshot der Claude-Code-Oberfläche, der den Befehl '/cost' oder '/usage' zeigt, sowie die Ausgabe mit den Kosten und den Plan-Limits."
+          },
+          {
+            "zeit": "00:28.76",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 10,
+            "gesprochen": "/cost is /usage in a fake mustache, showing session cost and plan limits.",
+            "fest": true,
+            "text": "Die Erzählung beschreibt den spezifischen Befehl '/cost' und dessen Funktion (Anzeige von Kosten und Limits). Das Bild zeigt nur eine generische Szene eines Arbeiters an einem Computer, ohne dass der genannte Befehl oder die spezifische Ausgabe sichtbar ist. Es fehlt der konkrete Bezug zur beschriebenen Software-Funktion. Korrektur: Ein Screenshot der Claude-Code-Oberfläche, der den Befehl '/cost' oder '/usage' eingetippt zeigt und darunter die Ausgabe mit den Kosten und den Plan-Limits anzeigt."
+          },
+          {
+            "zeit": "00:34.32",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "/rewind rolls code and conversation back to a checkpoint.",
+            "fest": true,
+            "text": "Die sichtbare Grafik ist eine abstrakte Illustration, die den Begriff 'Rewind' und 'Code' durch nummerierte Balken darstellt. Sie zeigt jedoch keine tatsächliche Software-Oberfläche, keinen Cursor, keine Eingabezeile oder eine spezifische Interaktion, die das Zurückrollen auf einen Checkpoint demonstriert. Es fehlt der konkrete visuelle Nachweis der beschriebenen Operation in einer echten oder realistischen Umgebung. Korrektur: Ein Screenshot der Claude Code-Oberfläche, der den Befehl '/rewind' in der Eingabezeile zeigt, oder eine grafische Darstellung, die einen Zeitleisten-Indikator (Checkpoint) auf einer Code- oder Chat-Historie visualisiert, der nach links zurückgesetzt wird."
+          },
+          {
+            "zeit": "00:38.06",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 12,
+            "gesprochen": "The junk drawer gets undo.",
+            "fest": true,
+            "text": "Das Bild zeigt ein physisches Schubladensystem mit Schrauben, was das im Video verwendete Metapher-Bild der 'stuffed junk drawer' (überfüllte Schubladen) aufgreift. Es zeigt jedoch keine Software-Oberfläche, keinen Code und keine Aktion, die das 'Rückgängig-Machen' (Undo) oder den /rewind-Befehl darstellt. Es ist eine statische Metapher ohne Bezug zur spezifischen technischen Operation. Korrektur: Ein Screenshot der Claude-Code-Oberfläche, der den /rewind-Befehl zeigt, oder eine grafische Darstellung, die den Rückgängig-Machen-Prozess (Undo) in einer Code- oder Chat-Umgebung visualisiert."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 44.9,
+          "fps": 30.0,
+          "lufs": -14.1,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 40.62,
+              "bis_s": 42.26,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.987
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 24.9,
+              "bis_s": 45.4,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Your",
+                "s": 0.0,
+                "e": 0.28,
+                "p": 0.7598885297775269
+              },
+              {
+                "w": "claw",
+                "s": 0.28,
+                "e": 0.5,
+                "p": 0.3407273590564728
+              },
+              {
+                "w": "chat",
+                "s": 0.5,
+                "e": 0.76,
+                "p": 0.9333662986755371
+              },
+              {
+                "w": "is",
+                "s": 0.76,
+                "e": 0.96,
+                "p": 0.9939271807670593
+              },
+              {
+                "w": "a",
+                "s": 0.96,
+                "e": 1.06,
+                "p": 0.9957560896873474
+              },
+              {
+                "w": "stuffed",
+                "s": 1.06,
+                "e": 1.36,
+                "p": 0.9158868789672852
+              },
+              {
+                "w": "junk",
+                "s": 1.36,
+                "e": 1.76,
+                "p": 0.974976122379303
+              },
+              {
+                "w": "drawer.",
+                "s": 1.76,
+                "e": 2.06,
+                "p": 0.9907983541488647
+              },
+              {
+                "w": "Clawed",
+                "s": 2.52,
+                "e": 2.9,
+                "p": 0.7206093966960907
+              },
+              {
+                "w": "code's",
+                "s": 2.9,
+                "e": 3.24,
+                "p": 0.7224335670471191
+              },
+              {
+                "w": "real",
+                "s": 3.24,
+                "e": 3.44,
+                "p": 0.93919438123703
+              },
+              {
+                "w": "commands",
+                "s": 3.44,
+                "e": 3.82,
+                "p": 0.9589523077011108
+              },
+              {
+                "w": "tidy",
+                "s": 3.82,
+                "e": 4.16,
+                "p": 0.5463588237762451
+              },
+              {
+                "w": "it",
+                "s": 4.16,
+                "e": 4.36,
+                "p": 0.98149174451828
+              },
+              {
+                "w": "up.",
+                "s": 4.36,
+                "e": 4.6,
+                "p": 0.9989656209945679
+              },
+              {
+                "w": "Slash",
+                "s": 4.88,
+                "e": 5.1,
+                "p": 0.8787446618080139
+              },
+              {
+                "w": "Compact",
+                "s": 5.1,
+                "e": 5.34,
+                "p": 0.48860812187194824
+              },
+              {
+                "w": "summarizes",
+                "s": 5.34,
+                "e": 5.94,
+                "p": 0.9356574416160583
+              },
+              {
+                "w": "your",
+                "s": 5.94,
+                "e": 6.52,
+                "p": 0.9938365817070007
+              },
+              {
+                "w": "chat",
+                "s": 6.52,
+                "e": 6.76,
+                "p": 0.9898333549499512
+              },
+              {
+                "w": "to",
+                "s": 6.76,
+                "e": 6.96,
+                "p": 0.9928764700889587
+              },
+              {
+                "w": "free",
+                "s": 6.96,
+                "e": 7.24,
+                "p": 0.971498966217041
+              },
+              {
+                "w": "up",
+                "s": 7.24,
+                "e": 7.42,
+                "p": 0.8811444640159607
+              },
+              {
+                "w": "context.",
+                "s": 7.42,
+                "e": 7.8,
+                "p": 0.9831209182739258
+              },
+              {
+                "w": "Optionally",
+                "s": 8.38,
+                "e": 8.78,
+                "p": 0.9742748141288757
+              },
+              {
+                "w": "add",
+                "s": 8.78,
+                "e": 9.02,
+                "p": 0.8658831715583801
+              },
+              {
+                "w": "focus",
+                "s": 9.02,
+                "e": 9.38,
+                "p": 0.9293212294578552
+              },
+              {
+                "w": "instructions",
+                "s": 9.38,
+                "e": 9.62,
+                "p": 0.9939403533935547
+              },
+              {
+                "w": "for",
+                "s": 9.62,
+                "e": 10.08,
+                "p": 0.9959949254989624
+              },
+              {
+                "w": "the",
+                "s": 10.08,
+                "e": 10.16,
+                "p": 0.9952123165130615
+              },
+              {
+                "w": "summary.",
+                "s": 10.16,
+                "e": 10.38,
+                "p": 0.9941189289093018
+              },
+              {
+                "w": "Slash",
+                "s": 10.92,
+                "e": 10.98,
+                "p": 0.9758865833282471
+              },
+              {
+                "w": "init",
+                "s": 10.98,
+                "e": 11.2,
+                "p": 0.11189800500869751
+              },
+              {
+                "w": "generates",
+                "s": 11.2,
+                "e": 11.88,
+                "p": 0.9793462753295898
+              },
+              {
+                "w": "a",
+                "s": 11.88,
+                "e": 12.06,
+                "p": 0.9937140345573425
+              },
+              {
+                "w": "starter",
+                "s": 12.06,
+                "e": 12.38,
+                "p": 0.8714550733566284
+              },
+              {
+                "w": "clawed",
+                "s": 12.38,
+                "e": 12.92,
+                "p": 0.87972292304039
+              },
+              {
+                "w": ".md.",
+                "s": 12.92,
+                "e": 13.28,
+                "p": 0.6047821640968323
+              },
+              {
+                "w": "Then",
+                "s": 13.9,
+                "e": 13.92,
+                "p": 0.9703248739242554
+              },
+              {
+                "w": "Slash",
+                "s": 13.92,
+                "e": 14.2,
+                "p": 0.36467245221138
+              },
+              {
+                "w": "Memory",
+                "s": 14.2,
+                "e": 14.68,
+                "p": 0.8572819232940674
+              },
+              {
+                "w": "refines",
+                "s": 14.68,
+                "e": 15.16,
+                "p": 0.9656009674072266
+              },
+              {
+                "w": "it.",
+                "s": 15.16,
+                "e": 15.4,
+                "p": 0.9973316192626953
+              },
+              {
+                "w": "Doc's",
+                "s": 15.72,
+                "e": 16.08,
+                "p": 0.5538735836744308
+              },
+              {
+                "w": "last",
+                "s": 16.08,
+                "e": 16.24,
+                "p": 0.7232350707054138
+              },
+              {
+                "w": "checked,",
+                "s": 16.24,
+                "e": 16.52,
+                "p": 0.982455849647522
+              },
+              {
+                "w": "November",
+                "s": 16.8,
+                "e": 16.92,
+                "p": 0.9755164980888367
+              },
+              {
+                "w": "10th.",
+                "s": 16.92,
+                "e": 17.46,
+                "p": 0.9460858404636383
+              },
+              {
+                "w": "Slash",
+                "s": 18.0,
+                "e": 18.0,
+                "p": 0.9810938835144043
+              },
+              {
+                "w": "Review",
+                "s": 18.0,
+                "e": 18.46,
+                "p": 0.696819543838501
+              },
+              {
+                "w": "alias",
+                "s": 18.46,
+                "e": 19.08,
+                "p": 0.4545900225639343
+              },
+              {
+                "w": "his",
+                "s": 19.08,
+                "e": 19.44,
+                "p": 0.7966623902320862
+              },
+              {
+                "w": "code",
+                "s": 19.44,
+                "e": 19.8,
+                "p": 0.8311238884925842
+              },
+              {
+                "w": "review,",
+                "s": 19.8,
+                "e": 20.36,
+                "p": 0.9523751735687256
+              },
+              {
+                "w": "which",
+                "s": 20.96,
+                "e": 21.08,
+                "p": 0.9967796206474304
+              },
+              {
+                "w": "checks",
+                "s": 21.08,
+                "e": 21.38,
+                "p": 0.9743760228157043
+              },
+              {
+                "w": "diffs",
+                "s": 21.38,
+                "e": 21.84,
+                "p": 0.6489109396934509
+              },
+              {
+                "w": "for",
+                "s": 21.84,
+                "e": 22.0,
+                "p": 0.9956348538398743
+              },
+              {
+                "w": "correctness",
+                "s": 22.0,
+                "e": 22.28,
+                "p": 0.9877760410308838
+              },
+              {
+                "w": "bugs.",
+                "s": 22.28,
+                "e": 22.68,
+                "p": 0.9970014691352844
+              },
+              {
+                "w": "So",
+                "s": 23.28,
+                "e": 23.44,
+                "p": 0.974869430065155
+              },
+              {
+                "w": "is",
+                "s": 23.44,
+                "e": 23.86,
+                "p": 0.6121155619621277
+              },
+              {
+                "w": "Slash",
+                "s": 23.86,
+                "e": 24.18,
+                "p": 0.95531165599823
+              },
+              {
+                "w": "cost",
+                "s": 24.18,
+                "e": 24.46,
+                "p": 0.8236469030380249
+              },
+              {
+                "w": "another",
+                "s": 24.46,
+                "e": 24.9,
+                "p": 0.9963662624359131
+              },
+              {
+                "w": "alias?",
+                "s": 24.9,
+                "e": 25.18,
+                "p": 0.9972695708274841
+              },
+              {
+                "w": "Yes!",
+                "s": 26.18,
+                "e": 26.82,
+                "p": 0.906053364276886
+              },
+              {
+                "w": "Yes!",
+                "s": 26.82,
+                "e": 27.06,
+                "p": 0.8248236775398254
+              },
+              {
+                "w": "Yes!",
+                "s": 28.22,
+                "e": 28.78,
+                "p": 0.8142967224121094
+              },
+              {
+                "w": "Cost",
+                "s": 29.26,
+                "e": 29.58,
+                "p": 0.9405301213264465
+              },
+              {
+                "w": "is",
+                "s": 29.58,
+                "e": 29.88,
+                "p": 0.991285502910614
+              },
+              {
+                "w": "usage",
+                "s": 29.88,
+                "e": 30.08,
+                "p": 0.9963080883026123
+              },
+              {
+                "w": "in",
+                "s": 30.08,
+                "e": 30.46,
+                "p": 0.9827226400375366
+              },
+              {
+                "w": "a",
+                "s": 30.46,
+                "e": 30.52,
+                "p": 0.9961026906967163
+              },
+              {
+                "w": "fake",
+                "s": 30.52,
+                "e": 30.8,
+                "p": 0.9818182587623596
+              },
+              {
+                "w": "mustache,",
+                "s": 30.8,
+                "e": 31.2,
+                "p": 0.8199172616004944
+              },
+              {
+                "w": "showing",
+                "s": 31.3,
+                "e": 31.92,
+                "p": 0.9965386390686035
+              },
+              {
+                "w": "session",
+                "s": 31.92,
+                "e": 32.22,
+                "p": 0.9563262462615967
+              },
+              {
+                "w": "costs",
+                "s": 32.22,
+                "e": 32.62,
+                "p": 0.4893505275249481
+              },
+              {
+                "w": "and",
+                "s": 32.62,
+                "e": 32.88,
+                "p": 0.44320064783096313
+              },
+              {
+                "w": "plan",
+                "s": 32.88,
+                "e": 33.14,
+                "p": 0.907563328742981
+              },
+              {
+                "w": "limits.",
+                "s": 33.14,
+                "e": 33.5,
+                "p": 0.9984039664268494
+              },
+              {
+                "w": "Rewind,",
+                "s": 34.32,
+                "e": 34.88,
+                "p": 0.9318172633647919
+              },
+              {
+                "w": "rolls",
+                "s": 34.96,
+                "e": 35.1,
+                "p": 0.7481992244720459
+              },
+              {
+                "w": "code,",
+                "s": 35.1,
+                "e": 35.46,
+                "p": 0.9785516858100891
+              },
+              {
+                "w": "and",
+                "s": 35.88,
+                "e": 36.04,
+                "p": 0.9965916872024536
+              },
+              {
+                "w": "conversation",
+                "s": 36.04,
+                "e": 36.4,
+                "p": 0.9808467030525208
+              },
+              {
+                "w": "back",
+                "s": 36.4,
+                "e": 36.96,
+                "p": 0.9953222870826721
+              },
+              {
+                "w": "to",
+                "s": 36.96,
+                "e": 37.12,
+                "p": 0.9963805079460144
+              },
+              {
+                "w": "a",
+                "s": 37.12,
+                "e": 37.22,
+                "p": 0.9838871359825134
+              },
+              {
+                "w": "checkpoint.",
+                "s": 37.22,
+                "e": 37.44,
+                "p": 0.9563766121864319
+              },
+              {
+                "w": "The",
+                "s": 38.04,
+                "e": 38.06,
+                "p": 0.9830631017684937
+              },
+              {
+                "w": "junk",
+                "s": 38.06,
+                "e": 38.42,
+                "p": 0.9522314667701721
+              },
+              {
+                "w": "drawer",
+                "s": 38.42,
+                "e": 38.72,
+                "p": 0.999100923538208
+              },
+              {
+                "w": "gets",
+                "s": 38.72,
+                "e": 39.16,
+                "p": 0.9887840747833252
+              },
+              {
+                "w": "undone.",
+                "s": 39.16,
+                "e": 39.6,
+                "p": 0.9879962801933289
+              },
+              {
+                "w": "Be",
+                "s": 40.32,
+                "e": 40.34,
+                "p": 0.9937493801116943
+              },
+              {
+                "w": "sure",
+                "s": 40.34,
+                "e": 40.5,
+                "p": 0.999569833278656
+              },
+              {
+                "w": "to",
+                "s": 40.5,
+                "e": 40.62,
+                "p": 0.9964953064918518
+              },
+              {
+                "w": "like,",
+                "s": 40.62,
+                "e": 40.86,
+                "p": 0.94010990858078
+              },
+              {
+                "w": "share,",
+                "s": 40.96,
+                "e": 41.26,
+                "p": 0.9984782338142395
+              },
+              {
+                "w": "and",
+                "s": 41.44,
+                "e": 41.52,
+                "p": 0.9983219504356384
+              },
+              {
+                "w": "save",
+                "s": 41.52,
+                "e": 41.8,
+                "p": 0.9971024394035339
+              },
+              {
+                "w": "this",
+                "s": 41.8,
+                "e": 41.96,
+                "p": 0.9907392263412476
+              },
+              {
+                "w": "video.",
+                "s": 41.96,
+                "e": 42.26,
+                "p": 0.9991208910942078
+              },
+              {
+                "w": "Which",
+                "s": 42.72,
+                "e": 42.74,
+                "p": 0.9033435583114624
+              },
+              {
+                "w": "tool",
+                "s": 42.74,
+                "e": 42.94,
+                "p": 0.7305154800415039
+              },
+              {
+                "w": "next?",
+                "s": 42.94,
+                "e": 43.16,
+                "p": 0.574167013168335
+              },
+              {
+                "w": "Comment",
+                "s": 43.84,
+                "e": 43.84,
+                "p": 0.9866893887519836
+              },
+              {
+                "w": "and",
+                "s": 43.84,
+                "e": 44.16,
+                "p": 0.8553966283798218
+              },
+              {
+                "w": "follow",
+                "s": 44.16,
+                "e": 44.4,
+                "p": 0.9965633749961853
+              },
+              {
+                "w": "for",
+                "s": 44.4,
+                "e": 44.62,
+                "p": 0.988271176815033
+              },
+              {
+                "w": "more.",
+                "s": 44.62,
+                "e": 44.78,
+                "p": 0.9997254014015198
+              }
+            ],
+            "dauer_s": 44.928,
+            "sprache": "en"
+          },
+          "roh_key": "7979514a59f2580b4bf745799505ab839005154e72f899dde7e0c042e4bf9749",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "fbca8fc1c54f1617a7e5575f50cac15e9094967562022e307cddff84ebb88f38",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 44.9,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 14,
+          "motive": 14,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "fbca8fc1c54f1617a7e5575f50cac15e9094967562022e307cddff84ebb88f38",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein geschockter Mann schaut auf eine geöffnete Schublade voller Kabel und Werkzeug. Im Hintergrund ein Tisch und ein Fenster.",
+              "note": 8,
+              "passt": true,
+              "grund": "Dies ist ein opening_reaction_shot für den metaphorischen Satz über einen zugemüllten 'junk drawer', und der Gesichtsausdruck passt perfekt zur Metapher.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein gemalter Mann mit Sonnenbrille und Lederjacke sitzt in einer Schublade, die mit Gegenstaenden gefuellt ist, vor einer Strassenkulisse.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine Metapher mit einer Schublade, aber keine Claude Code Befehle oder eine Benutzeroberflaeche zur Befehlsausfuehrung.",
+              "erforderliches_bild": "Ein Screenshot oder eine Animation, die die Ausfuehrung von Claude Code Befehlen in der Konsole zeigt."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Mann mit verschränkten Armen steht vor einem Schreibtisch mit zwei Monitoren.",
+              "note": 1,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine Person in einem Büro. Es gibt keine visuelle Darstellung des Befehls /compact, einer Zusammenfassung oder einer Software-Schnittstelle.",
+              "erforderliches_bild": "Ein Screenshot der Software-Konsole, in der der Befehl /compact eingegeben wurde und das resultierende zusammenfassende Ergebnis zu sehen ist."
+            },
+            {
+              "index": 4,
+              "gesehen": "Das Bild zeigt den Text 'REWIND' und in einem abgerundeten Rechteck den Text 'STARTER CLAUDE MD'.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt den Begriff 'REWIND' und 'STARTER CLAUDE MD', während die Erzählung den Befehl '/init' und die Erstellung einer CLAUDE.md-Datei bespricht. Es gibt keinen Bezug zum Befehl /init.",
+              "erforderliches_bild": "Ein Screenshot oder eine Animation, die das Ausführen des Befehls /init in der Kommandozeile zeigt und wie die CLAUDE.md-Datei generiert wird."
+            },
+            {
+              "index": 5,
+              "gesehen": "Dunkler Grafikbildschirm mit dem Wort REWIND und einem umrandeten Text MEMORY REFINES.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Abbildung zeigt nur ein grafisches Textfeld mit MEMORY REFINES und der unpassenden Überschrift REWIND, anstatt die tatsächliche Befehlszeile oder Anwendung des Befehls /memory zu demonstrieren.",
+              "erforderliches_bild": "Eine Bildschirmaufnahme des Terminals mit der Eingabe und Ausführung des Befehls /memory."
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot einer Code-Review-Oberfläche (z. B. GitHub PR oder CLI-Output), der konkrete Codezeilen mit +/- Zeichen und dazugehörige Kommentare oder Warnhinweise zu Fehlern zeigt.",
+              "gesehen": "Ein stilisiertes, abstraktes Diagramm mit dem Titel 'REVIEW ALIASES CODE-REVIEW'. Es zeigt nummerierte Zeilen (1-12) mit farbigen Balken, die Codezeilen oder Diff-Änderungen symbolisieren. Unten befindet sich ein Textfeld mit der Aufschrift 'CORRECTNESS BUGS'.",
+              "grund": "Das Bild ist ein erklärendes Diagramm, das die im Text genannten Begriffe 'review', 'code-review' und 'correctness bugs' visuell darstellt. Die abstrakten Balken repräsentieren die zu prüfenden Diffs, und das Label 'CORRECTNESS BUGS' benennt den gesuchten Fehlertyp. Es handelt sich um eine passende visuelle Metapher für die Funktion.",
+              "index": 7,
+              "note": 8,
+              "passt": true
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot der Claude-Code-Oberfläche, der den Befehl '/cost' oder '/usage' in der Eingabezeile zeigt, oder eine grafische Darstellung, die die Äquivalenz der beiden Befehle (z. B. '/cost' = '/usage') direkt visualisiert.",
+              "gesehen": "Ein dunkler Bildschirm mit dem grünen Titel 'REWIND' und dem weißen Untertitel 'COST DISPLAY'. Darunter befindet sich ein weißes Diagramm-Element mit der Überschrift 'LLM BILL', das die Formel 'INPUT TOKENS x PRICE' plus 'OUTPUT TOKENS x PRICE' zeigt, was zu '= PAY PER TOKEN' führt. Unten ist ein gelb umrandetes Label 'COST DISPLAY' zu sehen.",
+              "grund": "Das Bild zeigt eine grafische Erklärung der Kostenberechnung ('LLM BILL'), die thematisch zum /cost-Befehl passt. Es fehlt jedoch die visuelle Darstellung der im Text gestellten Frage, ob /cost ein Alias ist (z. B. durch die Anzeige des Befehls selbst oder eine Gleichsetzung mit /usage). Das Bild erklärt die Funktion, beantwortet aber nicht die spezifische rhetorische Frage nach dem Alias-Status.",
+              "index": 8,
+              "note": 5,
+              "passt": false
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot der Claude-Code-Oberfläche, der den Befehl '/cost' oder '/usage' zeigt, sowie die Ausgabe mit den Kosten und den Plan-Limits.",
+              "gesehen": "Eine stilisierte Illustration eines Mannes mit blauen Sonnenbrillen und einer schwarzen Lederjacke, der auf einer belebten Straße steht und mit dem Finger zeigt.",
+              "grund": "Das Bild zeigt eine generische Figur in einer städtischen Umgebung, die keinen Bezug zum gesprochenen Inhalt über den '/cost'-Befehl oder die Anzeige von Kosten und Limits in der Software hat. Es fehlt jegliche technische Darstellung oder ein Interface.",
+              "index": 9,
+              "note": 1,
+              "passt": false
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot der Claude-Code-Oberfläche, der den Befehl '/cost' oder '/usage' eingetippt zeigt und darunter die Ausgabe mit den Kosten und den Plan-Limits anzeigt.",
+              "gesehen": "Eine stilisierte Illustration eines Mannes, der in einem Büro mit Blick auf eine nächtliche Stadt an einem Laptop arbeitet. Auf dem Schreibtisch stehen mehrere Monitore, auf denen schemenhaft Code zu sehen ist, aber keine spezifischen Texte oder Ausgaben sind lesbar.",
+              "grund": "Die Erzählung beschreibt den spezifischen Befehl '/cost' und dessen Funktion (Anzeige von Kosten und Limits). Das Bild zeigt nur eine generische Szene eines Arbeiters an einem Computer, ohne dass der genannte Befehl oder die spezifische Ausgabe sichtbar ist. Es fehlt der konkrete Bezug zur beschriebenen Software-Funktion.",
+              "index": 10,
+              "note": 3,
+              "passt": false
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot der Claude Code-Oberfläche, der den Befehl '/rewind' in der Eingabezeile zeigt, oder eine grafische Darstellung, die einen Zeitleisten-Indikator (Checkpoint) auf einer Code- oder Chat-Historie visualisiert, der nach links zurückgesetzt wird.",
+              "gesehen": "Die Abbildung zeigt eine stilisierte, dunkle Benutzeroberfläche mit dem Titel 'REWIND' und dem Untertitel 'REWIND ROLLS CODE'. Darunter befindet sich eine nummerierte Liste (1-12), die durch farbige, horizontale Balken dargestellt wird, die an Codezeilen oder ein Gantt-Diagramm erinnern. Es ist keine echte Software-Oberfläche, sondern eine abstrakte Illustration.",
+              "grund": "Die sichtbare Grafik ist eine abstrakte Illustration, die den Begriff 'Rewind' und 'Code' durch nummerierte Balken darstellt. Sie zeigt jedoch keine tatsächliche Software-Oberfläche, keinen Cursor, keine Eingabezeile oder eine spezifische Interaktion, die das Zurückrollen auf einen Checkpoint demonstriert. Es fehlt der konkrete visuelle Nachweis der beschriebenen Operation in einer echten oder realistischen Umgebung.",
+              "index": 11,
+              "note": 5,
+              "passt": false
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot der Claude-Code-Oberfläche, der den /rewind-Befehl zeigt, oder eine grafische Darstellung, die den Rückgängig-Machen-Prozess (Undo) in einer Code- oder Chat-Umgebung visualisiert.",
+              "gesehen": "Eine stilisierte Illustration eines offenen Schubladensystems auf einem Schreibtisch, das mit Fächern gefüllt ist, in denen Schrauben, Dübel und kleine Bauteile liegen. Im Hintergrund ist ein Fenster mit Blick auf eine Stadt bei Dämmerung zu sehen, auf dem Tisch steht ein Tablet mit unleserlichem Text.",
+              "grund": "Das Bild zeigt ein physisches Schubladensystem mit Schrauben, was das im Video verwendete Metapher-Bild der 'stuffed junk drawer' (überfüllte Schubladen) aufgreift. Es zeigt jedoch keine Software-Oberfläche, keinen Code und keine Aktion, die das 'Rückgängig-Machen' (Undo) oder den /rewind-Befehl darstellt. Es ist eine statische Metapher ohne Bezug zur spezifischen technischen Operation.",
+              "index": 12,
+              "note": 3,
+              "passt": false
+            }
+          ],
+          "befunde": [
+            "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Metapher mit einer Schublade, aber keine Claude Code Befehle oder eine Benutzeroberflaeche zur Befehlsausfuehrung.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (1/10): Das Bild zeigt lediglich eine Person in einem Büro. Es gibt keine visuelle Darstellung des Befehls /compact, einer Zusammenfassung oder einer Software-Schnittstelle.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Begriff 'REWIND' und 'STARTER CLAUDE MD', während die Erzählung den Befehl '/init' und die Erstellung einer CLAUDE.md-Datei bespricht. Es gibt keinen Bezug zum Befehl /init.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt nur ein grafisches Textfeld mit MEMORY REFINES und der unpassenden Überschrift REWIND, anstatt die tatsächliche Befehlszeile oder Anwendung des Befehls /memory zu demonstrieren.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt eine grafische Erklärung der Kostenberechnung ('LLM BILL'), die thematisch zum /cost-Befehl passt. Es fehlt jedoch die visuelle Darstellung der im Text gestellten Frage, ob /cost ein Alias ist (z. B. durch die Anzeige des Befehls selbst oder eine Gleichsetzung mit /usage). Das Bild er",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (1/10): Das Bild zeigt eine generische Figur in einer städtischen Umgebung, die keinen Bezug zum gesprochenen Inhalt über den '/cost'-Befehl oder die Anzeige von Kosten und Limits in der Software hat. Es fehlt jegliche technische Darstellung oder ein Interface.",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Die Erzählung beschreibt den spezifischen Befehl '/cost' und dessen Funktion (Anzeige von Kosten und Limits). Das Bild zeigt nur eine generische Szene eines Arbeiters an einem Computer, ohne dass der genannte Befehl oder die spezifische Ausgabe sichtbar ist. Es fehlt der konkrete Bezug zur beschrieb",
+            "Einstellung 11: Bild passt nicht zum Sprechtext (5/10): Die sichtbare Grafik ist eine abstrakte Illustration, die den Begriff 'Rewind' und 'Code' durch nummerierte Balken darstellt. Sie zeigt jedoch keine tatsächliche Software-Oberfläche, keinen Cursor, keine Eingabezeile oder eine spezifische Interaktion, die das Zurückrollen auf einen Checkpoint demons",
+            "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt ein physisches Schubladensystem mit Schrauben, was das im Video verwendete Metapher-Bild der 'stuffed junk drawer' (überfüllte Schubladen) aufgreift. Es zeigt jedoch keine Software-Oberfläche, keinen Code und keine Aktion, die das 'Rückgängig-Machen' (Undo) oder den /rewind-Befehl dar"
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.5-flash",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b"
+          ],
+          "einstellungen": 14,
+          "ausgenommen": [
+            13
+          ],
+          "vorgeprueft": [
+            3,
+            6
+          ],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "fbca8fc1c54f1617a7e5575f50cac15e9094967562022e307cddff84ebb88f38",
+        "prompt_version": "2026-10-29.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

@@ -173040,6 +173040,1541 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "43068923836.1:business-origin-stories",
+      "run_id": "43068923836",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-11T18:30:16.186379+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "d8cda2cfcf108c5aabe4951f5753fe006969bf90",
+      "produktionsversion": "b2bd0cf5860dc62f73e61f19243482e276246a8323d9df3162cc8627a221f8af",
+      "videoformat": "short",
+      "thema": "AMD",
+      "titel": [
+        "*AMD* CLONED INTEL'S CHIP",
+        "*INTEL* SIGNED WITH *AMD*"
+      ],
+      "status": "gesendet",
+      "video_sha256": "d9cb5d2769008df0e7dcdd1c79611f36403905eae27ec76db2adac7500b358bb",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-11.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte 'AMD cloned Intel's chip' erwähnen das Klonen eines Intel-Chips durch AMD, aber das Bild zeigt nur einen sitzenden Mann in einem gemalten Stillleben ohne jeden Bezug zu Chips oder Halbleitern.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich zwei Personen bei Lötarbeiten in einer Werkstatt. Es stellt weder den Am9080-Prozessor, den Intel 8080 noch den Prozess des Reverse Engineering dar.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine generische geschäftliche Handschlag-Szene, die inhaltlich nicht auf die Mikrocode-Installation oder die Lizenzvereinbarung zwischen Intel und AMD eingeht.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwei Personen bei einem Toast in einer generischen, künstlerisch dargestellten Szene, die keinerlei Bezug zu Intel, AMD, Mikrocode oder Lizenzvereinbarungen hat.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt lediglich eine generische Besprechungssituation ohne Bezug zu den spezifischen Inhalten wie Intel-Chips, IBM-Anforderungen oder der Thematik der Chip-Herstellung.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Die Abbildung eines Computeranwenders vor einem Bildschirm stellt keine Unterzeichnung oder einen rechtlichen Vertrag dar, sondern zeigt lediglich eine allgemeine Büroszene.",
+        "Einstellung 11: Bild passt nicht zum Sprechtext (4/10): Die Sprechzeile beschreibt die zeitliche Verlängerung eines Lizenzvertrags ('It extended the 1976 license through 1995'). Das Bild zeigt jedoch nur eine generische Person in einem Büro mit einem Chip. Es gibt keine visuellen Hinweise auf einen Vertrag, eine Unterschrift oder die spezifischen Daten, ",
+        "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine generische Person, die an einem Tisch arbeitet, was keinen Bezug zur spezifischen historischen Aussage hat, dass AMD zum 'Second Source' (zweiten Hersteller) für Intel wurde. Es fehlen jegliche Hinweise auf die Unternehmen, Verträge oder die Chip-Industrie.",
+        "Offenes Problem (schwer): Die gesprochenen Worte 'AMD cloned Intel's chip' erwähnen das Klonen eines Intel-Chips durch AMD, aber das Bild zeigt nur einen sitzenden Mann in einem gemalten Stillleben ohne jeden Bezug zu Chips oder Halbleitern. Korrektur: Ein historisches Foto oder eine Darstellung des Mikroprozessors Intel 8080 oder des Am9080-Chips.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich zwei Personen bei Lötarbeiten in einer Werkstatt. Es stellt weder den Am9080-Prozessor, den Intel 8080 noch den Prozess des Reverse Engineering dar. Korrektur: Ein historisches Foto oder eine detaillierte technische Darstellung der Am9080-CPU oder ein Vergleichsdiagramm, das die Ähnlichkeit zum Intel 8080 verdeutlicht.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine generische geschäftliche Handschlag-Szene, die inhaltlich nicht auf die Mikrocode-Installation oder die Lizenzvereinbarung zwischen Intel und AMD eingeht. Korrektur: Ein Bild, das die Mikrocode-Programmierung auf einem frühen Chip oder eine visuelle Darstellung der technischen Lizenzvereinbarung zwischen den beiden Unternehmen zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt zwei Personen bei einem Toast in einer generischen, künstlerisch dargestellten Szene, die keinerlei Bezug zu Intel, AMD, Mikrocode oder Lizenzvereinbarungen hat. Korrektur: Ein historisches Dokument der Lizenzvereinbarung zwischen Intel und AMD oder eine technische Darstellung der Mikrocode-Implementierung aus dieser Zeit.",
+        "Offenes Problem (schwer): Die Abbildung zeigt lediglich eine generische Besprechungssituation ohne Bezug zu den spezifischen Inhalten wie Intel-Chips, IBM-Anforderungen oder der Thematik der Chip-Herstellung. Korrektur: Ein historisches Foto oder eine Dokumentation, die IBM-Vertreter bei Verhandlungen mit Chip-Herstellern oder eine schematische Darstellung des 8086-Chips zeigt.",
+        "Offenes Problem (schwer): Die Abbildung eines Computeranwenders vor einem Bildschirm stellt keine Unterzeichnung oder einen rechtlichen Vertrag dar, sondern zeigt lediglich eine allgemeine Büroszene. Korrektur: Ein Bild, das die Unterzeichnung eines Vertrags oder ein offizielles Dokument zwischen den beiden Unternehmen zeigt.",
+        "Offenes Problem (schwer): Die Sprechzeile beschreibt die zeitliche Verlängerung eines Lizenzvertrags ('It extended the 1976 license through 1995'). Das Bild zeigt jedoch nur eine generische Person in einem Büro mit einem Chip. Es gibt keine visuellen Hinweise auf einen Vertrag, eine Unterschrift oder die spezifischen Daten, die die Verlängerung belegen würden. Die Geste ist zu vage, um den spezifischen juristischen Akt der Vertragsverlängerung darzustellen. Korrektur: Ein Dokument oder ein Diagramm, das den Lizenzvertrag zwischen Intel und AMD zeigt, mit den Jahreszahlen 1976 und 1995 als Start- und Enddatum der Vertragslaufzeit.",
+        "Offenes Problem (schwer): Das Bild zeigt eine generische Person, die an einem Tisch arbeitet, was keinen Bezug zur spezifischen historischen Aussage hat, dass AMD zum 'Second Source' (zweiten Hersteller) für Intel wurde. Es fehlen jegliche Hinweise auf die Unternehmen, Verträge oder die Chip-Industrie. Korrektur: Eine Illustration, die zwei Geschäftspartner (z. B. Vertreter von Intel und AMD) zeigt, die einen Vertrag unterzeichnen oder Händeschütteln, oder eine schematische Darstellung, die AMD als 'Second Source' neben Intel positioniert."
+      ],
+      "einstellungen": 15,
+      "unterschiedliche_motive": 15,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "43068923836",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-11",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 268.3,
+            "bau_s": 461.9,
+            "baufehler": "AnbieterNichtVerfuegbar: Einstellung 12: Bildpruefung nicht verfuegbar (Gemini-Kontingent und Groq-Vision) - kein Video aus Ersatzbildern",
+            "status": "anbieterpause",
+            "sekunden": 935.0
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 201.8,
+            "pruefung_s": 213.9,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 1/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt keinen gezeigten Chip oder Kopiervorgang, sondern nur unleserliche Pixelgrafiken und einen Textüberlagerungs-Schriftzug.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen sitzenden Mann an einem Fenster, bietet aber keinen visuellen Bezug zu der Frage 'Why would it?' bezüglich der Firmenbeziehung oder Lizenzvergabe zwischen AMD und Intel.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (1/10): Das Bild zeigt eine allgemeine, untechnische Szene mit zwei Personen in einem Raum. Es fehlen jegliche visuellen Hinweise auf Mikroprozessoren, Chips oder den spezifischen Vorgang des Reverse Engineerings, der im Text erwähnt wird.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich zwei Personen bei der Arbeit in einem Büro- oder Werkstattumfeld. Die im Text erwähnte Einführung von Mikrocode oder eine Lizenzvereinbarung zwischen Intel und AMD ist visuell in keiner Weise dargestellt.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine generische Szene eines Mannes in einem Raum mit alten Computern, hat aber keinen inhaltlichen Bezug zu IBM, der Intel-x86-Architektur oder der geschäftlichen Anforderung eines Zweitherstellers.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine allgemeine, künstlerische Darstellung einer Person vor einem alten Computer, jedoch wird der in der Narration erwähnte Kontext von IBM, der Forderung nach einem zweiten Hersteller oder eine spezifische geschäftliche Verhandlung nicht dargestellt.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine generische Szene eines Mannes, der schreibt, und hat keinen inhaltlichen oder historischen Bezug zum Technologielizenzabkommen zwischen Intel und AMD im Jahr 1982.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): The image shows a generic man writing at a desk, which is entirely unrelated to the historical signing of a technology exchange agreement between AMD and Intel in 1982.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine allgemeine, illustrierte Darstellung eines Mannes, der an Hardware arbeitet. Es gibt keinen visuellen Bezug zu einem Lizenzvertrag, einer zeitlichen Verlängerung bis 1995 oder einer geschäftlichen Vereinbarung zwischen Intel und AMD.",
+              "Einstellung 12: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine generische, stilisierte Szene eines arbeitenden Mannes, die in keinem inhaltlichen Bezug zur Geschichte von AMD und Intel oder der genannten Lizenzvereinbarung steht.",
+              "Offenes Problem (schwer): Das Bild zeigt keinen gezeigten Chip oder Kopiervorgang, sondern nur unleserliche Pixelgrafiken und einen Textüberlagerungs-Schriftzug. Korrektur: Ein historisches Foto oder eine Darstellung des Am9080-Chips oder des Intel 8080.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich einen sitzenden Mann an einem Fenster, bietet aber keinen visuellen Bezug zu der Frage 'Why would it?' bezüglich der Firmenbeziehung oder Lizenzvergabe zwischen AMD und Intel. Korrektur: Ein historisches Dokument oder eine Grafik, die die Geschäftsbeziehung oder den Lizenzvertrag zwischen AMD und Intel verdeutlicht.",
+              "Offenes Problem (schwer): Das Bild zeigt eine allgemeine, untechnische Szene mit zwei Personen in einem Raum. Es fehlen jegliche visuellen Hinweise auf Mikroprozessoren, Chips oder den spezifischen Vorgang des Reverse Engineerings, der im Text erwähnt wird. Korrektur: Ein Bild, das einen Mikroprozessor-Chip (z. B. den Intel 8080 oder AMD Am9080) zeigt, idealerweise mit einer schematischen Darstellung, die den Prozess des Reverse Engineerings oder die Ähnlichkeit der beiden Chips veranschaulicht.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich zwei Personen bei der Arbeit in einem Büro- oder Werkstattumfeld. Die im Text erwähnte Einführung von Mikrocode oder eine Lizenzvereinbarung zwischen Intel und AMD ist visuell in keiner Weise dargestellt. Korrektur: Eine historische Illustration oder ein Diagramm, das die Implementierung von Mikrocode auf einem Prozessorchip oder die Unterzeichnung eines Lizenzvertrages symbolisiert.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generische Szene eines Mannes in einem Raum mit alten Computern, hat aber keinen inhaltlichen Bezug zu IBM, der Intel-x86-Architektur oder der geschäftlichen Anforderung eines Zweitherstellers. Korrektur: Ein historisches Foto oder eine Dokumentation, die IBM-Hardware, die Intel-x86-Chips oder die geschäftliche Korrespondenz/den Vertrag zwischen IBM und Intel im Jahr 1981 zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine allgemeine, künstlerische Darstellung einer Person vor einem alten Computer, jedoch wird der in der Narration erwähnte Kontext von IBM, der Forderung nach einem zweiten Hersteller oder eine spezifische geschäftliche Verhandlung nicht dargestellt. Korrektur: Ein historisches Bild von IBM-Computern oder ein Dokument/Diagramm, das die Zusammenarbeit zwischen Firmen zur Herstellung von Chips visualisiert.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine generische Szene eines Mannes, der schreibt, und hat keinen inhaltlichen oder historischen Bezug zum Technologielizenzabkommen zwischen Intel und AMD im Jahr 1982. Korrektur: Ein historisches Foto der Unterzeichnung des Abkommens oder eine grafische Darstellung des Technologieaustauschvertrags zwischen Intel und AMD.",
+              "Offenes Problem (schwer): The image shows a generic man writing at a desk, which is entirely unrelated to the historical signing of a technology exchange agreement between AMD and Intel in 1982. Korrektur: A documentary-style image or historical reenactment showing the signing of a legal document between representatives of AMD and Intel.",
+              "Offenes Problem (schwer): Das Bild zeigt eine allgemeine, illustrierte Darstellung eines Mannes, der an Hardware arbeitet. Es gibt keinen visuellen Bezug zu einem Lizenzvertrag, einer zeitlichen Verlängerung bis 1995 oder einer geschäftlichen Vereinbarung zwischen Intel und AMD. Korrektur: Ein Dokument oder eine grafische Darstellung, die einen Lizenzvertrag zwischen zwei Unternehmen oder eine historische Vereinbarung illustriert.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generische, stilisierte Szene eines arbeitenden Mannes, die in keinem inhaltlichen Bezug zur Geschichte von AMD und Intel oder der genannten Lizenzvereinbarung steht. Korrektur: Ein historisches Foto oder Dokument, das die Unterzeichnung der Technologiewechselvereinbarung zwischen Intel und AMD im Jahr 1982 zeigt oder symbolisiert."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.097,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 11,
+              "stuecke_neu": 4,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 171.3,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 15,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 30.1,
+              "gesamt": 201.6,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.1,
+                7.68,
+                7.36,
+                6.02,
+                6.1,
+                6.54,
+                4.21
+              ],
+              "woerter": 97,
+              "clips": {
+                "witz": 2,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 1
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "AMD cloned Intel's chip.",
+                "fest": false,
+                "text": "Das Bild zeigt keinen gezeigten Chip oder Kopiervorgang, sondern nur unleserliche Pixelgrafiken und einen Textüberlagerungs-Schriftzug. Korrektur: Ein historisches Foto oder eine Darstellung des Am9080-Chips oder des Intel 8080."
+              },
+              {
+                "zeit": "00:05.48",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 2,
+                "gesprochen": "Why would it?",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich einen sitzenden Mann an einem Fenster, bietet aber keinen visuellen Bezug zu der Frage 'Why would it?' bezüglich der Firmenbeziehung oder Lizenzvergabe zwischen AMD und Intel. Korrektur: Ein historisches Dokument oder eine Grafik, die die Geschäftsbeziehung oder den Lizenzvertrag zwischen AMD und Intel verdeutlicht."
+              },
+              {
+                "zeit": "00:10.94",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 4,
+                "gesprochen": "a reverse-engineered clone of Intel's 8080.",
+                "fest": false,
+                "text": "Das Bild zeigt eine allgemeine, untechnische Szene mit zwei Personen in einem Raum. Es fehlen jegliche visuellen Hinweise auf Mikroprozessoren, Chips oder den spezifischen Vorgang des Reverse Engineerings, der im Text erwähnt wird. Korrektur: Ein Bild, das einen Mikroprozessor-Chip (z. B. den Intel 8080 oder AMD Am9080) zeigt, idealerweise mit einer schematischen Darstellung, die den Prozess des Reverse Engineerings oder die Ähnlichkeit der beiden Chips veranschaulicht."
+              },
+              {
+                "zeit": "00:16.54",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 6,
+                "gesprochen": "In 1976, Intel began installing microcode, then cross-licensed with AMD.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich zwei Personen bei der Arbeit in einem Büro- oder Werkstattumfeld. Die im Text erwähnte Einführung von Mikrocode oder eine Lizenzvereinbarung zwischen Intel und AMD ist visuell in keiner Weise dargestellt. Korrektur: Eine historische Illustration oder ein Diagramm, das die Implementierung von Mikrocode auf einem Prozessorchip oder die Unterzeichnung eines Lizenzvertrages symbolisiert."
+              },
+              {
+                "zeit": "00:22.14",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "In 1981, IBM wanted Intel's x86",
+                "fest": false,
+                "text": "Das Bild zeigt eine generische Szene eines Mannes in einem Raum mit alten Computern, hat aber keinen inhaltlichen Bezug zu IBM, der Intel-x86-Architektur oder der geschäftlichen Anforderung eines Zweitherstellers. Korrektur: Ein historisches Foto oder eine Dokumentation, die IBM-Hardware, die Intel-x86-Chips oder die geschäftliche Korrespondenz/den Vertrag zwischen IBM und Intel im Jahr 1981 zeigt."
+              },
+              {
+                "zeit": "00:25.15",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 8,
+                "gesprochen": "chips, but only with a second manufacturer.",
+                "fest": false,
+                "text": "Das Bild zeigt eine allgemeine, künstlerische Darstellung einer Person vor einem alten Computer, jedoch wird der in der Narration erwähnte Kontext von IBM, der Forderung nach einem zweiten Hersteller oder eine spezifische geschäftliche Verhandlung nicht dargestellt. Korrektur: Ein historisches Bild von IBM-Computern oder ein Dokument/Diagramm, das die Zusammenarbeit zwischen Firmen zur Herstellung von Chips visualisiert."
+              },
+              {
+                "zeit": "00:28.16",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "Intel and AMD signed a 10-year technology exchange agreement,",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich eine generische Szene eines Mannes, der schreibt, und hat keinen inhaltlichen oder historischen Bezug zum Technologielizenzabkommen zwischen Intel und AMD im Jahr 1982. Korrektur: Ein historisches Foto der Unterzeichnung des Abkommens oder eine grafische Darstellung des Technologieaustauschvertrags zwischen Intel und AMD."
+              },
+              {
+                "zeit": "00:31.21",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 10,
+                "gesprochen": "executed in February 1982.",
+                "fest": false,
+                "text": "The image shows a generic man writing at a desk, which is entirely unrelated to the historical signing of a technology exchange agreement between AMD and Intel in 1982. Korrektur: A documentary-style image or historical reenactment showing the signing of a legal document between representatives of AMD and Intel."
+              },
+              {
+                "zeit": "00:34.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "It extended the 1976 license through 1995.",
+                "fest": false,
+                "text": "Das Bild zeigt eine allgemeine, illustrierte Darstellung eines Mannes, der an Hardware arbeitet. Es gibt keinen visuellen Bezug zu einem Lizenzvertrag, einer zeitlichen Verlängerung bis 1995 oder einer geschäftlichen Vereinbarung zwischen Intel und AMD. Korrektur: Ein Dokument oder eine grafische Darstellung, die einen Lizenzvertrag zwischen zwei Unternehmen oder eine historische Vereinbarung illustriert."
+              },
+              {
+                "zeit": "00:37.92",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 12,
+                "gesprochen": "The cloner became Intel's second source.",
+                "fest": false,
+                "text": "Das Bild zeigt eine generische, stilisierte Szene eines arbeitenden Mannes, die in keinem inhaltlichen Bezug zur Geschichte von AMD und Intel oder der genannten Lizenzvereinbarung steht. Korrektur: Ein historisches Foto oder Dokument, das die Unterzeichnung der Technologiewechselvereinbarung zwischen Intel und AMD im Jahr 1982 zeigt oder symbolisiert."
+              }
+            ],
+            "sekunden": 415.7,
+            "status": "geprueft"
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-11.1"
+            },
+            "skript_s": 32.4,
+            "bau_s": 526.6,
+            "pruefung_s": 120.3,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte 'AMD cloned Intel's chip' erwähnen das Klonen eines Intel-Chips durch AMD, aber das Bild zeigt nur einen sitzenden Mann in einem gemalten Stillleben ohne jeden Bezug zu Chips oder Halbleitern.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich zwei Personen bei Lötarbeiten in einer Werkstatt. Es stellt weder den Am9080-Prozessor, den Intel 8080 noch den Prozess des Reverse Engineering dar.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine generische geschäftliche Handschlag-Szene, die inhaltlich nicht auf die Mikrocode-Installation oder die Lizenzvereinbarung zwischen Intel und AMD eingeht.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwei Personen bei einem Toast in einer generischen, künstlerisch dargestellten Szene, die keinerlei Bezug zu Intel, AMD, Mikrocode oder Lizenzvereinbarungen hat.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt lediglich eine generische Besprechungssituation ohne Bezug zu den spezifischen Inhalten wie Intel-Chips, IBM-Anforderungen oder der Thematik der Chip-Herstellung.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Die Abbildung eines Computeranwenders vor einem Bildschirm stellt keine Unterzeichnung oder einen rechtlichen Vertrag dar, sondern zeigt lediglich eine allgemeine Büroszene.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (4/10): Die Sprechzeile beschreibt die zeitliche Verlängerung eines Lizenzvertrags ('It extended the 1976 license through 1995'). Das Bild zeigt jedoch nur eine generische Person in einem Büro mit einem Chip. Es gibt keine visuellen Hinweise auf einen Vertrag, eine Unterschrift oder die spezifischen Daten, ",
+              "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine generische Person, die an einem Tisch arbeitet, was keinen Bezug zur spezifischen historischen Aussage hat, dass AMD zum 'Second Source' (zweiten Hersteller) für Intel wurde. Es fehlen jegliche Hinweise auf die Unternehmen, Verträge oder die Chip-Industrie.",
+              "Offenes Problem (schwer): Die gesprochenen Worte 'AMD cloned Intel's chip' erwähnen das Klonen eines Intel-Chips durch AMD, aber das Bild zeigt nur einen sitzenden Mann in einem gemalten Stillleben ohne jeden Bezug zu Chips oder Halbleitern. Korrektur: Ein historisches Foto oder eine Darstellung des Mikroprozessors Intel 8080 oder des Am9080-Chips.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich zwei Personen bei Lötarbeiten in einer Werkstatt. Es stellt weder den Am9080-Prozessor, den Intel 8080 noch den Prozess des Reverse Engineering dar. Korrektur: Ein historisches Foto oder eine detaillierte technische Darstellung der Am9080-CPU oder ein Vergleichsdiagramm, das die Ähnlichkeit zum Intel 8080 verdeutlicht.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine generische geschäftliche Handschlag-Szene, die inhaltlich nicht auf die Mikrocode-Installation oder die Lizenzvereinbarung zwischen Intel und AMD eingeht. Korrektur: Ein Bild, das die Mikrocode-Programmierung auf einem frühen Chip oder eine visuelle Darstellung der technischen Lizenzvereinbarung zwischen den beiden Unternehmen zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwei Personen bei einem Toast in einer generischen, künstlerisch dargestellten Szene, die keinerlei Bezug zu Intel, AMD, Mikrocode oder Lizenzvereinbarungen hat. Korrektur: Ein historisches Dokument der Lizenzvereinbarung zwischen Intel und AMD oder eine technische Darstellung der Mikrocode-Implementierung aus dieser Zeit.",
+              "Offenes Problem (schwer): Die Abbildung zeigt lediglich eine generische Besprechungssituation ohne Bezug zu den spezifischen Inhalten wie Intel-Chips, IBM-Anforderungen oder der Thematik der Chip-Herstellung. Korrektur: Ein historisches Foto oder eine Dokumentation, die IBM-Vertreter bei Verhandlungen mit Chip-Herstellern oder eine schematische Darstellung des 8086-Chips zeigt.",
+              "Offenes Problem (schwer): Die Abbildung eines Computeranwenders vor einem Bildschirm stellt keine Unterzeichnung oder einen rechtlichen Vertrag dar, sondern zeigt lediglich eine allgemeine Büroszene. Korrektur: Ein Bild, das die Unterzeichnung eines Vertrags oder ein offizielles Dokument zwischen den beiden Unternehmen zeigt.",
+              "Offenes Problem (schwer): Die Sprechzeile beschreibt die zeitliche Verlängerung eines Lizenzvertrags ('It extended the 1976 license through 1995'). Das Bild zeigt jedoch nur eine generische Person in einem Büro mit einem Chip. Es gibt keine visuellen Hinweise auf einen Vertrag, eine Unterschrift oder die spezifischen Daten, die die Verlängerung belegen würden. Die Geste ist zu vage, um den spezifischen juristischen Akt der Vertragsverlängerung darzustellen. Korrektur: Ein Dokument oder ein Diagramm, das den Lizenzvertrag zwischen Intel und AMD zeigt, mit den Jahreszahlen 1976 und 1995 als Start- und Enddatum der Vertragslaufzeit.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generische Person, die an einem Tisch arbeitet, was keinen Bezug zur spezifischen historischen Aussage hat, dass AMD zum 'Second Source' (zweiten Hersteller) für Intel wurde. Es fehlen jegliche Hinweise auf die Unternehmen, Verträge oder die Chip-Industrie. Korrektur: Eine Illustration, die zwei Geschäftspartner (z. B. Vertreter von Intel und AMD) zeigt, die einen Vertrag unterzeichnen oder Händeschütteln, oder eine schematische Darstellung, die AMD als 'Second Source' neben Intel positioniert."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.097,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 5,
+              "stuecke_neu": 10,
+              "bilder_vereinfacht": 3,
+              "clips_und_stuecke": 389.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 15,
+                "motive": 15,
+                "motive_min": 7
+              },
+              "effekte": 10,
+              "rendern": 31.8,
+              "gesamt": 525.5,
+              "videolaenge_s": 45.0,
+              "abschnitte_s": [
+                7.1,
+                7.68,
+                7.36,
+                6.02,
+                6.1,
+                6.54,
+                4.21
+              ],
+              "woerter": 97,
+              "clips": {
+                "witz": 3,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "AMD cloned Intel's chip.",
+                "fest": false,
+                "text": "Die gesprochenen Worte 'AMD cloned Intel's chip' erwähnen das Klonen eines Intel-Chips durch AMD, aber das Bild zeigt nur einen sitzenden Mann in einem gemalten Stillleben ohne jeden Bezug zu Chips oder Halbleitern. Korrektur: Ein historisches Foto oder eine Darstellung des Mikroprozessors Intel 8080 oder des Am9080-Chips."
+              },
+              {
+                "zeit": "00:10.94",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 4,
+                "gesprochen": "a reverse-engineered clone of Intel's 8080.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich zwei Personen bei Lötarbeiten in einer Werkstatt. Es stellt weder den Am9080-Prozessor, den Intel 8080 noch den Prozess des Reverse Engineering dar. Korrektur: Ein historisches Foto oder eine detaillierte technische Darstellung der Am9080-CPU oder ein Vergleichsdiagramm, das die Ähnlichkeit zum Intel 8080 verdeutlicht."
+              },
+              {
+                "zeit": "00:14.78",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "So what changed?",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich eine generische geschäftliche Handschlag-Szene, die inhaltlich nicht auf die Mikrocode-Installation oder die Lizenzvereinbarung zwischen Intel und AMD eingeht. Korrektur: Ein Bild, das die Mikrocode-Programmierung auf einem frühen Chip oder eine visuelle Darstellung der technischen Lizenzvereinbarung zwischen den beiden Unternehmen zeigt."
+              },
+              {
+                "zeit": "00:16.54",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 6,
+                "gesprochen": "In 1976, Intel began installing microcode, then cross-licensed with AMD.",
+                "fest": false,
+                "text": "Das Bild zeigt zwei Personen bei einem Toast in einer generischen, künstlerisch dargestellten Szene, die keinerlei Bezug zu Intel, AMD, Mikrocode oder Lizenzvereinbarungen hat. Korrektur: Ein historisches Dokument der Lizenzvereinbarung zwischen Intel und AMD oder eine technische Darstellung der Mikrocode-Implementierung aus dieser Zeit."
+              },
+              {
+                "zeit": "00:22.14",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "In 1981, IBM wanted Intel's x86",
+                "fest": false,
+                "text": "Die Abbildung zeigt lediglich eine generische Besprechungssituation ohne Bezug zu den spezifischen Inhalten wie Intel-Chips, IBM-Anforderungen oder der Thematik der Chip-Herstellung. Korrektur: Ein historisches Foto oder eine Dokumentation, die IBM-Vertreter bei Verhandlungen mit Chip-Herstellern oder eine schematische Darstellung des 8086-Chips zeigt."
+              },
+              {
+                "zeit": "00:28.16",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "Intel and AMD signed a 10-year technology exchange agreement,",
+                "fest": false,
+                "text": "Die Abbildung eines Computeranwenders vor einem Bildschirm stellt keine Unterzeichnung oder einen rechtlichen Vertrag dar, sondern zeigt lediglich eine allgemeine Büroszene. Korrektur: Ein Bild, das die Unterzeichnung eines Vertrags oder ein offizielles Dokument zwischen den beiden Unternehmen zeigt."
+              },
+              {
+                "zeit": "00:34.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "It extended the 1976 license through 1995.",
+                "fest": false,
+                "text": "Die Sprechzeile beschreibt die zeitliche Verlängerung eines Lizenzvertrags ('It extended the 1976 license through 1995'). Das Bild zeigt jedoch nur eine generische Person in einem Büro mit einem Chip. Es gibt keine visuellen Hinweise auf einen Vertrag, eine Unterschrift oder die spezifischen Daten, die die Verlängerung belegen würden. Die Geste ist zu vage, um den spezifischen juristischen Akt der Vertragsverlängerung darzustellen. Korrektur: Ein Dokument oder ein Diagramm, das den Lizenzvertrag zwischen Intel und AMD zeigt, mit den Jahreszahlen 1976 und 1995 als Start- und Enddatum der Vertragslaufzeit."
+              },
+              {
+                "zeit": "00:37.92",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 12,
+                "gesprochen": "The cloner became Intel's second source.",
+                "fest": false,
+                "text": "Das Bild zeigt eine generische Person, die an einem Tisch arbeitet, was keinen Bezug zur spezifischen historischen Aussage hat, dass AMD zum 'Second Source' (zweiten Hersteller) für Intel wurde. Es fehlen jegliche Hinweise auf die Unternehmen, Verträge oder die Chip-Industrie. Korrektur: Eine Illustration, die zwei Geschäftspartner (z. B. Vertreter von Intel und AMD) zeigt, die einen Vertrag unterzeichnen oder Händeschütteln, oder eine schematische Darstellung, die AMD als 'Second Source' neben Intel positioniert."
+              }
+            ],
+            "sekunden": 679.3,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "43068923836-3",
+              "datum": "2026-11-11",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 679.3,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 1
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-11-11.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-11.1"
+            },
+            "skript_s": 2.4,
+            "bau_s": 385.2,
+            "baufehler": "ValueError: Phase 3, Einstellung 7: kein passendes Hauptbild; kein Hintergrundersatz",
+            "status": "baufehler",
+            "sekunden": 387.6,
+            "lernergebnis": {
+              "id": "43068923836-4",
+              "datum": "2026-11-11",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 388.1,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {},
+              "auswertbar": false,
+              "prompt_version": "2026-11-11.1",
+              "verbessert": false
+            }
+          }
+        ],
+        "status": "gesendet",
+        "trendcheck": "Claude-Redaktion (Plan vom 2026-11-09): AMD: 8.89 Punkte - YouTube-Ausreisser 7.4x Kanalschnitt, Wikipedia +432 % gegenueber Vormonat",
+        "grund": "",
+        "sekunden": 2476.8,
+        "upload_titel": "AMD CLONED INTEL'S CHIP: INTEL SIGNED WITH AMD"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "AMD cloned Intel's chip.",
+            "fest": false,
+            "text": "Die gesprochenen Worte 'AMD cloned Intel's chip' erwähnen das Klonen eines Intel-Chips durch AMD, aber das Bild zeigt nur einen sitzenden Mann in einem gemalten Stillleben ohne jeden Bezug zu Chips oder Halbleitern. Korrektur: Ein historisches Foto oder eine Darstellung des Mikroprozessors Intel 8080 oder des Am9080-Chips."
+          },
+          {
+            "zeit": "00:10.94",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 4,
+            "gesprochen": "a reverse-engineered clone of Intel's 8080.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich zwei Personen bei Lötarbeiten in einer Werkstatt. Es stellt weder den Am9080-Prozessor, den Intel 8080 noch den Prozess des Reverse Engineering dar. Korrektur: Ein historisches Foto oder eine detaillierte technische Darstellung der Am9080-CPU oder ein Vergleichsdiagramm, das die Ähnlichkeit zum Intel 8080 verdeutlicht."
+          },
+          {
+            "zeit": "00:14.78",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "So what changed?",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine generische geschäftliche Handschlag-Szene, die inhaltlich nicht auf die Mikrocode-Installation oder die Lizenzvereinbarung zwischen Intel und AMD eingeht. Korrektur: Ein Bild, das die Mikrocode-Programmierung auf einem frühen Chip oder eine visuelle Darstellung der technischen Lizenzvereinbarung zwischen den beiden Unternehmen zeigt."
+          },
+          {
+            "zeit": "00:16.54",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 6,
+            "gesprochen": "In 1976, Intel began installing microcode, then cross-licensed with AMD.",
+            "fest": false,
+            "text": "Das Bild zeigt zwei Personen bei einem Toast in einer generischen, künstlerisch dargestellten Szene, die keinerlei Bezug zu Intel, AMD, Mikrocode oder Lizenzvereinbarungen hat. Korrektur: Ein historisches Dokument der Lizenzvereinbarung zwischen Intel und AMD oder eine technische Darstellung der Mikrocode-Implementierung aus dieser Zeit."
+          },
+          {
+            "zeit": "00:22.14",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "In 1981, IBM wanted Intel's x86",
+            "fest": false,
+            "text": "Die Abbildung zeigt lediglich eine generische Besprechungssituation ohne Bezug zu den spezifischen Inhalten wie Intel-Chips, IBM-Anforderungen oder der Thematik der Chip-Herstellung. Korrektur: Ein historisches Foto oder eine Dokumentation, die IBM-Vertreter bei Verhandlungen mit Chip-Herstellern oder eine schematische Darstellung des 8086-Chips zeigt."
+          },
+          {
+            "zeit": "00:28.16",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "Intel and AMD signed a 10-year technology exchange agreement,",
+            "fest": false,
+            "text": "Die Abbildung eines Computeranwenders vor einem Bildschirm stellt keine Unterzeichnung oder einen rechtlichen Vertrag dar, sondern zeigt lediglich eine allgemeine Büroszene. Korrektur: Ein Bild, das die Unterzeichnung eines Vertrags oder ein offizielles Dokument zwischen den beiden Unternehmen zeigt."
+          },
+          {
+            "zeit": "00:34.26",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "It extended the 1976 license through 1995.",
+            "fest": false,
+            "text": "Die Sprechzeile beschreibt die zeitliche Verlängerung eines Lizenzvertrags ('It extended the 1976 license through 1995'). Das Bild zeigt jedoch nur eine generische Person in einem Büro mit einem Chip. Es gibt keine visuellen Hinweise auf einen Vertrag, eine Unterschrift oder die spezifischen Daten, die die Verlängerung belegen würden. Die Geste ist zu vage, um den spezifischen juristischen Akt der Vertragsverlängerung darzustellen. Korrektur: Ein Dokument oder ein Diagramm, das den Lizenzvertrag zwischen Intel und AMD zeigt, mit den Jahreszahlen 1976 und 1995 als Start- und Enddatum der Vertragslaufzeit."
+          },
+          {
+            "zeit": "00:37.92",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 12,
+            "gesprochen": "The cloner became Intel's second source.",
+            "fest": false,
+            "text": "Das Bild zeigt eine generische Person, die an einem Tisch arbeitet, was keinen Bezug zur spezifischen historischen Aussage hat, dass AMD zum 'Second Source' (zweiten Hersteller) für Intel wurde. Es fehlen jegliche Hinweise auf die Unternehmen, Verträge oder die Chip-Industrie. Korrektur: Eine Illustration, die zwei Geschäftspartner (z. B. Vertreter von Intel und AMD) zeigt, die einen Vertrag unterzeichnen oder Händeschütteln, oder eine schematische Darstellung, die AMD als 'Second Source' neben Intel positioniert."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 45.0,
+          "fps": 30.0,
+          "lufs": -14.6,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 41.08,
+              "bis_s": 42.18,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.942
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 25.0,
+              "bis_s": 45.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "AMD",
+                "s": 0.0,
+                "e": 0.5,
+                "p": 0.726252019405365
+              },
+              {
+                "w": "cloned",
+                "s": 0.5,
+                "e": 1.54,
+                "p": 0.8694747388362885
+              },
+              {
+                "w": "Intel's",
+                "s": 1.54,
+                "e": 2.1,
+                "p": 0.9639635384082794
+              },
+              {
+                "w": "chip.",
+                "s": 2.1,
+                "e": 2.24,
+                "p": 0.9180744886398315
+              },
+              {
+                "w": "Intel",
+                "s": 2.74,
+                "e": 3.0,
+                "p": 0.9923434853553772
+              },
+              {
+                "w": "later",
+                "s": 3.0,
+                "e": 3.44,
+                "p": 0.9822931885719299
+              },
+              {
+                "w": "signed",
+                "s": 3.44,
+                "e": 3.74,
+                "p": 0.9951144456863403
+              },
+              {
+                "w": "a",
+                "s": 3.74,
+                "e": 3.9,
+                "p": 0.9983564019203186
+              },
+              {
+                "w": "license",
+                "s": 3.9,
+                "e": 4.3,
+                "p": 0.956436812877655
+              },
+              {
+                "w": "with",
+                "s": 4.3,
+                "e": 4.58,
+                "p": 0.9942594766616821
+              },
+              {
+                "w": "AMD.",
+                "s": 4.58,
+                "e": 4.78,
+                "p": 0.9983589053153992
+              },
+              {
+                "w": "Why",
+                "s": 5.5,
+                "e": 6.06,
+                "p": 0.9825856685638428
+              },
+              {
+                "w": "would",
+                "s": 6.06,
+                "e": 6.26,
+                "p": 0.8495119214057922
+              },
+              {
+                "w": "it?",
+                "s": 6.26,
+                "e": 6.38,
+                "p": 0.9959404468536377
+              },
+              {
+                "w": "In",
+                "s": 7.02,
+                "e": 7.28,
+                "p": 0.9748908281326294
+              },
+              {
+                "w": "1975,",
+                "s": 7.28,
+                "e": 7.72,
+                "p": 0.9988376498222351
+              },
+              {
+                "w": "AMD",
+                "s": 8.04,
+                "e": 8.48,
+                "p": 0.9996860027313232
+              },
+              {
+                "w": "entered",
+                "s": 8.48,
+                "e": 8.9,
+                "p": 0.999065101146698
+              },
+              {
+                "w": "microprocessors",
+                "s": 8.9,
+                "e": 9.82,
+                "p": 0.9519194761912028
+              },
+              {
+                "w": "with",
+                "s": 9.82,
+                "e": 10.0,
+                "p": 0.9948731064796448
+              },
+              {
+                "w": "the",
+                "s": 10.0,
+                "e": 10.12,
+                "p": 0.9940357208251953
+              },
+              {
+                "w": "AM9080,",
+                "s": 10.12,
+                "e": 11.28,
+                "p": 0.7584698299566904
+              },
+              {
+                "w": "a",
+                "s": 11.58,
+                "e": 11.82,
+                "p": 0.9942856431007385
+              },
+              {
+                "w": "reverse",
+                "s": 11.82,
+                "e": 12.1,
+                "p": 0.9946810603141785
+              },
+              {
+                "w": "-engineered",
+                "s": 12.1,
+                "e": 12.66,
+                "p": 0.8191272417704264
+              },
+              {
+                "w": "clone",
+                "s": 12.66,
+                "e": 12.94,
+                "p": 0.9888521432876587
+              },
+              {
+                "w": "of",
+                "s": 12.94,
+                "e": 13.26,
+                "p": 0.9973891377449036
+              },
+              {
+                "w": "Intel's",
+                "s": 13.26,
+                "e": 13.8,
+                "p": 0.9733642339706421
+              },
+              {
+                "w": "8080.",
+                "s": 13.8,
+                "e": 14.36,
+                "p": 0.8993057012557983
+              },
+              {
+                "w": "So",
+                "s": 14.86,
+                "e": 15.1,
+                "p": 0.9859165549278259
+              },
+              {
+                "w": "what",
+                "s": 15.1,
+                "e": 15.56,
+                "p": 0.43017154932022095
+              },
+              {
+                "w": "changed?",
+                "s": 15.56,
+                "e": 15.76,
+                "p": 0.9989997744560242
+              },
+              {
+                "w": "In",
+                "s": 16.6,
+                "e": 16.68,
+                "p": 0.9961994290351868
+              },
+              {
+                "w": "1976,",
+                "s": 16.68,
+                "e": 17.16,
+                "p": 0.9983116388320923
+              },
+              {
+                "w": "Intel",
+                "s": 17.8,
+                "e": 18.02,
+                "p": 0.9982727766036987
+              },
+              {
+                "w": "began",
+                "s": 18.02,
+                "e": 18.34,
+                "p": 0.9965366125106812
+              },
+              {
+                "w": "installing",
+                "s": 18.34,
+                "e": 18.78,
+                "p": 0.9984375834465027
+              },
+              {
+                "w": "microcode,",
+                "s": 18.78,
+                "e": 19.5,
+                "p": 0.7989080548286438
+              },
+              {
+                "w": "then",
+                "s": 19.94,
+                "e": 20.08,
+                "p": 0.9952111840248108
+              },
+              {
+                "w": "cross",
+                "s": 20.08,
+                "e": 20.38,
+                "p": 0.8607556819915771
+              },
+              {
+                "w": "-licensed",
+                "s": 20.38,
+                "e": 20.9,
+                "p": 0.9256531298160553
+              },
+              {
+                "w": "with",
+                "s": 20.9,
+                "e": 21.14,
+                "p": 0.9911824464797974
+              },
+              {
+                "w": "AMD.",
+                "s": 21.14,
+                "e": 21.34,
+                "p": 0.9996137022972107
+              },
+              {
+                "w": "In",
+                "s": 22.3,
+                "e": 22.42,
+                "p": 0.9932812452316284
+              },
+              {
+                "w": "1981,",
+                "s": 22.42,
+                "e": 22.78,
+                "p": 0.9983032941818237
+              },
+              {
+                "w": "IBM",
+                "s": 23.24,
+                "e": 23.6,
+                "p": 0.9890744090080261
+              },
+              {
+                "w": "wanted",
+                "s": 23.6,
+                "e": 24.12,
+                "p": 0.9929158687591553
+              },
+              {
+                "w": "Intel's",
+                "s": 24.12,
+                "e": 24.78,
+                "p": 0.9966842830181122
+              },
+              {
+                "w": "X86",
+                "s": 24.78,
+                "e": 25.32,
+                "p": 0.8141181468963623
+              },
+              {
+                "w": "chips,",
+                "s": 25.32,
+                "e": 25.82,
+                "p": 0.9785578846931458
+              },
+              {
+                "w": "but",
+                "s": 26.08,
+                "e": 26.24,
+                "p": 0.9988594055175781
+              },
+              {
+                "w": "only",
+                "s": 26.24,
+                "e": 26.56,
+                "p": 0.997724711894989
+              },
+              {
+                "w": "with",
+                "s": 26.56,
+                "e": 26.78,
+                "p": 0.996687114238739
+              },
+              {
+                "w": "a",
+                "s": 26.78,
+                "e": 26.88,
+                "p": 0.9966300129890442
+              },
+              {
+                "w": "second",
+                "s": 26.88,
+                "e": 27.22,
+                "p": 0.9931817650794983
+              },
+              {
+                "w": "manufacturer.",
+                "s": 27.22,
+                "e": 27.62,
+                "p": 0.9991645812988281
+              },
+              {
+                "w": "manufacturer.",
+                "s": 27.62,
+                "e": 27.94,
+                "p": 0.1271556168794632
+              },
+              {
+                "w": "Intel",
+                "s": 28.42,
+                "e": 28.7,
+                "p": 0.9698660373687744
+              },
+              {
+                "w": "and",
+                "s": 28.7,
+                "e": 28.86,
+                "p": 0.9845718145370483
+              },
+              {
+                "w": "AMD",
+                "s": 28.86,
+                "e": 29.04,
+                "p": 0.9979164004325867
+              },
+              {
+                "w": "signed",
+                "s": 29.04,
+                "e": 29.46,
+                "p": 0.9970255494117737
+              },
+              {
+                "w": "a",
+                "s": 29.46,
+                "e": 29.6,
+                "p": 0.9974703788757324
+              },
+              {
+                "w": "10",
+                "s": 29.6,
+                "e": 29.82,
+                "p": 0.8455715179443359
+              },
+              {
+                "w": "-year",
+                "s": 29.82,
+                "e": 30.04,
+                "p": 0.8688083589076996
+              },
+              {
+                "w": "technology",
+                "s": 30.04,
+                "e": 30.42,
+                "p": 0.9271022081375122
+              },
+              {
+                "w": "exchange",
+                "s": 30.42,
+                "e": 30.76,
+                "p": 0.9954383969306946
+              },
+              {
+                "w": "agreement",
+                "s": 30.76,
+                "e": 31.3,
+                "p": 0.9962867498397827
+              },
+              {
+                "w": "executed",
+                "s": 31.3,
+                "e": 31.84,
+                "p": 0.7741072177886963
+              },
+              {
+                "w": "in",
+                "s": 31.84,
+                "e": 32.22,
+                "p": 0.9981955885887146
+              },
+              {
+                "w": "February",
+                "s": 32.22,
+                "e": 32.48,
+                "p": 0.9873176217079163
+              },
+              {
+                "w": "1982.",
+                "s": 32.48,
+                "e": 33.36,
+                "p": 0.9664739370346069
+              },
+              {
+                "w": "It",
+                "s": 34.1,
+                "e": 34.32,
+                "p": 0.9913432598114014
+              },
+              {
+                "w": "extended",
+                "s": 34.32,
+                "e": 34.66,
+                "p": 0.9963881969451904
+              },
+              {
+                "w": "the",
+                "s": 34.66,
+                "e": 34.88,
+                "p": 0.9969105124473572
+              },
+              {
+                "w": "1976",
+                "s": 34.88,
+                "e": 35.42,
+                "p": 0.9965978264808655
+              },
+              {
+                "w": "license",
+                "s": 35.42,
+                "e": 36.04,
+                "p": 0.9336967468261719
+              },
+              {
+                "w": "through",
+                "s": 36.04,
+                "e": 36.34,
+                "p": 0.9867462515830994
+              },
+              {
+                "w": "1995.",
+                "s": 36.34,
+                "e": 36.96,
+                "p": 0.9977922439575195
+              },
+              {
+                "w": "The",
+                "s": 37.92,
+                "e": 38.04,
+                "p": 0.993540346622467
+              },
+              {
+                "w": "Cloner",
+                "s": 38.04,
+                "e": 38.34,
+                "p": 0.6519476473331451
+              },
+              {
+                "w": "became",
+                "s": 38.34,
+                "e": 38.6,
+                "p": 0.9802583456039429
+              },
+              {
+                "w": "Intel's",
+                "s": 38.6,
+                "e": 39.28,
+                "p": 0.9925887584686279
+              },
+              {
+                "w": "second",
+                "s": 39.28,
+                "e": 39.62,
+                "p": 0.9669745564460754
+              },
+              {
+                "w": "source.",
+                "s": 39.62,
+                "e": 40.04,
+                "p": 0.9743905067443848
+              },
+              {
+                "w": "Be",
+                "s": 40.8,
+                "e": 40.86,
+                "p": 0.9922099113464355
+              },
+              {
+                "w": "sure",
+                "s": 40.86,
+                "e": 40.98,
+                "p": 0.999448835849762
+              },
+              {
+                "w": "to",
+                "s": 40.98,
+                "e": 41.08,
+                "p": 0.9953256845474243
+              },
+              {
+                "w": "like,",
+                "s": 41.08,
+                "e": 41.26,
+                "p": 0.92606520652771
+              },
+              {
+                "w": "share,",
+                "s": 41.28,
+                "e": 41.52,
+                "p": 0.9978424310684204
+              },
+              {
+                "w": "and",
+                "s": 41.62,
+                "e": 41.62,
+                "p": 0.9955612421035767
+              },
+              {
+                "w": "save",
+                "s": 41.62,
+                "e": 41.78,
+                "p": 0.7425334453582764
+              },
+              {
+                "w": "this",
+                "s": 41.78,
+                "e": 41.9,
+                "p": 0.9907119870185852
+              },
+              {
+                "w": "video.",
+                "s": 41.9,
+                "e": 42.18,
+                "p": 0.9988681077957153
+              },
+              {
+                "w": "Which",
+                "s": 42.56,
+                "e": 42.58,
+                "p": 0.974604606628418
+              },
+              {
+                "w": "company",
+                "s": 42.58,
+                "e": 42.8,
+                "p": 0.9938074946403503
+              },
+              {
+                "w": "next?",
+                "s": 42.8,
+                "e": 43.06,
+                "p": 0.9423421025276184
+              },
+              {
+                "w": "Comment",
+                "s": 43.52,
+                "e": 43.66,
+                "p": 0.9950843453407288
+              },
+              {
+                "w": "and",
+                "s": 43.66,
+                "e": 43.98,
+                "p": 0.8630004525184631
+              },
+              {
+                "w": "follow",
+                "s": 43.98,
+                "e": 44.24,
+                "p": 0.99470454454422
+              },
+              {
+                "w": "for",
+                "s": 44.24,
+                "e": 44.44,
+                "p": 0.9958477020263672
+              },
+              {
+                "w": "more.",
+                "s": 44.44,
+                "e": 44.62,
+                "p": 0.9994254112243652
+              }
+            ],
+            "dauer_s": 44.928,
+            "sprache": "en"
+          },
+          "roh_key": "7a58be427695987bfbecf81092bbf14582c82a7200a1b099fa0abdde07e60ade",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "d9cb5d2769008df0e7dcdd1c79611f36403905eae27ec76db2adac7500b358bb",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 45.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 15,
+          "motive": 15,
+          "motive_min": 7
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "d9cb5d2769008df0e7dcdd1c79611f36403905eae27ec76db2adac7500b358bb",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein gemaltes Porträt eines traurigen Mannes in einem Hemd an einem Tisch, überdeckt von einem roten Kasten mit Text.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochenen Worte 'AMD cloned Intel's chip' erwähnen das Klonen eines Intel-Chips durch AMD, aber das Bild zeigt nur einen sitzenden Mann in einem gemalten Stillleben ohne jeden Bezug zu Chips oder Halbleitern.",
+              "erforderliches_bild": "Ein historisches Foto oder eine Darstellung des Mikroprozessors Intel 8080 oder des Am9080-Chips."
+            },
+            {
+              "index": 2,
+              "gesehen": "Eine Frau in einem blauen Anzug sitzt nachdenklich mit verschränkten Händen an einem Tisch in einem Labor mit Mikroskop und Kollegen im Hintergrund",
+              "note": 8,
+              "passt": true,
+              "grund": "Die rhetorische Frage passt zur gezeigten nachdenklichen Person im Labor.",
+              "erforderliches_bild": "Keines, das Bild passt."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Mann und eine Frau sitzen an einer Werkbank und arbeiten gemeinsam mit einem Lötkolben an einem elektronischen Gerät in einer werkstattähnlichen Umgebung.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich zwei Personen bei Lötarbeiten in einer Werkstatt. Es stellt weder den Am9080-Prozessor, den Intel 8080 noch den Prozess des Reverse Engineering dar.",
+              "erforderliches_bild": "Ein historisches Foto oder eine detaillierte technische Darstellung der Am9080-CPU oder ein Vergleichsdiagramm, das die Ähnlichkeit zum Intel 8080 verdeutlicht."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein Mann im Anzug und eine Frau in einer Bluse schütteln sich in einem Büro mit Computern im Hintergrund die Hände.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine generische geschäftliche Handschlag-Szene, die inhaltlich nicht auf die Mikrocode-Installation oder die Lizenzvereinbarung zwischen Intel und AMD eingeht.",
+              "erforderliches_bild": "Ein Bild, das die Mikrocode-Programmierung auf einem frühen Chip oder eine visuelle Darstellung der technischen Lizenzvereinbarung zwischen den beiden Unternehmen zeigt."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Mann und eine Frau stoßen mit Sektgläsern an, während sie sich an einem Tisch gegenübersitzen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt zwei Personen bei einem Toast in einer generischen, künstlerisch dargestellten Szene, die keinerlei Bezug zu Intel, AMD, Mikrocode oder Lizenzvereinbarungen hat.",
+              "erforderliches_bild": "Ein historisches Dokument der Lizenzvereinbarung zwischen Intel und AMD oder eine technische Darstellung der Mikrocode-Implementierung aus dieser Zeit."
+            },
+            {
+              "index": 7,
+              "gesehen": "Eine Gruppe von fünf Männern in Anzügen sitzt um einen Konferenztisch und betrachtet ein Tablet oder einen Monitor in der Mitte des Tisches, der jedoch keinen erkennbaren Inhalt wie x86-Chips oder IBM-Dokumente zeigt.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Abbildung zeigt lediglich eine generische Besprechungssituation ohne Bezug zu den spezifischen Inhalten wie Intel-Chips, IBM-Anforderungen oder der Thematik der Chip-Herstellung.",
+              "erforderliches_bild": "Ein historisches Foto oder eine Dokumentation, die IBM-Vertreter bei Verhandlungen mit Chip-Herstellern oder eine schematische Darstellung des 8086-Chips zeigt."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein Mann sitzt in einem Büro an einem Computer mit einem Röhrenmonitor, auf dem eine stilisierte Grafik eines Mikrochips zu sehen ist.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Abbildung eines Computeranwenders vor einem Bildschirm stellt keine Unterzeichnung oder einen rechtlichen Vertrag dar, sondern zeigt lediglich eine allgemeine Büroszene.",
+              "erforderliches_bild": "Ein Bild, das die Unterzeichnung eines Vertrags oder ein offizielles Dokument zwischen den beiden Unternehmen zeigt."
+            },
+            {
+              "erforderliches_bild": "Eine Illustration, die zwei Geschäftsführer zeigt, wie sie ein Dokument mit dem Datum Februar 1982 unterzeichnen, oder eine stilisierte Darstellung des Vertragsdokuments.",
+              "gesehen": "Eine digitale Illustration zeigt einen älteren Mann im Anzug im Profil, der in einer städtischen Umgebung mit historischen Gebäuden und einer Kuppelkirche sitzt und mit einer Feder auf einem unsichtbaren Dokument schreibt.",
+              "grund": "Das Bild zeigt eine Person, die ein Dokument unterzeichnet, was die im Text genannte Handlung der Vertragsunterzeichnung ('executed') visuell darstellt. Es handelt sich um eine plausible historische Illustration für den Abschluss des Abkommens.",
+              "index": 10,
+              "note": 8,
+              "passt": true
+            },
+            {
+              "erforderliches_bild": "Ein Dokument oder ein Diagramm, das den Lizenzvertrag zwischen Intel und AMD zeigt, mit den Jahreszahlen 1976 und 1995 als Start- und Enddatum der Vertragslaufzeit.",
+              "gesehen": "Eine Illustration eines Mannes in einem Büro, der vor einem Schreibtisch mit einem Computer und einem Mikrochip steht. Er gestikuliert mit einer offenen Hand, als würde er etwas erklären oder präsentieren. Im Hintergrund sind Fenster mit einer Straßenszene zu sehen.",
+              "grund": "Die Sprechzeile beschreibt die zeitliche Verlängerung eines Lizenzvertrags ('It extended the 1976 license through 1995'). Das Bild zeigt jedoch nur eine generische Person in einem Büro mit einem Chip. Es gibt keine visuellen Hinweise auf einen Vertrag, eine Unterschrift oder die spezifischen Daten, die die Verlängerung belegen würden. Die Geste ist zu vage, um den spezifischen juristischen Akt der Vertragsverlängerung darzustellen.",
+              "index": 11,
+              "note": 4,
+              "passt": false
+            },
+            {
+              "erforderliches_bild": "Eine Illustration, die zwei Geschäftspartner (z. B. Vertreter von Intel und AMD) zeigt, die einen Vertrag unterzeichnen oder Händeschütteln, oder eine schematische Darstellung, die AMD als 'Second Source' neben Intel positioniert.",
+              "gesehen": "Eine Illustration zeigt einen Mann in einem Hemd, der in einem Innenraum an einem Tisch sitzt und konzentriert auf seine Hände blickt, als würde er etwas reparieren oder basteln. Im Hintergrund ist ein Fenster mit einer Straßenszene zu sehen.",
+              "grund": "Das Bild zeigt eine generische Person, die an einem Tisch arbeitet, was keinen Bezug zur spezifischen historischen Aussage hat, dass AMD zum 'Second Source' (zweiten Hersteller) für Intel wurde. Es fehlen jegliche Hinweise auf die Unternehmen, Verträge oder die Chip-Industrie.",
+              "index": 12,
+              "note": 3,
+              "passt": false
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte 'AMD cloned Intel's chip' erwähnen das Klonen eines Intel-Chips durch AMD, aber das Bild zeigt nur einen sitzenden Mann in einem gemalten Stillleben ohne jeden Bezug zu Chips oder Halbleitern.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich zwei Personen bei Lötarbeiten in einer Werkstatt. Es stellt weder den Am9080-Prozessor, den Intel 8080 noch den Prozess des Reverse Engineering dar.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine generische geschäftliche Handschlag-Szene, die inhaltlich nicht auf die Mikrocode-Installation oder die Lizenzvereinbarung zwischen Intel und AMD eingeht.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwei Personen bei einem Toast in einer generischen, künstlerisch dargestellten Szene, die keinerlei Bezug zu Intel, AMD, Mikrocode oder Lizenzvereinbarungen hat.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt lediglich eine generische Besprechungssituation ohne Bezug zu den spezifischen Inhalten wie Intel-Chips, IBM-Anforderungen oder der Thematik der Chip-Herstellung.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Die Abbildung eines Computeranwenders vor einem Bildschirm stellt keine Unterzeichnung oder einen rechtlichen Vertrag dar, sondern zeigt lediglich eine allgemeine Büroszene.",
+            "Einstellung 11: Bild passt nicht zum Sprechtext (4/10): Die Sprechzeile beschreibt die zeitliche Verlängerung eines Lizenzvertrags ('It extended the 1976 license through 1995'). Das Bild zeigt jedoch nur eine generische Person in einem Büro mit einem Chip. Es gibt keine visuellen Hinweise auf einen Vertrag, eine Unterschrift oder die spezifischen Daten, ",
+            "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine generische Person, die an einem Tisch arbeitet, was keinen Bezug zur spezifischen historischen Aussage hat, dass AMD zum 'Second Source' (zweiten Hersteller) für Intel wurde. Es fehlen jegliche Hinweise auf die Unternehmen, Verträge oder die Chip-Industrie."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b"
+          ],
+          "einstellungen": 15,
+          "ausgenommen": [
+            13,
+            14
+          ],
+          "vorgeprueft": [
+            1,
+            3,
+            8
+          ],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "d9cb5d2769008df0e7dcdd1c79611f36403905eae27ec76db2adac7500b358bb",
+        "prompt_version": "2026-11-11.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

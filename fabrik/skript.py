@@ -567,6 +567,13 @@ def story_bewerten(entwurf):
     return erg
 
 
+# Nutzer 11.11.2026: auch die KI-Kontrastformel "it's not just X, it's Y" (wirkt nach Maschinentext) - aber
+# NICHT allgemein "Not X": "Not Henry Ford" hielt 59 %. Nur innerhalb EINES Satzes mit Gegenteil-Anschluss.
+_ES = r"(?:it|this|that|they|he|she)(?:['’]s|['’]re| is| are| was)"
+FLOSKEL = re.compile(
+    r"just one click|in seconds|\bmagic\b|\binsane\b|game.?changer"
+    rf"|\b(?:{_ES}\s+not|(?:is|are|was)n['’]t|is not|are not)\s+just\b[^.?!]{{1,60}}?"
+    rf"\s*[,;—–-]\s*(?:{_ES}|but)\b", re.I)
 CTA = re.compile(r'be sure to like|like,?\s*(?:and\s*)?share|share,?\s*(?:and\s*)?save', re.I)
 
 
@@ -1014,8 +1021,7 @@ def main(kanal_pfad, aus_pfad, thema=None):
             # Pruefung. Beides prueft jetzt der Code - einmal nachbessern,
             # danach wird es hingenommen (kein Grund, ein Video zu verwerfen).
             schluss = e['teile'][-1]['text'].strip() if e['teile'] else ''
-            floskel = re.findall(r'just one click|in seconds|\bmagic\b|\binsane\b|game.?changer',
-                                 ' '.join(t['text'] for t in e['teile']), re.I)
+            floskel = FLOSKEL.findall(' '.join(t['text'] for t in e['teile']))
             # GEMESSEN: Der Schluss ohne Punkt („And the best part") wirkte laut
             # KI-Pruefung wie ein Abbruch (Schluss 4/10) - nur noch Floskeln pruefen.
             if floskel and not nachgebessert and zahl >= mindest and not zu_wenig \

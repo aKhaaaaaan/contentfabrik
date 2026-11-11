@@ -168593,6 +168593,1296 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "42986673792.1:business-origin-stories",
+      "run_id": "42986673792",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-11T09:04:48.772957+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "6766bb26d0dc15655610ba973b5ab10fdea11358",
+      "produktionsversion": "b0cd4b40c45ad76c53f7b5a6bfea9f254e6a7ba1d02debdc04f27a3fa529bd09",
+      "videoformat": "short",
+      "thema": "IBM",
+      "titel": [
+        "*IBM* BUILT *CARBINES*",
+        "FROM CHEESE SLICERS"
+      ],
+      "status": "gesendet",
+      "video_sha256": "1207659bd3877ca09936cb32d16e97dfce202aa30b3cec25ce655d30281315b8",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-10-29.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 4/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Die Szene zeigt einen Arbeiter und Computer aus einer späteren Ära, aber weder Fleisch- und Käseschneidemaschinen noch die genaue Verbindung zur Fragestellung der Transformation.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Die historische Szene zeigt Menschen und Maschinen, belegt aber nicht die Fusion von vier Unternehmen durch Flint im Jahr 1911.",
+        "Offenes Problem (schwer): Die Szene zeigt einen Arbeiter und Computer aus einer späteren Ära, aber weder Fleisch- und Käseschneidemaschinen noch die genaue Verbindung zur Fragestellung der Transformation. Korrektur: Eine historische Darstellung oder Kombination aus einer alten Aufschnittmaschine und frühen Rechenmaschinen.",
+        "Offenes Problem (schwer): Die historische Szene zeigt Menschen und Maschinen, belegt aber nicht die Fusion von vier Unternehmen durch Flint im Jahr 1911. Korrektur: Eine historische Darstellung der Unternehmensgründung oder Dokumente der Firmenfusion von 1911."
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 13,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "42986673792",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-11",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 721.9,
+            "pruefung_s": 38.4,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 3/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Arbeiter in einer Werkstatt, stellt aber den Übergang von Fleisch- und Käseschneidemaschinen zu Computern nicht dar.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (6/10): Die historische Szene zeigt Arbeiter oder Geschäftsmänner, bebildert aber nicht konkret die Fusion von vier Unternehmen im Jahr 1911 durch Flint.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt eine generische Szene in einem Büro oder einer Fabrik, die den narrativen Kontext der Computerindustrie und der IBM-Geschichte nicht spezifisch abbildet.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (6/10): Das Bild zeigt einen Mann in einer Umgebung, die vage an ein altes Computerlabor erinnert, bietet jedoch keine historische Darstellung von IBM oder die Visualisierung der Marktführerschaft bei US-Computern in den 1960er Jahren.",
+              "Offenes Problem (schwer): Das Bild zeigt Arbeiter in einer Werkstatt, stellt aber den Übergang von Fleisch- und Käseschneidemaschinen zu Computern nicht dar. Korrektur: Eine historische Montage oder Gegenüberstellung von alten Schneidemaschinen und frühen Computern.",
+              "Offenes Problem (schwer): Die historische Szene zeigt Arbeiter oder Geschäftsmänner, bebildert aber nicht konkret die Fusion von vier Unternehmen im Jahr 1911 durch Flint. Korrektur: Eine historische Illustration oder Darstellung, die die Vereinigung von Unternehmen oder Geschäftsleuten im Jahr 1911 zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generische Szene in einem Büro oder einer Fabrik, die den narrativen Kontext der Computerindustrie und der IBM-Geschichte nicht spezifisch abbildet. Korrektur: Historisches Bildmaterial von IBM-Rechenzentren oder den Mainframe-Computern der 1960er Jahre, um die Marktstellung von 80 Prozent zu visualisieren.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann in einer Umgebung, die vage an ein altes Computerlabor erinnert, bietet jedoch keine historische Darstellung von IBM oder die Visualisierung der Marktführerschaft bei US-Computern in den 1960er Jahren. Korrektur: Historische Aufnahmen oder Illustrationen von IBM-Großrechnern aus den 1960er Jahren in einem professionellen Umfeld."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Fenrir",
+              "stimme": 12.4,
+              "zeitmarken": 2.5,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "bilder_vereinfacht": 8,
+              "clips_und_stuecke": 575.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 30.3,
+              "gesamt": 721.5,
+              "videolaenge_s": 43.6,
+              "abschnitte_s": [
+                8.14,
+                6.64,
+                7.42,
+                5.82,
+                7.54,
+                3.02,
+                4.98
+              ],
+              "woerter": 94,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 3
+            },
+            "probleme": [
+              {
+                "zeit": "00:08.14",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "How did slicers become computers?",
+                "fest": false,
+                "text": "Das Bild zeigt Arbeiter in einer Werkstatt, stellt aber den Übergang von Fleisch- und Käseschneidemaschinen zu Computern nicht dar. Korrektur: Eine historische Montage oder Gegenüberstellung von alten Schneidemaschinen und frühen Computern."
+              },
+              {
+                "zeit": "00:10.88",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Flint combined four companies into a fifth in 1911.",
+                "fest": false,
+                "text": "Die historische Szene zeigt Arbeiter oder Geschäftsmänner, bebildert aber nicht konkret die Fusion von vier Unternehmen im Jahr 1911 durch Flint. Korrektur: Eine historische Illustration oder Darstellung, die die Vereinigung von Unternehmen oder Geschäftsleuten im Jahr 1911 zeigt."
+              },
+              {
+                "zeit": "00:22.20",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "Renamed in 1924, IBM made 80 percent of U.S.",
+                "fest": false,
+                "text": "Das Bild zeigt eine generische Szene in einem Büro oder einer Fabrik, die den narrativen Kontext der Computerindustrie und der IBM-Geschichte nicht spezifisch abbildet. Korrektur: Historisches Bildmaterial von IBM-Rechenzentren oder den Mainframe-Computern der 1960er Jahre, um die Marktstellung von 80 Prozent zu visualisieren."
+              },
+              {
+                "zeit": "00:26.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "computers in the 1960s.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann in einer Umgebung, die vage an ein altes Computerlabor erinnert, bietet jedoch keine historische Darstellung von IBM oder die Visualisierung der Marktführerschaft bei US-Computern in den 1960er Jahren. Korrektur: Historische Aufnahmen oder Illustrationen von IBM-Großrechnern aus den 1960er Jahren in einem professionellen Umfeld."
+              }
+            ],
+            "sekunden": 760.3,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                1,
+                3
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 2.5,
+            "bau_s": 353.7,
+            "pruefung_s": 27.4,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 4/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Die Szene zeigt einen Arbeiter und Computer aus einer späteren Ära, aber weder Fleisch- und Käseschneidemaschinen noch die genaue Verbindung zur Fragestellung der Transformation.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Die historische Szene zeigt Menschen und Maschinen, belegt aber nicht die Fusion von vier Unternehmen durch Flint im Jahr 1911.",
+              "Offenes Problem (schwer): Die Szene zeigt einen Arbeiter und Computer aus einer späteren Ära, aber weder Fleisch- und Käseschneidemaschinen noch die genaue Verbindung zur Fragestellung der Transformation. Korrektur: Eine historische Darstellung oder Kombination aus einer alten Aufschnittmaschine und frühen Rechenmaschinen.",
+              "Offenes Problem (schwer): Die historische Szene zeigt Menschen und Maschinen, belegt aber nicht die Fusion von vier Unternehmen durch Flint im Jahr 1911. Korrektur: Eine historische Darstellung der Unternehmensgründung oder Dokumente der Firmenfusion von 1911."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 8,
+              "stuecke_neu": 5,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 214.1,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 27.5,
+              "gesamt": 353.5,
+              "videolaenge_s": 43.6,
+              "abschnitte_s": [
+                8.14,
+                6.64,
+                7.42,
+                5.82,
+                7.54,
+                3.02,
+                4.98
+              ],
+              "woerter": 94,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 4
+            },
+            "probleme": [
+              {
+                "zeit": "00:08.14",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "How did slicers become computers?",
+                "fest": false,
+                "text": "Die Szene zeigt einen Arbeiter und Computer aus einer späteren Ära, aber weder Fleisch- und Käseschneidemaschinen noch die genaue Verbindung zur Fragestellung der Transformation. Korrektur: Eine historische Darstellung oder Kombination aus einer alten Aufschnittmaschine und frühen Rechenmaschinen."
+              },
+              {
+                "zeit": "00:10.88",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Flint combined four companies into a fifth in 1911.",
+                "fest": false,
+                "text": "Die historische Szene zeigt Menschen und Maschinen, belegt aber nicht die Fusion von vier Unternehmen durch Flint im Jahr 1911. Korrektur: Eine historische Darstellung der Unternehmensgründung oder Dokumente der Firmenfusion von 1911."
+              }
+            ],
+            "sekunden": 383.6,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "42986673792-2",
+              "datum": "2026-11-11",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 383.6,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 3
+              },
+              "kategorien_nachher": {
+                "bild_passt": 4
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                1
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-10-29.2"
+            },
+            "skript_s": 2.7,
+            "bau_s": 265.7,
+            "pruefung_s": 18.7,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Frage bezieht sich auf die Verbindung von Aufschnittmaschinen zu Computern, aber das Bild zeigt eine Szene mit Gewehren und Marktständen, was keinen Bezug zu Slicers oder Computern darstellt.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich vier Personen und historische Autos vor einem Gebäude, aber nicht den Zusammenschluss von vier Unternehmen zu einem fünften durch Flint.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einer historischen Straße und Kisten, aber keinen Bezug zu M1-Karabinern oder Produktionszahlen.",
+              "Offenes Problem (schwer): Die gesprochene Frage bezieht sich auf die Verbindung von Aufschnittmaschinen zu Computern, aber das Bild zeigt eine Szene mit Gewehren und Marktständen, was keinen Bezug zu Slicers oder Computern darstellt. Korrektur: Eine historische Darstellung von Aufschnitt- und Käsemaschinen aus der frühen Firmenzeit der Unternehmensgeschichte.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich vier Personen und historische Autos vor einem Gebäude, aber nicht den Zusammenschluss von vier Unternehmen zu einem fünften durch Flint. Korrektur: Eine historische Zeichnung oder Illustration, die die Fusion oder Zusammenlegung von vier Firmen darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann in einer historischen Straße und Kisten, aber keinen Bezug zu M1-Karabinern oder Produktionszahlen. Korrektur: Eine historische Darstellung von M1-Karabinern oder Fabrikproduktionszahlen aus dem Zweiten Weltkrieg."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 10,
+              "stuecke_neu": 3,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 223.1,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 29.6,
+              "gesamt": 265.5,
+              "videolaenge_s": 43.6,
+              "abschnitte_s": [
+                8.14,
+                6.64,
+                7.42,
+                5.82,
+                7.54,
+                3.02,
+                4.98
+              ],
+              "woerter": 94,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:08.14",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "How did slicers become computers?",
+                "fest": false,
+                "text": "Die gesprochene Frage bezieht sich auf die Verbindung von Aufschnittmaschinen zu Computern, aber das Bild zeigt eine Szene mit Gewehren und Marktständen, was keinen Bezug zu Slicers oder Computern darstellt. Korrektur: Eine historische Darstellung von Aufschnitt- und Käsemaschinen aus der frühen Firmenzeit der Unternehmensgeschichte."
+              },
+              {
+                "zeit": "00:10.88",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Flint combined four companies into a fifth in 1911.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich vier Personen und historische Autos vor einem Gebäude, aber nicht den Zusammenschluss von vier Unternehmen zu einem fünften durch Flint. Korrektur: Eine historische Zeichnung oder Illustration, die die Fusion oder Zusammenlegung von vier Firmen darstellt."
+              },
+              {
+                "zeit": "00:35.56",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "That was about 6% of all units made.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann in einer historischen Straße und Kisten, aber keinen Bezug zu M1-Karabinern oder Produktionszahlen. Korrektur: Eine historische Darstellung von M1-Karabinern oder Fabrikproduktionszahlen aus dem Zweiten Weltkrieg."
+              }
+            ],
+            "sekunden": 287.1,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "42986673792-3",
+              "datum": "2026-11-11",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 287.1,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 4
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-10-29.2",
+              "verbessert": false
+            }
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 1534.2,
+        "upload_titel": "IBM BUILT CARBINES FROM CHEESE SLICERS"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 4
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:08.14",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "How did slicers become computers?",
+            "fest": false,
+            "text": "Die Szene zeigt einen Arbeiter und Computer aus einer späteren Ära, aber weder Fleisch- und Käseschneidemaschinen noch die genaue Verbindung zur Fragestellung der Transformation. Korrektur: Eine historische Darstellung oder Kombination aus einer alten Aufschnittmaschine und frühen Rechenmaschinen."
+          },
+          {
+            "zeit": "00:10.88",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "Flint combined four companies into a fifth in 1911.",
+            "fest": false,
+            "text": "Die historische Szene zeigt Menschen und Maschinen, belegt aber nicht die Fusion von vier Unternehmen durch Flint im Jahr 1911. Korrektur: Eine historische Darstellung der Unternehmensgründung oder Dokumente der Firmenfusion von 1911."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 43.6,
+          "fps": 30.0,
+          "lufs": -14.9,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 38.92,
+              "bis_s": 40.52,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.979
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 23.6,
+              "bis_s": 44.1,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "A",
+                "s": 0.0,
+                "e": 0.3,
+                "p": 0.91962069272995
+              },
+              {
+                "w": "computer",
+                "s": 0.3,
+                "e": 0.62,
+                "p": 0.9790005087852478
+              },
+              {
+                "w": "giant",
+                "s": 0.62,
+                "e": 1.04,
+                "p": 0.9980518817901611
+              },
+              {
+                "w": "once",
+                "s": 1.04,
+                "e": 1.42,
+                "p": 0.9880141615867615
+              },
+              {
+                "w": "produced",
+                "s": 1.42,
+                "e": 1.8,
+                "p": 0.9865087866783142
+              },
+              {
+                "w": "M1",
+                "s": 1.8,
+                "e": 2.54,
+                "p": 0.9065351784229279
+              },
+              {
+                "w": "Carbines.",
+                "s": 2.54,
+                "e": 3.24,
+                "p": 0.7821567058563232
+              },
+              {
+                "w": "IBM's",
+                "s": 3.86,
+                "e": 4.54,
+                "p": 0.987718254327774
+              },
+              {
+                "w": "family",
+                "s": 4.54,
+                "e": 4.76,
+                "p": 0.89594966173172
+              },
+              {
+                "w": "tree",
+                "s": 4.76,
+                "e": 5.1,
+                "p": 0.99922776222229
+              },
+              {
+                "w": "also",
+                "s": 5.1,
+                "e": 5.5,
+                "p": 0.9911786913871765
+              },
+              {
+                "w": "includes",
+                "s": 5.5,
+                "e": 6.08,
+                "p": 0.9941489696502686
+              },
+              {
+                "w": "meat",
+                "s": 6.08,
+                "e": 6.52,
+                "p": 0.9814578890800476
+              },
+              {
+                "w": "and",
+                "s": 6.52,
+                "e": 6.8,
+                "p": 0.9359116554260254
+              },
+              {
+                "w": "cheese",
+                "s": 6.8,
+                "e": 7.12,
+                "p": 0.997938334941864
+              },
+              {
+                "w": "slicers.",
+                "s": 7.12,
+                "e": 7.76,
+                "p": 0.9512844681739807
+              },
+              {
+                "w": "How",
+                "s": 8.16,
+                "e": 8.36,
+                "p": 0.9904882907867432
+              },
+              {
+                "w": "did",
+                "s": 8.36,
+                "e": 8.5,
+                "p": 0.9910029172897339
+              },
+              {
+                "w": "slicers",
+                "s": 8.5,
+                "e": 9.1,
+                "p": 0.9914339482784271
+              },
+              {
+                "w": "become",
+                "s": 9.1,
+                "e": 9.6,
+                "p": 0.9956799745559692
+              },
+              {
+                "w": "computers?",
+                "s": 9.6,
+                "e": 10.04,
+                "p": 0.9962978959083557
+              },
+              {
+                "w": "Flint",
+                "s": 10.9,
+                "e": 11.24,
+                "p": 0.9636104702949524
+              },
+              {
+                "w": "combined",
+                "s": 11.24,
+                "e": 11.54,
+                "p": 0.9941258430480957
+              },
+              {
+                "w": "four",
+                "s": 11.54,
+                "e": 12.0,
+                "p": 0.904816210269928
+              },
+              {
+                "w": "companies",
+                "s": 12.0,
+                "e": 12.46,
+                "p": 0.997797966003418
+              },
+              {
+                "w": "into",
+                "s": 12.46,
+                "e": 12.82,
+                "p": 0.9888308644294739
+              },
+              {
+                "w": "a",
+                "s": 12.82,
+                "e": 12.98,
+                "p": 0.9873873591423035
+              },
+              {
+                "w": "fifth",
+                "s": 12.98,
+                "e": 13.22,
+                "p": 0.9872746467590332
+              },
+              {
+                "w": "in",
+                "s": 13.22,
+                "e": 13.56,
+                "p": 0.9928978681564331
+              },
+              {
+                "w": "1911.",
+                "s": 13.56,
+                "e": 14.12,
+                "p": 0.9982444047927856
+              },
+              {
+                "w": "Watson,",
+                "s": 15.28,
+                "e": 15.28,
+                "p": 0.9783014059066772
+              },
+              {
+                "w": "fired",
+                "s": 15.44,
+                "e": 15.78,
+                "p": 0.9966272115707397
+              },
+              {
+                "w": "from",
+                "s": 15.78,
+                "e": 16.1,
+                "p": 0.9977266192436218
+              },
+              {
+                "w": "NCR,",
+                "s": 16.1,
+                "e": 16.64,
+                "p": 0.9468338191509247
+              },
+              {
+                "w": "joined",
+                "s": 16.74,
+                "e": 17.02,
+                "p": 0.9990229606628418
+              },
+              {
+                "w": "in",
+                "s": 17.02,
+                "e": 17.36,
+                "p": 0.998497486114502
+              },
+              {
+                "w": "1914.",
+                "s": 17.36,
+                "e": 18.0,
+                "p": 0.9972671270370483
+              },
+              {
+                "w": "He",
+                "s": 18.88,
+                "e": 18.92,
+                "p": 0.9960544109344482
+              },
+              {
+                "w": "insisted",
+                "s": 18.92,
+                "e": 19.18,
+                "p": 0.9989023208618164
+              },
+              {
+                "w": "on",
+                "s": 19.18,
+                "e": 19.5,
+                "p": 0.9989721775054932
+              },
+              {
+                "w": "well",
+                "s": 19.5,
+                "e": 19.74,
+                "p": 0.9488945007324219
+              },
+              {
+                "w": "-groomed,",
+                "s": 19.74,
+                "e": 20.26,
+                "p": 0.9466794282197952
+              },
+              {
+                "w": "dark",
+                "s": 20.5,
+                "e": 20.6,
+                "p": 0.9957363605499268
+              },
+              {
+                "w": "-suited",
+                "s": 20.6,
+                "e": 20.96,
+                "p": 0.8854295611381531
+              },
+              {
+                "w": "salesman.",
+                "s": 20.96,
+                "e": 21.24,
+                "p": 0.5555315613746643
+              },
+              {
+                "w": "Renamed",
+                "s": 22.22,
+                "e": 22.4,
+                "p": 0.9473189413547516
+              },
+              {
+                "w": "in",
+                "s": 22.4,
+                "e": 22.64,
+                "p": 0.9979211688041687
+              },
+              {
+                "w": "1924,",
+                "s": 22.64,
+                "e": 23.22,
+                "p": 0.9972793459892273
+              },
+              {
+                "w": "IBM",
+                "s": 23.86,
+                "e": 24.14,
+                "p": 0.9991720914840698
+              },
+              {
+                "w": "made",
+                "s": 24.14,
+                "e": 24.64,
+                "p": 0.9983660578727722
+              },
+              {
+                "w": "80",
+                "s": 24.64,
+                "e": 25.06,
+                "p": 0.9892617464065552
+              },
+              {
+                "w": "%",
+                "s": 25.06,
+                "e": 25.54,
+                "p": 0.7748173475265503
+              },
+              {
+                "w": "of",
+                "s": 25.54,
+                "e": 25.84,
+                "p": 0.9945248365402222
+              },
+              {
+                "w": "U",
+                "s": 25.84,
+                "e": 25.96,
+                "p": 0.5885833501815796
+              },
+              {
+                "w": ".S.",
+                "s": 25.96,
+                "e": 26.08,
+                "p": 0.9964348673820496
+              },
+              {
+                "w": "computers",
+                "s": 26.38,
+                "e": 26.38,
+                "p": 0.990113377571106
+              },
+              {
+                "w": "in",
+                "s": 26.38,
+                "e": 26.74,
+                "p": 0.9985383749008179
+              },
+              {
+                "w": "the",
+                "s": 26.74,
+                "e": 26.82,
+                "p": 0.9977503418922424
+              },
+              {
+                "w": "1960s.",
+                "s": 26.82,
+                "e": 27.8,
+                "p": 0.9416616559028625
+              },
+              {
+                "w": "So",
+                "s": 28.02,
+                "e": 28.16,
+                "p": 0.9818803071975708
+              },
+              {
+                "w": "what",
+                "s": 28.16,
+                "e": 28.5,
+                "p": 0.6530441641807556
+              },
+              {
+                "w": "about",
+                "s": 28.5,
+                "e": 28.66,
+                "p": 0.9983354210853577
+              },
+              {
+                "w": "carbines?",
+                "s": 28.66,
+                "e": 29.16,
+                "p": 0.9568951427936554
+              },
+              {
+                "w": "In",
+                "s": 29.16,
+                "e": 29.9,
+                "p": 0.7132802605628967
+              },
+              {
+                "w": "World",
+                "s": 29.9,
+                "e": 30.1,
+                "p": 0.9185600280761719
+              },
+              {
+                "w": "War",
+                "s": 30.1,
+                "e": 30.36,
+                "p": 0.983162522315979
+              },
+              {
+                "w": "II,",
+                "s": 30.36,
+                "e": 30.6,
+                "p": 0.6635234355926514
+              },
+              {
+                "w": "IBM",
+                "s": 30.6,
+                "e": 30.98,
+                "p": 0.9167026281356812
+              },
+              {
+                "w": "produced",
+                "s": 30.98,
+                "e": 31.4,
+                "p": 0.9958860278129578
+              },
+              {
+                "w": "346",
+                "s": 31.4,
+                "e": 32.48,
+                "p": 0.9223829507827759
+              },
+              {
+                "w": ",500",
+                "s": 32.48,
+                "e": 34.1,
+                "p": 0.9640229344367981
+              },
+              {
+                "w": "M1",
+                "s": 34.1,
+                "e": 34.58,
+                "p": 0.8508183360099792
+              },
+              {
+                "w": "carbines.",
+                "s": 34.58,
+                "e": 35.04,
+                "p": 0.8517148494720459
+              },
+              {
+                "w": "That",
+                "s": 35.46,
+                "e": 35.66,
+                "p": 0.9764147996902466
+              },
+              {
+                "w": "was",
+                "s": 35.66,
+                "e": 35.76,
+                "p": 0.9943700432777405
+              },
+              {
+                "w": "about",
+                "s": 35.76,
+                "e": 35.9,
+                "p": 0.9491639137268066
+              },
+              {
+                "w": "6",
+                "s": 35.9,
+                "e": 36.26,
+                "p": 0.9086196422576904
+              },
+              {
+                "w": "%",
+                "s": 36.26,
+                "e": 36.7,
+                "p": 0.9215174317359924
+              },
+              {
+                "w": "of",
+                "s": 36.7,
+                "e": 36.92,
+                "p": 0.9792672395706177
+              },
+              {
+                "w": "all",
+                "s": 36.92,
+                "e": 37.26,
+                "p": 0.9881308078765869
+              },
+              {
+                "w": "units",
+                "s": 37.26,
+                "e": 37.62,
+                "p": 0.9834506511688232
+              },
+              {
+                "w": "made.",
+                "s": 37.62,
+                "e": 37.86,
+                "p": 0.9648280739784241
+              },
+              {
+                "w": "Be",
+                "s": 38.56,
+                "e": 38.64,
+                "p": 0.9827934503555298
+              },
+              {
+                "w": "sure",
+                "s": 38.64,
+                "e": 38.82,
+                "p": 0.9994538426399231
+              },
+              {
+                "w": "to",
+                "s": 38.82,
+                "e": 38.92,
+                "p": 0.9951035976409912
+              },
+              {
+                "w": "like,",
+                "s": 38.92,
+                "e": 39.14,
+                "p": 0.9089077711105347
+              },
+              {
+                "w": "share,",
+                "s": 39.34,
+                "e": 39.58,
+                "p": 0.9978688955307007
+              },
+              {
+                "w": "and",
+                "s": 39.82,
+                "e": 39.84,
+                "p": 0.9955881834030151
+              },
+              {
+                "w": "save",
+                "s": 39.84,
+                "e": 40.1,
+                "p": 0.9921526312828064
+              },
+              {
+                "w": "this",
+                "s": 40.1,
+                "e": 40.28,
+                "p": 0.9792860150337219
+              },
+              {
+                "w": "video.",
+                "s": 40.28,
+                "e": 40.52,
+                "p": 0.9986456036567688
+              },
+              {
+                "w": "Which",
+                "s": 40.94,
+                "e": 40.98,
+                "p": 0.9880251288414001
+              },
+              {
+                "w": "company",
+                "s": 40.98,
+                "e": 41.18,
+                "p": 0.9949883818626404
+              },
+              {
+                "w": "next?",
+                "s": 41.18,
+                "e": 41.5,
+                "p": 0.9567805528640747
+              },
+              {
+                "w": "Comment",
+                "s": 42.0,
+                "e": 42.08,
+                "p": 0.9946146607398987
+              },
+              {
+                "w": "and",
+                "s": 42.08,
+                "e": 42.54,
+                "p": 0.8575130701065063
+              },
+              {
+                "w": "follow",
+                "s": 42.54,
+                "e": 42.74,
+                "p": 0.9973948001861572
+              },
+              {
+                "w": "for",
+                "s": 42.74,
+                "e": 42.98,
+                "p": 0.9864620566368103
+              },
+              {
+                "w": "more.",
+                "s": 42.98,
+                "e": 43.16,
+                "p": 0.9994522929191589
+              }
+            ],
+            "dauer_s": 43.5626875,
+            "sprache": "en"
+          },
+          "roh_key": "76c5e95daf3a600b6f9819161f5fbf90316a949e7448fe2cdfd0e552f4c42223",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "1207659bd3877ca09936cb32d16e97dfce202aa30b3cec25ce655d30281315b8",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 43.6,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 13,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "1207659bd3877ca09936cb32d16e97dfce202aa30b3cec25ce655d30281315b8",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Mann im Anzug blickt erschrocken und ungläubig in die Kamera, während im Hintergrund Menschen in historischer Kleidung auf einem Markt oder einer Straße zu sehen sind, auf deren Tischen Gewehre liegen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen schockierten Gesichtsausdruck als Reaktion auf die Eröffnung sowie historische Gewehre im Hintergrund, die zum Thema der M1 Carbines passen.",
+              "erforderliches_bild": "Keines, da das Bild für einen Eröffnungsreaktionsshot gut geeignet ist."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein älterer Mann in einer Werkstatt oder Küche, neben ihm liegen Utensilien und Käse, er blickt nachdenklich nach unten.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt einen Mann bei der Lebensmittelverarbeitung oder Käsereiproduktion und passt somit gut zu den erwähnten Fleisch- und Käseschneidern der Firmengeschichte.",
+              "erforderliches_bild": "Ein passendes Bild ist im historischen Stil gehalten."
+            },
+            {
+              "index": 2,
+              "gesehen": "In einem alten Werkstattraum arbeitet ein Mann an großen historischen Computern aus den 1960er Jahren zwischen Fenstern.",
+              "note": 4,
+              "passt": false,
+              "grund": "Die Szene zeigt einen Arbeiter und Computer aus einer späteren Ära, aber weder Fleisch- und Käseschneidemaschinen noch die genaue Verbindung zur Fragestellung der Transformation.",
+              "erforderliches_bild": "Eine historische Darstellung oder Kombination aus einer alten Aufschnittmaschine und frühen Rechenmaschinen."
+            },
+            {
+              "index": 3,
+              "gesehen": "Mehrere Personen in historischen Anzügen in einem Raum mit Maschinen auf einem Tisch vor einem offenen Fenster mit Straßenszene.",
+              "note": 4,
+              "passt": false,
+              "grund": "Die historische Szene zeigt Menschen und Maschinen, belegt aber nicht die Fusion von vier Unternehmen durch Flint im Jahr 1911.",
+              "erforderliches_bild": "Eine historische Darstellung der Unternehmensgründung oder Dokumente der Firmenfusion von 1911."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein gut gekleideter Mann im dunklen Anzug und mit roter Krawatte steht in einem Raum, neben ihm ein Kaminfeuer und eine kleine Küche.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gesprochene Zeile erwähnt gut gekleidete, dunkel anzugtragende Verkäufer und das Bild zeigt genau einen solchen eleganteren Mann in einem dunklen Anzug.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein gut gekleideter Mann im dunklen Anzug steht in einem Raum.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt einen Mann in einem dunklen Anzug, was perfekt zur Aussage über gut gekleidete, dunkel angetragene Verkäufer passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein dunkelblauer Hintergrund mit der Zahl 80 und dem Wort PERCENT im oberen Kasten, sowie dem Text PERCENT OF U S im unteren Kasten, mit IBM oben links.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell den Text '80 PERCENT' und 'PERCENT OF U S' sowie den Markennamen IBM und bebildert damit direkt den gesprochenen Satzteil über den Marktanteil von IBM.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein Mann arbeitet in einem alten Büro im Retro-Stil an einem großen elektromechanischen Gerät und Computern aus den 1960er oder 1970er Jahren.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Büroausstattung mit Computern und Terminals passt visuell hervorragend zur Erwähnung der Computerherstellung im Zeitraum der 1960er Jahre.",
+              "erforderliches_bild": "Ein historisches Büro mit Computern aus den 1960er Jahren."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Mann im historischen Stil hält ein Gewehr in einer alten Straße.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gesprochene Frage bezieht sich auf Gewehre (Carbines), und das Bild zeigt passend einen Mann mit einem Gewehr.",
+              "erforderliches_bild": "Ein Mann mit einem M1 Carbine in einer historischen Umgebung."
+            },
+            {
+              "index": 9,
+              "gesehen": "Eine historische Illustration zeigt Männer in altertümlicher Kleidung in einer Werkstatt oder Marktszene, die Gewehre prüfen oder zusammensetzen.",
+              "note": 9,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt Arbeiter, die M1-Karabiner im Kontext des Zweiten Weltkriegs herstellen, was perfekt zur Erzählung über die Produktion durch IBM passt.",
+              "erforderliches_bild": "Keines, das Bild passt."
+            },
+            {
+              "index": 10,
+              "gesehen": "Mehrere Männer in Uniformen stehen in einer offenen Werkstatt oder Markthalle und inspizieren und hantieren gemeinsam an mehreren Gewehren auf einem Holztisch.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt Arbeiter, die im Zweiten Weltkrieg Gewehre (M1 Carbines) montieren oder prüfen, was passend zur Erzählung über die Produktion von Gewehren ist.",
+              "erforderliches_bild": "Historische Darstellung von Waffenfertigung"
+            }
+          ],
+          "befunde": [
+            "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Die Szene zeigt einen Arbeiter und Computer aus einer späteren Ära, aber weder Fleisch- und Käseschneidemaschinen noch die genaue Verbindung zur Fragestellung der Transformation.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Die historische Szene zeigt Menschen und Maschinen, belegt aber nicht die Fusion von vier Unternehmen durch Flint im Jahr 1911."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite"
+          ],
+          "einstellungen": 13,
+          "ausgenommen": [
+            11,
+            12
+          ],
+          "vorgeprueft": [],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "1207659bd3877ca09936cb32d16e97dfce202aa30b3cec25ce655d30281315b8",
+        "prompt_version": "2026-10-29.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-3.5-flash-lite",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

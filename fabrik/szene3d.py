@@ -12,7 +12,12 @@ import math
 import sys
 
 FORMEN = ('box', 'zylinder', 'kugel')
+# GEMESSEN 12.11. (Lauf 43300000495): Claude schrieb 'cylinder' (Snowboard-Szene verworfen) - englisch gilt auch
+ALIAS = {'cube': 'box', 'cuboid': 'box', 'cylinder': 'zylinder', 'sphere': 'kugel', 'ball': 'kugel'}
 MAX_OBJEKTE, MAX_LICHTER = 120, 4
+# GEMESSEN 12.11.: Claude setzte 165 W (DC-3) / 135 W (Telefon) -> blass-pastell. Nutzer-Favorit (Runde 2): Chip
+# 30+15 W, Vertrag 60+8 W. Gesamtlicht wird anteilig auf hoechstens LICHT_SUMME gedimmt.
+LICHT_SUMME = 60.0
 
 SCHEMA = {'type': 'OBJECT', 'required': ['motiv', 'objekte', 'lichter', 'kamera'], 'properties': {
     'motiv': {'type': 'STRING'},
@@ -72,9 +77,10 @@ def pruefen(d):
         raise ValueError(f'{len(objekte)} Objekte')
     aus = {'motiv': str(d.get('motiv', ''))[:200], 'objekte': [], 'lichter': []}
     for o in objekte:
-        if o.get('form') not in FORMEN:
+        form = ALIAS.get(str(o.get('form', '')).lower(), o.get('form'))
+        if form not in FORMEN:
             raise ValueError(f"Form {o.get('form')!r}")
-        aus['objekte'].append({'form': o['form'], 'ort': _zahlen(o.get('ort'), 3, -3, 3),
+        aus['objekte'].append({'form': form, 'ort': _zahlen(o.get('ort'), 3, -3, 3),
                                'masse': _zahlen(o.get('masse'), 3, 0.0005, 3),
                                'drehung_grad': _zahlen(o.get('drehung_grad') or [0, 0, 0], 3, -360, 360),
                                'farbe': _zahlen(o.get('farbe'), 3, 0, 1),
@@ -84,6 +90,10 @@ def pruefen(d):
         aus['lichter'].append({'ort': _zahlen(l.get('ort'), 3, -5, 5),
                                'staerke': min(300.0, max(1.0, float(l.get('staerke', 30)))),
                                'farbe': _zahlen(l.get('farbe') or [1, 0.85, 0.7], 3, 0, 1)})
+    summe = sum(l['staerke'] for l in aus['lichter'])
+    if summe > LICHT_SUMME:
+        for l in aus['lichter']:
+            l['staerke'] = round(l['staerke'] * LICHT_SUMME / summe, 1)
     k = d.get('kamera') or {}
     aus['kamera'] = {'ort': _zahlen(k.get('ort'), 3, -6, 6), 'ziel': _zahlen(k.get('ziel'), 3, -3, 3),
                      'brennweite': min(120.0, max(18.0, float(k.get('brennweite', 35))))}

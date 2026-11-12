@@ -2832,8 +2832,8 @@ def main(skript_pfad, aus, vorlage=None):
                 # GEMESSEN 28.10.2026 (TikTok-Analyse): die meisten wischten bei 0:01-0:02 weg. Das erste Bild war
                 # ein verschwommener Hintergrund, die Karte glitt erst nach 0,35 s herein. Hook-Bild darum ab dem
                 # ersten Frame im Vollbild, heller, kraeftiger und mit deutlicherer Fahrt (Parallax, wenn moeglich).
-                lv = (parallax.video(ill, Image.open(ill).size, dauer, FPS, aus / f'lebend_{i:02d}.mp4')
-                      if gemalt and i not in zahl_slots else None)
+                lv = asset_clip or (parallax.video(ill, Image.open(ill).size, dauer, FPS, aus / f'lebend_{i:02d}.mp4')
+                                    if gemalt and i not in zahl_slots else None)
                 n = max(1, int(dauer * FPS))
                 filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,fps={FPS},'
                         f'eq=contrast=1.12:brightness=0.03:saturation=1.2,'
@@ -2845,13 +2845,22 @@ def main(skript_pfad, aus, vorlage=None):
                 karten_ebene(ill, kasten='gross').save(kpfad)  # nur fuer den Rueckfall auf die Karte
                 lebend = 'hook-vollbild'
                 print('Einstellung 0: Hook-Bild im Vollbild' + (' mit Parallax' if lv else ''))
+            elif ill and asset_clip:
+                # Nutzer 12.11.2026: "von Anfang an Vollbild, damit man das Reinzoomen besser sieht" - das 3D-Motiv
+                # dreht und faehrt im ganzen Bild (Fahrt steckt im Clip); laengere Einstellung haelt das letzte Bild.
+                filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,fps={FPS},'
+                        f'tpad=stop_mode=clone:stop_duration=30[v];[v][1:v]overlay=0:0,format=yuv420p')
+                ein = ['-i', str(asset_clip), '-loop', '1', '-framerate', str(FPS), '-i', str(ebene)]
+                kpfad = aus / f'karte_{i:02d}.png'
+                karten_ebene(ill, kasten='gross').save(kpfad)  # nur fuer den Rueckfall auf die Karte
+                lebend = '3d-vollbild'
+                print(f'Einstellung {i}: 3D-Motiv im Vollbild ({Path(asset_clip).name})')
             elif ill:  # GEMELDET 10.10.2026: auch im Short Motiv gross, dahinter dasselbe Bild verschwommen
                 kpfad = aus / f'karte_{i:02d}.png'
                 karten_ebene(ill, kasten='gross').save(kpfad)
-                # 29.10.: Archivclip / 12.11.: Drehclip eines 3D-Motivs - deckungsgleich auf der Karte
-                if archiv_video or (asset_clip and i not in zahl_slots):
+                if archiv_video:  # 29.10.2026: der Archivclip laeuft deckungsgleich auf der Karte
                     groesse = Image.open(ill).size
-                    lebend = (archiv_video or asset_clip, ecken_maske(groesse, aus / f'ecken_{i:02d}.png'),
+                    lebend = (archiv_video, ecken_maske(groesse, aus / f'ecken_{i:02d}.png'),
                               karten_platz(groesse, 'gross'))
                 # Nutzer 28.10.2026: lebende Bilder - nur gemalte Szenen ohne eingesetzte Zahl (Schrift verzoege)
                 elif gemalt and i not in zahl_slots:

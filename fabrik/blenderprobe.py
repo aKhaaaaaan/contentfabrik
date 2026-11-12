@@ -210,9 +210,9 @@ def regal():
 SZENEN = {'vertrag': vertrag, 'chip': chip, 'regal': regal}
 
 
-def projektion(gemaelde, szene='chip', bilder=180, grad=6, heran=0.15):
+def projektion(gemaelde, szene='chip', bilder=180, grad=10, heran=0.15):
     # Nutzer 12.11. abends: "es muss nicht viel drehen, sondern kurze Drehungen und rein zoomen" - statt +-12 Grad
-    # hin und zurueck jetzt +-6 Grad in EINE Richtung plus langsames Heranfahren (+15 %), 6 s @30 fps.
+    # hin und zurueck jetzt +-10 Grad (6 war zu wenig) in EINE Richtung plus Heranfahren (+15 %), 6 s @30 fps.
     """Runde 4 (12.11., Nutzer: "kann man die mit Codex gemalten Blender-Motive nicht etwas drehen?"):
     Camera Projection Mapping - das Codex-Gemaelde wird aus der Originalkamera auf dieselbe Geometrie projiziert
     (UV-Project), nur Emission (die Malerei bringt Licht und Schatten mit). Danach dreht die Renderkamera

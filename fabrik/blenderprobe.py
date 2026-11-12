@@ -210,10 +210,11 @@ def regal():
 SZENEN = {'vertrag': vertrag, 'chip': chip, 'regal': regal}
 
 
-def projektion(gemaelde, szene='chip', bilder=120, grad=10, heran=0.10):
-    # Nutzer 12.11. abends: "kurze Drehungen und rein zoomen", "6 Grad ist zu wenig", "so viel Zoom wie bei den
-    # anderen Motiven": +-10 Grad in EINE Richtung, Zoom gleichmaessig +10 % in 4 s @30 fps - wie die Karten
-    # (ZOOM_KARTE +3 %/s bis 1,10), damit man ihn auch in 2-4-s-Einstellungen sieht.
+def projektion(gemaelde, szene='chip', bilder=120, grad=6, heran=0.40):
+    # Nutzer 12.11. abends (letzter Stand): "weniger drehen, dafuer mehr zoomen - das Bild vorher immer von weitem,
+    # dann rein zoomen". Start = exakt das ganze Gemaelde (0 Grad, Originalbrennweite: keine Raender), dann weich
+    # bis +grad drehen und gleichmaessig +40 % heranfahren (4 s @30 fps); der Zoom waechst mit der Drehung und
+    # verdeckt so die ungemalten Raender.
     """Runde 4 (12.11., Nutzer: "kann man die mit Codex gemalten Blender-Motive nicht etwas drehen?"):
     Camera Projection Mapping - das Codex-Gemaelde wird aus der Originalkamera auf dieselbe Geometrie projiziert
     (UV-Project), nur Emission (die Malerei bringt Licht und Schatten mit). Danach dreht die Renderkamera
@@ -229,9 +230,8 @@ def projektion(gemaelde, szene='chip', bilder=120, grad=10, heran=0.10):
     kam.data.dof.use_dof = False
     projektor = kam.copy()  # bleibt stehen, waehrend die Renderkamera faehrt
     projektor.data = kam.data.copy()
-    # GEMESSEN 12.11. (Lauf 43229457145): bei +-12 Grad sah die Kamera ueber die bemalte Flaeche hinaus -
-    # Randstreifen links/oben. Die fahrende Kamera zoomt leicht heran, der Projektor behaelt das Original.
-    kam.data.lens *= 1.18
+    # GEMESSEN 12.11. (Lauf 43229457145): bei +-12 Grad ohne Zoom Randstreifen links/oben. Jetzt startet die
+    # Kamera deckungsgleich mit dem Projektor (weit, randfrei); der wachsende Zoom haelt die Raender draussen.
     s.collection.objects.link(projektor)
     bild = bpy.data.images.load(str(gemaelde))
     mat = bpy.data.materials.new('gemaelde')
@@ -264,10 +264,10 @@ def projektion(gemaelde, szene='chip', bilder=120, grad=10, heran=0.10):
     for f in range(1, bilder + 1):
         t = (f - 1) / (bilder - 1)
         weich = 0.5 - 0.5 * math.cos(math.pi * t)
-        winkel = math.radians(-grad + 2 * grad * weich)  # weicher Schwenk -grad..+grad
+        winkel = math.radians(grad * weich)  # vom Originalblick weich bis +grad
         kam.location = ziel + Matrix.Rotation(winkel, 4, 'Z') @ start_ort
         richten(kam, tuple(ziel))
-        kam.data.lens = basis * (1 + heran * t)  # gleichmaessig heran wie die Karten (sofort sichtbar)
+        kam.data.lens = basis * (1 + heran * t)  # gleichmaessig heran (sofort sichtbar)
         kam.keyframe_insert('location', frame=f)
         kam.keyframe_insert('rotation_euler', frame=f)
         kam.data.keyframe_insert('lens', frame=f)

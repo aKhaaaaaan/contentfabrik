@@ -84,7 +84,8 @@ jobs:
           name: blenderprobe
           path: proben
       - name: In Telegram schicken
-        if: always()
+        # 12.11.: ein absichtlich abgebrochener Lauf meldete 'fehlgeschlagen' - bei Abbruch still bleiben
+        if: ${{ !cancelled() }}
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

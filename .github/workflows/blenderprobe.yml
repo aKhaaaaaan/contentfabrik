@@ -6,7 +6,7 @@ on:
     inputs:
       samples:
         description: 'Cycles-Samples je Bild'
-        default: '48'
+        default: '24'
 jobs:
   probe:
     runs-on: ubuntu-latest
@@ -24,8 +24,25 @@ jobs:
         env:
           SAMPLES: ${{ inputs.samples }}
         run: |
-          case "$SAMPLES" in ''|*[!0-9]*) SAMPLES=48 ;; esac
+          case "$SAMPLES" in ''|*[!0-9]*) SAMPLES=24 ;; esac
           ./blender/blender -b --factory-startup -P fabrik/blenderprobe.py -- proben "$SAMPLES"
+      # Runde 2 (12.11.): derselbe Malfilter "Gemalt+" wie bei den Clips, damit 3D zum gemalten Kanalstil passt.
+      - name: Malfilter
+        run: |
+          pip install -q opencv-python-headless numpy
+          python3 - <<'EOF'
+          import json, sys, time
+          import cv2
+          sys.path.insert(0, 'fabrik')
+          from archivclip import gemalt
+          ergebnis = json.load(open('proben/blenderprobe.json', encoding='utf-8'))
+          for e in ergebnis:
+              start = time.time()
+              ziel = e['datei'].replace('.jpg', '-gemalt.jpg')
+              cv2.imwrite(f'proben/{ziel}', gemalt(cv2.imread(f"proben/{e['datei']}")))
+              e['gemalt'], e['filter_s'] = ziel, round(time.time() - start, 1)
+          json.dump(ergebnis, open('proben/blenderprobe.json', 'w', encoding='utf-8'), indent=1)
+          EOF
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -54,10 +71,13 @@ jobs:
               ergebnis = json.load(open('proben/blenderprobe.json', encoding='utf-8'))
           except OSError:
               ergebnis = []
-          tg('sendMessage', {'chat_id': chat, 'text': '🧊 Blender-Probe: 3 Business-Standbilder, nur Blender-Grundformen, '
-                             'CPU auf GitHub (kostenlos). Ersatz fuer Allerweltsszenen? Antworte z. B. „gut", „zu steril" '
-                             'oder je Bild.' if ergebnis else '🧊 Blender-Probe fehlgeschlagen - siehe GitHub-Log.'})
+          tg('sendMessage', {'chat_id': chat, 'text': '🧊 Blender-Probe Runde 2: waermer, dunkler, Chip ganz im Bild, '
+                             'je Szene roh + mit Malfilter. Welche Fassung passt besser zum Kanal?'
+                             if ergebnis else '🧊 Blender-Probe fehlgeschlagen - siehe GitHub-Log.'})
           for e in ergebnis:
-              tg('sendPhoto', {'chat_id': chat, 'caption': f"{e['szene']}: {e['sekunden']} s ({e['samples']} Samples, "
+              tg('sendPhoto', {'chat_id': chat, 'caption': f"{e['szene']} roh: {e['sekunden']} s ({e['samples']} Samples, "
                                f"Blender {e['blender']})"}, f"proben/{e['datei']}")
+              if e.get('gemalt'):
+                  tg('sendPhoto', {'chat_id': chat, 'caption': f"{e['szene']} gemalt (+{e['filter_s']} s)"},
+                     f"proben/{e['gemalt']}")
           EOF

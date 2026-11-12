@@ -17,7 +17,7 @@ import bpy
 
 ARGS = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 AUS = Path(ARGS[0] if ARGS else 'blenderprobe')
-SAMPLES = int(ARGS[1]) if len(ARGS) > 1 else 48
+SAMPLES = int(ARGS[1]) if len(ARGS) > 1 else 24
 
 
 def leeren():
@@ -30,10 +30,16 @@ def leeren():
     s.render.resolution_x, s.render.resolution_y = 1080, 1920
     s.render.image_settings.file_format = 'JPEG'
     s.render.image_settings.quality = 90
+    # Runde 2 (12.11., Nutzer "deine Vorschlaege umsetzen"): Runde 1 war ueberbelichtet - der schwarze Chip
+    # wurde grau, alles pastell. Dunkle Welt + kontrastreicher AgX-Look statt heller Umgebung.
+    try:
+        s.view_settings.look = 'AgX - Punchy'
+    except TypeError:
+        pass
     welt = bpy.data.worlds.new('welt')
     welt.use_nodes = True
-    welt.node_tree.nodes['Background'].inputs[0].default_value = (0.06, 0.05, 0.045, 1)
-    welt.node_tree.nodes['Background'].inputs[1].default_value = 0.6
+    welt.node_tree.nodes['Background'].inputs[0].default_value = (0.05, 0.03, 0.02, 1)
+    welt.node_tree.nodes['Background'].inputs[1].default_value = 0.12
     s.world = welt
     return s
 
@@ -102,7 +108,7 @@ def kamera(ort, ziel, brennweite=50):
 
 
 def holztisch():
-    holz = stoff('holz', (0.32, 0.17, 0.08), 0.45)
+    holz = stoff('holz', (0.16, 0.06, 0.02), 0.4)
     kiste('tisch', (0, 0, -0.03), (3, 2, 0.06), holz, 0.005)
 
 
@@ -120,8 +126,8 @@ def vertrag():
     walze('fueller', (0.12, -0.2, 0.012), 0.009, 0.15, lack, (0, math.radians(90), math.radians(35)))
     walze('kappe', (0.19, -0.15, 0.012), 0.0095, 0.03, gold, (0, math.radians(90), math.radians(35)))
     walze('siegel', (-0.14, -0.22, 0.008), 0.035, 0.016, stoff('wachs', (0.55, 0.05, 0.04), 0.4))
-    licht('AREA', (-0.8, 0.6, 1.2), 120, groesse=0.8)
-    licht('POINT', (0.6, -0.5, 0.5), 15, (1, 0.7, 0.45))
+    licht('AREA', (-0.8, 0.6, 1.2), 60, (1, 0.78, 0.55), groesse=0.6)
+    licht('POINT', (0.6, -0.5, 0.5), 8, (1, 0.55, 0.3))
     kamera((0.15, -0.75, 0.75), (0.02, -0.05, 0.0), 45)
 
 
@@ -136,28 +142,30 @@ def chip():
             kiste(f'pin{seite}{i}', (x, seite * 0.036, 0.006), (0.004, 0.014, 0.0015), metall, 0)
             kiste(f'fuss{seite}{i}', (x, seite * 0.043, -0.0005), (0.004, 0.0015, 0.012), metall, 0)
     walze('kerbe', (-0.092, 0, 0.0215), 0.006, 0.002, stoff('kerbe', (0.08, 0.08, 0.09), 0.5))
-    gruen = stoff('platine', (0.05, 0.25, 0.12), 0.5)
-    kiste('platine', (0.12, 0.2, 0.004), (0.4, 0.25, 0.006), gruen, 0.002)
-    licht('AREA', (-0.4, -0.3, 0.6), 60, groesse=0.5, ziel=(0, 0, 0))
-    licht('AREA', (0.5, 0.4, 0.4), 25, (0.6, 0.75, 1), 0.4, ziel=(0, 0, 0))
-    kamera((0.05, -0.32, 0.26), (0.0, 0.0, 0.01), 60)
+    # Runde 2: Chip liegt AUF der Platine und steht ganz im Bild (Runde 1: zu nah, Platine unscharf daneben)
+    gruen = stoff('platine', (0.02, 0.18, 0.07), 0.5)
+    kiste('platine', (0, 0.02, -0.004), (0.34, 0.3, 0.006), gruen, 0.002)
+    licht('AREA', (-0.4, -0.3, 0.6), 30, (1, 0.8, 0.6), 0.4, ziel=(0, 0, 0))
+    licht('AREA', (0.5, 0.4, 0.4), 15, (0.5, 0.7, 1), 0.3, ziel=(0, 0, 0))
+    kamera((0.12, -0.42, 0.38), (0.0, 0.0, 0.01), 35)
+    bpy.context.scene.camera.data.dof.aperture_fstop = 8
 
 
 def regal():
     welt = bpy.context.scene.world.node_tree.nodes['Background']
-    welt.inputs[0].default_value = (0.12, 0.1, 0.08, 1)
-    holz = stoff('regalholz', (0.4, 0.24, 0.12), 0.5)
+    welt.inputs[0].default_value = (0.06, 0.04, 0.03, 1)
+    holz = stoff('regalholz', (0.2, 0.09, 0.03), 0.5)
     for i in range(4):
         kiste(f'brett{i}', (0, 0, i * 0.45), (1.2, 0.35, 0.03), holz, 0.004)
-    kiste('rueck', (0, 0.18, 0.7), (1.2, 0.02, 1.45), stoff('wand', (0.55, 0.5, 0.42), 0.8), 0)
-    farben = [(0.75, 0.12, 0.08), (0.95, 0.75, 0.15), (0.1, 0.3, 0.65), (0.9, 0.9, 0.85)]
+    kiste('rueck', (0, 0.18, 0.7), (1.2, 0.02, 1.45), stoff('wand', (0.25, 0.15, 0.09), 0.8), 0)
+    farben = [(0.7, 0.04, 0.02), (0.9, 0.55, 0.02), (0.02, 0.15, 0.55), (0.85, 0.82, 0.7)]
     for reihe in range(3):
         for j in range(7):
             f = farben[(j + reihe) % len(farben)]
             kiste(f'dose{reihe}{j}', (-0.48 + j * 0.16, -0.02, reihe * 0.45 + 0.14), (0.12, 0.12, 0.24),
                   stoff(f'p{reihe}{j}', f, 0.35), 0.008)
-    licht('AREA', (0, -1.2, 1.6), 220, groesse=1.5, ziel=(0, 0, 0.6))
-    licht('POINT', (-0.8, -0.6, 0.3), 20, (1, 0.75, 0.5))
+    licht('AREA', (0, -1.2, 1.6), 110, (1, 0.82, 0.62), groesse=1.0, ziel=(0, 0, 0.6))
+    licht('POINT', (-0.8, -0.6, 0.3), 12, (1, 0.6, 0.35))
     kamera((0.35, -1.75, 0.75), (0, 0, 0.55), 40)
 
 

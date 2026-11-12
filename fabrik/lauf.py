@@ -364,7 +364,12 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     if not thema and not entwurf:
         import vorrat
         vorrat_thema = vorrat.bereit(kanal_pfad)
-        if vorrat_thema:
+        nutzer_statt = themen.statt_vorrat(kanal, vorrat_thema) if vorrat_thema else ''
+        if nutzer_statt and trendcheck.heute_gescheitert(kanal, nutzer_statt) < 2:
+            # GEMESSEN 12.11.2026: Trend-Vorrat schlug den Nutzertag (Regel 06.11.). Vorrat bleibt fuer morgen.
+            print(f'Nutzertag - Thema aus der Warteschlange vor dem Vorrat-Skript ({vorrat_thema}): {nutzer_statt}')
+            thema, vorrat_thema = nutzer_statt, None
+        elif vorrat_thema:
             # Ein fertig geprueftes Skript schlaegt einen neuen, ungeprueften Versuch (15.10.2026).
             print(f'Geprueftes Vorrat-Skript bereit ({vorrat_thema}) - Trend-Check uebersprungen')
             thema = vorrat_thema

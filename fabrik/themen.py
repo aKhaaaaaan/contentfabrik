@@ -572,6 +572,19 @@ def nutzertag(heute=None):
     return heute.toordinal() % 2 == 0
 
 
+def statt_vorrat(kanal, vorrat_thema):
+    """Nutzerthema, das am Nutzertag ein fertiges Vorratsskript verdraengt, sonst ''.
+
+    GEMESSEN 12.11.2026 (Lauf 43182565437): Am Nutzertag nahm lauf.py das Trend-Vorratsskript ("ChatGPT Free vs
+    Plus", American Airlines) vor Vice-City-Poster und Rockstar North. Es zaehlt die Reihenfolge der Warteschlange
+    (GTA-Themen muessen vor dem 19.11. laufen): ein Vorratsskript nur, wenn es das VORDERSTE Nutzerthema ist -
+    der Nachtvorrat hatte SynthID (Platz 6) statt Vice City (Platz 1) geschrieben."""
+    if not nutzertag():
+        return ''
+    vorn = nehmen(kanal)
+    return '' if vorrat_thema == vorn else vorn
+
+
 def lang_nehmen(kanal):
     """Festes Langvideo-Thema des Nutzers (Eintrag mit format 'lang'), aeltestes zuerst; '' wenn keins.
     Nutzer 06.11.2026: "Nimm ein anderes Thema als Ford - was aktuell und heiss ist" (Pokemon)."""

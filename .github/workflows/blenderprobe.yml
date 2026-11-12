@@ -43,7 +43,7 @@ jobs:
             case "$VORLAGE" in blenderprojektion-[a-z0-9-]*) ;; *) echo "ungueltige Vorlage"; exit 1 ;; esac
             gh release download "$VORLAGE" -D vorlage
             # 12.11.: je Vorlage (vertrag/chip/regal.jpg, alt: gemaelde.jpg = chip) ein Drehclip
-            # (6 s, 30 fps); laengere Einstellungen halten das letzte Bild.
+            # (4 s, 30 fps); laengere Einstellungen halten das letzte Bild.
             mkdir -p proben  # GEMESSEN 12.11. (43250855082): Ordner entstand erst durch Blender
             echo '[]' > proben/alle.json
             for vorlage in vorlage/*.jpg; do

@@ -130,6 +130,21 @@ def bauen(ordner, skripttext=None):
     return plan, fertig
 
 
+HASHTAGS = {'Business Origin Stories': '#businesshistory #entrepreneur #founderstory #history',
+            'AI Tools Explained': '#ai #aitools #tech #techtips'}
+
+
+def beschreibung(plan):
+    """Kopiertext fuer TikTok (Nutzer 12.11.: "wie poste ich die genau?"): Folie 1 als Hook - kein neuer Fakt -,
+    Verweis aufs Video, Kanal-Hashtags + ein Themen-Hashtag."""
+    if plan.get('hashtags'):  # 12.11.: dieselben Tags wie das Video, inkl. gemessener Trend-Hashtags
+        tags = ' '.join('#' + str(t).lstrip('#') for t in plan['hashtags'])
+        return f"{plan['folien'][0]['text']} Full story in our video.\n\n{tags}".strip()
+    thema = re.sub(r'[^A-Za-z0-9]', '', (plan.get('thema') or '').split(':')[0])[:30].lower()
+    tags = ' '.join(t for t in [HASHTAGS.get(plan.get('kanalname', ''), ''), f'#{thema}' if thema else ''] if t)
+    return f"{plan['folien'][0]['text']} Full story in our video.\n\n{tags}".strip()
+
+
 def senden(plan, dateien):
     token, chat = os.environ['TELEGRAM_BOT_TOKEN'], os.environ['TELEGRAM_CHAT_ID']
     grenze = uuid.uuid4().hex
@@ -147,7 +162,7 @@ def senden(plan, dateien):
     antwort = json.load(urllib.request.urlopen(req, timeout=120))
     if not antwort.get('ok'):
         raise RuntimeError(f"Telegram: {antwort.get('description')}")
-    text = plan.get('beschreibung', '')
+    text = plan.get('beschreibung') or beschreibung(plan)
     if text:
         req = urllib.request.Request(f'https://api.telegram.org/bot{token}/sendMessage',
                                      data=json.dumps({'chat_id': chat, 'text': text[:4000]}).encode(),

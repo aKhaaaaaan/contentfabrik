@@ -202,6 +202,13 @@ def skript_merken(skript, lang, titel='', ordner=Path('verlauf/skripte')):
         'thema': skript.get('thema', ''), 'titel': str(titel or ''),
         'datum': datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='minutes'),
         'text': '\n\n'.join(t['text'] for t in skript.get('teile', []))}
+    # Nutzer 12.11.2026 ("Hashtags, die gerade im Trend sind"): das Karussell nimmt dieselben TikTok-Hashtags wie
+    # das Video (inkl. gemessener Trend-Tags) - eine Quelle statt einer zweiten Liste.
+    try:
+        import texte
+        daten['lang' if lang else 'short']['hashtags'] = texte.tiktok_hashtags(skript)
+    except Exception as e:  # Komfort - darf den Versand nie kippen
+        print('Hashtags fuer Karussell nicht gemerkt:', type(e).__name__)
     pfad.parent.mkdir(parents=True, exist_ok=True)
     pfad.write_text(json.dumps(daten, ensure_ascii=False, indent=1), encoding='utf-8')
     return pfad

@@ -678,6 +678,28 @@ def fokus_punkt(foto, quelle, kasten):
     return (x + w / 2) / B, (y + (m[0] + m[1] / 2) * h) / H
 
 
+DREH_MIN_S = 1.5
+
+
+def drehclips(shots, kanal, zahl_slots=()):
+    """Einstellungen, in denen sich ein 3D-Motiv dreht. Nutzer 12.11.2026: "nicht immer alles drehen, sondern das,
+    was Sinn macht" und dann "keine konkrete Zahl von Drehungen, sondern bei allen Motiven, wo es wirklich passt":
+    keine Hoechstzahl; es dreht sich jedes vom Planer gewaehlte 3D-Motiv mit Clip, ausser die Einstellung ist
+    kuerzer als DREH_MIN_S (hektisch), eine Zahl liegt darueber (Schrift wackelt) oder dasselbe Motiv drehte sich
+    in diesem Video schon (dieselbe Bewegung zweimal wirkt wie eine Wiederholung). Sonst steht das Motiv."""
+    import bibliothek
+    aus, gesehen = set(), set()
+    for i, shot in enumerate(shots):
+        t = shot.get('teil') or {}
+        asset = t.get('asset')
+        if t.get('bildmodus') != 'asset' or i in zahl_slots or asset in gesehen \
+                or shot.get('dauer_s', 0) < DREH_MIN_S or not bibliothek.clip(asset, kanal):
+            continue
+        aus.add(i)
+        gesehen.add(asset)
+    return aus
+
+
 def karten_filter(hg, ebene, kpfad, zoom=False, lebend=None, fokus=None):
     """ffmpeg-Eingaben und Filter fuer einen Karten-Abschnitt: Hintergrund
     abgedunkelt und weich, Karte gleitet in 0,35 s von unten herein und blendet
@@ -2247,6 +2269,7 @@ def main(skript_pfad, aus, vorlage=None):
         witz_zahl = witz_versuche = 0
         archiv_jahr = archivclip.story_jahr(*(x['teil'].get('text') for x in shots))
         reaktion_bilder = set()  # Hook-Ersatz "Gesicht mit Gefuehl" (bildbezug bewertet das Gefuehl)
+        dreh = drehclips(shots, s.get('kanal'), zahl_slots)
         schon_fertig = {i for i, shot in enumerate(shots) if cache.get('stuecke', {}).get(str(i), {}).get('key')
                         == rendercache.stueck_key(visuell, i, shot['dauer_s'], code_key)}
         vorab = vorab_starten(s, shots, archiv_jahr, kanal_slug, aus, schon_fertig)
@@ -2451,7 +2474,7 @@ def main(skript_pfad, aus, vorlage=None):
             if modus == 'asset':
                 import bibliothek
                 ill = bibliothek.bild(t.get('asset'), s.get('kanal'))
-                asset_clip = bibliothek.clip(t.get('asset'), s.get('kanal'))
+                asset_clip = bibliothek.clip(t.get('asset'), s.get('kanal')) if i in dreh else None
                 eintrag=next((b for b in bibliothek.katalog() if b['id']==t['asset']),{})
                 ausschnitt=eintrag.get('ausschnitt')
                 if ausschnitt is not None:

@@ -1,0 +1,39 @@
+# Karussell 12.11.2026: Codex-Bilder kommen vom PC des Nutzers als Release-Anhang; hier Folien pruefen, Text legen,
+# als Telegram-Album senden, Release wieder loeschen. Kein Einfluss auf die Videoproduktion.
+name: karussell
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release-Tag mit den Karussell-Bildern'
+        required: true
+permissions:
+  contents: write
+jobs:
+  senden:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bilder holen
+        env:
+          TAG: ${{ inputs.tag }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          case "$TAG" in karussell-[a-z0-9-]*) ;; *) echo "ungueltiger Tag"; exit 1 ;; esac
+          mkdir -p karussell
+          gh release download "$TAG" -D karussell
+          ls -la karussell
+      - name: Bauen und senden
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          pip install -q pillow
+          python fabrik/karussell.py senden karussell
+      - name: Release aufraeumen
+        if: always()
+        env:
+          TAG: ${{ inputs.tag }}
+          GH_TOKEN: ${{ github.token }}
+        run: gh release delete "$TAG" --yes --cleanup-tag || true

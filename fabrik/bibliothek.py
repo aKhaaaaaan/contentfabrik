@@ -45,6 +45,19 @@ def bild(kennung, kanal):
     return pfad
 
 
+def clip(kennung, kanal):
+    """Drehclip eines 3D-Motivs (Nutzer 12.11.2026: Blender-Form, Codex-gemalt, per Projektion gedreht) oder None.
+    Gleiche Regeln wie bild(): nur im Bibliotheksordner, nur unveraendert (clip_sha256)."""
+    eintrag = next((b for b in katalog() if b['id'] == kennung), None)
+    if not eintrag or eintrag['kanal'] != kanal or not eintrag.get('clip'):
+        return None
+    pfad = (ORDNER / eintrag['clip']).resolve()
+    if pfad.parent != ORDNER.resolve() or not pfad.is_file() \
+            or hashlib.sha256(pfad.read_bytes()).hexdigest() != eintrag.get('clip_sha256'):
+        return None
+    return pfad
+
+
 def signatur():
     # Codex-Katalog gehoert dazu: neue vorab gemalte Bilder sollen einen gecachten Bildplan neu planen lassen
     codex = CODEX / 'katalog.json'

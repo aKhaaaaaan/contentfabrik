@@ -2446,10 +2446,12 @@ def main(skript_pfad, aus, vorlage=None):
             # Spart nebenbei die Pixabay-Suche samt KI-Clipwahl.
             ill = None
             gemalt = False  # frisch gemalte Szene (nur darauf kommt eine Zahlenebene)
+            asset_clip = None  # 12.11.2026: Drehclip eines 3D-Bibliotheksmotivs (bibliothek.clip)
             letzt = i == len(shots) - 1 and not t.get('platz')
             if modus == 'asset':
                 import bibliothek
                 ill = bibliothek.bild(t.get('asset'), s.get('kanal'))
+                asset_clip = bibliothek.clip(t.get('asset'), s.get('kanal'))
                 eintrag=next((b for b in bibliothek.katalog() if b['id']==t['asset']),{})
                 ausschnitt=eintrag.get('ausschnitt')
                 if ausschnitt is not None:
@@ -2823,9 +2825,10 @@ def main(skript_pfad, aus, vorlage=None):
             elif ill:  # GEMELDET 10.10.2026: auch im Short Motiv gross, dahinter dasselbe Bild verschwommen
                 kpfad = aus / f'karte_{i:02d}.png'
                 karten_ebene(ill, kasten='gross').save(kpfad)
-                if archiv_video:  # 29.10.2026: der Archivclip laeuft deckungsgleich auf der Karte
+                # 29.10.: Archivclip / 12.11.: Drehclip eines 3D-Motivs - deckungsgleich auf der Karte
+                if archiv_video or (asset_clip and i not in zahl_slots):
                     groesse = Image.open(ill).size
-                    lebend = (archiv_video, ecken_maske(groesse, aus / f'ecken_{i:02d}.png'),
+                    lebend = (archiv_video or asset_clip, ecken_maske(groesse, aus / f'ecken_{i:02d}.png'),
                               karten_platz(groesse, 'gross'))
                 # Nutzer 28.10.2026: lebende Bilder - nur gemalte Szenen ohne eingesetzte Zahl (Schrift verzoege)
                 elif gemalt and i not in zahl_slots:

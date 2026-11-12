@@ -278,8 +278,8 @@ def projektion(gemaelde, szene='chip', bilder=72, grad=12):
 
 def main():
     AUS.mkdir(parents=True, exist_ok=True)
-    if STIL == 'projektion':
-        return projektion(Path(ARGS[3]))
+    if STIL == 'projektion':  # ARGS[4]: Szene (12.11.: alle drei Bibliotheksmotive als Drehclip)
+        return projektion(Path(ARGS[3]), ARGS[4] if len(ARGS) > 4 else 'chip')
     ergebnis = []
     for name, bau in SZENEN.items():
         leeren()

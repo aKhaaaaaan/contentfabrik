@@ -76,16 +76,25 @@ def pruefen(d):
     if not 1 <= len(objekte) <= MAX_OBJEKTE:
         raise ValueError(f'{len(objekte)} Objekte')
     aus = {'motiv': str(d.get('motiv', ''))[:200], 'objekte': [], 'lichter': []}
+    fehler = []
     for o in objekte:
-        form = ALIAS.get(str(o.get('form', '')).lower(), o.get('form'))
-        if form not in FORMEN:
-            raise ValueError(f"Form {o.get('form')!r}")
-        aus['objekte'].append({'form': form, 'ort': _zahlen(o.get('ort'), 3, -3, 3),
-                               'masse': _zahlen(o.get('masse'), 3, 0.0005, 3),
-                               'drehung_grad': _zahlen(o.get('drehung_grad') or [0, 0, 0], 3, -360, 360),
-                               'farbe': _zahlen(o.get('farbe'), 3, 0, 1),
-                               'rauheit': min(1.0, max(0.0, float(o.get('rauheit', 0.5)))),
-                               'metall': 1.0 if o.get('metall') else 0.0})
+        # GEMESSEN 12.11. (43301913493): EIN Teil 'cylinder_placeholder_removed' kippte die ganze Snowboard-Szene -
+        # ungueltige Teile werden weggelassen, die Szene scheitert nur, wenn keins uebrig bleibt.
+        try:
+            form = ALIAS.get(str(o.get('form', '')).lower(), o.get('form'))
+            if form not in FORMEN:
+                raise ValueError(f"Form {o.get('form')!r}")
+            aus['objekte'].append({'form': form, 'ort': _zahlen(o.get('ort'), 3, -3, 3),
+                                   'masse': _zahlen(o.get('masse'), 3, 0.0005, 3),
+                                   'drehung_grad': _zahlen(o.get('drehung_grad') or [0, 0, 0], 3, -360, 360),
+                                   'farbe': _zahlen(o.get('farbe'), 3, 0, 1),
+                                   'rauheit': min(1.0, max(0.0, float(o.get('rauheit', 0.5)))),
+                                   'metall': 1.0 if o.get('metall') else 0.0})
+        except (ValueError, TypeError) as e:
+            fehler.append(str(e))
+    if not aus['objekte']:
+        raise ValueError('kein gueltiges Teil: ' + '; '.join(fehler[:3]))
+    aus['verworfen'] = len(fehler)
     for l in (d.get('lichter') or [])[:MAX_LICHTER]:
         aus['lichter'].append({'ort': _zahlen(l.get('ort'), 3, -5, 5),
                                'staerke': min(300.0, max(1.0, float(l.get('staerke', 30)))),

@@ -667,6 +667,14 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             runde['skript_s'] = round(time.monotonic() - rundenstart, 1)
             phase = 'Videobau'
             fortschritt.setzen(phase=phase, basis=bau_basis)
+            # 12.11.2026 (Nutzer: Codex-Bilder ohne laufenden PC): vorab gemalte Bilder zum Thema in die Bibliothek;
+            # ab 26.11., sonst/ohne Release passiert nichts.
+            try:
+                import codexbilder
+                codexbilder.holen(kanal, skript.get('kanal', ''), skript.get('thema', ''), ' '.join(
+                    [str(skript.get('thema', ''))] + [t.get('text', '') for t in skript.get('teile', [])]))
+            except Exception as e:
+                print('Codex-Bilder uebersprungen:', type(e).__name__)
             bau_start = time.monotonic()
             b = (0 if basis and basis[1] is None else schritt(
                 ['fabrik/bauen.py', str(ordner / 'skript.json'), str(ordner)]

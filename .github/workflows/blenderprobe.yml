@@ -7,6 +7,16 @@ on:
       samples:
         description: 'Cycles-Samples je Bild'
         default: '24'
+      stil:
+        description: 'toon (GTA-Plakat, Runde 3), real (Runde 2 + Malfilter), projektion (Runde 4: Codex-Gemaelde drehen)'
+        type: choice
+        options: [toon, real, projektion]
+        default: toon
+      vorlage:
+        description: 'nur projektion: Release-Tag mit gemaelde.jpg (wird danach geloescht)'
+        default: ''
+permissions:
+  contents: write
 jobs:
   probe:
     runs-on: ubuntu-latest
@@ -23,11 +33,25 @@ jobs:
       - name: Rendern
         env:
           SAMPLES: ${{ inputs.samples }}
+          STIL: ${{ inputs.stil }}
+          VORLAGE: ${{ inputs.vorlage }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           case "$SAMPLES" in ''|*[!0-9]*) SAMPLES=24 ;; esac
-          ./blender/blender -b --factory-startup -P fabrik/blenderprobe.py -- proben "$SAMPLES"
+          case "$STIL" in real|projektion) ;; *) STIL=toon ;; esac
+          if [ "$STIL" = projektion ]; then
+            case "$VORLAGE" in blenderprojektion-[a-z0-9-]*) ;; *) echo "ungueltige Vorlage"; exit 1 ;; esac
+            gh release download "$VORLAGE" -D vorlage
+            ./blender/blender -b --factory-startup -P fabrik/blenderprobe.py -- proben "$SAMPLES" projektion vorlage/gemaelde.jpg
+            ffmpeg -loglevel error -framerate 24 -i proben/proj/%04d.png -c:v libx264 -pix_fmt yuv420p -crf 20 proben/proj.mp4
+            rm -rf proben/proj
+            gh release delete "$VORLAGE" --yes --cleanup-tag || true
+          else
+            ./blender/blender -b --factory-startup -P fabrik/blenderprobe.py -- proben "$SAMPLES" "$STIL"
+          fi
       # Runde 2 (12.11.): derselbe Malfilter "Gemalt+" wie bei den Clips, damit 3D zum gemalten Kanalstil passt.
       - name: Malfilter
+        if: inputs.stil == 'real'
         run: |
           pip install -q opencv-python-headless numpy
           python3 - <<'EOF'
@@ -61,8 +85,9 @@ jobs:
               grenze = uuid.uuid4().hex
               teile = [f'--{grenze}\r\nContent-Disposition: form-data; name="{k}"\r\n\r\n{v}\r\n'.encode() for k, v in felder.items()]
               if datei:
-                  teile.append(f'--{grenze}\r\nContent-Disposition: form-data; name="photo"; filename="b.jpg"\r\n'
-                               'Content-Type: image/jpeg\r\n\r\n'.encode() + open(datei, 'rb').read() + b'\r\n')
+                  feld, typ, name = ('video', 'video/mp4', 'p.mp4') if datei.endswith('.mp4') else ('photo', 'image/jpeg', 'b.jpg')
+                  teile.append(f'--{grenze}\r\nContent-Disposition: form-data; name="{feld}"; filename="{name}"\r\n'
+                               f'Content-Type: {typ}\r\n\r\n'.encode() + open(datei, 'rb').read() + b'\r\n')
               teile.append(f'--{grenze}--\r\n'.encode())
               req = urllib.request.Request(f'https://api.telegram.org/bot{token}/{methode}', data=b''.join(teile),
                                            headers={'Content-Type': f'multipart/form-data; boundary={grenze}'})
@@ -71,10 +96,18 @@ jobs:
               ergebnis = json.load(open('proben/blenderprobe.json', encoding='utf-8'))
           except OSError:
               ergebnis = []
-          tg('sendMessage', {'chat_id': chat, 'text': '🧊 Blender-Probe Runde 2: waermer, dunkler, Chip ganz im Bild, '
-                             'je Szene roh + mit Malfilter. Welche Fassung passt besser zum Kanal?'
-                             if ergebnis else '🧊 Blender-Probe fehlgeschlagen - siehe GitHub-Log.'})
+          stil = ergebnis[0].get('stil', 'real') if ergebnis else ''
+          if stil != 'projektion':
+              tg('sendMessage', {'chat_id': chat, 'text': ('🧊 Blender-Probe Runde 3: GTA-Plakatlook direkt in Blender '
+                                 '(Toon-Schatten, Tuschelinien, Orange/Tuerkis). Besser als Runde 2?' if stil == 'toon' else
+                                 '🧊 Blender-Probe: je Szene roh + mit Malfilter.')
+                                 if ergebnis else '🧊 Blender-Probe fehlgeschlagen - siehe GitHub-Log.'})
           for e in ergebnis:
+              if e['datei'].endswith('.mp4'):
+                  tg('sendVideo', {'chat_id': chat, 'caption': f"🧊 Runde 4: Codex-Gemaelde auf 3D projiziert, Kamera "
+                                   f"dreht {e['grad']} Grad je Seite. {e['bilder']} Bilder in {e['sekunden']} s "
+                                   f"({e['je_bild']} s/Bild)"}, f"proben/{e['datei']}")
+                  continue
               tg('sendPhoto', {'chat_id': chat, 'caption': f"{e['szene']} roh: {e['sekunden']} s ({e['samples']} Samples, "
                                f"Blender {e['blender']})"}, f"proben/{e['datei']}")
               if e.get('gemalt'):

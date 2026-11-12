@@ -18,6 +18,10 @@ import bpy
 ARGS = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 AUS = Path(ARGS[0] if ARGS else 'blenderprobe')
 SAMPLES = int(ARGS[1]) if len(ARGS) > 1 else 24
+# Runde 3 (12.11., Nutzer: "gemalte Blender-Bilder sehen nicht so nice aus - Farbstil wie GTA?"): 'toon' =
+# Plakatlook direkt in Blender (Toon-BSDF mit harten Schattenstufen, Freestyle-Tuschelinien, Sonnenuntergang
+# Orange gegen Tuerkis, Standard-Farbraum fuer satte Flaechen) statt Malfilter auf einem fertigen Foto.
+STIL = ARGS[2] if len(ARGS) > 2 else 'toon'
 
 
 def leeren():
@@ -41,12 +45,42 @@ def leeren():
     welt.node_tree.nodes['Background'].inputs[0].default_value = (0.05, 0.03, 0.02, 1)
     welt.node_tree.nodes['Background'].inputs[1].default_value = 0.12
     s.world = welt
+    if STIL == 'toon':
+        s.view_settings.view_transform = 'Standard'
+        s.view_settings.look = 'None'
+        s.render.use_freestyle = True
+        s.render.line_thickness_mode = 'ABSOLUTE'
+        s.render.line_thickness = 3.0
+        fs = s.view_layers[0].freestyle_settings
+        linien = fs.linesets[0] if len(fs.linesets) else fs.linesets.new('linien')
+        linien.select_by_visibility = True
+        linien.select_silhouette = linien.select_border = linien.select_crease = True
+        linien.linestyle.color = (0.02, 0.01, 0.01)
     return s
 
 
 def stoff(name, farbe, rau=0.5, metall=0.0):
     m = bpy.data.materials.new(name)
     m.use_nodes = True
+    if STIL == 'toon':
+        nt = m.node_tree
+        nt.nodes.remove(nt.nodes['Principled BSDF'])
+        diffus = nt.nodes.new('ShaderNodeBsdfToon')
+        diffus.component = 'DIFFUSE'
+        diffus.inputs['Color'].default_value = (*farbe, 1)
+        diffus.inputs['Size'].default_value = 0.55
+        diffus.inputs['Smooth'].default_value = 0.03
+        glanz = nt.nodes.new('ShaderNodeBsdfToon')
+        glanz.component = 'GLOSSY'
+        glanz.inputs['Color'].default_value = (*farbe, 1) if metall else (1, 0.95, 0.85, 1)
+        glanz.inputs['Size'].default_value = 0.12 + 0.3 * rau
+        glanz.inputs['Smooth'].default_value = 0.03
+        mix = nt.nodes.new('ShaderNodeMixShader')
+        mix.inputs[0].default_value = 0.65 if metall else 0.1
+        nt.links.new(diffus.outputs[0], mix.inputs[1])
+        nt.links.new(glanz.outputs[0], mix.inputs[2])
+        nt.links.new(mix.outputs[0], nt.nodes['Material Output'].inputs['Surface'])
+        return m
     p = m.node_tree.nodes['Principled BSDF']
     p.inputs['Base Color'].default_value = (*farbe, 1)
     p.inputs['Roughness'].default_value = rau
@@ -143,8 +177,9 @@ def chip():
             kiste(f'fuss{seite}{i}', (x, seite * 0.043, -0.0005), (0.004, 0.0015, 0.012), metall, 0)
     walze('kerbe', (-0.092, 0, 0.0215), 0.006, 0.002, stoff('kerbe', (0.08, 0.08, 0.09), 0.5))
     # Runde 2: Chip liegt AUF der Platine und steht ganz im Bild (Runde 1: zu nah, Platine unscharf daneben)
-    gruen = stoff('platine', (0.02, 0.18, 0.07), 0.5)
-    kiste('platine', (0, 0.02, -0.004), (0.34, 0.3, 0.006), gruen, 0.002)
+    if STIL != 'projektion':  # das Codex-Gemaelde entstand aus Runde 2 ohne sichtbare Platine - Geometrie muss passen
+        gruen = stoff('platine', (0.02, 0.18, 0.07), 0.5)
+        kiste('platine', (0, 0.02, 0.002), (0.34, 0.3, 0.004), gruen, 0.001)  # Runde 2 lag sie unter der Tischplatte
     licht('AREA', (-0.4, -0.3, 0.6), 30, (1, 0.8, 0.6), 0.4, ziel=(0, 0, 0))
     licht('AREA', (0.5, 0.4, 0.4), 15, (0.5, 0.7, 1), 0.3, ziel=(0, 0, 0))
     kamera((0.12, -0.42, 0.38), (0.0, 0.0, 0.01), 35)
@@ -172,17 +207,87 @@ def regal():
 SZENEN = {'vertrag': vertrag, 'chip': chip, 'regal': regal}
 
 
+def projektion(gemaelde, szene='chip', bilder=72, grad=12):
+    """Runde 4 (12.11., Nutzer: "kann man die mit Codex gemalten Blender-Motive nicht etwas drehen?"):
+    Camera Projection Mapping - das Codex-Gemaelde wird aus der Originalkamera auf dieselbe Geometrie projiziert
+    (UV-Project), nur Emission (die Malerei bringt Licht und Schatten mit). Danach dreht die Renderkamera
+    +-grad um das Motiv. Groessere Winkel zeigen ungemalte Rueckseiten."""
+    from mathutils import Matrix, Vector
+    leeren()
+    SZENEN[szene]()
+    s = bpy.context.scene
+    s.render.use_freestyle = False
+    s.view_settings.view_transform, s.view_settings.look = 'Standard', 'None'
+    s.cycles.samples, s.cycles.use_denoising = 4, False
+    kam = s.camera
+    kam.data.dof.use_dof = False
+    projektor = kam.copy()  # bleibt stehen, waehrend die Renderkamera faehrt
+    projektor.data = kam.data.copy()
+    s.collection.objects.link(projektor)
+    bild = bpy.data.images.load(str(gemaelde))
+    mat = bpy.data.materials.new('gemaelde')
+    mat.use_nodes = True
+    nt = mat.node_tree
+    nt.nodes.remove(nt.nodes['Principled BSDF'])
+    tex = nt.nodes.new('ShaderNodeTexImage')
+    tex.image, tex.extension = bild, 'EXTEND'
+    uv = nt.nodes.new('ShaderNodeUVMap')
+    uv.uv_map = 'proj'
+    emi = nt.nodes.new('ShaderNodeEmission')
+    nt.links.new(uv.outputs[0], tex.inputs['Vector'])
+    nt.links.new(tex.outputs['Color'], emi.inputs['Color'])
+    nt.links.new(emi.outputs[0], nt.nodes['Material Output'].inputs['Surface'])
+    for o in [o for o in s.objects if o.type == 'MESH']:
+        o.data.uv_layers.new(name='proj')
+        o.data.materials.clear()
+        o.data.materials.append(mat)
+        if max(o.dimensions) > 0.25:  # grosse Flaechen unterteilen, sonst verzerrt die affine UV-Interpolation
+            sub = o.modifiers.new('fein', 'SUBSURF')
+            sub.subdivision_type, sub.levels, sub.render_levels = 'SIMPLE', 6, 6
+        mod = o.modifiers.new('proj', 'UV_PROJECT')
+        mod.uv_layer = 'proj'
+        mod.projectors[0].object = projektor
+        mod.aspect_x, mod.aspect_y = s.render.resolution_x, s.render.resolution_y
+    ziel = Vector((0.0, 0.0, 0.01))
+    start_ort = kam.location - ziel
+    s.frame_start, s.frame_end, s.render.fps = 1, bilder, 24
+    for f in range(1, bilder + 1):
+        t = (f - 1) / (bilder - 1)
+        winkel = math.radians(-grad + 2 * grad * (0.5 - 0.5 * math.cos(math.pi * t)))  # weicher Schwenk -grad..+grad
+        kam.location = ziel + Matrix.Rotation(winkel, 4, 'Z') @ start_ort
+        richten(kam, tuple(ziel))
+        kam.keyframe_insert('location', frame=f)
+        kam.keyframe_insert('rotation_euler', frame=f)
+    s.render.image_settings.file_format = 'PNG'
+    s.render.filepath = str((AUS / 'proj' / '').resolve()) + '/'
+    start = time.time()
+    bpy.ops.render.render(animation=True)
+    sek = round(time.time() - start, 1)
+    ergebnis = [{'szene': f'{szene}-projektion', 'sekunden': sek, 'je_bild': round(sek / bilder, 2), 'bilder': bilder,
+                 'grad': grad, 'samples': 4, 'stil': 'projektion', 'datei': 'proj.mp4',
+                 'blender': bpy.app.version_string}]
+    print(json.dumps(ergebnis[0]), flush=True)
+    (AUS / 'blenderprobe.json').write_text(json.dumps(ergebnis, indent=1), encoding='utf-8')
+
+
 def main():
     AUS.mkdir(parents=True, exist_ok=True)
+    if STIL == 'projektion':
+        return projektion(Path(ARGS[3]))
     ergebnis = []
     for name, bau in SZENEN.items():
         leeren()
         bau()
+        if STIL == 'toon':  # Tuerkis-Gegenlicht gegenueber der Kamera: Orange/Tuerkis-Kontrast der Spielplakate
+            k = bpy.context.scene.camera.location
+            abstand = k.length
+            licht('AREA', (-k.x * 0.8, -k.y * 0.8 + abstand * 0.6, k.z * 0.9), 30 * abstand ** 2,
+                  (0.15, 0.75, 1.0), groesse=abstand * 0.5)
         start = time.time()
         datei = AUS / f'{name}.jpg'
         bpy.context.scene.render.filepath = str(datei.resolve())
         bpy.ops.render.render(write_still=True)
-        ergebnis.append({'szene': name, 'sekunden': round(time.time() - start, 1), 'samples': SAMPLES,
+        ergebnis.append({'szene': name, 'sekunden': round(time.time() - start, 1), 'samples': SAMPLES, 'stil': STIL,
                          'datei': datei.name, 'blender': bpy.app.version_string})
         print(json.dumps(ergebnis[-1]), flush=True)
     (AUS / 'blenderprobe.json').write_text(json.dumps(ergebnis, indent=1), encoding='utf-8')

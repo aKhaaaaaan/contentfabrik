@@ -1964,13 +1964,17 @@ def untertitel(woerter, pfad, profil=None, akzente=()):
     # Nachbarwoerter rutschten bei jedem Wort; lange Dreiergruppen brachen um.
     # Jetzt: Gruppen nach Zeichen (max. 18, ohne Umbruch, Satzende = neue
     # Gruppe), das Wort nur farbig; ein „Pop" der GANZEN Zeile je neuer Gruppe.
-    zeig = lambda x: re.sub(r'[{}\\\r\n]', '', x.strip('.,!?;:"')).upper()
+    # GEMESSEN 12.11.2026 (American Airlines): "CEO C. R. Smith" wurde "CEO C" | "R" | "SMITH" - der Punkt einer
+    # Initiale (oder von Mr./Dr./Jr./St.) ist kein Satzende; die Initiale behaelt ihren Punkt.
+    initiale = lambda x: re.fullmatch(r'"?(?:[A-Za-z]\.)+|(?:Mr|Mrs|Ms|Dr|Jr|Sr|St)\.', x.strip()) is not None
+    zeig = lambda x: re.sub(r'[{}\\\r\n]', '', x.strip(',!?;:"') if initiale(x)
+                            else x.strip('.,!?;:"')).upper()
     font = schrift(groesse, str(SCHRIFTEN / 'Anton-Regular.ttf'))
     gruppen, g = [], []
     for w in woerter:
         laenge = sum(len(zeig(x['w'])) + 1 for x in g) + len(zeig(w['w']))
         candidate = ' '.join(zeig(x['w']) for x in g + [w])
-        if g and (laenge > zeichen or len(g) == gruppen_max or g[-1]['w'][-1:] in '.!?'
+        if g and (laenge > zeichen or len(g) == gruppen_max or (g[-1]['w'][-1:] in '.!?' and not initiale(g[-1]['w']))
                   or w['s'] - g[-1]['e'] > .7 or font.getlength(candidate) > breite):
             gruppen.append(g)
             g = []

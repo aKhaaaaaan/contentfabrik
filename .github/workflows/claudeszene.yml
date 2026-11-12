@@ -1,0 +1,82 @@
+# Probe 12.11.2026 (Nutzer: "Bekommt Blender auch Prompts?" -> "deine Empfehlungen"): Claude beschreibt zu einem
+# Skriptsatz eine 3D-Szene als JSON (fabrik/szene3d.py, gepruefte Grenzen, kein Code), Blender rendert sie im Look
+# des Nutzer-Favoriten, Farblook Stufe 1, Telegram. Kein Einfluss auf die Produktion; Claude ueber das Abo.
+name: claudeszene
+on:
+  workflow_dispatch:
+    inputs:
+      saetze:
+        description: 'Bis zu 3 Skriptsaetze, getrennt durch |'
+        required: true
+jobs:
+  szene:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Claude beschreibt die Szenen
+        env:
+          SAETZE: ${{ inputs.saetze }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          npm install -g -s @anthropic-ai/claude-code
+          mkdir -p szenen
+          python3 - <<'EOF'
+          import os, subprocess
+          saetze = [s.strip() for s in os.environ['SAETZE'].split('|') if s.strip()][:3]
+          for i, satz in enumerate(saetze, 1):
+              r = subprocess.run(['python3', 'fabrik/szene3d.py', satz[:300], f'szenen/{i}.json'])
+              print('Satz', i, 'Code', r.returncode)
+          EOF
+          ls szenen
+      - name: Blender holen
+        run: |
+          sudo apt-get -qq update && sudo apt-get -qq install -y libxi6 libxxf86vm1 libxfixes3 libxrender1 libgl1 libsm6 libxkbcommon0 > /dev/null
+          curl -sSfL https://download.blender.org/release/Blender4.2/blender-4.2.3-linux-x64.tar.xz -o blender.tar.xz
+          mkdir blender && tar -xf blender.tar.xz -C blender --strip-components=1
+          pip install -q pillow numpy
+      - name: Rendern (ohne Geheimnisse)
+        run: |
+          mkdir -p proben
+          for s in szenen/*.json; do
+            n=$(basename "$s" .json)
+            ./blender/blender -b --factory-startup --python-exit-code 1 -P fabrik/blenderprobe.py -- "out$n" 24 szene "$s" || continue
+            python3 fabrik/farbe3d.py "out$n/szene.jpg" "proben/szene$n.jpg"
+            python3 -c "import json;e=json.load(open('out$n/blenderprobe.json'))[0];e['datei']='szene$n.jpg';json.dump(e,open('proben/szene$n.json','w'))"
+          done
+          ls proben
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: claudeszene
+          path: |
+            proben
+            szenen
+      - name: In Telegram schicken
+        if: ${{ !cancelled() }}
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python3 - <<'EOF'
+          import glob, json, os, urllib.request, uuid
+          token, chat = os.environ['TELEGRAM_BOT_TOKEN'], os.environ['TELEGRAM_CHAT_ID']
+          def tg(methode, felder, datei=None):
+              grenze = uuid.uuid4().hex
+              teile = [f'--{grenze}\r\nContent-Disposition: form-data; name="{k}"\r\n\r\n{v}\r\n'.encode() for k, v in felder.items()]
+              if datei:
+                  teile.append(f'--{grenze}\r\nContent-Disposition: form-data; name="photo"; filename="b.jpg"\r\n'
+                               'Content-Type: image/jpeg\r\n\r\n'.encode() + open(datei, 'rb').read() + b'\r\n')
+              teile.append(f'--{grenze}--\r\n'.encode())
+              req = urllib.request.Request(f'https://api.telegram.org/bot{token}/{methode}', data=b''.join(teile),
+                                           headers={'Content-Type': f'multipart/form-data; boundary={grenze}'})
+              return json.load(urllib.request.urlopen(req, timeout=60))
+          ergebnisse = sorted(glob.glob('proben/szene*.json'))
+          tg('sendMessage', {'chat_id': chat, 'text': f'🎬 Probe "Claude baut die 3D-Szene": {len(ergebnisse)} Szenen '
+                             '(Claude beschreibt, Blender rendert online, Farblook Stufe 1).' if ergebnisse else
+                             '🎬 Probe "Claude baut die 3D-Szene" fehlgeschlagen - siehe GitHub-Log.'})
+          for p in ergebnisse:
+              e = json.load(open(p))
+              tg('sendPhoto', {'chat_id': chat, 'caption': f"„{e['satz'][:300]}“\n→ {e['szene']} ({e['objekte']} Teile, "
+                               f"{e['sekunden']} s)"}, 'proben/' + e['datei'])
+          EOF

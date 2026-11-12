@@ -287,8 +287,46 @@ def projektion(gemaelde, szene='chip', bilder=120, grad=6, heran=0.40):
     (AUS / 'blenderprobe.json').write_text(json.dumps(ergebnis, indent=1), encoding='utf-8')
 
 
+def szene_aus_json(pfad):
+    """Probe 12.11. "Claude als 3D-Regisseur": Szene aus geprueftem JSON (fabrik/szene3d.py) im Look des
+    Nutzer-Favoriten (Runde 2: warmes Holz, dunkle Welt, AgX Punchy) - nur Grundformen, kein fremder Code."""
+    d = json.loads(Path(pfad).read_text(encoding='utf-8'))
+    leeren()
+    holztisch()
+    for i, o in enumerate(d['objekte']):
+        mat = stoff(f'm{i}', tuple(o['farbe']), o['rauheit'], o['metall'])
+        x, y, z = o['masse']
+        if o['form'] == 'box':
+            obj = kiste(f'o{i}', tuple(o['ort']), (x, y, z), mat, min(0.003, min(x, y, z) / 4))
+        elif o['form'] == 'zylinder':
+            obj = walze(f'o{i}', tuple(o['ort']), max(x, y) / 2, z, mat)
+        else:
+            bpy.ops.mesh.primitive_uv_sphere_add(location=tuple(o['ort']), segments=48, ring_count=24)
+            obj = bpy.context.object
+            obj.scale = (x / 2, y / 2, z / 2)
+            bpy.ops.object.shade_smooth()
+            obj.data.materials.append(mat)
+        obj.rotation_euler = tuple(math.radians(g) for g in o['drehung_grad'])
+    for l in d['lichter']:
+        licht('AREA', tuple(l['ort']), l['staerke'], tuple(l['farbe']), groesse=0.5)
+    k = d['kamera']
+    kamera(tuple(k['ort']), tuple(k['ziel']), k['brennweite'])
+    bpy.context.scene.camera.data.dof.aperture_fstop = 8
+    AUS.mkdir(parents=True, exist_ok=True)
+    datei = AUS / 'szene.jpg'
+    bpy.context.scene.render.filepath = str(datei.resolve())
+    start = time.time()
+    bpy.ops.render.render(write_still=True)
+    ergebnis = [{'szene': d.get('motiv', 'szene')[:60], 'sekunden': round(time.time() - start, 1), 'samples': SAMPLES,
+                 'stil': 'szene', 'datei': 'szene.jpg', 'blender': bpy.app.version_string,
+                 'satz': d.get('satz', ''), 'objekte': len(d['objekte'])}]
+    (AUS / 'blenderprobe.json').write_text(json.dumps(ergebnis, indent=1), encoding='utf-8')
+
+
 def main():
     AUS.mkdir(parents=True, exist_ok=True)
+    if STIL == 'szene':  # ARGS[3]: von Claude beschriebene, mit szene3d.pruefen gepruefte Szene (JSON)
+        return szene_aus_json(Path(ARGS[3]))
     if STIL == 'projektion':  # ARGS[4]: Szene (12.11.: alle drei Bibliotheksmotive als Drehclip)
         return projektion(Path(ARGS[3]), ARGS[4] if len(ARGS) > 4 else 'chip')
     ergebnis = []

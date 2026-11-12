@@ -144,6 +144,13 @@ def gespraech_grund(text):
     if re.fullmatch(r'(?:bitte )?(?:(?:auf|zu) )?tiktok (?:hochladen|uploaden|posten|veroeffentlichen|'
                     r'veröffentlichen)|(?:bitte )?(?:hochladen|uploaden|posten)(?: (?:auf|zu) tiktok)?', normal):
         return 'uploadauftrag'
+    # GEMELDET 12.11.2026: "Poste ich die alle zusammen oder wie?" (Frage zum Karussell) wurde Business-Idee 7.
+    # Nur deutsche Bedienfragen in erster Person ("<tun> ich/wir", optional mit Fragewort davor) - eine
+    # Themenidee als Frage ("Why did Kodak fail?", "Was ist Perplexity Comet?") bleibt ein Thema.
+    if str(text or '').strip().endswith('?') and re.match(
+            r'(?:(?:wie|wann|wo|was|warum|wieso|oder)\s+)?(?:poste|soll|sollen|kann|k[oö]nnen|muss|m[uü]ssen|mache|'
+            r'machen|lade|laden|schicke|schicken|darf|d[uü]rfen|teile|teilen)\s+(?:ich|wir)\b', normal):
+        return 'frage'
     return None
 
 
@@ -336,6 +343,9 @@ def abholen():
         if gespraech:
             merken(u['update_id'], 'Danke, deine Bestaetigung wurde gelesen; kein neues Videothema gespeichert.'
                    if gespraech == 'bestaetigung' else
+                   'Das sieht nach einer Frage aus, nicht nach einem Videothema - nichts gespeichert. '
+                   'Fragen zur Bedienung bitte direkt an Claude.'
+                   if gespraech == 'frage' else
                    'Fuer den TikTok-Entwurf tippe auf "TikTok-Entwurf hochladen" beim jeweiligen Video. '
                    'So ist die genaue Datei zugeordnet. Diese Nachricht wurde nicht als Videothema gespeichert.')
             continue

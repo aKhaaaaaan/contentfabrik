@@ -210,7 +210,9 @@ def regal():
 SZENEN = {'vertrag': vertrag, 'chip': chip, 'regal': regal}
 
 
-def projektion(gemaelde, szene='chip', bilder=72, grad=12):
+def projektion(gemaelde, szene='chip', bilder=180, grad=6, heran=0.15):
+    # Nutzer 12.11. abends: "es muss nicht viel drehen, sondern kurze Drehungen und rein zoomen" - statt +-12 Grad
+    # hin und zurueck jetzt +-6 Grad in EINE Richtung plus langsames Heranfahren (+15 %), 6 s @30 fps.
     """Runde 4 (12.11., Nutzer: "kann man die mit Codex gemalten Blender-Motive nicht etwas drehen?"):
     Camera Projection Mapping - das Codex-Gemaelde wird aus der Originalkamera auf dieselbe Geometrie projiziert
     (UV-Project), nur Emission (die Malerei bringt Licht und Schatten mit). Danach dreht die Renderkamera
@@ -256,14 +258,18 @@ def projektion(gemaelde, szene='chip', bilder=72, grad=12):
         mod.aspect_x, mod.aspect_y = s.render.resolution_x, s.render.resolution_y
     ziel = Vector((0.0, 0.0, 0.01))
     start_ort = kam.location - ziel
-    s.frame_start, s.frame_end, s.render.fps = 1, bilder, 24
+    s.frame_start, s.frame_end, s.render.fps = 1, bilder, 30
+    basis = kam.data.lens
     for f in range(1, bilder + 1):
         t = (f - 1) / (bilder - 1)
-        winkel = math.radians(-grad + 2 * grad * (0.5 - 0.5 * math.cos(math.pi * t)))  # weicher Schwenk -grad..+grad
+        weich = 0.5 - 0.5 * math.cos(math.pi * t)
+        winkel = math.radians(-grad + 2 * grad * weich)  # weicher Schwenk -grad..+grad
         kam.location = ziel + Matrix.Rotation(winkel, 4, 'Z') @ start_ort
         richten(kam, tuple(ziel))
+        kam.data.lens = basis * (1 + heran * weich)  # langsam heran
         kam.keyframe_insert('location', frame=f)
         kam.keyframe_insert('rotation_euler', frame=f)
+        kam.data.keyframe_insert('lens', frame=f)
     s.render.image_settings.file_format = 'PNG'
     s.render.filepath = str((AUS / 'proj' / '').resolve()) + '/'
     start = time.time()

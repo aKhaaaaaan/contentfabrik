@@ -42,15 +42,16 @@ jobs:
           if [ "$STIL" = projektion ]; then
             case "$VORLAGE" in blenderprojektion-[a-z0-9-]*) ;; *) echo "ungueltige Vorlage"; exit 1 ;; esac
             gh release download "$VORLAGE" -D vorlage
-            # 12.11.: je Vorlage (vertrag/chip/regal.jpg, alt: gemaelde.jpg = chip) ein Drehclip; hin und zurueck
-            # (6 s, 30 fps) laeuft nahtlos weiter, wenn eine Einstellung laenger dauert.
+            # 12.11.: je Vorlage (vertrag/chip/regal.jpg, alt: gemaelde.jpg = chip) ein Drehclip
+            # (6 s, 30 fps); laengere Einstellungen halten das letzte Bild.
             mkdir -p proben  # GEMESSEN 12.11. (43250855082): Ordner entstand erst durch Blender
             echo '[]' > proben/alle.json
             for vorlage in vorlage/*.jpg; do
               name=$(basename "$vorlage" .jpg); szene=$name; [ "$name" = gemaelde ] && szene=chip
               case "$szene" in vertrag|chip|regal) ;; *) continue ;; esac
               ./blender/blender -b --factory-startup --python-exit-code 1 -P fabrik/blenderprobe.py -- proben "$SAMPLES" projektion "$vorlage" "$szene"
-              ffmpeg -loglevel error -framerate 24 -i proben/proj/%04d.png -filter_complex "[0]split[a][b];[b]reverse[r];[a][r]concat=n=2:v=1,fps=30" -c:v libx264 -pix_fmt yuv420p -crf 20 "proben/$szene.mp4"
+              # Nutzer 12.11. abends: kleine Drehung + Heranfahren in EINE Richtung (zurueck wuerde wieder herauszoomen)
+              ffmpeg -loglevel error -framerate 30 -i proben/proj/%04d.png -c:v libx264 -pix_fmt yuv420p -crf 20 "proben/$szene.mp4"
               rm -rf proben/proj
               python3 -c "import json;a=json.load(open('proben/alle.json'));e=json.load(open('proben/blenderprobe.json'))[0];e['datei']='$szene.mp4';a.append(e);json.dump(a,open('proben/alle.json','w'),indent=1)"
             done

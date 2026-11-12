@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Blender holen (offizielles LTS-Paket)
         run: |
-          sudo apt-get -qq update && sudo apt-get -qq install -y libxi6 libxxf86vm1 libxfixes3 libxrender1 libgl1 libsm6 libxkbcommon0 > /dev/null
+          sudo apt-get -qq update && sudo apt-get -qq install -y libxi6 libxxf86vm1 libxfixes3 libxrender1 libgl1 libsm6 libxkbcommon0 ffmpeg > /dev/null
           curl -sSfL https://download.blender.org/release/Blender4.2/blender-4.2.3-linux-x64.tar.xz -o blender.tar.xz
           mkdir blender && tar -xf blender.tar.xz -C blender --strip-components=1
           ./blender/blender --version | head -1
@@ -42,12 +42,12 @@ jobs:
           if [ "$STIL" = projektion ]; then
             case "$VORLAGE" in blenderprojektion-[a-z0-9-]*) ;; *) echo "ungueltige Vorlage"; exit 1 ;; esac
             gh release download "$VORLAGE" -D vorlage
-            ./blender/blender -b --factory-startup -P fabrik/blenderprobe.py -- proben "$SAMPLES" projektion vorlage/gemaelde.jpg
+            ./blender/blender -b --factory-startup --python-exit-code 1 -P fabrik/blenderprobe.py -- proben "$SAMPLES" projektion vorlage/gemaelde.jpg
             ffmpeg -loglevel error -framerate 24 -i proben/proj/%04d.png -c:v libx264 -pix_fmt yuv420p -crf 20 proben/proj.mp4
             rm -rf proben/proj
             gh release delete "$VORLAGE" --yes --cleanup-tag || true
           else
-            ./blender/blender -b --factory-startup -P fabrik/blenderprobe.py -- proben "$SAMPLES" "$STIL"
+            ./blender/blender -b --factory-startup --python-exit-code 1 -P fabrik/blenderprobe.py -- proben "$SAMPLES" "$STIL"
           fi
       # Runde 2 (12.11.): derselbe Malfilter "Gemalt+" wie bei den Clips, damit 3D zum gemalten Kanalstil passt.
       - name: Malfilter

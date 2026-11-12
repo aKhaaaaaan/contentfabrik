@@ -55,6 +55,9 @@ def leeren():
         linien = fs.linesets[0] if len(fs.linesets) else fs.linesets.new('linien')
         linien.select_by_visibility = True
         linien.select_silhouette = linien.select_border = linien.select_crease = True
+        # GEMESSEN 12.11. (Lauf 43229413778): ein neues Lineset in der leeren Fabrikszene hat KEINEN Linienstil
+        if linien.linestyle is None:
+            linien.linestyle = bpy.data.linestyles.new('tusche')
         linien.linestyle.color = (0.02, 0.01, 0.01)
     return s
 
@@ -223,6 +226,9 @@ def projektion(gemaelde, szene='chip', bilder=72, grad=12):
     kam.data.dof.use_dof = False
     projektor = kam.copy()  # bleibt stehen, waehrend die Renderkamera faehrt
     projektor.data = kam.data.copy()
+    # GEMESSEN 12.11. (Lauf 43229457145): bei +-12 Grad sah die Kamera ueber die bemalte Flaeche hinaus -
+    # Randstreifen links/oben. Die fahrende Kamera zoomt leicht heran, der Projektor behaelt das Original.
+    kam.data.lens *= 1.18
     s.collection.objects.link(projektor)
     bild = bpy.data.images.load(str(gemaelde))
     mat = bpy.data.materials.new('gemaelde')

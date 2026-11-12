@@ -40,8 +40,19 @@ jobs:
           case "$SAMPLES" in ''|*[!0-9]*) SAMPLES=24 ;; esac
           case "$STIL" in real|projektion) ;; *) STIL=toon ;; esac
           if [ "$STIL" = projektion ]; then
-            case "$VORLAGE" in blenderprojektion-[a-z0-9-]*) ;; *) echo "ungueltige Vorlage"; exit 1 ;; esac
-            gh release download "$VORLAGE" -D vorlage
+            if [ -n "$VORLAGE" ]; then
+              case "$VORLAGE" in blenderprojektion-[a-z0-9-]*) ;; *) echo "ungueltige Vorlage"; exit 1 ;; esac
+              gh release download "$VORLAGE" -D vorlage
+            else
+              # Nutzer 12.11.: Favorit = Blender-Render Runde 2 (24 Samples) + "waermer, mehr Farbe" (Stufe 1,
+              # fabrik/farbe3d.py) - komplett online: Standbild rendern, Farblook, dann Drehclip daraus.
+              pip install -q pillow numpy
+              ./blender/blender -b --factory-startup --python-exit-code 1 -P fabrik/blenderprobe.py -- standbild 24 real
+              mkdir -p vorlage
+              for szene in vertrag chip; do
+                python3 fabrik/farbe3d.py "standbild/$szene.jpg" "vorlage/$szene.jpg"
+              done
+            fi
             # 12.11.: je Vorlage (vertrag/chip/regal.jpg, alt: gemaelde.jpg = chip) ein Drehclip
             # (4 s, 30 fps); laengere Einstellungen halten das letzte Bild.
             mkdir -p proben  # GEMESSEN 12.11. (43250855082): Ordner entstand erst durch Blender
@@ -56,7 +67,9 @@ jobs:
               python3 -c "import json;a=json.load(open('proben/alle.json'));e=json.load(open('proben/blenderprobe.json'))[0];e['datei']='$szene.mp4';a.append(e);json.dump(a,open('proben/alle.json','w'),indent=1)"
             done
             mv proben/alle.json proben/blenderprobe.json
-            gh release delete "$VORLAGE" --yes --cleanup-tag || true
+            [ -z "$VORLAGE" ] || gh release delete "$VORLAGE" --yes --cleanup-tag || true
+            # Standbilder mit Farblook mitliefern (Bibliothek: stehendes Motiv)
+            cp vorlage/*.jpg proben/ 2>/dev/null || true
           else
             ./blender/blender -b --factory-startup --python-exit-code 1 -P fabrik/blenderprobe.py -- proben "$SAMPLES" "$STIL"
           fi

@@ -146,7 +146,8 @@ def kamera(ort, ziel, brennweite=50):
 
 def holztisch():
     holz = stoff('holz', (0.16, 0.06, 0.02), 0.4)
-    kiste('tisch', (0, 0, -0.03), (3, 2, 0.06), holz, 0.005)
+    # 12.11.: 3 x 2 m - der Chip-Blick sah oben ueber die Tischkante (dunkler Streifen im Render und im Clip)
+    kiste('tisch', (0, 0, -0.03), (8, 8, 0.06), holz, 0.005)
 
 
 def vertrag():
@@ -180,9 +181,8 @@ def chip():
             kiste(f'fuss{seite}{i}', (x, seite * 0.043, -0.0005), (0.004, 0.0015, 0.012), metall, 0)
     walze('kerbe', (-0.092, 0, 0.0215), 0.006, 0.002, stoff('kerbe', (0.08, 0.08, 0.09), 0.5))
     # Runde 2: Chip liegt AUF der Platine und steht ganz im Bild (Runde 1: zu nah, Platine unscharf daneben)
-    if STIL != 'projektion':  # das Codex-Gemaelde entstand aus Runde 2 ohne sichtbare Platine - Geometrie muss passen
-        gruen = stoff('platine', (0.02, 0.18, 0.07), 0.5)
-        kiste('platine', (0, 0.02, 0.002), (0.34, 0.3, 0.004), gruen, 0.001)  # Runde 2 lag sie unter der Tischplatte
+    # Keine Platine: Nutzer-Favorit (Runde 2) zeigte den Chip allein auf dem Holz (die Platine lag damals versehentlich
+    # unter der Tischplatte); Standbild und Projektion brauchen ausserdem dieselbe Geometrie.
     licht('AREA', (-0.4, -0.3, 0.6), 30, (1, 0.8, 0.6), 0.4, ziel=(0, 0, 0))
     licht('AREA', (0.5, 0.4, 0.4), 15, (0.5, 0.7, 1), 0.3, ziel=(0, 0, 0))
     kamera((0.12, -0.42, 0.38), (0.0, 0.0, 0.01), 35)

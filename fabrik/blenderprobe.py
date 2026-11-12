@@ -222,6 +222,10 @@ def projektion(gemaelde, szene='chip', bilder=120, grad=6, heran=0.40):
     from mathutils import Matrix, Vector
     leeren()
     SZENEN[szene]()
+    # GEMESSEN 12.11. (Lauf 43277804607): der weite Startblick sah ueber die Tischkante ins Leere - dunkler Streifen
+    # (Chip) bzw. Schlieren/schwarze Ecke (Vertrag). Grosser Boden knapp unter dem Tisch: jeder Bildpunkt des
+    # Gemaeldes trifft Geometrie (oberer Bildrand trifft bei beiden Kameras nach ~1,7 m auf den Boden).
+    kiste('boden', (0, 0, -0.004), (12, 12, 0.002), stoff('boden', (0.2, 0.1, 0.05)), 0)
     s = bpy.context.scene
     s.render.use_freestyle = False
     s.view_settings.view_transform, s.view_settings.look = 'Standard', 'None'

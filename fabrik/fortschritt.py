@@ -68,6 +68,17 @@ def melden(kanal, prozent, satz, lauf=None, token=None, url=WORKER):
         return False
 
 
+HERZSCHLAG_S = 10 * 60  # Worker vergisst einen Stand nach 20 Min. (FORTSCHRITT_FRISCH_MS)
+
+
+def senden_noetig(stand, letzt, seit_s):
+    """Neuer Stand (nach Mindestabstand) ODER derselbe Stand als Herzschlag, bevor der Worker ihn vergisst.
+
+    GEMESSEN 13.11.2026 (Rockstar 43479047771): Bild 42/43 bzw. Videopruefung blieben >20 Min. gleich (Wartepausen,
+    Schlusspruefung) - der Worker fiel auf die Uhr-Schaetzung zurueck und zeigte "ca. 20 %"."""
+    return (stand != letzt and seit_s >= MIN_ABSTAND_S) or seit_s >= HERZSCHLAG_S
+
+
 def starten(kanal):
     """Hintergrundfaden; meldet nur Aenderungen, hoechstens alle MIN_ABSTAND_S."""
     if not os.environ.get('GITHUB_RUN_ID') or not os.environ.get('TELEGRAM_BOT_TOKEN'):
@@ -81,7 +92,7 @@ def starten(kanal):
                 if not STAND.get('phase'):
                     continue
                 stand = berechnen(STAND.get('ordner'), STAND['phase'], STAND.get('versuch', 1), STAND.get('basis'))
-                if stand != letzt and time.monotonic() - letzt_zeit >= MIN_ABSTAND_S:
+                if senden_noetig(stand, letzt, time.monotonic() - letzt_zeit):
                     if melden(kanal, *stand):
                         letzt, letzt_zeit = stand, time.monotonic()
             except Exception:

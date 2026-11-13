@@ -106,6 +106,23 @@ def pruefen(prompt,schema,bilder,_nochmal=True,zweck='video'):
 # Pruefung 'nicht verfuegbar', bauen.py fuellte 13 Einstellungen mit denselben zwei Nachbarbildern (bild_passt
 # 2/10, 2,5 Std. Budget ohne Video). bauen.py liest diesen Zaehler und bricht dann mit Anbieterpause ab.
 AUSFAELLE=0
+
+
+def voruebergehend(fehler):
+    """True, wenn Warten hilft: Fehler ist keine Tageskontingent-Meldung ODER ein Pruefmodell ist nur kurz gesperrt.
+
+    GEMESSEN 13.11.2026 (Rockstar Lauf 4 43469854237): die Fehlermeldung nannte nur das LETZTE Modell
+    ("Tageskontingent"), gemini-3.1-flash-lite war aber bloss 300 s wegen 503 gesperrt - kein Warten, Abbruch."""
+    if 'tageskontingent' not in str(fehler).lower():
+        return True
+    try:
+        from skript import SEHEN
+        k=os.environ.get('GEMINI_API_KEY','')
+        return bool(k) and any((g:=ki_speicher.sperre(k,m)) and 'Tageskontingent' not in str(g) for m in SEHEN)
+    except Exception:
+        return False
+
+
 PAUSEN_S=(60,120,180)
 PAUSE_MAX_S=15*60  # je Bauprozess hoechstens so lange auf ueberlastete Pruefer warten (Budget schonen)
 GEWARTET=[0.0]
@@ -136,7 +153,7 @@ def mit_ausweichweg(gemini_aufruf,prompt,schema,bild,zweck='einzelbild'):
             # kurz gesperrt brach den ganzen Bau bei Einstellung 21/30 ab. Ueberlast vergeht: warten, beide neu
             # fragen. Leeres Tageskontingent kommt heute nicht wieder - dann sofort Anbieterpause.
             # Minutenkontingent/Ueberlast vergeht - dort warten; Zugangs-/Auftragsfehler (400/401/403) nicht
-            if 'tageskontingent' not in str(e).lower() \
+            if voruebergehend(e) \
                     and not any(f'HTTP{c}' in str(fehler).replace(' ','')+str(e).replace(' ','') for c in (400,401,403)):
                 for pause in PAUSEN_S:
                     frist=float(os.environ.get('CF_SCHRITT_ENDE','inf'))-time.monotonic()

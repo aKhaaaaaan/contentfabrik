@@ -540,7 +540,11 @@ def gruender_portraet(s, satz, benutzt, ziel):
     for name in personen_im_satz(s, satz)[:2]:
         if name not in PRODUKTFOTOS:
             PRODUKTFOTOS[name] = trends.wiki_bilder(name) if name else []
-        bilder = [b for b in PRODUKTFOTOS[name] if lizenz_portraet_ok(b.get('lizenz'))]
+        # GEMESSEN 13.11.2026 (Rockstar 43433793419): "Hired Guns" (Spieltitel) lieferte ein Adam-Driver-Foto -
+        # PERSON erkennt jedes Wortpaar; ein Portraet zaehlt nur, wenn der Dateiname den Nachnamen traegt.
+        nachname = name.split()[-1].lower()
+        bilder = [b for b in PRODUKTFOTOS[name] if lizenz_portraet_ok(b.get('lizenz'))
+                  and nachname in re.sub(r'[_-]+', ' ', str(b.get('titel', ''))).lower()]
         foto, fq = foto_fuer(bilder, f'Portrait photograph of the real person {name}. Narration: {satz}', benutzt)
         if not foto:
             continue

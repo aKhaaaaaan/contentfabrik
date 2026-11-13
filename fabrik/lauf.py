@@ -206,6 +206,14 @@ def schritt(argumente, deadline):
         raise
 
 
+def _verlauf_liste(kanal):
+    try:
+        v = json.loads((Path('verlauf') / f'{kanal}.json').read_text(encoding='utf-8'))
+        return [e for e in v if isinstance(e, dict)] if isinstance(v, list) else []
+    except (OSError, ValueError):
+        return []
+
+
 def verlauf_eintragen(kanal, skript, status, note, abschnitte=None, messung=None, grund=None):
     p = Path('verlauf') / f'{kanal}.json'
     p.parent.mkdir(exist_ok=True)
@@ -676,10 +684,25 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             except Exception as e:
                 print('Codex-Bilder uebersprungen:', type(e).__name__)
             bau_start = time.monotonic()
+            bilder_vor = entwurf_cache.gepruefte_bilder(cache_kanal, skript.get('thema'))
+            frueher = any(e.get('thema') == skript.get('thema') and e.get('datum') == budget.heute()
+                          and e.get('status') == 'baufehler' for e in _verlauf_liste(kanal))
+            print(f'Fortsetzung: {bilder_vor} gepruefte Bilder im Speicher'
+                  + (' (heute schon ein Bauversuch)' if frueher else ''), flush=True)
             b = (0 if basis and basis[1] is None else schritt(
                 ['fabrik/bauen.py', str(ordner / 'skript.json'), str(ordner)]
                 + ([str(bau_basis)] if bau_basis else [str(basis[0])] if basis else []), arbeit_ende))
             runde['bau_s'] = round(time.monotonic() - bau_start, 1)
+            bilder_nach = entwurf_cache.gepruefte_bilder(cache_kanal, skript.get('thema'))
+            print(f'Fortsetzung: nach dem Bau {bilder_nach} gepruefte Bilder im Speicher', flush=True)
+            verlust = entwurf_cache.fortsetzung_befund(bilder_vor, bilder_nach, frueher)
+            if verlust:
+                try:
+                    import stoerung
+                    stoerung.melden('fortsetzung', f'{kanal}: {verlust}',
+                                    'Bitte Claude Bescheid geben - ein neuer Weg, auf dem fertige Arbeit verloren geht.')
+                except Exception as e:
+                    print('Fortsetzungs-Meldung nicht gesendet:', type(e).__name__)
             if b != 0:
                 letzter_grund = 'Videobau fehlgeschlagen'
                 import illustration

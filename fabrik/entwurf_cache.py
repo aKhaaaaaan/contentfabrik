@@ -128,6 +128,25 @@ def freigegebene_themen(kanal_name=None):
             and v.get('video_sha256') in freigaben and (kanal_name is None or v.get('kanal') == kanal_name)}
 
 
+def gepruefte_bilder(kanal, thema):
+    """Anzahl bestandener, wiederverwendbarer Bilder (ok_*.jpg) des Themas im Bildspeicher."""
+    ordner = bildspeicher(kanal) / bildspeicher_name(thema)
+    return len(list(ordner.glob('ok_*.jpg'))) if ordner.is_dir() else 0
+
+
+def fortsetzung_befund(vor, nach, frueher_gescheitert):
+    """Fortsetzungs-Waechter (Nutzer 13.11.2026, mehrfach gemeldet "faengt von vorne an"): Text bei Verlust, sonst None.
+
+    vor/nach: gepruefte Bilder vor und nach dem Bau; frueher_gescheitert: heute schon ein Bauversuch zu diesem Thema.
+    Jeder bisherige Fix schloss nur EINEN Verlustweg (17.10. Code, 24.10. Untertitel, 06.11. Ersatz, 13.11. Aufraeumen);
+    der Waechter meldet jeden weiteren beim ersten Auftreten."""
+    if frueher_gescheitert and vor == 0:
+        return 'Neustart ohne gespeicherte gepruefte Bilder, obwohl heute schon gebaut wurde - alles wird neu gemalt.'
+    if nach < vor:
+        return f'{vor - nach} gepruefte Bilder waehrend des Baus verloren ({vor} -> {nach}).'
+    return None
+
+
 def offene_bildspeicher(kanal):
     """Bildordner, die ein offener Entwurf (Short ODER Langvideo desselben Kanals) noch braucht.
 

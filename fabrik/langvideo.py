@@ -22,7 +22,7 @@ from pathlib import Path
 
 KANAL = 'business-origin-stories'
 NAME = 'Business Origin Stories'
-ABSTAND_TAGE = 6       # hoechstens ein Langvideo je Woche
+ABSTAND_TAGE = 3       # Nutzer 13.11.2026: 3 statt 6 Tage (nachgeholtes So-Langvideo sperrte den naechsten Fr)
 SUCHFENSTER_TAGE = 8   # Shorts der letzten gut eine Woche als Themenquelle
 
 
@@ -34,10 +34,15 @@ def ist_lang(eintrag):
     return (eintrag.get('einstellungen') or {}).get('videoformat') == 'lang'
 
 
-def faellig(verlauf, heute):
-    """Kein gesendetes Langvideo in den letzten ABSTAND_TAGE Tagen."""
+def faellig(verlauf, heute, kanal=None):
+    """Kein gesendetes Langvideo in den letzten ABSTAND_TAGE Tagen - und (mit kanal) keins seit dem ersten
+    lang_tag dieser Planungswoche: mit 3 statt 6 Tagen haette ein Freitags-Langvideo sonst am Nachhol-Montag ein
+    zweites ausgeloest (doppeltes Budget)."""
     grenze = (heute - datetime.timedelta(days=ABSTAND_TAGE)).isoformat()
-    return not any(ist_lang(e) and e.get('status') == 'gesendet' and str(e.get('datum', '')) > grenze
+    tage = formate().get(kanal) if kanal else None
+    start = (heute - datetime.timedelta(days=(heute.weekday() - TAGE[tage[0]]) % 7)).isoformat() if tage else '9'
+    return not any(ist_lang(e) and e.get('status') == 'gesendet'
+                   and (str(e.get('datum', '')) > grenze or str(e.get('datum', ''))[:10] >= start)
                    for e in verlauf)
 
 
@@ -162,7 +167,7 @@ def vorpruefung(heute=None, eingabe='', kanal=KANAL):
     geliefert = json.loads(g.read_text(encoding='utf-8')) if g.exists() else []
     if eingabe:
         return True, eingabe
-    if not faellig(verlauf, heute):
+    if not faellig(verlauf, heute, kanal):
         return False, ''
     # GEMESSEN 17.10.2026: der Sonntag haette Enron (neuester Short) gewaehlt, obwohl ein gepruefter
     # Coca-Cola-Entwurf samt Stimme bereitlag. Erst fertig bauen, was schon bezahlt/geprueft ist.
@@ -283,7 +288,7 @@ def zuteilung(heute, tage=14):
     for i in range(tage):
         d = heute + datetime.timedelta(days=i)
         for k in anwaerter(d):
-            if k in fertig or not faellig(verlaeufe[k], d) or (d == heute and not budget_frei(k, d)):
+            if k in fertig or not faellig(verlaeufe[k], d, k) or (d == heute and not budget_frei(k, d)):
                 continue
             aus[d] = k
             fertig.add(k)

@@ -19,7 +19,9 @@ from pathlib import Path
 
 import bibliothek
 
-AB = datetime.date(2026, 11, 26)
+# Nutzer 13.11.2026: "heute schon einbauen ... wegen GTA-Release am 19.11." (statt 26.11.). Beide Kanaele bekommen die
+# Bilder gleichzeitig - der Kurztest-Vergleich KI/Business (Laenge) bleibt fair; bei der Auswertung 25.11. vermerken.
+AB = datetime.date(2026, 11, 13)
 PREFIX = 'codexbilder-'
 ORDNER = bibliothek.ORDNER / 'codex'
 QUELLE = 'Eigene KI-Illustration (Codex image_gen, vorab gemalt)'

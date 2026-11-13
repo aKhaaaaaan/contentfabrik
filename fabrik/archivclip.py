@@ -238,6 +238,13 @@ WITZ_SITUATIONEN = [
     (r'\b(?:wait\w*|queues?|delays?)\b', 'waiting'),
     (r'\b(?:failed|fails|failure|mistakes?|wrong|chaos)\b', 'trouble'),
     (r'\b(?:race|racing|faster|rivals?|competitors?)\b', 'race'),
+    # GEMESSEN 13.11.2026 (KI 43392866274, Nutzer "Es fehlen Clips mit Cartoons witzige"): KI-Saetze trafen keine
+    # Situation, gesucht wurde "screenshot"/"storage" -> Zufallsfilme 2-3/10. Archiv-Treffer live: office 5
+    # (Office Help 1925, The Office Boy 1930), machine 5, surprised 3. Tech-Saetze auf Alltagssituationen abbilden.
+    (r'\b(?:interns?|employees?|assistants?|boss|colleagues?|hired|office|coworkers?)\b', 'office'),
+    (r'\b(?:strange\w*|weird|hidden|secret\w*|surpris\w*|unexpected\w*|shock\w*|quietly)\b', 'surprised'),
+    (r'\b(?:install\w*|computers?|machines?|robots?|automat\w*|apps?|software|agents?|clicks?|runtime)\b',
+     'machine'),
 ]
 
 

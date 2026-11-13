@@ -57,10 +57,13 @@ def holen(kanal_slug, kanalname, thema, text, heute=None, repo=None):
     if not aktiv(heute):
         return []
     repo = repo or os.environ.get('GITHUB_REPOSITORY', 'aKhaaaaaan/contentfabrik')
+    # 13.11. (KI 43401065863): der Autor formuliert das Thema um - deshalb zaehlt auch das Eingabethema (Liste).
+    tags = {f'{PREFIX}{kanal_slug}-{slug(t)}' for t in (thema if isinstance(thema, (list, tuple)) else [thema])
+            if str(t or '').strip()}
     neu = []
     try:
         for rel in releases(repo):
-            if rel.get('tag_name') != f'{PREFIX}{kanal_slug}-{slug(thema)}':
+            if rel.get('tag_name') not in tags:
                 continue
             assets = {a['name']: a['url'] for a in rel.get('assets', [])}
             if 'bilder.json' not in assets:

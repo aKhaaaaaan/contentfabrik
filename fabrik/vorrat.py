@@ -254,17 +254,19 @@ def gescheitert_merken(kanal, thema, code, heute=None):
     pfad.write_text(json.dumps(liste, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
 
 
-def offene_themen(kanal):
+def offene_themen(kanal, lang=False):
     """Naechste Warteschlangen-Themen ohne Vorratsskript (auch spaeter geplante), ohne kuerzlich gescheiterte."""
-    return [t for t in _offene_themen(kanal) if t not in gescheitert(kanal)]
+    return [t for t in _offene_themen(kanal, lang=lang) if t not in gescheitert(kanal)]
 
 
-def _offene_themen(kanal):
+def _offene_themen(kanal, lang=False):
     import themen
     vorhanden = {e.get('thema_eingabe') for _, e in eintraege(kanal)}
     offen = [x['thema'] for x in themen.laden() if x['kanal'] == kanal
              and x.get('status', 'bereit') == 'bereit' and x['thema'] not in vorhanden
-             and not themen.gespraech_grund(x['thema'])]
+             and not themen.gespraech_grund(x['thema'])
+             # GEMESSEN 13.11.2026 (43423662764): Kurz-Vorrat schrieb das Rockstar-LANGvideo-Thema als Short
+             and (x.get('format') == 'lang') == lang]
     # GEMELDET 09.10.2026: „Themen so sortieren, was aktuell gehypt ist." Der Trend-Check des
     # Tages (derselbe, den der Videolauf danach aus verlauf/trendcheck/ wiederverwendet) legt
     # die Reihenfolge fest - das Skript fuer das heisseste Thema liegt morgens schon bereit.
@@ -304,8 +306,8 @@ def fuellen(kanal_pfad, frist_s=1500):
     aufraeumen(kanal_pfad)
     ende = time.monotonic() + frist_s
     neu = 0
-    themenliste = offene_themen(kanal)
     daten = _kanal_daten(kanal_pfad)
+    themenliste = offene_themen(kanal, lang=daten.get('videoformat') == 'lang')
     while len(eintraege_format(kanal, daten)) < ZIEL and time.monotonic() + 300 < ende:
         # Ohne Warteschlangen-Thema waehlt skript.py selbst (AI-Kanal: aktuelle Werkzeuge).
         thema = themenliste.pop(0) if themenliste else ''

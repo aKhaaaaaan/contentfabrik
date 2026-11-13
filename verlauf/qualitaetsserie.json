@@ -177557,6 +177557,1431 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "43392866274.1:business-origin-stories",
+      "run_id": "43392866274",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-13T09:04:27.543071+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "d4bb1a48597f07cfbbc59ec3e22c2247d6889ff5",
+      "produktionsversion": "40575a202dd92b63873c157a3d5d13fd7b6f824a5c1b6e2d45eefb71b4e98dc3",
+      "videoformat": "short",
+      "thema": "Rockstar North",
+      "titel": [
+        "£0.75 A COPY, THEN GTA",
+        "*DMA* DESIGN'S FIRST DEAL"
+      ],
+      "status": "gesendet",
+      "video_sha256": "c1f560e8ec54daa0685302d7bdedf5d7b3e7b1389e59d0f05d4b8fef3fb79ec7",
+      "video_gebaut": true,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-11.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Phrase fragt 'So why keep going?' im Kontext der Spiel-Historie von DMA Design, aber das Bild zeigt einen verängstigten Mann in einer Gasse, was keinen Bezug zur Spielegeschichte von 1988 darstellt.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die Szene zeigt einen Mann auf einer nächtlichen Stadtstraße und hat keinen Bezug zu Lemmings, dem Spiel oder dem Jahr 1991.",
+        "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen Grand Theft Auto V als das profitabelste Unterhaltungsprodukt, aber das Bild zeigt lediglich eine allgemeine Büroszene mit gezeichneten Personen ohne jeden Bezug zu Grand Theft Auto V.",
+        "Offenes Problem (schwer): Die gesprochene Phrase fragt 'So why keep going?' im Kontext der Spiel-Historie von DMA Design, aber das Bild zeigt einen verängstigten Mann in einer Gasse, was keinen Bezug zur Spielegeschichte von 1988 darstellt. Korrektur: Eine historische Spielverpackung oder ein zeitgenössisches Bild des Spiels Menace von 1988.",
+        "Offenes Problem (schwer): Die Szene zeigt einen Mann auf einer nächtlichen Stadtstraße und hat keinen Bezug zu Lemmings, dem Spiel oder dem Jahr 1991. Korrektur: Ein historisches Foto oder eine Illustration des Computerspiels Lemmings oder des Entwicklerteams aus dem Jahr 1991.",
+        "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen Grand Theft Auto V als das profitabelste Unterhaltungsprodukt, aber das Bild zeigt lediglich eine allgemeine Büroszene mit gezeichneten Personen ohne jeden Bezug zu Grand Theft Auto V. Korrektur: Eine Illustration oder ein Bild, das sich konkret auf Grand Theft Auto V oder das Studio Rockstar North bezieht."
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 12,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "43392866274",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-13",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 607.9,
+            "pruefung_s": 35.4,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage 'So why keep going?' in Verbindung mit der Nennung von Menace und Oktober 1988 ist eine rhetorische Übergangsfrage und ein historischer Kontext, aber die gezeigte Szene stellt eine generile Gruppe von Personen in einer fiktiven Stadt dar und zeigt keinen Bezug zur Entstehung vo",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eingeblendete Textstatistiken ohne visuelle Darstellung des Spiels Menace oder des erwähnten Autos.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Ladenfront und ein rosa Gebäude im Comic-Stil, aber es ist kein Büro oder ein Schwiegervater mit einer Chip-Shop-Bude zu sehen.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen den Erfolg des Spiels Lemmings im Jahr 1991. Das Bild zeigt jedoch lediglich eine unbezügliche Straßenszene mit mehreren Personen in historischer Kleidung ohne Bezug zu Lemmings.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine generische nächtliche Straßenszene und einen Mann, aber es ist kein Studio, kein Spieleentwickler und kein Bezug zu Grand Theft Auto oder dem genannten Studio erkennbar.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen Grand Theft Auto V als das profitabelste Unterhaltungsprodukt, aber das Bild zeigt nur eine generchte illustrierte Stadtlandschaft und einen Mann ohne Bezug zu GTA V",
+              "Offenes Problem (schwer): Die gesprochene Frage 'So why keep going?' in Verbindung mit der Nennung von Menace und Oktober 1988 ist eine rhetorische Übergangsfrage und ein historischer Kontext, aber die gezeigte Szene stellt eine generile Gruppe von Personen in einer fiktiven Stadt dar und zeigt keinen Bezug zur Entstehung von Menace oder DMA Design. Korrektur: Eine historische Illustration oder Darstellung des Spiels Menace oder der Entwickler im Jahr 1988.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eingeblendete Textstatistiken ohne visuelle Darstellung des Spiels Menace oder des erwähnten Autos. Korrektur: Ein zeitgenössisches Foto oder ein historischer Screenshot des Computerspiels Menace sowie das erwähnte Auto.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Ladenfront und ein rosa Gebäude im Comic-Stil, aber es ist kein Büro oder ein Schwiegervater mit einer Chip-Shop-Bude zu sehen. Korrektur: Ein Foto oder eine Illustration, die ein einfaches Büro oder einen Ladenbesitzer zeigt, der Räumlichkeiten zur Verfügung stellt.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen den Erfolg des Spiels Lemmings im Jahr 1991. Das Bild zeigt jedoch lediglich eine unbezügliche Straßenszene mit mehreren Personen in historischer Kleidung ohne Bezug zu Lemmings. Korrektur: Eine historische Illustration oder Darstellung des Computerspiels Lemmings oder des Entwicklerteams aus dem Jahr 1991.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generische nächtliche Straßenszene und einen Mann, aber es ist kein Studio, kein Spieleentwickler und kein Bezug zu Grand Theft Auto oder dem genannten Studio erkennbar. Korrektur: Ein historisches Foto oder eine Illustration des Entwicklerstudios DMA Design / Rockstar North oder Entwickler bei der Arbeit an Grand Theft Auto.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen Grand Theft Auto V als das profitabelste Unterhaltungsprodukt, aber das Bild zeigt nur eine generchte illustrierte Stadtlandschaft und einen Mann ohne Bezug zu GTA V Korrektur: Eine realistische oder in-game Darstellung von Grand Theft Auto V oder den Machern im Studio"
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Fenrir",
+              "stimme": 12.2,
+              "zeitmarken": 4.6,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "bilder_vereinfacht": 4,
+              "clips_und_stuecke": 446.8,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 12,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 48.7,
+              "gesamt": 607.0,
+              "videolaenge_s": 42.6,
+              "abschnitte_s": [
+                6.54,
+                7.0,
+                5.6,
+                5.3,
+                5.92,
+                7.32,
+                4.88
+              ],
+              "woerter": 97,
+              "clips": {
+                "witz": 2,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:10.04",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "in October 1988. So why keep going?",
+                "fest": false,
+                "text": "Die gesprochene Frage 'So why keep going?' in Verbindung mit der Nennung von Menace und Oktober 1988 ist eine rhetorische Übergangsfrage und ein historischer Kontext, aber die gezeigte Szene stellt eine generile Gruppe von Personen in einer fiktiven Stadt dar und zeigt keinen Bezug zur Entstehung von Menace oder DMA Design. Korrektur: Eine historische Illustration oder Darstellung des Spiels Menace oder der Entwickler im Jahr 1988."
+              },
+              {
+                "zeit": "00:13.54",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Menace sold 20,000 copies and bought him a car.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich eingeblendete Textstatistiken ohne visuelle Darstellung des Spiels Menace oder des erwähnten Autos. Korrektur: Ein zeitgenössisches Foto oder ein historischer Screenshot des Computerspiels Menace sowie das erwähnte Auto."
+              },
+              {
+                "zeit": "00:21.72",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 7,
+                "gesprochen": "His chip-shop-owning father-in-law lent him an office.",
+                "fest": false,
+                "text": "Das Bild zeigt eine Ladenfront und ein rosa Gebäude im Comic-Stil, aber es ist kein Büro oder ein Schwiegervater mit einer Chip-Shop-Bude zu sehen. Korrektur: Ein Foto oder eine Illustration, die ein einfaches Büro oder einen Ladenbesitzer zeigt, der Räumlichkeiten zur Verfügung stellt."
+              },
+              {
+                "zeit": "00:24.44",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Lemmings succeeded in 1991.",
+                "fest": false,
+                "text": "Die gesprochenen Wörter erwähnen den Erfolg des Spiels Lemmings im Jahr 1991. Das Bild zeigt jedoch lediglich eine unbezügliche Straßenszene mit mehreren Personen in historischer Kleidung ohne Bezug zu Lemmings. Korrektur: Eine historische Illustration oder Darstellung des Computerspiels Lemmings oder des Entwicklerteams aus dem Jahr 1991."
+              },
+              {
+                "zeit": "00:30.36",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "Jones's £0.75-a-copy studio made Grand Theft Auto",
+                "fest": false,
+                "text": "Das Bild zeigt eine generische nächtliche Straßenszene und einen Mann, aber es ist kein Studio, kein Spieleentwickler und kein Bezug zu Grand Theft Auto oder dem genannten Studio erkennbar. Korrektur: Ein historisches Foto oder eine Illustration des Entwicklerstudios DMA Design / Rockstar North oder Entwickler bei der Arbeit an Grand Theft Auto."
+              },
+              {
+                "zeit": "00:34.02",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "V, the most profitable entertainment product ever.",
+                "fest": false,
+                "text": "Die gesprochenen Wörter erwähnen Grand Theft Auto V als das profitabelste Unterhaltungsprodukt, aber das Bild zeigt nur eine generchte illustrierte Stadtlandschaft und einen Mann ohne Bezug zu GTA V Korrektur: Eine realistische oder in-game Darstellung von Grand Theft Auto V oder den Machern im Studio"
+              }
+            ],
+            "sekunden": 643.4,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-11.2"
+            },
+            "skript_s": 2.6,
+            "bau_s": 372.3,
+            "pruefung_s": 23.3,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Phrase fragt 'So why keep going?' im Kontext der Spiel-Historie von DMA Design, aber das Bild zeigt einen verängstigten Mann in einer Gasse, was keinen Bezug zur Spielegeschichte von 1988 darstellt.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die Szene zeigt einen Mann auf einer nächtlichen Stadtstraße und hat keinen Bezug zu Lemmings, dem Spiel oder dem Jahr 1991.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen Grand Theft Auto V als das profitabelste Unterhaltungsprodukt, aber das Bild zeigt lediglich eine allgemeine Büroszene mit gezeichneten Personen ohne jeden Bezug zu Grand Theft Auto V.",
+              "Offenes Problem (schwer): Die gesprochene Phrase fragt 'So why keep going?' im Kontext der Spiel-Historie von DMA Design, aber das Bild zeigt einen verängstigten Mann in einer Gasse, was keinen Bezug zur Spielegeschichte von 1988 darstellt. Korrektur: Eine historische Spielverpackung oder ein zeitgenössisches Bild des Spiels Menace von 1988.",
+              "Offenes Problem (schwer): Die Szene zeigt einen Mann auf einer nächtlichen Stadtstraße und hat keinen Bezug zu Lemmings, dem Spiel oder dem Jahr 1991. Korrektur: Ein historisches Foto oder eine Illustration des Computerspiels Lemmings oder des Entwicklerteams aus dem Jahr 1991.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen Grand Theft Auto V als das profitabelste Unterhaltungsprodukt, aber das Bild zeigt lediglich eine allgemeine Büroszene mit gezeichneten Personen ohne jeden Bezug zu Grand Theft Auto V. Korrektur: Eine Illustration oder ein Bild, das sich konkret auf Grand Theft Auto V oder das Studio Rockstar North bezieht."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 6,
+              "stuecke_neu": 7,
+              "bilder_vereinfacht": 3,
+              "clips_und_stuecke": 243.4,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 12,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 50.0,
+              "gesamt": 372.0,
+              "videolaenge_s": 42.6,
+              "abschnitte_s": [
+                6.54,
+                7.0,
+                5.6,
+                5.3,
+                5.92,
+                7.32,
+                4.88
+              ],
+              "woerter": 97,
+              "clips": {
+                "witz": 3,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:10.04",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "in October 1988. So why keep going?",
+                "fest": false,
+                "text": "Die gesprochene Phrase fragt 'So why keep going?' im Kontext der Spiel-Historie von DMA Design, aber das Bild zeigt einen verängstigten Mann in einer Gasse, was keinen Bezug zur Spielegeschichte von 1988 darstellt. Korrektur: Eine historische Spielverpackung oder ein zeitgenössisches Bild des Spiels Menace von 1988."
+              },
+              {
+                "zeit": "00:24.44",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Lemmings succeeded in 1991.",
+                "fest": false,
+                "text": "Die Szene zeigt einen Mann auf einer nächtlichen Stadtstraße und hat keinen Bezug zu Lemmings, dem Spiel oder dem Jahr 1991. Korrektur: Ein historisches Foto oder eine Illustration des Computerspiels Lemmings oder des Entwicklerteams aus dem Jahr 1991."
+              },
+              {
+                "zeit": "00:34.02",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "V, the most profitable entertainment product ever.",
+                "fest": false,
+                "text": "Die gesprochenen Wörter erwähnen Grand Theft Auto V als das profitabelste Unterhaltungsprodukt, aber das Bild zeigt lediglich eine allgemeine Büroszene mit gezeichneten Personen ohne jeden Bezug zu Grand Theft Auto V. Korrektur: Eine Illustration oder ein Bild, das sich konkret auf Grand Theft Auto V oder das Studio Rockstar North bezieht."
+              }
+            ],
+            "sekunden": 398.2,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "43392866274-2",
+              "datum": "2026-11-13",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 398.2,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-11-11.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                4
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-11.2"
+            },
+            "skript_s": 2.4,
+            "bau_s": 393.9,
+            "pruefung_s": 17.6,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Straßenszene mit Menschen vor historischen Gebäuden, aber weder das Spiel Menace noch das Gründungsjahr 1988 oder die Frage nach dem Weitermachen werden dargestellt.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen fiktiven Block-Charakter in einem Raum, aber keinerlei Bezug zu Lemmings oder einem erfolgreichen Videospiel von 1991.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen Grand Theft Auto V als profitabel, zu sehen ist jedoch nur eine Gruppe unbekannter Männer an einem Tisch.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Straßenszene mit Menschen vor historischen Gebäuden, aber weder das Spiel Menace noch das Gründungsjahr 1988 oder die Frage nach dem Weitermachen werden dargestellt. Korrektur: Eine historische Illustration oder ein Screenshot des Computerspiels Menace aus dem Jahr 1988.",
+              "Offenes Problem (schwer): Das Bild zeigt einen fiktiven Block-Charakter in einem Raum, aber keinerlei Bezug zu Lemmings oder einem erfolgreichen Videospiel von 1991. Korrektur: Eine historische Aufnahme oder Illustration des Spiels Lemmings von 1991 oder ein Bild aus dem Studio während dieser Zeit.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen Grand Theft Auto V als profitabel, zu sehen ist jedoch nur eine Gruppe unbekannter Männer an einem Tisch. Korrektur: Ein Bild aus dem Spiel Grand Theft Auto V oder eine Darstellung des Studios Rockstar North."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 10,
+              "stuecke_neu": 3,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 301.5,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 12,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 50.1,
+              "gesamt": 393.6,
+              "videolaenge_s": 42.6,
+              "abschnitte_s": [
+                6.54,
+                7.0,
+                5.6,
+                5.3,
+                5.92,
+                7.32,
+                4.88
+              ],
+              "woerter": 97,
+              "clips": {
+                "witz": 3,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:10.04",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "in October 1988. So why keep going?",
+                "fest": false,
+                "text": "Das Bild zeigt eine Straßenszene mit Menschen vor historischen Gebäuden, aber weder das Spiel Menace noch das Gründungsjahr 1988 oder die Frage nach dem Weitermachen werden dargestellt. Korrektur: Eine historische Illustration oder ein Screenshot des Computerspiels Menace aus dem Jahr 1988."
+              },
+              {
+                "zeit": "00:24.44",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "Lemmings succeeded in 1991.",
+                "fest": false,
+                "text": "Das Bild zeigt einen fiktiven Block-Charakter in einem Raum, aber keinerlei Bezug zu Lemmings oder einem erfolgreichen Videospiel von 1991. Korrektur: Eine historische Aufnahme oder Illustration des Spiels Lemmings von 1991 oder ein Bild aus dem Studio während dieser Zeit."
+              },
+              {
+                "zeit": "00:34.02",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "V, the most profitable entertainment product ever.",
+                "fest": false,
+                "text": "Die gesprochenen Wörter erwähnen Grand Theft Auto V als profitabel, zu sehen ist jedoch nur eine Gruppe unbekannter Männer an einem Tisch. Korrektur: Ein Bild aus dem Spiel Grand Theft Auto V oder eine Darstellung des Studios Rockstar North."
+              }
+            ],
+            "sekunden": 413.9,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "43392866274-3",
+              "datum": "2026-11-13",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 413.9,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-11-11.2",
+              "verbessert": false
+            }
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 1591.9,
+        "upload_titel": "Rockstar North – £0.75 A COPY, THEN GTA: DMA DESIGN'S FIRST DEAL"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:10.04",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "in October 1988. So why keep going?",
+            "fest": false,
+            "text": "Die gesprochene Phrase fragt 'So why keep going?' im Kontext der Spiel-Historie von DMA Design, aber das Bild zeigt einen verängstigten Mann in einer Gasse, was keinen Bezug zur Spielegeschichte von 1988 darstellt. Korrektur: Eine historische Spielverpackung oder ein zeitgenössisches Bild des Spiels Menace von 1988."
+          },
+          {
+            "zeit": "00:24.44",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "Lemmings succeeded in 1991.",
+            "fest": false,
+            "text": "Die Szene zeigt einen Mann auf einer nächtlichen Stadtstraße und hat keinen Bezug zu Lemmings, dem Spiel oder dem Jahr 1991. Korrektur: Ein historisches Foto oder eine Illustration des Computerspiels Lemmings oder des Entwicklerteams aus dem Jahr 1991."
+          },
+          {
+            "zeit": "00:34.02",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "V, the most profitable entertainment product ever.",
+            "fest": false,
+            "text": "Die gesprochenen Wörter erwähnen Grand Theft Auto V als das profitabelste Unterhaltungsprodukt, aber das Bild zeigt lediglich eine allgemeine Büroszene mit gezeichneten Personen ohne jeden Bezug zu Grand Theft Auto V. Korrektur: Eine Illustration oder ein Bild, das sich konkret auf Grand Theft Auto V oder das Studio Rockstar North bezieht."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 42.5,
+          "fps": 30.0,
+          "lufs": -14.8,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 38.02,
+              "bis_s": 39.58,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.976
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 22.5,
+              "bis_s": 43.0,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "His",
+                "s": 0.0,
+                "e": 0.36,
+                "p": 0.8888061046600342
+              },
+              {
+                "w": "first",
+                "s": 0.36,
+                "e": 0.66,
+                "p": 0.9974254965782166
+              },
+              {
+                "w": "game",
+                "s": 0.66,
+                "e": 1.06,
+                "p": 0.994746744632721
+              },
+              {
+                "w": "paid",
+                "s": 1.06,
+                "e": 1.32,
+                "p": 0.9841034412384033
+              },
+              {
+                "w": "0",
+                "s": 1.32,
+                "e": 1.84,
+                "p": 0.9475563168525696
+              },
+              {
+                "w": ".75",
+                "s": 1.84,
+                "e": 2.54,
+                "p": 0.9898957312107086
+              },
+              {
+                "w": "pounds",
+                "s": 2.54,
+                "e": 3.22,
+                "p": 0.9611464142799377
+              },
+              {
+                "w": "a",
+                "s": 3.22,
+                "e": 3.46,
+                "p": 0.9812723398208618
+              },
+              {
+                "w": "copy.",
+                "s": 3.46,
+                "e": 3.72,
+                "p": 0.9888307452201843
+              },
+              {
+                "w": "Jones",
+                "s": 4.5,
+                "e": 4.5,
+                "p": 0.972317636013031
+              },
+              {
+                "w": "called",
+                "s": 4.5,
+                "e": 4.78,
+                "p": 0.9913132786750793
+              },
+              {
+                "w": "that",
+                "s": 4.78,
+                "e": 4.96,
+                "p": 0.9942693710327148
+              },
+              {
+                "w": "deal",
+                "s": 4.96,
+                "e": 5.18,
+                "p": 0.9965728521347046
+              },
+              {
+                "w": "terrible.",
+                "s": 5.18,
+                "e": 5.76,
+                "p": 0.7924637794494629
+              },
+              {
+                "w": "DMA",
+                "s": 6.58,
+                "e": 6.9,
+                "p": 0.8641675114631653
+              },
+              {
+                "w": "Design,",
+                "s": 6.9,
+                "e": 7.22,
+                "p": 0.6238304376602173
+              },
+              {
+                "w": "now",
+                "s": 7.56,
+                "e": 7.76,
+                "p": 0.9824371337890625
+              },
+              {
+                "w": "Rockstar",
+                "s": 7.76,
+                "e": 8.16,
+                "p": 0.6278187185525894
+              },
+              {
+                "w": "North,",
+                "s": 8.16,
+                "e": 8.46,
+                "p": 0.9619686603546143
+              },
+              {
+                "w": "debuted",
+                "s": 8.86,
+                "e": 9.06,
+                "p": 0.9984316229820251
+              },
+              {
+                "w": "with",
+                "s": 9.06,
+                "e": 9.48,
+                "p": 0.9977706670761108
+              },
+              {
+                "w": "Menace",
+                "s": 9.48,
+                "e": 9.94,
+                "p": 0.812160849571228
+              },
+              {
+                "w": "in",
+                "s": 9.94,
+                "e": 10.24,
+                "p": 0.9592918157577515
+              },
+              {
+                "w": "October",
+                "s": 10.24,
+                "e": 10.54,
+                "p": 0.9846265912055969
+              },
+              {
+                "w": "1988.",
+                "s": 10.54,
+                "e": 11.4,
+                "p": 0.9719572067260742
+              },
+              {
+                "w": "So",
+                "s": 12.08,
+                "e": 12.16,
+                "p": 0.9501790404319763
+              },
+              {
+                "w": "why",
+                "s": 12.16,
+                "e": 12.5,
+                "p": 0.8388344049453735
+              },
+              {
+                "w": "keep",
+                "s": 12.5,
+                "e": 12.72,
+                "p": 0.9971290230751038
+              },
+              {
+                "w": "going?",
+                "s": 12.72,
+                "e": 13.0,
+                "p": 0.9965940117835999
+              },
+              {
+                "w": "Menace",
+                "s": 13.54,
+                "e": 14.06,
+                "p": 0.9962902665138245
+              },
+              {
+                "w": "sold",
+                "s": 14.06,
+                "e": 14.3,
+                "p": 0.9957648515701294
+              },
+              {
+                "w": "20",
+                "s": 14.3,
+                "e": 14.76,
+                "p": 0.9836989641189575
+              },
+              {
+                "w": ",000",
+                "s": 14.76,
+                "e": 15.28,
+                "p": 0.985996663570404
+              },
+              {
+                "w": "copies",
+                "s": 15.28,
+                "e": 15.62,
+                "p": 0.9993222951889038
+              },
+              {
+                "w": "and",
+                "s": 15.62,
+                "e": 15.84,
+                "p": 0.977859616279602
+              },
+              {
+                "w": "bought",
+                "s": 15.84,
+                "e": 16.06,
+                "p": 0.9895777702331543
+              },
+              {
+                "w": "him",
+                "s": 16.06,
+                "e": 16.28,
+                "p": 0.9982051849365234
+              },
+              {
+                "w": "a",
+                "s": 16.28,
+                "e": 16.46,
+                "p": 0.9990517497062683
+              },
+              {
+                "w": "car.",
+                "s": 16.46,
+                "e": 16.72,
+                "p": 0.9973331689834595
+              },
+              {
+                "w": "Then",
+                "s": 17.34,
+                "e": 17.42,
+                "p": 0.9957026839256287
+              },
+              {
+                "w": "he",
+                "s": 17.42,
+                "e": 17.8,
+                "p": 0.7160994410514832
+              },
+              {
+                "w": "left",
+                "s": 17.8,
+                "e": 17.98,
+                "p": 0.9983962178230286
+              },
+              {
+                "w": "university.",
+                "s": 17.98,
+                "e": 18.32,
+                "p": 0.8058186769485474
+              },
+              {
+                "w": "Against",
+                "s": 19.14,
+                "e": 19.14,
+                "p": 0.9969454407691956
+              },
+              {
+                "w": "Professor's",
+                "s": 19.14,
+                "e": 19.68,
+                "p": 0.7172998487949371
+              },
+              {
+                "w": "advice,",
+                "s": 19.68,
+                "e": 19.88,
+                "p": 0.9411172270774841
+              },
+              {
+                "w": "he",
+                "s": 20.2,
+                "e": 20.26,
+                "p": 0.9975570440292358
+              },
+              {
+                "w": "chose",
+                "s": 20.26,
+                "e": 20.58,
+                "p": 0.9895637631416321
+              },
+              {
+                "w": "games.",
+                "s": 20.58,
+                "e": 20.96,
+                "p": 0.9209358096122742
+              },
+              {
+                "w": "His",
+                "s": 21.74,
+                "e": 21.78,
+                "p": 0.9974395036697388
+              },
+              {
+                "w": "chip",
+                "s": 21.78,
+                "e": 22.02,
+                "p": 0.8134704232215881
+              },
+              {
+                "w": "shop",
+                "s": 22.02,
+                "e": 22.24,
+                "p": 0.9473934173583984
+              },
+              {
+                "w": "owning",
+                "s": 22.24,
+                "e": 22.48,
+                "p": 0.6657030582427979
+              },
+              {
+                "w": "father",
+                "s": 22.48,
+                "e": 22.76,
+                "p": 0.983651876449585
+              },
+              {
+                "w": "-in",
+                "s": 22.76,
+                "e": 23.04,
+                "p": 0.9802241325378418
+              },
+              {
+                "w": "-law",
+                "s": 23.04,
+                "e": 23.14,
+                "p": 0.9983669519424438
+              },
+              {
+                "w": "lent",
+                "s": 23.14,
+                "e": 23.34,
+                "p": 0.9891961812973022
+              },
+              {
+                "w": "him",
+                "s": 23.34,
+                "e": 23.52,
+                "p": 0.9992154836654663
+              },
+              {
+                "w": "an",
+                "s": 23.52,
+                "e": 23.6,
+                "p": 0.990127444267273
+              },
+              {
+                "w": "office.",
+                "s": 23.6,
+                "e": 23.86,
+                "p": 0.9974157810211182
+              },
+              {
+                "w": "Lemmings",
+                "s": 24.44,
+                "e": 24.76,
+                "p": 0.9006975293159485
+              },
+              {
+                "w": "succeeded",
+                "s": 24.76,
+                "e": 25.2,
+                "p": 0.9979491829872131
+              },
+              {
+                "w": "in",
+                "s": 25.2,
+                "e": 25.62,
+                "p": 0.9143397212028503
+              },
+              {
+                "w": "1991.",
+                "s": 25.62,
+                "e": 26.2,
+                "p": 0.996460497379303
+              },
+              {
+                "w": "1991.",
+                "s": 26.2,
+                "e": 26.58,
+                "p": 0.2578718662261963
+              },
+              {
+                "w": "The",
+                "s": 27.18,
+                "e": 27.26,
+                "p": 0.9831380844116211
+              },
+              {
+                "w": "studio",
+                "s": 27.26,
+                "e": 27.54,
+                "p": 0.9934422969818115
+              },
+              {
+                "w": "rapidly",
+                "s": 27.54,
+                "e": 27.88,
+                "p": 0.9947295784950256
+              },
+              {
+                "w": "expanded",
+                "s": 27.88,
+                "e": 28.46,
+                "p": 0.9974520802497864
+              },
+              {
+                "w": "and",
+                "s": 28.46,
+                "e": 28.74,
+                "p": 0.9812780022621155
+              },
+              {
+                "w": "moved",
+                "s": 28.74,
+                "e": 28.92,
+                "p": 0.9965360164642334
+              },
+              {
+                "w": "into",
+                "s": 28.92,
+                "e": 29.1,
+                "p": 0.9528481364250183
+              },
+              {
+                "w": "proper",
+                "s": 29.1,
+                "e": 29.38,
+                "p": 0.9704218506813049
+              },
+              {
+                "w": "offices.",
+                "s": 29.38,
+                "e": 29.9,
+                "p": 0.998745322227478
+              },
+              {
+                "w": "Jones'",
+                "s": 30.26,
+                "e": 30.6,
+                "p": 0.9765335917472839
+              },
+              {
+                "w": ".7P",
+                "s": 30.8,
+                "e": 31.76,
+                "p": 0.7930201689402262
+              },
+              {
+                "w": "a",
+                "s": 31.76,
+                "e": 31.96,
+                "p": 0.323540598154068
+              },
+              {
+                "w": "copy",
+                "s": 31.96,
+                "e": 32.14,
+                "p": 0.7403993606567383
+              },
+              {
+                "w": "studio",
+                "s": 32.14,
+                "e": 32.52,
+                "p": 0.9565905928611755
+              },
+              {
+                "w": "made",
+                "s": 32.52,
+                "e": 32.86,
+                "p": 0.9829115867614746
+              },
+              {
+                "w": "Grand",
+                "s": 32.86,
+                "e": 33.22,
+                "p": 0.7759429216384888
+              },
+              {
+                "w": "Theft",
+                "s": 33.22,
+                "e": 33.48,
+                "p": 0.9912874102592468
+              },
+              {
+                "w": "Auto",
+                "s": 33.48,
+                "e": 33.78,
+                "p": 0.9889456629753113
+              },
+              {
+                "w": "5,",
+                "s": 33.78,
+                "e": 34.36,
+                "p": 0.5957399606704712
+              },
+              {
+                "w": "the",
+                "s": 34.7,
+                "e": 34.82,
+                "p": 0.9943884015083313
+              },
+              {
+                "w": "most",
+                "s": 34.82,
+                "e": 34.94,
+                "p": 0.9968446493148804
+              },
+              {
+                "w": "profitable",
+                "s": 34.94,
+                "e": 35.44,
+                "p": 0.9954674243927002
+              },
+              {
+                "w": "entertainment",
+                "s": 35.44,
+                "e": 36.02,
+                "p": 0.9961318969726562
+              },
+              {
+                "w": "product",
+                "s": 36.02,
+                "e": 36.34,
+                "p": 0.9945236444473267
+              },
+              {
+                "w": "ever.",
+                "s": 36.34,
+                "e": 37.02,
+                "p": 0.9639759063720703
+              },
+              {
+                "w": "Be",
+                "s": 37.66,
+                "e": 37.76,
+                "p": 0.9739195704460144
+              },
+              {
+                "w": "sure",
+                "s": 37.76,
+                "e": 37.9,
+                "p": 0.9988126754760742
+              },
+              {
+                "w": "to",
+                "s": 37.9,
+                "e": 38.02,
+                "p": 0.993906557559967
+              },
+              {
+                "w": "like,",
+                "s": 38.02,
+                "e": 38.24,
+                "p": 0.9119822382926941
+              },
+              {
+                "w": "share,",
+                "s": 38.4,
+                "e": 38.6,
+                "p": 0.9951767921447754
+              },
+              {
+                "w": "and",
+                "s": 38.8,
+                "e": 38.84,
+                "p": 0.9939445853233337
+              },
+              {
+                "w": "save",
+                "s": 38.84,
+                "e": 39.12,
+                "p": 0.9886267781257629
+              },
+              {
+                "w": "this",
+                "s": 39.12,
+                "e": 39.28,
+                "p": 0.971639096736908
+              },
+              {
+                "w": "video.",
+                "s": 39.28,
+                "e": 39.58,
+                "p": 0.9954497218132019
+              },
+              {
+                "w": "Which",
+                "s": 39.94,
+                "e": 40.0,
+                "p": 0.9889726042747498
+              },
+              {
+                "w": "company",
+                "s": 40.0,
+                "e": 40.18,
+                "p": 0.9937790036201477
+              },
+              {
+                "w": "next?",
+                "s": 40.18,
+                "e": 40.5,
+                "p": 0.9386905431747437
+              },
+              {
+                "w": "Comment",
+                "s": 41.06,
+                "e": 41.16,
+                "p": 0.9951696991920471
+              },
+              {
+                "w": "and",
+                "s": 41.16,
+                "e": 41.62,
+                "p": 0.8603003621101379
+              },
+              {
+                "w": "follow",
+                "s": 41.62,
+                "e": 41.84,
+                "p": 0.9959070682525635
+              },
+              {
+                "w": "for",
+                "s": 41.84,
+                "e": 42.04,
+                "p": 0.982807993888855
+              },
+              {
+                "w": "more.",
+                "s": 42.04,
+                "e": 42.2,
+                "p": 0.999078631401062
+              }
+            ],
+            "dauer_s": 42.4746875,
+            "sprache": "en"
+          },
+          "roh_key": "3219113643a3ef6d6a6f52ad23c0d1ca1b9ea8175db82607ebcc291302f589ac",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "c1f560e8ec54daa0685302d7bdedf5d7b3e7b1389e59d0f05d4b8fef3fb79ec7",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 42.5,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 12,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "c1f560e8ec54daa0685302d7bdedf5d7b3e7b1389e59d0f05d4b8fef3fb79ec7",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Close-up einer gezeichneten, geschockten Person mit weit aufgerissenen Augen und offenem Mund, überlagert von einem Preisschild mit der Aufschrift PAID £0.75 A.",
+              "note": 8,
+              "passt": true,
+              "grund": "Es handelt sich um einen opening_reaction_shot, der als Schock-Reaktion perfekt zu den Worten ueber den miserablen ersten Deal von £0.75 pro kopie passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Mann im grauen Hemd und braunen Jacke blickt in einer städtischen Gasse erschrocken oder verwirrt nach oben.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gesprochene Phrase fragt 'So why keep going?' im Kontext der Spiel-Historie von DMA Design, aber das Bild zeigt einen verängstigten Mann in einer Gasse, was keinen Bezug zur Spielegeschichte von 1988 darstellt.",
+              "erforderliches_bild": "Eine historische Spielverpackung oder ein zeitgenössisches Bild des Spiels Menace von 1988."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein gemaltes Bild zeigt zwei Männer vor einem roten Auto, im Hintergrund eine Straße mit Häusern. Darüber ist ein Schild mit der Aufschrift '20,000 COPIES' eingeblendet.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell ansprechend genau den Meilenstein von 20,000 verkauften Exemplaren und das dadurch gekaufte Auto, passend zur gesprochenen Erwähnung der verkauften Kopien und dem Autokauf.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein junger Mann mit Rucksack steht vor einer Gruppe von Personen im Innenhof einer Universität oder Schule und blickt auf Gebäude.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbaren Personen und die Universitätsumgebung passen genau zur Aussage, dass er die Universität verließ.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 7,
+              "gesehen": "In einem belebten Ladenraum mit Stadtblick aus dem Fenster geben sich zwei Männer die Hand, während daneben Papiere und eine Kaffeetasse auf einem Tresen liegen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Szene zeigt die Überlassung von Räumlichkeiten beziehungsweise einen geschäftlichen Handschlag passend zur Erwähnung des Bürokredits durch den Schwiegervater.",
+              "erforderliches_bild": "Ein passendes Bild zeigt zwei Personen bei der Schlüssel- oder Büroübergabe."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Mann im braunen Lederjackett steht auf einer belebten Straße in einer Großstadt bei Nacht mit Wolkenkratzern und erleuchteten Schaufenstern.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die Szene zeigt einen Mann auf einer nächtlichen Stadtstraße und hat keinen Bezug zu Lemmings, dem Spiel oder dem Jahr 1991.",
+              "erforderliches_bild": "Ein historisches Foto oder eine Illustration des Computerspiels Lemmings oder des Entwicklerteams aus dem Jahr 1991."
+            },
+            {
+              "index": 9,
+              "gesehen": "Mehrere Personen stehen in einem hellen, gut beleuchteten Büro, lachen, unterhalten sich und deuten auf etwas außerhalb des Bilderrahmens.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt eine Gruppe von Menschen in einem Büro, was visuell zum Satz über die Expansion des Studios und den Umzug in richtige Büros passt.",
+              "erforderliches_bild": "Ein passendes Büro- oder Studioszenario."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein junger Mann sitzt an einem Holztisch vor einem alten Computerbildschirm, auf dem eine Spielszene zu sehen ist, und zeichnet auf Papier. Im Hintergrund befindet sich ein Raum mit zwei Fenstern, durch die Gebäude zu sehen sind.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen Spieleentwickler bei der Arbeit an einem Computer und am Zeichenbrett, was passend die Entstehung und das Studio hinter Grand Theft Auto illustriert.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, das Bild passt inhaltlich gut."
+            },
+            {
+              "index": 11,
+              "gesehen": "Eine bunt gezeichnete Illustration von mehreren Personen in einem Büro, die auf etwas an der Decke oder Wand zu zeigen scheinen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochenen Wörter erwähnen Grand Theft Auto V als das profitabelste Unterhaltungsprodukt, aber das Bild zeigt lediglich eine allgemeine Büroszene mit gezeichneten Personen ohne jeden Bezug zu Grand Theft Auto V.",
+              "erforderliches_bild": "Eine Illustration oder ein Bild, das sich konkret auf Grand Theft Auto V oder das Studio Rockstar North bezieht."
+            }
+          ],
+          "befunde": [
+            "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Phrase fragt 'So why keep going?' im Kontext der Spiel-Historie von DMA Design, aber das Bild zeigt einen verängstigten Mann in einer Gasse, was keinen Bezug zur Spielegeschichte von 1988 darstellt.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die Szene zeigt einen Mann auf einer nächtlichen Stadtstraße und hat keinen Bezug zu Lemmings, dem Spiel oder dem Jahr 1991.",
+            "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen Grand Theft Auto V als das profitabelste Unterhaltungsprodukt, aber das Bild zeigt lediglich eine allgemeine Büroszene mit gezeichneten Personen ohne jeden Bezug zu Grand Theft Auto V."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite"
+          ],
+          "einstellungen": 13,
+          "ausgenommen": [
+            12
+          ],
+          "vorgeprueft": [
+            1,
+            2,
+            6
+          ],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "c1f560e8ec54daa0685302d7bdedf5d7b3e7b1389e59d0f05d4b8fef3fb79ec7",
+        "prompt_version": "2026-11-11.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-3.5-flash-lite",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

@@ -128,12 +128,31 @@ def freigegebene_themen(kanal_name=None):
             and v.get('video_sha256') in freigaben and (kanal_name is None or v.get('kanal') == kanal_name)}
 
 
+def offene_bildspeicher(kanal):
+    """Bildordner, die ein offener Entwurf (Short ODER Langvideo desselben Kanals) noch braucht.
+
+    GEMESSEN 13.11.2026 (Rockstar-Langvideo 43455522075): Short und Langvideo teilen den Bildordner; die
+    TikTok-Freigabe des Rockstar-Shorts loeschte die geprueften Bilder des offenen Langvideos - 0 wiederverwendet."""
+    basis = kanal.removesuffix('-lang')
+    namen = set()
+    for k in (basis, f'{basis}-lang'):
+        try:
+            d = json.loads(pfade(k)[0].read_text(encoding='utf-8'))
+        except (OSError, ValueError):
+            continue
+        if isinstance(d, dict):
+            for t in (d.get('thema_eingabe'), (d.get('skript') or {}).get('thema')):
+                if str(t or '').strip():
+                    namen.add(bildspeicher_name(t))
+    return namen
+
+
 def bilder_aufraeumen(kanal, jetzt=None):
     """Bilder eines Themas erst nach der TikTok-Freigabe loeschen (sonst nach 30 Tagen). Gibt geloeschte Namen."""
     basis = bildspeicher(kanal)
     if not basis.is_dir():
         return []
-    fertig = {bildspeicher_name(t) for t in freigegebene_themen()}
+    fertig = {bildspeicher_name(t) for t in freigegebene_themen()} - offene_bildspeicher(kanal)
     grenze = (jetzt or time.time()) - BILDER_HOECHSTENS_TAGE * 86400
     weg = []
     for ordner in basis.iterdir():

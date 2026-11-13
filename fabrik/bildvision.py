@@ -106,6 +106,9 @@ def pruefen(prompt,schema,bilder,_nochmal=True,zweck='video'):
 # Pruefung 'nicht verfuegbar', bauen.py fuellte 13 Einstellungen mit denselben zwei Nachbarbildern (bild_passt
 # 2/10, 2,5 Std. Budget ohne Video). bauen.py liest diesen Zaehler und bricht dann mit Anbieterpause ab.
 AUSFAELLE=0
+PAUSEN_S=(60,120,180)
+PAUSE_MAX_S=15*60  # je Bauprozess hoechstens so lange auf ueberlastete Pruefer warten (Budget schonen)
+GEWARTET=[0.0]
 
 
 def mit_ausweichweg(gemini_aufruf,prompt,schema,bild,zweck='einzelbild'):
@@ -129,6 +132,24 @@ def mit_ausweichweg(gemini_aufruf,prompt,schema,bild,zweck='einzelbild'):
             return pruefen(prompt,schema,[bild],zweck=zweck)
         except Exception as fehler:
             print(f'Groq-Vision: {type(fehler).__name__}: {str(fehler)[:120]}',flush=True)
+            # GEMESSEN 13.11.2026 (Rockstar 43455522075/43461883106): Gemini HTTP 503 (ueberlastet) + Groq-Vision
+            # kurz gesperrt brach den ganzen Bau bei Einstellung 21/30 ab. Ueberlast vergeht: warten, beide neu
+            # fragen. Leeres Tageskontingent kommt heute nicht wieder - dann sofort Anbieterpause.
+            # Minutenkontingent/Ueberlast vergeht - dort warten; Zugangs-/Auftragsfehler (400/401/403) nicht
+            if 'tageskontingent' not in str(e).lower() \
+                    and not any(f'HTTP{c}' in str(fehler).replace(' ','')+str(e).replace(' ','') for c in (400,401,403)):
+                for pause in PAUSEN_S:
+                    frist=float(os.environ.get('CF_SCHRITT_ENDE','inf'))-time.monotonic()
+                    if GEWARTET[0]+pause>PAUSE_MAX_S or frist<pause+120:
+                        break
+                    print(f'Bildpruefung: beide Pruefer ueberlastet, neuer Versuch in {pause} s',flush=True)
+                    time.sleep(pause)
+                    GEWARTET[0]+=pause
+                    for aufruf in (gemini_aufruf,lambda:pruefen(prompt,schema,[bild],zweck=zweck)):
+                        try:
+                            return aufruf()
+                        except Exception:
+                            pass
             stoerung.melden('bildpruefung-aus','Auch Groq-Vision antwortet nicht - keine Bildpruefung moeglich.',
                             'Ungepruefte Bilder werden nie verwendet; das Video wird spaeter erneut geprueft.')
             AUSFAELLE+=1

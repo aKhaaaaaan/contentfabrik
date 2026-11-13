@@ -176744,6 +176744,819 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "43392866274.1:ai-tools-explained",
+      "run_id": "43392866274",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-13T08:35:39.933070+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "d4bb1a48597f07cfbbc59ec3e22c2247d6889ff5",
+      "produktionsversion": "0c3f4b0695cd63c998c1574dd169b0e0d787e3fc0035d59d2c7ee9935299f498",
+      "videoformat": "short",
+      "thema": "The ChatGPT desktop app unpacks a hidden office folder on your hard drive",
+      "titel": [
+        "YOUR *CHATGPT* INTERN",
+        "MOVED IN WITH 1.7GB"
+      ],
+      "status": "gesendet",
+      "video_sha256": "5d05173afe974ced4a154446381249e1784da06e542ea02af753ecad562dd487",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-11.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die Abbildung zeigt lediglich einen Mann in einem Büro. Der Inhalt des Ordners oder der Prozess des Entpackens von 1,7 GB an Daten werden nicht dargestellt.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar den Text, der besagt, dass der Ordnername 'strange' ist, aber es zeigt nicht den tatsächlich genannten Ordnernamen oder die Dateistruktur, die in der Narration als Beweis für die Behauptung angeführt wird.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine grafische Darstellung einer Code-Umgebung mit abstrakten Balken, die keinen echten Python- oder Node.js-Installationscode oder Dateiinhalte des besprochenen Ordners darstellen.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine grafische Illustration eines Mannes und fordert zum Kommentieren auf. Es liefert keinerlei visuelle Darstellung des erwähnten 'Hard Drive' oder der im Sprechertext beschriebenen 'Office'-Struktur auf der Festplatte.",
+        "Offenes Problem (schwer): Die Abbildung zeigt lediglich einen Mann in einem Büro. Der Inhalt des Ordners oder der Prozess des Entpackens von 1,7 GB an Daten werden nicht dargestellt. Korrektur: Ein Screenshot eines Dateimanagers, der den Ordner 'codex-primary-runtime' und dessen aufgelisteten Inhalt wie Python, Node.js und LibreOffice zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt zwar den Text, der besagt, dass der Ordnername 'strange' ist, aber es zeigt nicht den tatsächlich genannten Ordnernamen oder die Dateistruktur, die in der Narration als Beweis für die Behauptung angeführt wird. Korrektur: Ein Screenshot eines Dateimanagers oder Explorers, der den Ordner mit dem Namen 'codex-primary-runtime' auf dem Laufwerk anzeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine grafische Darstellung einer Code-Umgebung mit abstrakten Balken, die keinen echten Python- oder Node.js-Installationscode oder Dateiinhalte des besprochenen Ordners darstellen. Korrektur: Ein Screenshot eines Dateimanagers, der den Ordner 'codex-primary-runtime' mit den darin enthaltenen Unterordnern für Python, Node.js und LibreOffice zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine grafische Illustration eines Mannes und fordert zum Kommentieren auf. Es liefert keinerlei visuelle Darstellung des erwähnten 'Hard Drive' oder der im Sprechertext beschriebenen 'Office'-Struktur auf der Festplatte. Korrektur: Ein Screenshot der Verzeichnisstruktur auf der Festplatte, die den Ordner 'codex-primary-runtime' oder die darin enthaltenen Komponenten wie Python, Node.js und LibreOffice zeigt."
+      ],
+      "einstellungen": 9,
+      "unterschiedliche_motive": 9,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "43392866274",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-13",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 526.7,
+            "pruefung_s": 25.6,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die Abbildung zeigt lediglich einen Mann in einem Büro. Der Inhalt des Ordners oder der Prozess des Entpackens von 1,7 GB an Daten werden nicht dargestellt.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar den Text, der besagt, dass der Ordnername 'strange' ist, aber es zeigt nicht den tatsächlich genannten Ordnernamen oder die Dateistruktur, die in der Narration als Beweis für die Behauptung angeführt wird.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine grafische Darstellung einer Code-Umgebung mit abstrakten Balken, die keinen echten Python- oder Node.js-Installationscode oder Dateiinhalte des besprochenen Ordners darstellen.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine grafische Illustration eines Mannes und fordert zum Kommentieren auf. Es liefert keinerlei visuelle Darstellung des erwähnten 'Hard Drive' oder der im Sprechertext beschriebenen 'Office'-Struktur auf der Festplatte.",
+              "Offenes Problem (schwer): Die Abbildung zeigt lediglich einen Mann in einem Büro. Der Inhalt des Ordners oder der Prozess des Entpackens von 1,7 GB an Daten werden nicht dargestellt. Korrektur: Ein Screenshot eines Dateimanagers, der den Ordner 'codex-primary-runtime' und dessen aufgelisteten Inhalt wie Python, Node.js und LibreOffice zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar den Text, der besagt, dass der Ordnername 'strange' ist, aber es zeigt nicht den tatsächlich genannten Ordnernamen oder die Dateistruktur, die in der Narration als Beweis für die Behauptung angeführt wird. Korrektur: Ein Screenshot eines Dateimanagers oder Explorers, der den Ordner mit dem Namen 'codex-primary-runtime' auf dem Laufwerk anzeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine grafische Darstellung einer Code-Umgebung mit abstrakten Balken, die keinen echten Python- oder Node.js-Installationscode oder Dateiinhalte des besprochenen Ordners darstellen. Korrektur: Ein Screenshot eines Dateimanagers, der den Ordner 'codex-primary-runtime' mit den darin enthaltenen Unterordnern für Python, Node.js und LibreOffice zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine grafische Illustration eines Mannes und fordert zum Kommentieren auf. Es liefert keinerlei visuelle Darstellung des erwähnten 'Hard Drive' oder der im Sprechertext beschriebenen 'Office'-Struktur auf der Festplatte. Korrektur: Ein Screenshot der Verzeichnisstruktur auf der Festplatte, die den Ordner 'codex-primary-runtime' oder die darin enthaltenen Komponenten wie Python, Node.js und LibreOffice zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 27.4,
+              "zeitmarken": 3.9,
+              "tempo": 1.25,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 9,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 336.6,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 9,
+                "motive": 9,
+                "motive_min": 4
+              },
+              "effekte": 10,
+              "rendern": 31.0,
+              "gesamt": 526.2,
+              "videolaenge_s": 27.9,
+              "abschnitte_s": [
+                2.96,
+                5.6,
+                4.46,
+                5.34,
+                4.26,
+                3.5,
+                1.73
+              ],
+              "woerter": 59,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:02.96",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 1,
+                "gesprochen": "It quietly unpacked 1.7GB of office supplies.",
+                "fest": true,
+                "text": "Die Abbildung zeigt lediglich einen Mann in einem Büro. Der Inhalt des Ordners oder der Prozess des Entpackens von 1,7 GB an Daten werden nicht dargestellt. Korrektur: Ein Screenshot eines Dateimanagers, der den Ordner 'codex-primary-runtime' und dessen aufgelisteten Inhalt wie Python, Node.js und LibreOffice zeigt."
+              },
+              {
+                "zeit": "00:06.44",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "But the folder name is stranger.",
+                "fest": true,
+                "text": "Das Bild zeigt zwar den Text, der besagt, dass der Ordnername 'strange' ist, aber es zeigt nicht den tatsächlich genannten Ordnernamen oder die Dateistruktur, die in der Narration als Beweis für die Behauptung angeführt wird. Korrektur: Ein Screenshot eines Dateimanagers oder Explorers, der den Ordner mit dem Namen 'codex-primary-runtime' auf dem Laufwerk anzeigt."
+              },
+              {
+                "zeit": "00:13.02",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 4,
+                "gesprochen": "Full Python installation, full Node.js installation, LibreOffice.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich eine grafische Darstellung einer Code-Umgebung mit abstrakten Balken, die keinen echten Python- oder Node.js-Installationscode oder Dateiinhalte des besprochenen Ordners darstellen. Korrektur: Ein Screenshot eines Dateimanagers, der den Ordner 'codex-primary-runtime' mit den darin enthaltenen Unterordnern für Python, Node.js und LibreOffice zeigt."
+              },
+              {
+                "zeit": "00:26.12",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 8,
+                "gesprochen": "The office is your hard drive.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich eine grafische Illustration eines Mannes und fordert zum Kommentieren auf. Es liefert keinerlei visuelle Darstellung des erwähnten 'Hard Drive' oder der im Sprechertext beschriebenen 'Office'-Struktur auf der Festplatte. Korrektur: Ein Screenshot der Verzeichnisstruktur auf der Festplatte, die den Ordner 'codex-primary-runtime' oder die darin enthaltenen Komponenten wie Python, Node.js und LibreOffice zeigt."
+              }
+            ],
+            "sekunden": 552.2,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 584.2,
+        "upload_titel": "YOUR CHATGPT INTERN: MOVED IN WITH 1.7GB | AI Tool #34"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:02.96",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 1,
+            "gesprochen": "It quietly unpacked 1.7GB of office supplies.",
+            "fest": true,
+            "text": "Die Abbildung zeigt lediglich einen Mann in einem Büro. Der Inhalt des Ordners oder der Prozess des Entpackens von 1,7 GB an Daten werden nicht dargestellt. Korrektur: Ein Screenshot eines Dateimanagers, der den Ordner 'codex-primary-runtime' und dessen aufgelisteten Inhalt wie Python, Node.js und LibreOffice zeigt."
+          },
+          {
+            "zeit": "00:06.44",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "But the folder name is stranger.",
+            "fest": true,
+            "text": "Das Bild zeigt zwar den Text, der besagt, dass der Ordnername 'strange' ist, aber es zeigt nicht den tatsächlich genannten Ordnernamen oder die Dateistruktur, die in der Narration als Beweis für die Behauptung angeführt wird. Korrektur: Ein Screenshot eines Dateimanagers oder Explorers, der den Ordner mit dem Namen 'codex-primary-runtime' auf dem Laufwerk anzeigt."
+          },
+          {
+            "zeit": "00:13.02",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 4,
+            "gesprochen": "Full Python installation, full Node.js installation, LibreOffice.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich eine grafische Darstellung einer Code-Umgebung mit abstrakten Balken, die keinen echten Python- oder Node.js-Installationscode oder Dateiinhalte des besprochenen Ordners darstellen. Korrektur: Ein Screenshot eines Dateimanagers, der den Ordner 'codex-primary-runtime' mit den darin enthaltenen Unterordnern für Python, Node.js und LibreOffice zeigt."
+          },
+          {
+            "zeit": "00:26.12",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 8,
+            "gesprochen": "The office is your hard drive.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine grafische Illustration eines Mannes und fordert zum Kommentieren auf. Es liefert keinerlei visuelle Darstellung des erwähnten 'Hard Drive' oder der im Sprechertext beschriebenen 'Office'-Struktur auf der Festplatte. Korrektur: Ein Screenshot der Verzeichnisstruktur auf der Festplatte, die den Ordner 'codex-primary-runtime' oder die darin enthaltenen Komponenten wie Python, Node.js und LibreOffice zeigt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 27.9,
+          "fps": 29.9,
+          "lufs": -14.1,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 20.76,
+              "bis_s": 22.12,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.989
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 7.899999999999999,
+              "bis_s": 28.4,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Your",
+                "s": 0.0,
+                "e": 0.24,
+                "p": 0.7793923616409302
+              },
+              {
+                "w": "chat",
+                "s": 0.24,
+                "e": 0.46,
+                "p": 0.6467379927635193
+              },
+              {
+                "w": "GPT",
+                "s": 0.46,
+                "e": 0.84,
+                "p": 0.8204693794250488
+              },
+              {
+                "w": "in",
+                "s": 0.84,
+                "e": 1.02,
+                "p": 0.6327667236328125
+              },
+              {
+                "w": "turn",
+                "s": 1.02,
+                "e": 1.16,
+                "p": 0.9858176112174988
+              },
+              {
+                "w": "just",
+                "s": 1.16,
+                "e": 1.34,
+                "p": 0.9729275703430176
+              },
+              {
+                "w": "moved",
+                "s": 1.34,
+                "e": 1.66,
+                "p": 0.9916055202484131
+              },
+              {
+                "w": "into",
+                "s": 1.66,
+                "e": 1.94,
+                "p": 0.9538580179214478
+              },
+              {
+                "w": "your",
+                "s": 1.94,
+                "e": 2.16,
+                "p": 0.9948152899742126
+              },
+              {
+                "w": "hard",
+                "s": 2.16,
+                "e": 2.3,
+                "p": 0.9802526235580444
+              },
+              {
+                "w": "drive.",
+                "s": 2.3,
+                "e": 2.56,
+                "p": 0.9852451682090759
+              },
+              {
+                "w": "It",
+                "s": 2.96,
+                "e": 2.96,
+                "p": 0.9763354659080505
+              },
+              {
+                "w": "quietly",
+                "s": 2.96,
+                "e": 3.4,
+                "p": 0.9958857893943787
+              },
+              {
+                "w": "unpacked",
+                "s": 3.4,
+                "e": 4.02,
+                "p": 0.984426736831665
+              },
+              {
+                "w": "1",
+                "s": 4.02,
+                "e": 4.3,
+                "p": 0.970458447933197
+              },
+              {
+                "w": ".7",
+                "s": 4.3,
+                "e": 4.88,
+                "p": 0.9951779544353485
+              },
+              {
+                "w": "gigs",
+                "s": 4.88,
+                "e": 5.18,
+                "p": 0.701529860496521
+              },
+              {
+                "w": "of",
+                "s": 5.18,
+                "e": 5.42,
+                "p": 0.990310788154602
+              },
+              {
+                "w": "office",
+                "s": 5.42,
+                "e": 5.74,
+                "p": 0.8823251724243164
+              },
+              {
+                "w": "supplies,",
+                "s": 5.74,
+                "e": 6.06,
+                "p": 0.9464510679244995
+              },
+              {
+                "w": "but",
+                "s": 6.44,
+                "e": 6.6,
+                "p": 0.9949104189872742
+              },
+              {
+                "w": "the",
+                "s": 6.6,
+                "e": 6.94,
+                "p": 0.9788667559623718
+              },
+              {
+                "w": "folder",
+                "s": 6.94,
+                "e": 7.24,
+                "p": 0.9853833913803101
+              },
+              {
+                "w": "name",
+                "s": 7.24,
+                "e": 7.52,
+                "p": 0.9946057200431824
+              },
+              {
+                "w": "is",
+                "s": 7.52,
+                "e": 7.66,
+                "p": 0.9981064796447754
+              },
+              {
+                "w": "Stranger.",
+                "s": 7.66,
+                "e": 8.04,
+                "p": 0.24204668402671814
+              },
+              {
+                "w": "It's",
+                "s": 8.56,
+                "e": 8.62,
+                "p": 0.9914288818836212
+              },
+              {
+                "w": "called",
+                "s": 8.62,
+                "e": 8.82,
+                "p": 0.9968582391738892
+              },
+              {
+                "w": "codecs",
+                "s": 8.82,
+                "e": 9.44,
+                "p": 0.5284289419651031
+              },
+              {
+                "w": "-primary",
+                "s": 9.44,
+                "e": 10.06,
+                "p": 0.6350816786289215
+              },
+              {
+                "w": "-run",
+                "s": 10.06,
+                "e": 10.82,
+                "p": 0.9248532652854919
+              },
+              {
+                "w": "time.",
+                "s": 10.82,
+                "e": 11.12,
+                "p": 0.6443483233451843
+              },
+              {
+                "w": "So",
+                "s": 11.58,
+                "e": 11.62,
+                "p": 0.9909782409667969
+              },
+              {
+                "w": "what's",
+                "s": 11.62,
+                "e": 11.82,
+                "p": 0.9248983263969421
+              },
+              {
+                "w": "inside?",
+                "s": 11.82,
+                "e": 12.04,
+                "p": 0.9970837235450745
+              },
+              {
+                "w": "Full",
+                "s": 13.14,
+                "e": 13.38,
+                "p": 0.8845086097717285
+              },
+              {
+                "w": "Python",
+                "s": 13.38,
+                "e": 13.78,
+                "p": 0.8790696263313293
+              },
+              {
+                "w": "installation,",
+                "s": 13.78,
+                "e": 14.26,
+                "p": 0.9908349514007568
+              },
+              {
+                "w": "full",
+                "s": 14.96,
+                "e": 14.98,
+                "p": 0.8682832717895508
+              },
+              {
+                "w": "Node",
+                "s": 14.98,
+                "e": 15.26,
+                "p": 0.8274636268615723
+              },
+              {
+                "w": ".js",
+                "s": 15.26,
+                "e": 15.58,
+                "p": 0.8237662315368652
+              },
+              {
+                "w": "installation,",
+                "s": 15.58,
+                "e": 16.26,
+                "p": 0.9081969857215881
+              },
+              {
+                "w": "leave",
+                "s": 17.36,
+                "e": 17.36,
+                "p": 0.40112581849098206
+              },
+              {
+                "w": "office.",
+                "s": 17.36,
+                "e": 17.7,
+                "p": 0.8179625272750854
+              },
+              {
+                "w": "That's",
+                "s": 18.34,
+                "e": 18.58,
+                "p": 0.9970947206020355
+              },
+              {
+                "w": "the",
+                "s": 18.58,
+                "e": 18.68,
+                "p": 0.9892193675041199
+              },
+              {
+                "w": "1",
+                "s": 18.68,
+                "e": 18.82,
+                "p": 0.9942982792854309
+              },
+              {
+                "w": ".7",
+                "s": 18.82,
+                "e": 19.28,
+                "p": 0.9970370233058929
+              },
+              {
+                "w": "gigabytes",
+                "s": 19.28,
+                "e": 19.58,
+                "p": 0.9061165153980255
+              },
+              {
+                "w": "itemized.",
+                "s": 19.58,
+                "e": 20.2,
+                "p": 0.9603701531887054
+              },
+              {
+                "w": "Be",
+                "s": 20.52,
+                "e": 20.54,
+                "p": 0.9975252747535706
+              },
+              {
+                "w": "sure",
+                "s": 20.54,
+                "e": 20.68,
+                "p": 0.9997500777244568
+              },
+              {
+                "w": "to",
+                "s": 20.68,
+                "e": 20.76,
+                "p": 0.9977291226387024
+              },
+              {
+                "w": "like,",
+                "s": 20.76,
+                "e": 20.92,
+                "p": 0.988246500492096
+              },
+              {
+                "w": "share,",
+                "s": 21.04,
+                "e": 21.22,
+                "p": 0.9969167709350586
+              },
+              {
+                "w": "and",
+                "s": 21.36,
+                "e": 21.42,
+                "p": 0.9981497526168823
+              },
+              {
+                "w": "save",
+                "s": 21.42,
+                "e": 21.68,
+                "p": 0.9941404461860657
+              },
+              {
+                "w": "this",
+                "s": 21.68,
+                "e": 21.9,
+                "p": 0.9566965103149414
+              },
+              {
+                "w": "video.",
+                "s": 21.9,
+                "e": 22.12,
+                "p": 0.9989467263221741
+              },
+              {
+                "w": "Linux",
+                "s": 22.62,
+                "e": 22.62,
+                "p": 0.935836672782898
+              },
+              {
+                "w": "preview",
+                "s": 22.62,
+                "e": 22.86,
+                "p": 0.8180793523788452
+              },
+              {
+                "w": "Ubuntu",
+                "s": 22.86,
+                "e": 23.22,
+                "p": 0.5552412271499634
+              },
+              {
+                "w": "24",
+                "s": 23.22,
+                "e": 23.94,
+                "p": 0.9851924180984497
+              },
+              {
+                "w": ".04",
+                "s": 23.94,
+                "e": 24.44,
+                "p": 0.9320473372936249
+              },
+              {
+                "w": "LTS.",
+                "s": 24.44,
+                "e": 24.9,
+                "p": 0.8109312057495117
+              },
+              {
+                "w": "The",
+                "s": 26.18,
+                "e": 26.18,
+                "p": 0.9118884801864624
+              },
+              {
+                "w": "office",
+                "s": 26.18,
+                "e": 26.6,
+                "p": 0.9579715132713318
+              },
+              {
+                "w": "is",
+                "s": 26.6,
+                "e": 26.96,
+                "p": 0.9933919310569763
+              },
+              {
+                "w": "your",
+                "s": 26.96,
+                "e": 27.18,
+                "p": 0.997965931892395
+              },
+              {
+                "w": "hard",
+                "s": 27.18,
+                "e": 27.4,
+                "p": 0.9994766116142273
+              },
+              {
+                "w": "drive.",
+                "s": 27.4,
+                "e": 27.6,
+                "p": 0.9973342418670654
+              }
+            ],
+            "dauer_s": 27.8186875,
+            "sprache": "en"
+          },
+          "roh_key": "996fae9fb56bd616b791ed698eb5491b0d5fb9ee080a8170598ea73bc4501611",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "5d05173afe974ced4a154446381249e1784da06e542ea02af753ecad562dd487",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 27.9,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 9,
+          "motive": 9,
+          "motive_min": 4
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "5d05173afe974ced4a154446381249e1784da06e542ea02af753ecad562dd487",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein gemaltes Nahaufnahmegesicht mit geschocktem Ausdruck, während eine Hand etwas aus einem Gerät zieht.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen klassischen Eröffnungsreaktionsschuss mit passendem geschocktem Gesichtsausdruck zur Eröffnungsaussage.",
+              "erforderliches_bild": "Keines, da das Bild für einen Eröffnungsreaktionsschuss geeignet ist."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Mann steht in einem Büro vor zwei Computerbildschirmen und einem Papierkorb, in dem bunte Symbole liegen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die Abbildung zeigt lediglich einen Mann in einem Büro. Der Inhalt des Ordners oder der Prozess des Entpackens von 1,7 GB an Daten werden nicht dargestellt.",
+              "erforderliches_bild": "Ein Screenshot eines Dateimanagers, der den Ordner 'codex-primary-runtime' und dessen aufgelisteten Inhalt wie Python, Node.js und LibreOffice zeigt."
+            },
+            {
+              "index": 2,
+              "gesehen": "Das Bild zeigt den Text 'THE CHATGPT DESKTOP APP UNPACKS A HIDDEN OFFICE FOLDER ON YOUR HARD DRIVE' in der oberen Hälfte und den Text 'FOLDER NAME IS STRANGER' in einem rechteckigen Rahmen in der Mitte.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt zwar den Text, der besagt, dass der Ordnername 'strange' ist, aber es zeigt nicht den tatsächlich genannten Ordnernamen oder die Dateistruktur, die in der Narration als Beweis für die Behauptung angeführt wird.",
+              "erforderliches_bild": "Ein Screenshot eines Dateimanagers oder Explorers, der den Ordner mit dem Namen 'codex-primary-runtime' auf dem Laufwerk anzeigt."
+            },
+            {
+              "index": 3,
+              "gesehen": "A text-heavy screenshot of a blog post titled 'Simon Willison's Weblog' that discusses finding a 1.7GB folder named 'codex-primary-runtime' in the '~/.cache/' directory using OmniDiskSweeper. The image also displays the contents of this folder in a file browser view.",
+              "note": 10,
+              "passt": true,
+              "grund": "The image clearly shows the folder name 'codex-primary-runtime' and lists the contents mentioned in the narration, including the LibreOffice, Python, and Node.js components.",
+              "erforderliches_bild": "n/a"
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein stilisiertes Fenster mit der Überschrift 'PYTHON' enthält eine Liste von zwölf nummerierten Zeilen, die jedoch nur aus abstrakten farbigen Balken ohne tatsächlichen Programmcode bestehen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine grafische Darstellung einer Code-Umgebung mit abstrakten Balken, die keinen echten Python- oder Node.js-Installationscode oder Dateiinhalte des besprochenen Ordners darstellen.",
+              "erforderliches_bild": "Ein Screenshot eines Dateimanagers, der den Ordner 'codex-primary-runtime' mit den darin enthaltenen Unterordnern für Python, Node.js und LibreOffice zeigt."
+            },
+            {
+              "index": 7,
+              "gesehen": "A text list showing supported operating systems, with 'Ubuntu 24.04 LTS' highlighted by a yellow outline.",
+              "note": 10,
+              "passt": true,
+              "grund": "The image clearly shows the text 'Ubuntu 24.04 LTS', which directly matches the narrated mention of 'Linux preview: Ubuntu 24.04 LTS'.",
+              "erforderliches_bild": "n/a"
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein stilisiertes, gemaltes Porträt eines Mannes mit Sonnenbrille vor einer Skyline bei Sonnenuntergang. Der Text 'CHATGPT DESKTOP APP' und die Frage 'The office is your hard drive. Which AI tool next? Comment below!' erscheinen in einer Sprechblase.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine grafische Illustration eines Mannes und fordert zum Kommentieren auf. Es liefert keinerlei visuelle Darstellung des erwähnten 'Hard Drive' oder der im Sprechertext beschriebenen 'Office'-Struktur auf der Festplatte.",
+              "erforderliches_bild": "Ein Screenshot der Verzeichnisstruktur auf der Festplatte, die den Ordner 'codex-primary-runtime' oder die darin enthaltenen Komponenten wie Python, Node.js und LibreOffice zeigt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die Abbildung zeigt lediglich einen Mann in einem Büro. Der Inhalt des Ordners oder der Prozess des Entpackens von 1,7 GB an Daten werden nicht dargestellt.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar den Text, der besagt, dass der Ordnername 'strange' ist, aber es zeigt nicht den tatsächlich genannten Ordnernamen oder die Dateistruktur, die in der Narration als Beweis für die Behauptung angeführt wird.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine grafische Darstellung einer Code-Umgebung mit abstrakten Balken, die keinen echten Python- oder Node.js-Installationscode oder Dateiinhalte des besprochenen Ordners darstellen.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine grafische Illustration eines Mannes und fordert zum Kommentieren auf. Es liefert keinerlei visuelle Darstellung des erwähnten 'Hard Drive' oder der im Sprechertext beschriebenen 'Office'-Struktur auf der Festplatte."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite"
+          ],
+          "einstellungen": 9,
+          "ausgenommen": [
+            5,
+            6
+          ],
+          "vorgeprueft": [],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "5d05173afe974ced4a154446381249e1784da06e542ea02af753ecad562dd487",
+        "prompt_version": "2026-11-11.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

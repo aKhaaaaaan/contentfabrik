@@ -1,141 +1,5 @@
 [
   {
-    "id": "40077860913",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-24",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 245.0,
-        "pruefung_s": 61.5,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Bewertung hook fehlt oder ist ungueltig",
-          "Video-bild_passt 2/10 unter 7/10",
-          "Video-Bewertung dynamik fehlt oder ist ungueltig",
-          "Video-Bewertung text fehlt oder ist ungueltig",
-          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
-          "Video-Bewertung tempo fehlt oder ist ungueltig",
-          "Video-Bewertung inhalt fehlt oder ist ungueltig",
-          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
-          "Video-Bewertung regeln fehlt oder ist ungueltig",
-          "Video-Bewertung story fehlt oder ist ungueltig",
-          "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen sprechenden Moderator, während im gesprochenen Text Claude, Projekte und das Erinnern von Arbeit erklärt werden. Es fehlt jeglicher Bezug zur Software oder Funktionalität.",
-          "Einstellung 2: Bild passt nicht zum Sprechtext (6/10): Der Text beschreibt zwar das Hochladen von Dokumenten, zeigt aber nicht die konkrete Aktion des Hochladens oder die entsprechenden Bedienelemente in einer Benutzeroberfläche.",
-          "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Es ist lediglich eine typografische Textgrafik zu sehen, die die Worte aus dem Satz wiederholt, aber weder die hochgeladenen Dokumente noch die individuellen Chats innerhalb des Projekts visuell demonstriert.",
-          "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Zugriffsrechte (Can view), aber nicht das Hinzufügen von Projektanweisungen ('Then add project instructions').",
-          "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Textboxen mit Stichpunkten als Ueberschrift, aber keine grafische Darstellung oder Benutzeroberflaeche, die zeigt, wie Claude die Arbeit in parallele Cloud-Threads aufteilt.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich einen sprechenden Moderator, während im gesprochenen Text Claude, Projekte und das Erinnern von Arbeit erklärt werden. Es fehlt jeglicher Bezug zur Software oder Funktionalität. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der eine Projektübersicht oder eine Benutzeroberfläche zur Wissensbasis zeigt.",
-          "Offenes Problem (schwer): Der Text beschreibt zwar das Hochladen von Dokumenten, zeigt aber nicht die konkrete Aktion des Hochladens oder die entsprechenden Bedienelemente in einer Benutzeroberfläche. Korrektur: Ein Screenshot der Software-Oberfläche mit einem sichtbaren Button zum Hochladen von Dateien wie Dokumenten oder Code.",
-          "Offenes Problem (schwer): Es ist lediglich eine typografische Textgrafik zu sehen, die die Worte aus dem Satz wiederholt, aber weder die hochgeladenen Dokumente noch die individuellen Chats innerhalb des Projekts visuell demonstriert. Korrektur: Ein Screenshot der Software-Oberfläche, der zeigt, wie Dateien als Hintergrundkontext in einem Projekt hochgeladen und mit Chat-Fenstern verknüpft sind.",
-          "Offenes Problem (schwer): Das Bild zeigt Zugriffsrechte (Can view), aber nicht das Hinzufügen von Projektanweisungen ('Then add project instructions'). Korrektur: Ein Interface oder Textabschnitt, in dem spezifische Projektanweisungen für Claude hinzugefügt werden.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich Textboxen mit Stichpunkten als Ueberschrift, aber keine grafische Darstellung oder Benutzeroberflaeche, die zeigt, wie Claude die Arbeit in parallele Cloud-Threads aufteilt. Korrektur: Eine Darstellung der Claude-Benutzeroberflaeche, in der mehrere parallele Threads oder Unterhaltungen innerhalb eines Projekts visuell aufgeteilt angezeigt werden."
-        ],
-        "messung": {
-          "stimme_wiederverwendet": false,
-          "erzaehlstimme": "gemini:Puck",
-          "stimme": 14.9,
-          "zeitmarken": 5.1,
-          "tempo": 1.063,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 0,
-          "stuecke_neu": 13,
-          "clips_und_stuecke": 126.5,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 13,
-            "motive": 13,
-            "motive_min": 8
-          },
-          "effekte": 10,
-          "rendern": 30.1,
-          "gesamt": 244.6,
-          "videolaenge_s": 45.0,
-          "abschnitte_s": [
-            8.62,
-            7.46,
-            6.64,
-            7.32,
-            6.52,
-            6.4,
-            2.06
-          ],
-          "woerter": 133
-        },
-        "kategorien": {
-          "bild_passt": 2
-        },
-        "probleme": [
-          {
-            "zeit": "00:00.00",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 0,
-            "einstellung": 0,
-            "gesprochen": "Stop re-explaining your work, because Claude can remember it for you.",
-            "fest": false,
-            "text": "Das Bild zeigt lediglich einen sprechenden Moderator, während im gesprochenen Text Claude, Projekte und das Erinnern von Arbeit erklärt werden. Es fehlt jeglicher Bezug zur Software oder Funktionalität. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der eine Projektübersicht oder eine Benutzeroberfläche zur Wissensbasis zeigt."
-          },
-          {
-            "zeit": "00:08.62",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 1,
-            "einstellung": 2,
-            "gesprochen": "Upload documents, text, code or other files.",
-            "fest": true,
-            "text": "Der Text beschreibt zwar das Hochladen von Dokumenten, zeigt aber nicht die konkrete Aktion des Hochladens oder die entsprechenden Bedienelemente in einer Benutzeroberfläche. Korrektur: Ein Screenshot der Software-Oberfläche mit einem sichtbaren Button zum Hochladen von Dateien wie Dokumenten oder Code."
-          },
-          {
-            "zeit": "00:11.42",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 1,
-            "einstellung": 3,
-            "gesprochen": "Claude uses them as background context for your individual chats inside that project.",
-            "fest": true,
-            "text": "Es ist lediglich eine typografische Textgrafik zu sehen, die die Worte aus dem Satz wiederholt, aber weder die hochgeladenen Dokumente noch die individuellen Chats innerhalb des Projekts visuell demonstriert. Korrektur: Ein Screenshot der Software-Oberfläche, der zeigt, wie Dateien als Hintergrundkontext in einem Projekt hochgeladen und mit Chat-Fenstern verknüpft sind."
-          },
-          {
-            "zeit": "00:16.08",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 2,
-            "einstellung": 4,
-            "gesprochen": "Then add project instructions.",
-            "fest": true,
-            "text": "Das Bild zeigt Zugriffsrechte (Can view), aber nicht das Hinzufügen von Projektanweisungen ('Then add project instructions'). Korrektur: Ein Interface oder Textabschnitt, in dem spezifische Projektanweisungen für Claude hinzugefügt werden."
-          },
-          {
-            "zeit": "00:33.30",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 4,
-            "einstellung": 9,
-            "gesprochen": "and Claude splits work into parallel cloud threads.",
-            "fest": true,
-            "text": "Das Bild zeigt lediglich Textboxen mit Stichpunkten als Ueberschrift, aber keine grafische Darstellung oder Benutzeroberflaeche, die zeigt, wie Claude die Arbeit in parallele Cloud-Threads aufteilt. Korrektur: Eine Darstellung der Claude-Benutzeroberflaeche, in der mehrere parallele Threads oder Unterhaltungen innerhalb eines Projekts visuell aufgeteilt angezeigt werden."
-          }
-        ],
-        "sekunden": 306.5,
-        "status": "geprueft"
-      },
-      {
-        "runde": 2,
-        "art": "korrektur",
-        "status": "keine_korrektur",
-        "sekunden": 0.1
-      }
-    ],
-    "status": "gesendet",
-    "grund": "",
-    "sekunden": 351.8,
-    "upload_titel": "Claude Projects: Stop Re-Explaining | AI Tool #14"
-  },
-  {
     "id": "40098338519",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-24",
@@ -9214,5 +9078,134 @@
     "grund": "",
     "sekunden": 856.8,
     "upload_titel": "ChatGPT Free: Unlimited, What The Star Hides | AI Tool #33"
+  },
+  {
+    "id": "43392866274",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-11-13",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 526.7,
+        "pruefung_s": 25.6,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die Abbildung zeigt lediglich einen Mann in einem Büro. Der Inhalt des Ordners oder der Prozess des Entpackens von 1,7 GB an Daten werden nicht dargestellt.",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar den Text, der besagt, dass der Ordnername 'strange' ist, aber es zeigt nicht den tatsächlich genannten Ordnernamen oder die Dateistruktur, die in der Narration als Beweis für die Behauptung angeführt wird.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine grafische Darstellung einer Code-Umgebung mit abstrakten Balken, die keinen echten Python- oder Node.js-Installationscode oder Dateiinhalte des besprochenen Ordners darstellen.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine grafische Illustration eines Mannes und fordert zum Kommentieren auf. Es liefert keinerlei visuelle Darstellung des erwähnten 'Hard Drive' oder der im Sprechertext beschriebenen 'Office'-Struktur auf der Festplatte.",
+          "Offenes Problem (schwer): Die Abbildung zeigt lediglich einen Mann in einem Büro. Der Inhalt des Ordners oder der Prozess des Entpackens von 1,7 GB an Daten werden nicht dargestellt. Korrektur: Ein Screenshot eines Dateimanagers, der den Ordner 'codex-primary-runtime' und dessen aufgelisteten Inhalt wie Python, Node.js und LibreOffice zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt zwar den Text, der besagt, dass der Ordnername 'strange' ist, aber es zeigt nicht den tatsächlich genannten Ordnernamen oder die Dateistruktur, die in der Narration als Beweis für die Behauptung angeführt wird. Korrektur: Ein Screenshot eines Dateimanagers oder Explorers, der den Ordner mit dem Namen 'codex-primary-runtime' auf dem Laufwerk anzeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine grafische Darstellung einer Code-Umgebung mit abstrakten Balken, die keinen echten Python- oder Node.js-Installationscode oder Dateiinhalte des besprochenen Ordners darstellen. Korrektur: Ein Screenshot eines Dateimanagers, der den Ordner 'codex-primary-runtime' mit den darin enthaltenen Unterordnern für Python, Node.js und LibreOffice zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine grafische Illustration eines Mannes und fordert zum Kommentieren auf. Es liefert keinerlei visuelle Darstellung des erwähnten 'Hard Drive' oder der im Sprechertext beschriebenen 'Office'-Struktur auf der Festplatte. Korrektur: Ein Screenshot der Verzeichnisstruktur auf der Festplatte, die den Ordner 'codex-primary-runtime' oder die darin enthaltenen Komponenten wie Python, Node.js und LibreOffice zeigt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 27.4,
+          "zeitmarken": 3.9,
+          "tempo": 1.25,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 9,
+          "bilder_vereinfacht": 2,
+          "clips_und_stuecke": 336.6,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 9,
+            "motive": 9,
+            "motive_min": 4
+          },
+          "effekte": 10,
+          "rendern": 31.0,
+          "gesamt": 526.2,
+          "videolaenge_s": 27.9,
+          "abschnitte_s": [
+            2.96,
+            5.6,
+            4.46,
+            5.34,
+            4.26,
+            3.5,
+            1.73
+          ],
+          "woerter": 59,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:02.96",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 1,
+            "gesprochen": "It quietly unpacked 1.7GB of office supplies.",
+            "fest": true,
+            "text": "Die Abbildung zeigt lediglich einen Mann in einem Büro. Der Inhalt des Ordners oder der Prozess des Entpackens von 1,7 GB an Daten werden nicht dargestellt. Korrektur: Ein Screenshot eines Dateimanagers, der den Ordner 'codex-primary-runtime' und dessen aufgelisteten Inhalt wie Python, Node.js und LibreOffice zeigt."
+          },
+          {
+            "zeit": "00:06.44",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "But the folder name is stranger.",
+            "fest": true,
+            "text": "Das Bild zeigt zwar den Text, der besagt, dass der Ordnername 'strange' ist, aber es zeigt nicht den tatsächlich genannten Ordnernamen oder die Dateistruktur, die in der Narration als Beweis für die Behauptung angeführt wird. Korrektur: Ein Screenshot eines Dateimanagers oder Explorers, der den Ordner mit dem Namen 'codex-primary-runtime' auf dem Laufwerk anzeigt."
+          },
+          {
+            "zeit": "00:13.02",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 4,
+            "gesprochen": "Full Python installation, full Node.js installation, LibreOffice.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich eine grafische Darstellung einer Code-Umgebung mit abstrakten Balken, die keinen echten Python- oder Node.js-Installationscode oder Dateiinhalte des besprochenen Ordners darstellen. Korrektur: Ein Screenshot eines Dateimanagers, der den Ordner 'codex-primary-runtime' mit den darin enthaltenen Unterordnern für Python, Node.js und LibreOffice zeigt."
+          },
+          {
+            "zeit": "00:26.12",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 8,
+            "gesprochen": "The office is your hard drive.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine grafische Illustration eines Mannes und fordert zum Kommentieren auf. Es liefert keinerlei visuelle Darstellung des erwähnten 'Hard Drive' oder der im Sprechertext beschriebenen 'Office'-Struktur auf der Festplatte. Korrektur: Ein Screenshot der Verzeichnisstruktur auf der Festplatte, die den Ordner 'codex-primary-runtime' oder die darin enthaltenen Komponenten wie Python, Node.js und LibreOffice zeigt."
+          }
+        ],
+        "sekunden": 552.2,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "status": "keine_korrektur",
+        "sekunden": 0.1
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 584.2,
+    "upload_titel": "YOUR CHATGPT INTERN: MOVED IN WITH 1.7GB | AI Tool #34"
   }
 ]

@@ -27,6 +27,46 @@ def vorgeprueft(slots):
     return [x['index'] for x in slots
             if type(x.get('vorgeprueft')) is int and x['vorgeprueft'] >= MINIMUM][:grenze]
 GRUPPE = 1  # Ein Bild je Urteil: Lite vertauschte in der Liveprobe Bilder in Sechsergruppen.
+# GEMESSEN 13.11.2026 (Business 43182565437): 154 Gemini-Anfragen in 3 Bau-Runden, obwohl 10/11 Einstellungen
+# unveraendert wiederverwendet waren. Das Gesamtvideo wird je Runde neu kodiert; der x264-Lookahead aendert die Bytes
+# von Frames nahe einer geaenderten Nachbar-Einstellung, der bytegenaue Einzelcache verfehlte. Zweite Stufe: gleicher
+# Auftrag (Satz, Zeit, Regeln) + 32x32-Miniatur. Gemessener Abstand: Kodierrauschen <= 0,2, kleinster echter
+# Unterschied (gleiches Motiv, andere Zoomstufe) 7,6, anderes Motiv 14-63 -> Schwelle 1,0.
+AEHNLICH_MAX = 1.0
+
+
+def miniatur(bild):
+    from PIL import Image
+    with Image.open(io.BytesIO(bild)) as im:
+        return [int(v) for v in im.convert('RGB').resize((32, 32), Image.BILINEAR).tobytes()]
+
+
+def aehnlich_lesen(key, bild, modelle):
+    """Urteil zu einem fast identischen Bild (nur neu kodiert) mit demselben Auftrag, sonst None."""
+    import ki_speicher
+    treffer = ki_speicher.cache_lesen(key, SCHEMA, modelle)
+    alt = ki_speicher.lesen_json(ki_speicher.CACHE / (key + '.json')).get('miniatur') if treffer else None
+    if not isinstance(alt, list) or len(alt) != 32 * 32 * 3:
+        return None
+    try:
+        neu = miniatur(bild)
+    except (OSError, ValueError):  # Sparhilfe - ein nicht lesbares Bild wird normal geprueft
+        return None
+    return treffer if sum(abs(a - b) for a, b in zip(alt, neu)) / len(neu) <= AEHNLICH_MAX else None
+
+
+def aehnlich_schreiben(key, bild, d, modell):
+    import ki_speicher
+    try:  # Sparhilfe - darf die Pruefung nie kippen
+        eintrag_miniatur = miniatur(bild)
+        ki_speicher.cache_schreiben(key, d, modell, SCHEMA)
+        pfad = ki_speicher.CACHE / (key + '.json')
+        eintrag = ki_speicher.lesen_json(pfad)
+        if eintrag:
+            eintrag['miniatur'] = eintrag_miniatur
+            ki_speicher.speichern(pfad, eintrag)
+    except (OSError, ValueError):
+        pass
 SCHEMA = {'type': 'OBJECT', 'properties': {'pruefung': {'type': 'ARRAY', 'items': {
     'type': 'OBJECT', 'properties': {
         'index': {'type': 'INTEGER'}, 'gesehen': {'type': 'STRING'}, 'note': {'type': 'INTEGER'},
@@ -237,6 +277,9 @@ def pruefen(video, skript, ablauf, ziel):
                     einzelkey = ki_speicher.cache_key(VERSION+code+auftrag,SCHEMA,SEHEN,.1,
                         'bildbezug-einzeln',[hashlib.sha256(b).hexdigest() for b in bilder])
                     einzeltreffer = ki_speicher.cache_lesen(einzelkey,SCHEMA,SEHEN)
+                    aehnlichkey = ki_speicher.cache_key(VERSION+code+auftrag,SCHEMA,SEHEN,.1,'bildbezug-aehnlich')
+                    if not einzeltreffer and len(bilder) == 1:
+                        einzeltreffer = aehnlich_lesen(aehnlichkey, bilder[0], SEHEN)
                     if einzeltreffer:
                         d,modell = einzeltreffer
                     else:
@@ -251,6 +294,8 @@ def pruefen(video, skript, ablauf, ziel):
                         # Ein spaeterer API-Ausfall verwirft nicht die bereits echten Einzelurteile.
                         # Bindung an extrahierte Bildbytes UND exakten Sprechtext, keine Fake-Abdeckung.
                         ki_speicher.cache_schreiben(einzelkey,d,modell,SCHEMA)
+                        if len(bilder) == 1:
+                            aehnlich_schreiben(aehnlichkey, bilder[0], d, modell)
                     ergebnis['pruefung'].extend(d['pruefung']); ergebnis['modelle'].append(modell)
             if ki_speicher.schema_ok({'pruefung': ergebnis['pruefung']}, SCHEMA) and all(
                     1 <= e['note'] <= 10 and e['gesehen'].strip() and e['grund'].strip()

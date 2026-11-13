@@ -180540,6 +180540,1239 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "43423662764.1:business-origin-stories",
+      "run_id": "43423662764",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-13T12:26:48.329715+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "1c752381664daf4300d0fdb3f5af71e5fb22ca4e",
+      "produktionsversion": "6a4b3433fc24fa01aef6061f69ff38065f49c3a97b2c9826ed01acdc75388fe9",
+      "videoformat": "short",
+      "thema": "Rockstar North: from an office above a Dundee chip shop to Grand Theft Auto",
+      "titel": [
+        "*CHIP* *SHOP* STUDIO",
+        "BEHIND GRAND THEFT AUTO"
+      ],
+      "status": "gesendet",
+      "video_sha256": "9ce0c1f4beb985d9c4643be34e76d2c01f62fe9abf117cd705bd5b80c59e635e",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-11.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte handeln davon, dass Rockstar North aus dem Imbiss-Laden hervorging; das Bild zeigt lediglich eine stilisierte Straßenszene in einem Fernseher ohne direkten Bezug zu der geschilderten Firmenhistorie.",
+        "Offenes Problem (schwer): Die gesprochenen Worte handeln davon, dass Rockstar North aus dem Imbiss-Laden hervorging; das Bild zeigt lediglich eine stilisierte Straßenszene in einem Fernseher ohne direkten Bezug zu der geschilderten Firmenhistorie. Korrektur: Ein historisches Foto oder eine Illustration des ehemaligen Studios über dem Fischgeschäft in Dundee."
+      ],
+      "einstellungen": 11,
+      "unterschiedliche_motive": 11,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "43423662764",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-13",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 298.5,
+            "pruefung_s": 30.1,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (5/10): Die Szene zeigt einen Krieger in einer Gasse, aber weder den Schwiegervater noch den Raum ueber einem Fischimbiss.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine moderne Bueroszene, waehrend die Erwaehnung des urspruenglichen Startups ueber einem Imbiss und die Entwicklung zu Rockstar North thematisiert wird. Es fehlt der historische Bezug zum Chip-Shop.",
+              "Offenes Problem (schwer): Die Szene zeigt einen Krieger in einer Gasse, aber weder den Schwiegervater noch den Raum ueber einem Fischimbiss. Korrektur: Ein historisches Buero oder ein Raum ueber einem alten Laden, das als erster Arbeitsplatz dient.",
+              "Offenes Problem (schwer): Das Bild zeigt eine moderne Bueroszene, waehrend die Erwaehnung des urspruenglichen Startups ueber einem Imbiss und die Entwicklung zu Rockstar North thematisiert wird. Es fehlt der historische Bezug zum Chip-Shop. Korrektur: Historische Illustration oder Foto des urspruenglichen Gebaeudes mit dem Chip-Shop in Dundee."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Fenrir",
+              "stimme": 11.2,
+              "zeitmarken": 2.4,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 11,
+              "bilder_vereinfacht": 5,
+              "clips_und_stuecke": 246.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 11,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 25.5,
+              "gesamt": 298.0,
+              "videolaenge_s": 39.0,
+              "abschnitte_s": [
+                6.02,
+                5.04,
+                5.3,
+                5.02,
+                3.46,
+                6.82,
+                7.38
+              ],
+              "woerter": 98,
+              "clips": {
+                "witz": 2,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:21.38",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 6,
+                "gesprochen": "His father-in-law lent him space above a former fish-and-chip shop.",
+                "fest": false,
+                "text": "Die Szene zeigt einen Krieger in einer Gasse, aber weder den Schwiegervater noch den Raum ueber einem Fischimbiss. Korrektur: Ein historisches Buero oder ein Raum ueber einem alten Laden, das als erster Arbeitsplatz dient."
+              },
+              {
+                "zeit": "00:31.66",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 9,
+                "gesprochen": "From that chip shop came Rockstar North.",
+                "fest": false,
+                "text": "Das Bild zeigt eine moderne Bueroszene, waehrend die Erwaehnung des urspruenglichen Startups ueber einem Imbiss und die Entwicklung zu Rockstar North thematisiert wird. Es fehlt der historische Bezug zum Chip-Shop. Korrektur: Historische Illustration oder Foto des urspruenglichen Gebaeudes mit dem Chip-Shop in Dundee."
+              }
+            ],
+            "sekunden": 330.9,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                4,
+                6
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-11.2"
+            },
+            "skript_s": 3.4,
+            "bau_s": 43.7,
+            "pruefung_s": 10.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte handeln davon, dass Rockstar North aus dem Imbiss-Laden hervorging; das Bild zeigt lediglich eine stilisierte Straßenszene in einem Fernseher ohne direkten Bezug zu der geschilderten Firmenhistorie.",
+              "Offenes Problem (schwer): Die gesprochenen Worte handeln davon, dass Rockstar North aus dem Imbiss-Laden hervorging; das Bild zeigt lediglich eine stilisierte Straßenszene in einem Fernseher ohne direkten Bezug zu der geschilderten Firmenhistorie. Korrektur: Ein historisches Foto oder eine Illustration des ehemaligen Studios über dem Fischgeschäft in Dundee."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 9,
+              "stuecke_neu": 2,
+              "clips_und_stuecke": 7.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 11,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 25.3,
+              "gesamt": 43.5,
+              "videolaenge_s": 39.0,
+              "abschnitte_s": [
+                6.02,
+                5.04,
+                5.3,
+                5.02,
+                3.46,
+                6.82,
+                7.38
+              ],
+              "woerter": 98,
+              "clips": {
+                "witz": 2,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:31.66",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 9,
+                "gesprochen": "From that chip shop came Rockstar North.",
+                "fest": false,
+                "text": "Die gesprochenen Worte handeln davon, dass Rockstar North aus dem Imbiss-Laden hervorging; das Bild zeigt lediglich eine stilisierte Straßenszene in einem Fernseher ohne direkten Bezug zu der geschilderten Firmenhistorie. Korrektur: Ein historisches Foto oder eine Illustration des ehemaligen Studios über dem Fischgeschäft in Dundee."
+              }
+            ],
+            "sekunden": 59.7,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "43423662764-2",
+              "datum": "2026-11-13",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 59.7,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-11-11.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                6
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-11.2"
+            },
+            "skript_s": 2.4,
+            "bau_s": 72.8,
+            "pruefung_s": 8.1,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar eine Ladenpassage, die thematisch an einen Laden erinnert, aber der gesprochene Satz 'From that chip shop came Rockstar North' wird nicht konkret oder sinnvoll belegt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar eine Ladenpassage, die thematisch an einen Laden erinnert, aber der gesprochene Satz 'From that chip shop came Rockstar North' wird nicht konkret oder sinnvoll belegt. Korrektur: Eine historische Illustration oder Fotografie des Originalgebäudes mit dem ehemaligen Fischgeschäft und einem Hinweis auf Rockstar North."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Fenrir",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 10,
+              "stuecke_neu": 1,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 37.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 11,
+                "motive": 11,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 23.7,
+              "gesamt": 72.6,
+              "videolaenge_s": 39.0,
+              "abschnitte_s": [
+                6.02,
+                5.04,
+                5.3,
+                5.02,
+                3.46,
+                6.82,
+                7.38
+              ],
+              "woerter": 98,
+              "clips": {
+                "witz": 2,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:31.66",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 9,
+                "gesprochen": "From that chip shop came Rockstar North.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar eine Ladenpassage, die thematisch an einen Laden erinnert, aber der gesprochene Satz 'From that chip shop came Rockstar North' wird nicht konkret oder sinnvoll belegt. Korrektur: Eine historische Illustration oder Fotografie des Originalgebäudes mit dem ehemaligen Fischgeschäft und einem Hinweis auf Rockstar North."
+              }
+            ],
+            "sekunden": 85.3,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "43423662764-3",
+              "datum": "2026-11-13",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 85.3,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-11-11.2",
+              "verbessert": false
+            }
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 555.3,
+        "upload_titel": "Rockstar North – CHIP SHOP STUDIO: BEHIND GRAND THEFT AUTO"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:31.66",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 9,
+            "gesprochen": "From that chip shop came Rockstar North.",
+            "fest": false,
+            "text": "Die gesprochenen Worte handeln davon, dass Rockstar North aus dem Imbiss-Laden hervorging; das Bild zeigt lediglich eine stilisierte Straßenszene in einem Fernseher ohne direkten Bezug zu der geschilderten Firmenhistorie. Korrektur: Ein historisches Foto oder eine Illustration des ehemaligen Studios über dem Fischgeschäft in Dundee."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 39.0,
+          "fps": 30.0,
+          "lufs": -14.2,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 34.5,
+              "bis_s": 35.9,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.986
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 19.0,
+              "bis_s": 39.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Grand",
+                "s": 0.0,
+                "e": 0.46,
+                "p": 0.922038733959198
+              },
+              {
+                "w": "Theft",
+                "s": 0.46,
+                "e": 0.68,
+                "p": 0.9867499470710754
+              },
+              {
+                "w": "Auto",
+                "s": 0.68,
+                "e": 0.96,
+                "p": 0.9883700609207153
+              },
+              {
+                "w": "Studio",
+                "s": 0.96,
+                "e": 1.36,
+                "p": 0.5734602808952332
+              },
+              {
+                "w": "began",
+                "s": 1.36,
+                "e": 1.82,
+                "p": 0.9900655746459961
+              },
+              {
+                "w": "above",
+                "s": 1.82,
+                "e": 2.56,
+                "p": 0.9807634353637695
+              },
+              {
+                "w": "a",
+                "s": 2.56,
+                "e": 2.82,
+                "p": 0.9965757727622986
+              },
+              {
+                "w": "chip",
+                "s": 2.82,
+                "e": 3.08,
+                "p": 0.9583542346954346
+              },
+              {
+                "w": "shop,",
+                "s": 3.08,
+                "e": 3.4,
+                "p": 0.9897991418838501
+              },
+              {
+                "w": "but",
+                "s": 3.82,
+                "e": 4.14,
+                "p": 0.9939411878585815
+              },
+              {
+                "w": "why",
+                "s": 4.14,
+                "e": 4.58,
+                "p": 0.9909635782241821
+              },
+              {
+                "w": "was",
+                "s": 4.58,
+                "e": 4.78,
+                "p": 0.9955363273620605
+              },
+              {
+                "w": "it",
+                "s": 4.78,
+                "e": 4.88,
+                "p": 0.9978119134902954
+              },
+              {
+                "w": "there?",
+                "s": 4.88,
+                "e": 5.16,
+                "p": 0.9947147965431213
+              },
+              {
+                "w": "David",
+                "s": 6.02,
+                "e": 6.22,
+                "p": 0.9967873096466064
+              },
+              {
+                "w": "Jones",
+                "s": 6.22,
+                "e": 6.5,
+                "p": 0.9967013001441956
+              },
+              {
+                "w": "found",
+                "s": 6.5,
+                "e": 6.86,
+                "p": 0.8634109497070312
+              },
+              {
+                "w": "a",
+                "s": 6.86,
+                "e": 7.04,
+                "p": 0.8462689518928528
+              },
+              {
+                "w": "DMA",
+                "s": 7.04,
+                "e": 7.36,
+                "p": 0.9216462075710297
+              },
+              {
+                "w": "design",
+                "s": 7.36,
+                "e": 7.72,
+                "p": 0.9285897016525269
+              },
+              {
+                "w": "in",
+                "s": 7.72,
+                "e": 8.0,
+                "p": 0.9664148092269897
+              },
+              {
+                "w": "Dundee",
+                "s": 8.0,
+                "e": 8.46,
+                "p": 0.996231347322464
+              },
+              {
+                "w": "in",
+                "s": 8.46,
+                "e": 8.62,
+                "p": 0.9901121258735657
+              },
+              {
+                "w": "1988,",
+                "s": 8.62,
+                "e": 9.38,
+                "p": 0.9987499713897705
+              },
+              {
+                "w": "aged",
+                "s": 9.54,
+                "e": 9.8,
+                "p": 0.8322442770004272
+              },
+              {
+                "w": "22.",
+                "s": 9.8,
+                "e": 10.4,
+                "p": 0.9787938594818115
+              },
+              {
+                "w": "Jones",
+                "s": 11.16,
+                "e": 11.4,
+                "p": 0.9967669248580933
+              },
+              {
+                "w": "earned",
+                "s": 11.4,
+                "e": 11.68,
+                "p": 0.9980541467666626
+              },
+              {
+                "w": "75",
+                "s": 11.68,
+                "e": 12.2,
+                "p": 0.9693347215652466
+              },
+              {
+                "w": "pence",
+                "s": 12.2,
+                "e": 12.76,
+                "p": 0.7840687036514282
+              },
+              {
+                "w": "per",
+                "s": 12.76,
+                "e": 12.98,
+                "p": 0.9879151582717896
+              },
+              {
+                "w": "men's",
+                "s": 12.98,
+                "e": 13.38,
+                "p": 0.7518771588802338
+              },
+              {
+                "w": "copy",
+                "s": 13.38,
+                "e": 13.62,
+                "p": 0.9969819188117981
+              },
+              {
+                "w": "and",
+                "s": 13.62,
+                "e": 14.18,
+                "p": 0.7035272717475891
+              },
+              {
+                "w": "later",
+                "s": 14.18,
+                "e": 14.42,
+                "p": 0.9974262118339539
+              },
+              {
+                "w": "called",
+                "s": 14.42,
+                "e": 14.7,
+                "p": 0.9979250431060791
+              },
+              {
+                "w": "the",
+                "s": 14.7,
+                "e": 14.86,
+                "p": 0.995880126953125
+              },
+              {
+                "w": "deal",
+                "s": 14.86,
+                "e": 15.06,
+                "p": 0.998805046081543
+              },
+              {
+                "w": "terrible.",
+                "s": 15.06,
+                "e": 15.5,
+                "p": 0.7973180413246155
+              },
+              {
+                "w": "Still",
+                "s": 16.42,
+                "e": 16.48,
+                "p": 0.9949457049369812
+              },
+              {
+                "w": "20",
+                "s": 16.48,
+                "e": 16.96,
+                "p": 0.35113123059272766
+              },
+              {
+                "w": ",000",
+                "s": 16.96,
+                "e": 17.34,
+                "p": 0.9880823194980621
+              },
+              {
+                "w": "sales",
+                "s": 17.34,
+                "e": 17.62,
+                "p": 0.9922682642936707
+              },
+              {
+                "w": "bought",
+                "s": 17.62,
+                "e": 17.88,
+                "p": 0.34625244140625
+              },
+              {
+                "w": "him",
+                "s": 17.88,
+                "e": 18.0,
+                "p": 0.9923019409179688
+              },
+              {
+                "w": "a",
+                "s": 18.0,
+                "e": 18.06,
+                "p": 0.9989830851554871
+              },
+              {
+                "w": "car.",
+                "s": 18.06,
+                "e": 18.28,
+                "p": 0.9992467164993286
+              },
+              {
+                "w": "Then",
+                "s": 19.1,
+                "e": 19.22,
+                "p": 0.9970132112503052
+              },
+              {
+                "w": "he",
+                "s": 19.22,
+                "e": 19.46,
+                "p": 0.8780331015586853
+              },
+              {
+                "w": "quit",
+                "s": 19.46,
+                "e": 19.7,
+                "p": 0.9938809871673584
+              },
+              {
+                "w": "university",
+                "s": 19.7,
+                "e": 20.04,
+                "p": 0.6864331960678101
+              },
+              {
+                "w": "for",
+                "s": 20.04,
+                "e": 20.5,
+                "p": 0.9971176385879517
+              },
+              {
+                "w": "games.",
+                "s": 20.5,
+                "e": 20.72,
+                "p": 0.9930896162986755
+              },
+              {
+                "w": "His",
+                "s": 21.38,
+                "e": 21.4,
+                "p": 0.9944713115692139
+              },
+              {
+                "w": "father",
+                "s": 21.4,
+                "e": 21.7,
+                "p": 0.9931675791740417
+              },
+              {
+                "w": "-in",
+                "s": 21.7,
+                "e": 21.9,
+                "p": 0.963546484708786
+              },
+              {
+                "w": "-law",
+                "s": 21.9,
+                "e": 22.04,
+                "p": 0.9983217120170593
+              },
+              {
+                "w": "lent",
+                "s": 22.04,
+                "e": 22.22,
+                "p": 0.919955313205719
+              },
+              {
+                "w": "in",
+                "s": 22.22,
+                "e": 22.42,
+                "p": 0.6290912628173828
+              },
+              {
+                "w": "space",
+                "s": 22.42,
+                "e": 22.6,
+                "p": 0.9969461560249329
+              },
+              {
+                "w": "above",
+                "s": 22.6,
+                "e": 23.0,
+                "p": 0.9936426877975464
+              },
+              {
+                "w": "a",
+                "s": 23.0,
+                "e": 23.18,
+                "p": 0.9973268508911133
+              },
+              {
+                "w": "former",
+                "s": 23.18,
+                "e": 23.5,
+                "p": 0.9995469450950623
+              },
+              {
+                "w": "fish",
+                "s": 23.5,
+                "e": 23.8,
+                "p": 0.6276006698608398
+              },
+              {
+                "w": "and",
+                "s": 23.8,
+                "e": 23.96,
+                "p": 0.7644588351249695
+              },
+              {
+                "w": "chip",
+                "s": 23.96,
+                "e": 24.14,
+                "p": 0.9917129278182983
+              },
+              {
+                "w": "shop.",
+                "s": 24.14,
+                "e": 24.32,
+                "p": 0.997441291809082
+              },
+              {
+                "w": "rock.",
+                "s": 24.32,
+                "e": 24.38,
+                "p": 0.25619834661483765
+              },
+              {
+                "w": "So",
+                "s": 24.9,
+                "e": 25.14,
+                "p": 0.8972435593605042
+              },
+              {
+                "w": "what",
+                "s": 25.14,
+                "e": 25.52,
+                "p": 0.597972571849823
+              },
+              {
+                "w": "changed?",
+                "s": 25.52,
+                "e": 25.78,
+                "p": 0.9979944229125977
+              },
+              {
+                "w": "Lemmings",
+                "s": 26.64,
+                "e": 27.0,
+                "p": 0.9424573381741842
+              },
+              {
+                "w": "succeeded",
+                "s": 27.0,
+                "e": 27.42,
+                "p": 0.9898988604545593
+              },
+              {
+                "w": "in",
+                "s": 27.42,
+                "e": 27.72,
+                "p": 0.995003879070282
+              },
+              {
+                "w": "1991,",
+                "s": 27.72,
+                "e": 28.38,
+                "p": 0.9942225813865662
+              },
+              {
+                "w": "and",
+                "s": 28.92,
+                "e": 29.14,
+                "p": 0.9899381399154663
+              },
+              {
+                "w": "the",
+                "s": 29.14,
+                "e": 29.24,
+                "p": 0.9940828680992126
+              },
+              {
+                "w": "studio",
+                "s": 29.24,
+                "e": 29.46,
+                "p": 0.9960269927978516
+              },
+              {
+                "w": "moved",
+                "s": 29.46,
+                "e": 29.9,
+                "p": 0.9942704439163208
+              },
+              {
+                "w": "into",
+                "s": 29.9,
+                "e": 30.18,
+                "p": 0.9728533625602722
+              },
+              {
+                "w": "proper",
+                "s": 30.18,
+                "e": 30.48,
+                "p": 0.989345133304596
+              },
+              {
+                "w": "offices.",
+                "s": 30.48,
+                "e": 30.96,
+                "p": 0.9965636134147644
+              },
+              {
+                "w": "From",
+                "s": 31.74,
+                "e": 31.76,
+                "p": 0.9825041890144348
+              },
+              {
+                "w": "that",
+                "s": 31.76,
+                "e": 31.9,
+                "p": 0.9607279896736145
+              },
+              {
+                "w": "chip",
+                "s": 31.9,
+                "e": 32.06,
+                "p": 0.7595551609992981
+              },
+              {
+                "w": "shop",
+                "s": 32.06,
+                "e": 32.3,
+                "p": 0.9600157737731934
+              },
+              {
+                "w": "came",
+                "s": 32.3,
+                "e": 32.76,
+                "p": 0.9045717716217041
+              },
+              {
+                "w": "Rockstar",
+                "s": 32.76,
+                "e": 33.32,
+                "p": 0.8345488011837006
+              },
+              {
+                "w": "North.",
+                "s": 33.32,
+                "e": 33.6,
+                "p": 0.9551042318344116
+              },
+              {
+                "w": "Be",
+                "s": 34.24,
+                "e": 34.28,
+                "p": 0.992792010307312
+              },
+              {
+                "w": "sure",
+                "s": 34.28,
+                "e": 34.4,
+                "p": 0.998539924621582
+              },
+              {
+                "w": "to",
+                "s": 34.4,
+                "e": 34.5,
+                "p": 0.9948411583900452
+              },
+              {
+                "w": "like,",
+                "s": 34.5,
+                "e": 34.68,
+                "p": 0.960555374622345
+              },
+              {
+                "w": "share,",
+                "s": 34.84,
+                "e": 35.0,
+                "p": 0.9980910420417786
+              },
+              {
+                "w": "and",
+                "s": 35.22,
+                "e": 35.3,
+                "p": 0.993335485458374
+              },
+              {
+                "w": "save",
+                "s": 35.3,
+                "e": 35.54,
+                "p": 0.9955287575721741
+              },
+              {
+                "w": "this",
+                "s": 35.54,
+                "e": 35.68,
+                "p": 0.9737808704376221
+              },
+              {
+                "w": "video.",
+                "s": 35.68,
+                "e": 35.9,
+                "p": 0.9968351721763611
+              },
+              {
+                "w": "Which",
+                "s": 36.5,
+                "e": 36.54,
+                "p": 0.9857003688812256
+              },
+              {
+                "w": "company",
+                "s": 36.54,
+                "e": 36.74,
+                "p": 0.9956411123275757
+              },
+              {
+                "w": "next?",
+                "s": 36.74,
+                "e": 37.04,
+                "p": 0.9523141980171204
+              },
+              {
+                "w": "Comment",
+                "s": 37.52,
+                "e": 37.58,
+                "p": 0.9945307374000549
+              },
+              {
+                "w": "and",
+                "s": 37.58,
+                "e": 38.1,
+                "p": 0.8429552912712097
+              },
+              {
+                "w": "follow",
+                "s": 38.1,
+                "e": 38.34,
+                "p": 0.9964415431022644
+              },
+              {
+                "w": "for",
+                "s": 38.34,
+                "e": 38.5,
+                "p": 0.9765119552612305
+              },
+              {
+                "w": "more.",
+                "s": 38.5,
+                "e": 38.68,
+                "p": 0.9994087219238281
+              }
+            ],
+            "dauer_s": 38.9546875,
+            "sprache": "en"
+          },
+          "roh_key": "a97f2961f81cfe4155642e079bab640fa15eec2fc068b1b3499d4ff846623fc9",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "9ce0c1f4beb985d9c4643be34e76d2c01f62fe9abf117cd705bd5b80c59e635e",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 39.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 11,
+          "motive": 11,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "9ce0c1f4beb985d9c4643be34e76d2c01f62fe9abf117cd705bd5b80c59e635e",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Gezeigt wird eine bunte, im Comic-Stil gezeichnete Illustration eines Gebäudes mit einem rosa Obergeschoss und einem roten Ladengeschäft im Erdgeschoss, das laut Erzählung als Ursprung für das Studio dient.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell das erwähnte Gebäude bzw. den Ort, an dem das Studio anfangs war, passend zum gesprochenen Satz über den Ursprung über einem Laden.",
+              "erforderliches_bild": "Das Bild passt bereits."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein junger Mann steht nachts auf einer Stadtstraße vor einem Imbiss mit der Aufschrift 'PIIVNER', im Hintergrund sind alte Gebäude und ein nächtlicher Himmel zu sehen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Frage 'Aber warum war es dort?' ist eine rhetorische Übergangsfrage, die durch die Szene mit dem Imbiss (Chip Shop Bezug) und dem Protagonisten im passenden Setting direkt und visuell passend fortgeführt wird.",
+              "erforderliches_bild": "Ein passenderes Bild ist nicht erforderlich, da die visuelle Referenz zum Imbiss und der Straßenszene gegeben ist."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Mann sitzt an einem Tisch in einem Raum mit großen Fenstern, im Hintergrund sind Straßen und Gebäude zu sehen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt einen jungen Entwickler bei seiner Arbeit, was zum Erzählen über den Verkaufserfolg von Menace passt.",
+              "erforderliches_bild": "Historische Darstellung von David Jones an einem Schreibtisch mit Geldbeträgen oder Spielexemplaren."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein junger Mann steht in einem Flur und spricht in die Kamera. Im oberen Bereich befindet sich eine Einblendung mit der Zahl '20,000' und dem Text 'SALES BOUGHT'. Im Hintergrund sind Gebäude zu sehen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die im Bild gezeigte Szene greift die erwähnten Verkaufszahlen ('20,000 sales') durch die prominente Texttafel auf und zeigt den erzählten Kontext passend als Illustration.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 6,
+              "gesehen": "Die Abbildung zeigt einen Querschnitt durch ein Haus mit einem Dachgeschoss, in dem sich ein Retro-Arbeitsplatz mit Computern und Regalen befindet, während darunter ein leerer Imbiss- oder Ladenbereich zu erahnen ist.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild illustriert die Erwähnung des Raumes über einem Fisch- und Chip-Laden („above a former fish-and-chip shop“) visuell passend und atmosphärisch.",
+              "erforderliches_bild": "Keines, da passend."
+            },
+            {
+              "index": 7,
+              "gesehen": "In einem belebten Büro stehen mehrere Personen und ein Mann im Vordergrund interagiert mit einem Gerät.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die rhetorische Übergangsfrage passt zu einer passenden Szenenfortführung im Bürokontext des Studios.",
+              "erforderliches_bild": "Bürokontext"
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein alter Röhrenmonitor zeigt ein Spiel im Retro-Pixelstil (Lemmings-Charaktere auf Plattformen), während im Hintergrund ein Büro mit Computern zu sehen ist.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell eine Szene aus Lemmings im Stil des Jahres 1991 passend zur Erwähnung des Erfolgs.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 9,
+              "gesehen": "Gezeigt wird eine von oben betrachtete Straßenkreuzung mit Autos und Fußgängern in einem gezeichneten Stil, gerahmt in einem Fernseher auf einem Schreibtisch unter einer Lampe.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochenen Worte handeln davon, dass Rockstar North aus dem Imbiss-Laden hervorging; das Bild zeigt lediglich eine stilisierte Straßenszene in einem Fernseher ohne direkten Bezug zu der geschilderten Firmenhistorie.",
+              "erforderliches_bild": "Ein historisches Foto oder eine Illustration des ehemaligen Studios über dem Fischgeschäft in Dundee."
+            }
+          ],
+          "befunde": [
+            "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte handeln davon, dass Rockstar North aus dem Imbiss-Laden hervorging; das Bild zeigt lediglich eine stilisierte Straßenszene in einem Fernseher ohne direkten Bezug zu der geschilderten Firmenhistorie."
+          ],
+          "modelle": [
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite"
+          ],
+          "einstellungen": 11,
+          "ausgenommen": [
+            10
+          ],
+          "vorgeprueft": [
+            2,
+            5
+          ],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "9ce0c1f4beb985d9c4643be34e76d2c01f62fe9abf117cd705bd5b80c59e635e",
+        "prompt_version": "2026-11-11.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

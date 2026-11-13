@@ -298,6 +298,15 @@ def beschreibung_mit_quellen(beschreibung, quellen):
             + ' - cropped, animated and captioned' + (
                 '; these modified photos are licensed under the same CC BY-SA license'
                 if any('SA' in q['lizenz'] for q in fotos) else ''))
+    # 13.11.2026: CC-BY-Archiv-/Witz-Clips brauchen Urheber, Lizenz, Link und Hinweis auf Bearbeitung
+    # (gemeinfreie nicht - die Beschreibung bleibt kurz).
+    clips = {q.get('seite'): q for q in quellen if q.get('art') in ('witz', 'archiv')
+             and 'CC BY' in str(q.get('lizenz', '')).upper() and q.get('seite')}
+    if clips:
+        nennungen.append('Clips (Wikimedia Commons): ' + '; '.join(
+            f"{q.get('von') or 'see file page'}, {q['lizenz']} ({q['seite']})" for q in clips.values())
+            + ' - modified (cut, painted)' + ('; modified clips under the same CC BY-SA license'
+                                               if any('SA' in str(q['lizenz']) for q in clips.values()) else ''))
     for nennung in nennungen:
         if nennung not in beschreibung:
             beschreibung += '\n' + nennung

@@ -181,16 +181,19 @@ def commons(begriff, anzahl=4):
     d = _json('https://commons.wikimedia.org/w/api.php?' + urllib.parse.urlencode(
         {'action': 'query', 'format': 'json', 'generator': 'search', 'gsrsearch': f'{begriff} filetype:video',
          'gsrnamespace': 6, 'gsrlimit': 10, 'prop': 'imageinfo|categories', 'iiprop': 'url|extmetadata|size',
-         'iiextmetadatafilter': 'LicenseShortName', 'cllimit': 'max', 'clshow': '!hidden'}))
+         'iiextmetadatafilter': 'LicenseShortName|Artist', 'cllimit': 'max', 'clshow': '!hidden'}))
     treffer = []
     for p in sorted((d.get('query') or {}).get('pages', {}).values(), key=lambda p: p.get('index', 0)):
         ii = (p.get('imageinfo') or [{}])[0]
         lizenz = ((ii.get('extmetadata') or {}).get('LicenseShortName') or {}).get('value', '')
+        # 13.11.2026: CC BY verlangt den Urheber in der Beschreibung (texte.beschreibung_mit_quellen)
+        von = re.sub(r'<[^>]+>', '', str(((ii.get('extmetadata') or {}).get('Artist') or {}).get('value', '')))
         if COMMONS_LIZENZ.match(lizenz) and 3 <= float(ii.get('duration') or 0) <= COMMONS_MAX_S and ii.get('url'):
             treffer.append({'kennung': p['title'], 'adresse': ii['url'], 'sekunden': float(ii['duration']),
                             'groesse': int(ii.get('size') or 0),
                             'kategorien': [str(k.get('title', ''))[9:] for k in p.get('categories') or []],
-                            'lizenz': lizenz, 'seite': ii.get('descriptionurl', ''), 'quelle': 'Wikimedia Commons'})
+                            'lizenz': lizenz, 'seite': ii.get('descriptionurl', ''), 'quelle': 'Wikimedia Commons',
+                            'von': ' '.join(von.split())[:120]})
     return treffer[:anzahl]
 
 
@@ -218,7 +221,9 @@ STARS = re.compile(r'chaplin|keaton|laurel|hardy|harold lloyd|arbuckle|disney|al
                    r'betty boop|popeye|felix|kermit|henson|koko|bimbo|superman|bugs bunny|porky|daffy|looney|bosko|'
                    r'noveltoons|harvey|baby huey|little audrey|katnip|'
                    r'merrie melodies|woody woodpecker|mighty mouse|casper|tom and jerry|coca-cola|lucky strike|'
-                   r'cigarette|virgin|hot pants|puberty|venereal|atom|duck and cover|war\b|nazi|hitler', re.I)
+                   r'cigarette|virgin|hot pants|puberty|venereal|atom|duck and cover|war\b|nazi|hitler|'
+                   # 13.11.2026: moderne TV-Serien liegen auf Commons teils mit fraglicher CC-Lizenz (Content ID)
+                   r'rocko|spongebob|simpsons|nickelodeon|cartoon network', re.I)
 WITZ_JAHR_MAX = 1975
 # Nutzer 31.10.2026 nach der Witz-Probe (41212623109): "Die 9/10 sind schon besser als die 8/10" - lieber ein
 # gemaltes Bild als ein mittelmaessiger Gag.
@@ -622,6 +627,7 @@ def fuer_einstellung(satz, szene, suche, dauer, basis, archiv=True, ohne_epoche=
                     benutzt.add(fund['kennung'])
                 return video, bild, {'quelle': f"{fund['quelle']}, {fund['lizenz']}", 'seite': fund['seite'],
                                      'lizenz': fund['lizenz'], 'nennung': 'Archival cartoon/comedy, painted',
+                                     'von': fund.get('von', ''),
                                      'note': fund['note'], 'art': 'witz', 'witz_art': witz_art,
                                      'kennung': fund['kennung']}
     modern = epoche_modern(szene, ohne_epoche, geschichte)
@@ -653,6 +659,7 @@ def fuer_einstellung(satz, szene, suche, dauer, basis, archiv=True, ohne_epoche=
                     benutzt.add(fund['kennung'])
                 return video, bild, {'quelle': f"{fund['quelle']}, {fund['lizenz']}", 'seite': fund['seite'],
                                      'lizenz': fund['lizenz'], 'nennung': 'Archival footage, colorized and painted',
+                                     'von': fund.get('von', ''),
                                      'note': fund['note'], 'art': 'archiv', 'kennung': fund['kennung']}
     # 30.10.2026, Nutzer: "nicht nur Karten freimachen - wir brauchen was generell". Archive haben fuer die meisten
     # Saetze nichts (Nintendo/Intel: Note 0-6). Pixabay hat viel mehr; die KI-Auswahl bekommt die Epoche und lehnt

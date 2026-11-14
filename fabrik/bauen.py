@@ -646,6 +646,10 @@ def tipp_eingabe(ein, ebene, zeichne, titel, ordner):
     Bildes eine kurze Bildfolge; overlay haelt danach das letzte (vollstaendige) Bild."""
     gesamt = titel_zeichen(titel)
     bilder = max(2, min(int(TIPP_HOECHSTENS_S * FPS), int(gesamt * TIPP_S_JE_ZEICHEN * FPS)))
+    # GEMESSEN 14.11.2026 (Rockstar-Langvideo zeigte den Tesla-Titel): der Ordner wandert im Teilbau-Cache von
+    # Video zu Video; ffmpeg liest tipp_%03d.png bis zur letzten vorhandenen Nummer - alte, laengere Folgen weg.
+    for alt in Path(ordner).glob('tipp_*.png'):
+        alt.unlink()
     for k in range(bilder):
         zeichne(math.ceil(gesamt * (k + 1) / bilder)).save(Path(ordner) / f'tipp_{k:03d}.png')
     pos = ein.index(str(ebene))

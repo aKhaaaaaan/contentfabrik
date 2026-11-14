@@ -17,10 +17,6 @@
       "grund": "Tageskontingent erschoepft",
       "bis": 1794643200.0
     },
-    "8c1eba443c0e93c86dc53df7:groq:qwen/qwen3.8-27b": {
-      "grund": "Groq-Vision HTTP429",
-      "bis": 1794639966.4961126
-    },
     "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": {
       "grund": "Tageskontingent erschoepft",
       "bis": 1794643200.0
@@ -34,13 +30,13 @@
       "bis": 1794643200.0
     },
     "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": {
-      "grund": "Netzwerk-Zeitlimit",
-      "bis": 1794633116.943504
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1794641876.1255193
+    },
+    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
+      "grund": "HTTP429; Serverfrist 328s",
+      "bis": 1794642134.1213908
     }
   },
-  "zeitlimits": {
-    "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": [
-      1794633056.943504
-    ]
-  }
+  "zeitlimits": {}
 }

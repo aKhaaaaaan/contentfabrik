@@ -37,6 +37,19 @@ EXTRA_VIDEOS = {('ai-tools-explained', '2026-10-17'): 1, ('business-origin-stori
 
 def extra_videos(kanal, datum):
     return EXTRA_VIDEOS.get((kanal, str(datum)), 0)
+
+
+# Nutzer 14.11.2026 ("Ok gut", "Jaa mach das"): am 15.11. laufen die Zeitplan-Shorts beider Kanaele erst NACH dem
+# Rockstar-Langvideo (12:07 UTC). GEMESSEN 13.11.: die Rockstar-Laeufe scheiterten am knappen Gemini-Kontingent, das
+# die Shorts vorher anbrauchen; ihr Clip-Cache (~2,5 GB/Tag) kann den 1,07-GB-Zwischenstand aus dem 10-GB-Cache
+# verdraengen. Die Slots 13:23/15:41 UTC laufen normal (gleiche concurrency-Gruppe -> warten aufs Langvideo).
+SHORTS_AB_UTC = {'2026-11-15': 12}
+
+
+def zeitplan_short_wartet(tag, jetzt_utc, hand):
+    """True, wenn ein Zeitplan-Short heute noch auf das Langvideo warten soll (Handstarts nie)."""
+    ab = SHORTS_AB_UTC.get(str(tag))
+    return ab is not None and not hand and jetzt_utc.hour < ab
 # Langvideo (8-10 Min., ~70-80 Bilder statt 25) - erster Pilot 08.10.2026, Bauzeit noch nicht
 # gemessen; hochgerechnet aus ~35-40 Min. je Short. GitHub-Jobs enden spaetestens nach 6 h.
 BUDGET_LANG_S = 200 * 60

@@ -104,7 +104,7 @@ jobs:
                       offen.append(k)
               from lauf import zeitplan_short_wartet  # 15.11.2026: Shorts erst nach dem Rockstar-Langvideo
               if zeitplan_short_wartet(heute, datetime.datetime.now(datetime.timezone.utc), hand):
-                  print('Shorts warten heute auf das Langvideo (ab 13:23 UTC)')
+                  print('Shorts warten heute auf das Langvideo (ab 15:41 UTC)')
                   offen = []
           else:
               kanal = os.environ['EINGABE'] or 'business-origin-stories'

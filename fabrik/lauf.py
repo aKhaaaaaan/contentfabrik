@@ -42,8 +42,9 @@ def extra_videos(kanal, datum):
 # Nutzer 14.11.2026 ("Ok gut", "Jaa mach das"): am 15.11. laufen die Zeitplan-Shorts beider Kanaele erst NACH dem
 # Rockstar-Langvideo (12:07 UTC). GEMESSEN 13.11.: die Rockstar-Laeufe scheiterten am knappen Gemini-Kontingent, das
 # die Shorts vorher anbrauchen; ihr Clip-Cache (~2,5 GB/Tag) kann den 1,07-GB-Zwischenstand aus dem 10-GB-Cache
-# verdraengen. Die Slots 13:23/15:41 UTC laufen normal (gleiche concurrency-Gruppe -> warten aufs Langvideo).
-SHORTS_AB_UTC = {'2026-11-15': 12}
+# verdraengen. Nutzer 14.11. danach: "Longvideo heute und morgen haben Vorrang" -> erst der Slot 15:41 UTC, damit
+# auch ein Rockstar-NEUSTART nach einem Fehlversuch (13-15 UTC) vor den Shorts drankommt (gleiche concurrency-Gruppe).
+SHORTS_AB_UTC = {'2026-11-15': 15}
 
 
 def zeitplan_short_wartet(tag, jetzt_utc, hand):

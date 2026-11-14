@@ -23,6 +23,68 @@ def _saetze(absatz):
     return [s for s in re.split(r'(?<=[.!?])\s+(?=[A-Z0-9"(])', absatz.strip()) if s]
 
 
+# GEMESSEN 14.11.2026 (KI-Langvideo 43595939054, 5 Claude-Skripte gesperrt): der Pruefer sah je Quelle ~2.000 von
+# 6.000 Zeichen und meldete woertlich belegte Saetze als "not in the provided source" ("SSE transport is deprecated",
+# "CLAUDE_PROJECT_DIR", "Restart Claude Desktop", "disk space"). Abwesenheitsmeldungen werden deshalb im Code gegen den
+# VOLLEN Quelltext gegengeprueft - ohne weiteren KI-Aufruf. skript.py reicht nur Auszuege weiter (Datei steckt im
+# Pruefschluessel offener Entwuerfe); auszug() merkt sich daher die vollen Texte, pruefen() verbraucht sie.
+VOLLTEXTE = []
+ABWESEND = re.compile(r"does ?n[o']t (explicitly )?(contain|mention|state|say|include|describe|reference|list|label|use)"
+                      r"|not (found|mentioned|present|stated|supported|explicitly|in the (provided|supplied|source))"
+                      r"|no mention|unsupported|cannot be verified|lacks", re.I)
+WIDERSPRUCH = re.compile(r'contradict|incorrect|wrong|differs|differ from|misattribut|attribut|instead of|mismatch'
+                         r'|actually|false|inaccurate|confus', re.I)
+_STOPP = {w[:6] for w in ('about above after again against because before being below between could does doing '
+                          'during every first further having other their there these those through under until '
+                          'where which while would should since still also, page says often never always within '
+                          'without again really point points explains notes adds lists shows flags reads warns mentions states '
+                          'describes calls table column section').replace(',', '').split()}
+
+
+def _staemme(s):
+    return {w[:6] for w in re.findall(r'[a-z]{5,}', s.lower())} - _STOPP
+
+
+def _marken(s):
+    """Zahlen, Betraege und Kennungen (CLAUDE_PROJECT_DIR, streamable-http, 5x) - muessen im Beleg stehen."""
+    return {m.lower().rstrip('.,') for m in re.findall(r'\$?\d[\w.,%]*|\b\w+(?:[_./-]\w+)+\b|\b[A-Z]{2,}[A-Z0-9_]*\b', s)}
+
+
+def belegt(satz, volltexte, anteil=0.8):
+    """Steht der Satz sinngemaess in EINER Stelle der vollen Quellen (3 Nachbarsaetze): alle Zahlen/Kennungen
+    und >= anteil der Inhaltswoerter? Streng: zu wenige Inhaltswoerter -> nicht belegt."""
+    st, mk = _staemme(satz), _marken(satz)
+    if len(st) < 3:
+        return False
+    for text in volltexte:
+        text = re.sub(r'(?<![.!?:;])\n(?=[a-z])', ' ', str(text or ''))
+        saetze = [s for a in re.split(r'\n+', text) if a.strip() for s in _saetze(a)]
+        for i in range(len(saetze)):
+            fenster = ' '.join(saetze[i:i + 3])
+            klein = fenster.lower()
+            if all(m in klein for m in mk) and len(st & _staemme(fenster)) >= anteil * len(st):
+                return True
+    return False
+
+
+def gegenpruefen(ergebnis, volltexte):
+    """Entfernt Abwesenheitsmeldungen, deren Satz in den vollen Quellen steht; Widersprueche bleiben immer."""
+    belege = []
+
+    def bleibt(eintrag):
+        satz, _, grund = eintrag.partition(' - ')
+        if ABWESEND.search(grund) and not WIDERSPRUCH.search(grund) and belegt(satz, volltexte):
+            belege.append(eintrag)
+            return False
+        return True
+    r = dict(ergebnis)
+    r['probleme'] = [p for p in ergebnis.get('probleme', []) if bleibt(p)]
+    r['leicht'] = [p for p in ergebnis.get('leicht', []) if bleibt(p)]
+    r['ok'] = not r['probleme']
+    r['belegt'] = belege
+    return r
+
+
 def auszug(quelle, text, grenze=GRENZE_ZEICHEN):
     """Je Satz des Textes der Quellsatz mit den meisten gemeinsamen Namen/Zahlen/Woertern,
     danach dessen Nachbarsaetze als Kontext - in Originalreihenfolge, bis zur Zeichengrenze.
@@ -31,6 +93,8 @@ def auszug(quelle, text, grenze=GRENZE_ZEICHEN):
     nach Gesamtueberschneidung mit dem 7.000-Zeichen-Skript liess den Absatz mit „Breaking Bad"
     weg; der Pruefer meldete einen woertlich belegten Satz als „nicht in der Quelle" und sperrte
     das Video viermal. Bei langen Texten passt jeder Absatz ein bisschen - darum je Satz suchen."""
+    if quelle and quelle not in VOLLTEXTE:
+        VOLLTEXTE.append(quelle)
     if len(quelle) <= grenze:
         return quelle
     namen = lambda s: {w.lower() for w in re.findall(r'\b(?:[A-Z][\w.-]+|\d[\d,.]*)\b', s)}
@@ -80,6 +144,8 @@ def auszug(quelle, text, grenze=GRENZE_ZEICHEN):
 
 def pruefen(text, quelle, art='YouTube Short script'):
     """Gibt {'ok': bool, 'probleme': [...], 'modell': ...} oder None (nicht verfuegbar)."""
+    volltexte = VOLLTEXTE[:] + [quelle]  # vor auszug() unten - die Liste gehoert genau diesem Pruefaufruf
+    VOLLTEXTE.clear()
     schluessel = os.environ.get('GROQ_API_KEY')
     if not schluessel:
         return None
@@ -123,8 +189,12 @@ def pruefen(text, quelle, art='YouTube Short script'):
                     raise ValueError('Unvollstaendige Zweitpruefer-Antwort')
                 text_ = lambda p: f"{str(p.get('satz', ''))[:160]} - {p.get('fehler', '')}"
                 schwer = [text_(p) for p in ps if p.get('schwer')]
-                return {'ok': not schwer, 'probleme': schwer, 'leicht': [text_(p) for p in ps if not p.get('schwer')],
-                        'modell': modell}
+                r = gegenpruefen({'ok': not schwer, 'probleme': schwer, 'modell': modell,
+                                  'leicht': [text_(p) for p in ps if not p.get('schwer')]}, volltexte)
+                VOLLTEXTE.clear()  # auszug() oben hat die Texte erneut gemerkt
+                if r['belegt']:
+                    print(f"Zweitpruefer: {len(r['belegt'])} Meldungen in der vollen Quelle belegt (nur Auszug gesehen)")
+                return r
             except urllib.error.HTTPError as e:
                 inhalt = e.read().decode(errors='replace')
                 if e.code == 429 and 'per day' in inhalt.lower():

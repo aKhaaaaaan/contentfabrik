@@ -2,21 +2,21 @@
   "version": 1,
   "modelle": {
     "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
-      "grund": "voruebergehend ueberlastet",
-      "bis": 1794665079.472033
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1794665799.7515817
     },
     "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
       "grund": "Netzwerk-Zeitlimit",
-      "bis": 1794664865.7912269
-    },
-    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
-      "grund": "HTTP429; Serverfrist 460s",
-      "bis": 1794665265.9045877
+      "bis": 1794665939.7993262
     }
   },
   "zeitlimits": {
     "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
-      1794664805.7912269
+      1794664805.7912269,
+      1794665759.7993262
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
+      1794665739.7515817
     ]
   }
 }

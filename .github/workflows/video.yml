@@ -102,9 +102,16 @@ jobs:
                   if (sum(themen.zaehlt_als_tagesvideo(k, e, heute) for e in v) < tagesziel(k) or hand) \
                           and not gratis_weg and start_moeglich(k):
                       offen.append(k)
-              from lauf import zeitplan_short_wartet  # 15.11.2026: Shorts erst nach dem Rockstar-Langvideo
-              if zeitplan_short_wartet(heute, datetime.datetime.now(datetime.timezone.utc), hand):
-                  print('Shorts warten heute auf das Langvideo (ab 15:41 UTC)')
+              # Nutzer 14.11.2026: an Langvideo-Tagen hat das Langvideo Vorrang, Shorts kommen danach
+              from lauf import zeitplan_short_wartet
+              try:
+                  import langvideo
+                  lang = langvideo.plan(datetime.date.fromisoformat(heute))
+              except Exception as e:  # Plan unlesbar: Shorts nicht blockieren
+                  print('Langvideo-Plan nicht lesbar:', e)
+                  lang = []
+              if offen and zeitplan_short_wartet(heute, datetime.datetime.now(datetime.timezone.utc), hand, lang):
+                  print('Shorts warten auf das Langvideo von heute:', [x['kanal'] for x in lang], '(spaetestens 15:41 UTC)')
                   offen = []
           else:
               kanal = os.environ['EINGABE'] or 'business-origin-stories'

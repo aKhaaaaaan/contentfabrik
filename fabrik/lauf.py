@@ -44,13 +44,18 @@ def extra_videos(kanal, datum):
 # die Shorts vorher anbrauchen; ihr Clip-Cache (~2,5 GB/Tag) kann den 1,07-GB-Zwischenstand aus dem 10-GB-Cache
 # verdraengen. Nutzer 14.11. danach: "Longvideo heute und morgen haben Vorrang" -> erst der Slot 15:41 UTC, damit
 # auch ein Rockstar-NEUSTART nach einem Fehlversuch (13-15 UTC) vor den Shorts drankommt (gleiche concurrency-Gruppe).
-SHORTS_AB_UTC = {'2026-11-15': 15}
+# Nutzer 14.11.2026 abends: "Langvideo direkt am Samstag und Sonntag als high prio statt Shorts ... Shorts nach
+# hinten als zweites prio" -> an JEDEM Langvideo-Tag (Fr-So, langvideo.yml startet 06:07/06:40 UTC) warten die
+# Zeitplan-Shorts, solange langvideo.plan() fuer heute noch ein Langvideo meldet (nicht gesendet, Budget frei).
+# Der letzte Slot (15:41 UTC) baut die Shorts trotzdem, damit ein haengendes Langvideo sie nicht ganz verdraengt.
+LANGVIDEO_WOCHENTAGE = (4, 5, 6)
+SHORTS_SPAETESTENS_UTC = 15
 
 
-def zeitplan_short_wartet(tag, jetzt_utc, hand):
+def zeitplan_short_wartet(tag, jetzt_utc, hand, lang_offen):
     """True, wenn ein Zeitplan-Short heute noch auf das Langvideo warten soll (Handstarts nie)."""
-    ab = SHORTS_AB_UTC.get(str(tag))
-    return ab is not None and not hand and jetzt_utc.hour < ab
+    return (not hand and bool(lang_offen) and jetzt_utc.hour < SHORTS_SPAETESTENS_UTC
+            and datetime.date.fromisoformat(str(tag)[:10]).weekday() in LANGVIDEO_WOCHENTAGE)
 # Langvideo (8-10 Min., ~70-80 Bilder statt 25) - erster Pilot 08.10.2026, Bauzeit noch nicht
 # gemessen; hochgerechnet aus ~35-40 Min. je Short. GitHub-Jobs enden spaetestens nach 6 h.
 BUDGET_LANG_S = 200 * 60

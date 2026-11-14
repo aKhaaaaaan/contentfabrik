@@ -10,11 +10,12 @@ env:
   PYTHONUNBUFFERED: '1'
 on:
   schedule:
-    # Freitag bis Sonntag nach den Tages-Shorts (die starten 08:23 UTC und brauchen bis ~11 Uhr); die
-    # Vorpruefung waehlt je Tag die faelligen Kanaele (erster Tag Bau, weitere Ersatz, ABSTAND_TAGE sperrt).
-    - cron: '7 12 * * 5'
-    - cron: '7 12 * * 6'
-    - cron: '7 12 * * 0'
+    # Nutzer 14.11.2026: Fr-So hat das Langvideo Vorrang - Start morgens VOR den Shorts (die warten in
+    # video.yml, solange langvideo.plan() etwas meldet). Die Vorpruefung waehlt je Tag den faelligen Kanal.
+    # GitHub startet Zeitplaene oft Stunden spaeter; der Cloudflare-Worker startet 06:40 UTC nach.
+    - cron: '7 6 * * 5'
+    - cron: '7 6 * * 6'
+    - cron: '7 6 * * 0'
   workflow_dispatch:
     inputs:
       # GEMESSEN 24.10.2026: der Cloudflare-Ersatzstart (12:40 UTC, ohne Eingaben) bekam hier Business als

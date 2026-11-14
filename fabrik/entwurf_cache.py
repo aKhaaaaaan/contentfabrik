@@ -7,7 +7,9 @@ from qualitaet import skript_gruende
 TTL = 6 * 3600
 # GEMESSEN 17.10.2026: das Langvideo (Sa, Ersatztermin So) verlor sein geprueftes Skript nach 6 h - der
 # Sonntag haette Skript und bezahlte Stimme neu erzeugt. Firmengeschichten veralten nicht ueber Nacht.
-TTL_LANG = 48 * 3600
+# GEMESSEN 14.11.2026: Rockstar-Entwurf (13.11. 14:58 UTC) waere So 14:58 UTC abgelaufen - mitten im Bautag; ein
+# Neustart haette Skript und Stimme neu erzeugt und offener_entwurf() ein anderes Thema gewaehlt. Daher 72 h.
+TTL_LANG = 72 * 3600
 
 
 def cache_name(kanal, profil):

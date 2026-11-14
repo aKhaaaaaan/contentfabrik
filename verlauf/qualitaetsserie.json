@@ -181773,6 +181773,776 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "43575618752.1:ai-tools-explained",
+      "run_id": "43575618752",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-14T08:38:44.283720+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "0335d2a5404ce734dd33aacfbd2df36055803b28",
+      "produktionsversion": "0dd0d3e05c33f1c801778ce40cddbf43cb533b094b611f4ac6ab3522edd7b887",
+      "videoformat": "short",
+      "thema": "Gemini app: free neon 80s poster with Nano Banana 2",
+      "titel": [
+        "FREE NEON 80s POSTER",
+        "THE 1K DOWNLOAD CATCH"
+      ],
+      "status": "gesendet",
+      "video_sha256": "432b16e45afdb8c9c115f8bc489687950256a0de9afc37bca78daf571da4bb9b",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-11.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar stilistisch ein Neons-80er-Motiv, aber keinen direkten Bezug zur Preisangabe von null Dollar, sondern ist nur ein allgemeines Werbe- oder Plakatmotiv.",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Textgrafiken zu Preisen und Machern, aber nicht die im Text erwähnte App oder den Erstellungsprozess.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Hilfeseite zur Bildgenerierung mit Gemini Apps, aber nicht die konkrete Bedienoberfläche oder das Anklicken von 'Images' und das Beschreiben von Motiv, Aktion, Ort und Stil wie gesprochen.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Chat-Oberfläche ist nur ein grafisches Element ohne technische Erklärung oder direktem Bezug zu den Bildgenerierungs- oder Download-Details der Audiospur.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich ein gemaltes Porträt und Social-Media-Texthinweise, aber keinen Bezug zum finalen Satz über das Portemonnaie oder das neonfarbene 80er-Jahre-Poster im Kontext des Schlusssatzes.",
+        "Offenes Problem (schwer): Das Bild zeigt zwar stilistisch ein Neons-80er-Motiv, aber keinen direkten Bezug zur Preisangabe von null Dollar, sondern ist nur ein allgemeines Werbe- oder Plakatmotiv. Korrektur: Eine Preistabelle oder eine Benutzeroberfläche, die den Preis von null Dollar für das Neon-80er-Poster anzeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich Textgrafiken zu Preisen und Machern, aber nicht die im Text erwähnte App oder den Erstellungsprozess. Korrektur: Screenshot der Gemini-App Oberflaeche bei der Erstellung des Neon-Posters",
+        "Offenes Problem (schwer): Das Bild zeigt eine Hilfeseite zur Bildgenerierung mit Gemini Apps, aber nicht die konkrete Bedienoberfläche oder das Anklicken von 'Images' und das Beschreiben von Motiv, Aktion, Ort und Stil wie gesprochen. Korrektur: Ein Screenshot oder eine Aufnahme der Gemini-Benutzeroberfläche, in der man auf 'Images' klickt und eine Beschreibung für das Motiv eingibt.",
+        "Offenes Problem (schwer): Die gezeigte Chat-Oberfläche ist nur ein grafisches Element ohne technische Erklärung oder direktem Bezug zu den Bildgenerierungs- oder Download-Details der Audiospur. Korrektur: Ein Screenshot oder eine Grafik, die den Unterschied zwischen der hochauflösenden Vorschau und dem 1K-Download der App zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich ein gemaltes Porträt und Social-Media-Texthinweise, aber keinen Bezug zum finalen Satz über das Portemonnaie oder das neonfarbene 80er-Jahre-Poster im Kontext des Schlusssatzes. Korrektur: Eine Darstellung, die ein fertiges neonfarbenes 80er-Jahre-Poster oder eine visuelle Anspielung auf finanzielle Ersparnis im Zusammenhang mit dem Plakat zeigt."
+      ],
+      "einstellungen": 7,
+      "unterschiedliche_motive": 7,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "43575618752",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-14",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "anbieterpause",
+            "exitcode": 4,
+            "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq-Antwort verletzt das JSON-Schema",
+            "sekunden": 172.3
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "skript_s": 264.0,
+            "bau_s": 315.6,
+            "pruefung_s": 22.6,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar stilistisch ein Neons-80er-Motiv, aber keinen direkten Bezug zur Preisangabe von null Dollar, sondern ist nur ein allgemeines Werbe- oder Plakatmotiv.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Textgrafiken zu Preisen und Machern, aber nicht die im Text erwähnte App oder den Erstellungsprozess.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Hilfeseite zur Bildgenerierung mit Gemini Apps, aber nicht die konkrete Bedienoberfläche oder das Anklicken von 'Images' und das Beschreiben von Motiv, Aktion, Ort und Stil wie gesprochen.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Chat-Oberfläche ist nur ein grafisches Element ohne technische Erklärung oder direktem Bezug zu den Bildgenerierungs- oder Download-Details der Audiospur.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich ein gemaltes Porträt und Social-Media-Texthinweise, aber keinen Bezug zum finalen Satz über das Portemonnaie oder das neonfarbene 80er-Jahre-Poster im Kontext des Schlusssatzes.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar stilistisch ein Neons-80er-Motiv, aber keinen direkten Bezug zur Preisangabe von null Dollar, sondern ist nur ein allgemeines Werbe- oder Plakatmotiv. Korrektur: Eine Preistabelle oder eine Benutzeroberfläche, die den Preis von null Dollar für das Neon-80er-Poster anzeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich Textgrafiken zu Preisen und Machern, aber nicht die im Text erwähnte App oder den Erstellungsprozess. Korrektur: Screenshot der Gemini-App Oberflaeche bei der Erstellung des Neon-Posters",
+              "Offenes Problem (schwer): Das Bild zeigt eine Hilfeseite zur Bildgenerierung mit Gemini Apps, aber nicht die konkrete Bedienoberfläche oder das Anklicken von 'Images' und das Beschreiben von Motiv, Aktion, Ort und Stil wie gesprochen. Korrektur: Ein Screenshot oder eine Aufnahme der Gemini-Benutzeroberfläche, in der man auf 'Images' klickt und eine Beschreibung für das Motiv eingibt.",
+              "Offenes Problem (schwer): Die gezeigte Chat-Oberfläche ist nur ein grafisches Element ohne technische Erklärung oder direktem Bezug zu den Bildgenerierungs- oder Download-Details der Audiospur. Korrektur: Ein Screenshot oder eine Grafik, die den Unterschied zwischen der hochauflösenden Vorschau und dem 1K-Download der App zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich ein gemaltes Porträt und Social-Media-Texthinweise, aber keinen Bezug zum finalen Satz über das Portemonnaie oder das neonfarbene 80er-Jahre-Poster im Kontext des Schlusssatzes. Korrektur: Eine Darstellung, die ein fertiges neonfarbenes 80er-Jahre-Poster oder eine visuelle Anspielung auf finanzielle Ersparnis im Zusammenhang mit dem Plakat zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 23.7,
+              "zeitmarken": 2.8,
+              "tempo": 1.08,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 7,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 215.1,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 7,
+                "motive": 7,
+                "motive_min": 4
+              },
+              "effekte": 10,
+              "rendern": 29.7,
+              "gesamt": 315.2,
+              "videolaenge_s": 25.0,
+              "abschnitte_s": [
+                3.58,
+                3.5,
+                3.14,
+                2.96,
+                3.04,
+                5.74,
+                3.05
+              ],
+              "woerter": 57,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Your neon 80s poster costs zero dollars.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar stilistisch ein Neons-80er-Motiv, aber keinen direkten Bezug zur Preisangabe von null Dollar, sondern ist nur ein allgemeines Werbe- oder Plakatmotiv. Korrektur: Eine Preistabelle oder eine Benutzeroberfläche, die den Preis von null Dollar für das Neon-80er-Poster anzeigt."
+              },
+              {
+                "zeit": "00:03.58",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 1,
+                "gesprochen": "Gemini's Nano Banana 2 makes it on a $0 plan.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich Textgrafiken zu Preisen und Machern, aber nicht die im Text erwähnte App oder den Erstellungsprozess. Korrektur: Screenshot der Gemini-App Oberflaeche bei der Erstellung des Neon-Posters"
+              },
+              {
+                "zeit": "00:07.08",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 2,
+                "gesprochen": "Click Images, then describe subject, action, location, style.",
+                "fest": true,
+                "text": "Das Bild zeigt eine Hilfeseite zur Bildgenerierung mit Gemini Apps, aber nicht die konkrete Bedienoberfläche oder das Anklicken von 'Images' und das Beschreiben von Motiv, Aktion, Ort und Stil wie gesprochen. Korrektur: Ein Screenshot oder eine Aufnahme der Gemini-Benutzeroberfläche, in der man auf 'Images' klickt und eine Beschreibung für das Motiv eingibt."
+              },
+              {
+                "zeit": "00:13.18",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 4,
+                "gesprochen": "So what's the catch?",
+                "fest": true,
+                "text": "Die gezeigte Chat-Oberfläche ist nur ein grafisches Element ohne technische Erklärung oder direktem Bezug zu den Bildgenerierungs- oder Download-Details der Audiospur. Korrektur: Ein Screenshot oder eine Grafik, die den Unterschied zwischen der hochauflösenden Vorschau und dem 1K-Download der App zeigt."
+              },
+              {
+                "zeit": "00:21.96",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 6,
+                "gesprochen": "Your wallet approves of that neon 80s poster.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich ein gemaltes Porträt und Social-Media-Texthinweise, aber keinen Bezug zum finalen Satz über das Portemonnaie oder das neonfarbene 80er-Jahre-Poster im Kontext des Schlusssatzes. Korrektur: Eine Darstellung, die ein fertiges neonfarbenes 80er-Jahre-Poster oder eine visuelle Anspielung auf finanzielle Ersparnis im Zusammenhang mit dem Plakat zeigt."
+              }
+            ],
+            "sekunden": 602.5,
+            "status": "geprueft"
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 788.2,
+        "upload_titel": "Gemini app – FREE NEON 80s POSTER: THE 1K DOWNLOAD CATCH | AI Tool #35"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Your neon 80s poster costs zero dollars.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar stilistisch ein Neons-80er-Motiv, aber keinen direkten Bezug zur Preisangabe von null Dollar, sondern ist nur ein allgemeines Werbe- oder Plakatmotiv. Korrektur: Eine Preistabelle oder eine Benutzeroberfläche, die den Preis von null Dollar für das Neon-80er-Poster anzeigt."
+          },
+          {
+            "zeit": "00:03.58",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 1,
+            "gesprochen": "Gemini's Nano Banana 2 makes it on a $0 plan.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich Textgrafiken zu Preisen und Machern, aber nicht die im Text erwähnte App oder den Erstellungsprozess. Korrektur: Screenshot der Gemini-App Oberflaeche bei der Erstellung des Neon-Posters"
+          },
+          {
+            "zeit": "00:07.08",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 2,
+            "gesprochen": "Click Images, then describe subject, action, location, style.",
+            "fest": true,
+            "text": "Das Bild zeigt eine Hilfeseite zur Bildgenerierung mit Gemini Apps, aber nicht die konkrete Bedienoberfläche oder das Anklicken von 'Images' und das Beschreiben von Motiv, Aktion, Ort und Stil wie gesprochen. Korrektur: Ein Screenshot oder eine Aufnahme der Gemini-Benutzeroberfläche, in der man auf 'Images' klickt und eine Beschreibung für das Motiv eingibt."
+          },
+          {
+            "zeit": "00:13.18",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 4,
+            "gesprochen": "So what's the catch?",
+            "fest": true,
+            "text": "Die gezeigte Chat-Oberfläche ist nur ein grafisches Element ohne technische Erklärung oder direktem Bezug zu den Bildgenerierungs- oder Download-Details der Audiospur. Korrektur: Ein Screenshot oder eine Grafik, die den Unterschied zwischen der hochauflösenden Vorschau und dem 1K-Download der App zeigt."
+          },
+          {
+            "zeit": "00:21.96",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 6,
+            "gesprochen": "Your wallet approves of that neon 80s poster.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich ein gemaltes Porträt und Social-Media-Texthinweise, aber keinen Bezug zum finalen Satz über das Portemonnaie oder das neonfarbene 80er-Jahre-Poster im Kontext des Schlusssatzes. Korrektur: Eine Darstellung, die ein fertiges neonfarbenes 80er-Jahre-Poster oder eine visuelle Anspielung auf finanzielle Ersparnis im Zusammenhang mit dem Plakat zeigt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 25.0,
+          "fps": 30.0,
+          "lufs": -14.1,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 10.7,
+              "bis_s": 12.76,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.97
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 5.0,
+              "bis_s": 25.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Your",
+                "s": 0.0,
+                "e": 0.26,
+                "p": 0.8175592422485352
+              },
+              {
+                "w": "neon",
+                "s": 0.26,
+                "e": 0.46,
+                "p": 0.3776502013206482
+              },
+              {
+                "w": "80s",
+                "s": 0.46,
+                "e": 1.14,
+                "p": 0.8006470203399658
+              },
+              {
+                "w": "poster",
+                "s": 1.14,
+                "e": 1.24,
+                "p": 0.9477444291114807
+              },
+              {
+                "w": "costs",
+                "s": 1.24,
+                "e": 1.68,
+                "p": 0.9265732765197754
+              },
+              {
+                "w": "zero",
+                "s": 1.68,
+                "e": 2.3,
+                "p": 0.5676854252815247
+              },
+              {
+                "w": "dollars.",
+                "s": 2.3,
+                "e": 3.18,
+                "p": 0.9916719794273376
+              },
+              {
+                "w": "Gemini's",
+                "s": 3.66,
+                "e": 3.94,
+                "p": 0.7041692137718201
+              },
+              {
+                "w": "Nano",
+                "s": 3.94,
+                "e": 4.12,
+                "p": 0.5821207761764526
+              },
+              {
+                "w": "Banana",
+                "s": 4.12,
+                "e": 4.32,
+                "p": 0.6009945869445801
+              },
+              {
+                "w": "2",
+                "s": 4.32,
+                "e": 4.64,
+                "p": 0.8004131317138672
+              },
+              {
+                "w": "makes",
+                "s": 4.64,
+                "e": 4.86,
+                "p": 0.991946280002594
+              },
+              {
+                "w": "it",
+                "s": 4.86,
+                "e": 5.04,
+                "p": 0.9880273342132568
+              },
+              {
+                "w": "on",
+                "s": 5.04,
+                "e": 5.2,
+                "p": 0.9795123934745789
+              },
+              {
+                "w": "a",
+                "s": 5.2,
+                "e": 5.3,
+                "p": 0.9904490113258362
+              },
+              {
+                "w": "zero",
+                "s": 5.3,
+                "e": 5.72,
+                "p": 0.9675649404525757
+              },
+              {
+                "w": "dollar",
+                "s": 5.72,
+                "e": 6.16,
+                "p": 0.9354367852210999
+              },
+              {
+                "w": "plan.",
+                "s": 6.16,
+                "e": 6.5,
+                "p": 0.9870567321777344
+              },
+              {
+                "w": "Click",
+                "s": 7.08,
+                "e": 7.08,
+                "p": 0.9925752878189087
+              },
+              {
+                "w": "images,",
+                "s": 7.08,
+                "e": 7.28,
+                "p": 0.5439679622650146
+              },
+              {
+                "w": "then",
+                "s": 7.78,
+                "e": 7.86,
+                "p": 0.996327817440033
+              },
+              {
+                "w": "describe",
+                "s": 7.86,
+                "e": 8.24,
+                "p": 0.735619843006134
+              },
+              {
+                "w": "subject",
+                "s": 8.24,
+                "e": 8.74,
+                "p": 0.950846791267395
+              },
+              {
+                "w": "-action",
+                "s": 8.74,
+                "e": 9.02,
+                "p": 0.6994191557168961
+              },
+              {
+                "w": "location",
+                "s": 9.02,
+                "e": 9.54,
+                "p": 0.7911826372146606
+              },
+              {
+                "w": "style.",
+                "s": 9.54,
+                "e": 9.92,
+                "p": 0.7983311414718628
+              },
+              {
+                "w": "Be",
+                "s": 10.2,
+                "e": 10.26,
+                "p": 0.991485059261322
+              },
+              {
+                "w": "sure",
+                "s": 10.26,
+                "e": 10.46,
+                "p": 0.9980201721191406
+              },
+              {
+                "w": "to",
+                "s": 10.46,
+                "e": 10.7,
+                "p": 0.9958257675170898
+              },
+              {
+                "w": "like,",
+                "s": 10.7,
+                "e": 11.06,
+                "p": 0.8535564541816711
+              },
+              {
+                "w": "share,",
+                "s": 11.28,
+                "e": 11.52,
+                "p": 0.9962683320045471
+              },
+              {
+                "w": "and",
+                "s": 11.82,
+                "e": 11.9,
+                "p": 0.9963170289993286
+              },
+              {
+                "w": "save",
+                "s": 11.9,
+                "e": 12.28,
+                "p": 0.9929251670837402
+              },
+              {
+                "w": "this",
+                "s": 12.28,
+                "e": 12.44,
+                "p": 0.9837303161621094
+              },
+              {
+                "w": "video.",
+                "s": 12.44,
+                "e": 12.76,
+                "p": 0.9986365437507629
+              },
+              {
+                "w": "So,",
+                "s": 13.2,
+                "e": 13.28,
+                "p": 0.9636791348457336
+              },
+              {
+                "w": "what's",
+                "s": 13.72,
+                "e": 14.06,
+                "p": 0.9861089885234833
+              },
+              {
+                "w": "the",
+                "s": 14.06,
+                "e": 14.14,
+                "p": 0.9940822720527649
+              },
+              {
+                "w": "catch?",
+                "s": 14.14,
+                "e": 14.26,
+                "p": 0.978740394115448
+              },
+              {
+                "w": "Whispers,",
+                "s": 15.0,
+                "e": 15.12,
+                "p": 0.662922278046608
+              },
+              {
+                "w": "previews",
+                "s": 16.2,
+                "e": 16.2,
+                "p": 0.9922497272491455
+              },
+              {
+                "w": "are",
+                "s": 16.2,
+                "e": 16.76,
+                "p": 0.5912027955055237
+              },
+              {
+                "w": "high",
+                "s": 16.76,
+                "e": 17.02,
+                "p": 0.9350942373275757
+              },
+              {
+                "w": "res.",
+                "s": 17.02,
+                "e": 17.28,
+                "p": 0.7286718487739563
+              },
+              {
+                "w": "Yet",
+                "s": 18.06,
+                "e": 18.14,
+                "p": 0.4973819851875305
+              },
+              {
+                "w": "downloads",
+                "s": 18.14,
+                "e": 18.66,
+                "p": 0.8456060886383057
+              },
+              {
+                "w": "are",
+                "s": 18.66,
+                "e": 19.06,
+                "p": 0.9347444772720337
+              },
+              {
+                "w": "1K",
+                "s": 19.06,
+                "e": 19.7,
+                "p": 0.6929983496665955
+              },
+              {
+                "w": "without",
+                "s": 19.7,
+                "e": 19.96,
+                "p": 0.9790305495262146
+              },
+              {
+                "w": "an",
+                "s": 19.96,
+                "e": 20.5,
+                "p": 0.9814698696136475
+              },
+              {
+                "w": "AI",
+                "s": 20.5,
+                "e": 20.72,
+                "p": 0.9714335203170776
+              },
+              {
+                "w": "plan.",
+                "s": 20.72,
+                "e": 21.08,
+                "p": 0.9832788109779358
+              },
+              {
+                "w": "Your",
+                "s": 21.96,
+                "e": 22.1,
+                "p": 0.9623298645019531
+              },
+              {
+                "w": "wallet",
+                "s": 22.1,
+                "e": 22.44,
+                "p": 0.9917643666267395
+              },
+              {
+                "w": "approves",
+                "s": 22.44,
+                "e": 23.04,
+                "p": 0.9936614036560059
+              },
+              {
+                "w": "of",
+                "s": 23.04,
+                "e": 23.44,
+                "p": 0.9568014144897461
+              },
+              {
+                "w": "that",
+                "s": 23.44,
+                "e": 23.58,
+                "p": 0.9558084607124329
+              },
+              {
+                "w": "neon",
+                "s": 23.58,
+                "e": 23.76,
+                "p": 0.9744645357131958
+              },
+              {
+                "w": "80s",
+                "s": 23.76,
+                "e": 24.32,
+                "p": 0.9922240376472473
+              },
+              {
+                "w": "poster.",
+                "s": 24.32,
+                "e": 24.56,
+                "p": 0.9971917271614075
+              }
+            ],
+            "dauer_s": 24.896,
+            "sprache": "en"
+          },
+          "roh_key": "e1303c5e814eabb277d2dd786d8037266f65275f2f055c843db3eae445a1de17",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "432b16e45afdb8c9c115f8bc489687950256a0de9afc37bca78daf571da4bb9b",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 25.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 7,
+          "motive": 7,
+          "motive_min": 4
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "432b16e45afdb8c9c115f8bc489687950256a0de9afc37bca78daf571da4bb9b",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein digital gemaltes Porträt eines Mannes mit Sonnenbrille und Lederjacke vor einer Stadtsilhouette bei Sonnenuntergang, überlagert mit Text.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt zwar stilistisch ein Neons-80er-Motiv, aber keinen direkten Bezug zur Preisangabe von null Dollar, sondern ist nur ein allgemeines Werbe- oder Plakatmotiv.",
+              "erforderliches_bild": "Eine Preistabelle oder eine Benutzeroberfläche, die den Preis von null Dollar für das Neon-80er-Poster anzeigt."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein dunkler Bildschirm zeigt Textoverlays mit der Aufschrift 2 MAKES und 0 DOLLAR PLAN in farbigen Rahmen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich Textgrafiken zu Preisen und Machern, aber nicht die im Text erwähnte App oder den Erstellungsprozess.",
+              "erforderliches_bild": "Screenshot der Gemini-App Oberflaeche bei der Erstellung des Neon-Posters"
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Screenshot zeigt ein Hilfe-Center-Menü mit dem hervorgehobenen Text 'Generate & edit images with Gemini Apps'.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt eine Hilfeseite zur Bildgenerierung mit Gemini Apps, aber nicht die konkrete Bedienoberfläche oder das Anklicken von 'Images' und das Beschreiben von Motiv, Aktion, Ort und Stil wie gesprochen.",
+              "erforderliches_bild": "Ein Screenshot oder eine Aufnahme der Gemini-Benutzeroberfläche, in der man auf 'Images' klickt und eine Beschreibung für das Motiv eingibt."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Chatfenster mit der Beschriftung AI CHAT zeigt eine Sprechblase mit der Frage So what's the catch? sowie drei blinkende Ladepunkte darunter.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gezeigte Chat-Oberfläche ist nur ein grafisches Element ohne technische Erklärung oder direktem Bezug zu den Bildgenerierungs- oder Download-Details der Audiospur.",
+              "erforderliches_bild": "Ein Screenshot oder eine Grafik, die den Unterschied zwischen der hochauflösenden Vorschau und dem 1K-Download der App zeigt."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein Screenshot zeigt ein Options- oder Einstellungsmenü mit Textpunkten, wobei eine Box mit der Aufschrift 'High output quality' gelb markiert ist. Im Text darin steht unter anderem 'Download images at at 2K resolution with a Google AI plan or at 1K without an AI plan'.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt genau den Text, der besagt, dass Downloads ohne AI-Plan in 1K erfolgen, was der gesprochenen Aussage 'Previews are high-res, yet downloads are 1K without an AI plan' entspricht.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da der Text direkt illustriert wird."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein gemaltes Porträt eines Mannes mit Sonnenbrille vor einer Skyline bei Sonnenuntergang und darüber ein Textfeld mit Social-Media-Anweisungen zu Gemini.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich ein gemaltes Porträt und Social-Media-Texthinweise, aber keinen Bezug zum finalen Satz über das Portemonnaie oder das neonfarbene 80er-Jahre-Poster im Kontext des Schlusssatzes.",
+              "erforderliches_bild": "Eine Darstellung, die ein fertiges neonfarbenes 80er-Jahre-Poster oder eine visuelle Anspielung auf finanzielle Ersparnis im Zusammenhang mit dem Plakat zeigt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar stilistisch ein Neons-80er-Motiv, aber keinen direkten Bezug zur Preisangabe von null Dollar, sondern ist nur ein allgemeines Werbe- oder Plakatmotiv.",
+            "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Textgrafiken zu Preisen und Machern, aber nicht die im Text erwähnte App oder den Erstellungsprozess.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Hilfeseite zur Bildgenerierung mit Gemini Apps, aber nicht die konkrete Bedienoberfläche oder das Anklicken von 'Images' und das Beschreiben von Motiv, Aktion, Ort und Stil wie gesprochen.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Chat-Oberfläche ist nur ein grafisches Element ohne technische Erklärung oder direktem Bezug zu den Bildgenerierungs- oder Download-Details der Audiospur.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich ein gemaltes Porträt und Social-Media-Texthinweise, aber keinen Bezug zum finalen Satz über das Portemonnaie oder das neonfarbene 80er-Jahre-Poster im Kontext des Schlusssatzes."
+          ],
+          "modelle": [
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite"
+          ],
+          "einstellungen": 7,
+          "ausgenommen": [
+            3
+          ],
+          "vorgeprueft": [],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "432b16e45afdb8c9c115f8bc489687950256a0de9afc37bca78daf571da4bb9b",
+        "prompt_version": "2026-11-11.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

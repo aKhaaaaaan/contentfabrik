@@ -1,173 +1,5 @@
 [
   {
-    "id": "40104699545",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-24",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 2472.9,
-        "pruefung_s": 727.2,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Bewertung hook fehlt oder ist ungueltig",
-          "Video-bild_passt 2/10 unter 7/10",
-          "Video-Bewertung dynamik fehlt oder ist ungueltig",
-          "Video-Bewertung text fehlt oder ist ungueltig",
-          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
-          "Video-Bewertung tempo fehlt oder ist ungueltig",
-          "Video-Bewertung inhalt fehlt oder ist ungueltig",
-          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
-          "Video-Bewertung regeln fehlt oder ist ungueltig",
-          "Video-Bewertung story fehlt oder ist ungueltig",
-          "Bild-Text-Pruefung nicht vollstaendig moeglich: ValueError",
-          "Offenes Problem (schwer): Die sichtbaren Personen und die Büroszene zeigen keine spezifischen technischen Mechanismen von Nvidia OpenShell oder das Konzept der uneingeschränkten Reichweite von KI-Agenten. Korrektur: Ein Diagramm oder eine symbolische Darstellung, die das Konzept der Reichweite eines KI-Agenten und isolierter Sandboxes veranschaulicht.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich einen Wikipedia-Artikel und demonstriert keine Laufzeitumgebung oder isolierte Sandboxes. Korrektur: Eine technische Diagrammdarstellung oder Systemansicht einer isolierten Sandbox-Laufzeitumgebung für AI-Agenten.",
-          "Offenes Problem (schwer): Das Bild zeigt eine abstrakte Erklärgrafik mit einem Schloss und Symbolen, während die gesprochenen Wörter erklären, dass ein Agent Zugang zum Computer benötigt. Korrektur: Eine schematische Darstellung von Zugriffsrechten eines Software-Agenten auf Systemressourcen oder Dateien.",
-          "Offenes Problem (schwer): Das Bild zeigt nur eine erklärende Textgrafik mit Warnsymbol, aber keine tatsächlichen Dateioperationen oder ausgeführten Werkzeuge wie im Text beschrieben. Korrektur: Eine Bildschirmaufnahme, die das Lesen und Schreiben von Dateien oder das Starten von Programmen durch ein Tool demonstriert.",
-          "Offenes Problem (schwer): Das Video spricht über das Übergeben von Passwörtern, aber das Bild zeigt nur ein symbolisches Schlüsselsymbol ohne tatsächlichen Login oder Anmeldevorgang. Korrektur: Ein realistischer oder diagrammatischer Login-Bildschirm, bei dem ein Agent sich an einem Dienst anmeldet."
-        ],
-        "messung": {
-          "stimme_wiederverwendet": false,
-          "erzaehlstimme": "gemini:Puck",
-          "stimme": 0.0,
-          "zeitmarken": 58.0,
-          "tempo": 1.0,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 0,
-          "stuecke_neu": 93,
-          "clips_und_stuecke": 1017.4,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 93,
-            "motive": 93,
-            "motive_min": 38
-          },
-          "effekte": 19,
-          "rendern": 450.3,
-          "gesamt": 2472.4,
-          "videolaenge_s": 600.0,
-          "abschnitte_s": [
-            16.6,
-            14.86,
-            6.66,
-            17.58,
-            14.02,
-            13.8,
-            11.9,
-            16.44,
-            13.32,
-            12.46,
-            12.16,
-            14.62,
-            13.76,
-            11.82,
-            10.34,
-            19.5,
-            16.28,
-            13.84,
-            12.24,
-            14.0,
-            14.96,
-            12.3,
-            18.1,
-            12.02,
-            14.08,
-            15.22,
-            12.34,
-            14.68,
-            14.36,
-            13.14,
-            15.58,
-            14.78,
-            16.78,
-            13.44,
-            16.88,
-            13.6,
-            12.5,
-            14.9,
-            15.7,
-            13.52,
-            12.58,
-            17.66,
-            4.68
-          ],
-          "woerter": 1722
-        },
-        "kategorien": {
-          "bild_passt": 2
-        },
-        "probleme": [
-          {
-            "zeit": "00:00.00",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 0,
-            "einstellung": 0,
-            "gesprochen": "Giving an AI agent access isn't the risk; unlimited reach is.",
-            "fest": false,
-            "text": "Die sichtbaren Personen und die Büroszene zeigen keine spezifischen technischen Mechanismen von Nvidia OpenShell oder das Konzept der uneingeschränkten Reichweite von KI-Agenten. Korrektur: Ein Diagramm oder eine symbolische Darstellung, die das Konzept der Reichweite eines KI-Agenten und isolierter Sandboxes veranschaulicht."
-          },
-          {
-            "zeit": "00:11.07",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 0,
-            "einstellung": 2,
-            "gesprochen": "open-source runtime for running autonomous AI agents in isolated sandboxes.",
-            "fest": true,
-            "text": "Das Bild zeigt lediglich einen Wikipedia-Artikel und demonstriert keine Laufzeitumgebung oder isolierte Sandboxes. Korrektur: Eine technische Diagrammdarstellung oder Systemansicht einer isolierten Sandbox-Laufzeitumgebung für AI-Agenten."
-          },
-          {
-            "zeit": "00:49.84",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 3,
-            "einstellung": 8,
-            "gesprochen": "step. That's useful. It also means the agent needs access to things on your computer.",
-            "fest": true,
-            "text": "Das Bild zeigt eine abstrakte Erklärgrafik mit einem Schloss und Symbolen, während die gesprochenen Wörter erklären, dass ein Agent Zugang zum Computer benötigt. Korrektur: Eine schematische Darstellung von Zugriffsrechten eines Software-Agenten auf Systemressourcen oder Dateien."
-          },
-          {
-            "zeit": "00:55.70",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 4,
-            "einstellung": 9,
-            "gesprochen": "Access is the catch. Working with files means reading and writing files. Running tools means starting programs.",
-            "fest": true,
-            "text": "Das Bild zeigt nur eine erklärende Textgrafik mit Warnsymbol, aber keine tatsächlichen Dateioperationen oder ausgeführten Werkzeuge wie im Text beschrieben. Korrektur: Eine Bildschirmaufnahme, die das Lesen und Schreiben von Dateien oder das Starten von Programmen durch ein Tool demonstriert."
-          },
-          {
-            "zeit": "01:09.72",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 5,
-            "einstellung": 11,
-            "gesprochen": "Now add a login. Hypothetically, an agent needs to sign into a service for you. Handing over your password feels reckless.",
-            "fest": true,
-            "text": "Das Video spricht über das Übergeben von Passwörtern, aber das Bild zeigt nur ein symbolisches Schlüsselsymbol ohne tatsächlichen Login oder Anmeldevorgang. Korrektur: Ein realistischer oder diagrammatischer Login-Bildschirm, bei dem ein Agent sich an einem Dienst anmeldet."
-          }
-        ],
-        "sekunden": 3200.1,
-        "status": "geprueft"
-      },
-      {
-        "runde": 2,
-        "art": "korrektur",
-        "status": "keine_korrektur",
-        "sekunden": 0.1
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Keine weitere gezielte Korrektur moeglich",
-    "sekunden": 3213.2,
-    "upload_titel": "OpenShell Explained: Sandbox For AI Agents"
-  },
-  {
     "id": "40108829296",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-24",
@@ -9322,5 +9154,154 @@
     "grund": "",
     "sekunden": 1565.9,
     "upload_titel": "GEMINI REMINDS YOU: PS5 DOES THE DOWNLOAD | AI Tool #34"
+  },
+  {
+    "id": "43575618752",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-11-14",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "status": "anbieterpause",
+        "exitcode": 4,
+        "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq-Antwort verletzt das JSON-Schema",
+        "sekunden": 172.3
+      },
+      {
+        "runde": 2,
+        "art": "produktion",
+        "skript_s": 264.0,
+        "bau_s": 315.6,
+        "pruefung_s": 22.6,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar stilistisch ein Neons-80er-Motiv, aber keinen direkten Bezug zur Preisangabe von null Dollar, sondern ist nur ein allgemeines Werbe- oder Plakatmotiv.",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Textgrafiken zu Preisen und Machern, aber nicht die im Text erwähnte App oder den Erstellungsprozess.",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Hilfeseite zur Bildgenerierung mit Gemini Apps, aber nicht die konkrete Bedienoberfläche oder das Anklicken von 'Images' und das Beschreiben von Motiv, Aktion, Ort und Stil wie gesprochen.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Chat-Oberfläche ist nur ein grafisches Element ohne technische Erklärung oder direktem Bezug zu den Bildgenerierungs- oder Download-Details der Audiospur.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich ein gemaltes Porträt und Social-Media-Texthinweise, aber keinen Bezug zum finalen Satz über das Portemonnaie oder das neonfarbene 80er-Jahre-Poster im Kontext des Schlusssatzes.",
+          "Offenes Problem (schwer): Das Bild zeigt zwar stilistisch ein Neons-80er-Motiv, aber keinen direkten Bezug zur Preisangabe von null Dollar, sondern ist nur ein allgemeines Werbe- oder Plakatmotiv. Korrektur: Eine Preistabelle oder eine Benutzeroberfläche, die den Preis von null Dollar für das Neon-80er-Poster anzeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich Textgrafiken zu Preisen und Machern, aber nicht die im Text erwähnte App oder den Erstellungsprozess. Korrektur: Screenshot der Gemini-App Oberflaeche bei der Erstellung des Neon-Posters",
+          "Offenes Problem (schwer): Das Bild zeigt eine Hilfeseite zur Bildgenerierung mit Gemini Apps, aber nicht die konkrete Bedienoberfläche oder das Anklicken von 'Images' und das Beschreiben von Motiv, Aktion, Ort und Stil wie gesprochen. Korrektur: Ein Screenshot oder eine Aufnahme der Gemini-Benutzeroberfläche, in der man auf 'Images' klickt und eine Beschreibung für das Motiv eingibt.",
+          "Offenes Problem (schwer): Die gezeigte Chat-Oberfläche ist nur ein grafisches Element ohne technische Erklärung oder direktem Bezug zu den Bildgenerierungs- oder Download-Details der Audiospur. Korrektur: Ein Screenshot oder eine Grafik, die den Unterschied zwischen der hochauflösenden Vorschau und dem 1K-Download der App zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich ein gemaltes Porträt und Social-Media-Texthinweise, aber keinen Bezug zum finalen Satz über das Portemonnaie oder das neonfarbene 80er-Jahre-Poster im Kontext des Schlusssatzes. Korrektur: Eine Darstellung, die ein fertiges neonfarbenes 80er-Jahre-Poster oder eine visuelle Anspielung auf finanzielle Ersparnis im Zusammenhang mit dem Plakat zeigt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 23.7,
+          "zeitmarken": 2.8,
+          "tempo": 1.08,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 7,
+          "bilder_vereinfacht": 1,
+          "clips_und_stuecke": 215.1,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 7,
+            "motive": 7,
+            "motive_min": 4
+          },
+          "effekte": 10,
+          "rendern": 29.7,
+          "gesamt": 315.2,
+          "videolaenge_s": 25.0,
+          "abschnitte_s": [
+            3.58,
+            3.5,
+            3.14,
+            2.96,
+            3.04,
+            5.74,
+            3.05
+          ],
+          "woerter": 57,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Your neon 80s poster costs zero dollars.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar stilistisch ein Neons-80er-Motiv, aber keinen direkten Bezug zur Preisangabe von null Dollar, sondern ist nur ein allgemeines Werbe- oder Plakatmotiv. Korrektur: Eine Preistabelle oder eine Benutzeroberfläche, die den Preis von null Dollar für das Neon-80er-Poster anzeigt."
+          },
+          {
+            "zeit": "00:03.58",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 1,
+            "gesprochen": "Gemini's Nano Banana 2 makes it on a $0 plan.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich Textgrafiken zu Preisen und Machern, aber nicht die im Text erwähnte App oder den Erstellungsprozess. Korrektur: Screenshot der Gemini-App Oberflaeche bei der Erstellung des Neon-Posters"
+          },
+          {
+            "zeit": "00:07.08",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 2,
+            "gesprochen": "Click Images, then describe subject, action, location, style.",
+            "fest": true,
+            "text": "Das Bild zeigt eine Hilfeseite zur Bildgenerierung mit Gemini Apps, aber nicht die konkrete Bedienoberfläche oder das Anklicken von 'Images' und das Beschreiben von Motiv, Aktion, Ort und Stil wie gesprochen. Korrektur: Ein Screenshot oder eine Aufnahme der Gemini-Benutzeroberfläche, in der man auf 'Images' klickt und eine Beschreibung für das Motiv eingibt."
+          },
+          {
+            "zeit": "00:13.18",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 4,
+            "gesprochen": "So what's the catch?",
+            "fest": true,
+            "text": "Die gezeigte Chat-Oberfläche ist nur ein grafisches Element ohne technische Erklärung oder direktem Bezug zu den Bildgenerierungs- oder Download-Details der Audiospur. Korrektur: Ein Screenshot oder eine Grafik, die den Unterschied zwischen der hochauflösenden Vorschau und dem 1K-Download der App zeigt."
+          },
+          {
+            "zeit": "00:21.96",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 6,
+            "gesprochen": "Your wallet approves of that neon 80s poster.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich ein gemaltes Porträt und Social-Media-Texthinweise, aber keinen Bezug zum finalen Satz über das Portemonnaie oder das neonfarbene 80er-Jahre-Poster im Kontext des Schlusssatzes. Korrektur: Eine Darstellung, die ein fertiges neonfarbenes 80er-Jahre-Poster oder eine visuelle Anspielung auf finanzielle Ersparnis im Zusammenhang mit dem Plakat zeigt."
+          }
+        ],
+        "sekunden": 602.5,
+        "status": "geprueft"
+      },
+      {
+        "runde": 3,
+        "art": "korrektur",
+        "status": "keine_korrektur",
+        "sekunden": 0.1
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 788.2,
+    "upload_titel": "Gemini app – FREE NEON 80s POSTER: THE 1K DOWNLOAD CATCH | AI Tool #35"
   }
 ]

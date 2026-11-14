@@ -2,41 +2,36 @@
   "version": 1,
   "modelle": {
     "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
-      "grund": "Tageskontingent erschoepft",
-      "bis": 1794643200.0
-    },
-    "18b3ef0930af7cca6de34adf:gemini-3.5-flash": {
-      "grund": "Tageskontingent erschoepft",
-      "bis": 1794643200.0
-    },
-    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
-      "grund": "Tageskontingent erschoepft",
-      "bis": 1794643200.0
-    },
-    "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
-      "grund": "Tageskontingent erschoepft",
-      "bis": 1794643200.0
-    },
-    "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": {
-      "grund": "Tageskontingent erschoepft",
-      "bis": 1794643200.0
-    },
-    "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": {
-      "grund": "Tageskontingent erschoepft",
-      "bis": 1794643200.0
-    },
-    "18b3ef0930af7cca6de34adf:gemini-3.5-flash-lite": {
-      "grund": "Tageskontingent erschoepft",
-      "bis": 1794643200.0
-    },
-    "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": {
       "grund": "voruebergehend ueberlastet",
-      "bis": 1794641876.1255193
+      "bis": 1794645503.656005
     },
     "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
-      "grund": "HTTP429; Serverfrist 328s",
-      "bis": 1794642134.1213908
+      "grund": "HTTP429; Serverfrist 590s",
+      "bis": 1794645819.4225092
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1794645539.90119
+    },
+    "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": {
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1794645540.8299654
+    },
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1794645741.8678586
     }
   },
-  "zeitlimits": {}
+  "zeitlimits": {
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
+      1794644833.234559
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
+      1794644958.952505,
+      1794645063.9239275
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.5-flash": [
+      1794645229.3113596
+    ]
+  }
 }

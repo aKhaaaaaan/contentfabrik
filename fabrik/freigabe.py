@@ -249,7 +249,7 @@ def senden(skript_pfad, video_pfad):
         if len(video) > GRENZE:
             sys.exit(f'Video auch verkleinert zu gross ({len(video) // 2**20} MB > 50 MB)')
     import texte
-    titel = texte.upload_titel(skript)
+    titel = texte.upload_titel(skript, sha=sha)
     lang = videoformat(skript) == 'lang'
     # Nutzer 30.10.2026: aktuelle Trend-Hashtags mitliefern (YouTube-Shorts der letzten 14 Tage zu Thema + Nische)
     if not lang and 'trend_hashtags' not in skript:
@@ -353,7 +353,7 @@ def senden(skript_pfad, video_pfad):
         return
     # Video-Inbox kann keine Caption annehmen. Text trotzdem automatisch erzeugen;
     # Telegram und spaeter Direct Post verwenden dieselbe Quelle inklusive Nennungen.
-    tiktok = texte.tiktok_text(skript)
+    tiktok = texte.tiktok_text(skript, sha=sha)
     Path(skript_pfad).with_name('tiktok-text.txt').write_text(tiktok, encoding='utf-8')
     if texte.tiktok_laenge(tiktok) > 2200:
         telegram('sendMessage', {'chat_id': chat, 'text':

@@ -65,6 +65,8 @@ def video_merken(message_id, sha, skript, kritik=None, upload_run_id=None, entwu
     liste.append({'message_id': message_id, 'video_sha256': sha, 'kanal': skript.get('kanal'),
                   'upload_run_id': upload_run_id,
                   'thema': skript.get('thema'), 'titel': titel,
+                  # 15.11.2026: Seriennummer zaehlt nur Shorts desselben Tages (texte.weitere_heute)
+                  'videoformat': skript.get('videoformat', 'short'),
                   # Fuer das Lernen aus der Nutzernote: was die KI an genau diesem Video bemaengelte.
                   'ki_note': kritik.get('note'),
                   'story_note': (skript.get('story') or {}).get('note'),

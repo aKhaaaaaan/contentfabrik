@@ -82,7 +82,7 @@ def tageslauf(slug, ausgabe='ausgabe'):
                 or bewerten(skript, kritik)[1] or kritik.get('video_sha256') != sha or lernen.abgelehnt(sha):
             result['status'] = 'qualitaetssperre'
             return ergebnis()
-        result['titel'] = texte.upload_titel(skript, datetime.date.fromisoformat(bericht['datum']))
+        result['titel'] = texte.upload_titel(skript, datetime.date.fromisoformat(bericht['datum']), sha=sha)
         oid = konto_finden(result['konto'])
         journal = Path('verlauf/tiktok') / f'{slug}-{sha}.json'
         result['status'] = tiktok.entwurf(video, oid, journal_pfad=journal)

@@ -307,7 +307,7 @@ def abarbeiten():
                         gespeichert = Path(tmp) / 'tiktok-text.txt'
                         e['tiktok_text'] = (gespeichert.read_text(encoding='utf-8') if gespeichert.exists() else
                                             texte.tiktok_text(json.loads(
-                                                (Path(tmp) / 'skript.json').read_text(encoding='utf-8'))))
+                                                (Path(tmp) / 'skript.json').read_text(encoding='utf-8')), sha=e.get('video_sha256')))
                     except Exception:
                         pass  # Komfort: fehlt der Text, bleibt der Upload trotzdem moeglich.
                     e['status'] = tiktok.entwurf(Path(tmp) / 'short.mp4', oid, journal, max_warte_s=0)

@@ -31,7 +31,33 @@ def titel_text(zeilen):
     return f'{erste}, {rest}' if ':' in erste else f'{erste}: {rest}'
 
 
-def serien_titel(titel, serie, datum, grenze=92):
+GELIEFERT = __import__('pathlib').Path('verlauf/telegram-videos.json')
+
+
+def weitere_heute(kanal, datum, sha=None):
+    """Wie viele Shorts dieses Kanals wurden am Tag `datum` (Berlin) VOR diesem Video geliefert?
+    GEMESSEN 15.11.2026: zwei KI-Shorts an einem Tag hiessen beide "AI Tool #36". Beim Telegram-Versand steht das
+    Video noch nicht im Verlauf (alle anderen sind frueher), beim spaeteren TikTok-Upload schon - dann zaehlen nur
+    die vor ihm gelieferten. So bekommt dasselbe Video beide Male dieselbe Nummer."""
+    import datetime
+    import json
+    from zoneinfo import ZoneInfo
+    try:
+        liste = json.loads(GELIEFERT.read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return 0
+    def tag(e):
+        try:
+            return datetime.datetime.fromisoformat(str(e.get('datum_utc'))).astimezone(ZoneInfo('Europe/Berlin')).date()
+        except (ValueError, TypeError):
+            return None
+    eigen = next((e for e in liste if sha and e.get('video_sha256') == sha), None)
+    return sum(1 for e in liste if e.get('kanal') == kanal and e.get('videoformat', 'short') != 'lang'
+               and e.get('video_sha256') != sha and tag(e) == datum
+               and (eigen is None or str(e.get('datum_utc')) < str(eigen.get('datum_utc'))))
+
+
+def serien_titel(titel, serie, datum, grenze=92, zusatz=0):
     """„<Titel> | AI Tool #N" - N = Tag seit Serienstart (Nutzerauftrag 10.10.2026: Serie mit Nummer
     bindet Zuschauer, Mitte des Funnels). Nach Datum statt Zaehler: Pilotlaeufe schreiben keinen
     Stand ins Repo zurueck - ein Zaehler vergaebe dort doppelte Nummern. Ausfalltage = Luecke,
@@ -45,7 +71,8 @@ def serien_titel(titel, serie, datum, grenze=92):
     nummer = (datum - start).days + 1
     if not name or nummer < 1:
         return titel
-    zusatz = f' | {name} #{nummer}'
+    buchstabe = chr(ord('a') + zusatz) if 0 < zusatz < 26 else ''  # 2. Video am selben Tag: #36b
+    zusatz = f' | {name} #{nummer}{buchstabe}'
     # grenze 92: YouTube erlaubt 100 Zeichen, freigabe.py haengt bei Shorts noch ' #shorts' an
     return (titel[:grenze - len(zusatz)].rstrip() + zusatz) if titel else zusatz.strip(' |')
 
@@ -96,7 +123,7 @@ def mit_stand(beschreibung, skript, datum=None):
     return '\n'.join(zeilen[:beginn] + [zeile] + zeilen[beginn:])
 
 
-def upload_titel(skript, datum=None):
+def upload_titel(skript, datum=None, sha=None):
     """Gemeinsamer Upload-Titel fuer Telegram, Berichte und Plattformen."""
     import datetime
     from zoneinfo import ZoneInfo
@@ -107,7 +134,7 @@ def upload_titel(skript, datum=None):
         return titel
     profil = kanalstandard.nach_name(skript.get('kanal')) or {}
     datum = datum or datetime.datetime.now(ZoneInfo('Europe/Berlin')).date()
-    return serien_titel(titel, profil.get('serie'), datum)
+    return serien_titel(titel, profil.get('serie'), datum, zusatz=weitere_heute(skript.get('kanal'), datum, sha))
 
 
 def hashtags_bereinigen(tags, inhalt):
@@ -313,7 +340,7 @@ def beschreibung_mit_quellen(beschreibung, quellen):
     return beschreibung
 
 
-def tiktok_text(skript, datum=None, quellen=()):
+def tiktok_text(skript, datum=None, quellen=(), sha=None):
     """Titel, kurzer Inhalt, belegte Hashtags und vollstaendige Quellenangaben.
 
     Video-Inbox unterstuetzt KEINE Caption; dieser Text ist fuer Telegram und
@@ -329,7 +356,7 @@ def tiktok_text(skript, datum=None, quellen=()):
         beschreibung = saetze[0] if len(saetze[0]) <= 280 else beschreibung[:277].rsplit(' ', 1)[0] + '...'
     tags = ' '.join('#' + tag for tag in tiktok_hashtags(skript))
     nennungen = '\n'.join(zeilen[beginn:]).strip()
-    return '\n\n'.join(t for t in (upload_titel(skript, datum), beschreibung, frage, tags, nennungen) if t)
+    return '\n\n'.join(t for t in (upload_titel(skript, datum, sha), beschreibung, frage, tags, nennungen) if t)
 
 
 def tiktok_laenge(text):

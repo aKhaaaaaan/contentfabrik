@@ -186136,6 +186136,891 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "43721887244.1:ai-tools-explained",
+      "run_id": "43721887244",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-15T14:20:09.911827+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "f786805cb4081be097cf861a1d359d61c0a007cb",
+      "produktionsversion": "f9393195cbd68e34ea7b4eb6c41df179683036e1074e0b04da46802f861ab192",
+      "videoformat": "short",
+      "thema": "Bigarrow: an arrow for AI agents on macOS",
+      "titel": [
+        "A GIANT ARROW, NO *AI*",
+        "*BIGARROW* ON YOUR MAC"
+      ],
+      "status": "gesendet",
+      "video_sha256": "af298fe58689124d432010345080e88d7c793b98d886adeb216edc9b2eddcdac",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-11.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine allgemeine Systemeinstellung für den Terminal-Zugriff und stellt keinen inhaltlichen Bezug zur Frage nach der KI ('So where's the AI?') her.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Pfeil, der bereits als visuelles Metapher eingeführt wurde, aber die gesprochenen Worte 'Your agent brings the brain' werden in keiner Weise illustriert, da keine Gehirn- oder KI-Metapher oder ein technischer Kontext sichtbar ist.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine künstlerische Darstellung eines Mannes, aber weder das erwähnte Werkzeug 'Bigarrow' noch einen Zeigefinger oder Pfeil, der die beschriebene Funktion veranschaulicht.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Systemeinstellung für den Terminal-Zugriff und stellt keinen inhaltlichen Bezug zur Frage nach der KI ('So where's the AI?') her. Korrektur: Ein Bild, das den Quellcode oder die README-Datei zeigt, in der explizit erwähnt wird, dass keine KI integriert ist.",
+        "Offenes Problem (schwer): Das Bild zeigt den Pfeil, der bereits als visuelles Metapher eingeführt wurde, aber die gesprochenen Worte 'Your agent brings the brain' werden in keiner Weise illustriert, da keine Gehirn- oder KI-Metapher oder ein technischer Kontext sichtbar ist. Korrektur: Ein Diagramm oder eine grafische Darstellung, die die Beziehung zwischen einer externen KI-Steuerung (dem 'Gehirn') und der Eingabeebene des Betriebssystems verdeutlicht.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine künstlerische Darstellung eines Mannes, aber weder das erwähnte Werkzeug 'Bigarrow' noch einen Zeigefinger oder Pfeil, der die beschriebene Funktion veranschaulicht. Korrektur: Ein Screenshot vom macOS-Desktop, der den 'Bigarrow' als overlay-Pfeil über einem Programmfenster zeigt, um die beschriebene Funktion als 'Finger' des Agenten visuell zu belegen."
+      ],
+      "einstellungen": 9,
+      "unterschiedliche_motive": 9,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "43721887244",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-15",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 244.4,
+            "bau_s": 170.2,
+            "pruefung_s": 49.8,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine allgemeine Systemeinstellung für den Terminal-Zugriff und stellt keinen inhaltlichen Bezug zur Frage nach der KI ('So where's the AI?') her.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Pfeil, der bereits als visuelles Metapher eingeführt wurde, aber die gesprochenen Worte 'Your agent brings the brain' werden in keiner Weise illustriert, da keine Gehirn- oder KI-Metapher oder ein technischer Kontext sichtbar ist.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine künstlerische Darstellung eines Mannes, aber weder das erwähnte Werkzeug 'Bigarrow' noch einen Zeigefinger oder Pfeil, der die beschriebene Funktion veranschaulicht.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Systemeinstellung für den Terminal-Zugriff und stellt keinen inhaltlichen Bezug zur Frage nach der KI ('So where's the AI?') her. Korrektur: Ein Bild, das den Quellcode oder die README-Datei zeigt, in der explizit erwähnt wird, dass keine KI integriert ist.",
+              "Offenes Problem (schwer): Das Bild zeigt den Pfeil, der bereits als visuelles Metapher eingeführt wurde, aber die gesprochenen Worte 'Your agent brings the brain' werden in keiner Weise illustriert, da keine Gehirn- oder KI-Metapher oder ein technischer Kontext sichtbar ist. Korrektur: Ein Diagramm oder eine grafische Darstellung, die die Beziehung zwischen einer externen KI-Steuerung (dem 'Gehirn') und der Eingabeebene des Betriebssystems verdeutlicht.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine künstlerische Darstellung eines Mannes, aber weder das erwähnte Werkzeug 'Bigarrow' noch einen Zeigefinger oder Pfeil, der die beschriebene Funktion veranschaulicht. Korrektur: Ein Screenshot vom macOS-Desktop, der den 'Bigarrow' als overlay-Pfeil über einem Programmfenster zeigt, um die beschriebene Funktion als 'Finger' des Agenten visuell zu belegen."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 19.1,
+              "zeitmarken": 2.7,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 9,
+              "clips_und_stuecke": 116.3,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 9,
+                "motive": 9,
+                "motive_min": 4
+              },
+              "effekte": 13,
+              "rendern": 21.5,
+              "gesamt": 169.9,
+              "videolaenge_s": 24.9,
+              "abschnitte_s": [
+                3.38,
+                6.02,
+                3.32,
+                3.4,
+                4.74,
+                4.04
+              ],
+              "woerter": 60,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:16.12",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 5,
+                "gesprochen": "So where's the AI?",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich eine allgemeine Systemeinstellung für den Terminal-Zugriff und stellt keinen inhaltlichen Bezug zur Frage nach der KI ('So where's the AI?') her. Korrektur: Ein Bild, das den Quellcode oder die README-Datei zeigt, in der explizit erwähnt wird, dass keine KI integriert ist."
+              },
+              {
+                "zeit": "00:20.86",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 7,
+                "gesprochen": "Your agent brings the brain.",
+                "fest": false,
+                "text": "Das Bild zeigt den Pfeil, der bereits als visuelles Metapher eingeführt wurde, aber die gesprochenen Worte 'Your agent brings the brain' werden in keiner Weise illustriert, da keine Gehirn- oder KI-Metapher oder ein technischer Kontext sichtbar ist. Korrektur: Ein Diagramm oder eine grafische Darstellung, die die Beziehung zwischen einer externen KI-Steuerung (dem 'Gehirn') und der Eingabeebene des Betriebssystems verdeutlicht."
+              },
+              {
+                "zeit": "00:22.36",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 8,
+                "gesprochen": "That giant arrow is just the finger.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich eine künstlerische Darstellung eines Mannes, aber weder das erwähnte Werkzeug 'Bigarrow' noch einen Zeigefinger oder Pfeil, der die beschriebene Funktion veranschaulicht. Korrektur: Ein Screenshot vom macOS-Desktop, der den 'Bigarrow' als overlay-Pfeil über einem Programmfenster zeigt, um die beschriebene Funktion als 'Finger' des Agenten visuell zu belegen."
+              }
+            ],
+            "sekunden": 466.8,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-11.2"
+            },
+            "skript_s": 1.3,
+            "bau_s": 166.2,
+            "pruefung_s": 30.1,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage thematisiert das Fehlen von KI, während das Bild lediglich einen stilisierten Mann vor einem Computer zeigt, was keinen Bezug zur Frage herstellt.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Pfeil, der bereits als visuelles Metapher eingeführt wurde, aber die gesprochenen Worte 'Your agent brings the brain' werden in keiner Weise illustriert, da keine Gehirn- oder KI-Metapher oder ein technischer Kontext sichtbar ist.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine illustrierte Person und Textoverlays mit Aufrufen zum Liken, aber keinen visuellen Bezug zur Aussage 'That giant arrow is just the finger'.",
+              "Offenes Problem (schwer): Die gesprochene Frage thematisiert das Fehlen von KI, während das Bild lediglich einen stilisierten Mann vor einem Computer zeigt, was keinen Bezug zur Frage herstellt. Korrektur: Ein Screenshot einer README-Datei oder des Quellcodes, in dem explizit steht, dass keine KI enthalten ist.",
+              "Offenes Problem (schwer): Das Bild zeigt den Pfeil, der bereits als visuelles Metapher eingeführt wurde, aber die gesprochenen Worte 'Your agent brings the brain' werden in keiner Weise illustriert, da keine Gehirn- oder KI-Metapher oder ein technischer Kontext sichtbar ist. Korrektur: Ein Diagramm oder eine grafische Darstellung, die die Beziehung zwischen einer externen KI-Steuerung (dem 'Gehirn') und der Eingabeebene des Betriebssystems verdeutlicht.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine illustrierte Person und Textoverlays mit Aufrufen zum Liken, aber keinen visuellen Bezug zur Aussage 'That giant arrow is just the finger'. Korrektur: Eine Nahaufnahme oder Grafik, die den grossen Pfeil auf dem Bildschirm und dessen Metapher als zeigenden Finger visuell verdeutlicht."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Puck",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 6,
+              "stuecke_neu": 3,
+              "clips_und_stuecke": 15.1,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 9,
+                "motive": 9,
+                "motive_min": 4
+              },
+              "effekte": 12,
+              "rendern": 21.5,
+              "gesamt": 166.0,
+              "videolaenge_s": 24.9,
+              "abschnitte_s": [
+                3.38,
+                6.02,
+                3.32,
+                3.4,
+                4.74,
+                4.04
+              ],
+              "woerter": 60,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:16.12",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 5,
+                "gesprochen": "So where's the AI?",
+                "fest": false,
+                "text": "Die gesprochene Frage thematisiert das Fehlen von KI, während das Bild lediglich einen stilisierten Mann vor einem Computer zeigt, was keinen Bezug zur Frage herstellt. Korrektur: Ein Screenshot einer README-Datei oder des Quellcodes, in dem explizit steht, dass keine KI enthalten ist."
+              },
+              {
+                "zeit": "00:20.86",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 7,
+                "gesprochen": "Your agent brings the brain.",
+                "fest": false,
+                "text": "Das Bild zeigt den Pfeil, der bereits als visuelles Metapher eingeführt wurde, aber die gesprochenen Worte 'Your agent brings the brain' werden in keiner Weise illustriert, da keine Gehirn- oder KI-Metapher oder ein technischer Kontext sichtbar ist. Korrektur: Ein Diagramm oder eine grafische Darstellung, die die Beziehung zwischen einer externen KI-Steuerung (dem 'Gehirn') und der Eingabeebene des Betriebssystems verdeutlicht."
+              },
+              {
+                "zeit": "00:22.36",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 8,
+                "gesprochen": "That giant arrow is just the finger.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich eine illustrierte Person und Textoverlays mit Aufrufen zum Liken, aber keinen visuellen Bezug zur Aussage 'That giant arrow is just the finger'. Korrektur: Eine Nahaufnahme oder Grafik, die den grossen Pfeil auf dem Bildschirm und dessen Metapher als zeigenden Finger visuell verdeutlicht."
+              }
+            ],
+            "sekunden": 199.3,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "43721887244-2",
+              "datum": "2026-11-15",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 199.3,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-11-11.2",
+              "verbessert": false
+            }
+          }
+        ],
+        "status": "gesendet",
+        "trendcheck": "Bigarrow: Human Handoffs for AI Agents (remake): 1.0 Punkte - ohne Signal",
+        "grund": "",
+        "sekunden": 1065.7,
+        "upload_titel": "A GIANT ARROW, NO AI: BIGARROW ON YOUR MAC | AI Tool #36"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:16.12",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 5,
+            "gesprochen": "So where's the AI?",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine allgemeine Systemeinstellung für den Terminal-Zugriff und stellt keinen inhaltlichen Bezug zur Frage nach der KI ('So where's the AI?') her. Korrektur: Ein Bild, das den Quellcode oder die README-Datei zeigt, in der explizit erwähnt wird, dass keine KI integriert ist."
+          },
+          {
+            "zeit": "00:20.86",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 7,
+            "gesprochen": "Your agent brings the brain.",
+            "fest": false,
+            "text": "Das Bild zeigt den Pfeil, der bereits als visuelles Metapher eingeführt wurde, aber die gesprochenen Worte 'Your agent brings the brain' werden in keiner Weise illustriert, da keine Gehirn- oder KI-Metapher oder ein technischer Kontext sichtbar ist. Korrektur: Ein Diagramm oder eine grafische Darstellung, die die Beziehung zwischen einer externen KI-Steuerung (dem 'Gehirn') und der Eingabeebene des Betriebssystems verdeutlicht."
+          },
+          {
+            "zeit": "00:22.36",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 8,
+            "gesprochen": "That giant arrow is just the finger.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine künstlerische Darstellung eines Mannes, aber weder das erwähnte Werkzeug 'Bigarrow' noch einen Zeigefinger oder Pfeil, der die beschriebene Funktion veranschaulicht. Korrektur: Ein Screenshot vom macOS-Desktop, der den 'Bigarrow' als overlay-Pfeil über einem Programmfenster zeigt, um die beschriebene Funktion als 'Finger' des Agenten visuell zu belegen."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 24.9,
+          "fps": 29.9,
+          "lufs": -14.1,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 13.22,
+              "bis_s": 15.42,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.979
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 4.899999999999999,
+              "bis_s": 25.4,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Big",
+                "s": 0.0,
+                "e": 0.22,
+                "p": 0.9035853147506714
+              },
+              {
+                "w": "arrow",
+                "s": 0.22,
+                "e": 0.64,
+                "p": 0.5883015394210815
+              },
+              {
+                "w": "just",
+                "s": 0.64,
+                "e": 0.94,
+                "p": 0.9300596714019775
+              },
+              {
+                "w": "stuck",
+                "s": 0.94,
+                "e": 1.2,
+                "p": 0.9915830492973328
+              },
+              {
+                "w": "a",
+                "s": 1.2,
+                "e": 1.4,
+                "p": 0.9914864301681519
+              },
+              {
+                "w": "giant",
+                "s": 1.4,
+                "e": 1.86,
+                "p": 0.9846746921539307
+              },
+              {
+                "w": "arrow",
+                "s": 1.86,
+                "e": 2.34,
+                "p": 0.996895432472229
+              },
+              {
+                "w": "on",
+                "s": 2.34,
+                "e": 2.56,
+                "p": 0.9953094124794006
+              },
+              {
+                "w": "your",
+                "s": 2.56,
+                "e": 2.68,
+                "p": 0.994915246963501
+              },
+              {
+                "w": "Mac.",
+                "s": 2.68,
+                "e": 2.88,
+                "p": 0.8944247961044312
+              },
+              {
+                "w": "Your",
+                "s": 3.4,
+                "e": 3.4,
+                "p": 0.9628066420555115
+              },
+              {
+                "w": "agent",
+                "s": 3.4,
+                "e": 3.74,
+                "p": 0.7331348657608032
+              },
+              {
+                "w": "types",
+                "s": 3.74,
+                "e": 4.28,
+                "p": 0.9724096059799194
+              },
+              {
+                "w": "click",
+                "s": 4.28,
+                "e": 4.72,
+                "p": 0.7423501014709473
+              },
+              {
+                "w": "allow",
+                "s": 4.72,
+                "e": 5.06,
+                "p": 0.32648032903671265
+              },
+              {
+                "w": "where",
+                "s": 5.06,
+                "e": 5.56,
+                "p": 0.8352277278900146
+              },
+              {
+                "w": "you're",
+                "s": 5.56,
+                "e": 5.76,
+                "p": 0.9814004898071289
+              },
+              {
+                "w": "not",
+                "s": 5.76,
+                "e": 5.94,
+                "p": 0.9988631010055542
+              },
+              {
+                "w": "looking.",
+                "s": 5.94,
+                "e": 6.28,
+                "p": 0.9977380037307739
+              },
+              {
+                "w": "The",
+                "s": 7.18,
+                "e": 7.2,
+                "p": 0.9896878600120544
+              },
+              {
+                "w": "fix",
+                "s": 7.2,
+                "e": 7.46,
+                "p": 0.9501602053642273
+              },
+              {
+                "w": "is",
+                "s": 7.46,
+                "e": 7.94,
+                "p": 0.994763970375061
+              },
+              {
+                "w": "weirder.",
+                "s": 7.94,
+                "e": 9.08,
+                "p": 0.7776536246140798
+              },
+              {
+                "w": "It",
+                "s": 9.42,
+                "e": 9.48,
+                "p": 0.9705179929733276
+              },
+              {
+                "w": "draws",
+                "s": 9.48,
+                "e": 9.8,
+                "p": 0.9982061386108398
+              },
+              {
+                "w": "over",
+                "s": 9.8,
+                "e": 10.2,
+                "p": 0.997988224029541
+              },
+              {
+                "w": "every",
+                "s": 10.2,
+                "e": 10.56,
+                "p": 0.9926720857620239
+              },
+              {
+                "w": "window,",
+                "s": 10.56,
+                "e": 11.16,
+                "p": 0.9975173473358154
+              },
+              {
+                "w": "clicks",
+                "s": 11.48,
+                "e": 11.68,
+                "p": 0.9850295186042786
+              },
+              {
+                "w": "pass",
+                "s": 11.68,
+                "e": 11.98,
+                "p": 0.8165483474731445
+              },
+              {
+                "w": "through.",
+                "s": 11.98,
+                "e": 12.26,
+                "p": 0.9737520217895508
+              },
+              {
+                "w": "Be",
+                "s": 12.72,
+                "e": 12.74,
+                "p": 0.990337610244751
+              },
+              {
+                "w": "sure",
+                "s": 12.74,
+                "e": 12.96,
+                "p": 0.9972559809684753
+              },
+              {
+                "w": "to",
+                "s": 12.96,
+                "e": 13.22,
+                "p": 0.9940126538276672
+              },
+              {
+                "w": "like,",
+                "s": 13.22,
+                "e": 13.6,
+                "p": 0.884936511516571
+              },
+              {
+                "w": "share,",
+                "s": 13.84,
+                "e": 14.12,
+                "p": 0.9976599216461182
+              },
+              {
+                "w": "and",
+                "s": 14.4,
+                "e": 14.52,
+                "p": 0.9984258413314819
+              },
+              {
+                "w": "save",
+                "s": 14.52,
+                "e": 14.88,
+                "p": 0.9970110654830933
+              },
+              {
+                "w": "this",
+                "s": 14.88,
+                "e": 15.1,
+                "p": 0.9944438338279724
+              },
+              {
+                "w": "video.",
+                "s": 15.1,
+                "e": 15.42,
+                "p": 0.9993618130683899
+              },
+              {
+                "w": "Swears",
+                "s": 16.18,
+                "e": 16.78,
+                "p": 0.5129694007337093
+              },
+              {
+                "w": "the",
+                "s": 16.78,
+                "e": 16.98,
+                "p": 0.9954451322555542
+              },
+              {
+                "w": "AI.",
+                "s": 16.98,
+                "e": 17.24,
+                "p": 0.945705235004425
+              },
+              {
+                "w": "The",
+                "s": 18.18,
+                "e": 18.26,
+                "p": 0.9939900636672974
+              },
+              {
+                "w": "readme",
+                "s": 18.26,
+                "e": 18.62,
+                "p": 0.5990140289068222
+              },
+              {
+                "w": "says",
+                "s": 18.62,
+                "e": 18.84,
+                "p": 0.9824997186660767
+              },
+              {
+                "w": "none",
+                "s": 18.84,
+                "e": 19.12,
+                "p": 0.7603986263275146
+              },
+              {
+                "w": "inside.",
+                "s": 19.12,
+                "e": 19.68,
+                "p": 0.9926693439483643
+              },
+              {
+                "w": "Your",
+                "s": 20.92,
+                "e": 21.02,
+                "p": 0.8548267483711243
+              },
+              {
+                "w": "agent",
+                "s": 21.02,
+                "e": 21.48,
+                "p": 0.9919005632400513
+              },
+              {
+                "w": "brings",
+                "s": 21.48,
+                "e": 21.88,
+                "p": 0.997349739074707
+              },
+              {
+                "w": "the",
+                "s": 21.88,
+                "e": 22.1,
+                "p": 0.9973612427711487
+              },
+              {
+                "w": "brain.",
+                "s": 22.1,
+                "e": 22.36,
+                "p": 0.9979846477508545
+              },
+              {
+                "w": "That",
+                "s": 22.8,
+                "e": 22.86,
+                "p": 0.9943094253540039
+              },
+              {
+                "w": "giant",
+                "s": 22.86,
+                "e": 23.1,
+                "p": 0.997269332408905
+              },
+              {
+                "w": "arrow",
+                "s": 23.1,
+                "e": 23.52,
+                "p": 0.9975571632385254
+              },
+              {
+                "w": "is",
+                "s": 23.52,
+                "e": 23.72,
+                "p": 0.9879254102706909
+              },
+              {
+                "w": "just",
+                "s": 23.72,
+                "e": 23.88,
+                "p": 0.9963274598121643
+              },
+              {
+                "w": "the",
+                "s": 23.88,
+                "e": 24.24,
+                "p": 0.9671307802200317
+              },
+              {
+                "w": "finger.",
+                "s": 24.24,
+                "e": 24.58,
+                "p": 0.9954989552497864
+              }
+            ],
+            "dauer_s": 24.832,
+            "sprache": "en"
+          },
+          "roh_key": "4b7bf9151e0b3bcc97ff56515d463f61d70f4f097a9a7bd6b71498c738c36a13",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "af298fe58689124d432010345080e88d7c793b98d886adeb216edc9b2eddcdac",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 24.9,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 9,
+          "motive": 9,
+          "motive_min": 4
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "af298fe58689124d432010345080e88d7c793b98d886adeb216edc9b2eddcdac",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein illustrierter Mann mit Brille in einer Lederjacke blickt erschrocken auf einen riesigen Pfeil, den er in der Hand hält.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbare Illustration zeigt genau die im Text beschriebene Szene eines Mannes mit einem riesigen Pfeil auf dem Mac/Computer.",
+              "erforderliches_bild": "Keines, da das Bild passt."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Mac-Bildschirm zeigt ein Berechtigungsfenster 'Demo App would like to access your Downloads folder' mit einem blauen 'Allow'-Button. Ein gruner Pfeil und ein Hinweis 'Franz, click Allow' sind als Overlay eingeblendet.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt das im Text genannte Systemfenster mit der Aufforderung zum 'Allow'-Klick sowie das Overlay mit dem Hinweis, was genau zum gesprochenen Satz passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Computermonitor mit einer Benutzeroberfläche zeigt ein weißes Dialogfenster und einen großen orangefarbenen Pfeil, der auf einen blauen Button zeigt. Unten ist eine Hand zu sehen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der große orangefarbene Pfeil auf dem Bildschirm passt genau zur Beschreibung von Bigarrow, der eine gigantische Markierung auf dem Mac anbringt.",
+              "erforderliches_bild": "Ein passender Screenshot der Benutzeroberfläche mit dem großen Zeigepfeil."
+            },
+            {
+              "index": 3,
+              "gesehen": "In einem macOS-Fenster ist ein Text zu sehen und ein violettes Overlay mit der Anweisung 'Now click the wallpaper...' sowie einem großen Pfeil.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt das im Text erwähnte große Overlay mit Pfeil über dem Anwendungsfenster.",
+              "erforderliches_bild": "Keines, das Bild passt."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein grünes Benachrichtigungsfenster mit der Aufforderung 'Switch this on: Terminal may control your Mac' ist zu sehen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine allgemeine Systemeinstellung für den Terminal-Zugriff und stellt keinen inhaltlichen Bezug zur Frage nach der KI ('So where's the AI?') her.",
+              "erforderliches_bild": "Ein Bild, das den Quellcode oder die README-Datei zeigt, in der explizit erwähnt wird, dass keine KI integriert ist."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein stilisiertes, gemaltes Bild zeigt einen großen, orangefarbenen Pfeil, der über mehreren überlappenden rechteckigen Feldern (in Rot, Grün und Weiß) schwebt. Die Bildunterschrift 'none inside' ist teilweise am unteren Rand zu sehen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild illustriert visuell den Text 'none inside', indem es den Text als Grafik anzeigt, passend zum gesprochenen Satz über die README-Datei.",
+              "erforderliches_bild": "Das Bild ist passend."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein illustrierter Mann mit Sonnenbrille blickt erstaunt auf einen Bildschirm, auf dem ein großer orangefarbener Pfeil auf einen blauen Button zeigt.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt den Pfeil, der bereits als visuelles Metapher eingeführt wurde, aber die gesprochenen Worte 'Your agent brings the brain' werden in keiner Weise illustriert, da keine Gehirn- oder KI-Metapher oder ein technischer Kontext sichtbar ist.",
+              "erforderliches_bild": "Ein Diagramm oder eine grafische Darstellung, die die Beziehung zwischen einer externen KI-Steuerung (dem 'Gehirn') und der Eingabeebene des Betriebssystems verdeutlicht."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein grafisch generiertes Bild eines Mannes mit Sonnenbrille, in denen die Zahlen 103 und 104 stehen, vor einer Hintergrundkulisse mit Kränen und einer Brücke bei Sonnenuntergang.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine künstlerische Darstellung eines Mannes, aber weder das erwähnte Werkzeug 'Bigarrow' noch einen Zeigefinger oder Pfeil, der die beschriebene Funktion veranschaulicht.",
+              "erforderliches_bild": "Ein Screenshot vom macOS-Desktop, der den 'Bigarrow' als overlay-Pfeil über einem Programmfenster zeigt, um die beschriebene Funktion als 'Finger' des Agenten visuell zu belegen."
+            }
+          ],
+          "befunde": [
+            "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine allgemeine Systemeinstellung für den Terminal-Zugriff und stellt keinen inhaltlichen Bezug zur Frage nach der KI ('So where's the AI?') her.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Pfeil, der bereits als visuelles Metapher eingeführt wurde, aber die gesprochenen Worte 'Your agent brings the brain' werden in keiner Weise illustriert, da keine Gehirn- oder KI-Metapher oder ein technischer Kontext sichtbar ist.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine künstlerische Darstellung eines Mannes, aber weder das erwähnte Werkzeug 'Bigarrow' noch einen Zeigefinger oder Pfeil, der die beschriebene Funktion veranschaulicht."
+          ],
+          "modelle": [
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite"
+          ],
+          "einstellungen": 9,
+          "ausgenommen": [
+            4
+          ],
+          "vorgeprueft": [],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "af298fe58689124d432010345080e88d7c793b98d886adeb216edc9b2eddcdac",
+        "prompt_version": "2026-11-11.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

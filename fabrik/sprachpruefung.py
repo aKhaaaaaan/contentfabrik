@@ -91,7 +91,11 @@ def cta_bewerten(roh, art, dauer):
     # wurde allein wegen des Wortes story verworfen. Nur konkrete Inhaltsobjekte
     # zulassen; "save money" ist weiterhin kein Speichern dieses Beitrags.
     objekt = r'(?:video|story|clip|short|guide)'
-    muster = rf'\blike(?: this {objekt})? (?:and )?share(?: this {objekt})? (?:and )?save (?:this|the) {objekt}\b'
+    # GEMESSEN 15.11.2026 (Dunkin' 43721887244): "save this handled donut video" - beide Modelle hoerten es klar,
+    # gesperrt nur wegen der Beiwoerter. Bis zu zwei beschreibende Woerter; Fuellwoerter zaehlen nicht
+    # ("save the money in your video" bleibt gesperrt).
+    beiwort = r"(?: (?!(?:in|on|at|for|with|of|to|from|your|my|our|their|and|or|but|not|money)\b)[a-z]+(?:'[a-z]+)?){0,2}"
+    muster = rf'\blike(?: this {objekt})? (?:and )?share(?: this {objekt})? (?:and )?save (?:this|the){beiwort} {objekt}\b'
     treffer = []
     for m in re.finditer(muster, text):
         indices = [i for i, s in enumerate(starts) if m.start() <= s < m.end()]

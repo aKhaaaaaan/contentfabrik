@@ -187021,6 +187021,801 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "43721887244.1:business-origin-stories",
+      "run_id": "43721887244",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-15T14:53:11.932046+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "f786805cb4081be097cf861a1d359d61c0a007cb",
+      "produktionsversion": "3dabb34ad6029af345fea5e12c892f89c01ca848f5fbe6b6c3b5dc9557abe63a",
+      "videoformat": "short",
+      "thema": "Dunkin' Donuts and its handled doughnut",
+      "titel": [
+        "*DUNKIN'* KILLED ITS",
+        "OWN DUNKING DONUT"
+      ],
+      "status": "gesperrt",
+      "video_sha256": "77799e74de7761cd0451bcb63d0daccaa7828b82544a09c34ff33614d609c387",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden"
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 12,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "43721887244",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-15",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 280.5,
+            "bau_s": 1511.0,
+            "pruefung_s": 19.3,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Einzelbewertungen fehlen",
+              "Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt",
+              "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden"
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "kokoro:bm_george",
+              "stimme": 36.9,
+              "zeitmarken": 3.3,
+              "tempo": 1.146,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "bilder_vereinfacht": 4,
+              "clips_und_stuecke": 1090.8,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 12,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 43.9,
+              "gesamt": 1509.9,
+              "videolaenge_s": 46.0,
+              "abschnitte_s": [
+                6.65,
+                8.97,
+                4.48,
+                4.35,
+                5.73,
+                8.45,
+                7.36
+              ],
+              "woerter": 97,
+              "clips": {
+                "witz": 2,
+                "archiv": 0
+              }
+            },
+            "kategorien": {},
+            "probleme": [],
+            "sekunden": 1811.4,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "Claude-Redaktion (Plan vom 2026-11-15): Dunkin' Donuts: 4.63 Punkte - YouTube-Ausreisser 1.5x Kanalschnitt, Wikipedia +2 % gegenueber Vormonat, heute in Google News (Little Munchkin: Raleigh couple delivers baby in Dunkin' Donuts parking lot before ambulance arrives)",
+        "grund": "Keine weitere gezielte Korrektur moeglich",
+        "sekunden": 1825.9,
+        "upload_titel": "DUNKIN' KILLED ITS OWN DUNKING DONUT"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "staerken": [],
+        "probleme": [],
+        "fazit": "Technik-/Endton-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 46.0,
+          "fps": 30.0,
+          "lufs": -14.2,
+          "befunde": [
+            "Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt"
+          ]
+        },
+        "audio_pruefung": {
+          "ok": false,
+          "befunde": [
+            "Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt"
+          ],
+          "treffer": [],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 26.0,
+              "bis_s": 46.5,
+              "erkannt": false
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "it's",
+                "s": 0.78,
+                "e": 1.18,
+                "p": 0.5331031866371632
+              },
+              {
+                "w": "own",
+                "s": 1.18,
+                "e": 1.36,
+                "p": 0.9735235571861267
+              },
+              {
+                "w": "dunking",
+                "s": 1.36,
+                "e": 1.98,
+                "p": 0.7472172677516937
+              },
+              {
+                "w": "donut.",
+                "s": 1.98,
+                "e": 2.5,
+                "p": 0.7506310343742371
+              },
+              {
+                "w": "But",
+                "s": 3.36,
+                "e": 3.72,
+                "p": 0.9573508501052856
+              },
+              {
+                "w": "the",
+                "s": 3.72,
+                "e": 3.84,
+                "p": 0.9822149872779846
+              },
+              {
+                "w": "reason",
+                "s": 3.84,
+                "e": 4.16,
+                "p": 0.9947329759597778
+              },
+              {
+                "w": "wasn't",
+                "s": 4.16,
+                "e": 5.06,
+                "p": 0.9809749722480774
+              },
+              {
+                "w": "on",
+                "s": 5.06,
+                "e": 5.34,
+                "p": 0.9892956614494324
+              },
+              {
+                "w": "the",
+                "s": 5.34,
+                "e": 5.5,
+                "p": 0.9977510571479797
+              },
+              {
+                "w": "menu.",
+                "s": 5.5,
+                "e": 5.8,
+                "p": 0.9978122711181641
+              },
+              {
+                "w": "Bill",
+                "s": 6.9,
+                "e": 7.14,
+                "p": 0.9669344425201416
+              },
+              {
+                "w": "Rosenberg",
+                "s": 7.14,
+                "e": 7.52,
+                "p": 0.909671425819397
+              },
+              {
+                "w": "opened",
+                "s": 7.52,
+                "e": 8.26,
+                "p": 0.9907069206237793
+              },
+              {
+                "w": "open",
+                "s": 8.26,
+                "e": 8.72,
+                "p": 0.33683517575263977
+              },
+              {
+                "w": "kettle",
+                "s": 8.72,
+                "e": 8.98,
+                "p": 0.8257037997245789
+              },
+              {
+                "w": "in",
+                "s": 8.98,
+                "e": 9.6,
+                "p": 0.9911036491394043
+              },
+              {
+                "w": "1948,",
+                "s": 9.6,
+                "e": 10.94,
+                "p": 0.9764359593391418
+              },
+              {
+                "w": "selling",
+                "s": 11.08,
+                "e": 12.1,
+                "p": 0.9929660558700562
+              },
+              {
+                "w": "donuts",
+                "s": 12.1,
+                "e": 12.66,
+                "p": 0.9731023907661438
+              },
+              {
+                "w": "and",
+                "s": 12.66,
+                "e": 12.92,
+                "p": 0.9893534183502197
+              },
+              {
+                "w": "coffee",
+                "s": 12.92,
+                "e": 13.18,
+                "p": 0.99029541015625
+              },
+              {
+                "w": "in",
+                "s": 13.18,
+                "e": 13.66,
+                "p": 0.9944333434104919
+              },
+              {
+                "w": "Quincy,",
+                "s": 13.66,
+                "e": 14.0,
+                "p": 0.9727538228034973
+              },
+              {
+                "w": "Massachusetts.",
+                "s": 14.5,
+                "e": 14.86,
+                "p": 0.979933500289917
+              },
+              {
+                "w": "It's",
+                "s": 15.64,
+                "e": 15.84,
+                "p": 0.48030394315719604
+              },
+              {
+                "w": "seen",
+                "s": 15.84,
+                "e": 15.88,
+                "p": 0.8452463150024414
+              },
+              {
+                "w": "donuts",
+                "s": 15.88,
+                "e": 16.36,
+                "p": 0.9833166897296906
+              },
+              {
+                "w": "and",
+                "s": 16.36,
+                "e": 16.72,
+                "p": 0.9843506813049316
+              },
+              {
+                "w": "coffee",
+                "s": 16.72,
+                "e": 16.92,
+                "p": 0.985909640789032
+              },
+              {
+                "w": "sell",
+                "s": 16.92,
+                "e": 17.24,
+                "p": 0.33729955554008484
+              },
+              {
+                "w": "best",
+                "s": 17.24,
+                "e": 17.6,
+                "p": 0.9848117828369141
+              },
+              {
+                "w": "at",
+                "s": 17.6,
+                "e": 17.72,
+                "p": 0.9613471031188965
+              },
+              {
+                "w": "factories",
+                "s": 17.72,
+                "e": 18.12,
+                "p": 0.9964233040809631
+              },
+              {
+                "w": "and",
+                "s": 18.12,
+                "e": 18.68,
+                "p": 0.923356831073761
+              },
+              {
+                "w": "at",
+                "s": 18.68,
+                "e": 18.78,
+                "p": 0.9759277105331421
+              },
+              {
+                "w": "construction",
+                "s": 18.78,
+                "e": 19.0,
+                "p": 0.9961254000663757
+              },
+              {
+                "w": "sites.",
+                "s": 19.0,
+                "e": 19.68,
+                "p": 0.9982796907424927
+              },
+              {
+                "w": "Johnny",
+                "s": 20.06,
+                "e": 20.3,
+                "p": 0.9399098753929138
+              },
+              {
+                "w": "Spartos",
+                "s": 20.3,
+                "e": 20.84,
+                "p": 0.5904685407876968
+              },
+              {
+                "w": "at",
+                "s": 20.84,
+                "e": 21.2,
+                "p": 0.7685626745223999
+              },
+              {
+                "w": "the",
+                "s": 21.2,
+                "e": 21.34,
+                "p": 0.9916908740997314
+              },
+              {
+                "w": "original",
+                "s": 21.34,
+                "e": 21.64,
+                "p": 0.963302731513977
+              },
+              {
+                "w": "Quincy",
+                "s": 21.64,
+                "e": 21.96,
+                "p": 0.9870655536651611
+              },
+              {
+                "w": "shop",
+                "s": 21.96,
+                "e": 22.38,
+                "p": 0.8791137337684631
+              },
+              {
+                "w": "convinced",
+                "s": 22.38,
+                "e": 22.96,
+                "p": 0.9828700423240662
+              },
+              {
+                "w": "him",
+                "s": 22.96,
+                "e": 23.26,
+                "p": 0.9992967844009399
+              },
+              {
+                "w": "to",
+                "s": 23.26,
+                "e": 23.44,
+                "p": 0.9989012479782104
+              },
+              {
+                "w": "add",
+                "s": 23.44,
+                "e": 23.68,
+                "p": 0.9948667287826538
+              },
+              {
+                "w": "a",
+                "s": 23.68,
+                "e": 23.78,
+                "p": 0.9976932406425476
+              },
+              {
+                "w": "handle.",
+                "s": 23.78,
+                "e": 24.0,
+                "p": 0.9964962601661682
+              },
+              {
+                "w": "So",
+                "s": 24.58,
+                "e": 25.06,
+                "p": 0.986842930316925
+              },
+              {
+                "w": "what",
+                "s": 25.06,
+                "e": 25.36,
+                "p": 0.905797004699707
+              },
+              {
+                "w": "did",
+                "s": 25.36,
+                "e": 25.54,
+                "p": 0.998431384563446
+              },
+              {
+                "w": "that",
+                "s": 25.54,
+                "e": 25.76,
+                "p": 0.9955428242683411
+              },
+              {
+                "w": "handle",
+                "s": 25.76,
+                "e": 26.2,
+                "p": 0.9807091951370239
+              },
+              {
+                "w": "cost?",
+                "s": 26.2,
+                "e": 26.6,
+                "p": 0.9893708229064941
+              },
+              {
+                "w": "Each",
+                "s": 27.16,
+                "e": 27.24,
+                "p": 0.9863216280937195
+              },
+              {
+                "w": "one",
+                "s": 27.24,
+                "e": 27.46,
+                "p": 0.9905251860618591
+              },
+              {
+                "w": "was",
+                "s": 27.46,
+                "e": 27.6,
+                "p": 0.9983004927635193
+              },
+              {
+                "w": "hand",
+                "s": 27.6,
+                "e": 27.8,
+                "p": 0.9568980932235718
+              },
+              {
+                "w": "-cut",
+                "s": 27.8,
+                "e": 28.06,
+                "p": 0.6317109018564224
+              },
+              {
+                "w": "unlike",
+                "s": 28.06,
+                "e": 28.6,
+                "p": 0.7073616981506348
+              },
+              {
+                "w": "machine",
+                "s": 28.6,
+                "e": 28.9,
+                "p": 0.919497013092041
+              },
+              {
+                "w": "cut",
+                "s": 28.9,
+                "e": 29.34,
+                "p": 0.599998950958252
+              },
+              {
+                "w": "donuts.",
+                "s": 29.34,
+                "e": 29.78,
+                "p": 0.7862246632575989
+              },
+              {
+                "w": "In",
+                "s": 30.18,
+                "e": 30.62,
+                "p": 0.9719769358634949
+              },
+              {
+                "w": "2000",
+                "s": 30.62,
+                "e": 31.14,
+                "p": 0.7205801010131836
+              },
+              {
+                "w": "and",
+                "s": 31.14,
+                "e": 31.72,
+                "p": 0.33709901571273804
+              },
+              {
+                "w": "three",
+                "s": 31.72,
+                "e": 32.16,
+                "p": 0.656880259513855
+              },
+              {
+                "w": "Dunkin",
+                "s": 32.16,
+                "e": 32.68,
+                "p": 0.7852798700332642
+              },
+              {
+                "w": "Donuts",
+                "s": 32.68,
+                "e": 33.1,
+                "p": 0.767461895942688
+              },
+              {
+                "w": "dropped",
+                "s": 33.1,
+                "e": 33.4,
+                "p": 0.9726837873458862
+              },
+              {
+                "w": "it",
+                "s": 33.4,
+                "e": 33.66,
+                "p": 0.9853863716125488
+              },
+              {
+                "w": "everywhere",
+                "s": 33.66,
+                "e": 34.06,
+                "p": 0.9931867122650146
+              },
+              {
+                "w": "except",
+                "s": 34.06,
+                "e": 34.64,
+                "p": 0.9546433687210083
+              },
+              {
+                "w": "Singapore",
+                "s": 34.64,
+                "e": 35.2,
+                "p": 0.9852640628814697
+              },
+              {
+                "w": "because",
+                "s": 35.2,
+                "e": 36.12,
+                "p": 0.6691880226135254
+              },
+              {
+                "w": "hand",
+                "s": 36.12,
+                "e": 36.38,
+                "p": 0.9466804265975952
+              },
+              {
+                "w": "cutting",
+                "s": 36.38,
+                "e": 36.64,
+                "p": 0.7047011852264404
+              },
+              {
+                "w": "was",
+                "s": 36.64,
+                "e": 37.06,
+                "p": 0.9981359243392944
+              },
+              {
+                "w": "uneconomical.",
+                "s": 37.06,
+                "e": 37.98,
+                "p": 0.9131441116333008
+              },
+              {
+                "w": "Be",
+                "s": 38.64,
+                "e": 38.7,
+                "p": 0.9867320656776428
+              },
+              {
+                "w": "sure",
+                "s": 38.7,
+                "e": 38.94,
+                "p": 0.9992554783821106
+              },
+              {
+                "w": "to",
+                "s": 38.94,
+                "e": 39.12,
+                "p": 0.9930890202522278
+              },
+              {
+                "w": "like,",
+                "s": 39.12,
+                "e": 39.32,
+                "p": 0.9659690856933594
+              },
+              {
+                "w": "share,",
+                "s": 39.58,
+                "e": 39.88,
+                "p": 0.9924052357673645
+              },
+              {
+                "w": "and",
+                "s": 40.2,
+                "e": 40.24,
+                "p": 0.9983704686164856
+              },
+              {
+                "w": "save",
+                "s": 40.24,
+                "e": 40.5,
+                "p": 0.990881085395813
+              },
+              {
+                "w": "this",
+                "s": 40.5,
+                "e": 40.76,
+                "p": 0.9946871995925903
+              },
+              {
+                "w": "handled",
+                "s": 40.76,
+                "e": 41.04,
+                "p": 0.770930826663971
+              },
+              {
+                "w": "donut",
+                "s": 41.04,
+                "e": 41.64,
+                "p": 0.9254001975059509
+              },
+              {
+                "w": "video.",
+                "s": 41.64,
+                "e": 41.86,
+                "p": 0.9981903433799744
+              },
+              {
+                "w": "Which",
+                "s": 42.52,
+                "e": 42.54,
+                "p": 0.9866387844085693
+              },
+              {
+                "w": "company",
+                "s": 42.54,
+                "e": 42.94,
+                "p": 0.9927061200141907
+              },
+              {
+                "w": "next?",
+                "s": 42.94,
+                "e": 43.34,
+                "p": 0.9247139096260071
+              },
+              {
+                "w": "Comment",
+                "s": 44.14,
+                "e": 44.18,
+                "p": 0.989138662815094
+              },
+              {
+                "w": "and",
+                "s": 44.18,
+                "e": 44.58,
+                "p": 0.9483179450035095
+              },
+              {
+                "w": "follow",
+                "s": 44.58,
+                "e": 44.9,
+                "p": 0.9894326329231262
+              },
+              {
+                "w": "for",
+                "s": 44.9,
+                "e": 45.28,
+                "p": 0.9919379353523254
+              },
+              {
+                "w": "more.",
+                "s": 45.28,
+                "e": 45.52,
+                "p": 0.9991152882575989
+              }
+            ],
+            "dauer_s": 45.888,
+            "sprache": "en"
+          },
+          "roh_key": "fd85f8df23c9149ddcfd23ac1a27029b7aa02f6ff78097ce4719c2bfc948f058",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": false,
+              "befunde": [
+                "Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt"
+              ]
+            },
+            {
+              "modell": "small.en",
+              "ok": false,
+              "befunde": [
+                "Gesprochenes Liken, Teilen UND Speichern im schluss nicht sicher erkannt"
+              ]
+            }
+          ],
+          "version": 1,
+          "video_sha256": "77799e74de7761cd0451bcb63d0daccaa7828b82544a09c34ff33614d609c387",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 46.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 12,
+          "motive_min": 8
+        },
+        "video_sha256": "77799e74de7761cd0451bcb63d0daccaa7828b82544a09c34ff33614d609c387"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

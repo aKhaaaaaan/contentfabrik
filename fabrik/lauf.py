@@ -699,7 +699,8 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             try:
                 import codexbilder
                 codexbilder.holen(kanal, skript.get('kanal', ''), [skript.get('thema', ''), thema], ' '.join(
-                    [str(skript.get('thema', ''))] + [t.get('text', '') for t in skript.get('teile', [])]))
+                    [str(skript.get('thema', ''))] + [t.get('text', '') for t in skript.get('teile', [])]),
+                    videoformat=skript.get('videoformat', 'short'))
             except Exception as e:
                 print('Codex-Bilder uebersprungen:', type(e).__name__)
             bau_start = time.monotonic()

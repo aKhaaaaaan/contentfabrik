@@ -300,13 +300,16 @@ def _codex_staemme(text):
     return {w[:5] for w in re.findall(r'[a-z]{4,}', str(text).lower()) if w not in _CODEX_FUELL}
 
 
-def codex_einsetzen(daten, zeitplan, bibliothek_bilder):
+def codex_einsetzen(daten, zeitplan, bibliothek_bilder, videoformat='short'):
     """GEMESSEN 15.11.2026 (Instagram-Short 43705280151, Rockstar-Langvideo): 4 vorab gemalte Codex-Bilder lagen fuer
     genau dieses Thema bereit, der Planer (Gemini-Lite/Groq-20B bei knappem Kontingent) waehlte keines. Jedes noch
     ungenutzte Codex-Bild kommt in die gemalte Einstellung mit den meisten gemeinsamen Wortstaemmen (ohne Hook und
     Schluss; Demo/Foto/Karte bleiben); ohne Treffer gleichmaessig verteilt. Der Bildpruefer prueft sie wie jedes Bild."""
     benutzt = {d.get('asset') for d in daten if d.get('bildmodus') == 'asset'}
-    offen = [b for b in bibliothek_bilder if str(b.get('id', '')).startswith('codex-') and b['id'] not in benutzt]
+    # 15.11.2026: nur Bilder im Format des Videos (Short 9:16, Langvideo 16:9 - codexbilder.tag); alte Eintraege
+    # ohne 'format' sind Short-Bilder.
+    offen = [b for b in bibliothek_bilder if str(b.get('id', '')).startswith('codex-') and b['id'] not in benutzt
+             and b.get('format', 'short') == videoformat]
     frei = [i for i, d in enumerate(daten) if 0 < i < len(daten) - 1 and d.get('bildmodus') == 'illustration'
             and len(re.findall(r'\b(?:like|share|save|follow|comment|subscribe)\b',
                                str(zeitplan[i].get('text', '')).lower())) < 2]  # Aufruf-Satz: Moderator
@@ -782,8 +785,8 @@ def vorbereiten(s, laengen, woerter, cache=None, fortschritt=None):
         n = malbar_machen(daten, zeitplan, eigennamen(s))
         if n:
             print(f'Bildplan: {n} unmalbare/doppelte Motive durch Stellvertreter ersetzt')
-        if dramaturgie.videoformat(s) == 'short':  # Codex-Bilder sind Hochformat (wie die Bibliothek)
-            codex_einsetzen(daten, zeitplan, bibliothek.auswahl(s.get('kanal'), ' '.join(t['text'] for t in s['teile'])))
+        codex_einsetzen(daten, zeitplan, bibliothek.auswahl(s.get('kanal'), ' '.join(t['text'] for t in s['teile'])),
+                        dramaturgie.videoformat(s))
     aus = []
     pro_phase = {}
     import kanalstandard

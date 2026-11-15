@@ -49,7 +49,14 @@ def releases(repo):
     return _holen(f'https://api.github.com/repos/{repo}/releases?per_page=100')
 
 
-def holen(kanal_slug, kanalname, thema, text, heute=None, repo=None):
+def tag(kanal_slug, thema, videoformat='short'):
+    """Release-Name. 15.11.2026 (Rockstar-Langvideo: 4 Codex-Bilder bereit, 0 genutzt): Langvideos sind 16:9, die
+    Short-Bilder 9:16 - im Querformat waeren sie ein schmaler Streifen (486 von 1536 px). Langvideo-Bilder malt Codex
+    deshalb eigens im Querformat, unter eigenem Namen (dasselbe Thema hat oft auch einen Short)."""
+    return f"{PREFIX}{kanal_slug}-{'lang-' if videoformat == 'lang' else ''}{slug(thema)}"
+
+
+def holen(kanal_slug, kanalname, thema, text, heute=None, repo=None, videoformat='short'):
     """Vorab gemalte Bilder genau dieses Themas in die Bibliothek legen; Liste der neuen IDs.
     Passend = Release-Tag codexbilder-<kanal>-<slug(thema)> ("Apple" steht in vielen Skripten - ein Wozniak-Video
     soll keine Apple-Bilder bekommen) UND ein Begriff des Releases steht im Sprechtext (bibliothek.passt_zum_text).
@@ -58,7 +65,7 @@ def holen(kanal_slug, kanalname, thema, text, heute=None, repo=None):
         return []
     repo = repo or os.environ.get('GITHUB_REPOSITORY', 'aKhaaaaaan/contentfabrik')
     # 13.11. (KI 43401065863): der Autor formuliert das Thema um - deshalb zaehlt auch das Eingabethema (Liste).
-    tags = {f'{PREFIX}{kanal_slug}-{slug(t)}' for t in (thema if isinstance(thema, (list, tuple)) else [thema])
+    tags = {tag(kanal_slug, t, videoformat) for t in (thema if isinstance(thema, (list, tuple)) else [thema])
             if str(t or '').strip()}
     neu = []
     try:
@@ -84,7 +91,7 @@ def holen(kanal_slug, kanalname, thema, text, heute=None, repo=None):
                 (ORDNER / name).write_bytes(daten)
                 neu.append({'id': f'codex-{name.rsplit(".", 1)[0]}', 'datei': f'codex/{name}', 'kanal': kanalname,
                             'motiv': str(b.get('motiv', ''))[:200], 'sha256': b['sha256'],
-                            'nur_fuer_themen': begriffe, 'quelle': QUELLE,
+                            'nur_fuer_themen': begriffe, 'quelle': QUELLE, 'format': videoformat,
                             'sichtkontrolle': f"Codex {plan.get('datum', '')}; Bildpruefer im Lauf"})
     except Exception as e:  # Kuer - darf den Bau nie kippen
         print('Codex-Bilder nicht geholt:', type(e).__name__, str(e)[:120])

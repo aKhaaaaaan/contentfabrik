@@ -184649,6 +184649,60 @@
         "zweitpruefer_modell": null,
         "zweitpruefer_anderer_anbieter": false
       }
+    },
+    {
+      "id": "43694291510.1:business-origin-stories",
+      "run_id": "43694291510",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-15T08:39:38.172436+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "9556bb0facdca9ffd5550e070108c742f8489cdf",
+      "produktionsversion": "4083ea4ca7e349b7691eb1ea5165f60a753ddd95068aa55add4f108ec7d8f9ee",
+      "videoformat": "short",
+      "thema": null,
+      "titel": null,
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "43694291510",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-15",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "anbieterpause",
+            "exitcode": 4,
+            "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq-Antwort verletzt das JSON-Schema",
+            "sekunden": 175.9
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "Claude-Redaktion (Plan vom 2026-11-15): Dunkin' Donuts: 4.63 Punkte - YouTube-Ausreisser 1.5x Kanalschnitt, Wikipedia +2 % gegenueber Vormonat, heute in Google News (Little Munchkin: Raleigh couple delivers baby in Dunkin' Donuts parking lot before ambulance arrives)",
+        "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq-Antwort verletzt das JSON-Schema",
+        "sekunden": 176.2
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": null
     }
   ]
 }

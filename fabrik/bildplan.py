@@ -293,6 +293,44 @@ ABSTRAKT = frozenset(w[:5] for w in (
     'admit', 'admits', 'explain', 'explains', 'happened', 'happens', 'matters', 'means', 'fixed', 'prove', 'works'))
 
 
+_CODEX_FUELL = {'that', 'this', 'with', 'what', 'their', 'there', 'from', 'into', 'beside', 'through', 'about', 'which'}
+
+
+def _codex_staemme(text):
+    return {w[:5] for w in re.findall(r'[a-z]{4,}', str(text).lower()) if w not in _CODEX_FUELL}
+
+
+def codex_einsetzen(daten, zeitplan, bibliothek_bilder):
+    """GEMESSEN 15.11.2026 (Instagram-Short 43705280151, Rockstar-Langvideo): 4 vorab gemalte Codex-Bilder lagen fuer
+    genau dieses Thema bereit, der Planer (Gemini-Lite/Groq-20B bei knappem Kontingent) waehlte keines. Jedes noch
+    ungenutzte Codex-Bild kommt in die gemalte Einstellung mit den meisten gemeinsamen Wortstaemmen (ohne Hook und
+    Schluss; Demo/Foto/Karte bleiben); ohne Treffer gleichmaessig verteilt. Der Bildpruefer prueft sie wie jedes Bild."""
+    benutzt = {d.get('asset') for d in daten if d.get('bildmodus') == 'asset'}
+    offen = [b for b in bibliothek_bilder if str(b.get('id', '')).startswith('codex-') and b['id'] not in benutzt]
+    frei = [i for i, d in enumerate(daten) if 0 < i < len(daten) - 1 and d.get('bildmodus') == 'illustration'
+            and len(re.findall(r'\b(?:like|share|save|follow|comment|subscribe)\b',
+                               str(zeitplan[i].get('text', '')).lower())) < 2]  # Aufruf-Satz: Moderator
+    if not offen or not frei:
+        return 0
+    texte = {i: _codex_staemme(f"{zeitplan[i].get('text', '')} {zeitplan[i].get('phase_text', '')}") for i in frei}
+    paare = sorted(((len(_codex_staemme(b.get('motiv')) & texte[i]), -k, i, b['id'])
+                    for k, b in enumerate(offen) for i in frei), reverse=True)
+    zuteilung = {}
+    for treffer, _, i, kennung in paare:
+        if treffer and i not in zuteilung.values() and kennung not in zuteilung:
+            zuteilung[kennung] = i
+    rest = [i for i in frei if i not in zuteilung.values()]
+    ohne = [b['id'] for b in offen if b['id'] not in zuteilung]
+    for k, kennung in enumerate(ohne):
+        if rest:
+            zuteilung[kennung] = rest.pop(min(len(rest) - 1, k * len(rest) // max(1, len(ohne) - k)))
+    motive = {b['id']: str(b.get('motiv', '')) for b in offen}
+    for kennung, i in zuteilung.items():
+        daten[i] = dict(daten[i], bildmodus='asset', asset=kennung, motiv=motive[kennung][:60] or daten[i]['motiv'])
+        print(f'Einstellung {i}: Codex-Bild {kennung} (vorab fuer dieses Thema gemalt)')
+    return len(zuteilung)
+
+
 def malbar_machen(daten, zeitplan, namen=frozenset()):
     """Unmalbare oder doppelte Motive durch einen noch freien Stellvertreter des Slots ersetzen (fest, ohne KI).
 
@@ -744,6 +782,8 @@ def vorbereiten(s, laengen, woerter, cache=None, fortschritt=None):
         n = malbar_machen(daten, zeitplan, eigennamen(s))
         if n:
             print(f'Bildplan: {n} unmalbare/doppelte Motive durch Stellvertreter ersetzt')
+        if dramaturgie.videoformat(s) == 'short':  # Codex-Bilder sind Hochformat (wie die Bibliothek)
+            codex_einsetzen(daten, zeitplan, bibliothek.auswahl(s.get('kanal'), ' '.join(t['text'] for t in s['teile'])))
     aus = []
     pro_phase = {}
     import kanalstandard

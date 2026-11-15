@@ -20,7 +20,7 @@
 //   Befehle: Start | Start Business | Start KI | Status (Gesamtfortschritt in %) | Abholen
 
 const REPO = 'aKhaaaaaan/contentfabrik';
-const VERSION = '2026-11-14.1';
+const VERSION = '2026-11-15.1';
 // Zusammengefasste Stunden sparen Trigger: Workers Free hat fuenf pro Konto.
 const VIDEO_CRONS = new Set(['23 8,13 * * *', '41 10,15 * * *',
   '23 8 * * *', '41 10 * * *', '23 13 * * *', '41 15 * * *']);
@@ -102,6 +102,7 @@ const HILFE = [
   '📊 STAND',
   '• Status – was gerade läuft, in Prozent',
   '• Abholen – Nachrichten aus dem Videobot sofort verarbeiten (sonst alle 5 Min.)',
+  '• Aufladen – Links: Gemini-Guthaben aufladen und Monatsgrenze ändern (bezahlte Stimme)',
   '• Hilfe – diese Liste',
   '',
   '💬 Im Videobot (nicht hier)',
@@ -116,6 +117,21 @@ const HILFE = [
   '• Feedback: … oder auf ein Video antworten – Rückmeldung',
   '• Stimme 1, 3 – Stimmwahl nach einem Stimmvergleich',
   '• Unter jedem Video: ✅/❌, Note oder „TikTok-Entwurf hochladen“ antippen',
+].join('\n');
+
+// Nutzer 15.11.2026: "den Link fuer Gemini aufladen ... im Telegram-Kanal, damit ich dort klicken kann" (die 5-EUR-Grenze
+// war erreicht, die bezahlte Stimme Puck pausierte). Telegram macht nackte https-Links anklickbar.
+const AUFLADEN = [
+  '💳 Gemini – bezahlte Stimme (KI-Kanal Puck)',
+  'Google-Konto mit dem Projekt contentfabrik-stimme verwenden.',
+  '',
+  '1. Guthaben aufladen (Vorauszahlung, wird verbraucht):',
+  'https://aistudio.google.com/billing',
+  '',
+  '2. Monatsgrenze anheben (ist sie erreicht, stoppt die Stimme trotz Guthaben):',
+  'https://aistudio.google.com/spend',
+  '',
+  'Zeigt /billing „No billing account“: falsches Google-Konto – dort NICHT „Set up billing“ drücken.',
 ].join('\n');
 
 // GEMESSEN 08.10.2026: Am Handy eingefuegter Token -> Telegram 'Not Found' (ungueltig).
@@ -382,6 +398,7 @@ export async function befehl(env, text) {
       .join('\n') + '\n\n„Beendet" heisst nicht automatisch Video - das Ergebnis meldet der Videobot.';
   }
   if (t === 'hilfe' || t === 'help' || t === 'befehle' || t === '/start' || t === '/help') return HILFE;
+  if (t === 'aufladen' || t === 'guthaben' || t === 'gemini aufladen' || t === 'gemini guthaben') return AUFLADEN;
   const th = t.match(/^(?:themen|thema)(?:\s+(business|ki|ai))?$/);
   if (th) return themenUebersicht(env, th[1] ? KANAELE[th[1]] : '');
   // Nutzer 07.11.2026: Skript nicht mehr nach jedem Video im Videobot (zu lang zum Scrollen), nur auf Abruf.

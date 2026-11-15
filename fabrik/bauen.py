@@ -1462,24 +1462,51 @@ def kokoro_ton(s, tempo, laengenziel):
     from kokoro_onnx import Kokoro
     kokoro = Kokoro('modelle/kokoro-v1.0.onnx', 'modelle/voices-v1.0.bin')
     rate = 24000
+    wahl = erzaehlstimme(s) or {}
+    stimme = wahl['stimme'] if wahl.get('anbieter') == 'kokoro' else s.get('stimme', 'af_heart')
+    regie = kraft_regie([t['text'] for t in s['teile']]) if wahl.get('regie') == 'kraft' else None
+    pausen = sum(x['vor'] + x['nach'] for teil in regie for x in teil) if regie else .25 * len(s['teile'])
     # Gemessene Dauer einmal anpassen; keine Beschleunigung jenseits
     # natuerlicher Grenzen, feste Pausen bleiben in der Rechnung.
     for runde in range(2):
-        teile, laengen = [], []
-        for t in s['teile']:
-            audio, rate = audioqualitaet.sprechen(kokoro, t['text'], s.get('stimme', 'af_heart'), tempo)
-            pause = np.zeros(int(rate * 0.25), dtype=np.float32)
-            teile.append(np.concatenate([audio.astype(np.float32), pause]))
+        teile, laengen, marken = [], [], []
+        for n, t in enumerate(s['teile']):
+            if regie:
+                stuecke, start = [], sum(len(x) for x in teile)
+                for x in regie[n]:
+                    audio, rate = audioqualitaet.sprechen(kokoro, x['text'], stimme, round(tempo * x['faktor'], 3))
+                    vor = np.zeros(int(rate * x['vor']), dtype=np.float32)
+                    if x.get('effekt'):
+                        marken.append((x['effekt'], start + sum(len(y) for y in stuecke) + len(vor)))
+                    stuecke += [vor, audio.astype(np.float32), np.zeros(int(rate * x['nach']), dtype=np.float32)]
+                teile.append(np.concatenate(stuecke))
+            else:
+                audio, rate = audioqualitaet.sprechen(kokoro, t['text'], stimme, tempo)
+                pause = np.zeros(int(rate * 0.25), dtype=np.float32)
+                teile.append(np.concatenate([audio.astype(np.float32), pause]))
             laengen.append(len(teile[-1]) / rate)
         if runde:
             break
-        neu = audioqualitaet.tempo_fuer(sum(laengen), laengenziel, tempo,
-                                       dramaturgie.videoformat(s), .25 * len(s['teile']))
+        neu = audioqualitaet.tempo_fuer(sum(laengen), laengenziel, tempo, dramaturgie.videoformat(s), pausen)
         if neu == tempo:
             break
         print(f'Ton {sum(laengen):.0f} s, Ziel {laengenziel} s - Tempo {tempo} -> {neu}')
         tempo = neu
-    return np.concatenate(teile), rate, laengen, tempo
+    ton = np.concatenate(teile)
+    if regie:
+        ton = kraft_klang(ton, rate)
+        abstand, zuletzt = (KRAFT_LANG_ABSTAND_S if dramaturgie.videoformat(s) == 'lang' else 0) * rate, {}
+        for art, p in marken:  # Sounddesign unter die fertige Stimme (Anschwellen endet am Satzbeginn)
+            if p - zuletzt.get(art, -abstand - 1) < abstand:
+                continue  # Langvideo: sonst Boom alle paar Sekunden - nutzt sich ab
+            zuletzt[art] = p
+            klang = kraft_effekt(art, rate)
+            p = p if art == 'boom' else max(0, p - len(klang))
+            stueck = klang[:max(0, len(ton) - p)]
+            ton[p:p + len(stueck)] += stueck
+        ton = ton / max(1.0, float(np.abs(ton).max()) / .95)
+        print(f'Stimme {stimme} als Trailer-Erzaehler mit Sounddesign ({len(marken)} Effekte, Nutzerwahl 15.11.)')
+    return ton, rate, laengen, tempo
 
 
 def kanalprofil(s):
@@ -1494,10 +1521,90 @@ def stockclips_erlaubt(s):
     return kanalprofil(s).get('stockclips', True) is not False
 
 
+# Nutzer 15.11.2026 (Hoerproben 1-6 auf Telegram): Business-Shorts sprechen mit der aelteren, "weisen" kostenlosen
+# Stimme Kokoro George ("passt zu Geschichten-Erzaehler") - mit mehr Kraft, Wahl "3". Hier statt im Kanalprofil:
+# kanaele/*.json steckt im profil_key (entwurf_cache) - eine Aenderung dort haette den geprueften Skript-Vorrat
+# verworfen. Nutzer 15.11.: "Moechte auch bei Business-Langvideos die Stimme haben" -> beide Formate.
+KRAFT_STIMMEN = {'Business Origin Stories': {'anbieter': 'kokoro', 'stimme': 'bm_george', 'regie': 'kraft',
+                                             'gewaehlt': '2026-11-15 Hoerprobe 6 (George Trailer + Sounddesign)'}}
+
+
 def erzaehlstimme(s):
     """Erzaehlstimme des Kanals (Profil, sonst Grundeinstellung); unbekannter Kanal -> None."""
+    if s.get('kanal') in KRAFT_STIMMEN and kanalprofil(s):  # Nutzer 15.11.: Shorts UND Langvideos
+        return dict(KRAFT_STIMMEN[s['kanal']])
     d = kanalprofil(s).get('erzaehlstimme')
     return d if isinstance(d, dict) else None
+
+
+_KRAFT_WENDUNG = re.compile(r'^(?:but|so|then|yet|until|instead|that|and then|what)\b', re.I)
+_KRAFT_ZAHL = re.compile(r'\$|\d|\b(?:million|billion|thousand)\b', re.I)
+_KRAFT_AUFRUF = re.compile(r'\b(?:like|share|save|follow|comment)\b', re.I)
+
+
+def kraft_regie(texte):
+    """Erzaehler-Regie fuer Kokoro (kann keine Gefuehle spielen, nur Rhythmus): je Teil eine Liste
+    {text, faktor (x Grundtempo), vor/nach (Pause s)}. Hook langsamer, Spannungspause vor Wendung/Frage/Zahl, Mitte
+    zuegig, Aufloesung gewichtig; Ausrufezeichen statt Punkt laesst Kokoro staerker betonen. Woerter bleiben gleich
+    (Untertitel/Zeitmarken vergleichen den Sprechtext). Werte = Hoerprobe 3, vom Nutzer gewaehlt."""
+    plan = []
+    for n, text in enumerate(texte):
+        aufruf = len(_KRAFT_AUFRUF.findall(text)) >= 2
+        teil = []
+        for satz in [x for x in re.split(r'(?<=[.!?])\s+', text.strip()) if x]:
+            stark, effekt = False, None
+            if aufruf:
+                faktor, vor, nach = 1.0, 0.0, .2
+            elif n == 0:
+                faktor, vor, nach, stark = .88, 0.0, .45, True
+            elif n >= len(texte) - 2:
+                faktor, vor, nach = .9, .35, .4
+            else:
+                faktor, vor, nach = 1.1, 0.0, .15
+            if not aufruf and (_KRAFT_WENDUNG.match(satz) or satz.endswith('?')):
+                faktor, vor, stark, effekt = min(faktor, .92), max(vor, .5), True, 'anschwellen'
+            if not aufruf and _KRAFT_ZAHL.search(satz):
+                faktor, vor, stark, effekt = min(faktor, .92), max(vor, .35), True, 'boom'
+            if stark and satz.endswith('.'):
+                satz = satz[:-1] + '!'
+            teil.append({'text': satz, 'faktor': faktor, 'vor': vor, 'nach': nach, 'effekt': effekt})
+        plan.append(teil)
+    return plan
+
+
+# Nutzer 15.11.2026 nach Hoerprobe 3 (Trailer, "6"): ~1,4 Halbtoene tiefer bei gleichem Tempo, mehr Tiefe/Praesenz,
+# enger Kompressor, kurzer Raum. Der Hook-Schlag kommt schon aus den Video-Effekten (impact auf dem ersten Wort).
+KRAFT_KLANG = ('asetrate={rate}*0.92,aresample={rate},atempo=1/0.92,highpass=f=60,equalizer=f=120:t=q:w=1:g=4,'
+               'equalizer=f=3200:t=q:w=1.2:g=4,acompressor=threshold=-24dB:ratio=6:attack=3:release=60:makeup=5,'
+               'aecho=0.8:0.5:35:0.12,alimiter=limit=0.89')
+
+
+KRAFT_LANG_ABSTAND_S = 25  # Langvideo: gleicher Effekt hoechstens alle 25 s (Short: jeder Treffer, ~5 je Video)
+
+
+def kraft_effekt(art, rate):
+    """Sounddesign der Hoerprobe 6: tiefer Boom (fallender Basston) auf Zahlen, dunkles Anschwellen vor Wendungen."""
+    if art == 'boom':
+        t = np.arange(int(rate * 1.2)) / rate
+        f = 55 * np.exp(-t * 1.5)
+        return (np.sin(2 * np.pi * np.cumsum(f) / rate) * np.exp(-t * 3.5) * 0.4).astype(np.float32)
+    t = np.arange(int(rate * 0.5)) / rate
+    rausch = np.convolve(np.random.default_rng(1).standard_normal(len(t)), np.ones(40) / 40, mode='same')
+    return (rausch * (t / t[-1]) ** 2 * 0.25).astype(np.float32)
+
+
+def kraft_klang(ton, rate):
+    """Sprecher-Klangkette der Hoerprobe 6 (tiefer, Tiefe, Praesenz, Kompressor, Raum); Lautheit regelt die Mischung spaeter.
+    Ohne ffmpeg bleibt der Ton unveraendert (Kuer, darf den Bau nie kippen)."""
+    try:
+        roh = (np.clip(ton, -1, 1) * 32767).astype('<i2').tobytes()
+        aus = subprocess.run(['ffmpeg', '-loglevel', 'error', '-f', 's16le', '-ar', str(rate), '-ac', '1', '-i', 'pipe:0',
+                              '-af', KRAFT_KLANG.format(rate=rate), '-f', 's16le', '-ar', str(rate), '-ac', '1', 'pipe:1'],
+                             input=roh, capture_output=True, check=True, timeout=120).stdout
+        neu = np.frombuffer(aus, dtype='<i2').astype(np.float32) / 32767
+        return neu if abs(len(neu) - len(ton)) < rate * .05 else ton
+    except (OSError, subprocess.SubprocessError, ValueError):
+        return ton
 
 
 SPRECHBLOCK_WOERTER = 380
@@ -1531,7 +1638,9 @@ def stimm_code_key(wahl):
     import inspect, stimme_gemini
     teile = [Path(stimme_gemini.__file__).read_bytes(), Path(audioqualitaet.__file__).read_bytes()]
     teile += [inspect.getsource(f).encode() for f in (gemini_ton, regie_bloecke, regie_naht, kokoro_ton, sprechbloecke, angleichen,
-                                                       laengen_aus_woertern, erzaehlstimme)]
+                                                       laengen_aus_woertern, erzaehlstimme, kraft_regie, kraft_klang, kraft_effekt)]
+    teile.append(str(KRAFT_LANG_ABSTAND_S).encode())
+    teile.append(KRAFT_KLANG.encode())
     teile.append(json.dumps(wahl or {}, sort_keys=True, ensure_ascii=False).encode())
     return hashlib.sha256(b'\0'.join(teile)).hexdigest()
 
@@ -2173,7 +2282,8 @@ def main(skript_pfad, aus, vorlage=None):
                 laengen = None  # folgt aus den Wortzeiten
                 zeiten['erzaehlstimme'] = f"gemini:{wahl.get('stimme', 'Orus')}"
             else:
-                zeiten['erzaehlstimme'] = f"kokoro:{s.get('stimme', 'af_heart')}"
+                k_stimme = wahl['stimme'] if (wahl or {}).get('anbieter') == 'kokoro' else s.get('stimme', 'af_heart')
+                zeiten['erzaehlstimme'] = f"kokoro:{k_stimme}"
                 if wahl:
                     akey = rendercache.audio_key(s, ton_key)  # Rueckfall Kokoro: passender Schluessel
                 ton, rate, laengen, tempo = kokoro_ton(s, tempo, laengenziel)

@@ -187816,6 +187816,1264 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "43728613614.1:business-origin-stories",
+      "run_id": "43728613614",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-15T15:47:25.450315+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "121e41b5625097e1c0c837f60916c83b78e06673",
+      "produktionsversion": "4ea14c1aff7e144f800dbaa824cdd1676c220d2930dff4dadabe5f1fb8d1a924",
+      "videoformat": "short",
+      "thema": "Dunkin' Donuts and its handled doughnut",
+      "titel": [
+        "*DUNKIN'* KILLED ITS",
+        "OWN DUNKING DONUT"
+      ],
+      "status": "zustellfehler",
+      "video_sha256": "a4ee962f5bd17c7209c3836aa0e4c727828aa9424359eb2d2a7987d661d255bf",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-11.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 4/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Bäckereiverkaufswagen oder Shop, aber nicht den konkreten Grund, warum der Donut-Typ von der Speisekarte genommen wurde.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Bäckereiverkaufswagen oder Shop, aber nicht den konkreten Grund, warum der Donut-Typ von der Speisekarte genommen wurde. Korrektur: Ein historisches Dokument oder Bildmaterial, das die wirtschaftlichen Nachteile der Handfertigung oder die Gründe für die Streichung des Donuts zeigt."
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 12,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "43728613614",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-15",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 867.3,
+            "pruefung_s": 96.6,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine geschäftliche Besprechung mit einem Banktresor, was überhaupt nicht zum Thema der Hand-Donuts von Dunkin' Donuts und den Gründen für deren Abschaffung passt.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen besorgten Mann im Innenraum, aber weder den Gründer Bill Rosenberg noch die Stadt Quincy, Massachusetts, noch Donuts und Kaffee.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine Bäckerei mit Krapfen und Arbeitern, aber nicht das Absetzen oder Aufgeben des Produkts im Jahr 2003.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (4/10): Die Szene zeigt eine historische Bäckerei mit Donuts, aber es wird kein Bezug zu Singapur oder der wirtschaftlichen Unrentabilität des Hand-Schneidens dargestellt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine geschäftliche Besprechung mit einem Banktresor, was überhaupt nicht zum Thema der Hand-Donuts von Dunkin' Donuts und den Gründen für deren Abschaffung passt. Korrektur: Ein historisches Foto oder eine Illustration von Donuts mit einem Griff (Hand-cut Doughnuts) in einer Bäckerei oder Fabrik.",
+              "Offenes Problem (schwer): Das Bild zeigt einen besorgten Mann im Innenraum, aber weder den Gründer Bill Rosenberg noch die Stadt Quincy, Massachusetts, noch Donuts und Kaffee. Korrektur: Ein historisches Foto oder eine Illustration von Bill Rosenberg in seinem ersten Laden Open Kettle in Quincy, Massachusetts, wie er Donuts und Kaffee verkauft.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Bäckerei mit Krapfen und Arbeitern, aber nicht das Absetzen oder Aufgeben des Produkts im Jahr 2003. Korrektur: Eine historische Aufnahme oder Archivgrafik aus dem Jahr 2003, die die Ankündigung oder den Verkaufsstopp der Krapfen mit Griff in den Filialen zeigt.",
+              "Offenes Problem (schwer): Die Szene zeigt eine historische Bäckerei mit Donuts, aber es wird kein Bezug zu Singapur oder der wirtschaftlichen Unrentabilität des Hand-Schneidens dargestellt. Korrektur: Eine historische Ansicht oder ein Dokument über eine Filiale in Singapur im Jahr 2003 mit handgeschnittenen Donuts."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "kokoro:bm_george",
+              "stimme": 37.7,
+              "zeitmarken": 3.2,
+              "tempo": 1.146,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "bilder_vereinfacht": 7,
+              "clips_und_stuecke": 768.7,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 12,
+                "motive_min": 7
+              },
+              "effekte": 10,
+              "rendern": 45.7,
+              "gesamt": 866.3,
+              "videolaenge_s": 46.0,
+              "abschnitte_s": [
+                6.65,
+                8.97,
+                4.48,
+                4.35,
+                5.73,
+                8.45,
+                7.36
+              ],
+              "woerter": 97,
+              "clips": {
+                "witz": 1,
+                "archiv": 1
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:03.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "But the reason wasn't on the menu.",
+                "fest": false,
+                "text": "Das Bild zeigt eine geschäftliche Besprechung mit einem Banktresor, was überhaupt nicht zum Thema der Hand-Donuts von Dunkin' Donuts und den Gründen für deren Abschaffung passt. Korrektur: Ein historisches Foto oder eine Illustration von Donuts mit einem Griff (Hand-cut Doughnuts) in einer Bäckerei oder Fabrik."
+              },
+              {
+                "zeit": "00:11.13",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "selling doughnuts and coffee in Quincy, Massachusetts.",
+                "fest": false,
+                "text": "Das Bild zeigt einen besorgten Mann im Innenraum, aber weder den Gründer Bill Rosenberg noch die Stadt Quincy, Massachusetts, noch Donuts und Kaffee. Korrektur: Ein historisches Foto oder eine Illustration von Bill Rosenberg in seinem ersten Laden Open Kettle in Quincy, Massachusetts, wie er Donuts und Kaffee verkauft."
+              },
+              {
+                "zeit": "00:30.18",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 8,
+                "gesprochen": "In 2003 Dunkin' Donuts dropped it everywhere except",
+                "fest": false,
+                "text": "Das Bild zeigt eine Bäckerei mit Krapfen und Arbeitern, aber nicht das Absetzen oder Aufgeben des Produkts im Jahr 2003. Korrektur: Eine historische Aufnahme oder Archivgrafik aus dem Jahr 2003, die die Ankündigung oder den Verkaufsstopp der Krapfen mit Griff in den Filialen zeigt."
+              },
+              {
+                "zeit": "00:34.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "Singapore, because hand-cutting was uneconomical.",
+                "fest": false,
+                "text": "Die Szene zeigt eine historische Bäckerei mit Donuts, aber es wird kein Bezug zu Singapur oder der wirtschaftlichen Unrentabilität des Hand-Schneidens dargestellt. Korrektur: Eine historische Ansicht oder ein Dokument über eine Filiale in Singapur im Jahr 2003 mit handgeschnittenen Donuts."
+              }
+            ],
+            "sekunden": 964.4,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-11.2"
+            },
+            "skript_s": 2.3,
+            "bau_s": 267.4,
+            "pruefung_s": 13.1,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 3/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Die gezeigte Szene zeigt einen Koch in einem Restaurant, aber der gesprochene Text behandelt den Verbleib eines Grundes außerhalb des Menüs, was hier rein dekorativ als Hintergrund ohne Bezug zu einer konkreten Handlungsanalyse oder einem Menüproblem dargestellt wird.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt einen Arbeiter bei manueller Handarbeit in einer historischen Werkstatt, was zwar handwerkliche Arbeit illustriert, aber keinen Bezug zu Donuts, dem Hand-Cut-Verfahren bei Teigwaren oder der Abschaffung bei Dunkin Donuts herstellt.",
+              "Offenes Problem (schwer): Die gezeigte Szene zeigt einen Koch in einem Restaurant, aber der gesprochene Text behandelt den Verbleib eines Grundes außerhalb des Menüs, was hier rein dekorativ als Hintergrund ohne Bezug zu einer konkreten Handlungsanalyse oder einem Menüproblem dargestellt wird. Korrektur: Ein Ausschnitt einer Speisekarte, auf der ein bestimmtes Produkt oder ein fehlender Hinweis markiert ist.",
+              "Offenes Problem (schwer): Die Szene zeigt einen Arbeiter bei manueller Handarbeit in einer historischen Werkstatt, was zwar handwerkliche Arbeit illustriert, aber keinen Bezug zu Donuts, dem Hand-Cut-Verfahren bei Teigwaren oder der Abschaffung bei Dunkin Donuts herstellt. Korrektur: Eine Nahaufnahme von Händen, die einen Donut mit Griff von Hand aus Teig ausschneiden, oder historische Aufnahmen der Produktion von handled doughnuts."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "kokoro:bm_george",
+              "stimme": 36.7,
+              "zeitmarken": 3.2,
+              "tempo": 1.146,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 9,
+              "stuecke_neu": 4,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 170.4,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 12,
+                "motive_min": 7
+              },
+              "effekte": 10,
+              "rendern": 45.6,
+              "gesamt": 267.0,
+              "videolaenge_s": 46.0,
+              "abschnitte_s": [
+                6.65,
+                8.97,
+                4.48,
+                4.35,
+                5.73,
+                8.45,
+                7.36
+              ],
+              "woerter": 97,
+              "clips": {
+                "witz": 1,
+                "archiv": 3
+              }
+            },
+            "kategorien": {
+              "bild_passt": 3
+            },
+            "probleme": [
+              {
+                "zeit": "00:03.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "But the reason wasn't on the menu.",
+                "fest": false,
+                "text": "Die gezeigte Szene zeigt einen Koch in einem Restaurant, aber der gesprochene Text behandelt den Verbleib eines Grundes außerhalb des Menüs, was hier rein dekorativ als Hintergrund ohne Bezug zu einer konkreten Handlungsanalyse oder einem Menüproblem dargestellt wird. Korrektur: Ein Ausschnitt einer Speisekarte, auf der ein bestimmtes Produkt oder ein fehlender Hinweis markiert ist."
+              },
+              {
+                "zeit": "00:34.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "Singapore, because hand-cutting was uneconomical.",
+                "fest": false,
+                "text": "Die Szene zeigt einen Arbeiter bei manueller Handarbeit in einer historischen Werkstatt, was zwar handwerkliche Arbeit illustriert, aber keinen Bezug zu Donuts, dem Hand-Cut-Verfahren bei Teigwaren oder der Abschaffung bei Dunkin Donuts herstellt. Korrektur: Eine Nahaufnahme von Händen, die einen Donut mit Griff von Hand aus Teig ausschneiden, oder historische Aufnahmen der Produktion von handled doughnuts."
+              }
+            ],
+            "sekunden": 283.1,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "43728613614-2",
+              "datum": "2026-11-15",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 283.1,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 3
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-11-11.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-11.2"
+            },
+            "skript_s": 2.2,
+            "bau_s": 201.8,
+            "pruefung_s": 11.6,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 4/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Bäckereiverkaufswagen oder Shop, aber nicht den konkreten Grund, warum der Donut-Typ von der Speisekarte genommen wurde.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Bäckereiverkaufswagen oder Shop, aber nicht den konkreten Grund, warum der Donut-Typ von der Speisekarte genommen wurde. Korrektur: Ein historisches Dokument oder Bildmaterial, das die wirtschaftlichen Nachteile der Handfertigung oder die Gründe für die Streichung des Donuts zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "kokoro:bm_george",
+              "stimme": 36.9,
+              "zeitmarken": 3.1,
+              "tempo": 1.146,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 11,
+              "stuecke_neu": 2,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 101.1,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 12,
+                "motive_min": 7
+              },
+              "effekte": 10,
+              "rendern": 45.9,
+              "gesamt": 201.5,
+              "videolaenge_s": 46.0,
+              "abschnitte_s": [
+                6.65,
+                8.97,
+                4.48,
+                4.35,
+                5.73,
+                8.45,
+                7.36
+              ],
+              "woerter": 97,
+              "clips": {
+                "witz": 1,
+                "archiv": 3
+              }
+            },
+            "kategorien": {
+              "bild_passt": 4
+            },
+            "probleme": [
+              {
+                "zeit": "00:03.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "But the reason wasn't on the menu.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Bäckereiverkaufswagen oder Shop, aber nicht den konkreten Grund, warum der Donut-Typ von der Speisekarte genommen wurde. Korrektur: Ein historisches Dokument oder Bildmaterial, das die wirtschaftlichen Nachteile der Handfertigung oder die Gründe für die Streichung des Donuts zeigt."
+              }
+            ],
+            "sekunden": 215.9,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "43728613614-3",
+              "datum": "2026-11-15",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 215.9,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 3
+              },
+              "kategorien_nachher": {
+                "bild_passt": 4
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-11-11.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "zustellfehler",
+        "grund": "Video fertig gebaut (Entwurf), aber Telegram hat die Zustellung nicht angenommen (Serverstoerung). Kein Neubau noetig - Nachsenden ueber pilot-versand mit dieser Laufnummer.",
+        "sekunden": 1941.9,
+        "upload_titel": "DUNKIN' KILLED ITS OWN DUNKING DONUT"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 4
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:03.40",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "But the reason wasn't on the menu.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Bäckereiverkaufswagen oder Shop, aber nicht den konkreten Grund, warum der Donut-Typ von der Speisekarte genommen wurde. Korrektur: Ein historisches Dokument oder Bildmaterial, das die wirtschaftlichen Nachteile der Handfertigung oder die Gründe für die Streichung des Donuts zeigt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 46.0,
+          "fps": 30.0,
+          "lufs": -14.2,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 39.12,
+              "bis_s": 41.86,
+              "text": "like share and save this handled donut video",
+              "mittlere_wortwahrscheinlichkeit": 0.955
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 26.0,
+              "bis_s": 46.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "it's",
+                "s": 0.78,
+                "e": 1.18,
+                "p": 0.5331031866371632
+              },
+              {
+                "w": "own",
+                "s": 1.18,
+                "e": 1.36,
+                "p": 0.9735235571861267
+              },
+              {
+                "w": "dunking",
+                "s": 1.36,
+                "e": 1.98,
+                "p": 0.7472172677516937
+              },
+              {
+                "w": "donut.",
+                "s": 1.98,
+                "e": 2.5,
+                "p": 0.7506310343742371
+              },
+              {
+                "w": "But",
+                "s": 3.36,
+                "e": 3.72,
+                "p": 0.9573508501052856
+              },
+              {
+                "w": "the",
+                "s": 3.72,
+                "e": 3.84,
+                "p": 0.9822149872779846
+              },
+              {
+                "w": "reason",
+                "s": 3.84,
+                "e": 4.16,
+                "p": 0.9947329759597778
+              },
+              {
+                "w": "wasn't",
+                "s": 4.16,
+                "e": 5.06,
+                "p": 0.9809749722480774
+              },
+              {
+                "w": "on",
+                "s": 5.06,
+                "e": 5.34,
+                "p": 0.9892956614494324
+              },
+              {
+                "w": "the",
+                "s": 5.34,
+                "e": 5.5,
+                "p": 0.9977510571479797
+              },
+              {
+                "w": "menu.",
+                "s": 5.5,
+                "e": 5.8,
+                "p": 0.9978122711181641
+              },
+              {
+                "w": "Bill",
+                "s": 6.9,
+                "e": 7.14,
+                "p": 0.9669344425201416
+              },
+              {
+                "w": "Rosenberg",
+                "s": 7.14,
+                "e": 7.52,
+                "p": 0.909671425819397
+              },
+              {
+                "w": "opened",
+                "s": 7.52,
+                "e": 8.26,
+                "p": 0.9907069206237793
+              },
+              {
+                "w": "open",
+                "s": 8.26,
+                "e": 8.72,
+                "p": 0.33683517575263977
+              },
+              {
+                "w": "kettle",
+                "s": 8.72,
+                "e": 8.98,
+                "p": 0.8257037997245789
+              },
+              {
+                "w": "in",
+                "s": 8.98,
+                "e": 9.6,
+                "p": 0.9911036491394043
+              },
+              {
+                "w": "1948,",
+                "s": 9.6,
+                "e": 10.94,
+                "p": 0.9764359593391418
+              },
+              {
+                "w": "selling",
+                "s": 11.08,
+                "e": 12.1,
+                "p": 0.9929660558700562
+              },
+              {
+                "w": "donuts",
+                "s": 12.1,
+                "e": 12.66,
+                "p": 0.9731023907661438
+              },
+              {
+                "w": "and",
+                "s": 12.66,
+                "e": 12.92,
+                "p": 0.9893534183502197
+              },
+              {
+                "w": "coffee",
+                "s": 12.92,
+                "e": 13.18,
+                "p": 0.99029541015625
+              },
+              {
+                "w": "in",
+                "s": 13.18,
+                "e": 13.66,
+                "p": 0.9944333434104919
+              },
+              {
+                "w": "Quincy,",
+                "s": 13.66,
+                "e": 14.0,
+                "p": 0.9727538228034973
+              },
+              {
+                "w": "Massachusetts.",
+                "s": 14.5,
+                "e": 14.86,
+                "p": 0.979933500289917
+              },
+              {
+                "w": "It's",
+                "s": 15.64,
+                "e": 15.84,
+                "p": 0.48030394315719604
+              },
+              {
+                "w": "seen",
+                "s": 15.84,
+                "e": 15.88,
+                "p": 0.8452463150024414
+              },
+              {
+                "w": "donuts",
+                "s": 15.88,
+                "e": 16.36,
+                "p": 0.9833166897296906
+              },
+              {
+                "w": "and",
+                "s": 16.36,
+                "e": 16.72,
+                "p": 0.9843506813049316
+              },
+              {
+                "w": "coffee",
+                "s": 16.72,
+                "e": 16.92,
+                "p": 0.985909640789032
+              },
+              {
+                "w": "sell",
+                "s": 16.92,
+                "e": 17.24,
+                "p": 0.33729955554008484
+              },
+              {
+                "w": "best",
+                "s": 17.24,
+                "e": 17.6,
+                "p": 0.9848117828369141
+              },
+              {
+                "w": "at",
+                "s": 17.6,
+                "e": 17.72,
+                "p": 0.9613471031188965
+              },
+              {
+                "w": "factories",
+                "s": 17.72,
+                "e": 18.12,
+                "p": 0.9964233040809631
+              },
+              {
+                "w": "and",
+                "s": 18.12,
+                "e": 18.68,
+                "p": 0.923356831073761
+              },
+              {
+                "w": "at",
+                "s": 18.68,
+                "e": 18.78,
+                "p": 0.9759277105331421
+              },
+              {
+                "w": "construction",
+                "s": 18.78,
+                "e": 19.0,
+                "p": 0.9961254000663757
+              },
+              {
+                "w": "sites.",
+                "s": 19.0,
+                "e": 19.68,
+                "p": 0.9982796907424927
+              },
+              {
+                "w": "Johnny",
+                "s": 20.06,
+                "e": 20.3,
+                "p": 0.9399098753929138
+              },
+              {
+                "w": "Spartos",
+                "s": 20.3,
+                "e": 20.84,
+                "p": 0.5904685407876968
+              },
+              {
+                "w": "at",
+                "s": 20.84,
+                "e": 21.2,
+                "p": 0.7685626745223999
+              },
+              {
+                "w": "the",
+                "s": 21.2,
+                "e": 21.34,
+                "p": 0.9916908740997314
+              },
+              {
+                "w": "original",
+                "s": 21.34,
+                "e": 21.64,
+                "p": 0.963302731513977
+              },
+              {
+                "w": "Quincy",
+                "s": 21.64,
+                "e": 21.96,
+                "p": 0.9870655536651611
+              },
+              {
+                "w": "shop",
+                "s": 21.96,
+                "e": 22.38,
+                "p": 0.8791137337684631
+              },
+              {
+                "w": "convinced",
+                "s": 22.38,
+                "e": 22.96,
+                "p": 0.9828700423240662
+              },
+              {
+                "w": "him",
+                "s": 22.96,
+                "e": 23.26,
+                "p": 0.9992967844009399
+              },
+              {
+                "w": "to",
+                "s": 23.26,
+                "e": 23.44,
+                "p": 0.9989012479782104
+              },
+              {
+                "w": "add",
+                "s": 23.44,
+                "e": 23.68,
+                "p": 0.9948667287826538
+              },
+              {
+                "w": "a",
+                "s": 23.68,
+                "e": 23.78,
+                "p": 0.9976932406425476
+              },
+              {
+                "w": "handle.",
+                "s": 23.78,
+                "e": 24.0,
+                "p": 0.9964962601661682
+              },
+              {
+                "w": "So",
+                "s": 24.58,
+                "e": 25.06,
+                "p": 0.986842930316925
+              },
+              {
+                "w": "what",
+                "s": 25.06,
+                "e": 25.36,
+                "p": 0.905797004699707
+              },
+              {
+                "w": "did",
+                "s": 25.36,
+                "e": 25.54,
+                "p": 0.998431384563446
+              },
+              {
+                "w": "that",
+                "s": 25.54,
+                "e": 25.76,
+                "p": 0.9955428242683411
+              },
+              {
+                "w": "handle",
+                "s": 25.76,
+                "e": 26.2,
+                "p": 0.9807091951370239
+              },
+              {
+                "w": "cost?",
+                "s": 26.2,
+                "e": 26.6,
+                "p": 0.9893708229064941
+              },
+              {
+                "w": "Each",
+                "s": 27.16,
+                "e": 27.24,
+                "p": 0.9863216280937195
+              },
+              {
+                "w": "one",
+                "s": 27.24,
+                "e": 27.46,
+                "p": 0.9905251860618591
+              },
+              {
+                "w": "was",
+                "s": 27.46,
+                "e": 27.6,
+                "p": 0.9983004927635193
+              },
+              {
+                "w": "hand",
+                "s": 27.6,
+                "e": 27.8,
+                "p": 0.9568980932235718
+              },
+              {
+                "w": "-cut",
+                "s": 27.8,
+                "e": 28.06,
+                "p": 0.6317109018564224
+              },
+              {
+                "w": "unlike",
+                "s": 28.06,
+                "e": 28.6,
+                "p": 0.7073616981506348
+              },
+              {
+                "w": "machine",
+                "s": 28.6,
+                "e": 28.9,
+                "p": 0.919497013092041
+              },
+              {
+                "w": "cut",
+                "s": 28.9,
+                "e": 29.34,
+                "p": 0.599998950958252
+              },
+              {
+                "w": "donuts.",
+                "s": 29.34,
+                "e": 29.78,
+                "p": 0.7862246632575989
+              },
+              {
+                "w": "In",
+                "s": 30.18,
+                "e": 30.62,
+                "p": 0.9719769358634949
+              },
+              {
+                "w": "2000",
+                "s": 30.62,
+                "e": 31.14,
+                "p": 0.7205801010131836
+              },
+              {
+                "w": "and",
+                "s": 31.14,
+                "e": 31.72,
+                "p": 0.33709901571273804
+              },
+              {
+                "w": "three",
+                "s": 31.72,
+                "e": 32.16,
+                "p": 0.656880259513855
+              },
+              {
+                "w": "Dunkin",
+                "s": 32.16,
+                "e": 32.68,
+                "p": 0.7852798700332642
+              },
+              {
+                "w": "Donuts",
+                "s": 32.68,
+                "e": 33.1,
+                "p": 0.767461895942688
+              },
+              {
+                "w": "dropped",
+                "s": 33.1,
+                "e": 33.4,
+                "p": 0.9726837873458862
+              },
+              {
+                "w": "it",
+                "s": 33.4,
+                "e": 33.66,
+                "p": 0.9853863716125488
+              },
+              {
+                "w": "everywhere",
+                "s": 33.66,
+                "e": 34.06,
+                "p": 0.9931867122650146
+              },
+              {
+                "w": "except",
+                "s": 34.06,
+                "e": 34.64,
+                "p": 0.9546433687210083
+              },
+              {
+                "w": "Singapore",
+                "s": 34.64,
+                "e": 35.2,
+                "p": 0.9852640628814697
+              },
+              {
+                "w": "because",
+                "s": 35.2,
+                "e": 36.12,
+                "p": 0.6691880226135254
+              },
+              {
+                "w": "hand",
+                "s": 36.12,
+                "e": 36.38,
+                "p": 0.9466804265975952
+              },
+              {
+                "w": "cutting",
+                "s": 36.38,
+                "e": 36.64,
+                "p": 0.7047011852264404
+              },
+              {
+                "w": "was",
+                "s": 36.64,
+                "e": 37.06,
+                "p": 0.9981359243392944
+              },
+              {
+                "w": "uneconomical.",
+                "s": 37.06,
+                "e": 37.98,
+                "p": 0.9131441116333008
+              },
+              {
+                "w": "Be",
+                "s": 38.64,
+                "e": 38.7,
+                "p": 0.9867320656776428
+              },
+              {
+                "w": "sure",
+                "s": 38.7,
+                "e": 38.94,
+                "p": 0.9992554783821106
+              },
+              {
+                "w": "to",
+                "s": 38.94,
+                "e": 39.12,
+                "p": 0.9930890202522278
+              },
+              {
+                "w": "like,",
+                "s": 39.12,
+                "e": 39.32,
+                "p": 0.9659690856933594
+              },
+              {
+                "w": "share,",
+                "s": 39.58,
+                "e": 39.88,
+                "p": 0.9924052357673645
+              },
+              {
+                "w": "and",
+                "s": 40.2,
+                "e": 40.24,
+                "p": 0.9983704686164856
+              },
+              {
+                "w": "save",
+                "s": 40.24,
+                "e": 40.5,
+                "p": 0.990881085395813
+              },
+              {
+                "w": "this",
+                "s": 40.5,
+                "e": 40.76,
+                "p": 0.9946871995925903
+              },
+              {
+                "w": "handled",
+                "s": 40.76,
+                "e": 41.04,
+                "p": 0.770930826663971
+              },
+              {
+                "w": "donut",
+                "s": 41.04,
+                "e": 41.64,
+                "p": 0.9254001975059509
+              },
+              {
+                "w": "video.",
+                "s": 41.64,
+                "e": 41.86,
+                "p": 0.9981903433799744
+              },
+              {
+                "w": "Which",
+                "s": 42.52,
+                "e": 42.54,
+                "p": 0.9866387844085693
+              },
+              {
+                "w": "company",
+                "s": 42.54,
+                "e": 42.94,
+                "p": 0.9927061200141907
+              },
+              {
+                "w": "next?",
+                "s": 42.94,
+                "e": 43.34,
+                "p": 0.9247139096260071
+              },
+              {
+                "w": "Comment",
+                "s": 44.14,
+                "e": 44.18,
+                "p": 0.989138662815094
+              },
+              {
+                "w": "and",
+                "s": 44.18,
+                "e": 44.58,
+                "p": 0.9483179450035095
+              },
+              {
+                "w": "follow",
+                "s": 44.58,
+                "e": 44.9,
+                "p": 0.9894326329231262
+              },
+              {
+                "w": "for",
+                "s": 44.9,
+                "e": 45.28,
+                "p": 0.9919379353523254
+              },
+              {
+                "w": "more.",
+                "s": 45.28,
+                "e": 45.52,
+                "p": 0.9991152882575989
+              }
+            ],
+            "dauer_s": 45.888,
+            "sprache": "en"
+          },
+          "roh_key": "342a7f88f2d3ef708c862a5ddd243766c21299521d3427d9162b7f809c4d013f",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "a4ee962f5bd17c7209c3836aa0e4c727828aa9424359eb2d2a7987d661d255bf",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 46.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 12,
+          "motive_min": 7
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "a4ee962f5bd17c7209c3836aa0e4c727828aa9424359eb2d2a7987d661d255bf",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein gemaltes Nahbild eines geschockt dreinblickenden Mannes mit einem Donut und umgebenden Strassenszenen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild ist als opening_reaction_shot markiert und zeigt eine passende geschockte Reaktion auf den Satz über das Ende des Donuts.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Mann mit Bart und Pullover steht in einem Raum an einer Theke, links stapeln sich Donuts und rechts befindet sich eine Schüssel mit Gebäck.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Bäckereiverkaufswagen oder Shop, aber nicht den konkreten Grund, warum der Donut-Typ von der Speisekarte genommen wurde.",
+              "erforderliches_bild": "Ein historisches Dokument oder Bildmaterial, das die wirtschaftlichen Nachteile der Handfertigung oder die Gründe für die Streichung des Donuts zeigt."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein bemalter Mann mit Bart und Schürze formt Teig an einer Theke in einer historischen Küche.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt einen Bäcker bei der Teigverarbeitung in einer Werkstatt, was zur Entstehungsgeschichte der Teigware passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 6,
+              "gesehen": "Eine Person sitzt in einem Café, hält einen Doughnut mit einem Loch in der Mitte in der Hand, der über eine Kaffeetasse gehalten wird, wodurch der Eindruck eines Griffs entsteht.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell den sprechenden Bezug zum 'Handle' (Griff) des Doughnuts über der Kaffeetasse, was perfekt zur Frage nach den Kosten oder der Beschaffenheit dieses speziellen Griffs passt.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da das Bild den Griff des Doughnuts sehr passend darstellt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein Bäcker knetet Teig mit den Händen auf einer Arbeitsfläche in einer Küche.",
+              "note": 9,
+              "passt": true,
+              "grund": "Die gesprochenen Wörter erwähnen handgemachte Teigwaren und das Bild zeigt passend dazu einen Bäcker beim manuellen Kneten von Teig.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein Bäcker steht in einer Backstube und schneidet Teigstücke von Hand auf einem Backblech zu.",
+              "note": 9,
+              "passt": true,
+              "grund": "Die sichtbare Handlung zeigt das im gesprochenen Satz genannte manuelle Schneiden von Teig bzw. Donuts.",
+              "erforderliches_bild": "Keines, da das Bild perfekt zur Handarbeit passt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Bäckereiverkaufswagen oder Shop, aber nicht den konkreten Grund, warum der Donut-Typ von der Speisekarte genommen wurde."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite"
+          ],
+          "einstellungen": 13,
+          "ausgenommen": [
+            10,
+            11,
+            12
+          ],
+          "vorgeprueft": [
+            2,
+            3,
+            4,
+            8
+          ],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "a4ee962f5bd17c7209c3836aa0e4c727828aa9424359eb2d2a7987d661d255bf",
+        "prompt_version": "2026-11-11.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

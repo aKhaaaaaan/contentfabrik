@@ -1,141 +1,5 @@
 [
   {
-    "id": "40373685455",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-26",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 411.9,
-        "pruefung_s": 205.8,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Bewertung hook fehlt oder ist ungueltig",
-          "Video-bild_passt 3/10 unter 7/10",
-          "Video-Bewertung dynamik fehlt oder ist ungueltig",
-          "Video-Bewertung text fehlt oder ist ungueltig",
-          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
-          "Video-Bewertung tempo fehlt oder ist ungueltig",
-          "Video-Bewertung inhalt fehlt oder ist ungueltig",
-          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
-          "Video-Bewertung regeln fehlt oder ist ungueltig",
-          "Video-Bewertung story fehlt oder ist ungueltig",
-          "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen allgemeinen Arbeiter an einem Computer, nicht jedoch die Erklärungen zu Claude Projects oder das wiederholte Erklären von Hintergründen.",
-          "Einstellung 4: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt lediglich zusammenfassenden Text auf bunten Flächen, aber weder die hochgeladenen Dateien noch eine konkrete Interaktion oder Funktion, die zeigt, wie Claude die Dateien für den Hintergrund nutzt.",
-          "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Der sichtbare Text behandelt Team- und Enterprise-Pläne sowie Sharing-Funktionen, während der gesprochene Text sich auf das Limit von fünf Projekten für Free-Nutzer bezieht. Es fehlt jeglicher konkreter visueller Bezug zum Limit.",
-          "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich grafische Symbole und die Aufschrift Free Setup, aber nicht die im Satz erwähnten fünf Workspaces mit eigenen Dateien.",
-          "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich Textfolien als Aufzählung, jedoch keine visuelle Erklärung oder Demonstration des Ablaufs.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich einen allgemeinen Arbeiter an einem Computer, nicht jedoch die Erklärungen zu Claude Projects oder das wiederholte Erklären von Hintergründen. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der die Projekte und Chat-Historie zeigt.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich zusammenfassenden Text auf bunten Flächen, aber weder die hochgeladenen Dateien noch eine konkrete Interaktion oder Funktion, die zeigt, wie Claude die Dateien für den Hintergrund nutzt. Korrektur: Ein Screenshot oder eine Grafik, die beispielhaft zeigt, wie Dokumente in ein Claude-Projekt hochgeladen sind und wie diese in den Chats referenziert werden.",
-          "Offenes Problem (schwer): Der sichtbare Text behandelt Team- und Enterprise-Pläne sowie Sharing-Funktionen, während der gesprochene Text sich auf das Limit von fünf Projekten für Free-Nutzer bezieht. Es fehlt jeglicher konkreter visueller Bezug zum Limit. Korrektur: Ein Screenshot oder eine Dokumentation, die das Limit von fünf Projekten für Free-Nutzer visuell darstellt.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich grafische Symbole und die Aufschrift Free Setup, aber nicht die im Satz erwähnten fünf Workspaces mit eigenen Dateien. Korrektur: Eine Benutzeroberfläche, die fünf erstellte Projekte oder Workspaces mit hochgeladenen Dateien zeigt.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich Textfolien als Aufzählung, jedoch keine visuelle Erklärung oder Demonstration des Ablaufs. Korrektur: Eine Bildschirmaufnahme des Claude-Interfaces, die die Projektübersicht oder das Erstellen von Projekten zeigt."
-        ],
-        "messung": {
-          "stimme_wiederverwendet": false,
-          "erzaehlstimme": "gemini:Puck",
-          "stimme": 14.8,
-          "zeitmarken": 8.2,
-          "tempo": 1.0,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 0,
-          "stuecke_neu": 13,
-          "clips_und_stuecke": 186.4,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 13,
-            "motive": 13,
-            "motive_min": 8
-          },
-          "effekte": 10,
-          "rendern": 47.5,
-          "gesamt": 411.5,
-          "videolaenge_s": 44.1,
-          "abschnitte_s": [
-            6.74,
-            7.32,
-            6.0,
-            6.62,
-            6.84,
-            6.56,
-            4.0
-          ],
-          "woerter": 137
-        },
-        "kategorien": {
-          "bild_passt": 3
-        },
-        "probleme": [
-          {
-            "zeit": "00:00.00",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 0,
-            "einstellung": 0,
-            "gesprochen": "You keep re-explaining the same background to Claude.",
-            "fest": false,
-            "text": "Das Bild zeigt lediglich einen allgemeinen Arbeiter an einem Computer, nicht jedoch die Erklärungen zu Claude Projects oder das wiederholte Erklären von Hintergründen. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der die Projekte und Chat-Historie zeigt."
-          },
-          {
-            "zeit": "00:14.06",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 2,
-            "einstellung": 4,
-            "gesprochen": "Claude uses those files to understand the background of your chats in that project.",
-            "fest": true,
-            "text": "Das Bild zeigt lediglich zusammenfassenden Text auf bunten Flächen, aber weder die hochgeladenen Dateien noch eine konkrete Interaktion oder Funktion, die zeigt, wie Claude die Dateien für den Hintergrund nutzt. Korrektur: Ein Screenshot oder eine Grafik, die beispielhaft zeigt, wie Dokumente in ein Claude-Projekt hochgeladen sind und wie diese in den Chats referenziert werden."
-          },
-          {
-            "zeit": "00:17.86",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 2,
-            "einstellung": 5,
-            "gesprochen": "Free users get up to five projects.",
-            "fest": true,
-            "text": "Der sichtbare Text behandelt Team- und Enterprise-Pläne sowie Sharing-Funktionen, während der gesprochene Text sich auf das Limit von fünf Projekten für Free-Nutzer bezieht. Es fehlt jeglicher konkreter visueller Bezug zum Limit. Korrektur: Ein Screenshot oder eine Dokumentation, die das Limit von fünf Projekten für Free-Nutzer visuell darstellt."
-          },
-          {
-            "zeit": "00:20.06",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 3,
-            "einstellung": 6,
-            "gesprochen": "That's the free setup: five workspaces with your own files.",
-            "fest": true,
-            "text": "Das Bild zeigt lediglich grafische Symbole und die Aufschrift Free Setup, aber nicht die im Satz erwähnten fünf Workspaces mit eigenen Dateien. Korrektur: Eine Benutzeroberfläche, die fünf erstellte Projekte oder Workspaces mit hochgeladenen Dateien zeigt."
-          },
-          {
-            "zeit": "00:33.52",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 5,
-            "einstellung": 10,
-            "gesprochen": "No more re-explaining: free keeps five projects ready, and paying",
-            "fest": true,
-            "text": "Das Bild zeigt lediglich Textfolien als Aufzählung, jedoch keine visuelle Erklärung oder Demonstration des Ablaufs. Korrektur: Eine Bildschirmaufnahme des Claude-Interfaces, die die Projektübersicht oder das Erstellen von Projekten zeigt."
-          }
-        ],
-        "sekunden": 617.7,
-        "status": "geprueft"
-      },
-      {
-        "runde": 2,
-        "art": "korrektur",
-        "status": "keine_korrektur",
-        "sekunden": 0.1
-      }
-    ],
-    "status": "gesendet",
-    "grund": "",
-    "sekunden": 635.1,
-    "upload_titel": "Claude Projects: Free: What Paying Adds | AI Tool #16"
-  },
-  {
     "id": "40473183683",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-27",
@@ -8832,5 +8696,145 @@
     "grund": "",
     "sekunden": 4780.2,
     "upload_titel": "CLAUDE CODE + MCP: SETUP AND WHAT IT COSTS"
+  },
+  {
+    "id": "43694291510",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-11-15",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 412.8,
+        "pruefung_s": 89.1,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen erklärenden Text über Claude und Pokémon statt der im gesprochenen Text erwähnten konkreten Spielszene oder des besprochenen Zustands in Palpallet Town.",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Text- und Zahlengrafik als Titelkarte oder Infokachel, während die gesprochene Phase von Pokémon-Arenenorden handelt. Es ist keine spielerische Aktion oder visuelle Demonstration zu sehen.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt nur die gestellte Frage als Texteingabe in einem Chat-Interface, nicht jedoch die versprochene Demonstration oder das Ergebnis der Computer-Steuerungs-Funktion von Claude, die laut Kommentar 'Desktops bedient'.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Die gezeigte Grafik ist lediglich ein Werbebild eines Spiel-Shops und demonstriert keineswegs das im Kommentar erwähnte 'Computer-Tool', das Desktops steuern soll.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine generische künstlerische Illustration einer Person und einer Stadt, stellt jedoch nicht den Prozess dar, wie eine KI 'ein Haus verlässt' oder ein Spiel steuert.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich einen erklärenden Text über Claude und Pokémon statt der im gesprochenen Text erwähnten konkreten Spielszene oder des besprochenen Zustands in Palpallet Town. Korrektur: Ein Screenshot oder eine Grafik, die den Zustand von Claude 3.0 Sonnet im Haus in Palpallet Town zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine Text- und Zahlengrafik als Titelkarte oder Infokachel, während die gesprochene Phase von Pokémon-Arenenorden handelt. Es ist keine spielerische Aktion oder visuelle Demonstration zu sehen. Korrektur: Ein Gameplay-Screenshot aus Pokémon, das eine errungene Arena-Plakette oder den entsprechenden Kampf zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt nur die gestellte Frage als Texteingabe in einem Chat-Interface, nicht jedoch die versprochene Demonstration oder das Ergebnis der Computer-Steuerungs-Funktion von Claude, die laut Kommentar 'Desktops bedient'. Korrektur: Ein Bild, das Claude zeigt, wie es tatsächlich ein Computer-Interface oder ein Spielmenü bedient oder steuert, um den behaupteten 'Computer-Tool'-Betrieb visuell zu belegen.",
+          "Offenes Problem (schwer): Die gezeigte Grafik ist lediglich ein Werbebild eines Spiel-Shops und demonstriert keineswegs das im Kommentar erwähnte 'Computer-Tool', das Desktops steuern soll. Korrektur: Eine Bildschirmaufnahme, die zeigt, wie das Computer-Tool eine Software-Schnittstelle oder eine Desktop-Anwendung aktiv bedient.",
+          "Offenes Problem (schwer): Das Bild zeigt eine generische künstlerische Illustration einer Person und einer Stadt, stellt jedoch nicht den Prozess dar, wie eine KI 'ein Haus verlässt' oder ein Spiel steuert. Korrektur: Ein Screenshot einer Spielumgebung oder einer Benutzeroberfläche, die visualisiert, wie die KI eine Spielfigur aus einem Gebäude herausbewegt oder durch eine Spielwelt navigiert."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "kokoro:am_michael",
+          "stimme": 13.7,
+          "zeitmarken": 2.4,
+          "tempo": 1.05,
+          "stimme_ersatz": true,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 9,
+          "clips_und_stuecke": 266.1,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 9,
+            "motive": 9,
+            "motive_min": 4
+          },
+          "effekte": 10,
+          "rendern": 29.5,
+          "gesamt": 412.4,
+          "videolaenge_s": 24.7,
+          "abschnitte_s": [
+            2.36,
+            3.96,
+            6.12,
+            2.32,
+            1.98,
+            5.69,
+            2.32
+          ],
+          "woerter": 57,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:02.36",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 1,
+            "gesprochen": "That was 3.0 Sonnet, grounded in Pallet Town.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich einen erklärenden Text über Claude und Pokémon statt der im gesprochenen Text erwähnten konkreten Spielszene oder des besprochenen Zustands in Palpallet Town. Korrektur: Ein Screenshot oder eine Grafik, die den Zustand von Claude 3.0 Sonnet im Haus in Palpallet Town zeigt."
+          },
+          {
+            "zeit": "00:06.32",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 2,
+            "gesprochen": "Then 3.7 won three Gym Badges.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich eine Text- und Zahlengrafik als Titelkarte oder Infokachel, während die gesprochene Phase von Pokémon-Arenenorden handelt. Es ist keine spielerische Aktion oder visuelle Demonstration zu sehen. Korrektur: Ein Gameplay-Screenshot aus Pokémon, das eine errungene Arena-Plakette oder den entsprechenden Kampf zeigt."
+          },
+          {
+            "zeit": "00:14.76",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 5,
+            "gesprochen": "Can it play GTA 6?",
+            "fest": true,
+            "text": "Das Bild zeigt nur die gestellte Frage als Texteingabe in einem Chat-Interface, nicht jedoch die versprochene Demonstration oder das Ergebnis der Computer-Steuerungs-Funktion von Claude, die laut Kommentar 'Desktops bedient'. Korrektur: Ein Bild, das Claude zeigt, wie es tatsächlich ein Computer-Interface oder ein Spielmenü bedient oder steuert, um den behaupteten 'Computer-Tool'-Betrieb visuell zu belegen."
+          },
+          {
+            "zeit": "00:16.74",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 6,
+            "gesprochen": "Its computer tool drives desktops.",
+            "fest": true,
+            "text": "Die gezeigte Grafik ist lediglich ein Werbebild eines Spiel-Shops und demonstriert keineswegs das im Kommentar erwähnte 'Computer-Tool', das Desktops steuern soll. Korrektur: Eine Bildschirmaufnahme, die zeigt, wie das Computer-Tool eine Software-Schnittstelle oder eine Desktop-Anwendung aktiv bedient."
+          },
+          {
+            "zeit": "00:22.43",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 8,
+            "gesprochen": "But 3.7 left that house.",
+            "fest": false,
+            "text": "Das Bild zeigt eine generische künstlerische Illustration einer Person und einer Stadt, stellt jedoch nicht den Prozess dar, wie eine KI 'ein Haus verlässt' oder ein Spiel steuert. Korrektur: Ein Screenshot einer Spielumgebung oder einer Benutzeroberfläche, die visualisiert, wie die KI eine Spielfigur aus einem Gebäude herausbewegt oder durch eine Spielwelt navigiert."
+          }
+        ],
+        "sekunden": 503.3,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "status": "keine_korrektur",
+        "sekunden": 0.1
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 522.4,
+    "upload_titel": "CLAUDE VS GTA 6: WHAT POKEMON SHOWED | AI Tool #36"
   }
 ]

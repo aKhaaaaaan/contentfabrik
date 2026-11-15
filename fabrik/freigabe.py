@@ -29,6 +29,35 @@ def stoerung_hinweis():
             'gesendet. Steht es oben mehrfach: die Kopien sind identisch, einfach löschen. Kein Kontingent verbraucht.')
 
 
+class TelegramStoerung(RuntimeError):
+    """Serverfehler (5xx) auch nach allen Wiederholungen - die Nachricht kann trotzdem angekommen sein."""
+
+
+def video_senden(chat, felder, datei, sha, tiktok):
+    """sendVideo; gibt die message_id zurueck, an der Knoepfe/Zuordnung haengen.
+
+    GEMELDET 15.11.2026 (Dunkin' 43728613614): sendVideo bekam 504 x3 + 502, das Video kam beim Nutzer trotzdem an,
+    aber der Lauf brach ab -> keine Texte, keine Zuordnung, TikTok-Knopf wirkungslos. Nach einer Serverstoerung das
+    Video NICHT ein fuenftes Mal senden (es ist vermutlich schon da), sondern eine Ersatznachricht mit denselben
+    Knoepfen schicken und den Lauf fortsetzen. Ablehnungen (4xx) brechen weiter ab.
+    """
+    try:
+        antwort = telegram('sendVideo', felder, datei)
+        return antwort.get('result', {}).get('message_id')
+    except (TelegramStoerung, OSError) as e:
+        if not UPLOAD_STOERUNGEN:  # Verbindungsfehler ohne jede vorherige Stoerung: nicht raten
+            raise
+        print('Telegram-Video unsicher (Serverstoerung), Lauf geht weiter:', str(e)[:160], flush=True)
+    import bewertung
+    ersatz = telegram('sendMessage', {
+        'chat_id': chat, 'reply_markup': json.dumps(bewertung.knoepfe(sha, tiktok=tiktok)),
+        'text': (f'⚠️ Telegram hatte beim Senden des Videos eine Störung ({", ".join(UPLOAD_STOERUNGEN)}). '
+                 'Das Video steht vermutlich trotzdem oben (sonst: Original im GitHub-Artefakt). '
+                 'Die Knöpfe hier gehören zu diesem Video.\n\n' + str(felder.get('caption', ''))[:3000])})
+    UPLOAD_STOERUNGEN.clear()  # Hinweis steht schon in der Ersatznachricht
+    return ersatz.get('result', {}).get('message_id')
+
+
 def telegram(methode, felder, datei=None, feld='video', typ='video/mp4'):
     token = os.environ['TELEGRAM_BOT_TOKEN']
     grenze = uuid.uuid4().hex
@@ -73,6 +102,11 @@ def telegram(methode, felder, datei=None, feld='video', typ='video/mp4'):
                     UPLOAD_STOERUNGEN.append(str(e.code))
                 time.sleep(20 * (versuch + 1))
                 continue
+            if e.code in (500, 502, 503, 504):
+                if datei:
+                    UPLOAD_STOERUNGEN.append(str(e.code))
+                raise TelegramStoerung(f'Telegram-Serverfehler ({e.code}): '
+                                       + inhalt[:300].replace(token, '***')) from None
             raise RuntimeError(f'Telegram lehnt ab ({e.code}): '
                                + inhalt[:300].replace(token, '***')) from None
         except (urllib.error.URLError, TimeoutError, ConnectionError) as e:
@@ -291,7 +325,7 @@ def senden(skript_pfad, video_pfad):
     upload_run = re.search(r'/actions/runs/(\d+)', os.environ.get('CF_ORIGINAL_URL', ''))
     upload_run = upload_run.group(1) if upload_run else os.environ.get('GITHUB_RUN_ID')
     tik_freigabe = tik_freigabe and bool(upload_run)
-    video_antwort = telegram('sendVideo', {'chat_id': chat, 'supports_streaming': 'true',
+    message_id = video_senden(chat, {'chat_id': chat, 'supports_streaming': 'true',
                            'reply_markup': json.dumps(bewertung.knoepfe(sha, tiktok=tik_freigabe)),
                            'caption': (f"⚠️ ENTWURF - Bildpruefung NICHT bestanden: Bilder {bild_nummern} passen "
                                        f"nicht genau zum Satz. Fakten, Technik und Ton bestanden. Du entscheidest.\n\n"
@@ -312,8 +346,7 @@ def senden(skript_pfad, video_pfad):
                                       + ('\nKomprimierte Vorschau; Original siehe Begleitnachricht.'
                                          if komprimiert and os.environ.get('CF_ORIGINAL_URL') else
                                          '\nFuer Telegram komprimierte Kopie.' if komprimiert else '')},
-             (Path(video_pfad).name, video))
-    message_id = video_antwort.get('result', {}).get('message_id')
+             (Path(video_pfad).name, video), sha, tik_freigabe)
     print('Telegram-Video bestaetigt; message_id:', message_id)
     if stoerung_hinweis():
         try:  # nur Hinweis - darf den gelieferten Versand nicht kippen

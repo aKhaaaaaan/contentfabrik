@@ -1,26 +1,39 @@
 {
   "version": 1,
   "modelle": {
-    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
-      "grund": "Tageskontingent erschoepft",
-      "bis": 1794816000.0
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1794818738.5469878
     },
-    "18b3ef0930af7cca6de34adf:gemini-3.5-flash": {
-      "grund": "Tageskontingent erschoepft",
-      "bis": 1794816000.0
+    "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": {
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1794818539.4287972
     },
     "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
-      "grund": "Tageskontingent erschoepft",
-      "bis": 1794816000.0
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1794818574.2080777
     },
-    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
-      "grund": "Tageskontingent erschoepft",
-      "bis": 1794816000.0
+    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1794818460.1613128
     },
-    "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": {
-      "grund": "Tageskontingent erschoepft",
-      "bis": 1794816000.0
+    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
+      "grund": "HTTP429; Serverfrist 202s",
+      "bis": 1794818482.2190735
     }
   },
-  "zeitlimits": {}
+  "zeitlimits": {
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
+      1794817734.6862228,
+      1794817933.6343865,
+      1794818198.5469878
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
+      1794818003.969206,
+      1794818280.1613128
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.5-flash": [
+      1794818062.8983426
+    ]
+  }
 }

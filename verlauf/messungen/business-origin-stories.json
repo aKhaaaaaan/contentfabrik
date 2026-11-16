@@ -1,282 +1,5 @@
 [
   {
-    "id": "40687018472",
-    "kanal": "business-origin-stories",
-    "datum": "2026-10-28",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 2240.4,
-        "baufehler": "ValueError: Phase 6, Einstellung 12: kein passendes Hauptbild; kein Hintergrundersatz",
-        "status": "baufehler",
-        "sekunden": 2240.4
-      },
-      {
-        "runde": 2,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 332.9,
-        "baufehler": "ValueError: Phase 6, Einstellung 12: kein passendes Hauptbild; kein Hintergrundersatz",
-        "status": "baufehler",
-        "sekunden": 332.9
-      },
-      {
-        "runde": 3,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 452.5,
-        "pruefung_s": 183.2,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Bewertung hook fehlt oder ist ungueltig",
-          "Video-bild_passt 2/10 unter 7/10",
-          "Video-Bewertung dynamik fehlt oder ist ungueltig",
-          "Video-Bewertung text fehlt oder ist ungueltig",
-          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
-          "Video-Bewertung tempo fehlt oder ist ungueltig",
-          "Video-Bewertung inhalt fehlt oder ist ungueltig",
-          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
-          "Video-Bewertung regeln fehlt oder ist ungueltig",
-          "Video-Bewertung story fehlt oder ist ungueltig",
-          "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Die Szene zeigt einen Schneider bei der Arbeit, jedoch fehlt der spezifische Bezug zu dem erwähnten Zusammenbruch der Firma.",
-          "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen leeren Raum im Retro-Stil und stellt die Pleite der Fabrik im Jahr 1931 nicht dar.",
-          "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann in einem Raum am Fenster, aber keinen Bezug zum Parteibeitritt von Hugo Boss oder dem Beginn der Uniformbestellungen.",
-          "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen Raum im historischen Stil mit Möbeln, aber weder den Parteieintritt noch Uniformbestellungen.",
-          "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eingeblendeten Text und Zahlenangaben anstelle der erwähnten Zwangsarbeiter oder Frauen aus der Sowjetunion und Polen.",
-          "Einstellung 10: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar eine Modeszene beziehungsweise ein Bekleidungsgeschäft als Anspielung auf ein Modehaus, es fehlt jedoch jeglicher Bezug zu den sechs Nähmaschinen oder der historischen Entwicklung der Marke.",
-          "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Die historische Illustration zeigt zwar Näherinnen bei der Arbeit, jedoch gibt es keinen visuellen Bezug zu einer Entschuldigung oder dem Jahr 2011.",
-          "Offenes Problem (schwer): Die Szene zeigt einen Schneider bei der Arbeit, jedoch fehlt der spezifische Bezug zu dem erwähnten Zusammenbruch der Firma. Korrektur: Ein historisches Foto oder eine Darstellung einer geschlossenen Fabrik oder verlassenen Werkstatt mit wenigen Nähmaschinen.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich einen leeren Raum im Retro-Stil und stellt die Pleite der Fabrik im Jahr 1931 nicht dar. Korrektur: Eine historische Illustration oder Dokumentation, die das Schließen oder die Insolvenz der Fabrik im Jahr 1931 visualisiert.",
-          "Offenes Problem (schwer): Das Bild zeigt einen Mann in einem Raum am Fenster, aber keinen Bezug zum Parteibeitritt von Hugo Boss oder dem Beginn der Uniformbestellungen. Korrektur: Eine historische Darstellung oder ein dokumentarisches Bild, das Hugo Boss im Zusammenhang mit der NSDAP oder dem Beginn der Uniformfertigung zeigt.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich einen Raum im historischen Stil mit Möbeln, aber weder den Parteieintritt noch Uniformbestellungen. Korrektur: Ein historisches Dokument oder eine Illustration, die den Parteieintritt oder Uniformbestellungen von Hugo Boss zeigt.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich eingeblendeten Text und Zahlenangaben anstelle der erwähnten Zwangsarbeiter oder Frauen aus der Sowjetunion und Polen. Korrektur: Historische Dokumente oder Archivaufnahmen von Zwangsarbeiterinnen in einer Fabrik",
-          "Offenes Problem (schwer): Das Bild zeigt zwar eine Modeszene beziehungsweise ein Bekleidungsgeschäft als Anspielung auf ein Modehaus, es fehlt jedoch jeglicher Bezug zu den sechs Nähmaschinen oder der historischen Entwicklung der Marke. Korrektur: Eine historische Darstellung von sechs Nähmaschinen in einer einfachen Werkstatt im Kontrast zu einer modernen Mode-Boutique.",
-          "Offenes Problem (schwer): Die historische Illustration zeigt zwar Näherinnen bei der Arbeit, jedoch gibt es keinen visuellen Bezug zu einer Entschuldigung oder dem Jahr 2011. Korrektur: Ein Dokument oder Foto aus dem Jahr 2011, das die offizielle Entschuldigung oder Reueerklärung der Firma Hugo Boss zeigt."
-        ],
-        "messung": {
-          "stimme_wiederverwendet": true,
-          "erzaehlstimme": "gemini:Orus",
-          "tempo": 1.25,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 12,
-          "stuecke_neu": 2,
-          "bilder_vereinfacht": 1,
-          "clips_und_stuecke": 312.1,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 14,
-            "motive": 11,
-            "motive_min": 7
-          },
-          "effekte": 10,
-          "rendern": 52.5,
-          "gesamt": 452.3,
-          "videolaenge_s": 46.4,
-          "abschnitte_s": [
-            6.34,
-            6.06,
-            5.72,
-            9.32,
-            6.5,
-            6.58,
-            5.89
-          ],
-          "woerter": 86
-        },
-        "kategorien": {
-          "bild_passt": 2
-        },
-        "probleme": [
-          {
-            "zeit": "00:03.90",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 0,
-            "einstellung": 1,
-            "gesprochen": "Boss's firm had collapsed.",
-            "fest": false,
-            "text": "Die Szene zeigt einen Schneider bei der Arbeit, jedoch fehlt der spezifische Bezug zu dem erwähnten Zusammenbruch der Firma. Korrektur: Ein historisches Foto oder eine Darstellung einer geschlossenen Fabrik oder verlassenen Werkstatt mit wenigen Nähmaschinen."
-          },
-          {
-            "zeit": "00:09.37",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 1,
-            "einstellung": 3,
-            "gesprochen": "failed in 1931.",
-            "fest": false,
-            "text": "Das Bild zeigt lediglich einen leeren Raum im Retro-Stil und stellt die Pleite der Fabrik im Jahr 1931 nicht dar. Korrektur: Eine historische Illustration oder Dokumentation, die das Schließen oder die Insolvenz der Fabrik im Jahr 1931 visualisiert."
-          },
-          {
-            "zeit": "00:12.40",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 2,
-            "einstellung": 4,
-            "gesprochen": "What changed?",
-            "fest": false,
-            "text": "Das Bild zeigt einen Mann in einem Raum am Fenster, aber keinen Bezug zum Parteibeitritt von Hugo Boss oder dem Beginn der Uniformbestellungen. Korrektur: Eine historische Darstellung oder ein dokumentarisches Bild, das Hugo Boss im Zusammenhang mit der NSDAP oder dem Beginn der Uniformfertigung zeigt."
-          },
-          {
-            "zeit": "00:13.90",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 2,
-            "einstellung": 5,
-            "gesprochen": "He joined the Nazi Party; uniform orders followed.",
-            "fest": false,
-            "text": "Das Bild zeigt lediglich einen Raum im historischen Stil mit Möbeln, aber weder den Parteieintritt noch Uniformbestellungen. Korrektur: Ein historisches Dokument oder eine Illustration, die den Parteieintritt oder Uniformbestellungen von Hugo Boss zeigt."
-          },
-          {
-            "zeit": "00:27.44",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 4,
-            "einstellung": 8,
-            "gesprochen": "It employed 140 forced laborers,",
-            "fest": false,
-            "text": "Das Bild zeigt lediglich eingeblendeten Text und Zahlenangaben anstelle der erwähnten Zwangsarbeiter oder Frauen aus der Sowjetunion und Polen. Korrektur: Historische Dokumente oder Archivaufnahmen von Zwangsarbeiterinnen in einer Fabrik"
-          },
-          {
-            "zeit": "00:33.94",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 5,
-            "einstellung": 10,
-            "gesprochen": "Six machines became a fashion house.",
-            "fest": false,
-            "text": "Das Bild zeigt zwar eine Modeszene beziehungsweise ein Bekleidungsgeschäft als Anspielung auf ein Modehaus, es fehlt jedoch jeglicher Bezug zu den sechs Nähmaschinen oder der historischen Entwicklung der Marke. Korrektur: Eine historische Darstellung von sechs Nähmaschinen in einer einfachen Werkstatt im Kontrast zu einer modernen Mode-Boutique."
-          },
-          {
-            "zeit": "00:36.88",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 5,
-            "einstellung": 11,
-            "gesprochen": "In 2011, it voiced profound regret.",
-            "fest": false,
-            "text": "Die historische Illustration zeigt zwar Näherinnen bei der Arbeit, jedoch gibt es keinen visuellen Bezug zu einer Entschuldigung oder dem Jahr 2011. Korrektur: Ein Dokument oder Foto aus dem Jahr 2011, das die offizielle Entschuldigung oder Reueerklärung der Firma Hugo Boss zeigt."
-          }
-        ],
-        "sekunden": 635.7,
-        "status": "geprueft"
-      },
-      {
-        "runde": 4,
-        "art": "korrektur",
-        "plan": {
-          "aktionen": [
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 0
-            },
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 1
-            },
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 2
-            },
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 4
-            },
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 5
-            }
-          ],
-          "einstellungen": {
-            "stimme": "bm_george",
-            "tempo": 1.05,
-            "untertitel_profil": "ruhig",
-            "musik_pegel": null,
-            "effekt_pegel": null
-          },
-          "offen": [],
-          "teile": [
-            0,
-            1,
-            2,
-            4,
-            5
-          ],
-          "schwerpunkt": "bild",
-          "prompt_version": "2026-10-28.1"
-        },
-        "skript_s": 19.8,
-        "bau_s": 1319.7,
-        "baufehler": "ValueError: Phase 5, Einstellung 11: kein passendes Hauptbild; kein Hintergrundersatz",
-        "status": "baufehler",
-        "sekunden": 1339.4,
-        "lernergebnis": {
-          "id": "40687018472-4",
-          "datum": "2026-10-28",
-          "vorher": null,
-          "nachher": null,
-          "vorher_gesperrt": true,
-          "nachher_gesperrt": true,
-          "sekunden": 1339.5,
-          "aktionen": [
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 0
-            },
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 1
-            },
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 2
-            },
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 4
-            },
-            {
-              "art": "bild",
-              "variante": "illustration",
-              "index": 5
-            }
-          ],
-          "einstellungen": {
-            "stimme": "bm_george",
-            "tempo": 1.05,
-            "untertitel_profil": "ruhig",
-            "musik_pegel": null,
-            "effekt_pegel": null
-          },
-          "schwerpunkt": "bild",
-          "kategorien_vorher": {
-            "bild_passt": 2
-          },
-          "kategorien_nachher": {},
-          "auswertbar": false,
-          "prompt_version": "2026-10-28.1",
-          "verbessert": false
-        }
-      }
-    ],
-    "status": "gesendet",
-    "grund": "",
-    "sekunden": 4584.9,
-    "upload_titel": "Hugo Boss: Six Machines: Uniforms and Regret"
-  },
-  {
     "id": "40841805427",
     "kanal": "business-origin-stories",
     "datum": "2026-10-29",
@@ -20951,5 +20674,889 @@
     "grund": "Video fertig gebaut (Entwurf), aber Telegram hat die Zustellung nicht angenommen (Serverstoerung). Kein Neubau noetig - Nachsenden ueber pilot-versand mit dieser Laufnummer.",
     "sekunden": 1941.9,
     "upload_titel": "DUNKIN' KILLED ITS OWN DUNKING DONUT"
+  },
+  {
+    "id": "43830839811",
+    "kanal": "business-origin-stories",
+    "datum": "2026-11-16",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-Note 6/10 unter 7/10",
+          "Skript-spannung 6/10 unter 7/10",
+          "Skript-ueberraschung 6/10 unter 7/10",
+          "Skript-tempo 6/10 unter 7/10",
+          "Skript-aufloesung 6/10 unter 7/10"
+        ],
+        "story_note": 6,
+        "story_schwaechen": [
+          "Exact sentence: \"Unfinished footage leaked, yet Rockstar carried on: revealed December 2023, most preordered ever.\" Why it matters: The narrative jumps backwards in time to December 2023 after introducing April 2024 events, disrupting causal coherence. Fix: Reorder beats chronologically so the Decem"
+        ],
+        "skript_probleme": [],
+        "sekunden": 263.1
+      },
+      {
+        "runde": 2,
+        "art": "produktion",
+        "skript_s": 338.8,
+        "bau_s": 551.2,
+        "pruefung_s": 41.0,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Die sichtbaren Personen schauen ein Videospiel im Retro-Stil an, was nicht direkt die geheimgehaltenen und geschützten Entwicklungsarbeiten des GTA 6 Leaks illustriert, nach denen gefragt wird.",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (6/10): Die gezeigten 3D-Modelle und Wireframe-Ansichten veranschaulichen die Spieleentwicklung visuell, belegen jedoch nicht spezifisch die formelle Entwicklungsbestätigung durch Rockstar im Februar.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage, ob Rockstar eine Antwort übereilte, wird lediglich durch eine allgemeine Illustration eines Mannes am Laptop dargestellt, ohne Bezug zu Rockstar oder dem Leak.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit einer Zeitung und hat keinen Bezug zur formellen Enthüllung von GTA 6 im Dezember 2023.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Phrase kündigt eine betriebliche Anordnung von Rockstar Games an, während das Bild lediglich einen geschäftlich gekleideten Mann zeigt, der nichts mit dem spezifischen Vorfall oder dem Unternehmen zu tun hat.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Gruppe von Personen im Freien vor einem Gebäude, aber weder die im gesprochenen Text erwähnte Rückkehr ins Büro noch die spezifische Anordnung von Mitarbeitern bezüglich Remote-Work sind visuell dargestellt.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt allgemeine Büroangestellte im Flur, aber nicht den Grund fuer die Rueckkehr ins Buero oder die konkrete Diskussion ueber Produktivitaet und Sicherheit.",
+          "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Gruppe von Menschen in einem Flur, was die Erwähnung einer Gewerkschaft und deren Widerspruch nicht visuell darstellt.",
+          "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Die gezeichnete Menschenmenge vor einem Laden passt nicht zum Thema von Rekord-Vorbestellungen eines Videospiels.",
+          "Einstellung 11: Bild passt nicht zum Sprechtext (4/10): Die gesprochenen Wörter erwähnen Vorbestellungszahlen von über 9 Millionen Einheiten, während das Bild lediglich einen Designer an einem 3D-Modell zeigt, ohne direkten Bezug zu Verkaufszahlen.",
+          "Offenes Problem (schwer): Die sichtbaren Personen schauen ein Videospiel im Retro-Stil an, was nicht direkt die geheimgehaltenen und geschützten Entwicklungsarbeiten des GTA 6 Leaks illustriert, nach denen gefragt wird. Korrektur: Ein Bild, das die tatsächliche Büroumgebung mit blickdichter Fensterfolie oder betroffene Entwicklungsdokumente von Rockstar Games zeigt.",
+          "Offenes Problem (schwer): Die gezeigten 3D-Modelle und Wireframe-Ansichten veranschaulichen die Spieleentwicklung visuell, belegen jedoch nicht spezifisch die formelle Entwicklungsbestätigung durch Rockstar im Februar. Korrektur: Ein offizielles Statement oder eine Pressemitteilung von Rockstar zur Bestätigung der Entwicklung im Februar.",
+          "Offenes Problem (schwer): Die gesprochene Frage, ob Rockstar eine Antwort übereilte, wird lediglich durch eine allgemeine Illustration eines Mannes am Laptop dargestellt, ohne Bezug zu Rockstar oder dem Leak. Korrektur: Ein offizielles Statement oder eine Presseerklärung von Rockstar Games zu dem Leak.",
+          "Offenes Problem (schwer): Das Bild zeigt einen Mann mit einer Zeitung und hat keinen Bezug zur formellen Enthüllung von GTA 6 im Dezember 2023. Korrektur: Eine historische Grafik oder ein Presse-Screenshot der offiziellen Spielankündigung von GTA 6 im Dezember 2023.",
+          "Offenes Problem (schwer): Die gesprochene Phrase kündigt eine betriebliche Anordnung von Rockstar Games an, während das Bild lediglich einen geschäftlich gekleideten Mann zeigt, der nichts mit dem spezifischen Vorfall oder dem Unternehmen zu tun hat. Korrektur: Ein realistisches oder symbolisches Bild, das eine Unternehmensankündigung oder Bürokommunikation zum Thema Rückkehr ins Büro darstellt.",
+          "Offenes Problem (schwer): Das Bild zeigt eine Gruppe von Personen im Freien vor einem Gebäude, aber weder die im gesprochenen Text erwähnte Rückkehr ins Büro noch die spezifische Anordnung von Mitarbeitern bezüglich Remote-Work sind visuell dargestellt. Korrektur: Eine realistische oder illustrierte Büroszene, in der Mitarbeiter an ihren Schreibtischen im Büro sitzen oder die Thematik der Rückkehr an den Arbeitsplatz visualisiert wird.",
+          "Offenes Problem (schwer): Das Bild zeigt allgemeine Büroangestellte im Flur, aber nicht den Grund fuer die Rueckkehr ins Buero oder die konkrete Diskussion ueber Produktivitaet und Sicherheit. Korrektur: Ein Dokument oder Statement von Rockstar oder einer Gewerkschaft zu den Gruenden fuer das Ende der Heimarbeit.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine Gruppe von Menschen in einem Flur, was die Erwähnung einer Gewerkschaft und deren Widerspruch nicht visuell darstellt. Korrektur: Eine Darstellung von Arbeitnehmern oder Gewerkschaftsvertretern, die eine Stellungnahme abgeben oder demonstrieren.",
+          "Offenes Problem (schwer): Die gezeichnete Menschenmenge vor einem Laden passt nicht zum Thema von Rekord-Vorbestellungen eines Videospiels. Korrektur: Eine Grafik oder ein Bildschirmfoto, das Verkaufszahlen oder Vorbestellungsrekorde von GTA 6 zeigt.",
+          "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen Vorbestellungszahlen von über 9 Millionen Einheiten, während das Bild lediglich einen Designer an einem 3D-Modell zeigt, ohne direkten Bezug zu Verkaufszahlen. Korrektur: Ein Diagramm oder eine Grafik, die die Verkaufszahlen oder Vorbestellungen des Spiels darstellt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "kokoro:bm_george",
+          "stimme": 32.1,
+          "zeitmarken": 3.2,
+          "tempo": 1.25,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 14,
+          "bilder_vereinfacht": 5,
+          "clips_und_stuecke": 366.9,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 14,
+            "motive": 14,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 45.1,
+          "gesamt": 550.9,
+          "videolaenge_s": 46.6,
+          "abschnitte_s": [
+            6.88,
+            7.86,
+            7.96,
+            6.75,
+            4.89,
+            6.32,
+            5.95
+          ],
+          "woerter": 97,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:04.30",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "What exactly was it protecting?",
+            "fest": false,
+            "text": "Die sichtbaren Personen schauen ein Videospiel im Retro-Stil an, was nicht direkt die geheimgehaltenen und geschützten Entwicklungsarbeiten des GTA 6 Leaks illustriert, nach denen gefragt wird. Korrektur: Ein Bild, das die tatsächliche Büroumgebung mit blickdichter Fensterfolie oder betroffene Entwicklungsdokumente von Rockstar Games zeigt."
+          },
+          {
+            "zeit": "00:12.30",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "Rockstar had confirmed development that February.",
+            "fest": false,
+            "text": "Die gezeigten 3D-Modelle und Wireframe-Ansichten veranschaulichen die Spieleentwicklung visuell, belegen jedoch nicht spezifisch die formelle Entwicklungsbestätigung durch Rockstar im Februar. Korrektur: Ein offizielles Statement oder eine Pressemitteilung von Rockstar zur Bestätigung der Entwicklung im Februar."
+          },
+          {
+            "zeit": "00:14.74",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "So did Rockstar rush a reply? No.",
+            "fest": false,
+            "text": "Die gesprochene Frage, ob Rockstar eine Antwort übereilte, wird lediglich durch eine allgemeine Illustration eines Mannes am Laptop dargestellt, ohne Bezug zu Rockstar oder dem Leak. Korrektur: Ein offizielles Statement oder eine Presseerklärung von Rockstar Games zu dem Leak."
+          },
+          {
+            "zeit": "00:18.66",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "The formal reveal came December 2023.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann mit einer Zeitung und hat keinen Bezug zur formellen Enthüllung von GTA 6 im Dezember 2023. Korrektur: Eine historische Grafik oder ein Presse-Screenshot der offiziellen Spielankündigung von GTA 6 im Dezember 2023."
+          },
+          {
+            "zeit": "00:22.70",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 6,
+            "gesprochen": "Then Rockstar made a request: from April 2024,",
+            "fest": false,
+            "text": "Die gesprochene Phrase kündigt eine betriebliche Anordnung von Rockstar Games an, während das Bild lediglich einen geschäftlich gekleideten Mann zeigt, der nichts mit dem spezifischen Vorfall oder dem Unternehmen zu tun hat. Korrektur: Ein realistisches oder symbolisches Bild, das eine Unternehmensankündigung oder Bürokommunikation zum Thema Rückkehr ins Büro darstellt."
+          },
+          {
+            "zeit": "00:26.07",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "employees should stop remote work. Its",
+            "fest": false,
+            "text": "Das Bild zeigt eine Gruppe von Personen im Freien vor einem Gebäude, aber weder die im gesprochenen Text erwähnte Rückkehr ins Büro noch die spezifische Anordnung von Mitarbeitern bezüglich Remote-Work sind visuell dargestellt. Korrektur: Eine realistische oder illustrierte Büroszene, in der Mitarbeiter an ihren Schreibtischen im Büro sitzen oder die Thematik der Rückkehr an den Arbeitsplatz visualisiert wird."
+          },
+          {
+            "zeit": "00:29.45",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "reason: \"for productivity and security.\"",
+            "fest": false,
+            "text": "Das Bild zeigt allgemeine Büroangestellte im Flur, aber nicht den Grund fuer die Rueckkehr ins Buero oder die konkrete Diskussion ueber Produktivitaet und Sicherheit. Korrektur: Ein Dokument oder Statement von Rockstar oder einer Gewerkschaft zu den Gruenden fuer das Ende der Heimarbeit."
+          },
+          {
+            "zeit": "00:31.84",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "A union said it contradicted flexible-working promises.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine Gruppe von Menschen in einem Flur, was die Erwähnung einer Gewerkschaft und deren Widerspruch nicht visuell darstellt. Korrektur: Eine Darstellung von Arbeitnehmern oder Gewerkschaftsvertretern, die eine Stellungnahme abgeben oder demonstrieren."
+          },
+          {
+            "zeit": "00:34.34",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "Rockstar's game still became the most preordered ever,",
+            "fest": false,
+            "text": "Die gezeichnete Menschenmenge vor einem Laden passt nicht zum Thema von Rekord-Vorbestellungen eines Videospiels. Korrektur: Eine Grafik oder ein Bildschirmfoto, das Verkaufszahlen oder Vorbestellungsrekorde von GTA 6 zeigt."
+          },
+          {
+            "zeit": "00:37.50",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "with over 9 million estimated units.",
+            "fest": false,
+            "text": "Die gesprochenen Wörter erwähnen Vorbestellungszahlen von über 9 Millionen Einheiten, während das Bild lediglich einen Designer an einem 3D-Modell zeigt, ohne direkten Bezug zu Verkaufszahlen. Korrektur: Ein Diagramm oder eine Grafik, die die Verkaufszahlen oder Vorbestellungen des Spiels darstellt."
+          }
+        ],
+        "sekunden": 933.5,
+        "status": "geprueft"
+      },
+      {
+        "runde": 3,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bm_george",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-11-11.2"
+        },
+        "skript_s": 3.0,
+        "bau_s": 440.0,
+        "pruefung_s": 26.1,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Die sichtbaren Personen schauen ein Videospiel im Retro-Stil an, was nicht direkt die geheimgehaltenen und geschützten Entwicklungsarbeiten des GTA 6 Leaks illustriert, nach denen gefragt wird.",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (6/10): Die gezeigten 3D-Modelle und Wireframe-Ansichten veranschaulichen die Spieleentwicklung visuell, belegen jedoch nicht spezifisch die formelle Entwicklungsbestätigung durch Rockstar im Februar.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild ist eine generische, illustrierte Darstellung eines Entwicklers und hat keinen inhaltlichen Bezug zur rhetorischen Frage oder zum Thema des GTA-Leaks und der Reaktion von Rockstar.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine generische Konferenzszene mit abstrakter Kunst oder einer unkenntlich gemachten Projektion, die in keinerlei Zusammenhang mit der formellen Ankündigung von GTA 6 steht.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine generische Person bei der Arbeit am Laptop. Es fehlt ein Bezug zu Rockstar, der spezifischen Anweisung zum Ende von Homeoffice oder irgendeiner geschäftlichen Kommunikation.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): The image depicts a generic office scene with people handling papers, but it does not represent the narrated action of employees returning from remote work to an office environment or any specific policy-related interaction.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild ist ein generisches Archivfoto eines Büros und illustriert in keiner Weise den spezifischen Grund der 'Produktivität und Sicherheit' im Zusammenhang mit der Arbeitsplatzpolitik von Rockstar Games.",
+          "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich zwei in Anzügen gekleidete Personen bei einer Unterhaltung in einem Flur. Es gibt keinen visuellen Bezug zu einer Gewerkschaft, zu Arbeitsverträgen oder zu dem spezifischen Thema flexibler Arbeitsversprechen.",
+          "Einstellung 11: Bild passt nicht zum Sprechtext (4/10): Die gesprochenen Wörter erwähnen Vorbestellungszahlen von über 9 Millionen Einheiten, während das Bild lediglich einen Designer an einem 3D-Modell zeigt, ohne direkten Bezug zu Verkaufszahlen.",
+          "Offenes Problem (schwer): Die sichtbaren Personen schauen ein Videospiel im Retro-Stil an, was nicht direkt die geheimgehaltenen und geschützten Entwicklungsarbeiten des GTA 6 Leaks illustriert, nach denen gefragt wird. Korrektur: Ein Bild, das die tatsächliche Büroumgebung mit blickdichter Fensterfolie oder betroffene Entwicklungsdokumente von Rockstar Games zeigt.",
+          "Offenes Problem (schwer): Die gezeigten 3D-Modelle und Wireframe-Ansichten veranschaulichen die Spieleentwicklung visuell, belegen jedoch nicht spezifisch die formelle Entwicklungsbestätigung durch Rockstar im Februar. Korrektur: Ein offizielles Statement oder eine Pressemitteilung von Rockstar zur Bestätigung der Entwicklung im Februar.",
+          "Offenes Problem (schwer): Das Bild ist eine generische, illustrierte Darstellung eines Entwicklers und hat keinen inhaltlichen Bezug zur rhetorischen Frage oder zum Thema des GTA-Leaks und der Reaktion von Rockstar. Korrektur: Ein Bild, das die tatsächliche offizielle Stellungnahme von Rockstar Games zu dem Leak zeigt oder eine Archivaufnahme des betroffenen Entwicklerbüros.",
+          "Offenes Problem (schwer): Das Bild zeigt eine generische Konferenzszene mit abstrakter Kunst oder einer unkenntlich gemachten Projektion, die in keinerlei Zusammenhang mit der formellen Ankündigung von GTA 6 steht. Korrektur: Ein offizieller Ankündigungs-Trailer, ein Logo oder ein offizielles Bildmaterial von Rockstar Games, das das Spiel GTA 6 präsentiert.",
+          "Offenes Problem (schwer): Das Bild zeigt eine generische Person bei der Arbeit am Laptop. Es fehlt ein Bezug zu Rockstar, der spezifischen Anweisung zum Ende von Homeoffice oder irgendeiner geschäftlichen Kommunikation. Korrektur: Ein Dokument, eine offizielle E-Mail oder eine grafische Darstellung, die die Anweisung von Rockstar an die Mitarbeiter bezüglich der Rückkehr ins Büro im April 2024 zeigt.",
+          "Offenes Problem (schwer): The image depicts a generic office scene with people handling papers, but it does not represent the narrated action of employees returning from remote work to an office environment or any specific policy-related interaction. Korrektur: A photo or illustration showing office workers at desks in a corporate office setting, perhaps with signs related to office presence or workplace policies.",
+          "Offenes Problem (schwer): Das Bild ist ein generisches Archivfoto eines Büros und illustriert in keiner Weise den spezifischen Grund der 'Produktivität und Sicherheit' im Zusammenhang mit der Arbeitsplatzpolitik von Rockstar Games. Korrektur: Ein Dokument, ein interner Aushang oder eine offizielle Mitteilung von Rockstar Games, die die Entscheidung zur Rückkehr ins Büro begründet.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich zwei in Anzügen gekleidete Personen bei einer Unterhaltung in einem Flur. Es gibt keinen visuellen Bezug zu einer Gewerkschaft, zu Arbeitsverträgen oder zu dem spezifischen Thema flexibler Arbeitsversprechen. Korrektur: Ein Bild, das eine Gewerkschaftsvertretung oder ein Dokument zeigt, welches die Kontroverse um die flexiblen Arbeitsbedingungen bei Rockstar Games thematisiert.",
+          "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen Vorbestellungszahlen von über 9 Millionen Einheiten, während das Bild lediglich einen Designer an einem 3D-Modell zeigt, ohne direkten Bezug zu Verkaufszahlen. Korrektur: Ein Diagramm oder eine Grafik, die die Verkaufszahlen oder Vorbestellungen des Spiels darstellt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "kokoro:bm_george",
+          "stimme": 31.1,
+          "zeitmarken": 3.1,
+          "tempo": 1.25,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 4,
+          "stuecke_neu": 10,
+          "bilder_vereinfacht": 2,
+          "clips_und_stuecke": 211.7,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 14,
+            "motive": 14,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 44.2,
+          "gesamt": 439.7,
+          "videolaenge_s": 46.6,
+          "abschnitte_s": [
+            6.88,
+            7.86,
+            7.96,
+            6.75,
+            4.89,
+            6.32,
+            5.95
+          ],
+          "woerter": 97,
+          "clips": {
+            "witz": 1,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:04.30",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "What exactly was it protecting?",
+            "fest": false,
+            "text": "Die sichtbaren Personen schauen ein Videospiel im Retro-Stil an, was nicht direkt die geheimgehaltenen und geschützten Entwicklungsarbeiten des GTA 6 Leaks illustriert, nach denen gefragt wird. Korrektur: Ein Bild, das die tatsächliche Büroumgebung mit blickdichter Fensterfolie oder betroffene Entwicklungsdokumente von Rockstar Games zeigt."
+          },
+          {
+            "zeit": "00:12.30",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "Rockstar had confirmed development that February.",
+            "fest": false,
+            "text": "Die gezeigten 3D-Modelle und Wireframe-Ansichten veranschaulichen die Spieleentwicklung visuell, belegen jedoch nicht spezifisch die formelle Entwicklungsbestätigung durch Rockstar im Februar. Korrektur: Ein offizielles Statement oder eine Pressemitteilung von Rockstar zur Bestätigung der Entwicklung im Februar."
+          },
+          {
+            "zeit": "00:14.74",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "So did Rockstar rush a reply? No.",
+            "fest": false,
+            "text": "Das Bild ist eine generische, illustrierte Darstellung eines Entwicklers und hat keinen inhaltlichen Bezug zur rhetorischen Frage oder zum Thema des GTA-Leaks und der Reaktion von Rockstar. Korrektur: Ein Bild, das die tatsächliche offizielle Stellungnahme von Rockstar Games zu dem Leak zeigt oder eine Archivaufnahme des betroffenen Entwicklerbüros."
+          },
+          {
+            "zeit": "00:18.66",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "The formal reveal came December 2023.",
+            "fest": false,
+            "text": "Das Bild zeigt eine generische Konferenzszene mit abstrakter Kunst oder einer unkenntlich gemachten Projektion, die in keinerlei Zusammenhang mit der formellen Ankündigung von GTA 6 steht. Korrektur: Ein offizieller Ankündigungs-Trailer, ein Logo oder ein offizielles Bildmaterial von Rockstar Games, das das Spiel GTA 6 präsentiert."
+          },
+          {
+            "zeit": "00:22.70",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 6,
+            "gesprochen": "Then Rockstar made a request: from April 2024,",
+            "fest": false,
+            "text": "Das Bild zeigt eine generische Person bei der Arbeit am Laptop. Es fehlt ein Bezug zu Rockstar, der spezifischen Anweisung zum Ende von Homeoffice oder irgendeiner geschäftlichen Kommunikation. Korrektur: Ein Dokument, eine offizielle E-Mail oder eine grafische Darstellung, die die Anweisung von Rockstar an die Mitarbeiter bezüglich der Rückkehr ins Büro im April 2024 zeigt."
+          },
+          {
+            "zeit": "00:26.07",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "employees should stop remote work. Its",
+            "fest": false,
+            "text": "The image depicts a generic office scene with people handling papers, but it does not represent the narrated action of employees returning from remote work to an office environment or any specific policy-related interaction. Korrektur: A photo or illustration showing office workers at desks in a corporate office setting, perhaps with signs related to office presence or workplace policies."
+          },
+          {
+            "zeit": "00:29.45",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "reason: \"for productivity and security.\"",
+            "fest": false,
+            "text": "Das Bild ist ein generisches Archivfoto eines Büros und illustriert in keiner Weise den spezifischen Grund der 'Produktivität und Sicherheit' im Zusammenhang mit der Arbeitsplatzpolitik von Rockstar Games. Korrektur: Ein Dokument, ein interner Aushang oder eine offizielle Mitteilung von Rockstar Games, die die Entscheidung zur Rückkehr ins Büro begründet."
+          },
+          {
+            "zeit": "00:31.84",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "A union said it contradicted flexible-working promises.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich zwei in Anzügen gekleidete Personen bei einer Unterhaltung in einem Flur. Es gibt keinen visuellen Bezug zu einer Gewerkschaft, zu Arbeitsverträgen oder zu dem spezifischen Thema flexibler Arbeitsversprechen. Korrektur: Ein Bild, das eine Gewerkschaftsvertretung oder ein Dokument zeigt, welches die Kontroverse um die flexiblen Arbeitsbedingungen bei Rockstar Games thematisiert."
+          },
+          {
+            "zeit": "00:37.50",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "with over 9 million estimated units.",
+            "fest": false,
+            "text": "Die gesprochenen Wörter erwähnen Vorbestellungszahlen von über 9 Millionen Einheiten, während das Bild lediglich einen Designer an einem 3D-Modell zeigt, ohne direkten Bezug zu Verkaufszahlen. Korrektur: Ein Diagramm oder eine Grafik, die die Verkaufszahlen oder Vorbestellungen des Spiels darstellt."
+          }
+        ],
+        "sekunden": 471.2,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "43830839811-3",
+          "datum": "2026-11-16",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 471.2,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bm_george",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 2
+          },
+          "kategorien_nachher": {
+            "bild_passt": 2
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-11-11.2",
+          "verbessert": false
+        }
+      },
+      {
+        "runde": 4,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bm_george",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-11-11.2"
+        },
+        "skript_s": 4.5,
+        "bau_s": 253.9,
+        "baufehler": "AnbieterNichtVerfuegbar: Textanbieter lieferte keine nutzbare Antwort: Groq HTTP400: Modell lieferte keine gueltige Schema-Antwort",
+        "status": "anbieterpause",
+        "sekunden": 316.8,
+        "lernergebnis": {
+          "id": "43830839811-4",
+          "datum": "2026-11-16",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 316.9,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bm_george",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 2
+          },
+          "kategorien_nachher": {},
+          "auswertbar": false,
+          "prompt_version": "2026-11-11.2",
+          "verbessert": false
+        }
+      },
+      {
+        "runde": 5,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 471.1,
+        "pruefung_s": 72.1,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Die sichtbaren Personen schauen ein Videospiel im Retro-Stil an, was nicht direkt die geheimgehaltenen und geschützten Entwicklungsarbeiten des GTA 6 Leaks illustriert, nach denen gefragt wird.",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (6/10): Die gezeigten 3D-Modelle und Wireframe-Ansichten veranschaulichen die Spieleentwicklung visuell, belegen jedoch nicht spezifisch die formelle Entwicklungsbestätigung durch Rockstar im Februar.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Zeile kündigt den formellen Trailer-Release von GTA 6 im Dezember 2023 an, aber das Bild zeigt lediglich einen sprechenden Mann in einem Raum ohne Bezug zur Spieleankündigung oder Rockstar.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das gezeigte Bild zeigt lediglich eine generische Gruppe von Büroangestellten, die durch einen Flur laufen. Es illustriert in keiner Weise die explizite Forderung von Rockstar nach der Rückkehr zur Büroarbeit oder thematisiert das Konzept der Remote-Arbeit.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die gezeigte Szene ist ein generisches, vermutlich KI-generiertes Bild eines Büroeingangs, das keinen inhaltlichen Bezug zur spezifischen Unternehmensentscheidung von Rockstar Games oder zu den Auswirkungen auf die Mitarbeiterproduktivität und Sicherheit im Kontext der Remote-Work-Debatte herstellt.",
+          "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine Gruppe von Menschen in einem Büro. Der Kommentar bezieht sich jedoch auf eine gewerkschaftliche Aussage zu flexiblen Arbeitsmodellen. Es gibt keinen visuellen Bezug zu einer Gewerkschaft oder einer Diskussion über Arbeitsmodelle.",
+          "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine generische Szene von zwei Personen in einem Flur, die keinerlei Bezug zu Videospielverkäufen, Vorbestellungen oder statistischen Daten haben.",
+          "Einstellung 11: Bild passt nicht zum Sprechtext (4/10): Die gesprochenen Wörter erwähnen Vorbestellungszahlen von über 9 Millionen Einheiten, während das Bild lediglich einen Designer an einem 3D-Modell zeigt, ohne direkten Bezug zu Verkaufszahlen.",
+          "Offenes Problem (schwer): Die sichtbaren Personen schauen ein Videospiel im Retro-Stil an, was nicht direkt die geheimgehaltenen und geschützten Entwicklungsarbeiten des GTA 6 Leaks illustriert, nach denen gefragt wird. Korrektur: Ein Bild, das die tatsächliche Büroumgebung mit blickdichter Fensterfolie oder betroffene Entwicklungsdokumente von Rockstar Games zeigt.",
+          "Offenes Problem (schwer): Die gezeigten 3D-Modelle und Wireframe-Ansichten veranschaulichen die Spieleentwicklung visuell, belegen jedoch nicht spezifisch die formelle Entwicklungsbestätigung durch Rockstar im Februar. Korrektur: Ein offizielles Statement oder eine Pressemitteilung von Rockstar zur Bestätigung der Entwicklung im Februar.",
+          "Offenes Problem (schwer): Die gesprochene Zeile kündigt den formellen Trailer-Release von GTA 6 im Dezember 2023 an, aber das Bild zeigt lediglich einen sprechenden Mann in einem Raum ohne Bezug zur Spieleankündigung oder Rockstar. Korrektur: Ein Screenshot des offiziellen GTA 6 Reveal-Trailers oder eine entsprechende spielbezogene Grafik.",
+          "Offenes Problem (schwer): Das gezeigte Bild zeigt lediglich eine generische Gruppe von Büroangestellten, die durch einen Flur laufen. Es illustriert in keiner Weise die explizite Forderung von Rockstar nach der Rückkehr zur Büroarbeit oder thematisiert das Konzept der Remote-Arbeit. Korrektur: Ein Bild, das die offizielle Mitteilung an die Mitarbeiter zeigt, wie zum Beispiel einen Screenshot einer internen E-Mail oder eine grafische Darstellung, die die Beendigung des Homeoffice thematisiert.",
+          "Offenes Problem (schwer): Die gezeigte Szene ist ein generisches, vermutlich KI-generiertes Bild eines Büroeingangs, das keinen inhaltlichen Bezug zur spezifischen Unternehmensentscheidung von Rockstar Games oder zu den Auswirkungen auf die Mitarbeiterproduktivität und Sicherheit im Kontext der Remote-Work-Debatte herstellt. Korrektur: Ein Foto oder Dokument, das den internen E-Mail-Verkehr von Rockstar Games oder eine offizielle Ankündigung zur Rückkehr ins Büro zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine Gruppe von Menschen in einem Büro. Der Kommentar bezieht sich jedoch auf eine gewerkschaftliche Aussage zu flexiblen Arbeitsmodellen. Es gibt keinen visuellen Bezug zu einer Gewerkschaft oder einer Diskussion über Arbeitsmodelle. Korrektur: Ein Bild, das eine Gewerkschaftsvertretung zeigt oder eine grafische Darstellung, die den Konflikt um die Homeoffice-Regelung bei Rockstar verdeutlicht.",
+          "Offenes Problem (schwer): Das Bild zeigt eine generische Szene von zwei Personen in einem Flur, die keinerlei Bezug zu Videospielverkäufen, Vorbestellungen oder statistischen Daten haben. Korrektur: Eine Grafik oder ein Diagramm, das die Verkaufszahlen oder Vorbestellungen des Spiels darstellt, oder eine Szene, die die Veröffentlichung bzw. den Erfolg des Spiels visuell untermauert.",
+          "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen Vorbestellungszahlen von über 9 Millionen Einheiten, während das Bild lediglich einen Designer an einem 3D-Modell zeigt, ohne direkten Bezug zu Verkaufszahlen. Korrektur: Ein Diagramm oder eine Grafik, die die Verkaufszahlen oder Vorbestellungen des Spiels darstellt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "kokoro:bm_george",
+          "stimme": 31.5,
+          "zeitmarken": 3.1,
+          "tempo": 1.25,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 14,
+          "bilder_vereinfacht": 2,
+          "clips_und_stuecke": 355.9,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 14,
+            "motive": 13,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 44.8,
+          "gesamt": 470.1,
+          "videolaenge_s": 46.6,
+          "abschnitte_s": [
+            6.88,
+            7.86,
+            7.96,
+            6.75,
+            4.89,
+            6.32,
+            5.95
+          ],
+          "woerter": 97,
+          "clips": {
+            "witz": 2,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:04.30",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "What exactly was it protecting?",
+            "fest": false,
+            "text": "Die sichtbaren Personen schauen ein Videospiel im Retro-Stil an, was nicht direkt die geheimgehaltenen und geschützten Entwicklungsarbeiten des GTA 6 Leaks illustriert, nach denen gefragt wird. Korrektur: Ein Bild, das die tatsächliche Büroumgebung mit blickdichter Fensterfolie oder betroffene Entwicklungsdokumente von Rockstar Games zeigt."
+          },
+          {
+            "zeit": "00:12.30",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "Rockstar had confirmed development that February.",
+            "fest": false,
+            "text": "Die gezeigten 3D-Modelle und Wireframe-Ansichten veranschaulichen die Spieleentwicklung visuell, belegen jedoch nicht spezifisch die formelle Entwicklungsbestätigung durch Rockstar im Februar. Korrektur: Ein offizielles Statement oder eine Pressemitteilung von Rockstar zur Bestätigung der Entwicklung im Februar."
+          },
+          {
+            "zeit": "00:18.66",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "The formal reveal came December 2023.",
+            "fest": false,
+            "text": "Die gesprochene Zeile kündigt den formellen Trailer-Release von GTA 6 im Dezember 2023 an, aber das Bild zeigt lediglich einen sprechenden Mann in einem Raum ohne Bezug zur Spieleankündigung oder Rockstar. Korrektur: Ein Screenshot des offiziellen GTA 6 Reveal-Trailers oder eine entsprechende spielbezogene Grafik."
+          },
+          {
+            "zeit": "00:26.07",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 7,
+            "gesprochen": "employees should stop remote work. Its",
+            "fest": false,
+            "text": "Das gezeigte Bild zeigt lediglich eine generische Gruppe von Büroangestellten, die durch einen Flur laufen. Es illustriert in keiner Weise die explizite Forderung von Rockstar nach der Rückkehr zur Büroarbeit oder thematisiert das Konzept der Remote-Arbeit. Korrektur: Ein Bild, das die offizielle Mitteilung an die Mitarbeiter zeigt, wie zum Beispiel einen Screenshot einer internen E-Mail oder eine grafische Darstellung, die die Beendigung des Homeoffice thematisiert."
+          },
+          {
+            "zeit": "00:29.45",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "reason: \"for productivity and security.\"",
+            "fest": false,
+            "text": "Die gezeigte Szene ist ein generisches, vermutlich KI-generiertes Bild eines Büroeingangs, das keinen inhaltlichen Bezug zur spezifischen Unternehmensentscheidung von Rockstar Games oder zu den Auswirkungen auf die Mitarbeiterproduktivität und Sicherheit im Kontext der Remote-Work-Debatte herstellt. Korrektur: Ein Foto oder Dokument, das den internen E-Mail-Verkehr von Rockstar Games oder eine offizielle Ankündigung zur Rückkehr ins Büro zeigt."
+          },
+          {
+            "zeit": "00:31.84",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "A union said it contradicted flexible-working promises.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine Gruppe von Menschen in einem Büro. Der Kommentar bezieht sich jedoch auf eine gewerkschaftliche Aussage zu flexiblen Arbeitsmodellen. Es gibt keinen visuellen Bezug zu einer Gewerkschaft oder einer Diskussion über Arbeitsmodelle. Korrektur: Ein Bild, das eine Gewerkschaftsvertretung zeigt oder eine grafische Darstellung, die den Konflikt um die Homeoffice-Regelung bei Rockstar verdeutlicht."
+          },
+          {
+            "zeit": "00:34.34",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "Rockstar's game still became the most preordered ever,",
+            "fest": false,
+            "text": "Das Bild zeigt eine generische Szene von zwei Personen in einem Flur, die keinerlei Bezug zu Videospielverkäufen, Vorbestellungen oder statistischen Daten haben. Korrektur: Eine Grafik oder ein Diagramm, das die Verkaufszahlen oder Vorbestellungen des Spiels darstellt, oder eine Szene, die die Veröffentlichung bzw. den Erfolg des Spiels visuell untermauert."
+          },
+          {
+            "zeit": "00:37.50",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "with over 9 million estimated units.",
+            "fest": false,
+            "text": "Die gesprochenen Wörter erwähnen Vorbestellungszahlen von über 9 Millionen Einheiten, während das Bild lediglich einen Designer an einem 3D-Modell zeigt, ohne direkten Bezug zu Verkaufszahlen. Korrektur: Ein Diagramm oder eine Grafik, die die Verkaufszahlen oder Vorbestellungen des Spiels darstellt."
+          }
+        ],
+        "sekunden": 545.0,
+        "status": "geprueft",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bm_george",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-11-11.2"
+        },
+        "lernergebnis": {
+          "id": "43830839811-4",
+          "datum": "2026-11-16",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 861.9,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bm_george",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 2
+          },
+          "kategorien_nachher": {
+            "bild_passt": 2
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-11-11.2",
+          "verbessert": false
+        }
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 2617.7,
+    "upload_titel": "THE GTA 6 LEAK: ROCKSTAR CARRIED ON"
   }
 ]

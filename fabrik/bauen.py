@@ -666,11 +666,12 @@ def tipp_eingabe(ein, ebene, zeichne, titel, ordner):
 FOKUS_ZOOM = 0.25
 
 
-def fokus_zoom(fx, fy, n):
+def fokus_zoom(fx, fy, n, staerke=None):
     """zoompan-Ausdruecke (z, x, y): weiche Fahrt (smoothstep) in n Bildern vom Bildmittelpunkt zum Punkt fx/fy
-    (Anteile 0-1 des Bildes), Zoom 1 -> 1+FOKUS_ZOOM; der Ausschnitt bleibt immer im Bild."""
+    (Anteile 0-1 des Bildes), Zoom 1 -> 1+staerke (Standard FOKUS_ZOOM); der Ausschnitt bleibt immer im Bild."""
+    staerke = FOKUS_ZOOM if staerke is None else staerke
     e = f'(min(on/{max(1, int(n))},1)*min(on/{max(1, int(n))},1)*(3-2*min(on/{max(1, int(n))},1)))'
-    z = f'1+{FOKUS_ZOOM}*{e}'
+    z = f'1+{staerke:.4f}*{e}'
     x = f'max(0,min(iw-iw/zoom,iw*(0.5+({fx:.4f}-0.5)*{e})-iw/zoom/2))'
     y = f'max(0,min(ih-ih/zoom,ih*(0.5+({fy:.4f}-0.5)*{e})-ih/zoom/2))'
     return z, x, y
@@ -684,6 +685,22 @@ def fokus_punkt(foto, quelle, kasten):
     with Image.open(foto) as im:
         x, y, w, h = karten_platz(im.size, kasten)
     return (x + w / 2) / B, (y + (m[0] + m[1] / 2) * h) / H
+
+
+# Nutzer 16.11.2026: "noch weiter ran zoomen bis es voll Bild wird ... weil die Fotos immer noch klein bleiben",
+# fuer beide Kanaele und Langvideos. Die Karte (Short 787x1400 von 1080x1920, lang 1536x864 von 1920x1080) zoomte
+# nur bis ZOOM_KARTE_MAX 110 %. Jetzt faehrt sie weich auf sich selbst, bis sie das ganze Bild deckt (Short ~137 %,
+# lang 125 %), und haelt dort. Probe 16.11. (business-market.png) vom Nutzer angefordert.
+VOLLBILD_ANTEIL = 0.75  # nach diesem Anteil der Einstellung ist das Vollbild erreicht
+VOLLBILD_RAND = 1.04    # Eckenradius 28 px der Karte liegt sonst in den Bildecken (dunkle Zwickel)
+
+
+def vollbild_fokus(bild, kasten, dauer):
+    """fokus fuer karten_filter: (fx, fy, n, staerke) - Fahrt auf die Kartenmitte, Zoom bis die Karte B x H deckt."""
+    with Image.open(bild) as im:
+        x, y, w, h = karten_platz(im.size, kasten)
+    voll = max(B / w, H / h) * VOLLBILD_RAND  # etwas weiter: die abgerundeten Kartenecken verschwinden
+    return (x + w / 2) / B, (y + h / 2) / H, max(1, int(dauer * FPS * VOLLBILD_ANTEIL)), voll - 1
 
 
 DREH_MIN_S = 1.5
@@ -1572,11 +1589,14 @@ def kraft_regie(texte):
     return plan
 
 
-# Nutzer 15.11.2026 nach Hoerprobe 3 (Trailer, "6"): ~1,4 Halbtoene tiefer bei gleichem Tempo, mehr Tiefe/Praesenz,
-# enger Kompressor, kurzer Raum. Der Hook-Schlag kommt schon aus den Video-Effekten (impact auf dem ersten Wort).
-KRAFT_KLANG = ('asetrate={rate}*0.92,aresample={rate},atempo=1/0.92,highpass=f=60,equalizer=f=120:t=q:w=1:g=4,'
+# Nutzer 15.11.2026 nach Hoerprobe 3 (Trailer, "6"): mehr Tiefe/Praesenz, enger Kompressor. Der Hook-Schlag kommt
+# schon aus den Video-Effekten (impact auf dem ersten Wort).
+# GEMELDET 16.11.2026 (Business-Short): "klingt, als wuerde der Erzaehler in einer Box sitzen" - Ursache das kurze
+# Echo aecho 35 ms (Kammfilter = kleiner Raum); in Probe 6 verdeckte das Sounddesign es, Shorts haben keine Musik.
+# Nutzer waehlte Probe C: ohne Echo UND ohne Tieferlegung (asetrate*0.92 + atempo klang leicht kuenstlich).
+KRAFT_KLANG = ('highpass=f=60,equalizer=f=120:t=q:w=1:g=4,'
                'equalizer=f=3200:t=q:w=1.2:g=4,acompressor=threshold=-24dB:ratio=6:attack=3:release=60:makeup=5,'
-               'aecho=0.8:0.5:35:0.12,alimiter=limit=0.89')
+               'alimiter=limit=0.89')
 
 
 KRAFT_LANG_ABSTAND_S = 25  # Langvideo: gleicher Effekt hoechstens alle 25 s (Short: jeder Treffer, ~5 je Video)
@@ -2988,7 +3008,8 @@ def main(skript_pfad, aus, vorlage=None):
                         lebend = (lv, ecken_maske(groesse, aus / f'ecken_{i:02d}.png'),
                                   karten_platz(groesse, 'gross'))
                         print(f'Einstellung {i}: lebendes Bild (Parallax)')
-                ein, filt = karten_filter(ill, ebene, kpfad, zoom=True, lebend=lebend)
+                ein, filt = karten_filter(ill, ebene, kpfad, zoom=True, lebend=lebend,
+                                          fokus=vollbild_fokus(ill, 'gross', dauer))
             elif ill:
                 n = max(1, int(dauer * FPS))
                 filt = (f'[0:v]scale={B}:{H}:force_original_aspect_ratio=increase,crop={B}:{H},setsar=1,'
@@ -3004,7 +3025,8 @@ def main(skript_pfad, aus, vorlage=None):
                 if punkt:
                     print(f'Einstellung {i}: Kamerafahrt auf den markierten Absatz')
                 ein, filt = karten_filter(foto, ebene, kpfad, zoom=True,
-                                          fokus=(*punkt, dauer * FPS * 0.8) if punkt else None)
+                                          fokus=(*punkt, dauer * FPS * 0.8) if punkt else
+                                          vollbild_fokus(foto, kasten, dauer))
             elif karte:
                 kpfad = None
                 if karte:
@@ -3097,7 +3119,7 @@ def main(skript_pfad, aus, vorlage=None):
                     raise
                 # Lebende Bilder sind Kuer (Nutzer 28.10.: "mach nichts kaputt") - dann wie bisher bauen
                 print(f'Einstellung {i}: lebendes Bild gescheitert, baue mit Zoom')
-                ein, filt = karten_filter(ill, ebene, kpfad, zoom=True)
+                ein, filt = karten_filter(ill, ebene, kpfad, zoom=True, fokus=vollbild_fokus(ill, 'gross', dauer))
                 if i == 0:
                     ein = tipp_eingabe(ein, ebene, lambda n: bild_fuer(
                         t, s['titel'], i, len(shots), durchsichtig=not karte, karte=karte, akzent=akzent_farbe(s),

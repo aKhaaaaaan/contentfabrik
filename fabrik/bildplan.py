@@ -310,11 +310,27 @@ def codex_einsetzen(daten, zeitplan, bibliothek_bilder, videoformat='short'):
     # ohne 'format' sind Short-Bilder.
     offen = [b for b in bibliothek_bilder if str(b.get('id', '')).startswith('codex-') and b['id'] not in benutzt
              and b.get('format', 'short') == videoformat]
+    # Nutzer 16.11.2026: "das erste Foto bitte auch mit Codex, weil das das wichtigste ist - die ersten 3 Fotos und
+    # die letzten 2 Fotos mit Codex". Bilder mit 'platz' (codexbilder_vorrat, b1-b3 anfang, letzte zwei ende) stehen
+    # FEST auf Einstellung 0,1,2 bzw. vorletzter/letzter - egal welcher Bildmodus dort geplant war.
+    feste = {}
+    for gruppe, plaetze in (('anfang', range(len(daten))), ('ende', range(len(daten) - 1, -1, -1))):
+        bilder = sorted((b for b in offen if b.get('platz') == gruppe), key=lambda b: b['id'])
+        if gruppe == 'ende':
+            bilder.reverse()  # letztes Bild auf die letzte Einstellung
+        for b, i in zip(bilder, [i for i in plaetze if i not in feste.values()]):
+            feste[b['id']] = i
+    motive = {b['id']: str(b.get('motiv', '')) for b in offen}
+    for kennung, i in sorted(feste.items(), key=lambda x: x[1]):
+        daten[i] = dict(daten[i], bildmodus='asset', asset=kennung, motiv=motive[kennung][:60] or daten[i]['motiv'])
+        print(f'Einstellung {i}: Codex-Bild {kennung} (fester Platz Anfang/Ende)')
+    offen = [b for b in offen if b['id'] not in feste]
     frei = [i for i, d in enumerate(daten) if 0 < i < len(daten) - 1 and d.get('bildmodus') == 'illustration'
+            and i not in feste.values()
             and len(re.findall(r'\b(?:like|share|save|follow|comment|subscribe)\b',
                                str(zeitplan[i].get('text', '')).lower())) < 2]  # Aufruf-Satz: Moderator
     if not offen or not frei:
-        return 0
+        return len(feste)
     texte = {i: _codex_staemme(f"{zeitplan[i].get('text', '')} {zeitplan[i].get('phase_text', '')}") for i in frei}
     paare = sorted(((len(_codex_staemme(b.get('motiv')) & texte[i]), -k, i, b['id'])
                     for k, b in enumerate(offen) for i in frei), reverse=True)
@@ -327,11 +343,10 @@ def codex_einsetzen(daten, zeitplan, bibliothek_bilder, videoformat='short'):
     for k, kennung in enumerate(ohne):
         if rest:
             zuteilung[kennung] = rest.pop(min(len(rest) - 1, k * len(rest) // max(1, len(ohne) - k)))
-    motive = {b['id']: str(b.get('motiv', '')) for b in offen}
     for kennung, i in zuteilung.items():
         daten[i] = dict(daten[i], bildmodus='asset', asset=kennung, motiv=motive[kennung][:60] or daten[i]['motiv'])
         print(f'Einstellung {i}: Codex-Bild {kennung} (vorab fuer dieses Thema gemalt)')
-    return len(zuteilung)
+    return len(feste) + len(zuteilung)
 
 
 def malbar_machen(daten, zeitplan, namen=frozenset()):

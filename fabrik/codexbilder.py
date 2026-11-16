@@ -92,6 +92,10 @@ def holen(kanal_slug, kanalname, thema, text, heute=None, repo=None, videoformat
                 neu.append({'id': f'codex-{name.rsplit(".", 1)[0]}', 'datei': f'codex/{name}', 'kanal': kanalname,
                             'motiv': str(b.get('motiv', ''))[:200], 'sha256': b['sha256'],
                             'nur_fuer_themen': begriffe, 'quelle': QUELLE, 'format': videoformat,
+                            # 16.11.2026: fester Platz anfang/mitte/ende (bildplan.codex_einsetzen); alte Pakete ohne
+                            **({'platz': b['platz']} if b.get('platz') in ('anfang', 'mitte', 'ende') else
+                               # alte 4er-Pakete: b1 war immer die Hook-Szene -> erstes Bild
+                               {'platz': 'anfang'} if name.rsplit('.', 1)[0].endswith('-b1') else {}),
                             'sichtkontrolle': f"Codex {plan.get('datum', '')}; Bildpruefer im Lauf"})
     except Exception as e:  # Kuer - darf den Bau nie kippen
         print('Codex-Bilder nicht geholt:', type(e).__name__, str(e)[:120])

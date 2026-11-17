@@ -193169,6 +193169,1632 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "44046347227.1:business-origin-stories",
+      "run_id": "44046347227",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-17T09:25:34.387636+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "f1e3e84154ea73233b00530dd1da2a6bc994c713",
+      "produktionsversion": "a9d68a60ac25a30d0a2f3b677f0b5cab32654c0401e2143c4971ec488f54fc48",
+      "videoformat": "short",
+      "thema": "Megaspeed",
+      "titel": [
+        "*Megaspeed*",
+        "Billions, One Storefront"
+      ],
+      "status": "gesendet",
+      "video_sha256": "c1e922c9d151cd75eeb3c0e33c9fe5fcfe1f68e71071007618eae215cf05be61",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-11.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt gestapelte Computerplatinen mit fiktivem Schriftzug und verdecktem Text im oberen Bereich, bebildert aber nicht konkret die im Text erwähnte Büroadresse oder die genannte Summe.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Handschlag, was abstrakt einen Kauf oder eine Geschäftspartnerschaft symbolisieren könnte, aber es fehlt jeglicher spezifischer Bezug zum Kauf einer Singapurer Gaming-Tochterfirma oder zu Megaspeed.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt allgemeine Server-Infrastruktur und einen Gamecontroller, bebildert aber nicht den spezifischen Vorgang der Firmenübernahme oder Umbenennung einer Gaming-Tochtergesellschaft in Megaspeed.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen Alibaba als Kunden und die Partnerschaft mit Nvidia, aber das Bild zeigt lediglich einen allgemeinen Geschäfts-Handschlag zwischen zwei Personen ohne Bezug zu Nvidia, Alibaba oder Cloud-Partnerschaften.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwei Männer im historischen Stil, aber keine Behörden, Ermittlungen oder den Verdacht bezüglich Chip-Lieferungen.",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt eine Geschäftskonferenz oder Verhandlung, aber keine Ermittlungen durch Behörden in Singapur und Malaysia.",
+        "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt keine Ladenfront eines Unternehmens namens Swiftdata, sondern eine generische, stilisierte Ladenfassade kombiniert mit Computer-Hardware-Elementen. Der Zusammenhang zwischen der Hardware-Grafik und der Erzählung über ein 'storefront office' ist rein metaphorisch und nicht faktisch bel",
+        "Offenes Problem (schwer): Das Bild zeigt gestapelte Computerplatinen mit fiktivem Schriftzug und verdecktem Text im oberen Bereich, bebildert aber nicht konkret die im Text erwähnte Büroadresse oder die genannte Summe. Korrektur: Ein realistisches Foto oder eine anschauliche Illustration eines kleinen Bürogebäudes mit einem Schild, das zu der beschriebenen Firmenadresse passt.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Handschlag, was abstrakt einen Kauf oder eine Geschäftspartnerschaft symbolisieren könnte, aber es fehlt jeglicher spezifischer Bezug zum Kauf einer Singapurer Gaming-Tochterfirma oder zu Megaspeed. Korrektur: Eine Illustration oder Szene, die die Übernahme einer Firma oder Investoren in einem Büro mit entsprechenden Dokumenten darstellt.",
+        "Offenes Problem (schwer): Das Bild zeigt allgemeine Server-Infrastruktur und einen Gamecontroller, bebildert aber nicht den spezifischen Vorgang der Firmenübernahme oder Umbenennung einer Gaming-Tochtergesellschaft in Megaspeed. Korrektur: Eine grafische Darstellung oder ein Dokument, das die Unternehmensstruktur von Megaspeed oder die Umbenennung der Gaming-Tochtergesellschaft veranschaulicht.",
+        "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen Alibaba als Kunden und die Partnerschaft mit Nvidia, aber das Bild zeigt lediglich einen allgemeinen Geschäfts-Handschlag zwischen zwei Personen ohne Bezug zu Nvidia, Alibaba oder Cloud-Partnerschaften. Korrektur: Eine Illustration oder Grafik, die die Partnerschaft zwischen dem Unternehmen, Nvidia und Alibaba oder die Beschaffung von Cloud-Infrastruktur darstellt.",
+        "Offenes Problem (schwer): Das Bild zeigt zwei Männer im historischen Stil, aber keine Behörden, Ermittlungen oder den Verdacht bezüglich Chip-Lieferungen. Korrektur: Ermittler oder Behördenmitarbeiter, die Dokumente über Chip-Exporte prüfen.",
+        "Offenes Problem (schwer): Die Szene zeigt eine Geschäftskonferenz oder Verhandlung, aber keine Ermittlungen durch Behörden in Singapur und Malaysia. Korrektur: Ein Bild von Ermittlern oder Behördenvertretern in Singapur oder Malaysia, die Dokumente prüfen.",
+        "Offenes Problem (schwer): Das Bild zeigt keine Ladenfront eines Unternehmens namens Swiftdata, sondern eine generische, stilisierte Ladenfassade kombiniert mit Computer-Hardware-Elementen. Der Zusammenhang zwischen der Hardware-Grafik und der Erzählung über ein 'storefront office' ist rein metaphorisch und nicht faktisch belegend. Korrektur: Ein reales oder dokumentarisches Foto der tatsächlichen Ladenfront oder des Firmenstandorts von Swiftdata in Singapur."
+      ],
+      "einstellungen": 15,
+      "unterschiedliche_motive": 15,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "44046347227",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-17",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 788.1,
+            "pruefung_s": 247.5,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 1/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt gestapelte Computerplatinen mit fiktivem Schriftzug und verdecktem Text im oberen Bereich, bebildert aber nicht konkret die im Text erwähnte Büroadresse oder die genannte Summe.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar Computer-Hardware (RAM-Riegel) und ein Ladenlokal, dies ist jedoch eine generische, symbolische Illustration und kein Beweis für die im Text erwähnten Vorgänge bei 'Megaspeed'.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt allgemeine Server-Infrastruktur und einen Gamecontroller, bebildert aber nicht den spezifischen Vorgang der Firmenübernahme oder Umbenennung einer Gaming-Tochtergesellschaft in Megaspeed.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (1/10): Das gezeigte Bild ist ein generisches, stilisiertes Porträt eines Mannes und zeigt in keiner Weise Alibaba, Nvidia oder eine Partnerschaft zwischen diesen Unternehmen.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt allgemeine Arbeitsaktivitäten, aber keine visuelle Darstellung von 'Priority chip access' oder den Erwerb von Chips im Wert von 5 Milliarden Dollar.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine generische Szene in einem Labor und auf einer Straße, die keinen Bezug zu den Ermittlungen der US-Behörden bezüglich KI-Chip-Exporten oder dem Unternehmen Megaspeed herstellt.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (4/10): The image shows three uniformed figures handling items in an office-like setting, but it is a generic, illustrative scene that does not show U.S. or international authorities investigating the specific issue of chip exports to China as described.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine generische Person in einer städtischen Umgebung. Es fehlen jegliche visuellen Hinweise auf die im Text genannten Länder (Singapur, Malaysia) oder auf den aktiven Vorgang einer Untersuchung (z. B. Ermittler, Behördengebäude, Akten). Die bloße Anwesenheit einer Person kann den abst",
+              "Offenes Problem (schwer): Das Bild zeigt gestapelte Computerplatinen mit fiktivem Schriftzug und verdecktem Text im oberen Bereich, bebildert aber nicht konkret die im Text erwähnte Büroadresse oder die genannte Summe. Korrektur: Ein realistisches Foto oder eine anschauliche Illustration eines kleinen Bürogebäudes mit einem Schild, das zu der beschriebenen Firmenadresse passt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar Computer-Hardware (RAM-Riegel) und ein Ladenlokal, dies ist jedoch eine generische, symbolische Illustration und kein Beweis für die im Text erwähnten Vorgänge bei 'Megaspeed'. Korrektur: Ein Foto der tatsächlichen Ladenfront oder ein Dokument/Diagramm, das die Firmenstruktur oder die beschriebene Investitionsgeschichte von Megaspeed belegt.",
+              "Offenes Problem (schwer): Das Bild zeigt allgemeine Server-Infrastruktur und einen Gamecontroller, bebildert aber nicht den spezifischen Vorgang der Firmenübernahme oder Umbenennung einer Gaming-Tochtergesellschaft in Megaspeed. Korrektur: Eine grafische Darstellung oder ein Dokument, das die Unternehmensstruktur von Megaspeed oder die Umbenennung der Gaming-Tochtergesellschaft veranschaulicht.",
+              "Offenes Problem (schwer): Das gezeigte Bild ist ein generisches, stilisiertes Porträt eines Mannes und zeigt in keiner Weise Alibaba, Nvidia oder eine Partnerschaft zwischen diesen Unternehmen. Korrektur: Ein Bild, das die Partnerschaft zwischen Alibaba und Nvidia visualisiert, etwa durch Firmenlogos, offizielle Ankündigungsgrafiken oder dokumentierte Geschäftsunterlagen.",
+              "Offenes Problem (schwer): Das Bild zeigt allgemeine Arbeitsaktivitäten, aber keine visuelle Darstellung von 'Priority chip access' oder den Erwerb von Chips im Wert von 5 Milliarden Dollar. Korrektur: Ein Bild, das Dokumente, Grafiken oder Szenen zeigt, die den Erwerb oder die Priorisierung von KI-Hardware-Lieferketten veranschaulichen.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generische Szene in einem Labor und auf einer Straße, die keinen Bezug zu den Ermittlungen der US-Behörden bezüglich KI-Chip-Exporten oder dem Unternehmen Megaspeed herstellt. Korrektur: Ein Bild, das Ermittler oder behördliche Unterlagen zeigt, die sich mit den Exportbeschränkungen oder Untersuchungen gegen Megaspeed befassen.",
+              "Offenes Problem (schwer): The image shows three uniformed figures handling items in an office-like setting, but it is a generic, illustrative scene that does not show U.S. or international authorities investigating the specific issue of chip exports to China as described. Korrektur: An image showing official investigators, documents, or a news report about the investigation into chip exports.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generische Person in einer städtischen Umgebung. Es fehlen jegliche visuellen Hinweise auf die im Text genannten Länder (Singapur, Malaysia) oder auf den aktiven Vorgang einer Untersuchung (z. B. Ermittler, Behördengebäude, Akten). Die bloße Anwesenheit einer Person kann den abstrakten Vorgang einer staatlichen Untersuchung nicht belegen. Korrektur: Eine Illustration, die eine Ermittlungsszene darstellt, z. B. Beamte in einem Büro, die Akten durchgehen, oder ein Gebäude mit Schildern, die auf eine Behörde in Singapur oder Malaysia hinweisen."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "kokoro:bm_george",
+              "stimme": 32.7,
+              "zeitmarken": 2.7,
+              "tempo": 1.25,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 15,
+              "bilder_vereinfacht": 3,
+              "clips_und_stuecke": 542.4,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 15,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 50.7,
+              "gesamt": 787.4,
+              "videolaenge_s": 50.6,
+              "abschnitte_s": [
+                7.76,
+                6.84,
+                3.67,
+                7.73,
+                8.68,
+                8.18,
+                7.75
+              ],
+              "woerter": 102,
+              "clips": {
+                "witz": 2,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 1
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Five billion dollars of AI chips, one storefront office.",
+                "fest": false,
+                "text": "Das Bild zeigt gestapelte Computerplatinen mit fiktivem Schriftzug und verdecktem Text im oberen Bereich, bebildert aber nicht konkret die im Text erwähnte Büroadresse oder die genannte Summe. Korrektur: Ein realistisches Foto oder eine anschauliche Illustration eines kleinen Bürogebäudes mit einem Schild, das zu der beschriebenen Firmenadresse passt."
+              },
+              {
+                "zeit": "00:04.54",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Meet Megaspeed, and its strange rise.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar Computer-Hardware (RAM-Riegel) und ein Ladenlokal, dies ist jedoch eine generische, symbolische Illustration und kein Beweis für die im Text erwähnten Vorgänge bei 'Megaspeed'. Korrektur: Ein Foto der tatsächlichen Ladenfront oder ein Dokument/Diagramm, das die Firmenstruktur oder die beschriebene Investitionsgeschichte von Megaspeed belegt."
+              },
+              {
+                "zeit": "00:11.17",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Singapore gaming subsidiary and renamed it Megaspeed. Alibaba",
+                "fest": false,
+                "text": "Das Bild zeigt allgemeine Server-Infrastruktur und einen Gamecontroller, bebildert aber nicht den spezifischen Vorgang der Firmenübernahme oder Umbenennung einer Gaming-Tochtergesellschaft in Megaspeed. Korrektur: Eine grafische Darstellung oder ein Dokument, das die Unternehmensstruktur von Megaspeed oder die Umbenennung der Gaming-Tochtergesellschaft veranschaulicht."
+              },
+              {
+                "zeit": "00:14.59",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "became its anchor customer, and it became an Nvidia Cloud Partner.",
+                "fest": false,
+                "text": "Das gezeigte Bild ist ein generisches, stilisiertes Porträt eines Mannes und zeigt in keiner Weise Alibaba, Nvidia oder eine Partnerschaft zwischen diesen Unternehmen. Korrektur: Ein Bild, das die Partnerschaft zwischen Alibaba und Nvidia visualisiert, etwa durch Firmenlogos, offizielle Ankündigungsgrafiken oder dokumentierte Geschäftsunterlagen."
+              },
+              {
+                "zeit": "00:18.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 5,
+                "gesprochen": "Priority chip access followed.",
+                "fest": false,
+                "text": "Das Bild zeigt allgemeine Arbeitsaktivitäten, aber keine visuelle Darstellung von 'Priority chip access' oder den Erwerb von Chips im Wert von 5 Milliarden Dollar. Korrektur: Ein Bild, das Dokumente, Grafiken oder Szenen zeigt, die den Erwerb oder die Priorisierung von KI-Hardware-Lieferketten veranschaulichen."
+              },
+              {
+                "zeit": "00:26.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 7,
+                "gesprochen": "So what changed?",
+                "fest": false,
+                "text": "Das Bild zeigt eine generische Szene in einem Labor und auf einer Straße, die keinen Bezug zu den Ermittlungen der US-Behörden bezüglich KI-Chip-Exporten oder dem Unternehmen Megaspeed herstellt. Korrektur: Ein Bild, das Ermittler oder behördliche Unterlagen zeigt, die sich mit den Exportbeschränkungen oder Untersuchungen gegen Megaspeed befassen."
+              },
+              {
+                "zeit": "00:31.06",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "authorities suspected those chips reached Chinese companies without permission.",
+                "fest": false,
+                "text": "The image shows three uniformed figures handling items in an office-like setting, but it is a generic, illustrative scene that does not show U.S. or international authorities investigating the specific issue of chip exports to China as described. Korrektur: An image showing official investigators, documents, or a news report about the investigation into chip exports."
+              },
+              {
+                "zeit": "00:34.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "Singapore and Malaysia investigated too.",
+                "fest": false,
+                "text": "Das Bild zeigt eine generische Person in einer städtischen Umgebung. Es fehlen jegliche visuellen Hinweise auf die im Text genannten Länder (Singapur, Malaysia) oder auf den aktiven Vorgang einer Untersuchung (z. B. Ermittler, Behördengebäude, Akten). Die bloße Anwesenheit einer Person kann den abstrakten Vorgang einer staatlichen Untersuchung nicht belegen. Korrektur: Eine Illustration, die eine Ermittlungsszene darstellt, z. B. Beamte in einem Büro, die Akten durchgehen, oder ein Gebäude mit Schildern, die auf eine Behörde in Singapur oder Malaysia hinweisen."
+              }
+            ],
+            "sekunden": 1038.0,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-11.2"
+            },
+            "skript_s": 3.7,
+            "bau_s": 758.6,
+            "pruefung_s": 35.0,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt gestapelte Computerplatinen mit fiktivem Schriftzug und verdecktem Text im oberen Bereich, bebildert aber nicht konkret die im Text erwähnte Büroadresse oder die genannte Summe.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Handschlag, was abstrakt einen Kauf oder eine Geschäftspartnerschaft symbolisieren könnte, aber es fehlt jeglicher spezifischer Bezug zum Kauf einer Singapurer Gaming-Tochterfirma oder zu Megaspeed.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt allgemeine Server-Infrastruktur und einen Gamecontroller, bebildert aber nicht den spezifischen Vorgang der Firmenübernahme oder Umbenennung einer Gaming-Tochtergesellschaft in Megaspeed.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen Alibaba als Kunden und die Partnerschaft mit Nvidia, aber das Bild zeigt lediglich einen allgemeinen Geschäfts-Handschlag zwischen zwei Personen ohne Bezug zu Nvidia, Alibaba oder Cloud-Partnerschaften.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwei Männer im historischen Stil, aber keine Behörden, Ermittlungen oder den Verdacht bezüglich Chip-Lieferungen.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt eine Geschäftskonferenz oder Verhandlung, aber keine Ermittlungen durch Behörden in Singapur und Malaysia.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt keine Ladenfront eines Unternehmens namens Swiftdata, sondern eine generische, stilisierte Ladenfassade kombiniert mit Computer-Hardware-Elementen. Der Zusammenhang zwischen der Hardware-Grafik und der Erzählung über ein 'storefront office' ist rein metaphorisch und nicht faktisch bel",
+              "Offenes Problem (schwer): Das Bild zeigt gestapelte Computerplatinen mit fiktivem Schriftzug und verdecktem Text im oberen Bereich, bebildert aber nicht konkret die im Text erwähnte Büroadresse oder die genannte Summe. Korrektur: Ein realistisches Foto oder eine anschauliche Illustration eines kleinen Bürogebäudes mit einem Schild, das zu der beschriebenen Firmenadresse passt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Handschlag, was abstrakt einen Kauf oder eine Geschäftspartnerschaft symbolisieren könnte, aber es fehlt jeglicher spezifischer Bezug zum Kauf einer Singapurer Gaming-Tochterfirma oder zu Megaspeed. Korrektur: Eine Illustration oder Szene, die die Übernahme einer Firma oder Investoren in einem Büro mit entsprechenden Dokumenten darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt allgemeine Server-Infrastruktur und einen Gamecontroller, bebildert aber nicht den spezifischen Vorgang der Firmenübernahme oder Umbenennung einer Gaming-Tochtergesellschaft in Megaspeed. Korrektur: Eine grafische Darstellung oder ein Dokument, das die Unternehmensstruktur von Megaspeed oder die Umbenennung der Gaming-Tochtergesellschaft veranschaulicht.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen Alibaba als Kunden und die Partnerschaft mit Nvidia, aber das Bild zeigt lediglich einen allgemeinen Geschäfts-Handschlag zwischen zwei Personen ohne Bezug zu Nvidia, Alibaba oder Cloud-Partnerschaften. Korrektur: Eine Illustration oder Grafik, die die Partnerschaft zwischen dem Unternehmen, Nvidia und Alibaba oder die Beschaffung von Cloud-Infrastruktur darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwei Männer im historischen Stil, aber keine Behörden, Ermittlungen oder den Verdacht bezüglich Chip-Lieferungen. Korrektur: Ermittler oder Behördenmitarbeiter, die Dokumente über Chip-Exporte prüfen.",
+              "Offenes Problem (schwer): Die Szene zeigt eine Geschäftskonferenz oder Verhandlung, aber keine Ermittlungen durch Behörden in Singapur und Malaysia. Korrektur: Ein Bild von Ermittlern oder Behördenvertretern in Singapur oder Malaysia, die Dokumente prüfen.",
+              "Offenes Problem (schwer): Das Bild zeigt keine Ladenfront eines Unternehmens namens Swiftdata, sondern eine generische, stilisierte Ladenfassade kombiniert mit Computer-Hardware-Elementen. Der Zusammenhang zwischen der Hardware-Grafik und der Erzählung über ein 'storefront office' ist rein metaphorisch und nicht faktisch belegend. Korrektur: Ein reales oder dokumentarisches Foto der tatsächlichen Ladenfront oder des Firmenstandorts von Swiftdata in Singapur."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "kokoro:bm_george",
+              "stimme": 30.7,
+              "zeitmarken": 2.6,
+              "tempo": 1.25,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 5,
+              "stuecke_neu": 10,
+              "bilder_vereinfacht": 3,
+              "clips_und_stuecke": 331.4,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 15,
+                "motive": 15,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 49.9,
+              "gesamt": 757.9,
+              "videolaenge_s": 50.6,
+              "abschnitte_s": [
+                7.76,
+                6.84,
+                3.67,
+                7.73,
+                8.68,
+                8.18,
+                7.75
+              ],
+              "woerter": 102,
+              "clips": {
+                "witz": 3,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Five billion dollars of AI chips, one storefront office.",
+                "fest": false,
+                "text": "Das Bild zeigt gestapelte Computerplatinen mit fiktivem Schriftzug und verdecktem Text im oberen Bereich, bebildert aber nicht konkret die im Text erwähnte Büroadresse oder die genannte Summe. Korrektur: Ein realistisches Foto oder eine anschauliche Illustration eines kleinen Bürogebäudes mit einem Schild, das zu der beschriebenen Firmenadresse passt."
+              },
+              {
+                "zeit": "00:07.76",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "In 2023, investors bought a",
+                "fest": false,
+                "text": "Das Bild zeigt einen Handschlag, was abstrakt einen Kauf oder eine Geschäftspartnerschaft symbolisieren könnte, aber es fehlt jeglicher spezifischer Bezug zum Kauf einer Singapurer Gaming-Tochterfirma oder zu Megaspeed. Korrektur: Eine Illustration oder Szene, die die Übernahme einer Firma oder Investoren in einem Büro mit entsprechenden Dokumenten darstellt."
+              },
+              {
+                "zeit": "00:11.17",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Singapore gaming subsidiary and renamed it Megaspeed. Alibaba",
+                "fest": false,
+                "text": "Das Bild zeigt allgemeine Server-Infrastruktur und einen Gamecontroller, bebildert aber nicht den spezifischen Vorgang der Firmenübernahme oder Umbenennung einer Gaming-Tochtergesellschaft in Megaspeed. Korrektur: Eine grafische Darstellung oder ein Dokument, das die Unternehmensstruktur von Megaspeed oder die Umbenennung der Gaming-Tochtergesellschaft veranschaulicht."
+              },
+              {
+                "zeit": "00:14.59",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "became its anchor customer, and it became an Nvidia Cloud Partner.",
+                "fest": false,
+                "text": "Die gesprochenen Wörter erwähnen Alibaba als Kunden und die Partnerschaft mit Nvidia, aber das Bild zeigt lediglich einen allgemeinen Geschäfts-Handschlag zwischen zwei Personen ohne Bezug zu Nvidia, Alibaba oder Cloud-Partnerschaften. Korrektur: Eine Illustration oder Grafik, die die Partnerschaft zwischen dem Unternehmen, Nvidia und Alibaba oder die Beschaffung von Cloud-Infrastruktur darstellt."
+              },
+              {
+                "zeit": "00:31.06",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "authorities suspected those chips reached Chinese companies without permission.",
+                "fest": false,
+                "text": "Das Bild zeigt zwei Männer im historischen Stil, aber keine Behörden, Ermittlungen oder den Verdacht bezüglich Chip-Lieferungen. Korrektur: Ermittler oder Behördenmitarbeiter, die Dokumente über Chip-Exporte prüfen."
+              },
+              {
+                "zeit": "00:34.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "Singapore and Malaysia investigated too.",
+                "fest": false,
+                "text": "Die Szene zeigt eine Geschäftskonferenz oder Verhandlung, aber keine Ermittlungen durch Behörden in Singapur und Malaysia. Korrektur: Ein Bild von Ermittlern oder Behördenvertretern in Singapur oder Malaysia, die Dokumente prüfen."
+              },
+              {
+                "zeit": "00:38.84",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "Its owner Swiftdata had just one storefront office.",
+                "fest": false,
+                "text": "Das Bild zeigt keine Ladenfront eines Unternehmens namens Swiftdata, sondern eine generische, stilisierte Ladenfassade kombiniert mit Computer-Hardware-Elementen. Der Zusammenhang zwischen der Hardware-Grafik und der Erzählung über ein 'storefront office' ist rein metaphorisch und nicht faktisch belegend. Korrektur: Ein reales oder dokumentarisches Foto der tatsächlichen Ladenfront oder des Firmenstandorts von Swiftdata in Singapur."
+              }
+            ],
+            "sekunden": 799.2,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "44046347227-2",
+              "datum": "2026-11-17",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 799.2,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 1
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-11-11.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-11.2"
+            },
+            "skript_s": 4.1,
+            "bau_s": 729.1,
+            "pruefung_s": 88.9,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 1/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt gestapelte Computerplatinen mit fiktivem Schriftzug und verdecktem Text im oberen Bereich, bebildert aber nicht konkret die im Text erwähnte Büroadresse oder die genannte Summe.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar eine Person in geschäftlicher Kleidung, aber weder Investoren noch den Kauf einer Gaming-Tochtergesellschaft oder die Umbenennung in Megaspeed.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt allgemeine Server-Infrastruktur und einen Gamecontroller, bebildert aber nicht den spezifischen Vorgang der Firmenübernahme oder Umbenennung einer Gaming-Tochtergesellschaft in Megaspeed.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (1/10): Das Bild zeigt lediglich eine generische männliche Figur in einem Büro und hat keinen inhaltlichen Bezug zur Partnerschaft von Alibaba oder Nvidia.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine allgemeine Büroszene mit fünf Männern, stellt aber weder die US-Behörden noch die Untersuchung von Chiptransfer-Vorwürfen dar.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine normale Geschäftssitzung mit Personen, die Untersuchung zu Regulierungsbehörden in Singapur und Malaysia ist absolut nicht darstellbar.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt keine Ladenfront eines Unternehmens namens Swiftdata, sondern eine generische, stilisierte Ladenfassade kombiniert mit Computer-Hardware-Elementen. Der Zusammenhang zwischen der Hardware-Grafik und der Erzählung über ein 'storefront office' ist rein metaphorisch und nicht faktisch bel",
+              "Offenes Problem (schwer): Das Bild zeigt gestapelte Computerplatinen mit fiktivem Schriftzug und verdecktem Text im oberen Bereich, bebildert aber nicht konkret die im Text erwähnte Büroadresse oder die genannte Summe. Korrektur: Ein realistisches Foto oder eine anschauliche Illustration eines kleinen Bürogebäudes mit einem Schild, das zu der beschriebenen Firmenadresse passt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar eine Person in geschäftlicher Kleidung, aber weder Investoren noch den Kauf einer Gaming-Tochtergesellschaft oder die Umbenennung in Megaspeed. Korrektur: Eine Darstellung von Geschäftsleuten beim Unterzeichnen eines Firmenkaufvertrags oder eine stilisierte Grafik zur Akquisition einer Tochtergesellschaft.",
+              "Offenes Problem (schwer): Das Bild zeigt allgemeine Server-Infrastruktur und einen Gamecontroller, bebildert aber nicht den spezifischen Vorgang der Firmenübernahme oder Umbenennung einer Gaming-Tochtergesellschaft in Megaspeed. Korrektur: Eine grafische Darstellung oder ein Dokument, das die Unternehmensstruktur von Megaspeed oder die Umbenennung der Gaming-Tochtergesellschaft veranschaulicht.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine generische männliche Figur in einem Büro und hat keinen inhaltlichen Bezug zur Partnerschaft von Alibaba oder Nvidia. Korrektur: Ein Dokument oder eine grafische Darstellung, die die Partnerschaft zwischen Megaspeed, Alibaba und Nvidia zeigt oder belegt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine allgemeine Büroszene mit fünf Männern, stellt aber weder die US-Behörden noch die Untersuchung von Chiptransfer-Vorwürfen dar. Korrektur: Ein Bild, das symbolisch eine behördliche Untersuchung oder Dokumente im Zusammenhang mit den Exportkontrollen oder Ermittlungen gegen ein Unternehmen zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine normale Geschäftssitzung mit Personen, die Untersuchung zu Regulierungsbehörden in Singapur und Malaysia ist absolut nicht darstellbar. Korrektur: Ein Foto von Untersuchungsakten oder behördlichen Gebäuden in Singapur oder Malaysia.",
+              "Offenes Problem (schwer): Das Bild zeigt keine Ladenfront eines Unternehmens namens Swiftdata, sondern eine generische, stilisierte Ladenfassade kombiniert mit Computer-Hardware-Elementen. Der Zusammenhang zwischen der Hardware-Grafik und der Erzählung über ein 'storefront office' ist rein metaphorisch und nicht faktisch belegend. Korrektur: Ein reales oder dokumentarisches Foto der tatsächlichen Ladenfront oder des Firmenstandorts von Swiftdata in Singapur."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "kokoro:bm_george",
+              "stimme": 31.7,
+              "zeitmarken": 2.6,
+              "tempo": 1.25,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 8,
+              "stuecke_neu": 7,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 299.6,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 15,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 52.1,
+              "gesamt": 728.8,
+              "videolaenge_s": 50.6,
+              "abschnitte_s": [
+                7.76,
+                6.84,
+                3.67,
+                7.73,
+                8.68,
+                8.18,
+                7.75
+              ],
+              "woerter": 102,
+              "clips": {
+                "witz": 3,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 1
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Five billion dollars of AI chips, one storefront office.",
+                "fest": false,
+                "text": "Das Bild zeigt gestapelte Computerplatinen mit fiktivem Schriftzug und verdecktem Text im oberen Bereich, bebildert aber nicht konkret die im Text erwähnte Büroadresse oder die genannte Summe. Korrektur: Ein realistisches Foto oder eine anschauliche Illustration eines kleinen Bürogebäudes mit einem Schild, das zu der beschriebenen Firmenadresse passt."
+              },
+              {
+                "zeit": "00:07.76",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "In 2023, investors bought a",
+                "fest": false,
+                "text": "Das Bild zeigt zwar eine Person in geschäftlicher Kleidung, aber weder Investoren noch den Kauf einer Gaming-Tochtergesellschaft oder die Umbenennung in Megaspeed. Korrektur: Eine Darstellung von Geschäftsleuten beim Unterzeichnen eines Firmenkaufvertrags oder eine stilisierte Grafik zur Akquisition einer Tochtergesellschaft."
+              },
+              {
+                "zeit": "00:11.17",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Singapore gaming subsidiary and renamed it Megaspeed. Alibaba",
+                "fest": false,
+                "text": "Das Bild zeigt allgemeine Server-Infrastruktur und einen Gamecontroller, bebildert aber nicht den spezifischen Vorgang der Firmenübernahme oder Umbenennung einer Gaming-Tochtergesellschaft in Megaspeed. Korrektur: Eine grafische Darstellung oder ein Dokument, das die Unternehmensstruktur von Megaspeed oder die Umbenennung der Gaming-Tochtergesellschaft veranschaulicht."
+              },
+              {
+                "zeit": "00:14.59",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "became its anchor customer, and it became an Nvidia Cloud Partner.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich eine generische männliche Figur in einem Büro und hat keinen inhaltlichen Bezug zur Partnerschaft von Alibaba oder Nvidia. Korrektur: Ein Dokument oder eine grafische Darstellung, die die Partnerschaft zwischen Megaspeed, Alibaba und Nvidia zeigt oder belegt."
+              },
+              {
+                "zeit": "00:31.06",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "authorities suspected those chips reached Chinese companies without permission.",
+                "fest": false,
+                "text": "Das Bild zeigt eine allgemeine Büroszene mit fünf Männern, stellt aber weder die US-Behörden noch die Untersuchung von Chiptransfer-Vorwürfen dar. Korrektur: Ein Bild, das symbolisch eine behördliche Untersuchung oder Dokumente im Zusammenhang mit den Exportkontrollen oder Ermittlungen gegen ein Unternehmen zeigt."
+              },
+              {
+                "zeit": "00:34.68",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "Singapore and Malaysia investigated too.",
+                "fest": false,
+                "text": "Das Bild zeigt eine normale Geschäftssitzung mit Personen, die Untersuchung zu Regulierungsbehörden in Singapur und Malaysia ist absolut nicht darstellbar. Korrektur: Ein Foto von Untersuchungsakten oder behördlichen Gebäuden in Singapur oder Malaysia."
+              },
+              {
+                "zeit": "00:38.84",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "Its owner Swiftdata had just one storefront office.",
+                "fest": false,
+                "text": "Das Bild zeigt keine Ladenfront eines Unternehmens namens Swiftdata, sondern eine generische, stilisierte Ladenfassade kombiniert mit Computer-Hardware-Elementen. Der Zusammenhang zwischen der Hardware-Grafik und der Erzählung über ein 'storefront office' ist rein metaphorisch und nicht faktisch belegend. Korrektur: Ein reales oder dokumentarisches Foto der tatsächlichen Ladenfront oder des Firmenstandorts von Swiftdata in Singapur."
+              }
+            ],
+            "sekunden": 824.2,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "44046347227-3",
+              "datum": "2026-11-17",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 824.2,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 1
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-11-11.2",
+              "verbessert": false
+            }
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 2763.1,
+        "upload_titel": "Megaspeed: Billions, One Storefront"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Five billion dollars of AI chips, one storefront office.",
+            "fest": false,
+            "text": "Das Bild zeigt gestapelte Computerplatinen mit fiktivem Schriftzug und verdecktem Text im oberen Bereich, bebildert aber nicht konkret die im Text erwähnte Büroadresse oder die genannte Summe. Korrektur: Ein realistisches Foto oder eine anschauliche Illustration eines kleinen Bürogebäudes mit einem Schild, das zu der beschriebenen Firmenadresse passt."
+          },
+          {
+            "zeit": "00:07.76",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "In 2023, investors bought a",
+            "fest": false,
+            "text": "Das Bild zeigt einen Handschlag, was abstrakt einen Kauf oder eine Geschäftspartnerschaft symbolisieren könnte, aber es fehlt jeglicher spezifischer Bezug zum Kauf einer Singapurer Gaming-Tochterfirma oder zu Megaspeed. Korrektur: Eine Illustration oder Szene, die die Übernahme einer Firma oder Investoren in einem Büro mit entsprechenden Dokumenten darstellt."
+          },
+          {
+            "zeit": "00:11.17",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 3,
+            "gesprochen": "Singapore gaming subsidiary and renamed it Megaspeed. Alibaba",
+            "fest": false,
+            "text": "Das Bild zeigt allgemeine Server-Infrastruktur und einen Gamecontroller, bebildert aber nicht den spezifischen Vorgang der Firmenübernahme oder Umbenennung einer Gaming-Tochtergesellschaft in Megaspeed. Korrektur: Eine grafische Darstellung oder ein Dokument, das die Unternehmensstruktur von Megaspeed oder die Umbenennung der Gaming-Tochtergesellschaft veranschaulicht."
+          },
+          {
+            "zeit": "00:14.59",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "became its anchor customer, and it became an Nvidia Cloud Partner.",
+            "fest": false,
+            "text": "Die gesprochenen Wörter erwähnen Alibaba als Kunden und die Partnerschaft mit Nvidia, aber das Bild zeigt lediglich einen allgemeinen Geschäfts-Handschlag zwischen zwei Personen ohne Bezug zu Nvidia, Alibaba oder Cloud-Partnerschaften. Korrektur: Eine Illustration oder Grafik, die die Partnerschaft zwischen dem Unternehmen, Nvidia und Alibaba oder die Beschaffung von Cloud-Infrastruktur darstellt."
+          },
+          {
+            "zeit": "00:31.06",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "authorities suspected those chips reached Chinese companies without permission.",
+            "fest": false,
+            "text": "Das Bild zeigt zwei Männer im historischen Stil, aber keine Behörden, Ermittlungen oder den Verdacht bezüglich Chip-Lieferungen. Korrektur: Ermittler oder Behördenmitarbeiter, die Dokumente über Chip-Exporte prüfen."
+          },
+          {
+            "zeit": "00:34.68",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "Singapore and Malaysia investigated too.",
+            "fest": false,
+            "text": "Die Szene zeigt eine Geschäftskonferenz oder Verhandlung, aber keine Ermittlungen durch Behörden in Singapur und Malaysia. Korrektur: Ein Bild von Ermittlern oder Behördenvertretern in Singapur oder Malaysia, die Dokumente prüfen."
+          },
+          {
+            "zeit": "00:38.84",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 11,
+            "gesprochen": "Its owner Swiftdata had just one storefront office.",
+            "fest": false,
+            "text": "Das Bild zeigt keine Ladenfront eines Unternehmens namens Swiftdata, sondern eine generische, stilisierte Ladenfassade kombiniert mit Computer-Hardware-Elementen. Der Zusammenhang zwischen der Hardware-Grafik und der Erzählung über ein 'storefront office' ist rein metaphorisch und nicht faktisch belegend. Korrektur: Ein reales oder dokumentarisches Foto der tatsächlichen Ladenfront oder des Firmenstandorts von Swiftdata in Singapur."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 50.6,
+          "fps": 30.0,
+          "lufs": -14.1,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 45.08,
+              "bis_s": 46.86,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.956
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 30.6,
+              "bis_s": 51.1,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "$5",
+                "s": 0.02,
+                "e": 0.62,
+                "p": 0.6826117485761642
+              },
+              {
+                "w": "billion",
+                "s": 0.62,
+                "e": 0.96,
+                "p": 0.8772523403167725
+              },
+              {
+                "w": "of",
+                "s": 0.96,
+                "e": 1.6,
+                "p": 0.9831807017326355
+              },
+              {
+                "w": "AI",
+                "s": 1.6,
+                "e": 1.9,
+                "p": 0.8884665369987488
+              },
+              {
+                "w": "chips",
+                "s": 1.9,
+                "e": 2.4,
+                "p": 0.9798343777656555
+              },
+              {
+                "w": "won",
+                "s": 2.4,
+                "e": 2.96,
+                "p": 0.2454422265291214
+              },
+              {
+                "w": "storefront",
+                "s": 2.96,
+                "e": 3.44,
+                "p": 0.5516172647476196
+              },
+              {
+                "w": "office,",
+                "s": 3.44,
+                "e": 3.94,
+                "p": 0.9896355271339417
+              },
+              {
+                "w": "meet",
+                "s": 4.42,
+                "e": 4.8,
+                "p": 0.8572026491165161
+              },
+              {
+                "w": "megaspede,",
+                "s": 4.8,
+                "e": 5.44,
+                "p": 0.7322446604569753
+              },
+              {
+                "w": "and",
+                "s": 5.76,
+                "e": 5.94,
+                "p": 0.995843231678009
+              },
+              {
+                "w": "its",
+                "s": 5.94,
+                "e": 6.04,
+                "p": 0.8668819069862366
+              },
+              {
+                "w": "strange",
+                "s": 6.04,
+                "e": 6.38,
+                "p": 0.9454933404922485
+              },
+              {
+                "w": "rise.",
+                "s": 6.38,
+                "e": 6.86,
+                "p": 0.9800280332565308
+              },
+              {
+                "w": "In",
+                "s": 8.08,
+                "e": 8.18,
+                "p": 0.9873193502426147
+              },
+              {
+                "w": "2023,",
+                "s": 8.18,
+                "e": 9.58,
+                "p": 0.9657312035560608
+              },
+              {
+                "w": "investors",
+                "s": 9.9,
+                "e": 10.3,
+                "p": 0.9924678206443787
+              },
+              {
+                "w": "bought",
+                "s": 10.3,
+                "e": 10.84,
+                "p": 0.9800927639007568
+              },
+              {
+                "w": "a",
+                "s": 10.84,
+                "e": 11.0,
+                "p": 0.9981164932250977
+              },
+              {
+                "w": "Singapore",
+                "s": 11.0,
+                "e": 11.4,
+                "p": 0.9944382905960083
+              },
+              {
+                "w": "gaming",
+                "s": 11.4,
+                "e": 11.82,
+                "p": 0.7509187459945679
+              },
+              {
+                "w": "subsidiary",
+                "s": 11.82,
+                "e": 12.36,
+                "p": 0.9973773956298828
+              },
+              {
+                "w": "and",
+                "s": 12.36,
+                "e": 13.04,
+                "p": 0.8740780353546143
+              },
+              {
+                "w": "renamed",
+                "s": 13.04,
+                "e": 13.34,
+                "p": 0.991856575012207
+              },
+              {
+                "w": "it",
+                "s": 13.34,
+                "e": 13.56,
+                "p": 0.9957858920097351
+              },
+              {
+                "w": "megaspede.",
+                "s": 13.56,
+                "e": 14.2,
+                "p": 0.8947359522183737
+              },
+              {
+                "w": "The",
+                "s": 14.66,
+                "e": 14.68,
+                "p": 0.2884691059589386
+              },
+              {
+                "w": "barber",
+                "s": 14.68,
+                "e": 14.94,
+                "p": 0.5583994463086128
+              },
+              {
+                "w": "became",
+                "s": 14.94,
+                "e": 15.18,
+                "p": 0.9925803542137146
+              },
+              {
+                "w": "its",
+                "s": 15.18,
+                "e": 15.32,
+                "p": 0.9820249080657959
+              },
+              {
+                "w": "anchor",
+                "s": 15.32,
+                "e": 15.48,
+                "p": 0.8992571830749512
+              },
+              {
+                "w": "customer",
+                "s": 15.48,
+                "e": 15.86,
+                "p": 0.9729223847389221
+              },
+              {
+                "w": "and",
+                "s": 15.86,
+                "e": 16.38,
+                "p": 0.6507219672203064
+              },
+              {
+                "w": "it",
+                "s": 16.38,
+                "e": 16.44,
+                "p": 0.9326092004776001
+              },
+              {
+                "w": "became",
+                "s": 16.44,
+                "e": 16.66,
+                "p": 0.9982808828353882
+              },
+              {
+                "w": "an",
+                "s": 16.66,
+                "e": 16.8,
+                "p": 0.9898900985717773
+              },
+              {
+                "w": "Nvidia",
+                "s": 16.8,
+                "e": 17.14,
+                "p": 0.7078998684883118
+              },
+              {
+                "w": "cloud",
+                "s": 17.14,
+                "e": 17.5,
+                "p": 0.7748448252677917
+              },
+              {
+                "w": "partner.",
+                "s": 17.5,
+                "e": 17.9,
+                "p": 0.9916481971740723
+              },
+              {
+                "w": "Priority",
+                "s": 18.44,
+                "e": 18.44,
+                "p": 0.9603086113929749
+              },
+              {
+                "w": "chip",
+                "s": 18.44,
+                "e": 18.78,
+                "p": 0.9034618735313416
+              },
+              {
+                "w": "access",
+                "s": 18.78,
+                "e": 19.08,
+                "p": 0.9867321848869324
+              },
+              {
+                "w": "followed.",
+                "s": 19.08,
+                "e": 19.52,
+                "p": 0.9960899949073792
+              },
+              {
+                "w": "By",
+                "s": 20.36,
+                "e": 20.4,
+                "p": 0.9890084862709045
+              },
+              {
+                "w": "November",
+                "s": 20.4,
+                "e": 20.7,
+                "p": 0.9936845898628235
+              },
+              {
+                "w": "2023,",
+                "s": 20.7,
+                "e": 22.4,
+                "p": 0.8655126690864563
+              },
+              {
+                "w": "it",
+                "s": 22.78,
+                "e": 22.98,
+                "p": 0.9958920478820801
+              },
+              {
+                "w": "had",
+                "s": 22.98,
+                "e": 23.04,
+                "p": 0.9932706952095032
+              },
+              {
+                "w": "acquired",
+                "s": 23.04,
+                "e": 23.3,
+                "p": 0.9983362555503845
+              },
+              {
+                "w": "around",
+                "s": 23.3,
+                "e": 23.78,
+                "p": 0.9604253768920898
+              },
+              {
+                "w": "$5",
+                "s": 23.78,
+                "e": 24.56,
+                "p": 0.9680053889751434
+              },
+              {
+                "w": "billion",
+                "s": 24.56,
+                "e": 24.94,
+                "p": 0.9914724230766296
+              },
+              {
+                "w": "in",
+                "s": 24.94,
+                "e": 25.2,
+                "p": 0.9883501529693604
+              },
+              {
+                "w": "chips.",
+                "s": 25.2,
+                "e": 25.46,
+                "p": 0.9943804144859314
+              },
+              {
+                "w": "So",
+                "s": 26.4,
+                "e": 26.66,
+                "p": 0.991394579410553
+              },
+              {
+                "w": "what",
+                "s": 26.66,
+                "e": 26.88,
+                "p": 0.7127755284309387
+              },
+              {
+                "w": "changed?",
+                "s": 26.88,
+                "e": 27.24,
+                "p": 0.998860239982605
+              },
+              {
+                "w": "changed.",
+                "s": 27.24,
+                "e": 27.48,
+                "p": 0.04082956165075302
+              },
+              {
+                "w": "By",
+                "s": 28.12,
+                "e": 28.36,
+                "p": 0.9098703861236572
+              },
+              {
+                "w": "2024",
+                "s": 28.36,
+                "e": 28.82,
+                "p": 0.591385006904602
+              },
+              {
+                "w": "U",
+                "s": 28.82,
+                "e": 30.32,
+                "p": 0.32505616545677185
+              },
+              {
+                "w": ".S.,",
+                "s": 30.32,
+                "e": 31.06,
+                "p": 0.8137770295143127
+              },
+              {
+                "w": "authorities",
+                "s": 31.06,
+                "e": 31.44,
+                "p": 0.9920978546142578
+              },
+              {
+                "w": "suspected",
+                "s": 31.44,
+                "e": 31.86,
+                "p": 0.970893919467926
+              },
+              {
+                "w": "those",
+                "s": 31.86,
+                "e": 32.1,
+                "p": 0.9731637239456177
+              },
+              {
+                "w": "chips",
+                "s": 32.1,
+                "e": 32.3,
+                "p": 0.8694515228271484
+              },
+              {
+                "w": "reached",
+                "s": 32.3,
+                "e": 32.7,
+                "p": 0.7494467496871948
+              },
+              {
+                "w": "Chinese",
+                "s": 32.7,
+                "e": 32.98,
+                "p": 0.9942821264266968
+              },
+              {
+                "w": "companies",
+                "s": 32.98,
+                "e": 33.36,
+                "p": 0.9946339130401611
+              },
+              {
+                "w": "without",
+                "s": 33.36,
+                "e": 33.9,
+                "p": 0.9895305633544922
+              },
+              {
+                "w": "permission.",
+                "s": 33.9,
+                "e": 34.16,
+                "p": 0.9974415302276611
+              },
+              {
+                "w": "Singapore",
+                "s": 35.0,
+                "e": 35.34,
+                "p": 0.992724597454071
+              },
+              {
+                "w": "and",
+                "s": 35.34,
+                "e": 35.98,
+                "p": 0.9826578497886658
+              },
+              {
+                "w": "Malaysia",
+                "s": 35.98,
+                "e": 36.26,
+                "p": 0.9858975410461426
+              },
+              {
+                "w": "investigated",
+                "s": 36.26,
+                "e": 37.4,
+                "p": 0.9927460551261902
+              },
+              {
+                "w": "two.",
+                "s": 37.4,
+                "e": 37.94,
+                "p": 0.18888409435749054
+              },
+              {
+                "w": "Its",
+                "s": 38.78,
+                "e": 39.16,
+                "p": 0.9022159576416016
+              },
+              {
+                "w": "owner",
+                "s": 39.16,
+                "e": 39.34,
+                "p": 0.8759503960609436
+              },
+              {
+                "w": "Swift",
+                "s": 39.34,
+                "e": 39.7,
+                "p": 0.6134887933731079
+              },
+              {
+                "w": "Data",
+                "s": 39.7,
+                "e": 39.96,
+                "p": 0.394369900226593
+              },
+              {
+                "w": "had",
+                "s": 39.96,
+                "e": 40.56,
+                "p": 0.9774670004844666
+              },
+              {
+                "w": "just",
+                "s": 40.56,
+                "e": 40.84,
+                "p": 0.9937247633934021
+              },
+              {
+                "w": "one",
+                "s": 40.84,
+                "e": 41.1,
+                "p": 0.7976654767990112
+              },
+              {
+                "w": "storefront",
+                "s": 41.1,
+                "e": 41.58,
+                "p": 0.961835503578186
+              },
+              {
+                "w": "office.",
+                "s": 41.58,
+                "e": 42.14,
+                "p": 0.9976778626441956
+              },
+              {
+                "w": "Billions",
+                "s": 42.66,
+                "e": 43.14,
+                "p": 0.7985228002071381
+              },
+              {
+                "w": "one",
+                "s": 43.14,
+                "e": 43.6,
+                "p": 0.5013631582260132
+              },
+              {
+                "w": "storefront.",
+                "s": 43.6,
+                "e": 44.12,
+                "p": 0.9842617511749268
+              },
+              {
+                "w": "Be",
+                "s": 44.66,
+                "e": 44.72,
+                "p": 0.9943345785140991
+              },
+              {
+                "w": "sure",
+                "s": 44.72,
+                "e": 44.92,
+                "p": 0.9986677169799805
+              },
+              {
+                "w": "to",
+                "s": 44.92,
+                "e": 45.08,
+                "p": 0.993263840675354
+              },
+              {
+                "w": "like,",
+                "s": 45.08,
+                "e": 45.28,
+                "p": 0.9661498665809631
+              },
+              {
+                "w": "share",
+                "s": 45.5,
+                "e": 45.76,
+                "p": 0.9981492757797241
+              },
+              {
+                "w": "and",
+                "s": 45.76,
+                "e": 46.06,
+                "p": 0.792567789554596
+              },
+              {
+                "w": "save",
+                "s": 46.06,
+                "e": 46.3,
+                "p": 0.990048885345459
+              },
+              {
+                "w": "this",
+                "s": 46.3,
+                "e": 46.54,
+                "p": 0.990564227104187
+              },
+              {
+                "w": "video.",
+                "s": 46.54,
+                "e": 46.86,
+                "p": 0.9984649419784546
+              },
+              {
+                "w": "Which",
+                "s": 47.38,
+                "e": 47.4,
+                "p": 0.9848628640174866
+              },
+              {
+                "w": "company",
+                "s": 47.4,
+                "e": 47.8,
+                "p": 0.9890844225883484
+              },
+              {
+                "w": "next?",
+                "s": 47.8,
+                "e": 48.16,
+                "p": 0.9606450200080872
+              },
+              {
+                "w": "Comment",
+                "s": 48.82,
+                "e": 48.96,
+                "p": 0.9929065704345703
+              },
+              {
+                "w": "and",
+                "s": 48.96,
+                "e": 49.3,
+                "p": 0.9929889440536499
+              },
+              {
+                "w": "follow",
+                "s": 49.3,
+                "e": 49.58,
+                "p": 0.9920965433120728
+              },
+              {
+                "w": "for",
+                "s": 49.58,
+                "e": 49.92,
+                "p": 0.9896371960639954
+              },
+              {
+                "w": "more.",
+                "s": 49.92,
+                "e": 50.14,
+                "p": 0.9993657469749451
+              }
+            ],
+            "dauer_s": 50.5386875,
+            "sprache": "en"
+          },
+          "roh_key": "68a28e8b8e5a8cfd9e798f6a3006b189d2f06efac500a2a73b11498bcbf435d8",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "c1e922c9d151cd75eeb3c0e33c9fe5fcfe1f68e71071007618eae215cf05be61",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 50.6,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 15,
+          "motive": 15,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "c1e922c9d151cd75eeb3c0e33c9fe5fcfe1f68e71071007618eae215cf05be61",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Stapel aus grünen Platinen und computerähnlicher Hardware mit der Aufschrift CHIPS ONE",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt gestapelte Computerplatinen mit fiktivem Schriftzug und verdecktem Text im oberen Bereich, bebildert aber nicht konkret die im Text erwähnte Büroadresse oder die genannte Summe.",
+              "erforderliches_bild": "Ein realistisches Foto oder eine anschauliche Illustration eines kleinen Bürogebäudes mit einem Schild, das zu der beschriebenen Firmenadresse passt."
+            },
+            {
+              "index": 2,
+              "gesehen": "Zwei geschäftsmäßig gekleidete Männer geben sich in einem hellen Büro vor Fenstern mit Blick auf eine Straße die Hand.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Handschlag, was abstrakt einen Kauf oder eine Geschäftspartnerschaft symbolisieren könnte, aber es fehlt jeglicher spezifischer Bezug zum Kauf einer Singapurer Gaming-Tochterfirma oder zu Megaspeed.",
+              "erforderliches_bild": "Eine Illustration oder Szene, die die Übernahme einer Firma oder Investoren in einem Büro mit entsprechenden Dokumenten darstellt."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Mann und eine Frau im Anzug stehen in einem Serverraum vor großen Schränken mit Hardware, im Vordergrund ist ein Gamecontroller zu sehen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt allgemeine Server-Infrastruktur und einen Gamecontroller, bebildert aber nicht den spezifischen Vorgang der Firmenübernahme oder Umbenennung einer Gaming-Tochtergesellschaft in Megaspeed.",
+              "erforderliches_bild": "Eine grafische Darstellung oder ein Dokument, das die Unternehmensstruktur von Megaspeed oder die Umbenennung der Gaming-Tochtergesellschaft veranschaulicht."
+            },
+            {
+              "index": 4,
+              "gesehen": "Gezeigt wird eine gemalte Illustration von zwei Personen in Business-Anzügen, die sich vor einem Fenster mit Blick auf eine Straßenszene die Hände schütteln.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gesprochenen Wörter erwähnen Alibaba als Kunden und die Partnerschaft mit Nvidia, aber das Bild zeigt lediglich einen allgemeinen Geschäfts-Handschlag zwischen zwei Personen ohne Bezug zu Nvidia, Alibaba oder Cloud-Partnerschaften.",
+              "erforderliches_bild": "Eine Illustration oder Grafik, die die Partnerschaft zwischen dem Unternehmen, Nvidia und Alibaba oder die Beschaffung von Cloud-Infrastruktur darstellt."
+            },
+            {
+              "index": 6,
+              "gesehen": "Eine Nahaufnahme eines Computer-Prozessors auf einer Hauptplatine.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt einen Computer-Prozessor (Chip), was das Thema der Anschaffung von AI-Chips direkt illustriert.",
+              "erforderliches_bild": "Keines, da das Bild den Chip-Kontext passend visualisiert."
+            },
+            {
+              "index": 7,
+              "gesehen": "Fünf Männer in einfachen Hemden sitzen an einem Holztisch in einem schlichten Büro mit großen Fenstern und besprechen Papiere.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die rhetorische Übergangsfrage passt zu einer kontinuierlichen Szene mit Geschäftsleuten in einem schlichten Büro.",
+              "erforderliches_bild": "Ein passendes Büro-Szenario mit Personen im Gespräch."
+            },
+            {
+              "index": 9,
+              "gesehen": "Zwei Männer in historischen Westen stehen in einem Raum mit großen Fenstern.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt zwei Männer im historischen Stil, aber keine Behörden, Ermittlungen oder den Verdacht bezüglich Chip-Lieferungen.",
+              "erforderliches_bild": "Ermittler oder Behördenmitarbeiter, die Dokumente über Chip-Exporte prüfen."
+            },
+            {
+              "index": 10,
+              "gesehen": "Fünf Männer in Business-Anzügen sitzen um einen Konferenztisch, während ein Mann mit Anzug und Hut im Hintergrund steht und gestikuliert.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die Szene zeigt eine Geschäftskonferenz oder Verhandlung, aber keine Ermittlungen durch Behörden in Singapur und Malaysia.",
+              "erforderliches_bild": "Ein Bild von Ermittlern oder Behördenvertretern in Singapur oder Malaysia, die Dokumente prüfen."
+            },
+            {
+              "index": 11,
+              "gesehen": "Eine bemalte, illustrierte Szene zeigt eine Ladenfront an einer Straße bei Dämmerung und im Vordergrund eine Computer-Hauptplatine (RAM-Riegel), die teilweise durch eine Lupe vergrößert dargestellt wird.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt keine Ladenfront eines Unternehmens namens Swiftdata, sondern eine generische, stilisierte Ladenfassade kombiniert mit Computer-Hardware-Elementen. Der Zusammenhang zwischen der Hardware-Grafik und der Erzählung über ein 'storefront office' ist rein metaphorisch und nicht faktisch belegend.",
+              "erforderliches_bild": "Ein reales oder dokumentarisches Foto der tatsächlichen Ladenfront oder des Firmenstandorts von Swiftdata in Singapur."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt gestapelte Computerplatinen mit fiktivem Schriftzug und verdecktem Text im oberen Bereich, bebildert aber nicht konkret die im Text erwähnte Büroadresse oder die genannte Summe.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Handschlag, was abstrakt einen Kauf oder eine Geschäftspartnerschaft symbolisieren könnte, aber es fehlt jeglicher spezifischer Bezug zum Kauf einer Singapurer Gaming-Tochterfirma oder zu Megaspeed.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt allgemeine Server-Infrastruktur und einen Gamecontroller, bebildert aber nicht den spezifischen Vorgang der Firmenübernahme oder Umbenennung einer Gaming-Tochtergesellschaft in Megaspeed.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen Alibaba als Kunden und die Partnerschaft mit Nvidia, aber das Bild zeigt lediglich einen allgemeinen Geschäfts-Handschlag zwischen zwei Personen ohne Bezug zu Nvidia, Alibaba oder Cloud-Partnerschaften.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwei Männer im historischen Stil, aber keine Behörden, Ermittlungen oder den Verdacht bezüglich Chip-Lieferungen.",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Die Szene zeigt eine Geschäftskonferenz oder Verhandlung, aber keine Ermittlungen durch Behörden in Singapur und Malaysia.",
+            "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt keine Ladenfront eines Unternehmens namens Swiftdata, sondern eine generische, stilisierte Ladenfassade kombiniert mit Computer-Hardware-Elementen. Der Zusammenhang zwischen der Hardware-Grafik und der Erzählung über ein 'storefront office' ist rein metaphorisch und nicht faktisch bel"
+          ],
+          "modelle": [
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.1-flash-lite"
+          ],
+          "einstellungen": 15,
+          "ausgenommen": [
+            12,
+            13,
+            14
+          ],
+          "vorgeprueft": [
+            1,
+            5,
+            8
+          ],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "c1e922c9d151cd75eeb3c0e33c9fe5fcfe1f68e71071007618eae215cf05be61",
+        "prompt_version": "2026-11-11.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

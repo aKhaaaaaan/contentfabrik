@@ -192438,6 +192438,737 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "44046347227.1:ai-tools-explained",
+      "run_id": "44046347227",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-17T08:36:19.180727+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "f1e3e84154ea73233b00530dd1da2a6bc994c713",
+      "produktionsversion": "9d4fc6ae4f6b55efb1b68b1a85c08eb67cae4effd205b5a4dc34ae5cd84499ff",
+      "videoformat": "short",
+      "thema": "Claude Projects: what free covers and when paid helps",
+      "titel": [
+        "*CLAUDE* *PROJECTS*",
+        "*FREE* VS PAID LIMITS"
+      ],
+      "status": "gesendet",
+      "video_sha256": "537fdfb54d988b0167d3f3d465ef222b7eb9cedf2936a58d2ba9042dc9f96741",
+      "video_gebaut": true,
+      "ki_story_note": 9,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-11.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt Textausschnitte über Projekte, aber nicht die konkrete Aktion des Dokumenten-Hochladens oder des Hinzufügens von Projektanweisungen.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die sichtbare Szene zeigt einen Mann mit Computern und einem Tablet in einem Büro, was die Erwähnung mehrerer gleichzeitig genutzter Threads und des schnellen Verbrauchs nicht visuell erklärt.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit Sonnenbrille und eine Sprechblase mit Text, aber weder die 'fünf kostenlosen Projekte' noch die Metapher einer 'Ruschublade' sind visuell erklärt.",
+        "Offenes Problem (schwer): Das Bild zeigt Textausschnitte über Projekte, aber nicht die konkrete Aktion des Dokumenten-Hochladens oder des Hinzufügens von Projektanweisungen. Korrektur: Eine Benutzeroberfläche, in der Dokumente hochgeladen und Projektanweisungen eingegeben werden.",
+        "Offenes Problem (schwer): Die sichtbare Szene zeigt einen Mann mit Computern und einem Tablet in einem Büro, was die Erwähnung mehrerer gleichzeitig genutzter Threads und des schnellen Verbrauchs nicht visuell erklärt. Korrektur: Ein Screenshot oder eine Grafik, die mehrere gleichzeitige Chat-Threads oder die parallele Nutzung innerhalb von Claude Projects visualisiert.",
+        "Offenes Problem (schwer): Das Bild zeigt einen Mann mit Sonnenbrille und eine Sprechblase mit Text, aber weder die 'fünf kostenlosen Projekte' noch die Metapher einer 'Ruschublade' sind visuell erklärt. Korrektur: Eine Darstellung von fünf geordneten Projektordnern im Vergleich zu einer unordentlichen Rumpelkammer."
+      ],
+      "einstellungen": 9,
+      "unterschiedliche_motive": 9,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "44046347227",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-17",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 528.9,
+            "pruefung_s": 55.4,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt Textausschnitte über Projekte, aber nicht die konkrete Aktion des Dokumenten-Hochladens oder des Hinzufügens von Projektanweisungen.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die sichtbare Szene zeigt einen Mann mit Computern und einem Tablet in einem Büro, was die Erwähnung mehrerer gleichzeitig genutzter Threads und des schnellen Verbrauchs nicht visuell erklärt.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit Sonnenbrille und eine Sprechblase mit Text, aber weder die 'fünf kostenlosen Projekte' noch die Metapher einer 'Ruschublade' sind visuell erklärt.",
+              "Offenes Problem (schwer): Das Bild zeigt Textausschnitte über Projekte, aber nicht die konkrete Aktion des Dokumenten-Hochladens oder des Hinzufügens von Projektanweisungen. Korrektur: Eine Benutzeroberfläche, in der Dokumente hochgeladen und Projektanweisungen eingegeben werden.",
+              "Offenes Problem (schwer): Die sichtbare Szene zeigt einen Mann mit Computern und einem Tablet in einem Büro, was die Erwähnung mehrerer gleichzeitig genutzter Threads und des schnellen Verbrauchs nicht visuell erklärt. Korrektur: Ein Screenshot oder eine Grafik, die mehrere gleichzeitige Chat-Threads oder die parallele Nutzung innerhalb von Claude Projects visualisiert.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann mit Sonnenbrille und eine Sprechblase mit Text, aber weder die 'fünf kostenlosen Projekte' noch die Metapher einer 'Ruschublade' sind visuell erklärt. Korrektur: Eine Darstellung von fünf geordneten Projektordnern im Vergleich zu einer unordentlichen Rumpelkammer."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 21.2,
+              "zeitmarken": 2.1,
+              "tempo": 1.036,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 9,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 324.5,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 9,
+                "motive": 9,
+                "motive_min": 4
+              },
+              "effekte": 11,
+              "rendern": 23.8,
+              "gesamt": 528.6,
+              "videolaenge_s": 25.0,
+              "abschnitte_s": [
+                2.42,
+                3.14,
+                3.28,
+                3.18,
+                5.54,
+                2.96,
+                1.96,
+                2.52
+              ],
+              "woerter": 59,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:12.02",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 4,
+                "gesprochen": "Upload documents, add project instructions.",
+                "fest": true,
+                "text": "Das Bild zeigt Textausschnitte über Projekte, aber nicht die konkrete Aktion des Dokumenten-Hochladens oder des Hinzufügens von Projektanweisungen. Korrektur: Eine Benutzeroberfläche, in der Dokumente hochgeladen und Projektanweisungen eingegeben werden."
+              },
+              {
+                "zeit": "00:20.52",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 7,
+                "gesprochen": "Several threads at once use it faster.",
+                "fest": true,
+                "text": "Die sichtbare Szene zeigt einen Mann mit Computern und einem Tablet in einem Büro, was die Erwähnung mehrerer gleichzeitig genutzter Threads und des schnellen Verbrauchs nicht visuell erklärt. Korrektur: Ein Screenshot oder eine Grafik, die mehrere gleichzeitige Chat-Threads oder die parallele Nutzung innerhalb von Claude Projects visualisiert."
+              },
+              {
+                "zeit": "00:22.48",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 7,
+                "einstellung": 8,
+                "gesprochen": "Five free projects beat one junk drawer.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann mit Sonnenbrille und eine Sprechblase mit Text, aber weder die 'fünf kostenlosen Projekte' noch die Metapher einer 'Ruschublade' sind visuell erklärt. Korrektur: Eine Darstellung von fünf geordneten Projektordnern im Vergleich zu einer unordentlichen Rumpelkammer."
+              }
+            ],
+            "sekunden": 584.7,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 620.7,
+        "upload_titel": "CLAUDE PROJECTS: FREE VS PAID LIMITS | AI Tool #38b"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:12.02",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 4,
+            "gesprochen": "Upload documents, add project instructions.",
+            "fest": true,
+            "text": "Das Bild zeigt Textausschnitte über Projekte, aber nicht die konkrete Aktion des Dokumenten-Hochladens oder des Hinzufügens von Projektanweisungen. Korrektur: Eine Benutzeroberfläche, in der Dokumente hochgeladen und Projektanweisungen eingegeben werden."
+          },
+          {
+            "zeit": "00:20.52",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 7,
+            "gesprochen": "Several threads at once use it faster.",
+            "fest": true,
+            "text": "Die sichtbare Szene zeigt einen Mann mit Computern und einem Tablet in einem Büro, was die Erwähnung mehrerer gleichzeitig genutzter Threads und des schnellen Verbrauchs nicht visuell erklärt. Korrektur: Ein Screenshot oder eine Grafik, die mehrere gleichzeitige Chat-Threads oder die parallele Nutzung innerhalb von Claude Projects visualisiert."
+          },
+          {
+            "zeit": "00:22.48",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 7,
+            "einstellung": 8,
+            "gesprochen": "Five free projects beat one junk drawer.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann mit Sonnenbrille und eine Sprechblase mit Text, aber weder die 'fünf kostenlosen Projekte' noch die Metapher einer 'Ruschublade' sind visuell erklärt. Korrektur: Eine Darstellung von fünf geordneten Projektordnern im Vergleich zu einer unordentlichen Rumpelkammer."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 25.0,
+          "fps": 29.9,
+          "lufs": -14.1,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 9.34,
+              "bis_s": 11.5,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.978
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 5.0,
+              "bis_s": 25.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Your",
+                "s": 0.0,
+                "e": 0.22,
+                "p": 0.9505872130393982
+              },
+              {
+                "w": "chat",
+                "s": 0.22,
+                "e": 0.44,
+                "p": 0.9581431150436401
+              },
+              {
+                "w": "history",
+                "s": 0.44,
+                "e": 0.76,
+                "p": 0.9961130619049072
+              },
+              {
+                "w": "is",
+                "s": 0.76,
+                "e": 1.1,
+                "p": 0.9968762397766113
+              },
+              {
+                "w": "a",
+                "s": 1.1,
+                "e": 1.22,
+                "p": 0.9939999580383301
+              },
+              {
+                "w": "junk",
+                "s": 1.22,
+                "e": 1.52,
+                "p": 0.9880353808403015
+              },
+              {
+                "w": "drawer.",
+                "s": 1.52,
+                "e": 1.92,
+                "p": 0.9986196756362915
+              },
+              {
+                "w": "Quad",
+                "s": 2.44,
+                "e": 2.48,
+                "p": 0.5716579556465149
+              },
+              {
+                "w": "projects",
+                "s": 2.48,
+                "e": 3.0,
+                "p": 0.9574659466743469
+              },
+              {
+                "w": "tidy",
+                "s": 3.0,
+                "e": 3.4,
+                "p": 0.5463644862174988
+              },
+              {
+                "w": "it",
+                "s": 3.4,
+                "e": 3.66,
+                "p": 0.9168403744697571
+              },
+              {
+                "w": "like",
+                "s": 3.66,
+                "e": 4.0,
+                "p": 0.6359254121780396
+              },
+              {
+                "w": "polite",
+                "s": 4.0,
+                "e": 4.36,
+                "p": 0.9804056882858276
+              },
+              {
+                "w": "dividers.",
+                "s": 4.36,
+                "e": 5.3,
+                "p": 0.9964050054550171
+              },
+              {
+                "w": "Free",
+                "s": 5.56,
+                "e": 5.84,
+                "p": 0.9880442023277283
+              },
+              {
+                "w": "users",
+                "s": 5.84,
+                "e": 6.16,
+                "p": 0.9913017153739929
+              },
+              {
+                "w": "get",
+                "s": 6.16,
+                "e": 6.52,
+                "p": 0.9816319942474365
+              },
+              {
+                "w": "a",
+                "s": 6.52,
+                "e": 6.58,
+                "p": 0.9959285855293274
+              },
+              {
+                "w": "maximum",
+                "s": 6.58,
+                "e": 6.84,
+                "p": 0.9976887702941895
+              },
+              {
+                "w": "of",
+                "s": 6.84,
+                "e": 7.24,
+                "p": 0.9974656105041504
+              },
+              {
+                "w": "five",
+                "s": 7.24,
+                "e": 7.68,
+                "p": 0.7670674920082092
+              },
+              {
+                "w": "projects.",
+                "s": 7.68,
+                "e": 8.28,
+                "p": 0.9931301474571228
+              },
+              {
+                "w": "Be",
+                "s": 8.84,
+                "e": 8.88,
+                "p": 0.9957323670387268
+              },
+              {
+                "w": "sure",
+                "s": 8.88,
+                "e": 9.08,
+                "p": 0.9991480112075806
+              },
+              {
+                "w": "to",
+                "s": 9.08,
+                "e": 9.34,
+                "p": 0.9976315498352051
+              },
+              {
+                "w": "like,",
+                "s": 9.34,
+                "e": 9.7,
+                "p": 0.8804174065589905
+              },
+              {
+                "w": "share,",
+                "s": 9.92,
+                "e": 10.2,
+                "p": 0.9977337121963501
+              },
+              {
+                "w": "and",
+                "s": 10.44,
+                "e": 10.58,
+                "p": 0.9982422590255737
+              },
+              {
+                "w": "save",
+                "s": 10.58,
+                "e": 10.94,
+                "p": 0.9968558549880981
+              },
+              {
+                "w": "this",
+                "s": 10.94,
+                "e": 11.14,
+                "p": 0.9953807592391968
+              },
+              {
+                "w": "video.",
+                "s": 11.14,
+                "e": 11.5,
+                "p": 0.9995809197425842
+              },
+              {
+                "w": "Upload",
+                "s": 11.94,
+                "e": 11.94,
+                "p": 0.9373921751976013
+              },
+              {
+                "w": "documents,",
+                "s": 11.94,
+                "e": 12.42,
+                "p": 0.9891022443771362
+              },
+              {
+                "w": "add",
+                "s": 13.06,
+                "e": 13.24,
+                "p": 0.9786821603775024
+              },
+              {
+                "w": "project",
+                "s": 13.24,
+                "e": 13.58,
+                "p": 0.9862025380134583
+              },
+              {
+                "w": "instructions.",
+                "s": 13.58,
+                "e": 13.96,
+                "p": 0.9980048537254333
+              },
+              {
+                "w": "What's",
+                "s": 15.2,
+                "e": 15.3,
+                "p": 0.9865662157535553
+              },
+              {
+                "w": "the",
+                "s": 15.3,
+                "e": 15.4,
+                "p": 0.9987432360649109
+              },
+              {
+                "w": "catch?",
+                "s": 15.4,
+                "e": 15.56,
+                "p": 0.9936136603355408
+              },
+              {
+                "w": "Whispers.",
+                "s": 16.04,
+                "e": 16.18,
+                "p": 0.7043884992599487
+              },
+              {
+                "w": "Projects",
+                "s": 17.52,
+                "e": 17.52,
+                "p": 0.9550783634185791
+              },
+              {
+                "w": "draw",
+                "s": 17.52,
+                "e": 18.0,
+                "p": 0.8442710638046265
+              },
+              {
+                "w": "from",
+                "s": 18.0,
+                "e": 18.28,
+                "p": 0.9978209733963013
+              },
+              {
+                "w": "your",
+                "s": 18.28,
+                "e": 18.4,
+                "p": 0.9972984194755554
+              },
+              {
+                "w": "plan's",
+                "s": 18.4,
+                "e": 18.98,
+                "p": 0.7641210854053497
+              },
+              {
+                "w": "usage.",
+                "s": 18.98,
+                "e": 19.42,
+                "p": 0.9993410706520081
+              },
+              {
+                "w": "Several",
+                "s": 20.52,
+                "e": 20.52,
+                "p": 0.9942013621330261
+              },
+              {
+                "w": "threads",
+                "s": 20.52,
+                "e": 20.76,
+                "p": 0.9970101118087769
+              },
+              {
+                "w": "at",
+                "s": 20.76,
+                "e": 20.92,
+                "p": 0.9936231970787048
+              },
+              {
+                "w": "once",
+                "s": 20.92,
+                "e": 21.1,
+                "p": 0.9988330006599426
+              },
+              {
+                "w": "use",
+                "s": 21.1,
+                "e": 21.3,
+                "p": 0.5589960813522339
+              },
+              {
+                "w": "it",
+                "s": 21.3,
+                "e": 21.46,
+                "p": 0.9988952279090881
+              },
+              {
+                "w": "faster.",
+                "s": 21.46,
+                "e": 21.64,
+                "p": 0.9987799525260925
+              },
+              {
+                "w": "Five",
+                "s": 22.58,
+                "e": 22.9,
+                "p": 0.9880375862121582
+              },
+              {
+                "w": "free",
+                "s": 22.9,
+                "e": 23.12,
+                "p": 0.9564329981803894
+              },
+              {
+                "w": "projects",
+                "s": 23.12,
+                "e": 23.52,
+                "p": 0.9970965385437012
+              },
+              {
+                "w": "beat",
+                "s": 23.52,
+                "e": 23.78,
+                "p": 0.7037672400474548
+              },
+              {
+                "w": "one",
+                "s": 23.78,
+                "e": 24.2,
+                "p": 0.9881554841995239
+              },
+              {
+                "w": "junk",
+                "s": 24.2,
+                "e": 24.5,
+                "p": 0.9976202845573425
+              },
+              {
+                "w": "drawer.",
+                "s": 24.5,
+                "e": 24.74,
+                "p": 0.999685525894165
+              }
+            ],
+            "dauer_s": 24.896,
+            "sprache": "en"
+          },
+          "roh_key": "c5f319932fe8b2cf255a23fb9fc9ac8efef5caa4d148236f5e8d6ab4f535b356",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "537fdfb54d988b0167d3f3d465ef222b7eb9cedf2936a58d2ba9042dc9f96741",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 25.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 9,
+          "motive": 9,
+          "motive_min": 4
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "537fdfb54d988b0167d3f3d465ef222b7eb9cedf2936a58d2ba9042dc9f96741",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein illustrierter Mann mit Brille blickt erschrocken und fassungslos in eine geöffnete Schublade voller Kabel und Zettel mit der Aufschrift 'IS A JUNK', im Hintergrund eine Küche.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Gesichtszüge und der geschockte Ausdruck passen gut zum Gefühl des Satzes über eine unordentliche Rumpelkammer, und der geöffnete Schrank mit Unrat veranschaulicht visuell den Vergleich als Eröffnungshook.",
+              "erforderliches_bild": "Ein passender Eröffnungshook."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Screenshot zeigt die Benutzeroberfläche von Claude mit der Überschrift What are projects? und einem Hinweis auf eine neue Version von Projekten in der Beta.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt die Oberfläche und den Titel von Claude Projects passend zur Erwähnung der Claude Projects in der Narration.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Screenshot zeigt Text mit der Information, dass Claude Projects für alle Nutzer verfügbar sind und kostenlose Nutzer maximal fünf Projekte erstellen können.",
+              "note": 10,
+              "passt": true,
+              "grund": "Der sichtbare Text zeigt exakt die gesprochene Information über das Limit von fünf Projekten für kostenlose Nutzer.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da der Text direkt passt."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Screenshot zeigt Text mit einer gelben Markierung, der beschreibt, wie Claude Projects Arbeitsbereiche erstellen und Dokumente hochladen lassen.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt Textausschnitte über Projekte, aber nicht die konkrete Aktion des Dokumenten-Hochladens oder des Hinzufügens von Projektanweisungen.",
+              "erforderliches_bild": "Eine Benutzeroberfläche, in der Dokumente hochgeladen und Projektanweisungen eingegeben werden."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein AI-Chat-Fenster mit der Nachricht 'What's the catch?' in einer Chat-Sprechblase und drei Lade-Punkten darunter.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt die gesprochene rhetorische Frage 'What's the catch?' als Text in einem Chat-Interface, was als Übergang zur Erklärung im Video passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Screenshot eines Textes über die Nutzung von Claude-Projekten, der in einem gelben Rahmen hervorgehoben ist.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der Text im Bild erklärt genau, dass Projekte den Verbrauch des Plans beanspruchen, was perfekt zur gesprochenen Zeile 'Projects draw from your plan's usage' passt.",
+              "erforderliches_bild": "Kein weiteres Bild erforderlich."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein Mann steht in einem modernen Büro vor mehreren Computermonitoren und einem Tablet in der Hand, im Hintergrund sind nächtliche Stadtlichter und große Glasfronten zu sehen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die sichtbare Szene zeigt einen Mann mit Computern und einem Tablet in einem Büro, was die Erwähnung mehrerer gleichzeitig genutzter Threads und des schnellen Verbrauchs nicht visuell erklärt.",
+              "erforderliches_bild": "Ein Screenshot oder eine Grafik, die mehrere gleichzeitige Chat-Threads oder die parallele Nutzung innerhalb von Claude Projects visualisiert."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein gemalter Mann mit dunklen Haaren und einer Sonnenbrille, auf deren Gläsern Zahlen stehen, vor einer Stadtsilhouette im Sonnenuntergang. Darüber befindet sich eine Sprechblase mit Text.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt einen Mann mit Sonnenbrille und eine Sprechblase mit Text, aber weder die 'fünf kostenlosen Projekte' noch die Metapher einer 'Ruschublade' sind visuell erklärt.",
+              "erforderliches_bild": "Eine Darstellung von fünf geordneten Projektordnern im Vergleich zu einer unordentlichen Rumpelkammer."
+            }
+          ],
+          "befunde": [
+            "Einstellung 4: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt Textausschnitte über Projekte, aber nicht die konkrete Aktion des Dokumenten-Hochladens oder des Hinzufügens von Projektanweisungen.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die sichtbare Szene zeigt einen Mann mit Computern und einem Tablet in einem Büro, was die Erwähnung mehrerer gleichzeitig genutzter Threads und des schnellen Verbrauchs nicht visuell erklärt.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit Sonnenbrille und eine Sprechblase mit Text, aber weder die 'fünf kostenlosen Projekte' noch die Metapher einer 'Ruschublade' sind visuell erklärt."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 9,
+          "ausgenommen": [
+            3
+          ],
+          "vorgeprueft": [],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "537fdfb54d988b0167d3f3d465ef222b7eb9cedf2936a58d2ba9042dc9f96741",
+        "prompt_version": "2026-11-11.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

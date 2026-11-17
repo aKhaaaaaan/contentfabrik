@@ -1,161 +1,5 @@
 [
   {
-    "id": "40511640502",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-27",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sperrgruende": [
-          "Faktenpruefung fehlt oder ist nicht bestanden",
-          "Skript-Note fehlt oder ist ungueltig",
-          "Skript-Einzelbewertungen fehlen"
-        ],
-        "story_note": null,
-        "story_schwaechen": [],
-        "skript_probleme": [
-          "[unsupported tool claim] A listed plan price, and the docs name a budget worth a little setup. - The source does not provide a specific budget or price for Claude Code beyond the plan prices; it only mentions a budget as a generic constraint, not a named budget amount."
-        ],
-        "sekunden": 149.1
-      },
-      {
-        "runde": 2,
-        "art": "produktion",
-        "skript_s": 383.8,
-        "bau_s": 374.9,
-        "pruefung_s": 81.8,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Bewertung hook fehlt oder ist ungueltig",
-          "Video-bild_passt 2/10 unter 7/10",
-          "Video-Bewertung dynamik fehlt oder ist ungueltig",
-          "Video-Bewertung text fehlt oder ist ungueltig",
-          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
-          "Video-Bewertung tempo fehlt oder ist ungueltig",
-          "Video-Bewertung inhalt fehlt oder ist ungueltig",
-          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
-          "Video-Bewertung regeln fehlt oder ist ungueltig",
-          "Video-Bewertung story fehlt oder ist ungueltig",
-          "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen gestressten Menschen vor Computern, aber nicht das im gesprochenen Text genannte Thema, dass eine KI Deploy-Schritte verpasst oder den Dateicode liest.",
-          "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich einen Textausschnitt und ein Logo-Overlay, während im gesprochenen Text die Frage gestellt wird, was Claude Code alles nicht sehen kann. Es ist keine visuelle Erklärung oder Darstellung der versteckten Dinge oder des Codes zu sehen.",
-          "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt allgemeine Ratschläge und Erklärungen zu KI-Kontextfenstern, passt aber inhaltlich nicht zu der gesprochenen Aussage über die Dokumentation und einen einfachen ersten Prompt.",
-          "Einstellung 8: Bild passt nicht zum Sprechtext (6/10): Die gesprochenen Wörter erwähnen den Preis von 20 Dollar pro Monat, im gezeigten Bild steht jedoch ein abweichender Betrag von 17 Dollar.",
-          "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich grafische Textboxen und entspricht keiner fachlichen Erklärung oder dem tatsächlichen Interface zur Überprüfung der Preissituation.",
-          "Offenes Problem (schwer): Das Bild zeigt einen gestressten Menschen vor Computern, aber nicht das im gesprochenen Text genannte Thema, dass eine KI Deploy-Schritte verpasst oder den Dateicode liest. Korrektur: Ein Screenshot oder eine Grafik, die einen Code-Editor und fehlende Deploy-Schritte zeigt.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich einen Textausschnitt und ein Logo-Overlay, während im gesprochenen Text die Frage gestellt wird, was Claude Code alles nicht sehen kann. Es ist keine visuelle Erklärung oder Darstellung der versteckten Dinge oder des Codes zu sehen. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die konkrete Code-Dateien und daneben unsichtbare Umgebungsvariablen oder Team-Entscheidungen illustrativ darstellt.",
-          "Offenes Problem (schwer): Das Bild zeigt allgemeine Ratschläge und Erklärungen zu KI-Kontextfenstern, passt aber inhaltlich nicht zu der gesprochenen Aussage über die Dokumentation und einen einfachen ersten Prompt. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die offizielle Dokumentationshinweise oder einen einfachen ersten Prompt in einer frischen Sitzung zeigt.",
-          "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen den Preis von 20 Dollar pro Monat, im gezeigten Bild steht jedoch ein abweichender Betrag von 17 Dollar. Korrektur: Ein Screenshot der Preisseite, der exakt 20 Dollar pro Monat anzeigt.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich grafische Textboxen und entspricht keiner fachlichen Erklärung oder dem tatsächlichen Interface zur Überprüfung der Preissituation. Korrektur: Ein Screenshot der offiziellen Preisseite von Claude Code mit sichtbaren Details zu Free-Tarifen oder Limits."
-        ],
-        "messung": {
-          "stimme_wiederverwendet": false,
-          "erzaehlstimme": "gemini:Puck",
-          "stimme": 13.7,
-          "zeitmarken": 5.2,
-          "tempo": 1.01,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 0,
-          "stuecke_neu": 14,
-          "bilder_vereinfacht": 1,
-          "clips_und_stuecke": 188.9,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 14,
-            "motive": 14,
-            "motive_min": 8
-          },
-          "effekte": 10,
-          "rendern": 28.4,
-          "gesamt": 374.5,
-          "videolaenge_s": 45.0,
-          "abschnitte_s": [
-            7.06,
-            6.06,
-            6.98,
-            6.68,
-            7.6,
-            5.94,
-            4.67
-          ],
-          "woerter": 133
-        },
-        "kategorien": {
-          "bild_passt": 2
-        },
-        "probleme": [
-          {
-            "zeit": "00:00.00",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 0,
-            "einstellung": 0,
-            "gesprochen": "Your AI keeps missing the deploy steps.",
-            "fest": false,
-            "text": "Das Bild zeigt einen gestressten Menschen vor Computern, aber nicht das im gesprochenen Text genannte Thema, dass eine KI Deploy-Schritte verpasst oder den Dateicode liest. Korrektur: Ein Screenshot oder eine Grafik, die einen Code-Editor und fehlende Deploy-Schritte zeigt."
-          },
-          {
-            "zeit": "00:02.68",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 0,
-            "einstellung": 1,
-            "gesprochen": "Claude Code reads your code, so what hidden things can't it see?",
-            "fest": true,
-            "text": "Das Bild zeigt lediglich einen Textausschnitt und ein Logo-Overlay, während im gesprochenen Text die Frage gestellt wird, was Claude Code alles nicht sehen kann. Es ist keine visuelle Erklärung oder Darstellung der versteckten Dinge oder des Codes zu sehen. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die konkrete Code-Dateien und daneben unsichtbare Umgebungsvariablen oder Team-Entscheidungen illustrativ darstellt."
-          },
-          {
-            "zeit": "00:23.06",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 3,
-            "einstellung": 7,
-            "gesprochen": "Docs say a plain first prompt in a fresh session usually works.",
-            "fest": true,
-            "text": "Das Bild zeigt allgemeine Ratschläge und Erklärungen zu KI-Kontextfenstern, passt aber inhaltlich nicht zu der gesprochenen Aussage über die Dokumentation und einen einfachen ersten Prompt. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die offizielle Dokumentationshinweise oder einen einfachen ersten Prompt in einer frischen Sitzung zeigt."
-          },
-          {
-            "zeit": "00:26.78",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 4,
-            "einstellung": 8,
-            "gesprochen": "Now cost. Pro includes Claude Code: $20 if billed monthly, or",
-            "fest": true,
-            "text": "Die gesprochenen Wörter erwähnen den Preis von 20 Dollar pro Monat, im gezeigten Bild steht jedoch ein abweichender Betrag von 17 Dollar. Korrektur: Ein Screenshot der Preisseite, der exakt 20 Dollar pro Monat anzeigt."
-          },
-          {
-            "zeit": "00:34.38",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 5,
-            "einstellung": 10,
-            "gesprochen": "Free isn't confirmed on that page, so check.",
-            "fest": true,
-            "text": "Das Bild zeigt lediglich grafische Textboxen und entspricht keiner fachlichen Erklärung oder dem tatsächlichen Interface zur Überprüfung der Preissituation. Korrektur: Ein Screenshot der offiziellen Preisseite von Claude Code mit sichtbaren Details zu Free-Tarifen oder Limits."
-          }
-        ],
-        "sekunden": 840.5,
-        "status": "geprueft"
-      },
-      {
-        "runde": 3,
-        "art": "korrektur",
-        "status": "keine_korrektur",
-        "sekunden": 0.1
-      }
-    ],
-    "status": "gesendet",
-    "trendcheck": "Claude Code: How to Use REA GitHub to Reverse Engineer Anything in Claude Code: 2.04 Punkte - YouTube-Ausreisser 4.1x Kanalschnitt, Format richtig nutzen (Formattag)",
-    "grund": "",
-    "sekunden": 1050.2,
-    "upload_titel": "Claude Code Setup: And What Pro Costs | AI Tool #17"
-  },
-  {
     "id": "40558107967",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-27",
@@ -9185,5 +9029,123 @@
     "grund": "",
     "sekunden": 1513.7,
     "upload_titel": "FREE CHATGPT REMINDERS, BUT NOT ON THE MINUTE | AI Tool #37c"
+  },
+  {
+    "id": "44046347227",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-11-17",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 528.9,
+        "pruefung_s": 55.4,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt Textausschnitte über Projekte, aber nicht die konkrete Aktion des Dokumenten-Hochladens oder des Hinzufügens von Projektanweisungen.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die sichtbare Szene zeigt einen Mann mit Computern und einem Tablet in einem Büro, was die Erwähnung mehrerer gleichzeitig genutzter Threads und des schnellen Verbrauchs nicht visuell erklärt.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit Sonnenbrille und eine Sprechblase mit Text, aber weder die 'fünf kostenlosen Projekte' noch die Metapher einer 'Ruschublade' sind visuell erklärt.",
+          "Offenes Problem (schwer): Das Bild zeigt Textausschnitte über Projekte, aber nicht die konkrete Aktion des Dokumenten-Hochladens oder des Hinzufügens von Projektanweisungen. Korrektur: Eine Benutzeroberfläche, in der Dokumente hochgeladen und Projektanweisungen eingegeben werden.",
+          "Offenes Problem (schwer): Die sichtbare Szene zeigt einen Mann mit Computern und einem Tablet in einem Büro, was die Erwähnung mehrerer gleichzeitig genutzter Threads und des schnellen Verbrauchs nicht visuell erklärt. Korrektur: Ein Screenshot oder eine Grafik, die mehrere gleichzeitige Chat-Threads oder die parallele Nutzung innerhalb von Claude Projects visualisiert.",
+          "Offenes Problem (schwer): Das Bild zeigt einen Mann mit Sonnenbrille und eine Sprechblase mit Text, aber weder die 'fünf kostenlosen Projekte' noch die Metapher einer 'Ruschublade' sind visuell erklärt. Korrektur: Eine Darstellung von fünf geordneten Projektordnern im Vergleich zu einer unordentlichen Rumpelkammer."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 21.2,
+          "zeitmarken": 2.1,
+          "tempo": 1.036,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 9,
+          "bilder_vereinfacht": 1,
+          "clips_und_stuecke": 324.5,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 9,
+            "motive": 9,
+            "motive_min": 4
+          },
+          "effekte": 11,
+          "rendern": 23.8,
+          "gesamt": 528.6,
+          "videolaenge_s": 25.0,
+          "abschnitte_s": [
+            2.42,
+            3.14,
+            3.28,
+            3.18,
+            5.54,
+            2.96,
+            1.96,
+            2.52
+          ],
+          "woerter": 59,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:12.02",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 4,
+            "gesprochen": "Upload documents, add project instructions.",
+            "fest": true,
+            "text": "Das Bild zeigt Textausschnitte über Projekte, aber nicht die konkrete Aktion des Dokumenten-Hochladens oder des Hinzufügens von Projektanweisungen. Korrektur: Eine Benutzeroberfläche, in der Dokumente hochgeladen und Projektanweisungen eingegeben werden."
+          },
+          {
+            "zeit": "00:20.52",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 7,
+            "gesprochen": "Several threads at once use it faster.",
+            "fest": true,
+            "text": "Die sichtbare Szene zeigt einen Mann mit Computern und einem Tablet in einem Büro, was die Erwähnung mehrerer gleichzeitig genutzter Threads und des schnellen Verbrauchs nicht visuell erklärt. Korrektur: Ein Screenshot oder eine Grafik, die mehrere gleichzeitige Chat-Threads oder die parallele Nutzung innerhalb von Claude Projects visualisiert."
+          },
+          {
+            "zeit": "00:22.48",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 7,
+            "einstellung": 8,
+            "gesprochen": "Five free projects beat one junk drawer.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann mit Sonnenbrille und eine Sprechblase mit Text, aber weder die 'fünf kostenlosen Projekte' noch die Metapher einer 'Ruschublade' sind visuell erklärt. Korrektur: Eine Darstellung von fünf geordneten Projektordnern im Vergleich zu einer unordentlichen Rumpelkammer."
+          }
+        ],
+        "sekunden": 584.7,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "status": "keine_korrektur",
+        "sekunden": 0.1
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 620.7,
+    "upload_titel": "CLAUDE PROJECTS: FREE VS PAID LIMITS | AI Tool #38b"
   }
 ]

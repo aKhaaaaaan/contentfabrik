@@ -194795,6 +194795,92 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "44106837985.1:ai-tools-explained",
+      "run_id": "44106837985",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-17T15:06:22.762422+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "d0db473b3ddd7cf78f630324a7f6bf1f3e397582",
+      "produktionsversion": "9d4fc6ae4f6b55efb1b68b1a85c08eb67cae4effd205b5a4dc34ae5cd84499ff",
+      "videoformat": "short",
+      "thema": null,
+      "titel": null,
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "44106837985",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-17",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 4/10 unter 7/10",
+              "Skript-hook 3/10 unter 7/10",
+              "Skript-spannung 4/10 unter 7/10",
+              "Skript-ueberraschung 5/10 unter 7/10",
+              "Skript-tempo 6/10 unter 7/10",
+              "Skript-aufloesung 2/10 unter 7/10",
+              "Skript-teilbarkeit 4/10 unter 6/10"
+            ],
+            "story_note": 4,
+            "story_schwaechen": [
+              "ChatGPT creates a 16‑byte ID stored as the __obi cookie. - The opening statement is factual but fails to create a curiosity gap or emotional hook, so viewers have no immediate reason to keep watching. - Replace it with a hook that frames a personal risk, e.g., \"Ever wonder how a tiny cookie lets adv",
+              "If that worries you, like, share, or save. - The call to action appears at the very end, violating the rule that the CTA must be placed in the middle after the first payoff and must include all three actions in one concise sentence. - Move a concise CTA (e.g., \"Be sure to like, share and save this v",
+              "The cookie now travels to advertisers, linking browsing to your ChatGPT profile. - The script never provides a clear payoff or resolution to the opening question, leaving the story unfinished. - Add a concluding line that tells viewers what they can do, such as \"You can block the __obi cookie by adj"
+            ],
+            "skript_probleme": [],
+            "sekunden": 836.3
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "anbieterpause",
+            "exitcode": 4,
+            "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq voruebergehend gesperrt: HTTP429; Serverfrist 1676s - kostenpflichtig weiter mit „start ki bezahlt\" bzw. „start business bezahlt\"",
+            "sekunden": 155.9
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "status": "anbieterpause",
+            "exitcode": 4,
+            "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq voruebergehend gesperrt: HTTP429; Serverfrist 1676s - kostenpflichtig weiter mit „start ki bezahlt\" bzw. „start business bezahlt\"",
+            "sekunden": 27.3
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "Claude-Redaktion (Plan vom 2026-11-16): ChatGPT: Me treating ChatGPT like my employee 😂💀 You too?: 6.0 Punkte - YouTube-Ausreisser 79.3x Kanalschnitt",
+        "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq voruebergehend gesperrt: HTTP429; Serverfrist 1676s - kostenpflichtig weiter mit „start ki bezahlt\" bzw. „start business bezahlt\"",
+        "sekunden": 1049.7
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": null
     }
   ]
 }

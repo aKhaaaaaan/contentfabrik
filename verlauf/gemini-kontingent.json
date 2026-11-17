@@ -1,21 +1,21 @@
 {
   "version": 1,
   "modelle": {
-    "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
-      "grund": "voruebergehend ueberlastet",
-      "bis": 1794907548.7381327
-    },
     "8c1eba443c0e93c86dc53df7:groq:qwen/qwen3.8-27b": {
       "grund": "Groq-Vision HTTP429",
       "bis": 1794943249.8888278
     },
-    "18b3ef0930af7cca6de34adf:gemini-3.5-flash-lite": {
-      "grund": "voruebergehend ueberlastet",
-      "bis": 1794907716.1323786
-    },
-    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
       "grund": "Netzwerk-Zeitlimit",
-      "bis": 1794908063.0074708
+      "bis": 1794909058.3828795
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1794909420.2315762
+    },
+    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
+      "grund": "HTTP429; Serverfrist 548s",
+      "bis": 1794909428.2970235
     }
   },
   "zeitlimits": {
@@ -24,16 +24,21 @@
       1794904107.1334686,
       1794904458.3701391,
       1794906188.4930332,
-      1794907523.0074708
+      1794907523.0074708,
+      1794908313.4868643
     ],
     "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
       1794904044.7169464,
-      1794904138.5332081
+      1794904138.5332081,
+      1794907999.0736704,
+      1794908880.2315762
     ],
     "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
       1794904573.5060742,
       1794906314.3974442,
-      1794906667.7794168
+      1794906667.7794168,
+      1794907623.76432,
+      1794908518.3828795
     ],
     "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": [
       1794904839.8305745,

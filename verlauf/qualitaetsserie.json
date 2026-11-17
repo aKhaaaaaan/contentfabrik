@@ -194943,6 +194943,136 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "44149656099.1:ai-tools-explained",
+      "run_id": "44149656099",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-17T18:52:07.857900+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "402ec9dcc42ab3570771344afa555f697d5b1c95",
+      "produktionsversion": "9d4fc6ae4f6b55efb1b68b1a85c08eb67cae4effd205b5a4dc34ae5cd84499ff",
+      "videoformat": "short",
+      "thema": null,
+      "titel": null,
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "44149656099",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-17",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 5/10 unter 7/10",
+              "Skript-hook 5/10 unter 7/10",
+              "Skript-spannung 4/10 unter 7/10",
+              "Skript-ueberraschung 6/10 unter 7/10",
+              "Skript-tempo 5/10 unter 7/10",
+              "Skript-aufloesung 4/10 unter 7/10",
+              "Skript-teilbarkeit 5/10 unter 6/10"
+            ],
+            "story_note": 5,
+            "story_schwaechen": [
+              "Sentence 1: 'OpenAI’s ChatGPT sets a year‑long __obi cookie on .openai.com.' - Too technical and lacks an emotional hook or immediate viewer relevance for the opening seconds.",
+              "Sentence 5: 'If this alert helped, please like, share and save.' - Placed at the very end instead of in the middle right after the first payoff, and violates the loop ending requirement.",
+              "General: The script lacks a loop ending connecting back to the opening subject."
+            ],
+            "skript_probleme": [],
+            "sekunden": 162.9
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 6/10 unter 7/10",
+              "Skript-spannung 5/10 unter 7/10",
+              "Skript-aufloesung 4/10 unter 7/10"
+            ],
+            "story_note": 6,
+            "story_schwaechen": [
+              "Sentence 6: 'Like, share, and save if you want this conversation.' is placed at the very end instead of the middle after the first payoff, and uses a conditional framing rather than the required direct reminder.",
+              "Narration: The ending lacks a loop back to the initial hook about the hidden cookie, failing the loop ending requirement."
+            ],
+            "skript_probleme": [],
+            "sekunden": 449.2
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "status": "anbieterpause",
+            "exitcode": 4,
+            "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq voruebergehend gesperrt: HTTP429; Serverfrist 684s - kostenpflichtig weiter mit „start ki bezahlt\" bzw. „start business bezahlt\"",
+            "sekunden": 75.0
+          },
+          {
+            "runde": 4,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 3/10 unter 7/10",
+              "Skript-hook 2/10 unter 7/10",
+              "Skript-spannung 2/10 unter 7/10",
+              "Skript-ueberraschung 2/10 unter 7/10",
+              "Skript-tempo 3/10 unter 7/10",
+              "Skript-aufloesung 2/10 unter 7/10",
+              "Skript-teilbarkeit 2/10 unter 6/10"
+            ],
+            "story_note": 3,
+            "story_schwaechen": [
+              "The hook is a generic statement rather than a specific problem; it lacks an emotional stake.",
+              "The call to action is placed too early, before any real payoff or useful information has been provided.",
+              "The content fails to teach a specific method or solution for removing watermarks, making it feel like list filler.",
+              "The script ends on a dry piece of advice rather than a loop that connects back to the hook."
+            ],
+            "skript_probleme": [],
+            "sekunden": 104.3
+          },
+          {
+            "runde": 5,
+            "art": "produktion",
+            "status": "anbieterpause",
+            "exitcode": 4,
+            "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq voruebergehend gesperrt: HTTP429; Serverfrist 684s - kostenpflichtig weiter mit „start ki bezahlt\" bzw. „start business bezahlt\"",
+            "sekunden": 34.2
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "Claude-Redaktion (Plan vom 2026-11-16): ChatGPT: Me treating ChatGPT like my employee 😂💀 You too?: 6.0 Punkte - YouTube-Ausreisser 79.3x Kanalschnitt",
+        "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq voruebergehend gesperrt: HTTP429; Serverfrist 684s - kostenpflichtig weiter mit „start ki bezahlt\" bzw. „start business bezahlt\"",
+        "sekunden": 825.8
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": null
     }
   ]
 }

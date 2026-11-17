@@ -195073,6 +195073,68 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "44149656099.1:business-origin-stories",
+      "run_id": "44149656099",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-17T18:57:16.314611+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "402ec9dcc42ab3570771344afa555f697d5b1c95",
+      "produktionsversion": "a9d68a60ac25a30d0a2f3b677f0b5cab32654c0401e2143c4971ec488f54fc48",
+      "videoformat": "short",
+      "thema": null,
+      "titel": null,
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "44149656099",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-17",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "anbieterpause",
+            "exitcode": 4,
+            "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq voruebergehend gesperrt: HTTP429; Serverfrist 684s - kostenpflichtig weiter mit „start ki bezahlt\" bzw. „start business bezahlt\"",
+            "sekunden": 112.2
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "anbieterpause",
+            "exitcode": 4,
+            "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq voruebergehend gesperrt: HTTP429; Serverfrist 684s - kostenpflichtig weiter mit „start ki bezahlt\" bzw. „start business bezahlt\"",
+            "sekunden": 30.6
+          }
+        ],
+        "status": "gesperrt",
+        "trendcheck": "United Airlines: 11.43 Punkte - YouTube-Ausreisser 9.7x Kanalschnitt, Wikipedia +6 % gegenueber Vormonat, heute in Google News (United Airlines says it's experiencing a \"widespread system outage\" days after nationwide ground stop), Hacker News 681 Punkte",
+        "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq voruebergehend gesperrt: HTTP429; Serverfrist 684s - kostenpflichtig weiter mit „start ki bezahlt\" bzw. „start business bezahlt\"",
+        "sekunden": 142.9
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": null
     }
   ]
 }

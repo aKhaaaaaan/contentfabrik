@@ -195310,6 +195310,67 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "44287741498.1:business-origin-stories",
+      "run_id": "44287741498",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-18T10:56:03.926071+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "417ee0961121cf4110c40940fd3aad643e8c211f",
+      "produktionsversion": "a9d68a60ac25a30d0a2f3b677f0b5cab32654c0401e2143c4971ec488f54fc48",
+      "videoformat": "short",
+      "thema": null,
+      "titel": null,
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "44287741498",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-18",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "anbieterpause",
+            "exitcode": 4,
+            "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq voruebergehend gesperrt: HTTP429; Serverfrist 848s",
+            "sekunden": 115.5
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "anbieterpause",
+            "exitcode": 4,
+            "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq voruebergehend gesperrt: HTTP429; Serverfrist 848s",
+            "sekunden": 30.3
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq voruebergehend gesperrt: HTTP429; Serverfrist 848s",
+        "sekunden": 146.9
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": null
     }
   ]
 }

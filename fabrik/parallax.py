@@ -27,8 +27,10 @@ MODELL_SHA = '01aa7a23de3f4a0ee1a2bb9997e6918104c85a9f95dea46d27b9b3fb0c6b9001'
 # verzog 15 % die Raender (Beine doppelt, Stuhlbein) - mit RAND 8 % Beschnitt an der Werkstattszene sauber.
 # 30.10.2026 (Business Intel): Nutzer - "die Kamera-Drehung verzerrt die Figuren, bisschen runterschrauben". Innerhalb
 # einer Figur aendert sich die Tiefe (Nase/Schulter/Arm) - jeder Tiefenunterschied verbiegt sie proportional.
-VERSCHIEBUNG = 0.10
-HERAN = 0.10  # Vordergrund kommt zusaetzlich naeher
+# 18.11.2026 (Business Helsing, letzte 4 Bilder): Nutzer - "Rotation bisschen weniger, die Figur wird stark
+# verzerrt". Erzaehler gross im Vordergrund: HERAN streckt Kopf/Hut ungleich (Tiefe aendert sich im Gesicht).
+VERSCHIEBUNG = 0.07
+HERAN = 0.06  # Vordergrund kommt zusaetzlich naeher
 RAND = 0.08  # so viel vom Rand wird abgeschnitten (gespiegelte Randpixel nie sichtbar)
 KURZE_SEITE = 392  # Modelleingabe, Vielfaches von 14
 

@@ -585,13 +585,19 @@ def zaehlt_als_tagesvideo(kanal, eintrag, heute):
         return True
 
 
-def nutzertag(heute=None):
+def nutzertag(heute=None, kanal=None):
     """Jeder zweite Tag (Berliner Datum) gehoert der Warteschlange des Nutzers: dann kommt sein Thema VOR dem Trend.
     Nutzer 06.11.2026 ("ja, wenn es sinnvoll ist"): KI-Thema vom 28.10. wartete 9 Tage, weil fast taeglich ein
     Trend vorging (Entscheidung A vom 30.10.: Warteschlange nur ohne Trend). Publikum 30.10.: Trendthemen
-    ~250 TikTok-Aufrufe, bekannte Marken mit Wendung 700-970 - die Nutzerlisten sind meist solche Marken."""
+    ~250 TikTok-Aufrufe, bekannte Marken mit Wendung 700-970 - die Nutzerlisten sind meist solche Marken.
+    Nutzer 18.11.2026 (GTA-VI-Start 19.11.): "Ja moechte ich" - Themen mit 'taeglich' kommen JEDEN Tag, solange
+    eines vorne in der Warteschlange des Kanals steht; danach wieder jeder zweite Tag."""
     from zoneinfo import ZoneInfo
     heute = heute or datetime.datetime.now(ZoneInfo('Europe/Berlin')).date()
+    if kanal:
+        vorn = nehmen(kanal)
+        if vorn and details(kanal, vorn).get('taeglich'):
+            return True
     return heute.toordinal() % 2 == 0
 
 
@@ -602,7 +608,7 @@ def statt_vorrat(kanal, vorrat_thema):
     Plus", American Airlines) vor Vice-City-Poster und Rockstar North. Es zaehlt die Reihenfolge der Warteschlange
     (GTA-Themen muessen vor dem 19.11. laufen): ein Vorratsskript nur, wenn es das VORDERSTE Nutzerthema ist -
     der Nachtvorrat hatte SynthID (Platz 6) statt Vice City (Platz 1) geschrieben."""
-    if not nutzertag():
+    if not nutzertag(kanal=kanal):
         return ''
     vorn = nehmen(kanal)
     return '' if vorrat_thema == vorn else vorn

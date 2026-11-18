@@ -407,7 +407,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             import trendcheck
             gewaehlt, trend = trendcheck.waehlen(kanal, themen=themen)
             offen_trend = trendcheck.trend_themen(kanal)
-            nutzer = themen.nehmen(kanal) if themen.nutzertag() else ''
+            nutzer = themen.nehmen(kanal) if themen.nutzertag(kanal=kanal) else ''
             if nutzer and trendcheck.heute_gescheitert(kanal, nutzer) < 2:
                 # Nutzer 06.11.2026: jeden zweiten Tag sein Thema vor dem Trend (themen.nutzertag).
                 print(f'Nutzertag - Thema aus der Warteschlange vor dem Trend: {nutzer}')
@@ -429,7 +429,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         # GEMELDET 09.10.2026: Themen muessen aus Google Trends/YouTube-Viralem kommen.
         # Der Trend-Check waehlt unter Warteschlange + Trendfirmen; '' = freie Trendwahl.
         import trendcheck
-        nutzer = themen.nehmen(kanal) if themen.nutzertag() else ''
+        nutzer = themen.nehmen(kanal) if themen.nutzertag(kanal=kanal) else ''
         if nutzer and trendcheck.heute_gescheitert(kanal, nutzer) < 2:
             # Nutzer 06.11.2026: jeden zweiten Tag sein Thema vor dem Trend (themen.nutzertag). Zweimal heute
             # gescheitert -> wieder der Trend, sonst liefe derselbe Versuch ein drittes Mal.

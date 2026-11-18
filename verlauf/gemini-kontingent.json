@@ -1,26 +1,55 @@
 {
   "version": 1,
   "modelle": {
+    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
+      "grund": "HTTP429; Serverfrist 953s",
+      "bis": 1795010141.6033258
+    },
+    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-20b": {
+      "grund": "HTTP429; Serverfrist 616s",
+      "bis": 1795009996.4031951
+    },
     "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
       "grund": "voruebergehend ueberlastet",
-      "bis": 1795003528.9502604
+      "bis": 1795009682.810021
+    },
+    "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": {
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1795009720.80011
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.5-flash-lite": {
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1795009742.9780715
     },
     "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
       "grund": "voruebergehend ueberlastet",
-      "bis": 1795003538.0668867
+      "bis": 1795009746.0605214
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1795009757.560174
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.5-flash": {
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1795009758.8892512
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": {
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1795009868.4548116
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1795010175.5880947
     }
   },
   "zeitlimits": {
-    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
-      1794998818.3102474
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
+      1795009032.6821082
     ],
-    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
-      1794999043.4423997,
-      1794999311.0724897
-    ],
-    "18b3ef0930af7cca6de34adf:gemini-3.5-flash": [
-      1794999363.6844153,
-      1794999641.657372
+    "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": [
+      1795009168.0695324,
+      1795009410.4550214,
+      1795009635.5880947
     ]
   }
 }

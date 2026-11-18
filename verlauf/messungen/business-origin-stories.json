@@ -1,55 +1,5 @@
 [
   {
-    "id": "41093721999",
-    "kanal": "business-origin-stories",
-    "datum": "2026-10-30",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sekunden": 0.3
-      },
-      {
-        "runde": 2,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sekunden": 0.2
-      },
-      {
-        "runde": 3,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sekunden": 0.2
-      },
-      {
-        "runde": 4,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sekunden": 0.2
-      },
-      {
-        "runde": 5,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sekunden": 0.2
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Faktenpruefung nicht bestanden",
-    "sekunden": 1.3
-  },
-  {
     "id": "41103117263",
     "kanal": "business-origin-stories",
     "datum": "2026-10-30",
@@ -19652,5 +19602,73 @@
     "status": "gesperrt",
     "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq voruebergehend gesperrt: HTTP429; Serverfrist 616s",
     "sekunden": 145.1
+  },
+  {
+    "id": "44338503096",
+    "kanal": "business-origin-stories",
+    "datum": "2026-11-18",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-hook 6/10 unter 7/10",
+          "Skript-ueberraschung 6/10 unter 7/10",
+          "Skript-tempo 5/10 unter 7/10"
+        ],
+        "story_note": 7,
+        "story_schwaechen": [
+          "The opening line merely states a company name and date; it lacks a strong curiosity gap or emotional hook that can capture attention within the first 3‑5 seconds.  Replace it with a dramatic fact about the first combat deployment or a surprising outcome of the AI drone to create instant intrigue."
+        ],
+        "skript_probleme": [],
+        "sekunden": 167.7
+      },
+      {
+        "runde": 2,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-Note 5/10 unter 7/10",
+          "Skript-hook 3/10 unter 7/10",
+          "Skript-spannung 5/10 unter 7/10",
+          "Skript-ueberraschung 6/10 unter 7/10",
+          "Skript-aufloesung 6/10 unter 7/10",
+          "Skript-teilbarkeit 4/10 unter 6/10"
+        ],
+        "story_note": 5,
+        "story_schwaechen": [
+          "The opening sentence 'Artists boycotted Spotify over a defence startup' is a dry, generic statement that fails to create a curiosity gap or specific emotional stake for the viewer within the first three seconds.",
+          "The connection between the Spotify boycott and the Helsing technology feels disjointed, lacking a clear causal link that explains why the viewer should care about the AI development through the lens of the music streaming platform."
+        ],
+        "skript_probleme": [],
+        "sekunden": 170.7
+      },
+      {
+        "runde": 3,
+        "art": "produktion",
+        "status": "anbieterpause",
+        "exitcode": 4,
+        "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq voruebergehend gesperrt: HTTP429; Serverfrist 606s",
+        "sekunden": 89.6
+      },
+      {
+        "runde": 4,
+        "art": "produktion",
+        "skript_s": 83.9,
+        "bau_s": 64.6,
+        "baufehler": "AnbieterNichtVerfuegbar: Textanbieter lieferte keine nutzbare Antwort: Groq voruebergehend gesperrt: HTTP429; Serverfrist 606s",
+        "status": "anbieterpause",
+        "sekunden": 150.5
+      }
+    ],
+    "status": "gesperrt",
+    "grund": "Videobau fehlgeschlagen (AnbieterNichtVerfuegbar: Textanbieter lieferte keine nutzbare Antwort: Groq voruebergehend gesperrt: HTTP429; Serverfrist 606s)",
+    "sekunden": 578.9,
+    "upload_titel": "Drones Split Spotify: Helsing's Funding Row"
   }
 ]

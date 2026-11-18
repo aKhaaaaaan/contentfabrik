@@ -3,7 +3,7 @@
 python fabrik/themen.py abholen; erst NACH erfolgreichem Git-Push: bestaetigen.
 Kanal-Praefixe und Listen brauchen keine KI; YouTube-Links liefern nur das Thema.
 """
-import datetime, json, os, re, sys, time, urllib.error, urllib.parse, urllib.request
+import datetime, http.client, json, os, re, sys, time, urllib.error, urllib.parse, urllib.request
 from pathlib import Path
 
 DATEI = Path('themen/warteschlange.json')
@@ -212,7 +212,16 @@ def _geheimnis(zweck):
 def webhook_abholen():
     req = urllib.request.Request(WORKER + '/videobot/abholen', headers={
         'X-Abholer': _geheimnis('abholen'), 'User-Agent': 'contentfabrik-themen'})
-    d = json.load(urllib.request.urlopen(req, timeout=30))
+    # 18.11.2026: drei Abholer an einem Abend rot (Zeitlimit/Connection reset beim Worker) - der ganze Lauf fiel
+    # aus, TikTok-Freigaben warteten 5 Minuten laenger. Kurz wiederholen statt abbrechen.
+    for versuch in range(3):
+        try:
+            d = json.load(urllib.request.urlopen(req, timeout=30))
+            break
+        except (OSError, http.client.HTTPException, ValueError):
+            if versuch == 2:
+                raise
+            time.sleep(10)
     if d.get('ok') is not True or not isinstance(d.get('result'), list):
         raise RuntimeError('Videobot-Eingang im Worker nicht lesbar')
     return [u for u in d['result'] if isinstance(u, dict) and isinstance(u.get('update_id'), int)]

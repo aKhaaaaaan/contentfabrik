@@ -230,7 +230,7 @@ def telegram_speichern(zustand):
 
 def tiktok_zuordnung_fehlt(callback):
     """Ein frueher echter Knopfdruck darf vor dem Push der Videozuordnung nicht verloren gehen."""
-    m = re.fullmatch(r'tu:([a-f0-9]{16}):(ok|nein)', str(callback.get('data', '')))
+    m = re.fullmatch(r'tu:([a-f0-9]{16}):(ok|nein!?)', str(callback.get('data', '')))
     if not m:
         return False
     import bewertung
@@ -285,7 +285,10 @@ def abholen():
     zustand['erledigt'] = (zustand.get('erledigt', []) + [u['update_id'] for u in updates])[-1000:]
     liste = laden()
     def merken(update, text):
-        zustand['bestaetigungen'].append({'update_id': update, 'text': text})
+        if isinstance(text, dict):  # 18.11.2026: Rueckfrage mit eigenem Knopf (bewertung.ablehn_frage)
+            zustand['bestaetigungen'].append({'update_id': update, 'text': text['text'], 'knoepfe': text['knoepfe']})
+        else:
+            zustand['bestaetigungen'].append({'update_id': update, 'text': text})
     import bewertung
     jetzt = datetime.datetime.now(datetime.timezone.utc)
     wartende = []
@@ -443,7 +446,8 @@ def bestaetigen():
     try:
         while zustand['bestaetigungen']:
             nachricht = zustand['bestaetigungen'][0]
-            if _tg('sendMessage', chat_id=chat, text=nachricht['text']).get('ok') is not True:
+            extra = {'reply_markup': json.dumps(nachricht['knoepfe'])} if nachricht.get('knoepfe') else {}
+            if _tg('sendMessage', chat_id=chat, text=nachricht['text'], **extra).get('ok') is not True:
                 raise RuntimeError('Telegram-Bestaetigung abgelehnt')
             zustand['bestaetigungen'].pop(0)
         # Im Webhook-Betrieb gibt es nichts zu bestaetigen (getUpdates waere dort 409); der Worker-Speicher

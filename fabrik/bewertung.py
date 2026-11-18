@@ -35,10 +35,13 @@ def knoepfe(sha, tiktok=False):
     reihen = [
         leiste('📖', 'bs'),
         leiste('🎬', 'bv')]
+    # GEMELDET 18.11.2026 (ElevenLabs #39): "Video ablehnen" direkt unter "TikTok-Entwurf hochladen" - ein Vertipper
+    # sperrte das schon hochgeladene Video. Upload oben, Status dazwischen, Ablehnen unten; Ablehnen fragt nach
+    # (ablehn_frage), erst "...:nein!" lehnt ab.
     if tiktok:
         reihen.extend([
-            [{'text': '📮 TikTok-Status prüfen', 'callback_data': f'ts:{kurz}:status'}],
             [{'text': '✅ TikTok-Entwurf hochladen', 'callback_data': f'tu:{kurz}:ok'}],
+            [{'text': '📮 TikTok-Status prüfen', 'callback_data': f'ts:{kurz}:status'}],
             [{'text': '❌ Video ablehnen', 'callback_data': f'tu:{kurz}:nein'}]])
     else:
         reihen.append([{'text': '✅ Gefällt mir', 'callback_data': f'bw:{kurz}:ok'},
@@ -98,9 +101,22 @@ def _eintragen(eintrag):
     return True
 
 
+def ablehn_frage(praefix, kurz, video):
+    """Rueckfrage statt sofortiger Sperre (18.11.2026): {'text', 'knoepfe'} - themen.bestaetigen sendet die Knoepfe."""
+    titel = (video or {}).get('titel') or 'Video ' + kurz
+    return {'text': f'❓ Wirklich ablehnen: „{titel}“? Danach ist es für Uploads gesperrt. '
+                    'Nur tippen, wenn du sicher bist - sonst einfach ignorieren, dann passiert nichts.',
+            'knoepfe': {'inline_keyboard': [[{'text': '❌ Ja, endgültig ablehnen',
+                                              'callback_data': f'{praefix}:{kurz}:nein!'}]]}}
+
+
 def knopf(update_id, callback):
-    """Knopfdruck speichern; gibt die Bestaetigung fuer den Nutzer zurueck."""
+    """Knopfdruck speichern; gibt die Bestaetigung fuer den Nutzer zurueck (Text oder {'text', 'knoepfe'})."""
     teile = str(callback.get('data', '')).split(':')
+    if len(teile) == 3 and teile[0] in ('tu', 'bw') and teile[2] == 'nein':
+        return ablehn_frage(teile[0], teile[1], video_zu((callback.get('message') or {}).get('message_id'), teile[1]))
+    if len(teile) == 3 and teile[2] == 'nein!':
+        teile[2] = 'nein'  # bestaetigte Ablehnung
     if len(teile) == 3 and teile[0] == 'ts' and teile[2] == 'status':
         video = video_zu((callback.get('message') or {}).get('message_id'), teile[1])
         if not video or not video.get('video_sha256', '').startswith(teile[1]):

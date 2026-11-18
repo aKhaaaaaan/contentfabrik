@@ -123,6 +123,37 @@ def voruebergehend(fehler):
         return False
 
 
+BEZAHLT=[0]  # bezahlte Bildurteile dieses Prozesses (Kostenblick im Log)
+BEZAHLT_AUS=[False]  # nach einem Fehlschlag der Reserve nicht jedes weitere Bild minutenlang daran warten lassen
+
+
+def bezahlt_pruefen(prompt,schema,bild):
+    """Dritte Stufe: bezahlte Gemini-Reserve, wenn Gemini-Gratis UND Groq-Vision nicht antworten.
+
+    Nutzer 18.11.2026 ("Ja deine Vorschlaege umsetzen"): am 18.11. waren Gemini (503/Zeitlimit) und Groq (429)
+    stundenlang ueberlastet, kein Business-Video. Die Reserve sprang nicht ein, weil sie nur bei leerem
+    Kontingent gilt (skript.reserve_noetig) - fuer die BILDPRUEFUNG jetzt auch bei Ueberlast. Kosten wenige Cent
+    je Video. Handstart ohne "bezahlt" bleibt ohne Reserve (skript.reserve_schluessel, Nutzer 21.10.).
+    None, wenn kein Reserve-Schluessel da ist oder auch die Reserve nicht antwortet."""
+    try:
+        import skript
+        schluessel=skript.reserve_schluessel()
+        if not schluessel or BEZAHLT_AUS[0]:
+            return None
+        antwort=skript.gemini(prompt,schema,bilder=[bild],modelle=skript.SEHEN,temperatur=.1,schluessel=schluessel)
+    except Exception as fehler:
+        print(f'Bezahlte Gemini-Reserve: {type(fehler).__name__}: {str(fehler)[:120]} - fuer diesen Lauf aus',flush=True)
+        BEZAHLT_AUS[0]=True
+        return None
+    BEZAHLT[0]+=1
+    if BEZAHLT[0]==1:
+        print('Bildpruefung ueber die bezahlte Gemini-Reserve (Gratis-Gemini und Groq ueberlastet)',flush=True)
+        import stoerung
+        stoerung.melden('bildpruefung-bezahlt','Gemini-Gratis und Groq-Vision antworten nicht.',
+                        'Die bezahlte Gemini-Reserve prueft die Bilder (wenige Cent je Video).')
+    return antwort
+
+
 PAUSEN_S=(60,120,180)
 PAUSE_MAX_S=15*60  # je Bauprozess hoechstens so lange auf ueberlastete Pruefer warten (Budget schonen)
 GEWARTET=[0.0]
@@ -149,6 +180,9 @@ def mit_ausweichweg(gemini_aufruf,prompt,schema,bild,zweck='einzelbild'):
             return pruefen(prompt,schema,[bild],zweck=zweck)
         except Exception as fehler:
             print(f'Groq-Vision: {type(fehler).__name__}: {str(fehler)[:120]}',flush=True)
+            bezahlt=bezahlt_pruefen(prompt,schema,bild)
+            if bezahlt is not None:
+                return bezahlt
             # GEMESSEN 13.11.2026 (Rockstar 43455522075/43461883106): Gemini HTTP 503 (ueberlastet) + Groq-Vision
             # kurz gesperrt brach den ganzen Bau bei Einstellung 21/30 ab. Ueberlast vergeht: warten, beide neu
             # fragen. Leeres Tageskontingent kommt heute nicht wieder - dann sofort Anbieterpause.

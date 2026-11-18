@@ -196401,6 +196401,77 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "44352863786.1:business-origin-stories",
+      "run_id": "44352863786",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-18T17:25:26.417047+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "be923bb5ab568400bcd838932844dfaa5df0ca35",
+      "produktionsversion": "a9d68a60ac25a30d0a2f3b677f0b5cab32654c0401e2143c4971ec488f54fc48",
+      "videoformat": "short",
+      "thema": "Helsing",
+      "titel": [
+        "Drones Split *Spotify*",
+        "Helsing's Funding Row"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "44352863786",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-18",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 768.3,
+            "baufehler": "AnbieterNichtVerfuegbar: Einstellung 4: Bildpruefung nicht verfuegbar (Gemini-Kontingent und Groq-Vision) - kein Video aus Ersatzbildern",
+            "status": "anbieterpause",
+            "sekunden": 1044.2
+          },
+          {
+            "runde": 2,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 570.3,
+            "baufehler": "AnbieterNichtVerfuegbar: Einstellung 2: Bildpruefung nicht verfuegbar (Gemini-Kontingent und Groq-Vision) - kein Video aus Ersatzbildern",
+            "status": "anbieterpause",
+            "sekunden": 572.3
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Videobau fehlgeschlagen (AnbieterNichtVerfuegbar: Einstellung 2: Bildpruefung nicht verfuegbar (Gemini-Kontingent und Groq-Vision) - kein Video aus Ersatzbildern)",
+        "sekunden": 1617.1,
+        "upload_titel": "Drones Split Spotify: Helsing's Funding Row"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

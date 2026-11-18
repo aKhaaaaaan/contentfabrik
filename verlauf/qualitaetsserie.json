@@ -195511,6 +195511,786 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "44338503096.1:ai-tools-explained",
+      "run_id": "44338503096",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-18T16:13:49.076633+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "e587ce8ab044b419a15eeb43beb9677626654c54",
+      "produktionsversion": "9d4fc6ae4f6b55efb1b68b1a85c08eb67cae4effd205b5a4dc34ae5cd84499ff",
+      "videoformat": "short",
+      "thema": "ElevenLabs Dubbing: free watermark vs paid clean dub",
+      "titel": [
+        "FREE AI *DUBBING?*",
+        "THE WATERMARK CATCH"
+      ],
+      "status": "gesendet",
+      "video_sha256": "0e1d308040f9b3c0488e56da5bfcde4c218126d623725a025b8d29836cc20829",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-11.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): The image is an abstract, stylized digital illustration that has no connection to the concept of a 'dub' or a 'watermark' as mentioned in the narration.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine allgemeine \u0004bersicht \u0004ber die Preismodelle (Free vs. Starter), aber es fehlen die spezifischen Details, die im Text genannt werden: der Preis von 3.000 Credits pro Minute und die Angabe, dass dies f\u0004r Dubs ohne Wasserzeichen gilt. Die sichtbaren Preise (0$ und 1$) widersprechen z",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt eine abstrakte Darstellung der Abrechnungslogik (Token-Preis) und enthält den gesuchten Wert '3.000 credits per minute' als Texteinblendung. Es erklärt jedoch nicht die spezifische ElevenLabs-Abrechnung für Dubbing, sondern nutzt ein generisches LLM-Beispiel, das nicht die im Text gen",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine generische Büroszene mit einem leeren Bildschirm. Es fehlen jegliche visuellen Hinweise auf die gesprochene Information, dass jede Sprache separat berechnet wird (z. B. durch eine Preistabelle oder eine Liste von Sprachen).",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die sichtbaren Aufzählungspunkte im Textfeld (Sprachanzahl, Kreditkosten) beziehen sich auf frühere Sätze der Erzählung. Der aktuelle Satz 'Paid plans don't carry it. Free dubs keep it.' behandelt das Vorhandensein oder Fehlen eines Wasserzeichens. Weder die Illustration des Mannes noch der statisch",
+        "Offenes Problem (schwer): The image is an abstract, stylized digital illustration that has no connection to the concept of a 'dub' or a 'watermark' as mentioned in the narration. Korrektur: A screenshot of a video or audio file interface showing a clear 'ElevenLabs' watermark overlay on a dubbed clip compared to a clean version without it.",
+        "Offenes Problem (schwer): Das Bild zeigt eine allgemeine \u0004bersicht \u0004ber die Preismodelle (Free vs. Starter), aber es fehlen die spezifischen Details, die im Text genannt werden: der Preis von 3.000 Credits pro Minute und die Angabe, dass dies f\u0004r Dubs ohne Wasserzeichen gilt. Die sichtbaren Preise (0$ und 1$) widersprechen zudem der genannten Summe von 3.000 Credits, da es sich um Abonnementpreise handelt und nicht um den Verbrauchspreis f\u0004r die Dubbing-Funktion. Korrektur: Ein Screenshot der ElevenLabs-Preisseite, der explizit den Preis von 3.000 Credits pro Minute für die automatische Dubbing-Funktion ohne Wasserzeichen anzeigt, idealerweise mit dem Datum 18. November.",
+        "Offenes Problem (schwer): Das Bild zeigt eine abstrakte Darstellung der Abrechnungslogik (Token-Preis) und enthält den gesuchten Wert '3.000 credits per minute' als Texteinblendung. Es erklärt jedoch nicht die spezifische ElevenLabs-Abrechnung für Dubbing, sondern nutzt ein generisches LLM-Beispiel, das nicht die im Text genannte Operation (Kosten für Dubbing) direkt visualisiert. Korrektur: Ein Screenshot der ElevenLabs-Preisseite oder des Dashboards, der den konkreten Preis von 3.000 Credits pro Minute für die Dubbing-Funktion anzeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt eine generische Büroszene mit einem leeren Bildschirm. Es fehlen jegliche visuellen Hinweise auf die gesprochene Information, dass jede Sprache separat berechnet wird (z. B. durch eine Preistabelle oder eine Liste von Sprachen). Korrektur: Ein Screenshot der ElevenLabs-Preisseite oder des Dashboards, der die Kreditkosten pro Sprache und Minute auflistet, oder eine grafische Darstellung, die die separate Abrechnung für mehrere Sprachen visualisiert.",
+        "Offenes Problem (schwer): Die sichtbaren Aufzählungspunkte im Textfeld (Sprachanzahl, Kreditkosten) beziehen sich auf frühere Sätze der Erzählung. Der aktuelle Satz 'Paid plans don't carry it. Free dubs keep it.' behandelt das Vorhandensein oder Fehlen eines Wasserzeichens. Weder die Illustration des Mannes noch der statische Text im Bild zeigen ein Wasserzeichen oder den Unterschied zwischen den Plänen, der im gesprochenen Satz thematisiert wird. Korrektur: Ein Screenshot der ElevenLabs-Oberfläche, der den Unterschied zwischen der kostenlosen und der bezahlten Version zeigt, z. B. durch das sichtbare Wasserzeichen im einen Fall und dessen Abwesenheit im anderen, oder eine grafische Gegenüberstellung der beiden Audio-Dateien."
+      ],
+      "einstellungen": 8,
+      "unterschiedliche_motive": 8,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "44338503096",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-18",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "skript_s": 294.4,
+            "bau_s": 809.2,
+            "pruefung_s": 163.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): The image is an abstract, stylized digital illustration that has no connection to the concept of a 'dub' or a 'watermark' as mentioned in the narration.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine allgemeine \u0004bersicht \u0004ber die Preismodelle (Free vs. Starter), aber es fehlen die spezifischen Details, die im Text genannt werden: der Preis von 3.000 Credits pro Minute und die Angabe, dass dies f\u0004r Dubs ohne Wasserzeichen gilt. Die sichtbaren Preise (0$ und 1$) widersprechen z",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt eine abstrakte Darstellung der Abrechnungslogik (Token-Preis) und enthält den gesuchten Wert '3.000 credits per minute' als Texteinblendung. Es erklärt jedoch nicht die spezifische ElevenLabs-Abrechnung für Dubbing, sondern nutzt ein generisches LLM-Beispiel, das nicht die im Text gen",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine generische Büroszene mit einem leeren Bildschirm. Es fehlen jegliche visuellen Hinweise auf die gesprochene Information, dass jede Sprache separat berechnet wird (z. B. durch eine Preistabelle oder eine Liste von Sprachen).",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die sichtbaren Aufzählungspunkte im Textfeld (Sprachanzahl, Kreditkosten) beziehen sich auf frühere Sätze der Erzählung. Der aktuelle Satz 'Paid plans don't carry it. Free dubs keep it.' behandelt das Vorhandensein oder Fehlen eines Wasserzeichens. Weder die Illustration des Mannes noch der statisch",
+              "Offenes Problem (schwer): The image is an abstract, stylized digital illustration that has no connection to the concept of a 'dub' or a 'watermark' as mentioned in the narration. Korrektur: A screenshot of a video or audio file interface showing a clear 'ElevenLabs' watermark overlay on a dubbed clip compared to a clean version without it.",
+              "Offenes Problem (schwer): Das Bild zeigt eine allgemeine \u0004bersicht \u0004ber die Preismodelle (Free vs. Starter), aber es fehlen die spezifischen Details, die im Text genannt werden: der Preis von 3.000 Credits pro Minute und die Angabe, dass dies f\u0004r Dubs ohne Wasserzeichen gilt. Die sichtbaren Preise (0$ und 1$) widersprechen zudem der genannten Summe von 3.000 Credits, da es sich um Abonnementpreise handelt und nicht um den Verbrauchspreis f\u0004r die Dubbing-Funktion. Korrektur: Ein Screenshot der ElevenLabs-Preisseite, der explizit den Preis von 3.000 Credits pro Minute für die automatische Dubbing-Funktion ohne Wasserzeichen anzeigt, idealerweise mit dem Datum 18. November.",
+              "Offenes Problem (schwer): Das Bild zeigt eine abstrakte Darstellung der Abrechnungslogik (Token-Preis) und enthält den gesuchten Wert '3.000 credits per minute' als Texteinblendung. Es erklärt jedoch nicht die spezifische ElevenLabs-Abrechnung für Dubbing, sondern nutzt ein generisches LLM-Beispiel, das nicht die im Text genannte Operation (Kosten für Dubbing) direkt visualisiert. Korrektur: Ein Screenshot der ElevenLabs-Preisseite oder des Dashboards, der den konkreten Preis von 3.000 Credits pro Minute für die Dubbing-Funktion anzeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generische Büroszene mit einem leeren Bildschirm. Es fehlen jegliche visuellen Hinweise auf die gesprochene Information, dass jede Sprache separat berechnet wird (z. B. durch eine Preistabelle oder eine Liste von Sprachen). Korrektur: Ein Screenshot der ElevenLabs-Preisseite oder des Dashboards, der die Kreditkosten pro Sprache und Minute auflistet, oder eine grafische Darstellung, die die separate Abrechnung für mehrere Sprachen visualisiert.",
+              "Offenes Problem (schwer): Die sichtbaren Aufzählungspunkte im Textfeld (Sprachanzahl, Kreditkosten) beziehen sich auf frühere Sätze der Erzählung. Der aktuelle Satz 'Paid plans don't carry it. Free dubs keep it.' behandelt das Vorhandensein oder Fehlen eines Wasserzeichens. Weder die Illustration des Mannes noch der statische Text im Bild zeigen ein Wasserzeichen oder den Unterschied zwischen den Plänen, der im gesprochenen Satz thematisiert wird. Korrektur: Ein Screenshot der ElevenLabs-Oberfläche, der den Unterschied zwischen der kostenlosen und der bezahlten Version zeigt, z. B. durch das sichtbare Wasserzeichen im einen Fall und dessen Abwesenheit im anderen, oder eine grafische Gegenüberstellung der beiden Audio-Dateien."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 18.8,
+              "zeitmarken": 3.1,
+              "tempo": 1.011,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 8,
+              "clips_und_stuecke": 505.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 8,
+                "motive": 8,
+                "motive_min": 4
+              },
+              "effekte": 9,
+              "rendern": 31.1,
+              "gesamt": 808.8,
+              "videolaenge_s": 25.0,
+              "abschnitte_s": [
+                2.7,
+                4.82,
+                3.06,
+                6.62,
+                2.7,
+                5.09
+              ],
+              "woerter": 59,
+              "clips": {
+                "witz": 1,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Your free dub arrives with a watermark.",
+                "fest": false,
+                "text": "The image is an abstract, stylized digital illustration that has no connection to the concept of a 'dub' or a 'watermark' as mentioned in the narration. Korrektur: A screenshot of a video or audio file interface showing a clear 'ElevenLabs' watermark overlay on a dubbed clip compared to a clean version without it."
+              },
+              {
+                "zeit": "00:10.58",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 3,
+                "gesprochen": "Checked November 18: automatic dubs without watermark",
+                "fest": true,
+                "text": "Das Bild zeigt eine allgemeine \u0004bersicht \u0004ber die Preismodelle (Free vs. Starter), aber es fehlen die spezifischen Details, die im Text genannt werden: der Preis von 3.000 Credits pro Minute und die Angabe, dass dies f\u0004r Dubs ohne Wasserzeichen gilt. Die sichtbaren Preise (0$ und 1$) widersprechen zudem der genannten Summe von 3.000 Credits, da es sich um Abonnementpreise handelt und nicht um den Verbrauchspreis f\u0004r die Dubbing-Funktion. Korrektur: Ein Screenshot der ElevenLabs-Preisseite, der explizit den Preis von 3.000 Credits pro Minute für die automatische Dubbing-Funktion ohne Wasserzeichen anzeigt, idealerweise mit dem Datum 18. November."
+              },
+              {
+                "zeit": "00:13.89",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 4,
+                "gesprochen": "cost 3,000 credits per minute.",
+                "fest": true,
+                "text": "Das Bild zeigt eine abstrakte Darstellung der Abrechnungslogik (Token-Preis) und enthält den gesuchten Wert '3.000 credits per minute' als Texteinblendung. Es erklärt jedoch nicht die spezifische ElevenLabs-Abrechnung für Dubbing, sondern nutzt ein generisches LLM-Beispiel, das nicht die im Text genannte Operation (Kosten für Dubbing) direkt visualisiert. Korrektur: Ein Screenshot der ElevenLabs-Preisseite oder des Dashboards, der den konkreten Preis von 3.000 Credits pro Minute für die Dubbing-Funktion anzeigt."
+              },
+              {
+                "zeit": "00:17.20",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 5,
+                "gesprochen": "Each language is charged separately.",
+                "fest": true,
+                "text": "Das Bild zeigt eine generische Büroszene mit einem leeren Bildschirm. Es fehlen jegliche visuellen Hinweise auf die gesprochene Information, dass jede Sprache separat berechnet wird (z. B. durch eine Preistabelle oder eine Liste von Sprachen). Korrektur: Ein Screenshot der ElevenLabs-Preisseite oder des Dashboards, der die Kreditkosten pro Sprache und Minute auflistet, oder eine grafische Darstellung, die die separate Abrechnung für mehrere Sprachen visualisiert."
+              },
+              {
+                "zeit": "00:22.50",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 7,
+                "gesprochen": "Paid plans don't carry it. Free dubs keep it.",
+                "fest": false,
+                "text": "Die sichtbaren Aufzählungspunkte im Textfeld (Sprachanzahl, Kreditkosten) beziehen sich auf frühere Sätze der Erzählung. Der aktuelle Satz 'Paid plans don't carry it. Free dubs keep it.' behandelt das Vorhandensein oder Fehlen eines Wasserzeichens. Weder die Illustration des Mannes noch der statische Text im Bild zeigen ein Wasserzeichen oder den Unterschied zwischen den Plänen, der im gesprochenen Satz thematisiert wird. Korrektur: Ein Screenshot der ElevenLabs-Oberfläche, der den Unterschied zwischen der kostenlosen und der bezahlten Version zeigt, z. B. durch das sichtbare Wasserzeichen im einen Fall und dessen Abwesenheit im anderen, oder eine grafische Gegenüberstellung der beiden Audio-Dateien."
+              }
+            ],
+            "sekunden": 1269.6,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "grund": "",
+        "sekunden": 1819.3,
+        "upload_titel": "FREE AI DUBBING? THE WATERMARK CATCH | AI Tool #39b"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Your free dub arrives with a watermark.",
+            "fest": false,
+            "text": "The image is an abstract, stylized digital illustration that has no connection to the concept of a 'dub' or a 'watermark' as mentioned in the narration. Korrektur: A screenshot of a video or audio file interface showing a clear 'ElevenLabs' watermark overlay on a dubbed clip compared to a clean version without it."
+          },
+          {
+            "zeit": "00:10.58",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 3,
+            "gesprochen": "Checked November 18: automatic dubs without watermark",
+            "fest": true,
+            "text": "Das Bild zeigt eine allgemeine \u0004bersicht \u0004ber die Preismodelle (Free vs. Starter), aber es fehlen die spezifischen Details, die im Text genannt werden: der Preis von 3.000 Credits pro Minute und die Angabe, dass dies f\u0004r Dubs ohne Wasserzeichen gilt. Die sichtbaren Preise (0$ und 1$) widersprechen zudem der genannten Summe von 3.000 Credits, da es sich um Abonnementpreise handelt und nicht um den Verbrauchspreis f\u0004r die Dubbing-Funktion. Korrektur: Ein Screenshot der ElevenLabs-Preisseite, der explizit den Preis von 3.000 Credits pro Minute für die automatische Dubbing-Funktion ohne Wasserzeichen anzeigt, idealerweise mit dem Datum 18. November."
+          },
+          {
+            "zeit": "00:13.89",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 4,
+            "gesprochen": "cost 3,000 credits per minute.",
+            "fest": true,
+            "text": "Das Bild zeigt eine abstrakte Darstellung der Abrechnungslogik (Token-Preis) und enthält den gesuchten Wert '3.000 credits per minute' als Texteinblendung. Es erklärt jedoch nicht die spezifische ElevenLabs-Abrechnung für Dubbing, sondern nutzt ein generisches LLM-Beispiel, das nicht die im Text genannte Operation (Kosten für Dubbing) direkt visualisiert. Korrektur: Ein Screenshot der ElevenLabs-Preisseite oder des Dashboards, der den konkreten Preis von 3.000 Credits pro Minute für die Dubbing-Funktion anzeigt."
+          },
+          {
+            "zeit": "00:17.20",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 5,
+            "gesprochen": "Each language is charged separately.",
+            "fest": true,
+            "text": "Das Bild zeigt eine generische Büroszene mit einem leeren Bildschirm. Es fehlen jegliche visuellen Hinweise auf die gesprochene Information, dass jede Sprache separat berechnet wird (z. B. durch eine Preistabelle oder eine Liste von Sprachen). Korrektur: Ein Screenshot der ElevenLabs-Preisseite oder des Dashboards, der die Kreditkosten pro Sprache und Minute auflistet, oder eine grafische Darstellung, die die separate Abrechnung für mehrere Sprachen visualisiert."
+          },
+          {
+            "zeit": "00:22.50",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 7,
+            "gesprochen": "Paid plans don't carry it. Free dubs keep it.",
+            "fest": false,
+            "text": "Die sichtbaren Aufzählungspunkte im Textfeld (Sprachanzahl, Kreditkosten) beziehen sich auf frühere Sätze der Erzählung. Der aktuelle Satz 'Paid plans don't carry it. Free dubs keep it.' behandelt das Vorhandensein oder Fehlen eines Wasserzeichens. Weder die Illustration des Mannes noch der statische Text im Bild zeigen ein Wasserzeichen oder den Unterschied zwischen den Plänen, der im gesprochenen Satz thematisiert wird. Korrektur: Ein Screenshot der ElevenLabs-Oberfläche, der den Unterschied zwischen der kostenlosen und der bezahlten Version zeigt, z. B. durch das sichtbare Wasserzeichen im einen Fall und dessen Abwesenheit im anderen, oder eine grafische Gegenüberstellung der beiden Audio-Dateien."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 25.0,
+          "fps": 30.0,
+          "lufs": -14.0,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 8.0,
+              "bis_s": 10.2,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.962
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 5.0,
+              "bis_s": 25.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Your",
+                "s": 0.0,
+                "e": 0.2,
+                "p": 0.8624568581581116
+              },
+              {
+                "w": "free",
+                "s": 0.2,
+                "e": 0.44,
+                "p": 0.8617251515388489
+              },
+              {
+                "w": "dub",
+                "s": 0.44,
+                "e": 0.66,
+                "p": 0.6300114989280701
+              },
+              {
+                "w": "arrives",
+                "s": 0.66,
+                "e": 1.02,
+                "p": 0.9787060618400574
+              },
+              {
+                "w": "with",
+                "s": 1.02,
+                "e": 1.38,
+                "p": 0.993862509727478
+              },
+              {
+                "w": "a",
+                "s": 1.38,
+                "e": 1.5,
+                "p": 0.9951841235160828
+              },
+              {
+                "w": "watermark?",
+                "s": 1.5,
+                "e": 2.14,
+                "p": 0.9137319922447205
+              },
+              {
+                "w": "11",
+                "s": 2.7,
+                "e": 2.92,
+                "p": 0.7278832793235779
+              },
+              {
+                "w": "Labs",
+                "s": 2.92,
+                "e": 3.18,
+                "p": 0.47972095012664795
+              },
+              {
+                "w": "clones",
+                "s": 3.18,
+                "e": 3.54,
+                "p": 0.9425207376480103
+              },
+              {
+                "w": "your",
+                "s": 3.54,
+                "e": 3.96,
+                "p": 0.9893711805343628
+              },
+              {
+                "w": "voice",
+                "s": 3.96,
+                "e": 4.18,
+                "p": 0.996917724609375
+              },
+              {
+                "w": "into",
+                "s": 4.18,
+                "e": 4.46,
+                "p": 0.9518470168113708
+              },
+              {
+                "w": "90",
+                "s": 4.46,
+                "e": 4.88,
+                "p": 0.9790828824043274
+              },
+              {
+                "w": "-plus",
+                "s": 4.88,
+                "e": 5.24,
+                "p": 0.6164420545101166
+              },
+              {
+                "w": "languages.",
+                "s": 5.24,
+                "e": 5.56,
+                "p": 0.9865996837615967
+              },
+              {
+                "w": "Here's",
+                "s": 6.56,
+                "e": 6.76,
+                "p": 0.9871745407581329
+              },
+              {
+                "w": "the",
+                "s": 6.76,
+                "e": 6.84,
+                "p": 0.9957948923110962
+              },
+              {
+                "w": "catch.",
+                "s": 6.84,
+                "e": 6.98,
+                "p": 0.9933772683143616
+              },
+              {
+                "w": "Be",
+                "s": 7.52,
+                "e": 7.52,
+                "p": 0.9658849239349365
+              },
+              {
+                "w": "sure",
+                "s": 7.52,
+                "e": 7.74,
+                "p": 0.9980660080909729
+              },
+              {
+                "w": "to",
+                "s": 7.74,
+                "e": 8.0,
+                "p": 0.996084451675415
+              },
+              {
+                "w": "like,",
+                "s": 8.0,
+                "e": 8.36,
+                "p": 0.793994128704071
+              },
+              {
+                "w": "share,",
+                "s": 8.58,
+                "e": 8.88,
+                "p": 0.9972289204597473
+              },
+              {
+                "w": "and",
+                "s": 9.1,
+                "e": 9.28,
+                "p": 0.9975360631942749
+              },
+              {
+                "w": "save",
+                "s": 9.28,
+                "e": 9.66,
+                "p": 0.9934095144271851
+              },
+              {
+                "w": "this",
+                "s": 9.66,
+                "e": 9.86,
+                "p": 0.989693820476532
+              },
+              {
+                "w": "video.",
+                "s": 9.86,
+                "e": 10.2,
+                "p": 0.9986935257911682
+              },
+              {
+                "w": "Check",
+                "s": 10.74,
+                "e": 11.08,
+                "p": 0.9491493105888367
+              },
+              {
+                "w": "November",
+                "s": 11.08,
+                "e": 11.3,
+                "p": 0.8252472877502441
+              },
+              {
+                "w": "18th,",
+                "s": 11.3,
+                "e": 11.86,
+                "p": 0.775707334280014
+              },
+              {
+                "w": "automatic",
+                "s": 12.06,
+                "e": 12.38,
+                "p": 0.6896676421165466
+              },
+              {
+                "w": "dubs",
+                "s": 12.38,
+                "e": 12.88,
+                "p": 0.955614447593689
+              },
+              {
+                "w": "without",
+                "s": 12.88,
+                "e": 13.02,
+                "p": 0.9151813387870789
+              },
+              {
+                "w": "watermark",
+                "s": 13.02,
+                "e": 13.8,
+                "p": 0.9819151163101196
+              },
+              {
+                "w": "cost",
+                "s": 13.8,
+                "e": 14.12,
+                "p": 0.5872824192047119
+              },
+              {
+                "w": "3",
+                "s": 14.12,
+                "e": 14.64,
+                "p": 0.6384506225585938
+              },
+              {
+                "w": ",000",
+                "s": 14.64,
+                "e": 15.58,
+                "p": 0.9850820302963257
+              },
+              {
+                "w": "credits",
+                "s": 15.58,
+                "e": 15.9,
+                "p": 0.9800047278404236
+              },
+              {
+                "w": "per",
+                "s": 15.9,
+                "e": 16.32,
+                "p": 0.9617401361465454
+              },
+              {
+                "w": "minute.",
+                "s": 16.32,
+                "e": 16.76,
+                "p": 0.9978408813476562
+              },
+              {
+                "w": "Each",
+                "s": 17.2,
+                "e": 17.34,
+                "p": 0.9899513125419617
+              },
+              {
+                "w": "language",
+                "s": 17.34,
+                "e": 17.66,
+                "p": 0.9959509372711182
+              },
+              {
+                "w": "is",
+                "s": 17.66,
+                "e": 17.94,
+                "p": 0.9980891346931458
+              },
+              {
+                "w": "charged",
+                "s": 17.94,
+                "e": 18.3,
+                "p": 0.9950658082962036
+              },
+              {
+                "w": "separately.",
+                "s": 18.3,
+                "e": 18.82,
+                "p": 0.9953670501708984
+              },
+              {
+                "w": "Oh,",
+                "s": 19.52,
+                "e": 19.58,
+                "p": 0.2959232032299042
+              },
+              {
+                "w": "so",
+                "s": 19.88,
+                "e": 20.26,
+                "p": 0.9264800548553467
+              },
+              {
+                "w": "that",
+                "s": 20.26,
+                "e": 20.48,
+                "p": 0.9500852823257446
+              },
+              {
+                "w": "watermark",
+                "s": 20.48,
+                "e": 20.98,
+                "p": 0.9813744723796844
+              },
+              {
+                "w": "on",
+                "s": 20.98,
+                "e": 21.16,
+                "p": 0.9890052676200867
+              },
+              {
+                "w": "your",
+                "s": 21.16,
+                "e": 21.28,
+                "p": 0.9969005584716797
+              },
+              {
+                "w": "free",
+                "s": 21.28,
+                "e": 21.52,
+                "p": 0.9959961175918579
+              },
+              {
+                "w": "dub?",
+                "s": 21.52,
+                "e": 21.78,
+                "p": 0.9899175763130188
+              },
+              {
+                "w": "Paid",
+                "s": 22.5,
+                "e": 22.62,
+                "p": 0.971244752407074
+              },
+              {
+                "w": "plans",
+                "s": 22.62,
+                "e": 22.88,
+                "p": 0.9848132729530334
+              },
+              {
+                "w": "don't",
+                "s": 22.88,
+                "e": 23.42,
+                "p": 0.9654557406902313
+              },
+              {
+                "w": "carry",
+                "s": 23.42,
+                "e": 23.6,
+                "p": 0.9936516284942627
+              },
+              {
+                "w": "it.",
+                "s": 23.6,
+                "e": 23.84,
+                "p": 0.9466385245323181
+              },
+              {
+                "w": "Free",
+                "s": 24.14,
+                "e": 24.22,
+                "p": 0.9847074151039124
+              },
+              {
+                "w": "dubs",
+                "s": 24.22,
+                "e": 24.56,
+                "p": 0.8993762731552124
+              },
+              {
+                "w": "keep",
+                "s": 24.56,
+                "e": 24.66,
+                "p": 0.8350123763084412
+              },
+              {
+                "w": "it.",
+                "s": 24.66,
+                "e": 24.86,
+                "p": 0.9985488057136536
+              }
+            ],
+            "dauer_s": 25.0026875,
+            "sprache": "en"
+          },
+          "roh_key": "483eff06c29081483dd9b3437112713e7fce8f8782da512cb8bfa0f4e6d05190",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "0e1d308040f9b3c0488e56da5bfcde4c218126d623725a025b8d29836cc20829",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 25.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 8,
+          "motive": 8,
+          "motive_min": 4
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "0e1d308040f9b3c0488e56da5bfcde4c218126d623725a025b8d29836cc20829",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "A stylized, digital artwork of a man in a black turtleneck and sunglasses against a sunset cityscape with a construction crane.",
+              "note": 2,
+              "passt": false,
+              "grund": "The image is an abstract, stylized digital illustration that has no connection to the concept of a 'dub' or a 'watermark' as mentioned in the narration.",
+              "erforderliches_bild": "A screenshot of a video or audio file interface showing a clear 'ElevenLabs' watermark overlay on a dubbed clip compared to a clean version without it."
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot der ElevenLabs-Website, der den Abschnitt 'AI dubbing across 90+ languages' oder eine ähnliche Beschreibung der Sprachunterstützung zeigt.",
+              "gesehen": "Der Screenshot zeigt eine Benutzeroberfläche mit dem Titel 'ElevenCreative'. Ein gelb hinterlegter Textblock hebt den Satz 'AI dubbing across 90+ languages' hervor. Darunter befindet sich ein Absatz, der 'Dubbing v2' beschreibt, sowie die Buttons 'Start dubbing free' und 'Talk to sales'.",
+              "grund": "Der sichtbare Text 'AI dubbing across 90+ languages' im Screenshot bestätigt direkt die Aussage der Erzählung, dass ElevenLabs die Stimme in über 90 Sprachen klonen kann. Das Bild dient als Beleg für die genannte Funktion.",
+              "index": 1,
+              "note": 10,
+              "passt": true
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot der ElevenLabs-Preisseite, der explizit den Preis von 3.000 Credits pro Minute für die automatische Dubbing-Funktion ohne Wasserzeichen anzeigt, idealerweise mit dem Datum 18. November.",
+              "gesehen": "Der Screenshot zeigt eine Preisseite mit der \u0004berschrift 'Flexible pricing for your needs'. Es sind Tabs f\u0004r 'Creative', 'Agents' und 'API' sowie ein Dropdown f\u0004r 'Monthly billing' zu sehen. Darunter sind zwei Plan-Karten sichtbar: 'Free' und 'Starter' (mit dem Preis '$1 first month').",
+              "grund": "Das Bild zeigt eine allgemeine \u0004bersicht \u0004ber die Preismodelle (Free vs. Starter), aber es fehlen die spezifischen Details, die im Text genannt werden: der Preis von 3.000 Credits pro Minute und die Angabe, dass dies f\u0004r Dubs ohne Wasserzeichen gilt. Die sichtbaren Preise (0$ und 1$) widersprechen zudem der genannten Summe von 3.000 Credits, da es sich um Abonnementpreise handelt und nicht um den Verbrauchspreis f\u0004r die Dubbing-Funktion.",
+              "index": 3,
+              "note": 4,
+              "passt": false
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot der ElevenLabs-Preisseite oder des Dashboards, der den konkreten Preis von 3.000 Credits pro Minute für die Dubbing-Funktion anzeigt.",
+              "gesehen": "Ein grafisches Diagramm mit dem Titel 'CHARGE NOTE' und 'LLM BILL', das die Formel 'INPUT TOKENS x PRICE' und 'OUTPUT TOKENS x PRICE' zeigt, die zu 'PAY PER TOKEN' führt. Unten ist ein Textfeld mit '3.000 credits per minute' zu sehen.",
+              "grund": "Das Bild zeigt eine abstrakte Darstellung der Abrechnungslogik (Token-Preis) und enthält den gesuchten Wert '3.000 credits per minute' als Texteinblendung. Es erklärt jedoch nicht die spezifische ElevenLabs-Abrechnung für Dubbing, sondern nutzt ein generisches LLM-Beispiel, das nicht die im Text genannte Operation (Kosten für Dubbing) direkt visualisiert.",
+              "index": 4,
+              "note": 5,
+              "passt": false
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot der ElevenLabs-Preisseite oder des Dashboards, der die Kreditkosten pro Sprache und Minute auflistet, oder eine grafische Darstellung, die die separate Abrechnung für mehrere Sprachen visualisiert.",
+              "gesehen": "Eine stilisierte Illustration zeigt zwei Personen in einem Büro, die vor einem großen, leeren Bildschirm sitzen. Auf dem Tisch steht ein Smartphone. Es sind keine Texte, Preistabellen oder Software-Elemente sichtbar.",
+              "grund": "Das Bild zeigt eine generische Büroszene mit einem leeren Bildschirm. Es fehlen jegliche visuellen Hinweise auf die gesprochene Information, dass jede Sprache separat berechnet wird (z. B. durch eine Preistabelle oder eine Liste von Sprachen).",
+              "index": 5,
+              "note": 3,
+              "passt": false
+            },
+            {
+              "erforderliches_bild": "Ein Screenshot der ElevenLabs-Oberfläche, der den Unterschied zwischen der kostenlosen und der bezahlten Version zeigt, z. B. durch das sichtbare Wasserzeichen im einen Fall und dessen Abwesenheit im anderen, oder eine grafische Gegenüberstellung der beiden Audio-Dateien.",
+              "gesehen": "Der Bildausschnitt zeigt eine stilisierte Illustration eines Mannes mit blauen Sonnenbrillen vor einer städtischen Silhouette bei Sonnenuntergang. Darüber befindet sich ein Textfeld mit der Überschrift 'SCREENSHOT THIS ELEVENLABS' und den Aufzählungspunkten 'Clones voice into 90+ languages' sowie '3,000 credits/min per language'.",
+              "grund": "Die sichtbaren Aufzählungspunkte im Textfeld (Sprachanzahl, Kreditkosten) beziehen sich auf frühere Sätze der Erzählung. Der aktuelle Satz 'Paid plans don't carry it. Free dubs keep it.' behandelt das Vorhandensein oder Fehlen eines Wasserzeichens. Weder die Illustration des Mannes noch der statische Text im Bild zeigen ein Wasserzeichen oder den Unterschied zwischen den Plänen, der im gesprochenen Satz thematisiert wird.",
+              "index": 7,
+              "note": 3,
+              "passt": false
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): The image is an abstract, stylized digital illustration that has no connection to the concept of a 'dub' or a 'watermark' as mentioned in the narration.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine allgemeine \u0004bersicht \u0004ber die Preismodelle (Free vs. Starter), aber es fehlen die spezifischen Details, die im Text genannt werden: der Preis von 3.000 Credits pro Minute und die Angabe, dass dies f\u0004r Dubs ohne Wasserzeichen gilt. Die sichtbaren Preise (0$ und 1$) widersprechen z",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt eine abstrakte Darstellung der Abrechnungslogik (Token-Preis) und enthält den gesuchten Wert '3.000 credits per minute' als Texteinblendung. Es erklärt jedoch nicht die spezifische ElevenLabs-Abrechnung für Dubbing, sondern nutzt ein generisches LLM-Beispiel, das nicht die im Text gen",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine generische Büroszene mit einem leeren Bildschirm. Es fehlen jegliche visuellen Hinweise auf die gesprochene Information, dass jede Sprache separat berechnet wird (z. B. durch eine Preistabelle oder eine Liste von Sprachen).",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Die sichtbaren Aufzählungspunkte im Textfeld (Sprachanzahl, Kreditkosten) beziehen sich auf frühere Sätze der Erzählung. Der aktuelle Satz 'Paid plans don't carry it. Free dubs keep it.' behandelt das Vorhandensein oder Fehlen eines Wasserzeichens. Weder die Illustration des Mannes noch der statisch"
+          ],
+          "modelle": [
+            "gemini-3.1-flash-lite",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b"
+          ],
+          "einstellungen": 8,
+          "ausgenommen": [
+            2
+          ],
+          "vorgeprueft": [
+            6
+          ],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "0e1d308040f9b3c0488e56da5bfcde4c218126d623725a025b8d29836cc20829",
+        "prompt_version": "2026-11-11.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

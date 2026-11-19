@@ -199665,6 +199665,158 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "44507962938.1:ai-tools-explained",
+      "run_id": "44507962938",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-19T11:06:54.079759+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "bb23f8b9ea5899654a81bfce30fea3e5ad14f9da",
+      "produktionsversion": "c19fa9ae52ec62b32c2ae76bdb2cc882addc671442d28363871e500cb0f81140",
+      "videoformat": "short",
+      "thema": "Gemini Image Editing",
+      "titel": [
+        "Turn Your Photo into a New Look",
+        "Use Gemini’s *Nano* *Banana* Pro 2"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": null,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Faktenpruefung fehlt oder ist nicht bestanden",
+        "Skript-Note fehlt oder ist ungueltig",
+        "Skript-Einzelbewertungen fehlen",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "44507962938",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-19",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 6/10 unter 7/10",
+              "Skript-hook 6/10 unter 7/10",
+              "Skript-spannung 5/10 unter 7/10",
+              "Skript-ueberraschung 6/10 unter 7/10",
+              "Skript-tempo 5/10 unter 7/10",
+              "Skript-aufloesung 5/10 unter 7/10",
+              "Skript-teilbarkeit 5/10 unter 6/10"
+            ],
+            "story_note": 6,
+            "story_schwaechen": [
+              "The sentence 'Some models, and GIFs, need a Google AI plan.' is vague and lacks concrete explanation of the technical limitation.",
+              "The ending fails to loop back to the opening hook regarding the city wall or face change."
+            ],
+            "skript_probleme": [],
+            "sekunden": 232.3
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 5/10 unter 7/10",
+              "Skript-spannung 4/10 unter 7/10",
+              "Skript-ueberraschung 6/10 unter 7/10",
+              "Skript-tempo 5/10 unter 7/10",
+              "Skript-aufloesung 4/10 unter 7/10",
+              "Skript-teilbarkeit 4/10 unter 6/10"
+            ],
+            "story_note": 5,
+            "story_schwaechen": [
+              "The sentence 'The catch? GIFs need a Google AI plan.' introduces an abrupt pivot to GIFs which were never mentioned before.",
+              "The ending sentence 'Pay only when a missing feature blocks that wall.' is too abstract and fails to loop back to the initial face on the wall.",
+              "The call to action is placed too early, disrupting the flow before any real payoff or explanation of how the feature works has been delivered."
+            ],
+            "skript_probleme": [],
+            "sekunden": 190.6
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 4/10 unter 7/10",
+              "Skript-hook 3/10 unter 7/10",
+              "Skript-spannung 4/10 unter 7/10",
+              "Skript-ueberraschung 4/10 unter 7/10",
+              "Skript-tempo 5/10 unter 7/10",
+              "Skript-aufloesung 4/10 unter 7/10",
+              "Skript-teilbarkeit 3/10 unter 6/10"
+            ],
+            "story_note": 4,
+            "story_schwaechen": [
+              "Das Intro 'Your face on a giant city poster. Terrifying.' ist zu abstrakt und fehlt ein konkretes Versprechen oder eine klare Dringlichkeit.",
+              "Die CTA ist inhaltlich nicht mit dem Erzählfluss verknüpft und stört das Thema.",
+              "Die 'Auflösung' ist zu vage; es fehlt eine klare Differenzierung, warum ein Nutzer sich für eine der beiden Optionen entscheiden sollte."
+            ],
+            "skript_probleme": [],
+            "sekunden": 417.5
+          },
+          {
+            "runde": 4,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "Nano Banana Pro 2",
+              "Source mismatch: The source documentation lists the model variants as Nano Banana Lite, Nano Banana 2, and Nano Banana Pro, but does not mention any 'Nano Banana Pro 2'. Correction: Refer to the model as Nano Banana Pro or Nano Banana 2 based on the specific feature level.",
+              "Nano Banana keeps your likeness while changing outfits.",
+              "Source mismatch: The source blog states that Nano Banana models (and the new update) focus on maintaining consistent likeness and changing outfits, but the specific step 'Set Gemini to Pro for Nano Banana Pro 2' combined with the model selection rules in the help page state that Nano Banana Pro requires setting the Gemini model to Pro and stating in your prompt that you want to redo an image, whereas Nano Banana 2 is selected with Flash or Pro. However, claiming 'Nano Banana Pro 2' specifically is unsupported. Correction: Adjust the model reference to align strictly with the documented Nano Banana Pro model requirements."
+            ],
+            "sekunden": 442.9
+          }
+        ],
+        "status": "gesperrt",
+        "grund": "Faktenpruefung nicht bestanden",
+        "sekunden": 1285.5,
+        "upload_titel": "Turn Your Photo into a New Look: Use Gemini’s Nano Banana Pro 2 | AI Tool #40"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": false,
+        "probleme": [
+          "Nano Banana Pro 2",
+          "Source mismatch: The source documentation lists the model variants as Nano Banana Lite, Nano Banana 2, and Nano Banana Pro, but does not mention any 'Nano Banana Pro 2'. Correction: Refer to the model as Nano Banana Pro or Nano Banana 2 based on the specific feature level.",
+          "Nano Banana keeps your likeness while changing outfits.",
+          "Source mismatch: The source blog states that Nano Banana models (and the new update) focus on maintaining consistent likeness and changing outfits, but the specific step 'Set Gemini to Pro for Nano Banana Pro 2' combined with the model selection rules in the help page state that Nano Banana Pro requires setting the Gemini model to Pro and stating in your prompt that you want to redo an image, whereas Nano Banana 2 is selected with Flash or Pro. However, claiming 'Nano Banana Pro 2' specifically is unsupported. Correction: Adjust the model reference to align strictly with the documented Nano Banana Pro model requirements."
+        ],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

@@ -22,13 +22,20 @@
       "bis": 1795161600.0
     },
     "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": {
-      "grund": "Netzwerk-Zeitlimit",
-      "bis": 1795119832.2670734
+      "grund": "Tageskontingent erschoepft",
+      "bis": 1795161600.0
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.5-flash-lite": {
+      "grund": "Tageskontingent erschoepft",
+      "bis": 1795161600.0
+    },
+    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
+      "grund": "HTTP429; Serverfrist 402s",
+      "bis": 1795122420.9527178
     }
   },
   "zeitlimits": {
     "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": [
-      1795114308.2567687,
       1795114880.152245,
       1795118016.3975878
     ],
@@ -36,7 +43,8 @@
       1795116240.9801319
     ],
     "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": [
-      1795119772.2670734
+      1795119772.2670734,
+      1795120829.4283366
     ]
   }
 }

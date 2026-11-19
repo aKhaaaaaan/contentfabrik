@@ -204863,6 +204863,1419 @@
         "zweitpruefer_modell": "qwen/qwen3.8-27b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "44610415991.1:business-origin-stories",
+      "run_id": "44610415991",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-19T21:10:26.046858+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "5fa9511eff31624894b61b072dc879eba55058ba",
+      "produktionsversion": "9cc9335d43fed275b0a593d0374f6a0dc42c52fabae0451129cc6baed8ec436f",
+      "videoformat": "short",
+      "thema": "GTA V and GTA Online: how one game earned over $10 billion",
+      "titel": [
+        "*GTA* V's First Day",
+        "Then *$10* *Billion* Followed"
+      ],
+      "status": "gesendet",
+      "video_sha256": "c3f033f42b5dcdebf6e7b8635e62d75857808aaa7312f7fc7a2b50398b290cfb",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-11.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): The image shows a generic man with a controller, but it does not represent the release years or platforms of Grand Theft Auto V as mentioned in the narration.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwei identische, stilisierte Figuren in einem leeren Raum, was in keiner Weise den Mehrspielermodus von GTA Online oder das kooperative/kompetitive Zusammenspiel von bis zu 30 Spielern darstellt.",
+        "Offenes Problem (schwer): The image shows a generic man with a controller, but it does not represent the release years or platforms of Grand Theft Auto V as mentioned in the narration. Korrektur: A graphic showing the release dates 2014, 2015, and 2022 alongside the corresponding gaming platform logos or console images.",
+        "Offenes Problem (schwer): Das Bild zeigt zwei identische, stilisierte Figuren in einem leeren Raum, was in keiner Weise den Mehrspielermodus von GTA Online oder das kooperative/kompetitive Zusammenspiel von bis zu 30 Spielern darstellt. Korrektur: Ein Gameplay-Ausschnitt aus GTA Online, das eine Gruppe von Spielern in einer virtuellen Umgebung zeigt, um das Mehrspieler-Konzept zu verdeutlichen."
+      ],
+      "einstellungen": 15,
+      "unterschiedliche_motive": 15,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "44610415991",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-19",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sekunden": 1.3
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "skript_s": 253.4,
+            "bau_s": 535.2,
+            "pruefung_s": 41.5,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar Kriminelle mit Beute, aber es handelt sich lediglich um eine illustrative Kriminalszene und liefert keinen visuellen Bezug zu den erwähnten Rekordeinnahmen oder der Erzählung über das Unerwartete.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen den Rekordumsatz von einer Milliarde in drei Tagen, aber das Bild zeigt lediglich eine Menschenmenge in einer Buchhandlung, was keinen direkten visuellen Bezug zum Umsatzrekord oder der Spielebranche darstellt.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Phrase stellt eine rhetorische Frage zum Fortbestand von GTA V, aber das Bild zeigt eine generische Geschäftsszene ohne Bezug zum Thema.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar einen Mann mit einem Spiele-Controller in einem Zimmer, aber es belegt nicht die Veröffentlichung auf neuen Plattformen in bestimmten Jahren.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Geschäftsszene, aber keinen Bezug zu den Plattformen von GTA V in den Jahren 2014, 2015 und 2022.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich zwei Personen, die auf einen Bildschirm schauen, stellt jedoch den Multiplayer-Modus von GTA Online oder Spieleranzahlen nicht dar.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (6/10): Das Bild zeigt fünf Personen, was nicht zu 'up to 30 players' passt und eher generische KI-Illustrationen darstellt.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Lkw mit Holzkisten in einer Fabrik und passt thematisch überhaupt nicht zu den gesprochenen Worten über Verkaufszahlen, verkaufte Exemplare und Milliardenumsätze des Spiels.",
+              "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine generische Lagerszene, die keinen Bezug zu verkauften Videospielexemplaren oder weltweiten Einnahmen von Grand Theft Auto hat.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar Kriminelle mit Beute, aber es handelt sich lediglich um eine illustrative Kriminalszene und liefert keinen visuellen Bezug zu den erwähnten Rekordeinnahmen oder der Erzählung über das Unerwartete. Korrektur: Eine Darstellung, die spielerbezogene Verkaufsmeilensteine oder die erwähnten Rekordsummen symbolisiert.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen den Rekordumsatz von einer Milliarde in drei Tagen, aber das Bild zeigt lediglich eine Menschenmenge in einer Buchhandlung, was keinen direkten visuellen Bezug zum Umsatzrekord oder der Spielebranche darstellt. Korrektur: Eine realistische oder illustrierte Darstellung einer großen Menschenmenge beim Kauf von Videospielen oder eine grafische Visualisierung von Rekordverkaufszahlen.",
+              "Offenes Problem (schwer): Die gesprochene Phrase stellt eine rhetorische Frage zum Fortbestand von GTA V, aber das Bild zeigt eine generische Geschäftsszene ohne Bezug zum Thema. Korrektur: Ein Bild, das die Veröffentlichung von GTA V auf neueren Plattformen oder Statistiken zu dessen Verkaufszahlen zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar einen Mann mit einem Spiele-Controller in einem Zimmer, aber es belegt nicht die Veröffentlichung auf neuen Plattformen in bestimmten Jahren. Korrektur: Eine historische Grafik oder ein Logo der unterstützten Konsolenplattformen aus den Jahren 2014, 2015 und 2022.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Geschäftsszene, aber keinen Bezug zu den Plattformen von GTA V in den Jahren 2014, 2015 und 2022. Korrektur: Ein Bild, das die verschiedenen Konsolen oder Plattformen zeigt, auf denen GTA V veröffentlicht wurde.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich zwei Personen, die auf einen Bildschirm schauen, stellt jedoch den Multiplayer-Modus von GTA Online oder Spieleranzahlen nicht dar. Korrektur: Ein Gameplay-Bildschirm von GTA Online, das mehrere spielende Charaktere oder eine Spielerlobby zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt fünf Personen, was nicht zu 'up to 30 players' passt und eher generische KI-Illustrationen darstellt. Korrektur: Eine digitale Darstellung einer größeren Gruppe von Spielern oder ein Gameplay-Screenshot, der viele Spieler zeigt, die zusammenarbeiten.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Lkw mit Holzkisten in einer Fabrik und passt thematisch überhaupt nicht zu den gesprochenen Worten über Verkaufszahlen, verkaufte Exemplare und Milliardenumsätze des Spiels. Korrektur: Eine Grafik oder Darstellung, die hohe Verkaufszahlen, Meilensteine oder Umsatzstatistiken des Spiels visualisiert.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generische Lagerszene, die keinen Bezug zu verkauften Videospielexemplaren oder weltweiten Einnahmen von Grand Theft Auto hat. Korrektur: Eine Grafik oder ein Screenshot, die die Verkaufszahlen von über 235 Millionen Einheiten oder das Erreichen der 10 Milliarden Dollar Umsatz für GTA V visuell darstellen."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "kokoro:bm_george",
+              "stimme": 46.8,
+              "zeitmarken": 3.8,
+              "tempo": 1.25,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 15,
+              "bilder_vereinfacht": 4,
+              "clips_und_stuecke": 410.0,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 15,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 60.9,
+              "gesamt": 534.7,
+              "videolaenge_s": 46.6,
+              "abschnitte_s": [
+                7.65,
+                6.21,
+                9.13,
+                3.41,
+                6.24,
+                7.96,
+                5.95
+              ],
+              "woerter": 99,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:07.65",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "But that wasn't the strangest part.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar Kriminelle mit Beute, aber es handelt sich lediglich um eine illustrative Kriminalszene und liefert keinen visuellen Bezug zu den erwähnten Rekordeinnahmen oder der Erzählung über das Unerwartete. Korrektur: Eine Darstellung, die spielerbezogene Verkaufsmeilensteine oder die erwähnten Rekordsummen symbolisiert."
+              },
+              {
+                "zeit": "00:10.84",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 3,
+                "gesprochen": "Three days earned $1 billion, a record.",
+                "fest": false,
+                "text": "Die gesprochenen Wörter erwähnen den Rekordumsatz von einer Milliarde in drei Tagen, aber das Bild zeigt lediglich eine Menschenmenge in einer Buchhandlung, was keinen direkten visuellen Bezug zum Umsatzrekord oder der Spielebranche darstellt. Korrektur: Eine realistische oder illustrierte Darstellung einer großen Menschenmenge beim Kauf von Videospielen oder eine grafische Visualisierung von Rekordverkaufszahlen."
+              },
+              {
+                "zeit": "00:13.86",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "So why didn't it fade?",
+                "fest": false,
+                "text": "Die gesprochene Phrase stellt eine rhetorische Frage zum Fortbestand von GTA V, aber das Bild zeigt eine generische Geschäftsszene ohne Bezug zum Thema. Korrektur: Ein Bild, das die Veröffentlichung von GTA V auf neueren Plattformen oder Statistiken zu dessen Verkaufszahlen zeigt."
+              },
+              {
+                "zeit": "00:16.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "It reached newer platforms in 2014,",
+                "fest": false,
+                "text": "Das Bild zeigt zwar einen Mann mit einem Spiele-Controller in einem Zimmer, aber es belegt nicht die Veröffentlichung auf neuen Plattformen in bestimmten Jahren. Korrektur: Eine historische Grafik oder ein Logo der unterstützten Konsolenplattformen aus den Jahren 2014, 2015 und 2022."
+              },
+              {
+                "zeit": "00:19.69",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 6,
+                "gesprochen": "2015 and 2022.",
+                "fest": false,
+                "text": "Das Bild zeigt eine Geschäftsszene, aber keinen Bezug zu den Plattformen von GTA V in den Jahren 2014, 2015 und 2022. Korrektur: Ein Bild, das die verschiedenen Konsolen oder Plattformen zeigt, auf denen GTA V veröffentlicht wurde."
+              },
+              {
+                "zeit": "00:26.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "GTA Online is its multiplayer mode,",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich zwei Personen, die auf einen Bildschirm schauen, stellt jedoch den Multiplayer-Modus von GTA Online oder Spieleranzahlen nicht dar. Korrektur: Ein Gameplay-Bildschirm von GTA Online, das mehrere spielende Charaktere oder eine Spielerlobby zeigt."
+              },
+              {
+                "zeit": "00:29.52",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "where up to 30 players cooperate or compete.",
+                "fest": false,
+                "text": "Das Bild zeigt fünf Personen, was nicht zu 'up to 30 players' passt und eher generische KI-Illustrationen darstellt. Korrektur: Eine digitale Darstellung einer größeren Gruppe von Spielern oder ein Gameplay-Screenshot, der viele Spieler zeigt, die zusammenarbeiten."
+              },
+              {
+                "zeit": "00:32.64",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "That first-day fortune grew: almost 235 million",
+                "fest": false,
+                "text": "Das Bild zeigt einen Lkw mit Holzkisten in einer Fabrik und passt thematisch überhaupt nicht zu den gesprochenen Worten über Verkaufszahlen, verkaufte Exemplare und Milliardenumsätze des Spiels. Korrektur: Eine Grafik oder Darstellung, die hohe Verkaufszahlen, Meilensteine oder Umsatzstatistiken des Spiels visualisiert."
+              },
+              {
+                "zeit": "00:36.62",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 11,
+                "gesprochen": "copies shipped, over $10 billion worldwide.",
+                "fest": false,
+                "text": "Das Bild zeigt eine generische Lagerszene, die keinen Bezug zu verkauften Videospielexemplaren oder weltweiten Einnahmen von Grand Theft Auto hat. Korrektur: Eine Grafik oder ein Screenshot, die die Verkaufszahlen von über 235 Millionen Einheiten oder das Erreichen der 10 Milliarden Dollar Umsatz für GTA V visuell darstellen."
+              }
+            ],
+            "sekunden": 833.0,
+            "status": "geprueft"
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                1,
+                2,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-11.2"
+            },
+            "skript_s": 2.9,
+            "bau_s": 338.5,
+            "pruefung_s": 35.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): The image shows a generic group of men in suits gathered around a table; it does not visually represent or provide context for the record-breaking sales figures of $1 billion mentioned in the narration.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das gezeigte Bild stellt eine Szene in einer Buchhandlung dar und hat keinen inhaltlichen Bezug zu GTA V, Videospielplattformen oder der narrativen Frage, warum das Spiel nicht an Popularität verlor.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich zwei identische, generische männliche Charaktere in einem unbestimmten Raum und hat keinen inhaltlichen Bezug zur Geschichte von GTA V oder der Erwähnung von Plattform-Releases.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Szene stellt lediglich zwei Personen vor Autos dar, was keinen Bezug zur Spielmechanik oder dem Mehrspielermodus von GTA Online herstellt.",
+              "Offenes Problem (schwer): The image shows a generic group of men in suits gathered around a table; it does not visually represent or provide context for the record-breaking sales figures of $1 billion mentioned in the narration. Korrektur: A graphic or chart illustrating the sales revenue growth or a visual representation of the $1 billion milestone mentioned.",
+              "Offenes Problem (schwer): Das gezeigte Bild stellt eine Szene in einer Buchhandlung dar und hat keinen inhaltlichen Bezug zu GTA V, Videospielplattformen oder der narrativen Frage, warum das Spiel nicht an Popularität verlor. Korrektur: Ein Bild, das die verschiedenen Plattformen (z. B. Konsolen oder PC-Logos) zeigt, auf denen GTA V veröffentlicht wurde, oder eine Grafik, die die Veröffentlichungsjahre 2014, 2015 und 2022 visualisiert.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich zwei identische, generische männliche Charaktere in einem unbestimmten Raum und hat keinen inhaltlichen Bezug zur Geschichte von GTA V oder der Erwähnung von Plattform-Releases. Korrektur: Ein Bild, das die verschiedenen Plattform-Logos oder Konsolen zeigt, auf denen GTA V im Laufe der Jahre veröffentlicht wurde.",
+              "Offenes Problem (schwer): Die gezeigte Szene stellt lediglich zwei Personen vor Autos dar, was keinen Bezug zur Spielmechanik oder dem Mehrspielermodus von GTA Online herstellt. Korrektur: Ein Screenshot aus dem Spiel, der eine Multiplayer-Szene mit mehreren Spielern oder das Interface von GTA Online zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "kokoro:bm_george",
+              "stimme": 45.9,
+              "zeitmarken": 3.7,
+              "tempo": 1.25,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 5,
+              "stuecke_neu": 10,
+              "clips_und_stuecke": 216.6,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 15,
+                "motive": 15,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 57.9,
+              "gesamt": 338.1,
+              "videolaenge_s": 46.6,
+              "abschnitte_s": [
+                7.65,
+                6.21,
+                9.13,
+                3.41,
+                6.24,
+                7.96,
+                5.95
+              ],
+              "woerter": 99,
+              "clips": {
+                "witz": 2,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:07.65",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "But that wasn't the strangest part.",
+                "fest": false,
+                "text": "The image shows a generic group of men in suits gathered around a table; it does not visually represent or provide context for the record-breaking sales figures of $1 billion mentioned in the narration. Korrektur: A graphic or chart illustrating the sales revenue growth or a visual representation of the $1 billion milestone mentioned."
+              },
+              {
+                "zeit": "00:13.86",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "So why didn't it fade?",
+                "fest": false,
+                "text": "Das gezeigte Bild stellt eine Szene in einer Buchhandlung dar und hat keinen inhaltlichen Bezug zu GTA V, Videospielplattformen oder der narrativen Frage, warum das Spiel nicht an Popularität verlor. Korrektur: Ein Bild, das die verschiedenen Plattformen (z. B. Konsolen oder PC-Logos) zeigt, auf denen GTA V veröffentlicht wurde, oder eine Grafik, die die Veröffentlichungsjahre 2014, 2015 und 2022 visualisiert."
+              },
+              {
+                "zeit": "00:19.69",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 6,
+                "gesprochen": "2015 and 2022.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich zwei identische, generische männliche Charaktere in einem unbestimmten Raum und hat keinen inhaltlichen Bezug zur Geschichte von GTA V oder der Erwähnung von Plattform-Releases. Korrektur: Ein Bild, das die verschiedenen Plattform-Logos oder Konsolen zeigt, auf denen GTA V im Laufe der Jahre veröffentlicht wurde."
+              },
+              {
+                "zeit": "00:26.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "GTA Online is its multiplayer mode,",
+                "fest": false,
+                "text": "Die gezeigte Szene stellt lediglich zwei Personen vor Autos dar, was keinen Bezug zur Spielmechanik oder dem Mehrspielermodus von GTA Online herstellt. Korrektur: Ein Screenshot aus dem Spiel, der eine Multiplayer-Szene mit mehreren Spielern oder das Interface von GTA Online zeigt."
+              }
+            ],
+            "sekunden": 379.1,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "44610415991-3",
+              "datum": "2026-11-19",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 379.1,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-11-11.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                1,
+                2,
+                4
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-11.2"
+            },
+            "skript_s": 5.8,
+            "bau_s": 628.9,
+            "pruefung_s": 16.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): The image shows a generic man with a controller, but it does not represent the release years or platforms of Grand Theft Auto V as mentioned in the narration.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwei identische, stilisierte Figuren in einem leeren Raum, was in keiner Weise den Mehrspielermodus von GTA Online oder das kooperative/kompetitive Zusammenspiel von bis zu 30 Spielern darstellt.",
+              "Offenes Problem (schwer): The image shows a generic man with a controller, but it does not represent the release years or platforms of Grand Theft Auto V as mentioned in the narration. Korrektur: A graphic showing the release dates 2014, 2015, and 2022 alongside the corresponding gaming platform logos or console images.",
+              "Offenes Problem (schwer): Das Bild zeigt zwei identische, stilisierte Figuren in einem leeren Raum, was in keiner Weise den Mehrspielermodus von GTA Online oder das kooperative/kompetitive Zusammenspiel von bis zu 30 Spielern darstellt. Korrektur: Ein Gameplay-Ausschnitt aus GTA Online, das eine Gruppe von Spielern in einer virtuellen Umgebung zeigt, um das Mehrspieler-Konzept zu verdeutlichen."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "kokoro:bm_george",
+              "stimme": 45.0,
+              "zeitmarken": 3.7,
+              "tempo": 1.25,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 10,
+              "stuecke_neu": 5,
+              "clips_und_stuecke": 176.3,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 15,
+                "motive": 15,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 60.4,
+              "gesamt": 628.0,
+              "videolaenge_s": 46.6,
+              "abschnitte_s": [
+                7.65,
+                6.21,
+                9.13,
+                3.41,
+                6.24,
+                7.96,
+                5.95
+              ],
+              "woerter": 99,
+              "clips": {
+                "witz": 4,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:19.69",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 6,
+                "gesprochen": "2015 and 2022.",
+                "fest": false,
+                "text": "The image shows a generic man with a controller, but it does not represent the release years or platforms of Grand Theft Auto V as mentioned in the narration. Korrektur: A graphic showing the release dates 2014, 2015, and 2022 alongside the corresponding gaming platform logos or console images."
+              },
+              {
+                "zeit": "00:26.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "GTA Online is its multiplayer mode,",
+                "fest": false,
+                "text": "Das Bild zeigt zwei identische, stilisierte Figuren in einem leeren Raum, was in keiner Weise den Mehrspielermodus von GTA Online oder das kooperative/kompetitive Zusammenspiel von bis zu 30 Spielern darstellt. Korrektur: Ein Gameplay-Ausschnitt aus GTA Online, das eine Gruppe von Spielern in einer virtuellen Umgebung zeigt, um das Mehrspieler-Konzept zu verdeutlichen."
+              }
+            ],
+            "sekunden": 653.2,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "44610415991-4",
+              "datum": "2026-11-19",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 653.2,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-11-11.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 5,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "thema_eingabe": "GTA V and GTA Online: how one game earned over $10 billion in more than a decade",
+        "grund": "",
+        "sekunden": 1882.6,
+        "upload_titel": "GTA V's First Day, Then $10 Billion Followed"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:19.69",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 6,
+            "gesprochen": "2015 and 2022.",
+            "fest": false,
+            "text": "The image shows a generic man with a controller, but it does not represent the release years or platforms of Grand Theft Auto V as mentioned in the narration. Korrektur: A graphic showing the release dates 2014, 2015, and 2022 alongside the corresponding gaming platform logos or console images."
+          },
+          {
+            "zeit": "00:26.40",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 8,
+            "gesprochen": "GTA Online is its multiplayer mode,",
+            "fest": false,
+            "text": "Das Bild zeigt zwei identische, stilisierte Figuren in einem leeren Raum, was in keiner Weise den Mehrspielermodus von GTA Online oder das kooperative/kompetitive Zusammenspiel von bis zu 30 Spielern darstellt. Korrektur: Ein Gameplay-Ausschnitt aus GTA Online, das eine Gruppe von Spielern in einer virtuellen Umgebung zeigt, um das Mehrspieler-Konzept zu verdeutlichen."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 46.5,
+          "fps": 30.0,
+          "lufs": -14.0,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 41.02,
+              "bis_s": 42.82,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.992
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 26.5,
+              "bis_s": 47.0,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "A",
+                "s": 0.18,
+                "e": 0.42,
+                "p": 0.7934801578521729
+              },
+              {
+                "w": "crime",
+                "s": 0.42,
+                "e": 0.62,
+                "p": 0.9622626900672913
+              },
+              {
+                "w": "game",
+                "s": 0.62,
+                "e": 0.98,
+                "p": 0.9910355806350708
+              },
+              {
+                "w": "earned",
+                "s": 0.98,
+                "e": 1.46,
+                "p": 0.9782349467277527
+              },
+              {
+                "w": "$800",
+                "s": 1.46,
+                "e": 2.3,
+                "p": 0.7464832067489624
+              },
+              {
+                "w": "million",
+                "s": 2.3,
+                "e": 2.96,
+                "p": 0.8649604916572571
+              },
+              {
+                "w": "in",
+                "s": 2.96,
+                "e": 3.46,
+                "p": 0.9440501928329468
+              },
+              {
+                "w": "one",
+                "s": 3.46,
+                "e": 3.66,
+                "p": 0.9184234738349915
+              },
+              {
+                "w": "day.",
+                "s": 3.66,
+                "e": 3.98,
+                "p": 0.9962564706802368
+              },
+              {
+                "w": "Grand",
+                "s": 4.84,
+                "e": 4.84,
+                "p": 0.9264156222343445
+              },
+              {
+                "w": "Theft",
+                "s": 4.84,
+                "e": 5.16,
+                "p": 0.9693025350570679
+              },
+              {
+                "w": "Auto",
+                "s": 5.16,
+                "e": 5.7,
+                "p": 0.9757639765739441
+              },
+              {
+                "w": "V",
+                "s": 5.7,
+                "e": 6.1,
+                "p": 0.6990805268287659
+              },
+              {
+                "w": "wasn't",
+                "s": 6.1,
+                "e": 6.54,
+                "p": 0.9858304262161255
+              },
+              {
+                "w": "finished.",
+                "s": 6.54,
+                "e": 6.84,
+                "p": 0.9983717799186707
+              },
+              {
+                "w": "But",
+                "s": 8.04,
+                "e": 8.22,
+                "p": 0.9203832745552063
+              },
+              {
+                "w": "that",
+                "s": 8.22,
+                "e": 8.4,
+                "p": 0.9891529083251953
+              },
+              {
+                "w": "wasn't",
+                "s": 8.4,
+                "e": 8.94,
+                "p": 0.9973465800285339
+              },
+              {
+                "w": "the",
+                "s": 8.94,
+                "e": 9.2,
+                "p": 0.9707614779472351
+              },
+              {
+                "w": "strangest",
+                "s": 9.2,
+                "e": 9.78,
+                "p": 0.9935981631278992
+              },
+              {
+                "w": "part.",
+                "s": 9.78,
+                "e": 10.12,
+                "p": 0.9996743202209473
+              },
+              {
+                "w": "Three",
+                "s": 10.9,
+                "e": 11.06,
+                "p": 0.8814458250999451
+              },
+              {
+                "w": "days",
+                "s": 11.06,
+                "e": 11.28,
+                "p": 0.9896148443222046
+              },
+              {
+                "w": "earned",
+                "s": 11.28,
+                "e": 11.64,
+                "p": 0.9521992802619934
+              },
+              {
+                "w": "$1",
+                "s": 11.64,
+                "e": 11.98,
+                "p": 0.984207272529602
+              },
+              {
+                "w": "billion",
+                "s": 11.98,
+                "e": 12.44,
+                "p": 0.7000767588615417
+              },
+              {
+                "w": "a",
+                "s": 12.44,
+                "e": 12.98,
+                "p": 0.5763526558876038
+              },
+              {
+                "w": "record.",
+                "s": 12.98,
+                "e": 13.32,
+                "p": 0.9971880316734314
+              },
+              {
+                "w": "So",
+                "s": 13.9,
+                "e": 14.5,
+                "p": 0.9782301187515259
+              },
+              {
+                "w": "why",
+                "s": 14.5,
+                "e": 14.72,
+                "p": 0.9050309658050537
+              },
+              {
+                "w": "didn't",
+                "s": 14.72,
+                "e": 15.2,
+                "p": 0.9908575117588043
+              },
+              {
+                "w": "it",
+                "s": 15.2,
+                "e": 15.28,
+                "p": 0.9983727335929871
+              },
+              {
+                "w": "fade?",
+                "s": 15.28,
+                "e": 15.54,
+                "p": 0.9983641505241394
+              },
+              {
+                "w": "It",
+                "s": 16.38,
+                "e": 16.54,
+                "p": 0.9923173189163208
+              },
+              {
+                "w": "reached",
+                "s": 16.54,
+                "e": 16.8,
+                "p": 0.998145341873169
+              },
+              {
+                "w": "newer",
+                "s": 16.8,
+                "e": 17.02,
+                "p": 0.9952274560928345
+              },
+              {
+                "w": "platforms",
+                "s": 17.02,
+                "e": 17.46,
+                "p": 0.9968265891075134
+              },
+              {
+                "w": "in",
+                "s": 17.46,
+                "e": 17.92,
+                "p": 0.9954831600189209
+              },
+              {
+                "w": "2014,",
+                "s": 17.92,
+                "e": 18.82,
+                "p": 0.9970092177391052
+              },
+              {
+                "w": "2015,",
+                "s": 20.12,
+                "e": 20.12,
+                "p": 0.9975023865699768
+              },
+              {
+                "w": "and",
+                "s": 21.14,
+                "e": 21.28,
+                "p": 0.9951022863388062
+              },
+              {
+                "w": "2022.",
+                "s": 21.28,
+                "e": 21.52,
+                "p": 0.9721648097038269
+              },
+              {
+                "w": "Its",
+                "s": 23.04,
+                "e": 23.06,
+                "p": 0.22080858051776886
+              },
+              {
+                "w": "world",
+                "s": 23.06,
+                "e": 23.2,
+                "p": 0.9973387122154236
+              },
+              {
+                "w": "was",
+                "s": 23.2,
+                "e": 23.44,
+                "p": 0.9953019618988037
+              },
+              {
+                "w": "much",
+                "s": 23.44,
+                "e": 23.6,
+                "p": 0.9950233697891235
+              },
+              {
+                "w": "larger",
+                "s": 23.6,
+                "e": 23.92,
+                "p": 0.9977376461029053
+              },
+              {
+                "w": "than",
+                "s": 23.92,
+                "e": 24.06,
+                "p": 0.9965128302574158
+              },
+              {
+                "w": "earlier",
+                "s": 24.06,
+                "e": 24.26,
+                "p": 0.9414576292037964
+              },
+              {
+                "w": "entries",
+                "s": 24.26,
+                "e": 24.68,
+                "p": 0.9974907636642456
+              },
+              {
+                "w": "and",
+                "s": 24.68,
+                "e": 25.1,
+                "p": 0.5081080794334412
+              },
+              {
+                "w": "you",
+                "s": 25.1,
+                "e": 25.16,
+                "p": 0.9950622916221619
+              },
+              {
+                "w": "played",
+                "s": 25.16,
+                "e": 25.32,
+                "p": 0.9896244406700134
+              },
+              {
+                "w": "three",
+                "s": 25.32,
+                "e": 25.62,
+                "p": 0.9098543524742126
+              },
+              {
+                "w": "criminals.",
+                "s": 25.62,
+                "e": 25.88,
+                "p": 0.9841917753219604
+              },
+              {
+                "w": "GTA",
+                "s": 27.06,
+                "e": 27.06,
+                "p": 0.9378372430801392
+              },
+              {
+                "w": "Online",
+                "s": 27.06,
+                "e": 27.58,
+                "p": 0.9561828970909119
+              },
+              {
+                "w": "is",
+                "s": 27.58,
+                "e": 28.18,
+                "p": 0.9801326990127563
+              },
+              {
+                "w": "is",
+                "s": 28.18,
+                "e": 28.26,
+                "p": 0.63872230052948
+              },
+              {
+                "w": "its",
+                "s": 28.26,
+                "e": 28.38,
+                "p": 0.8936076760292053
+              },
+              {
+                "w": "multiplayer",
+                "s": 28.38,
+                "e": 28.72,
+                "p": 0.9551995396614075
+              },
+              {
+                "w": "mode,",
+                "s": 28.72,
+                "e": 29.32,
+                "p": 0.9975538849830627
+              },
+              {
+                "w": "where",
+                "s": 29.7,
+                "e": 29.88,
+                "p": 0.4941180646419525
+              },
+              {
+                "w": "up",
+                "s": 29.88,
+                "e": 30.0,
+                "p": 0.9928023219108582
+              },
+              {
+                "w": "to",
+                "s": 30.0,
+                "e": 30.14,
+                "p": 0.9966096878051758
+              },
+              {
+                "w": "30",
+                "s": 30.14,
+                "e": 30.4,
+                "p": 0.9502831101417542
+              },
+              {
+                "w": "players",
+                "s": 30.4,
+                "e": 30.84,
+                "p": 0.9938628673553467
+              },
+              {
+                "w": "cooperate",
+                "s": 30.84,
+                "e": 31.26,
+                "p": 0.9880362749099731
+              },
+              {
+                "w": "or",
+                "s": 31.26,
+                "e": 31.82,
+                "p": 0.9634609818458557
+              },
+              {
+                "w": "compete.",
+                "s": 31.82,
+                "e": 32.12,
+                "p": 0.9997816681861877
+              },
+              {
+                "w": "That",
+                "s": 33.14,
+                "e": 33.26,
+                "p": 0.6230157017707825
+              },
+              {
+                "w": "first",
+                "s": 33.26,
+                "e": 33.46,
+                "p": 0.9728856086730957
+              },
+              {
+                "w": "day,",
+                "s": 33.46,
+                "e": 33.74,
+                "p": 0.7733582854270935
+              },
+              {
+                "w": "Fortune",
+                "s": 33.9,
+                "e": 34.02,
+                "p": 0.8450482487678528
+              },
+              {
+                "w": "grew,",
+                "s": 34.02,
+                "e": 34.46,
+                "p": 0.9150607585906982
+              },
+              {
+                "w": "almost",
+                "s": 34.88,
+                "e": 35.26,
+                "p": 0.9881535172462463
+              },
+              {
+                "w": "235",
+                "s": 35.26,
+                "e": 35.6,
+                "p": 0.9228105545043945
+              },
+              {
+                "w": "million",
+                "s": 35.6,
+                "e": 36.94,
+                "p": 0.976384699344635
+              },
+              {
+                "w": "copies",
+                "s": 36.94,
+                "e": 37.24,
+                "p": 0.9784481525421143
+              },
+              {
+                "w": "shipped",
+                "s": 37.24,
+                "e": 37.72,
+                "p": 0.9758244752883911
+              },
+              {
+                "w": "over",
+                "s": 38.08,
+                "e": 38.38,
+                "p": 0.5904492139816284
+              },
+              {
+                "w": "$10",
+                "s": 38.38,
+                "e": 38.94,
+                "p": 0.8956529796123505
+              },
+              {
+                "w": "billion",
+                "s": 38.94,
+                "e": 39.22,
+                "p": 0.9767069816589355
+              },
+              {
+                "w": "worldwide.",
+                "s": 39.22,
+                "e": 39.92,
+                "p": 0.9911630153656006
+              },
+              {
+                "w": "Be",
+                "s": 40.6,
+                "e": 40.66,
+                "p": 0.9947132468223572
+              },
+              {
+                "w": "sure",
+                "s": 40.66,
+                "e": 40.86,
+                "p": 0.9994926452636719
+              },
+              {
+                "w": "to",
+                "s": 40.86,
+                "e": 41.02,
+                "p": 0.9954251646995544
+              },
+              {
+                "w": "like,",
+                "s": 41.02,
+                "e": 41.24,
+                "p": 0.9727939963340759
+              },
+              {
+                "w": "share,",
+                "s": 41.44,
+                "e": 41.7,
+                "p": 0.9966977834701538
+              },
+              {
+                "w": "and",
+                "s": 41.94,
+                "e": 42.0,
+                "p": 0.9987755417823792
+              },
+              {
+                "w": "save",
+                "s": 42.0,
+                "e": 42.26,
+                "p": 0.9891242980957031
+              },
+              {
+                "w": "this",
+                "s": 42.26,
+                "e": 42.48,
+                "p": 0.9948740601539612
+              },
+              {
+                "w": "video.",
+                "s": 42.48,
+                "e": 42.82,
+                "p": 0.9989751577377319
+              },
+              {
+                "w": "Which",
+                "s": 43.34,
+                "e": 43.36,
+                "p": 0.9908868074417114
+              },
+              {
+                "w": "company",
+                "s": 43.36,
+                "e": 43.7,
+                "p": 0.9953306913375854
+              },
+              {
+                "w": "next?",
+                "s": 43.7,
+                "e": 44.12,
+                "p": 0.9380679726600647
+              },
+              {
+                "w": "Comment",
+                "s": 44.76,
+                "e": 44.9,
+                "p": 0.9944016337394714
+              },
+              {
+                "w": "and",
+                "s": 44.9,
+                "e": 45.24,
+                "p": 0.9565629959106445
+              },
+              {
+                "w": "follow",
+                "s": 45.24,
+                "e": 45.52,
+                "p": 0.9966590404510498
+              },
+              {
+                "w": "for",
+                "s": 45.52,
+                "e": 45.88,
+                "p": 0.9895965456962585
+              },
+              {
+                "w": "more.",
+                "s": 45.88,
+                "e": 46.1,
+                "p": 0.999765932559967
+              }
+            ],
+            "dauer_s": 46.4853125,
+            "sprache": "en"
+          },
+          "roh_key": "9d0979c606907e9981e5362eb46ca3dd6d9a7ec2721970953ecd42595f0b0809",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "c3f033f42b5dcdebf6e7b8635e62d75857808aaa7312f7fc7a2b50398b290cfb",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 46.5,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 15,
+          "motive": 15,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "c3f033f42b5dcdebf6e7b8635e62d75857808aaa7312f7fc7a2b50398b290cfb",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Zu sehen ist eine illustrierte Stadtkulisse im Hintergrund mit gro\"en Stapeln von Geldscheinen im Vordergrund und einem Regenbogen-CD-Symbol sowie Textoverlay.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt Geldstapel und eine Stadtkulisse, was thematisch gut zu den Einnahmen und dem Spiel GTA passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 1,
+              "gesehen": "Drei männliche Charaktere von hinten vor einer weiten Stadtlandschaft bei Sonnenuntergang, links ein Auto.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die sichtbaren drei Kriminellen passen perfekt zu der Erwähnung der drei spielbaren Charaktere im Spiel.",
+              "erforderliches_bild": "Keines, das Bild passt."
+            },
+            {
+              "index": 6,
+              "gesehen": "A man in a button-down shirt stands in a room with shelves of computer-like towers in the background, holding a video game controller.",
+              "note": 3,
+              "passt": false,
+              "grund": "The image shows a generic man with a controller, but it does not represent the release years or platforms of Grand Theft Auto V as mentioned in the narration.",
+              "erforderliches_bild": "A graphic showing the release dates 2014, 2015, and 2022 alongside the corresponding gaming platform logos or console images."
+            },
+            {
+              "index": 7,
+              "gesehen": "Drei kriminell wirkende Männer mit Sporttaschen auf einer Straße vor Gebäuden und Palmen",
+              "note": 9,
+              "passt": true,
+              "grund": "Die gesprochene Erwähnung von drei Kriminellen wird direkt durch drei Männer mit Taschen in einer Spielszene oder Illustration passend visualisiert.",
+              "erforderliches_bild": "Keine Änderung erforderlich, das Bild passt inhaltlich zum Erzähltext."
+            },
+            {
+              "index": 8,
+              "gesehen": "Zwei identische Männer in braunen Lederjacken stehen in einem leeren, minimalistischen Raum vor zwei großen Fenstern.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt zwei identische, stilisierte Figuren in einem leeren Raum, was in keiner Weise den Mehrspielermodus von GTA Online oder das kooperative/kompetitive Zusammenspiel von bis zu 30 Spielern darstellt.",
+              "erforderliches_bild": "Ein Gameplay-Ausschnitt aus GTA Online, das eine Gruppe von Spielern in einer virtuellen Umgebung zeigt, um das Mehrspieler-Konzept zu verdeutlichen."
+            },
+            {
+              "index": 9,
+              "gesehen": "Ein Textoverlay mit der Zahl 30, der Überschrift 'PLAYERS COOPERATE' und der Unterzeile 'COMPETE'.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell den Text '30' im Kontext von Spielern, die kooperieren oder konkurrieren, was exakt der gesprochenen Information 'up to 30 players cooperate or compete' entspricht.",
+              "erforderliches_bild": "Keines erforderlich."
+            },
+            {
+              "index": 10,
+              "gesehen": "Die Grafik zeigt den Text '235 MILLION' und 'FIRST-DAY FORTUNE GREW' auf dunkelblauem Hintergrund, umgeben von einem gelben Rahmen.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild illustriert direkt die im gesprochenen Satz genannte Zahl von 235 Millionen als Wachstum des Umsatzes bzw. der verkauften Einheiten.",
+              "erforderliches_bild": "Keines, das Bild illustriert den Inhalt passend."
+            },
+            {
+              "index": 11,
+              "gesehen": "Ein gelber Text '$10' und darunter 'BILLION WORLDWIDE' sowie 'COPIES SHIPPED' in einem Kasten.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell die exakten Finanzzahlen, die im Sprechertext genannt werden ($10 Milliarden Umsatz und die Anzahl der verkauften Kopien).",
+              "erforderliches_bild": "n/a"
+            }
+          ],
+          "befunde": [
+            "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): The image shows a generic man with a controller, but it does not represent the release years or platforms of Grand Theft Auto V as mentioned in the narration.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwei identische, stilisierte Figuren in einem leeren Raum, was in keiner Weise den Mehrspielermodus von GTA Online oder das kooperative/kompetitive Zusammenspiel von bis zu 30 Spielern darstellt."
+          ],
+          "modelle": [
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-flash-lite-latest",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite"
+          ],
+          "einstellungen": 15,
+          "ausgenommen": [
+            12,
+            13,
+            14
+          ],
+          "vorgeprueft": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "c3f033f42b5dcdebf6e7b8635e62d75857808aaa7312f7fc7a2b50398b290cfb",
+        "prompt_version": "2026-11-11.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "modell": "groq:openai/gpt-oss-120b",
+        "zweitpruefer_modell": null,
+        "zweitpruefer_anderer_anbieter": false
+      }
     }
   ]
 }

@@ -1,72 +1,68 @@
 {
- "version": 1,
- "modelle": {
-  "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
-   "grund": "Tageskontingent erschoepft",
-   "bis": 1795161600.0
+  "version": 1,
+  "modelle": {
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
+      "grund": "Tageskontingent erschoepft",
+      "bis": 1795161600.0
+    },
+    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
+      "grund": "HTTP429; Serverfrist 931s",
+      "bis": 1795082241.8756495
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": {
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1795082320.4396827
+    },
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1795082422.0212092
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
+      "grund": "Tageskontingent erschoepft",
+      "bis": 1795161600.0
+    }
   },
-  "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
-   "grund": "Netzwerk-Zeitlimit",
-   "bis": 1795082100.8309252
-  },
-  "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
-   "grund": "voruebergehend ueberlastet",
-   "bis": 1795082139.2232077
-  },
-  "18b3ef0930af7cca6de34adf:gemini-3.5-flash": {
-   "grund": "voruebergehend ueberlastet",
-   "bis": 1795082139.6597376
-  },
-  "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
-   "grund": "HTTP429; Serverfrist 931s",
-   "bis": 1795082241.8756495
-  },
-  "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": {
-   "grund": "voruebergehend ueberlastet",
-   "bis": 1795081867.6400924
+  "zeitlimits": {
+    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
+      1795077373.2271667,
+      1795077540.2420828,
+      1795077820.0725787,
+      1795078502.0256224,
+      1795079460.219081,
+      1795079746.3546457,
+      1795080642.0205574,
+      1795081540.7937388
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
+      1795077609.0503747,
+      1795079522.891737,
+      1795079767.6463509,
+      1795080681.9917376
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
+      1795078037.7077985,
+      1795078129.7205667,
+      1795078535.6884081,
+      1795079492.1365123,
+      1795080480.8629146,
+      1795080662.075778,
+      1795081478.9963481,
+      1795081560.8309252
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": [
+      1795078163.4859197,
+      1795078319.0092819,
+      1795078678.932009
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.5-flash": [
+      1795079584.746635,
+      1795079786.349533
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": [
+      1795080399.2166107
+    ],
+    "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": [
+      1795081101.1545672
+    ]
   }
- },
- "zeitlimits": {
-  "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
-   1795077373.2271667,
-   1795077540.2420828,
-   1795077820.0725787,
-   1795078502.0256224,
-   1795079460.219081,
-   1795079746.3546457,
-   1795080642.0205574,
-   1795081540.7937388
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
-   1795077609.0503747,
-   1795079522.891737,
-   1795079767.6463509,
-   1795080681.9917376
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
-   1795078037.7077985,
-   1795078129.7205667,
-   1795078535.6884081,
-   1795079492.1365123,
-   1795080480.8629146,
-   1795080662.075778,
-   1795081478.9963481,
-   1795081560.8309252
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": [
-   1795078163.4859197,
-   1795078319.0092819,
-   1795078678.932009
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-3.5-flash": [
-   1795079584.746635,
-   1795079786.349533
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": [
-   1795080399.2166107
-  ],
-  "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": [
-   1795081101.1545672
-  ]
- }
 }

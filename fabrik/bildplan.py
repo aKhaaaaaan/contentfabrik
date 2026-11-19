@@ -340,6 +340,11 @@ def codex_einsetzen(daten, zeitplan, bibliothek_bilder, videoformat='short'):
     for kennung, i in sorted(feste.items(), key=lambda x: x[1]):
         daten[i] = dict(daten[i], bildmodus='asset', asset=kennung, motiv=motive[kennung][:60] or daten[i]['motiv'])
         print(f'Einstellung {i}: Codex-Bild {kennung} (fester Platz Anfang/Ende)')
+    # GEMELDET 19.11.2026 (Business-Handstart 44586023968): ein Zweitpaket zum selben Thema verteilte 5 weitere
+    # Codex-Bilder auf die Mitte eines Shorts - ein einziger Clip, kein FLUX. Nutzer: "Codex Bilder 3 am Anfang und
+    # 2 am Ende fuer Shorts und Clips in der Mitte ansonsten flux". Langvideos (eigene 'mitte'-Bilder) verteilen weiter.
+    if videoformat != 'lang':
+        return len(feste)
     offen = [b for b in offen if b['id'] not in feste]
     frei = [i for i, d in enumerate(daten) if 0 < i < len(daten) - 1 and d.get('bildmodus') == 'illustration'
             and i not in feste.values()
@@ -780,7 +785,10 @@ def vorbereiten(s, laengen, woerter, cache=None, fortschritt=None):
                 'tool_demo_material': demo_material(s),
                 'phases': s['teile'], 'photos': s.get('bilder', []),
                 # Bibliotheksbilder sind Hochformat - im Langvideo (16:9) waeren sie beschnitten.
-                'illustration_library': bibliothek.auswahl(s.get('kanal'),' '.join(t['text'] for t in s['teile']))
+                # Nutzer 19.11.2026: Codex nur 3 vorne + 2 hinten (codex_einsetzen), die Mitte bleibt Clips/FLUX -
+                # der Planer bekommt Codex-Bilder deshalb gar nicht angeboten.
+                'illustration_library': [b for b in bibliothek.auswahl(s.get('kanal'), ' '.join(t['text'] for t in s['teile']))
+                                         if not str(b.get('id', '')).startswith('codex-')]
                                         if dramaturgie.videoformat(s) == 'short' else [],
                 # Regel vom 05.10. beschreibt beide Figuren - der Auftrag nennt die eigene schon.
                 'editorial_feedback': [r for r in lernen.redaktionsregeln() if not fremde_figur(r, s.get('kanal'))]}

@@ -32,7 +32,9 @@ def aktiv(heute=None):
 
 
 def slug(text):
-    return re.sub(r'[^a-z0-9]+', '-', str(text).lower()).strip('-')[:60]
+    # GEMESSEN 19.11.2026: 3 fertig gemalte Pakete (Convai-NPCs, GTA Online, JPMorgan) scheiterten mit HTTP 422 "tag_name
+    # is not well-formed" - nach dem Kuerzen auf 60 Zeichen endete der Tag auf "-". Erst kuerzen, dann trimmen.
+    return re.sub(r'[^a-z0-9]+', '-', str(text).lower()).strip('-')[:60].strip('-')
 
 
 def _holen(url, roh=False):

@@ -320,7 +320,9 @@ def codex_einsetzen(daten, zeitplan, bibliothek_bilder, videoformat='short'):
     # Titel des Vorratsskripts) - alle 10 Bilder bekamen einen festen Platz, kein Screenshot/Clip blieb uebrig.
     # Fest stehen hoechstens 3 vorne und 2 hinten aus EINEM Paket; der Rest geht wie jedes Codex-Bild nur auf
     # passende gemalte Einstellungen.
-    paket = lambda b: re.sub(r'-b\d+$', '', b['id'])
+    # Paket = Kennung ohne "-bN"; gleichnamige Zweitpakete tragen einen Release-Zusatz (codexbilder.holen, 19.11.)
+    paket = lambda b: re.sub(r'-b\d+(?=-[0-9a-f]{6}$|$)', '', b['id'])
+    offen = list({b['id']: b for b in reversed(offen)}.values())[::-1]  # doppelte Kennung: nur einmal
     vorn = sorted((b for b in offen if b.get('platz') == 'anfang'), key=lambda b: b['id'])
     haupt = paket(vorn[0]) if vorn else None
     feste = {}

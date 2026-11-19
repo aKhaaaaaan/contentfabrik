@@ -89,9 +89,17 @@ def holen(kanal_slug, kanalname, thema, text, heute=None, repo=None, videoformat
                 if hashlib.sha256(daten).hexdigest() != b.get('sha256'):
                     print(f'Codex-Bild {name}: Pruefsumme falsch - ausgelassen')
                     continue
+                # GEMELDET 19.11.2026 (Business GTA VI, Startbild ohne Codex): zwei Pakete mit fast gleichem Thema
+                # hiessen nach 40 Zeichen gleich ("gta-vi-1-6-billion-in-sales-before-launc-b1") - gleiche Kennung,
+                # dieselbe Datei; die festen Plaetze ueberschrieben sich (Codex auf 1,3,5 statt 0,1,2). Jede weitere
+                # gleichnamige Datei bekommt den Release-Namen als Kennung dazu.
+                stamm, endung = name.rsplit('.', 1)
+                if any(x['id'] == f'codex-{stamm}' for x in neu):
+                    stamm += '-' + hashlib.sha256(rel['tag_name'].encode()).hexdigest()[:6]
+                datei = f'{stamm}.{endung}'
                 ORDNER.mkdir(parents=True, exist_ok=True)
-                (ORDNER / name).write_bytes(daten)
-                neu.append({'id': f'codex-{name.rsplit(".", 1)[0]}', 'datei': f'codex/{name}', 'kanal': kanalname,
+                (ORDNER / datei).write_bytes(daten)
+                neu.append({'id': f'codex-{stamm}', 'datei': f'codex/{datei}', 'kanal': kanalname,
                             'motiv': str(b.get('motiv', ''))[:200], 'sha256': b['sha256'],
                             'nur_fuer_themen': begriffe, 'quelle': QUELLE, 'format': videoformat,
                             # 16.11.2026: fester Platz anfang/mitte/ende (bildplan.codex_einsetzen); alte Pakete ohne

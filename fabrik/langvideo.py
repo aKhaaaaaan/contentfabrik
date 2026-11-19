@@ -372,6 +372,13 @@ if __name__ == '__main__' and sys.argv[1:] == ['vorschau']:
 
 if __name__ == '__main__' and sys.argv[1:] == ['vorpruefung']:
     liste = plan(eingabe=os.environ.get('EINGABE', '').strip(), kanal=os.environ.get('LANG_KANAL', '').strip())
+    # Nutzer 19.11.2026: "Pause" im Steuerungsbot haelt auch das automatische Langvideo an ("Langvideo KI/Business"
+    # von Hand setzt LANG_KANAL und laeuft immer).
+    if liste and not os.environ.get('LANG_KANAL', '').strip() and not os.environ.get('EINGABE', '').strip():
+        import zeitplan_pause
+        if zeitplan_pause.pausiert():
+            print('Automatik pausiert - kein automatisches Langvideo (wieder an: "Weiter" im Steuerungsbot)')
+            liste = []
     for x in liste:
         print('Langvideo faellig:', x['kanal'], '| Thema:', x['thema'] or '(freie Wahl)')
     if not liste:

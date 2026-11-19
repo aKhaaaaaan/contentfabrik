@@ -31,7 +31,12 @@ jobs:
         run: |
           pip install -q -r requirements.txt
           npm install -g -s @anthropic-ai/claude-code || echo "Claude-CLI fehlt - Autor Gemini/Groq"
+      - name: Automatik-Pause pruefen
+        id: pause
+        # Nutzer 19.11.2026: "Pause" im Steuerungsbot haelt auch den Nacht-Vorrat an
+        run: python fabrik/zeitplan_pause.py || echo "pausiert=ja" >> "$GITHUB_OUTPUT"
       - name: Skripte schreiben und pruefen
+        if: steps.pause.outputs.pausiert != 'ja'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_API_KEY_RESERVE: ${{ secrets.GEMINI_API_KEY_RESERVE }}

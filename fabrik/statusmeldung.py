@@ -132,6 +132,18 @@ def text(phase, env=None):
                 'Ein Video kommt erst nach bestandener Freigabe. Ohne freigegebenes Video folgt eine Statusmeldung.\n' + url)
     if phase == 'kein_start':
         return kein_start_text(json.loads(e.get('STAND', '[]')))
+    if phase == 'claude_limit':
+        # Nutzer 19.11.2026: kein sinnloser Zeitplanstart, solange Claude am Limit ist (zeitplan_pause.ohne_autor)
+        kanaele = json.loads(e.get('AUSGELASSEN', '[]'))
+        if not isinstance(kanaele, list) or not kanaele:
+            raise ValueError('Keine ausgelassenen Kanaele')
+        import claude_ki
+        bis = claude_ki.pause() or ''
+        return ('⏭ Zeitplan ausgelassen fuer ' + ', '.join(kanalname(k) for k in kanaele)[:200] + ': Claude ist am '
+                'Abo-Limit und es liegt kein fertiges Skript bereit (Gemini/Groq allein schaffen die Story meist nicht).\n'
+                + (bis.replace('Claude wegen bekanntem Abo-Limit pausiert bis ', 'Wieder automatisch ab ')
+                   .replace('+00:00', ' UTC') + '.\n' if bis else '')
+                + 'Trotzdem versuchen: „Start KI“ / „Start Business“ im Steuerungsbot. Diese Meldung kommt einmal je Limit.')
     if phase == 'langstart':
         # GEMELDET 17.10.2026: Langvideo lief, aber auf Telegram kam keine Startmeldung (nur Shorts hatten eine).
         return (f'🎬 {titel}: Wochen-Langvideo gestartet.\n'
@@ -161,7 +173,7 @@ def senden(nachricht):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('phase', choices=['start', 'fehlgeschlagen', 'nachricht', 'grund', 'tagesstart', 'langstart', 'tagesende',
+    parser.add_argument('phase', choices=['start', 'fehlgeschlagen', 'nachricht', 'grund', 'tagesstart', 'langstart', 'tagesende', 'claude_limit',
                                           'kein_start'])
     args = parser.parse_args()
     if args.phase == 'grund':

@@ -154,7 +154,9 @@ def bezahlt_pruefen(prompt,schema,bild):
     return antwort
 
 
-PAUSEN_S=(60,120,180)
+# Nutzer 19.11.2026: "Gemini und Groq bleiben ja nicht 6 Std. aus, sondern meist nur Minuten" - vorher gab ein Bild nach
+# 6 Min. (60+120+180 s) auf, der naechste Versuch kam erst im naechsten Zeitfenster (~2,5 h). Jetzt bis 15 Min.
+PAUSEN_S=(60,120,180,240,300)
 PAUSE_MAX_S=15*60  # je Bauprozess hoechstens so lange auf ueberlastete Pruefer warten (Budget schonen)
 GEWARTET=[0.0]
 

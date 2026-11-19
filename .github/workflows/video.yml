@@ -95,7 +95,19 @@ jobs:
           # kanal=alle: Start durch den Cloudflare-Zeitplan (puenktlich) - gleiche Regel wie schedule
           if os.environ['EREIGNIS'] == 'schedule' or os.environ['EINGABE'] == 'alle':
               offen = []
-              for k in alle:
+              ausgelassen = []
+              # Nutzer 19.11.2026: Automatik per "Pause" im Steuerungsbot anhalten; Claude-Limit ohne fertiges
+              # Skript laesst den Kanal aus (fabrik/zeitplan_pause.py). Handstarts sind ausgenommen.
+              import zeitplan_pause
+              pause = None if hand else zeitplan_pause.pausiert()
+              if pause:
+                  print('Automatik pausiert', pause, '- kein Zeitplan-Start (wieder an: "Weiter" im Steuerungsbot)')
+              for k in ([] if pause else alle):
+                  ohne = None if hand else zeitplan_pause.ohne_autor(k)
+                  if ohne:
+                      print(f'{k}: ausgelassen -', ohne)
+                      ausgelassen.append(k)
+                      continue
                   p = Path(f'verlauf/{k}.json')
                   v = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
                   # nur GESENDETE Videos zaehlen - verworfene Versuche nicht
@@ -138,7 +150,35 @@ jobs:
               f.write(f'stand={json.dumps(stand)}\n')
               f.write(f'hand={json.dumps(hand)}\n')
               f.write(f'kanaele={json.dumps(offen)}\n')
+              # einmal je Claude-Limit melden (Cache-Schluessel = Limitende), nicht in jedem Zeitfenster
+              if (os.environ['EREIGNIS'] == 'schedule' or os.environ['EINGABE'] == 'alle') and ausgelassen and not hand:
+                  import claude_ki
+                  bis = json.loads(claude_ki.LIMIT.read_text(encoding='utf-8'))['gesperrt_bis_utc']
+                  f.write(f'claude_bis={bis.replace(":", "-")}\n')
+                  f.write(f'ausgelassen={json.dumps(ausgelassen)}\n')
           EOF
+      - name: Claude-Limit-Meldung schon verschickt?
+        id: claude_gemeldet
+        if: steps.offen.outputs.claude_bis != ''
+        uses: actions/cache/restore@v4
+        with:
+          path: .claude-limit-gemeldet
+          key: claude-limit-gemeldet-${{ steps.offen.outputs.claude_bis }}
+      - name: Claude-Limit - Zeitplan ausgelassen melden
+        if: steps.offen.outputs.claude_bis != '' && steps.claude_gemeldet.outputs.cache-hit != 'true'
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          AUSGELASSEN: ${{ steps.offen.outputs.ausgelassen }}
+        run: |
+          python3 fabrik/statusmeldung.py claude_limit && mkdir -p .claude-limit-gemeldet && date -u > .claude-limit-gemeldet/zeit
+      - name: Claude-Limit-Meldung merken
+        if: steps.offen.outputs.claude_bis != '' && steps.claude_gemeldet.outputs.cache-hit != 'true' && hashFiles('.claude-limit-gemeldet/zeit') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: .claude-limit-gemeldet
+          key: claude-limit-gemeldet-${{ steps.offen.outputs.claude_bis }}
       - name: Handstart ohne neues Video erklaeren
         if: steps.offen.outputs.kanaele == '[]' && steps.offen.outputs.hand == 'true'
         continue-on-error: true

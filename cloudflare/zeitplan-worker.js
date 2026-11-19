@@ -20,7 +20,7 @@
 //   Befehle: Start | Start Business | Start KI | Status (Gesamtfortschritt in %) | Abholen
 
 const REPO = 'aKhaaaaaan/contentfabrik';
-const VERSION = '2026-11-15.1';
+const VERSION = '2026-11-19.1';
 // Zusammengefasste Stunden sparen Trigger: Workers Free hat fuenf pro Konto.
 const VIDEO_CRONS = new Set(['23 8,13 * * *', '41 10,15 * * *',
   '23 8 * * *', '41 10 * * *', '23 13 * * *', '41 15 * * *']);
@@ -104,6 +104,11 @@ const HILFE = [
   '• Abholen – Nachrichten aus dem Videobot sofort verarbeiten (sonst alle 5 Min.)',
   '• Aufladen – Links: Gemini-Guthaben aufladen und Monatsgrenze ändern (bezahlte Stimme)',
   '• Hilfe – diese Liste',
+  '',
+  '⏸ AUTOMATIK',
+  '• Pause – keine automatischen Starts mehr (Shorts, Langvideo, Nacht-Skripte); Klicks und TikTok-Uploads laufen weiter',
+  '• Weiter – Automatik wieder an',
+  '  „Start KI“ / „Start Business“ funktionieren auch während der Pause',
   '',
   '💬 Im Videobot (nicht hier)',
   '• KI: Claude Code Schritt für Schritt – neues Thema in die Warteschlange',
@@ -379,11 +384,40 @@ export async function themenUebersicht(env, nur = '') {
     '\n\nNeue Themen im Videobot mit „Business: ..." oder „KI: ..." schicken.';
 }
 
+// Nutzer 19.11.2026: "kann ich den Auto Start auch stoppen? Wenn Claude-Limit erreicht ist und mein PC nicht an
+// ist wegen Codex, laeuft ja nichts". Die Pause liegt im KV des Workers; Zeitplaene von GitHub selbst fragen
+// GET /pause (fabrik/zeitplan_pause.py), der Worker startet in der Pause selbst nichts Automatisches.
+const PAUSE = 'zeitplan-pause';
+
+export async function pause(env) {
+  if (!env.ZUSTAND) return null;
+  const d = JSON.parse(await env.ZUSTAND.get(PAUSE) || 'null');
+  return d && d.seit ? d : null;
+}
+
 export async function befehl(env, text) {
   // GEMELDET 24.10.2026: "Status?" bekam die Befehlsliste - Satzzeichen am Ende zaehlen nicht.
   // "/" bleibt: "/start" sendet Telegram beim ersten Oeffnen, das darf nichts starten.
   const t = String(text || '').toLowerCase().replace(/[\s?!.,;:]+$/, '').replace(/\s+/g, ' ').trim();
+  if (['pause', 'stop', 'stopp', 'autostart aus', 'automatik aus'].includes(t)) {
+    const alt = await pause(env);
+    if (alt) return `Die Automatik ist schon pausiert (seit ${tag(alt.seit)} ${berlin(alt.seit)}). Wieder an mit „Weiter“.`;
+    await env.ZUSTAND.put(PAUSE, JSON.stringify({ seit: new Date().toISOString() }));
+    return '⏸ Automatik pausiert: Shorts-Zeitplan, Langvideo und Nacht-Skripte starten nicht mehr.\n'
+      + 'Weiter laufen: Videobot-Klicks, TikTok-Uploads, Themen. „Start KI“ / „Start Business“ gehen weiterhin.\n'
+      + 'Wieder an mit „Weiter“.';
+  }
+  if (['weiter', 'fortsetzen', 'autostart an', 'automatik an'].includes(t)) {
+    if (!await pause(env)) return 'Die Automatik läuft bereits.';
+    await env.ZUSTAND.delete(PAUSE);
+    return '▶️ Automatik wieder an. Nächste Shorts-Starts: 10:23, 12:41, 15:23, 17:41 Uhr (Winterzeit).';
+  }
   if (t === 'status') {
+    const p = await pause(env);
+    if (p) return `⏸ Automatik pausiert seit ${tag(p.seit)} ${berlin(p.seit)} - wieder an mit „Weiter“.\n\n`
+      + await befehl(env, 'status ohne pause');
+  }
+  if (t === 'status' || t === 'status ohne pause') {
     const [video, pilot, woche] = await Promise.all([laeufe(env, '', 'video.yml', 5),
       laeufe(env, '', 'pilot.yml', 5).catch(() => []), laeufe(env, '', 'langvideo.yml', 3).catch(() => [])]);
     const rs = [...video, ...pilot, ...woche].sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
@@ -607,7 +641,7 @@ export default {
       // zusaetzlichen Cron-Trigger (Free-Plan: 5 je Konto) im ersten 5-Minuten-Takt um 01 und 05 UTC.
       const zeit = event.scheduledTime ? new Date(event.scheduledTime) : null;
       if (zeit && [1, 5].includes(zeit.getUTCHours()) && zeit.getUTCMinutes() >= 5 && zeit.getUTCMinutes() < 10) {
-        const vorrat = starte(env, 'skripte.yml', {});
+        const vorrat = pause(env).then((p) => p ? 'skripte.yml: Automatik pausiert' : starte(env, 'skripte.yml', {}));
         job = Promise.all([job, vorrat]).then((t) => t.join(' | '));
       }
       // 16.10.2026: Der Vorrat-Cron 01:07 erschien nie in der Run-Liste - GitHub verschluckt Zeitplaene.
@@ -618,12 +652,16 @@ export default {
       if (zeit && [5, 6, 0].includes(zeit.getUTCDay()) && zeit.getUTCHours() === 6
           && zeit.getUTCMinutes() >= 40 && zeit.getUTCMinutes() < 45) {
         const heute = zeit.toISOString().slice(0, 10);
-        const lang = laeufe(env, '', 'langvideo.yml', 10).then((l) => l.some(r => (r.created_at || '').startsWith(heute))
-          ? 'langvideo.yml: heute schon gestartet' : starte(env, 'langvideo.yml', {}));
+        const lang = pause(env).then((p) => p ? 'langvideo.yml: Automatik pausiert'
+          : laeufe(env, '', 'langvideo.yml', 10).then((l) => l.some(r => (r.created_at || '').startsWith(heute))
+            ? 'langvideo.yml: heute schon gestartet' : starte(env, 'langvideo.yml', {})));
         job = Promise.all([job, lang]).then((t) => t.join(' | '));
       }
     }
-    else if (VIDEO_CRONS.has(event.cron)) job = starte(env, 'video.yml', { kanal: 'alle', thema: '', quelle: 'zeitplan' });
+    else if (VIDEO_CRONS.has(event.cron)) {
+      job = pause(env).then((p) => p ? 'video.yml: Automatik pausiert seit ' + p.seit
+        : starte(env, 'video.yml', { kanal: 'alle', thema: '', quelle: 'zeitplan' }));
+    }
     else throw new Error('Unbekannter Contentfabrik-Zeitplan');
     ctx.waitUntil(job.then((t) => console.log(t)));
   },
@@ -637,6 +675,11 @@ export default {
     if (pfad === '/kosten' && request.method === 'POST') return kosten(request, env);
     if (pfad === '/fortschritt' && request.method === 'POST') return fortschrittEingang(request, env);
     if (pfad === '/einrichten') return einrichten(request, env);
+    // Nur ja/nein und Zeitpunkt - von GitHub-Zeitplaenen abgefragt (fabrik/zeitplan_pause.py)
+    if (pfad === '/pause') {
+      const p = await pause(env);
+      return Response.json({ pausiert: Boolean(p), seit: p ? p.seit : null });
+    }
     return Response.json({ worker: 'contentfabrik-zeitplan', version: VERSION, repository: REPO,
       github_schluessel_vorhanden: Boolean(env.GH_TOKEN),
       hinweis: 'GitHub-Berechtigung und Cron-Ausfuehrung separat pruefen; kein Video-Start durch diese URL.' },

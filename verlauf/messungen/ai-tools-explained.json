@@ -1,141 +1,5 @@
 [
   {
-    "id": "40917784096",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-29",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 639.6,
-        "pruefung_s": 279.7,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Bewertung hook fehlt oder ist ungueltig",
-          "Video-bild_passt 2/10 unter 7/10",
-          "Video-Bewertung dynamik fehlt oder ist ungueltig",
-          "Video-Bewertung text fehlt oder ist ungueltig",
-          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
-          "Video-Bewertung tempo fehlt oder ist ungueltig",
-          "Video-Bewertung inhalt fehlt oder ist ungueltig",
-          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
-          "Video-Bewertung regeln fehlt oder ist ungueltig",
-          "Video-Bewertung story fehlt oder ist ungueltig",
-          "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann mit einer Aufschrift PASTE, aber nicht die im Text erwähnte Handlung des Kopierens, Einfügens oder das Problem von vielen Tabs.",
-          "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Warnungstafel und Text mit Bezug auf das gesprochene Wort 'catch', aber keine visuelle Demonstration oder Erklärung, wie MCP das Kopieren und Einfügen reduziert.",
-          "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar den Text 'USB-C port', der als Metapher erwähnt wird, aber keine konkrete technische Veranschaulichung des MCP-Standards oder von KI-Verbindungen.",
-          "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Erklärtabelle über API-Antworten und Claude Code, während der Text von einem Issue-Tracker und einem verbundenen Server spricht.",
-          "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen statischen Hilfetext statt der konkreten Benutzeroberfläche der Chat-Plus-Taste und des Connectors-Menüs.",
-          "Offenes Problem (schwer): Das Bild zeigt einen Mann mit einer Aufschrift PASTE, aber nicht die im Text erwähnte Handlung des Kopierens, Einfügens oder das Problem von vielen Tabs. Korrektur: Ein Bildschirmfoto oder eine Visualisierung von vielen geöffneten Browser-Tabs oder einer Benutzeroberfläche, die das ständige Hin- und Herschalten und Kopieren verdeutlicht.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich eine Warnungstafel und Text mit Bezug auf das gesprochene Wort 'catch', aber keine visuelle Demonstration oder Erklärung, wie MCP das Kopieren und Einfügen reduziert. Korrektur: Ein Bildschirmfoto oder Diagramm, das den Anschluss eines externen Tools oder Servers an Claude zeigt.",
-          "Offenes Problem (schwer): Das Bild zeigt zwar den Text 'USB-C port', der als Metapher erwähnt wird, aber keine konkrete technische Veranschaulichung des MCP-Standards oder von KI-Verbindungen. Korrektur: Ein anschauliches Diagramm oder eine Grafik, die einen USB-C-Anschluss als universelle Schnittstelle im Vergleich zur Verbindung von KI-Apps mit externen Tools darstellt.",
-          "Offenes Problem (schwer): Das Bild zeigt eine Erklärtabelle über API-Antworten und Claude Code, während der Text von einem Issue-Tracker und einem verbundenen Server spricht. Korrektur: Ein Screenshot oder Diagramm, das zeigt, wie ein Server mit einem System oder Issue-Tracker verbunden ist.",
-          "Offenes Problem (schwer): Das Bild zeigt einen statischen Hilfetext statt der konkreten Benutzeroberfläche der Chat-Plus-Taste und des Connectors-Menüs. Korrektur: Einen echten Screenshot der Claude Desktop Anwendung, der das Plus-Symbol im Chat und das Connectors-Menü zeigt."
-        ],
-        "messung": {
-          "stimme_wiederverwendet": false,
-          "erzaehlstimme": "gemini:Puck",
-          "stimme": 12.9,
-          "zeitmarken": 8.9,
-          "tempo": 1.0,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 0,
-          "stuecke_neu": 13,
-          "clips_und_stuecke": 386.9,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 13,
-            "motive": 13,
-            "motive_min": 8
-          },
-          "effekte": 10,
-          "rendern": 40.3,
-          "gesamt": 639.1,
-          "videolaenge_s": 43.9,
-          "abschnitte_s": [
-            6.28,
-            6.1,
-            6.18,
-            6.88,
-            6.76,
-            6.52,
-            5.16
-          ],
-          "woerter": 123
-        },
-        "kategorien": {
-          "bild_passt": 2
-        },
-        "probleme": [
-          {
-            "zeit": "00:00.00",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 0,
-            "einstellung": 0,
-            "gesprochen": "Copy, paste, copy, paste. Drowning in tabs.",
-            "fest": false,
-            "text": "Das Bild zeigt einen Mann mit einer Aufschrift PASTE, aber nicht die im Text erwähnte Handlung des Kopierens, Einfügens oder das Problem von vielen Tabs. Korrektur: Ein Bildschirmfoto oder eine Visualisierung von vielen geöffneten Browser-Tabs oder einer Benutzeroberfläche, die das ständige Hin- und Herschalten und Kopieren verdeutlicht."
-          },
-          {
-            "zeit": "00:03.26",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 0,
-            "einstellung": 1,
-            "gesprochen": "Claude's MCP could cut that, but there's a catch.",
-            "fest": true,
-            "text": "Das Bild zeigt lediglich eine Warnungstafel und Text mit Bezug auf das gesprochene Wort 'catch', aber keine visuelle Demonstration oder Erklärung, wie MCP das Kopieren und Einfügen reduziert. Korrektur: Ein Bildschirmfoto oder Diagramm, das den Anschluss eines externen Tools oder Servers an Claude zeigt."
-          },
-          {
-            "zeit": "00:10.02",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 1,
-            "einstellung": 3,
-            "gesprochen": "Think USB-C port, but for AI.",
-            "fest": true,
-            "text": "Das Bild zeigt zwar den Text 'USB-C port', der als Metapher erwähnt wird, aber keine konkrete technische Veranschaulichung des MCP-Standards oder von KI-Verbindungen. Korrektur: Ein anschauliches Diagramm oder eine Grafik, die einen USB-C-Anschluss als universelle Schnittstelle im Vergleich zur Verbindung von KI-Apps mit externen Tools darstellt."
-          },
-          {
-            "zeit": "00:15.96",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 2,
-            "einstellung": 5,
-            "gesprochen": "A connected server lets Claude read that system.",
-            "fest": true,
-            "text": "Das Bild zeigt eine Erklärtabelle über API-Antworten und Claude Code, während der Text von einem Issue-Tracker und einem verbundenen Server spricht. Korrektur: Ein Screenshot oder Diagramm, das zeigt, wie ein Server mit einem System oder Issue-Tracker verbunden ist."
-          },
-          {
-            "zeit": "00:27.88",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 4,
-            "einstellung": 9,
-            "gesprochen": "After installing, the chat plus button, then Connectors, shows what's connected.",
-            "fest": true,
-            "text": "Das Bild zeigt einen statischen Hilfetext statt der konkreten Benutzeroberfläche der Chat-Plus-Taste und des Connectors-Menüs. Korrektur: Einen echten Screenshot der Claude Desktop Anwendung, der das Plus-Symbol im Chat und das Connectors-Menü zeigt."
-          }
-        ],
-        "sekunden": 919.3,
-        "status": "geprueft"
-      },
-      {
-        "runde": 2,
-        "art": "korrektur",
-        "status": "keine_korrektur",
-        "sekunden": 0.1
-      }
-    ],
-    "status": "gesendet",
-    "grund": "",
-    "sekunden": 934.5,
-    "upload_titel": "Claude MCP Explained: Connect Tools, Stop Pasting | AI Tool #19"
-  },
-  {
     "id": "40943763878",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-29",
@@ -8956,5 +8820,674 @@
     "grund": "Faktenpruefung nicht bestanden",
     "sekunden": 1285.5,
     "upload_titel": "Turn Your Photo into a New Look: Use Gemini’s Nano Banana Pro 2 | AI Tool #40"
+  },
+  {
+    "id": "44528612263",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-11-19",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 161.1,
+        "pruefung_s": 131.1,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar den Text 'HIT CAN'T EARN', aber keine Erklärung oder visuelle Demonstration dazu, warum kostenlose Songs kein Geld verdienen können.",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar Audio-Spuren auf einem Laptop, aber keine visuelle Erklärung oder Darstellung des erwähnten Suno-Timings oder der Urheberrechtsfalle.",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die visuelle Darstellung zeigt einen Musiker im Studio, bietet jedoch keinen direkten Bezug zur rechtlichen Regelung, dass kostenlose Songs nicht kommerziell genutzt werden durfen.",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt visuell die Sperrung oder Blockierung eines musikalischen Werks durch Ketten und Schloss, was zur Metapher passt, aber es fehlt die spezifische rechtliche Situation des fehlenden retroaktiven Lizenzrechts nach spaeterem Abonnement.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine grafische Darstellung einer Musikausrüstung (Kassette, Kopfhörer), hat aber keinen inhaltlichen Bezug zur Frage nach den Zahlungsplänen von Suno oder kommerziellen Rechten.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Podcast-Moderator in einem animierten Stil und bietet keinen inhaltlichen Bezug zur Aussage über Suno-Abonnementpläne oder kommerzielle Rechte.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine allgemeine Szene eines Musikers im Studio, die keinerlei Bezug zu dem narrativen Inhalt über Suno-Abonnements, Lizenzrechte oder den technischen Prozess der 'Neuerstellung' (Remake) von Songs hat.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (5/10): Die Illustration zeigt eine Person in einem Radio-Studio, was thematisch zum Kontext 'GTA-style radio station' passt. Die Aussage 'Your free hit was just rehearsal' (Dein Free-Hit war nur eine Probe) ist jedoch eine abstrakte, rhetorische Schlussfolgerung. Das Bild zeigt eine statische Figur, die ni",
+          "Offenes Problem (schwer): Das Bild zeigt zwar den Text 'HIT CAN'T EARN', aber keine Erklärung oder visuelle Demonstration dazu, warum kostenlose Songs kein Geld verdienen können. Korrektur: Eine Bildschirmaufnahme der Suno-Preisseite, die die Lizenzbedingungen für kostenlose im Vergleich zu kostenpflichtigen Abos zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt zwar Audio-Spuren auf einem Laptop, aber keine visuelle Erklärung oder Darstellung des erwähnten Suno-Timings oder der Urheberrechtsfalle. Korrektur: Ein Screenshot der Suno-Nutzungsbedingungen oder der Preistabelle, die den kommerziellen Unterschied zwischen Gratis- und Bezahlversion zeigt.",
+          "Offenes Problem (schwer): Die visuelle Darstellung zeigt einen Musiker im Studio, bietet jedoch keinen direkten Bezug zur rechtlichen Regelung, dass kostenlose Songs nicht kommerziell genutzt werden durfen. Korrektur: Eine visuelle Darstellung einer Lizenzvereinbarung oder Nutzungsbedingungen, die das Verbot kommerzieller Nutzung für kostenlose Songs verdeutlicht.",
+          "Offenes Problem (schwer): Die Abbildung zeigt visuell die Sperrung oder Blockierung eines musikalischen Werks durch Ketten und Schloss, was zur Metapher passt, aber es fehlt die spezifische rechtliche Situation des fehlenden retroaktiven Lizenzrechts nach spaeterem Abonnement. Korrektur: Eine realistische oder illustrierte Darstellung einer Lizenzvereinbarung oder einer Plattform-Benutzeroberflaeche, die zeigt, dass freie Titel auch nach einem spaeteren Abo keine kommerziellen Rechte erhalten.",
+          "Offenes Problem (schwer): Das Bild zeigt eine grafische Darstellung einer Musikausrüstung (Kassette, Kopfhörer), hat aber keinen inhaltlichen Bezug zur Frage nach den Zahlungsplänen von Suno oder kommerziellen Rechten. Korrektur: Ein Screenshot des Suno-Abonnement-Vergleichs oder eine grafische Darstellung, die die Unterschiede zwischen dem kostenlosen und dem kostenpflichtigen Plan (Pro/Premier) in Bezug auf kommerzielle Lizenzen verdeutlicht.",
+          "Offenes Problem (schwer): Das Bild zeigt einen Podcast-Moderator in einem animierten Stil und bietet keinen inhaltlichen Bezug zur Aussage über Suno-Abonnementpläne oder kommerzielle Rechte. Korrektur: Ein Screenshot des Suno-Abonnement-Vergleichsbildschirms oder der Lizenzbedingungen, die den Unterschied zwischen Free-, Pro- und Premier-Plänen bezüglich kommerzieller Rechte zeigen.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Szene eines Musikers im Studio, die keinerlei Bezug zu dem narrativen Inhalt über Suno-Abonnements, Lizenzrechte oder den technischen Prozess der 'Neuerstellung' (Remake) von Songs hat. Korrektur: Ein Screenshot der Suno-Benutzeroberfläche, der die 'Remake'-Funktion oder die Lizenzbedingungen für Pro/Premier-Abonnenten deutlich zeigt.",
+          "Offenes Problem (schwer): Die Illustration zeigt eine Person in einem Radio-Studio, was thematisch zum Kontext 'GTA-style radio station' passt. Die Aussage 'Your free hit was just rehearsal' (Dein Free-Hit war nur eine Probe) ist jedoch eine abstrakte, rhetorische Schlussfolgerung. Das Bild zeigt eine statische Figur, die nicht den aktiven Vorgang des 'Remakings' oder der 'Probe' darstellt. Es ist eine thematisch passende, aber inhaltlich vage Illustration, die den spezifischen narrativen Punkt (der Übergang von der  Korrektur: Ein Bild, das den Prozess des Neuaufnehmens oder der Bearbeitung eines Songs in einer DAW (Digital Audio Workstation) zeigt, z.B. eine Hand, die an einem Mischpult regelt, oder ein Bildschirm mit einer Audiospur, die gerade bearbeitet wird."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 32.5,
+          "zeitmarken": 3.2,
+          "tempo": 1.0,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 9,
+          "clips_und_stuecke": 65.2,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 9,
+            "motive": 9,
+            "motive_min": 4
+          },
+          "effekte": 10,
+          "rendern": 35.0,
+          "gesamt": 160.8,
+          "videolaenge_s": 24.5,
+          "abschnitte_s": [
+            3.14,
+            2.64,
+            4.78,
+            2.88,
+            1.9,
+            4.5,
+            4.63
+          ],
+          "woerter": 58,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Your free AI hit can't earn a cent.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar den Text 'HIT CAN'T EARN', aber keine Erklärung oder visuelle Demonstration dazu, warum kostenlose Songs kein Geld verdienen können. Korrektur: Eine Bildschirmaufnahme der Suno-Preisseite, die die Lizenzbedingungen für kostenlose im Vergleich zu kostenpflichtigen Abos zeigt."
+          },
+          {
+            "zeit": "00:03.14",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 1,
+            "gesprochen": "Blame Suno's timing trap, not your talent.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar Audio-Spuren auf einem Laptop, aber keine visuelle Erklärung oder Darstellung des erwähnten Suno-Timings oder der Urheberrechtsfalle. Korrektur: Ein Screenshot der Suno-Nutzungsbedingungen oder der Preistabelle, die den kommerziellen Unterschied zwischen Gratis- und Bezahlversion zeigt."
+          },
+          {
+            "zeit": "00:05.78",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 2,
+            "gesprochen": "Free songs stay non-commercial.",
+            "fest": false,
+            "text": "Die visuelle Darstellung zeigt einen Musiker im Studio, bietet jedoch keinen direkten Bezug zur rechtlichen Regelung, dass kostenlose Songs nicht kommerziell genutzt werden durfen. Korrektur: Eine visuelle Darstellung einer Lizenzvereinbarung oder Nutzungsbedingungen, die das Verbot kommerzieller Nutzung für kostenlose Songs verdeutlicht."
+          },
+          {
+            "zeit": "00:07.70",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 3,
+            "gesprochen": "Subscribing later grants no retroactive license.",
+            "fest": false,
+            "text": "Die Abbildung zeigt visuell die Sperrung oder Blockierung eines musikalischen Werks durch Ketten und Schloss, was zur Metapher passt, aber es fehlt die spezifische rechtliche Situation des fehlenden retroaktiven Lizenzrechts nach spaeterem Abonnement. Korrektur: Eine realistische oder illustrierte Darstellung einer Lizenzvereinbarung oder einer Plattform-Benutzeroberflaeche, die zeigt, dass freie Titel auch nach einem spaeteren Abo keine kommerziellen Rechte erhalten."
+          },
+          {
+            "zeit": "00:13.44",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 5,
+            "gesprochen": "What does paying change?",
+            "fest": false,
+            "text": "Das Bild zeigt eine grafische Darstellung einer Musikausrüstung (Kassette, Kopfhörer), hat aber keinen inhaltlichen Bezug zur Frage nach den Zahlungsplänen von Suno oder kommerziellen Rechten. Korrektur: Ein Screenshot des Suno-Abonnement-Vergleichs oder eine grafische Darstellung, die die Unterschiede zwischen dem kostenlosen und dem kostenpflichtigen Plan (Pro/Premier) in Bezug auf kommerzielle Lizenzen verdeutlicht."
+          },
+          {
+            "zeit": "00:15.34",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 6,
+            "gesprochen": "Checked November 18: Pro or Premier songs get commercial rights.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Podcast-Moderator in einem animierten Stil und bietet keinen inhaltlichen Bezug zur Aussage über Suno-Abonnementpläne oder kommerzielle Rechte. Korrektur: Ein Screenshot des Suno-Abonnement-Vergleichsbildschirms oder der Lizenzbedingungen, die den Unterschied zwischen Free-, Pro- und Premier-Plänen bezüglich kommerzieller Rechte zeigen."
+          },
+          {
+            "zeit": "00:19.84",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 7,
+            "gesprochen": "Remake it subscribed, with lyrics you own.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine allgemeine Szene eines Musikers im Studio, die keinerlei Bezug zu dem narrativen Inhalt über Suno-Abonnements, Lizenzrechte oder den technischen Prozess der 'Neuerstellung' (Remake) von Songs hat. Korrektur: Ein Screenshot der Suno-Benutzeroberfläche, der die 'Remake'-Funktion oder die Lizenzbedingungen für Pro/Premier-Abonnenten deutlich zeigt."
+          },
+          {
+            "zeit": "00:22.50",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 8,
+            "gesprochen": "Your free hit was just rehearsal.",
+            "fest": false,
+            "text": "Die Illustration zeigt eine Person in einem Radio-Studio, was thematisch zum Kontext 'GTA-style radio station' passt. Die Aussage 'Your free hit was just rehearsal' (Dein Free-Hit war nur eine Probe) ist jedoch eine abstrakte, rhetorische Schlussfolgerung. Das Bild zeigt eine statische Figur, die nicht den aktiven Vorgang des 'Remakings' oder der 'Probe' darstellt. Es ist eine thematisch passende, aber inhaltlich vage Illustration, die den spezifischen narrativen Punkt (der Übergang von der  Korrektur: Ein Bild, das den Prozess des Neuaufnehmens oder der Bearbeitung eines Songs in einer DAW (Digital Audio Workstation) zeigt, z.B. eine Hand, die an einem Mischpult regelt, oder ein Bildschirm mit einer Audiospur, die gerade bearbeitet wird."
+          }
+        ],
+        "sekunden": 298.3,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 5
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 6
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-11-11.2"
+        },
+        "skript_s": 2.0,
+        "bau_s": 184.7,
+        "pruefung_s": 26.8,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar den Text 'HIT CAN'T EARN', aber keine Erklärung oder visuelle Demonstration dazu, warum kostenlose Songs kein Geld verdienen können.",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar Audio-Spuren auf einem Laptop, aber keine visuelle Erklärung oder Darstellung des erwähnten Suno-Timings oder der Urheberrechtsfalle.",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die visuelle Darstellung zeigt einen Musiker im Studio, bietet jedoch keinen direkten Bezug zur rechtlichen Regelung, dass kostenlose Songs nicht kommerziell genutzt werden durfen.",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt visuell die Sperrung oder Blockierung eines musikalischen Werks durch Ketten und Schloss, was zur Metapher passt, aber es fehlt die spezifische rechtliche Situation des fehlenden retroaktiven Lizenzrechts nach spaeterem Abonnement.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Podcast-Moderator in einem animierten Stil und bietet keinen inhaltlichen Bezug zur Aussage über Suno-Abonnementpläne oder kommerzielle Rechte.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine allgemeine Szene eines Musikers im Studio, die keinerlei Bezug zu dem narrativen Inhalt über Suno-Abonnements, Lizenzrechte oder den technischen Prozess der 'Neuerstellung' (Remake) von Songs hat.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Radio-Moderator in einem Studio, was zwar thematisch zum Thema Radio passt, aber die konkrete Aussage, dass ein kostenloser Hit nur eine Probe war und Remakes erfordert, wird nicht visuell erklärt.",
+          "Offenes Problem (schwer): Das Bild zeigt zwar den Text 'HIT CAN'T EARN', aber keine Erklärung oder visuelle Demonstration dazu, warum kostenlose Songs kein Geld verdienen können. Korrektur: Eine Bildschirmaufnahme der Suno-Preisseite, die die Lizenzbedingungen für kostenlose im Vergleich zu kostenpflichtigen Abos zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt zwar Audio-Spuren auf einem Laptop, aber keine visuelle Erklärung oder Darstellung des erwähnten Suno-Timings oder der Urheberrechtsfalle. Korrektur: Ein Screenshot der Suno-Nutzungsbedingungen oder der Preistabelle, die den kommerziellen Unterschied zwischen Gratis- und Bezahlversion zeigt.",
+          "Offenes Problem (schwer): Die visuelle Darstellung zeigt einen Musiker im Studio, bietet jedoch keinen direkten Bezug zur rechtlichen Regelung, dass kostenlose Songs nicht kommerziell genutzt werden durfen. Korrektur: Eine visuelle Darstellung einer Lizenzvereinbarung oder Nutzungsbedingungen, die das Verbot kommerzieller Nutzung für kostenlose Songs verdeutlicht.",
+          "Offenes Problem (schwer): Die Abbildung zeigt visuell die Sperrung oder Blockierung eines musikalischen Werks durch Ketten und Schloss, was zur Metapher passt, aber es fehlt die spezifische rechtliche Situation des fehlenden retroaktiven Lizenzrechts nach spaeterem Abonnement. Korrektur: Eine realistische oder illustrierte Darstellung einer Lizenzvereinbarung oder einer Plattform-Benutzeroberflaeche, die zeigt, dass freie Titel auch nach einem spaeteren Abo keine kommerziellen Rechte erhalten.",
+          "Offenes Problem (schwer): Das Bild zeigt einen Podcast-Moderator in einem animierten Stil und bietet keinen inhaltlichen Bezug zur Aussage über Suno-Abonnementpläne oder kommerzielle Rechte. Korrektur: Ein Screenshot des Suno-Abonnement-Vergleichsbildschirms oder der Lizenzbedingungen, die den Unterschied zwischen Free-, Pro- und Premier-Plänen bezüglich kommerzieller Rechte zeigen.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Szene eines Musikers im Studio, die keinerlei Bezug zu dem narrativen Inhalt über Suno-Abonnements, Lizenzrechte oder den technischen Prozess der 'Neuerstellung' (Remake) von Songs hat. Korrektur: Ein Screenshot der Suno-Benutzeroberfläche, der die 'Remake'-Funktion oder die Lizenzbedingungen für Pro/Premier-Abonnenten deutlich zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt einen Radio-Moderator in einem Studio, was zwar thematisch zum Thema Radio passt, aber die konkrete Aussage, dass ein kostenloser Hit nur eine Probe war und Remakes erfordert, wird nicht visuell erklärt. Korrektur: Ein realistischer Screenshot der Suno-Benutzeroberfläche, der den Unterschied zwischen einer kostenlosen Version und einer kommerziell lizenzierten Version im Account zeigt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Puck",
+          "tempo": 1.0,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 9,
+          "clips_und_stuecke": 63.9,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 9,
+            "motive": 9,
+            "motive_min": 4
+          },
+          "effekte": 10,
+          "rendern": 35.0,
+          "gesamt": 184.4,
+          "videolaenge_s": 24.5,
+          "abschnitte_s": [
+            3.14,
+            2.64,
+            4.78,
+            2.88,
+            1.9,
+            4.5,
+            4.63
+          ],
+          "woerter": 58,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Your free AI hit can't earn a cent.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar den Text 'HIT CAN'T EARN', aber keine Erklärung oder visuelle Demonstration dazu, warum kostenlose Songs kein Geld verdienen können. Korrektur: Eine Bildschirmaufnahme der Suno-Preisseite, die die Lizenzbedingungen für kostenlose im Vergleich zu kostenpflichtigen Abos zeigt."
+          },
+          {
+            "zeit": "00:03.14",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 1,
+            "gesprochen": "Blame Suno's timing trap, not your talent.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar Audio-Spuren auf einem Laptop, aber keine visuelle Erklärung oder Darstellung des erwähnten Suno-Timings oder der Urheberrechtsfalle. Korrektur: Ein Screenshot der Suno-Nutzungsbedingungen oder der Preistabelle, die den kommerziellen Unterschied zwischen Gratis- und Bezahlversion zeigt."
+          },
+          {
+            "zeit": "00:05.78",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 2,
+            "gesprochen": "Free songs stay non-commercial.",
+            "fest": false,
+            "text": "Die visuelle Darstellung zeigt einen Musiker im Studio, bietet jedoch keinen direkten Bezug zur rechtlichen Regelung, dass kostenlose Songs nicht kommerziell genutzt werden durfen. Korrektur: Eine visuelle Darstellung einer Lizenzvereinbarung oder Nutzungsbedingungen, die das Verbot kommerzieller Nutzung für kostenlose Songs verdeutlicht."
+          },
+          {
+            "zeit": "00:07.70",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 3,
+            "gesprochen": "Subscribing later grants no retroactive license.",
+            "fest": false,
+            "text": "Die Abbildung zeigt visuell die Sperrung oder Blockierung eines musikalischen Werks durch Ketten und Schloss, was zur Metapher passt, aber es fehlt die spezifische rechtliche Situation des fehlenden retroaktiven Lizenzrechts nach spaeterem Abonnement. Korrektur: Eine realistische oder illustrierte Darstellung einer Lizenzvereinbarung oder einer Plattform-Benutzeroberflaeche, die zeigt, dass freie Titel auch nach einem spaeteren Abo keine kommerziellen Rechte erhalten."
+          },
+          {
+            "zeit": "00:15.34",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 6,
+            "gesprochen": "Checked November 18: Pro or Premier songs get commercial rights.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Podcast-Moderator in einem animierten Stil und bietet keinen inhaltlichen Bezug zur Aussage über Suno-Abonnementpläne oder kommerzielle Rechte. Korrektur: Ein Screenshot des Suno-Abonnement-Vergleichsbildschirms oder der Lizenzbedingungen, die den Unterschied zwischen Free-, Pro- und Premier-Plänen bezüglich kommerzieller Rechte zeigen."
+          },
+          {
+            "zeit": "00:19.84",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 7,
+            "gesprochen": "Remake it subscribed, with lyrics you own.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine allgemeine Szene eines Musikers im Studio, die keinerlei Bezug zu dem narrativen Inhalt über Suno-Abonnements, Lizenzrechte oder den technischen Prozess der 'Neuerstellung' (Remake) von Songs hat. Korrektur: Ein Screenshot der Suno-Benutzeroberfläche, der die 'Remake'-Funktion oder die Lizenzbedingungen für Pro/Premier-Abonnenten deutlich zeigt."
+          },
+          {
+            "zeit": "00:22.50",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 8,
+            "gesprochen": "Your free hit was just rehearsal.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Radio-Moderator in einem Studio, was zwar thematisch zum Thema Radio passt, aber die konkrete Aussage, dass ein kostenloser Hit nur eine Probe war und Remakes erfordert, wird nicht visuell erklärt. Korrektur: Ein realistischer Screenshot der Suno-Benutzeroberfläche, der den Unterschied zwischen einer kostenlosen Version und einer kommerziell lizenzierten Version im Account zeigt."
+          }
+        ],
+        "sekunden": 218.6,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "44528612263-2",
+          "datum": "2026-11-19",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 218.6,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 5
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 6
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 2
+          },
+          "kategorien_nachher": {
+            "bild_passt": 2
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-11-11.2",
+          "verbessert": false
+        }
+      },
+      {
+        "runde": 3,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 5
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 6
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            0,
+            1,
+            2,
+            5,
+            6
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-11-11.2"
+        },
+        "skript_s": 80.4,
+        "bau_s": 291.7,
+        "pruefung_s": 8.0,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar den Text 'HIT CAN'T EARN', aber keine Erklärung oder visuelle Demonstration dazu, warum kostenlose Songs kein Geld verdienen können.",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar Audio-Spuren auf einem Laptop, aber keine visuelle Erklärung oder Darstellung des erwähnten Suno-Timings oder der Urheberrechtsfalle.",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die visuelle Darstellung zeigt einen Musiker im Studio, bietet jedoch keinen direkten Bezug zur rechtlichen Regelung, dass kostenlose Songs nicht kommerziell genutzt werden durfen.",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): Die Abbildung zeigt visuell die Sperrung oder Blockierung eines musikalischen Werks durch Ketten und Schloss, was zur Metapher passt, aber es fehlt die spezifische rechtliche Situation des fehlenden retroaktiven Lizenzrechts nach spaeterem Abonnement.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Podcast-Moderator in einem animierten Stil und bietet keinen inhaltlichen Bezug zur Aussage über Suno-Abonnementpläne oder kommerzielle Rechte.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine allgemeine Szene eines Musikers im Studio, die keinerlei Bezug zu dem narrativen Inhalt über Suno-Abonnements, Lizenzrechte oder den technischen Prozess der 'Neuerstellung' (Remake) von Songs hat.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Radio-Moderator in einem Studio, was zwar thematisch zum Thema Radio passt, aber die konkrete Aussage, dass ein kostenloser Hit nur eine Probe war und Remakes erfordert, wird nicht visuell erklärt.",
+          "Offenes Problem (schwer): Das Bild zeigt zwar den Text 'HIT CAN'T EARN', aber keine Erklärung oder visuelle Demonstration dazu, warum kostenlose Songs kein Geld verdienen können. Korrektur: Eine Bildschirmaufnahme der Suno-Preisseite, die die Lizenzbedingungen für kostenlose im Vergleich zu kostenpflichtigen Abos zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt zwar Audio-Spuren auf einem Laptop, aber keine visuelle Erklärung oder Darstellung des erwähnten Suno-Timings oder der Urheberrechtsfalle. Korrektur: Ein Screenshot der Suno-Nutzungsbedingungen oder der Preistabelle, die den kommerziellen Unterschied zwischen Gratis- und Bezahlversion zeigt.",
+          "Offenes Problem (schwer): Die visuelle Darstellung zeigt einen Musiker im Studio, bietet jedoch keinen direkten Bezug zur rechtlichen Regelung, dass kostenlose Songs nicht kommerziell genutzt werden durfen. Korrektur: Eine visuelle Darstellung einer Lizenzvereinbarung oder Nutzungsbedingungen, die das Verbot kommerzieller Nutzung für kostenlose Songs verdeutlicht.",
+          "Offenes Problem (schwer): Die Abbildung zeigt visuell die Sperrung oder Blockierung eines musikalischen Werks durch Ketten und Schloss, was zur Metapher passt, aber es fehlt die spezifische rechtliche Situation des fehlenden retroaktiven Lizenzrechts nach spaeterem Abonnement. Korrektur: Eine realistische oder illustrierte Darstellung einer Lizenzvereinbarung oder einer Plattform-Benutzeroberflaeche, die zeigt, dass freie Titel auch nach einem spaeteren Abo keine kommerziellen Rechte erhalten.",
+          "Offenes Problem (schwer): Das Bild zeigt einen Podcast-Moderator in einem animierten Stil und bietet keinen inhaltlichen Bezug zur Aussage über Suno-Abonnementpläne oder kommerzielle Rechte. Korrektur: Ein Screenshot des Suno-Abonnement-Vergleichsbildschirms oder der Lizenzbedingungen, die den Unterschied zwischen Free-, Pro- und Premier-Plänen bezüglich kommerzieller Rechte zeigen.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Szene eines Musikers im Studio, die keinerlei Bezug zu dem narrativen Inhalt über Suno-Abonnements, Lizenzrechte oder den technischen Prozess der 'Neuerstellung' (Remake) von Songs hat. Korrektur: Ein Screenshot der Suno-Benutzeroberfläche, der die 'Remake'-Funktion oder die Lizenzbedingungen für Pro/Premier-Abonnenten deutlich zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt einen Radio-Moderator in einem Studio, was zwar thematisch zum Thema Radio passt, aber die konkrete Aussage, dass ein kostenloser Hit nur eine Probe war und Remakes erfordert, wird nicht visuell erklärt. Korrektur: Ein realistischer Screenshot der Suno-Benutzeroberfläche, der den Unterschied zwischen einer kostenlosen Version und einer kommerziell lizenzierten Version im Account zeigt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Puck",
+          "tempo": 1.0,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 1,
+          "stuecke_neu": 8,
+          "clips_und_stuecke": 58.9,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 9,
+            "motive": 9,
+            "motive_min": 4
+          },
+          "effekte": 10,
+          "rendern": 34.9,
+          "gesamt": 291.4,
+          "videolaenge_s": 24.5,
+          "abschnitte_s": [
+            3.14,
+            2.64,
+            4.78,
+            2.88,
+            1.9,
+            4.5,
+            4.63
+          ],
+          "woerter": 58,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Your free AI hit can't earn a cent.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar den Text 'HIT CAN'T EARN', aber keine Erklärung oder visuelle Demonstration dazu, warum kostenlose Songs kein Geld verdienen können. Korrektur: Eine Bildschirmaufnahme der Suno-Preisseite, die die Lizenzbedingungen für kostenlose im Vergleich zu kostenpflichtigen Abos zeigt."
+          },
+          {
+            "zeit": "00:03.14",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 1,
+            "gesprochen": "Blame Suno's timing trap, not your talent.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar Audio-Spuren auf einem Laptop, aber keine visuelle Erklärung oder Darstellung des erwähnten Suno-Timings oder der Urheberrechtsfalle. Korrektur: Ein Screenshot der Suno-Nutzungsbedingungen oder der Preistabelle, die den kommerziellen Unterschied zwischen Gratis- und Bezahlversion zeigt."
+          },
+          {
+            "zeit": "00:05.78",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 2,
+            "gesprochen": "Free songs stay non-commercial.",
+            "fest": false,
+            "text": "Die visuelle Darstellung zeigt einen Musiker im Studio, bietet jedoch keinen direkten Bezug zur rechtlichen Regelung, dass kostenlose Songs nicht kommerziell genutzt werden durfen. Korrektur: Eine visuelle Darstellung einer Lizenzvereinbarung oder Nutzungsbedingungen, die das Verbot kommerzieller Nutzung für kostenlose Songs verdeutlicht."
+          },
+          {
+            "zeit": "00:07.70",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 3,
+            "gesprochen": "Subscribing later grants no retroactive license.",
+            "fest": false,
+            "text": "Die Abbildung zeigt visuell die Sperrung oder Blockierung eines musikalischen Werks durch Ketten und Schloss, was zur Metapher passt, aber es fehlt die spezifische rechtliche Situation des fehlenden retroaktiven Lizenzrechts nach spaeterem Abonnement. Korrektur: Eine realistische oder illustrierte Darstellung einer Lizenzvereinbarung oder einer Plattform-Benutzeroberflaeche, die zeigt, dass freie Titel auch nach einem spaeteren Abo keine kommerziellen Rechte erhalten."
+          },
+          {
+            "zeit": "00:15.34",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 6,
+            "gesprochen": "Checked November 18: Pro or Premier songs get commercial rights.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Podcast-Moderator in einem animierten Stil und bietet keinen inhaltlichen Bezug zur Aussage über Suno-Abonnementpläne oder kommerzielle Rechte. Korrektur: Ein Screenshot des Suno-Abonnement-Vergleichsbildschirms oder der Lizenzbedingungen, die den Unterschied zwischen Free-, Pro- und Premier-Plänen bezüglich kommerzieller Rechte zeigen."
+          },
+          {
+            "zeit": "00:19.84",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 7,
+            "gesprochen": "Remake it subscribed, with lyrics you own.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine allgemeine Szene eines Musikers im Studio, die keinerlei Bezug zu dem narrativen Inhalt über Suno-Abonnements, Lizenzrechte oder den technischen Prozess der 'Neuerstellung' (Remake) von Songs hat. Korrektur: Ein Screenshot der Suno-Benutzeroberfläche, der die 'Remake'-Funktion oder die Lizenzbedingungen für Pro/Premier-Abonnenten deutlich zeigt."
+          },
+          {
+            "zeit": "00:22.50",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 8,
+            "gesprochen": "Your free hit was just rehearsal.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Radio-Moderator in einem Studio, was zwar thematisch zum Thema Radio passt, aber die konkrete Aussage, dass ein kostenloser Hit nur eine Probe war und Remakes erfordert, wird nicht visuell erklärt. Korrektur: Ein realistischer Screenshot der Suno-Benutzeroberfläche, der den Unterschied zwischen einer kostenlosen Version und einer kommerziell lizenzierten Version im Account zeigt."
+          }
+        ],
+        "sekunden": 385.2,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "44528612263-3",
+          "datum": "2026-11-19",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 385.2,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 5
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 6
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 2
+          },
+          "kategorien_nachher": {
+            "bild_passt": 2
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-11-11.2",
+          "verbessert": false
+        }
+      }
+    ],
+    "status": "gesendet",
+    "grund": "",
+    "sekunden": 948.5,
+    "upload_titel": "FREE AI RADIO? THE SUNO CATCH | AI Tool #40b"
   }
 ]

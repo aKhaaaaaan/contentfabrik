@@ -142,7 +142,7 @@
  },
  {
   "kanal": "ai-tools-explained",
-  "thema": "Talking game characters you can build today: Convai AI characters for Unity and Unreal",
+  "thema": "Build talking GTA-style NPCs today: Convai AI characters for Unity and Unreal",
   "eingang": "2026-11-18",
   "id": "claude-chat-2026-11-18-k3",
   "quellen": [
@@ -168,7 +168,7 @@
  },
  {
   "kanal": "ai-tools-explained",
-  "thema": "Cinematic neon city clips from a text prompt: Runway Gen-4.5 vs Kling AI",
+  "thema": "Vice City-style neon city clips from a text prompt: Runway Gen-4.5 vs Kling AI (no game footage)",
   "eingang": "2026-11-18",
   "id": "claude-chat-2026-11-18-k4",
   "quellen": [
@@ -194,7 +194,7 @@
  },
  {
   "kanal": "ai-tools-explained",
-  "thema": "Build a tiny 3D driving game with Claude Code - what the AI coding agent does for you",
+  "thema": "Build a tiny GTA-style 3D driving game with Claude Code - what the AI coding agent does for you",
   "eingang": "2026-11-18",
   "id": "claude-chat-2026-11-18-k5",
   "quellen": [
@@ -212,7 +212,7 @@
  },
  {
   "kanal": "ai-tools-explained",
-  "thema": "Selfie to 3D model with AI: free open-source TripoSR vs Meshy Image to 3D",
+  "thema": "Turn a selfie into your own GTA-style 3D character: free open-source TripoSR vs Meshy Image to 3D",
   "eingang": "2026-11-18",
   "id": "claude-chat-2026-11-18-k6",
   "quellen": [
@@ -238,17 +238,25 @@
  },
  {
   "kanal": "ai-tools-explained",
-  "thema": "Let Gemini watch a trailer for you: find details and timestamps with AI video understanding",
+  "thema": "Hunt GTA VI trailer details with the Gemini app: ask about YouTube videos or upload a clip and ask questions",
   "eingang": "2026-11-18",
   "id": "claude-chat-2026-11-18-k7",
   "quellen": [
    {
     "quelle": "Webseite",
-    "name": "Gemini API docs: Video understanding",
-    "url": "https://ai.google.dev/gemini-api/docs/video-understanding.md.txt",
+    "name": "Gemini Apps Help: Find & ask about YouTube content",
+    "url": "https://support.google.com/gemini/answer/16622858?hl=en",
     "belegt": true,
-    "abgerufen": "2026-11-18",
-    "text": "Official documentation/help page (https://ai.google.dev/gemini-api/docs/video-understanding.md.txt), fetched 2026-11-18.\nPAGE TEXT:\n# Video understanding To learn about video generation, see the [Gemini Omni Flash](/docs/omni) guide. Gemini models can process videos, enabling many frontier developer use cases that would have historically required domain specific models. Some of Gemini's vision capabilities include the ability to: describe, segment, and extract information from videos, answer questions about video content, and refer to specific timestamps within a video. You can provide videos as input to Gemini in the following ways: | Input method | Max size | Recommended use case | | :--- | :--- | :--- | | [File API](/docs/video-understanding#upload-video) | 20GB (paid) / 2GB (free) | Large files (100MB+), long videos (10min+), reusable files. | | [Cloud Storage Registration](/docs/file-input-methods#registration) | 2GB (per file, no storage limits) | Large files (100MB+), long videos (10min+), persistent, reusable files. | | [Inline Data](/docs/video-understanding#inline-video) | { setTimeout(resolve, 5000); }); } if (getFile.state === 'FAILED') { throw new Error('File processing failed.'); } const interaction = await ai.interactions.create({ model: \"gemini-4-hydrogen\", input: [ { type: \"video\", uri: myfile.uri, mime_type: myfile.mimeType }, { type: \"text\", text: \"Summarize this video. Then create a quiz with an answer key based on the information in this video.\" } ], }); console.log(interaction.output_text); } await main(); ``` {% /tab %} {% tab label=\"Java\" %} ```java import com.google.genai.Client; import com.google.genai.gaos.models.interactions.Content; import com.google.genai.gaos.models.interactions.CreateModelInteraction; import com.google.genai.gaos.models.interactions.Interaction; import com.google.genai.gaos.models.interactions.InteractionsInput; import com.google.genai.gaos.models.interactions.Model; import com.google.genai.gaos.models.interactions.TextContent; import com.google.genai.gaos.models.interactions.VideoContent; import com.google.genai.gaos.models.interactions.VideoContentMimeType; import com.google.genai.gaos.models.operations.CreateInteractionRequestBody; import com.google.genai.types.File; import com.google.genai.types.FileState; import com.google.genai.types.UploadFileConfig; import java.util.Arrays; import java.util.List; Client client = new Client(); File myfile = client.files.upload( \"path/to/sample.mp4\", UploadFileConfig.builder().mimeType(\"video/mp4\").build()); while (!myfile.state().isPresent() || myfile.state().get().knownEnum() != FileState.Known.ACTIVE) { System.out.println(\"Processing video...\"); Thread.sleep(5000); myfile = client.files.get(myfile.name().get(), null); } Content videoContent = VideoContent.builder() .uri(myfile.uri().get()) .mimeType(VideoContentMimeType.of(myfile.mimeType().get())) .build(); Content textContent = TextContent.builder() .text( \"Summarize this video. Then create a quiz with an answer key based on the information in this video.\") .build(); List contents = Arrays.asList(videoContent, textContent); CreateMod"
+    "abgerufen": "2026-11-19",
+    "text": "Official Gemini Apps Help page (https://support.google.com/gemini/answer/16622858?hl=en), fetched 2026-11-19.\nPAGE TEXT:\nFind & ask about YouTube content in Gemini Apps You can discover YouTube videos and get answers about them in Gemini Apps. Gemini uses public information from YouTube to help you: Find videos, playlists, and channels on a specific topic Understand the content of a video And more What you need Be signed in to the Gemini app. Learn how to sign in to Gemini Apps . Keep Activity on. This feature isn’t available when this setting is off. Important: For now, this feature isn’t available in Live chats. This feature isn’t available in Gemini in Google Messages. Find & ask about content on YouTube You can ask Gemini to search for and tell you about YouTube videos, playlists, and channels. On your phone or tablet, open the Gemini mobile app or go to gemini.google.com . Ask Gemini to find a video and then ask about it. Try this example prompt: Find videos of how to quickly get grape juice out of a wool rug. Summarize the first video. What Gemini Apps can’t do with YouTube For now, the following actions aren’t supported in Gemini Apps when it’s connected to YouTube: Show a comprehensive list of videos from your watch history, liked videos, saved playlists, subscribed channels. Take actions that impact your YouTube experience, like saving a video to a playlist or adding a comment on a video. About your data & other Google services Learn more about how your data is used and how Gemini Apps get help from Google services in the Gemini Apps Privacy Notice . Related resources Gemini Apps Privacy Hub Use & manage Connected Apps in Gemini Generate videos with Gemini Apps Play & manage your music from YouTube Music with Gemini Apps Android phone & tablet Computer iPhone & iPad More Need more help? Try these next steps: Post to the help community Get answers from community members true Media 1 of 4 Find & ask about YouTube content in Gemini Apps 2 of 4 Play & manage your music from YouTube Music with Gemini Apps 3 of 4 Play & search for music from media streaming apps with the Gemini mobile app 4 of 4 Search for your photos, videos & more with Gemini Apps ©2026 Google Privacy Policy Terms of Service Language Afrikaans‎ azərbaycan‎ bosanski‎ català‎ dansk‎ Deutsch‎ eesti‎ English (United Kingdom)‎ español‎ español (Latinoamérica)‎ euskara‎ Filipino‎ français‎ français (Canada)‎ galego‎ hrvatski‎ Indonesia‎ isiZulu‎ italiano‎ Kiswahili‎ latviešu‎ lietuvių‎ magyar‎ Melayu‎ Nederlands‎ norsk‎ o‘zbek‎ polski‎ português‎ português (Brasil)‎ română‎ shqip‎ slovenčina‎ slovenščina‎ suomi‎ svenska‎ Tiếng Việt‎ Türkçe‎ íslenska‎ čeština‎ Ελληνικά‎ беларуская‎ български‎ македонски‎ мон"
+   },
+   {
+    "quelle": "Webseite",
+    "name": "Gemini Apps Help: Attach & analyze files",
+    "url": "https://support.google.com/gemini/answer/14903178?hl=en",
+    "belegt": true,
+    "abgerufen": "2026-11-19",
+    "text": "Official Gemini Apps Help page (https://support.google.com/gemini/answer/14903178?hl=en), fetched 2026-11-19.\nPAGE TEXT:\nAttach & analyze files in Gemini Apps You can attach documents, spreadsheets, notebooks, photos, videos, and more to Gemini Apps to get answers, summaries, and insights about your content. What you need If you’re signed in to a work or school Google Account: To attach files from Google Drive, access to apps in Gemini must be enabled by your organization’s Workspace administrator.  Learn about administrators . Learn more about using Gemini Apps with a work or school account or how to enable access to apps in Gemini Apps . To use this feature, you must be signed in to Gemini Apps. Learn how to sign in to Gemini Apps . Tip: To get higher limits for this feature, like the ability to attach more files or ask Gemini Apps to reference attached files in more chats, you can upgrade to a Google AI plan. Learn more about limits and  how to upgrade . Attach files & code In the Gemini web app On your computer, go to gemini.google.com . In the text box at the bottom, enter your question or prompt. Click Add files . To attach a supported file from your device: click Upload Files . To add a code folder: click More Uploads Import Code Upload folder . To add a GitHub repository: More Uploads Import Code and enter the GitHub repository or branch URL. Learn more about adding GitHub repositories . To add a supported file from your Google Drive: click Add from Drive . To add files from your Drive, you need to have History on and connect Google Workspace to Gemini Apps. If it’s not connected, you'll get the option to connect it. Learn about your Gemini Apps and Google Workspace data . To add a notebook: click More Uploads Notebooks . Click Submit . Tips: You can add up to 10 (subject to availability) of any kind of supported file in the same prompt, such as documents, images, or videos. If you get an error that Gemini failed to analyze your file correctly, re-attach it. In Gemini in Chrome Open Chrome and navigate to a page you want to analyze or summarize. At the top of your browser, click Gemini in Chrome . At the bottom of the text box, enter your question or prompt. Click Add files . To upload a supported file from your device : click Files . You can click, drag, and drop images from a web page.  You can copy and paste images from a webpage. Click Submit . File types & attachment limits Gemini Apps support most file types. Up to 10 files (subject to availability) can be attacheded in the same prompt. When uploading a folder, each file inside will count towards this limit. Each video can be up to 2 GB. All other supported file types can be up to 100 MB. Total video length can be up to 5 minutes. Upgrade to Google AI Pro or Google AI Ultra to extend total attachment length to 1 hour. Total audio length can be up to 10 minutes. Upgrade to Google AI Pro or Google AI Ultra to extend total attachment length to 3 hours. One code folder, or one GitHub repository, with up to 5,000 files and a maximum size of 100 MB, can be added to a chat. Learn more about adding GitHub rep"
    }
   ],
   "idee_original": "Nutzerliste 18.11. (GTA-VI-Start 19.11.): 10. AI-Powered Video Analysis: Breaking Down the GTA 6 Trailer Frame-by-Frame",

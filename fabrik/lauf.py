@@ -517,6 +517,8 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         bericht['trendcheck'] = trend['grund']
     def protokoll(status):
         bericht['status'] = status
+        if festes_thema:  # 19.11.2026: damit heute_gescheitert auch Warteschlangen-Themen zaehlt (Ersatz-Thema eingeschlossen)
+            bericht['thema_eingabe'] = festes_thema
         bericht['grund'] = letzter_grund if status not in ('gesendet', 'pilot_bestanden') else ''
         bericht['sekunden'] = round(time.monotonic() - start, 1)
         aus = Path('ausgabe')

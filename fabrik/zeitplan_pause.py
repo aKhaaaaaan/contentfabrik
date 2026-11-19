@@ -12,7 +12,7 @@ import json
 import sys
 import urllib.request
 
-WORKER = 'https://contentfabrik-zeitplan.taktgeber.workers.dev'
+from themen import WORKER  # eine Adresse fuer alle (Audit 19.11.2026)
 
 
 def pausiert(timeout=10):

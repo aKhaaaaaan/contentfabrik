@@ -15,7 +15,7 @@ import urllib.request
 
 import rendercache
 
-WORKER = 'https://contentfabrik-zeitplan.taktgeber.workers.dev'
+from themen import WORKER  # eine Adresse fuer alle (Audit 19.11.2026)
 TAKT_S = 60
 MIN_ABSTAND_S = 120  # Cloudflare-KV (frei): 1.000 Schreibvorgaenge am Tag - hoechstens eine Meldung je 2 Min.
 STAND = {}

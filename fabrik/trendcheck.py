@@ -652,16 +652,20 @@ def bericht_veraltet(kanal, heute=None, jetzt=None):
 def heute_gescheitert(kanal, thema, heute=None, ordner=Path('verlauf/messungen')):
     """Gesperrte Laeufe von heute mit diesem Trendthema (messungen: trendcheck = '<Thema>: <Punkte> ...')."""
     if heute is None:
-        from zoneinfo import ZoneInfo
-        heute = datetime.datetime.now(ZoneInfo('Europe/Berlin')).date()
+        # 19.11.2026 (Audit): derselbe Tag wie lauf.py beim Schreiben (bericht['datum'] = budget.heute(), UTC) - vorher
+        # Berliner Datum, zwischen 0 und 1 Uhr Berlin zaehlte die Stunde zum falschen Tag.
+        import budget
+        heute = datetime.date.fromisoformat(budget.heute())
     try:
         laeufe = json.loads((Path(ordner) / f'{kanal}.json').read_text(encoding='utf-8'))
     except (OSError, ValueError):
         return 0
     # genau "<Thema>: <Zahl> Punkte" - Themen mit Doppelpunkt ("Claude: ...") duerfen nicht als "Claude" zaehlen
     muster = re.compile(re.escape(thema) + r': \d+(?:\.\d+)? Punkte')
+    # GEMESSEN 19.11.2026 (Audit): Warteschlangen-/eigene Themen haben kein 'trendcheck' - sie zaehlten nie als
+    # gescheitert, das GTA-Poster-Thema lief dreimal am Tag (Story 4-8). lauf.py schreibt dafuer 'thema_eingabe'.
     return sum(1 for e in laeufe if e.get('datum') == heute.isoformat() and e.get('status') == 'gesperrt'
-               and muster.match(str(e.get('trendcheck') or '')))
+               and (muster.match(str(e.get('trendcheck') or '')) or e.get('thema_eingabe') == thema))
 
 
 def waehlen(kanal, heute=None, themen=None, neu=False):

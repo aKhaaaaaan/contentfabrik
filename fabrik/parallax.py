@@ -30,7 +30,9 @@ MODELL_SHA = '01aa7a23de3f4a0ee1a2bb9997e6918104c85a9f95dea46d27b9b3fb0c6b9001'
 # 18.11.2026 (Business Helsing, letzte 4 Bilder): Nutzer - "Rotation bisschen weniger, die Figur wird stark
 # verzerrt", dann "das Heranruecken vom Bild war gut, nur die Drehung am Ende war zu viel": nur die seitliche
 # Wanderung (wirkt wie Drehung) 10 -> 7 %, HERAN bleibt 10 %.
-VERSCHIEBUNG = 0.07
+# 19.11.2026 (Business GTA VI effect, Abend): Nutzer - "die Drehung bei manchen Motiven ist immer noch bisschen stark"
+# -> 7 -> 4 %; HERAN bleibt.
+VERSCHIEBUNG = 0.04
 HERAN = 0.10  # Vordergrund kommt zusaetzlich naeher - Nutzer 18.11.: so lassen
 RAND = 0.08  # so viel vom Rand wird abgeschnitten (gespiegelte Randpixel nie sichtbar)
 KURZE_SEITE = 392  # Modelleingabe, Vielfaches von 14

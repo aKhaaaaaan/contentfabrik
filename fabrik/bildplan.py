@@ -300,6 +300,9 @@ def _codex_staemme(text):
     return {w[:5] for w in re.findall(r'[a-z]{4,}', str(text).lower()) if w not in _CODEX_FUELL}
 
 
+FEST_ANFANG, FEST_ENDE = 3, 2  # Nutzer 16.11.2026: "die ersten 3 Fotos und die letzten 2 Fotos mit Codex"
+
+
 def codex_einsetzen(daten, zeitplan, bibliothek_bilder, videoformat='short'):
     """GEMESSEN 15.11.2026 (Instagram-Short 43705280151, Rockstar-Langvideo): 4 vorab gemalte Codex-Bilder lagen fuer
     genau dieses Thema bereit, der Planer (Gemini-Lite/Groq-20B bei knappem Kontingent) waehlte keines. Jedes noch
@@ -313,9 +316,20 @@ def codex_einsetzen(daten, zeitplan, bibliothek_bilder, videoformat='short'):
     # Nutzer 16.11.2026: "das erste Foto bitte auch mit Codex, weil das das wichtigste ist - die ersten 3 Fotos und
     # die letzten 2 Fotos mit Codex". Bilder mit 'platz' (codexbilder_vorrat, b1-b3 anfang, letzte zwei ende) stehen
     # FEST auf Einstellung 0,1,2 bzw. vorletzter/letzter - egal welcher Bildmodus dort geplant war.
+    # GEMELDET 19.11.2026 (KI "FREE AI RADIO?", Lauf 44528612263): zwei Codex-Pakete passten (Warteschlangen-Thema und
+    # Titel des Vorratsskripts) - alle 10 Bilder bekamen einen festen Platz, kein Screenshot/Clip blieb uebrig.
+    # Fest stehen hoechstens 3 vorne und 2 hinten aus EINEM Paket; der Rest geht wie jedes Codex-Bild nur auf
+    # passende gemalte Einstellungen.
+    paket = lambda b: re.sub(r'-b\d+$', '', b['id'])
+    vorn = sorted((b for b in offen if b.get('platz') == 'anfang'), key=lambda b: b['id'])
+    haupt = paket(vorn[0]) if vorn else None
     feste = {}
-    for gruppe, plaetze in (('anfang', range(len(daten))), ('ende', range(len(daten) - 1, -1, -1))):
+    for gruppe, plaetze, hoechstens in (('anfang', range(len(daten)), FEST_ANFANG),
+                                        ('ende', range(len(daten) - 1, -1, -1), FEST_ENDE)):
         bilder = sorted((b for b in offen if b.get('platz') == gruppe), key=lambda b: b['id'])
+        if haupt and any(paket(b) == haupt for b in bilder):
+            bilder = [b for b in bilder if paket(b) == haupt]
+        bilder = bilder[:hoechstens] if gruppe == 'anfang' else bilder[-hoechstens:]
         if gruppe == 'ende':
             bilder.reverse()  # letztes Bild auf die letzte Einstellung
         for b, i in zip(bilder, [i for i in plaetze if i not in feste.values()]):

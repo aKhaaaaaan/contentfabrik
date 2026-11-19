@@ -1,122 +1,5 @@
 [
   {
-    "id": "40943763878",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-29",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sperrgruende": [
-          "Faktenpruefung fehlt oder ist nicht bestanden",
-          "Skript-Note fehlt oder ist ungueltig",
-          "Skript-Einzelbewertungen fehlen"
-        ],
-        "story_note": null,
-        "story_schwaechen": [],
-        "skript_probleme": [
-          "[unsupported tool claim] Gemini's docs show a prompt: names for a dried-flower shop, five options, just the names. - The source does not contain any Gemini documentation example of a dried‑flower shop naming prompt.",
-          "[unsupported tool claim] Gemini's docs show a one-sentence summary request, and formats like a table or bulleted list. - The source provides no Gemini documentation stating a one‑sentence summary request or table/bulleted‑list formats.",
-          "[unsupported tool claim] OpenAI's docs call content non-deterministic; prompting is a mix of art and science. - The source mentions that GPT models benefit from explicit instructions but does not say OpenAI's docs label content as non‑deterministic or describe prompting as art and science.",
-          "[unsupported tool claim] Gemini's docs call prompting iterative: experiment, refine. - The source does not include any statement that Gemini documentation describes prompting as iterative (experiment, refine)."
-        ],
-        "sekunden": 237.3
-      },
-      {
-        "runde": 2,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sperrgruende": [
-          "Faktenpruefung fehlt oder ist nicht bestanden",
-          "Skript-Note fehlt oder ist ungueltig",
-          "Skript-Einzelbewertungen fehlen"
-        ],
-        "story_note": null,
-        "story_schwaechen": [],
-        "skript_probleme": [
-          "[unsupported tool claim] Here's the twist: output is non-deterministic, OpenAI says. - The source mentions that different snapshots of models can produce different results, but it does not state that output is non‑deterministic; the claim is not directly supported.",
-          "[unsupported tool claim] OpenAI recommends tests that measure prompt behavior while you iterate. - The source does not contain any statement that OpenAI recommends testing prompt behavior; this claim is unsupported by the provided documentation."
-        ],
-        "sekunden": 172.0
-      },
-      {
-        "runde": 3,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sperrgruende": [
-          "Faktenpruefung fehlt oder ist nicht bestanden",
-          "Skript-Note fehlt oder ist ungueltig",
-          "Skript-Einzelbewertungen fehlen"
-        ],
-        "story_note": null,
-        "story_schwaechen": [],
-        "skript_probleme": [
-          "[unsupported tool claim] ChatGPT can fix that, but the fix is wonderfully boring. - The source does not provide any evidence that ChatGPT can fix a shop blurb or that the fix is \"wonderfully boring\"; this claim is unsupported.",
-          "[unsupported tool claim] Google's Gemini docs show a prompt asking for five dried-flower shop names, names only. - The source only mentions Gemini API documentation; it does not contain the specific example of a prompt for five dried‑flower shop names, so the claim is unsupported.",
-          "[unsupported tool claim] The catch: OpenAI says model output is non-deterministic. - The source notes that different snapshots can produce different results but does not contain a direct statement from OpenAI that model output is non‑deterministic; the claim lacks explicit support."
-        ],
-        "sekunden": 152.5
-      },
-      {
-        "runde": 4,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sperrgruende": [
-          "Faktenpruefung fehlt oder ist nicht bestanden",
-          "Skript-Note fehlt oder ist ungueltig",
-          "Skript-Einzelbewertungen fehlen"
-        ],
-        "story_note": null,
-        "story_schwaechen": [],
-        "skript_probleme": [
-          "[unsupported tool claim] Her prompt says 'help me sell flowers.' Total disaster. But that hypothetical florist's fix is smaller than she thinks. - No supporting evidence in the source; the statement about the prompt and the hypothetical florist's fix is not mentioned.",
-          "[unsupported tool claim] Think: basically briefing a very literal intern. - The source does not contain this analogy or any reference to a literal intern.",
-          "[unsupported tool claim] Gemini's guide calls clear, specific instructions an effective way to customize model behavior. - The source does not include a statement from Gemini's guide about clear, specific instructions; only generic prompt‑engineering guidance is present.",
-          "[unsupported tool claim] Add an example, and the model can take it into account. - The source does not mention adding examples as a prompt‑engineering technique.",
-          "[unsupported tool claim] Prompt engineering is iterative: experiment and refine. - The source states that prompt engineering is iterative, but it does not specifically say \"experiment and refine\".",
-          "[unsupported tool claim] OpenAI says even different snapshots of one family could produce different results. - The source notes that different snapshots of models within the same family can yield different results, but it does not attribute this claim to OpenAI.",
-          "[unsupported tool claim] Output varies, so she reads every answer first. - No evidence in the source that a user reads every answer first; this behavior is not documented.",
-          "[unsupported tool claim] 'Help me sell flowers' is now a specific brief with an example. - The source does not contain this specific brief or any example related to it.",
-          "[unsupported tool claim] Be sure to like, share and save this video. - The source provides no information about liking, sharing, or saving a video; this is unrelated promotional text."
-        ],
-        "sekunden": 242.3
-      },
-      {
-        "runde": 5,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sperrgruende": [
-          "Faktenpruefung fehlt oder ist nicht bestanden",
-          "Skript-Note fehlt oder ist ungueltig",
-          "Skript-Einzelbewertungen fehlen"
-        ],
-        "story_note": null,
-        "story_schwaechen": [],
-        "skript_probleme": [
-          "[unsupported tool claim] First, Anthropic's guide assumes you have clear success criteria, plus some way to test against them. - The source does not mention Anthropic's guide or any claim about success criteria or testing; this statement is unsupported by the provided source.",
-          "[unsupported tool claim] Google's guide says prompt engineering is iterative: guidelines are starting points, so experiment and refine. - The source only lists \"Prompt design strategies | Gemini API | Google AI for Developers\" and does not contain the quoted description of Google's guide; the claim is unsupported.",
-          "[unsupported tool claim] No earnings promised. - The source contains no information about earnings or promises; this statement is unsupported."
-        ],
-        "sekunden": 151.3
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Faktenpruefung nicht bestanden",
-    "sekunden": 966.6,
-    "upload_titel": "ChatGPT Prompts: Stop Vague Requests | AI Tool #19"
-  },
-  {
     "id": "40949553360",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-29",
@@ -9489,5 +9372,128 @@
     "grund": "",
     "sekunden": 948.5,
     "upload_titel": "FREE AI RADIO? THE SUNO CATCH | AI Tool #40b"
+  },
+  {
+    "id": "44586016681",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-11-19",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-Note 5/10 unter 7/10",
+          "Skript-hook 6/10 unter 7/10",
+          "Skript-spannung 4/10 unter 7/10",
+          "Skript-ueberraschung 5/10 unter 7/10",
+          "Skript-tempo 5/10 unter 7/10",
+          "Skript-aufloesung 5/10 unter 7/10",
+          "Skript-teilbarkeit 4/10 unter 6/10"
+        ],
+        "story_note": 5,
+        "story_schwaechen": [
+          "Sentence: \"Upload a photo, ask for a change, keep your face. Checked November 19, 2026.\" Why it matters: This meta-reference and date check break the narrative flow and sound like a software manual rather than a compelling story. Fix: Integrate the functionality directly into the explanation of how "
+        ],
+        "skript_probleme": [],
+        "sekunden": 252.3
+      },
+      {
+        "runde": 2,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-Note 6/10 unter 7/10",
+          "Skript-spannung 5/10 unter 7/10",
+          "Skript-ueberraschung 6/10 unter 7/10",
+          "Skript-tempo 6/10 unter 7/10",
+          "Skript-aufloesung 6/10 unter 7/10"
+        ],
+        "story_note": 6,
+        "story_schwaechen": [
+          "Sentence: 'Google says it's built to keep pets and family looking like themselves.' This slows the tempo with a corporate claim instead of delivering a concrete demonstration or discovery."
+        ],
+        "skript_probleme": [],
+        "sekunden": 232.0
+      },
+      {
+        "runde": 3,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-Note 6/10 unter 7/10",
+          "Skript-hook 6/10 unter 7/10",
+          "Skript-spannung 5/10 unter 7/10",
+          "Skript-ueberraschung 6/10 unter 7/10",
+          "Skript-aufloesung 6/10 unter 7/10",
+          "Skript-teilbarkeit 5/10 unter 6/10"
+        ],
+        "story_note": 6,
+        "story_schwaechen": [
+          "Sentence: So what's the catch? Why it matters: The age limit and watermark are minor constraints rather than a dramatic catch, leading to a slight letdown in tension. Fix: Rephrase to frame the constraints as built-in safety features rather than a hidden trap."
+        ],
+        "skript_probleme": [],
+        "sekunden": 168.4
+      },
+      {
+        "runde": 4,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-Note 3/10 unter 7/10",
+          "Skript-hook 3/10 unter 7/10",
+          "Skript-spannung 4/10 unter 7/10",
+          "Skript-ueberraschung 2/10 unter 7/10",
+          "Skript-tempo 3/10 unter 7/10",
+          "Skript-aufloesung 2/10 unter 7/10",
+          "Skript-teilbarkeit 2/10 unter 6/10"
+        ],
+        "story_note": 3,
+        "story_schwaechen": [
+          "The opening line \"Your face, somewhere you've never been.\" is too vague to spark immediate curiosity or promise a concrete payoff within the first 3 seconds.",
+          "The script lacks a clear, emotionally charged hook that immediately poses a tangible question or stakes, leading viewers to question why they should continue watching.",
+          "There is no genuine \"I did not know that\" moment; the content repeats generic statements without surprising or novel information.",
+          "The narration is filled with filler sentences like \"Some models need a Google AI plan. So do GIFs.\" which do not advance the story or provide useful details, reducing pacing and retention.",
+          "The payoff is unclear; the final sentence \"One photo puts your face somewhere new.\" does not resolve the earlier question about billing, leaving the narrative incomplete."
+        ],
+        "skript_probleme": [],
+        "sekunden": 282.0
+      },
+      {
+        "runde": 5,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-Note 5/10 unter 7/10",
+          "Skript-hook 5/10 unter 7/10",
+          "Skript-spannung 4/10 unter 7/10",
+          "Skript-ueberraschung 4/10 unter 7/10",
+          "Skript-tempo 5/10 unter 7/10",
+          "Skript-aufloesung 6/10 unter 7/10",
+          "Skript-teilbarkeit 4/10 unter 6/10"
+        ],
+        "story_note": 5,
+        "story_schwaechen": [
+          "Sentence: Google says it's built for that, tutu-wearing chihuahuas included. Why it matters: It includes a silly example instead of immediately showing how the core facial editing works, delaying the core value. Feasible fix: Replace with a direct explanation of how Nano Banana maps facial features "
+        ],
+        "skript_probleme": [],
+        "sekunden": 263.2
+      }
+    ],
+    "status": "gesperrt",
+    "thema_eingabe": "Put yourself on a GTA-style loading-screen poster with the Gemini app: upload a photo, keep your face (Nano Banana, no game logos)",
+    "grund": "Skriptqualitaet unter Freigabe",
+    "sekunden": 1200.4,
+    "upload_titel": "NANO BANANA POSTERS: YOUR FACE, THE CATCH | AI Tool #40b"
   }
 ]

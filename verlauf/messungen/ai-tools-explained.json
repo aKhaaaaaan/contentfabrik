@@ -1,173 +1,5 @@
 [
   {
-    "id": "40949553360",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-10-29",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sperrgruende": [
-          "Faktenpruefung fehlt oder ist nicht bestanden",
-          "Skript-Note fehlt oder ist ungueltig",
-          "Skript-Einzelbewertungen fehlen"
-        ],
-        "story_note": null,
-        "story_schwaechen": [],
-        "skript_probleme": [
-          "[second checker] Gemini's docs also call prompting iterative: add an example, refine, and rerun until the blurb sounds like you. - The source states that prompting is iterative, but does not specify adding an example, refining, or rerunning until the blurb sounds like you. Those details are not supported by the Gemini documentation.",
-          "[unsupported tool claim] Limit: output is non-deterministic, so read every draft first. - The source confirms that model output is non-deterministic, but it does not advise reading every draft first. That recommendation is not found in the provided documentation."
-        ],
-        "sekunden": 146.5
-      },
-      {
-        "runde": 2,
-        "art": "produktion",
-        "skript_s": 312.2,
-        "bau_s": 550.7,
-        "pruefung_s": 288.1,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Bewertung hook fehlt oder ist ungueltig",
-          "Video-bild_passt 1/10 unter 7/10",
-          "Video-Bewertung dynamik fehlt oder ist ungueltig",
-          "Video-Bewertung text fehlt oder ist ungueltig",
-          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
-          "Video-Bewertung tempo fehlt oder ist ungueltig",
-          "Video-Bewertung inhalt fehlt oder ist ungueltig",
-          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
-          "Video-Bewertung regeln fehlt oder ist ungueltig",
-          "Video-Bewertung story fehlt oder ist ungueltig",
-          "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich das Gesicht eines überraschten Mannes, während im Text über ungenaue ChatGPT-Prompts und zu lange Essays gesprochen wird; es fehlt jeglicher Bezug zu diesem Thema.",
-          "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine Frau auf einer Straße, nicht aber einen unsichtbaren Praktikanten oder die Analogie zu vagen ChatGPT-Prompts.",
-          "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter 'But the fix is smaller than you'd think. Google's guide uses a dried-flower shop name request as its example.' thematisieren die Feinabstimmung von Prompts und ein Beispiel mit einem Blumenladen, was nicht durch ein isoliertes Gehirn-Bild erklärt oder gezeigt wird.",
-          "Einstellung 4: Bild passt nicht zum Sprechtext (1/10): Das Bild zeigt nur völlig unscharfe Flecken, während der Text 'Step one: set limits' bespricht.",
-          "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich grafische Textfragmente und rote Punkte auf schwarzem Hintergrund, aber keine visuellen Elemente zu den gesprochenen Einschränkungen (Constraints) oder Anweisungen.",
-          "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Text über Few-Shot-Beispiele, während die gesprochene Phase die rhetorische Frage behandelt, ob ein Prompt ausreicht, und Iteration erwähnt.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich das Gesicht eines überraschten Mannes, während im Text über ungenaue ChatGPT-Prompts und zu lange Essays gesprochen wird; es fehlt jeglicher Bezug zu diesem Thema. Korrektur: Eine Bildschirmaufnahme eines Chatbot-Fensters, in dem eine viel zu lange Antwort auf eine einfache Frage nach fünf Namen zu sehen ist.",
-          "Offenes Problem (schwer): Das Bild zeigt eine Frau auf einer Straße, nicht aber einen unsichtbaren Praktikanten oder die Analogie zu vagen ChatGPT-Prompts. Korrektur: Eine humorvolle Illustration oder Grafik, die einen konversationsunfähigen Roboter oder einen verwirrten Praktikanten im Büro darstellt.",
-          "Offenes Problem (schwer): Die gesprochenen Wörter 'But the fix is smaller than you'd think. Google's guide uses a dried-flower shop name request as its example.' thematisieren die Feinabstimmung von Prompts und ein Beispiel mit einem Blumenladen, was nicht durch ein isoliertes Gehirn-Bild erklärt oder gezeigt wird. Korrektur: Ein Dokument oder eine Grafik mit dem Beispiel eines Blumengeschäfts oder Tipps zur Optimierung von Prompts.",
-          "Offenes Problem (schwer): Das Bild zeigt nur völlig unscharfe Flecken, während der Text 'Step one: set limits' bespricht. Korrektur: Eine Bildschirmaufnahme oder Grafik, die das Setzen von Grenzen oder Limits in einem Prompt zeigt.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich grafische Textfragmente und rote Punkte auf schwarzem Hintergrund, aber keine visuellen Elemente zu den gesprochenen Einschränkungen (Constraints) oder Anweisungen. Korrektur: Ein Beispiel für einen Prompt oder eine grafische Darstellung, die konkrete Einschränkungen oder Verbote für eine Aufgabe zeigt.",
-          "Offenes Problem (schwer): Das Bild zeigt einen Text über Few-Shot-Beispiele, während die gesprochene Phase die rhetorische Frage behandelt, ob ein Prompt ausreicht, und Iteration erwähnt. Korrektur: Ein Dokument oder Diagramm, das die iterative Überarbeitung eines Prompts zeigt."
-        ],
-        "messung": {
-          "stimme_wiederverwendet": false,
-          "erzaehlstimme": "gemini:Puck",
-          "stimme": 31.6,
-          "zeitmarken": 6.6,
-          "tempo": 1.131,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 0,
-          "stuecke_neu": 15,
-          "bilder_vereinfacht": 2,
-          "clips_und_stuecke": 355.7,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 15,
-            "motive": 15,
-            "motive_min": 8
-          },
-          "effekte": 10,
-          "rendern": 53.3,
-          "gesamt": 550.2,
-          "videolaenge_s": 45.0,
-          "abschnitte_s": [
-            7.22,
-            5.46,
-            6.7,
-            7.88,
-            8.64,
-            4.74,
-            4.36
-          ],
-          "woerter": 132
-        },
-        "kategorien": {
-          "bild_passt": 1
-        },
-        "probleme": [
-          {
-            "zeit": "00:00.00",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 0,
-            "einstellung": 0,
-            "gesprochen": "You asked for five names. You got an essay.",
-            "fest": false,
-            "text": "Das Bild zeigt lediglich das Gesicht eines überraschten Mannes, während im Text über ungenaue ChatGPT-Prompts und zu lange Essays gesprochen wird; es fehlt jeglicher Bezug zu diesem Thema. Korrektur: Eine Bildschirmaufnahme eines Chatbot-Fensters, in dem eine viel zu lange Antwort auf eine einfache Frage nach fünf Namen zu sehen ist."
-          },
-          {
-            "zeit": "00:02.94",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 0,
-            "einstellung": 1,
-            "gesprochen": "Vague ChatGPT prompts are like briefing a very confident intern blindfolded.",
-            "fest": true,
-            "text": "Das Bild zeigt eine Frau auf einer Straße, nicht aber einen unsichtbaren Praktikanten oder die Analogie zu vagen ChatGPT-Prompts. Korrektur: Eine humorvolle Illustration oder Grafik, die einen konversationsunfähigen Roboter oder einen verwirrten Praktikanten im Büro darstellt."
-          },
-          {
-            "zeit": "00:07.22",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 1,
-            "einstellung": 2,
-            "gesprochen": "But the fix is smaller than you'd think.",
-            "fest": true,
-            "text": "Die gesprochenen Wörter 'But the fix is smaller than you'd think. Google's guide uses a dried-flower shop name request as its example.' thematisieren die Feinabstimmung von Prompts und ein Beispiel mit einem Blumenladen, was nicht durch ein isoliertes Gehirn-Bild erklärt oder gezeigt wird. Korrektur: Ein Dokument oder eine Grafik mit dem Beispiel eines Blumengeschäfts oder Tipps zur Optimierung von Prompts."
-          },
-          {
-            "zeit": "00:12.68",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 2,
-            "einstellung": 4,
-            "gesprochen": "Step one: set limits.",
-            "fest": true,
-            "text": "Das Bild zeigt nur völlig unscharfe Flecken, während der Text 'Step one: set limits' bespricht. Korrektur: Eine Bildschirmaufnahme oder Grafik, die das Setzen von Grenzen oder Limits in einem Prompt zeigt."
-          },
-          {
-            "zeit": "00:17.24",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 2,
-            "einstellung": 6,
-            "gesprochen": "Constraints can also say what not to do.",
-            "fest": true,
-            "text": "Das Bild zeigt lediglich grafische Textfragmente und rote Punkte auf schwarzem Hintergrund, aber keine visuellen Elemente zu den gesprochenen Einschränkungen (Constraints) oder Anweisungen. Korrektur: Ein Beispiel für einen Prompt oder eine grafische Darstellung, die konkrete Einschränkungen oder Verbote für eine Aufgabe zeigt."
-          },
-          {
-            "zeit": "00:19.38",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 3,
-            "einstellung": 7,
-            "gesprochen": "So is one prompt enough? No.",
-            "fest": true,
-            "text": "Das Bild zeigt einen Text über Few-Shot-Beispiele, während die gesprochene Phase die rhetorische Frage behandelt, ob ein Prompt ausreicht, und Iteration erwähnt. Korrektur: Ein Dokument oder Diagramm, das die iterative Überarbeitung eines Prompts zeigt."
-          }
-        ],
-        "sekunden": 1151.0,
-        "status": "geprueft"
-      },
-      {
-        "runde": 3,
-        "art": "korrektur",
-        "status": "keine_korrektur",
-        "sekunden": 0.1
-      }
-    ],
-    "status": "gesendet",
-    "grund": "",
-    "sekunden": 1333.2,
-    "upload_titel": "Better ChatGPT Prompts: Stop Getting Essays | AI Tool #19"
-  },
-  {
     "id": "41026135642",
     "kanal": "ai-tools-explained",
     "datum": "2026-10-30",
@@ -9495,5 +9327,227 @@
     "grund": "Skriptqualitaet unter Freigabe",
     "sekunden": 1200.4,
     "upload_titel": "NANO BANANA POSTERS: YOUR FACE, THE CATCH | AI Tool #40b"
+  },
+  {
+    "id": "44595775694",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-11-19",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-Note 5/10 unter 7/10",
+          "Skript-hook 5/10 unter 7/10",
+          "Skript-spannung 4/10 unter 7/10",
+          "Skript-ueberraschung 4/10 unter 7/10",
+          "Skript-tempo 5/10 unter 7/10",
+          "Skript-aufloesung 6/10 unter 7/10",
+          "Skript-teilbarkeit 5/10 unter 6/10"
+        ],
+        "story_note": 5,
+        "story_schwaechen": [
+          "The sentence 'Be sure to like, share and save this video.' is placed too early, right after the second beat, violating the requirement to place it right after the first real payoff.",
+          "The narration lacks a loop ending connecting back to the opening hook about the specific facial scene."
+        ],
+        "skript_probleme": [],
+        "sekunden": 200.5
+      },
+      {
+        "runde": 2,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-Note 6/10 unter 7/10",
+          "Skript-hook 5/10 unter 7/10",
+          "Skript-spannung 6/10 unter 7/10",
+          "Skript-ueberraschung 6/10 unter 7/10"
+        ],
+        "story_note": 6,
+        "story_schwaechen": [
+          "Sentence 1: 'The poster looks great. The face? A stranger's.' is too vague and lacks a strong curiosity gap within the first 3 seconds.",
+          "Sentence 4: 'Be sure to like, share and save this video.' is placed too early, before the core payoff or explanation of how the tool works."
+        ],
+        "skript_probleme": [],
+        "sekunden": 97.9
+      },
+      {
+        "runde": 3,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-Note 5/10 unter 7/10",
+          "Skript-hook 4/10 unter 7/10",
+          "Skript-spannung 5/10 unter 7/10",
+          "Skript-ueberraschung 5/10 unter 7/10",
+          "Skript-tempo 5/10 unter 7/10",
+          "Skript-aufloesung 6/10 unter 7/10",
+          "Skript-teilbarkeit 5/10 unter 6/10"
+        ],
+        "story_note": 5,
+        "story_schwaechen": [
+          "The opening sentence 'Your poster face became a stranger.' is vague and fails to immediately establish the core topic or problem within the first 3 seconds.",
+          "The call to action is placed too early, right after the fourth sentence, interrupting the flow before the main value is delivered."
+        ],
+        "skript_probleme": [],
+        "sekunden": 148.9
+      },
+      {
+        "runde": 4,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-Note 6/10 unter 7/10",
+          "Skript-hook 4/10 unter 7/10",
+          "Skript-spannung 4/10 unter 7/10",
+          "Skript-tempo 5/10 unter 7/10",
+          "Skript-aufloesung 6/10 unter 7/10"
+        ],
+        "story_note": 6,
+        "story_schwaechen": [
+          "Hook lacks a clear promise or curiosity gap; it states a problem but doesn’t compel the viewer to keep watching. A stronger hook could start with a surprising fact or direct benefit to hook interest.",
+          "Spannung is weak—there is no clear question or tension that keeps the viewer engaged beyond the initial problem. Adding a question like “What if the AI keeps someone else’s face?” would maintain interest.",
+          "Tempo suffers from quick jumps and minimal detail; each beat is a single sentence with no explanation or evidence, making the pacing feel rushed and leaving viewers with unanswered questions. Expanding each beat with concrete examples or evidence would improve flow."
+        ],
+        "skript_probleme": [],
+        "sekunden": 168.6
+      },
+      {
+        "runde": 5,
+        "art": "produktion",
+        "skript_s": 203.5,
+        "bau_s": 240.3,
+        "pruefung_s": 54.9,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar ein Poster-Gesicht, aber nicht die gezielte Softwarekorrektur oder das Ansprechen des Fehlers durch Nano Banana.",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine grafische Darstellung einer Person und keinerlei Informationen, Preislisten, Zahlungsschnittstellen oder andere visuelle Hinweise, die die Frage nach den Kosten des Dienstes beantworten würden.",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (3/10): The image shows generic text instructions for an AI tool but does not demonstrate the actual process of uploading a photo or describing a change as narrated.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das gezeigte Bild ist ein allgemeiner Artikel-Screenshot über Bildbearbeitung in Gemini und zeigt in keiner Weise die behauptete Funktion oder eine visuelle Bestätigung zur Speicherung oder zum Umgang mit der Ähnlichkeit eines Nutzers.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Textabschnitt für 'Nano Banana 2', während die Erzählung den Abschnitt 'Lite skips multiple reference photos' thematisiert, welcher sich auf den darüber liegenden, aber nicht explizit hervorgehobenen Abschnitt bezieht.",
+          "Offenes Problem (schwer): Das Bild zeigt zwar ein Poster-Gesicht, aber nicht die gezielte Softwarekorrektur oder das Ansprechen des Fehlers durch Nano Banana. Korrektur: Ein Screenshot oder eine Animation, wie Nano Banana die Korrektur an dem Gesicht vornimmt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine grafische Darstellung einer Person und keinerlei Informationen, Preislisten, Zahlungsschnittstellen oder andere visuelle Hinweise, die die Frage nach den Kosten des Dienstes beantworten würden. Korrektur: Eine Bildschirmaufnahme der App-Oberfläche, die Preisinformationen, ein Abonnement-Modell oder eine kostenlose Nutzungsbestätigung anzeigt.",
+          "Offenes Problem (schwer): The image shows generic text instructions for an AI tool but does not demonstrate the actual process of uploading a photo or describing a change as narrated. Korrektur: A screen recording showing a user actually selecting an 'upload' button, choosing a photo, and typing a descriptive prompt into an interface.",
+          "Offenes Problem (schwer): Das gezeigte Bild ist ein allgemeiner Artikel-Screenshot über Bildbearbeitung in Gemini und zeigt in keiner Weise die behauptete Funktion oder eine visuelle Bestätigung zur Speicherung oder zum Umgang mit der Ähnlichkeit eines Nutzers. Korrektur: Eine Benutzeroberfläche oder ein Diagramm, das den Prozess der Bildverarbeitung von Gemini darstellt, oder eine sichtbare Datenschutzeinstellung/Bestätigung bezüglich der Gesichtserkennung.",
+          "Offenes Problem (schwer): Das Bild zeigt den Textabschnitt für 'Nano Banana 2', während die Erzählung den Abschnitt 'Lite skips multiple reference photos' thematisiert, welcher sich auf den darüber liegenden, aber nicht explizit hervorgehobenen Abschnitt bezieht. Korrektur: Ein Bild, das den Abschnitt über 'Nano Banana Lite' hervorhebt, während der Sprecher darüber spricht."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 20.6,
+          "zeitmarken": 2.4,
+          "tempo": 1.0,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 10,
+          "clips_und_stuecke": 63.9,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 10,
+            "motive": 10,
+            "motive_min": 4
+          },
+          "effekte": 9,
+          "rendern": 24.7,
+          "gesamt": 240.0,
+          "videolaenge_s": 22.2,
+          "abschnitte_s": [
+            4.74,
+            1.18,
+            3.82,
+            3.28,
+            5.32,
+            3.86
+          ],
+          "woerter": 60,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:02.62",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Nano Banana targets that flaw.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar ein Poster-Gesicht, aber nicht die gezielte Softwarekorrektur oder das Ansprechen des Fehlers durch Nano Banana. Korrektur: Ein Screenshot oder eine Animation, wie Nano Banana die Korrektur an dem Gesicht vornimmt."
+          },
+          {
+            "zeit": "00:04.74",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "Does it cost money?",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine grafische Darstellung einer Person und keinerlei Informationen, Preislisten, Zahlungsschnittstellen oder andere visuelle Hinweise, die die Frage nach den Kosten des Dienstes beantworten würden. Korrektur: Eine Bildschirmaufnahme der App-Oberfläche, die Preisinformationen, ein Abonnement-Modell oder eine kostenlose Nutzungsbestätigung anzeigt."
+          },
+          {
+            "zeit": "00:05.92",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 3,
+            "gesprochen": "Upload a photo, describe the change.",
+            "fest": true,
+            "text": "The image shows generic text instructions for an AI tool but does not demonstrate the actual process of uploading a photo or describing a change as narrated. Korrektur: A screen recording showing a user actually selecting an 'upload' button, choosing a photo, and typing a descriptive prompt into an interface."
+          },
+          {
+            "zeit": "00:08.06",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Google says it keeps your likeness.",
+            "fest": true,
+            "text": "Das gezeigte Bild ist ein allgemeiner Artikel-Screenshot über Bildbearbeitung in Gemini und zeigt in keiner Weise die behauptete Funktion oder eine visuelle Bestätigung zur Speicherung oder zum Umgang mit der Ähnlichkeit eines Nutzers. Korrektur: Eine Benutzeroberfläche oder ein Diagramm, das den Prozess der Bildverarbeitung von Gemini darstellt, oder eine sichtbare Datenschutzeinstellung/Bestätigung bezüglich der Gesichtserkennung."
+          },
+          {
+            "zeit": "00:13.02",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 6,
+            "gesprochen": "Lite skips multiple reference photos.",
+            "fest": true,
+            "text": "Das Bild zeigt den Textabschnitt für 'Nano Banana 2', während die Erzählung den Abschnitt 'Lite skips multiple reference photos' thematisiert, welcher sich auf den darüber liegenden, aber nicht explizit hervorgehobenen Abschnitt bezieht. Korrektur: Ein Bild, das den Abschnitt über 'Nano Banana Lite' hervorhebt, während der Sprecher darüber spricht."
+          }
+        ],
+        "sekunden": 501.1,
+        "status": "geprueft"
+      }
+    ],
+    "status": "gesendet",
+    "thema_eingabe": "Put yourself on a GTA-style loading-screen poster with the Gemini app: upload a photo, keep your face (Nano Banana, no game logos)",
+    "grund": "",
+    "sekunden": 1126.1,
+    "upload_titel": "STRANGER'S FACE POSTER? NANO BANANA LIMITS | AI Tool #40c"
   }
 ]

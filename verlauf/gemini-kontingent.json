@@ -21,14 +21,27 @@
       "grund": "Tageskontingent erschoepft",
       "bis": 1795161600.0
     },
-    "18b3ef0930af7cca6de34adf:gemini-3.5-flash-lite": {
-      "grund": "voruebergehend ueberlastet",
-      "bis": 1795113724.2448738
-    },
     "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": {
       "grund": "voruebergehend ueberlastet",
-      "bis": 1795113791.7854574
+      "bis": 1795115117.8313408
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.5-flash-lite": {
+      "grund": "voruebergehend ueberlastet",
+      "bis": 1795115132.7334604
+    },
+    "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": {
+      "grund": "Netzwerk-Zeitlimit",
+      "bis": 1795115060.152245
+    },
+    "8c1eba443c0e93c86dc53df7:groq:openai/gpt-oss-120b": {
+      "grund": "HTTP429; Serverfrist 525s",
+      "bis": 1795115406.934486
     }
   },
-  "zeitlimits": {}
+  "zeitlimits": {
+    "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": [
+      1795114308.2567687,
+      1795114880.152245
+    ]
+  }
 }

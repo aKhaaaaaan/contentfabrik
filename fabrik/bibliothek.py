@@ -26,7 +26,24 @@ def passt_zum_text(eintrag, text):
         return True
     if not isinstance(begriffe,list) or not begriffe or any(not isinstance(b,str) or not b.strip() for b in begriffe):
         return False
-    return any(re.search(r'(?<!\w)'+re.escape(b)+r'(?!\w)',text,re.I) for b in begriffe)
+    return any(re.search(r'(?<!\w)'+_muster(b)+r'(?!\w)',text,re.I) for b in begriffe)
+
+
+_ROEMISCH = {'II': '2', 'III': '3', 'IV': '4', 'V': '5', 'VI': '6', 'VII': '7', 'VIII': '8', 'IX': '9'}  # ohne 'X' (= die Plattform X)
+
+
+def _muster(begriff):
+    """GEMELDET 19.11.2026 (Business-Handstart 44600232412, Startbild ohne Codex): Paket-Begriff "GTA VI", Claude schrieb
+    "Grand Theft Auto VI". Abkuerzung (2-5 Grossbuchstaben) passt auch ausgeschrieben, roemische Zahl auch als Ziffer."""
+    teile = []
+    for w in begriff.split():
+        alt = [re.escape(w)]
+        if w in _ROEMISCH:
+            alt.append(_ROEMISCH[w])
+        elif re.fullmatch(r'[A-Z]{2,5}', w):
+            alt.append(r'(?-i:' + r'\s+'.join(c + r'[a-z]+' for c in w) + ')')
+        teile.append('(?:' + '|'.join(alt) + ')')
+    return r'\s+'.join(teile)
 
 
 def auswahl(kanal, text):

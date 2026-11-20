@@ -12,10 +12,12 @@ on:
   schedule:
     # Nutzer 14.11.2026: Fr-So hat das Langvideo Vorrang - Start morgens VOR den Shorts (die warten in
     # video.yml, solange langvideo.plan() etwas meldet). Die Vorpruefung waehlt je Tag den faelligen Kanal.
-    # GitHub startet Zeitplaene oft Stunden spaeter; der Cloudflare-Worker startet 06:40 UTC nach.
-    - cron: '7 6 * * 5'
-    - cron: '7 6 * * 6'
-    - cron: '7 6 * * 0'
+    # GitHub startet Zeitplaene oft Stunden spaeter; der Cloudflare-Worker startet 08:40 UTC nach.
+    # GEMESSEN 20.11.2026 (Business GTA-V-Radio, 44689409813): Start 06:40 UTC lag VOR dem Gemini-Tagesreset
+    # (08:00 UTC) - Bildpruefung mit dem leeren Vortageskontingent, 12000 s ohne Video. Jetzt nach dem Reset.
+    - cron: '7 8 * * 5'
+    - cron: '7 8 * * 6'
+    - cron: '7 8 * * 0'
   workflow_dispatch:
     inputs:
       # GEMESSEN 24.10.2026: der Cloudflare-Ersatzstart (12:40 UTC, ohne Eingaben) bekam hier Business als

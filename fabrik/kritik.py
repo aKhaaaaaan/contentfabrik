@@ -203,6 +203,7 @@ def kritik(video, skript_pfad, aus):
         if all(ki_speicher.sperre(schluessel, m) for m in skript_ki.MODELLE) and skript_ki.reserve_schluessel():
             # 15.10.2026: kostenloses Kontingent erschoepft -> Upload UND Kritik mit dem Reserve-Projekt.
             schluessel = skript_ki.reserve_schluessel()
+            skript_ki.reserve_melden('Videokritik')
         if all(ki_speicher.sperre(schluessel, m) for m in skript_ki.MODELLE):
             raise RuntimeError('Gemini-Videopruefung voruebergehend gesperrt; kein unnoetiger Video-Upload')
         datei = None

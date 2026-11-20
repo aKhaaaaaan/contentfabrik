@@ -224,6 +224,17 @@ def reserve_schluessel():
     return None
 
 
+def reserve_melden(wofuer):
+    """Nutzer 20.11.2026: Reserve "im Notfall behalten, aber ich moechte vorher informiert werden" - Telegram-
+    Meldung, sobald der bezahlte Schluessel einspringt (je Lauf und Zweck einmal, stoerung.melden)."""
+    try:
+        import stoerung
+        stoerung.melden(f'gemini-bezahlt-{wofuer}', f'Kostenloses Gemini-Kontingent erschoepft ({wofuer}).',
+                        'Die bezahlte Gemini-Reserve springt jetzt ein (wenige Cent je Video).')
+    except Exception:
+        pass
+
+
 def reserve_noetig(gruende):
     """Nur ein erschoepftes Kontingent rechtfertigt den bezahlten Reserve-Schluessel, keine Ueberlast.
 
@@ -367,6 +378,7 @@ def _gemini(prompt, schema, temperatur=None, bilder=(), modelle=None, dateien=()
     # Hochgeladene Dateien gehoeren zum Projekt ihres Schluessels - dort waehlt kritik.py vorher.
     if schluessel == os.environ.get('GEMINI_API_KEY') and not dateien and reserve_noetig(gruende):
         print('Gemini: kostenloses Kontingent erschoepft - Reserve-Schluessel (bezahlt) wird genutzt', flush=True)
+        reserve_melden('Text')
         return _gemini(prompt, schema, temperatur, bilder, modelle, dateien, cache, anfrage_s, antwort_s,
                        schluessel=reserve_schluessel())
     raise RuntimeError(f'Gemini nicht erreichbar: {letzter}')

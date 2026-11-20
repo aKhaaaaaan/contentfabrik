@@ -73,6 +73,21 @@ def einstellung_nr(baufehler):
 KORREKTUREN_MAX = 2
 KORREKTUR_S = 4 * 60   # Mindestreserve fuer Plan, Teilbau und erneute Pruefung
 SENDEN_S = 180  # Zeit fuer Kopie und Telegram innerhalb des Budgets lassen
+# GEMESSEN 20.11.2026 (Business-Langvideo 44689409813): zweimal fertig gebaut, der Versand bekam 130 s - ein
+# 8-Min.-Video muss fuer Telegram erst neu kodiert werden (Rendern allein 580 s) -> TimeoutExpired, kein Video.
+# Langvideo: 20 Min. Reserve (Lernen 1,5 + Vorschaubild bis 6 + Verkleinern + Upload), ein Korrektur-Neubau (gemessen 61 Min.) startet nur, wenn er ganz passt;
+# sonst geht der vorhandene Entwurf sofort raus.
+SENDEN_LANG_S = 20 * 60
+KORREKTUR_LANG_S = 70 * 60
+
+
+def versuch_reserve(lang, basis, bau_basis):
+    """Zeit, die ein weiterer Versuch mindestens braucht (sonst geht das Vorhandene raus)."""
+    if lang and basis:
+        return KORREKTUR_LANG_S
+    return KORREKTUR_S if basis or bau_basis else VERSUCH_S
+
+
 NEUBAU_MIN_S = 600  # Kleine Restfenster nicht mit einem neuen Skript verbrauchen.
 PY = sys.executable
 
@@ -483,7 +498,8 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
     bester = None  # nur Kandidaten mit bestandenen Pruefungen
     entwurf_kandidat = None  # nur KI-Geschmack unter 7/10, Pflichtpruefungen bestanden
     entwurf_rang = None  # (1, Note) fuer KI-Geschmack vor (0, -abgelehnte Bilder) fuer Bildbezug
-    arbeit_ende = start + frei - SENDEN_S
+    lang = kanalstandard.laden(kanal_pfad).get('videoformat') == 'lang'
+    arbeit_ende = start + frei - (SENDEN_LANG_S if lang else SENDEN_S)
     heute_schwaechen, heute_pfad = [], Path('ausgabe-lernen') / f'heute-{kanal}.json'
     heute_pfad.parent.mkdir(exist_ok=True)
     os.environ.pop('CF_HEUTE_SCHWAECHEN', None)
@@ -539,7 +555,7 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
         pfad.write_text(json.dumps((liste + [bericht])[-60:], indent=2, ensure_ascii=False), encoding='utf-8')
     # Neuer Versuch nur, wenn er noch sicher ins Zeitbudget passt
     while versuch < VERSUCHE_MAX + weiter_gekommen and (versuch == 0 or time.monotonic()
-            + (KORREKTUR_S if basis or bau_basis else VERSUCH_S) <= arbeit_ende):
+            + versuch_reserve(lang, basis, bau_basis) <= arbeit_ende):
         versuch += 1
         ordner = Path(f'versuch{versuch}')
         shutil.rmtree(ordner, ignore_errors=True)

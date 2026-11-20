@@ -40,9 +40,11 @@ def gemini_beteiligt(jetzt=None):
                for p in stoerung.MERKER.glob('*')) if stoerung.MERKER.exists() else False
 
 
-def merken(kanal, ausgabe=Path('ausgabe'), jetzt=None):
+def merken(kanal, ausgabe=Path('ausgabe'), jetzt=None, lang=False):
     from statusmeldung import lesen
-    datei = ORDNER / f'{kanal}.json'
+    # GEMELDET 20.11.2026 (Business-Langvideo GTA-V-Radio): die Meldung riet zu „start business" - das startet
+    # einen Short. Langvideo-Merker liegen getrennt (lang-<kanal>), der Text nennt den Langvideo-Befehl.
+    datei = ORDNER / (f'lang-{kanal}.json' if lang else f'{kanal}.json')
     if lesen(ausgabe / 'bericht.json').get('status') == 'gesendet':
         datei.unlink(missing_ok=True)
         return 'geliefert'
@@ -80,18 +82,27 @@ def erreichbar():
 def text(merker):
     from statusmeldung import kanalname
     zeilen = []
-    for kanal, m in sorted(merker.items()):
+    befehle = []
+    for name, m in sorted(merker.items()):
+        lang = name.startswith('lang-')
+        kanal = name[5:] if lang else name
+        kurz = 'ki' if kanal == 'ai-tools-explained' else 'business'
+        befehl = f'„langvideo {kurz}"' if lang else f'„start {kurz}"'
+        if befehl not in befehle:
+            befehle.append(befehl)
         seit = datetime.datetime.fromtimestamp(m.get('seit', 0), datetime.timezone.utc)
         try:
             from zoneinfo import ZoneInfo
             seit = seit.astimezone(ZoneInfo('Europe/Berlin'))
         except Exception:
             pass
-        zeilen.append(f'• {kanalname(kanal)}' + (f' ({m["thema"]})' if m.get('thema') else '')
-                      + f' - ohne Video seit {seit:%d.%m. %H:%M}')
+        zeilen.append(f'• {kanalname(kanal)}' + (' Langvideo' if lang else '')
+                      + (f' ({m["thema"]})' if m.get('thema') else '') + f' - ohne Video seit {seit:%d.%m. %H:%M}')
     # Wortlaut wie kontingent.nachricht (Steuerungsbot-Befehle).
     return ('✅ Gemini ist wieder erreichbar (Skript- und Bildpruefung antworten).\n' + '\n'.join(zeilen)
-            + '\nNeu starten mit „start ki" oder „start business" an den Steuerungsbot.')
+            + '\nNeu starten mit ' + ' bzw. '.join(befehle) + ' an den Steuerungsbot.'
+            + ('\nDas Langvideo holt der Zeitplan sonst am naechsten Langvideo-Tag automatisch nach.'
+               if any(n.startswith('lang-') for n in merker) else ''))
 
 
 def pruefen(jetzt=None, senden=None):
@@ -127,7 +138,7 @@ if __name__ == '__main__':
     sys.path.insert(0, str(Path(__file__).parent))
     try:
         if sys.argv[1:2] == ['merken']:
-            print('Gemini-Merker:', merken(os.environ.get('KANAL', '')))
+            print('Gemini-Merker:', merken(os.environ.get('KANAL', ''), lang=sys.argv[2:3] == ['lang']))
         else:
             print('Gemini wieder erreichbar?', pruefen())
     except Exception as fehler:  # darf Verlaufssicherung und Themenlauf nie kippen

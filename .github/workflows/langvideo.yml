@@ -184,7 +184,7 @@ jobs:
           python fabrik/langvideo.py vorschau || true  # Themen-Befehl: naechster Termin nach diesem Lauf
           # 06.11.2026: Langvideo ohne Video wegen Gemini/Groq-Bildpruefung - wie video.yml die Meldung
           # "Gemini wieder erreichbar" vormerken (bisher nur Shorts; Ford-Langvideo 42255331749).
-          python fabrik/gemini_wieder.py merken || true
+          python fabrik/gemini_wieder.py merken lang || true  # 20.11.: eigener Merker, Langvideo-Befehl
           for pfad in verlauf lernen themen vorrat; do
             [ ! -d "$pfad" ] || git add -- "$pfad"
           done

@@ -34,6 +34,7 @@ concurrency:
   queue: max
 permissions:
   contents: write
+  actions: write  # 20.11.2026: fertiges Video bei Zustellfehler nachsenden
 jobs:
   vorpruefung:
     runs-on: ubuntu-latest
@@ -231,3 +232,15 @@ jobs:
             ausgabe/bildplan.json
             ausgabe/bildbezug.json
             ausgabe/*_abgelehnt_*.json
+      # GEMESSEN 20.11.2026 (44689409813): Video fertig, Versand im Zeitlimit -> verloren, bis es von Hand
+      # nachgesendet wurde. Jetzt automatisch: gleicher Weg wie von Hand (pilot-versand, harte Gates bleiben).
+      - name: Fertiges Video nach Zustellfehler nachsenden
+        if: always() && steps.produktion.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ENTWURF=$(python3 -c "import json,os; b=json.load(open('ausgabe/bericht.json')); print('true' if b.get('entwurf') else 'false') if b.get('status')=='zustellfehler' and os.path.exists('ausgabe/short.mp4') else print('')" 2>/dev/null || true)
+          if [ -n "$ENTWURF" ]; then
+            gh workflow run pilot-versand.yml --ref main -f run_id=${{ github.run_id }} -f kanal=${{ matrix.kanal }} -f quelle=langvideo -f entwurf=$ENTWURF
+            echo "Nachsenden angestossen (entwurf=$ENTWURF)"
+          fi

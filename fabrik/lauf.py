@@ -962,9 +962,12 @@ def produzieren(kanal_pfad, kanal, thema, start, frei, themen, entwurf=''):
             os.environ['CF_ENTWURF'] = '1'
         code = schritt(['fabrik/freigabe.py', str(aus / 'skript.json'), str(aus / 'short.mp4')], start + frei)
     except (subprocess.TimeoutExpired, OSError):
+        # 20.11.2026: der Workflow sendet ein fertiges Video bei zustellfehler selbst nach (pilot-versand)
+        bericht['entwurf'] = bool(entwurf)
         protokoll('zustellfehler')
         raise
     if code:
+        bericht['entwurf'] = bool(entwurf)
         # GEMELDET 08.11.2026 (Berkshire 42462747293): Video fertig, Telegram antwortete viermal 504 - die
         # Meldung nannte nur die Bildbefunde des Entwurfs, nicht dass bloss die Zustellung scheiterte.
         letzter_grund = ('Video fertig gebaut' + (' (Entwurf)' if entwurf else '') + ', aber Telegram hat die '

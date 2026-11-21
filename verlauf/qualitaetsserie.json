@@ -208583,6 +208583,167 @@
         "zweitpruefer_modell": null,
         "zweitpruefer_anderer_anbieter": false
       }
+    },
+    {
+      "id": "44895518644.1:ai-tools-explained",
+      "run_id": "44895518644",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-21T11:22:28.233329+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "26ffb289903fa2d661261ad3353b2afe3c063e40",
+      "produktionsversion": "a51fc3ffdf0f3161b63f7087528ef551abe68652240cfd9e8cada0cd2cda19cc",
+      "videoformat": "short",
+      "thema": "Neon city clips from a text prompt: Runway Gen-4.5 vs Kling AI",
+      "titel": [
+        "12 CREDITS PER SECOND",
+        "*RUNWAY* VS *KLING*"
+      ],
+      "status": "gesperrt",
+      "video_sha256": null,
+      "video_gebaut": false,
+      "ki_story_note": 5,
+      "ki_video_note": null,
+      "prompt_version": null,
+      "sperrgruende": [
+        "Skript-Note 5/10 unter 7/10",
+        "Skript-spannung 4/10 unter 7/10",
+        "Skript-ueberraschung 5/10 unter 7/10",
+        "Skript-tempo 6/10 unter 7/10",
+        "Skript-aufloesung 4/10 unter 7/10",
+        "Skript-teilbarkeit 3/10 unter 6/10",
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Einzelbewertungen fehlen",
+        "Technik-Pruefung fehlt oder ist ungueltig",
+        "Unabhaengige Endton-/CTA-Pruefung fehlt oder ist nicht bestanden",
+        "Video-Problemliste fehlt oder ist ungueltig",
+        "Kein fertiges Video vorhanden"
+      ],
+      "einstellungen": 0,
+      "unterschiedliche_motive": 0,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "44895518644",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-21",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 2,
+            "grund": "Faktenpruefung nicht bestanden",
+            "sperrgruende": [
+              "Faktenpruefung fehlt oder ist nicht bestanden",
+              "Skript-Note fehlt oder ist ungueltig",
+              "Skript-Einzelbewertungen fehlen"
+            ],
+            "story_note": null,
+            "story_schwaechen": [],
+            "skript_probleme": [
+              "Number not found in the sources - remove it or use the exact number from the sources: 120 („Ten seconds adds up to 120 credits.\")",
+              "[unsupported tool claim] Ten seconds of neon city can eat your credits. - No source evidence that a neon city video specifically consumes credits; the source only states the cost per second, not that this content type has any special credit consumption."
+            ],
+            "sekunden": 107.0
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-hook 6/10 unter 7/10"
+            ],
+            "story_note": 7,
+            "story_schwaechen": [
+              "The sentence 'Checked November 18: Runway Gen-4.5 charges 12 credits per second.' contains a source citation within the first three sentences, which is a concrete hook weakness. Fix: 'Runway Gen-4.5 now charges 12 credits for every single second.'",
+              "The sentence 'Be sure to like, share and save this video.' is not relevant to the story context as required. Fix: 'Like, share and save this video to track your AI rendering costs.'"
+            ],
+            "skript_probleme": [],
+            "sekunden": 508.0
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 6/10 unter 7/10",
+              "Skript-hook 4/10 unter 7/10",
+              "Skript-spannung 6/10 unter 7/10",
+              "Skript-tempo 5/10 unter 7/10"
+            ],
+            "story_note": 6,
+            "story_schwaechen": [
+              "The sentence 'Checked November 18: Runway Gen-4.5 needs a Standard plan or higher, 12 credits per second.' contains a source citation in the third sentence, which is a concrete hook weakness. Move the date or integrate it into the fact to maintain narrative momentum.",
+              "The sentence 'Kling AI lists text-to-video too.' is filler that breaks causal coherence; it mentions a competitor without providing a comparative price or step. Replace with a specific cost comparison or remove it to focus on the 'one setting' promised."
+            ],
+            "skript_probleme": [],
+            "sekunden": 243.4
+          },
+          {
+            "runde": 4,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 3/10 unter 7/10",
+              "Skript-hook 3/10 unter 7/10",
+              "Skript-spannung 2/10 unter 7/10",
+              "Skript-ueberraschung 4/10 unter 7/10",
+              "Skript-tempo 3/10 unter 7/10",
+              "Skript-aufloesung 2/10 unter 7/10",
+              "Skript-teilbarkeit 2/10 unter 6/10"
+            ],
+            "story_note": 3,
+            "story_schwaechen": [
+              "Sentence: Ten seconds of neon city. The meter's already running. Why it matters: The opening is descriptive and vague instead of starting with a concrete problem or strong hook. Fix: Start directly with the cost per second of Runway Gen-4.5.",
+              "Sentence: So what's the catch? Why it matters: It uses a cliché transition instead of driving the narrative forward. Fix: State the subscription tier requirement immediately.",
+              "Sentence: Price ten seconds of neon first. Why it matters: The loop ending does not cleanly reference the hook's specific problem and feels abrupt. Fix: End on the exact meter concept to create a smooth loop."
+            ],
+            "skript_probleme": [],
+            "sekunden": 163.8
+          },
+          {
+            "runde": 5,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 5/10 unter 7/10",
+              "Skript-spannung 4/10 unter 7/10",
+              "Skript-ueberraschung 5/10 unter 7/10",
+              "Skript-tempo 6/10 unter 7/10",
+              "Skript-aufloesung 4/10 unter 7/10",
+              "Skript-teilbarkeit 3/10 unter 6/10"
+            ],
+            "story_note": 5,
+            "story_schwaechen": [
+              "Sentence: Checked November 18: clips run 2 to 10 seconds. Why it matters: This feels like dry metadata rather than a compelling narrative discovery. Fix: Integrate the duration constraint directly into the cost comparison to maintain narrative drive."
+            ],
+            "skript_probleme": [],
+            "sekunden": 470.0
+          }
+        ],
+        "status": "gesperrt",
+        "thema_eingabe": "Vice City-style neon city clips from a text prompt: Runway Gen-4.5 vs Kling AI (no game footage)",
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sekunden": 1494.2,
+        "upload_titel": "12 CREDITS PER SECOND: RUNWAY VS KLING | AI Tool #42"
+      },
+      "ki_pruefung": {},
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "qwen/qwen3.8-27b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

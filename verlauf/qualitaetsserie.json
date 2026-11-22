@@ -212341,6 +212341,822 @@
       },
       "ki_pruefung": {},
       "faktenpruefung": null
+    },
+    {
+      "id": "45015016730.1:ai-tools-explained",
+      "run_id": "45015016730",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-22T11:29:27.619337+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "37b09ea2920a73524ef53e97048ca7c432075638",
+      "produktionsversion": "245bbabfd23d4b072ad4bd43af217be89bd9177cfdee8e233aa848dd17562bef",
+      "videoformat": "short",
+      "thema": "Can Claude really port your PS2 games to PC? The free console-skill pack and PS2Recomp",
+      "titel": [
+        "*PS2* DISC TO PC GAME?",
+        "CLAUDE'S FREE SKILLS"
+      ],
+      "status": "gesendet",
+      "video_sha256": "f1f2ab2c5c849018437e59fbd02bcac25732243b35cdf178f5c1d8892cf11dbf",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-11.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine allgemeine Warnung und Text zur Ankündigung, aber nicht die im Text erwähnten PS2-Spiele oder den Code-Konvertierungsprozess.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen, dass viele Spiele nicht starten und die Grafik hakt, während das Bild lediglich eine Repository-Übersicht zeigt, aber nicht das konkrete Problem oder die genannte Grafikdemonstration.",
+        "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Chat-Oberfläche mit der Frage passt nicht zur eigentlichen Ausführung oder dem Ergebnis der PlayStation-2-Portierung, sondern zeigt lediglich eine Chat-Frage.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine generische animierte Figur und Textbausteine, aber keinerlei Bezug zur Thematik 'Weeks, or never' oder dem Aufwand des Portierens.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Warnung und Text zur Ankündigung, aber nicht die im Text erwähnten PS2-Spiele oder den Code-Konvertierungsprozess. Korrektur: Ein Screenshot, der den Start oder die Benutzeroberfläche des erwähnten Tools PS2Recomp oder den Code-Portierungsprozess zeigt.",
+        "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen, dass viele Spiele nicht starten und die Grafik hakt, während das Bild lediglich eine Repository-Übersicht zeigt, aber nicht das konkrete Problem oder die genannte Grafikdemonstration. Korrektur: Ein Gameplay-Ausschnitt oder eine Fehlermeldung eines nicht startenden PS2-Spiels auf dem PC.",
+        "Offenes Problem (schwer): Die gezeigte Chat-Oberfläche mit der Frage passt nicht zur eigentlichen Ausführung oder dem Ergebnis der PlayStation-2-Portierung, sondern zeigt lediglich eine Chat-Frage. Korrektur: Ein Bild, das den Recompilation-Prozess oder ein fehlerhaftes Spiel zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt eine generische animierte Figur und Textbausteine, aber keinerlei Bezug zur Thematik 'Weeks, or never' oder dem Aufwand des Portierens. Korrektur: Ein Zeitraffer oder eine Grafik, die den langwierigen Prozess des Programmierens oder Kompilierens darstellt."
+      ],
+      "einstellungen": 8,
+      "unterschiedliche_motive": 8,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "45015016730",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-22",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 5/10 unter 7/10",
+              "Skript-hook 5/10 unter 7/10",
+              "Skript-spannung 6/10 unter 7/10",
+              "Skript-ueberraschung 6/10 unter 7/10",
+              "Skript-tempo 5/10 unter 7/10",
+              "Skript-aufloesung 6/10 unter 7/10",
+              "Skript-teilbarkeit 5/10 unter 6/10"
+            ],
+            "story_note": 5,
+            "story_schwaechen": [
+              "\"Eleven free Claude skills try.\" is grammatically broken and stutters after the opening sentence, slowing down spoken rhythm in the first five seconds. Fix by rewriting the opening to state the core premise smoothly: \"Eleven free Claude skills claim to run PS2 games on PC, but there's a catch.\""
+            ],
+            "skript_probleme": [],
+            "sekunden": 487.9
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-hook 6/10 unter 7/10"
+            ],
+            "story_note": 7,
+            "story_schwaechen": [
+              "Sentence: \"Your PS2 disc, ported to PC? Eleven free Claude skills try.\" - Grammatically awkward phrasing creates an unnatural spoken rhythm in the first three seconds. Fix: Rephrase to \"Can your PS2 disc be ported to PC? Eleven free Claude skills are attempting it.\""
+            ],
+            "skript_probleme": [],
+            "sekunden": 162.9
+          },
+          {
+            "runde": 3,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-Note 6/10 unter 7/10",
+              "Skript-hook 5/10 unter 7/10",
+              "Skript-spannung 6/10 unter 7/10",
+              "Skript-tempo 6/10 unter 7/10",
+              "Skript-aufloesung 6/10 unter 7/10"
+            ],
+            "story_note": 6,
+            "story_schwaechen": [
+              "Sentence 'Claude drives experimental PS2 porting tools.' lacks a clear curiosity gap or strong emotional hook, making the opening feel neutral and flat. A strong hook should highlight the challenge or surprise immediately.",
+              "Sentence 'Claude drives, but some games still won't make it.' creates a repetitive stutter when looping directly back into the opening line 'Claude drives experimental PS2 porting tools.' Adjust the final wording so the replay transition flows naturally without repeating identical opening words."
+            ],
+            "skript_probleme": [],
+            "sekunden": 225.3
+          },
+          {
+            "runde": 4,
+            "art": "produktion",
+            "skript_s": 196.3,
+            "bau_s": 611.4,
+            "pruefung_s": 33.7,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine allgemeine Warnung und Text zur Ankündigung, aber nicht die im Text erwähnten PS2-Spiele oder den Code-Konvertierungsprozess.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen, dass viele Spiele nicht starten und die Grafik hakt, während das Bild lediglich eine Repository-Übersicht zeigt, aber nicht das konkrete Problem oder die genannte Grafikdemonstration.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Chat-Oberfläche mit der Frage passt nicht zur eigentlichen Ausführung oder dem Ergebnis der PlayStation-2-Portierung, sondern zeigt lediglich eine Chat-Frage.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine generische animierte Figur und Textbausteine, aber keinerlei Bezug zur Thematik 'Weeks, or never' oder dem Aufwand des Portierens.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Warnung und Text zur Ankündigung, aber nicht die im Text erwähnten PS2-Spiele oder den Code-Konvertierungsprozess. Korrektur: Ein Screenshot, der den Start oder die Benutzeroberfläche des erwähnten Tools PS2Recomp oder den Code-Portierungsprozess zeigt.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen, dass viele Spiele nicht starten und die Grafik hakt, während das Bild lediglich eine Repository-Übersicht zeigt, aber nicht das konkrete Problem oder die genannte Grafikdemonstration. Korrektur: Ein Gameplay-Ausschnitt oder eine Fehlermeldung eines nicht startenden PS2-Spiels auf dem PC.",
+              "Offenes Problem (schwer): Die gezeigte Chat-Oberfläche mit der Frage passt nicht zur eigentlichen Ausführung oder dem Ergebnis der PlayStation-2-Portierung, sondern zeigt lediglich eine Chat-Frage. Korrektur: Ein Bild, das den Recompilation-Prozess oder ein fehlerhaftes Spiel zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generische animierte Figur und Textbausteine, aber keinerlei Bezug zur Thematik 'Weeks, or never' oder dem Aufwand des Portierens. Korrektur: Ein Zeitraffer oder eine Grafik, die den langwierigen Prozess des Programmierens oder Kompilierens darstellt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 18.9,
+              "zeitmarken": 2.7,
+              "tempo": 1.035,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 8,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 502.6,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 8,
+                "motive": 8,
+                "motive_min": 4
+              },
+              "effekte": 10,
+              "rendern": 21.2,
+              "gesamt": 611.1,
+              "videolaenge_s": 25.0,
+              "abschnitte_s": [
+                6.28,
+                4.9,
+                5.54,
+                3.54,
+                4.75
+              ],
+              "woerter": 60,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:03.14",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Claude's free skills try. The catch? Brutal.",
+                "fest": true,
+                "text": "Das Bild zeigt lediglich eine allgemeine Warnung und Text zur Ankündigung, aber nicht die im Text erwähnten PS2-Spiele oder den Code-Konvertierungsprozess. Korrektur: Ein Screenshot, der den Start oder die Benutzeroberfläche des erwähnten Tools PS2Recomp oder den Code-Portierungsprozess zeigt."
+              },
+              {
+                "zeit": "00:16.72",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 5,
+                "gesprochen": "So why not all? Many games won't boot; graphics crawl.",
+                "fest": false,
+                "text": "Die gesprochenen Wörter erwähnen, dass viele Spiele nicht starten und die Grafik hakt, während das Bild lediglich eine Repository-Übersicht zeigt, aber nicht das konkrete Problem oder die genannte Grafikdemonstration. Korrektur: Ein Gameplay-Ausschnitt oder eine Fehlermeldung eines nicht startenden PS2-Spiels auf dem PC."
+              },
+              {
+                "zeit": "00:20.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 6,
+                "gesprochen": "That PS2 disc?",
+                "fest": false,
+                "text": "Die gezeigte Chat-Oberfläche mit der Frage passt nicht zur eigentlichen Ausführung oder dem Ergebnis der PlayStation-2-Portierung, sondern zeigt lediglich eine Chat-Frage. Korrektur: Ein Bild, das den Recompilation-Prozess oder ein fehlerhaftes Spiel zeigt."
+              },
+              {
+                "zeit": "00:23.10",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 7,
+                "gesprochen": "Weeks, or never.",
+                "fest": false,
+                "text": "Das Bild zeigt eine generische animierte Figur und Textbausteine, aber keinerlei Bezug zur Thematik 'Weeks, or never' oder dem Aufwand des Portierens. Korrektur: Ein Zeitraffer oder eine Grafik, die den langwierigen Prozess des Programmierens oder Kompilierens darstellt."
+              }
+            ],
+            "sekunden": 841.9,
+            "status": "geprueft"
+          },
+          {
+            "runde": 5,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "thema_eingabe": "Can Claude really port your PS2 games to PC? The free console-skill pack and PS2Recomp - what works and what does not",
+        "grund": "",
+        "sekunden": 1731.5,
+        "upload_titel": "PS2 DISC TO PC GAME? CLAUDE'S FREE SKILLS | AI Tool #43b"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:03.14",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Claude's free skills try. The catch? Brutal.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich eine allgemeine Warnung und Text zur Ankündigung, aber nicht die im Text erwähnten PS2-Spiele oder den Code-Konvertierungsprozess. Korrektur: Ein Screenshot, der den Start oder die Benutzeroberfläche des erwähnten Tools PS2Recomp oder den Code-Portierungsprozess zeigt."
+          },
+          {
+            "zeit": "00:16.72",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 5,
+            "gesprochen": "So why not all? Many games won't boot; graphics crawl.",
+            "fest": false,
+            "text": "Die gesprochenen Wörter erwähnen, dass viele Spiele nicht starten und die Grafik hakt, während das Bild lediglich eine Repository-Übersicht zeigt, aber nicht das konkrete Problem oder die genannte Grafikdemonstration. Korrektur: Ein Gameplay-Ausschnitt oder eine Fehlermeldung eines nicht startenden PS2-Spiels auf dem PC."
+          },
+          {
+            "zeit": "00:20.26",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 6,
+            "gesprochen": "That PS2 disc?",
+            "fest": false,
+            "text": "Die gezeigte Chat-Oberfläche mit der Frage passt nicht zur eigentlichen Ausführung oder dem Ergebnis der PlayStation-2-Portierung, sondern zeigt lediglich eine Chat-Frage. Korrektur: Ein Bild, das den Recompilation-Prozess oder ein fehlerhaftes Spiel zeigt."
+          },
+          {
+            "zeit": "00:23.10",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 7,
+            "gesprochen": "Weeks, or never.",
+            "fest": false,
+            "text": "Das Bild zeigt eine generische animierte Figur und Textbausteine, aber keinerlei Bezug zur Thematik 'Weeks, or never' oder dem Aufwand des Portierens. Korrektur: Ein Zeitraffer oder eine Grafik, die den langwierigen Prozess des Programmierens oder Kompilierens darstellt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 25.0,
+          "fps": 29.9,
+          "lufs": -14.4,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 14.26,
+              "bis_s": 15.84,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.979
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 5.0,
+              "bis_s": 25.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Your",
+                "s": 0.0,
+                "e": 0.3,
+                "p": 0.893101155757904
+              },
+              {
+                "w": "PS2",
+                "s": 0.3,
+                "e": 1.2,
+                "p": 0.9513910412788391
+              },
+              {
+                "w": "disc,",
+                "s": 1.2,
+                "e": 1.48,
+                "p": 0.6380105018615723
+              },
+              {
+                "w": "rebuilt",
+                "s": 1.66,
+                "e": 1.96,
+                "p": 0.9710559844970703
+              },
+              {
+                "w": "as",
+                "s": 1.96,
+                "e": 2.26,
+                "p": 0.9910529255867004
+              },
+              {
+                "w": "a",
+                "s": 2.26,
+                "e": 2.38,
+                "p": 0.9862709045410156
+              },
+              {
+                "w": "PC",
+                "s": 2.38,
+                "e": 2.54,
+                "p": 0.9935365319252014
+              },
+              {
+                "w": "game,",
+                "s": 2.54,
+                "e": 2.96,
+                "p": 0.9816064238548279
+              },
+              {
+                "w": "clots",
+                "s": 3.42,
+                "e": 3.56,
+                "p": 0.6253531873226166
+              },
+              {
+                "w": "free",
+                "s": 3.56,
+                "e": 3.82,
+                "p": 0.6731868386268616
+              },
+              {
+                "w": "skills",
+                "s": 3.82,
+                "e": 4.08,
+                "p": 0.954642653465271
+              },
+              {
+                "w": "try.",
+                "s": 4.08,
+                "e": 4.32,
+                "p": 0.9191737174987793
+              },
+              {
+                "w": "The",
+                "s": 4.68,
+                "e": 4.68,
+                "p": 0.9740242958068848
+              },
+              {
+                "w": "catch?",
+                "s": 4.68,
+                "e": 4.88,
+                "p": 0.9849543571472168
+              },
+              {
+                "w": "Brutal.",
+                "s": 5.66,
+                "e": 5.92,
+                "p": 0.8837640881538391
+              },
+              {
+                "w": "They",
+                "s": 6.28,
+                "e": 6.28,
+                "p": 0.9868755340576172
+              },
+              {
+                "w": "run",
+                "s": 6.28,
+                "e": 6.44,
+                "p": 0.9871373176574707
+              },
+              {
+                "w": "PS2",
+                "s": 6.44,
+                "e": 7.22,
+                "p": 0.9776659607887268
+              },
+              {
+                "w": "Recomp,",
+                "s": 7.22,
+                "e": 7.74,
+                "p": 0.506188090890646
+              },
+              {
+                "w": "turning",
+                "s": 7.86,
+                "e": 8.12,
+                "p": 0.9953018426895142
+              },
+              {
+                "w": "console",
+                "s": 8.12,
+                "e": 8.44,
+                "p": 0.8014834523200989
+              },
+              {
+                "w": "code",
+                "s": 8.44,
+                "e": 8.78,
+                "p": 0.9945514798164368
+              },
+              {
+                "w": "into",
+                "s": 8.78,
+                "e": 9.06,
+                "p": 0.9818376898765564
+              },
+              {
+                "w": "C++.",
+                "s": 9.06,
+                "e": 9.52,
+                "p": 0.984559565782547
+              },
+              {
+                "w": "Bring",
+                "s": 10.14,
+                "e": 10.2,
+                "p": 0.9898659586906433
+              },
+              {
+                "w": "your",
+                "s": 10.2,
+                "e": 10.38,
+                "p": 0.9907275438308716
+              },
+              {
+                "w": "own",
+                "s": 10.38,
+                "e": 10.5,
+                "p": 0.9976145029067993
+              },
+              {
+                "w": "disc.",
+                "s": 10.5,
+                "e": 10.68,
+                "p": 0.9296854138374329
+              },
+              {
+                "w": "God",
+                "s": 11.18,
+                "e": 11.26,
+                "p": 0.8074237704277039
+              },
+              {
+                "w": "Hand",
+                "s": 11.26,
+                "e": 11.48,
+                "p": 0.4192720055580139
+              },
+              {
+                "w": "runs",
+                "s": 11.48,
+                "e": 11.82,
+                "p": 0.9523835778236389
+              },
+              {
+                "w": "partly",
+                "s": 11.82,
+                "e": 12.14,
+                "p": 0.40025895833969116
+              },
+              {
+                "w": "tested",
+                "s": 12.14,
+                "e": 12.46,
+                "p": 0.970892608165741
+              },
+              {
+                "w": "into",
+                "s": 12.46,
+                "e": 12.7,
+                "p": 0.9716721773147583
+              },
+              {
+                "w": "stage",
+                "s": 12.7,
+                "e": 12.94,
+                "p": 0.7472916841506958
+              },
+              {
+                "w": "three.",
+                "s": 12.94,
+                "e": 13.44,
+                "p": 0.49805939197540283
+              },
+              {
+                "w": "Be",
+                "s": 13.98,
+                "e": 14.0,
+                "p": 0.9968242645263672
+              },
+              {
+                "w": "sure",
+                "s": 14.0,
+                "e": 14.16,
+                "p": 0.9993126392364502
+              },
+              {
+                "w": "to",
+                "s": 14.16,
+                "e": 14.26,
+                "p": 0.9965569972991943
+              },
+              {
+                "w": "like,",
+                "s": 14.26,
+                "e": 14.5,
+                "p": 0.8921425938606262
+              },
+              {
+                "w": "share,",
+                "s": 14.6,
+                "e": 14.84,
+                "p": 0.9916791319847107
+              },
+              {
+                "w": "and",
+                "s": 15.0,
+                "e": 15.08,
+                "p": 0.9985232949256897
+              },
+              {
+                "w": "save",
+                "s": 15.08,
+                "e": 15.34,
+                "p": 0.9962936043739319
+              },
+              {
+                "w": "this",
+                "s": 15.34,
+                "e": 15.54,
+                "p": 0.9965065121650696
+              },
+              {
+                "w": "video.",
+                "s": 15.54,
+                "e": 15.84,
+                "p": 0.9991775155067444
+              },
+              {
+                "w": "This",
+                "s": 16.52,
+                "e": 16.6,
+                "p": 0.20665305852890015
+              },
+              {
+                "w": "is",
+                "s": 16.6,
+                "e": 16.72,
+                "p": 0.9466379880905151
+              },
+              {
+                "w": "why",
+                "s": 16.72,
+                "e": 17.0,
+                "p": 0.9054728150367737
+              },
+              {
+                "w": "not",
+                "s": 17.0,
+                "e": 17.22,
+                "p": 0.9948563575744629
+              },
+              {
+                "w": "all.",
+                "s": 17.22,
+                "e": 17.4,
+                "p": 0.9977126121520996
+              },
+              {
+                "w": "Many",
+                "s": 17.94,
+                "e": 17.96,
+                "p": 0.9472560882568359
+              },
+              {
+                "w": "games",
+                "s": 17.96,
+                "e": 18.22,
+                "p": 0.41826382279396057
+              },
+              {
+                "w": "won't",
+                "s": 18.22,
+                "e": 18.6,
+                "p": 0.9972994923591614
+              },
+              {
+                "w": "boot.",
+                "s": 18.6,
+                "e": 18.86,
+                "p": 0.9939239621162415
+              },
+              {
+                "w": "Graphics",
+                "s": 19.64,
+                "e": 19.64,
+                "p": 0.934349000453949
+              },
+              {
+                "w": "crawl.",
+                "s": 19.64,
+                "e": 20.24,
+                "p": 0.8101609349250793
+              },
+              {
+                "w": "That",
+                "s": 21.8,
+                "e": 21.88,
+                "p": 0.7094660997390747
+              },
+              {
+                "w": "PS2",
+                "s": 21.88,
+                "e": 22.56,
+                "p": 0.9936186671257019
+              },
+              {
+                "w": "disc,",
+                "s": 22.56,
+                "e": 22.88,
+                "p": 0.976972222328186
+              },
+              {
+                "w": "weeks,",
+                "s": 23.1,
+                "e": 23.38,
+                "p": 0.8056365847587585
+              },
+              {
+                "w": "or",
+                "s": 23.84,
+                "e": 24.0,
+                "p": 0.9983017444610596
+              },
+              {
+                "w": "never.",
+                "s": 24.0,
+                "e": 24.66,
+                "p": 0.972966194152832
+              }
+            ],
+            "dauer_s": 24.8746875,
+            "sprache": "en"
+          },
+          "roh_key": "fb0d5e909740f37c6cfcb5df8537e598e8c94b6986286692ff5c0602a8efd26d",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "f1f2ab2c5c849018437e59fbd02bcac25732243b35cdf178f5c1d8892cf11dbf",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 25.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 8,
+          "motive": 8,
+          "motive_min": 4
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "f1f2ab2c5c849018437e59fbd02bcac25732243b35cdf178f5c1d8892cf11dbf",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein gemaltes Porträt eines überraschten Mannes in einem modernen Büro vor beleuchteten Hochhäusern.",
+              "note": 8,
+              "passt": true,
+              "grund": "Dies ist ein opening_reaction_shot, der die im Tonfall des Einstiegs geforderte Schock- und Überraschungsreaktion passend darstellt.",
+              "erforderliches_bild": "Nicht erforderlich."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein gelbes Warnschild mit Ausrufezeichen vor einem dunklen Hintergrund und einem Textkasten mit der Aufschrift 'CLAUDES FREE SKILLS TRY. THE CATCH? BRUTAL.'",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine allgemeine Warnung und Text zur Ankündigung, aber nicht die im Text erwähnten PS2-Spiele oder den Code-Konvertierungsprozess.",
+              "erforderliches_bild": "Ein Screenshot, der den Start oder die Benutzeroberfläche des erwähnten Tools PS2Recomp oder den Code-Portierungsprozess zeigt."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Screenshot zeigt die GitHub-Projektseite von ran-j/PS2Recomp mit Repository-Namen und Beschreibung.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt die erwähnte Software PS2Recomp von GitHub passend zur Erwähnung im gesprochenen Text.",
+              "erforderliches_bild": "Nicht erforderlich."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein hervorgehobener Textblock auf einem dunklen Hintergrund beschreibt, dass LasVolas God Hand Recompiled den PS2-Brawler von recompiled Code ausfShrt und bis Stufe 3 getestet wurde.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der sichtbare Text im gelben Kasten nennt exakt die im gesprochenen Satz genannte Operation und den Teststand von God Hand bis Stufe 3.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da der Text direkt zum gesprochenen Inhalt passt."
+            },
+            {
+              "index": 5,
+              "gesehen": "Zu sehen ist eine GitHub-Repository-Infokarte für ein Projekt namens Jakeschincariol/console-skill mit Beschreibung und Statistiken, darüber steht das Wort Haken.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochenen Wörter erwähnen, dass viele Spiele nicht starten und die Grafik hakt, während das Bild lediglich eine Repository-Übersicht zeigt, aber nicht das konkrete Problem oder die genannte Grafikdemonstration.",
+              "erforderliches_bild": "Ein Gameplay-Ausschnitt oder eine Fehlermeldung eines nicht startenden PS2-Spiels auf dem PC."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Chat-Fenster mit der Nachricht 'That PS2 disc?' und drei Punkten darunter.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gezeigte Chat-Oberfläche mit der Frage passt nicht zur eigentlichen Ausführung oder dem Ergebnis der PlayStation-2-Portierung, sondern zeigt lediglich eine Chat-Frage.",
+              "erforderliches_bild": "Ein Bild, das den Recompilation-Prozess oder ein fehlerhaftes Spiel zeigt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein illustriertes Porträt eines Mannes mit Sonnenbrille vor einer Skyline bei Sonnenuntergang und Text im oberen Bereich wie 'CAN CLAUDE REALLY PORT YOUR PS' und 'Many games won't boot'.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine generische animierte Figur und Textbausteine, aber keinerlei Bezug zur Thematik 'Weeks, or never' oder dem Aufwand des Portierens.",
+              "erforderliches_bild": "Ein Zeitraffer oder eine Grafik, die den langwierigen Prozess des Programmierens oder Kompilierens darstellt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine allgemeine Warnung und Text zur Ankündigung, aber nicht die im Text erwähnten PS2-Spiele oder den Code-Konvertierungsprozess.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen, dass viele Spiele nicht starten und die Grafik hakt, während das Bild lediglich eine Repository-Übersicht zeigt, aber nicht das konkrete Problem oder die genannte Grafikdemonstration.",
+            "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Chat-Oberfläche mit der Frage passt nicht zur eigentlichen Ausführung oder dem Ergebnis der PlayStation-2-Portierung, sondern zeigt lediglich eine Chat-Frage.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine generische animierte Figur und Textbausteine, aber keinerlei Bezug zur Thematik 'Weeks, or never' oder dem Aufwand des Portierens."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite"
+          ],
+          "einstellungen": 8,
+          "ausgenommen": [
+            4
+          ],
+          "vorgeprueft": [],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "f1f2ab2c5c849018437e59fbd02bcac25732243b35cdf178f5c1d8892cf11dbf",
+        "prompt_version": "2026-11-11.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

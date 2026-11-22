@@ -1,43 +1,6 @@
 [
  {
   "kanal": "ai-tools-explained",
-  "thema": "Can Claude really port your PS2 games to PC? The free console-skill pack and PS2Recomp - what works and what does not",
-  "eingang": "2026-11-22",
-  "id": "claude-chat-2026-11-22-ps2",
-  "quellen": [
-   {
-    "quelle": "Webseite",
-    "name": "console-skill README (GitHub, Jakeschincariol)",
-    "url": "https://github.com/Jakeschincariol/console-skill",
-    "belegt": true,
-    "text": "Official repo README (fetched 2026-11-22). A set of 11 Claude skills (slash commands /console-reverse, /console-backend, /console-graphics, /console-controller, /console-mod, /console-levels, /console-sound, /console-physics, /console-saves, /console-anywhere, /console-tester) that try to port PlayStation 2 games you own to PC. The README says it is not an emulator. It drives PS2Recomp, which translates the game's MIPS machine code into C++ that is compiled into a native program. /console-reverse dumps your own disc, finds the boot ELF and maps functions in Ghidra; backend and tester skills loop on crash logs and implement fixes in the runtime; graphics, sound, controller, physics and mod skills follow; /console-anywhere packages the build. Requirements: a PS2 game you own dumped from your own disc with a computer DVD drive; PS2Recomp cloned and built (CMake 3.20+, C++20 compiler); Ghidra recommended. The project ships no ISOs, ELFs or BIOS files. Status: the README calls it experimental; many games do not boot yet, graphics and vector-unit code are slow, large parts of the console are still stubs; some games will take weeks and some will not make it. No game is listed as working. License MIT, free, built on hkmodd/ps2-recomp-Agent-SKILL (MIT). Repo had 1 commit and about 450 stars at fetch time."
-   },
-   {
-    "quelle": "Webseite",
-    "name": "PS2Recomp README (GitHub, ran-j)",
-    "url": "https://github.com/ran-j/PS2Recomp",
-    "belegt": true,
-    "text": "Official repo README (fetched 2026-11-22). PlayStation 2 static recompiler and runtime tool to make native PC ports, labeled experimental. It statically recompiles PS2 ELF binaries into C++ and provides a runtime to execute the generated code. Modules: analyzer (scans the ELF), recompiler (decodes R5900 instructions and emits C++), runtime (memory, syscalls, hardware stubs), IOP module support. Retail games are prepared by exporting functions from Ghidra. Known limits stated in the README: performance is very bad for the VU and GS (graphics), hardware emulation is partial and many paths are stubbed. Needs CMake 3.20+ and a C++20 compiler, tested mainly with MSVC. License GPL-3.0. About 3.9k stars at fetch time. No game is listed as running."
-   },
-   {
-    "quelle": "Webseite",
-    "name": "God Hand PS2 recompiled with Claude Code (reversedwithai.com)",
-    "url": "https://reversedwithai.com/p/god-hand-ps2-recomp-claude-code",
-    "belegt": true,
-    "text": "Directory entry (fetched 2026-11-22) about LasVola/godhand-recomp, a native Windows port of the PS2 game God Hand (2006), status Partial, GPL-3.0, built with Claude Code as main builder and OpenAI Codex reviewing, using PS2Recomp. As reported from the author: fighting, bosses, saves, cutscenes and minigames work at 60 fps at 3x resolution; keyboard, mouse and controllers work. Tested into stage 3; stages 4 to 8 and the ending not played yet and may crash. Requires Windows 10/11, Visual Studio 2022 Build Tools, Python 3.10+ and your own USA disc image checked against hashes; no game files shipped. Commits 17 to 20 Oct 2026. The page notes an AI drafted the entry and figures are the author's."
-   },
-   {
-    "quelle": "Webseite",
-    "name": "Time Extension news 27 Jan 2026 on PS2Recomp",
-    "url": "https://www.timeextension.com/news/2026/01/native-pc-ports-of-ps2-games-could-be-on-the-way-thanks-to-new-recompilation-experiment",
-    "belegt": true,
-    "text": "News article by Jack Yarwood, 27 Jan 2026 (fetched 2026-11-22). PS2Recomp by Brazilian developer ran-j follows N64Recomp and XenonRecomp; it reportedly recompiles PS2 ELF binaries into C++ so code can be compiled for PC, potentially more accurate than emulation and with more modding. In January 2026 the project was in its early days and did not yet work as intended; the article says only time will tell. Snapshot from January, older than the GitHub pages."
-   }
-  ],
-  "idee_original": "Instagram post seen by the owner (22.11.): \"Claude just killed the PlayStation - 11 skills port your favourite game to PC, comment CONSOLE\". Fact-check angle: hook the big promise, then show what is true: free open-source skills exist and drive PS2Recomp; it is experimental, needs your own disc, many games do not boot; real example God Hand runs partly. Do not promise one-click ports. Use own illustrations, no game footage, no Sony or game logos."
- },
- {
-  "kanal": "ai-tools-explained",
   "thema": "https://github.com/cobanov/ps5lm (remake)",
   "eingang": "2026-11-22",
   "id": "recycling-ai-tools-explained-2026-47",

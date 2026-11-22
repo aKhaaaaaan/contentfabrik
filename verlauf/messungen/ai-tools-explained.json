@@ -1,42 +1,5 @@
 [
   {
-    "id": "41318860708",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-11-01",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sperrgruende": [
-          "Faktenpruefung fehlt oder ist nicht bestanden",
-          "Skript-Note fehlt oder ist ungueltig",
-          "Skript-Einzelbewertungen fehlen"
-        ],
-        "story_note": null,
-        "story_schwaechen": [],
-        "skript_probleme": [
-          "[second checker] Claude Code re-wrote tens of thousands of prompt-cache tokens mid-session, and wrote up to 54x more cache tokens on the same task. - The provided source text mentions that OpenCode's prefix was byte-identical and paid to cache once, but it does not contain any claim about Claude Code rewriting tokens mid-session or writing '54x more cache tokens'. This specific statistic and behavior are not supported by the supplied source excerpt.",
-          "[unsupported tool claim] Run as a standard user, that check prints an administrator-access error instead. - The source states that the setup logic assumes it can check the state without root privileges, and that on a Mac without SSH running, 'that mistake breaks the inbound access path'. It does not state that the check prints an 'administrator-access error'. The source explains that `sudo -n` fails if passwordless sudo is not configured, but does not describe the specific error output of the check itself."
-        ],
-        "sekunden": 653.8
-      },
-      {
-        "runde": 2,
-        "art": "produktion",
-        "status": "auftragsfehler",
-        "exitcode": 5,
-        "grund": "Auftrag zu gross: geschaetzte Reserve 9149 Tokens, maximal7900",
-        "sekunden": 330.1
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Auftrag zu gross: geschaetzte Reserve 9149 Tokens, maximal7900",
-    "sekunden": 1015.3
-  },
-  {
     "id": "41321109611",
     "kanal": "ai-tools-explained",
     "datum": "2026-11-01",
@@ -9395,5 +9358,192 @@
     "thema_eingabe": "cobanov/ps5lm (remake)",
     "grund": "RuntimeError: Keine belegte KI-Anwendung gefunden; keine unbelegte Skriptanfrage (skript.py:870)",
     "sekunden": 4.0
+  },
+  {
+    "id": "45015016730",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-11-22",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-Note 5/10 unter 7/10",
+          "Skript-hook 5/10 unter 7/10",
+          "Skript-spannung 6/10 unter 7/10",
+          "Skript-ueberraschung 6/10 unter 7/10",
+          "Skript-tempo 5/10 unter 7/10",
+          "Skript-aufloesung 6/10 unter 7/10",
+          "Skript-teilbarkeit 5/10 unter 6/10"
+        ],
+        "story_note": 5,
+        "story_schwaechen": [
+          "\"Eleven free Claude skills try.\" is grammatically broken and stutters after the opening sentence, slowing down spoken rhythm in the first five seconds. Fix by rewriting the opening to state the core premise smoothly: \"Eleven free Claude skills claim to run PS2 games on PC, but there's a catch.\""
+        ],
+        "skript_probleme": [],
+        "sekunden": 487.9
+      },
+      {
+        "runde": 2,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-hook 6/10 unter 7/10"
+        ],
+        "story_note": 7,
+        "story_schwaechen": [
+          "Sentence: \"Your PS2 disc, ported to PC? Eleven free Claude skills try.\" - Grammatically awkward phrasing creates an unnatural spoken rhythm in the first three seconds. Fix: Rephrase to \"Can your PS2 disc be ported to PC? Eleven free Claude skills are attempting it.\""
+        ],
+        "skript_probleme": [],
+        "sekunden": 162.9
+      },
+      {
+        "runde": 3,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 3,
+        "grund": "Skriptqualitaet unter Freigabe",
+        "sperrgruende": [
+          "Skript-Note 6/10 unter 7/10",
+          "Skript-hook 5/10 unter 7/10",
+          "Skript-spannung 6/10 unter 7/10",
+          "Skript-tempo 6/10 unter 7/10",
+          "Skript-aufloesung 6/10 unter 7/10"
+        ],
+        "story_note": 6,
+        "story_schwaechen": [
+          "Sentence 'Claude drives experimental PS2 porting tools.' lacks a clear curiosity gap or strong emotional hook, making the opening feel neutral and flat. A strong hook should highlight the challenge or surprise immediately.",
+          "Sentence 'Claude drives, but some games still won't make it.' creates a repetitive stutter when looping directly back into the opening line 'Claude drives experimental PS2 porting tools.' Adjust the final wording so the replay transition flows naturally without repeating identical opening words."
+        ],
+        "skript_probleme": [],
+        "sekunden": 225.3
+      },
+      {
+        "runde": 4,
+        "art": "produktion",
+        "skript_s": 196.3,
+        "bau_s": 611.4,
+        "pruefung_s": 33.7,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine allgemeine Warnung und Text zur Ankündigung, aber nicht die im Text erwähnten PS2-Spiele oder den Code-Konvertierungsprozess.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen, dass viele Spiele nicht starten und die Grafik hakt, während das Bild lediglich eine Repository-Übersicht zeigt, aber nicht das konkrete Problem oder die genannte Grafikdemonstration.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Chat-Oberfläche mit der Frage passt nicht zur eigentlichen Ausführung oder dem Ergebnis der PlayStation-2-Portierung, sondern zeigt lediglich eine Chat-Frage.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine generische animierte Figur und Textbausteine, aber keinerlei Bezug zur Thematik 'Weeks, or never' oder dem Aufwand des Portierens.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Warnung und Text zur Ankündigung, aber nicht die im Text erwähnten PS2-Spiele oder den Code-Konvertierungsprozess. Korrektur: Ein Screenshot, der den Start oder die Benutzeroberfläche des erwähnten Tools PS2Recomp oder den Code-Portierungsprozess zeigt.",
+          "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen, dass viele Spiele nicht starten und die Grafik hakt, während das Bild lediglich eine Repository-Übersicht zeigt, aber nicht das konkrete Problem oder die genannte Grafikdemonstration. Korrektur: Ein Gameplay-Ausschnitt oder eine Fehlermeldung eines nicht startenden PS2-Spiels auf dem PC.",
+          "Offenes Problem (schwer): Die gezeigte Chat-Oberfläche mit der Frage passt nicht zur eigentlichen Ausführung oder dem Ergebnis der PlayStation-2-Portierung, sondern zeigt lediglich eine Chat-Frage. Korrektur: Ein Bild, das den Recompilation-Prozess oder ein fehlerhaftes Spiel zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt eine generische animierte Figur und Textbausteine, aber keinerlei Bezug zur Thematik 'Weeks, or never' oder dem Aufwand des Portierens. Korrektur: Ein Zeitraffer oder eine Grafik, die den langwierigen Prozess des Programmierens oder Kompilierens darstellt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 18.9,
+          "zeitmarken": 2.7,
+          "tempo": 1.035,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 8,
+          "bilder_vereinfacht": 1,
+          "clips_und_stuecke": 502.6,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 8,
+            "motive": 8,
+            "motive_min": 4
+          },
+          "effekte": 10,
+          "rendern": 21.2,
+          "gesamt": 611.1,
+          "videolaenge_s": 25.0,
+          "abschnitte_s": [
+            6.28,
+            4.9,
+            5.54,
+            3.54,
+            4.75
+          ],
+          "woerter": 60,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:03.14",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Claude's free skills try. The catch? Brutal.",
+            "fest": true,
+            "text": "Das Bild zeigt lediglich eine allgemeine Warnung und Text zur Ankündigung, aber nicht die im Text erwähnten PS2-Spiele oder den Code-Konvertierungsprozess. Korrektur: Ein Screenshot, der den Start oder die Benutzeroberfläche des erwähnten Tools PS2Recomp oder den Code-Portierungsprozess zeigt."
+          },
+          {
+            "zeit": "00:16.72",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 5,
+            "gesprochen": "So why not all? Many games won't boot; graphics crawl.",
+            "fest": false,
+            "text": "Die gesprochenen Wörter erwähnen, dass viele Spiele nicht starten und die Grafik hakt, während das Bild lediglich eine Repository-Übersicht zeigt, aber nicht das konkrete Problem oder die genannte Grafikdemonstration. Korrektur: Ein Gameplay-Ausschnitt oder eine Fehlermeldung eines nicht startenden PS2-Spiels auf dem PC."
+          },
+          {
+            "zeit": "00:20.26",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 6,
+            "gesprochen": "That PS2 disc?",
+            "fest": false,
+            "text": "Die gezeigte Chat-Oberfläche mit der Frage passt nicht zur eigentlichen Ausführung oder dem Ergebnis der PlayStation-2-Portierung, sondern zeigt lediglich eine Chat-Frage. Korrektur: Ein Bild, das den Recompilation-Prozess oder ein fehlerhaftes Spiel zeigt."
+          },
+          {
+            "zeit": "00:23.10",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 7,
+            "gesprochen": "Weeks, or never.",
+            "fest": false,
+            "text": "Das Bild zeigt eine generische animierte Figur und Textbausteine, aber keinerlei Bezug zur Thematik 'Weeks, or never' oder dem Aufwand des Portierens. Korrektur: Ein Zeitraffer oder eine Grafik, die den langwierigen Prozess des Programmierens oder Kompilierens darstellt."
+          }
+        ],
+        "sekunden": 841.9,
+        "status": "geprueft"
+      },
+      {
+        "runde": 5,
+        "art": "korrektur",
+        "status": "keine_korrektur",
+        "sekunden": 0.1
+      }
+    ],
+    "status": "gesendet",
+    "thema_eingabe": "Can Claude really port your PS2 games to PC? The free console-skill pack and PS2Recomp - what works and what does not",
+    "grund": "",
+    "sekunden": 1731.5,
+    "upload_titel": "PS2 DISC TO PC GAME? CLAUDE'S FREE SKILLS | AI Tool #43b"
   }
 ]

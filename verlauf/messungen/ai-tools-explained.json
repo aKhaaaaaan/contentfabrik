@@ -1,123 +1,5 @@
 [
   {
-    "id": "41288676252",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-11-01",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "skript_s": 342.8,
-        "bau_s": 753.0,
-        "pruefung_s": 35.2,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Bewertung hook fehlt oder ist ungueltig",
-          "Video-bild_passt 2/10 unter 7/10",
-          "Video-Bewertung dynamik fehlt oder ist ungueltig",
-          "Video-Bewertung text fehlt oder ist ungueltig",
-          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
-          "Video-Bewertung tempo fehlt oder ist ungueltig",
-          "Video-Bewertung inhalt fehlt oder ist ungueltig",
-          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
-          "Video-Bewertung regeln fehlt oder ist ungueltig",
-          "Video-Bewertung story fehlt oder ist ungueltig",
-          "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich einen präsentierenden Mann vor einer abstrakten Grafik und demonstriert weder Claude Projects noch den erwähnten Haken.",
-          "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich eine Person beim Sortieren von physischen Karten, während im gesprochenen Text die Nutzung einer KI-Wissensbasis (Claude Projects) erklärt wird. Es ist kein Software-Interface oder eine digitale Wissensbasis zu sehen.",
-          "Einstellung 11: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt lediglich grafische Textgrafiken mit Schlagworten, aber keine sichtbare Bedienoberfläche oder Funktion von Claude Projects, die das Hochladen eines Briefings demonstrieren.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich einen präsentierenden Mann vor einer abstrakten Grafik und demonstriert weder Claude Projects noch den erwähnten Haken. Korrektur: Ein Screenshot der Claude Projects Benutzeroberfläche, die das Erstellen eines Projekts oder den Hinweis auf das Limit zeigt.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich eine Person beim Sortieren von physischen Karten, während im gesprochenen Text die Nutzung einer KI-Wissensbasis (Claude Projects) erklärt wird. Es ist kein Software-Interface oder eine digitale Wissensbasis zu sehen. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, die den Bereich für Projekte und Wissensbasen zeigt.",
-          "Offenes Problem (schwer): Das Bild zeigt lediglich grafische Textgrafiken mit Schlagworten, aber keine sichtbare Bedienoberfläche oder Funktion von Claude Projects, die das Hochladen eines Briefings demonstrieren. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der das Erstellen eines Projekts und das Hochladen von Dokumenten in den Knowledge Base-Bereich zeigt."
-        ],
-        "messung": {
-          "stimme_wiederverwendet": false,
-          "erzaehlstimme": "gemini:Puck",
-          "stimme": 22.5,
-          "zeitmarken": 6.1,
-          "tempo": 1.126,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 0,
-          "stuecke_neu": 13,
-          "bilder_vereinfacht": 1,
-          "clips_und_stuecke": 540.4,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 13,
-            "motive": 13,
-            "motive_min": 8
-          },
-          "effekte": 10,
-          "rendern": 40.8,
-          "gesamt": 752.6,
-          "videolaenge_s": 45.0,
-          "abschnitte_s": [
-            7.98,
-            6.5,
-            7.16,
-            6.2,
-            6.12,
-            6.64,
-            4.41
-          ],
-          "woerter": 133,
-          "clips": {
-            "witz": 0,
-            "archiv": 0
-          }
-        },
-        "kategorien": {
-          "bild_passt": 2
-        },
-        "probleme": [
-          {
-            "zeit": "00:04.72",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 0,
-            "einstellung": 1,
-            "gesprochen": "Claude Projects fixes that, but one catch waits at the end.",
-            "fest": true,
-            "text": "Das Bild zeigt lediglich einen präsentierenden Mann vor einer abstrakten Grafik und demonstriert weder Claude Projects noch den erwähnten Haken. Korrektur: Ein Screenshot der Claude Projects Benutzeroberfläche, die das Erstellen eines Projekts oder den Hinweis auf das Limit zeigt."
-          },
-          {
-            "zeit": "00:33.96",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 5,
-            "einstellung": 10,
-            "gesprochen": "Claude uses the knowledge base as context for chats within that project.",
-            "fest": true,
-            "text": "Das Bild zeigt lediglich eine Person beim Sortieren von physischen Karten, während im gesprochenen Text die Nutzung einer KI-Wissensbasis (Claude Projects) erklärt wird. Es ist kein Software-Interface oder eine digitale Wissensbasis zu sehen. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, die den Bereich für Projekte und Wissensbasen zeigt."
-          },
-          {
-            "zeit": "00:38.38",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 5,
-            "einstellung": 11,
-            "gesprochen": "Upload the briefing once; stop pasting.",
-            "fest": true,
-            "text": "Das Bild zeigt lediglich grafische Textgrafiken mit Schlagworten, aber keine sichtbare Bedienoberfläche oder Funktion von Claude Projects, die das Hochladen eines Briefings demonstrieren. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der das Erstellen eines Projekts und das Hochladen von Dokumenten in den Knowledge Base-Bereich zeigt."
-          }
-        ],
-        "sekunden": 1131.1,
-        "status": "geprueft"
-      },
-      {
-        "runde": 2,
-        "art": "korrektur",
-        "status": "keine_korrektur",
-        "sekunden": 0.1
-      }
-    ],
-    "status": "gesendet",
-    "trendcheck": "Claude-Redaktion (Plan vom 2026-10-31): Claude: I’m Begging You to Sell PDFs Made With Claude 💵: 5.0 Punkte - YouTube-Ausreisser 71.0x Kanalschnitt, Format Geld verdienen",
-    "grund": "",
-    "sekunden": 1169.2,
-    "upload_titel": "CLAUDE PROJECTS: STOP RE-EXPLAINING | AI Tool #22"
-  },
-  {
     "id": "41318860708",
     "kanal": "ai-tools-explained",
     "datum": "2026-11-01",
@@ -9462,5 +9344,56 @@
     "thema_eingabe": "cobanov/ps5lm (remake)",
     "grund": "RuntimeError: Keine belegte KI-Anwendung gefunden; keine unbelegte Skriptanfrage (skript.py:870)",
     "sekunden": 3.8
+  },
+  {
+    "id": "45013644706",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-11-22",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 1,
+        "grund": "RuntimeError: Keine belegte KI-Anwendung gefunden; keine unbelegte Skriptanfrage (skript.py:870)",
+        "sekunden": 1.0
+      },
+      {
+        "runde": 2,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 1,
+        "grund": "RuntimeError: Keine belegte KI-Anwendung gefunden; keine unbelegte Skriptanfrage (skript.py:870)",
+        "sekunden": 0.8
+      },
+      {
+        "runde": 3,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 1,
+        "grund": "RuntimeError: Keine belegte KI-Anwendung gefunden; keine unbelegte Skriptanfrage (skript.py:870)",
+        "sekunden": 0.8
+      },
+      {
+        "runde": 4,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 1,
+        "grund": "RuntimeError: Keine belegte KI-Anwendung gefunden; keine unbelegte Skriptanfrage (skript.py:870)",
+        "sekunden": 0.7
+      },
+      {
+        "runde": 5,
+        "art": "produktion",
+        "status": "skriptfehler",
+        "exitcode": 1,
+        "grund": "RuntimeError: Keine belegte KI-Anwendung gefunden; keine unbelegte Skriptanfrage (skript.py:870)",
+        "sekunden": 0.7
+      }
+    ],
+    "status": "gesperrt",
+    "thema_eingabe": "cobanov/ps5lm (remake)",
+    "grund": "RuntimeError: Keine belegte KI-Anwendung gefunden; keine unbelegte Skriptanfrage (skript.py:870)",
+    "sekunden": 4.0
   }
 ]

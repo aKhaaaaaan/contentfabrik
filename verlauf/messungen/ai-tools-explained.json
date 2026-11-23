@@ -1,53 +1,5 @@
 [
   {
-    "id": "41321109611",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-11-01",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "anbieterpause",
-        "exitcode": 4,
-        "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq HTTP400: Modell lieferte keine gueltige Schema-Antwort",
-        "sekunden": 858.4
-      },
-      {
-        "runde": 2,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sperrgruende": [
-          "Faktenpruefung fehlt oder ist nicht bestanden",
-          "Skript-Note fehlt oder ist ungueltig",
-          "Skript-Einzelbewertungen fehlen"
-        ],
-        "story_note": null,
-        "story_schwaechen": [],
-        "skript_probleme": [
-          "[second checker] One small task cost 121,000 tokens done directly. Fanned out to two subagents, it cost 513,000. - The source text does not contain the specific token counts of 121,000 or 513,000 for a subagent comparison. It only states that the parent ingests results and discusses general token overhead, but these specific numbers are invented or from a part of the source not provided.",
-          "[second checker] Claude Code, by contrast, re-wrote tens of thousands of cache tokens mid-session. On the same task it wrote up to 54x more cache tokens than OpenCode. - The source text does not mention Claude Code rewriting cache tokens mid-session, nor does it provide a '54x' comparison for cache tokens. It only mentions that OpenCode's prefix was byte-identical and paid to cache once. The specific behavior and multiplier for Claude Code are not supported by the provided source.",
-          "[unsupported tool claim] The Windows path has its own bug: a helper hardcodes /bin/sh. - The source text mentions 'a few implementation bugs on the other platforms' but does not specify that a helper hardcodes '/bin/sh' on Windows. This specific technical detail is not present in the provided source.",
-          "[unsupported tool claim] Cache writes are billed at a premium, the page says. - The source text states that OpenCode 'paid to cache its payload once per session and read it back for pennies,' but it does not explicitly state that cache writes are 'billed at a premium' in general terms, nor does it attribute this specific billing structure statement to the page in the provided excerpt. The text focuses on the token count difference, not the billing rate of cache writes specifically.",
-          "[unsupported tool claim] The page says to check the public-key fingerprint, not just the svc-telemetry comment. - The source text does not mention checking a 'public-key fingerprint' or a 'svc-telemetry comment'. It only advises reviewing environments for use of the extension and engaging incident response. This specific forensic instruction is not in the source."
-        ],
-        "sekunden": 674.6
-      },
-      {
-        "runde": 3,
-        "art": "produktion",
-        "status": "anbieterpause",
-        "exitcode": 4,
-        "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq HTTP400: Modell lieferte keine gueltige Schema-Antwort",
-        "sekunden": 511.6
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq HTTP400: Modell lieferte keine gueltige Schema-Antwort",
-    "sekunden": 2052.5
-  },
-  {
     "id": "41333732613",
     "kanal": "ai-tools-explained",
     "datum": "2026-11-01",
@@ -9545,5 +9497,121 @@
     "grund": "",
     "sekunden": 1731.5,
     "upload_titel": "PS2 DISC TO PC GAME? CLAUDE'S FREE SKILLS | AI Tool #43b"
+  },
+  {
+    "id": "45138255563",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-11-23",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 341.3,
+        "pruefung_s": 19.4,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 3/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen den Text 'Limited, desktop app' und eine Preistabelle, aber auf dem Monitor ist kein entsprechender Text oder eine Preistabelle zu sehen.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Worte erwahnen Desktop, Web und Mobil, aber das Bild zeigt lediglich einen Mann an mehreren Computern ohne spezifische Darstellung von Desktop-, Web- und Mobil-Plattformen.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Mann und ein Buffet, aber kein Schild oder eine Markierung mit dem Wort Limited wie im Text gesprochen.",
+          "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen den Text 'Limited, desktop app' und eine Preistabelle, aber auf dem Monitor ist kein entsprechender Text oder eine Preistabelle zu sehen. Korrektur: Ein Screenshot der Preistabelle mit dem markierten Wort 'Limited' und dem Verweis auf die Desktop-App.",
+          "Offenes Problem (schwer): Die gesprochenen Worte erwahnen Desktop, Web und Mobil, aber das Bild zeigt lediglich einen Mann an mehreren Computern ohne spezifische Darstellung von Desktop-, Web- und Mobil-Plattformen. Korrektur: Eine Grafik oder ein Bildschirm, das explizit Desktop-, Web- und Mobil-Symbole oder Plattformen auflistet.",
+          "Offenes Problem (schwer): Das Bild zeigt einen Mann und ein Buffet, aber kein Schild oder eine Markierung mit dem Wort Limited wie im Text gesprochen. Korrektur: Ein Buffet oder eine Speisekarte, auf der deutlich das Wort Limited zu sehen ist."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 23.1,
+          "zeitmarken": 2.6,
+          "tempo": 1.0,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 7,
+          "bilder_vereinfacht": 1,
+          "clips_und_stuecke": 227.0,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 7,
+            "motive": 7,
+            "motive_min": 4
+          },
+          "effekte": 8,
+          "rendern": 23.1,
+          "gesamt": 340.9,
+          "videolaenge_s": 21.9,
+          "abschnitte_s": [
+            6.54,
+            5.22,
+            3.76,
+            3.7,
+            2.72
+          ],
+          "woerter": 56,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 3
+        },
+        "probleme": [
+          {
+            "zeit": "00:06.54",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "Which word? Free's Work row says Limited, desktop app.",
+            "fest": false,
+            "text": "Die gesprochenen Wörter erwähnen den Text 'Limited, desktop app' und eine Preistabelle, aber auf dem Monitor ist kein entsprechender Text oder eine Preistabelle zu sehen. Korrektur: Ein Screenshot der Preistabelle mit dem markierten Wort 'Limited' und dem Verweis auf die Desktop-App."
+          },
+          {
+            "zeit": "00:11.76",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Plus lists Desktop, web, and mobile.",
+            "fest": true,
+            "text": "Die gesprochenen Worte erwahnen Desktop, Web und Mobil, aber das Bild zeigt lediglich einen Mann an mehreren Computern ohne spezifische Darstellung von Desktop-, Web- und Mobil-Plattformen. Korrektur: Eine Grafik oder ein Bildschirm, das explizit Desktop-, Web- und Mobil-Symbole oder Plattformen auflistet."
+          },
+          {
+            "zeit": "00:19.22",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 6,
+            "gesprochen": "So the buffet serves a plate marked Limited.",
+            "fest": false,
+            "text": "Das Bild zeigt einen Mann und ein Buffet, aber kein Schild oder eine Markierung mit dem Wort Limited wie im Text gesprochen. Korrektur: Ein Buffet oder eine Speisekarte, auf der deutlich das Wort Limited zu sehen ist."
+          }
+        ],
+        "sekunden": 364.6,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "status": "keine_korrektur",
+        "sekunden": 0.1
+      }
+    ],
+    "status": "gesendet",
+    "thema_eingabe": "ChatGPT agent: what an AI agent can do for a small business",
+    "grund": "",
+    "sekunden": 402.2,
+    "upload_titel": "FREE CHATGPT WORK? ONE WORD SAYS LIMITED | AI Tool #44b"
   }
 ]

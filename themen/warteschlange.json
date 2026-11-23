@@ -45,6 +45,36 @@
   "idee_original": "YouTube tutorial seen by the owner (23.11.): \"I created this video entirely with Claude Code without spending a single dollar\" using Three.js + Remotion + a plugin from the description, voice from ElevenLabs. Fact-check angle: the technique is real (Remotion officially supports Claude Code with Agent Skills, free license for individuals and teams up to 3), but \"zero dollars\" is wrong: coding agents mostly need a paid subscription, and ElevenLabs free-plan voices may not be used commercially (attribution in the title required). Do not name or show the tutorial creator, no claims about other channels' views. Own illustrations only."
  },
  {
+  "kanal": "ai-tools-explained",
+  "thema": "youtube-agent-skill: 11 free Claude skills for YouTube - what they really do and what they cannot do",
+  "eingang": "2026-11-23",
+  "id": "claude-chat-2026-11-23-ytskill",
+  "quellen": [
+   {
+    "quelle": "Webseite",
+    "name": "youtube-agent-skill README (GitHub, Jakeschincariol)",
+    "url": "https://github.com/Jakeschincariol/youtube-agent-skill",
+    "belegt": true,
+    "text": "Official repo README (fetched 2026-11-23). Eleven Claude skills for a YouTube channel, free, MIT license, no signup, no API key. /yt-script writes five hooks from 21 hook formulas, scores them, then the script; /yt-package lints title and thumbnail as one pairing; /yt-edit turns a transcript into an edit decision list; /yt-comment triages comments; /yt-plan plans a week; /yt-viral ranks videos in a niche by how far each beat its own channel median; /yt-retention reads the YouTube Studio audience-retention export and reports hook leak (loss in the first 30 seconds), cliffs (steep drops) and slide; /yt-shorts finds Shorts inside a long video; /yt-seo; /yt-chapters; /yt-audit ends in one fix. Six small Python tools without dependencies. Install by pasting the GitHub link into Claude or copying the skill folders. The README stresses: nothing gets published until you do it - the skills write, you upload. Repo history: a single commit dated 2026-09-16."
+   },
+   {
+    "quelle": "Webseite",
+    "name": "youtube-agent-skill hooks.json (21 hook formulas)",
+    "url": "https://github.com/Jakeschincariol/youtube-agent-skill/blob/main/skills/yt-script/hooks.json",
+    "belegt": true,
+    "text": "Repo file (fetched 2026-11-23). Defines 21 hook formulas (for example The Statistic, The Mistake, Contrarian Flip, The Reveal, The Clock, I Tried It, The Question, Before and After, The Warning, The List, The Comparison, The Deadline, The Direct Address), each with shape, example and failure mode. Rules listed: confirm the title in the first sentence; one idea per hook; specific beats big; show the promised artifact inside 20 seconds; never open with who you are. The repo itself notes that matching a title to a formula is a judgement about the title, not a claim about why the video worked."
+   },
+   {
+    "quelle": "Webseite",
+    "name": "youtube-agent-skill yt-retention SKILL.md",
+    "url": "https://github.com/Jakeschincariol/youtube-agent-skill/blob/main/skills/yt-retention/SKILL.md",
+    "belegt": true,
+    "text": "Repo file (fetched 2026-11-23). The retention skill reads the audience-retention CSV you download yourself in YouTube Studio (Analytics, Engagement, audience-retention chart, download). It reports hook leak (under 25 percent lost in the first 30 seconds is called healthy), cliffs (single steep drops, with the words spoken there if a transcript is given) and slide (steady loss across the middle). Nothing is published by the skill."
+   }
+  ],
+  "idee_original": "TikTok seen by the owner (23.11.): \"Claude just killed YouTube with a free skill that runs your channel - 11 skills, 6,000 GitHub stars, no API key, comment GUIDE\". Fact-check angle: the skills are real, free and MIT, and some are genuinely useful (retention export reader shows the exact second viewers leave; viral ranking by multiple over channel median). But they do not run a channel: they write advice and drafts, you still record, edit and upload, and you need a Claude subscription. Stars measure hype, not quality. Do not name or show the TikTok creator; own illustrations only."
+ },
+ {
   "kanal": "business-origin-stories",
   "thema": "FiveM: the GTA roleplay mod with 250,000 players that Rockstar bought in 2023",
   "wikipedia": "Grand Theft Auto modding",

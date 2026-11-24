@@ -1,73 +1,5 @@
 [
   {
-    "id": "41799153257",
-    "kanal": "business-origin-stories",
-    "datum": "2026-11-04",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 1,
-        "grund": "RuntimeError: Sprechtextreparatur verliert Phasen oder enthaelt leeren Text (skript.py:157)",
-        "sekunden": 158.4
-      },
-      {
-        "runde": 2,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 1,
-        "grund": "RuntimeError: Sprechtextreparatur verliert Phasen oder enthaelt leeren Text (skript.py:157)",
-        "sekunden": 1.1
-      },
-      {
-        "runde": 3,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 3,
-        "grund": "Skriptqualitaet unter Freigabe",
-        "sperrgruende": [
-          "Skript-Note 4/10 unter 7/10",
-          "Skript-hook 4/10 unter 7/10",
-          "Skript-spannung 4/10 unter 7/10",
-          "Skript-ueberraschung 4/10 unter 7/10",
-          "Skript-tempo 5/10 unter 7/10",
-          "Skript-aufloesung 5/10 unter 7/10",
-          "Skript-teilbarkeit 4/10 unter 6/10"
-        ],
-        "story_note": 4,
-        "story_schwaechen": [
-          "First sentence fails to create a curiosity gap; it merely states facts. Consider opening with a surprising claim such as ‘Did you know the company that began as a small chip maker now dominates the GPU market?’ using the same historical facts.",
-          "The narration lacks clear beat structure, so viewers lose track of what new information is revealed each part. Add simple transitions like ‘Next…’ or ‘Meanwhile’ to signal each new beat while keeping the story concise."
-        ],
-        "skript_probleme": [],
-        "sekunden": 522.5
-      },
-      {
-        "runde": 4,
-        "art": "produktion",
-        "status": "anbieterpause",
-        "exitcode": 4,
-        "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq-Kontingent nicht verfuegbar: HTTP429; Serverfrist 1692s",
-        "sekunden": 59.6
-      },
-      {
-        "runde": 5,
-        "art": "produktion",
-        "skript_s": 95.1,
-        "bau_s": 93.2,
-        "baufehler": "ValueError: Bildtext zu lang fuer lesbare Darstellung",
-        "status": "baufehler",
-        "sekunden": 188.3
-      }
-    ],
-    "status": "gesperrt",
-    "trendcheck": "AMD: 6.89 Punkte - YouTube-Ausreisser 7.4x Kanalschnitt, Wikipedia -16 % gegenueber Vormonat, heute in Google News (AMD Stock Jumps on Big Earnings Beat)",
-    "grund": "Videobau fehlgeschlagen (ValueError: Bildtext zu lang fuer lesbare Darstellung)",
-    "sekunden": 931.8,
-    "upload_titel": "How AMD Survived By Cloning Rival Microchips"
-  },
-  {
     "id": "41811670856",
     "kanal": "business-origin-stories",
     "datum": "2026-11-04",
@@ -20286,5 +20218,301 @@
     "grund": "",
     "sekunden": 1265.4,
     "upload_titel": "PIZZA CAR BEFORE WAYMO: GOOGLE WANTED NO PART"
+  },
+  {
+    "id": "45302015572",
+    "kanal": "business-origin-stories",
+    "datum": "2026-11-24",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 1206.2,
+        "pruefung_s": 209.3,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar Äpfel und einen Apfelbaum als Anspielung auf Apple, aber die im Text erwähnte geschichtliche Handlung des Verkaufs von Anteilen für 800 Dollar wird nicht dargestellt.",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte handeln davon, dass ein Mitgründer seinen Apple-Anteil zwölf Tage nach der Gründung verkaufte. Das Bild zeigt lediglich einen freundlichen Handwerker oder Arbeiter in einer Werkstatt, was in keinerlei direktem Bezug zu den historischen Fakten des Apple-Gründungszeitraums steht",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine allgemeine Szene eines schockierten Mannes, die in keinerlei Zusammenhang mit dem Verkauf von Besitztümern oder dem Sammeln von Kapital für den Apple I steht.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine generische Gruppe von Geschäftsleuten in einer Besprechung, was den Inhalt der Erzählung über die Geldbeschaffung von Apple-Gründern nicht illustriert oder dokumentiert.",
+          "Offenes Problem (schwer): Das Bild zeigt zwar Äpfel und einen Apfelbaum als Anspielung auf Apple, aber die im Text erwähnte geschichtliche Handlung des Verkaufs von Anteilen für 800 Dollar wird nicht dargestellt. Korrektur: Eine historische Illustration oder Darstellung von zwei Personen in einer Garage oder Werkstatt, die Aktienpapiere oder Geld übergeben.",
+          "Offenes Problem (schwer): Die gesprochenen Worte handeln davon, dass ein Mitgründer seinen Apple-Anteil zwölf Tage nach der Gründung verkaufte. Das Bild zeigt lediglich einen freundlichen Handwerker oder Arbeiter in einer Werkstatt, was in keinerlei direktem Bezug zu den historischen Fakten des Apple-Gründungszeitraums steht. Korrektur: Ein historisches Dokument oder eine Illustration, die die frühe Apple-Gründungsphase oder den Verkauf der Anteile darstellt.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Szene eines schockierten Mannes, die in keinerlei Zusammenhang mit dem Verkauf von Besitztümern oder dem Sammeln von Kapital für den Apple I steht. Korrektur: Eine historische Darstellung von Steve Jobs und Steve Wozniak, die Gegenstände wie einen VW-Bus oder einen HP-65 Taschenrechner verkaufen, um Geld für die Finanzierung des ersten Apple-Computers aufzubringen.",
+          "Offenes Problem (schwer): Das Bild zeigt eine generische Gruppe von Geschäftsleuten in einer Besprechung, was den Inhalt der Erzählung über die Geldbeschaffung von Apple-Gründern nicht illustriert oder dokumentiert. Korrektur: Ein historisches Foto oder eine Darstellung der Apple-Gründer Steve Jobs und Steve Wozniak, die Werkzeuge oder erste Komponenten des Apple I zusammensetzen oder ihre Habseligkeiten verkaufen."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "kokoro:bm_george",
+          "stimme": 50.7,
+          "zeitmarken": 4.1,
+          "tempo": 1.25,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 14,
+          "bilder_vereinfacht": 4,
+          "clips_und_stuecke": 929.6,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 14,
+            "motive": 13,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 63.4,
+          "gesamt": 1205.8,
+          "videolaenge_s": 50.3,
+          "abschnitte_s": [
+            7.8,
+            8.02,
+            6.22,
+            4.75,
+            7.01,
+            10.52,
+            5.95
+          ],
+          "woerter": 103,
+          "clips": {
+            "witz": 2,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "One co-founder sold his Apple stake for $800.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar Äpfel und einen Apfelbaum als Anspielung auf Apple, aber die im Text erwähnte geschichtliche Handlung des Verkaufs von Anteilen für 800 Dollar wird nicht dargestellt. Korrektur: Eine historische Illustration oder Darstellung von zwei Personen in einer Garage oder Werkstatt, die Aktienpapiere oder Geld übergeben."
+          },
+          {
+            "zeit": "00:04.40",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "Just twelve days after Apple began.",
+            "fest": false,
+            "text": "Die gesprochenen Worte handeln davon, dass ein Mitgründer seinen Apple-Anteil zwölf Tage nach der Gründung verkaufte. Das Bild zeigt lediglich einen freundlichen Handwerker oder Arbeiter in einer Werkstatt, was in keinerlei direktem Bezug zu den historischen Fakten des Apple-Gründungszeitraums steht. Korrektur: Ein historisches Dokument oder eine Illustration, die die frühe Apple-Gründungsphase oder den Verkauf der Anteile darstellt."
+          },
+          {
+            "zeit": "00:15.82",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Neither got the full price.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine allgemeine Szene eines schockierten Mannes, die in keinerlei Zusammenhang mit dem Verkauf von Besitztümern oder dem Sammeln von Kapital für den Apple I steht. Korrektur: Eine historische Darstellung von Steve Jobs und Steve Wozniak, die Gegenstände wie einen VW-Bus oder einen HP-65 Taschenrechner verkaufen, um Geld für die Finanzierung des ersten Apple-Computers aufzubringen."
+          },
+          {
+            "zeit": "00:17.72",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 5,
+            "gesprochen": "Together they raised $1,300 for the Apple I.",
+            "fest": false,
+            "text": "Das Bild zeigt eine generische Gruppe von Geschäftsleuten in einer Besprechung, was den Inhalt der Erzählung über die Geldbeschaffung von Apple-Gründern nicht illustriert oder dokumentiert. Korrektur: Ein historisches Foto oder eine Darstellung der Apple-Gründer Steve Jobs und Steve Wozniak, die Werkzeuge oder erste Komponenten des Apple I zusammensetzen oder ihre Habseligkeiten verkaufen."
+          }
+        ],
+        "sekunden": 1419.1,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 2
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bm_george",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            0,
+            2
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-11-11.2"
+        },
+        "skript_s": 2.6,
+        "bau_s": 540.6,
+        "pruefung_s": 88.5,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar Äpfel und einen Apfelbaum als Anspielung auf Apple, aber die im Text erwähnte geschichtliche Handlung des Verkaufs von Anteilen für 800 Dollar wird nicht dargestellt.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine allgemeine Szene eines schockierten Mannes, die in keinerlei Zusammenhang mit dem Verkauf von Besitztümern oder dem Sammeln von Kapital für den Apple I steht.",
+          "Einstellung 10: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine Gruppe von Geschäftsleuten, die eine allgemeine Geschäftssituation darstellen. Es fehlen jedoch konkrete visuelle Hinweise auf den spezifischen finanziellen Kontext der Erzählung, wie z. B. Börsenkurse, den Wert von 1,778 Milliarden Dollar oder den Bezug zum Jahr 1980. Die Szene ",
+          "Offenes Problem (schwer): Das Bild zeigt zwar Äpfel und einen Apfelbaum als Anspielung auf Apple, aber die im Text erwähnte geschichtliche Handlung des Verkaufs von Anteilen für 800 Dollar wird nicht dargestellt. Korrektur: Eine historische Illustration oder Darstellung von zwei Personen in einer Garage oder Werkstatt, die Aktienpapiere oder Geld übergeben.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Szene eines schockierten Mannes, die in keinerlei Zusammenhang mit dem Verkauf von Besitztümern oder dem Sammeln von Kapital für den Apple I steht. Korrektur: Eine historische Darstellung von Steve Jobs und Steve Wozniak, die Gegenstände wie einen VW-Bus oder einen HP-65 Taschenrechner verkaufen, um Geld für die Finanzierung des ersten Apple-Computers aufzubringen.",
+          "Offenes Problem (schwer): Das Bild zeigt eine Gruppe von Geschäftsleuten, die eine allgemeine Geschäftssituation darstellen. Es fehlen jedoch konkrete visuelle Hinweise auf den spezifischen finanziellen Kontext der Erzählung, wie z. B. Börsenkurse, den Wert von 1,778 Milliarden Dollar oder den Bezug zum Jahr 1980. Die Szene ist zu generisch und illustriert nicht den konkreten Wertanstieg, der im Text genannt wird. Korrektur: Ein Bild, das den Wertanstieg visualisiert, z. B. eine Börsentafel mit steigenden Kursen, ein Diagramm mit den Werten 800 Dollar und 1,778 Milliarden Dollar oder eine Illustration, die den Kontrast zwischen dem kleinen Verkauf und dem späteren Unternehmenswert zeigt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "kokoro:bm_george",
+          "stimme": 50.2,
+          "zeitmarken": 3.9,
+          "tempo": 1.25,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 9,
+          "stuecke_neu": 5,
+          "bilder_vereinfacht": 1,
+          "clips_und_stuecke": 282.8,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 14,
+            "motive": 13,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 65.1,
+          "gesamt": 539.6,
+          "videolaenge_s": 50.3,
+          "abschnitte_s": [
+            7.8,
+            8.02,
+            6.22,
+            4.75,
+            7.01,
+            10.52,
+            5.95
+          ],
+          "woerter": 103,
+          "clips": {
+            "witz": 3,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "One co-founder sold his Apple stake for $800.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar Äpfel und einen Apfelbaum als Anspielung auf Apple, aber die im Text erwähnte geschichtliche Handlung des Verkaufs von Anteilen für 800 Dollar wird nicht dargestellt. Korrektur: Eine historische Illustration oder Darstellung von zwei Personen in einer Garage oder Werkstatt, die Aktienpapiere oder Geld übergeben."
+          },
+          {
+            "zeit": "00:15.82",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Neither got the full price.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine allgemeine Szene eines schockierten Mannes, die in keinerlei Zusammenhang mit dem Verkauf von Besitztümern oder dem Sammeln von Kapital für den Apple I steht. Korrektur: Eine historische Darstellung von Steve Jobs und Steve Wozniak, die Gegenstände wie einen VW-Bus oder einen HP-65 Taschenrechner verkaufen, um Geld für die Finanzierung des ersten Apple-Computers aufzubringen."
+          },
+          {
+            "zeit": "00:33.79",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "Those $800 bought out a stake in a company worth $1.778",
+            "fest": false,
+            "text": "Das Bild zeigt eine Gruppe von Geschäftsleuten, die eine allgemeine Geschäftssituation darstellen. Es fehlen jedoch konkrete visuelle Hinweise auf den spezifischen finanziellen Kontext der Erzählung, wie z. B. Börsenkurse, den Wert von 1,778 Milliarden Dollar oder den Bezug zum Jahr 1980. Die Szene ist zu generisch und illustriert nicht den konkreten Wertanstieg, der im Text genannt wird. Korrektur: Ein Bild, das den Wertanstieg visualisiert, z. B. eine Börsentafel mit steigenden Kursen, ein Diagramm mit den Werten 800 Dollar und 1,778 Milliarden Dollar oder eine Illustration, die den Kontrast zwischen dem kleinen Verkauf und dem späteren Unternehmenswert zeigt."
+          }
+        ],
+        "sekunden": 633.5,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "45302015572-2",
+          "datum": "2026-11-24",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 633.5,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 0
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 2
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bm_george",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 2
+          },
+          "kategorien_nachher": {
+            "bild_passt": 2
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-11-11.2",
+          "verbessert": false
+        }
+      },
+      {
+        "runde": 3,
+        "art": "korrektur",
+        "status": "keine_korrektur",
+        "sekunden": 2.0
+      }
+    ],
+    "status": "gesendet",
+    "thema_eingabe": "Apple",
+    "grund": "",
+    "sekunden": 2091.8,
+    "upload_titel": "APPLE'S $800 EXIT BEFORE THE $1.778B DEBUT"
   }
 ]

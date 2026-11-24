@@ -216416,6 +216416,1229 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "45302015572.1:business-origin-stories",
+      "run_id": "45302015572",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-24T01:57:31.121999+00:00",
+      "ereignis": "schedule",
+      "commit": "2bb69d97d87adc72f8a951addd7f9f971c88efee",
+      "produktionsversion": "0f8c57a3cfdf3200b1fb87bd95ffb9757b9f31fa071a1159a9e52908735dc1d1",
+      "videoformat": "short",
+      "thema": "Apple",
+      "titel": [
+        "APPLE'S *$800* EXIT",
+        "BEFORE THE $1.778B DEBUT"
+      ],
+      "status": "gesendet",
+      "video_sha256": "48cdb9877f263d3db3408f03ff3ba52ddd36a57257783ef162544e24eab2b973",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-11.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar Äpfel und einen Apfelbaum als Anspielung auf Apple, aber die im Text erwähnte geschichtliche Handlung des Verkaufs von Anteilen für 800 Dollar wird nicht dargestellt.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine allgemeine Szene eines schockierten Mannes, die in keinerlei Zusammenhang mit dem Verkauf von Besitztümern oder dem Sammeln von Kapital für den Apple I steht.",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine Gruppe von Geschäftsleuten, die eine allgemeine Geschäftssituation darstellen. Es fehlen jedoch konkrete visuelle Hinweise auf den spezifischen finanziellen Kontext der Erzählung, wie z. B. Börsenkurse, den Wert von 1,778 Milliarden Dollar oder den Bezug zum Jahr 1980. Die Szene ",
+        "Offenes Problem (schwer): Das Bild zeigt zwar Äpfel und einen Apfelbaum als Anspielung auf Apple, aber die im Text erwähnte geschichtliche Handlung des Verkaufs von Anteilen für 800 Dollar wird nicht dargestellt. Korrektur: Eine historische Illustration oder Darstellung von zwei Personen in einer Garage oder Werkstatt, die Aktienpapiere oder Geld übergeben.",
+        "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Szene eines schockierten Mannes, die in keinerlei Zusammenhang mit dem Verkauf von Besitztümern oder dem Sammeln von Kapital für den Apple I steht. Korrektur: Eine historische Darstellung von Steve Jobs und Steve Wozniak, die Gegenstände wie einen VW-Bus oder einen HP-65 Taschenrechner verkaufen, um Geld für die Finanzierung des ersten Apple-Computers aufzubringen.",
+        "Offenes Problem (schwer): Das Bild zeigt eine Gruppe von Geschäftsleuten, die eine allgemeine Geschäftssituation darstellen. Es fehlen jedoch konkrete visuelle Hinweise auf den spezifischen finanziellen Kontext der Erzählung, wie z. B. Börsenkurse, den Wert von 1,778 Milliarden Dollar oder den Bezug zum Jahr 1980. Die Szene ist zu generisch und illustriert nicht den konkreten Wertanstieg, der im Text genannt wird. Korrektur: Ein Bild, das den Wertanstieg visualisiert, z. B. eine Börsentafel mit steigenden Kursen, ein Diagramm mit den Werten 800 Dollar und 1,778 Milliarden Dollar oder eine Illustration, die den Kontrast zwischen dem kleinen Verkauf und dem späteren Unternehmenswert zeigt."
+      ],
+      "einstellungen": 14,
+      "unterschiedliche_motive": 13,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "45302015572",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-24",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 1206.2,
+            "pruefung_s": 209.3,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar Äpfel und einen Apfelbaum als Anspielung auf Apple, aber die im Text erwähnte geschichtliche Handlung des Verkaufs von Anteilen für 800 Dollar wird nicht dargestellt.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Worte handeln davon, dass ein Mitgründer seinen Apple-Anteil zwölf Tage nach der Gründung verkaufte. Das Bild zeigt lediglich einen freundlichen Handwerker oder Arbeiter in einer Werkstatt, was in keinerlei direktem Bezug zu den historischen Fakten des Apple-Gründungszeitraums steht",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine allgemeine Szene eines schockierten Mannes, die in keinerlei Zusammenhang mit dem Verkauf von Besitztümern oder dem Sammeln von Kapital für den Apple I steht.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine generische Gruppe von Geschäftsleuten in einer Besprechung, was den Inhalt der Erzählung über die Geldbeschaffung von Apple-Gründern nicht illustriert oder dokumentiert.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar Äpfel und einen Apfelbaum als Anspielung auf Apple, aber die im Text erwähnte geschichtliche Handlung des Verkaufs von Anteilen für 800 Dollar wird nicht dargestellt. Korrektur: Eine historische Illustration oder Darstellung von zwei Personen in einer Garage oder Werkstatt, die Aktienpapiere oder Geld übergeben.",
+              "Offenes Problem (schwer): Die gesprochenen Worte handeln davon, dass ein Mitgründer seinen Apple-Anteil zwölf Tage nach der Gründung verkaufte. Das Bild zeigt lediglich einen freundlichen Handwerker oder Arbeiter in einer Werkstatt, was in keinerlei direktem Bezug zu den historischen Fakten des Apple-Gründungszeitraums steht. Korrektur: Ein historisches Dokument oder eine Illustration, die die frühe Apple-Gründungsphase oder den Verkauf der Anteile darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Szene eines schockierten Mannes, die in keinerlei Zusammenhang mit dem Verkauf von Besitztümern oder dem Sammeln von Kapital für den Apple I steht. Korrektur: Eine historische Darstellung von Steve Jobs und Steve Wozniak, die Gegenstände wie einen VW-Bus oder einen HP-65 Taschenrechner verkaufen, um Geld für die Finanzierung des ersten Apple-Computers aufzubringen.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generische Gruppe von Geschäftsleuten in einer Besprechung, was den Inhalt der Erzählung über die Geldbeschaffung von Apple-Gründern nicht illustriert oder dokumentiert. Korrektur: Ein historisches Foto oder eine Darstellung der Apple-Gründer Steve Jobs und Steve Wozniak, die Werkzeuge oder erste Komponenten des Apple I zusammensetzen oder ihre Habseligkeiten verkaufen."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "kokoro:bm_george",
+              "stimme": 50.7,
+              "zeitmarken": 4.1,
+              "tempo": 1.25,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 14,
+              "bilder_vereinfacht": 4,
+              "clips_und_stuecke": 929.6,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 14,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 63.4,
+              "gesamt": 1205.8,
+              "videolaenge_s": 50.3,
+              "abschnitte_s": [
+                7.8,
+                8.02,
+                6.22,
+                4.75,
+                7.01,
+                10.52,
+                5.95
+              ],
+              "woerter": 103,
+              "clips": {
+                "witz": 2,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "One co-founder sold his Apple stake for $800.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar Äpfel und einen Apfelbaum als Anspielung auf Apple, aber die im Text erwähnte geschichtliche Handlung des Verkaufs von Anteilen für 800 Dollar wird nicht dargestellt. Korrektur: Eine historische Illustration oder Darstellung von zwei Personen in einer Garage oder Werkstatt, die Aktienpapiere oder Geld übergeben."
+              },
+              {
+                "zeit": "00:04.40",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "Just twelve days after Apple began.",
+                "fest": false,
+                "text": "Die gesprochenen Worte handeln davon, dass ein Mitgründer seinen Apple-Anteil zwölf Tage nach der Gründung verkaufte. Das Bild zeigt lediglich einen freundlichen Handwerker oder Arbeiter in einer Werkstatt, was in keinerlei direktem Bezug zu den historischen Fakten des Apple-Gründungszeitraums steht. Korrektur: Ein historisches Dokument oder eine Illustration, die die frühe Apple-Gründungsphase oder den Verkauf der Anteile darstellt."
+              },
+              {
+                "zeit": "00:15.82",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Neither got the full price.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich eine allgemeine Szene eines schockierten Mannes, die in keinerlei Zusammenhang mit dem Verkauf von Besitztümern oder dem Sammeln von Kapital für den Apple I steht. Korrektur: Eine historische Darstellung von Steve Jobs und Steve Wozniak, die Gegenstände wie einen VW-Bus oder einen HP-65 Taschenrechner verkaufen, um Geld für die Finanzierung des ersten Apple-Computers aufzubringen."
+              },
+              {
+                "zeit": "00:17.72",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 5,
+                "gesprochen": "Together they raised $1,300 for the Apple I.",
+                "fest": false,
+                "text": "Das Bild zeigt eine generische Gruppe von Geschäftsleuten in einer Besprechung, was den Inhalt der Erzählung über die Geldbeschaffung von Apple-Gründern nicht illustriert oder dokumentiert. Korrektur: Ein historisches Foto oder eine Darstellung der Apple-Gründer Steve Jobs und Steve Wozniak, die Werkzeuge oder erste Komponenten des Apple I zusammensetzen oder ihre Habseligkeiten verkaufen."
+              }
+            ],
+            "sekunden": 1419.1,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                2
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-11.2"
+            },
+            "skript_s": 2.6,
+            "bau_s": 540.6,
+            "pruefung_s": 88.5,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar Äpfel und einen Apfelbaum als Anspielung auf Apple, aber die im Text erwähnte geschichtliche Handlung des Verkaufs von Anteilen für 800 Dollar wird nicht dargestellt.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine allgemeine Szene eines schockierten Mannes, die in keinerlei Zusammenhang mit dem Verkauf von Besitztümern oder dem Sammeln von Kapital für den Apple I steht.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine Gruppe von Geschäftsleuten, die eine allgemeine Geschäftssituation darstellen. Es fehlen jedoch konkrete visuelle Hinweise auf den spezifischen finanziellen Kontext der Erzählung, wie z. B. Börsenkurse, den Wert von 1,778 Milliarden Dollar oder den Bezug zum Jahr 1980. Die Szene ",
+              "Offenes Problem (schwer): Das Bild zeigt zwar Äpfel und einen Apfelbaum als Anspielung auf Apple, aber die im Text erwähnte geschichtliche Handlung des Verkaufs von Anteilen für 800 Dollar wird nicht dargestellt. Korrektur: Eine historische Illustration oder Darstellung von zwei Personen in einer Garage oder Werkstatt, die Aktienpapiere oder Geld übergeben.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Szene eines schockierten Mannes, die in keinerlei Zusammenhang mit dem Verkauf von Besitztümern oder dem Sammeln von Kapital für den Apple I steht. Korrektur: Eine historische Darstellung von Steve Jobs und Steve Wozniak, die Gegenstände wie einen VW-Bus oder einen HP-65 Taschenrechner verkaufen, um Geld für die Finanzierung des ersten Apple-Computers aufzubringen.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Gruppe von Geschäftsleuten, die eine allgemeine Geschäftssituation darstellen. Es fehlen jedoch konkrete visuelle Hinweise auf den spezifischen finanziellen Kontext der Erzählung, wie z. B. Börsenkurse, den Wert von 1,778 Milliarden Dollar oder den Bezug zum Jahr 1980. Die Szene ist zu generisch und illustriert nicht den konkreten Wertanstieg, der im Text genannt wird. Korrektur: Ein Bild, das den Wertanstieg visualisiert, z. B. eine Börsentafel mit steigenden Kursen, ein Diagramm mit den Werten 800 Dollar und 1,778 Milliarden Dollar oder eine Illustration, die den Kontrast zwischen dem kleinen Verkauf und dem späteren Unternehmenswert zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "kokoro:bm_george",
+              "stimme": 50.2,
+              "zeitmarken": 3.9,
+              "tempo": 1.25,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 9,
+              "stuecke_neu": 5,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 282.8,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 14,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 65.1,
+              "gesamt": 539.6,
+              "videolaenge_s": 50.3,
+              "abschnitte_s": [
+                7.8,
+                8.02,
+                6.22,
+                4.75,
+                7.01,
+                10.52,
+                5.95
+              ],
+              "woerter": 103,
+              "clips": {
+                "witz": 3,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "One co-founder sold his Apple stake for $800.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar Äpfel und einen Apfelbaum als Anspielung auf Apple, aber die im Text erwähnte geschichtliche Handlung des Verkaufs von Anteilen für 800 Dollar wird nicht dargestellt. Korrektur: Eine historische Illustration oder Darstellung von zwei Personen in einer Garage oder Werkstatt, die Aktienpapiere oder Geld übergeben."
+              },
+              {
+                "zeit": "00:15.82",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Neither got the full price.",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich eine allgemeine Szene eines schockierten Mannes, die in keinerlei Zusammenhang mit dem Verkauf von Besitztümern oder dem Sammeln von Kapital für den Apple I steht. Korrektur: Eine historische Darstellung von Steve Jobs und Steve Wozniak, die Gegenstände wie einen VW-Bus oder einen HP-65 Taschenrechner verkaufen, um Geld für die Finanzierung des ersten Apple-Computers aufzubringen."
+              },
+              {
+                "zeit": "00:33.79",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "Those $800 bought out a stake in a company worth $1.778",
+                "fest": false,
+                "text": "Das Bild zeigt eine Gruppe von Geschäftsleuten, die eine allgemeine Geschäftssituation darstellen. Es fehlen jedoch konkrete visuelle Hinweise auf den spezifischen finanziellen Kontext der Erzählung, wie z. B. Börsenkurse, den Wert von 1,778 Milliarden Dollar oder den Bezug zum Jahr 1980. Die Szene ist zu generisch und illustriert nicht den konkreten Wertanstieg, der im Text genannt wird. Korrektur: Ein Bild, das den Wertanstieg visualisiert, z. B. eine Börsentafel mit steigenden Kursen, ein Diagramm mit den Werten 800 Dollar und 1,778 Milliarden Dollar oder eine Illustration, die den Kontrast zwischen dem kleinen Verkauf und dem späteren Unternehmenswert zeigt."
+              }
+            ],
+            "sekunden": 633.5,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "45302015572-2",
+              "datum": "2026-11-24",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 633.5,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-11-11.2",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 2.0
+          }
+        ],
+        "status": "gesendet",
+        "thema_eingabe": "Apple",
+        "grund": "",
+        "sekunden": 2091.8,
+        "upload_titel": "APPLE'S $800 EXIT BEFORE THE $1.778B DEBUT"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "One co-founder sold his Apple stake for $800.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar Äpfel und einen Apfelbaum als Anspielung auf Apple, aber die im Text erwähnte geschichtliche Handlung des Verkaufs von Anteilen für 800 Dollar wird nicht dargestellt. Korrektur: Eine historische Illustration oder Darstellung von zwei Personen in einer Garage oder Werkstatt, die Aktienpapiere oder Geld übergeben."
+          },
+          {
+            "zeit": "00:15.82",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Neither got the full price.",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine allgemeine Szene eines schockierten Mannes, die in keinerlei Zusammenhang mit dem Verkauf von Besitztümern oder dem Sammeln von Kapital für den Apple I steht. Korrektur: Eine historische Darstellung von Steve Jobs und Steve Wozniak, die Gegenstände wie einen VW-Bus oder einen HP-65 Taschenrechner verkaufen, um Geld für die Finanzierung des ersten Apple-Computers aufzubringen."
+          },
+          {
+            "zeit": "00:33.79",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "Those $800 bought out a stake in a company worth $1.778",
+            "fest": false,
+            "text": "Das Bild zeigt eine Gruppe von Geschäftsleuten, die eine allgemeine Geschäftssituation darstellen. Es fehlen jedoch konkrete visuelle Hinweise auf den spezifischen finanziellen Kontext der Erzählung, wie z. B. Börsenkurse, den Wert von 1,778 Milliarden Dollar oder den Bezug zum Jahr 1980. Die Szene ist zu generisch und illustriert nicht den konkreten Wertanstieg, der im Text genannt wird. Korrektur: Ein Bild, das den Wertanstieg visualisiert, z. B. eine Börsentafel mit steigenden Kursen, ein Diagramm mit den Werten 800 Dollar und 1,778 Milliarden Dollar oder eine Illustration, die den Kontrast zwischen dem kleinen Verkauf und dem späteren Unternehmenswert zeigt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 50.3,
+          "fps": 30.0,
+          "lufs": -14.1,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 44.74,
+              "bis_s": 46.5,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.911
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 30.299999999999997,
+              "bis_s": 50.8,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "One",
+                "s": 0.02,
+                "e": 0.54,
+                "p": 0.6205343008041382
+              },
+              {
+                "w": "co",
+                "s": 0.54,
+                "e": 0.82,
+                "p": 0.9519979357719421
+              },
+              {
+                "w": "-founder",
+                "s": 0.82,
+                "e": 1.22,
+                "p": 0.9332704544067383
+              },
+              {
+                "w": "sold",
+                "s": 1.22,
+                "e": 1.64,
+                "p": 0.9934738278388977
+              },
+              {
+                "w": "his",
+                "s": 1.64,
+                "e": 1.92,
+                "p": 0.9974204301834106
+              },
+              {
+                "w": "Apple",
+                "s": 1.92,
+                "e": 2.12,
+                "p": 0.814295768737793
+              },
+              {
+                "w": "stake",
+                "s": 2.12,
+                "e": 2.52,
+                "p": 0.7314795851707458
+              },
+              {
+                "w": "for",
+                "s": 2.52,
+                "e": 3.02,
+                "p": 0.9840339422225952
+              },
+              {
+                "w": "$1",
+                "s": 3.02,
+                "e": 3.24,
+                "p": 0.7720350921154022
+              },
+              {
+                "w": ".800,",
+                "s": 3.24,
+                "e": 3.76,
+                "p": 0.7000113129615784
+              },
+              {
+                "w": "just",
+                "s": 4.4,
+                "e": 4.9,
+                "p": 0.9888562560081482
+              },
+              {
+                "w": "12",
+                "s": 4.9,
+                "e": 5.24,
+                "p": 0.8647255897521973
+              },
+              {
+                "w": "days",
+                "s": 5.24,
+                "e": 5.54,
+                "p": 0.9984080195426941
+              },
+              {
+                "w": "after",
+                "s": 5.54,
+                "e": 6.14,
+                "p": 0.9924392700195312
+              },
+              {
+                "w": "Apple",
+                "s": 6.14,
+                "e": 6.5,
+                "p": 0.994550883769989
+              },
+              {
+                "w": "began.",
+                "s": 6.5,
+                "e": 6.98,
+                "p": 0.9984997510910034
+              },
+              {
+                "w": "That",
+                "s": 8.16,
+                "e": 8.4,
+                "p": 0.9804385900497437
+              },
+              {
+                "w": "wasn't",
+                "s": 8.4,
+                "e": 8.8,
+                "p": 0.9961259067058563
+              },
+              {
+                "w": "the",
+                "s": 8.8,
+                "e": 8.96,
+                "p": 0.9967722296714783
+              },
+              {
+                "w": "strangest",
+                "s": 8.96,
+                "e": 9.56,
+                "p": 0.9972525238990784
+              },
+              {
+                "w": "part.",
+                "s": 9.56,
+                "e": 9.92,
+                "p": 0.9997066855430603
+              },
+              {
+                "w": "Jobs",
+                "s": 10.64,
+                "e": 10.78,
+                "p": 0.9700625538825989
+              },
+              {
+                "w": "sold",
+                "s": 10.78,
+                "e": 11.3,
+                "p": 0.9954423904418945
+              },
+              {
+                "w": "his",
+                "s": 11.3,
+                "e": 11.5,
+                "p": 0.9929439425468445
+              },
+              {
+                "w": "Volkswagen",
+                "s": 11.5,
+                "e": 11.78,
+                "p": 0.9832825064659119
+              },
+              {
+                "w": "bus,",
+                "s": 11.78,
+                "e": 12.4,
+                "p": 0.6677258014678955
+              },
+              {
+                "w": "was",
+                "s": 12.94,
+                "e": 13.0,
+                "p": 0.792661726474762
+              },
+              {
+                "w": "Niac,",
+                "s": 13.0,
+                "e": 13.26,
+                "p": 0.41756176948547363
+              },
+              {
+                "w": "his",
+                "s": 13.4,
+                "e": 13.48,
+                "p": 0.9776211380958557
+              },
+              {
+                "w": "HP65",
+                "s": 13.48,
+                "e": 14.62,
+                "p": 0.6417595148086548
+              },
+              {
+                "w": "calculator,",
+                "s": 14.62,
+                "e": 15.08,
+                "p": 0.9541758298873901
+              },
+              {
+                "w": "neither",
+                "s": 15.98,
+                "e": 15.98,
+                "p": 0.8959142565727234
+              },
+              {
+                "w": "got",
+                "s": 15.98,
+                "e": 16.22,
+                "p": 0.9977191090583801
+              },
+              {
+                "w": "the",
+                "s": 16.22,
+                "e": 16.38,
+                "p": 0.9976801872253418
+              },
+              {
+                "w": "full",
+                "s": 16.38,
+                "e": 16.54,
+                "p": 0.9962880611419678
+              },
+              {
+                "w": "price.",
+                "s": 16.54,
+                "e": 16.88,
+                "p": 0.9957177042961121
+              },
+              {
+                "w": "Together,",
+                "s": 17.72,
+                "e": 17.92,
+                "p": 0.9966168999671936
+              },
+              {
+                "w": "they",
+                "s": 18.28,
+                "e": 18.4,
+                "p": 0.9975831508636475
+              },
+              {
+                "w": "raised",
+                "s": 18.4,
+                "e": 18.7,
+                "p": 0.9892817735671997
+              },
+              {
+                "w": "$1",
+                "s": 18.7,
+                "e": 19.3,
+                "p": 0.9845612347126007
+              },
+              {
+                "w": ".300",
+                "s": 19.3,
+                "e": 20.14,
+                "p": 0.7831159830093384
+              },
+              {
+                "w": "for",
+                "s": 20.14,
+                "e": 21.0,
+                "p": 0.9713250398635864
+              },
+              {
+                "w": "the",
+                "s": 21.0,
+                "e": 21.1,
+                "p": 0.9946885108947754
+              },
+              {
+                "w": "Apple",
+                "s": 21.1,
+                "e": 21.36,
+                "p": 0.9449042677879333
+              },
+              {
+                "w": "I.",
+                "s": 21.36,
+                "e": 21.62,
+                "p": 0.3759484887123108
+              },
+              {
+                "w": "So",
+                "s": 22.28,
+                "e": 22.68,
+                "p": 0.986003041267395
+              },
+              {
+                "w": "what",
+                "s": 22.68,
+                "e": 22.94,
+                "p": 0.6774328351020813
+              },
+              {
+                "w": "did",
+                "s": 22.94,
+                "e": 23.16,
+                "p": 0.9991920590400696
+              },
+              {
+                "w": "he",
+                "s": 23.16,
+                "e": 23.3,
+                "p": 0.9987698197364807
+              },
+              {
+                "w": "leave?",
+                "s": 23.3,
+                "e": 23.74,
+                "p": 0.9980795383453369
+              },
+              {
+                "w": "An",
+                "s": 23.74,
+                "e": 24.18,
+                "p": 0.029301941394805908
+              },
+              {
+                "w": "assembled",
+                "s": 24.18,
+                "e": 24.42,
+                "p": 0.9098881483078003
+              },
+              {
+                "w": "computer",
+                "s": 24.42,
+                "e": 25.0,
+                "p": 0.991549015045166
+              },
+              {
+                "w": "that",
+                "s": 25.0,
+                "e": 25.34,
+                "p": 0.8251059651374817
+              },
+              {
+                "w": "plugged",
+                "s": 25.34,
+                "e": 25.54,
+                "p": 0.9823415279388428
+              },
+              {
+                "w": "into",
+                "s": 25.54,
+                "e": 25.88,
+                "p": 0.9763628840446472
+              },
+              {
+                "w": "a",
+                "s": 25.88,
+                "e": 25.96,
+                "p": 0.9873992204666138
+              },
+              {
+                "w": "television.",
+                "s": 25.96,
+                "e": 26.3,
+                "p": 0.9659252762794495
+              },
+              {
+                "w": "Biteshop",
+                "s": 26.9,
+                "e": 27.56,
+                "p": 0.574652244647344
+              },
+              {
+                "w": "ordered",
+                "s": 27.56,
+                "e": 27.88,
+                "p": 0.9753472805023193
+              },
+              {
+                "w": "50",
+                "s": 27.88,
+                "e": 28.28,
+                "p": 0.8533345460891724
+              },
+              {
+                "w": "assembled",
+                "s": 28.28,
+                "e": 28.94,
+                "p": 0.9713760018348694
+              },
+              {
+                "w": "computers,",
+                "s": 28.94,
+                "e": 29.38,
+                "p": 0.9978027939796448
+              },
+              {
+                "w": "and",
+                "s": 30.06,
+                "e": 30.16,
+                "p": 0.9732564091682434
+              },
+              {
+                "w": "then",
+                "s": 30.16,
+                "e": 30.32,
+                "p": 0.9943037629127502
+              },
+              {
+                "w": "an",
+                "s": 30.32,
+                "e": 30.46,
+                "p": 0.9879399538040161
+              },
+              {
+                "w": "investor",
+                "s": 30.46,
+                "e": 30.78,
+                "p": 0.9853994250297546
+              },
+              {
+                "w": "put",
+                "s": 30.78,
+                "e": 31.24,
+                "p": 0.994540274143219
+              },
+              {
+                "w": "in",
+                "s": 31.24,
+                "e": 31.46,
+                "p": 0.9346993565559387
+              },
+              {
+                "w": "$2",
+                "s": 31.46,
+                "e": 31.64,
+                "p": 0.7313089668750763
+              },
+              {
+                "w": ",250",
+                "s": 31.64,
+                "e": 32.44,
+                "p": 0.69733926653862
+              },
+              {
+                "w": ",000.",
+                "s": 32.44,
+                "e": 33.4,
+                "p": 0.9719389975070953
+              },
+              {
+                "w": "Those",
+                "s": 33.7,
+                "e": 34.26,
+                "p": 0.9332894682884216
+              },
+              {
+                "w": "$8",
+                "s": 34.26,
+                "e": 34.84,
+                "p": 0.7215560227632523
+              },
+              {
+                "w": ",800",
+                "s": 34.84,
+                "e": 35.18,
+                "p": 0.6588658541440964
+              },
+              {
+                "w": "brought",
+                "s": 35.18,
+                "e": 35.7,
+                "p": 0.46995145082473755
+              },
+              {
+                "w": "out",
+                "s": 35.7,
+                "e": 35.9,
+                "p": 0.9953948855400085
+              },
+              {
+                "w": "a",
+                "s": 35.9,
+                "e": 35.98,
+                "p": 0.9914351105690002
+              },
+              {
+                "w": "stake",
+                "s": 35.98,
+                "e": 36.26,
+                "p": 0.9920312166213989
+              },
+              {
+                "w": "in",
+                "s": 36.26,
+                "e": 36.62,
+                "p": 0.9908639788627625
+              },
+              {
+                "w": "a",
+                "s": 36.62,
+                "e": 36.66,
+                "p": 0.9894883036613464
+              },
+              {
+                "w": "company",
+                "s": 36.66,
+                "e": 36.96,
+                "p": 0.9944804906845093
+              },
+              {
+                "w": "worth",
+                "s": 36.96,
+                "e": 37.28,
+                "p": 0.9926207065582275
+              },
+              {
+                "w": "$1",
+                "s": 37.28,
+                "e": 37.82,
+                "p": 0.9932121634483337
+              },
+              {
+                "w": ".778",
+                "s": 37.82,
+                "e": 39.02,
+                "p": 0.5317990630865097
+              },
+              {
+                "w": "billion",
+                "s": 39.02,
+                "e": 39.96,
+                "p": 0.9604212045669556
+              },
+              {
+                "w": "after",
+                "s": 39.96,
+                "e": 40.72,
+                "p": 0.8087774515151978
+              },
+              {
+                "w": "its",
+                "s": 40.72,
+                "e": 40.86,
+                "p": 0.9469146728515625
+              },
+              {
+                "w": "first",
+                "s": 40.86,
+                "e": 41.12,
+                "p": 0.9919432401657104
+              },
+              {
+                "w": "trading",
+                "s": 41.12,
+                "e": 41.42,
+                "p": 0.994027853012085
+              },
+              {
+                "w": "day",
+                "s": 41.42,
+                "e": 41.86,
+                "p": 0.9949733018875122
+              },
+              {
+                "w": "in",
+                "s": 41.86,
+                "e": 42.38,
+                "p": 0.9720573425292969
+              },
+              {
+                "w": "1980.",
+                "s": 42.38,
+                "e": 42.74,
+                "p": 0.9976345300674438
+              },
+              {
+                "w": "Be",
+                "s": 44.34,
+                "e": 44.38,
+                "p": 0.9804432988166809
+              },
+              {
+                "w": "sure",
+                "s": 44.38,
+                "e": 44.58,
+                "p": 0.9990749359130859
+              },
+              {
+                "w": "to",
+                "s": 44.58,
+                "e": 44.74,
+                "p": 0.9920446872711182
+              },
+              {
+                "w": "like,",
+                "s": 44.74,
+                "e": 44.96,
+                "p": 0.9614982604980469
+              },
+              {
+                "w": "share",
+                "s": 45.16,
+                "e": 45.44,
+                "p": 0.9987924098968506
+              },
+              {
+                "w": "and",
+                "s": 45.44,
+                "e": 45.7,
+                "p": 0.5310828685760498
+              },
+              {
+                "w": "save",
+                "s": 45.7,
+                "e": 45.98,
+                "p": 0.9899939894676208
+              },
+              {
+                "w": "this",
+                "s": 45.98,
+                "e": 46.2,
+                "p": 0.9855602383613586
+              },
+              {
+                "w": "video.",
+                "s": 46.2,
+                "e": 46.5,
+                "p": 0.9981821775436401
+              },
+              {
+                "w": "Which",
+                "s": 47.04,
+                "e": 47.06,
+                "p": 0.9883365035057068
+              },
+              {
+                "w": "company",
+                "s": 47.06,
+                "e": 47.42,
+                "p": 0.9950090646743774
+              },
+              {
+                "w": "next?",
+                "s": 47.42,
+                "e": 47.82,
+                "p": 0.9573168754577637
+              },
+              {
+                "w": "Comment",
+                "s": 48.4,
+                "e": 48.62,
+                "p": 0.9918760061264038
+              },
+              {
+                "w": "and",
+                "s": 48.62,
+                "e": 48.96,
+                "p": 0.9918346405029297
+              },
+              {
+                "w": "follow",
+                "s": 48.96,
+                "e": 49.24,
+                "p": 0.9921112060546875
+              },
+              {
+                "w": "for",
+                "s": 49.24,
+                "e": 49.6,
+                "p": 0.9887999296188354
+              },
+              {
+                "w": "more.",
+                "s": 49.6,
+                "e": 49.8,
+                "p": 0.999198853969574
+              }
+            ],
+            "dauer_s": 50.2826875,
+            "sprache": "en"
+          },
+          "roh_key": "2f2d6291979d258af15ef4e77137ebb787e1e82af999be9d30f74c0eae979d2d",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "48cdb9877f263d3db3408f03ff3ba52ddd36a57257783ef162544e24eab2b973",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 50.3,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 14,
+          "motive": 13,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "48cdb9877f263d3db3408f03ff3ba52ddd36a57257783ef162544e24eab2b973",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein gemaltes Bild von einem Apfelbaum mit grossen roten Äpfeln im Vordergrund und schneebedeckten Bergen bei Sonnenuntergang im Hintergrund.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt zwar Äpfel und einen Apfelbaum als Anspielung auf Apple, aber die im Text erwähnte geschichtliche Handlung des Verkaufs von Anteilen für 800 Dollar wird nicht dargestellt.",
+              "erforderliches_bild": "Eine historische Illustration oder Darstellung von zwei Personen in einer Garage oder Werkstatt, die Aktienpapiere oder Geld übergeben."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Mann sitzt an einem Schreibtisch und schaut mit aufgerissenen Augen und offenem Mund schockiert vor sich hin.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die visuelle Reaktion des Mannes passt zu der in der Narration ausgedrückten Verwunderung über die 'strangest part' Geschichte.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein stilisiertes, gemaltes Bild eines grünen VW-Busses von der Seite.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt einen VW-Bus, welcher genau dem genannten Objekt in der Erzählung entspricht.",
+              "erforderliches_bild": "Keines, da der VW-Bus als Bildobjekt korrekt dargestellt wird."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein Mann mit einem überraschten Gesichtsausdruck sitzt an einem Schreibtisch vor einem Display, auf dem '0000' steht.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt lediglich eine allgemeine Szene eines schockierten Mannes, die in keinerlei Zusammenhang mit dem Verkauf von Besitztümern oder dem Sammeln von Kapital für den Apple I steht.",
+              "erforderliches_bild": "Eine historische Darstellung von Steve Jobs und Steve Wozniak, die Gegenstände wie einen VW-Bus oder einen HP-65 Taschenrechner verkaufen, um Geld für die Finanzierung des ersten Apple-Computers aufzubringen."
+            },
+            {
+              "index": 5,
+              "gesehen": "Zwei junge Männer sitzen in einer Werkstatt mit Werkzeug an der Wand und zählen Geldscheine, während vor dem offenen Tor im Hintergrund eine Straße mit Häusern und einem Auto zu sehen ist.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt passend zu den gesprochenen Worten des Geldbeschaffens zwei Personen, die Bargeld in einer Werkstatt zählen.",
+              "erforderliches_bild": "Keines, das Bild passt."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein alter Fernseher im Retro-Stil mit einer farbigen, verrauschten Bildschirmanzeige steht vor einem Fenster mit Blick auf eine städtische Straße.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das gezeigte Bild eines Fernsehers passt direkt zu der Erwähnung eines Computers, der an einen Fernseher angeschlossen wird, und illustriert visuell das beschriebene historische Setup.",
+              "erforderliches_bild": "n/a"
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein gelber Kasten auf dunkelblauem Hintergrund mit der Zahl '50' in großer Schrift und dem Text 'ASSEMBLED COMPUTERS' darunter.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild illustriert visuell den Text '50 assembled computers' und bestätigt die Bestellung durch die Byte Shop-Information im Kontext.",
+              "erforderliches_bild": "N/A"
+            },
+            {
+              "erforderliches_bild": "Ein Bild, das den Wertanstieg visualisiert, z. B. eine Börsentafel mit steigenden Kursen, ein Diagramm mit den Werten 800 Dollar und 1,778 Milliarden Dollar oder eine Illustration, die den Kontrast zwischen dem kleinen Verkauf und dem späteren Unternehmenswert zeigt.",
+              "gesehen": "Eine Illustration zeigt eine Gruppe von Männern in Anzügen auf einer belebten Straße. Im Vordergrund steht ein Mann mit verschränkten Armen, während andere im Hintergrund stehen oder applaudieren. Oben ist ein Text-Overlay mit der Aufschrift 'BOUGHT OUT' und einem Dollar-Symbol zu sehen.",
+              "grund": "Das Bild zeigt eine Gruppe von Geschäftsleuten, die eine allgemeine Geschäftssituation darstellen. Es fehlen jedoch konkrete visuelle Hinweise auf den spezifischen finanziellen Kontext der Erzählung, wie z. B. Börsenkurse, den Wert von 1,778 Milliarden Dollar oder den Bezug zum Jahr 1980. Die Szene ist zu generisch und illustriert nicht den konkreten Wertanstieg, der im Text genannt wird.",
+              "index": 10,
+              "note": 4,
+              "passt": false
+            },
+            {
+              "erforderliches_bild": "Eine Illustration einer Börsenhandelsbörse oder eines Börsenraums mit Anlegern, die auf Tickerbänder oder Bildschirme mit Kursen schauen, passend zum ersten Handelstag.",
+              "gesehen": "Die Illustration zeigt eine Gruppe von Menschen in einem Raum, der wie eine Börsenhandelsbörse aussieht. Im Vordergrund steht ein großes, zylindrisches Tickerband mit Zahlen, das an ein Börsenticker erinnert. Im Hintergrund sind mehrere Bildschirme mit Diagrammen und Kurven zu sehen, was auf Finanzdaten hindeutet. Die Menschen tragen Geschäftskleidung und wirken, als würden sie die Kurse beobachten oder diskutieren.",
+              "grund": "Die sichtbare Darstellung einer Börsenhandelsbörse mit Tickerband und Finanzbildschirmen passt direkt zur gesprochenen Aussage über den Wert des Unternehmens nach dem ersten Handelstag. Die Szene illustriert den Kontext des Börsengangs und der Wertentwicklung.",
+              "index": 11,
+              "note": 9,
+              "passt": true
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar Äpfel und einen Apfelbaum als Anspielung auf Apple, aber die im Text erwähnte geschichtliche Handlung des Verkaufs von Anteilen für 800 Dollar wird nicht dargestellt.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine allgemeine Szene eines schockierten Mannes, die in keinerlei Zusammenhang mit dem Verkauf von Besitztümern oder dem Sammeln von Kapital für den Apple I steht.",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt eine Gruppe von Geschäftsleuten, die eine allgemeine Geschäftssituation darstellen. Es fehlen jedoch konkrete visuelle Hinweise auf den spezifischen finanziellen Kontext der Erzählung, wie z. B. Börsenkurse, den Wert von 1,778 Milliarden Dollar oder den Bezug zum Jahr 1980. Die Szene "
+          ],
+          "modelle": [
+            "gemini-3.5-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.1-flash-lite",
+            "groq:qwen/qwen3.8-27b",
+            "groq:qwen/qwen3.8-27b"
+          ],
+          "einstellungen": 14,
+          "ausgenommen": [
+            12,
+            13
+          ],
+          "vorgeprueft": [
+            1,
+            6,
+            9
+          ],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "48cdb9877f263d3db3408f03ff3ba52ddd36a57257783ef162544e24eab2b973",
+        "prompt_version": "2026-11-11.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

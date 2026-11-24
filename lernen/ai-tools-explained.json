@@ -1,16 +1,16 @@
 {
   "regeln": [
-    "Directly sync spoken terms, platforms, pricing tables, and feature limits with exact matching on-screen interface views or clear visual callouts.",
-    "Start videos within 5 seconds with a clear visual hook showing the practical outcome using complete narration.",
-    "Use genuine, source-backed tool interface views and real outputs instead of generic stock imagery or illustrative filler.",
-    "Maintain channel identity using the black-haired presenter in a black leather jacket and glowing cyan glasses in the painted open-world poster style.",
-    "Introduce the presenter in the opening hook and re-integrate them during key mid-video actions.",
-    "Focus script explanations on practical viewer tasks and real-world limits rather than raw specs or benchmark claims.",
-    "Ensure all spoken narration uses clear, natural, and grammatically complete sentences.",
-    "Position mandatory CTAs immediately after the first visual payoff in Shorts, or between 45-80 seconds in long videos.",
-    "State exact source numbers for pricing and limits clearly within conversational narration.",
-    "Maintain format-appropriate shot pacing with distinct, relevant visuals per spoken phase while preserving accurate subtitle timing.",
-    "Treat retention dips as conditional signals of potential pacing or visual alignment issues without asserting unobserved causes."
+    "Start each video within the first 5 seconds with a visual hook that directly shows the practical outcome or tool result described in the narration.",
+    "Show the channel's black‑haired presenter (leather jacket, cyan glasses) in the opening hook and again in later useful actions; never replace them with unrelated characters.",
+    "Match every spoken technical detail (IP, port, menu option, version number, price, limit) with a precise UI screenshot or on‑screen callout; avoid generic hardware or illustrative graphics.",
+    "Prioritize genuine interface views, real tool outputs, and source‑backed examples over stylized illustrations when explaining operations or configurations.",
+    "Ensure continuous narration and subtitle timing; subtitles must appear exactly when the corresponding words are spoken.",
+    "Place the mandatory CTA (like, share, save) immediately after the first visual payoff in Shorts, or between 45‑80 seconds in long videos, using the prescribed format.",
+    "Maintain logical loop transitions: the ending payoff should naturally lead back to the start without negating the demonstrated utility.",
+    "Keep the painted open‑world‑game aesthetic for fictional scenes and background elements, but never use it to replace required factual UI shots.",
+    "Verify all factual claims (firmware versions, specifications, pricing, limits) against reliable sources before scripting; do not present unverified or impossible data.",
+    "Treat review feedback as conditional data—adjust visual alignment or pacing where indicated, but do not infer unobserved causes or impose format rules across video types.",
+    "When a visual does not correspond to the spoken statement, replace it with a correct screenshot or demonstration that directly illustrates the mentioned result."
   ],
   "produktionsdiagnosen": [
     {
@@ -2711,7 +2711,103 @@
       "auswertbar": false,
       "prompt_version": "2026-11-11.2",
       "verbessert": false
+    },
+    {
+      "id": "45302015572-2",
+      "datum": "2026-11-24",
+      "vorher": null,
+      "nachher": null,
+      "vorher_gesperrt": true,
+      "nachher_gesperrt": true,
+      "sekunden": 199.5,
+      "aktionen": [
+        {
+          "art": "bild",
+          "variante": "foto",
+          "index": 1
+        },
+        {
+          "art": "bild",
+          "variante": "foto",
+          "index": 2
+        },
+        {
+          "art": "bild",
+          "variante": "foto",
+          "index": 3
+        },
+        {
+          "art": "bild",
+          "variante": "foto",
+          "index": 5
+        },
+        {
+          "art": "bild",
+          "variante": "foto",
+          "index": 6
+        }
+      ],
+      "einstellungen": {
+        "stimme": "am_michael",
+        "tempo": 1.05,
+        "untertitel_profil": "ruhig",
+        "musik_pegel": null,
+        "effekt_pegel": null
+      },
+      "schwerpunkt": "bild",
+      "kategorien_vorher": {
+        "bild_passt": 4
+      },
+      "kategorien_nachher": {
+        "bild_passt": 2
+      },
+      "auswertbar": false,
+      "prompt_version": "2026-11-11.2",
+      "verbessert": false
+    },
+    {
+      "id": "45302015572-3",
+      "datum": "2026-11-24",
+      "vorher": null,
+      "nachher": null,
+      "vorher_gesperrt": true,
+      "nachher_gesperrt": true,
+      "sekunden": 90.5,
+      "aktionen": [
+        {
+          "art": "bild",
+          "variante": "foto",
+          "index": 1
+        },
+        {
+          "art": "bild",
+          "variante": "foto",
+          "index": 5
+        },
+        {
+          "art": "bild",
+          "variante": "foto",
+          "index": 6
+        }
+      ],
+      "einstellungen": {
+        "stimme": "am_michael",
+        "tempo": 1.05,
+        "untertitel_profil": "ruhig",
+        "musik_pegel": null,
+        "effekt_pegel": null
+      },
+      "schwerpunkt": "bild",
+      "kategorien_vorher": {
+        "bild_passt": 2
+      },
+      "kategorien_nachher": {
+        "bild_passt": 2
+      },
+      "auswertbar": false,
+      "prompt_version": "2026-11-11.2",
+      "verbessert": false
     }
   ],
-  "stand": "2026-11-23"
+  "stand": "2026-11-24"
 }

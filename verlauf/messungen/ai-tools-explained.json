@@ -1,98 +1,5 @@
 [
   {
-    "id": "41333732613",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-11-01",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sperrgruende": [
-          "Faktenpruefung fehlt oder ist nicht bestanden",
-          "Skript-Note fehlt oder ist ungueltig",
-          "Skript-Einzelbewertungen fehlen"
-        ],
-        "story_note": null,
-        "story_schwaechen": [],
-        "skript_probleme": [
-          "[second checker] A later version-scope update added 2.1.312 per Cursor's updated notice. - The source lists '2.1.312 or 2.1.313' in the initial publication and does not mention a 'later version-scope update' that specifically added 2.1.312. The text implies 2.1.312 was added later, but the source presents both versions together in the initial advisory text provided.",
-          "[unsupported tool claim] Cursor has removed both from its marketplace. - The source states 'Marketplace correction 30 Oct, 09:13 UTC' and that the advisory corrects the affected marketplace to Cursor, but it does not explicitly state that Cursor *removed* the extensions. It only confirms the compromise and the correction of the marketplace name in the advisory.",
-          "[unsupported tool claim] The script only tries to enable SSH if the output matches Off, so it skips that step. - The source states: 'When run as a standard user, systemsetup -getremotelogin prints an administrator-access error and exits with status 0 instead of returning Off.' It does not explicitly state the logic condition 'if the output matches Off'. It implies the check fails to return 'Off', but the specific conditional logic 'only tries... if... matches Off' is an inference not explicitly detailed in the provided text snippet, which focuses on the error output and exit status.",
-          "[unsupported tool claim] The malware tripped over its own shoelaces. - This is a figurative expression/joke, which should be ignored per instructions ('jokes, sarcasm, analogies... are NOT claims'). However, if interpreted as a factual claim of mechanical failure, it is unsupported. Given the instruction to ignore jokes, this is likely not a problem. Re-evaluating: The instruction says 'Ignore style' and 'NOT claims... jokes'. So this should be ignored. I will remove this from the list.",
-          "[unsupported tool claim] Simon Willison checked his own install and found the evidence convincing. - The source is a blog post by Simon Willison (implied by 'This is a note by Simon Willison'). The text says 'I decided to have a poke at my own Claude Code installation... I found these two commands convincing'. This is supported.",
-          "[unsupported tool claim] Jarred Sumner said startup got 10% faster on Linux, but otherwise barely anyone noticed. - The source quotes Jarred Sumner: 'Startup got 10% faster on Linux but otherwise, barely anyone noticed.' This is supported."
-        ],
-        "sekunden": 494.2
-      },
-      {
-        "runde": 2,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sperrgruende": [
-          "Faktenpruefung fehlt oder ist nicht bestanden",
-          "Skript-Note fehlt oder ist ungueltig",
-          "Skript-Einzelbewertungen fehlen"
-        ],
-        "story_note": null,
-        "story_schwaechen": [],
-        "skript_probleme": [
-          "[second checker] A reduced set was re-run on claude-fable-5. - The source mentions a 'Fable path' in the context of the Meridian gateway envelope size ('3,500 on the Fable path'), but does not explicitly state that a 'reduced set' of tests was re-run on a model named 'claude-fable-5'. It mentions re-running on a 'newer one' which cost 298,000 tokens, but does not name that model 'claude-fable-5' in the provided text.",
-          "[second checker] Linux uses systemctl, macOS uses a sudo command, and Windows uses PowerShell. - The source mentions 'macOS: checks Remote Login and, if it reports Off , tries to enable it via sudo -n systemsetup -setremotelogin on.' It mentions 'systemsetup' for macOS. It does not explicitly state that 'Linux uses systemctl' or 'Windows uses PowerShell' in the provided excerpt. It only mentions the general presence of a backdoor across macOS, Linux, and Windows, and details for macOS. The specific commands for Linux and Windows are not in the source text.",
-          "[second checker] It also notes a Windows bug, and that none of these steps include a privilege escalation exploit. - The source states: 'None of these steps include a privilege escalation exploit.' It does not explicitly mention a 'Windows bug' in the provided text. It mentions 'systemsetup refuses to read the setting without administrator privileges' (macOS) and 'Non-interactive sudo -n will fail' (macOS/Linux context). It does not describe a specific 'Windows bug'.",
-          "[unsupported tool claim] OpenCode's request prefix was byte-identical in every run captured. - The source does not state that the request prefix was 'byte-identical' in every run. It only states that the fixed overhead was isolated and measured, and that OpenCode used about 7,000 tokens. The specific technical detail about byte-identity is not supported by the provided text.",
-          "[unsupported tool claim] It paid to cache once per session and read it back for pennies. - The source states that 'Cache writes of course are billed at a premium', but does not explicitly state that OpenCode 'paid to cache once per session' or that it 'read it back for pennies'. While implied by the comparison of inefficiency, the specific mechanism of 'once per session' and the cost characterization 'pennies' are not explicitly in the source text provided.",
-          "[unsupported tool claim] Claude Code re-wrote tens of thousands of prompt-cache tokens mid-session. - The source states that Claude Code wrote 'up to 54x more cache tokens than OpenCode' and that this was under the heading 'Claude Code is far more cache inefficient'. It does not explicitly state the absolute number 'tens of thousands' of tokens rewritten mid-session, nor does it explicitly describe the action as 're-wrote... mid-session' in those exact terms, though it implies high cache write volume. The specific quantity 'tens of thousands' is an extrapolation not directly stated as a count in the source excerpt.",
-          "[unsupported tool claim] The page's reason: each subagent re-reads its own system prompt and tools on every turn it takes. - The source states: 'The parent ingests only each subagent's returned result, not its whole transcript.' It does not explicitly state the *reason* for the cost increase is that 'each subagent re-reads its own system prompt and tools on every turn'. It only provides the cost figures (121k vs 513k) and the fact about what the parent ingests. The causal explanation regarding re-reading system prompts on every turn is an inference not explicitly supported by the provided text.",
-          "[unsupported tool claim] The page still calls the malware a significant threat. It installs persistence and beacons host reconnaissance back to the operator. - The source states: 'the malware is still a significant threat that installs persistence and beacons host reconnaissance back to the operator.' This is supported. However, the previous sentence in the text says 'The page still calls the malware a significant threat.' The source says 'whilst the SSH backdoor bug minimises impact on macOS, the malware is still a significant threat'. This is accurate. Wait, looking closer at the source: 'the malware is still a significant threat that installs persistence and beacons host reconnaissance back to the operator.' The text says 'It installs persistence and beacons host reconnaissance back to the operator.' This is supported. Let me re-read the source carefully. 'The goal of this payload is long-term interactive access, and whilst the SSH backdoor bug minimises impact on macOS, the malware is still a significant threat that installs persistence and beacons host reconnaissance back to the operator.' The text is accurate here. I will remove this from problems if it's accurate. Let's check the next one."
-        ],
-        "sekunden": 608.8
-      },
-      {
-        "runde": 3,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sperrgruende": [
-          "Faktenpruefung fehlt oder ist nicht bestanden",
-          "Skript-Note fehlt oder ist ungueltig",
-          "Skript-Einzelbewertungen fehlen"
-        ],
-        "story_note": null,
-        "story_schwaechen": [],
-        "skript_probleme": [
-          "[second checker] The page's total reads 75,000 to 85,000 tokens deep. - The source states that Claude Code used roughly 33,000 tokens before the prompt, and that a 72KB instruction file adds an average of 20,000 tokens and five MCP servers add 5,000 to 7,000 tokens. The sum of these specific figures is approximately 58,000 to 60,000 tokens. The source does not state a total of 75,000 to 85,000 tokens for this specific configuration. The 75k-85k range is not supported by the provided text.",
-          "[unsupported tool claim] Under Stage 1, Preparing SSH Access, the payload adds an attacker-controlled key to the authorized keys file. - The source states that 'SSH keys and persistence still get dropped' and mentions 'Stage 1 - Preparing SSH Access' involving enabling services. However, the specific mechanism of adding an 'attacker-controlled key to the authorized keys file' is not explicitly detailed in the provided source text. While implied by 'SSH keys... get dropped', the specific file name and action are not explicitly stated in the excerpt, making it an unsupported detail/extrapolation rather than a direct quote or explicit fact from the text."
-        ],
-        "sekunden": 634.9
-      },
-      {
-        "runde": 4,
-        "art": "produktion",
-        "status": "auftragsfehler",
-        "exitcode": 5,
-        "grund": "Auftrag zu gross: geschaetzte Reserve 11393 Tokens, maximal7900",
-        "sekunden": 678.7
-      },
-      {
-        "runde": 5,
-        "art": "produktion",
-        "status": "auftragsfehler",
-        "exitcode": 5,
-        "grund": "Auftrag zu gross: geschaetzte Reserve 11422 Tokens, maximal7900",
-        "sekunden": 19.5
-      }
-    ],
-    "status": "gesperrt",
-    "grund": "Auftrag zu gross: geschaetzte Reserve 11422 Tokens, maximal7900",
-    "sekunden": 2467.7
-  },
-  {
     "id": "41412735240",
     "kanal": "ai-tools-explained",
     "datum": "2026-11-02",
@@ -9613,5 +9520,510 @@
     "grund": "",
     "sekunden": 402.2,
     "upload_titel": "FREE CHATGPT WORK? ONE WORD SAYS LIMITED | AI Tool #44b"
+  },
+  {
+    "id": "45302015572",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-11-24",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "produktion",
+        "skript_s": 196.1,
+        "bau_s": 119.3,
+        "pruefung_s": 169.2,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 4/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (6/10): Die Illustration zeigt die PS5 und einen Laptop, was den Kontext 'PS5LM' und 'Server' visuell stützt. Der Text 'private AI server' auf dem Bild bestätigt die Bedeutung. Es handelt sich jedoch um eine stilisierte Darstellung (Metapher) und nicht um eine technische Erklärung oder ein Interface, das di",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Die Sprechertexte nennen spezifische technische Voraussetzungen (Jailbreak, Firmware 7.00-13.60). Die Bilder zeigen lediglich das generische Innere einer Konsole, was zwar thematisch zum Gerät passt, aber die genannte Einschränkung (Firmware-Version) nicht visualisiert oder erklärt. Es fehlt der Bez",
+          "Einstellung 3: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt eine stilisierte GitHub-Karte und den Text 'Models, Suggested', was den Kontext des gesuchten Modells herstellt. Es handelt sich jedoch nicht um die tatsächliche Benutzeroberfläche der PS5, auf der die genannten Schritte (Menü öffnen) ausgeführt werden. Es fehlt die visuelle Darstellu",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (4/10): Die Sprechblasen auf den Geräten sind ein abstraktes Symbol für Kommunikation, zeigen aber nicht die im Text genannte technische Operation: das Öffnen einer spezifischen IP-Adresse mit dem Port 8081 in einem Browser. Es fehlt der konkrete Nachweis der Browser-Interaktion.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (5/10): Die Sprechblasen sind leer und zeigen keine Textantwort oder aktive Verarbeitung. Die Konsole ist nur als Objekt im Hintergrund zu sehen, nicht als aktiver Server. Das Bild illustriert das Konzept einer KI-Interaktion, zeigt aber nicht den spezifischen technischen Vorgang, dass die Konsole als Serve",
+          "Offenes Problem (schwer): Die Illustration zeigt die PS5 und einen Laptop, was den Kontext 'PS5LM' und 'Server' visuell stützt. Der Text 'private AI server' auf dem Bild bestätigt die Bedeutung. Es handelt sich jedoch um eine stilisierte Darstellung (Metapher) und nicht um eine technische Erklärung oder ein Interface, das die Funktion als Server konkret demonstriert. Korrektur: Ein Screenshot der PS5LM-Oberfläche auf der Konsole oder ein Diagramm, das die Konsole als Server darstellt und die Verbindung zu einem Client (z. B. Browser) zeigt.",
+          "Offenes Problem (schwer): Die Sprechertexte nennen spezifische technische Voraussetzungen (Jailbreak, Firmware 7.00-13.60). Die Bilder zeigen lediglich das generische Innere einer Konsole, was zwar thematisch zum Gerät passt, aber die genannte Einschränkung (Firmware-Version) nicht visualisiert oder erklärt. Es fehlt der Bezug zur Software-Version. Korrektur: Ein Screenshot der PS5-Systemeinstellungen, in dem die Firmware-Version (z.B. 7.00 oder 13.60) sichtbar ist, oder eine grafische Darstellung, die die Versionen 7.00 bis 13.60 als unterstützten Bereich markiert.",
+          "Offenes Problem (schwer): Das Bild zeigt eine stilisierte GitHub-Karte und den Text 'Models, Suggested', was den Kontext des gesuchten Modells herstellt. Es handelt sich jedoch nicht um die tatsächliche Benutzeroberfläche der PS5, auf der die genannten Schritte (Menü öffnen) ausgeführt werden. Es fehlt die visuelle Darstellung der Konsole selbst oder ihres spezifischen Menüs. Korrektur: Ein Screenshot der PS5-Benutzeroberfläche, der das Menü 'Models' mit dem Unterpunkt 'Suggested' und einer Liste von Modellen zeigt.",
+          "Offenes Problem (schwer): Die Sprechblasen auf den Geräten sind ein abstraktes Symbol für Kommunikation, zeigen aber nicht die im Text genannte technische Operation: das Öffnen einer spezifischen IP-Adresse mit dem Port 8081 in einem Browser. Es fehlt der konkrete Nachweis der Browser-Interaktion. Korrektur: Ein Screenshot eines Web-Browsers, in dem die URL 'http://[IP-Adresse]:8081' in der Adressleiste eingegeben ist und die PS5LM-Weboberfläche (z. B. ein Chat-Interface oder Dashboard) geladen wird.",
+          "Offenes Problem (schwer): Die Sprechblasen sind leer und zeigen keine Textantwort oder aktive Verarbeitung. Die Konsole ist nur als Objekt im Hintergrund zu sehen, nicht als aktiver Server. Das Bild illustriert das Konzept einer KI-Interaktion, zeigt aber nicht den spezifischen technischen Vorgang, dass die Konsole als Server auf Port 8081 arbeitet. Korrektur: Ein Screenshot eines Browsers, der eine Web-Oberfläche (z. B. Ollama oder WebUI) auf der Adresse 192.168.x.x:8081 anzeigt, oder eine grafische Darstellung, die den Datenfluss zwischen dem PS5-Gehäuse und einem Browser-Fenster visualisiert."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 23.5,
+          "zeitmarken": 3.0,
+          "tempo": 1.169,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 7,
+          "clips_und_stuecke": 55.2,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 7,
+            "motive": 7,
+            "motive_min": 4
+          },
+          "effekte": 11,
+          "rendern": 30.2,
+          "gesamt": 118.9,
+          "videolaenge_s": 25.0,
+          "abschnitte_s": [
+            2.62,
+            4.6,
+            4.74,
+            3.46,
+            2.64,
+            4.74,
+            2.21
+          ],
+          "woerter": 60,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 4
+        },
+        "probleme": [
+          {
+            "zeit": "00:02.62",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 1,
+            "gesprochen": "PS5LM makes it a private AI server.",
+            "fest": false,
+            "text": "Die Illustration zeigt die PS5 und einen Laptop, was den Kontext 'PS5LM' und 'Server' visuell stützt. Der Text 'private AI server' auf dem Bild bestätigt die Bedeutung. Es handelt sich jedoch um eine stilisierte Darstellung (Metapher) und nicht um eine technische Erklärung oder ein Interface, das die Funktion als Server konkret demonstriert. Korrektur: Ein Screenshot der PS5LM-Oberfläche auf der Konsole oder ein Diagramm, das die Konsole als Server darstellt und die Verbindung zu einem Client (z. B. Browser) zeigt."
+          },
+          {
+            "zeit": "00:07.22",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 2,
+            "gesprochen": "The catch: jailbroken, firmware 7.00 to 13.60.",
+            "fest": false,
+            "text": "Die Sprechertexte nennen spezifische technische Voraussetzungen (Jailbreak, Firmware 7.00-13.60). Die Bilder zeigen lediglich das generische Innere einer Konsole, was zwar thematisch zum Gerät passt, aber die genannte Einschränkung (Firmware-Version) nicht visualisiert oder erklärt. Es fehlt der Bezug zur Software-Version. Korrektur: Ein Screenshot der PS5-Systemeinstellungen, in dem die Firmware-Version (z.B. 7.00 oder 13.60) sichtbar ist, oder eine grafische Darstellung, die die Versionen 7.00 bis 13.60 als unterstützten Bereich markiert."
+          },
+          {
+            "zeit": "00:11.96",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 3,
+            "gesprochen": "On your PS5, open Models, Suggested, and get a model.",
+            "fest": false,
+            "text": "Das Bild zeigt eine stilisierte GitHub-Karte und den Text 'Models, Suggested', was den Kontext des gesuchten Modells herstellt. Es handelt sich jedoch nicht um die tatsächliche Benutzeroberfläche der PS5, auf der die genannten Schritte (Menü öffnen) ausgeführt werden. Es fehlt die visuelle Darstellung der Konsole selbst oder ihres spezifischen Menüs. Korrektur: Ein Screenshot der PS5-Benutzeroberfläche, der das Menü 'Models' mit dem Unterpunkt 'Suggested' und einer Liste von Modellen zeigt."
+          },
+          {
+            "zeit": "00:18.06",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 5,
+            "gesprochen": "Once Home says Ready, open your PS5's address, port 8081, in a browser.",
+            "fest": false,
+            "text": "Die Sprechblasen auf den Geräten sind ein abstraktes Symbol für Kommunikation, zeigen aber nicht die im Text genannte technische Operation: das Öffnen einer spezifischen IP-Adresse mit dem Port 8081 in einem Browser. Es fehlt der konkrete Nachweis der Browser-Interaktion. Korrektur: Ein Screenshot eines Web-Browsers, in dem die URL 'http://[IP-Adresse]:8081' in der Adressleiste eingegeben ist und die PS5LM-Weboberfläche (z. B. ein Chat-Interface oder Dashboard) geladen wird."
+          },
+          {
+            "zeit": "00:22.80",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 6,
+            "gesprochen": "Your nightlight now shows its work.",
+            "fest": false,
+            "text": "Die Sprechblasen sind leer und zeigen keine Textantwort oder aktive Verarbeitung. Die Konsole ist nur als Objekt im Hintergrund zu sehen, nicht als aktiver Server. Das Bild illustriert das Konzept einer KI-Interaktion, zeigt aber nicht den spezifischen technischen Vorgang, dass die Konsole als Server auf Port 8081 arbeitet. Korrektur: Ein Screenshot eines Browsers, der eine Web-Oberfläche (z. B. Ollama oder WebUI) auf der Adresse 192.168.x.x:8081 anzeigt, oder eine grafische Darstellung, die den Datenfluss zwischen dem PS5-Gehäuse und einem Browser-Fenster visualisiert."
+          }
+        ],
+        "sekunden": 487.2,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 5
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 6
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-11-11.2"
+        },
+        "skript_s": 1.6,
+        "bau_s": 154.7,
+        "pruefung_s": 40.9,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die Aufnahme zeigt zwar das Innere einer PS5, jedoch nicht den Serverbetrieb oder die Software aus dem Sprechtext.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Es zeigt lediglich ein gemaltes Zimmer mit Bildschirmen voller leerer Sprechblasen, aber keinerlei Browser, Netzwerkadresse oder Port 8081.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Illustration zeigt einen Mann mit einer PS5 Konsole, aber nicht das im Text genannte Ergebnis, dass das Nachtlicht seine Arbeit anzeigt.",
+          "Offenes Problem (schwer): Die Aufnahme zeigt zwar das Innere einer PS5, jedoch nicht den Serverbetrieb oder die Software aus dem Sprechtext. Korrektur: Ein Screenshot der Benutzeroberfläche des PS5LM-Servers oder des Browser-Zugriffs.",
+          "Offenes Problem (schwer): Es zeigt lediglich ein gemaltes Zimmer mit Bildschirmen voller leerer Sprechblasen, aber keinerlei Browser, Netzwerkadresse oder Port 8081. Korrektur: Ein Screenshot eines Webbrowsers, der die IP-Adresse der PS5 mit Port 8081 und das fertige AI-Interface oder die Ready-Meldung zeigt.",
+          "Offenes Problem (schwer): Die gezeigte Illustration zeigt einen Mann mit einer PS5 Konsole, aber nicht das im Text genannte Ergebnis, dass das Nachtlicht seine Arbeit anzeigt. Korrektur: Ein Screenshot eines Webbrowsers, der das fertige AI-Server-Interface der PS5 anzeigt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Puck",
+          "tempo": 1.169,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 1,
+          "stuecke_neu": 6,
+          "clips_und_stuecke": 47.3,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 7,
+            "motive": 7,
+            "motive_min": 4
+          },
+          "effekte": 11,
+          "rendern": 30.4,
+          "gesamt": 154.5,
+          "videolaenge_s": 25.0,
+          "abschnitte_s": [
+            2.62,
+            4.6,
+            4.74,
+            3.46,
+            2.64,
+            4.74,
+            2.21
+          ],
+          "woerter": 60,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:02.62",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 1,
+            "gesprochen": "PS5LM makes it a private AI server.",
+            "fest": false,
+            "text": "Die Aufnahme zeigt zwar das Innere einer PS5, jedoch nicht den Serverbetrieb oder die Software aus dem Sprechtext. Korrektur: Ein Screenshot der Benutzeroberfläche des PS5LM-Servers oder des Browser-Zugriffs."
+          },
+          {
+            "zeit": "00:18.06",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 5,
+            "gesprochen": "Once Home says Ready, open your PS5's address, port 8081, in a browser.",
+            "fest": false,
+            "text": "Es zeigt lediglich ein gemaltes Zimmer mit Bildschirmen voller leerer Sprechblasen, aber keinerlei Browser, Netzwerkadresse oder Port 8081. Korrektur: Ein Screenshot eines Webbrowsers, der die IP-Adresse der PS5 mit Port 8081 und das fertige AI-Interface oder die Ready-Meldung zeigt."
+          },
+          {
+            "zeit": "00:22.80",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 6,
+            "gesprochen": "Your nightlight now shows its work.",
+            "fest": false,
+            "text": "Die gezeigte Illustration zeigt einen Mann mit einer PS5 Konsole, aber nicht das im Text genannte Ergebnis, dass das Nachtlicht seine Arbeit anzeigt. Korrektur: Ein Screenshot eines Webbrowsers, der das fertige AI-Server-Interface der PS5 anzeigt."
+          }
+        ],
+        "sekunden": 199.5,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "45302015572-2",
+          "datum": "2026-11-24",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 199.5,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 5
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 6
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 4
+          },
+          "kategorien_nachher": {
+            "bild_passt": 2
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-11-11.2",
+          "verbessert": false
+        }
+      },
+      {
+        "runde": 3,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 5
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 6
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            1,
+            5,
+            6
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-11-11.2"
+        },
+        "skript_s": 2.4,
+        "bau_s": 76.4,
+        "pruefung_s": 9.5,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die Aufnahme zeigt zwar das Innere einer PS5, jedoch nicht den Serverbetrieb oder die Software aus dem Sprechtext.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (2/10): Es zeigt lediglich ein gemaltes Zimmer mit Bildschirmen voller leerer Sprechblasen, aber keinerlei Browser, Netzwerkadresse oder Port 8081.",
+          "Einstellung 6: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Illustration zeigt einen Mann mit einer PS5 Konsole, aber nicht das im Text genannte Ergebnis, dass das Nachtlicht seine Arbeit anzeigt.",
+          "Offenes Problem (schwer): Die Aufnahme zeigt zwar das Innere einer PS5, jedoch nicht den Serverbetrieb oder die Software aus dem Sprechtext. Korrektur: Ein Screenshot der Benutzeroberfläche des PS5LM-Servers oder des Browser-Zugriffs.",
+          "Offenes Problem (schwer): Es zeigt lediglich ein gemaltes Zimmer mit Bildschirmen voller leerer Sprechblasen, aber keinerlei Browser, Netzwerkadresse oder Port 8081. Korrektur: Ein Screenshot eines Webbrowsers, der die IP-Adresse der PS5 mit Port 8081 und das fertige AI-Interface oder die Ready-Meldung zeigt.",
+          "Offenes Problem (schwer): Die gezeigte Illustration zeigt einen Mann mit einer PS5 Konsole, aber nicht das im Text genannte Ergebnis, dass das Nachtlicht seine Arbeit anzeigt. Korrektur: Ein Screenshot eines Webbrowsers, der das fertige AI-Server-Interface der PS5 anzeigt."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": true,
+          "erzaehlstimme": "gemini:Puck",
+          "tempo": 1.169,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 3,
+          "stuecke_neu": 4,
+          "clips_und_stuecke": 32.4,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 7,
+            "motive": 7,
+            "motive_min": 4
+          },
+          "effekte": 11,
+          "rendern": 29.9,
+          "gesamt": 76.1,
+          "videolaenge_s": 25.0,
+          "abschnitte_s": [
+            2.62,
+            4.6,
+            4.74,
+            3.46,
+            2.64,
+            4.74,
+            2.21
+          ],
+          "woerter": 60,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:02.62",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 1,
+            "gesprochen": "PS5LM makes it a private AI server.",
+            "fest": false,
+            "text": "Die Aufnahme zeigt zwar das Innere einer PS5, jedoch nicht den Serverbetrieb oder die Software aus dem Sprechtext. Korrektur: Ein Screenshot der Benutzeroberfläche des PS5LM-Servers oder des Browser-Zugriffs."
+          },
+          {
+            "zeit": "00:18.06",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 5,
+            "gesprochen": "Once Home says Ready, open your PS5's address, port 8081, in a browser.",
+            "fest": false,
+            "text": "Es zeigt lediglich ein gemaltes Zimmer mit Bildschirmen voller leerer Sprechblasen, aber keinerlei Browser, Netzwerkadresse oder Port 8081. Korrektur: Ein Screenshot eines Webbrowsers, der die IP-Adresse der PS5 mit Port 8081 und das fertige AI-Interface oder die Ready-Meldung zeigt."
+          },
+          {
+            "zeit": "00:22.80",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 6,
+            "gesprochen": "Your nightlight now shows its work.",
+            "fest": false,
+            "text": "Die gezeigte Illustration zeigt einen Mann mit einer PS5 Konsole, aber nicht das im Text genannte Ergebnis, dass das Nachtlicht seine Arbeit anzeigt. Korrektur: Ein Screenshot eines Webbrowsers, der das fertige AI-Server-Interface der PS5 anzeigt."
+          }
+        ],
+        "sekunden": 90.5,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "45302015572-3",
+          "datum": "2026-11-24",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 90.5,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 5
+            },
+            {
+              "art": "bild",
+              "variante": "foto",
+              "index": 6
+            }
+          ],
+          "einstellungen": {
+            "stimme": "am_michael",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 2
+          },
+          "kategorien_nachher": {
+            "bild_passt": 2
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-11-11.2",
+          "verbessert": false
+        }
+      }
+    ],
+    "status": "gesendet",
+    "thema_eingabe": "https://github.com/cobanov/ps5lm (remake)",
+    "grund": "",
+    "sekunden": 841.6,
+    "upload_titel": "PS5LM – PS5 AI SERVER? NO CLOUD, NO ACCOUNT | AI Tool #45b"
   }
 ]

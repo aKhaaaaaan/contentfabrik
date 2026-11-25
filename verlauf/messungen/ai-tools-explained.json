@@ -1,134 +1,5 @@
 [
   {
-    "id": "41412735240",
-    "kanal": "ai-tools-explained",
-    "datum": "2026-11-02",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "bau_fortsetzen",
-        "skript_s": 0.0,
-        "bau_s": 656.7,
-        "pruefung_s": 39.2,
-        "note": null,
-        "sperrgruende": [
-          "Video-Note fehlt oder ist ungueltig",
-          "Video-Bewertung hook fehlt oder ist ungueltig",
-          "Video-bild_passt 2/10 unter 7/10",
-          "Video-Bewertung dynamik fehlt oder ist ungueltig",
-          "Video-Bewertung text fehlt oder ist ungueltig",
-          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
-          "Video-Bewertung tempo fehlt oder ist ungueltig",
-          "Video-Bewertung inhalt fehlt oder ist ungueltig",
-          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
-          "Video-Bewertung regeln fehlt oder ist ungueltig",
-          "Video-Bewertung story fehlt oder ist ungueltig",
-          "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Hand mit einem Handmikrofon und einen Monitor mit Farbklecksen. Es ist weder ein LG-Fernseher mit dunklem Bildschirm noch ein stummgeschaltetes Mikrofon zu sehen.",
-          "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Passage verlangt das Ausschalten von ACR, Far-Field-Spracherkennung und interessenbezogenen Anzeigen in den Einstellungen, gezeigt wird jedoch nur eine Hand mit einer Fernbedienung im dunklen Zimmer ohne Menü oder Einstellungsansicht.",
-          "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Spieler mit Controller, während die gesprochenen Wörter eine Suche nach Einstellungen ('settings scavenger hunt') beschreiben.",
-          "Einstellung 11: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt einen Mann auf einem Sofa neben einem Schaltschrank und passt nicht zu den Worten 'Alleged, disputed, better locked down.', da weder der umstrittene Sachverhalt noch Sicherheitsmaßnahmen dargestellt werden.",
-          "Offenes Problem (schwer): Das Bild zeigt eine Hand mit einem Handmikrofon und einen Monitor mit Farbklecksen. Es ist weder ein LG-Fernseher mit dunklem Bildschirm noch ein stummgeschaltetes Mikrofon zu sehen. Korrektur: Ein ausgeschalteter oder dunkler LG-Fernseher mit einem erkennbaren Mikrofon-Symbol oder einer Stummschaltungsanzeige.",
-          "Offenes Problem (schwer): Die gesprochene Passage verlangt das Ausschalten von ACR, Far-Field-Spracherkennung und interessenbezogenen Anzeigen in den Einstellungen, gezeigt wird jedoch nur eine Hand mit einer Fernbedienung im dunklen Zimmer ohne Menü oder Einstellungsansicht. Korrektur: Ein Screenshot der Fernseheinstellungen, das das Menü zum Deaktivieren von ACR und Far-Field-Spracherkennung zeigt.",
-          "Offenes Problem (schwer): Das Bild zeigt einen Spieler mit Controller, während die gesprochenen Wörter eine Suche nach Einstellungen ('settings scavenger hunt') beschreiben. Korrektur: Ein Screenshot des Einstellungsmenüs eines Smart-TVs, das Optionen wie ACR oder Far-Field-Spracherkennung zeigt.",
-          "Offenes Problem (schwer): Das Bild zeigt einen Mann auf einem Sofa neben einem Schaltschrank und passt nicht zu den Worten 'Alleged, disputed, better locked down.', da weder der umstrittene Sachverhalt noch Sicherheitsmaßnahmen dargestellt werden. Korrektur: Ein Screenshot von Gerätesicherheitseinstellungen oder ein Symbol für Datenschutz und Sicherheit."
-        ],
-        "messung": {
-          "stimme_wiederverwendet": false,
-          "erzaehlstimme": "gemini:Puck",
-          "stimme": 26.7,
-          "zeitmarken": 5.4,
-          "tempo": 1.25,
-          "stimme_ersatz": false,
-          "stuecke_wiederverwendet": 0,
-          "stuecke_neu": 13,
-          "bilder_vereinfacht": 1,
-          "clips_und_stuecke": 420.4,
-          "bildpruefung": {
-            "befunde": [],
-            "einstellungen": 13,
-            "motive": 13,
-            "motive_min": 8
-          },
-          "effekte": 10,
-          "rendern": 55.5,
-          "gesamt": 656.3,
-          "videolaenge_s": 45.6,
-          "abschnitte_s": [
-            6.1,
-            7.34,
-            8.24,
-            6.08,
-            7.24,
-            6.66,
-            3.96
-          ],
-          "woerter": 130,
-          "clips": {
-            "witz": 0,
-            "archiv": 0
-          }
-        },
-        "kategorien": {
-          "bild_passt": 2
-        },
-        "probleme": [
-          {
-            "zeit": "00:09.77",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 1,
-            "einstellung": 3,
-            "gesprochen": "dark-screen LG TV whose main microphone was muted.",
-            "fest": true,
-            "text": "Das Bild zeigt eine Hand mit einem Handmikrofon und einen Monitor mit Farbklecksen. Es ist weder ein LG-Fernseher mit dunklem Bildschirm noch ein stummgeschaltetes Mikrofon zu sehen. Korrektur: Ein ausgeschalteter oder dunkler LG-Fernseher mit einem erkennbaren Mikrofon-Symbol oder einer Stummschaltungsanzeige."
-          },
-          {
-            "zeit": "00:27.76",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 4,
-            "einstellung": 8,
-            "gesprochen": "Either way, limit tracking. Switch off ACR, Far-Field voice recognition and interest-based ads.",
-            "fest": true,
-            "text": "Die gesprochene Passage verlangt das Ausschalten von ACR, Far-Field-Spracherkennung und interessenbezogenen Anzeigen in den Einstellungen, gezeigt wird jedoch nur eine Hand mit einer Fernbedienung im dunklen Zimmer ohne Menü oder Einstellungsansicht. Korrektur: Ein Screenshot der Fernseheinstellungen, das das Menü zum Deaktivieren von ACR und Far-Field-Spracherkennung zeigt."
-          },
-          {
-            "zeit": "00:32.76",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 4,
-            "einstellung": 9,
-            "gesprochen": "Yes, a settings scavenger hunt.",
-            "fest": true,
-            "text": "Das Bild zeigt einen Spieler mit Controller, während die gesprochenen Wörter eine Suche nach Einstellungen ('settings scavenger hunt') beschreiben. Korrektur: Ein Screenshot des Einstellungsmenüs eines Smart-TVs, das Optionen wie ACR oder Far-Field-Spracherkennung zeigt."
-          },
-          {
-            "zeit": "00:39.22",
-            "art": "bild_passt_nicht",
-            "schwere": "schwer",
-            "phase": 5,
-            "einstellung": 11,
-            "gesprochen": "Alleged, disputed, better locked down.",
-            "fest": true,
-            "text": "Das Bild zeigt einen Mann auf einem Sofa neben einem Schaltschrank und passt nicht zu den Worten 'Alleged, disputed, better locked down.', da weder der umstrittene Sachverhalt noch Sicherheitsmaßnahmen dargestellt werden. Korrektur: Ein Screenshot von Gerätesicherheitseinstellungen oder ein Symbol für Datenschutz und Sicherheit."
-          }
-        ],
-        "sekunden": 695.9,
-        "status": "geprueft"
-      },
-      {
-        "runde": 2,
-        "art": "korrektur",
-        "status": "keine_korrektur",
-        "sekunden": 0.1
-      }
-    ],
-    "status": "gesendet",
-    "grund": "",
-    "sekunden": 713.6,
-    "upload_titel": "IS YOUR LG TV: LISTENING? | AI Tool #23"
-  },
-  {
     "id": "41477423527",
     "kanal": "ai-tools-explained",
     "datum": "2026-11-02",
@@ -10025,5 +9896,146 @@
     "grund": "",
     "sekunden": 841.6,
     "upload_titel": "PS5LM – PS5 AI SERVER? NO CLOUD, NO ACCOUNT | AI Tool #45b"
+  },
+  {
+    "id": "45515407993",
+    "kanal": "ai-tools-explained",
+    "datum": "2026-11-25",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 243.1,
+        "pruefung_s": 46.1,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 0: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt zwar ein stilisiertes Gesicht mit 3D-Drahtgitter und ein Smartphone mit einem Foto, stellt aber kein konkretes Software-Interface oder die im Text erwähnten Details zum Kleingedruckten von TripoSR oder Meshy dar.",
+          "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar einen PC und eine 3D-Büste, aber keine Informationen zur Open-Source-Lizenz oder dem Quellcode von TripoSR.",
+          "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gesprochene rhetorische Frage 'Meshy\\'s catch?' wird zwar als Text in einer Chat-Grafik gezeigt, es fehlt jedoch die technische Erklärung, Benutzeroberfläche oder das tatsächliche Detail der kostenpflichtigen Tarife bzw. Multi-View-Funktionen.",
+          "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen kostenlose Accounts und begrenzte Versuche, aber das Bild zeigt abstrakte Gesichter und ein Schloss, was keinen Bezug zu Kontolimits oder Abos darstellt.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen präsentierenden Mann und einen 3D-Charakter, aber nicht das Lesen eines Plans oder Tarifs vor dem Hochladen eines Fotos.",
+          "Offenes Problem (schwer): Das Bild zeigt zwar ein stilisiertes Gesicht mit 3D-Drahtgitter und ein Smartphone mit einem Foto, stellt aber kein konkretes Software-Interface oder die im Text erwähnten Details zum Kleingedruckten von TripoSR oder Meshy dar. Korrektur: Ein Screenshot der Software-Benutzeroberfläche von TripoSR oder Meshy mit sichtbaren Lizenz- oder Dateigrößen-Hinweisen.",
+          "Offenes Problem (schwer): Das Bild zeigt zwar einen PC und eine 3D-Büste, aber keine Informationen zur Open-Source-Lizenz oder dem Quellcode von TripoSR. Korrektur: Ein Screenshot des GitHub-Repositories von TripoSR, das die MIT-Lizenz und Open-Source-Details zeigt.",
+          "Offenes Problem (schwer): Die gesprochene rhetorische Frage 'Meshy\\'s catch?' wird zwar als Text in einer Chat-Grafik gezeigt, es fehlt jedoch die technische Erklärung, Benutzeroberfläche oder das tatsächliche Detail der kostenpflichtigen Tarife bzw. Multi-View-Funktionen. Korrektur: Ein Screenshot der Preistabelle oder Tarifübersicht von Meshy, die zeigt, dass Multi-View einen kostenpflichtigen Plan erfordert.",
+          "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen kostenlose Accounts und begrenzte Versuche, aber das Bild zeigt abstrakte Gesichter und ein Schloss, was keinen Bezug zu Kontolimits oder Abos darstellt. Korrektur: Ein Screenshot eines Kontobereichs oder einer Preistabelle, die begrenzte Versuche für kostenlose Nutzer zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt einen präsentierenden Mann und einen 3D-Charakter, aber nicht das Lesen eines Plans oder Tarifs vor dem Hochladen eines Fotos. Korrektur: Ein Screenshot der Preisseite oder Nutzungsbedingungen einer 3D-Modellierungsplattform mit Tarifen."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "gemini:Puck",
+          "stimme": 27.8,
+          "zeitmarken": 3.0,
+          "tempo": 1.062,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 9,
+          "clips_und_stuecke": 100.8,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 9,
+            "motive": 9,
+            "motive_min": 4
+          },
+          "effekte": 10,
+          "rendern": 33.3,
+          "gesamt": 242.6,
+          "videolaenge_s": 25.0,
+          "abschnitte_s": [
+            3.78,
+            6.3,
+            2.5,
+            4.16,
+            1.8,
+            4.8,
+            1.67
+          ],
+          "woerter": 60,
+          "clips": {
+            "witz": 0,
+            "archiv": 0
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Free 3D from one photo? Read the fine print.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar ein stilisiertes Gesicht mit 3D-Drahtgitter und ein Smartphone mit einem Foto, stellt aber kein konkretes Software-Interface oder die im Text erwähnten Details zum Kleingedruckten von TripoSR oder Meshy dar. Korrektur: Ein Screenshot der Software-Benutzeroberfläche von TripoSR oder Meshy mit sichtbaren Lizenz- oder Dateigrößen-Hinweisen."
+          },
+          {
+            "zeit": "00:03.78",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 1,
+            "gesprochen": "Checked November 18: TripoSR is open source, MIT licensed.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar einen PC und eine 3D-Büste, aber keine Informationen zur Open-Source-Lizenz oder dem Quellcode von TripoSR. Korrektur: Ein Screenshot des GitHub-Repositories von TripoSR, das die MIT-Lizenz und Open-Source-Details zeigt."
+          },
+          {
+            "zeit": "00:16.74",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 5,
+            "gesprochen": "Meshy's catch?",
+            "fest": true,
+            "text": "Die gesprochene rhetorische Frage 'Meshy\\'s catch?' wird zwar als Text in einer Chat-Grafik gezeigt, es fehlt jedoch die technische Erklärung, Benutzeroberfläche oder das tatsächliche Detail der kostenpflichtigen Tarife bzw. Multi-View-Funktionen. Korrektur: Ein Screenshot der Preistabelle oder Tarifübersicht von Meshy, die zeigt, dass Multi-View einen kostenpflichtigen Plan erfordert."
+          },
+          {
+            "zeit": "00:21.04",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 7,
+            "gesprochen": "Free accounts get limited tries.",
+            "fest": false,
+            "text": "Die gesprochenen Wörter erwähnen kostenlose Accounts und begrenzte Versuche, aber das Bild zeigt abstrakte Gesichter und ein Schloss, was keinen Bezug zu Kontolimits oder Abos darstellt. Korrektur: Ein Screenshot eines Kontobereichs oder einer Preistabelle, die begrenzte Versuche für kostenlose Nutzer zeigt."
+          },
+          {
+            "zeit": "00:23.34",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 8,
+            "gesprochen": "Read the plan before that photo.",
+            "fest": false,
+            "text": "Das Bild zeigt einen präsentierenden Mann und einen 3D-Charakter, aber nicht das Lesen eines Plans oder Tarifs vor dem Hochladen eines Fotos. Korrektur: Ein Screenshot der Preisseite oder Nutzungsbedingungen einer 3D-Modellierungsplattform mit Tarifen."
+          }
+        ],
+        "sekunden": 295.4,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "status": "keine_korrektur",
+        "sekunden": 0.1
+      }
+    ],
+    "status": "gesendet",
+    "thema_eingabe": "Turn a selfie into your own GTA-style 3D character: free open-source TripoSR vs Meshy Image to 3D",
+    "grund": "",
+    "sekunden": 313.2,
+    "upload_titel": "Selfie to 3D character – FREE 3D FROM A PHOTO? CHECK THE FINE PRINT | AI Tool #46b"
   }
 ]

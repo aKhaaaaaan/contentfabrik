@@ -217639,6 +217639,786 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "45515407993.1:ai-tools-explained",
+      "run_id": "45515407993",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-25T00:13:45.330305+00:00",
+      "ereignis": "schedule",
+      "commit": "a338482c748c89f3b662d41cd9a2e6c7c16b2738",
+      "produktionsversion": "245bbabfd23d4b072ad4bd43af217be89bd9177cfdee8e233aa848dd17562bef",
+      "videoformat": "short",
+      "thema": "Selfie to 3D character: TripoSR vs Meshy fine print",
+      "titel": [
+        "FREE 3D FROM A PHOTO?",
+        "CHECK THE FINE PRINT"
+      ],
+      "status": "gesendet",
+      "video_sha256": "78b5e12efbece8b8d2e2f28198ce127a518d8d689548a1f394b0a8886d754561",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-11.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt zwar ein stilisiertes Gesicht mit 3D-Drahtgitter und ein Smartphone mit einem Foto, stellt aber kein konkretes Software-Interface oder die im Text erwähnten Details zum Kleingedruckten von TripoSR oder Meshy dar.",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar einen PC und eine 3D-Büste, aber keine Informationen zur Open-Source-Lizenz oder dem Quellcode von TripoSR.",
+        "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gesprochene rhetorische Frage 'Meshy\\'s catch?' wird zwar als Text in einer Chat-Grafik gezeigt, es fehlt jedoch die technische Erklärung, Benutzeroberfläche oder das tatsächliche Detail der kostenpflichtigen Tarife bzw. Multi-View-Funktionen.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen kostenlose Accounts und begrenzte Versuche, aber das Bild zeigt abstrakte Gesichter und ein Schloss, was keinen Bezug zu Kontolimits oder Abos darstellt.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen präsentierenden Mann und einen 3D-Charakter, aber nicht das Lesen eines Plans oder Tarifs vor dem Hochladen eines Fotos.",
+        "Offenes Problem (schwer): Das Bild zeigt zwar ein stilisiertes Gesicht mit 3D-Drahtgitter und ein Smartphone mit einem Foto, stellt aber kein konkretes Software-Interface oder die im Text erwähnten Details zum Kleingedruckten von TripoSR oder Meshy dar. Korrektur: Ein Screenshot der Software-Benutzeroberfläche von TripoSR oder Meshy mit sichtbaren Lizenz- oder Dateigrößen-Hinweisen.",
+        "Offenes Problem (schwer): Das Bild zeigt zwar einen PC und eine 3D-Büste, aber keine Informationen zur Open-Source-Lizenz oder dem Quellcode von TripoSR. Korrektur: Ein Screenshot des GitHub-Repositories von TripoSR, das die MIT-Lizenz und Open-Source-Details zeigt.",
+        "Offenes Problem (schwer): Die gesprochene rhetorische Frage 'Meshy\\'s catch?' wird zwar als Text in einer Chat-Grafik gezeigt, es fehlt jedoch die technische Erklärung, Benutzeroberfläche oder das tatsächliche Detail der kostenpflichtigen Tarife bzw. Multi-View-Funktionen. Korrektur: Ein Screenshot der Preistabelle oder Tarifübersicht von Meshy, die zeigt, dass Multi-View einen kostenpflichtigen Plan erfordert.",
+        "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen kostenlose Accounts und begrenzte Versuche, aber das Bild zeigt abstrakte Gesichter und ein Schloss, was keinen Bezug zu Kontolimits oder Abos darstellt. Korrektur: Ein Screenshot eines Kontobereichs oder einer Preistabelle, die begrenzte Versuche für kostenlose Nutzer zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt einen präsentierenden Mann und einen 3D-Charakter, aber nicht das Lesen eines Plans oder Tarifs vor dem Hochladen eines Fotos. Korrektur: Ein Screenshot der Preisseite oder Nutzungsbedingungen einer 3D-Modellierungsplattform mit Tarifen."
+      ],
+      "einstellungen": 9,
+      "unterschiedliche_motive": 9,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "45515407993",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-25",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 243.1,
+            "pruefung_s": 46.1,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt zwar ein stilisiertes Gesicht mit 3D-Drahtgitter und ein Smartphone mit einem Foto, stellt aber kein konkretes Software-Interface oder die im Text erwähnten Details zum Kleingedruckten von TripoSR oder Meshy dar.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar einen PC und eine 3D-Büste, aber keine Informationen zur Open-Source-Lizenz oder dem Quellcode von TripoSR.",
+              "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gesprochene rhetorische Frage 'Meshy\\'s catch?' wird zwar als Text in einer Chat-Grafik gezeigt, es fehlt jedoch die technische Erklärung, Benutzeroberfläche oder das tatsächliche Detail der kostenpflichtigen Tarife bzw. Multi-View-Funktionen.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen kostenlose Accounts und begrenzte Versuche, aber das Bild zeigt abstrakte Gesichter und ein Schloss, was keinen Bezug zu Kontolimits oder Abos darstellt.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen präsentierenden Mann und einen 3D-Charakter, aber nicht das Lesen eines Plans oder Tarifs vor dem Hochladen eines Fotos.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar ein stilisiertes Gesicht mit 3D-Drahtgitter und ein Smartphone mit einem Foto, stellt aber kein konkretes Software-Interface oder die im Text erwähnten Details zum Kleingedruckten von TripoSR oder Meshy dar. Korrektur: Ein Screenshot der Software-Benutzeroberfläche von TripoSR oder Meshy mit sichtbaren Lizenz- oder Dateigrößen-Hinweisen.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar einen PC und eine 3D-Büste, aber keine Informationen zur Open-Source-Lizenz oder dem Quellcode von TripoSR. Korrektur: Ein Screenshot des GitHub-Repositories von TripoSR, das die MIT-Lizenz und Open-Source-Details zeigt.",
+              "Offenes Problem (schwer): Die gesprochene rhetorische Frage 'Meshy\\'s catch?' wird zwar als Text in einer Chat-Grafik gezeigt, es fehlt jedoch die technische Erklärung, Benutzeroberfläche oder das tatsächliche Detail der kostenpflichtigen Tarife bzw. Multi-View-Funktionen. Korrektur: Ein Screenshot der Preistabelle oder Tarifübersicht von Meshy, die zeigt, dass Multi-View einen kostenpflichtigen Plan erfordert.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen kostenlose Accounts und begrenzte Versuche, aber das Bild zeigt abstrakte Gesichter und ein Schloss, was keinen Bezug zu Kontolimits oder Abos darstellt. Korrektur: Ein Screenshot eines Kontobereichs oder einer Preistabelle, die begrenzte Versuche für kostenlose Nutzer zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen präsentierenden Mann und einen 3D-Charakter, aber nicht das Lesen eines Plans oder Tarifs vor dem Hochladen eines Fotos. Korrektur: Ein Screenshot der Preisseite oder Nutzungsbedingungen einer 3D-Modellierungsplattform mit Tarifen."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 27.8,
+              "zeitmarken": 3.0,
+              "tempo": 1.062,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 9,
+              "clips_und_stuecke": 100.8,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 9,
+                "motive": 9,
+                "motive_min": 4
+              },
+              "effekte": 10,
+              "rendern": 33.3,
+              "gesamt": 242.6,
+              "videolaenge_s": 25.0,
+              "abschnitte_s": [
+                3.78,
+                6.3,
+                2.5,
+                4.16,
+                1.8,
+                4.8,
+                1.67
+              ],
+              "woerter": 60,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Free 3D from one photo? Read the fine print.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar ein stilisiertes Gesicht mit 3D-Drahtgitter und ein Smartphone mit einem Foto, stellt aber kein konkretes Software-Interface oder die im Text erwähnten Details zum Kleingedruckten von TripoSR oder Meshy dar. Korrektur: Ein Screenshot der Software-Benutzeroberfläche von TripoSR oder Meshy mit sichtbaren Lizenz- oder Dateigrößen-Hinweisen."
+              },
+              {
+                "zeit": "00:03.78",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 1,
+                "gesprochen": "Checked November 18: TripoSR is open source, MIT licensed.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar einen PC und eine 3D-Büste, aber keine Informationen zur Open-Source-Lizenz oder dem Quellcode von TripoSR. Korrektur: Ein Screenshot des GitHub-Repositories von TripoSR, das die MIT-Lizenz und Open-Source-Details zeigt."
+              },
+              {
+                "zeit": "00:16.74",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 5,
+                "gesprochen": "Meshy's catch?",
+                "fest": true,
+                "text": "Die gesprochene rhetorische Frage 'Meshy\\'s catch?' wird zwar als Text in einer Chat-Grafik gezeigt, es fehlt jedoch die technische Erklärung, Benutzeroberfläche oder das tatsächliche Detail der kostenpflichtigen Tarife bzw. Multi-View-Funktionen. Korrektur: Ein Screenshot der Preistabelle oder Tarifübersicht von Meshy, die zeigt, dass Multi-View einen kostenpflichtigen Plan erfordert."
+              },
+              {
+                "zeit": "00:21.04",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 7,
+                "gesprochen": "Free accounts get limited tries.",
+                "fest": false,
+                "text": "Die gesprochenen Wörter erwähnen kostenlose Accounts und begrenzte Versuche, aber das Bild zeigt abstrakte Gesichter und ein Schloss, was keinen Bezug zu Kontolimits oder Abos darstellt. Korrektur: Ein Screenshot eines Kontobereichs oder einer Preistabelle, die begrenzte Versuche für kostenlose Nutzer zeigt."
+              },
+              {
+                "zeit": "00:23.34",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 8,
+                "gesprochen": "Read the plan before that photo.",
+                "fest": false,
+                "text": "Das Bild zeigt einen präsentierenden Mann und einen 3D-Charakter, aber nicht das Lesen eines Plans oder Tarifs vor dem Hochladen eines Fotos. Korrektur: Ein Screenshot der Preisseite oder Nutzungsbedingungen einer 3D-Modellierungsplattform mit Tarifen."
+              }
+            ],
+            "sekunden": 295.4,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "thema_eingabe": "Turn a selfie into your own GTA-style 3D character: free open-source TripoSR vs Meshy Image to 3D",
+        "grund": "",
+        "sekunden": 313.2,
+        "upload_titel": "Selfie to 3D character – FREE 3D FROM A PHOTO? CHECK THE FINE PRINT | AI Tool #46b"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Free 3D from one photo? Read the fine print.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar ein stilisiertes Gesicht mit 3D-Drahtgitter und ein Smartphone mit einem Foto, stellt aber kein konkretes Software-Interface oder die im Text erwähnten Details zum Kleingedruckten von TripoSR oder Meshy dar. Korrektur: Ein Screenshot der Software-Benutzeroberfläche von TripoSR oder Meshy mit sichtbaren Lizenz- oder Dateigrößen-Hinweisen."
+          },
+          {
+            "zeit": "00:03.78",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 1,
+            "gesprochen": "Checked November 18: TripoSR is open source, MIT licensed.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar einen PC und eine 3D-Büste, aber keine Informationen zur Open-Source-Lizenz oder dem Quellcode von TripoSR. Korrektur: Ein Screenshot des GitHub-Repositories von TripoSR, das die MIT-Lizenz und Open-Source-Details zeigt."
+          },
+          {
+            "zeit": "00:16.74",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 5,
+            "gesprochen": "Meshy's catch?",
+            "fest": true,
+            "text": "Die gesprochene rhetorische Frage 'Meshy\\'s catch?' wird zwar als Text in einer Chat-Grafik gezeigt, es fehlt jedoch die technische Erklärung, Benutzeroberfläche oder das tatsächliche Detail der kostenpflichtigen Tarife bzw. Multi-View-Funktionen. Korrektur: Ein Screenshot der Preistabelle oder Tarifübersicht von Meshy, die zeigt, dass Multi-View einen kostenpflichtigen Plan erfordert."
+          },
+          {
+            "zeit": "00:21.04",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 7,
+            "gesprochen": "Free accounts get limited tries.",
+            "fest": false,
+            "text": "Die gesprochenen Wörter erwähnen kostenlose Accounts und begrenzte Versuche, aber das Bild zeigt abstrakte Gesichter und ein Schloss, was keinen Bezug zu Kontolimits oder Abos darstellt. Korrektur: Ein Screenshot eines Kontobereichs oder einer Preistabelle, die begrenzte Versuche für kostenlose Nutzer zeigt."
+          },
+          {
+            "zeit": "00:23.34",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 8,
+            "gesprochen": "Read the plan before that photo.",
+            "fest": false,
+            "text": "Das Bild zeigt einen präsentierenden Mann und einen 3D-Charakter, aber nicht das Lesen eines Plans oder Tarifs vor dem Hochladen eines Fotos. Korrektur: Ein Screenshot der Preisseite oder Nutzungsbedingungen einer 3D-Modellierungsplattform mit Tarifen."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 25.0,
+          "fps": 30.0,
+          "lufs": -14.1,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 10.54,
+              "bis_s": 12.16,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.991
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 5.0,
+              "bis_s": 25.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Free",
+                "s": 0.0,
+                "e": 0.46,
+                "p": 0.5650838017463684
+              },
+              {
+                "w": "3D",
+                "s": 0.46,
+                "e": 1.04,
+                "p": 0.9047852158546448
+              },
+              {
+                "w": "from",
+                "s": 1.04,
+                "e": 1.28,
+                "p": 0.9747334718704224
+              },
+              {
+                "w": "one",
+                "s": 1.28,
+                "e": 1.7,
+                "p": 0.8511903882026672
+              },
+              {
+                "w": "photo?",
+                "s": 1.7,
+                "e": 2.18,
+                "p": 0.9729836583137512
+              },
+              {
+                "w": "Read",
+                "s": 2.86,
+                "e": 2.86,
+                "p": 0.9821372628211975
+              },
+              {
+                "w": "the",
+                "s": 2.86,
+                "e": 3.02,
+                "p": 0.9809373021125793
+              },
+              {
+                "w": "fine",
+                "s": 3.02,
+                "e": 3.14,
+                "p": 0.8509929180145264
+              },
+              {
+                "w": "print.",
+                "s": 3.14,
+                "e": 3.36,
+                "p": 0.9406790733337402
+              },
+              {
+                "w": "Check",
+                "s": 3.78,
+                "e": 3.78,
+                "p": 0.963855504989624
+              },
+              {
+                "w": "November",
+                "s": 3.78,
+                "e": 3.96,
+                "p": 0.956925630569458
+              },
+              {
+                "w": "18th,",
+                "s": 3.96,
+                "e": 4.7,
+                "p": 0.6734576225280762
+              },
+              {
+                "w": "TripOSR",
+                "s": 4.88,
+                "e": 5.34,
+                "p": 0.47604616979757947
+              },
+              {
+                "w": "is",
+                "s": 5.34,
+                "e": 5.48,
+                "p": 0.9937009811401367
+              },
+              {
+                "w": "open",
+                "s": 5.48,
+                "e": 5.8,
+                "p": 0.8811942338943481
+              },
+              {
+                "w": "source,",
+                "s": 5.8,
+                "e": 6.08,
+                "p": 0.7603903412818909
+              },
+              {
+                "w": "MIT",
+                "s": 6.4,
+                "e": 6.56,
+                "p": 0.9527145624160767
+              },
+              {
+                "w": "licensed.",
+                "s": 6.56,
+                "e": 7.04,
+                "p": 0.670949399471283
+              },
+              {
+                "w": "Default",
+                "s": 7.64,
+                "e": 7.8,
+                "p": 0.9125335812568665
+              },
+              {
+                "w": "runs",
+                "s": 7.8,
+                "e": 8.02,
+                "p": 0.989962100982666
+              },
+              {
+                "w": "take",
+                "s": 8.02,
+                "e": 8.32,
+                "p": 0.9581837058067322
+              },
+              {
+                "w": "about",
+                "s": 8.32,
+                "e": 8.46,
+                "p": 0.9928232431411743
+              },
+              {
+                "w": "6GB",
+                "s": 8.46,
+                "e": 9.14,
+                "p": 0.43731172382831573
+              },
+              {
+                "w": "VRAM.",
+                "s": 9.14,
+                "e": 9.8,
+                "p": 0.804366797208786
+              },
+              {
+                "w": "Be",
+                "s": 10.16,
+                "e": 10.22,
+                "p": 0.9881011247634888
+              },
+              {
+                "w": "sure",
+                "s": 10.22,
+                "e": 10.4,
+                "p": 0.9990060925483704
+              },
+              {
+                "w": "to",
+                "s": 10.4,
+                "e": 10.54,
+                "p": 0.995067834854126
+              },
+              {
+                "w": "like,",
+                "s": 10.54,
+                "e": 10.8,
+                "p": 0.9634412527084351
+              },
+              {
+                "w": "share,",
+                "s": 10.98,
+                "e": 11.22,
+                "p": 0.9938573241233826
+              },
+              {
+                "w": "and",
+                "s": 11.44,
+                "e": 11.48,
+                "p": 0.9977043271064758
+              },
+              {
+                "w": "save",
+                "s": 11.48,
+                "e": 11.76,
+                "p": 0.9965558052062988
+              },
+              {
+                "w": "this",
+                "s": 11.76,
+                "e": 11.92,
+                "p": 0.9930843114852905
+              },
+              {
+                "w": "video.",
+                "s": 11.92,
+                "e": 12.16,
+                "p": 0.9994155168533325
+              },
+              {
+                "w": "Mashi",
+                "s": 12.58,
+                "e": 12.68,
+                "p": 0.3561064973473549
+              },
+              {
+                "w": "takes",
+                "s": 12.68,
+                "e": 13.06,
+                "p": 0.9904184937477112
+              },
+              {
+                "w": "PNG,",
+                "s": 13.06,
+                "e": 13.32,
+                "p": 0.871008038520813
+              },
+              {
+                "w": "JPEG,",
+                "s": 14.16,
+                "e": 14.16,
+                "p": 0.9124526381492615
+              },
+              {
+                "w": "or",
+                "s": 14.56,
+                "e": 14.66,
+                "p": 0.9907653331756592
+              },
+              {
+                "w": "WebP,",
+                "s": 14.66,
+                "e": 15.1,
+                "p": 0.7864168286323547
+              },
+              {
+                "w": "20MB",
+                "s": 15.36,
+                "e": 15.86,
+                "p": 0.8541370630264282
+              },
+              {
+                "w": "max.",
+                "s": 15.86,
+                "e": 16.26,
+                "p": 0.4022762179374695
+              },
+              {
+                "w": "Mashi's",
+                "s": 16.84,
+                "e": 17.36,
+                "p": 0.915568470954895
+              },
+              {
+                "w": "catch?",
+                "s": 17.36,
+                "e": 17.52,
+                "p": 0.8727602958679199
+              },
+              {
+                "w": "Multi",
+                "s": 18.92,
+                "e": 18.92,
+                "p": 0.44015002250671387
+              },
+              {
+                "w": "-view",
+                "s": 18.92,
+                "e": 19.16,
+                "p": 0.7711038887500763
+              },
+              {
+                "w": "needs",
+                "s": 19.16,
+                "e": 19.58,
+                "p": 0.6732312440872192
+              },
+              {
+                "w": "a",
+                "s": 19.58,
+                "e": 19.74,
+                "p": 0.996337890625
+              },
+              {
+                "w": "paid",
+                "s": 19.74,
+                "e": 20.0,
+                "p": 0.980263888835907
+              },
+              {
+                "w": "plan.",
+                "s": 20.0,
+                "e": 20.54,
+                "p": 0.9937014579772949
+              },
+              {
+                "w": "Free",
+                "s": 21.06,
+                "e": 21.06,
+                "p": 0.9857218265533447
+              },
+              {
+                "w": "accounts",
+                "s": 21.06,
+                "e": 21.28,
+                "p": 0.9669996500015259
+              },
+              {
+                "w": "get",
+                "s": 21.28,
+                "e": 21.5,
+                "p": 0.9955734014511108
+              },
+              {
+                "w": "limited",
+                "s": 21.5,
+                "e": 21.76,
+                "p": 0.9956747889518738
+              },
+              {
+                "w": "tries.",
+                "s": 21.76,
+                "e": 22.06,
+                "p": 0.9250501990318298
+              },
+              {
+                "w": "Read",
+                "s": 23.34,
+                "e": 23.34,
+                "p": 0.32548075914382935
+              },
+              {
+                "w": "the",
+                "s": 23.34,
+                "e": 23.58,
+                "p": 0.9963556528091431
+              },
+              {
+                "w": "plan",
+                "s": 23.58,
+                "e": 23.82,
+                "p": 0.9961989521980286
+              },
+              {
+                "w": "before",
+                "s": 23.82,
+                "e": 24.16,
+                "p": 0.9966409206390381
+              },
+              {
+                "w": "that",
+                "s": 24.16,
+                "e": 24.46,
+                "p": 0.9973249435424805
+              },
+              {
+                "w": "photo.",
+                "s": 24.46,
+                "e": 24.68,
+                "p": 0.9986664056777954
+              }
+            ],
+            "dauer_s": 24.896,
+            "sprache": "en"
+          },
+          "roh_key": "55c618be7d56dcb6080d77a88d15b8161552393a8a9cbc9806ed01df9c4866e0",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "78b5e12efbece8b8d2e2f28198ce127a518d8d689548a1f394b0a8886d754561",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 25.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 9,
+          "motive": 9,
+          "motive_min": 4
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "78b5e12efbece8b8d2e2f28198ce127a518d8d689548a1f394b0a8886d754561",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein gemaltes Porträt eines jungen Mannes, dessen Gesicht hälftig normal und hälftig als grünes Drahtgittermodell (3D-Mesh) dargestellt ist. Im Vordergrund ist ein Smartphone mit einem Selfie zu sehen, darauf zeigt ein gelber Pfeil.",
+              "note": 5,
+              "passt": false,
+              "grund": "Das Bild zeigt zwar ein stilisiertes Gesicht mit 3D-Drahtgitter und ein Smartphone mit einem Foto, stellt aber kein konkretes Software-Interface oder die im Text erwähnten Details zum Kleingedruckten von TripoSR oder Meshy dar.",
+              "erforderliches_bild": "Ein Screenshot der Software-Benutzeroberfläche von TripoSR oder Meshy mit sichtbaren Lizenz- oder Dateigrößen-Hinweisen."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein PC-Gehäuse mit leuchtenden Lüftern und einer Grafikkarte neben einem Monitor, auf dem eine orangefarbene Büste mit Gitternetzstruktur dargestellt ist. Im Hintergrund ist ein Stadtpanorama bei Sonnenuntergang durch ein Fenster zu sehen.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt zwar einen PC und eine 3D-Büste, aber keine Informationen zur Open-Source-Lizenz oder dem Quellcode von TripoSR.",
+              "erforderliches_bild": "Ein Screenshot des GitHub-Repositories von TripoSR, das die MIT-Lizenz und Open-Source-Details zeigt."
+            },
+            {
+              "index": 2,
+              "gesehen": "Eine Grafikkarte mit zwei Ventilatoren auf einem Holztisch, im Hintergrund ein Monitor mit der Darstellung einer orangen 3D-Bueste.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gesprochene Zeile erwaehnt den VRAM-Verbrauch von 6GB, und im Bild ist prominent eine Computergrafikkarte mit Kuehler zu sehen, was visuell direkt zum Thema Hardware und VRAM passt.",
+              "erforderliches_bild": "Keines notwendig, die Grafikkarte passt sehr gut zum VRAM-Bezug."
+            },
+            {
+              "index": 4,
+              "gesehen": "Ein instruktiver Textausschnitt in einem gelben Kasten zeigt die Details zu Bildformaten wie PNG, JPG, JPEG oder WEBP und die maximale Dateigröße von 20 MB.",
+              "note": 10,
+              "passt": true,
+              "grund": "Der sichtbare Text im Bild zeigt exakt die gelesenen Dateiformate und Größenangaben für Meshy.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 5,
+              "gesehen": "In einem dunklen Chatfenster steht in einer türkisen Sprechblase der Text 'Meshy\\'s catch?', darunter sind drei Lade-Punkte zu sehen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gesprochene rhetorische Frage 'Meshy\\'s catch?' wird zwar als Text in einer Chat-Grafik gezeigt, es fehlt jedoch die technische Erklärung, Benutzeroberfläche oder das tatsächliche Detail der kostenpflichtigen Tarife bzw. Multi-View-Funktionen.",
+              "erforderliches_bild": "Ein Screenshot der Preistabelle oder Tarifübersicht von Meshy, die zeigt, dass Multi-View einen kostenpflichtigen Plan erfordert."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Dokumenten- oder Webseitenausschnitt, der den Text zu 'Multi-view (Meshy 7.1)' und den Hinweis auf kostenpflichtige Pläne zeigt, eingerahmt von einer gelben Markierung.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt direkt den dokumentierten Text 'Multi-view needs a paid plan', was exakt dem gesprochenen Inhalt der Passage entspricht.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da die Textstelle passend im Bild hervorgehoben ist."
+            },
+            {
+              "index": 7,
+              "gesehen": "Gezeigt wird ein Bildschirm mit mehreren Gesichtern in Orangetönen und einem großen goldenen Vorhängeschloss in der Mitte.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochenen Wörter erwähnen kostenlose Accounts und begrenzte Versuche, aber das Bild zeigt abstrakte Gesichter und ein Schloss, was keinen Bezug zu Kontolimits oder Abos darstellt.",
+              "erforderliches_bild": "Ein Screenshot eines Kontobereichs oder einer Preistabelle, die begrenzte Versuche für kostenlose Nutzer zeigt."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Mann mit Lederjacke und Sonnenbrille lächelt und hält die Hand hin, daneben ist ein Laptop mit einer 3D-Charakterillustration zu sehen.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt einen präsentierenden Mann und einen 3D-Charakter, aber nicht das Lesen eines Plans oder Tarifs vor dem Hochladen eines Fotos.",
+              "erforderliches_bild": "Ein Screenshot der Preisseite oder Nutzungsbedingungen einer 3D-Modellierungsplattform mit Tarifen."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (5/10): Das Bild zeigt zwar ein stilisiertes Gesicht mit 3D-Drahtgitter und ein Smartphone mit einem Foto, stellt aber kein konkretes Software-Interface oder die im Text erwähnten Details zum Kleingedruckten von TripoSR oder Meshy dar.",
+            "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar einen PC und eine 3D-Büste, aber keine Informationen zur Open-Source-Lizenz oder dem Quellcode von TripoSR.",
+            "Einstellung 5: Bild passt nicht zum Sprechtext (3/10): Die gesprochene rhetorische Frage 'Meshy\\'s catch?' wird zwar als Text in einer Chat-Grafik gezeigt, es fehlt jedoch die technische Erklärung, Benutzeroberfläche oder das tatsächliche Detail der kostenpflichtigen Tarife bzw. Multi-View-Funktionen.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Die gesprochenen Wörter erwähnen kostenlose Accounts und begrenzte Versuche, aber das Bild zeigt abstrakte Gesichter und ein Schloss, was keinen Bezug zu Kontolimits oder Abos darstellt.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen präsentierenden Mann und einen 3D-Charakter, aber nicht das Lesen eines Plans oder Tarifs vor dem Hochladen eines Fotos."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 9,
+          "ausgenommen": [
+            3
+          ],
+          "vorgeprueft": [],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "78b5e12efbece8b8d2e2f28198ce127a518d8d689548a1f394b0a8886d754561",
+        "prompt_version": "2026-11-11.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

@@ -1,43 +1,6 @@
 [
  {
   "kanal": "ai-tools-explained",
-  "thema": "Claude Code makes 3D animated videos for free? Three.js and Remotion - what really costs money",
-  "eingang": "2026-11-23",
-  "id": "claude-chat-2026-11-23-remotion",
-  "quellen": [
-   {
-    "quelle": "Webseite",
-    "name": "Remotion docs: Prompting videos with coding agents",
-    "url": "https://www.remotion.dev/docs/ai/claude-code",
-    "belegt": true,
-    "text": "Official Remotion documentation (fetched 2026-11-23). Remotion works with coding agents such as Claude Code, Codex, Kimi Code and OpenCode. Prerequisites: one of those agents plus Node.js; the page notes that most coding agents require a paid subscription. Steps: npx create-video --yes --blank my-video, cd my-video, install the Remotion Agent Skills with npx remotion skills add, start the preview with npm run dev, then start the agent (claude) in a second terminal and prompt a video."
-   },
-   {
-    "quelle": "Webseite",
-    "name": "Remotion License FAQ",
-    "url": "https://www.remotion.dev/docs/license/faq",
-    "belegt": true,
-    "text": "Official Remotion license FAQ (fetched 2026-11-23). The free license covers individuals (personal or commercial use), teams or organizations of up to 3 people, non-profits, and evaluation. No functional difference to the Company License. Larger companies need a Company License: Remotion for Creators costs 25 dollars per month per person who makes videos (also via agentic coding tools; AI agents need no seat), Remotion for Automators 0.01 dollar per render with 100 dollars minimum per month. Remotion is source-available, not OSI open source. The license does not cover third-party codec patents."
-   },
-   {
-    "quelle": "Webseite",
-    "name": "ElevenLabs help center: Can I publish the content I generate?",
-    "url": "https://elevenlabs.io/docs/help-center/legal/can-i-publish-the-content-i-generate-on-the-platform",
-    "belegt": true,
-    "text": "Official ElevenLabs help page (fetched 2026-11-23). The free plan does not include a commercial license and cannot be used for any commercial purpose. Content published on a free plan must attribute ElevenLabs by putting \"elevenlabs.io\" or \"11.ai\" in the title. All paid plans include a commercial license (not for Beta Services). Content generated during a paid subscription can be used commercially indefinitely; content created outside a paid subscription cannot be used commercially."
-   },
-   {
-    "quelle": "Webseite",
-    "name": "three.js homepage",
-    "url": "https://threejs.org/",
-    "belegt": true,
-    "text": "Official three.js homepage (fetched 2026-11-23): \"three.js - JavaScript 3D Library\", version r187, with examples, documentation, an online editor and source code on GitHub (mrdoob/three.js)."
-   }
-  ],
-  "idee_original": "YouTube tutorial seen by the owner (23.11.): \"I created this video entirely with Claude Code without spending a single dollar\" using Three.js + Remotion + a plugin from the description, voice from ElevenLabs. Fact-check angle: the technique is real (Remotion officially supports Claude Code with Agent Skills, free license for individuals and teams up to 3), but \"zero dollars\" is wrong: coding agents mostly need a paid subscription, and ElevenLabs free-plan voices may not be used commercially (attribution in the title required). Do not name or show the tutorial creator, no claims about other channels' views. Own illustrations only."
- },
- {
-  "kanal": "ai-tools-explained",
   "thema": "youtube-agent-skill: 11 free Claude skills for YouTube - what they really do and what they cannot do",
   "eingang": "2026-11-23",
   "id": "claude-chat-2026-11-23-ytskill",

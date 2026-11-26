@@ -219803,6 +219803,832 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "45782780121.1:ai-tools-explained",
+      "run_id": "45782780121",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-26T08:42:46.564836+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "7e81ae3709964c30f50d7f99174685d5b287e922",
+      "produktionsversion": "245bbabfd23d4b072ad4bd43af217be89bd9177cfdee8e233aa848dd17562bef",
+      "videoformat": "short",
+      "thema": "Claude Code, Remotion and ElevenLabs: what a 3D video really costs",
+      "titel": [
+        "3D VIDEO FOR $0?",
+        "READ THE FINE PRINT"
+      ],
+      "status": "gesendet",
+      "video_sha256": "05f51c8f419a2d489c1353fc96596b64f80a4c6ca34bb443074073e52aa2127a",
+      "video_gebaut": true,
+      "ki_story_note": 7,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-11.2",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Text 'WITH CLAUDE CODE' auf einem Bildschirm, erklärt aber nicht die Lizenzbedingungen oder die Warnung vor Kosten.",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Information betrifft die Lizenzbedingungen von Remotion, was auf dem Bildschirm durch einfache 3D-Geometrie und leere Vorschaubilder nicht gezeigt oder erklärt wird.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine 3D-Szene mit geometrischen Formen, aber es zeigt weder Teams, Personengruppen noch non-profit Organisationen oder eine Lizenzprüfung.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Text zu Coding-Agenten und Videos, aber nicht die konkrete Aussage zu den Kosten oder dem notwendigen bezahlten Abonnement.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar ein 3D-Objekt auf einem Bildschirm, aber keinen Bezug zu Lizenzen, Verträgen oder den Bedingungen, die im Text besprochen werden.",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Szene mit einem Mann vor Monitoren und Kameras passt nicht zu der konkreten Handlungsanweisung, Lizenzen zu lesen.",
+        "Offenes Problem (schwer): Das Bild zeigt den Text 'WITH CLAUDE CODE' auf einem Bildschirm, erklärt aber nicht die Lizenzbedingungen oder die Warnung vor Kosten. Korrektur: Eine Darstellung der Lizenzbedingungen oder Preistabellen von Remotion oder Claude Code.",
+        "Offenes Problem (schwer): Die gesprochene Information betrifft die Lizenzbedingungen von Remotion, was auf dem Bildschirm durch einfache 3D-Geometrie und leere Vorschaubilder nicht gezeigt oder erklärt wird. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die die Remotion-Lizenzbedingungen oder Details zu individuellen Nutzungslizenzen zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt eine 3D-Szene mit geometrischen Formen, aber es zeigt weder Teams, Personengruppen noch non-profit Organisationen oder eine Lizenzprüfung. Korrektur: Eine Grafik oder Dokumentenseite, die Lizenzbedingungen, Teamgrößen oder Evaluationseinzelheiten darstellt.",
+        "Offenes Problem (schwer): Das Bild zeigt den Text zu Coding-Agenten und Videos, aber nicht die konkrete Aussage zu den Kosten oder dem notwendigen bezahlten Abonnement. Korrektur: Ein Screenshot einer Preistabelle oder Abrechnungsseite von Coding-Agenten, die die kostenpflichtigen Abonnement-Modelle darstellt.",
+        "Offenes Problem (schwer): Das Bild zeigt zwar ein 3D-Objekt auf einem Bildschirm, aber keinen Bezug zu Lizenzen, Verträgen oder den Bedingungen, die im Text besprochen werden. Korrektur: Ein Dokument mit Software-Lizenzbedingungen oder jemand, der die Lizenzvereinbarungen im Kleingedruckten liest.",
+        "Offenes Problem (schwer): Die gezeigte Szene mit einem Mann vor Monitoren und Kameras passt nicht zu der konkreten Handlungsanweisung, Lizenzen zu lesen. Korrektur: Eine Nahaufnahme von Händen, die ein Dokument oder eine Lizenzvereinbarung auf einem Bildschirm oder Papier lesen."
+      ],
+      "einstellungen": 9,
+      "unterschiedliche_motive": 9,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "45782780121",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-26",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-ueberraschung 6/10 unter 7/10"
+            ],
+            "story_note": 7,
+            "story_schwaechen": [
+              "ElevenLabs' free plan bans commercial use. - The statement is factual but offers no concrete example of how this restriction impacts a typical creator, leaving the viewer without a vivid illustration. - Add a brief example, e.g., \"ElevenLabs' free plan bans commercial use, so a YouTuber can't moneti"
+            ],
+            "skript_probleme": [],
+            "sekunden": 485.6
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "skript_s": 345.9,
+            "bau_s": 139.8,
+            "pruefung_s": 23.9,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Text 'WITH CLAUDE CODE' auf einem Bildschirm, erklärt aber nicht die Lizenzbedingungen oder die Warnung vor Kosten.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Information betrifft die Lizenzbedingungen von Remotion, was auf dem Bildschirm durch einfache 3D-Geometrie und leere Vorschaubilder nicht gezeigt oder erklärt wird.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine 3D-Szene mit geometrischen Formen, aber es zeigt weder Teams, Personengruppen noch non-profit Organisationen oder eine Lizenzprüfung.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Text zu Coding-Agenten und Videos, aber nicht die konkrete Aussage zu den Kosten oder dem notwendigen bezahlten Abonnement.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar ein 3D-Objekt auf einem Bildschirm, aber keinen Bezug zu Lizenzen, Verträgen oder den Bedingungen, die im Text besprochen werden.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Szene mit einem Mann vor Monitoren und Kameras passt nicht zu der konkreten Handlungsanweisung, Lizenzen zu lesen.",
+              "Offenes Problem (schwer): Das Bild zeigt den Text 'WITH CLAUDE CODE' auf einem Bildschirm, erklärt aber nicht die Lizenzbedingungen oder die Warnung vor Kosten. Korrektur: Eine Darstellung der Lizenzbedingungen oder Preistabellen von Remotion oder Claude Code.",
+              "Offenes Problem (schwer): Die gesprochene Information betrifft die Lizenzbedingungen von Remotion, was auf dem Bildschirm durch einfache 3D-Geometrie und leere Vorschaubilder nicht gezeigt oder erklärt wird. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die die Remotion-Lizenzbedingungen oder Details zu individuellen Nutzungslizenzen zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine 3D-Szene mit geometrischen Formen, aber es zeigt weder Teams, Personengruppen noch non-profit Organisationen oder eine Lizenzprüfung. Korrektur: Eine Grafik oder Dokumentenseite, die Lizenzbedingungen, Teamgrößen oder Evaluationseinzelheiten darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt den Text zu Coding-Agenten und Videos, aber nicht die konkrete Aussage zu den Kosten oder dem notwendigen bezahlten Abonnement. Korrektur: Ein Screenshot einer Preistabelle oder Abrechnungsseite von Coding-Agenten, die die kostenpflichtigen Abonnement-Modelle darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar ein 3D-Objekt auf einem Bildschirm, aber keinen Bezug zu Lizenzen, Verträgen oder den Bedingungen, die im Text besprochen werden. Korrektur: Ein Dokument mit Software-Lizenzbedingungen oder jemand, der die Lizenzvereinbarungen im Kleingedruckten liest.",
+              "Offenes Problem (schwer): Die gezeigte Szene mit einem Mann vor Monitoren und Kameras passt nicht zu der konkreten Handlungsanweisung, Lizenzen zu lesen. Korrektur: Eine Nahaufnahme von Händen, die ein Dokument oder eine Lizenzvereinbarung auf einem Bildschirm oder Papier lesen."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 21.2,
+              "zeitmarken": 2.2,
+              "tempo": 1.097,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 9,
+              "clips_und_stuecke": 70.3,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 9,
+                "motive": 9,
+                "motive_min": 4
+              },
+              "effekte": 9,
+              "rendern": 23.9,
+              "gesamt": 139.5,
+              "videolaenge_s": 25.0,
+              "abschnitte_s": [
+                3.56,
+                7.54,
+                2.18,
+                3.24,
+                4.0,
+                4.49
+              ],
+              "woerter": 60,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Free 3D video with Claude Code? Not so fast.",
+                "fest": false,
+                "text": "Das Bild zeigt den Text 'WITH CLAUDE CODE' auf einem Bildschirm, erklärt aber nicht die Lizenzbedingungen oder die Warnung vor Kosten. Korrektur: Eine Darstellung der Lizenzbedingungen oder Preistabellen von Remotion oder Claude Code."
+              },
+              {
+                "zeit": "00:03.56",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 1,
+                "gesprochen": "Checked November 23: Remotion's free license covers individuals,",
+                "fest": false,
+                "text": "Die gesprochene Information betrifft die Lizenzbedingungen von Remotion, was auf dem Bildschirm durch einfache 3D-Geometrie und leere Vorschaubilder nicht gezeigt oder erklärt wird. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die die Remotion-Lizenzbedingungen oder Details zu individuellen Nutzungslizenzen zeigt."
+              },
+              {
+                "zeit": "00:06.57",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "teams up to 3, non-profits, evaluation.",
+                "fest": false,
+                "text": "Das Bild zeigt eine 3D-Szene mit geometrischen Formen, aber es zeigt weder Teams, Personengruppen noch non-profit Organisationen oder eine Lizenzprüfung. Korrektur: Eine Grafik oder Dokumentenseite, die Lizenzbedingungen, Teamgrößen oder Evaluationseinzelheiten darstellt."
+              },
+              {
+                "zeit": "00:11.10",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Most coding agents need a paid subscription.",
+                "fest": true,
+                "text": "Das Bild zeigt den Text zu Coding-Agenten und Videos, aber nicht die konkrete Aussage zu den Kosten oder dem notwendigen bezahlten Abonnement. Korrektur: Ein Screenshot einer Preistabelle oder Abrechnungsseite von Coding-Agenten, die die kostenpflichtigen Abonnement-Modelle darstellt."
+              },
+              {
+                "zeit": "00:20.52",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 7,
+                "gesprochen": "Free video? Only where licenses allow.",
+                "fest": false,
+                "text": "Das Bild zeigt zwar ein 3D-Objekt auf einem Bildschirm, aber keinen Bezug zu Lizenzen, Verträgen oder den Bedingungen, die im Text besprochen werden. Korrektur: Ein Dokument mit Software-Lizenzbedingungen oder jemand, der die Lizenzvereinbarungen im Kleingedruckten liest."
+              },
+              {
+                "zeit": "00:23.08",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 8,
+                "gesprochen": "Read licenses before chasing zero.",
+                "fest": false,
+                "text": "Die gezeigte Szene mit einem Mann vor Monitoren und Kameras passt nicht zu der konkreten Handlungsanweisung, Lizenzen zu lesen. Korrektur: Eine Nahaufnahme von Händen, die ein Dokument oder eine Lizenzvereinbarung auf einem Bildschirm oder Papier lesen."
+              }
+            ],
+            "sekunden": 511.4,
+            "status": "geprueft"
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "thema_eingabe": "Claude Code makes 3D animated videos for free? Three.js and Remotion - what really costs money",
+        "grund": "",
+        "sekunden": 1017.9,
+        "upload_titel": "3D VIDEO FOR $0? READ THE FINE PRINT | AI Tool #47b"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Free 3D video with Claude Code? Not so fast.",
+            "fest": false,
+            "text": "Das Bild zeigt den Text 'WITH CLAUDE CODE' auf einem Bildschirm, erklärt aber nicht die Lizenzbedingungen oder die Warnung vor Kosten. Korrektur: Eine Darstellung der Lizenzbedingungen oder Preistabellen von Remotion oder Claude Code."
+          },
+          {
+            "zeit": "00:03.56",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 1,
+            "gesprochen": "Checked November 23: Remotion's free license covers individuals,",
+            "fest": false,
+            "text": "Die gesprochene Information betrifft die Lizenzbedingungen von Remotion, was auf dem Bildschirm durch einfache 3D-Geometrie und leere Vorschaubilder nicht gezeigt oder erklärt wird. Korrektur: Ein Dokument oder eine Benutzeroberfläche, die die Remotion-Lizenzbedingungen oder Details zu individuellen Nutzungslizenzen zeigt."
+          },
+          {
+            "zeit": "00:06.57",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "teams up to 3, non-profits, evaluation.",
+            "fest": false,
+            "text": "Das Bild zeigt eine 3D-Szene mit geometrischen Formen, aber es zeigt weder Teams, Personengruppen noch non-profit Organisationen oder eine Lizenzprüfung. Korrektur: Eine Grafik oder Dokumentenseite, die Lizenzbedingungen, Teamgrößen oder Evaluationseinzelheiten darstellt."
+          },
+          {
+            "zeit": "00:11.10",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Most coding agents need a paid subscription.",
+            "fest": true,
+            "text": "Das Bild zeigt den Text zu Coding-Agenten und Videos, aber nicht die konkrete Aussage zu den Kosten oder dem notwendigen bezahlten Abonnement. Korrektur: Ein Screenshot einer Preistabelle oder Abrechnungsseite von Coding-Agenten, die die kostenpflichtigen Abonnement-Modelle darstellt."
+          },
+          {
+            "zeit": "00:20.52",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 7,
+            "gesprochen": "Free video? Only where licenses allow.",
+            "fest": false,
+            "text": "Das Bild zeigt zwar ein 3D-Objekt auf einem Bildschirm, aber keinen Bezug zu Lizenzen, Verträgen oder den Bedingungen, die im Text besprochen werden. Korrektur: Ein Dokument mit Software-Lizenzbedingungen oder jemand, der die Lizenzvereinbarungen im Kleingedruckten liest."
+          },
+          {
+            "zeit": "00:23.08",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 8,
+            "gesprochen": "Read licenses before chasing zero.",
+            "fest": false,
+            "text": "Die gezeigte Szene mit einem Mann vor Monitoren und Kameras passt nicht zu der konkreten Handlungsanweisung, Lizenzen zu lesen. Korrektur: Eine Nahaufnahme von Händen, die ein Dokument oder eine Lizenzvereinbarung auf einem Bildschirm oder Papier lesen."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 25.0,
+          "fps": 30.0,
+          "lufs": -14.1,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 9.58,
+              "bis_s": 10.7,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.988
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 5.0,
+              "bis_s": 25.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Free",
+                "s": 0.0,
+                "e": 0.2,
+                "p": 0.7778308391571045
+              },
+              {
+                "w": "3D",
+                "s": 0.2,
+                "e": 0.74,
+                "p": 0.9473386406898499
+              },
+              {
+                "w": "video",
+                "s": 0.74,
+                "e": 1.02,
+                "p": 0.9621388912200928
+              },
+              {
+                "w": "with",
+                "s": 1.02,
+                "e": 1.24,
+                "p": 0.9931361675262451
+              },
+              {
+                "w": "cloud",
+                "s": 1.24,
+                "e": 1.44,
+                "p": 0.28285664319992065
+              },
+              {
+                "w": "code?",
+                "s": 1.44,
+                "e": 1.74,
+                "p": 0.9005052447319031
+              },
+              {
+                "w": "Not",
+                "s": 2.56,
+                "e": 2.56,
+                "p": 0.987885057926178
+              },
+              {
+                "w": "so",
+                "s": 2.56,
+                "e": 2.86,
+                "p": 0.9954795837402344
+              },
+              {
+                "w": "fast.",
+                "s": 2.86,
+                "e": 3.04,
+                "p": 0.9995884299278259
+              },
+              {
+                "w": "Check",
+                "s": 3.56,
+                "e": 3.56,
+                "p": 0.9768933057785034
+              },
+              {
+                "w": "November",
+                "s": 3.56,
+                "e": 3.74,
+                "p": 0.9661391973495483
+              },
+              {
+                "w": "23.",
+                "s": 3.74,
+                "e": 4.24,
+                "p": 0.9815300107002258
+              },
+              {
+                "w": "Remotions",
+                "s": 4.7,
+                "e": 4.96,
+                "p": 0.5350806713104248
+              },
+              {
+                "w": "free",
+                "s": 4.96,
+                "e": 5.2,
+                "p": 0.5233789682388306
+              },
+              {
+                "w": "license",
+                "s": 5.2,
+                "e": 5.46,
+                "p": 0.9457924962043762
+              },
+              {
+                "w": "covers",
+                "s": 5.46,
+                "e": 5.84,
+                "p": 0.9713723063468933
+              },
+              {
+                "w": "individuals,",
+                "s": 5.84,
+                "e": 6.4,
+                "p": 0.9898732900619507
+              },
+              {
+                "w": "teams",
+                "s": 6.68,
+                "e": 6.92,
+                "p": 0.9810472130775452
+              },
+              {
+                "w": "up",
+                "s": 6.92,
+                "e": 7.1,
+                "p": 0.9942162036895752
+              },
+              {
+                "w": "to",
+                "s": 7.1,
+                "e": 7.22,
+                "p": 0.9948953986167908
+              },
+              {
+                "w": "three,",
+                "s": 7.22,
+                "e": 7.46,
+                "p": 0.8323938250541687
+              },
+              {
+                "w": "non",
+                "s": 7.68,
+                "e": 7.76,
+                "p": 0.36943426728248596
+              },
+              {
+                "w": "-profits,",
+                "s": 7.76,
+                "e": 8.06,
+                "p": 0.9787093698978424
+              },
+              {
+                "w": "evaluation.",
+                "s": 8.6,
+                "e": 8.6,
+                "p": 0.9820125102996826
+              },
+              {
+                "w": "Like,",
+                "s": 9.58,
+                "e": 9.58,
+                "p": 0.9938849806785583
+              },
+              {
+                "w": "share,",
+                "s": 9.7,
+                "e": 9.9,
+                "p": 0.9498928189277649
+              },
+              {
+                "w": "and",
+                "s": 10.04,
+                "e": 10.06,
+                "p": 0.9976000189781189
+              },
+              {
+                "w": "save",
+                "s": 10.06,
+                "e": 10.32,
+                "p": 0.9931487441062927
+              },
+              {
+                "w": "this",
+                "s": 10.32,
+                "e": 10.46,
+                "p": 0.9958654642105103
+              },
+              {
+                "w": "video.",
+                "s": 10.46,
+                "e": 10.7,
+                "p": 0.9994539618492126
+              },
+              {
+                "w": "Most",
+                "s": 11.12,
+                "e": 11.12,
+                "p": 0.9925191402435303
+              },
+              {
+                "w": "coding",
+                "s": 11.12,
+                "e": 11.32,
+                "p": 0.9831583499908447
+              },
+              {
+                "w": "agents",
+                "s": 11.32,
+                "e": 11.7,
+                "p": 0.99812251329422
+              },
+              {
+                "w": "need",
+                "s": 11.7,
+                "e": 11.92,
+                "p": 0.9985929131507874
+              },
+              {
+                "w": "a",
+                "s": 11.92,
+                "e": 12.0,
+                "p": 0.9952852129936218
+              },
+              {
+                "w": "paid",
+                "s": 12.0,
+                "e": 12.28,
+                "p": 0.9940524697303772
+              },
+              {
+                "w": "subscription.",
+                "s": 12.28,
+                "e": 12.64,
+                "p": 0.9939990043640137
+              },
+              {
+                "w": "So,",
+                "s": 13.28,
+                "e": 13.36,
+                "p": 0.9717156291007996
+              },
+              {
+                "w": "where's",
+                "s": 13.78,
+                "e": 14.56,
+                "p": 0.9864904582500458
+              },
+              {
+                "w": "the",
+                "s": 14.56,
+                "e": 14.7,
+                "p": 0.9968969821929932
+              },
+              {
+                "w": "real",
+                "s": 14.7,
+                "e": 15.1,
+                "p": 0.9211851954460144
+              },
+              {
+                "w": "trap?",
+                "s": 15.1,
+                "e": 15.56,
+                "p": 0.9845368266105652
+              },
+              {
+                "w": "The",
+                "s": 16.56,
+                "e": 16.56,
+                "p": 0.85951828956604
+              },
+              {
+                "w": "voice.",
+                "s": 16.56,
+                "e": 16.82,
+                "p": 0.8124096989631653
+              },
+              {
+                "w": "11Labs",
+                "s": 17.56,
+                "e": 17.76,
+                "p": 0.48759616911411285
+              },
+              {
+                "w": "free",
+                "s": 17.76,
+                "e": 18.06,
+                "p": 0.7137943506240845
+              },
+              {
+                "w": "plan",
+                "s": 18.06,
+                "e": 18.34,
+                "p": 0.4978991448879242
+              },
+              {
+                "w": "bans",
+                "s": 18.34,
+                "e": 18.74,
+                "p": 0.723879873752594
+              },
+              {
+                "w": "commercial",
+                "s": 18.74,
+                "e": 19.18,
+                "p": 0.99366694688797
+              },
+              {
+                "w": "use.",
+                "s": 19.18,
+                "e": 19.64,
+                "p": 0.9989802241325378
+              },
+              {
+                "w": "Free",
+                "s": 20.54,
+                "e": 20.54,
+                "p": 0.9276741147041321
+              },
+              {
+                "w": "video?",
+                "s": 20.54,
+                "e": 20.96,
+                "p": 0.9947407841682434
+              },
+              {
+                "w": "Only",
+                "s": 21.62,
+                "e": 21.64,
+                "p": 0.9824348092079163
+              },
+              {
+                "w": "where",
+                "s": 21.64,
+                "e": 21.84,
+                "p": 0.9710330367088318
+              },
+              {
+                "w": "licenses",
+                "s": 21.84,
+                "e": 22.12,
+                "p": 0.9739384651184082
+              },
+              {
+                "w": "allow.",
+                "s": 22.12,
+                "e": 22.48,
+                "p": 0.9926518797874451
+              },
+              {
+                "w": "Read",
+                "s": 23.02,
+                "e": 23.08,
+                "p": 0.9787728786468506
+              },
+              {
+                "w": "licenses",
+                "s": 23.08,
+                "e": 23.46,
+                "p": 0.9918501973152161
+              },
+              {
+                "w": "before",
+                "s": 23.46,
+                "e": 23.8,
+                "p": 0.9970659613609314
+              },
+              {
+                "w": "chasing",
+                "s": 23.8,
+                "e": 24.48,
+                "p": 0.9688937067985535
+              },
+              {
+                "w": "zero.",
+                "s": 24.48,
+                "e": 24.64,
+                "p": 0.9310281276702881
+              }
+            ],
+            "dauer_s": 24.896,
+            "sprache": "en"
+          },
+          "roh_key": "d13f852d4767cd679cff81adc41c524c724401c553a690eee5d37319d5ad2339",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "05f51c8f419a2d489c1353fc96596b64f80a4c6ca34bb443074073e52aa2127a",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 25.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 9,
+          "motive": 9,
+          "motive_min": 4
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "05f51c8f419a2d489c1353fc96596b64f80a4c6ca34bb443074073e52aa2127a",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Laptop zeigt auf dem Bildschirm ein Kunstwerk mit einem orangefarbenen Würfel, einer Kugel und einem Gitternetz, darüber der Text 'WITH CLAUDE CODE'.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt den Text 'WITH CLAUDE CODE' auf einem Bildschirm, erklärt aber nicht die Lizenzbedingungen oder die Warnung vor Kosten.",
+              "erforderliches_bild": "Eine Darstellung der Lizenzbedingungen oder Preistabellen von Remotion oder Claude Code."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Mann sitzt vor einem Computermonitor, auf dem in einem Videoplayer ein oranges 3D-Quadrat und eine blaue 3D-Kugel auf einem Raster zu sehen sind. Die oberen zwei Videofenster sind leer.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gesprochene Information betrifft die Lizenzbedingungen von Remotion, was auf dem Bildschirm durch einfache 3D-Geometrie und leere Vorschaubilder nicht gezeigt oder erklärt wird.",
+              "erforderliches_bild": "Ein Dokument oder eine Benutzeroberfläche, die die Remotion-Lizenzbedingungen oder Details zu individuellen Nutzungslizenzen zeigt."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein digitaler 3D-Raum mit einem orangeroten Würfel mit Gitternetz und einer cyanfarbenen Kugel auf einem Gitterboden.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine 3D-Szene mit geometrischen Formen, aber es zeigt weder Teams, Personengruppen noch non-profit Organisationen oder eine Lizenzprüfung.",
+              "erforderliches_bild": "Eine Grafik oder Dokumentenseite, die Lizenzbedingungen, Teamgrößen oder Evaluationseinzelheiten darstellt."
+            },
+            {
+              "index": 4,
+              "gesehen": "In der Bildmitte ist eine Webseitenüberschrift mit den Worten 'Make videos with coding agents' in einem gelben Markierungsfeld zu sehen. Darunter folgt Text und ein kleines Vorschaubild.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt den Text zu Coding-Agenten und Videos, aber nicht die konkrete Aussage zu den Kosten oder dem notwendigen bezahlten Abonnement.",
+              "erforderliches_bild": "Ein Screenshot einer Preistabelle oder Abrechnungsseite von Coding-Agenten, die die kostenpflichtigen Abonnement-Modelle darstellt."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein AI-Chat-Fenster mit der Sprechblase 'So where's the real trap?' und darunter drei Punkte als Ladeanimation.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gesprochene rhetorische Frage 'So where's the real trap?' wird exakt als Chat-Nachricht visualisiert und führt das Thema fließend fort.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Screenshot von Textbedingungen auf gelbem Hintergrund, der Details zur Nutzungslizenz von ElevenLabs zeigt.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Textstelle zeigt exakt die Bedingungen des kostenlosen ElevenLabs-Plans bezüglich der kommerziellen Nutzung, was direkt zur gesprochenen Aussage passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein Monitor zeigt ein KI-generiertes Bild mit einem orangen Würfel und einer blauen Kugel in einer 3D-Welt. Unten auf dem Tisch befinden sich eine Filmklappe, ein Mikrofon, ein Pop-Schutz und eine Kamera.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt zwar ein 3D-Objekt auf einem Bildschirm, aber keinen Bezug zu Lizenzen, Verträgen oder den Bedingungen, die im Text besprochen werden.",
+              "erforderliches_bild": "Ein Dokument mit Software-Lizenzbedingungen oder jemand, der die Lizenzvereinbarungen im Kleingedruckten liest."
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Mann im schwarzen Rollkragenpullover und Lederjacke mit Sonnenbrille vor einem Computerbildschirm mit 3D-Grafik und einer Studio-Kamera.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gezeigte Szene mit einem Mann vor Monitoren und Kameras passt nicht zu der konkreten Handlungsanweisung, Lizenzen zu lesen.",
+              "erforderliches_bild": "Eine Nahaufnahme von Händen, die ein Dokument oder eine Lizenzvereinbarung auf einem Bildschirm oder Papier lesen."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Text 'WITH CLAUDE CODE' auf einem Bildschirm, erklärt aber nicht die Lizenzbedingungen oder die Warnung vor Kosten.",
+            "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Information betrifft die Lizenzbedingungen von Remotion, was auf dem Bildschirm durch einfache 3D-Geometrie und leere Vorschaubilder nicht gezeigt oder erklärt wird.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine 3D-Szene mit geometrischen Formen, aber es zeigt weder Teams, Personengruppen noch non-profit Organisationen oder eine Lizenzprüfung.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt den Text zu Coding-Agenten und Videos, aber nicht die konkrete Aussage zu den Kosten oder dem notwendigen bezahlten Abonnement.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt zwar ein 3D-Objekt auf einem Bildschirm, aber keinen Bezug zu Lizenzen, Verträgen oder den Bedingungen, die im Text besprochen werden.",
+            "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Szene mit einem Mann vor Monitoren und Kameras passt nicht zu der konkreten Handlungsanweisung, Lizenzen zu lesen."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite",
+            "gemini-3.5-flash-lite"
+          ],
+          "einstellungen": 9,
+          "ausgenommen": [
+            3
+          ],
+          "vorgeprueft": [],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "05f51c8f419a2d489c1353fc96596b64f80a4c6ca34bb443074073e52aa2127a",
+        "prompt_version": "2026-11-11.2"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

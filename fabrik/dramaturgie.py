@@ -92,7 +92,10 @@ def auftrag(daten):
         return (gemeinsam + 'LONG FORM: Start with a specific outcome, surprising sourced detail or '
                 'problem. Within the first 10 seconds name the exact subject (tool, product or company) and '
                 'the concrete benefit or stake for the viewer; no abstract scenario before that. '
-                'Demonstrate why it matters within the first 20-30 seconds. No logo intro '
+                'Demonstrate why it matters within the first 20-30 seconds. '
+                # GEMESSEN 23.11.2026 (OpenShell-Langvideo): 61 % weg in den ersten 30 s, danach flacher.
+                'The first 30 seconds are hook, open question and promise only: no backstory, history, '
+                'founding details or setup before the 30-second mark. No logo intro '
                 'or channel housekeeping. '
                 # Nutzer 16.10.2026 (Langvideo-Leitfaden): sofort zeigen, was der Zuschauer am Ende weiss -
                 # gibt ihm den Grund zu bleiben. Ein Satz, keine Kapitelaufzaehlung.

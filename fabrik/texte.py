@@ -212,6 +212,26 @@ def tiktok_hashtags(skript):
     return eigene + trend[:3]
 
 
+def passender_short(skript, verlauf_pfad='verlauf/telegram-videos.json'):
+    """Titel des juengsten gelieferten Shorts zum selben Thema (Teil vor ':') im selben Kanal, sonst ''.
+    Nutzer 26.11.2026: Langvideos bekommen kaum Aufrufe (GTA V Radio 4), die Shorts desselben Themas Hunderte -
+    der Nutzer verlinkt den Short in YouTube Studio per "Aehnliches Video" auf das Langvideo."""
+    import json
+    from pathlib import Path
+
+    def kern(t):
+        return re.split(r':| - | – ', str(t or ''))[0].strip().lower()
+
+    try:
+        verlauf = json.loads(Path(verlauf_pfad).read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return ''
+    ziel = kern(skript.get('thema'))
+    treffer = [e for e in verlauf if isinstance(e, dict) and ziel and e.get('kanal') == skript.get('kanal')
+               and e.get('videoformat') != 'lang' and kern(e.get('thema')) == ziel and e.get('titel')]
+    return max(treffer, key=lambda e: str(e.get('datum_utc', '')))['titel'] if treffer else ''
+
+
 def kapitelmarken(skript, abschnitte_s):
     """YouTube-Kapitel fuer Langvideos aus den Kapitelnamen des Skripts und den GEMESSENEN Abschnittslaengen.
 

@@ -341,6 +341,10 @@ def senden(skript_pfad, video_pfad):
                                       "Bewerte unten: 📖 Story · 🎬 Video. Antworte auf dieses Video mit Kritik."
                                       + ('\nZum Upload auf „✅ TikTok-Entwurf hochladen“ tippen. '
                                          'Story-/Videonoten geben keinen Upload frei.' if tik_freigabe else '')
+                                      # Nutzer 26.11.2026: Langvideo per Short verlinken (Short hat die Aufrufe)
+                                      + (f"\n🔗 Nach dem Hochladen: beim Short „{kurz[:120]}“ in YouTube Studio unter "
+                                         "„Ähnliches Video“ dieses Langvideo auswählen."
+                                         if lang and (kurz := texte.passender_short(skript)) else '')
                                       + (f"\n📈 Warum heute: {os.environ['CF_TRENDGRUND'][:300]}"
                                          if os.environ.get('CF_TRENDGRUND') else '')
                                       + ('\nKomprimierte Vorschau; Original siehe Begleitnachricht.'

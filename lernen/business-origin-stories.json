@@ -1,76 +1,17 @@
 {
   "regeln": [
-    "Maintain strict factual accuracy: only include information supported by sources; never add unsupported names, claims, or details.",
-    "Provide concrete, source‑backed visual evidence that directly illustrates the narrated action; avoid abstract, filler, or unrelated images.",
-    "Align each spoken segment with a matching visual motif and ensure subtitles are timed precisely to the narration.",
-    "Deliver a clear, information‑dense hook with concrete visuals and crisp pacing to prevent early drop‑offs; avoid empty teases or vague questions.",
-    "Use format‑appropriate pacing: apply rapid, 3‑5 second distinct shots for Shorts and allow longer demonstrations in long‑form videos.",
-    "Keep character references unambiguous by using distinct, descriptive identifiers for presenters and supporting figures.",
-    "Condense repetitive or list‑style information into single punchy statements that preserve story momentum.",
-    "Treat audience‑curve dips and single defects as provisional data; phrase lessons conditionally and avoid overgeneralising from one instance.",
-    "Prefer vivid, original painted‑world scenes over long holds on lifeless documentary photos; each motif must add narrative value.",
-    "Include mandatory spoken calls‑to‑action (like, share, save) at the format‑specific positions without substituting alternative CTAs.",
-    "Never override source support, factual limits, or approved presenter identities; preserve the channel’s established visual style and character wardrobe."
+    "Only include information that is directly supported by verifiable sources; never add unsupported names, claims, dates, or details.",
+    "Every spoken segment must be paired with a genuinely relevant visual motif that illustrates the narration; abstract or filler images are not acceptable.",
+    "Use format‑appropriate pacing: for Shorts, show 3‑5 second distinct, relevant shots; for long‑form videos, allow longer demonstrations but keep them purposeful.",
+    "Include the required spoken call‑to‑action (like, share, save) at the position prescribed for the video format; do not substitute other CTAs.",
+    "Maintain precise subtitle timing that matches the narration and the visual motif it accompanies.",
+    "Prefer original, vivid painted‑world scenes; avoid long holds on static documentary photos unless they directly support the narration.",
+    "Treat audience‑curve dips or isolated defects as provisional data; phrase any lessons conditionally and avoid overgeneralising from a single instance.",
+    "When a visual motif is missing or mismatched, replace it with a historically accurate illustration or source‑backed example that directly reflects the spoken content.",
+    "Condense repetitive or list‑style information into concise statements to preserve story momentum and avoid redundant phrasing.",
+    "Do not override source support, factual limits, or the established presenter identities and wardrobe; preserve the channel’s visual style."
   ],
   "korrekturen": [
-    {
-      "id": "39630357478-3",
-      "datum": "2026-10-21",
-      "vorher": null,
-      "nachher": null,
-      "vorher_gesperrt": true,
-      "nachher_gesperrt": true,
-      "sekunden": 843.6,
-      "aktionen": [
-        {
-          "art": "bild",
-          "variante": "illustration",
-          "index": 0
-        },
-        {
-          "art": "bild",
-          "variante": "illustration",
-          "index": 1
-        },
-        {
-          "art": "bild",
-          "variante": "illustration",
-          "index": 2
-        },
-        {
-          "art": "bild",
-          "variante": "illustration",
-          "index": 3
-        },
-        {
-          "art": "bild",
-          "variante": "illustration",
-          "index": 4
-        },
-        {
-          "art": "bild",
-          "variante": "illustration",
-          "index": 5
-        }
-      ],
-      "einstellungen": {
-        "stimme": "bm_george",
-        "tempo": 1.05,
-        "untertitel_profil": "ruhig",
-        "musik_pegel": null,
-        "effekt_pegel": null
-      },
-      "schwerpunkt": "bild",
-      "kategorien_vorher": {
-        "bild_passt": 2
-      },
-      "kategorien_nachher": {
-        "bild_passt": 2
-      },
-      "auswertbar": false,
-      "prompt_version": "2026-10-18.1",
-      "verbessert": false
-    },
     {
       "id": "39747394681-2",
       "datum": "2026-10-22",
@@ -5775,7 +5716,55 @@
       "auswertbar": false,
       "prompt_version": "2026-11-11.2",
       "verbessert": false
+    },
+    {
+      "id": "45782780121-2",
+      "datum": "2026-11-26",
+      "vorher": null,
+      "nachher": null,
+      "vorher_gesperrt": true,
+      "nachher_gesperrt": true,
+      "sekunden": 993.9,
+      "aktionen": [
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 0
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 2
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 3
+        },
+        {
+          "art": "bild",
+          "variante": "illustration",
+          "index": 5
+        }
+      ],
+      "einstellungen": {
+        "stimme": "bm_george",
+        "tempo": 1.05,
+        "untertitel_profil": "ruhig",
+        "musik_pegel": null,
+        "effekt_pegel": null
+      },
+      "schwerpunkt": "bild",
+      "kategorien_vorher": {
+        "bild_passt": 2
+      },
+      "kategorien_nachher": {
+        "bild_passt": 2
+      },
+      "auswertbar": false,
+      "prompt_version": "2026-11-11.2",
+      "verbessert": false
     }
   ],
-  "stand": "2026-11-25"
+  "stand": "2026-11-26"
 }

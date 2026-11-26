@@ -1,52 +1,70 @@
 {
-  "version": 1,
-  "modelle": {
-    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
-      "grund": "voruebergehend ueberlastet",
-      "bis": 1795685978.752143
-    },
-    "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
-      "grund": "voruebergehend ueberlastet",
-      "bis": 1795685979.5584583
-    },
-    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
-      "grund": "Tageskontingent erschoepft",
-      "bis": 1795766400.0
-    },
-    "18b3ef0930af7cca6de34adf:gemini-3.5-flash": {
-      "grund": "Tageskontingent erschoepft",
-      "bis": 1795766400.0
-    }
+ "version": 1,
+ "modelle": {
+  "18b3ef0930af7cca6de34adf:gemini-3.8-flash": {
+   "grund": "voruebergehend ueberlastet",
+   "bis": 1795686389.1229148
   },
-  "zeitlimits": {
-    "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
-      1795681712.836495,
-      1795681964.2754161,
-      1795684137.6865175
-    ],
-    "18b3ef0930af7cca6de34adf:gemini-3.5-flash": [
-      1795682344.130957,
-      1795683011.711008,
-      1795683841.3034039
-    ],
-    "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": [
-      1795682379.4627974,
-      1795685163.3995683
-    ],
-    "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
-      1795682976.7065513,
-      1795683090.678321,
-      1795683796.218089,
-      1795684748.3913963,
-      1795684822.9205353
-    ],
-    "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
-      1795682785.5254679
-    ],
-    "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": [
-      1795683751.1370106,
-      1795684289.8381207,
-      1795684523.6355443
-    ]
+  "18b3ef0930af7cca6de34adf:gemini-flash-latest": {
+   "grund": "Tageskontingent erschoepft",
+   "bis": 1795766400.0
+  },
+  "18b3ef0930af7cca6de34adf:gemini-3.6-flash": {
+   "grund": "Tageskontingent erschoepft",
+   "bis": 1795766400.0
+  },
+  "18b3ef0930af7cca6de34adf:gemini-3.5-flash": {
+   "grund": "Tageskontingent erschoepft",
+   "bis": 1795766400.0
+  },
+  "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": {
+   "grund": "Netzwerk-Zeitlimit",
+   "bis": 1795686327.7772768
+  },
+  "18b3ef0930af7cca6de34adf:gemini-flash-lite-latest": {
+   "grund": "voruebergehend ueberlastet",
+   "bis": 1795686101.31076
+  },
+  "18b3ef0930af7cca6de34adf:gemini-3.5-flash-lite": {
+   "grund": "voruebergehend ueberlastet",
+   "bis": 1795686104.9234004
+  },
+  "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": {
+   "grund": "voruebergehend ueberlastet",
+   "bis": 1795686121.9729757
   }
+ },
+ "zeitlimits": {
+  "18b3ef0930af7cca6de34adf:gemini-3.8-flash": [
+   1795681712.836495,
+   1795681964.2754161,
+   1795684137.6865175,
+   1795685527.3786411
+  ],
+  "18b3ef0930af7cca6de34adf:gemini-3.5-flash": [
+   1795682344.130957,
+   1795683011.711008,
+   1795683841.3034039
+  ],
+  "18b3ef0930af7cca6de34adf:gemini-3-flash-preview": [
+   1795682379.4627974,
+   1795685163.3995683,
+   1795685787.7772768
+  ],
+  "18b3ef0930af7cca6de34adf:gemini-3.6-flash": [
+   1795682976.7065513,
+   1795683090.678321,
+   1795683796.218089,
+   1795684748.3913963,
+   1795684822.9205353
+  ],
+  "18b3ef0930af7cca6de34adf:gemini-flash-latest": [
+   1795682785.5254679
+  ],
+  "18b3ef0930af7cca6de34adf:gemini-3.1-flash-lite": [
+   1795683751.1370106,
+   1795684289.8381207,
+   1795684523.6355443
+  ]
+ }
 }

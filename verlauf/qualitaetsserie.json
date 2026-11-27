@@ -221952,6 +221952,709 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "45984185275.1:ai-tools-explained",
+      "run_id": "45984185275",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-27T11:22:11.247531+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "d79d315be4b2926a291c09beeb9e12b403a556b7",
+      "produktionsversion": "ca0b68c3b71dde79b929b22b60163d16b6721d1bd5d71a8dd1d77908363f726a",
+      "videoformat": "short",
+      "thema": "Claude Projects: what the free plan covers and what paid adds",
+      "titel": [
+        "*CLAUDE* *PROJECTS* FREE?",
+        "WHAT PAID ADDS"
+      ],
+      "status": "gesendet",
+      "video_sha256": "00353a5ca8b1bb3c18cc65b02cca9b03ab026e11b17394a7ba246fd945bd682d",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-26.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar den Text What are projects und Themen zu Projekten, aber keine visuelle Erläuterung oder Erwähnung der spezifischen Obergrenze von fünf Projekten für Gratisnutzer, wie es der gesprochene Satz verlangt.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine KI-generierte Illustration mit Text in einer Sprechblase, aber keinen konkreten Bezug zum Thema Claude Projects oder der Funktion von Projekten.",
+        "Offenes Problem (schwer): Das Bild zeigt zwar den Text What are projects und Themen zu Projekten, aber keine visuelle Erläuterung oder Erwähnung der spezifischen Obergrenze von fünf Projekten für Gratisnutzer, wie es der gesprochene Satz verlangt. Korrektur: Ein Screenshot oder eine Dokumentation, die das Limit von maximal fünf Projekten für kostenlose Nutzer in der Benutzeroberfläche anzeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt eine KI-generierte Illustration mit Text in einer Sprechblase, aber keinen konkreten Bezug zum Thema Claude Projects oder der Funktion von Projekten. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der die Projektübersicht und die Erstellung von Projekten zeigt."
+      ],
+      "einstellungen": 8,
+      "unterschiedliche_motive": 8,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "45984185275",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-27",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 233.0,
+            "pruefung_s": 17.7,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar den Text What are projects und Themen zu Projekten, aber keine visuelle Erläuterung oder Erwähnung der spezifischen Obergrenze von fünf Projekten für Gratisnutzer, wie es der gesprochene Satz verlangt.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine KI-generierte Illustration mit Text in einer Sprechblase, aber keinen konkreten Bezug zum Thema Claude Projects oder der Funktion von Projekten.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar den Text What are projects und Themen zu Projekten, aber keine visuelle Erläuterung oder Erwähnung der spezifischen Obergrenze von fünf Projekten für Gratisnutzer, wie es der gesprochene Satz verlangt. Korrektur: Ein Screenshot oder eine Dokumentation, die das Limit von maximal fünf Projekten für kostenlose Nutzer in der Benutzeroberfläche anzeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine KI-generierte Illustration mit Text in einer Sprechblase, aber keinen konkreten Bezug zum Thema Claude Projects oder der Funktion von Projekten. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der die Projektübersicht und die Erstellung von Projekten zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 19.6,
+              "zeitmarken": 2.8,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 8,
+              "clips_und_stuecke": 179.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 8,
+                "motive": 8,
+                "motive_min": 4
+              },
+              "effekte": 11,
+              "rendern": 23.3,
+              "gesamt": 232.6,
+              "videolaenge_s": 25.0,
+              "abschnitte_s": [
+                3.86,
+                1.4,
+                3.22,
+                2.92,
+                3.64,
+                3.36,
+                3.88,
+                2.68
+              ],
+              "woerter": 59,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:08.48",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 3,
+                "gesprochen": "Free users can create a maximum of five projects.",
+                "fest": true,
+                "text": "Das Bild zeigt zwar den Text What are projects und Themen zu Projekten, aber keine visuelle Erläuterung oder Erwähnung der spezifischen Obergrenze von fünf Projekten für Gratisnutzer, wie es der gesprochene Satz verlangt. Korrektur: Ein Screenshot oder eine Dokumentation, die das Limit von maximal fünf Projekten für kostenlose Nutzer in der Benutzeroberfläche anzeigt."
+              },
+              {
+                "zeit": "00:22.28",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 7,
+                "einstellung": 7,
+                "gesprochen": "Five projects, no more re-explaining.",
+                "fest": false,
+                "text": "Das Bild zeigt eine KI-generierte Illustration mit Text in einer Sprechblase, aber keinen konkreten Bezug zum Thema Claude Projects oder der Funktion von Projekten. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der die Projektübersicht und die Erstellung von Projekten zeigt."
+              }
+            ],
+            "sekunden": 251.7,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "status": "keine_korrektur",
+            "sekunden": 0.1
+          }
+        ],
+        "status": "gesendet",
+        "thema_eingabe": "Claude: People are using Claude for WILD things",
+        "grund": "",
+        "sekunden": 358.1,
+        "upload_titel": "CLAUDE PROJECTS FREE? WHAT PAID ADDS | AI Tool #48b"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:08.48",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 3,
+            "gesprochen": "Free users can create a maximum of five projects.",
+            "fest": true,
+            "text": "Das Bild zeigt zwar den Text What are projects und Themen zu Projekten, aber keine visuelle Erläuterung oder Erwähnung der spezifischen Obergrenze von fünf Projekten für Gratisnutzer, wie es der gesprochene Satz verlangt. Korrektur: Ein Screenshot oder eine Dokumentation, die das Limit von maximal fünf Projekten für kostenlose Nutzer in der Benutzeroberfläche anzeigt."
+          },
+          {
+            "zeit": "00:22.28",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 7,
+            "einstellung": 7,
+            "gesprochen": "Five projects, no more re-explaining.",
+            "fest": false,
+            "text": "Das Bild zeigt eine KI-generierte Illustration mit Text in einer Sprechblase, aber keinen konkreten Bezug zum Thema Claude Projects oder der Funktion von Projekten. Korrektur: Ein Screenshot der Claude-Benutzeroberfläche, der die Projektübersicht und die Erstellung von Projekten zeigt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 25.0,
+          "fps": 29.9,
+          "lufs": -14.2,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 11.82,
+              "bis_s": 13.74,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.978
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 5.0,
+              "bis_s": 25.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Why",
+                "s": 0.0,
+                "e": 0.26,
+                "p": 0.5964547395706177
+              },
+              {
+                "w": "does",
+                "s": 0.26,
+                "e": 0.4,
+                "p": 0.7741796970367432
+              },
+              {
+                "w": "re",
+                "s": 0.4,
+                "e": 0.76,
+                "p": 0.8844023942947388
+              },
+              {
+                "w": "-explaining",
+                "s": 0.76,
+                "e": 1.24,
+                "p": 0.9383833805720011
+              },
+              {
+                "w": "Claude",
+                "s": 1.24,
+                "e": 1.5,
+                "p": 0.42826035618782043
+              },
+              {
+                "w": "feel",
+                "s": 1.5,
+                "e": 1.82,
+                "p": 0.9750847220420837
+              },
+              {
+                "w": "like",
+                "s": 1.82,
+                "e": 1.98,
+                "p": 0.9975962042808533
+              },
+              {
+                "w": "teaching",
+                "s": 1.98,
+                "e": 2.38,
+                "p": 0.9777895212173462
+              },
+              {
+                "w": "a",
+                "s": 2.38,
+                "e": 2.62,
+                "p": 0.9806544184684753
+              },
+              {
+                "w": "goldfish?",
+                "s": 2.62,
+                "e": 3.36,
+                "p": 0.8594821393489838
+              },
+              {
+                "w": "Is",
+                "s": 3.88,
+                "e": 3.9,
+                "p": 0.8679224252700806
+              },
+              {
+                "w": "free",
+                "s": 3.9,
+                "e": 4.44,
+                "p": 0.7488169074058533
+              },
+              {
+                "w": "enough?",
+                "s": 4.44,
+                "e": 4.92,
+                "p": 0.8621713519096375
+              },
+              {
+                "w": "Projects",
+                "s": 5.38,
+                "e": 5.38,
+                "p": 0.9541942477226257
+              },
+              {
+                "w": "are",
+                "s": 5.38,
+                "e": 5.62,
+                "p": 0.9964702129364014
+              },
+              {
+                "w": "available",
+                "s": 5.62,
+                "e": 5.84,
+                "p": 0.998242974281311
+              },
+              {
+                "w": "to",
+                "s": 5.84,
+                "e": 6.14,
+                "p": 0.9963009357452393
+              },
+              {
+                "w": "all",
+                "s": 6.14,
+                "e": 6.46,
+                "p": 0.9474146366119385
+              },
+              {
+                "w": "users,",
+                "s": 6.46,
+                "e": 6.84,
+                "p": 0.9950863718986511
+              },
+              {
+                "w": "including",
+                "s": 7.1,
+                "e": 7.38,
+                "p": 0.9981246590614319
+              },
+              {
+                "w": "free",
+                "s": 7.38,
+                "e": 7.72,
+                "p": 0.9854414463043213
+              },
+              {
+                "w": "accounts.",
+                "s": 7.72,
+                "e": 8.06,
+                "p": 0.9903694987297058
+              },
+              {
+                "w": "Free",
+                "s": 8.48,
+                "e": 8.5,
+                "p": 0.9842442274093628
+              },
+              {
+                "w": "users",
+                "s": 8.5,
+                "e": 8.78,
+                "p": 0.982633113861084
+              },
+              {
+                "w": "can",
+                "s": 8.78,
+                "e": 9.0,
+                "p": 0.9889724850654602
+              },
+              {
+                "w": "create",
+                "s": 9.0,
+                "e": 9.2,
+                "p": 0.9906576871871948
+              },
+              {
+                "w": "a",
+                "s": 9.2,
+                "e": 9.34,
+                "p": 0.9979719519615173
+              },
+              {
+                "w": "maximum",
+                "s": 9.34,
+                "e": 9.74,
+                "p": 0.9942365288734436
+              },
+              {
+                "w": "of",
+                "s": 9.74,
+                "e": 10.06,
+                "p": 0.9985103011131287
+              },
+              {
+                "w": "five",
+                "s": 10.06,
+                "e": 10.44,
+                "p": 0.6574686765670776
+              },
+              {
+                "w": "projects.",
+                "s": 10.44,
+                "e": 10.98,
+                "p": 0.9968170523643494
+              },
+              {
+                "w": "Be",
+                "s": 11.4,
+                "e": 11.42,
+                "p": 0.9942155480384827
+              },
+              {
+                "w": "sure",
+                "s": 11.42,
+                "e": 11.66,
+                "p": 0.9996218681335449
+              },
+              {
+                "w": "to",
+                "s": 11.66,
+                "e": 11.82,
+                "p": 0.9979222416877747
+              },
+              {
+                "w": "like,",
+                "s": 11.82,
+                "e": 12.12,
+                "p": 0.8928282260894775
+              },
+              {
+                "w": "share,",
+                "s": 12.34,
+                "e": 12.62,
+                "p": 0.9954801797866821
+              },
+              {
+                "w": "and",
+                "s": 12.86,
+                "e": 12.92,
+                "p": 0.9989365935325623
+              },
+              {
+                "w": "save",
+                "s": 12.92,
+                "e": 13.22,
+                "p": 0.9836964011192322
+              },
+              {
+                "w": "this",
+                "s": 13.22,
+                "e": 13.42,
+                "p": 0.9956711530685425
+              },
+              {
+                "w": "video.",
+                "s": 13.42,
+                "e": 13.74,
+                "p": 0.9997135996818542
+              },
+              {
+                "w": "Upload",
+                "s": 15.04,
+                "e": 15.04,
+                "p": 0.9801087975502014
+              },
+              {
+                "w": "files",
+                "s": 15.04,
+                "e": 15.38,
+                "p": 0.9839017987251282
+              },
+              {
+                "w": "to",
+                "s": 15.38,
+                "e": 15.78,
+                "p": 0.9971991777420044
+              },
+              {
+                "w": "the",
+                "s": 15.78,
+                "e": 15.88,
+                "p": 0.9926416277885437
+              },
+              {
+                "w": "project's",
+                "s": 15.88,
+                "e": 16.48,
+                "p": 0.7016463428735733
+              },
+              {
+                "w": "knowledge",
+                "s": 16.48,
+                "e": 16.66,
+                "p": 0.904015064239502
+              },
+              {
+                "w": "base.",
+                "s": 16.66,
+                "e": 17.04,
+                "p": 0.9902475476264954
+              },
+              {
+                "w": "Enhanced",
+                "s": 18.72,
+                "e": 18.72,
+                "p": 0.2810376286506653
+              },
+              {
+                "w": "project",
+                "s": 18.72,
+                "e": 19.28,
+                "p": 0.9133225083351135
+              },
+              {
+                "w": "knowledge",
+                "s": 19.28,
+                "e": 19.62,
+                "p": 0.999104917049408
+              },
+              {
+                "w": "with",
+                "s": 19.62,
+                "e": 19.94,
+                "p": 0.9840498566627502
+              },
+              {
+                "w": "RAG",
+                "s": 19.94,
+                "e": 20.28,
+                "p": 0.6319694072008133
+              },
+              {
+                "w": "needs",
+                "s": 20.28,
+                "e": 20.6,
+                "p": 0.9739388227462769
+              },
+              {
+                "w": "paid",
+                "s": 20.6,
+                "e": 20.98,
+                "p": 0.9880444407463074
+              },
+              {
+                "w": "plans.",
+                "s": 20.98,
+                "e": 21.4,
+                "p": 0.9620370268821716
+              },
+              {
+                "w": "Five",
+                "s": 22.42,
+                "e": 22.54,
+                "p": 0.7802152037620544
+              },
+              {
+                "w": "projects,",
+                "s": 22.54,
+                "e": 23.08,
+                "p": 0.989255428314209
+              },
+              {
+                "w": "no",
+                "s": 23.44,
+                "e": 23.64,
+                "p": 0.9951045513153076
+              },
+              {
+                "w": "more",
+                "s": 23.64,
+                "e": 24.0,
+                "p": 0.9996238946914673
+              },
+              {
+                "w": "re",
+                "s": 24.0,
+                "e": 24.22,
+                "p": 0.9983782768249512
+              },
+              {
+                "w": "-explaining.",
+                "s": 24.22,
+                "e": 24.66,
+                "p": 0.9926865299542745
+              }
+            ],
+            "dauer_s": 24.9173125,
+            "sprache": "en"
+          },
+          "roh_key": "8ff71940aae2a08503b3d464f1e8544a24e10e4221bb742e085285b9edc95a89",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "00353a5ca8b1bb3c18cc65b02cca9b03ab026e11b17394a7ba246fd945bd682d",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 25.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 8,
+          "motive": 8,
+          "motive_min": 4
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "00353a5ca8b1bb3c18cc65b02cca9b03ab026e11b17394a7ba246fd945bd682d",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein Mann mit Bart schaut erstaunt und ungluecklich nach unten auf ein Goldfischglas, in dem ein Goldfisch schwimmt, vor einem Zimmerfenster bei Lampe.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Gesichtsausdruck-Reaktion und die visuelle Metapher des Goldfischs passen genau zur rhetorischen Frage und dem Frustgefuehl des geoeffneten Sprechens.",
+              "erforderliches_bild": "Keines, das Bild passt."
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein AI-Chat Interface mit der sprechblase \"Is free enough?\" und drei Punkten darunter.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gesprochene rhetorische Frage \"Is free enough?\" ist exakt als Text im Bild zu sehen.",
+              "erforderliches_bild": "n.a."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein Screenshot eines Textes über Claude mit einem gelb markierten Kasten, der besagt, dass Projekte für alle Benutzer verfügbar sind.",
+              "note": 10,
+              "passt": true,
+              "grund": "Der sichtbare Text im Bild belegt exakt die gesprochene Aussage, dass Projekte für alle Benutzer einschließlich kostenloser Accounts verfügbar sind.",
+              "erforderliches_bild": "Kein Ersatz erforderlich, da der Text perfekt passt."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein Screenshot zeigt die Benutzeroberfläche einer Hilfeseite mit der Überschrift What are projects? und einem Hinweis zu Versionen von Projekten.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt zwar den Text What are projects und Themen zu Projekten, aber keine visuelle Erläuterung oder Erwähnung der spezifischen Obergrenze von fünf Projekten für Gratisnutzer, wie es der gesprochene Satz verlangt.",
+              "erforderliches_bild": "Ein Screenshot oder eine Dokumentation, die das Limit von maximal fünf Projekten für kostenlose Nutzer in der Benutzeroberfläche anzeigt."
+            },
+            {
+              "index": 5,
+              "gesehen": "Ein gelb markierter Ausschnitt aus einer Dokumentation zeigt den Textabschnitt Project knowledge, der die Bedeutung von Kontext und Knowledge-Base in Claude erklärt.",
+              "note": 8,
+              "passt": true,
+              "grund": "Der Text erklärt das Konzept der Wissensbasis von Projekten, was genau dem gesprochenen Hochladen von Dateien in die Knowledge Base entspricht.",
+              "erforderliches_bild": "Ein Dokument oder Textabschnitt, der die Knowledge-Base von Claude beschreibt."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein Interface-Screenshot mit hervorgehobener Textbox, die besagt, dass erweitertes Projektwissen mit RAG nur für Nutzer mit kostenpflichtigen Claude-Plänen verfügbar ist.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt exakt die Benutzeroberfläche mit dem Hinweis auf kostenpflichtige Pläne für RAG, was perfekt zur gesprochenen Behauptung passt.",
+              "erforderliches_bild": "Das aktuelle Bild ist bereits optimal."
+            },
+            {
+              "index": 7,
+              "gesehen": "Eine illustrierte Darstellung eines Mannes mit Sonnenbrille und einer Sprechblase mit Text.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt eine KI-generierte Illustration mit Text in einer Sprechblase, aber keinen konkreten Bezug zum Thema Claude Projects oder der Funktion von Projekten.",
+              "erforderliches_bild": "Ein Screenshot der Claude-Benutzeroberfläche, der die Projektübersicht und die Erstellung von Projekten zeigt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 3: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt zwar den Text What are projects und Themen zu Projekten, aber keine visuelle Erläuterung oder Erwähnung der spezifischen Obergrenze von fünf Projekten für Gratisnutzer, wie es der gesprochene Satz verlangt.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine KI-generierte Illustration mit Text in einer Sprechblase, aber keinen konkreten Bezug zum Thema Claude Projects oder der Funktion von Projekten."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 8,
+          "ausgenommen": [
+            4
+          ],
+          "vorgeprueft": [],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "00353a5ca8b1bb3c18cc65b02cca9b03ab026e11b17394a7ba246fd945bd682d",
+        "prompt_version": "2026-11-26.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

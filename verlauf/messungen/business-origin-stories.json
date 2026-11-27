@@ -1,66 +1,5 @@
 [
   {
-    "id": "41994110012",
-    "kanal": "business-origin-stories",
-    "datum": "2026-11-05",
-    "runden": [
-      {
-        "runde": 1,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 3,
-        "grund": "Skriptqualitaet unter Freigabe",
-        "sperrgruende": [
-          "Skript-tempo 6/10 unter 7/10"
-        ],
-        "story_note": 7,
-        "story_schwaechen": [
-          "Sentence 'Seven former Linkabit employees founded it on July 1, 1985, led by Irwin Jacobs.' is filler context that stalls the narrative momentum. Short-form viewers need a direct path from the problem to the solution; replace this with the specific financial pressure the company faced.",
-          "Sentence 'The towers went. Please like, share and save this video.' is a bit abrupt. Fix: Connect the stock growth to the user action, e.g., 'To see more tech pivots, like, share and save this video.'"
-        ],
-        "skript_probleme": [],
-        "sekunden": 217.2
-      },
-      {
-        "runde": 2,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sekunden": 83.2
-      },
-      {
-        "runde": 3,
-        "art": "produktion",
-        "status": "skriptfehler",
-        "exitcode": 2,
-        "grund": "Faktenpruefung nicht bestanden",
-        "sekunden": 84.5
-      },
-      {
-        "runde": 4,
-        "art": "produktion",
-        "status": "skriptqualitaet",
-        "sperrgruende": [
-          "Thema schon geliefert: Louis Vuitton (Thema vor 23 Tagen geliefert (Telegram 399); wieder erst nach 60 Tagen mit neuem Blickwinkel) - anderes Thema waehlen"
-        ],
-        "sekunden": 456.5
-      },
-      {
-        "runde": 5,
-        "art": "produktion",
-        "status": "anbieterpause",
-        "exitcode": 4,
-        "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq-Antwort verletzt das JSON-Schema",
-        "sekunden": 205.9
-      }
-    ],
-    "status": "gesperrt",
-    "trendcheck": "kein Kandidat mit echtem Trendsignal - freie Trendwahl",
-    "grund": "Kostenloses KI-Kontingent aufgebraucht (Anbieter gesperrt): Textanbieter lieferte keine nutzbare Antwort: Groq-Antwort verletzt das JSON-Schema",
-    "sekunden": 1063.0
-  },
-  {
     "id": "42007329254",
     "kanal": "business-origin-stories",
     "datum": "2026-11-05",
@@ -21297,5 +21236,511 @@
     "grund": "",
     "sekunden": 8864.9,
     "upload_titel": "BLOCKED AT $130B: BROADCOM WENT SOFTWARE"
+  },
+  {
+    "id": "45984185275",
+    "kanal": "business-origin-stories",
+    "datum": "2026-11-27",
+    "runden": [
+      {
+        "runde": 1,
+        "art": "bau_fortsetzen",
+        "skript_s": 0.0,
+        "bau_s": 958.7,
+        "pruefung_s": 28.7,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die historische Szene zeigt Männer in Anzügen, aber weder Zigaretten noch den Markteintritt von Marlboro im Jahr 1924.",
+          "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Textstelle 'Marketed to women, it stagnated below 1%' behandelt die historische Vermarktung und Verkaufszahlen von Zigaretten in den USA, während die Illustration lediglich eine unbeteiligte Frau in einer Altstadt zeigt. Es gibt keinen Bezug zu Tabak oder Verkaufszahlen.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die historische Besprechungsszene zeigt Männer an einem Tisch, aber nicht die Neupositionierung von Marlboro für Männer durch Philip Morris.",
+          "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Frau in einer Gasse stellt keine Agentur, Textänderung oder das Weglassen von Werbetext dar, wie es bei 'dropped copy' narrativ verlangt wird.",
+          "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen den weltweiten Erfolg als bestverkaufte Tabakmarke. Das Bild zeigt zwar einen Cowboy, lässt aber jeglichen Hinweis auf weltweiten Verkauf, Verkaufszahlen oder den eigentlichen Markterfolg vermissen.",
+          "Offenes Problem (schwer): Die historische Szene zeigt Männer in Anzügen, aber weder Zigaretten noch den Markteintritt von Marlboro im Jahr 1924. Korrektur: Eine historische Darstellung oder Fotografie aus dem Jahr 1924, die die Einführung der Zigarettenmarke Marlboro als Luxusprodukt in Hotels zeigt.",
+          "Offenes Problem (schwer): Die gesprochene Textstelle 'Marketed to women, it stagnated below 1%' behandelt die historische Vermarktung und Verkaufszahlen von Zigaretten in den USA, während die Illustration lediglich eine unbeteiligte Frau in einer Altstadt zeigt. Es gibt keinen Bezug zu Tabak oder Verkaufszahlen. Korrektur: Historische Werbeanzeigen, Verpackungen oder Diagramme, die die Vermarktung von Zigaretten an Frauen und deren niedrige Verkaufszahlen zeigen.",
+          "Offenes Problem (schwer): Die historische Besprechungsszene zeigt Männer an einem Tisch, aber nicht die Neupositionierung von Marlboro für Männer durch Philip Morris. Korrektur: Eine historische Illustration oder Darstellung von Philip Morris Managern bei der Überarbeitung der Marlboro-Vermarktung für Männer in den 1950er Jahren.",
+          "Offenes Problem (schwer): Die gezeigte Frau in einer Gasse stellt keine Agentur, Textänderung oder das Weglassen von Werbetext dar, wie es bei 'dropped copy' narrativ verlangt wird. Korrektur: Eine Darstellung einer Werbeagentur oder Dokumente mit gekürztem Text.",
+          "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen den weltweiten Erfolg als bestverkaufte Tabakmarke. Das Bild zeigt zwar einen Cowboy, lässt aber jeglichen Hinweis auf weltweiten Verkauf, Verkaufszahlen oder den eigentlichen Markterfolg vermissen. Korrektur: Ein historisches Werbeplakat oder Diagramm, das die weltweite Marktführerschaft oder die Verkaufszahlen von Marlboro illustriert."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "kokoro:bm_george",
+          "stimme": 47.1,
+          "zeitmarken": 4.3,
+          "tempo": 1.25,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 0,
+          "stuecke_neu": 15,
+          "bilder_vereinfacht": 5,
+          "clips_und_stuecke": 820.3,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 15,
+            "motive": 12,
+            "motive_min": 7
+          },
+          "effekte": 10,
+          "rendern": 63.8,
+          "gesamt": 957.7,
+          "videolaenge_s": 46.5,
+          "abschnitte_s": [
+            6.67,
+            7.65,
+            6.13,
+            8.6,
+            4.84,
+            6.62,
+            5.95
+          ],
+          "woerter": 101,
+          "clips": {
+            "witz": 0,
+            "archiv": 3
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:06.67",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "It launched in 1924 as America's luxury",
+            "fest": false,
+            "text": "Die historische Szene zeigt Männer in Anzügen, aber weder Zigaretten noch den Markteintritt von Marlboro im Jahr 1924. Korrektur: Eine historische Darstellung oder Fotografie aus dem Jahr 1924, die die Einführung der Zigarettenmarke Marlboro als Luxusprodukt in Hotels zeigt."
+          },
+          {
+            "zeit": "00:14.32",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "Marketed to women, it stagnated below 1%",
+            "fest": false,
+            "text": "Die gesprochene Textstelle 'Marketed to women, it stagnated below 1%' behandelt die historische Vermarktung und Verkaufszahlen von Zigaretten in den USA, während die Illustration lediglich eine unbeteiligte Frau in einer Altstadt zeigt. Es gibt keinen Bezug zu Tabak oder Verkaufszahlen. Korrektur: Historische Werbeanzeigen, Verpackungen oder Diagramme, die die Vermarktung von Zigaretten an Frauen und deren niedrige Verkaufszahlen zeigen."
+          },
+          {
+            "zeit": "00:25.86",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 8,
+            "gesprochen": "Philip Morris repositioned Marlboro for men. Leo",
+            "fest": false,
+            "text": "Die historische Besprechungsszene zeigt Männer an einem Tisch, aber nicht die Neupositionierung von Marlboro für Männer durch Philip Morris. Korrektur: Eine historische Illustration oder Darstellung von Philip Morris Managern bei der Überarbeitung der Marlboro-Vermarktung für Männer in den 1950er Jahren."
+          },
+          {
+            "zeit": "00:29.04",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "Burnett's agency dropped copy.",
+            "fest": false,
+            "text": "Die gezeigte Frau in einer Gasse stellt keine Agentur, Textänderung oder das Weglassen von Werbetext dar, wie es bei 'dropped copy' narrativ verlangt wird. Korrektur: Eine Darstellung einer Werbeagentur oder Dokumente mit gekürztem Text."
+          },
+          {
+            "zeit": "00:37.20",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 12,
+            "gesprochen": "brand was the world's best-selling tobacco brand.",
+            "fest": false,
+            "text": "Die gesprochenen Wörter erwähnen den weltweiten Erfolg als bestverkaufte Tabakmarke. Das Bild zeigt zwar einen Cowboy, lässt aber jeglichen Hinweis auf weltweiten Verkauf, Verkaufszahlen oder den eigentlichen Markterfolg vermissen. Korrektur: Ein historisches Werbeplakat oder Diagramm, das die weltweite Marktführerschaft oder die Verkaufszahlen von Marlboro illustriert."
+          }
+        ],
+        "sekunden": 988.3,
+        "status": "geprueft"
+      },
+      {
+        "runde": 2,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bm_george",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-11-26.1"
+        },
+        "skript_s": 2.0,
+        "bau_s": 561.0,
+        "pruefung_s": 19.6,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die historische Illustration zeigt Menschen in einem Innenraum, jedoch nicht den Start der Zigarettenmarke 1924 in Luxushotels.",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine allgemeine Besprechung in einem Büro und stellt weder Philip Morris noch die Neupositionierung der Marke Marlboro für Männer dar.",
+          "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Illustration eines sitzenden Mannes am Fenster stellt weder Leo Burnett, dessen Agentur, noch das Weglassen von Text (dropped copy) oder eine Werbekampagne dar.",
+          "Offenes Problem (schwer): Die historische Illustration zeigt Menschen in einem Innenraum, jedoch nicht den Start der Zigarettenmarke 1924 in Luxushotels. Korrektur: Eine historische Ansicht einer luxuriösen Hotelbar oder Residenz aus den 1920er Jahren mit Zigarettenpräsentation.",
+          "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Besprechung in einem Büro und stellt weder Philip Morris noch die Neupositionierung der Marke Marlboro für Männer dar. Korrektur: Eine historische Darstellung oder historische Dokumente, die zeigen, wie Philip Morris die Marke Marlboro im Zuge der Umpositionierung für Männer bewirbt.",
+          "Offenes Problem (schwer): Die gezeigte Illustration eines sitzenden Mannes am Fenster stellt weder Leo Burnett, dessen Agentur, noch das Weglassen von Text (dropped copy) oder eine Werbekampagne dar. Korrektur: Eine historische Darstellung der Werbeagentur von Leo Burnett oder frühe Marlboro-Werbeanzeigen ohne Text."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "kokoro:bm_george",
+          "stimme": 46.7,
+          "zeitmarken": 4.2,
+          "tempo": 1.25,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 10,
+          "stuecke_neu": 5,
+          "bilder_vereinfacht": 2,
+          "clips_und_stuecke": 433.6,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 15,
+            "motive": 15,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 64.7,
+          "gesamt": 560.7,
+          "videolaenge_s": 46.5,
+          "abschnitte_s": [
+            6.67,
+            7.65,
+            6.13,
+            8.6,
+            4.84,
+            6.62,
+            5.95
+          ],
+          "woerter": 101,
+          "clips": {
+            "witz": 1,
+            "archiv": 3
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:06.67",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 2,
+            "gesprochen": "It launched in 1924 as America's luxury",
+            "fest": false,
+            "text": "Die historische Illustration zeigt Menschen in einem Innenraum, jedoch nicht den Start der Zigarettenmarke 1924 in Luxushotels. Korrektur: Eine historische Ansicht einer luxuriösen Hotelbar oder Residenz aus den 1920er Jahren mit Zigarettenpräsentation."
+          },
+          {
+            "zeit": "00:25.86",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 8,
+            "gesprochen": "Philip Morris repositioned Marlboro for men. Leo",
+            "fest": false,
+            "text": "Das Bild zeigt lediglich eine allgemeine Besprechung in einem Büro und stellt weder Philip Morris noch die Neupositionierung der Marke Marlboro für Männer dar. Korrektur: Eine historische Darstellung oder historische Dokumente, die zeigen, wie Philip Morris die Marke Marlboro im Zuge der Umpositionierung für Männer bewirbt."
+          },
+          {
+            "zeit": "00:29.04",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "Burnett's agency dropped copy.",
+            "fest": false,
+            "text": "Die gezeigte Illustration eines sitzenden Mannes am Fenster stellt weder Leo Burnett, dessen Agentur, noch das Weglassen von Text (dropped copy) oder eine Werbekampagne dar. Korrektur: Eine historische Darstellung der Werbeagentur von Leo Burnett oder frühe Marlboro-Werbeanzeigen ohne Text."
+          }
+        ],
+        "sekunden": 583.2,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "45984185275-2",
+          "datum": "2026-11-27",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 583.2,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 2
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 5
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bm_george",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 2
+          },
+          "kategorien_nachher": {
+            "bild_passt": 2
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-11-26.1",
+          "verbessert": false
+        }
+      },
+      {
+        "runde": 3,
+        "art": "korrektur",
+        "plan": {
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bm_george",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "offen": [],
+          "teile": [
+            1,
+            3,
+            4
+          ],
+          "schwerpunkt": "bild",
+          "prompt_version": "2026-11-26.1"
+        },
+        "skript_s": 2.4,
+        "bau_s": 286.2,
+        "pruefung_s": 16.7,
+        "note": null,
+        "sperrgruende": [
+          "Video-Note fehlt oder ist ungueltig",
+          "Video-Bewertung hook fehlt oder ist ungueltig",
+          "Video-bild_passt 2/10 unter 7/10",
+          "Video-Bewertung dynamik fehlt oder ist ungueltig",
+          "Video-Bewertung text fehlt oder ist ungueltig",
+          "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+          "Video-Bewertung tempo fehlt oder ist ungueltig",
+          "Video-Bewertung inhalt fehlt oder ist ungueltig",
+          "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+          "Video-Bewertung regeln fehlt oder ist ungueltig",
+          "Video-Bewertung story fehlt oder ist ungueltig",
+          "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt ein Mikroskop in einer historischen Straße, hat aber keinerlei Bezug zu Marlboro, Philip Morris oder der Neupositionierung für Männer.",
+          "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine symbolische Übergabe von Schlüsseln, aber weder Leo Burnett noch dessen Werbeagentur oder das Weglassen von Werbetexten (dropped copy) sind zu sehen.",
+          "Offenes Problem (schwer): Das Bild zeigt ein Mikroskop in einer historischen Straße, hat aber keinerlei Bezug zu Marlboro, Philip Morris oder der Neupositionierung für Männer. Korrektur: Eine historische Anzeige oder Illustration von Marlboro aus den 1950er Jahren, die den Übergang zur Vermarktung an Männer zeigt.",
+          "Offenes Problem (schwer): Das Bild zeigt eine symbolische Übergabe von Schlüsseln, aber weder Leo Burnett noch dessen Werbeagentur oder das Weglassen von Werbetexten (dropped copy) sind zu sehen. Korrektur: Eine historische Werbeagentur oder ein Plakatentwurf mit reduziertem Text."
+        ],
+        "messung": {
+          "stimme_wiederverwendet": false,
+          "erzaehlstimme": "kokoro:bm_george",
+          "stimme": 46.5,
+          "zeitmarken": 4.1,
+          "tempo": 1.25,
+          "stimme_ersatz": false,
+          "stuecke_wiederverwendet": 12,
+          "stuecke_neu": 3,
+          "bilder_vereinfacht": 1,
+          "clips_und_stuecke": 156.8,
+          "bildpruefung": {
+            "befunde": [],
+            "einstellungen": 15,
+            "motive": 14,
+            "motive_min": 8
+          },
+          "effekte": 10,
+          "rendern": 64.2,
+          "gesamt": 285.8,
+          "videolaenge_s": 46.5,
+          "abschnitte_s": [
+            6.67,
+            7.65,
+            6.13,
+            8.6,
+            4.84,
+            6.62,
+            5.95
+          ],
+          "woerter": 101,
+          "clips": {
+            "witz": 1,
+            "archiv": 3
+          }
+        },
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "probleme": [
+          {
+            "zeit": "00:25.86",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 8,
+            "gesprochen": "Philip Morris repositioned Marlboro for men. Leo",
+            "fest": false,
+            "text": "Das Bild zeigt ein Mikroskop in einer historischen Straße, hat aber keinerlei Bezug zu Marlboro, Philip Morris oder der Neupositionierung für Männer. Korrektur: Eine historische Anzeige oder Illustration von Marlboro aus den 1950er Jahren, die den Übergang zur Vermarktung an Männer zeigt."
+          },
+          {
+            "zeit": "00:29.04",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "Burnett's agency dropped copy.",
+            "fest": false,
+            "text": "Das Bild zeigt eine symbolische Übergabe von Schlüsseln, aber weder Leo Burnett noch dessen Werbeagentur oder das Weglassen von Werbetexten (dropped copy) sind zu sehen. Korrektur: Eine historische Werbeagentur oder ein Plakatentwurf mit reduziertem Text."
+          }
+        ],
+        "sekunden": 306.1,
+        "status": "geprueft",
+        "lernergebnis": {
+          "id": "45984185275-3",
+          "datum": "2026-11-27",
+          "vorher": null,
+          "nachher": null,
+          "vorher_gesperrt": true,
+          "nachher_gesperrt": true,
+          "sekunden": 306.1,
+          "aktionen": [
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 1
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 3
+            },
+            {
+              "art": "bild",
+              "variante": "illustration",
+              "index": 4
+            }
+          ],
+          "einstellungen": {
+            "stimme": "bm_george",
+            "tempo": 1.05,
+            "untertitel_profil": "ruhig",
+            "musik_pegel": null,
+            "effekt_pegel": null
+          },
+          "schwerpunkt": "bild",
+          "kategorien_vorher": {
+            "bild_passt": 2
+          },
+          "kategorien_nachher": {
+            "bild_passt": 2
+          },
+          "auswertbar": false,
+          "prompt_version": "2026-11-26.1",
+          "verbessert": false
+        }
+      },
+      {
+        "runde": 4,
+        "art": "korrektur",
+        "status": "korrekturgrenze",
+        "sekunden": 0.0
+      }
+    ],
+    "status": "gesendet",
+    "thema_eingabe": "Marlboro",
+    "grund": "",
+    "sekunden": 1931.9,
+    "upload_titel": "Marlboro – PULLED FROM THE MARKET, THEN WORLD NO. 1"
   }
 ]

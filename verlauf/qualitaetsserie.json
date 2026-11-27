@@ -222655,6 +222655,1397 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "45984185275.1:business-origin-stories",
+      "run_id": "45984185275",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-27T11:56:27.000539+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "d79d315be4b2926a291c09beeb9e12b403a556b7",
+      "produktionsversion": "436e17038b70a0e5a9341d1935ec71baa10d609edb803005c1cfc3735fc79988",
+      "videoformat": "short",
+      "thema": "Marlboro",
+      "titel": [
+        "PULLED FROM THE MARKET",
+        "THEN WORLD NO. 1"
+      ],
+      "status": "gesendet",
+      "video_sha256": "1367696e1930e265064c5676814d491dcd80012e9a6fceeeed660f7dcb8fe131",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-26.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt ein Mikroskop in einer historischen Straße, hat aber keinerlei Bezug zu Marlboro, Philip Morris oder der Neupositionierung für Männer.",
+        "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine symbolische Übergabe von Schlüsseln, aber weder Leo Burnett noch dessen Werbeagentur oder das Weglassen von Werbetexten (dropped copy) sind zu sehen.",
+        "Offenes Problem (schwer): Das Bild zeigt ein Mikroskop in einer historischen Straße, hat aber keinerlei Bezug zu Marlboro, Philip Morris oder der Neupositionierung für Männer. Korrektur: Eine historische Anzeige oder Illustration von Marlboro aus den 1950er Jahren, die den Übergang zur Vermarktung an Männer zeigt.",
+        "Offenes Problem (schwer): Das Bild zeigt eine symbolische Übergabe von Schlüsseln, aber weder Leo Burnett noch dessen Werbeagentur oder das Weglassen von Werbetexten (dropped copy) sind zu sehen. Korrektur: Eine historische Werbeagentur oder ein Plakatentwurf mit reduziertem Text."
+      ],
+      "einstellungen": 15,
+      "unterschiedliche_motive": 14,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "45984185275",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-27",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 958.7,
+            "pruefung_s": 28.7,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die historische Szene zeigt Männer in Anzügen, aber weder Zigaretten noch den Markteintritt von Marlboro im Jahr 1924.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Die gesprochene Textstelle 'Marketed to women, it stagnated below 1%' behandelt die historische Vermarktung und Verkaufszahlen von Zigaretten in den USA, während die Illustration lediglich eine unbeteiligte Frau in einer Altstadt zeigt. Es gibt keinen Bezug zu Tabak oder Verkaufszahlen.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Die historische Besprechungsszene zeigt Männer an einem Tisch, aber nicht die Neupositionierung von Marlboro für Männer durch Philip Morris.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Frau in einer Gasse stellt keine Agentur, Textänderung oder das Weglassen von Werbetext dar, wie es bei 'dropped copy' narrativ verlangt wird.",
+              "Einstellung 12: Bild passt nicht zum Sprechtext (3/10): Die gesprochenen Wörter erwähnen den weltweiten Erfolg als bestverkaufte Tabakmarke. Das Bild zeigt zwar einen Cowboy, lässt aber jeglichen Hinweis auf weltweiten Verkauf, Verkaufszahlen oder den eigentlichen Markterfolg vermissen.",
+              "Offenes Problem (schwer): Die historische Szene zeigt Männer in Anzügen, aber weder Zigaretten noch den Markteintritt von Marlboro im Jahr 1924. Korrektur: Eine historische Darstellung oder Fotografie aus dem Jahr 1924, die die Einführung der Zigarettenmarke Marlboro als Luxusprodukt in Hotels zeigt.",
+              "Offenes Problem (schwer): Die gesprochene Textstelle 'Marketed to women, it stagnated below 1%' behandelt die historische Vermarktung und Verkaufszahlen von Zigaretten in den USA, während die Illustration lediglich eine unbeteiligte Frau in einer Altstadt zeigt. Es gibt keinen Bezug zu Tabak oder Verkaufszahlen. Korrektur: Historische Werbeanzeigen, Verpackungen oder Diagramme, die die Vermarktung von Zigaretten an Frauen und deren niedrige Verkaufszahlen zeigen.",
+              "Offenes Problem (schwer): Die historische Besprechungsszene zeigt Männer an einem Tisch, aber nicht die Neupositionierung von Marlboro für Männer durch Philip Morris. Korrektur: Eine historische Illustration oder Darstellung von Philip Morris Managern bei der Überarbeitung der Marlboro-Vermarktung für Männer in den 1950er Jahren.",
+              "Offenes Problem (schwer): Die gezeigte Frau in einer Gasse stellt keine Agentur, Textänderung oder das Weglassen von Werbetext dar, wie es bei 'dropped copy' narrativ verlangt wird. Korrektur: Eine Darstellung einer Werbeagentur oder Dokumente mit gekürztem Text.",
+              "Offenes Problem (schwer): Die gesprochenen Wörter erwähnen den weltweiten Erfolg als bestverkaufte Tabakmarke. Das Bild zeigt zwar einen Cowboy, lässt aber jeglichen Hinweis auf weltweiten Verkauf, Verkaufszahlen oder den eigentlichen Markterfolg vermissen. Korrektur: Ein historisches Werbeplakat oder Diagramm, das die weltweite Marktführerschaft oder die Verkaufszahlen von Marlboro illustriert."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "kokoro:bm_george",
+              "stimme": 47.1,
+              "zeitmarken": 4.3,
+              "tempo": 1.25,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 15,
+              "bilder_vereinfacht": 5,
+              "clips_und_stuecke": 820.3,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 15,
+                "motive": 12,
+                "motive_min": 7
+              },
+              "effekte": 10,
+              "rendern": 63.8,
+              "gesamt": 957.7,
+              "videolaenge_s": 46.5,
+              "abschnitte_s": [
+                6.67,
+                7.65,
+                6.13,
+                8.6,
+                4.84,
+                6.62,
+                5.95
+              ],
+              "woerter": 101,
+              "clips": {
+                "witz": 0,
+                "archiv": 3
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:06.67",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "It launched in 1924 as America's luxury",
+                "fest": false,
+                "text": "Die historische Szene zeigt Männer in Anzügen, aber weder Zigaretten noch den Markteintritt von Marlboro im Jahr 1924. Korrektur: Eine historische Darstellung oder Fotografie aus dem Jahr 1924, die die Einführung der Zigarettenmarke Marlboro als Luxusprodukt in Hotels zeigt."
+              },
+              {
+                "zeit": "00:14.32",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "Marketed to women, it stagnated below 1%",
+                "fest": false,
+                "text": "Die gesprochene Textstelle 'Marketed to women, it stagnated below 1%' behandelt die historische Vermarktung und Verkaufszahlen von Zigaretten in den USA, während die Illustration lediglich eine unbeteiligte Frau in einer Altstadt zeigt. Es gibt keinen Bezug zu Tabak oder Verkaufszahlen. Korrektur: Historische Werbeanzeigen, Verpackungen oder Diagramme, die die Vermarktung von Zigaretten an Frauen und deren niedrige Verkaufszahlen zeigen."
+              },
+              {
+                "zeit": "00:25.86",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 8,
+                "gesprochen": "Philip Morris repositioned Marlboro for men. Leo",
+                "fest": false,
+                "text": "Die historische Besprechungsszene zeigt Männer an einem Tisch, aber nicht die Neupositionierung von Marlboro für Männer durch Philip Morris. Korrektur: Eine historische Illustration oder Darstellung von Philip Morris Managern bei der Überarbeitung der Marlboro-Vermarktung für Männer in den 1950er Jahren."
+              },
+              {
+                "zeit": "00:29.04",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "Burnett's agency dropped copy.",
+                "fest": false,
+                "text": "Die gezeigte Frau in einer Gasse stellt keine Agentur, Textänderung oder das Weglassen von Werbetext dar, wie es bei 'dropped copy' narrativ verlangt wird. Korrektur: Eine Darstellung einer Werbeagentur oder Dokumente mit gekürztem Text."
+              },
+              {
+                "zeit": "00:37.20",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 12,
+                "gesprochen": "brand was the world's best-selling tobacco brand.",
+                "fest": false,
+                "text": "Die gesprochenen Wörter erwähnen den weltweiten Erfolg als bestverkaufte Tabakmarke. Das Bild zeigt zwar einen Cowboy, lässt aber jeglichen Hinweis auf weltweiten Verkauf, Verkaufszahlen oder den eigentlichen Markterfolg vermissen. Korrektur: Ein historisches Werbeplakat oder Diagramm, das die weltweite Marktführerschaft oder die Verkaufszahlen von Marlboro illustriert."
+              }
+            ],
+            "sekunden": 988.3,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-26.1"
+            },
+            "skript_s": 2.0,
+            "bau_s": 561.0,
+            "pruefung_s": 19.6,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (3/10): Die historische Illustration zeigt Menschen in einem Innenraum, jedoch nicht den Start der Zigarettenmarke 1924 in Luxushotels.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt lediglich eine allgemeine Besprechung in einem Büro und stellt weder Philip Morris noch die Neupositionierung der Marke Marlboro für Männer dar.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Illustration eines sitzenden Mannes am Fenster stellt weder Leo Burnett, dessen Agentur, noch das Weglassen von Text (dropped copy) oder eine Werbekampagne dar.",
+              "Offenes Problem (schwer): Die historische Illustration zeigt Menschen in einem Innenraum, jedoch nicht den Start der Zigarettenmarke 1924 in Luxushotels. Korrektur: Eine historische Ansicht einer luxuriösen Hotelbar oder Residenz aus den 1920er Jahren mit Zigarettenpräsentation.",
+              "Offenes Problem (schwer): Das Bild zeigt lediglich eine allgemeine Besprechung in einem Büro und stellt weder Philip Morris noch die Neupositionierung der Marke Marlboro für Männer dar. Korrektur: Eine historische Darstellung oder historische Dokumente, die zeigen, wie Philip Morris die Marke Marlboro im Zuge der Umpositionierung für Männer bewirbt.",
+              "Offenes Problem (schwer): Die gezeigte Illustration eines sitzenden Mannes am Fenster stellt weder Leo Burnett, dessen Agentur, noch das Weglassen von Text (dropped copy) oder eine Werbekampagne dar. Korrektur: Eine historische Darstellung der Werbeagentur von Leo Burnett oder frühe Marlboro-Werbeanzeigen ohne Text."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "kokoro:bm_george",
+              "stimme": 46.7,
+              "zeitmarken": 4.2,
+              "tempo": 1.25,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 10,
+              "stuecke_neu": 5,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 433.6,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 15,
+                "motive": 15,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 64.7,
+              "gesamt": 560.7,
+              "videolaenge_s": 46.5,
+              "abschnitte_s": [
+                6.67,
+                7.65,
+                6.13,
+                8.6,
+                4.84,
+                6.62,
+                5.95
+              ],
+              "woerter": 101,
+              "clips": {
+                "witz": 1,
+                "archiv": 3
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:06.67",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 2,
+                "gesprochen": "It launched in 1924 as America's luxury",
+                "fest": false,
+                "text": "Die historische Illustration zeigt Menschen in einem Innenraum, jedoch nicht den Start der Zigarettenmarke 1924 in Luxushotels. Korrektur: Eine historische Ansicht einer luxuriösen Hotelbar oder Residenz aus den 1920er Jahren mit Zigarettenpräsentation."
+              },
+              {
+                "zeit": "00:25.86",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 8,
+                "gesprochen": "Philip Morris repositioned Marlboro for men. Leo",
+                "fest": false,
+                "text": "Das Bild zeigt lediglich eine allgemeine Besprechung in einem Büro und stellt weder Philip Morris noch die Neupositionierung der Marke Marlboro für Männer dar. Korrektur: Eine historische Darstellung oder historische Dokumente, die zeigen, wie Philip Morris die Marke Marlboro im Zuge der Umpositionierung für Männer bewirbt."
+              },
+              {
+                "zeit": "00:29.04",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "Burnett's agency dropped copy.",
+                "fest": false,
+                "text": "Die gezeigte Illustration eines sitzenden Mannes am Fenster stellt weder Leo Burnett, dessen Agentur, noch das Weglassen von Text (dropped copy) oder eine Werbekampagne dar. Korrektur: Eine historische Darstellung der Werbeagentur von Leo Burnett oder frühe Marlboro-Werbeanzeigen ohne Text."
+              }
+            ],
+            "sekunden": 583.2,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "45984185275-2",
+              "datum": "2026-11-27",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 583.2,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-11-26.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                1,
+                3,
+                4
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-26.1"
+            },
+            "skript_s": 2.4,
+            "bau_s": 286.2,
+            "pruefung_s": 16.7,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt ein Mikroskop in einer historischen Straße, hat aber keinerlei Bezug zu Marlboro, Philip Morris oder der Neupositionierung für Männer.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine symbolische Übergabe von Schlüsseln, aber weder Leo Burnett noch dessen Werbeagentur oder das Weglassen von Werbetexten (dropped copy) sind zu sehen.",
+              "Offenes Problem (schwer): Das Bild zeigt ein Mikroskop in einer historischen Straße, hat aber keinerlei Bezug zu Marlboro, Philip Morris oder der Neupositionierung für Männer. Korrektur: Eine historische Anzeige oder Illustration von Marlboro aus den 1950er Jahren, die den Übergang zur Vermarktung an Männer zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine symbolische Übergabe von Schlüsseln, aber weder Leo Burnett noch dessen Werbeagentur oder das Weglassen von Werbetexten (dropped copy) sind zu sehen. Korrektur: Eine historische Werbeagentur oder ein Plakatentwurf mit reduziertem Text."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "kokoro:bm_george",
+              "stimme": 46.5,
+              "zeitmarken": 4.1,
+              "tempo": 1.25,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 12,
+              "stuecke_neu": 3,
+              "bilder_vereinfacht": 1,
+              "clips_und_stuecke": 156.8,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 15,
+                "motive": 14,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 64.2,
+              "gesamt": 285.8,
+              "videolaenge_s": 46.5,
+              "abschnitte_s": [
+                6.67,
+                7.65,
+                6.13,
+                8.6,
+                4.84,
+                6.62,
+                5.95
+              ],
+              "woerter": 101,
+              "clips": {
+                "witz": 1,
+                "archiv": 3
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:25.86",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 8,
+                "gesprochen": "Philip Morris repositioned Marlboro for men. Leo",
+                "fest": false,
+                "text": "Das Bild zeigt ein Mikroskop in einer historischen Straße, hat aber keinerlei Bezug zu Marlboro, Philip Morris oder der Neupositionierung für Männer. Korrektur: Eine historische Anzeige oder Illustration von Marlboro aus den 1950er Jahren, die den Übergang zur Vermarktung an Männer zeigt."
+              },
+              {
+                "zeit": "00:29.04",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 9,
+                "gesprochen": "Burnett's agency dropped copy.",
+                "fest": false,
+                "text": "Das Bild zeigt eine symbolische Übergabe von Schlüsseln, aber weder Leo Burnett noch dessen Werbeagentur oder das Weglassen von Werbetexten (dropped copy) sind zu sehen. Korrektur: Eine historische Werbeagentur oder ein Plakatentwurf mit reduziertem Text."
+              }
+            ],
+            "sekunden": 306.1,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "45984185275-3",
+              "datum": "2026-11-27",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 306.1,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-11-26.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "thema_eingabe": "Marlboro",
+        "grund": "",
+        "sekunden": 1931.9,
+        "upload_titel": "Marlboro – PULLED FROM THE MARKET, THEN WORLD NO. 1"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:25.86",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 8,
+            "gesprochen": "Philip Morris repositioned Marlboro for men. Leo",
+            "fest": false,
+            "text": "Das Bild zeigt ein Mikroskop in einer historischen Straße, hat aber keinerlei Bezug zu Marlboro, Philip Morris oder der Neupositionierung für Männer. Korrektur: Eine historische Anzeige oder Illustration von Marlboro aus den 1950er Jahren, die den Übergang zur Vermarktung an Männer zeigt."
+          },
+          {
+            "zeit": "00:29.04",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 4,
+            "einstellung": 9,
+            "gesprochen": "Burnett's agency dropped copy.",
+            "fest": false,
+            "text": "Das Bild zeigt eine symbolische Übergabe von Schlüsseln, aber weder Leo Burnett noch dessen Werbeagentur oder das Weglassen von Werbetexten (dropped copy) sind zu sehen. Korrektur: Eine historische Werbeagentur oder ein Plakatentwurf mit reduziertem Text."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 46.4,
+          "fps": 30.0,
+          "lufs": -14.0,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 40.92,
+              "bis_s": 42.7,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.941
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 26.4,
+              "bis_s": 46.9,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Marlboro",
+                "s": 0.0,
+                "e": 0.38,
+                "p": 0.5904952188332876
+              },
+              {
+                "w": "was",
+                "s": 0.38,
+                "e": 0.86,
+                "p": 0.975531280040741
+              },
+              {
+                "w": "briefly",
+                "s": 0.86,
+                "e": 1.16,
+                "p": 0.9924454092979431
+              },
+              {
+                "w": "pulled",
+                "s": 1.16,
+                "e": 1.6,
+                "p": 0.9992625117301941
+              },
+              {
+                "w": "from",
+                "s": 1.6,
+                "e": 1.92,
+                "p": 0.996381402015686
+              },
+              {
+                "w": "the",
+                "s": 1.92,
+                "e": 2.02,
+                "p": 0.9964432120323181
+              },
+              {
+                "w": "market.",
+                "s": 2.02,
+                "e": 2.4,
+                "p": 0.9952945113182068
+              },
+              {
+                "w": "So",
+                "s": 3.66,
+                "e": 3.78,
+                "p": 0.9129271507263184
+              },
+              {
+                "w": "how",
+                "s": 3.78,
+                "e": 3.98,
+                "p": 0.7323939800262451
+              },
+              {
+                "w": "did",
+                "s": 3.98,
+                "e": 4.18,
+                "p": 0.9976765513420105
+              },
+              {
+                "w": "it",
+                "s": 4.18,
+                "e": 4.28,
+                "p": 0.9963177442550659
+              },
+              {
+                "w": "reach",
+                "s": 4.28,
+                "e": 4.62,
+                "p": 0.9747220277786255
+              },
+              {
+                "w": "number",
+                "s": 4.62,
+                "e": 4.96,
+                "p": 0.9216740131378174
+              },
+              {
+                "w": "one",
+                "s": 4.96,
+                "e": 5.32,
+                "p": 0.8318822383880615
+              },
+              {
+                "w": "worldwide?",
+                "s": 5.32,
+                "e": 5.74,
+                "p": 0.9341559410095215
+              },
+              {
+                "w": "It",
+                "s": 6.98,
+                "e": 7.1,
+                "p": 0.988102376461029
+              },
+              {
+                "w": "launched",
+                "s": 7.1,
+                "e": 7.32,
+                "p": 0.9979320764541626
+              },
+              {
+                "w": "in",
+                "s": 7.32,
+                "e": 7.68,
+                "p": 0.9974817633628845
+              },
+              {
+                "w": "1924",
+                "s": 7.68,
+                "e": 8.78,
+                "p": 0.9627251029014587
+              },
+              {
+                "w": "as",
+                "s": 8.78,
+                "e": 9.7,
+                "p": 0.8209661841392517
+              },
+              {
+                "w": "America's",
+                "s": 9.7,
+                "e": 10.28,
+                "p": 0.9883276224136353
+              },
+              {
+                "w": "luxury",
+                "s": 10.28,
+                "e": 10.46,
+                "p": 0.9381171464920044
+              },
+              {
+                "w": "cigarette,",
+                "s": 10.46,
+                "e": 11.06,
+                "p": 0.9829984307289124
+              },
+              {
+                "w": "sold",
+                "s": 11.58,
+                "e": 11.8,
+                "p": 0.9958544969558716
+              },
+              {
+                "w": "mainly",
+                "s": 11.8,
+                "e": 12.12,
+                "p": 0.9963292479515076
+              },
+              {
+                "w": "in",
+                "s": 12.12,
+                "e": 12.48,
+                "p": 0.9985256791114807
+              },
+              {
+                "w": "hotels",
+                "s": 12.48,
+                "e": 12.74,
+                "p": 0.9763326048851013
+              },
+              {
+                "w": "and",
+                "s": 12.74,
+                "e": 13.42,
+                "p": 0.9957362413406372
+              },
+              {
+                "w": "resorts.",
+                "s": 13.42,
+                "e": 13.7,
+                "p": 0.9993232488632202
+              },
+              {
+                "w": "Marketed",
+                "s": 14.68,
+                "e": 15.06,
+                "p": 0.7854065001010895
+              },
+              {
+                "w": "to",
+                "s": 15.06,
+                "e": 15.2,
+                "p": 0.9985355138778687
+              },
+              {
+                "w": "women,",
+                "s": 15.2,
+                "e": 15.46,
+                "p": 0.9940983057022095
+              },
+              {
+                "w": "it",
+                "s": 15.86,
+                "e": 16.02,
+                "p": 0.9950085878372192
+              },
+              {
+                "w": "stagnated",
+                "s": 16.02,
+                "e": 16.66,
+                "p": 0.9446010887622833
+              },
+              {
+                "w": "below",
+                "s": 16.66,
+                "e": 16.96,
+                "p": 0.9967169165611267
+              },
+              {
+                "w": "1",
+                "s": 16.96,
+                "e": 17.3,
+                "p": 0.8642253875732422
+              },
+              {
+                "w": "%",
+                "s": 17.3,
+                "e": 17.74,
+                "p": 0.8670834302902222
+              },
+              {
+                "w": "of",
+                "s": 17.74,
+                "e": 18.06,
+                "p": 0.990861177444458
+              },
+              {
+                "w": "U",
+                "s": 18.06,
+                "e": 18.18,
+                "p": 0.46503642201423645
+              },
+              {
+                "w": ".S.",
+                "s": 18.18,
+                "e": 18.32,
+                "p": 0.9919451475143433
+              },
+              {
+                "w": "tobacco",
+                "s": 18.64,
+                "e": 18.64,
+                "p": 0.976653516292572
+              },
+              {
+                "w": "sales",
+                "s": 18.64,
+                "e": 19.1,
+                "p": 0.99834144115448
+              },
+              {
+                "w": "before",
+                "s": 19.1,
+                "e": 19.64,
+                "p": 0.9921494722366333
+              },
+              {
+                "w": "the",
+                "s": 19.64,
+                "e": 19.82,
+                "p": 0.9985702037811279
+              },
+              {
+                "w": "war.",
+                "s": 19.82,
+                "e": 20.04,
+                "p": 0.9915803074836731
+              },
+              {
+                "w": "So",
+                "s": 21.0,
+                "e": 21.1,
+                "p": 0.9724138975143433
+              },
+              {
+                "w": "what",
+                "s": 21.1,
+                "e": 21.34,
+                "p": 0.9143199920654297
+              },
+              {
+                "w": "changed?",
+                "s": 21.34,
+                "e": 21.7,
+                "p": 0.9986749291419983
+              },
+              {
+                "w": "After",
+                "s": 22.68,
+                "e": 22.92,
+                "p": 0.9901880621910095
+              },
+              {
+                "w": "a",
+                "s": 22.92,
+                "e": 23.06,
+                "p": 0.9883973002433777
+              },
+              {
+                "w": "1950s",
+                "s": 23.06,
+                "e": 24.68,
+                "p": 0.8897101283073425
+              },
+              {
+                "w": "lung",
+                "s": 24.68,
+                "e": 24.82,
+                "p": 0.9707597494125366
+              },
+              {
+                "w": "cancer",
+                "s": 24.82,
+                "e": 25.2,
+                "p": 0.9947315454483032
+              },
+              {
+                "w": "study,",
+                "s": 25.2,
+                "e": 25.86,
+                "p": 0.9991961121559143
+              },
+              {
+                "w": "Philip",
+                "s": 26.12,
+                "e": 26.32,
+                "p": 0.8248170614242554
+              },
+              {
+                "w": "Morris",
+                "s": 26.32,
+                "e": 26.58,
+                "p": 0.9772088527679443
+              },
+              {
+                "w": "repositioned",
+                "s": 26.58,
+                "e": 27.78,
+                "p": 0.8237755298614502
+              },
+              {
+                "w": "Marlboro",
+                "s": 27.78,
+                "e": 28.24,
+                "p": 0.9876882831255595
+              },
+              {
+                "w": "for",
+                "s": 28.24,
+                "e": 28.44,
+                "p": 0.9965272545814514
+              },
+              {
+                "w": "men.",
+                "s": 28.44,
+                "e": 28.62,
+                "p": 0.9862905144691467
+              },
+              {
+                "w": "The",
+                "s": 28.62,
+                "e": 29.12,
+                "p": 0.16464883089065552
+              },
+              {
+                "w": "Oberness",
+                "s": 29.12,
+                "e": 29.46,
+                "p": 0.17584539949893951
+              },
+              {
+                "w": "Agency",
+                "s": 29.46,
+                "e": 29.88,
+                "p": 0.9011695384979248
+              },
+              {
+                "w": "dropped",
+                "s": 29.88,
+                "e": 30.18,
+                "p": 0.765601634979248
+              },
+              {
+                "w": "copy.",
+                "s": 30.18,
+                "e": 30.42,
+                "p": 0.8773261308670044
+              },
+              {
+                "w": "The",
+                "s": 30.92,
+                "e": 30.94,
+                "p": 0.832647979259491
+              },
+              {
+                "w": "Marlboro",
+                "s": 30.94,
+                "e": 31.2,
+                "p": 0.3768407503763835
+              },
+              {
+                "w": "man",
+                "s": 31.2,
+                "e": 31.42,
+                "p": 0.36420780420303345
+              },
+              {
+                "w": "was",
+                "s": 31.42,
+                "e": 31.58,
+                "p": 0.9920169115066528
+              },
+              {
+                "w": "a",
+                "s": 31.58,
+                "e": 31.68,
+                "p": 0.9604510068893433
+              },
+              {
+                "w": "sea",
+                "s": 31.68,
+                "e": 31.76,
+                "p": 0.43562012910842896
+              },
+              {
+                "w": "captain,",
+                "s": 31.76,
+                "e": 32.0,
+                "p": 0.9226186871528625
+              },
+              {
+                "w": "Gunsmith",
+                "s": 32.34,
+                "e": 32.62,
+                "p": 0.5164663307368755
+              },
+              {
+                "w": "athlete",
+                "s": 32.62,
+                "e": 33.06,
+                "p": 0.5283557176589966
+              },
+              {
+                "w": "cowboy.",
+                "s": 33.06,
+                "e": 33.36,
+                "p": 0.9290090799331665
+              },
+              {
+                "w": "By",
+                "s": 34.2,
+                "e": 34.32,
+                "p": 0.986674964427948
+              },
+              {
+                "w": "1972,",
+                "s": 34.32,
+                "e": 34.76,
+                "p": 0.8862336277961731
+              },
+              {
+                "w": "the",
+                "s": 35.82,
+                "e": 36.48,
+                "p": 0.9459757208824158
+              },
+              {
+                "w": "one",
+                "s": 36.48,
+                "e": 36.62,
+                "p": 0.35495725274086
+              },
+              {
+                "w": "-spooled",
+                "s": 36.62,
+                "e": 37.08,
+                "p": 0.8018729388713837
+              },
+              {
+                "w": "brand",
+                "s": 37.08,
+                "e": 37.34,
+                "p": 0.9796802401542664
+              },
+              {
+                "w": "was",
+                "s": 37.34,
+                "e": 37.86,
+                "p": 0.9629436135292053
+              },
+              {
+                "w": "the",
+                "s": 37.86,
+                "e": 37.96,
+                "p": 0.9879277348518372
+              },
+              {
+                "w": "world's",
+                "s": 37.96,
+                "e": 38.4,
+                "p": 0.9684962630271912
+              },
+              {
+                "w": "best",
+                "s": 38.4,
+                "e": 38.58,
+                "p": 0.9867110848426819
+              },
+              {
+                "w": "-selling",
+                "s": 38.58,
+                "e": 38.98,
+                "p": 0.8692851364612579
+              },
+              {
+                "w": "tobacco",
+                "s": 38.98,
+                "e": 39.2,
+                "p": 0.9072569012641907
+              },
+              {
+                "w": "brand.",
+                "s": 39.2,
+                "e": 39.78,
+                "p": 0.9966731071472168
+              },
+              {
+                "w": "Be",
+                "s": 40.56,
+                "e": 40.58,
+                "p": 0.9832699298858643
+              },
+              {
+                "w": "sure",
+                "s": 40.58,
+                "e": 40.76,
+                "p": 0.998635470867157
+              },
+              {
+                "w": "to",
+                "s": 40.76,
+                "e": 40.92,
+                "p": 0.9895087480545044
+              },
+              {
+                "w": "like,",
+                "s": 40.92,
+                "e": 41.14,
+                "p": 0.9584302306175232
+              },
+              {
+                "w": "share",
+                "s": 41.34,
+                "e": 41.6,
+                "p": 0.997343122959137
+              },
+              {
+                "w": "and",
+                "s": 41.6,
+                "e": 41.9,
+                "p": 0.7362931370735168
+              },
+              {
+                "w": "save",
+                "s": 41.9,
+                "e": 42.16,
+                "p": 0.9861835241317749
+              },
+              {
+                "w": "this",
+                "s": 42.16,
+                "e": 42.38,
+                "p": 0.9710432887077332
+              },
+              {
+                "w": "video.",
+                "s": 42.38,
+                "e": 42.7,
+                "p": 0.9969078898429871
+              },
+              {
+                "w": "Which",
+                "s": 43.22,
+                "e": 43.24,
+                "p": 0.969940721988678
+              },
+              {
+                "w": "company",
+                "s": 43.24,
+                "e": 43.6,
+                "p": 0.9858186841011047
+              },
+              {
+                "w": "next?",
+                "s": 43.6,
+                "e": 44.02,
+                "p": 0.9141067862510681
+              },
+              {
+                "w": "Comment",
+                "s": 44.68,
+                "e": 44.8,
+                "p": 0.991692304611206
+              },
+              {
+                "w": "and",
+                "s": 44.8,
+                "e": 45.14,
+                "p": 0.9884927868843079
+              },
+              {
+                "w": "follow",
+                "s": 45.14,
+                "e": 45.42,
+                "p": 0.9919118881225586
+              },
+              {
+                "w": "for",
+                "s": 45.42,
+                "e": 45.78,
+                "p": 0.9850876927375793
+              },
+              {
+                "w": "more.",
+                "s": 45.78,
+                "e": 46.0,
+                "p": 0.9985454082489014
+              }
+            ],
+            "dauer_s": 46.3786875,
+            "sprache": "en"
+          },
+          "roh_key": "5c5287e08743dab7c696cc2d2d7105c1fa841fea64d6e8a9ee626ef0aae3c95f",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "1367696e1930e265064c5676814d491dcd80012e9a6fceeeed660f7dcb8fe131",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 46.4,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 15,
+          "motive": 14,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "1367696e1930e265064c5676814d491dcd80012e9a6fceeeed660f7dcb8fe131",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein gemaltes Nahbild eines schockierten Mannes mit großen Augen und weit geöffnetem Mund vor einer belebten Marktstraße im Hintergrund.",
+              "note": 8,
+              "passt": true,
+              "grund": "Dies ist ein opening_reaction_shot. Das Gesicht zeigt deutlichen Schock und Unglauben, was perfekt zu den Worten über den Schock oder die dramatische Unterbrechung ('pulled from the market') des Produkts passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein anfangender junger Mann steht in einem Lagerhaus mit Holzkisten und Regalen mit Kisten, schaut leicht überrascht oder fragend drein mit geöffnetem Mund.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die gesprochene rhetorische Frage 'So how did it reach number one worldwide?' fungiert als Übergang und passt zu einer reaktiven Personenaufnahme im passenden Setting ohne Widerspruch.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 2,
+              "gesehen": "Eine historische Bar-Szene mit Barkeepern, die Getränke zubereiten, und Gästen, im Stil eines opulenten Hotels oder Resorts aus den 1920er Jahren.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt eine historische Hotelbar oder ein Resort aus den 1920er Jahren, was genau zu der Erwähnung passt, dass die Zigarette dort verkauft wurde.",
+              "erforderliches_bild": "wird nicht benötigt"
+            },
+            {
+              "index": 6,
+              "gesehen": "In einem historischen Raum sitzen vier Männer an einem Tisch und unterhalten sich, im Hintergrund sind Regale mit Fläschchen zu sehen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die rhetorische Übergangsfrage passt zu jeder Szene, die den aktuellen Schauplatz und die Figuren fortführt.",
+              "erforderliches_bild": "kein_ersatz_erforderlich"
+            },
+            {
+              "index": 8,
+              "gesehen": "Ein Mikroskop steht auf einem Tisch vor einer Straße mit alten Häusern im Hintergrund im gemalten Stil.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt ein Mikroskop in einer historischen Straße, hat aber keinerlei Bezug zu Marlboro, Philip Morris oder der Neupositionierung für Männer.",
+              "erforderliches_bild": "Eine historische Anzeige oder Illustration von Marlboro aus den 1950er Jahren, die den Übergang zur Vermarktung an Männer zeigt."
+            },
+            {
+              "index": 9,
+              "gesehen": "In einem geschäftlichen Innenraum überreicht ein älterer Herr in Anzug und Fliege einem jüngeren Herrn in Anzug und Krawatte einen Schlüsselbund. Im Hintergrund sieht man historische Gebäude und ein altes Auto.",
+              "note": 3,
+              "passt": false,
+              "grund": "Das Bild zeigt eine symbolische Übergabe von Schlüsseln, aber weder Leo Burnett noch dessen Werbeagentur oder das Weglassen von Werbetexten (dropped copy) sind zu sehen.",
+              "erforderliches_bild": "Eine historische Werbeagentur oder ein Plakatentwurf mit reduziertem Text."
+            },
+            {
+              "index": 10,
+              "gesehen": "Ein Cowboy reitet auf einem Pferd in einer wuesten- oder westenstadtartigen Umgebung mit dunstigem Sonnenlicht.",
+              "note": 10,
+              "passt": true,
+              "grund": "Das Bild zeigt einen Cowboy, was direkt dem gesprochenen Text ueber den Marlboro Man als Cowboy entspricht.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 11,
+              "gesehen": "In einem historischen Ladenraum überreicht ein älterer Herr einem anderen Mann einen Schlüsselbund. Im Hintergrund sieht man eine Straße mit historischen Autos und Gebäuden.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt einen älteren Mann, der einem anderen Mann die Schlüssel überreicht, was die Übergabe oder den Erfolg eines Unternehmens symbolisch darstellt und zum Erzählkontext passt.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            },
+            {
+              "index": 12,
+              "gesehen": "Eine Nahaufnahme von Zigaretten in einer Schachtel mit der Aufschrift Marlboro.",
+              "note": 9,
+              "passt": true,
+              "grund": "Das Bild zeigt Marlboro-Zigaretten passend zu der Erwähnung der weltweit meistverkauften Tabakmarke.",
+              "erforderliches_bild": "Kein Ersatz erforderlich."
+            }
+          ],
+          "befunde": [
+            "Einstellung 8: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt ein Mikroskop in einer historischen Straße, hat aber keinerlei Bezug zu Marlboro, Philip Morris oder der Neupositionierung für Männer.",
+            "Einstellung 9: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt eine symbolische Übergabe von Schlüsseln, aber weder Leo Burnett noch dessen Werbeagentur oder das Weglassen von Werbetexten (dropped copy) sind zu sehen."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 15,
+          "ausgenommen": [
+            13,
+            14
+          ],
+          "vorgeprueft": [
+            3,
+            4,
+            5,
+            7
+          ],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "1367696e1930e265064c5676814d491dcd80012e9a6fceeeed660f7dcb8fe131",
+        "prompt_version": "2026-11-26.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

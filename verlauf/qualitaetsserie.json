@@ -225042,6 +225042,1431 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "46136341272.1:business-origin-stories",
+      "run_id": "46136341272",
+      "run_attempt": "1",
+      "kanal": "business-origin-stories",
+      "datum_utc": "2026-11-28T11:26:35.121954+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "c64cd624e202ce4b0776c2b910e471d8c4f6e452",
+      "produktionsversion": "436e17038b70a0e5a9341d1935ec71baa10d609edb803005c1cfc3735fc79988",
+      "videoformat": "short",
+      "thema": "Gucci",
+      "titel": [
+        "NO *LEATHER* LEFT",
+        "SO *GUCCI* USED JUTE"
+      ],
+      "status": "gesendet",
+      "video_sha256": "7965182a689b2a2874358bd02cf5c30d92742801b7dd4d87370dd27a32c1cc21",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-26.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Fantasy-Figur hat keinen Bezug zu der Frage, was Gucci als Ersatz für Leder verwendet hat.",
+        "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar eine historische Miliz im Zusammenhang mit Krieg oder Invasion, jedoch weder Mussolini noch Truppen in Äthiopien, sondern eine allgemeine historische Straßenszene.",
+        "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Phase erwähnt Verkaufszahlen von Gucci im Jahr 2024, aber das Bild zeigt lediglich eine generische Gruppe von Geschäftsleuten in einer Lagerhalle, ohne Bezug zu Gucci, Modedesign oder Finanzen.",
+        "Offenes Problem (schwer): Die gezeigte Fantasy-Figur hat keinen Bezug zu der Frage, was Gucci als Ersatz für Leder verwendet hat. Korrektur: Ein historisches Bild von Guccio Gucci oder Materialien wie Raffia und Bambus.",
+        "Offenes Problem (schwer): Das Bild zeigt zwar eine historische Miliz im Zusammenhang mit Krieg oder Invasion, jedoch weder Mussolini noch Truppen in Äthiopien, sondern eine allgemeine historische Straßenszene. Korrektur: Eine historische Illustration oder Archivdarstellung, die den Einmarsch italienischer Truppen in Äthiopien im Jahr 1935 zeigt.",
+        "Offenes Problem (schwer): Die gesprochene Phase erwähnt Verkaufszahlen von Gucci im Jahr 2024, aber das Bild zeigt lediglich eine generische Gruppe von Geschäftsleuten in einer Lagerhalle, ohne Bezug zu Gucci, Modedesign oder Finanzen. Korrektur: Ein Finanzdiagramm oder eine moderne Schautafel, die die Umsatzentwicklung von Gucci im Jahr 2024 zeigt."
+      ],
+      "einstellungen": 13,
+      "unterschiedliche_motive": 13,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "46136341272",
+        "kanal": "business-origin-stories",
+        "datum": "2026-11-28",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "bau_fortsetzen",
+            "skript_s": 0.0,
+            "bau_s": 873.9,
+            "pruefung_s": 29.6,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Die Szene zeigt zwar eine Werkstatt, aber die gesprochene Frage \"So what did Gucci use instead?\" verlangt nach den im Sprechtext genannten Materialien oder dem Handwerker/Gründer, während hier ein moderner anonymer Mann beim Anziehen gezeigt wird.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Die historische Szene mit einem Mann in einer Gasse zeigt nicht die Invasion von Mussolini in Äthiopien.",
+              "Einstellung 6: Bild passt nicht zum Sprechtext (6/10): Die rhetorische Frage bildet einen Übergang, aber das gezeigte Handeln passt nicht konkret zu den im Satz genannten Materialien wie Raffia, Weide, Holz, Leinen oder Jute.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt einen Handwerker in einer Werkstatt, aber weder das spezifische Rombi-Motiv noch die Ledergerbung (cuoio grasso) sind klar als Prozess oder Muster erkennbar.",
+              "Einstellung 9: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine generische Geschäftsszene und kein historisches Modeunternehmen oder Finanzdaten.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine Gruppe jubelnder Menschen an einer großen Metalltür, was thematisch oder als tatsächlicher Beleg für die Geschäftszahlen von Gucci nicht passt.",
+              "Offenes Problem (schwer): Die Szene zeigt zwar eine Werkstatt, aber die gesprochene Frage \"So what did Gucci use instead?\" verlangt nach den im Sprechtext genannten Materialien oder dem Handwerker/Gründer, während hier ein moderner anonymer Mann beim Anziehen gezeigt wird. Korrektur: Ein historisches Bild von Guccio Gucci in seiner Werkstatt in Florenz, der alternative Materialien wie Bambus oder Leinen begutachtet.",
+              "Offenes Problem (schwer): Die historische Szene mit einem Mann in einer Gasse zeigt nicht die Invasion von Mussolini in Äthiopien. Korrektur: Eine historische Illustration oder Archivdarstellung von Truppen oder Mussolini im Jahr 1935.",
+              "Offenes Problem (schwer): Die rhetorische Frage bildet einen Übergang, aber das gezeigte Handeln passt nicht konkret zu den im Satz genannten Materialien wie Raffia, Weide, Holz, Leinen oder Jute. Korrektur: Ein Bild, das die genannten alternativen Materialien wie Holz, Weide oder Jute in einer Werkstatt zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Handwerker in einer Werkstatt, aber weder das spezifische Rombi-Motiv noch die Ledergerbung (cuoio grasso) sind klar als Prozess oder Muster erkennbar. Korrektur: Ein Bild, das nah das Rombi-Muster oder den Prozess der Ledergerbung von cuoio grasso zeigt.",
+              "Offenes Problem (schwer): Das Bild zeigt eine generische Geschäftsszene und kein historisches Modeunternehmen oder Finanzdaten. Korrektur: Eine historische Ansicht des Gucci-Ladens oder eine grafische Darstellung der Verkaufszahlen von Gucci.",
+              "Offenes Problem (schwer): Das Bild zeigt eine Gruppe jubelnder Menschen an einer großen Metalltür, was thematisch oder als tatsächlicher Beleg für die Geschäftszahlen von Gucci nicht passt. Korrektur: Ein Bild, das ein Diagramm oder eine symbolische Darstellung des Umsatzes von Gucci zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "kokoro:bm_george",
+              "stimme": 38.3,
+              "zeitmarken": 3.7,
+              "tempo": 1.249,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 13,
+              "bilder_vereinfacht": 5,
+              "clips_und_stuecke": 741.3,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 48.0,
+              "gesamt": 873.5,
+              "videolaenge_s": 46.0,
+              "abschnitte_s": [
+                6.65,
+                7.88,
+                7.73,
+                4.64,
+                4.99,
+                8.11,
+                5.95
+              ],
+              "woerter": 98,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:03.90",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "So what did Gucci use instead?",
+                "fest": false,
+                "text": "Die Szene zeigt zwar eine Werkstatt, aber die gesprochene Frage \"So what did Gucci use instead?\" verlangt nach den im Sprechtext genannten Materialien oder dem Handwerker/Gründer, während hier ein moderner anonymer Mann beim Anziehen gezeigt wird. Korrektur: Ein historisches Bild von Guccio Gucci in seiner Werkstatt in Florenz, der alternative Materialien wie Bambus oder Leinen begutachtet."
+              },
+              {
+                "zeit": "00:14.53",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "In 1935, Mussolini invaded Ethiopia,",
+                "fest": false,
+                "text": "Die historische Szene mit einem Mann in einer Gasse zeigt nicht die Invasion von Mussolini in Äthiopien. Korrektur: Eine historische Illustration oder Archivdarstellung von Truppen oder Mussolini im Jahr 1935."
+              },
+              {
+                "zeit": "00:22.26",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 6,
+                "gesprochen": "So what changed?",
+                "fest": false,
+                "text": "Die rhetorische Frage bildet einen Übergang, aber das gezeigte Handeln passt nicht konkret zu den im Satz genannten Materialien wie Raffia, Weide, Holz, Leinen oder Jute. Korrektur: Ein Bild, das die genannten alternativen Materialien wie Holz, Weide oder Jute in einer Werkstatt zeigt."
+              },
+              {
+                "zeit": "00:26.90",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "The rombi motif was created. A new tanning technique produced cuoio grasso, a Gucci trademark.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Handwerker in einer Werkstatt, aber weder das spezifische Rombi-Motiv noch die Ledergerbung (cuoio grasso) sind klar als Prozess oder Muster erkennbar. Korrektur: Ein Bild, das nah das Rombi-Muster oder den Prozess der Ledergerbung von cuoio grasso zeigt."
+              },
+              {
+                "zeit": "00:31.89",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 9,
+                "gesprochen": "Once short of leather, Gucci generated €7.65",
+                "fest": false,
+                "text": "Das Bild zeigt eine generische Geschäftsszene und kein historisches Modeunternehmen oder Finanzdaten. Korrektur: Eine historische Ansicht des Gucci-Ladens oder eine grafische Darstellung der Verkaufszahlen von Gucci."
+              },
+              {
+                "zeit": "00:35.95",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "billion in sales in 2024. Be",
+                "fest": false,
+                "text": "Das Bild zeigt eine Gruppe jubelnder Menschen an einer großen Metalltür, was thematisch oder als tatsächlicher Beleg für die Geschäftszahlen von Gucci nicht passt. Korrektur: Ein Bild, das ein Diagramm oder eine symbolische Darstellung des Umsatzes von Gucci zeigt."
+              }
+            ],
+            "sekunden": 904.0,
+            "status": "geprueft"
+          },
+          {
+            "runde": 2,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                2,
+                3,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-26.1"
+            },
+            "skript_s": 2.4,
+            "bau_s": 389.4,
+            "pruefung_s": 20.0,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Frage bezieht sich auf Materialien wie Raffia oder Weide, die Gucci stattdessen genutzt hat. Das Bild zeigt jedoch nur einen Mann mit verschränkten Armen in einer allgemeinen Straßenszene.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt Soldaten in einem historischen Raum bei einer Kartenbesprechung, jedoch nicht die Invasion Äthiopiens durch Mussolini.",
+              "Einstellung 8: Bild passt nicht zum Sprechtext (3/10): Das Bild zeigt einen Mann, der spricht oder erklärt, aber weder das 'rombi motif' noch eine 'tanning technique' oder 'cuoio grasso' sind zu sehen.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt eine unklare Ladenfront ohne Bezug zu den im gesprochenen Text erwähnten Verkaufszahlen von 7,65 Milliarden Euro.",
+              "Offenes Problem (schwer): Die gesprochene Frage bezieht sich auf Materialien wie Raffia oder Weide, die Gucci stattdessen genutzt hat. Das Bild zeigt jedoch nur einen Mann mit verschränkten Armen in einer allgemeinen Straßenszene. Korrektur: Eine historische Illustration oder Darstellung der alternativen Materialien wie Weide oder Bambus, die für die Taschen verwendet wurden.",
+              "Offenes Problem (schwer): Das Bild zeigt Soldaten in einem historischen Raum bei einer Kartenbesprechung, jedoch nicht die Invasion Äthiopiens durch Mussolini. Korrektur: Eine historische Illustration, die den Einmarsch italienischer Truppen oder Mussolini darstellt.",
+              "Offenes Problem (schwer): Das Bild zeigt einen Mann, der spricht oder erklärt, aber weder das 'rombi motif' noch eine 'tanning technique' oder 'cuoio grasso' sind zu sehen. Korrektur: Eine historische Illustration oder Nahaufnahme des Rombi-Musters oder des bearbeiteten Leders.",
+              "Offenes Problem (schwer): Das Bild zeigt eine unklare Ladenfront ohne Bezug zu den im gesprochenen Text erwähnten Verkaufszahlen von 7,65 Milliarden Euro. Korrektur: Eine Grafik oder ein Szenenbild, das den finanziellen Erfolg oder Verkaufszahlen von Gucci im Jahr 2024 darstellt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "kokoro:bm_george",
+              "stimme": 37.8,
+              "zeitmarken": 3.4,
+              "tempo": 1.249,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 7,
+              "stuecke_neu": 6,
+              "bilder_vereinfacht": 3,
+              "clips_und_stuecke": 290.2,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 47.3,
+              "gesamt": 389.1,
+              "videolaenge_s": 46.0,
+              "abschnitte_s": [
+                6.65,
+                7.88,
+                7.73,
+                4.64,
+                4.99,
+                8.11,
+                5.95
+              ],
+              "woerter": 98,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:03.90",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "So what did Gucci use instead?",
+                "fest": false,
+                "text": "Die gesprochene Frage bezieht sich auf Materialien wie Raffia oder Weide, die Gucci stattdessen genutzt hat. Das Bild zeigt jedoch nur einen Mann mit verschränkten Armen in einer allgemeinen Straßenszene. Korrektur: Eine historische Illustration oder Darstellung der alternativen Materialien wie Weide oder Bambus, die für die Taschen verwendet wurden."
+              },
+              {
+                "zeit": "00:14.53",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "In 1935, Mussolini invaded Ethiopia,",
+                "fest": false,
+                "text": "Das Bild zeigt Soldaten in einem historischen Raum bei einer Kartenbesprechung, jedoch nicht die Invasion Äthiopiens durch Mussolini. Korrektur: Eine historische Illustration, die den Einmarsch italienischer Truppen oder Mussolini darstellt."
+              },
+              {
+                "zeit": "00:26.90",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 4,
+                "einstellung": 8,
+                "gesprochen": "The rombi motif was created. A new tanning technique produced cuoio grasso, a Gucci trademark.",
+                "fest": false,
+                "text": "Das Bild zeigt einen Mann, der spricht oder erklärt, aber weder das 'rombi motif' noch eine 'tanning technique' oder 'cuoio grasso' sind zu sehen. Korrektur: Eine historische Illustration oder Nahaufnahme des Rombi-Musters oder des bearbeiteten Leders."
+              },
+              {
+                "zeit": "00:35.95",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "billion in sales in 2024. Be",
+                "fest": false,
+                "text": "Das Bild zeigt eine unklare Ladenfront ohne Bezug zu den im gesprochenen Text erwähnten Verkaufszahlen von 7,65 Milliarden Euro. Korrektur: Eine Grafik oder ein Szenenbild, das den finanziellen Erfolg oder Verkaufszahlen von Gucci im Jahr 2024 darstellt."
+              }
+            ],
+            "sekunden": 412.3,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "46136341272-2",
+              "datum": "2026-11-28",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 412.3,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-11-26.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                2,
+                4,
+                5
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-26.1"
+            },
+            "skript_s": 2.1,
+            "bau_s": 360.6,
+            "pruefung_s": 26.4,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Fantasy-Figur hat keinen Bezug zu der Frage, was Gucci als Ersatz für Leder verwendet hat.",
+              "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar eine historische Miliz im Zusammenhang mit Krieg oder Invasion, jedoch weder Mussolini noch Truppen in Äthiopien, sondern eine allgemeine historische Straßenszene.",
+              "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Phase erwähnt Verkaufszahlen von Gucci im Jahr 2024, aber das Bild zeigt lediglich eine generische Gruppe von Geschäftsleuten in einer Lagerhalle, ohne Bezug zu Gucci, Modedesign oder Finanzen.",
+              "Offenes Problem (schwer): Die gezeigte Fantasy-Figur hat keinen Bezug zu der Frage, was Gucci als Ersatz für Leder verwendet hat. Korrektur: Ein historisches Bild von Guccio Gucci oder Materialien wie Raffia und Bambus.",
+              "Offenes Problem (schwer): Das Bild zeigt zwar eine historische Miliz im Zusammenhang mit Krieg oder Invasion, jedoch weder Mussolini noch Truppen in Äthiopien, sondern eine allgemeine historische Straßenszene. Korrektur: Eine historische Illustration oder Archivdarstellung, die den Einmarsch italienischer Truppen in Äthiopien im Jahr 1935 zeigt.",
+              "Offenes Problem (schwer): Die gesprochene Phase erwähnt Verkaufszahlen von Gucci im Jahr 2024, aber das Bild zeigt lediglich eine generische Gruppe von Geschäftsleuten in einer Lagerhalle, ohne Bezug zu Gucci, Modedesign oder Finanzen. Korrektur: Ein Finanzdiagramm oder eine moderne Schautafel, die die Umsatzentwicklung von Gucci im Jahr 2024 zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "kokoro:bm_george",
+              "stimme": 37.9,
+              "zeitmarken": 3.3,
+              "tempo": 1.249,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 9,
+              "stuecke_neu": 4,
+              "bilder_vereinfacht": 2,
+              "clips_und_stuecke": 261.8,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 13,
+                "motive": 13,
+                "motive_min": 8
+              },
+              "effekte": 10,
+              "rendern": 47.3,
+              "gesamt": 360.2,
+              "videolaenge_s": 46.0,
+              "abschnitte_s": [
+                6.65,
+                7.88,
+                7.73,
+                4.64,
+                4.99,
+                8.11,
+                5.95
+              ],
+              "woerter": 98,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:03.90",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 1,
+                "gesprochen": "So what did Gucci use instead?",
+                "fest": false,
+                "text": "Die gezeigte Fantasy-Figur hat keinen Bezug zu der Frage, was Gucci als Ersatz für Leder verwendet hat. Korrektur: Ein historisches Bild von Guccio Gucci oder Materialien wie Raffia und Bambus."
+              },
+              {
+                "zeit": "00:14.53",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 4,
+                "gesprochen": "In 1935, Mussolini invaded Ethiopia,",
+                "fest": false,
+                "text": "Das Bild zeigt zwar eine historische Miliz im Zusammenhang mit Krieg oder Invasion, jedoch weder Mussolini noch Truppen in Äthiopien, sondern eine allgemeine historische Straßenszene. Korrektur: Eine historische Illustration oder Archivdarstellung, die den Einmarsch italienischer Truppen in Äthiopien im Jahr 1935 zeigt."
+              },
+              {
+                "zeit": "00:35.95",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 5,
+                "einstellung": 10,
+                "gesprochen": "billion in sales in 2024. Be",
+                "fest": false,
+                "text": "Die gesprochene Phase erwähnt Verkaufszahlen von Gucci im Jahr 2024, aber das Bild zeigt lediglich eine generische Gruppe von Geschäftsleuten in einer Lagerhalle, ohne Bezug zu Gucci, Modedesign oder Finanzen. Korrektur: Ein Finanzdiagramm oder eine moderne Schautafel, die die Umsatzentwicklung von Gucci im Jahr 2024 zeigt."
+              }
+            ],
+            "sekunden": 389.6,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "46136341272-3",
+              "datum": "2026-11-28",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 389.6,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 4
+                },
+                {
+                  "art": "bild",
+                  "variante": "illustration",
+                  "index": 5
+                }
+              ],
+              "einstellungen": {
+                "stimme": "bm_george",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-11-26.1",
+              "verbessert": false
+            }
+          },
+          {
+            "runde": 4,
+            "art": "korrektur",
+            "status": "korrekturgrenze",
+            "sekunden": 0.0
+          }
+        ],
+        "status": "gesendet",
+        "trendcheck": "kein Kandidat mit echtem Trendsignal - freie Trendwahl",
+        "grund": "",
+        "sekunden": 1753.1,
+        "upload_titel": "NO LEATHER LEFT: SO GUCCI USED JUTE"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:03.90",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 1,
+            "gesprochen": "So what did Gucci use instead?",
+            "fest": false,
+            "text": "Die gezeigte Fantasy-Figur hat keinen Bezug zu der Frage, was Gucci als Ersatz für Leder verwendet hat. Korrektur: Ein historisches Bild von Guccio Gucci oder Materialien wie Raffia und Bambus."
+          },
+          {
+            "zeit": "00:14.53",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 4,
+            "gesprochen": "In 1935, Mussolini invaded Ethiopia,",
+            "fest": false,
+            "text": "Das Bild zeigt zwar eine historische Miliz im Zusammenhang mit Krieg oder Invasion, jedoch weder Mussolini noch Truppen in Äthiopien, sondern eine allgemeine historische Straßenszene. Korrektur: Eine historische Illustration oder Archivdarstellung, die den Einmarsch italienischer Truppen in Äthiopien im Jahr 1935 zeigt."
+          },
+          {
+            "zeit": "00:35.95",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 5,
+            "einstellung": 10,
+            "gesprochen": "billion in sales in 2024. Be",
+            "fest": false,
+            "text": "Die gesprochene Phase erwähnt Verkaufszahlen von Gucci im Jahr 2024, aber das Bild zeigt lediglich eine generische Gruppe von Geschäftsleuten in einer Lagerhalle, ohne Bezug zu Gucci, Modedesign oder Finanzen. Korrektur: Ein Finanzdiagramm oder eine moderne Schautafel, die die Umsatzentwicklung von Gucci im Jahr 2024 zeigt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 46.0,
+          "fps": 30.0,
+          "lufs": -14.2,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 40.42,
+              "bis_s": 42.2,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.943
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 26.0,
+              "bis_s": 46.5,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Gucci",
+                "s": 0.0,
+                "e": 0.32,
+                "p": 0.9484333097934723
+              },
+              {
+                "w": "turned",
+                "s": 0.32,
+                "e": 0.66,
+                "p": 0.9887613654136658
+              },
+              {
+                "w": "a",
+                "s": 0.66,
+                "e": 0.96,
+                "p": 0.9942004680633545
+              },
+              {
+                "w": "leather",
+                "s": 0.96,
+                "e": 1.12,
+                "p": 0.9961063265800476
+              },
+              {
+                "w": "shortage",
+                "s": 1.12,
+                "e": 1.5,
+                "p": 0.9819116592407227
+              },
+              {
+                "w": "into",
+                "s": 1.5,
+                "e": 2.2,
+                "p": 0.978321373462677
+              },
+              {
+                "w": "billions.",
+                "s": 2.2,
+                "e": 2.48,
+                "p": 0.9512538313865662
+              },
+              {
+                "w": "So",
+                "s": 3.92,
+                "e": 4.12,
+                "p": 0.9657167792320251
+              },
+              {
+                "w": "what",
+                "s": 4.12,
+                "e": 4.36,
+                "p": 0.7950072288513184
+              },
+              {
+                "w": "did",
+                "s": 4.36,
+                "e": 4.52,
+                "p": 0.9988284707069397
+              },
+              {
+                "w": "Gucci",
+                "s": 4.52,
+                "e": 5.0,
+                "p": 0.9914514720439911
+              },
+              {
+                "w": "use",
+                "s": 5.0,
+                "e": 5.34,
+                "p": 0.991271436214447
+              },
+              {
+                "w": "instead?",
+                "s": 5.34,
+                "e": 5.84,
+                "p": 0.9959593415260315
+              },
+              {
+                "w": "In",
+                "s": 6.98,
+                "e": 7.06,
+                "p": 0.9898216724395752
+              },
+              {
+                "w": "1921,",
+                "s": 7.06,
+                "e": 7.68,
+                "p": 0.9822818040847778
+              },
+              {
+                "w": "Guccio",
+                "s": 8.76,
+                "e": 9.26,
+                "p": 0.650104766090711
+              },
+              {
+                "w": "Gucci",
+                "s": 9.26,
+                "e": 9.66,
+                "p": 0.9798856675624847
+              },
+              {
+                "w": "bought",
+                "s": 9.66,
+                "e": 9.98,
+                "p": 0.9803246855735779
+              },
+              {
+                "w": "a",
+                "s": 9.98,
+                "e": 10.08,
+                "p": 0.9983945488929749
+              },
+              {
+                "w": "Florence",
+                "s": 10.08,
+                "e": 10.38,
+                "p": 0.9426907300949097
+              },
+              {
+                "w": "shop",
+                "s": 10.38,
+                "e": 10.7,
+                "p": 0.9149755835533142
+              },
+              {
+                "w": "selling",
+                "s": 10.7,
+                "e": 11.22,
+                "p": 0.9219750165939331
+              },
+              {
+                "w": "imported",
+                "s": 11.22,
+                "e": 11.56,
+                "p": 0.9918747544288635
+              },
+              {
+                "w": "leather",
+                "s": 11.56,
+                "e": 12.08,
+                "p": 0.9980522394180298
+              },
+              {
+                "w": "luggage,",
+                "s": 12.08,
+                "e": 12.44,
+                "p": 0.9973523616790771
+              },
+              {
+                "w": "then",
+                "s": 12.98,
+                "e": 13.14,
+                "p": 0.9961684346199036
+              },
+              {
+                "w": "opened",
+                "s": 13.14,
+                "e": 13.5,
+                "p": 0.9869663715362549
+              },
+              {
+                "w": "a",
+                "s": 13.5,
+                "e": 13.72,
+                "p": 0.9972506165504456
+              },
+              {
+                "w": "workshop.",
+                "s": 13.72,
+                "e": 13.98,
+                "p": 0.9955121874809265
+              },
+              {
+                "w": "In",
+                "s": 14.86,
+                "e": 14.96,
+                "p": 0.9926557540893555
+              },
+              {
+                "w": "1935,",
+                "s": 14.96,
+                "e": 15.9,
+                "p": 0.9987442493438721
+              },
+              {
+                "w": "Mussolini",
+                "s": 16.76,
+                "e": 17.22,
+                "p": 0.9769821166992188
+              },
+              {
+                "w": "invaded",
+                "s": 17.22,
+                "e": 17.9,
+                "p": 0.9957834482192993
+              },
+              {
+                "w": "Ethiopia,",
+                "s": 17.9,
+                "e": 18.4,
+                "p": 0.9983717799186707
+              },
+              {
+                "w": "and",
+                "s": 19.02,
+                "e": 19.22,
+                "p": 0.9952150583267212
+              },
+              {
+                "w": "a",
+                "s": 19.22,
+                "e": 19.3,
+                "p": 0.9913432598114014
+              },
+              {
+                "w": "trade",
+                "s": 19.3,
+                "e": 19.46,
+                "p": 0.9870651960372925
+              },
+              {
+                "w": "embargo",
+                "s": 19.46,
+                "e": 19.88,
+                "p": 0.9951592087745667
+              },
+              {
+                "w": "made",
+                "s": 19.88,
+                "e": 20.48,
+                "p": 0.9960069060325623
+              },
+              {
+                "w": "leather",
+                "s": 20.48,
+                "e": 20.78,
+                "p": 0.9976184964179993
+              },
+              {
+                "w": "scarce",
+                "s": 20.78,
+                "e": 21.1,
+                "p": 0.9547775983810425
+              },
+              {
+                "w": "in",
+                "s": 21.1,
+                "e": 21.54,
+                "p": 0.9989413619041443
+              },
+              {
+                "w": "Italy.",
+                "s": 21.54,
+                "e": 21.76,
+                "p": 0.9995622038841248
+              },
+              {
+                "w": "So",
+                "s": 22.76,
+                "e": 22.9,
+                "p": 0.9883244037628174
+              },
+              {
+                "w": "what",
+                "s": 22.9,
+                "e": 23.14,
+                "p": 0.9735180139541626
+              },
+              {
+                "w": "changed?",
+                "s": 23.14,
+                "e": 23.48,
+                "p": 0.999354898929596
+              },
+              {
+                "w": "Guccio",
+                "s": 24.2,
+                "e": 24.46,
+                "p": 0.9200242757797241
+              },
+              {
+                "w": "added",
+                "s": 24.46,
+                "e": 24.6,
+                "p": 0.9773736000061035
+              },
+              {
+                "w": "Raffia,",
+                "s": 24.6,
+                "e": 24.96,
+                "p": 0.735830545425415
+              },
+              {
+                "w": "Wicca,",
+                "s": 25.24,
+                "e": 25.42,
+                "p": 0.5593811273574829
+              },
+              {
+                "w": "Wood,",
+                "s": 25.52,
+                "e": 25.56,
+                "p": 0.9233208298683167
+              },
+              {
+                "w": "Linen,",
+                "s": 25.96,
+                "e": 26.08,
+                "p": 0.7733182013034821
+              },
+              {
+                "w": "and",
+                "s": 26.26,
+                "e": 26.28,
+                "p": 0.9943882822990417
+              },
+              {
+                "w": "Jute.",
+                "s": 26.28,
+                "e": 26.52,
+                "p": 0.5770197957754135
+              },
+              {
+                "w": "The",
+                "s": 26.92,
+                "e": 26.98,
+                "p": 0.9824407696723938
+              },
+              {
+                "w": "Rumbai",
+                "s": 26.98,
+                "e": 27.22,
+                "p": 0.4777052005132039
+              },
+              {
+                "w": "motif",
+                "s": 27.22,
+                "e": 27.44,
+                "p": 0.896470308303833
+              },
+              {
+                "w": "was",
+                "s": 27.44,
+                "e": 27.92,
+                "p": 0.9982439279556274
+              },
+              {
+                "w": "created.",
+                "s": 27.92,
+                "e": 28.16,
+                "p": 0.9991355538368225
+              },
+              {
+                "w": "New",
+                "s": 28.16,
+                "e": 28.82,
+                "p": 0.3253605365753174
+              },
+              {
+                "w": "tanning",
+                "s": 28.82,
+                "e": 29.12,
+                "p": 0.6509371995925903
+              },
+              {
+                "w": "technique",
+                "s": 29.12,
+                "e": 29.44,
+                "p": 0.9925464987754822
+              },
+              {
+                "w": "produce",
+                "s": 29.44,
+                "e": 29.78,
+                "p": 0.5506174564361572
+              },
+              {
+                "w": "Quiograsso,",
+                "s": 29.78,
+                "e": 30.52,
+                "p": 0.6039621114730835
+              },
+              {
+                "w": "a",
+                "s": 30.9,
+                "e": 30.92,
+                "p": 0.9651380181312561
+              },
+              {
+                "w": "Gucci",
+                "s": 30.92,
+                "e": 31.16,
+                "p": 0.9611600339412689
+              },
+              {
+                "w": "trademark.",
+                "s": 31.16,
+                "e": 31.46,
+                "p": 0.9385555982589722
+              },
+              {
+                "w": "Once",
+                "s": 32.38,
+                "e": 32.38,
+                "p": 0.9490621089935303
+              },
+              {
+                "w": "short",
+                "s": 32.38,
+                "e": 32.72,
+                "p": 0.9960804581642151
+              },
+              {
+                "w": "of",
+                "s": 32.72,
+                "e": 32.86,
+                "p": 0.998711347579956
+              },
+              {
+                "w": "leather,",
+                "s": 32.86,
+                "e": 33.02,
+                "p": 0.9965490102767944
+              },
+              {
+                "w": "Gucci",
+                "s": 33.46,
+                "e": 33.82,
+                "p": 0.9918029308319092
+              },
+              {
+                "w": "generated",
+                "s": 33.82,
+                "e": 34.42,
+                "p": 0.9588528871536255
+              },
+              {
+                "w": "Euro's",
+                "s": 34.42,
+                "e": 35.04,
+                "p": 0.7059171795845032
+              },
+              {
+                "w": "€7",
+                "s": 35.04,
+                "e": 35.46,
+                "p": 0.6747605055570602
+              },
+              {
+                "w": ".65",
+                "s": 35.46,
+                "e": 36.14,
+                "p": 0.9827932417392731
+              },
+              {
+                "w": "billion",
+                "s": 36.14,
+                "e": 36.76,
+                "p": 0.9337412118911743
+              },
+              {
+                "w": "in",
+                "s": 36.76,
+                "e": 37.0,
+                "p": 0.9957844614982605
+              },
+              {
+                "w": "sales",
+                "s": 37.0,
+                "e": 37.32,
+                "p": 0.9846318960189819
+              },
+              {
+                "w": "in",
+                "s": 37.32,
+                "e": 37.96,
+                "p": 0.942293643951416
+              },
+              {
+                "w": "2024.",
+                "s": 37.96,
+                "e": 38.92,
+                "p": 0.9864547252655029
+              },
+              {
+                "w": "Be",
+                "s": 39.88,
+                "e": 40.08,
+                "p": 0.9901083707809448
+              },
+              {
+                "w": "sure",
+                "s": 40.08,
+                "e": 40.26,
+                "p": 0.9992712140083313
+              },
+              {
+                "w": "to",
+                "s": 40.26,
+                "e": 40.42,
+                "p": 0.9943009614944458
+              },
+              {
+                "w": "like,",
+                "s": 40.42,
+                "e": 40.64,
+                "p": 0.9490481615066528
+              },
+              {
+                "w": "share",
+                "s": 40.86,
+                "e": 41.12,
+                "p": 0.9966182112693787
+              },
+              {
+                "w": "and",
+                "s": 41.12,
+                "e": 41.4,
+                "p": 0.731616199016571
+              },
+              {
+                "w": "save",
+                "s": 41.4,
+                "e": 41.66,
+                "p": 0.9896272420883179
+              },
+              {
+                "w": "this",
+                "s": 41.66,
+                "e": 41.88,
+                "p": 0.9908353090286255
+              },
+              {
+                "w": "video.",
+                "s": 41.88,
+                "e": 42.2,
+                "p": 0.9985705614089966
+              },
+              {
+                "w": "Which",
+                "s": 42.72,
+                "e": 42.74,
+                "p": 0.9860696792602539
+              },
+              {
+                "w": "company",
+                "s": 42.74,
+                "e": 43.14,
+                "p": 0.9942541718482971
+              },
+              {
+                "w": "next?",
+                "s": 43.14,
+                "e": 43.52,
+                "p": 0.9357091188430786
+              },
+              {
+                "w": "Comment",
+                "s": 44.16,
+                "e": 44.3,
+                "p": 0.9926972985267639
+              },
+              {
+                "w": "and",
+                "s": 44.3,
+                "e": 44.64,
+                "p": 0.9921188354492188
+              },
+              {
+                "w": "follow",
+                "s": 44.64,
+                "e": 44.94,
+                "p": 0.9930566549301147
+              },
+              {
+                "w": "for",
+                "s": 44.94,
+                "e": 45.28,
+                "p": 0.9884519577026367
+              },
+              {
+                "w": "more!",
+                "s": 45.28,
+                "e": 45.5,
+                "p": 0.9992948770523071
+              }
+            ],
+            "dauer_s": 45.9093125,
+            "sprache": "en"
+          },
+          "roh_key": "1b4cbd5b8191e6771941e65bff7d5a0866790d259f2c6eb4e052eea964d15ec2",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "7965182a689b2a2874358bd02cf5c30d92742801b7dd4d87370dd27a32c1cc21",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 46.0,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 13,
+          "motive": 13,
+          "motive_min": 8
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "7965182a689b2a2874358bd02cf5c30d92742801b7dd4d87370dd27a32c1cc21",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "Ein stilisierter Mann in Anzug und Hut steht auf einem Marktplatz und zeigt ein Stück Jute in die Kamera, umgeben von anderen Personen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt eine historische Szene mit Jute, was gut zu der textlichen Erwähnung von Jute und der Geschäftsidee passt.",
+              "erforderliches_bild": "Historische Werkstattszene mit Stoffen"
+            },
+            {
+              "index": 1,
+              "gesehen": "Ein Mann mit Bart und Rüstung steht in einer alten Gasse.",
+              "note": 2,
+              "passt": false,
+              "grund": "Die gezeigte Fantasy-Figur hat keinen Bezug zu der Frage, was Gucci als Ersatz für Leder verwendet hat.",
+              "erforderliches_bild": "Ein historisches Bild von Guccio Gucci oder Materialien wie Raffia und Bambus."
+            },
+            {
+              "index": 2,
+              "gesehen": "In einem historischen Laden werden von einem älteren Herrn mit grauem Haar Ledertaschen und Koffer an eine Kundin übergeben.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Illustration zeigt einen Kaufmann in einem Geschäft mit Koffern, was zu dem erzählten Erwerb des Ladens im Jahr 1921 passt.",
+              "erforderliches_bild": "Keine Änderung erforderlich."
+            },
+            {
+              "index": 3,
+              "gesehen": "Ein älterer Handwerker mit Bart beugt sich in einer Werkstatt über einen Tisch, während eine junge Frau daneben steht. Im Hintergrund sind historische Gebäude und Bögen zu sehen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historische Werkstattszene passt gut zur Eröffnung der Werkstatt von Guccio Gucci im Jahr 1921.",
+              "erforderliches_bild": "Ein historisches Bild einer Werkstatt oder eines Ledergeschäfts in Florenz."
+            },
+            {
+              "index": 4,
+              "gesehen": "Eine Gruppe bewaffneter Soldaten oder Milizen marschiert entschlossen durch eine historische Straße.",
+              "note": 2,
+              "passt": false,
+              "grund": "Das Bild zeigt zwar eine historische Miliz im Zusammenhang mit Krieg oder Invasion, jedoch weder Mussolini noch Truppen in Äthiopien, sondern eine allgemeine historische Straßenszene.",
+              "erforderliches_bild": "Eine historische Illustration oder Archivdarstellung, die den Einmarsch italienischer Truppen in Äthiopien im Jahr 1935 zeigt."
+            },
+            {
+              "index": 5,
+              "gesehen": "In einer Werkstatt liegen gestapelte Lederbahnen im Vordergrund, während im Hintergrund Personen und eine Straße zu sehen sind.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Szene zeigt eine Werkstatt und gestapeltes Leder passend zur Erwähnung des Handelsembargos und der Lederknappheit in Italien.",
+              "erforderliches_bild": "Keines, das Bild passt."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein eleganter Mann in Anzug und Hut steht an einer Werkbank in einer Werkstatt, umgeben von Werkzeugen und Materialien, während er Textilien oder Bastmaterialien in der Hand hält.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die rhetorische Frage leitet den Übergang zur Materialänderung ein und die Werkstattszene passt nahtlos zur Weiterführung des Themas.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 7,
+              "gesehen": "Mehrere Männer und eine Frau im historischen Stil stehen auf einer Straße; im Vordergrund betrachtet ein Mann Stoff auf einem Tisch.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die historischen Figuren und der Tisch mit Stoff und Materialien wie Leinen/Jute entsprechen dem Erzählen über das Hinzufügen alternativer Materialien bei Lederknappheit.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 8,
+              "gesehen": "In einem historischen Straßenzug mit Schneidern, Autos und einer im Vordergrund zentral platzierten gesteppten Lederfläche wird eine Szene aus einer historischen Werkstatt gezeigt.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die im Vordergrund sichtbare gesteppte Lederfläche zeigt visuell das Rombus-Muster (rombi motif) und Leder, was genau zu der Erwähnung des Rombi-Motivs und des Leders in der Sprachspur passt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 9,
+              "gesehen": "Vier Personen (drei Männer, eine Frau) stehen in einer historischen Werkstatt um einen Tisch, auf dem Lederwaren liegen, im Hintergrund ist eine italienische Gasse zu sehen.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die Szene zeigt Handwerker oder Geschäftsleute in einer historischen Werkstatt mit Lederwaren und passt zur Erzählung über Guccis geschäftlichen Erfolg und die Werkstatt.",
+              "erforderliches_bild": ""
+            },
+            {
+              "index": 10,
+              "gesehen": "In einem industriellen Raum sitzen mehrere Geschäftsleute an einem Besprechungstisch und diskutieren, während im Hintergrund ein großes Rollo zu einer hellen Straße geöffnet ist.",
+              "note": 3,
+              "passt": false,
+              "grund": "Die gesprochene Phase erwähnt Verkaufszahlen von Gucci im Jahr 2024, aber das Bild zeigt lediglich eine generische Gruppe von Geschäftsleuten in einer Lagerhalle, ohne Bezug zu Gucci, Modedesign oder Finanzen.",
+              "erforderliches_bild": "Ein Finanzdiagramm oder eine moderne Schautafel, die die Umsatzentwicklung von Gucci im Jahr 2024 zeigt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 1: Bild passt nicht zum Sprechtext (2/10): Die gezeigte Fantasy-Figur hat keinen Bezug zu der Frage, was Gucci als Ersatz für Leder verwendet hat.",
+            "Einstellung 4: Bild passt nicht zum Sprechtext (2/10): Das Bild zeigt zwar eine historische Miliz im Zusammenhang mit Krieg oder Invasion, jedoch weder Mussolini noch Truppen in Äthiopien, sondern eine allgemeine historische Straßenszene.",
+            "Einstellung 10: Bild passt nicht zum Sprechtext (3/10): Die gesprochene Phase erwähnt Verkaufszahlen von Gucci im Jahr 2024, aber das Bild zeigt lediglich eine generische Gruppe von Geschäftsleuten in einer Lagerhalle, ohne Bezug zu Gucci, Modedesign oder Finanzen."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 13,
+          "ausgenommen": [
+            11,
+            12
+          ],
+          "vorgeprueft": [],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "7965182a689b2a2874358bd02cf5c30d92742801b7dd4d87370dd27a32c1cc21",
+        "prompt_version": "2026-11-26.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [
+          "Gucci turned a leather shortage into billions. - Causal claim not supported by the source; the source mentions a leather shortage in 1935 and €7.65 billion in sales in 2024, but does not state that the shortage directly led to the billions in revenue.",
+          "Once short of leather, Gucci generated €7.65 billion in sales in 2024. - Implied causal link between the 1935 leather shortage and the 2024 sales figure is not supported; the source lists the shortage and the later sales separately without connecting them."
+        ],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }

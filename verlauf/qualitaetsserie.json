@@ -224046,6 +224046,1002 @@
         "zweitpruefer_modell": "openai/gpt-oss-120b",
         "zweitpruefer_anderer_anbieter": true
       }
+    },
+    {
+      "id": "46136341272.1:ai-tools-explained",
+      "run_id": "46136341272",
+      "run_attempt": "1",
+      "kanal": "ai-tools-explained",
+      "datum_utc": "2026-11-28T10:55:15.112416+00:00",
+      "ereignis": "workflow_dispatch",
+      "commit": "c64cd624e202ce4b0776c2b910e471d8c4f6e452",
+      "produktionsversion": "ca0b68c3b71dde79b929b22b60163d16b6721d1bd5d71a8dd1d77908363f726a",
+      "videoformat": "short",
+      "thema": "What the free youtube-agent-skill Claude skills do and what they cannot do",
+      "titel": [
+        "FREE *CLAUDE* *SKILLS*",
+        "RUN YOUR CHANNEL?"
+      ],
+      "status": "gesendet",
+      "video_sha256": "72abcdb74efe9b9e2ea3e7bb74c99c48c2fc28df7c79574b3245e743c7dc6346",
+      "video_gebaut": true,
+      "ki_story_note": 8,
+      "ki_video_note": null,
+      "prompt_version": "2026-11-26.1",
+      "sperrgruende": [
+        "Video-Note fehlt oder ist ungueltig",
+        "Video-Bewertung hook fehlt oder ist ungueltig",
+        "Video-bild_passt 2/10 unter 7/10",
+        "Video-Bewertung dynamik fehlt oder ist ungueltig",
+        "Video-Bewertung text fehlt oder ist ungueltig",
+        "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+        "Video-Bewertung tempo fehlt oder ist ungueltig",
+        "Video-Bewertung inhalt fehlt oder ist ungueltig",
+        "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+        "Video-Bewertung regeln fehlt oder ist ungueltig",
+        "Video-Bewertung story fehlt oder ist ungueltig",
+        "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt allgemeine YouTube- und Videobearbeitungssymbole, aber keine spezifischen Claude-Skills oder deren Code.",
+        "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Die gesprochene Frage 'So what do they do?' verlangt eine Erklärung oder Ansicht der Fähigkeiten, zeigt hier aber nur unzusammenhängende Illustrationen mit Tasse und Diagrammen ohne Bezug zu YouTube-Agents oder Claude.",
+        "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Die gesprochenen Worte erwähnen elf Skills, MIT-Lizenz und keinen API-Key, während das Bild lediglich eine allgemeine Grafik mit einem sinkenden Trend und einen Betrachter zeigt, aber keine spezifischen Code- oder Lizenzdetails.",
+        "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Der Text und die Benutzeroberfläche eines Repositories zeigen nicht die konkrete Funktion des Auslesens eines Retention-Exports.",
+        "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Der Moderator zeigt sich in einer Studioumgebung statt des Hochladens von Videos oder der Personalisierung als Angestellter.",
+        "Offenes Problem (schwer): Das Bild zeigt allgemeine YouTube- und Videobearbeitungssymbole, aber keine spezifischen Claude-Skills oder deren Code. Korrektur: Ein Screenshot, der Claude-Schnittstellen oder Code-Snippets für YouTube-Skills zeigt.",
+        "Offenes Problem (schwer): Die gesprochene Frage 'So what do they do?' verlangt eine Erklärung oder Ansicht der Fähigkeiten, zeigt hier aber nur unzusammenhängende Illustrationen mit Tasse und Diagrammen ohne Bezug zu YouTube-Agents oder Claude. Korrektur: Eine Bildschirmansicht des Claude-Agent-Tools, das die verfügbaren YouTube-Fähigkeiten auflistet.",
+        "Offenes Problem (schwer): Die gesprochenen Worte erwähnen elf Skills, MIT-Lizenz und keinen API-Key, während das Bild lediglich eine allgemeine Grafik mit einem sinkenden Trend und einen Betrachter zeigt, aber keine spezifischen Code- oder Lizenzdetails. Korrektur: Ein Screenshot oder eine Dokumentation, die die elf Skills oder den Quelltext mit dem Hinweis auf die MIT-Lizenz zeigt.",
+        "Offenes Problem (schwer): Der Text und die Benutzeroberfläche eines Repositories zeigen nicht die konkrete Funktion des Auslesens eines Retention-Exports. Korrektur: Ein Screenshot oder eine Grafik, die einen Retention-Export und dessen Analyse durch das Skill darstellt.",
+        "Offenes Problem (schwer): Der Moderator zeigt sich in einer Studioumgebung statt des Hochladens von Videos oder der Personalisierung als Angestellter. Korrektur: Ein Bildschirm, der den manuellen Upload-Vorgang eines YouTube-Videos zeigt."
+      ],
+      "einstellungen": 8,
+      "unterschiedliche_motive": 8,
+      "sichtpruefung": null,
+      "bericht": {
+        "id": "46136341272",
+        "kanal": "ai-tools-explained",
+        "datum": "2026-11-28",
+        "runden": [
+          {
+            "runde": 1,
+            "art": "produktion",
+            "status": "skriptfehler",
+            "exitcode": 3,
+            "grund": "Skriptqualitaet unter Freigabe",
+            "sperrgruende": [
+              "Skript-aufloesung 6/10 unter 7/10"
+            ],
+            "story_note": 7,
+            "story_schwaechen": [
+              "The question 'What do eleven free skills do?' is filler that provides no new information and slows the beat progression. Fix: Replace it with a second concrete use case, like 'It translates raw watch time into actionable edits.'",
+              "The payoff fails to deliver on the 'eleven' skills promised in the title and the second sentence, as only three are named. Fix: Adjust the quantity to 'three' or use a broader term like 'an entire toolkit' to match the actual content."
+            ],
+            "skript_probleme": [],
+            "sekunden": 297.1
+          },
+          {
+            "runde": 2,
+            "art": "produktion",
+            "skript_s": 131.2,
+            "bau_s": 152.3,
+            "pruefung_s": 19.7,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt allgemeine YouTube- und Videobearbeitungssymbole, aber keine spezifischen Claude-Skills oder deren Code.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Die gesprochene Frage 'So what do they do?' verlangt eine Erklärung oder Ansicht der Fähigkeiten, zeigt hier aber nur unzusammenhängende Illustrationen mit Tasse und Diagrammen ohne Bezug zu YouTube-Agents oder Claude.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Die gesprochenen Worte erwähnen elf Skills, MIT-Lizenz und keinen API-Key, während das Bild lediglich eine allgemeine Grafik mit einem sinkenden Trend und einen Betrachter zeigt, aber keine spezifischen Code- oder Lizenzdetails.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Der Text und die Benutzeroberfläche eines Repositories zeigen nicht die konkrete Funktion des Auslesens eines Retention-Exports.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Der Moderator zeigt sich in einer Studioumgebung statt des Hochladens von Videos oder der Personalisierung als Angestellter.",
+              "Offenes Problem (schwer): Das Bild zeigt allgemeine YouTube- und Videobearbeitungssymbole, aber keine spezifischen Claude-Skills oder deren Code. Korrektur: Ein Screenshot, der Claude-Schnittstellen oder Code-Snippets für YouTube-Skills zeigt.",
+              "Offenes Problem (schwer): Die gesprochene Frage 'So what do they do?' verlangt eine Erklärung oder Ansicht der Fähigkeiten, zeigt hier aber nur unzusammenhängende Illustrationen mit Tasse und Diagrammen ohne Bezug zu YouTube-Agents oder Claude. Korrektur: Eine Bildschirmansicht des Claude-Agent-Tools, das die verfügbaren YouTube-Fähigkeiten auflistet.",
+              "Offenes Problem (schwer): Die gesprochenen Worte erwähnen elf Skills, MIT-Lizenz und keinen API-Key, während das Bild lediglich eine allgemeine Grafik mit einem sinkenden Trend und einen Betrachter zeigt, aber keine spezifischen Code- oder Lizenzdetails. Korrektur: Ein Screenshot oder eine Dokumentation, die die elf Skills oder den Quelltext mit dem Hinweis auf die MIT-Lizenz zeigt.",
+              "Offenes Problem (schwer): Der Text und die Benutzeroberfläche eines Repositories zeigen nicht die konkrete Funktion des Auslesens eines Retention-Exports. Korrektur: Ein Screenshot oder eine Grafik, die einen Retention-Export und dessen Analyse durch das Skill darstellt.",
+              "Offenes Problem (schwer): Der Moderator zeigt sich in einer Studioumgebung statt des Hochladens von Videos oder der Personalisierung als Angestellter. Korrektur: Ein Bildschirm, der den manuellen Upload-Vorgang eines YouTube-Videos zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": false,
+              "erzaehlstimme": "gemini:Puck",
+              "stimme": 22.8,
+              "zeitmarken": 2.0,
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 0,
+              "stuecke_neu": 8,
+              "clips_und_stuecke": 104.2,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 8,
+                "motive": 8,
+                "motive_min": 4
+              },
+              "effekte": 11,
+              "rendern": 15.8,
+              "gesamt": 152.0,
+              "videolaenge_s": 23.4,
+              "abschnitte_s": [
+                3.24,
+                1.46,
+                4.94,
+                4.78,
+                2.38,
+                3.64,
+                2.94
+              ],
+              "woerter": 59,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Free Claude skills can't run your YouTube channel.",
+                "fest": false,
+                "text": "Das Bild zeigt allgemeine YouTube- und Videobearbeitungssymbole, aber keine spezifischen Claude-Skills oder deren Code. Korrektur: Ein Screenshot, der Claude-Schnittstellen oder Code-Snippets für YouTube-Skills zeigt."
+              },
+              {
+                "zeit": "00:03.24",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 1,
+                "gesprochen": "So what do they do?",
+                "fest": false,
+                "text": "Die gesprochene Frage 'So what do they do?' verlangt eine Erklärung oder Ansicht der Fähigkeiten, zeigt hier aber nur unzusammenhängende Illustrationen mit Tasse und Diagrammen ohne Bezug zu YouTube-Agents oder Claude. Korrektur: Eine Bildschirmansicht des Claude-Agent-Tools, das die verfügbaren YouTube-Fähigkeiten auflistet."
+              },
+              {
+                "zeit": "00:04.70",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 2,
+                "gesprochen": "Eleven skills, MIT license, no API key. Checked November 23.",
+                "fest": false,
+                "text": "Die gesprochenen Worte erwähnen elf Skills, MIT-Lizenz und keinen API-Key, während das Bild lediglich eine allgemeine Grafik mit einem sinkenden Trend und einen Betrachter zeigt, aber keine spezifischen Code- oder Lizenzdetails. Korrektur: Ein Screenshot oder eine Dokumentation, die die elf Skills oder den Quelltext mit dem Hinweis auf die MIT-Lizenz zeigt."
+              },
+              {
+                "zeit": "00:09.64",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 3,
+                "gesprochen": "One reads your retention export: a smoke alarm for boring intros.",
+                "fest": false,
+                "text": "Der Text und die Benutzeroberfläche eines Repositories zeigen nicht die konkrete Funktion des Auslesens eines Retention-Exports. Korrektur: Ein Screenshot oder eine Grafik, die einen Retention-Export und dessen Analyse durch das Skill darstellt."
+              },
+              {
+                "zeit": "00:20.44",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 7,
+                "gesprochen": "Free advice, not a free employee. You still upload.",
+                "fest": false,
+                "text": "Der Moderator zeigt sich in einer Studioumgebung statt des Hochladens von Videos oder der Personalisierung als Angestellter. Korrektur: Ein Bildschirm, der den manuellen Upload-Vorgang eines YouTube-Videos zeigt."
+              }
+            ],
+            "sekunden": 306.3,
+            "status": "geprueft"
+          },
+          {
+            "runde": 3,
+            "art": "korrektur",
+            "plan": {
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "offen": [],
+              "teile": [
+                0,
+                1,
+                2,
+                3,
+                6
+              ],
+              "schwerpunkt": "bild",
+              "prompt_version": "2026-11-26.1"
+            },
+            "skript_s": 2.0,
+            "bau_s": 75.8,
+            "pruefung_s": 3.2,
+            "note": null,
+            "sperrgruende": [
+              "Video-Note fehlt oder ist ungueltig",
+              "Video-Bewertung hook fehlt oder ist ungueltig",
+              "Video-bild_passt 2/10 unter 7/10",
+              "Video-Bewertung dynamik fehlt oder ist ungueltig",
+              "Video-Bewertung text fehlt oder ist ungueltig",
+              "Video-Bewertung ton_stimme fehlt oder ist ungueltig",
+              "Video-Bewertung tempo fehlt oder ist ungueltig",
+              "Video-Bewertung inhalt fehlt oder ist ungueltig",
+              "Video-Bewertung schluss_loop fehlt oder ist ungueltig",
+              "Video-Bewertung regeln fehlt oder ist ungueltig",
+              "Video-Bewertung story fehlt oder ist ungueltig",
+              "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt allgemeine YouTube- und Videobearbeitungssymbole, aber keine spezifischen Claude-Skills oder deren Code.",
+              "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Die gesprochene Frage 'So what do they do?' verlangt eine Erklärung oder Ansicht der Fähigkeiten, zeigt hier aber nur unzusammenhängende Illustrationen mit Tasse und Diagrammen ohne Bezug zu YouTube-Agents oder Claude.",
+              "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Die gesprochenen Worte erwähnen elf Skills, MIT-Lizenz und keinen API-Key, während das Bild lediglich eine allgemeine Grafik mit einem sinkenden Trend und einen Betrachter zeigt, aber keine spezifischen Code- oder Lizenzdetails.",
+              "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Der Text und die Benutzeroberfläche eines Repositories zeigen nicht die konkrete Funktion des Auslesens eines Retention-Exports.",
+              "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Der Moderator zeigt sich in einer Studioumgebung statt des Hochladens von Videos oder der Personalisierung als Angestellter.",
+              "Offenes Problem (schwer): Das Bild zeigt allgemeine YouTube- und Videobearbeitungssymbole, aber keine spezifischen Claude-Skills oder deren Code. Korrektur: Ein Screenshot, der Claude-Schnittstellen oder Code-Snippets für YouTube-Skills zeigt.",
+              "Offenes Problem (schwer): Die gesprochene Frage 'So what do they do?' verlangt eine Erklärung oder Ansicht der Fähigkeiten, zeigt hier aber nur unzusammenhängende Illustrationen mit Tasse und Diagrammen ohne Bezug zu YouTube-Agents oder Claude. Korrektur: Eine Bildschirmansicht des Claude-Agent-Tools, das die verfügbaren YouTube-Fähigkeiten auflistet.",
+              "Offenes Problem (schwer): Die gesprochenen Worte erwähnen elf Skills, MIT-Lizenz und keinen API-Key, während das Bild lediglich eine allgemeine Grafik mit einem sinkenden Trend und einen Betrachter zeigt, aber keine spezifischen Code- oder Lizenzdetails. Korrektur: Ein Screenshot oder eine Dokumentation, die die elf Skills oder den Quelltext mit dem Hinweis auf die MIT-Lizenz zeigt.",
+              "Offenes Problem (schwer): Der Text und die Benutzeroberfläche eines Repositories zeigen nicht die konkrete Funktion des Auslesens eines Retention-Exports. Korrektur: Ein Screenshot oder eine Grafik, die einen Retention-Export und dessen Analyse durch das Skill darstellt.",
+              "Offenes Problem (schwer): Der Moderator zeigt sich in einer Studioumgebung statt des Hochladens von Videos oder der Personalisierung als Angestellter. Korrektur: Ein Bildschirm, der den manuellen Upload-Vorgang eines YouTube-Videos zeigt."
+            ],
+            "messung": {
+              "stimme_wiederverwendet": true,
+              "erzaehlstimme": "gemini:Puck",
+              "tempo": 1.0,
+              "stimme_ersatz": false,
+              "stuecke_wiederverwendet": 3,
+              "stuecke_neu": 5,
+              "clips_und_stuecke": 21.9,
+              "bildpruefung": {
+                "befunde": [],
+                "einstellungen": 8,
+                "motive": 8,
+                "motive_min": 4
+              },
+              "effekte": 11,
+              "rendern": 15.2,
+              "gesamt": 75.7,
+              "videolaenge_s": 23.4,
+              "abschnitte_s": [
+                3.24,
+                1.46,
+                4.94,
+                4.78,
+                2.38,
+                3.64,
+                2.94
+              ],
+              "woerter": 59,
+              "clips": {
+                "witz": 0,
+                "archiv": 0
+              }
+            },
+            "kategorien": {
+              "bild_passt": 2
+            },
+            "probleme": [
+              {
+                "zeit": "00:00.00",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 0,
+                "einstellung": 0,
+                "gesprochen": "Free Claude skills can't run your YouTube channel.",
+                "fest": false,
+                "text": "Das Bild zeigt allgemeine YouTube- und Videobearbeitungssymbole, aber keine spezifischen Claude-Skills oder deren Code. Korrektur: Ein Screenshot, der Claude-Schnittstellen oder Code-Snippets für YouTube-Skills zeigt."
+              },
+              {
+                "zeit": "00:03.24",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 1,
+                "einstellung": 1,
+                "gesprochen": "So what do they do?",
+                "fest": false,
+                "text": "Die gesprochene Frage 'So what do they do?' verlangt eine Erklärung oder Ansicht der Fähigkeiten, zeigt hier aber nur unzusammenhängende Illustrationen mit Tasse und Diagrammen ohne Bezug zu YouTube-Agents oder Claude. Korrektur: Eine Bildschirmansicht des Claude-Agent-Tools, das die verfügbaren YouTube-Fähigkeiten auflistet."
+              },
+              {
+                "zeit": "00:04.70",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 2,
+                "einstellung": 2,
+                "gesprochen": "Eleven skills, MIT license, no API key. Checked November 23.",
+                "fest": false,
+                "text": "Die gesprochenen Worte erwähnen elf Skills, MIT-Lizenz und keinen API-Key, während das Bild lediglich eine allgemeine Grafik mit einem sinkenden Trend und einen Betrachter zeigt, aber keine spezifischen Code- oder Lizenzdetails. Korrektur: Ein Screenshot oder eine Dokumentation, die die elf Skills oder den Quelltext mit dem Hinweis auf die MIT-Lizenz zeigt."
+              },
+              {
+                "zeit": "00:09.64",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 3,
+                "einstellung": 3,
+                "gesprochen": "One reads your retention export: a smoke alarm for boring intros.",
+                "fest": false,
+                "text": "Der Text und die Benutzeroberfläche eines Repositories zeigen nicht die konkrete Funktion des Auslesens eines Retention-Exports. Korrektur: Ein Screenshot oder eine Grafik, die einen Retention-Export und dessen Analyse durch das Skill darstellt."
+              },
+              {
+                "zeit": "00:20.44",
+                "art": "bild_passt_nicht",
+                "schwere": "schwer",
+                "phase": 6,
+                "einstellung": 7,
+                "gesprochen": "Free advice, not a free employee. You still upload.",
+                "fest": false,
+                "text": "Der Moderator zeigt sich in einer Studioumgebung statt des Hochladens von Videos oder der Personalisierung als Angestellter. Korrektur: Ein Bildschirm, der den manuellen Upload-Vorgang eines YouTube-Videos zeigt."
+              }
+            ],
+            "sekunden": 83.4,
+            "status": "geprueft",
+            "lernergebnis": {
+              "id": "46136341272-3",
+              "datum": "2026-11-28",
+              "vorher": null,
+              "nachher": null,
+              "vorher_gesperrt": true,
+              "nachher_gesperrt": true,
+              "sekunden": 83.4,
+              "aktionen": [
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 0
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 1
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 2
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 3
+                },
+                {
+                  "art": "bild",
+                  "variante": "foto",
+                  "index": 6
+                }
+              ],
+              "einstellungen": {
+                "stimme": "am_michael",
+                "tempo": 1.05,
+                "untertitel_profil": "ruhig",
+                "musik_pegel": null,
+                "effekt_pegel": null
+              },
+              "schwerpunkt": "bild",
+              "kategorien_vorher": {
+                "bild_passt": 2
+              },
+              "kategorien_nachher": {
+                "bild_passt": 2
+              },
+              "auswertbar": false,
+              "prompt_version": "2026-11-26.1",
+              "verbessert": false
+            }
+          }
+        ],
+        "status": "gesendet",
+        "thema_eingabe": "youtube-agent-skill: 11 free Claude skills for YouTube - what they really do and what they cannot do",
+        "grund": "",
+        "sekunden": 721.8,
+        "upload_titel": "FREE CLAUDE SKILLS: RUN YOUR CHANNEL? | AI Tool #49b"
+      },
+      "ki_pruefung": {
+        "note": null,
+        "kategorien": {
+          "bild_passt": 2
+        },
+        "staerken": [],
+        "probleme": [
+          {
+            "zeit": "00:00.00",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 0,
+            "einstellung": 0,
+            "gesprochen": "Free Claude skills can't run your YouTube channel.",
+            "fest": false,
+            "text": "Das Bild zeigt allgemeine YouTube- und Videobearbeitungssymbole, aber keine spezifischen Claude-Skills oder deren Code. Korrektur: Ein Screenshot, der Claude-Schnittstellen oder Code-Snippets für YouTube-Skills zeigt."
+          },
+          {
+            "zeit": "00:03.24",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 1,
+            "einstellung": 1,
+            "gesprochen": "So what do they do?",
+            "fest": false,
+            "text": "Die gesprochene Frage 'So what do they do?' verlangt eine Erklärung oder Ansicht der Fähigkeiten, zeigt hier aber nur unzusammenhängende Illustrationen mit Tasse und Diagrammen ohne Bezug zu YouTube-Agents oder Claude. Korrektur: Eine Bildschirmansicht des Claude-Agent-Tools, das die verfügbaren YouTube-Fähigkeiten auflistet."
+          },
+          {
+            "zeit": "00:04.70",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 2,
+            "einstellung": 2,
+            "gesprochen": "Eleven skills, MIT license, no API key. Checked November 23.",
+            "fest": false,
+            "text": "Die gesprochenen Worte erwähnen elf Skills, MIT-Lizenz und keinen API-Key, während das Bild lediglich eine allgemeine Grafik mit einem sinkenden Trend und einen Betrachter zeigt, aber keine spezifischen Code- oder Lizenzdetails. Korrektur: Ein Screenshot oder eine Dokumentation, die die elf Skills oder den Quelltext mit dem Hinweis auf die MIT-Lizenz zeigt."
+          },
+          {
+            "zeit": "00:09.64",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 3,
+            "einstellung": 3,
+            "gesprochen": "One reads your retention export: a smoke alarm for boring intros.",
+            "fest": false,
+            "text": "Der Text und die Benutzeroberfläche eines Repositories zeigen nicht die konkrete Funktion des Auslesens eines Retention-Exports. Korrektur: Ein Screenshot oder eine Grafik, die einen Retention-Export und dessen Analyse durch das Skill darstellt."
+          },
+          {
+            "zeit": "00:20.44",
+            "art": "bild_passt_nicht",
+            "schwere": "schwer",
+            "phase": 6,
+            "einstellung": 7,
+            "gesprochen": "Free advice, not a free employee. You still upload.",
+            "fest": false,
+            "text": "Der Moderator zeigt sich in einer Studioumgebung statt des Hochladens von Videos oder der Personalisierung als Angestellter. Korrektur: Ein Bildschirm, der den manuellen Upload-Vorgang eines YouTube-Videos zeigt."
+          }
+        ],
+        "fazit": "Bild-Text-Pruefung nicht bestanden",
+        "technik": {
+          "dauer_s": 23.3,
+          "fps": 30.0,
+          "lufs": -14.3,
+          "befunde": []
+        },
+        "audio_pruefung": {
+          "ok": true,
+          "befunde": [],
+          "treffer": [
+            {
+              "von_s": 14.78,
+              "bis_s": 16.22,
+              "text": "like share and save this video",
+              "mittlere_wortwahrscheinlichkeit": 0.995
+            }
+          ],
+          "fenster": [
+            {
+              "name": "schluss",
+              "von_s": 3.3000000000000007,
+              "bis_s": 23.8,
+              "erkannt": true
+            }
+          ],
+          "roh": {
+            "woerter": [
+              {
+                "w": "Great,",
+                "s": 0.0,
+                "e": 0.12,
+                "p": 0.2614620625972748
+              },
+              {
+                "w": "cloud",
+                "s": 0.26,
+                "e": 0.4,
+                "p": 0.14303991198539734
+              },
+              {
+                "w": "skills",
+                "s": 0.4,
+                "e": 0.7,
+                "p": 0.9884445667266846
+              },
+              {
+                "w": "can't",
+                "s": 0.7,
+                "e": 1.2,
+                "p": 0.9906105995178223
+              },
+              {
+                "w": "run",
+                "s": 1.2,
+                "e": 1.6,
+                "p": 0.9744076132774353
+              },
+              {
+                "w": "your",
+                "s": 1.6,
+                "e": 2.04,
+                "p": 0.987788736820221
+              },
+              {
+                "w": "YouTube",
+                "s": 2.04,
+                "e": 2.28,
+                "p": 0.9710786938667297
+              },
+              {
+                "w": "channel.",
+                "s": 2.28,
+                "e": 2.66,
+                "p": 0.9942511320114136
+              },
+              {
+                "w": "So,",
+                "s": 3.28,
+                "e": 3.28,
+                "p": 0.9804236888885498
+              },
+              {
+                "w": "what",
+                "s": 3.5,
+                "e": 3.68,
+                "p": 0.9975059628486633
+              },
+              {
+                "w": "do",
+                "s": 3.68,
+                "e": 3.74,
+                "p": 0.8556753396987915
+              },
+              {
+                "w": "they",
+                "s": 3.74,
+                "e": 3.86,
+                "p": 0.997506320476532
+              },
+              {
+                "w": "do?",
+                "s": 3.86,
+                "e": 4.04,
+                "p": 0.9991564750671387
+              },
+              {
+                "w": "11",
+                "s": 4.72,
+                "e": 4.72,
+                "p": 0.8132028579711914
+              },
+              {
+                "w": "skills,",
+                "s": 4.72,
+                "e": 5.1,
+                "p": 0.9199105501174927
+              },
+              {
+                "w": "MIT",
+                "s": 5.56,
+                "e": 5.84,
+                "p": 0.9862475991249084
+              },
+              {
+                "w": "license,",
+                "s": 5.84,
+                "e": 6.38,
+                "p": 0.8827056884765625
+              },
+              {
+                "w": "no",
+                "s": 6.94,
+                "e": 7.02,
+                "p": 0.8916752338409424
+              },
+              {
+                "w": "API",
+                "s": 7.02,
+                "e": 7.3,
+                "p": 0.9866955280303955
+              },
+              {
+                "w": "key.",
+                "s": 7.3,
+                "e": 7.82,
+                "p": 0.9620339274406433
+              },
+              {
+                "w": "Checked",
+                "s": 8.32,
+                "e": 8.48,
+                "p": 0.7609190344810486
+              },
+              {
+                "w": "November",
+                "s": 8.48,
+                "e": 8.78,
+                "p": 0.9849181771278381
+              },
+              {
+                "w": "23.",
+                "s": 8.78,
+                "e": 9.18,
+                "p": 0.9709612131118774
+              },
+              {
+                "w": "One",
+                "s": 9.62,
+                "e": 9.72,
+                "p": 0.9700600504875183
+              },
+              {
+                "w": "reads,",
+                "s": 9.72,
+                "e": 9.94,
+                "p": 0.9931881427764893
+              },
+              {
+                "w": "your",
+                "s": 10.2,
+                "e": 10.52,
+                "p": 0.3532472550868988
+              },
+              {
+                "w": "retention",
+                "s": 10.52,
+                "e": 10.9,
+                "p": 0.988114595413208
+              },
+              {
+                "w": "export,",
+                "s": 10.9,
+                "e": 11.42,
+                "p": 0.9774485230445862
+              },
+              {
+                "w": "a",
+                "s": 11.88,
+                "e": 11.94,
+                "p": 0.9700648784637451
+              },
+              {
+                "w": "smoke",
+                "s": 11.94,
+                "e": 12.18,
+                "p": 0.9736643433570862
+              },
+              {
+                "w": "alarm",
+                "s": 12.18,
+                "e": 12.5,
+                "p": 0.9995778203010559
+              },
+              {
+                "w": "for",
+                "s": 12.5,
+                "e": 13.02,
+                "p": 0.954885721206665
+              },
+              {
+                "w": "boring",
+                "s": 13.02,
+                "e": 13.28,
+                "p": 0.9779202938079834
+              },
+              {
+                "w": "intros.",
+                "s": 13.28,
+                "e": 13.76,
+                "p": 0.9944040775299072
+              },
+              {
+                "w": "Be",
+                "s": 14.44,
+                "e": 14.46,
+                "p": 0.7229772210121155
+              },
+              {
+                "w": "sure",
+                "s": 14.46,
+                "e": 14.64,
+                "p": 0.9970791339874268
+              },
+              {
+                "w": "to",
+                "s": 14.64,
+                "e": 14.78,
+                "p": 0.9981635212898254
+              },
+              {
+                "w": "like,",
+                "s": 14.78,
+                "e": 14.98,
+                "p": 0.9791256189346313
+              },
+              {
+                "w": "share,",
+                "s": 15.06,
+                "e": 15.4,
+                "p": 0.9980175495147705
+              },
+              {
+                "w": "and",
+                "s": 15.58,
+                "e": 15.66,
+                "p": 0.9991857409477234
+              },
+              {
+                "w": "save",
+                "s": 15.66,
+                "e": 15.86,
+                "p": 0.9969125986099243
+              },
+              {
+                "w": "this",
+                "s": 15.86,
+                "e": 16.02,
+                "p": 0.996658205986023
+              },
+              {
+                "w": "video.",
+                "s": 16.02,
+                "e": 16.22,
+                "p": 0.9996041655540466
+              },
+              {
+                "w": "So",
+                "s": 16.82,
+                "e": 16.82,
+                "p": 0.9090114831924438
+              },
+              {
+                "w": "where's",
+                "s": 16.82,
+                "e": 17.2,
+                "p": 0.7882165908813477
+              },
+              {
+                "w": "the",
+                "s": 17.2,
+                "e": 17.32,
+                "p": 0.9991337656974792
+              },
+              {
+                "w": "catch?",
+                "s": 17.32,
+                "e": 17.46,
+                "p": 0.9909911155700684
+              },
+              {
+                "w": "Nothing",
+                "s": 18.36,
+                "e": 18.36,
+                "p": 0.9954727292060852
+              },
+              {
+                "w": "uploads",
+                "s": 18.36,
+                "e": 19.04,
+                "p": 0.9941455721855164
+              },
+              {
+                "w": "itself.",
+                "s": 19.04,
+                "e": 19.42,
+                "p": 0.9965408444404602
+              },
+              {
+                "w": "Free",
+                "s": 20.4,
+                "e": 20.42,
+                "p": 0.9136040210723877
+              },
+              {
+                "w": "advice,",
+                "s": 20.42,
+                "e": 20.9,
+                "p": 0.9895929098129272
+              },
+              {
+                "w": "not",
+                "s": 21.14,
+                "e": 21.24,
+                "p": 0.9992153644561768
+              },
+              {
+                "w": "a",
+                "s": 21.24,
+                "e": 21.36,
+                "p": 0.9991627931594849
+              },
+              {
+                "w": "free",
+                "s": 21.36,
+                "e": 21.54,
+                "p": 0.9962449669837952
+              },
+              {
+                "w": "employee.",
+                "s": 21.54,
+                "e": 22.0,
+                "p": 0.9987576007843018
+              },
+              {
+                "w": "You",
+                "s": 22.5,
+                "e": 22.52,
+                "p": 0.9965264201164246
+              },
+              {
+                "w": "still",
+                "s": 22.52,
+                "e": 22.74,
+                "p": 0.9911248087882996
+              },
+              {
+                "w": "upload.",
+                "s": 22.74,
+                "e": 22.96,
+                "p": 0.9943885207176208
+              }
+            ],
+            "dauer_s": 23.296,
+            "sprache": "en"
+          },
+          "roh_key": "a17e2bf5d19b86a23a7a3fac1ed05733078cd449399e0a71d340ba629853a0b6",
+          "wiederverwendet": false,
+          "bibliothek_version": "1.2.1",
+          "erkennungsmodell": "base.en",
+          "einzelpruefungen": [
+            {
+              "modell": "base.en",
+              "ok": true,
+              "befunde": []
+            }
+          ],
+          "version": 1,
+          "video_sha256": "72abcdb74efe9b9e2ea3e7bb74c99c48c2fc28df7c79574b3245e743c7dc6346",
+          "einstellungen": {
+            "modell": "base.en",
+            "device": "cpu",
+            "compute_type": "int8",
+            "language": "en",
+            "word_timestamps": true,
+            "vad_filter": true,
+            "condition_on_previous_text": false,
+            "initial_prompt": null,
+            "beam_size": 5
+          },
+          "videoformat": "short",
+          "dauer_s": 23.3,
+          "methode": "Unveraendertes ASR-Rohtranskript der fertigen MP4; keine Skriptangleichung"
+        },
+        "bildpruefung": {
+          "befunde": [],
+          "einstellungen": 8,
+          "motive": 8,
+          "motive_min": 4
+        },
+        "bildbezug": {
+          "version": "2026-10-15.1",
+          "video_sha256": "72abcdb74efe9b9e2ea3e7bb74c99c48c2fc28df7c79574b3245e743c7dc6346",
+          "videoformat": "short",
+          "ok": false,
+          "pruefung": [
+            {
+              "index": 0,
+              "gesehen": "In der Bildmitte ist ein Monitor mit einer YouTube-Wiedergabe zu sehen, umrahmt von verschiedenen Icons wie Schere, Fotos, Sprechblasen, Kalender, Statistiken, Diagramm, Lupe und Werkzeug.",
+              "note": 4,
+              "passt": false,
+              "grund": "Das Bild zeigt allgemeine YouTube- und Videobearbeitungssymbole, aber keine spezifischen Claude-Skills oder deren Code.",
+              "erforderliches_bild": "Ein Screenshot, der Claude-Schnittstellen oder Code-Snippets für YouTube-Skills zeigt."
+            },
+            {
+              "index": 1,
+              "gesehen": "Eine bemalte Illustration zeigt auf einer Holzoberfläche einen Kaffeetopf, ein Notebook, eine Kaffeetasse sowie verschiedene bunte Karten (eine Karte zeigt wachsende blaue Balken mit einem roten Pfeil).",
+              "note": 4,
+              "passt": false,
+              "grund": "Die gesprochene Frage 'So what do they do?' verlangt eine Erklärung oder Ansicht der Fähigkeiten, zeigt hier aber nur unzusammenhängende Illustrationen mit Tasse und Diagrammen ohne Bezug zu YouTube-Agents oder Claude.",
+              "erforderliches_bild": "Eine Bildschirmansicht des Claude-Agent-Tools, das die verfügbaren YouTube-Fähigkeiten auflistet."
+            },
+            {
+              "index": 2,
+              "gesehen": "Ein gezeichneter Mann sitzt vor einem Computermonitor und zeigt mit dem Finger auf einen fallenden Graphen in einem Diagramm.",
+              "note": 4,
+              "passt": false,
+              "grund": "Die gesprochenen Worte erwähnen elf Skills, MIT-Lizenz und keinen API-Key, während das Bild lediglich eine allgemeine Grafik mit einem sinkenden Trend und einen Betrachter zeigt, aber keine spezifischen Code- oder Lizenzdetails.",
+              "erforderliches_bild": "Ein Screenshot oder eine Dokumentation, die die elf Skills oder den Quelltext mit dem Hinweis auf die MIT-Lizenz zeigt."
+            },
+            {
+              "index": 3,
+              "gesehen": "Eine GitHub-Repository-Ansicht mit dem Titel Jakeschincariol/youtube-agent-skill und einer Avatar-Illustration.",
+              "note": 2,
+              "passt": false,
+              "grund": "Der Text und die Benutzeroberfläche eines Repositories zeigen nicht die konkrete Funktion des Auslesens eines Retention-Exports.",
+              "erforderliches_bild": "Ein Screenshot oder eine Grafik, die einen Retention-Export und dessen Analyse durch das Skill darstellt."
+            },
+            {
+              "index": 5,
+              "gesehen": "In einem dunklen KI-Chat-Fenster steht eine grüne Sprechblase mit dem Text 'So where's the catch?', darunter drei ladende Punkte.",
+              "note": 8,
+              "passt": true,
+              "grund": "Die rhetorische Frage leitet den Übergang ein und die Chat-Oberfläche passt zur Diskussion über AI-Fähigkeiten.",
+              "erforderliches_bild": "Keines, das Bild passt."
+            },
+            {
+              "index": 6,
+              "gesehen": "Ein digital gezeichneter junger Mann sitzt vor einem großen Computerbildschirm, auf dem eine Berglandschaft und ein großer Upload-Pfeil mit Ladebalken zu sehen sind. Rechts daneben steht ein kleinerer Monitor mit Videobearbeitungsoberfläche und eine Kamera.",
+              "note": 8,
+              "passt": true,
+              "grund": "Das Bild zeigt visuell passend zum Satz 'Nothing uploads itself' einen Computer mit einer Upload-Grafik und einem Ladebalken.",
+              "erforderliches_bild": "Nicht erforderlich."
+            },
+            {
+              "index": 7,
+              "gesehen": "Ein Mann mit blauen Sonnenbrillen und Lederjacke laechelt in die Kamera, im Hintergrund ein Monitor mit einer Videobearbeitungssoftware und eine Skyline bei Sonnenuntergang.",
+              "note": 3,
+              "passt": false,
+              "grund": "Der Moderator zeigt sich in einer Studioumgebung statt des Hochladens von Videos oder der Personalisierung als Angestellter.",
+              "erforderliches_bild": "Ein Bildschirm, der den manuellen Upload-Vorgang eines YouTube-Videos zeigt."
+            }
+          ],
+          "befunde": [
+            "Einstellung 0: Bild passt nicht zum Sprechtext (4/10): Das Bild zeigt allgemeine YouTube- und Videobearbeitungssymbole, aber keine spezifischen Claude-Skills oder deren Code.",
+            "Einstellung 1: Bild passt nicht zum Sprechtext (4/10): Die gesprochene Frage 'So what do they do?' verlangt eine Erklärung oder Ansicht der Fähigkeiten, zeigt hier aber nur unzusammenhängende Illustrationen mit Tasse und Diagrammen ohne Bezug zu YouTube-Agents oder Claude.",
+            "Einstellung 2: Bild passt nicht zum Sprechtext (4/10): Die gesprochenen Worte erwähnen elf Skills, MIT-Lizenz und keinen API-Key, während das Bild lediglich eine allgemeine Grafik mit einem sinkenden Trend und einen Betrachter zeigt, aber keine spezifischen Code- oder Lizenzdetails.",
+            "Einstellung 3: Bild passt nicht zum Sprechtext (2/10): Der Text und die Benutzeroberfläche eines Repositories zeigen nicht die konkrete Funktion des Auslesens eines Retention-Exports.",
+            "Einstellung 7: Bild passt nicht zum Sprechtext (3/10): Der Moderator zeigt sich in einer Studioumgebung statt des Hochladens von Videos oder der Personalisierung als Angestellter."
+          ],
+          "modelle": [
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest",
+            "gemini-flash-lite-latest"
+          ],
+          "einstellungen": 8,
+          "ausgenommen": [
+            4
+          ],
+          "vorgeprueft": [],
+          "zitat_belegt": []
+        },
+        "bildbezug_pflicht": true,
+        "video_sha256": "72abcdb74efe9b9e2ea3e7bb74c99c48c2fc28df7c79574b3245e743c7dc6346",
+        "prompt_version": "2026-11-26.1"
+      },
+      "faktenpruefung": {
+        "ok": true,
+        "probleme": [],
+        "leicht": [],
+        "modell": "gemini-flash-lite-latest",
+        "zweitpruefer_modell": "openai/gpt-oss-120b",
+        "zweitpruefer_anderer_anbieter": true
+      }
     }
   ]
 }
